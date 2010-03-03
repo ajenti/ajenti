@@ -15,7 +15,7 @@ class PowerMgmtPluginMaster(PluginMaster):
 		i = PowerMgmtPluginInstance()
 		self.Instances.append(i)
 		return i
-		
+
 
 class PowerMgmtPluginInstance(PluginInstance):
 	UI = None
@@ -25,7 +25,7 @@ class PowerMgmtPluginInstance(PluginInstance):
 	_lblUptime = None
 	_actReset = None
 	_actShutdown = None
-	
+
 	def OnLoad(self, s, u):
 		self.UI = u
 		self.Session = s
@@ -39,10 +39,10 @@ class PowerMgmtPluginInstance(PluginInstance):
 		self.BuildPanel()
 
 		log.info('PowerMgmtPlugin', 'Started instance')
-		
+
 
 	def BuildPanel(self):
-		self._lblUptime = ui.Label('&nbsp;Uptime: ' + sensors.Script('powermgmt','uptime'))
+		self._lblUptime = ui.Label()
 		l = ui.Label('Power management')
 		l.Size = 5
 
@@ -56,22 +56,23 @@ class PowerMgmtPluginInstance(PluginInstance):
 		self._actShutdown.Description = 'Switch off the system'
 		self._actShutdown.Icon = 'plug/powermgmt;shutdown'
 		self._actShutdown.Handler = self.HButtonClicked
-		
+
 		c = ui.HContainer([ui.Image('plug/powermgmt;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblUptime])])
 		d = ui.HContainer([self._actReset, self._actShutdown])
 		self.Panel = ui.VContainer([c, d])
 		return
-		
+
 
 	def HButtonClicked(self, t, e, d):
 		if t == self._actReset:
 			sensors.Script('powermgmt', 'reboot')
-			
+
 		if t == self._actShutdown:
-			sensors.Script('powermgmt', 'shutdown')	
-			
+			sensors.Script('powermgmt', 'shutdown')
+
 		return
-		
-	def OnHandleRequest(self):
+
+	def Update(self):
+		self._lblUptime.Text = '&nbsp;Uptime: ' + sensors.Script('powermgmt','uptime')
 		return
 

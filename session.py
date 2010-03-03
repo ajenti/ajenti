@@ -19,22 +19,25 @@ def ProcessRequest(addr, req, h):
 class Session:
 	Client = ''
 	UI = None
-	Coreplug = None 
+	Coreplug = None
 	Plugins = []
-	
+
 	def Init(self):
 		self.Plugins = plugin.Instantiate()
 		log.info('Session', 'New session for ' + self.Client)
 		self.UI = ui.UI()
-		
+
 		self.Coreplug = self.Plugins[0]
 		for p in self.Plugins:
 			p.OnLoad(self, self.UI)
 		for p in self.Plugins:
 			p.OnPostLoad()
-		
-		
-		
+		for p in self.Plugins:
+			p.Update()
+
+		return
+
+
 	def Process(self, req, h):
 		log.info('Session', 'Request from ' + self.Client + ' : ' + req)
 		s = req.split(';')
@@ -44,7 +47,7 @@ class Session:
 			self.ProcessAjax(s, h)
 		if s[0] == '/':
 			h.wfile.write(self.UI.DumpBasePage())
-	
+
 
 	def ProcessDownload(self, s, h):
 		try:
@@ -60,12 +63,14 @@ class Session:
 
 	def ProcessAjax(self, s, h):
 		self.UI.Root.Handle(s[1], s[2], s[3])
+		for p in self.Plugins:
+			p.Update()
 		self.SendUIUpdate(h)
 
 	def SendUIUpdate(self, h):
 		#h.wfile.write('<xml><info>ui</info><data>' + self.UI.DumpHTML() + '</data></xml>')
 		h.wfile.write(self.UI.DumpHTML())
-	
-	
 
-		
+
+
+

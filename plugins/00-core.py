@@ -14,7 +14,7 @@ class CorePluginMaster(PluginMaster):
 		i = CorePluginInstance()
 		self.Instances.append(i)
 		return i
-		
+
 
 class CorePluginInstance(PluginInstance):
 	UI = None
@@ -25,12 +25,12 @@ class CorePluginInstance(PluginInstance):
 
 	_categories = None
 	_panels = None
-		
+
 	def OnLoad(self, s, u):
 		self.UI = u
 		self.Session = s
 		log.info('CorePlugin', 'Started instance')
-		
+
 
 	def OnPostLoad(self):
 		mw = ui.MainWindow()
@@ -43,7 +43,7 @@ class CorePluginInstance(PluginInstance):
 		self._panels = []
 		l = ui.VContainer()
 		r = ui.VContainer()
-	
+
 		for p in self.Session.Plugins:
 			if not p.CategoryItem == None:
 				l.AddElement(p.CategoryItem)
@@ -54,17 +54,17 @@ class CorePluginInstance(PluginInstance):
 				p.Panel.Visible = False
 				self._panels.append(p.Panel)
 #				p.CategoryItem.Handler = self.HCategoryClicked
-				
+
 		mw.AddElement(l)
 		mw.AddElement(r)
 
 		self.UI.Root = mw
 
 		self.HCategoryClicked(self._categories[0], '', '')
-		
 
-	
-	def OnHandleRequest():
+
+
+	def Update(self):
 		return
 
 
@@ -75,8 +75,5 @@ class CorePluginInstance(PluginInstance):
 		for c in self._panels:
 			c.Visible = False
 		self._panels[self._categories.index(t)].Visible = True
-		
-		
-	def handler(self, t, e, d):
-		t.Text += '.'
+
 

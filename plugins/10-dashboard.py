@@ -3,6 +3,8 @@ import commands
 import session
 import ui
 import log
+import config
+import sensors
 
 class DashboardPluginMaster(PluginMaster):
 	Name = 'Dashboard'
@@ -14,7 +16,7 @@ class DashboardPluginMaster(PluginMaster):
 		i = DashboardPluginInstance()
 		self.Instances.append(i)
 		return i
-		
+
 
 class DashboardPluginInstance(PluginInstance):
 	UI = None
@@ -25,7 +27,7 @@ class DashboardPluginInstance(PluginInstance):
 	_lblServerName = None
 	_lblAjentiVer = None
 	_lblDistro = None
-	
+
 	def OnLoad(self, s, u):
 		self.UI = u
 		self.Session = s
@@ -37,20 +39,23 @@ class DashboardPluginInstance(PluginInstance):
 		self.CategoryItem = c
 
 		self.BuildPanel()
-		
+
 		log.info('DashboardPlugin', 'Started instance')
 		return
 
 	def BuildPanel(self):
-		self._lblServerName = ui.Label('My server')
-		self._lblAjentiVer = ui.Label('&nbsp;Ajenti alpha 0.0')
-		self._lblDistro = ui.Label('&nbsp;Ubuntu 9.10 Karmic Koala')
+		self._lblServerName = ui.Label()
+		self._lblAjentiVer = ui.Label()
+		self._lblDistro = ui.Label()
 		self._lblServerName.Size = 5
-		
+
 		c = ui.HContainer([ui.Image('plug/dashboard;server.png'), ui.Spacer(10,1), ui.VContainer([self._lblServerName, self._lblDistro, self._lblAjentiVer])])
 		self.Panel = ui.Container([c])
 		return
-		
-	def OnHandleRequest(self):
+
+	def Update(self):
+		self._lblServerName.Text = config.ServerName
+		self._lblAjentiVer.Text = '&nbsp;Ajenti ' + config.AjentiVersion
+		self._lblDistro.Text = '&nbsp;' + sensors.DetectDistro()
 		return
 

@@ -18,7 +18,7 @@ class UI:
 		s += "</body></html>"
 		return s
 
-	
+
 	def DumpHTML(self):
 		return self.Root.DumpHTML()
 
@@ -35,10 +35,10 @@ class Element(object):
 
 	#DEPRECATED
 	Updated = False
-	
-	def __init__(self): 
+
+	def __init__(self):
 		self.ID = str(random.randint(1, 9000*9000))
-		
+
 	def DumpHTML(self):
 		s = '<img src="dl;core;img.png" />'
 		return s
@@ -50,29 +50,27 @@ class Element(object):
 	#DEPRECATED
 	def ResetUpdated(self):
 		self.Updated = False
-		
 
-	
 class Container(Element):
 	Elements = []
-	
+
 	def __init__(self, e=[]):
 		self.Elements = []
 		self.Elements += e
 		return
-		
+
 	def Clear(self):
 		self.Elements = []
 		return
-		
+
 	def AddElement(self, e):
 		self.Elements.append(e)
 		return
-		
+
 	def RemoveElement(self, e):
 		self.Elements.remove(e)
 		return
-		
+
 	def Handle(self, target, event, data):
 		Element.Handle(self, target, event, data)
 		for e in self.Elements:
@@ -83,7 +81,7 @@ class Container(Element):
 		if self.Visible:
 			for e in self.Elements:
 				s += e.DumpHTML()
-			
+
 		return s
 
 	#DEPRECATED
@@ -91,14 +89,12 @@ class Container(Element):
 		for e in self.Elements:
 			e.ResetUpdated()
 
-
-
 class HContainer(Container):
 	def __init__(self, e=[]):
 		self.Elements = []
 		self.Elements += e
 		return
-		
+
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
@@ -106,10 +102,8 @@ class HContainer(Container):
 			for e in self.Elements:
 				s += '<td>' + e.DumpHTML() + '</td>'
 			s += '</tr></table>'
-			
-		return s
-		
 
+		return s
 
 class VContainer(Container):
 	def __init__(self, e=[]):
@@ -124,32 +118,37 @@ class VContainer(Container):
 			for e in self.Elements:
 				s += '<tr><td>' + e.DumpHTML() + '</td></tr>'
 			s += '</table>'
-			
+
 		return s
 
-
-	
 class Button(Element):
 	Visible = True
 	Text = ""
-	
+
 	def DumpHTML(self):
 		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-button">' + self.Text + '</div></a>';
 		return s
 
+class Link(Element):
+	Visible = True
+	Text = ""
 
+	def __init__(self, t = ''):
+		self.Text = t
+
+	def DumpHTML(self):
+		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><span class="ui-el-link">' + self.Text + '</span></a>';
+		return s
 
 class Action(Element):
 	Visible = True
 	Text = ""
 	Description = ""
 	Icon = "go"
-	
+
 	def DumpHTML(self):
 		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-action"><table><tr><td rowspan="2" class="ui-el-action-icon"><img src="/dl;' + self.Icon + '.png" /></td><td class="ui-el-action-text">' + self.Text + '</td></tr><tr><td class="ui-el-action-description">' + self.Description + '</td></tr></table></div></a>';
 		return s
-
-
 
 class Label(Element):
 	Visible = True
@@ -158,17 +157,15 @@ class Label(Element):
 
 	def __init__(self, t = ''):
 		self.Text = t
-		
+
 	def DumpHTML(self):
-		s = '<span class="ui-el-label-' + str(self.Size) + '">' + self.Text + '</span>';
+		s = '<div class="ui-el-label-' + str(self.Size) + '">' + self.Text + '</div>';
 		return s
-
-
 
 class Image(Element):
 	Visible = True
 	File = ""
-	
+
 	def __init__(self, f = ''):
 		self.File = f
 
@@ -176,13 +173,11 @@ class Image(Element):
 		s = '<img class="ui-el-image" src="/dl;' + self.File + '" />';
 		return s
 
-
-
 class Spacer(Element):
 	Visible = True
 	Width = 1
 	Height = 1
-	
+
 	def __init__(self, w = 1, h = 1):
 		self.Width = w
 		self.Height = h
@@ -191,28 +186,24 @@ class Spacer(Element):
 		s = '<div style="width:' + str(self.Width) + 'px; height:' + str(self.Height) + 'px;"></div>';
 		return s
 
-
-
 class Category(Element):
 	Visible = True
 	Text = ""
 	Description = ""
 	Icon = "plug/dashboard;icon-config"
 	Selected = False
-	
+
 	def DumpHTML(self):
 		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-category'
 		if self.Selected: s += '-selected'
 		s +='"><table><tr><td rowspan="2" class="ui-el-category-icon"><img src="/dl;' + self.Icon + '.png" /></td><td class="ui-el-category-text">' + self.Text + '</td></tr><tr><td class="ui-el-category-description">' + self.Description + '</td></tr></table></div></a>';
 		return s
 
-
-
 class MainWindow(Container):
 	def __init__(self):
 		self.Elements = []
 		return
-		
+
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
@@ -221,17 +212,57 @@ class MainWindow(Container):
 			s += '<td class="ui-el-mainwindow-left">' + self.Elements[1].DumpHTML() + '</td>'
 			s += '<td class="ui-el-mainwindow-right">' + self.Elements[2].DumpHTML() + '</td>'
 			s += '</tr></table>'
-			
+
 		return s
-
-
 
 class TopBar(Element):
 	Visible = True
 	Text = ""
-	
+
 	def DumpHTML(self):
 		s = '<span class="ui-logo"><img src="/dl;core;ui/logo.png" />' + self.Text + '</span>';
 		return s
-	
 
+
+class Table(Element):
+	Rows = []
+
+	def __init__(self, r=[]):
+	  self.Rows = []
+	  self.Rows += r
+	  return
+
+	def DumpHTML(self):
+		s = ''
+		if self.Visible:
+			s += '<table cellspacing="0" cellpadding="0" class="ui-el-table">'
+			for e in self.Rows:
+				s += e.DumpHTML()
+			s += '</table>'
+
+		return s
+
+class TableRow(Element):
+	Cells = []
+	IsHeader = False
+	Widths = []
+
+	def __init__(self, c=[]):
+		self.Cells = []
+		self.Cells += c
+		self.Widths = []
+		return
+
+	def DumpHTML(self):
+		s = ''
+		if self.Visible:
+			s += '<tr class="ui-el-table-row'
+			if self.IsHeader: s += '-header'
+			s += '">'
+			i = 0
+			for e in self.Cells:
+				s += '<td class="ui-el-table-cell" width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
+				i += 1
+			s += '</tr>'
+
+		return s

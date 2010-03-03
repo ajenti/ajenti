@@ -56,19 +56,30 @@ body {
 /* Label */
 .ui-el-label-1 {
 	color: #555555;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
 }
-.ui-el-label-1 {
+.ui-el-label-2 {
 	color: #555555;
 }
-.ui-el-label-1 {
+.ui-el-label-3 {
 	color: #555555;
 }
-.ui-el-label-1 {
+.ui-el-label-4 {
 	color: #555555;
 }
 .ui-el-label-5 {
 	color: #555555;
 	font-size: 28px;
+}
+
+
+/* Link */
+.ui-el-link {
+	color: #705b3d;
+	border-bottom: 1px dashed #705b3d;
+	margin-left: 3px;
+	margin-right: 3px;
 }
 
 
@@ -105,14 +116,14 @@ body {
 .ui-el-category {
 	width: 212px;
 	height: 56px;
-	background: url('/dl;core;ui/category.png');
+	background: url('/dl;core;ui/category.png') no-repeat;
 	margin: 2px;
 }
 
 .ui-el-category-selected {
 	width: 212px;
 	height: 56px;
-	background: url('/dl;core;ui/category-sel.png');
+	background: url('/dl;core;ui/category-sel.png') no-repeat;
 	margin: 2px;
 }
 
@@ -146,3 +157,35 @@ body {
 	padding-left: 3px;
 }
 
+/* Table */
+.ui-el-table {
+	background: #ffffff;
+	border: 1px solid #aaaaaa;
+}
+
+.ui-el-table-row {
+}
+
+.ui-el-table-row-header {
+	background: #eeeeee;
+}
+.ui-el-table-row-header td {
+	border-bottom: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+.ui-el-table-row:hover {
+	background: #f3d9b4;
+}
+
+.ui-el-table-row:hover td {
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+.ui-el-table-cell {
+	border-bottom: 1px solid #ffffff;
+	border-top: 1px solid #ffffff;
+	padding: 2px;
+	padding-left: 5px;
+}

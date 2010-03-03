@@ -1,0 +1,2 @@
+#!/bin/bash
+ifconfig -s -a | awk '{print $1}' | tail -n+2
