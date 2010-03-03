@@ -28,7 +28,10 @@ class Session:
 		self.UI = ui.UI()
 		
 		self.Coreplug = self.Plugins[0]
-		self.Coreplug.OnLoad(self, self.UI)
+		for p in self.Plugins:
+			p.OnLoad(self, self.UI)
+		for p in self.Plugins:
+			p.OnPostLoad()
 		
 		
 		
@@ -47,6 +50,7 @@ class Session:
 		try:
 			f = './'
 			if s[1]=='core': f += 'htdocs/'
+			if s[1][0:4]=='plug': f += 'plugins/' + s[1][5:] + '/'
 			f += s[2]
 			fl = open(f)
 			h.wfile.write(fl.read())

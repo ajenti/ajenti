@@ -12,8 +12,9 @@ class UI:
 		s += '<title>Ajenti alpha</title>'
 		s += '<link href="/dl;core;ui.css" rel="stylesheet" media="all" />'
 		s += '<link rel="shortcut icon" href="/dl;core;ui/favicon.png" />'
-		s += '<script src="/dl;core;ajax.js"></script></head>\n<body id="main" onload="loadpage()">'
-		s += '<script src="/dl;core;loadpage.js"></script>'
+		s += '<script src="/dl;core;ajax.js"></script></head>\n<body id="main">'
+#		s += '<script src="/dl;core;loadpage.js"></script>'
+		s += self.DumpHTML()
 		s += "</body></html>"
 		return s
 
@@ -37,7 +38,6 @@ class Element(object):
 	
 	def __init__(self): 
 		self.ID = str(random.randint(1, 9000*9000))
-		print self.ID
 		
 	def DumpHTML(self):
 		s = '<img src="dl;core;img.png" />'
@@ -51,12 +51,14 @@ class Element(object):
 	def ResetUpdated(self):
 		self.Updated = False
 		
+
 	
 class Container(Element):
 	Elements = []
 	
-	def __init__(self):
+	def __init__(self, e=[]):
 		self.Elements = []
+		self.Elements += e
 		return
 		
 	def Clear(self):
@@ -75,16 +77,26 @@ class Container(Element):
 		Element.Handle(self, target, event, data)
 		for e in self.Elements:
 			e.Handle(target, event, data)
-		
+
+	def DumpHTML(self):
+		s = ''
+		if self.Visible:
+			for e in self.Elements:
+				s += e.DumpHTML()
+			
+		return s
+
 	#DEPRECATED
 	def ResetUpdated(self):
 		for e in self.Elements:
 			e.ResetUpdated()
 
 
+
 class HContainer(Container):
-	def __init__(self):
+	def __init__(self, e=[]):
 		self.Elements = []
+		self.Elements += e
 		return
 		
 	def DumpHTML(self):
@@ -96,13 +108,15 @@ class HContainer(Container):
 			s += '</tr></table>'
 			
 		return s
+		
 
 
 class VContainer(Container):
-	def __init__(self):
+	def __init__(self, e=[]):
 		self.Elements = []
+		self.Elements += e
 		return
-		
+
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
@@ -112,6 +126,7 @@ class VContainer(Container):
 			s += '</table>'
 			
 		return s
+
 
 	
 class Button(Element):
@@ -123,6 +138,7 @@ class Button(Element):
 		return s
 
 
+
 class Action(Element):
 	Visible = True
 	Text = ""
@@ -130,15 +146,64 @@ class Action(Element):
 	Icon = "go"
 	
 	def DumpHTML(self):
-		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-action"><table><tr><td rowspan="2" class="ui-el-action-icon"><img src="/dl;core;ui/icon-' + self.Icon + '.png" /></td><td class="ui-el-action-text">' + self.Text + '</td></tr><tr><td class="ui-el-action-description">' + self.Description + '</td></tr></table></div></a>';
+		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-action"><table><tr><td rowspan="2" class="ui-el-action-icon"><img src="/dl;' + self.Icon + '.png" /></td><td class="ui-el-action-text">' + self.Text + '</td></tr><tr><td class="ui-el-action-description">' + self.Description + '</td></tr></table></div></a>';
 		return s
+
+
 
 class Label(Element):
 	Visible = True
 	Text = ""
+	Size = 1
+
+	def __init__(self, t = ''):
+		self.Text = t
+		
+	def DumpHTML(self):
+		s = '<span class="ui-el-label-' + str(self.Size) + '">' + self.Text + '</span>';
+		return s
+
+
+
+class Image(Element):
+	Visible = True
+	File = ""
+	
+	def __init__(self, f = ''):
+		self.File = f
+
+	def DumpHTML(self):
+		s = '<img class="ui-el-image" src="/dl;' + self.File + '" />';
+		return s
+
+
+
+class Spacer(Element):
+	Visible = True
+	Width = 1
+	Height = 1
+	
+	def __init__(self, w = 1, h = 1):
+		self.Width = w
+		self.Height = h
+
+	def DumpHTML(self):
+		s = '<div style="width:' + str(self.Width) + 'px; height:' + str(self.Height) + 'px;"></div>';
+		return s
+
+
+
+class Category(Element):
+	Visible = True
+	Text = ""
+	Description = ""
+	Icon = "plug/dashboard;icon-config"
+	Selected = False
 	
 	def DumpHTML(self):
-		s = '<span class="ui-el-label">' + self.Text + '</span>';
+		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-category'
+		if self.Selected: s += '-selected'
+		s +='"><table><tr><td rowspan="2" class="ui-el-category-icon"><img src="/dl;' + self.Icon + '.png" /></td><td class="ui-el-category-text">' + self.Text + '</td></tr><tr><td class="ui-el-category-description">' + self.Description + '</td></tr></table></div></a>';
 		return s
 
 
@@ -158,6 +223,7 @@ class MainWindow(Container):
 			s += '</tr></table>'
 			
 		return s
+
 
 
 class TopBar(Element):

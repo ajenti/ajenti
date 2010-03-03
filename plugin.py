@@ -1,5 +1,6 @@
 import os
 import sys
+import log
  
 Plugins = []
  
@@ -9,30 +10,39 @@ class PluginMaster(object):
 	
 	def OnLoad(self):
 		self.Instances = []
- 
+
 	def MakeInstance(self):
 		pass
 
 
 class PluginInstance(object):
 	Name = 'undefined'
- 
+	CategoryItem = None
+	Panel = None
+	
 	def OnLoad(self):
 		pass
  
 	def OnCommand(self, cmd, args):
 		pass
  
+ 	def OnPostLoad(self):
+		pass
+		
  
 def LoadPlugins():
 	global Plugins
 	
 	ss = os.listdir('plugins') 
 	sys.path.insert(0, 'plugins')
- 
+ 	ss.sort()
+ 	
 	for s in ss:
-		print 'Found plugin', s
-		__import__(os.path.splitext(s)[ 0], None, None, [''])
+		try:
+			__import__(os.path.splitext(s)[0], None, None, [''])
+			log.info('Plugins', 'Found plugin ' + s)
+		except:
+			pass
 
  
 	for plugin in PluginMaster.__subclasses__():
