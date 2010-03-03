@@ -1,0 +1,91 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	vertical-align: top;
+	border: none;
+	text-decoration: none;
+	color: #000000;
+	font-family: Droid Sans, Verdana, sans-serif;
+}
+
+body {
+	background: #e6e1db;
+	width: 100%;
+}
+
+/* Action */
+.ui-el-action {
+	width: 188px;
+	height: 59px;
+	background: url('/dl;core;ui/action.png');
+	margin: 5px;
+}
+
+.ui-el-action:hover {
+	width: 188px;
+	height: 59px;
+	background: url('/dl;core;ui/action-hover.png');
+
+}
+.ui-el-action-icon {
+	padding: 5px;
+}
+
+.ui-el-action-text {
+	font-weight: bold;
+	font-size: 24px;
+	color: #555555;
+}
+
+.ui-el-action-description {
+	font-size: 14px;
+	color: #797979;
+	padding-left: 3px;
+}
+
+
+/* Button */
+.ui-el-button {
+	width: 126px;
+	height: 32px;
+	background: url('/dl;core;ui/button.png') no-repeat;
+	margin: 5px;
+	font-size: 18px;
+	color: #555555;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 5px;
+}
+
+
+/* Label */
+.ui-el-label {
+	color: #555555;
+}
+
+
+
+
+
+/* MainWindow */
+.ui-el-mainwindow {
+	width: 100%;
+}
+
+.ui-el-mainwindow-left {
+	width: 200px;
+	padding-top: 15px;
+}
+
+.ui-el-mainwindow-right {
+	padding-top: 15px;
+}
+
+.ui-el-mainwindow-top {
+	background: url('/dl;core;ui/topbar.png');
+	height: 37px;
+	padding-left: 5px;
+}
+
+
