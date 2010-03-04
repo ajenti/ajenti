@@ -53,7 +53,8 @@ class CorePluginInstance(PluginInstance):
 				r.AddElement(p.Panel)
 				p.Panel.Visible = False
 				self._panels.append(p.Panel)
-#				p.CategoryItem.Handler = self.HCategoryClicked
+			if not p.Dialogs == None:
+				self.UI.Dialogs.AddElement(p.Dialogs)
 
 		mw.AddElement(l)
 		mw.AddElement(r)

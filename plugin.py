@@ -19,6 +19,7 @@ class PluginInstance(object):
 	Name = 'undefined'
 	CategoryItem = None
 	Panel = None
+	Dialogs = None
 
 	def OnLoad(self):
 		pass

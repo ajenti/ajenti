@@ -58,6 +58,7 @@ body {
 	color: #555555;
 	padding-bottom: 2px;
 	margin-bottom: 2px;
+	clear: left;
 }
 .ui-el-label-2 {
 	color: #555555;
@@ -87,6 +88,11 @@ body {
 /* Image */
 .ui-el-image {
 	padding: 5px;
+}
+
+.ui-el-image-small {
+	padding: 0px;
+	padding-right: 5px;
 }
 
 

@@ -4,7 +4,7 @@ import session
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-    	log.info('HTTP', 'Request from ' + self.client_address[0])
+    	#log.info('HTTP', 'Request from ' + self.client_address[0])
         self.send_response(200, 'OK')
 #        self.send_header('Content-type', 'text/html')
         self.end_headers()

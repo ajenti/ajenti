@@ -39,7 +39,7 @@ class Session:
 
 
 	def Process(self, req, h):
-		log.info('Session', 'Request from ' + self.Client + ' : ' + req)
+		#log.info('Session', 'Request from ' + self.Client + ' : ' + req)
 		s = req.split(';')
 		if s[0] == '/dl':
 			self.ProcessDownload(s, h)
@@ -59,6 +59,7 @@ class Session:
 			h.wfile.write(fl.read())
 			fl.close()
 		except:
+			log.err('HTTP', '404: ' + f)
 			pass
 
 	def ProcessAjax(self, s, h):

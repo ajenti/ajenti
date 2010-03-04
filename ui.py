@@ -4,6 +4,11 @@ class UI:
 
 	Root = None
 	UpdatedElement = None
+	Dialogs = None
+
+	def __init__(self):
+		self.Dialogs = Container()
+		return
 
 	def DumpBasePage(self):
 		s = ''#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
@@ -20,11 +25,7 @@ class UI:
 
 
 	def DumpHTML(self):
-		return self.Root.DumpHTML()
-
-	#DEPRECATED
-	def ResetUpdated(self):
-		Root.ResetUpdated()
+		return self.Root.DumpHTML() + self.Dialogs.DumpHTML()
 
 
 
@@ -32,9 +33,6 @@ class Element(object):
 	Visible = True
 	ID = ''
 	Handler = None
-
-	#DEPRECATED
-	Updated = False
 
 	def __init__(self):
 		self.ID = str(random.randint(1, 9000*9000))
@@ -47,14 +45,12 @@ class Element(object):
 		if self.ID == target and not self.Handler == None:
 			self.Handler(self, event, data)
 
-	#DEPRECATED
-	def ResetUpdated(self):
-		self.Updated = False
 
 class Container(Element):
 	Elements = []
 
 	def __init__(self, e=[]):
+		Element.__init__(self)
 		self.Elements = []
 		self.Elements += e
 		return
@@ -84,13 +80,10 @@ class Container(Element):
 
 		return s
 
-	#DEPRECATED
-	def ResetUpdated(self):
-		for e in self.Elements:
-			e.ResetUpdated()
 
 class HContainer(Container):
 	def __init__(self, e=[]):
+		Container.__init__(self)
 		self.Elements = []
 		self.Elements += e
 		return
@@ -107,6 +100,7 @@ class HContainer(Container):
 
 class VContainer(Container):
 	def __init__(self, e=[]):
+		Container.__init__(self)
 		self.Elements = []
 		self.Elements += e
 		return
@@ -134,6 +128,7 @@ class Link(Element):
 	Text = ""
 
 	def __init__(self, t = ''):
+		Element.__init__(self)
 		self.Text = t
 
 	def DumpHTML(self):
@@ -156,6 +151,7 @@ class Label(Element):
 	Size = 1
 
 	def __init__(self, t = ''):
+		Element.__init__(self)
 		self.Text = t
 
 	def DumpHTML(self):
@@ -167,11 +163,29 @@ class Image(Element):
 	File = ""
 
 	def __init__(self, f = ''):
+		Element.__init__(self)
 		self.File = f
 
 	def DumpHTML(self):
 		s = '<img class="ui-el-image" src="/dl;' + self.File + '" />';
 		return s
+
+class ImageLabel(Element):
+	Visible = True
+	File = ""
+	Text = ""
+	Size = 1
+
+	def __init__(self, f = '', t = ''):
+		Element.__init__(self)
+		self.File = f
+		self.Text = t
+
+	def DumpHTML(self):
+		s = '<img class="ui-el-image-small" src="/dl;' + self.File + '" />';
+		s += '<span class="ui-el-label-' + str(self.Size) + '">' + self.Text + '</span>';
+		return s
+
 
 class Spacer(Element):
 	Visible = True
@@ -179,6 +193,7 @@ class Spacer(Element):
 	Height = 1
 
 	def __init__(self, w = 1, h = 1):
+		Element.__init__(self)
 		self.Width = w
 		self.Height = h
 
@@ -201,6 +216,7 @@ class Category(Element):
 
 class MainWindow(Container):
 	def __init__(self):
+		Element.__init__(self)
 		self.Elements = []
 		return
 
@@ -228,9 +244,10 @@ class Table(Element):
 	Rows = []
 
 	def __init__(self, r=[]):
-	  self.Rows = []
-	  self.Rows += r
-	  return
+		Element.__init__(self)
+		self.Rows = []
+		self.Rows += r
+		return
 
 	def DumpHTML(self):
 		s = ''
@@ -242,12 +259,19 @@ class Table(Element):
 
 		return s
 
+	def Handle(self, target, event, data):
+		Element.Handle(self, target, event, data)
+		for e in self.Rows:
+			e.Handle(target, event, data)
+
+
 class TableRow(Element):
 	Cells = []
 	IsHeader = False
 	Widths = []
 
 	def __init__(self, c=[]):
+		Element.__init__(self)
 		self.Cells = []
 		self.Cells += c
 		self.Widths = []
@@ -266,3 +290,8 @@ class TableRow(Element):
 			s += '</tr>'
 
 		return s
+
+	def Handle(self, target, event, data):
+		Element.Handle(self, target, event, data)
+		for e in self.Cells:
+			e.Handle(target, event, data)
