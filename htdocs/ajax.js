@@ -33,13 +33,18 @@ function ajax(URL)
 }
 
 
-function ajaxHandler(data) 
+function ajaxHandler(data)
 {
 	document.getElementById('main').innerHTML = data
+}
 
-/*	alert(cmd);
-	if (cmd == 'alert')
-		alert(cmd);
-	if (cmd == 'ui')
-		document.getElementById('main').innerHTML = data*/
+
+function ajaxNoUpdate(URL)
+{
+	xmlReq = null;
+	if(window.XMLHttpRequest) 		xmlReq = new XMLHttpRequest();
+	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
+	if(xmlReq==null) return; // Failed to create the request
+	xmlReq.open ('GET', URL, true);
+	xmlReq.send (null);
 }

@@ -180,8 +180,12 @@ class Input(Element):
 		self.Text = t
 
 	def DumpHTML(self):
-		s = '<input class="ui-el-input" value="' + self.Text + '" />';
+		s = '<input class="ui-el-input" onblur="javascript:ajaxNoUpdate(\'/handle;' + self.ID + ';update;\'+document.getElementById(\'' + self.ID + '\').value);" id="' + self.ID + '" value="' + self.Text + '" />';
 		return s
+
+	def Handler(self, t, e, d):
+		if e == 'update':
+			self.Text = d
 
 class Image(Element):
 	Visible = True
@@ -319,7 +323,7 @@ class TableRow(Element):
 				s += ' class="ui-el-table-row'
 				if self.IsHeader: s += '-header'
 				s += '" '
-			s += '">'
+			s += '>'
 			i = 0
 			for e in self.Cells:
 				s += '<td'
@@ -380,7 +384,7 @@ class DialogBox(Element):
 		self.btnCancel = Button('Cancel')
 		self.lblTitle = Label('Options')
 		self.lblTitle.Size = 4
-		self._content = VContainer([self.lblTitle, Element()])
+		self._content = VContainer([self.lblTitle, Spacer(1,10), Element()])
 		self.Buttons = HContainer([Element(), self.btnOK, self.btnCancel])
 		return
 
@@ -390,7 +394,7 @@ class DialogBox(Element):
 		if self.Visible:
 			s += '<div class="ui-el-modal-main"><table cellspacing="0" cellpadding="0"><tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t"></td><td class="ui-el-modal-rt"></td></tr>'
 			s += '<tr><td class="ui-el-modal-l"></td><td class="ui-el-modal-c" width="' + str(self.Width) + '" height="' + str(self.Height) + '">'
-			self._content.Elements[1] = self.Inner
+			self._content.Elements[2] = self.Inner
 			s += self._content.DumpHTML()
 			s += '<div class="ui-el-modal-buttons">' + self.Buttons.DumpHTML() + '</div>'
 			s += '</td><td class="ui-el-modal-r"></td></tr><tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr></table></div>'

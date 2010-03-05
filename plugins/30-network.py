@@ -64,16 +64,9 @@ class NetworkPluginInstance(PluginInstance):
 		d.AddElement(t)
 		self.Panel = ui.VContainer([c, ui.Spacer(1,10), d])
 
-		self.dlgEditIface = ui.DialogBox()
-		self.dlgEditIface.lblTitle.Text = 'Edit interface options'
-		t = ui.Table([], True)
-		t.Widths = [200,300]
-		t.Rows.append(ui.TableRow([ui.Label('IP address:'), ui.Input('...')], True))
-		t.Rows.append(ui.TableRow([ui.Label('Netmask:'), ui.Input('...')], True))
-		t.Rows.append(ui.TableRow([ui.Label('Gateway:'), ui.Input('...')], True))
-		t.Rows.append(ui.TableRow([ui.Label('DNS:'), ui.Input('...')], True))
-		self.dlgEditIface.Inner = t
-		self.dlgEditIface.Visible = False
+		self.dlgEditIface = EditIfaceDialog()
+		self.dlgEditIface.btnCancel.Handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
+		self.dlgEditIface.btnOK.Handler = self.HIfaceEdited
 		return
 
 
@@ -140,7 +133,39 @@ class NetworkPluginInstance(PluginInstance):
 		if t.Tag == 'edit':
 			self.Panel.Visible = False
 			self.dlgEditIface.Visible = True
+			self.dlgEditIface.lblTitle.Text = 'Interface options for ' + t.Iface
+			self.dlgEditIface.IfaceName = t.Iface
+			self.dlgEditIface.txtAddress.Text = self.Interfaces.Entries[t.Iface].Params['address']
+			self.dlgEditIface.txtNetmask.Text = self.Interfaces.Entries[t.Iface].Params['netmask']
+			self.dlgEditIface.txtGateway.Text = self.Interfaces.Entries[t.Iface].Params['gateway']
+			self.dlgEditIface.txtDNS.Text = self.Interfaces.Entries[t.Iface].Params['dns-nameserver']
+			self.dlgEditIface.txtPreUp.Text = self.Interfaces.Entries[t.Iface].Params['pre-up']
+			self.dlgEditIface.txtPostUp.Text = self.Interfaces.Entries[t.Iface].Params['post-up']
+			self.dlgEditIface.txtPreDown.Text = self.Interfaces.Entries[t.Iface].Params['pre-down']
+			self.dlgEditIface.txtPostDown.Text = self.Interfaces.Entries[t.Iface].Params['post-down']
+			self.dlgEditIface.txtNetwork.Text = self.Interfaces.Entries[t.Iface].Params['network']
+			self.dlgEditIface.txtBroadcast.Text = self.Interfaces.Entries[t.Iface].Params['broadcast']
+			self.dlgEditIface.txtMetric.Text = self.Interfaces.Entries[t.Iface].Params['metric']
+			self.dlgEditIface.txtMTU.Text = self.Interfaces.Entries[t.Iface].Params['mtu']
+			self.dlgEditIface.txtHwaddr.Text = self.Interfaces.Entries[t.Iface].Params['hwaddress']
+		return
 
+	def HIfaceEdited(self, t, e, d):
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['address'] = self.dlgEditIface.txtAddress.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['netmask'] = self.dlgEditIface.txtNetmask.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['gateway'] = self.dlgEditIface.txtGateway.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['dns-nameserver'] = self.dlgEditIface.txtDNS.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['pre-up'] = self.dlgEditIface.txtPreUp.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['post-up'] = self.dlgEditIface.txtPostUp.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['pre-down'] = self.dlgEditIface.txtPreDown.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['post-down'] = self.dlgEditIface.txtPostDown.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['network'] = self.dlgEditIface.txtNetwork.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['broadcast'] = self.dlgEditIface.txtBroadcast.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['metric'] = self.dlgEditIface.txtMetric.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['mtu'] = self.dlgEditIface.txtMTU.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['hwaddress'] = self.dlgEditIface.txtHwaddr.Text
+		self.Interfaces.Save()
+		self.Core.Switch.Switch(self.Panel)
 		return
 
 class InterfacesFile:
@@ -177,10 +202,17 @@ class InterfacesFile:
 						e.Class = a[2]
 						e.Mode = a[3]
 					else:
-						e.Params[a[0]] = a[1:].join(' ')
+						e.Params[a[0]] = ' '.join(a[1:])
 
 				if (len(ss)>1): ss = ss[1:]
 				else: ss = []
+		return
+
+	def Save(self):
+		f = open('/etc/network/interfaces', 'w')
+		for i in self.Entries.keys():
+			self.Entries[i].Save(f)
+		f.close()
 		return
 
 
@@ -192,4 +224,82 @@ class InterfacesEntry:
 	Params = None
 
 	def __init__(self):
-		self.Params = {}
+		self.Params = { 'address':'', 'netmask':'', 'gateway':'', 'network':'', 'broadcast':'', 'dns-nameserver':'', 'metric':'', 'mtu':'', 'hwaddr':'', 'pre-up':'', 'pre-down':'', 'post-up':'', 'post-down':'', 'hwaddress':''}
+
+	def Save(self, f):
+		if self.Auto: f.write('auto ' + self.Name + '\n')
+		f.write('iface ' + self.Name + ' ' + self.Class + ' ' + self.Mode + '\n')
+		for k in self.Params.keys():
+			if self.Params[k] != '':
+				f.write('\t' + k + ' ' + self.Params[k] + '\n')
+		f.write('\n')
+		return
+
+class EditIfaceDialog(ui.DialogBox):
+	txtAddress = None
+	txtNetmask = None
+	txtGateway = None
+	txtDNS = None
+	txtPreUp = None
+	txtPostUp = None
+	txtPreDown = None
+	txtPostDown = None
+	txtNetwork = None
+	txtBroadcast = None
+	txtMetric = None
+	txtMTU = None
+	txtHwaddr = None
+
+	def __init__(self):
+		ui.DialogBox.__init__(self)
+		self.lblTitle.Text = 'Edit interface options'
+		t = ui.Table([], True)
+		t.Widths = [150,200]
+		self.Width = "auto"
+
+		self.txtAddress = ui.Input()
+		self.txtNetmask = ui.Input()
+		self.txtGateway = ui.Input()
+		self.txtDNS = ui.Input()
+		self.txtPreUp = ui.Input()
+		self.txtPreDown = ui.Input()
+		self.txtPostUp = ui.Input()
+		self.txtPostDown = ui.Input()
+		self.txtNetwork = ui.Input()
+		self.txtBroadcast = ui.Input()
+		self.txtMetric = ui.Input()
+		self.txtMTU = ui.Input()
+		self.txtHwaddr = ui.Input()
+
+		l = ui.Label('Basic')
+		l.Size = 3
+		t.Rows.append(ui.TableRow([l]))
+		t.Rows.append(ui.TableRow([ui.Label('IP address:'), self.txtAddress], True))
+		t.Rows.append(ui.TableRow([ui.Label('Netmask:'), self.txtNetmask], True))
+		t.Rows.append(ui.TableRow([ui.Label('Gateway:'), self.txtGateway], True))
+
+		t.Rows.append(ui.Spacer(1,30))
+
+		l = ui.Label('Scripts')
+		l.Size = 3
+		t.Rows.append(ui.TableRow([l]))
+		t.Rows.append(ui.TableRow([ui.Label('Pre-up:'), self.txtPreUp], True))
+		t.Rows.append(ui.TableRow([ui.Label('Post-up:'), self.txtPostUp], True))
+		t.Rows.append(ui.TableRow([ui.Label('Pre-down:'), self.txtPreDown], True))
+		t.Rows.append(ui.TableRow([ui.Label('Post-down:'), self.txtPostDown], True))
+
+		t.Rows.append(ui.Spacer(1,30))
+
+		l = ui.Label('Advanced')
+		l.Size = 3
+		t.Rows.append(ui.TableRow([l]))
+		t.Rows.append(ui.TableRow([ui.Label('Assigned DNS:'), self.txtDNS], True))
+		t.Rows.append(ui.TableRow([ui.Label('Network:'), self.txtNetwork], True))
+		t.Rows.append(ui.TableRow([ui.Label('Broadcast:'), self.txtBroadcast], True))
+		t.Rows.append(ui.TableRow([ui.Label('Metric:'), self.txtMetric], True))
+		t.Rows.append(ui.TableRow([ui.Label('MTU:'), self.txtMTU], True))
+		t.Rows.append(ui.TableRow([ui.Label('Hardware address:'), self.txtHwaddr], True))
+
+		self.Inner = t
+		self.Visible = False
+

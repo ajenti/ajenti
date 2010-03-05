@@ -1,7 +1,6 @@
 #!/bin/bash
-rm *.pyc
-rm plugins/*.pyc
-python main.py
-rm *.pyc
-rm plugins/*.pyc
-echo -- Finished
+sudo rm *.pyc
+sudo rm plugins/*.pyc
+sudo python main.py
+sudo rm *.pyc
+sudo rm plugins/*.pyc
