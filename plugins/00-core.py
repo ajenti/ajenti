@@ -22,13 +22,17 @@ class CorePluginInstance(PluginInstance):
 	TopBar = None
 	Name = 'Core'
 	Master = None
-
 	_categories = None
-	_panels = None
+	Switch = None
 
 	def OnLoad(self, s, u):
 		self.UI = u
 		self.Session = s
+		self._categories = []
+		self._panels = []
+		r = ui.SwitchContainer()
+		self.Switch = r
+
 		log.info('CorePlugin', 'Started instance')
 
 
@@ -39,10 +43,8 @@ class CorePluginInstance(PluginInstance):
 		mw.AddElement(self.TopBar)
 
 
-		self._categories = []
-		self._panels = []
 		l = ui.VContainer()
-		r = ui.VContainer()
+		r = self.Switch
 
 		for p in self.Session.Plugins:
 			if not p.CategoryItem == None:
@@ -51,10 +53,9 @@ class CorePluginInstance(PluginInstance):
 				p.CategoryItem.Handler = self.HCategoryClicked
 			if not p.Panel == None:
 				r.AddElement(p.Panel)
-				p.Panel.Visible = False
-				self._panels.append(p.Panel)
 			if not p.Dialogs == None:
 				self.UI.Dialogs.AddElement(p.Dialogs)
+			p.Core = self
 
 		mw.AddElement(l)
 		mw.AddElement(r)
@@ -73,8 +74,6 @@ class CorePluginInstance(PluginInstance):
 		for c in self._categories:
 			c.Selected = False
 		t.Selected = True
-		for c in self._panels:
-			c.Visible = False
-		self._panels[self._categories.index(t)].Visible = True
+		self.Switch.Switch(self.Switch.Elements[self._categories.index(t)])
 
 

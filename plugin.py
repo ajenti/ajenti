@@ -20,6 +20,7 @@ class PluginInstance(object):
 	CategoryItem = None
 	Panel = None
 	Dialogs = None
+	Core = None
 
 	def OnLoad(self):
 		pass

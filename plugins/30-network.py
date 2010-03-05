@@ -24,8 +24,8 @@ class NetworkPluginInstance(PluginInstance):
 	Master = None
 	_lblStats = None
 	_tblIfaces = None
-	_tblIfacesW = [100,100,100,100,100,200]
 	Interfaces = None
+	dlgEditIface = None
 
 	def OnLoad(self, s, u):
 		self.UI = u
@@ -41,6 +41,9 @@ class NetworkPluginInstance(PluginInstance):
 		self.Interfaces = InterfacesFile()
 		log.info('NetworkPlugin', 'Started instance')
 
+	def OnPostLoad(self):
+		self.Core.Switch.AddElement(self.dlgEditIface)
+
 
 	def BuildPanel(self):
 		l = ui.Label('Networking')
@@ -52,7 +55,7 @@ class NetworkPluginInstance(PluginInstance):
 
 		t = ui.Table()
 		r = ui.TableRow([ui.Label('Interface'), ui.Label('Mode'), ui.Label('Address'), ui.Label('Netmask'), ui.Label('Status'), ui.Label('Control')])
-		r.Widths = self._tblIfacesW
+		t.Widths = [100,100,100,100,100,200]
 		r.IsHeader = True
 		t.Rows.append(r)
 		self._tblIfaces = t
@@ -60,6 +63,17 @@ class NetworkPluginInstance(PluginInstance):
 		d.AddElement(ui.Label('Network interfaces'))
 		d.AddElement(t)
 		self.Panel = ui.VContainer([c, ui.Spacer(1,10), d])
+
+		self.dlgEditIface = ui.DialogBox()
+		self.dlgEditIface.lblTitle.Text = 'Edit interface options'
+		t = ui.Table([], True)
+		t.Widths = [200,300]
+		t.Rows.append(ui.TableRow([ui.Label('IP address:'), ui.Input('...')], True))
+		t.Rows.append(ui.TableRow([ui.Label('Netmask:'), ui.Input('...')], True))
+		t.Rows.append(ui.TableRow([ui.Label('Gateway:'), ui.Input('...')], True))
+		t.Rows.append(ui.TableRow([ui.Label('DNS:'), ui.Input('...')], True))
+		self.dlgEditIface.Inner = t
+		self.dlgEditIface.Visible = False
 		return
 
 
@@ -95,7 +109,6 @@ class NetworkPluginInstance(PluginInstance):
 					a,m = ('','')
 
 				r = ui.TableRow([ui.Label(s.Name), ui.Label(s.Mode), ui.Label(a), ui.Label(m), il, ui.HContainer([l1, l2])])
-				r.Widths = self._tblIfacesW
 
 				self._tblIfaces.Rows.append(r)
 
@@ -124,6 +137,9 @@ class NetworkPluginInstance(PluginInstance):
 			print sensors.Shell('sudo ifup ' + t.Iface)
 		if t.Tag == 'down':
 			sensors.Shell('sudo ifdown ' + t.Iface)
+		if t.Tag == 'edit':
+			self.Panel.Visible = False
+			self.dlgEditIface.Visible = True
 
 		return
 

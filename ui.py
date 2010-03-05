@@ -38,8 +38,7 @@ class Element(object):
 		self.ID = str(random.randint(1, 9000*9000))
 
 	def DumpHTML(self):
-		s = '<img src="dl;core;img.png" />'
-		return s
+		return ''
 
 	def Handle(self, target, event, data):
 		if self.ID == target and not self.Handler == None:
@@ -115,9 +114,22 @@ class VContainer(Container):
 
 		return s
 
+
+class SwitchContainer(Container):
+	def Switch(self, ee):
+		for e in self.Elements:
+			e.Visible = False
+		ee.Visible = True
+		return
+
+
 class Button(Element):
 	Visible = True
 	Text = ""
+
+	def __init__(self, t = ''):
+		Element.__init__(self)
+		self.Text = t
 
 	def DumpHTML(self):
 		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-button">' + self.Text + '</div></a>';
@@ -156,6 +168,19 @@ class Label(Element):
 
 	def DumpHTML(self):
 		s = '<div class="ui-el-label-' + str(self.Size) + '">' + self.Text + '</div>';
+		return s
+
+class Input(Element):
+	Visible = True
+	Text = ""
+	Size = 1
+
+	def __init__(self, t = ''):
+		Element.__init__(self)
+		self.Text = t
+
+	def DumpHTML(self):
+		s = '<input class="ui-el-input" value="' + self.Text + '" />';
 		return s
 
 class Image(Element):
@@ -242,18 +267,25 @@ class TopBar(Element):
 
 class Table(Element):
 	Rows = []
+	Widths = []
+	NoStyle = False
 
-	def __init__(self, r=[]):
+	def __init__(self, r=[], ns=False):
 		Element.__init__(self)
 		self.Rows = []
 		self.Rows += r
+		self.NoStyle = ns
 		return
 
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
-			s += '<table cellspacing="0" cellpadding="0" class="ui-el-table">'
+			s += '<table cellspacing="0" cellpadding="0"'
+			if not self.NoStyle: s += ' class="ui-el-table" '
+			s += '>'
 			for e in self.Rows:
+				e.Widths = self.Widths
+				e.NoStyle = self.NoStyle
 				s += e.DumpHTML()
 			s += '</table>'
 
@@ -269,23 +301,30 @@ class TableRow(Element):
 	Cells = []
 	IsHeader = False
 	Widths = []
+	NoStyle = False
 
-	def __init__(self, c=[]):
+	def __init__(self, c=[], ns=False):
 		Element.__init__(self)
 		self.Cells = []
 		self.Cells += c
 		self.Widths = []
+		self.NoStyle = ns
 		return
 
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
-			s += '<tr class="ui-el-table-row'
-			if self.IsHeader: s += '-header'
+			s += '<tr'
+			if not self.NoStyle:
+				s += ' class="ui-el-table-row'
+				if self.IsHeader: s += '-header'
+				s += '" '
 			s += '">'
 			i = 0
 			for e in self.Cells:
-				s += '<td class="ui-el-table-cell" width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
+				s += '<td'
+				if not self.NoStyle: s += ' class="ui-el-table-cell" '
+				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
 				i += 1
 			s += '</tr>'
 
@@ -295,3 +334,99 @@ class TableRow(Element):
 		Element.Handle(self, target, event, data)
 		for e in self.Cells:
 			e.Handle(target, event, data)
+
+
+class SimpleBox(Element):
+	Width = 100
+	Height = 20
+	Inner = None
+
+	def __init__(self, e=Element()):
+		Element.__init__(self)
+		self.Inner = e
+		return
+
+
+	def DumpHTML(self):
+		s = ''
+		if self.Visible:
+			s += '<div class="ui-el-modal-main"><table cellspacing="0" cellpadding="0"><tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t"></td><td class="ui-el-modal-rt"></td></tr>'
+			s += '<tr><td class="ui-el-modal-l"></td><td class="ui-el-modal-c" width="' + str(self.Width) + '" height="' + str(self.Height) + '">'
+			s += self.Inner.DumpHTML()
+			s += '</td><td class="ui-el-modal-r"></td></tr><tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr></table></div>'
+
+		return s
+
+	def Handle(self, target, event, data):
+		Element.Handle(self, target, event, data)
+		self.Inner.Handle(target, event, data)
+
+
+
+class DialogBox(Element):
+	Width = 500
+	Height = "auto"
+	Inner = None
+	Buttons = None
+	btnOK = None
+	btnCancel = None
+	lblTitle = None
+	_content = None
+
+	def __init__(self, e=Element()):
+		Element.__init__(self)
+		self.Inner = e
+		self.btnOK = Button('OK')
+		self.btnCancel = Button('Cancel')
+		self.lblTitle = Label('Options')
+		self.lblTitle.Size = 4
+		self._content = VContainer([self.lblTitle, Element()])
+		self.Buttons = HContainer([Element(), self.btnOK, self.btnCancel])
+		return
+
+
+	def DumpHTML(self):
+		s = ''
+		if self.Visible:
+			s += '<div class="ui-el-modal-main"><table cellspacing="0" cellpadding="0"><tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t"></td><td class="ui-el-modal-rt"></td></tr>'
+			s += '<tr><td class="ui-el-modal-l"></td><td class="ui-el-modal-c" width="' + str(self.Width) + '" height="' + str(self.Height) + '">'
+			self._content.Elements[1] = self.Inner
+			s += self._content.DumpHTML()
+			s += '<div class="ui-el-modal-buttons">' + self.Buttons.DumpHTML() + '</div>'
+			s += '</td><td class="ui-el-modal-r"></td></tr><tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr></table></div>'
+
+		return s
+
+	def Handle(self, target, event, data):
+		Element.Handle(self, target, event, data)
+		self.Buttons.Handle(target, event, data)
+		self.Inner.Handle(target, event, data)
+
+
+class TabBox(Element):
+	Width = 400
+	Height = "auto"
+	Buttons = None
+	Panes = None
+
+	def __init__(self):
+		Element.__init__(self)
+		self.Panes = Container()
+		self.Buttons = Container()
+
+	def DumpHTML(self):
+		s = ''
+		if self.Visible:
+			t = ''
+			s += '<div class="ui-el-modal-main"><table cellspacing="0" cellpadding="0"><tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t">' + t + '</td><td class="ui-el-modal-rt"></td></tr>'
+			s += '<tr><td class="ui-el-modal-l"></td><td class="ui-el-modal-c" width="' + str(self.Width) + '" height="' + str(self.Height) + '">'
+			s += self.Panes.DumpHTML()
+			s += '<div class="ui-el-modal-buttons">' + self.Buttons.DumpHTML() + '</div>'
+			s += '</td><td class="ui-el-modal-r"></td></tr><tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr></table></div>'
+
+		return s
+
+	def Handle(self, target, event, data):
+		Element.Handle(self, target, event, data)
+		self.Panes.Handle(target, event, data)
+		self.Buttons.Handle(target, event, data)
