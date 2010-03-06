@@ -127,7 +127,7 @@ class NetworkPluginInstance(PluginInstance):
 
 	def HIfaceControlClicked(self, t, e, d):
 		if t.Tag == 'up':
-			print sensors.Shell('sudo ifup ' + t.Iface)
+			sensors.Shell('sudo ifup ' + t.Iface)
 		if t.Tag == 'down':
 			sensors.Shell('sudo ifdown ' + t.Iface)
 		if t.Tag == 'edit':
@@ -148,6 +148,11 @@ class NetworkPluginInstance(PluginInstance):
 			self.dlgEditIface.txtMetric.Text = self.Interfaces.Entries[t.Iface].Params['metric']
 			self.dlgEditIface.txtMTU.Text = self.Interfaces.Entries[t.Iface].Params['mtu']
 			self.dlgEditIface.txtHwaddr.Text = self.Interfaces.Entries[t.Iface].Params['hwaddress']
+			self.dlgEditIface.chkAuto.Checked = self.Interfaces.Entries[t.Iface].Auto
+			self.dlgEditIface.rLoopback.Checked = self.Interfaces.Entries[t.Iface].Mode == 'loopback'
+			self.dlgEditIface.rManual.Checked = self.Interfaces.Entries[t.Iface].Mode == 'manual'
+			self.dlgEditIface.rStatic.Checked = self.Interfaces.Entries[t.Iface].Mode == 'static'
+			self.dlgEditIface.rDHCP.Checked = self.Interfaces.Entries[t.Iface].Mode == 'dhcp'
 		return
 
 	def HIfaceEdited(self, t, e, d):
@@ -164,6 +169,11 @@ class NetworkPluginInstance(PluginInstance):
 		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['metric'] = self.dlgEditIface.txtMetric.Text
 		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['mtu'] = self.dlgEditIface.txtMTU.Text
 		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['hwaddress'] = self.dlgEditIface.txtHwaddr.Text
+		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Auto = self.dlgEditIface.chkAuto.Checked
+		if self.dlgEditIface.rLoopback.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'loopback'
+		if self.dlgEditIface.rStatic.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'static'
+		if self.dlgEditIface.rManual.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'manual'
+		if self.dlgEditIface.rDHCP.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'dhcp'
 		self.Interfaces.Save()
 		self.Core.Switch.Switch(self.Panel)
 		return
@@ -185,7 +195,7 @@ class InterfacesFile:
 		while len(ss)>0:
 			while len(ss)>0:
 				if (len(ss[0]) > 0 and not ss[0][0] == '#'):
-					a = ss[0].split(' ')
+					a = ss[0].strip(' \t\n').split(' ')
 					for s in a:
 						if s == '': a.remove(s)
 					if (a[0] == 'auto'):
@@ -249,6 +259,11 @@ class EditIfaceDialog(ui.DialogBox):
 	txtMetric = None
 	txtMTU = None
 	txtHwaddr = None
+	chkAuto = None
+	rStatic = None
+	rManual = None
+	rLoopback = None
+	rDHCP = None
 
 	def __init__(self):
 		ui.DialogBox.__init__(self)
@@ -270,29 +285,46 @@ class EditIfaceDialog(ui.DialogBox):
 		self.txtMetric = ui.Input()
 		self.txtMTU = ui.Input()
 		self.txtHwaddr = ui.Input()
+		self.chkAuto = ui.Checkbox()
 
-		l = ui.Label('Basic')
+		l = ui.Label('General')
 		l.Size = 3
 		t.Rows.append(ui.TableRow([l]))
+		t.Rows.append(ui.TableRow([ui.Container([self.chkAuto, ui.Label(' Bring up automatically')])], True, 2))
+		rg = ui.RadioGroup()
+		rg.Add(' Loopback')
+		rg.Add(' Static')
+		rg.Add(' Manual')
+		rg.Add(' DHCP')
+		self.rLoopback = rg.GetBox(0)
+		self.rStatic = rg.GetBox(1)
+		self.rManual = rg.GetBox(2)
+		self.rDHCP = rg.GetBox(3)
+		t.Rows.append(ui.TableRow([rg], True))
+		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
+
+		l = ui.Label('Scripts')
+		l.Size = 3
+		t.Rows.append(ui.TableRow([l], True))
 		t.Rows.append(ui.TableRow([ui.Label('IP address:'), self.txtAddress], True))
 		t.Rows.append(ui.TableRow([ui.Label('Netmask:'), self.txtNetmask], True))
 		t.Rows.append(ui.TableRow([ui.Label('Gateway:'), self.txtGateway], True))
 
-		t.Rows.append(ui.Spacer(1,30))
+		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
 
 		l = ui.Label('Scripts')
 		l.Size = 3
-		t.Rows.append(ui.TableRow([l]))
+		t.Rows.append(ui.TableRow([l], True))
 		t.Rows.append(ui.TableRow([ui.Label('Pre-up:'), self.txtPreUp], True))
 		t.Rows.append(ui.TableRow([ui.Label('Post-up:'), self.txtPostUp], True))
 		t.Rows.append(ui.TableRow([ui.Label('Pre-down:'), self.txtPreDown], True))
 		t.Rows.append(ui.TableRow([ui.Label('Post-down:'), self.txtPostDown], True))
 
-		t.Rows.append(ui.Spacer(1,30))
+		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
 
 		l = ui.Label('Advanced')
 		l.Size = 3
-		t.Rows.append(ui.TableRow([l]))
+		t.Rows.append(ui.TableRow([l], True))
 		t.Rows.append(ui.TableRow([ui.Label('Assigned DNS:'), self.txtDNS], True))
 		t.Rows.append(ui.TableRow([ui.Label('Network:'), self.txtNetwork], True))
 		t.Rows.append(ui.TableRow([ui.Label('Broadcast:'), self.txtBroadcast], True))

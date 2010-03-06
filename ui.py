@@ -33,6 +33,7 @@ class Element(object):
 	Visible = True
 	ID = ''
 	Handler = None
+	Disabled = False
 
 	def __init__(self):
 		self.ID = str(random.randint(1, 9000*9000))
@@ -180,12 +181,78 @@ class Input(Element):
 		self.Text = t
 
 	def DumpHTML(self):
-		s = '<input class="ui-el-input" onblur="javascript:ajaxNoUpdate(\'/handle;' + self.ID + ';update;\'+document.getElementById(\'' + self.ID + '\').value);" id="' + self.ID + '" value="' + self.Text + '" />';
+		s = '<input class="ui-el-input" onblur="javascript:ajaxNoUpdate(\'/handle;' + self.ID + ';update;\'+document.getElementById(\'' + self.ID + '\').value);" id="' + self.ID + '" value="' + self.Text + '"';
+		if self.Disabled: s += ' disabled '
+		s += '/>';
 		return s
 
 	def Handler(self, t, e, d):
 		if e == 'update':
 			self.Text = d
+
+class Checkbox(Element):
+	Visible = True
+	Text = ""
+	Size = 1
+	Checked = False
+
+	def __init__(self, t = ''):
+		Element.__init__(self)
+		self.Text = t
+
+	def DumpHTML(self):
+		s = '<input type="checkbox" class="ui-el-checkbox" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\'+document.getElementById(\'' + self.ID + '\').value);" id="' + self.ID + '"';
+		if self.Disabled: s += ' disabled'
+		if self.Checked: s += ' checked'
+		s += '/>';
+		return s
+
+	def Handler(self, t, e, d):
+		if e == 'click':
+			self.Checked = not self.Checked
+
+
+class Radio(Element):
+	Visible = True
+	Text = ""
+	Size = 1
+	Checked = False
+	Group = None
+
+	def __init__(self, t = ''):
+		Element.__init__(self)
+		self.Text = t
+
+	def DumpHTML(self):
+		s = '<input type="radio" class="ui-el-radio" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\'+document.getElementById(\'' + self.ID + '\').value);" id="' + self.ID + '"';
+		if self.Disabled: s += ' disabled'
+		if self.Checked: s += ' checked'
+		s += '/>';
+		return s
+
+	def Handler(self, t, e, d):
+		if e == 'click':
+			for e in self.Group.Elements:
+				e.Elements[0].Checked = False
+			self.Checked = True
+
+
+class RadioGroup(VContainer):
+	def __init__(self):
+		Element.__init__(self)
+		self.Elements = []
+		return
+
+	def Add(self, s):
+		r = Radio()
+		l = Label(s)
+		r.Group = self
+		self.AddElement(Container([r, l]))
+		return
+
+	def GetBox(self, i):
+		return self.Elements[i].Elements[0]
+
 
 class Image(Element):
 	Visible = True
@@ -284,7 +351,7 @@ class Table(Element):
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
-			s += '<table cellspacing="0" cellpadding="0"'
+			s += '<table cellspacing="0" cellpadding="2"'
 			if not self.NoStyle: s += ' class="ui-el-table" '
 			s += '>'
 			for e in self.Rows:
@@ -306,17 +373,22 @@ class TableRow(Element):
 	IsHeader = False
 	Widths = []
 	NoStyle = False
+	Wide = 0
 
-	def __init__(self, c=[], ns=False):
+	def __init__(self, c=[], ns=False, w=0):
 		Element.__init__(self)
 		self.Cells = []
 		self.Cells += c
 		self.Widths = []
 		self.NoStyle = ns
+		self.Wide = w
 		return
 
 	def DumpHTML(self):
 		s = ''
+		if self.Wide:
+			self.Widths[0] = "auto"
+
 		if self.Visible:
 			s += '<tr'
 			if not self.NoStyle:
@@ -328,6 +400,7 @@ class TableRow(Element):
 			for e in self.Cells:
 				s += '<td'
 				if not self.NoStyle: s += ' class="ui-el-table-cell" '
+				if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
 				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
 				i += 1
 			s += '</tr>'

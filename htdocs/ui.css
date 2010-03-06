@@ -68,7 +68,8 @@ body {
 	color: #555555;
 	padding-bottom: 2px;
 	margin-bottom: 2px;
-	clear: left;
+	display: inline;
+	text-align: left;
 }
 .ui-el-label-2 {
 	color: #555555;
@@ -260,6 +261,7 @@ body {
 
 .ui-el-modal-c {
 	background: #ececee;
+	padding: 0px 15px;
 }
 
 .ui-el-modal-buttons {

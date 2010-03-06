@@ -73,6 +73,7 @@ class PowerMgmtPluginInstance(PluginInstance):
 		return
 
 	def Update(self):
-		self._lblUptime.Text = '&nbsp;Uptime: ' + sensors.Script('powermgmt','uptime')
+		if self.Panel.Visible:
+			self._lblUptime.Text = '&nbsp;Uptime: ' + sensors.Script('powermgmt','uptime')
 		return
 
