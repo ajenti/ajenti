@@ -12,8 +12,10 @@ class Handler(BaseHTTPRequestHandler):
 
 
 Server = None
+Running = True
 
 def Run():
-	global Server
-	Server = HTTPServer(('', 8000), Handler);
+	global Server, Running
+	log.info('HTTP', 'Starting server')
+	Server = HTTPServer(('', 80), Handler);
 	Server.serve_forever()

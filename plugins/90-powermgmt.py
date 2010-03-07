@@ -48,12 +48,12 @@ class PowerMgmtPluginInstance(PluginInstance):
 
 		self._actReset = ui.Action()
 		self._actReset.Text = 'Restart'
-		self._actReset.Description = 'Shutdown and boot again'
+		self._actReset.Description = 'Shutdown system and boot again'
 		self._actReset.Icon = 'plug/powermgmt;reset'
 		self._actReset.Handler = self.HButtonClicked
 		self._actShutdown = ui.Action()
 		self._actShutdown.Text = 'Shutdown'
-		self._actShutdown.Description = 'Switch off the system'
+		self._actShutdown.Description = 'Halt the system and switch off the power'
 		self._actShutdown.Icon = 'plug/powermgmt;shutdown'
 		self._actShutdown.Handler = self.HButtonClicked
 

@@ -17,6 +17,9 @@ def ShellStatus(s):
 	log.info('Shell', 'Executing ' + s)
 	return commands.getstatusoutput(s)[0]
 
+def Service(s, a):
+	return ShellStatus('/etc/init.d/' + s + ' ' + a)
+
 def DetectDistro():
 	s, r = commands.getstatusoutput('lsb_release -sd')
 	if s == 0: return r

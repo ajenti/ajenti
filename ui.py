@@ -1,4 +1,5 @@
 import random
+import util
 
 class UI:
 
@@ -154,6 +155,10 @@ class Action(Element):
 	Description = ""
 	Icon = "go"
 
+	def __init__(self, t = ''):
+		Element.__init__(self)
+		self.Text = t
+
 	def DumpHTML(self):
 		s = '<a href="#" onclick="javascript:ajax(\'/handle;' + self.ID + ';click;\');"><div class="ui-el-action"><table><tr><td rowspan="2" class="ui-el-action-icon"><img src="/dl;' + self.Icon + '.png" /></td><td class="ui-el-action-text">' + self.Text + '</td></tr><tr><td class="ui-el-action-description">' + self.Description + '</td></tr></table></div></a>';
 		return s
@@ -181,14 +186,14 @@ class Input(Element):
 		self.Text = t
 
 	def DumpHTML(self):
-		s = '<input class="ui-el-input" onblur="javascript:ajaxNoUpdate(\'/handle;' + self.ID + ';update;\'+document.getElementById(\'' + self.ID + '\').value);" id="' + self.ID + '" value="' + self.Text + '"';
+		s = '<input class="ui-el-input" onblur="javascript:ajaxNoUpdate(\'/handle;' + self.ID + ';update;\'+escape(document.getElementById(\'' + self.ID + '\').value));" id="' + self.ID + '" value="' + self.Text + '"';
 		if self.Disabled: s += ' disabled '
 		s += '/>';
 		return s
 
 	def Handler(self, t, e, d):
 		if e == 'update':
-			self.Text = d
+			self.Text = util.URLDecode(d)
 
 class Checkbox(Element):
 	Visible = True

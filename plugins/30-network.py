@@ -4,6 +4,7 @@ import session
 import ui
 import log
 import sensors
+#import http
 
 class NetworkPluginMaster(PluginMaster):
 	Name = 'Network'
@@ -24,8 +25,13 @@ class NetworkPluginInstance(PluginInstance):
 	Master = None
 	_lblStats = None
 	_tblIfaces = None
+	_tblDNS = None
+	_btnAddDNS = None
+#	_btnRestartNetworking = None
+	DNS = None
 	Interfaces = None
 	dlgEditIface = None
+	dlgEditDNS = None
 
 	def OnLoad(self, s, u):
 		self.UI = u
@@ -39,10 +45,12 @@ class NetworkPluginInstance(PluginInstance):
 
 		self.BuildPanel()
 		self.Interfaces = InterfacesFile()
+		self.DNS = DNSFile()
 		log.info('NetworkPlugin', 'Started instance')
 
 	def OnPostLoad(self):
 		self.Core.Switch.AddElement(self.dlgEditIface)
+		self.Core.Switch.AddElement(self.dlgEditDNS)
 
 
 	def BuildPanel(self):
@@ -62,11 +70,36 @@ class NetworkPluginInstance(PluginInstance):
 
 		d.AddElement(ui.Label('Network interfaces'))
 		d.AddElement(t)
-		self.Panel = ui.VContainer([c, ui.Spacer(1,10), d])
+
+
+		t = ui.Table()
+		r = ui.TableRow([ui.Label('Element'), ui.Label('Value'), ui.Label('Control')])
+		t.Widths = [100,100,100]
+		r.IsHeader = True
+		t.Rows.append(r)
+		self._tblDNS = t
+
+		d.AddElement(ui.Spacer(1,20))
+		d.AddElement(ui.Label('DNS nameservers'))
+		d.AddElement(t)
+		self._btnAddDNS = ui.Button('Add new')
+		self._btnAddDNS.Handler = self.HAddDNSClicked
+		d.AddElement(self._btnAddDNS)
+
+		#self._btnRestartNetworking = ui.Action('Restart networking')
+		#self._btnRestartNetworking.Icon = 'core;ui/icon-restart'
+		#self._btnRestartNetworking.Description = 'Reconfigure adapters'
+		#self._btnRestartNetworking.Handler = self.HRestartClicked
+#		b = ui.HContainer([self._btnRestartNetworking])
+		b = ui.HContainer()
+		self.Panel = ui.VContainer([c, ui.Spacer(1,10), d, ui.Spacer(1,30), b])
 
 		self.dlgEditIface = EditIfaceDialog()
 		self.dlgEditIface.btnCancel.Handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
 		self.dlgEditIface.btnOK.Handler = self.HIfaceEdited
+		self.dlgEditDNS = EditDNSDialog()
+		self.dlgEditDNS.btnCancel.Handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
+		self.dlgEditDNS.btnOK.Handler = self.HDNSEdited
 		return
 
 
@@ -104,6 +137,23 @@ class NetworkPluginInstance(PluginInstance):
 				r = ui.TableRow([ui.Label(s.Name), ui.Label(s.Mode), ui.Label(a), ui.Label(m), il, ui.HContainer([l1, l2])])
 
 				self._tblIfaces.Rows.append(r)
+
+
+			self.DNS.Parse()
+			self._tblDNS.Rows = [self._tblDNS.Rows[0]]
+			i = 0
+			for e in self.DNS.Entries:
+				l1 = ui.Link('Edit')
+				l2 = ui.Link('Delete')
+				l1.Handler = self.HDNSControlClicked
+				l2.Handler = self.HDNSControlClicked
+				l1.Entry = i
+				l2.Entry = i
+				l1.Tag = 'edit'
+				l2.Tag = 'delete'
+				i += 1
+				r = ui.TableRow([ui.Label(e['element']), ui.Label(e['value']), ui.HContainer([l1, l2])])
+				self._tblDNS.Rows.append(r)
 
 			self._lblStats.Text = str(cup) + ' interfaces up out of ' + str(len(self.Interfaces.Entries)) + ' total'
 		return
@@ -177,6 +227,47 @@ class NetworkPluginInstance(PluginInstance):
 		self.Interfaces.Save()
 		self.Core.Switch.Switch(self.Panel)
 		return
+
+	def HAddDNSClicked(self, t, e, d):
+		x = ui.Element()
+		x.Entry = len(self.DNS.Entries)
+		x.Tag = 'edit'
+		self.DNS.Entries.append({'element':'nameserver', 'value':'0.0.0.0'})
+		self.HDNSControlClicked(x, 'click', None)
+		return
+
+	def HDNSControlClicked(self, t, e, d):
+		if t.Tag == 'delete':
+			self.DNS.Entries.remove(self.DNS.Entries[t.Entry])
+			self.DNS.Save()
+		if t.Tag == 'edit':
+			self.Panel.Visible = False
+			self.dlgEditDNS.Visible = True
+			self.dlgEditDNS.Entry = t.Entry
+			self.dlgEditDNS.txtValue.Text = self.DNS.Entries[t.Entry]['value']
+			self.dlgEditDNS.rNS.Checked = self.DNS.Entries[t.Entry]['element'] == 'nameserver'
+			self.dlgEditDNS.rSearch.Checked = self.DNS.Entries[t.Entry]['element'] == 'search'
+			self.dlgEditDNS.rDomain.Checked = self.DNS.Entries[t.Entry]['element'] == 'domain'
+			self.dlgEditDNS.rOptions.Checked = self.DNS.Entries[t.Entry]['element'] == 'options'
+			return
+
+	def HDNSEdited(self, t, e, d):
+		self.DNS.Entries[self.dlgEditDNS.Entry]['value'] = self.dlgEditDNS.txtValue.Text
+		if self.dlgEditDNS.rNS.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'nameserver'
+		if self.dlgEditDNS.rSearch.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'search'
+		if self.dlgEditDNS.rDomain.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'domain'
+		if self.dlgEditDNS.rOptions.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'options'
+		self.DNS.Save()
+		self.Core.Switch.Switch(self.Panel)
+		return
+
+
+	#def HRestartClicked(self, t, e, d):
+	#	if e == 'click':
+	#		sensors.Service('networking', 'restart')
+	#		http.Restart()
+	#	return
+
 
 class InterfacesFile:
 	Entries = None
@@ -335,3 +426,66 @@ class EditIfaceDialog(ui.DialogBox):
 		self.Inner = t
 		self.Visible = False
 
+
+class EditDNSDialog(ui.DialogBox):
+	txtValue = None
+	rNS = None
+	rSearch = None
+	rDomain = None
+	rOptions = None
+
+	def __init__(self):
+		ui.DialogBox.__init__(self)
+		self.lblTitle.Text = 'Edit DNS list entry'
+		t = ui.Table([], True)
+		t.Widths = [150,200]
+		self.Width = "auto"
+
+		self.txtValue = ui.Input()
+
+		rg = ui.RadioGroup()
+		rg.Add(' Nameserver')
+		rg.Add(' Search list')
+		rg.Add(' Local domain name')
+		rg.Add(' Option list')
+		self.rNS = rg.GetBox(0)
+		self.rSearch = rg.GetBox(1)
+		self.rDomain = rg.GetBox(2)
+		self.rOptions = rg.GetBox(3)
+		t.Rows.append(ui.TableRow([rg], True))
+		t.Rows.append(ui.TableRow([ui.Spacer(1,15)]))
+		t.Rows.append(ui.TableRow([ui.Label('Value:'), self.txtValue], True))
+		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
+
+		self.Inner = t
+		self.Visible = False
+
+
+class DNSFile:
+	Entries = None
+
+	def __init__(self):
+		self.Entries = []
+
+	def Parse(self):
+		self.Entries = []
+		f = open('/etc/resolv.conf')
+		ss = f.read().splitlines()
+		f.close()
+
+		while len(ss)>0:
+			if (len(ss[0]) > 0 and not ss[0][0] == '#'):
+				a = ss[0].strip(' \t\n').split(' ')
+				for s in a:
+					if s == '': a.remove(s)
+				self.Entries.append({'element': a[0], 'value':' '.join(a[1:])})
+			if (len(ss)>1): ss = ss[1:]
+			else: ss = []
+		return
+
+	def Save(self):
+		f = open('/etc/resolv.conf', 'w')
+		for i in self.Entries:
+			f.write(i['element'] + ' ' + i['value'] + '\n')
+		f.close()
+		return
