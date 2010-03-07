@@ -21,6 +21,7 @@ class PluginInstance(object):
 	Panel = None
 	Dialogs = None
 	Core = None
+	Master = None
 
 	def OnLoad(self):
 		pass

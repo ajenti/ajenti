@@ -21,7 +21,6 @@ class PowerMgmtPluginInstance(PluginInstance):
 	UI = None
 	Session = None
 	Name = 'Power management'
-	Master = None
 	_lblUptime = None
 	_actReset = None
 	_actShutdown = None

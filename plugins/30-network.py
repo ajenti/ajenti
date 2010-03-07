@@ -22,7 +22,6 @@ class NetworkPluginInstance(PluginInstance):
 	UI = None
 	Session = None
 	Name = 'Network'
-	Master = None
 	_lblStats = None
 	_tblIfaces = None
 	_tblDNS = None
