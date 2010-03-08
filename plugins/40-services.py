@@ -67,11 +67,24 @@ class ServicesPluginInstance(PluginInstance):
 			self._tblSvcs.Rows = [self._tblSvcs.Rows[0]]
 			cr = 0
 			for e in self.Svcs.List:
-				self._tblSvcs.Rows.append(ui.TableRow([ui.Label(e.Name), ui.Label(e.Status), ui.Label(e.PID), ui.Label('.')]))
+				l1 = ui.Link('Start')
+				l1.Tag = 'start'
 				if e.Status == 'start/running':
 					cr += 1
+					l1.Text = 'Stop'
+					l1.Tag = 'stop'
+				l1.Svc = e.Name
+				l1.Handler = self.HServiceClicked
+				self._tblSvcs.Rows.append(ui.TableRow([ui.Label(e.Name), ui.Label(e.Status), ui.Label(e.PID), ui.HContainer([l1])]))
 			self._lblStat.Text = str(cr) + ' running'
 		return
+
+
+	def HServiceClicked(self, t, e, d):
+		if t.Tag == 'start':
+			sensors.Shell('initctl start ' + t.Svc)
+		if t.Tag == 'stop':
+			sensors.Shell('initctl stop ' + t.Svc)
 
 
 class Services:
@@ -100,16 +113,6 @@ class Service:
 	Name = ''
 	Status = 'stop/waiting'
 	PID = ''
-
-	def Start(self):
-		self.Status = 'start/running'
-
-	def Stop(self):
-		self.Status = 'stop/waiting'
-
-	def Restart(self):
-		self.Stop()
-		self.Start()
 
 	def __cmp__(self, other):
 		if not self.Status == other.Status:
