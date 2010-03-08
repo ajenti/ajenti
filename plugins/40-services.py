@@ -3,7 +3,7 @@ import commands
 import session
 import ui
 import log
-import sensors
+import tools
 
 class ServicesPluginMaster(PluginMaster):
 	Name = 'Services'
@@ -62,7 +62,6 @@ class ServicesPluginInstance(PluginInstance):
 
 	def Update(self):
 		if self.Panel.Visible:
-			self._lblStat.Text = '&nbsp;Uptime: ' + sensors.Script('powermgmt','uptime')
 			self.Svcs.Rescan()
 			self._tblSvcs.Rows = [self._tblSvcs.Rows[0]]
 			cr = 0
@@ -82,16 +81,16 @@ class ServicesPluginInstance(PluginInstance):
 
 	def HServiceClicked(self, t, e, d):
 		if t.Tag == 'start':
-			sensors.Shell('initctl start ' + t.Svc)
+			tools.Actions['services/start'].Run(t.Svc)
 		if t.Tag == 'stop':
-			sensors.Shell('initctl stop ' + t.Svc)
+			tools.Actions['services/stop'].Run(t.Svc)
 
 
 class Services:
 	List = None
 
 	def Rescan(self):
-		ss = sensors.Shell('initctl list').splitlines()
+		ss = tools.Actions['services/list'].Run().splitlines()
 		self.List = []
 
 		for s in ss:
@@ -118,3 +117,26 @@ class Service:
 		if not self.Status == other.Status:
 			return cmp(self.Status, other.Status)
 		return cmp(self.Name, other.Name)
+
+
+
+class ListAction(tools.Action):
+	Name = 'list'
+	Plugin = 'services'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('initctl list')
+
+class StartAction(tools.Action):
+	Name = 'start'
+	Plugin = 'services'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('initctl start ' + d)
+
+class StopAction(tools.Action):
+	Name = 'stop'
+	Plugin = 'services'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('initctl stop ' + d)

@@ -3,7 +3,7 @@ import commands
 import session
 import ui
 import log
-import sensors
+import tools
 
 class PowerMgmtPluginMaster(PluginMaster):
 	Name = 'Power management'
@@ -64,15 +64,45 @@ class PowerMgmtPluginInstance(PluginInstance):
 
 	def HButtonClicked(self, t, e, d):
 		if t == self._actReset:
-			sensors.Script('powermgmt', 'reboot')
-
+			tools.Actions['powermgmt/reboot'].Run()
 		if t == self._actShutdown:
-			sensors.Script('powermgmt', 'shutdown')
-
+			tools.Actions['powermgmt/shutdown'].Run()
 		return
 
 	def Update(self):
 		if self.Panel.Visible:
-			self._lblUptime.Text = '&nbsp;Uptime: ' + sensors.Script('powermgmt','uptime')
+			self._lblUptime.Text = '&nbsp;Uptime: ' + tools.Actions['powermgmt/uptime-hms'].Run()
 		return
 
+
+class UptimeAction(tools.Action):
+	Name = 'uptime'
+	Plugin = 'powermgmt'
+
+	def Run(self, d = None):
+		return tools.Actions['core/script-run'].Run(['powermgmt', 'uptime', ''])
+
+class UptimeHMSAction(tools.Action):
+	Name = 'uptime-hms'
+	Plugin = 'powermgmt'
+
+	def Run(self, d = None):
+		s = int(tools.Actions['core/script-run'].Run(['powermgmt', 'uptime', '']))
+		h = s / 3600
+		m = s / 60 % 60
+		s = s % 60
+		return str(h) + ':' + str(m) + ':' + str(s)
+
+class ShutdownAction(tools.Action):
+	Name = 'shutdown'
+	Plugin = 'powermgmt'
+
+	def Run(self, d = None):
+		return tools.Actions['core/script-run'].Run(['powermgmt', 'shutdown', ''])
+
+class RebootAction(tools.Action):
+	Name = 'reboot'
+	Plugin = 'powermgmt'
+
+	def Run(self, d = None):
+		return tools.Actions['core/script-run'].Run(['powermgmt', 'reboot', ''])

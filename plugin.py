@@ -1,6 +1,7 @@
 import os
 import sys
 import log
+import tools
 
 Plugins = []
 
@@ -53,7 +54,8 @@ def LoadPlugins():
 		p = plugin()
 		Plugins.append(p)
 		p.OnLoad()
-
+	for action in tools.Action.__subclasses__():
+		tools.RegisterAction(action())
 
 def Instantiate():
 	global Plugins

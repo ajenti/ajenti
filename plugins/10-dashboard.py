@@ -4,7 +4,7 @@ import session
 import ui
 import log
 import config
-import sensors
+import tools
 
 class DashboardPluginMaster(PluginMaster):
 	Name = 'Dashboard'
@@ -56,6 +56,6 @@ class DashboardPluginInstance(PluginInstance):
 	def Update(self):
 		self._lblServerName.Text = config.ServerName
 		self._lblAjentiVer.Text = '&nbsp;Ajenti ' + config.AjentiVersion
-		self._lblDistro.Text = '&nbsp;' + sensors.DetectDistro()
+		self._lblDistro.Text = '&nbsp;' + tools.Actions['core/detect-distro'].Run(None)
 		return
 

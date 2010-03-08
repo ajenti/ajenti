@@ -3,7 +3,7 @@ import commands
 import session
 import ui
 import log
-import sensors
+import tools
 #import http
 
 class NetworkPluginMaster(PluginMaster):
@@ -111,8 +111,8 @@ class NetworkPluginInstance(PluginInstance):
 
 			for k in self.Interfaces.Entries.keys():
 				s = self.Interfaces.Entries[k]
-				st = self._GetIfState(s.Name)
-				a,m = self._GetIfAddr(s.Name)
+				st = tools.Actions['network/ifstate'].Run(s.Name)
+				a,m = tools.Actions['network/ifaddr'].Run(s.Name)
 
 				l1 = ui.Link('Edit')
 				l2 = ui.Link('Bring down')
@@ -158,27 +158,11 @@ class NetworkPluginInstance(PluginInstance):
 		return
 
 
-	def _GetIfState(self, i):
-		st = sensors.ScriptStatus('network', 'state', i)
-		if st == 0: return 'up'
-		return 'down'
-
-	def _GetIfAddr(self, i):
-		st = sensors.Script('network', 'addr', i).split(' ')
-		a = '0.0.0.0'
-		m = '255.0.0.0'
-		for s in st:
-			if s[0:4] == 'addr':
-				a = s[5:]
-			if s[0:4] == 'Mask':
-				m = s[5:]
-		return a, m
-
 	def HIfaceControlClicked(self, t, e, d):
 		if t.Tag == 'up':
-			sensors.Shell('sudo ifup ' + t.Iface)
+			tools.Actions['network/ifup'].Run(t.Iface)
 		if t.Tag == 'down':
-			sensors.Shell('sudo ifdown ' + t.Iface)
+			tools.Actions['network/ifdown'].Run(t.Iface)
 		if t.Tag == 'edit':
 			self.Panel.Visible = False
 			self.dlgEditIface.Visible = True
@@ -488,3 +472,44 @@ class DNSFile:
 			f.write(i['element'] + ' ' + i['value'] + '\n')
 		f.close()
 		return
+
+
+
+class IfdownAction(tools.Action):
+	Name = 'ifdown'
+	Plugin = 'network'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('ifdown ' + d)
+
+class IfupAction(tools.Action):
+	Name = 'ifup'
+	Plugin = 'network'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('ifup ' + d)
+
+
+class IfStateAction(tools.Action):
+	Name = 'ifstate'
+	Plugin = 'network'
+
+	def Run(self, d = ''):
+		st = tools.Actions['core/script-status'].Run(['network', 'state', d])
+		if st == 0: return 'up'
+		return 'down'
+
+class IfAddrAction(tools.Action):
+	Name = 'ifaddr'
+	Plugin = 'network'
+
+	def Run(self, d = ''):
+		st = tools.Actions['core/script-run'].Run(['network', 'addr', d]).split(' ')
+		a = '0.0.0.0'
+		m = '255.0.0.0'
+		for s in st:
+			if s[0:4] == 'addr':
+				a = s[5:]
+			if s[0:4] == 'Mask':
+				m = s[5:]
+		return a, m
