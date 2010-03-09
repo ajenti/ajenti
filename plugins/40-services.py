@@ -140,3 +140,10 @@ class StopAction(tools.Action):
 
 	def Run(self, d = ''):
 		return tools.Actions['core/shell-run'].Run('initctl stop ' + d)
+
+class StatusAction(tools.Action):
+	Name = 'status'
+	Plugin = 'services'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('initctl status ' + d)
