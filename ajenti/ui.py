@@ -71,7 +71,8 @@ class Container(Element):
 	def Handle(self, target, event, data):
 		Element.Handle(self, target, event, data)
 		for e in self.Elements:
-			e.Handle(target, event, data)
+			if e.Visible:
+				e.Handle(target, event, data)
 
 	def DumpHTML(self):
 		s = ''

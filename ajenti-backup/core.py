@@ -61,13 +61,29 @@ def Init():
 			if len(ss)==1: return
 			e = Job()
 			l += e.Parse(ss)
-			Jobs[e.Name] = e
+			if e.Name != '':
+				Jobs[e.Name] = e
 	except:
 		print 'Error in config file at job beginning at line', l, '\nAborting.'
 	return
 
+def Save():
+	global Jobs
+
+	try:
+		f = open('/etc/ajenti/ajenti-backup.conf', 'w')
+		for k in Jobs:
+			Jobs[k].Save(f)
+		f.close()
+	except:
+		pass
+
+	Commit()
+	return
+	
+
 class Job:
-	Name = ''
+	Name = 'backup'
 	Path = '~'
 	Method = 'tar'
 	SendBy = 'none'
@@ -141,7 +157,8 @@ class Job:
 				cl += self.File.replace('$d', '`date +%y_%m_%d`')
 				cl += ' ' + self.Path + ' '
 				for p in self.Exclude:
-					cl += '--exclude=' + p + ' '
+					if p != '' and p != ' ':
+						cl += '--exclude=' + p + ' '
 				print 'Running:', cl,
 				print commands.getstatusoutput('bash -c \'' + cl + '\'')[1]
 			elif self.Method == 'none':
@@ -178,3 +195,33 @@ class Job:
 	def CronLine(self):
 		s = self.Time + ' ' + self.User + ' ajenti-backup run ' + self.Name
 		return s
+		
+	def Save(self, f):
+		s = '[' + self.Name + ']\n'
+		if self.Path != '':
+			s += 'path = ' + self.Path + '\n'
+		if self.Method != '':
+			s += 'method = ' + self.Method + '\n'	
+		if self.SendTo != '':
+			s += 'sendto = ' + self.SendTo + '\n'
+		if self.SendBy != '':
+			s += 'sendby = ' + self.SendBy + '\n'
+		print self.Exclude
+		if self.Exclude != ['']:
+			s += 'exclude = ' + ':'.join(self.Exclude) + '\n'
+		if self.File != '':
+			s += 'file = ' + self.File + '\n'
+		if self.Temp != '':
+			s += 'temp = ' + self.Temp + '\n'
+		if self.Before != '':
+			s += 'before = ' + self.Before + '\n'
+		if self.After != '':
+			s += 'after = ' + self.After + '\n'
+		if self.User != '':
+			s += 'user = ' + self.User + '\n'
+		if self.Time != '':
+			s += 'time = ' + self.Time + '\n'
+		f.write(s + '\n')
+		
+		return
+		
