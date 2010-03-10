@@ -1,0 +1,1 @@
+AjentiVersion = 'alpha (GIT snapshot)'

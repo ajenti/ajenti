@@ -4,9 +4,13 @@ echo Cleaning
 rm sandbox/* -rf
 
 echo Building the sandbox
-mkdir sandbox/ajenti
 echo '* Copying Ajenti'
+mkdir sandbox/ajenti
 cp ajenti/* sandbox/ajenti/ -r
+
+echo '* Copying Ajenti Backup'
+mkdir sandbox/ajenti-backup
+cp ajenti-backup/* sandbox/ajenti-backup/ -r
 
 echo '* Copying Ajenti plugins'
 mkdir sandbox/ajenti/plugins
@@ -18,8 +22,4 @@ echo
 echo Starting Ajenti
 cd sandbox/ajenti && python main.py
 
-echo Sandbox run finished
 cd $DIR
-
-echo Cleaning
-rm sandbox/* -rf
