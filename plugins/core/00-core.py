@@ -97,7 +97,7 @@ class ShellAction(tools.Action):
 	Plugin = 'core'
 
 	def Run(self, d):
-			return commands.getstatusoutput(d)[1]
+		return commands.getstatusoutput(d)[1]
 
 class ShellStatusAction(tools.Action):
 	Name = 'shell-status'

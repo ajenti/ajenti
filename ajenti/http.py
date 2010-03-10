@@ -17,5 +17,5 @@ Running = True
 def Run():
 	global Server, Running
 	log.info('HTTP', 'Starting server')
-	Server = HTTPServer(('', 80), Handler);
+	Server = HTTPServer(('', 8000), Handler);
 	Server.serve_forever()

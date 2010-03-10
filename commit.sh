@@ -1,5 +1,5 @@
 #!/bin/bash
-find | grep '.pyc' | xargs rm
+rm -r sandbox/*
 git add .
 git add -u .
 git commit

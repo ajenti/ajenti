@@ -132,14 +132,14 @@ class StartAction(tools.Action):
 	Plugin = 'services'
 
 	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('initctl start ' + d)
+		return tools.Actions['core/shell-run'].Run('/etc/init.d/' + d + ' start')
 
 class StopAction(tools.Action):
 	Name = 'stop'
 	Plugin = 'services'
 
 	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('initctl stop ' + d)
+		return tools.Actions['core/shell-run'].Run('/etc/init.d/' + d + ' stop')
 
 class StatusAction(tools.Action):
 	Name = 'status'
@@ -147,3 +147,10 @@ class StatusAction(tools.Action):
 
 	def Run(self, d = ''):
 		return tools.Actions['core/shell-run'].Run('initctl status ' + d)
+
+class PureStatusAction(tools.Action):
+	Name = 'status-pure'
+	Plugin = 'services'
+
+	def Run(self, d = ''):
+		return tools.Actions['core/shell-run'].Run('/etc/init.d/' + d + ' status')
