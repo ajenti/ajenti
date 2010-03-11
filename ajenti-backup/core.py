@@ -1,5 +1,8 @@
 import commands
 import subprocess
+import time
+import os
+import shlex
 
 Jobs = {}
 
@@ -26,9 +29,19 @@ def Commit():
 	return 'Done'
 
 def CancelJob(s):
+	Init()
+	ss = os.listdir('/var/run/ajenti-backup')
+	if s + '.pid' in ss:
+		commands.getstatusoutput('bash -c \'kill `cat /var/run/ajenti-backup/' + s + '.pid`\'')
+	commands.getstatusoutput('bash -c \'rm /var/run/ajenti-backup/' + s + '.*\'')
 	return
 
 def Status():
+	Init()
+	s = os.listdir('/var/run/ajenti-backup/')
+	for l in s:
+		if '.pid' in l:
+			print l.split('.')[0]
 	return ''
 
 def List():
@@ -80,7 +93,7 @@ def Save():
 
 	Commit()
 	return
-	
+
 
 class Job:
 	Name = 'backup'
@@ -152,6 +165,7 @@ class Job:
 			if self.Before != '':
 				print commands.getstatusoutput(self.Before)[1]
 
+			pipe = None
 			if self.Method == 'tar':
 				cl = 'tar -cpvzf ' + self.Temp + '/'
 				cl += self.File.replace('$d', '`date +%y_%m_%d`')
@@ -160,7 +174,17 @@ class Job:
 					if p != '' and p != ' ':
 						cl += '--exclude=' + p + ' '
 				print 'Running:', cl,
-				print commands.getstatusoutput('bash -c \'' + cl + '\'')[1]
+				a = shlex.split('bash -c \'' + cl + '\'')
+				pipe = subprocess.Popen(a, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+				commands.getstatusoutput('mkdir /var/run/ajenti-backup')
+				commands.getstatusoutput('bash -c \'echo ' + str(pipe.pid) + ' > /var/run/ajenti-backup/' + self.Name + '.pid\'')
+				while pipe.returncode == None:
+					try:
+						pipe.poll()
+						s = pipe.stdout.readline().strip('\n')
+						commands.getstatusoutput('bash -c \'echo ' + s + ' > /var/run/ajenti-backup/' + self.Name + '.status\'')
+					except:
+						pass
 			elif self.Method == 'none':
 				pass
 			else:
@@ -190,18 +214,20 @@ class Job:
 		except Exception as e:
 			print e
 			pass
+
+		commands.getstatusoutput('bash -c \'rm /var/run/ajenti-backup/' + self.Name + '.*\'')
 		return
 
 	def CronLine(self):
 		s = self.Time + ' ' + self.User + ' ajenti-backup run ' + self.Name
 		return s
-		
+
 	def Save(self, f):
 		s = '[' + self.Name + ']\n'
 		if self.Path != '':
 			s += 'path = ' + self.Path + '\n'
 		if self.Method != '':
-			s += 'method = ' + self.Method + '\n'	
+			s += 'method = ' + self.Method + '\n'
 		if self.SendTo != '':
 			s += 'sendto = ' + self.SendTo + '\n'
 		if self.SendBy != '':
@@ -222,6 +248,5 @@ class Job:
 		if self.Time != '':
 			s += 'time = ' + self.Time + '\n'
 		f.write(s + '\n')
-		
+
 		return
-		

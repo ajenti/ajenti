@@ -60,26 +60,26 @@ class NetworkPluginInstance(PluginInstance):
 		c = ui.HContainer([ui.Image('plug/network;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblStats])])
 		d = ui.VContainer([])
 
-		t = ui.Table()
-		r = ui.TableRow([ui.Label('Interface'), ui.Label('Mode'), ui.Label('Address'), ui.Label('Netmask'), ui.Label('Status'), ui.Label('Control')])
+		t = ui.DataTable()
+		t.Title = 'Network interfaces'
+		r = ui.DataTableRow([ui.Label('Interface'), ui.Label('Mode'), ui.Label('Address'), ui.Label('Netmask'), ui.Label('Status'), ui.Label('Control')])
 		t.Widths = [100,100,100,100,100,200]
 		r.IsHeader = True
 		t.Rows.append(r)
 		self._tblIfaces = t
 
-		d.AddElement(ui.Label('Network interfaces'))
 		d.AddElement(t)
 
 
-		t = ui.Table()
-		r = ui.TableRow([ui.Label('Element'), ui.Label('Value'), ui.Label('Control')])
+		t = ui.DataTable()
+		t.Title = 'DNS nameservers'
+		r = ui.DataTableRow([ui.Label('Element'), ui.Label('Value'), ui.Label('Control')])
 		t.Widths = [100,100,100]
 		r.IsHeader = True
 		t.Rows.append(r)
 		self._tblDNS = t
 
 		d.AddElement(ui.Spacer(1,20))
-		d.AddElement(ui.Label('DNS nameservers'))
 		d.AddElement(t)
 		self._btnAddDNS = ui.Button('Add new')
 		self._btnAddDNS.Handler = self.HAddDNSClicked
@@ -133,7 +133,7 @@ class NetworkPluginInstance(PluginInstance):
 					l2.Tag = 'up'
 					a,m = ('','')
 
-				r = ui.TableRow([ui.Label(s.Name), ui.Label(s.Mode), ui.Label(a), ui.Label(m), il, ui.HContainer([l1, l2])])
+				r = ui.DataTableRow([ui.Label(s.Name), ui.Label(s.Mode), ui.Label(a), ui.Label(m), il, ui.HContainer([l1, l2])])
 
 				self._tblIfaces.Rows.append(r)
 
@@ -151,7 +151,7 @@ class NetworkPluginInstance(PluginInstance):
 				l1.Tag = 'edit'
 				l2.Tag = 'delete'
 				i += 1
-				r = ui.TableRow([ui.Label(e['element']), ui.Label(e['value']), ui.HContainer([l1, l2])])
+				r = ui.DataTableRow([ui.Label(e['element']), ui.Label(e['value']), ui.HContainer([l1, l2])])
 				self._tblDNS.Rows.append(r)
 
 			self._lblStats.Text = str(cup) + ' interfaces up out of ' + str(len(self.Interfaces.Entries)) + ' total'
@@ -342,7 +342,7 @@ class EditIfaceDialog(ui.DialogBox):
 	def __init__(self):
 		ui.DialogBox.__init__(self)
 		self.lblTitle.Text = 'Edit interface options'
-		t = ui.Table([], True)
+		t = ui.LayoutTable([])
 		t.Widths = [150,200]
 		self.Width = "auto"
 
@@ -363,8 +363,8 @@ class EditIfaceDialog(ui.DialogBox):
 
 		l = ui.Label('General')
 		l.Size = 3
-		t.Rows.append(ui.TableRow([l]))
-		t.Rows.append(ui.TableRow([ui.Container([self.chkAuto, ui.Label(' Bring up automatically')])], True, 2))
+		t.Rows.append(ui.LayoutTableRow([l]))
+		t.Rows.append(ui.LayoutTableRow([ui.Container([self.chkAuto, ui.Label(' Bring up automatically')])], 2))
 		rg = ui.RadioGroup()
 		rg.Add(' Loopback')
 		rg.Add(' Static')
@@ -374,37 +374,37 @@ class EditIfaceDialog(ui.DialogBox):
 		self.rStatic = rg.GetBox(1)
 		self.rManual = rg.GetBox(2)
 		self.rDHCP = rg.GetBox(3)
-		t.Rows.append(ui.TableRow([rg], True))
-		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([rg]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
 
 		l = ui.Label('Scripts')
 		l.Size = 3
-		t.Rows.append(ui.TableRow([l], True))
-		t.Rows.append(ui.TableRow([ui.Label('IP address:'), self.txtAddress], True))
-		t.Rows.append(ui.TableRow([ui.Label('Netmask:'), self.txtNetmask], True))
-		t.Rows.append(ui.TableRow([ui.Label('Gateway:'), self.txtGateway], True))
+		t.Rows.append(ui.LayoutTableRow([l], True))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('IP address:'), self.txtAddress]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Netmask:'), self.txtNetmask]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Gateway:'), self.txtGateway]))
 
-		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
 
 		l = ui.Label('Scripts')
 		l.Size = 3
-		t.Rows.append(ui.TableRow([l], True))
-		t.Rows.append(ui.TableRow([ui.Label('Pre-up:'), self.txtPreUp], True))
-		t.Rows.append(ui.TableRow([ui.Label('Post-up:'), self.txtPostUp], True))
-		t.Rows.append(ui.TableRow([ui.Label('Pre-down:'), self.txtPreDown], True))
-		t.Rows.append(ui.TableRow([ui.Label('Post-down:'), self.txtPostDown], True))
+		t.Rows.append(ui.LayoutTableRow([l]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Pre-up:'), self.txtPreUp]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Post-up:'), self.txtPostUp]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Pre-down:'), self.txtPreDown]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Post-down:'), self.txtPostDown]))
 
-		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
 
 		l = ui.Label('Advanced')
 		l.Size = 3
-		t.Rows.append(ui.TableRow([l], True))
-		t.Rows.append(ui.TableRow([ui.Label('Assigned DNS:'), self.txtDNS], True))
-		t.Rows.append(ui.TableRow([ui.Label('Network:'), self.txtNetwork], True))
-		t.Rows.append(ui.TableRow([ui.Label('Broadcast:'), self.txtBroadcast], True))
-		t.Rows.append(ui.TableRow([ui.Label('Metric:'), self.txtMetric], True))
-		t.Rows.append(ui.TableRow([ui.Label('MTU:'), self.txtMTU], True))
-		t.Rows.append(ui.TableRow([ui.Label('Hardware address:'), self.txtHwaddr], True))
+		t.Rows.append(ui.LayoutTableRow([l]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Assigned DNS:'), self.txtDNS]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Network:'), self.txtNetwork]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Broadcast:'), self.txtBroadcast]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Metric:'), self.txtMetric]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('MTU:'), self.txtMTU]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Hardware address:'), self.txtHwaddr]))
 
 		self.Inner = t
 		self.Visible = False
@@ -420,7 +420,7 @@ class EditDNSDialog(ui.DialogBox):
 	def __init__(self):
 		ui.DialogBox.__init__(self)
 		self.lblTitle.Text = 'Edit DNS list entry'
-		t = ui.Table([], True)
+		t = ui.LayoutTable([])
 		t.Widths = [150,200]
 		self.Width = "auto"
 
@@ -435,10 +435,10 @@ class EditDNSDialog(ui.DialogBox):
 		self.rSearch = rg.GetBox(1)
 		self.rDomain = rg.GetBox(2)
 		self.rOptions = rg.GetBox(3)
-		t.Rows.append(ui.TableRow([rg], True))
-		t.Rows.append(ui.TableRow([ui.Spacer(1,15)]))
-		t.Rows.append(ui.TableRow([ui.Label('Value:'), self.txtValue], True))
-		t.Rows.append(ui.TableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([rg]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Value:'), self.txtValue]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
 
 		self.Inner = t
 		self.Visible = False

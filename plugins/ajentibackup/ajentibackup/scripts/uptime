@@ -1,2 +1,0 @@
-#!/bin/bash
-cat /proc/uptime|awk '{print $1}'|head -c-4

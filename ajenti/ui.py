@@ -342,27 +342,22 @@ class TopBar(Element):
 		return s
 
 
-class Table(Element):
+class LayoutTable(Element):
 	Rows = []
 	Widths = []
-	NoStyle = False
 
-	def __init__(self, r=[], ns=False):
+	def __init__(self, r=[]):
 		Element.__init__(self)
 		self.Rows = []
 		self.Rows += r
-		self.NoStyle = ns
 		return
 
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
-			s += '<table cellspacing="0" cellpadding="2"'
-			if not self.NoStyle: s += ' class="ui-el-table" '
-			s += '>'
+			s += '<table cellspacing="0" cellpadding="2">'
 			for e in self.Rows:
 				e.Widths = self.Widths
-				e.NoStyle = self.NoStyle
 				s += e.DumpHTML()
 			s += '</table>'
 
@@ -374,19 +369,16 @@ class Table(Element):
 			e.Handle(target, event, data)
 
 
-class TableRow(Element):
+class LayoutTableRow(Element):
 	Cells = []
-	IsHeader = False
 	Widths = []
-	NoStyle = False
 	Wide = 0
 
-	def __init__(self, c=[], ns=False, w=0):
+	def __init__(self, c=[], w=0):
 		Element.__init__(self)
 		self.Cells = []
 		self.Cells += c
 		self.Widths = []
-		self.NoStyle = ns
 		self.Wide = w
 		return
 
@@ -396,16 +388,10 @@ class TableRow(Element):
 			self.Widths[0] = "auto"
 
 		if self.Visible:
-			s += '<tr'
-			if not self.NoStyle:
-				s += ' class="ui-el-table-row'
-				if self.IsHeader: s += '-header'
-				s += '" '
-			s += '>'
+			s += '<tr>'
 			i = 0
 			for e in self.Cells:
 				s += '<td'
-				if not self.NoStyle: s += ' class="ui-el-table-cell" '
 				if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
 				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
 				i += 1
@@ -417,6 +403,7 @@ class TableRow(Element):
 		Element.Handle(self, target, event, data)
 		for e in self.Cells:
 			e.Handle(target, event, data)
+
 
 
 class SimpleBox(Element):
@@ -486,30 +473,75 @@ class DialogBox(Element):
 		self.Inner.Handle(target, event, data)
 
 
-class TabBox(Element):
-	Width = 400
-	Height = "auto"
-	Buttons = None
-	Panes = None
 
-	def __init__(self):
+class DataTable(Element):
+	Rows = []
+	Widths = []
+	NoStyle = False
+	Title = ''
+	_lblTitle = None
+
+	def __init__(self, r=[]):
 		Element.__init__(self)
-		self.Panes = Container()
-		self.Buttons = Container()
+		self._lblTitle = Label('')
+		self.Rows = []
+		self.Rows += r
+		return
 
 	def DumpHTML(self):
 		s = ''
 		if self.Visible:
-			t = ''
-			s += '<div class="ui-el-modal-main"><table cellspacing="0" cellpadding="0"><tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t">' + t + '</td><td class="ui-el-modal-rt"></td></tr>'
-			s += '<tr><td class="ui-el-modal-l"></td><td class="ui-el-modal-c" width="' + str(self.Width) + '" height="' + str(self.Height) + '">'
-			s += self.Panes.DumpHTML()
-			s += '<div class="ui-el-modal-buttons">' + self.Buttons.DumpHTML() + '</div>'
-			s += '</td><td class="ui-el-modal-r"></td></tr><tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr></table></div>'
+			self._lblTitle.Text = self.Title
+			s += self._lblTitle.DumpHTML() + '<br/>'
+			s += '<table cellspacing="0" cellpadding="2" class="ui-el-table">'
+			for e in self.Rows:
+				e.Widths = self.Widths
+				s += e.DumpHTML()
+			s += '</table>'
 
 		return s
 
 	def Handle(self, target, event, data):
 		Element.Handle(self, target, event, data)
-		self.Panes.Handle(target, event, data)
-		self.Buttons.Handle(target, event, data)
+		for e in self.Rows:
+			e.Handle(target, event, data)
+
+
+class DataTableRow(Element):
+	Cells = []
+	IsHeader = False
+	Widths = []
+	Wide = 0
+
+	def __init__(self, c=[], w=0):
+		Element.__init__(self)
+		self.Cells = []
+		self.Cells += c
+		self.Widths = []
+		self.Wide = w
+		return
+
+	def DumpHTML(self):
+		s = ''
+		if self.Wide:
+			self.Widths[0] = "auto"
+
+		if self.Visible:
+			s += '<tr class="ui-el-table-row'
+			if self.IsHeader: s += '-header'
+			s += '">'
+			i = 0
+			for e in self.Cells:
+				s += '<td class="ui-el-table-cell" '
+				if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
+				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
+				i += 1
+			s += '</tr>'
+
+		return s
+
+	def Handle(self, target, event, data):
+		Element.Handle(self, target, event, data)
+		for e in self.Cells:
+			e.Handle(target, event, data)
+

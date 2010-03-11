@@ -47,9 +47,10 @@ class ServicesPluginInstance(PluginInstance):
 		l.Size = 5
 
 		c = ui.HContainer([ui.Image('plug/services;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblStat])])
-		self._tblSvcs = ui.Table()
+		self._tblSvcs = ui.DataTable()
+		self._tblSvcs.Title = 'Services'
 		self._tblSvcs.Widths = [200,100,100,100]
-		r = ui.TableRow([ui.Label('Name'), ui.Label('Status'), ui.Label('PID'), ui.Label('Control')], True)
+		r = ui.DataTableRow([ui.Label('Name'), ui.Label('Status'), ui.Label('PID'), ui.Label('Control')], True)
 		r.IsHeader = True
 		self._tblSvcs.Rows.append(r)
 
@@ -74,7 +75,7 @@ class ServicesPluginInstance(PluginInstance):
 					l1.Tag = 'stop'
 				l1.Svc = e.Name
 				l1.Handler = self.HServiceClicked
-				self._tblSvcs.Rows.append(ui.TableRow([ui.Label(e.Name), ui.Label(e.Status), ui.Label(e.PID), ui.HContainer([l1])]))
+				self._tblSvcs.Rows.append(ui.DataTableRow([ui.Label(e.Name), ui.Label(e.Status), ui.Label(e.PID), ui.HContainer([l1])]))
 			self._lblStat.Text = str(cr) + ' running'
 		return
 
