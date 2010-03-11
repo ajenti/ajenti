@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /root/ajenti/sandbox/ajenti-backup
+python main.py $1 $2

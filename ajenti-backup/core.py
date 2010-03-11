@@ -182,7 +182,7 @@ class Job:
 					try:
 						pipe.poll()
 						s = pipe.stdout.readline().strip('\n')
-						commands.getstatusoutput('bash -c \'echo ' + s + ' > /var/run/ajenti-backup/' + self.Name + '.status\'')
+						commands.getstatusoutput('bash -c \'echo ' + s + ' > /var/run/ajenti-backup/' + self.Name + '.status\' > /dev/null 2>&1')
 					except:
 						pass
 			elif self.Method == 'none':

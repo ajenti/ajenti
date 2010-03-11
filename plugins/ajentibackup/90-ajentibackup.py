@@ -81,14 +81,6 @@ class AjentiBackupPluginInstance(PluginInstance):
 		self._dlgEdit.btnOK.Handler = self.HJobEdited
 		return
 
-
-	def HButtonClicked(self, t, e, d):
-		if t == self._actReset:
-			tools.Actions['powermgmt/reboot'].Run()
-		if t == self._actShutdown:
-			tools.Actions['powermgmt/shutdown'].Run()
-		return
-
 	def Update(self):
 		if self.Panel.Visible:
 			ajentibackup.core.Init()
