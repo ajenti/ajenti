@@ -18,17 +18,14 @@ class CorePluginMaster(PluginMaster):
 
 
 class CorePluginInstance(PluginInstance):
-	UI = None
-	Session = None
 	TopBar = None
 	Name = 'Core'
-	Master = None
 	_categories = None
 	Switch = None
 
-	def OnLoad(self, s, u):
-		self.UI = u
-		self.Session = s
+	def OnLoad(self, s):
+		PluginInstance.OnLoad(self, s)
+
 		self._categories = []
 		self._panels = []
 		r = ui.SwitchContainer()
@@ -54,14 +51,12 @@ class CorePluginInstance(PluginInstance):
 				p.CategoryItem.Handler = self.HCategoryClicked
 			if not p.Panel == None:
 				r.AddElement(p.Panel)
-			if not p.Dialogs == None:
-				self.UI.Dialogs.AddElement(p.Dialogs)
 			p.Core = self
 
 		mw.AddElement(l)
 		mw.AddElement(r)
 
-		self.UI.Root = mw
+		self.Session.UI.Root = mw
 
 		self.HCategoryClicked(self._categories[0], '', '')
 

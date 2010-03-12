@@ -2,14 +2,7 @@ import random
 import util
 
 class UI:
-
 	Root = None
-	UpdatedElement = None
-	Dialogs = None
-
-	def __init__(self):
-		self.Dialogs = Container()
-		return
 
 	def DumpBasePage(self):
 		s = ''#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
@@ -19,15 +12,13 @@ class UI:
 		s += '<link href="/dl;core;ui.css" rel="stylesheet" media="all" />'
 		s += '<link rel="shortcut icon" href="/dl;core;ui/favicon.png" />'
 		s += '<script src="/dl;core;ajax.js"></script></head>\n<body id="main">'
-#		s += '<script src="/dl;core;loadpage.js"></script>'
 		s += self.DumpHTML()
 		s += "</body></html>"
 		return s
 
 
 	def DumpHTML(self):
-		return self.Root.DumpHTML() + self.Dialogs.DumpHTML()
-
+		return self.Root.DumpHTML()
 
 
 class Element(object):
@@ -391,7 +382,7 @@ class LayoutTableRow(Element):
 			s += '<tr>'
 			i = 0
 			for e in self.Cells:
-				s += '<td'
+				s += '<td style="padding: 3px;"'
 				if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
 				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
 				i += 1

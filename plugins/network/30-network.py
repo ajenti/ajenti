@@ -19,8 +19,6 @@ class NetworkPluginMaster(PluginMaster):
 
 
 class NetworkPluginInstance(PluginInstance):
-	UI = None
-	Session = None
 	Name = 'Network'
 	_lblStats = None
 	_tblIfaces = None
@@ -32,9 +30,8 @@ class NetworkPluginInstance(PluginInstance):
 	dlgEditIface = None
 	dlgEditDNS = None
 
-	def OnLoad(self, s, u):
-		self.UI = u
-		self.Session = s
+	def OnLoad(self, s):
+		PluginInstance.OnLoad(self, s)
 
 		c = ui.Category()
 		c.Text = 'Network'
@@ -48,8 +45,8 @@ class NetworkPluginInstance(PluginInstance):
 		log.info('NetworkPlugin', 'Started instance')
 
 	def OnPostLoad(self):
-		self.Core.Switch.AddElement(self.dlgEditIface)
-		self.Core.Switch.AddElement(self.dlgEditDNS)
+		self.Session.RegisterPanel(self.dlgEditIface)
+		self.Session.RegisterPanel(self.dlgEditDNS)
 
 
 	def BuildPanel(self):
@@ -375,7 +372,7 @@ class EditIfaceDialog(ui.DialogBox):
 		self.rManual = rg.GetBox(2)
 		self.rDHCP = rg.GetBox(3)
 		t.Rows.append(ui.LayoutTableRow([rg]))
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		l = ui.Label('Scripts')
 		l.Size = 3
@@ -384,7 +381,7 @@ class EditIfaceDialog(ui.DialogBox):
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Netmask:'), self.txtNetmask]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Gateway:'), self.txtGateway]))
 
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		l = ui.Label('Scripts')
 		l.Size = 3
@@ -394,7 +391,7 @@ class EditIfaceDialog(ui.DialogBox):
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Pre-down:'), self.txtPreDown]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Post-down:'), self.txtPostDown]))
 
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		l = ui.Label('Advanced')
 		l.Size = 3
@@ -405,6 +402,8 @@ class EditIfaceDialog(ui.DialogBox):
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Metric:'), self.txtMetric]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('MTU:'), self.txtMTU]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Hardware address:'), self.txtHwaddr]))
+
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		self.Inner = t
 		self.Visible = False
@@ -438,7 +437,7 @@ class EditDNSDialog(ui.DialogBox):
 		t.Rows.append(ui.LayoutTableRow([rg]))
 		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Value:'), self.txtValue]))
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
+		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		self.Inner = t
 		self.Visible = False

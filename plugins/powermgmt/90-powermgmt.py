@@ -18,16 +18,13 @@ class PowerMgmtPluginMaster(PluginMaster):
 
 
 class PowerMgmtPluginInstance(PluginInstance):
-	UI = None
-	Session = None
 	Name = 'Power management'
 	_lblUptime = None
 	_actReset = None
 	_actShutdown = None
 
-	def OnLoad(self, s, u):
-		self.UI = u
-		self.Session = s
+	def OnLoad(self, s):
+		PluginInstance.OnLoad(self, s)
 
 		c = ui.Category()
 		c.Text = 'Power'

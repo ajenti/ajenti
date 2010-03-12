@@ -18,23 +18,21 @@ class ServicesPluginMaster(PluginMaster):
 
 
 class ServicesPluginInstance(PluginInstance):
-	UI = None
-	Session = None
 	Name = 'Services'
 	_lblStat = None
 	Svcs = None
 	_tblSvcs = None
 
-	def OnLoad(self, s, u):
-		self.UI = u
-		self.Session = s
-		self.Svcs = Services()
+	def OnLoad(self, s):
+		PluginInstance.OnLoad(self, s)
 
 		c = ui.Category()
 		c.Text = 'Services'
 		c.Description = 'Manage initscripts'
 		c.Icon = 'plug/services;icon'
 		self.CategoryItem = c
+
+		self.Svcs = Services()
 
 		self.BuildPanel()
 

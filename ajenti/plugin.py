@@ -20,12 +20,12 @@ class PluginInstance(object):
 	Name = 'undefined'
 	CategoryItem = None
 	Panel = None
-	Dialogs = None
 	Core = None
 	Master = None
+	Session = None
 
-	def OnLoad(self):
-		pass
+	def OnLoad(self, sess):
+		self.Session = sess
 
  	def OnPostLoad(self):
 		pass

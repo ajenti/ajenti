@@ -59,7 +59,7 @@ body {
 .ui-el-input {
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
-	height: 16px;
+	height: 20px;
 }
 
 
@@ -260,7 +260,7 @@ body {
 }
 
 .ui-el-modal-c {
-	background: #ececee;
+	background: #ffffff;
 	padding: 0px 15px;
 }
 

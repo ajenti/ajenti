@@ -23,8 +23,6 @@ class BeeperPluginMaster(PluginMaster):
 
 class BeeperPluginInstance(PluginInstance):
 	# Standard properties
-	UI = None
-	Session = None
 	Name = 'Beeper'
 
 	# Our custom stuff
@@ -33,9 +31,8 @@ class BeeperPluginInstance(PluginInstance):
 	_txtCmd = None
 	Beeps = None
 
-	def OnLoad(self, s, u): # The UI manager and session controller are passed to this method
-		self.UI = u
-		self.Session = s
+	def OnLoad(self, s): # The session controller instance is passed to this method
+		PluginInstance.OnLoad(self, s)
 
 		# Build a category switcher for Ajenti
 		c = ui.Category()

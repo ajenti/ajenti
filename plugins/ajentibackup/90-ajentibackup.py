@@ -6,6 +6,8 @@ import log
 import tools
 import ajentibackup.core
 import os
+import subprocess
+import time
 
 class AjentiBackupPluginMaster(PluginMaster):
 	Name = 'Ajenti Backup'
@@ -20,17 +22,14 @@ class AjentiBackupPluginMaster(PluginMaster):
 
 
 class AjentiBackupPluginInstance(PluginInstance):
-	UI = None
-	Session = None
 	Name = 'Ajenti Backup'
 	_tblJobs = None
 	_tblRuns = None
 	_dlgEdit = None
 	_btnAdd = None
 
-	def OnLoad(self, s, u):
-		self.UI = u
-		self.Session = s
+	def OnLoad(self, s):
+		PluginInstance.OnLoad(self, s)
 
 		c = ui.Category()
 		c.Text = 'Backup'
@@ -86,7 +85,12 @@ class AjentiBackupPluginInstance(PluginInstance):
 			ajentibackup.core.Init()
 
 			self._tblRuns.Rows = [self._tblRuns.Rows[0]]
-			s = os.listdir('/var/run/ajenti-backup/')
+
+			try:
+				s = os.listdir('/var/run/ajenti-backup/')
+			except:
+				s = []
+
 			self._tblRuns.Visible = False
 			for l in s:
 				if '.pid' in l:
@@ -104,14 +108,18 @@ class AjentiBackupPluginInstance(PluginInstance):
 				j = ajentibackup.core.Jobs[k]
 				l1 = ui.Link('Edit')
 				l2 = ui.Link('Delete')
+				l3 = ui.Link('Run')
 				l1.Handler = self.HControlClicked
 				l2.Handler = self.HControlClicked
+				l3.Handler = self.HControlClicked
 				l1.Job = j
 				l2.Job = j
+				l3.Job = j
 				l1.Tag = 'edit'
 				l2.Tag = 'delete'
+				l3.Tag = 'run'
 
-				r = ui.DataTableRow([ui.Label(j.Name), ui.Label(j.Path), ui.HContainer([l1, l2])])
+				r = ui.DataTableRow([ui.Label(j.Name), ui.Label(j.Path), ui.HContainer([l1, l2, l3])])
 				self._tblJobs.Rows.append(r)
 			return
 
@@ -149,8 +157,9 @@ class AjentiBackupPluginInstance(PluginInstance):
 			self._dlgEdit.rBNone.Checked = t.Job.Method == 'none'
 			self._dlgEdit.rSCopy.Checked = t.Job.SendBy == 'copy'
 			self._dlgEdit.rSNone.Checked = t.Job.SendBy == 'none'
-
-			return
+		if t.Tag == 'run':
+			subprocess.Popen(['ajenti-backup', 'run', t.Job.Name])
+			time.sleep(0.5)
 
 	def HJobEdited(self, t, e, d):
 		j = self._dlgEdit.Job
@@ -224,15 +233,15 @@ class EditJobDialog(ui.DialogBox):
 
 		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Job name:'), self.txtName]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Backup what:'), self.txtPath]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Folder to backup:'), self.txtPath]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Send to:'), self.txtSendTo]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('When (cron format):'), self.txtTime]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Schedule (cron format):'), self.txtTime]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('Exclude:'), self.txtExclude]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('As user:'), self.txtUser]))
 		t.Rows.append(ui.LayoutTableRow([ui.Label('File name:'), self.txtFile]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Temp dir:'), self.txtTemp]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Run before:'), self.txtBefore]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Run after:'), self.txtAfter]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Temporary folder:'), self.txtTemp]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Run script before:'), self.txtBefore]))
+		t.Rows.append(ui.LayoutTableRow([ui.Label('Run script after:'), self.txtAfter]))
 		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,30)]))
 
 		self.Inner = t

@@ -19,17 +19,17 @@ def ProcessRequest(addr, req, h):
 class Session:
 	Client = ''
 	UI = None
-	Coreplug = None
+	Core = None
 	Plugins = []
 
 	def Init(self):
-		self.Plugins = plugin.Instantiate()
 		log.info('Session', 'New session for ' + self.Client)
+		self.Plugins = plugin.Instantiate()
 		self.UI = ui.UI()
 
-		self.Coreplug = self.Plugins[0]
+		self.Core = self.Plugins[0]
 		for p in self.Plugins:
-			p.OnLoad(self, self.UI)
+			p.OnLoad(self)
 		for p in self.Plugins:
 			p.OnPostLoad()
 		for p in self.Plugins:
@@ -69,9 +69,10 @@ class Session:
 		self.SendUIUpdate(h)
 
 	def SendUIUpdate(self, h):
-		#h.wfile.write('<xml><info>ui</info><data>' + self.UI.DumpHTML() + '</data></xml>')
 		h.wfile.write(self.UI.DumpHTML())
 
 
 
+	def RegisterPanel(self, p):
+		self.Core.Switch.AddElement(p)
 
