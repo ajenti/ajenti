@@ -1,6 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 import log
-import session
+import session, config
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -17,5 +17,5 @@ Running = True
 def Run():
 	global Server, Running
 	log.info('HTTP', 'Starting server')
-	Server = HTTPServer(('', 8000), Handler);
+	Server = HTTPServer(('', config.HttpPort), Handler);
 	Server.serve_forever()
