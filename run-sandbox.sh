@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir sandbox 2> /dev/null
+
 echo Cleaning
 rm sandbox/* -rf
 
