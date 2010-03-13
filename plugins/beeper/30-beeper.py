@@ -16,7 +16,7 @@ class BeeperPluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self): # Should return a new Instance plugin
-		i = BeeperPluginInstance()
+		i = BeeperPluginInstance(self)
 		self.Instances.append(i)
 		return i
 

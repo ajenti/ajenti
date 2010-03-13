@@ -12,7 +12,7 @@ class PowerMgmtPluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self):
-		i = PowerMgmtPluginInstance()
+		i = PowerMgmtPluginInstance(self)
 		self.Instances.append(i)
 		return i
 

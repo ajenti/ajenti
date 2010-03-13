@@ -8,6 +8,7 @@ Plugins = []
 class PluginMaster(object):
 	Name = 'undefined'
 	Instances = []
+	Platform = ['any']
 
 	def OnLoad(self):
 		self.Instances = []
@@ -23,6 +24,9 @@ class PluginInstance(object):
 	Core = None
 	Master = None
 	Session = None
+
+	def __init__(self, m):
+		self.Master = m
 
 	def OnLoad(self, sess):
 		self.Session = sess
@@ -43,12 +47,8 @@ def LoadPlugins():
 
 	for s in ss:
 		if '.py' in s:
-#		try:
 			__import__(os.path.splitext(s)[0], None, None, [''])
 			log.info('Plugins', 'Found plugin ' + s)
-#		except:
-#			pass
-
 
 	for plugin in PluginMaster.__subclasses__():
 		p = plugin()

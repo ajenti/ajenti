@@ -12,7 +12,7 @@ class ServicesPluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self):
-		i = ServicesPluginInstance()
+		i = ServicesPluginInstance(self)
 		self.Instances.append(i)
 		return i
 
