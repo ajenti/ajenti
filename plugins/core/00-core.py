@@ -12,7 +12,7 @@ class CorePluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self):
-		i = CorePluginInstance()
+		i = CorePluginInstance(self)
 		self.Instances.append(i)
 		return i
 
@@ -110,3 +110,14 @@ class DetectDistroAction(tools.Action):
 		if s == 0: return r
 		s, r = commands.getstatusoutput('uname -mrs')
 		return r
+
+class DetectPlatform(tools.Action):
+	Name = 'detect-platform'
+	Plugin = 'core'
+
+	def Run(self, d = None):
+		if tools.Actions['core/shell-status'].Run('lsb_release -sd | grep Ubuntu') == 0:
+			return 'ubuntu'
+		if tools.Actions['core/shell-status'].Run('test -x /etc/debian_version') == 0:
+			return 'debian'
+		return 'generic'

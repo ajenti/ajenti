@@ -13,7 +13,7 @@ class DashboardPluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self):
-		i = DashboardPluginInstance()
+		i = DashboardPluginInstance(self)
 		self.Instances.append(i)
 		return i
 

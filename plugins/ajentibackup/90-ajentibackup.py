@@ -16,7 +16,7 @@ class AjentiBackupPluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self):
-		i = AjentiBackupPluginInstance()
+		i = AjentiBackupPluginInstance(self)
 		self.Instances.append(i)
 		return i
 

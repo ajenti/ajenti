@@ -4,10 +4,12 @@ import session
 import ui
 import log
 import tools
+import network.abstraction
 #import http
 
 class NetworkPluginMaster(PluginMaster):
 	Name = 'Network'
+	Platforms = ['debian', 'ubuntu']
 
 	def OnLoad(self):
 		PluginMaster.OnLoad(self)
@@ -24,7 +26,6 @@ class NetworkPluginInstance(PluginInstance):
 	_tblIfaces = None
 	_tblDNS = None
 	_btnAddDNS = None
-#	_btnRestartNetworking = None
 	DNS = None
 	Interfaces = None
 	dlgEditIface = None
@@ -43,6 +44,7 @@ class NetworkPluginInstance(PluginInstance):
 		self.Interfaces = InterfacesFile()
 		self.DNS = DNSFile()
 		log.info('NetworkPlugin', 'Started instance')
+
 
 	def OnPostLoad(self):
 		self.Session.RegisterPanel(self.dlgEditIface)
