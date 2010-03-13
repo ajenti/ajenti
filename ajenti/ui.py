@@ -69,7 +69,8 @@ class Container(Element):
 		s = ''
 		if self.Visible:
 			for e in self.Elements:
-				s += e.DumpHTML()
+				if e.Visible:
+					s += e.DumpHTML()
 
 		return s
 
@@ -86,7 +87,8 @@ class HContainer(Container):
 		if self.Visible:
 			s += '<table cellspacing="0" cellpadding="0"><tr>'
 			for e in self.Elements:
-				s += '<td>' + e.DumpHTML() + '</td>'
+				if e.Visible:
+					s += '<td>' + e.DumpHTML() + '</td>'
 			s += '</tr></table>'
 
 		return s
@@ -103,7 +105,8 @@ class VContainer(Container):
 		if self.Visible:
 			s += '<table cellspacing="0" cellpadding="0">'
 			for e in self.Elements:
-				s += '<tr><td>' + e.DumpHTML() + '</td></tr>'
+				if e.Visible:
+					s += '<tr><td>' + e.DumpHTML() + '</td></tr>'
 			s += '</table>'
 
 		return s
@@ -349,7 +352,8 @@ class LayoutTable(Element):
 			s += '<table cellspacing="0" cellpadding="2">'
 			for e in self.Rows:
 				e.Widths = self.Widths
-				s += e.DumpHTML()
+				if e.Visible:
+					s += e.DumpHTML()
 			s += '</table>'
 
 		return s
@@ -382,9 +386,10 @@ class LayoutTableRow(Element):
 			s += '<tr>'
 			i = 0
 			for e in self.Cells:
-				s += '<td style="padding: 3px;"'
-				if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
-				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
+				if e.Visible:
+					s += '<td style="padding: 3px;"'
+					if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
+					s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
 				i += 1
 			s += '</tr>'
 
@@ -487,7 +492,8 @@ class DataTable(Element):
 			s += '<table cellspacing="0" cellpadding="2" class="ui-el-table">'
 			for e in self.Rows:
 				e.Widths = self.Widths
-				s += e.DumpHTML()
+				if e.Visible:
+					s += e.DumpHTML()
 			s += '</table>'
 
 		return s
@@ -523,9 +529,10 @@ class DataTableRow(Element):
 			s += '">'
 			i = 0
 			for e in self.Cells:
-				s += '<td class="ui-el-table-cell" '
-				if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
-				s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
+				if e.Visible:
+					s += '<td class="ui-el-table-cell" '
+					if not self.Wide == 0: s += ' colspan="' + str(self.Wide) + '" '
+					s += ' width="' + str(self.Widths[i]) + '">' + e.DumpHTML() + '</td>'
 				i += 1
 			s += '</tr>'
 
