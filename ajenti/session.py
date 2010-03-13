@@ -32,7 +32,7 @@ class Session:
 		self.Platform = tools.Actions['core/detect-platform'].Run()
 
 		for p in self.Plugins:
-			if not ('any' in p.Master.Platform or tools.Actions['core/detect-platform'] in p.Master.Platform):
+			if not ('any' in p.Master.Platform or tools.Actions['core/detect-platform'].Run() in p.Master.Platform):
 				self.Plugins.remove(p)
 				log.err('Plugins', 'Plugin ' + p.Name + ' doesn\'t support current platform \'' + self.Platform + '\'')
 

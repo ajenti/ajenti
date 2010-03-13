@@ -8,7 +8,7 @@ Plugins = []
 class PluginMaster(object):
 	Name = 'undefined'
 	Instances = []
-	Platforms = ['any']
+	Platform = ['any']
 
 	def OnLoad(self):
 		self.Instances = []

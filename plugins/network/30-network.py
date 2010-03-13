@@ -15,7 +15,7 @@ class NetworkPluginMaster(PluginMaster):
 		PluginMaster.OnLoad(self)
 
 	def MakeInstance(self):
-		i = NetworkPluginInstance()
+		i = NetworkPluginInstance(self)
 		self.Instances.append(i)
 		return i
 
