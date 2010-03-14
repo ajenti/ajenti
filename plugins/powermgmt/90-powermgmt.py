@@ -18,7 +18,7 @@ class PowerMgmtPluginMaster(PluginMaster):
 
 
 class PowerMgmtPluginInstance(PluginInstance):
-	Name = 'Power management'
+	name = 'Power management'
 	_lblUptime = None
 	_actReset = None
 	_actShutdown = None
@@ -27,79 +27,76 @@ class PowerMgmtPluginInstance(PluginInstance):
 		PluginInstance._on_load(self, s)
 
 		c = ui.Category()
-		c.Text = 'Power'
-		c.Description = 'Reboot and shutdown'
-		c.Icon = 'plug/powermgmt;icon'
-		self.CategoryItem = c
+		c.text = 'Power'
+		c.description = 'Reboot and shutdown'
+		c.icon = 'plug/powermgmt;icon'
+		self.category_item = c
+		self.build_panel()
+		log.info('PowerMgmtplugin', 'Started instance')
 
-		self.BuildPanel()
-
-		log.info('PowerMgmtPlugin', 'Started instance')
-
-
-	def BuildPanel(self):
+	def build_panel(self):
 		self._lblUptime = ui.Label()
 		l = ui.Label('Power management')
-		l.Size = 5
+		l.size = 5
 
 		self._actReset = ui.Action()
-		self._actReset.Text = 'Restart'
-		self._actReset.Description = 'Shutdown system and boot again'
-		self._actReset.Icon = 'plug/powermgmt;reset'
-		self._actReset.handler = self.HButtonClicked
+		self._actReset.text = 'Restart'
+		self._actReset.description = 'Shutdown system and boot again'
+		self._actReset.icon = 'plug/powermgmt;reset'
+		self._actReset.handler = self._on_button_clicked
 		self._actShutdown = ui.Action()
-		self._actShutdown.Text = 'Shutdown'
-		self._actShutdown.Description = 'Halt the system and switch off the power'
-		self._actShutdown.Icon = 'plug/powermgmt;shutdown'
-		self._actShutdown.handler = self.HButtonClicked
+		self._actShutdown.text = 'Shutdown'
+		self._actShutdown.description = 'Halt the system and switch off the power'
+		self._actShutdown.icon = 'plug/powermgmt;shutdown'
+		self._actShutdown.handler = self._on_button_clicked
 
 		c = ui.HContainer([ui.Image('plug/powermgmt;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblUptime])])
 		d = ui.HContainer([self._actReset, self._actShutdown])
-		self.Panel = ui.VContainer([c, d])
+		self.panel = ui.VContainer([c, d])
 		return
 
 
-	def HButtonClicked(self, t, e, d):
+	def _on_button_clicked(self, t, e, d):
 		if t == self._actReset:
-			tools.Actions['powermgmt/reboot'].Run()
+			tools.actions['powermgmt/reboot'].run()
 		if t == self._actShutdown:
-			tools.Actions['powermgmt/shutdown'].Run()
+			tools.actions['powermgmt/shutdown'].run()
 		return
 
 	def Update(self):
-		if self.Panel.Visible:
-			self._lblUptime.Text = '&nbsp;Uptime: ' + tools.Actions['powermgmt/uptime-hms'].Run()
+		if self.panel.visible:
+			self._lblUptime.text = '&nbsp;Uptime: ' + tools.actions['powermgmt/uptime-hms'].run()
 		return
 
 
 class UptimeAction(tools.Action):
-	Name = 'uptime'
-	Plugin = 'powermgmt'
+	name = 'uptime'
+	plugin = 'powermgmt'
 
-	def Run(self, d = None):
-		return tools.Actions['core/script-run'].Run(['powermgmt', 'uptime', ''])
+	def run(self, d = None):
+		return tools.actions['core/script-run'].run(['powermgmt', 'uptime', ''])
 
 class UptimeHMSAction(tools.Action):
-	Name = 'uptime-hms'
-	Plugin = 'powermgmt'
+	name = 'uptime-hms'
+	plugin = 'powermgmt'
 
-	def Run(self, d = None):
-		s = int(tools.Actions['core/script-run'].Run(['powermgmt', 'uptime', '']))
+	def run(self, d = None):
+		s = int(tools.actions['core/script-run'].run(['powermgmt', 'uptime', '']))
 		h = s / 3600
 		m = s / 60 % 60
 		s = s % 60
 		return str(h) + ':' + str(m) + ':' + str(s)
 
 class ShutdownAction(tools.Action):
-	Name = 'shutdown'
-	Plugin = 'powermgmt'
+	name = 'shutdown'
+	plugin = 'powermgmt'
 
-	def Run(self, d = None):
-		return tools.Actions['core/script-run'].Run(['powermgmt', 'shutdown', ''])
+	def run(self, d = None):
+		return tools.actions['core/script-run'].run(['powermgmt', 'shutdown', ''])
 
 class RebootAction(tools.Action):
-	Name = 'reboot'
-	Plugin = 'powermgmt'
+	name = 'reboot'
+	plugin = 'powermgmt'
 
-	def Run(self, d = None):
-		return tools.Actions['core/script-run'].Run(['powermgmt', 'reboot', ''])
+	def run(self, d = None):
+		return tools.actions['core/script-run'].run(['powermgmt', 'reboot', ''])

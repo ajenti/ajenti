@@ -86,6 +86,7 @@ class Session:
 		h.wfile.write(self.ui.dump_HTML())
 
 	def register_panel(self, p):
+		p.Visible = False
 		self.core.switch.add_element(p)
 
 	def destroy(self):
