@@ -23,7 +23,8 @@ def Commit():
 	f = open('/etc/cron.d/ajenti-backup', 'w')
 	f.write('SHELL=/bin/sh\n')
 	for j in Jobs:
-		f.write(Jobs[j].CronLine() + '\n')
+		if j.Time != '':
+			f.write(Jobs[j].CronLine() + '\n')
 	f.close()
 
 	return 'Done'
