@@ -5,11 +5,10 @@ import ui
 import log
 import tools
 import network.abstraction
-#import http
 
 class NetworkPluginMaster(PluginMaster):
 	Name = 'Network'
-	Platforms = ['debian', 'ubuntu']
+	Platform = ['debian', 'ubuntu']
 
 	def OnLoad(self):
 		PluginMaster.OnLoad(self)
