@@ -16,7 +16,13 @@ def ProcessRequest(addr, req, h):
 	List[addr].Process(req, h)
 
 
-
+def destroyAll():
+	global List
+	
+	for s in List:
+		List[s].destroy()
+		
+	
 class Session:
 	Client = ''
 	UI = None
@@ -47,7 +53,6 @@ class Session:
 
 
 	def Process(self, req, h):
-		#log.info('Session', 'Request from ' + self.Client + ' : ' + req)
 		s = req.split(';')
 		if s[0] == '/dl':
 			self.ProcessDownload(s, h)
@@ -79,8 +84,10 @@ class Session:
 	def SendUIUpdate(self, h):
 		h.wfile.write(self.UI.DumpHTML())
 
-
-
 	def RegisterPanel(self, p):
 		self.Core.Switch.AddElement(p)
 
+	def destroy(self):
+		log.info('Session', 'Destroying session for ' + self.Client)
+		for p in self.Plugins:
+			p.destroy()

@@ -21,5 +21,5 @@ def Run():
     try:
         Server.serve_forever()
     except KeyboardInterrupt, e:
-        log.info('HTTP', 'Stoping by <Control-C>')
+        log.warn('HTTP', 'Stopping by <Control-C>')
 

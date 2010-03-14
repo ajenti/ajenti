@@ -1,7 +1,11 @@
 import http
 import plugin
 import config
+import session
+import plugin
 
 config.Load()
-plugin.LoadPlugins()
+plugin.loadAll()
 http.Run()
+session.destroyAll()
+plugin.unloadAll()

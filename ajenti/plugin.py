@@ -16,6 +16,8 @@ class PluginMaster(object):
 	def MakeInstance(self):
 		pass
 
+	def destroy(self):
+		pass
 
 class PluginInstance(object):
 	Name = 'undefined'
@@ -37,8 +39,10 @@ class PluginInstance(object):
 	def Update(self):
 		pass
 
+	def destroy(self):
+		pass
 
-def LoadPlugins():
+def loadAll():
 	global Plugins
 
 	ss = os.listdir('plugins')
@@ -65,3 +69,9 @@ def Instantiate():
 		l.append(p.MakeInstance())
 
 	return l
+
+def unloadAll():
+	global Plugins
+
+	for p in Plugins:
+		p.destroy()
