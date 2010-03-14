@@ -10,20 +10,20 @@ import tools # Support for actions
 # The Instance plugins are launched one per user session
 
 class BeeperPluginMaster(PluginMaster):
-	Name = 'Ajenti Backup'
+	name = 'Beeper'
 
-	def OnLoad(self): # This event is fired when Ajenti loads the plugin
-		PluginMaster.OnLoad(self)
+	def _on_load(self): # This event is fired when Ajenti loads the plugin
+		PluginMaster._on_load(self)
 
-	def MakeInstance(self): # Should return a new Instance plugin
+	def make_instance(self): # Should return a new Instance plugin
 		i = BeeperPluginInstance(self)
-		self.Instances.append(i)
+		self.instances.append(i)
 		return i
 
 
 class BeeperPluginInstance(PluginInstance):
 	# Standard properties
-	Name = 'Beeper'
+	name = 'Beeper'
 
 	# Our custom stuff
 	_tblBeeps = None
@@ -31,48 +31,48 @@ class BeeperPluginInstance(PluginInstance):
 	_txtCmd = None
 	Beeps = None
 
-	def OnLoad(self, s): # The session controller instance is passed to this method
-		PluginInstance.OnLoad(self, s)
+	def _on_load(self, s): # The session controller instance is passed to this method
+		PluginInstance._on_load(self, s)
 
 		# Build a category switcher for Ajenti
 		c = ui.Category()
-		c.Text = 'Beeper'
-		c.Description = 'Beep-beep-beep!'
-		c.Icon = 'plug/beeper;icon' # This means that image is stored as plugins/beeper/icon.png
-		self.CategoryItem = c # The CategoryItem property will be later examined by Core plugin. If it isn't None, the new Category will be added to the UI
+		c.text = 'Beeper'
+		c.description = 'Beep-beep-beep!'
+		c.icon = 'plug/beeper;icon' # This means that image is stored in plugins/beeper/icon.png
+		self.category_item = c # The category_item property will be later examined by Core plugin. If it isn't None, the new Category will be added to the UI
 
-		self.BuildPanel()
+		self.build_panel()
 
 		# Make use of /etc/ajenti/beeper.conf
 		self.Beeps = BeepingProfiles()
 		log.info('BeeperPlugin', 'Started instance') # Available methods are log.info, log.warn, log.err. The first parameter is 'sender' name, the second is string being logged
 
-	def BuildPanel(self):
+	def build_panel(self):
 		# The Ajenti web UI has tree-like structure based on containers
 
 		# Make a header
 		l = ui.Label('Beeper demo plugin')
-		l.Size = 5
+		l.size = 5
 
 		# The top block
-		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10,1), l])
+		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10, 1), l])
 
 		# Profiles table
 		self._tblBeeps = ui.DataTable()
-		self._tblBeeps.Title = 'Beeping profiles'
-		self._tblBeeps.Widths = [300, 100] # The column widths
+		self._tblBeeps.title = 'Beeping profiles'
+		self._tblBeeps.widths = [300, 100] # The column widths
 		r = ui.DataTableRow([ui.Label('Params'), ui.Label('Control')])
-		r.IsHeader = True
-		self._tblBeeps.Rows.append(r)
+		r.is_header = True
+		self._tblBeeps.rows.append(r)
 
 		# The main area
 		d = ui.VContainer()
-		d.AddElement(self._tblBeeps)
-		d.AddElement(ui.Spacer(1,10))
+		d.add_element(self._tblBeeps)
+		d.add_element(ui.Spacer(1,10))
 
 		self._txtCmd = ui.Input()
 		self._btnAdd = ui.Button('Add new')
-		self._btnAdd.Handler = self.HAddClicked
+		self._btnAdd.handler = self._on_add_clicked
 
 		d.AddElement(ui.Label('Beep parameters:'))
 		d.AddElement(self._txtCmd)

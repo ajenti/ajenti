@@ -3,91 +3,92 @@ import ui
 import plugin
 import tools
 
-List = {}
+list = {}
 
-def ProcessRequest(addr, req, h):
-	global List
+def process_request(addr, req, h):
+	global list
 
-	if not List.has_key(addr):
-		List[addr] = Session()
-		List[addr].Client = addr
-		List[addr].Init()
+	if not list.has_key(addr):
+		list[addr] = Session()
+		list[addr].client = addr
+		list[addr].init()
 
-	List[addr].Process(req, h)
+	list[addr].process(req, h)
 
 
-def destroyAll():
-	global List
+def destroy_all():
+	global list
 	
-	for s in List:
-		List[s].destroy()
+	for s in list:
+		list[s].destroy()
 		
 	
 class Session:
-	Client = ''
-	UI = None
-	Core = None
-	Plugins = []
-	Platform = 'generic'
+	client = ''
+	ui = None
+	core = None
+	plugins = []
+	platform = 'generic'
 
-	def Init(self):
-		log.info('Session', 'New session for ' + self.Client)
-		self.Plugins = plugin.Instantiate()
-		self.UI = ui.UI()
-		self.Core = self.Plugins[0]
-		self.Platform = tools.Actions['core/detect-platform'].Run()
+	def init(self):
+		log.info('Session', 'New session for ' + self.client)
+		self.plugins = plugin.instantiate()
+		self.ui = ui.UI()
+		self.core = self.plugins[0] # This needs to be done in some better way
+		self.platform = tools.actions['core/detect-platform'].run()
 
-		for p in self.Plugins:
-			if not ('any' in p.Master.Platform or tools.Actions['core/detect-platform'].Run() in p.Master.Platform):
-				self.Plugins.remove(p)
-				log.warn('Plugins', 'Plugin ' + p.Name + ' doesn\'t support current platform \'' + self.Platform + '\'')
+		for p in self.plugins:
+			if not 'any' in p.master.platform and \
+				not tools.actions['core/detect-platform'].run() in p.master.platform:
+				self.plugins.remove(p)
+				log.warn('Plugins', 'Plugin ' + p.name + ' doesn\'t support current platform \'' + self.platform + '\'')
 
-		for p in self.Plugins:
-			p.OnLoad(self)
-		for p in self.Plugins:
-			p.OnPostLoad()
-		for p in self.Plugins:
-			p.Update()
+		for p in self.plugins:
+			p._on_load(self)
+		for p in self.plugins:
+			p._on_post_load()
+		for p in self.plugins:
+			p.update()
 
 		return
 
-
-	def Process(self, req, h):
+	def process(self, req, h):
 		s = req.split(';')
 		if s[0] == '/dl':
-			self.ProcessDownload(s, h)
+			self.process_download(s, h)
 		if s[0] == '/handle':
-			self.ProcessAjax(s, h)
+			self.process_ajax(s, h)
 		if s[0] == '/':
-			h.wfile.write(self.UI.DumpBasePage())
+			h.wfile.write(self.ui.dump_base_page())
 
-
-	def ProcessDownload(self, s, h):
+	def process_download(self, s, h):
 		try:
 			f = './'
-			if s[1]=='core': f += 'htdocs/'
-			if s[1][0:4]=='plug': f += 'plugins/' + s[1][5:] + '/'
+			if s[1] == 'core':
+				f += 'htdocs/'
+			if s[1][0:4] == 'plug':
+				f += 'plugins/' + s[1][5:] + '/'
 			f += s[2]
 			fl = open(f)
 			h.wfile.write(fl.read())
 			fl.close()
 		except:
-			log.err('HTTP', '404: ' + f)
+			log.err('HTTP', 'Error processing ' + f)
 			pass
 
-	def ProcessAjax(self, s, h):
-		self.UI.Root.Handle(s[1], s[2], s[3])
-		for p in self.Plugins:
-			p.Update()
-		self.SendUIUpdate(h)
+	def process_ajax(self, s, h):
+		self.ui.root.handle(s[1], s[2], s[3])
+		for p in self.plugins:
+			p.update()
+		self.send_ui_update(h)
 
-	def SendUIUpdate(self, h):
-		h.wfile.write(self.UI.DumpHTML())
+	def send_ui_update(self, h):
+		h.wfile.write(self.ui.dump_HTML())
 
-	def RegisterPanel(self, p):
-		self.Core.Switch.AddElement(p)
+	def register_panel(self, p):
+		self.core.switch.add_element(p)
 
 	def destroy(self):
-		log.info('Session', 'Destroying session for ' + self.Client)
-		for p in self.Plugins:
+		log.info('Session', 'Destroying session for ' + self.client)
+		for p in self.plugins:
 			p.destroy()

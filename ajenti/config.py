@@ -1,13 +1,9 @@
-# Configuration file
+ajenti_version = 'alpha (GIT snapshot)'
+server_name = 'New server'
+http_port = 8000
 
-AjentiVersion = 'alpha (GIT snapshot)'
-ServerName = 'New server'
-
-# Http port
-HttpPort = 8000
-
-def Load():
-	global ServerName, HttpPort
+def load():
+	global server_name, http_port
 
 	try:
 		f = open('/etc/ajenti/ajenti.conf')
@@ -20,9 +16,9 @@ def Load():
 				k = s[0].strip(' \t')
 				v = s[1].strip(' \t')
 				if k == 'servername':
-					ServerName = v
+					server_name = v
 				elif k == 'httpport':
-					HttpPort = int(v)
+					http_port = int(v)
 					
 			except:
 				pass

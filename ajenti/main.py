@@ -4,8 +4,8 @@ import config
 import session
 import plugin
 
-config.Load()
-plugin.loadAll()
-http.Run()
-session.destroyAll()
-plugin.unloadAll()
+config.load()
+plugin.load_all()
+http.run()
+session.destroy_all()
+plugin.unload_all()
