@@ -18,11 +18,11 @@ def process_request(addr, req, h):
 
 def destroy_all():
 	global list
-	
+
 	for s in list:
 		list[s].destroy()
-		
-	
+
+
 class Session:
 	client = ''
 	ui = None

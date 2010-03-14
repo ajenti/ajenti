@@ -6,14 +6,14 @@ import log
 import tools
 
 class PowerMgmtPluginMaster(PluginMaster):
-	Name = 'Power management'
+	name = 'Power management'
 
-	def OnLoad(self):
-		PluginMaster.OnLoad(self)
+	def _on_load(self):
+		PluginMaster._on_load(self)
 
-	def MakeInstance(self):
+	def make_instance(self):
 		i = PowerMgmtPluginInstance(self)
-		self.Instances.append(i)
+		self.instances.append(i)
 		return i
 
 
@@ -23,8 +23,8 @@ class PowerMgmtPluginInstance(PluginInstance):
 	_actReset = None
 	_actShutdown = None
 
-	def OnLoad(self, s):
-		PluginInstance.OnLoad(self, s)
+	def _on_load(self, s):
+		PluginInstance._on_load(self, s)
 
 		c = ui.Category()
 		c.Text = 'Power'
@@ -46,12 +46,12 @@ class PowerMgmtPluginInstance(PluginInstance):
 		self._actReset.Text = 'Restart'
 		self._actReset.Description = 'Shutdown system and boot again'
 		self._actReset.Icon = 'plug/powermgmt;reset'
-		self._actReset.Handler = self.HButtonClicked
+		self._actReset.handler = self.HButtonClicked
 		self._actShutdown = ui.Action()
 		self._actShutdown.Text = 'Shutdown'
 		self._actShutdown.Description = 'Halt the system and switch off the power'
 		self._actShutdown.Icon = 'plug/powermgmt;shutdown'
-		self._actShutdown.Handler = self.HButtonClicked
+		self._actShutdown.handler = self.HButtonClicked
 
 		c = ui.HContainer([ui.Image('plug/powermgmt;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblUptime])])
 		d = ui.HContainer([self._actReset, self._actShutdown])

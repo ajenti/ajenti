@@ -12,36 +12,34 @@ import time
 class AjentiBackupPluginMaster(PluginMaster):
 	Name = 'Ajenti Backup'
 
-	def OnLoad(self):
-		PluginMaster.OnLoad(self)
+	def _on_load(self):
+		PluginMaster._on_load(self)
 
-	def MakeInstance(self):
+	def make_instance(self):
 		i = AjentiBackupPluginInstance(self)
-		self.Instances.append(i)
+		self.instances.append(i)
 		return i
 
 
 class AjentiBackupPluginInstance(PluginInstance):
-	Name = 'Ajenti Backup'
+	name = 'Ajenti Backup'
 	_tblJobs = None
 	_tblRuns = None
 	_dlgEdit = None
 	_btnAdd = None
 
-	def OnLoad(self, s):
-		PluginInstance.OnLoad(self, s)
+	def _on_load(self, s):
+		PluginInstance._on_load(self, s)
 
 		c = ui.Category()
-		c.Text = 'Backup'
-		c.Description = 'Configure Ajenti backup'
-		c.Icon = 'plug/ajentibackup;icon'
-		self.CategoryItem = c
-
-		self.BuildPanel()
-
+		c.text = 'Backup'
+		c.description = 'Configure Ajenti backup'
+		c.icon = 'plug/ajentibackup;icon'
+		self.category_item = c
+		self.build_panel()
 		log.info('AjentiBackupPlugin', 'Started instance')
 
-	def OnPostLoad(self):
+	def _on_post_load(self):
 		self.Core.Switch.AddElement(self._dlgEdit)
 
 	def BuildPanel(self):
@@ -69,15 +67,15 @@ class AjentiBackupPluginInstance(PluginInstance):
 		d.AddElement(ui.Spacer(1,30))
 		d.AddElement(self._tblJobs)
 		self._btnAdd = ui.Button('Add new')
-		self._btnAdd.Handler = self.HAddClicked
+		self._btnAdd.handler = self.HAddClicked
 		d.AddElement(self._btnAdd)
 
 		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l])])
 		self.Panel = ui.VContainer([c, d])
 
 		self._dlgEdit = EditJobDialog()
-		self._dlgEdit.btnCancel.Handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
-		self._dlgEdit.btnOK.Handler = self.HJobEdited
+		self._dlgEdit.btnCancel.handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
+		self._dlgEdit.btnOK.handler = self.HJobEdited
 		return
 
 	def Update(self):
@@ -96,7 +94,7 @@ class AjentiBackupPluginInstance(PluginInstance):
 				if '.pid' in l:
 					n = l.split('.')[0]
 					l1 = ui.Link('Abort')
-					l1.Handler = self.HKillClicked
+					l1.handler = self.HKillClicked
 					l1.PID = commands.getstatusoutput('cat /var/run/ajenti-backup/' + l)[1]
 					l1.Job = n
 					r = ui.DataTableRow([ui.Label(n), ui.Label(l1.PID), ui.Label(commands.getstatusoutput('cat /var/run/ajenti-backup/' + n + '.status')[1]), l1])
@@ -109,9 +107,9 @@ class AjentiBackupPluginInstance(PluginInstance):
 				l1 = ui.Link('Edit')
 				l2 = ui.Link('Delete')
 				l3 = ui.Link('Run')
-				l1.Handler = self.HControlClicked
-				l2.Handler = self.HControlClicked
-				l3.Handler = self.HControlClicked
+				l1.handler = self.HControlClicked
+				l2.handler = self.HControlClicked
+				l3.handler = self.HControlClicked
 				l1.Job = j
 				l2.Job = j
 				l3.Job = j

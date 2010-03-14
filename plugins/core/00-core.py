@@ -28,7 +28,7 @@ class CorePluginInstance(PluginInstance):
 
 		self._categories = []
 		self._panels = []
-		self.Switch = ui.SwitchContainer()
+		self.switch = ui.SwitchContainer()
 
 		log.info('CorePlugin', 'Started instance')
 
@@ -36,7 +36,7 @@ class CorePluginInstance(PluginInstance):
 		mw = ui.MainWindow()
 
 		self._topbar = ui.TopBar()
-		mw.add_element(self.TopBar)
+		mw.add_element(self._topbar)
 
 		l = ui.VContainer()
 		r = self.switch
@@ -69,7 +69,7 @@ class ScriptAction(tools.Action):
 	def run(self, d):
 		return commands.getstatusoutput('./plugins/' + d[0] + '/scripts/' + d[1] + ' ' + d[2])[1]
 
-		
+
 class ScriptStatusAction(tools.Action):
 	name = 'script-status'
 	plugin = 'core'
@@ -77,7 +77,7 @@ class ScriptStatusAction(tools.Action):
 	def run(self, d):
 		return commands.getstatusoutput('./plugins/' + d[0] + '/scripts/' + d[1] + ' ' + d[2])[0]
 
-		
+
 class ShellAction(tools.Action):
 	name = 'shell-run'
 	plugin = 'core'
@@ -85,7 +85,7 @@ class ShellAction(tools.Action):
 	def run(self, d):
 		return commands.getstatusoutput(d)[1]
 
-		
+
 class ShellStatusAction(tools.Action):
 	name = 'shell-status'
 	plugin = 'core'
@@ -93,18 +93,18 @@ class ShellStatusAction(tools.Action):
 	def run(self, d):
 		return commands.getstatusoutput(d)[0]
 
-		
+
 class DetectDistroAction(tools.Action):
 	name = 'detect-distro'
 	plugin = 'core'
 
-	def run(self, d):
+	def run(self, d=None):
 		s, r = commands.getstatusoutput('lsb_release -sd')
 		if s == 0: return r
 		s, r = commands.getstatusoutput('uname -mrs')
 		return r
 
-		
+
 class DetectPlatform(tools.Action):
 	name = 'detect-platform'
 	plugin = 'core'

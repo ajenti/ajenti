@@ -74,60 +74,59 @@ class BeeperPluginInstance(PluginInstance):
 		self._btnAdd = ui.Button('Add new')
 		self._btnAdd.handler = self._on_add_clicked
 
-		d.AddElement(ui.Label('Beep parameters:'))
-		d.AddElement(self._txtCmd)
-		d.AddElement(self._btnAdd)
+		d.add_element(ui.Label('Beep parameters:'))
+		d.add_element(self._txtCmd)
+		d.add_element(self._btnAdd)
 
 		# Assemble the stuff altogether
-		self.Panel = ui.VContainer([c, d])
+		self.panel = ui.VContainer([c, d])
 		return
 
 
-	def Update(self): # The method is fired when user requests an updated UI view
-		if self.Panel.Visible: # We can enhance Ajenti performance by not refreshing the stuff when it's not visible
-			self.Beeps.Parse() # Reload profiles
-			self._tblBeeps.Rows = [self._tblBeeps.Rows[0]] # Remove all rows but the header
-			for k in self.Beeps.Profiles:
+	def update(self): # The method is fired when user requests an updated UI view
+		if self.panel.visible: # We can enhance Ajenti performance by not refreshing the stuff when it's not visible
+			self.Beeps.parse() # Reload profiles
+			self._tblBeeps.rows = [self._tblBeeps.rows[0]] # Remove all rows but the header
+			for k in self.Beeps.profiles:
 				l1 = ui.Link('Beep!')
 				l2 = ui.Link('Delete')
-				l1.Handler = self.HControlClicked
-				l2.Handler = self.HControlClicked
+				l1.handler = self._on_control_clicked
+				l2.handler = self._on_control_clicked
 
 				# We'll use custom field 'profile' to store profile this control link is for
-				l1.Profile = k
-				l2.Profile = k
+				l1.profile = k
+				l2.profile = k
 				# And 'tag' property to remember what's the link for
-				l1.Tag = 'beep'
-				l2.Tag = 'delete'
+				l1.tag = 'beep'
+				l2.tag = 'delete'
 
 				r = ui.DataTableRow([ui.Label(k), ui.HContainer([l1, l2])])
-				self._tblBeeps.Rows.append(r)
+				self._tblBeeps.rows.append(r)
 			return
 
 
-	def HAddClicked(self, t, e, d): # The parameters passed are: the control that caused event, the event name and optional event data
-		self.Beeps.Profiles.append(self._txtCmd.Text)
-		self._txtCmd.Text = ''
-		self.Beeps.Save()
+	def _on_add_clicked(self, t, e, d): # The parameters passed are: the control that caused event, the event name and optional event data
+		self.Beeps.profiles.append(self._txtCmd.text)
+		self._txtCmd.text = ''
+		self.Beeps.save()
 
 
-	def HControlClicked(self, t, e, d):
-		if t.Tag == 'beep':
-			tools.Actions['beeper/beep'].Run(t.Profile) # Call the beeper/beep action (see below)
-		if t.Tag == 'delete':
-			self.Beeps.Profiles.remove(t.Profile)
-			self.Beeps.Save()
-			return
+	def _on_control_clicked(self, t, e, d):
+		if t.tag == 'beep':
+			tools.actions['beeper/beep'].run(t.profile) # Call the beeper/beep action (see below)
+		if t.tag == 'delete':
+			self.Beeps.profiles.remove(t.profile)
+			self.Beeps.save()
 
 
 # The Actions are common way for plugin interconnection. Here we define 'beep' action that can be later called by any other plugin
 class BeepAction(tools.Action):
-	Name = 'beep'
-	Plugin = 'beeper'
+	name = 'beep'
+	plugin = 'beeper'
 
-	def Run(self, d): # Argument is an optional parameter passed to the Action
+	def run(self, d): # Argument is an optional parameter passed to the Action
 		try:
-			tools.Actions['core/shell-run'].Run('beep ' + d)
+			tools.actions['core/shell-run'].run('beep ' + d)
 			log.warn('Beeper', 'Beeping: ' + 'beep ' + d)
 		except:
 			pass
@@ -136,27 +135,22 @@ class BeepAction(tools.Action):
 # Our class to handle the /etc/ajenti/beeper.conf file
 # The file contains parameter sets for beep(1) command
 class BeepingProfiles:
-	Profiles = None
+	profiles = None
 
-	def Parse(self):
-		self.Profiles = []
-
+	def parse(self):
+		self.profiles = []
 		try:
 			f = open('/etc/ajenti/beeper.conf', 'r')
 			ss = f.read().splitlines()
 			f.close()
 
 			for s in ss:
-				self.Profiles.append(s)
+				self.profiles.append(s)
 		except:
 			pass
 
-		return
-
-	def Save(self):
+	def save(self):
 		f = open('/etc/ajenti/beeper.conf', 'w')
-		for x in self.Profiles:
+		for x in self.profiles:
 			f.write(x + '\n')
 		f.close()
-
-		return

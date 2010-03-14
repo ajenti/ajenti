@@ -6,91 +6,83 @@ import log
 import tools
 
 class ServicesPluginMaster(PluginMaster):
-	Name = 'Services'
+	name = 'Services'
 
-	def OnLoad(self):
-		PluginMaster.OnLoad(self)
+	def _on_load(self):
+		PluginMaster._on_load(self)
 
-	def MakeInstance(self):
+	def make_instance(self):
 		i = ServicesPluginInstance(self)
-		self.Instances.append(i)
+		self.instances.append(i)
 		return i
 
 
 class ServicesPluginInstance(PluginInstance):
-	Name = 'Services'
+	name = 'Services'
 	_lblStat = None
-	Svcs = None
+	svcs = None
 	_tblSvcs = None
 
-	def OnLoad(self, s):
-		PluginInstance.OnLoad(self, s)
+	def _on_load(self, s):
+		PluginInstance._on_load(self, s)
 
 		c = ui.Category()
-		c.Text = 'Services'
-		c.Description = 'Manage initscripts'
-		c.Icon = 'plug/services;icon'
-		self.CategoryItem = c
-
-		self.Svcs = Services()
-
-		self.BuildPanel()
-
+		c.text = 'Services'
+		c.description = 'Manage initscripts'
+		c.icon = 'plug/services;icon'
+		self.category_item = c
+		self.svcs = Services()
+		self.build_panel()
 		log.info('ServicesPlugin', 'Started instance')
 
 
-	def BuildPanel(self):
+	def build_panel(self):
 		self._lblStat = ui.Label()
 		l = ui.Label('Services management')
-		l.Size = 5
+		l.size = 5
 
 		c = ui.HContainer([ui.Image('plug/services;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblStat])])
 		self._tblSvcs = ui.DataTable()
-		self._tblSvcs.Title = 'Services'
-		self._tblSvcs.Widths = [200,100,100,100]
+		self._tblSvcs.title = 'Services'
+		self._tblSvcs.widths = [200,100,100,100]
 		r = ui.DataTableRow([ui.Label('Name'), ui.Label('Status'), ui.Label('PID'), ui.Label('Control')], True)
-		r.IsHeader = True
-		self._tblSvcs.Rows.append(r)
+		r.is_header = True
+		self._tblSvcs.rows.append(r)
 
-		self.Panel = ui.VContainer([c, ui.Spacer(1,10), self._tblSvcs])
+		self.panel = ui.VContainer([c, ui.Spacer(1,10), self._tblSvcs])
 		return
 
-
-	def HButtonClicked(self, t, e, d):
-		return
-
-	def Update(self):
-		if self.Panel.Visible:
-			self.Svcs.Rescan()
-			self._tblSvcs.Rows = [self._tblSvcs.Rows[0]]
+	def update(self):
+		if self.panel.visible:
+			self.svcs.rescan()
+			self._tblSvcs.rows = [self._tblSvcs.rows[0]]
 			cr = 0
-			for e in self.Svcs.List:
+			for e in self.svcs.list:
 				l1 = ui.Link('Start')
-				l1.Tag = 'start'
-				if e.Status == 'start/running':
+				l1.tag = 'start'
+				if e.status == 'start/running':
 					cr += 1
-					l1.Text = 'Stop'
-					l1.Tag = 'stop'
-				l1.Svc = e.Name
-				l1.Handler = self.HServiceClicked
-				self._tblSvcs.Rows.append(ui.DataTableRow([ui.Label(e.Name), ui.Label(e.Status), ui.Label(e.PID), ui.HContainer([l1])]))
-			self._lblStat.Text = str(cr) + ' running'
+					l1.text = 'Stop'
+					l1.tag = 'stop'
+				l1.svc = e.name
+				l1.handler = self._on_service_clicked
+				self._tblSvcs.rows.append(ui.DataTableRow([ui.Label(e.name), ui.Label(e.status), ui.Label(e.pid), ui.HContainer([l1])]))
+			self._lblStat.text = str(cr) + ' running'
 		return
 
-
-	def HServiceClicked(self, t, e, d):
-		if t.Tag == 'start':
-			tools.Actions['services/start'].Run(t.Svc)
-		if t.Tag == 'stop':
-			tools.Actions['services/stop'].Run(t.Svc)
+	def _on_service_clicked(self, t, e, d):
+		if t.tag == 'start':
+			tools.actions['services/start'].run(t.svc)
+		if t.tag == 'stop':
+			tools.actions['services/stop'].run(t.svc)
 
 
 class Services:
-	List = None
+	list = None
 
-	def Rescan(self):
-		ss = tools.Actions['services/list'].Run().splitlines()
-		self.List = []
+	def rescan(self):
+		ss = tools.actions['services/list'].run().splitlines()
+		self.list = []
 
 		for s in ss:
 			a = s.split(' ')
@@ -99,57 +91,57 @@ class Services:
 				a.remove(a[1])
 
 			e = Service()
-			e.Name = a[0]
-			self.List.append(e)
-			e.Status = a[1].strip(',')
-			if e.Status == 'start/running' and len(a)>3:
-				e.PID = a[3]
-		self.List.sort()
-		return
+			e.name = a[0]
+			self.list.append(e)
+			e.status = a[1].strip(',')
+			if e.status == 'start/running' and len(a)>3:
+				e.pid = a[3]
+		self.list.sort()
+
 
 class Service:
-	Name = ''
-	Status = 'stop/waiting'
-	PID = ''
+	name = ''
+	status = 'stop/waiting'
+	pid = ''
 
 	def __cmp__(self, other):
-		if not self.Status == other.Status:
-			return cmp(self.Status, other.Status)
-		return cmp(self.Name, other.Name)
-
+		if not self.status == other.status:
+			return cmp(self.status, other.status)
+		return cmp(self.name, other.name)
 
 
 class ListAction(tools.Action):
-	Name = 'list'
-	Plugin = 'services'
+	name = 'list'
+	plugin = 'services'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('initctl list')
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('initctl list')
+
 
 class StartAction(tools.Action):
-	Name = 'start'
-	Plugin = 'services'
+	name = 'start'
+	plugin = 'services'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('/etc/init.d/' + d + ' start')
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('/etc/init.d/' + d + ' start')
 
 class StopAction(tools.Action):
-	Name = 'stop'
-	Plugin = 'services'
+	name = 'stop'
+	plugin = 'services'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('/etc/init.d/' + d + ' stop')
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('/etc/init.d/' + d + ' stop')
 
 class StatusAction(tools.Action):
-	Name = 'status'
-	Plugin = 'services'
+	name = 'status'
+	plugin = 'services'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('initctl status ' + d)
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('initctl status ' + d)
 
 class PureStatusAction(tools.Action):
-	Name = 'status-pure'
-	Plugin = 'services'
+	name = 'status-pure'
+	plugin = 'services'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('/etc/init.d/' + d + ' status')
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('/etc/init.d/' + d + ' status')

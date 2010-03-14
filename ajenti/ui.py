@@ -34,7 +34,7 @@ class Element(object):
 		return ''
 
 	def handle(self, target, event, data):
-		if self.id == target and not self.Handler == None:
+		if self.id == target and not self.handler == None:
 			self.handler(self, event, data)
 
 
@@ -76,11 +76,6 @@ class Container(Element):
 
 
 class HContainer(Container):
-	def __init__(self, e=[]):
-		Container.__init__(self)
-		self.elements = e
-		return
-
 	def dump_HTML(self):
 		s = ''
 		if self.visible:
@@ -91,14 +86,9 @@ class HContainer(Container):
 			s += '</tr></table>'
 		return s
 
-		
-class VContainer(Container):
-	def __init__(self, e=[]):
-		Container.__init__(self)
-		self.elements = e
-		return
 
-	def DumpHTML(self):
+class VContainer(Container):
+	def dump_HTML(self):
 		s = ''
 		if self.visible:
 			s += '<table cellspacing="0" cellpadding="0">'
@@ -129,7 +119,7 @@ class Button(Element):
 			'<div class="ui-el-button">' + self.text + '</div></a>';
 		return s
 
-		
+
 class Link(Element):
 	text = ""
 
@@ -142,7 +132,7 @@ class Link(Element):
 			'<span class="ui-el-link">' + self.text + '</span></a>';
 		return s
 
-		
+
 class Action(Element):
 	text = ""
 	description = ""
@@ -160,7 +150,7 @@ class Action(Element):
 			self.description + '</td></tr></table></div></a>';
 		return s
 
-		
+
 class Label(Element):
 	text = ""
 	size = 1
@@ -173,10 +163,10 @@ class Label(Element):
 		s = '<div class="ui-el-label-' + str(self.size) + '">' + self.text + '</div>';
 		return s
 
-		
+
 class Input(Element):
 	text = ""
-	
+
 	def __init__(self, t=''):
 		Element.__init__(self)
 		self.text = t
@@ -193,7 +183,7 @@ class Input(Element):
 		if e == 'update':
 			self.text = util.url_decode(d)
 
-			
+
 class Checkbox(Element):
 	checked = False
 
@@ -232,10 +222,6 @@ class Radio(Element):
 
 
 class RadioGroup(VContainer):
-	def __init__(self):
-		VContainer.__init__(self)
-		return
-
 	def add(self, s):
 		r = Radio()
 		l = Label(s)
@@ -258,7 +244,7 @@ class Image(Element):
 		s = '<img class="ui-el-image" src="/dl;' + self.file + '" />';
 		return s
 
-		
+
 class ImageLabel(Element):
 	file = ""
 	text = ""
@@ -288,7 +274,7 @@ class Spacer(Element):
 		s = '<div style="width:' + str(self.width) + 'px; height:' + str(self.height) + 'px;"></div>';
 		return s
 
-		
+
 class Category(Element):
 	text = ""
 	description = ""
@@ -305,7 +291,7 @@ class Category(Element):
 			'</td></tr></table></div></a>';
 		return s
 
-		
+
 class MainWindow(Container):
 	def dump_HTML(self):
 		s = ''
@@ -318,7 +304,7 @@ class MainWindow(Container):
 
 		return s
 
-		
+
 class TopBar(Element):
 	def dump_HTML(self):
 		s = '<span class="ui-logo"><img src="/dl;core;ui/logo.png" /></span>';
@@ -431,7 +417,7 @@ class DialogBox(Element):
 		self.btnOK = Button('OK')
 		self.btnCancel = Button('Cancel')
 		self.lblTitle = Label('Options')
-		self.lblTitle.Size = 4
+		self.lblTitle.size = 4
 		self._content = VContainer([self.lblTitle, Spacer(1,10), Element()])
 		self.buttons = HContainer([self.btnOK, self.btnCancel])
 		return
