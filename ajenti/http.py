@@ -15,7 +15,11 @@ Server = None
 Running = True
 
 def Run():
-	global Server, Running
-	log.info('HTTP', 'Starting server')
-	Server = HTTPServer(('', config.HttpPort), Handler);
-	Server.serve_forever()
+    global Server, Running
+    log.info('HTTP', 'Starting server')
+    Server = HTTPServer(('', config.HttpPort), Handler);
+    try:
+        Server.serve_forever()
+    except KeyboardInterrupt, e:
+        log.info('HTTP', 'Stoping by <Control-C>')
+
