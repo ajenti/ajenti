@@ -261,9 +261,13 @@ class InterfacesFile:
 	def Parse(self):
 		self.Entries = {}
 
-		f = open('/etc/network/interfaces')
-		ss = f.read().splitlines()
-		f.close()
+		try:
+			f = open('/etc/network/interfaces')
+			ss = f.read().splitlines()
+			f.close()
+		except IOError, e:
+			log.err('NetworkPlugin', str(e))
+			return
 
 		while len(ss)>0:
 			while len(ss)>0:
