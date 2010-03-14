@@ -116,8 +116,10 @@ class DetectPlatform(tools.Action):
 	Plugin = 'core'
 
 	def Run(self, d = None):
-		if tools.Actions['core/shell-status'].Run('lsb_release -sd | grep Ubuntu') == 0:
+		if tools.Actions['core/shell-status'].Run('cat /etc/issue | grep Fedora') == 0:
+			return 'fedora'
+		if tools.Actions['core/shell-status'].Run('cat /etc/issue | grep Ubuntu') == 0:
 			return 'ubuntu'
-		if tools.Actions['core/shell-status'].Run('test -x /etc/debian_version') == 0:
+		if tools.Actions['core/shell-status'].Run('test -e /etc/debian_version') == 0:
 			return 'debian'
 		return 'generic'
