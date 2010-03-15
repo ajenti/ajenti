@@ -1,13 +1,14 @@
-Actions = {}
+actions = {}
 
-def RegisterAction(a):
-	global Actions
-	n = a.Plugin + '/' + a.Name
-	Actions[n] = a
+def register_action(a):
+	global actions
+	n = a.plugin + '/' + a.name
+	actions[n] = a
 
 class Action(object):
-	Name = ''
-	Plugin = ''
+	name = ''
+	plugin = ''
 
-	def Run(self, params = None):
+	def run(self, params=None):
 		pass
+		

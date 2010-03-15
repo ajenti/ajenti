@@ -1,57 +1,59 @@
-from plugin import PluginMaster, PluginInstance
 import commands
+
+from plugin import PluginMaster, PluginInstance
 import session
 import ui
 import log
 import config
 import tools
 
+
 class DashboardPluginMaster(PluginMaster):
-	Name = 'Dashboard'
+	name = 'Dashboard'
 
-	def OnLoad(self):
-		PluginMaster.OnLoad(self)
+	def _on_load(self):
+		PluginMaster._on_load(self)
 
-	def MakeInstance(self):
+	def make_instance(self):
 		i = DashboardPluginInstance(self)
-		self.Instances.append(i)
+		self.instances.append(i)
 		return i
 
 
 class DashboardPluginInstance(PluginInstance):
-	Name = 'Dashboard'
+	name = 'Dashboard'
 
 	_lblServerName = None
 	_lblAjentiVer = None
 	_lblDistro = None
 
-	def OnLoad(self, s):
-		PluginInstance.OnLoad(self, s)
+	def _on_load(self, s):
+		PluginInstance._on_load(self, s)
 
 		c = ui.Category()
-		c.Text = 'Dashboard'
-		c.Description = 'Server status'
-		c.Icon = 'plug/dashboard;icon'
-		self.CategoryItem = c
+		c.text = 'Dashboard'
+		c.description = 'Server status'
+		c.icon = 'plug/dashboard;icon'
+		self.category_item = c
 
-		self.BuildPanel()
+		self.build_panel()
 
 		log.info('DashboardPlugin', 'Started instance')
 		return
 
-	def BuildPanel(self):
+	def build_panel(self):
 		self._lblServerName = ui.Label()
 		self._lblAjentiVer = ui.Label()
 		self._lblDistro = ui.Label()
-		self._lblServerName.Size = 5
+		self._lblServerName.size = 5
 
 		c = ui.HContainer([ui.Image('plug/dashboard;server.png'), ui.Spacer(10,1), ui.VContainer([self._lblServerName, self._lblDistro, self._lblAjentiVer])])
-		self.Panel = ui.Container([c])
+		self.panel = ui.Container([c])
 		return
 
-	def Update(self):
-		self._lblServerName.Text = config.ServerName
-		self._lblAjentiVer.Text = '&nbsp;Ajenti ' + config.AjentiVersion
-		self._lblDistro.Text = '&nbsp;' + tools.Actions['core/detect-distro'].Run(None)
+	def update(self):
+		self._lblServerName.text = config.server_name
+		self._lblAjentiVer.text = '&nbsp;Ajenti ' + config.ajenti_version
+		self._lblDistro.text = '&nbsp;' + tools.actions['core/detect-distro'].run()
 		return
 

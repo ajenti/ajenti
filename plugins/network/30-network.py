@@ -6,258 +6,238 @@ import log
 import tools
 
 class NetworkPluginMaster(PluginMaster):
-	Name = 'Network'
-	Platform = ['debian', 'ubuntu']
+	name = 'Network'
+	platform = ['debian', 'ubuntu']
 
-	def OnLoad(self):
-		PluginMaster.OnLoad(self)
+	def _on_load(self):
+		PluginMaster._on_load(self)
 
-	def MakeInstance(self):
+	def make_instance(self):
 		i = NetworkPluginInstance(self)
-		self.Instances.append(i)
+		self.instances.append(i)
 		return i
 
 
 class NetworkPluginInstance(PluginInstance):
-	Name = 'Network'
+	name = 'Network'
 	_lblStats = None
-	_tblIfaces = None
+	_tblifaces = None
 	_tblDNS = None
 	_btnAddDNS = None
 	DNS = None
-	Interfaces = None
+	interfaces = None
 	dlgEditIface = None
 	dlgEditDNS = None
 
-	def OnLoad(self, s):
-		PluginInstance.OnLoad(self, s)
+	def _on_load(self, s):
+		PluginInstance._on_load(self, s)
 
 		c = ui.Category()
-		c.Text = 'Network'
-		c.Description = 'Configure adapters'
-		c.Icon = 'plug/network;icon'
-		self.CategoryItem = c
+		c.text = 'Network'
+		c.description = 'Configure adapters'
+		c.icon = 'plug/network;icon'
+		self.category_item = c
 
-		self.BuildPanel()
-		self.Interfaces = InterfacesFile()
+		self.build_panel()
+		self.interfaces = InterfacesFile()
 		self.DNS = DNSFile()
 		log.info('NetworkPlugin', 'Started instance')
 
+	def _on_post_load(self):
+		self.session.register_panel(self.dlgEditIface)
+		self.session.register_panel(self.dlgEditDNS)
 
-	def OnPostLoad(self):
-		self.Session.RegisterPanel(self.dlgEditIface)
-		self.Session.RegisterPanel(self.dlgEditDNS)
-
-
-	def BuildPanel(self):
+	def build_panel(self):
 		l = ui.Label('Networking')
-		l.Size = 5
+		l.size = 5
 		self._lblStats = ui.Label()
 
 		c = ui.HContainer([ui.Image('plug/network;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblStats])])
 		d = ui.VContainer([])
 
 		t = ui.DataTable()
-		t.Title = 'Network interfaces'
-		r = ui.DataTableRow([ui.Label('Interface'), ui.Label('Mode'), ui.Label('Address'), ui.Label('Netmask'), ui.Label('Status'), ui.Label('Control')])
-		t.Widths = [100,100,100,100,100,200]
-		r.IsHeader = True
-		t.Rows.append(r)
-		self._tblIfaces = t
+		t.title = 'Network interfaces'
+		r = ui.DataTableRow([ui.Label('Interface'), ui.Label('mode'), ui.Label('Address'), ui.Label('Netmask'), ui.Label('Status'), ui.Label('Control')])
+		t.widths = [100,100,100,100,100,200]
+		r.is_header = True
+		t.rows.append(r)
+		self._tblifaces = t
 
-		d.AddElement(t)
-
+		d.add_element(t)
 
 		t = ui.DataTable()
-		t.Title = 'DNS nameservers'
+		t.title = 'DNS nameservers'
 		r = ui.DataTableRow([ui.Label('Element'), ui.Label('Value'), ui.Label('Control')])
-		t.Widths = [100,100,100]
-		r.IsHeader = True
-		t.Rows.append(r)
+		t.widths = [100,100,100]
+		r.is_header = True
+		t.rows.append(r)
 		self._tblDNS = t
 
-		d.AddElement(ui.Spacer(1,20))
-		d.AddElement(t)
+		d.add_element(ui.Spacer(1,20))
+		d.add_element(t)
 		self._btnAddDNS = ui.Button('Add new')
-		self._btnAddDNS.Handler = self.HAddDNSClicked
-		d.AddElement(self._btnAddDNS)
+		self._btnAddDNS.handler = self._on_add_DNS_clicked
+		d.add_element(self._btnAddDNS)
 
-		#self._btnRestartNetworking = ui.Action('Restart networking')
-		#self._btnRestartNetworking.Icon = 'core;ui/icon-restart'
-		#self._btnRestartNetworking.Description = 'Reconfigure adapters'
-		#self._btnRestartNetworking.Handler = self.HRestartClicked
-#		b = ui.HContainer([self._btnRestartNetworking])
-		b = ui.HContainer()
-		self.Panel = ui.VContainer([c, ui.Spacer(1,10), d, ui.Spacer(1,30), b])
+		self.panel = ui.VContainer([c, ui.Spacer(1,10), d])
 
 		self.dlgEditIface = EditIfaceDialog()
-		self.dlgEditIface.btnCancel.Handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
-		self.dlgEditIface.btnOK.Handler = self.HIfaceEdited
+		self.dlgEditIface.btnCancel.handler = lambda t,e,d: self.core.switch.switch(self.panel)
+		self.dlgEditIface.btnOK.handler = self._on_iface_edited
 		self.dlgEditDNS = EditDNSDialog()
-		self.dlgEditDNS.btnCancel.Handler = lambda t,e,d: self.Core.Switch.Switch(self.Panel)
-		self.dlgEditDNS.btnOK.Handler = self.HDNSEdited
+		self.dlgEditDNS.btnCancel.handler = lambda t,e,d: self.core.switch.switch(self.panel)
+		self.dlgEditDNS.btnOK.handler = self._on_DNS_edited
 		return
 
 
-	def Update(self):
-		if self.Panel.Visible:
-			self.Interfaces.Parse()
-			self._tblIfaces.Rows = [self._tblIfaces.Rows[0]]
+	def update(self):
+		if self.panel.visible:
+			self.interfaces.parse()
+			self._tblifaces.rows = [self._tblifaces.rows[0]]
 
 			cup = 0
 
-			for k in self.Interfaces.Entries.keys():
-				s = self.Interfaces.Entries[k]
-				st = tools.Actions['network/ifstate'].Run(s.Name)
-				a,m = tools.Actions['network/ifaddr'].Run(s.Name)
+			for k in self.interfaces.entries.keys():
+				s = self.interfaces.entries[k]
+				st = tools.actions['network/ifstate'].run(s.name)
+				a,m = tools.actions['network/ifaddr'].run(s.name)
 
 				l1 = ui.Link('Edit')
 				l2 = ui.Link('Bring down')
-				l1.Handler = self.HIfaceControlClicked
-				l2.Handler = self.HIfaceControlClicked
-				l1.Iface = s.Name
-				l2.Iface = s.Name
-				l1.Tag = 'edit'
-				l2.Tag = 'down'
+				l1.handler = self._on_iface_control_clicked
+				l2.handler = self._on_iface_control_clicked
+				l1.iface = s.name
+				l2.iface = s.name
+				l1.tag = 'edit'
+				l2.tag = 'down'
 
 				il = ui.ImageLabel('plug/network;if-' + st + '.png', 'Down')
 
 				if st == 'up':
-					il.Text = 'Up'
+					il.text = 'Up'
 					cup += 1
 				else:
-					l2.Text = 'Bring up'
-					l2.Tag = 'up'
+					l2.text = 'Bring up'
+					l2.tag = 'up'
 					a,m = ('','')
 
-				r = ui.DataTableRow([ui.Label(s.Name), ui.Label(s.Mode), ui.Label(a), ui.Label(m), il, ui.HContainer([l1, l2])])
+				r = ui.DataTableRow([ui.Label(s.name), ui.Label(s.mode), ui.Label(a), ui.Label(m), il, ui.HContainer([l1, l2])])
 
-				self._tblIfaces.Rows.append(r)
+				self._tblifaces.rows.append(r)
 
 
-			self.DNS.Parse()
-			self._tblDNS.Rows = [self._tblDNS.Rows[0]]
+			self.DNS.parse()
+			self._tblDNS.rows = [self._tblDNS.rows[0]]
 			i = 0
-			for e in self.DNS.Entries:
+			for e in self.DNS.entries:
 				l1 = ui.Link('Edit')
 				l2 = ui.Link('Delete')
-				l1.Handler = self.HDNSControlClicked
-				l2.Handler = self.HDNSControlClicked
-				l1.Entry = i
-				l2.Entry = i
-				l1.Tag = 'edit'
-				l2.Tag = 'delete'
+				l1.handler = self._on_DNS_control_clicked
+				l2.handler = self._on_DNS_control_clicked
+				l1.entry = i
+				l2.entry = i
+				l1.tag = 'edit'
+				l2.tag = 'delete'
 				i += 1
 				r = ui.DataTableRow([ui.Label(e['element']), ui.Label(e['value']), ui.HContainer([l1, l2])])
-				self._tblDNS.Rows.append(r)
+				self._tblDNS.rows.append(r)
 
-			self._lblStats.Text = str(cup) + ' interfaces up out of ' + str(len(self.Interfaces.Entries)) + ' total'
+			self._lblStats.text = str(cup) + ' interfaces up out of ' + str(len(self.interfaces.entries)) + ' total'
 		return
 
 
-	def HIfaceControlClicked(self, t, e, d):
-		if t.Tag == 'up':
-			tools.Actions['network/ifup'].Run(t.Iface)
-		if t.Tag == 'down':
-			tools.Actions['network/ifdown'].Run(t.Iface)
-		if t.Tag == 'edit':
-			self.Panel.Visible = False
-			self.dlgEditIface.Visible = True
-			self.dlgEditIface.lblTitle.Text = 'Interface options for ' + t.Iface
-			self.dlgEditIface.IfaceName = t.Iface
-			self.dlgEditIface.txtAddress.Text = self.Interfaces.Entries[t.Iface].Params['address']
-			self.dlgEditIface.txtNetmask.Text = self.Interfaces.Entries[t.Iface].Params['netmask']
-			self.dlgEditIface.txtGateway.Text = self.Interfaces.Entries[t.Iface].Params['gateway']
-			self.dlgEditIface.txtDNS.Text = self.Interfaces.Entries[t.Iface].Params['dns-nameserver']
-			self.dlgEditIface.txtPreUp.Text = self.Interfaces.Entries[t.Iface].Params['pre-up']
-			self.dlgEditIface.txtPostUp.Text = self.Interfaces.Entries[t.Iface].Params['post-up']
-			self.dlgEditIface.txtPreDown.Text = self.Interfaces.Entries[t.Iface].Params['pre-down']
-			self.dlgEditIface.txtPostDown.Text = self.Interfaces.Entries[t.Iface].Params['post-down']
-			self.dlgEditIface.txtNetwork.Text = self.Interfaces.Entries[t.Iface].Params['network']
-			self.dlgEditIface.txtBroadcast.Text = self.Interfaces.Entries[t.Iface].Params['broadcast']
-			self.dlgEditIface.txtMetric.Text = self.Interfaces.Entries[t.Iface].Params['metric']
-			self.dlgEditIface.txtMTU.Text = self.Interfaces.Entries[t.Iface].Params['mtu']
-			self.dlgEditIface.txtHwaddr.Text = self.Interfaces.Entries[t.Iface].Params['hwaddress']
-			self.dlgEditIface.chkAuto.Checked = self.Interfaces.Entries[t.Iface].Auto
-			self.dlgEditIface.rLoopback.Checked = self.Interfaces.Entries[t.Iface].Mode == 'loopback'
-			self.dlgEditIface.rManual.Checked = self.Interfaces.Entries[t.Iface].Mode == 'manual'
-			self.dlgEditIface.rStatic.Checked = self.Interfaces.Entries[t.Iface].Mode == 'static'
-			self.dlgEditIface.rDHCP.Checked = self.Interfaces.Entries[t.Iface].Mode == 'dhcp'
+	def _on_iface_control_clicked(self, t, e, d):
+		if t.tag == 'up':
+			tools.actions['network/ifup'].run(t.iface)
+		if t.tag == 'down':
+			tools.actions['network/ifdown'].run(t.iface)
+		if t.tag == 'edit':
+			self.panel.visible = False
+			self.dlgEditIface.visible = True
+			self.dlgEditIface.lblTitle.text = 'Interface options for ' + t.iface
+			self.dlgEditIface.ifaceName = t.iface
+			self.dlgEditIface.txtAddress.text = self.interfaces.entries[t.iface].params['address']
+			self.dlgEditIface.txtNetmask.text = self.interfaces.entries[t.iface].params['netmask']
+			self.dlgEditIface.txtGateway.text = self.interfaces.entries[t.iface].params['gateway']
+			self.dlgEditIface.txtDNS.text = self.interfaces.entries[t.iface].params['dns-nameserver']
+			self.dlgEditIface.txtPreUp.text = self.interfaces.entries[t.iface].params['pre-up']
+			self.dlgEditIface.txtPostUp.text = self.interfaces.entries[t.iface].params['post-up']
+			self.dlgEditIface.txtPreDown.text = self.interfaces.entries[t.iface].params['pre-down']
+			self.dlgEditIface.txtPostDown.text = self.interfaces.entries[t.iface].params['post-down']
+			self.dlgEditIface.txtNetwork.text = self.interfaces.entries[t.iface].params['network']
+			self.dlgEditIface.txtBroadcast.text = self.interfaces.entries[t.iface].params['broadcast']
+			self.dlgEditIface.txtMetric.text = self.interfaces.entries[t.iface].params['metric']
+			self.dlgEditIface.txtMTU.text = self.interfaces.entries[t.iface].params['mtu']
+			self.dlgEditIface.txtHwaddr.text = self.interfaces.entries[t.iface].params['hwaddress']
+			self.dlgEditIface.chkAuto.checked = self.interfaces.entries[t.iface].auto
+			self.dlgEditIface.rLoopback.checked = self.interfaces.entries[t.iface].mode == 'loopback'
+			self.dlgEditIface.rManual.checked = self.interfaces.entries[t.iface].mode == 'manual'
+			self.dlgEditIface.rStatic.checked = self.interfaces.entries[t.iface].mode == 'static'
+			self.dlgEditIface.rDHCP.checked = self.interfaces.entries[t.iface].mode == 'dhcp'
 		return
 
-	def HIfaceEdited(self, t, e, d):
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['address'] = self.dlgEditIface.txtAddress.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['netmask'] = self.dlgEditIface.txtNetmask.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['gateway'] = self.dlgEditIface.txtGateway.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['dns-nameserver'] = self.dlgEditIface.txtDNS.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['pre-up'] = self.dlgEditIface.txtPreUp.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['post-up'] = self.dlgEditIface.txtPostUp.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['pre-down'] = self.dlgEditIface.txtPreDown.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['post-down'] = self.dlgEditIface.txtPostDown.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['network'] = self.dlgEditIface.txtNetwork.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['broadcast'] = self.dlgEditIface.txtBroadcast.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['metric'] = self.dlgEditIface.txtMetric.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['mtu'] = self.dlgEditIface.txtMTU.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Params['hwaddress'] = self.dlgEditIface.txtHwaddr.Text
-		self.Interfaces.Entries[self.dlgEditIface.IfaceName].Auto = self.dlgEditIface.chkAuto.Checked
-		if self.dlgEditIface.rLoopback.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'loopback'
-		if self.dlgEditIface.rStatic.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'static'
-		if self.dlgEditIface.rManual.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'manual'
-		if self.dlgEditIface.rDHCP.Checked: self.Interfaces.Entries[self.dlgEditIface.IfaceName].Mode == 'dhcp'
-		self.Interfaces.Save()
-		self.Core.Switch.Switch(self.Panel)
+	def _on_iface_edited(self, t, e, d):
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['address'] = self.dlgEditIface.txtAddress.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['netmask'] = self.dlgEditIface.txtNetmask.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['gateway'] = self.dlgEditIface.txtGateway.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['dns-nameserver'] = self.dlgEditIface.txtDNS.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['pre-up'] = self.dlgEditIface.txtPreUp.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['post-up'] = self.dlgEditIface.txtPostUp.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['pre-down'] = self.dlgEditIface.txtPreDown.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['post-down'] = self.dlgEditIface.txtPostDown.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['network'] = self.dlgEditIface.txtNetwork.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['broadcast'] = self.dlgEditIface.txtBroadcast.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['metric'] = self.dlgEditIface.txtMetric.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['mtu'] = self.dlgEditIface.txtMTU.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].params['hwaddress'] = self.dlgEditIface.txtHwaddr.text
+		self.interfaces.entries[self.dlgEditIface.ifaceName].auto = self.dlgEditIface.chkAuto.checked
+		if self.dlgEditIface.rLoopback.checked: self.interfaces.entries[self.dlgEditIface.ifaceName].mode == 'loopback'
+		if self.dlgEditIface.rStatic.checked: self.interfaces.entries[self.dlgEditIface.ifaceName].mode == 'static'
+		if self.dlgEditIface.rManual.checked: self.interfaces.entries[self.dlgEditIface.ifaceName].mode == 'manual'
+		if self.dlgEditIface.rDHCP.checked: self.interfaces.entries[self.dlgEditIface.ifaceName].mode == 'dhcp'
+		self.interfaces.save()
+		self.core.switch.switch(self.panel)
 		return
 
-	def HAddDNSClicked(self, t, e, d):
+	def _on_add_DNS_clicked(self, t, e, d):
 		x = ui.Element()
-		x.Entry = len(self.DNS.Entries)
-		x.Tag = 'edit'
-		self.DNS.Entries.append({'element':'nameserver', 'value':'0.0.0.0'})
-		self.HDNSControlClicked(x, 'click', None)
+		x.entry = len(self.DNS.entries)
+		x.tag = 'edit'
+		self.DNS.entries.append({'element':'nameserver', 'value':'0.0.0.0'})
+		self._on_DNS_control_clicked(x, 'click', None)
 		return
 
-	def HDNSControlClicked(self, t, e, d):
-		if t.Tag == 'delete':
-			self.DNS.Entries.remove(self.DNS.Entries[t.Entry])
-			self.DNS.Save()
-		if t.Tag == 'edit':
-			self.Panel.Visible = False
-			self.dlgEditDNS.Visible = True
-			self.dlgEditDNS.Entry = t.Entry
-			self.dlgEditDNS.txtValue.Text = self.DNS.Entries[t.Entry]['value']
-			self.dlgEditDNS.rNS.Checked = self.DNS.Entries[t.Entry]['element'] == 'nameserver'
-			self.dlgEditDNS.rSearch.Checked = self.DNS.Entries[t.Entry]['element'] == 'search'
-			self.dlgEditDNS.rDomain.Checked = self.DNS.Entries[t.Entry]['element'] == 'domain'
-			self.dlgEditDNS.rOptions.Checked = self.DNS.Entries[t.Entry]['element'] == 'options'
+	def _on_DNS_control_clicked(self, t, e, d):
+		if t.tag == 'delete':
+			self.DNS.entries.remove(self.DNS.entries[t.entry])
+			self.DNS.save()
+		if t.tag == 'edit':
+			self.panel.visible = False
+			self.dlgEditDNS.visible = True
+			self.dlgEditDNS.entry = t.entry
+			self.dlgEditDNS.txtValue.text = self.DNS.entries[t.entry]['value']
+			self.dlgEditDNS.rNS.checked = self.DNS.entries[t.entry]['element'] == 'nameserver'
+			self.dlgEditDNS.rSearch.checked = self.DNS.entries[t.entry]['element'] == 'search'
+			self.dlgEditDNS.rDomain.checked = self.DNS.entries[t.entry]['element'] == 'domain'
+			self.dlgEditDNS.rOptions.checked = self.DNS.entries[t.entry]['element'] == 'options'
 			return
 
-	def HDNSEdited(self, t, e, d):
-		self.DNS.Entries[self.dlgEditDNS.Entry]['value'] = self.dlgEditDNS.txtValue.Text
-		if self.dlgEditDNS.rNS.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'nameserver'
-		if self.dlgEditDNS.rSearch.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'search'
-		if self.dlgEditDNS.rDomain.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'domain'
-		if self.dlgEditDNS.rOptions.Checked: self.DNS.Entries[self.dlgEditDNS.Entry]['element'] = 'options'
-		self.DNS.Save()
-		self.Core.Switch.Switch(self.Panel)
+	def _on_DNS_edited(self, t, e, d):
+		self.DNS.entries[self.dlgEditDNS.entry]['value'] = self.dlgEditDNS.txtValue.text
+		if self.dlgEditDNS.rNS.checked: self.DNS.entries[self.dlgEditDNS.entry]['element'] = 'nameserver'
+		if self.dlgEditDNS.rSearch.checked: self.DNS.entries[self.dlgEditDNS.entry]['element'] = 'search'
+		if self.dlgEditDNS.rDomain.checked: self.DNS.entries[self.dlgEditDNS.entry]['element'] = 'domain'
+		if self.dlgEditDNS.rOptions.checked: self.DNS.entries[self.dlgEditDNS.entry]['element'] = 'options'
+		self.DNS.save()
+		self.core.switch.switch(self.panel)
 		return
-
-
-	#def HRestartClicked(self, t, e, d):
-	#	if e == 'click':
-	#		sensors.Service('networking', 'restart')
-	#		http.Restart()
-	#	return
 
 
 class InterfacesFile:
-	Entries = None
+	entries = None
 
-	def __init__(self):
-		self.Entries = {}
-		return
-
-	def Parse(self):
-		self.Entries = {}
+	def parse(self):
+		self.entries = {}
 
 		try:
 			f = open('/etc/network/interfaces')
@@ -268,57 +248,55 @@ class InterfacesFile:
 			return
 
 		while len(ss)>0:
-			while len(ss)>0:
-				if (len(ss[0]) > 0 and not ss[0][0] == '#'):
-					a = ss[0].strip(' \t\n').split(' ')
-					for s in a:
-						if s == '': a.remove(s)
-					if (a[0] == 'auto'):
-						if not self.Entries.has_key(a[1]):
-							self.Entries[a[1]] = InterfacesEntry()
-						e = self.Entries[a[1]]
-						e.Name = a[1]
-						e.Auto = True
-					elif (a[0] == 'iface'):
-						if not self.Entries.has_key(a[1]):
-							self.Entries[a[1]] = InterfacesEntry()
-						e = self.Entries[a[1]]
-						e.Name = a[1]
-						e.Class = a[2]
-						e.Mode = a[3]
-					else:
-						e.Params[a[0]] = ' '.join(a[1:])
+			if (len(ss[0]) > 0 and not ss[0][0] == '#'):
+				a = ss[0].strip(' \t\n').split(' ')
+				for s in a:
+					if s == '': a.remove(s)
+				if (a[0] == 'auto'):
+					if not self.entries.has_key(a[1]):
+						self.entries[a[1]] = InterfacesEntry()
+					e = self.entries[a[1]]
+					e.name = a[1]
+					e.auto = True
+				elif (a[0] == 'iface'):
+					if not self.entries.has_key(a[1]):
+						self.entries[a[1]] = InterfacesEntry()
+					e = self.entries[a[1]]
+					e.name = a[1]
+					e.cls = a[2]
+					e.mode = a[3]
+				else:
+					e.params[a[0]] = ' '.join(a[1:])
+			if (len(ss)>1): ss = ss[1:]
+			else: ss = []
 
-				if (len(ss)>1): ss = ss[1:]
-				else: ss = []
-		return
-
-	def Save(self):
+	def save(self):
 		f = open('/etc/network/interfaces', 'w')
-		for i in self.Entries.keys():
-			self.Entries[i].Save(f)
+		for i in self.entries.keys():
+			self.entries[i].save(f)
 		f.close()
 		return
 
 
 class InterfacesEntry:
-	Name = ""
-	Auto = True
-	Class = ""
-	Mode = ""
-	Params = None
+	name = ""
+	auto = True
+	cls = ""
+	mode = ""
+	params = None
 
 	def __init__(self):
-		self.Params = { 'address':'', 'netmask':'', 'gateway':'', 'network':'', 'broadcast':'', 'dns-nameserver':'', 'metric':'', 'mtu':'', 'hwaddr':'', 'pre-up':'', 'pre-down':'', 'post-up':'', 'post-down':'', 'hwaddress':''}
+		self.params = { 'address':'', 'netmask':'', 'gateway':'', 'network':'', 'broadcast':'', 'dns-nameserver':'', 'metric':'', 'mtu':'', 'hwaddr':'', 'pre-up':'', 'pre-down':'', 'post-up':'', 'post-down':'', 'hwaddress':''}
 
-	def Save(self, f):
-		if self.Auto: f.write('auto ' + self.Name + '\n')
-		f.write('iface ' + self.Name + ' ' + self.Class + ' ' + self.Mode + '\n')
-		for k in self.Params.keys():
-			if self.Params[k] != '':
-				f.write('\t' + k + ' ' + self.Params[k] + '\n')
+	def save(self, f):
+		if self.auto:
+			f.write('auto ' + self.name + '\n')
+		f.write('iface ' + self.name + ' ' + self.cls + ' ' + self.mode + '\n')
+		for k in self.params.keys():
+			if self.params[k] != '':
+				f.write('\t' + k + ' ' + self.params[k] + '\n')
 		f.write('\n')
-		return
+
 
 class EditIfaceDialog(ui.DialogBox):
 	txtAddress = None
@@ -342,10 +320,10 @@ class EditIfaceDialog(ui.DialogBox):
 
 	def __init__(self):
 		ui.DialogBox.__init__(self)
-		self.lblTitle.Text = 'Edit interface options'
+		self.lblTitle.text = 'Edit interface options'
 		t = ui.LayoutTable([])
-		t.Widths = [150,200]
-		self.Width = "auto"
+		t.widths = [150,200]
+		self.width = "auto"
 
 		self.txtAddress = ui.Input()
 		self.txtNetmask = ui.Input()
@@ -363,54 +341,54 @@ class EditIfaceDialog(ui.DialogBox):
 		self.chkAuto = ui.Checkbox()
 
 		l = ui.Label('General')
-		l.Size = 3
-		t.Rows.append(ui.LayoutTableRow([l]))
-		t.Rows.append(ui.LayoutTableRow([ui.Container([self.chkAuto, ui.Label(' Bring up automatically')])], 2))
+		l.size = 3
+		t.rows.append(ui.LayoutTableRow([l]))
+		t.rows.append(ui.LayoutTableRow([ui.Container([self.chkAuto, ui.Label(' Bring up automatically')])], 2))
 		rg = ui.RadioGroup()
-		rg.Add(' Loopback')
-		rg.Add(' Static')
-		rg.Add(' Manual')
-		rg.Add(' DHCP')
-		self.rLoopback = rg.GetBox(0)
-		self.rStatic = rg.GetBox(1)
-		self.rManual = rg.GetBox(2)
-		self.rDHCP = rg.GetBox(3)
-		t.Rows.append(ui.LayoutTableRow([rg]))
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		rg.add(' Loopback')
+		rg.add(' Static')
+		rg.add(' Manual')
+		rg.add(' DHCP')
+		self.rLoopback = rg.get_box(0)
+		self.rStatic = rg.get_box(1)
+		self.rManual = rg.get_box(2)
+		self.rDHCP = rg.get_box(3)
+		t.rows.append(ui.LayoutTableRow([rg]))
+		t.rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		l = ui.Label('Scripts')
-		l.Size = 3
-		t.Rows.append(ui.LayoutTableRow([l], True))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('IP address:'), self.txtAddress]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Netmask:'), self.txtNetmask]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Gateway:'), self.txtGateway]))
+		l.size = 3
+		t.rows.append(ui.LayoutTableRow([l], True))
+		t.rows.append(ui.LayoutTableRow([ui.Label('IP address:'), self.txtAddress]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Netmask:'), self.txtNetmask]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Gateway:'), self.txtGateway]))
 
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		t.rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		l = ui.Label('Scripts')
-		l.Size = 3
-		t.Rows.append(ui.LayoutTableRow([l]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Pre-up:'), self.txtPreUp]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Post-up:'), self.txtPostUp]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Pre-down:'), self.txtPreDown]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Post-down:'), self.txtPostDown]))
+		l.size = 3
+		t.rows.append(ui.LayoutTableRow([l]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Pre-up:'), self.txtPreUp]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Post-up:'), self.txtPostUp]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Pre-down:'), self.txtPreDown]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Post-down:'), self.txtPostDown]))
 
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		t.rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
 		l = ui.Label('Advanced')
-		l.Size = 3
-		t.Rows.append(ui.LayoutTableRow([l]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Assigned DNS:'), self.txtDNS]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Network:'), self.txtNetwork]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Broadcast:'), self.txtBroadcast]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Metric:'), self.txtMetric]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('MTU:'), self.txtMTU]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Hardware address:'), self.txtHwaddr]))
+		l.size = 3
+		t.rows.append(ui.LayoutTableRow([l]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Assigned DNS:'), self.txtDNS]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Network:'), self.txtNetwork]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Broadcast:'), self.txtBroadcast]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Metric:'), self.txtMetric]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('MTU:'), self.txtMTU]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Hardware address:'), self.txtHwaddr]))
 
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		t.rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
-		self.Inner = t
-		self.Visible = False
+		self.inner = t
+		self.visible = False
 
 
 class EditDNSDialog(ui.DialogBox):
@@ -422,39 +400,39 @@ class EditDNSDialog(ui.DialogBox):
 
 	def __init__(self):
 		ui.DialogBox.__init__(self)
-		self.lblTitle.Text = 'Edit DNS list entry'
+		self.lblTitle.text = 'Edit DNS list entry'
 		t = ui.LayoutTable([])
-		t.Widths = [150,200]
-		self.Width = "auto"
+		t.widths = [150,200]
+		self.width = "auto"
 
 		self.txtValue = ui.Input()
 
 		rg = ui.RadioGroup()
-		rg.Add(' Nameserver')
-		rg.Add(' Search list')
-		rg.Add(' Local domain name')
-		rg.Add(' Option list')
-		self.rNS = rg.GetBox(0)
-		self.rSearch = rg.GetBox(1)
-		self.rDomain = rg.GetBox(2)
-		self.rOptions = rg.GetBox(3)
-		t.Rows.append(ui.LayoutTableRow([rg]))
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
-		t.Rows.append(ui.LayoutTableRow([ui.Label('Value:'), self.txtValue]))
-		t.Rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		rg.add(' Nameserver')
+		rg.add(' Search list')
+		rg.add(' Local domain name')
+		rg.add(' Option list')
+		self.rNS = rg.get_box(0)
+		self.rSearch = rg.get_box(1)
+		self.rDomain = rg.get_box(2)
+		self.rOptions = rg.get_box(3)
+		t.rows.append(ui.LayoutTableRow([rg]))
+		t.rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
+		t.rows.append(ui.LayoutTableRow([ui.Label('Value:'), self.txtValue]))
+		t.rows.append(ui.LayoutTableRow([ui.Spacer(1,15)]))
 
-		self.Inner = t
-		self.Visible = False
+		self.inner = t
+		self.visible = False
 
 
 class DNSFile:
-	Entries = None
+	entries = None
 
 	def __init__(self):
-		self.Entries = []
+		self.entries = []
 
-	def Parse(self):
-		self.Entries = []
+	def parse(self):
+		self.entries = []
 		f = open('/etc/resolv.conf')
 		ss = f.read().splitlines()
 		f.close()
@@ -464,50 +442,49 @@ class DNSFile:
 				a = ss[0].strip(' \t\n').split(' ')
 				for s in a:
 					if s == '': a.remove(s)
-				self.Entries.append({'element': a[0], 'value':' '.join(a[1:])})
+				self.entries.append({'element': a[0], 'value':' '.join(a[1:])})
 			if (len(ss)>1): ss = ss[1:]
 			else: ss = []
 		return
 
-	def Save(self):
+	def save(self):
 		f = open('/etc/resolv.conf', 'w')
-		for i in self.Entries:
+		for i in self.entries:
 			f.write(i['element'] + ' ' + i['value'] + '\n')
 		f.close()
 		return
 
 
-
 class IfdownAction(tools.Action):
-	Name = 'ifdown'
-	Plugin = 'network'
+	name = 'ifdown'
+	plugin = 'network'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('ifdown ' + d)
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('ifdown ' + d)
 
 class IfupAction(tools.Action):
-	Name = 'ifup'
-	Plugin = 'network'
+	name = 'ifup'
+	plugin = 'network'
 
-	def Run(self, d = ''):
-		return tools.Actions['core/shell-run'].Run('ifup ' + d)
+	def run(self, d = ''):
+		return tools.actions['core/shell-run'].run('ifup ' + d)
 
 
 class IfStateAction(tools.Action):
-	Name = 'ifstate'
-	Plugin = 'network'
+	name = 'ifstate'
+	plugin = 'network'
 
-	def Run(self, d = ''):
-		st = tools.Actions['core/script-status'].Run(['network', 'state', d])
+	def run(self, d = ''):
+		st = tools.actions['core/script-status'].run(['network', 'state', d])
 		if st == 0: return 'up'
 		return 'down'
 
 class IfAddrAction(tools.Action):
-	Name = 'ifaddr'
-	Plugin = 'network'
+	name = 'ifaddr'
+	plugin = 'network'
 
-	def Run(self, d = ''):
-		st = tools.Actions['core/script-run'].Run(['network', 'addr', d]).split(' ')
+	def run(self, d = ''):
+		st = tools.actions['core/script-run'].run(['network', 'addr', d]).split(' ')
 		a = '0.0.0.0'
 		m = '255.0.0.0'
 		for s in st:

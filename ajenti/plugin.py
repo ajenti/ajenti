@@ -3,47 +3,48 @@ import sys
 import log
 import tools
 
-Plugins = []
+plugins = []
 
 class PluginMaster(object):
-	Name = 'undefined'
-	Instances = []
-	Platform = ['any']
+	name = 'undefined'
+	instances = []
+	platform = ['any']
 
-	def OnLoad(self):
-		self.Instances = []
+	def _on_load(self):
+		self.instances = []
 
-	def MakeInstance(self):
+	def make_instance(self):
 		pass
 
 	def destroy(self):
 		pass
 
+		
 class PluginInstance(object):
-	Name = 'undefined'
-	CategoryItem = None
-	Panel = None
-	Core = None
-	Master = None
-	Session = None
+	name = 'undefined'
+	category_item = None
+	panel = None
+	core = None
+	master = None
+	session = None
 
 	def __init__(self, m):
-		self.Master = m
+		self.master = m
 
-	def OnLoad(self, sess):
-		self.Session = sess
+	def _on_load(self, sess):
+		self.session = sess
 
- 	def OnPostLoad(self):
+ 	def _on_post_load(self):
 		pass
 
-	def Update(self):
+	def update(self):
 		pass
 
 	def destroy(self):
 		pass
 
-def loadAll():
-	global Plugins
+def load_all():
+	global plugins
 
 	ss = os.listdir('plugins')
 	sys.path.insert(0, 'plugins')
@@ -56,22 +57,23 @@ def loadAll():
 
 	for plugin in PluginMaster.__subclasses__():
 		p = plugin()
-		Plugins.append(p)
-		p.OnLoad()
-	for action in tools.Action.__subclasses__():
-		tools.RegisterAction(action())
+		plugins.append(p)
+		p._on_load()
+		
+	for a in tools.Action.__subclasses__():
+		tools.register_action(a())
 
-def Instantiate():
-	global Plugins
+def instantiate():
+	global plugins
 
 	l = []
-	for p in Plugins:
-		l.append(p.MakeInstance())
+	for p in plugins:
+		l.append(p.make_instance())
 
 	return l
 
-def unloadAll():
-	global Plugins
+def unload_all():
+	global plugins
 
-	for p in Plugins:
+	for p in plugins:
 		p.destroy()

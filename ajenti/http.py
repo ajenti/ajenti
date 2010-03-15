@@ -1,25 +1,25 @@
-from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
+from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import log
-import session, config
+import session
+import config
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-    	#log.info('HTTP', 'Request from ' + self.client_address[0])
         self.send_response(200, 'OK')
-#        self.send_header('Content-type', 'text/html')
+		#self.send_header('Content-type', 'text/html')
         self.end_headers()
-    	session.ProcessRequest(self.client_address[0], self.path, self)
+    	session.process_request(self.client_address[0], self.path, self)
 
 
-Server = None
-Running = True
+server = None
+running = True
 
-def Run():
-    global Server, Running
+def run():
+    global server, running
     log.info('HTTP', 'Starting server')
-    Server = HTTPServer(('', config.HttpPort), Handler);
+    server = HTTPServer(('', config.http_port), Handler);
     try:
-        Server.serve_forever()
+        server.serve_forever()
     except KeyboardInterrupt, e:
         log.warn('HTTP', 'Stopping by <Control-C>')
 

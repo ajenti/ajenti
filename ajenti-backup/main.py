@@ -17,21 +17,21 @@ if len(sys.argv) == 1:
 	ShowHelp()
 else:
 	if sys.argv[1] == 'status':
-		print core.Status()
+		print core.status()
 	elif sys.argv[1] == 'list':
-		print core.List()
+		print core.list()
 	elif sys.argv[1] == 'commit':
-		print core.Commit()
+		print core.commit()
 	elif sys.argv[1] == 'run':
 		if len(sys.argv) == 2:
 			ShowHelp()
 		else:
-			core.RunJob(sys.argv[2])
+			core.run_job(sys.argv[2])
 	elif sys.argv[1] == 'cancel':
 		if len(sys.argv) == 2:
 			ShowHelp()
 		else:
-			core.CancelJob(sys.argv[2])
+			core.cancel_job(sys.argv[2])
 	else:
 		ShowHelp()
 
