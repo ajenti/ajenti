@@ -2,6 +2,7 @@ import log
 import ui
 import plugin
 import tools
+import util
 
 List = {}
 
@@ -35,10 +36,10 @@ class Session:
 		self.Plugins = plugin.Instantiate()
 		self.UI = ui.UI()
 		self.Core = self.Plugins[0]
-		self.Platform = tools.Actions['core/detect-platform'].Run()
+		self.Platform = util.detect_platform()
 
 		for p in self.Plugins:
-			if not ('any' in p.Master.Platform or tools.Actions['core/detect-platform'].Run() in p.Master.Platform):
+			if not ('any' in p.Master.Platform or self.Platform in p.Master.Platform):
 				self.Plugins.remove(p)
 				log.warn('Plugins', 'Plugin ' + p.Name + ' doesn\'t support current platform \'' + self.Platform + '\'')
 

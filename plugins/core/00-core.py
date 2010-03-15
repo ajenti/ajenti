@@ -110,16 +110,5 @@ class DetectDistroAction(tools.Action):
 		if s == 0: return r
 		s, r = commands.getstatusoutput('uname -mrs')
 		return r
+		
 
-class DetectPlatform(tools.Action):
-	Name = 'detect-platform'
-	Plugin = 'core'
-
-	def Run(self, d = None):
-		if tools.Actions['core/shell-status'].Run('cat /etc/issue | grep Fedora') == 0:
-			return 'fedora'
-		if tools.Actions['core/shell-status'].Run('cat /etc/issue | grep Ubuntu') == 0:
-			return 'ubuntu'
-		if tools.Actions['core/shell-status'].Run('test -e /etc/debian_version') == 0:
-			return 'debian'
-		return 'generic'

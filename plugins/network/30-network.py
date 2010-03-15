@@ -4,7 +4,6 @@ import session
 import ui
 import log
 import tools
-import network.abstraction
 
 class NetworkPluginMaster(PluginMaster):
 	Name = 'Network'
