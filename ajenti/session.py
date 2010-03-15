@@ -36,11 +36,11 @@ class Session:
 		self.plugins = plugin.instantiate()
 		self.ui = ui.UI()
 		self.core = self.plugins[0] # This needs to be done in some better way
-		self.platform = tools.actions['core/detect-platform'].run()
+		self.platform = util.detect_platform()
 
 		for p in self.plugins:
 			if not 'any' in p.master.platform and \
-				not tools.actions['core/detect-platform'].run() in p.master.platform:
+				not self.platform in p.master.platform:
 				self.plugins.remove(p)
 				log.warn('Plugins', 'Plugin ' + p.name + ' doesn\'t support current platform \'' + self.platform + '\'')
 

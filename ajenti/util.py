@@ -14,11 +14,11 @@ def detect_platform():
 	if platform != 'generic':
 		return platform
 		
-	if tools.Actions['core/shell-status'].Run('cat /etc/issue | grep Fedora') == 0:
+	if tools.actions['core/shell-status'].run('cat /etc/issue | grep Fedora') == 0:
 		platform = 'fedora'
-	if tools.Actions['core/shell-status'].Run('cat /etc/issue | grep Ubuntu') == 0:
+	if tools.actions['core/shell-status'].run('cat /etc/issue | grep Ubuntu') == 0:
 		platform = 'ubuntu'
-	if tools.Actions['core/shell-status'].Run('test -e /etc/debian_version') == 0:
+	if tools.actions['core/shell-status'].run('test -e /etc/debian_version') == 0:
 		platform = 'debian'
 
 	return platform
