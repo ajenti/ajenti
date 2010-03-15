@@ -1,0 +1,69 @@
+from plugin import PluginMaster, PluginInstance #Import base plugin classes from Ajenti's plugin.py
+import commands
+import session # Ajenti session controller
+import ui # Ajenti WebUI
+import log
+import tools # Support for actions
+
+# Plugins themselves consist of two parts: Master plugin and Instance plugin
+# The Master plugin is launched when Ajenti server starts
+# The Instance plugins are launched one per user session
+
+class LogPluginMaster(PluginMaster):
+	name = 'Log'
+
+	def _on_load(self): # This event is fired when Ajenti loads the plugin
+		PluginMaster._on_load(self)
+
+	def make_instance(self): # Should return a new Instance plugin
+		i = LogPluginInstance(self)
+		self.instances.append(i)
+		return i
+
+
+class LogPluginInstance(PluginInstance):
+	# Standard properties
+	name = 'Log'
+
+	# Our custom stuff
+
+	def _on_load(self, s): # The session controller instance is passed to this method
+		PluginInstance._on_load(self, s)
+
+		# Build a category switcher for Ajenti
+		c = ui.Category()
+		c.text = 'Log'
+		c.description = '/var/log/ veiwer'
+		c.icon = 'plug/log;icon' # This means that image is stored in plugins/beeper/icon.png
+		self.category_item = c # The category_item property will be later examined by Core plugin. If it isn't None, the new Category will be added to the UI
+
+		self.build_panel()	
+	
+		log.info('LogPlugin', 'Started instance') # Available methods are log.info, log.warn, log.err. The first parameter is 'sender' name, the second is string being logged
+
+	def build_panel(self):
+		# The Ajenti web UI has tree-like structure based on containers
+
+		# Make a header
+		l = ui.Label('Log demo plugin')
+		l.size = 5
+
+		# The top block
+		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10, 1), l])
+
+		pathLabel = ui.Label('/usr/log/')
+		
+		
+
+		# Assemble the stuff altogether
+		self.panel = ui.VContainer([c])
+		return
+
+
+	def update(self): # The method is fired when user requests an updated UI view
+		return
+
+
+
+
+
