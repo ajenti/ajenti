@@ -91,7 +91,10 @@ class BeeperPluginInstance(PluginInstance):
 		tn1.add_element(tn2)
 		tn1.add_element(tn5)
 
-		d.add_element(t)
+		s = ui.ScrollContainer([t])
+		s.width = 100
+		s.height = 100
+		d.add_element(s)
 		
 		
 		# Assemble the stuff altogether

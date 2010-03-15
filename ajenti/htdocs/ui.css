@@ -281,3 +281,9 @@ body {
 .ui-el-treecontainernode-inner {
 	padding-left: 20px;
 }
+
+
+/* ScrollContainer */
+.ui-el-scrollcontainer {
+	overflow: scroll;
+}

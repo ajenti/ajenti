@@ -107,6 +107,15 @@ class SwitchContainer(Container):
 		return
 
 
+class ScrollContainer(Container):
+	width = 100
+	height = 100
+	
+	def dump_HTML(self):
+		return '<div class="ui-el-scrollcontainer" style="width:' + str(self.width) + \
+			'px; height:' + str(self.height) + 'px;">' + Container.dump_HTML(self) + '</div>'
+
+		
 class Button(Element):
 	text = ""
 
@@ -542,4 +551,5 @@ class TreeContainerNode(VContainer):
 		print 'asd'
 		if event == 'click':
 			self.expanded = not self.expanded
+
 
