@@ -16,7 +16,7 @@ running = True
 
 def run():
     global server, running
-    log.info('HTTP', 'Starting server')
+    log.info('HTTP', 'Starting server at http://localhost:%s' % config.http_port)
     server = HTTPServer(('', config.http_port), Handler);
     try:
         server.serve_forever()
