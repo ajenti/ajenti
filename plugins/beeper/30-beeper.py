@@ -78,6 +78,25 @@ class BeeperPluginInstance(PluginInstance):
 		d.add_element(self._txtCmd)
 		d.add_element(self._btnAdd)
 
+		
+		t = ui.TreeContainer()
+		tn1 = ui.TreeContainerNode('logs')
+		tn2 = ui.TreeContainerNode('apache')
+		tn3 = ui.Label('access.log')
+		tn4 = ui.Label('error.log')
+		tn5 = ui.Label('kern.log')
+		t.add_element(tn1)
+		tn2.add_element(tn3)
+		tn2.add_element(tn4)
+		tn1.add_element(tn2)
+		tn1.add_element(tn5)
+
+		s = ui.ScrollContainer([t])
+		s.width = 100
+		s.height = 100
+		d.add_element(s)
+		
+		
 		# Assemble the stuff altogether
 		self.panel = ui.VContainer([c, d])
 		return

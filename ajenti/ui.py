@@ -107,6 +107,15 @@ class SwitchContainer(Container):
 		return
 
 
+class ScrollContainer(Container):
+	width = 100
+	height = 100
+	
+	def dump_HTML(self):
+		return '<div class="ui-el-scrollcontainer" style="width:' + str(self.width) + \
+			'px; height:' + str(self.height) + 'px;">' + Container.dump_HTML(self) + '</div>'
+
+		
 class Button(Element):
 	text = ""
 
@@ -241,7 +250,7 @@ class Image(Element):
 		self.file = f
 
 	def dump_HTML(self):
-		s = '<img class="ui-el-image" src="/dl;' + self.file + '" />';
+		s = '<img class="ui-el-image" onclick="javascript:ajax(\'/handle;' + self.id + ';click;\');" src="/dl;' + self.file + '" />';
 		return s
 
 
@@ -509,4 +518,38 @@ class DataTableRow(Element):
 		Element.handle(self, target, event, data)
 		for e in self.cells:
 			e.handle(target, event, data)
+
+
+class TreeContainer(VContainer):
+	pass
+	
+	
+class TreeContainerNode(VContainer):
+	text = ""
+	expanded = ""
+	_img = None
+	
+	def __init__(self, t=''):
+		VContainer.__init__(self)
+		self.text = t
+		self._img = Image('')
+		self._img.handler = self._on_clicked
+		
+	def dump_HTML(self):
+		self._img.file = 'core;ui/tree-minus.png' if self.expanded else 'core;ui/tree-plus.png'
+		s = '<div class="ui-el-treecontainernode"><div class="ui-el-treecontainernode-button"><a href="#">' + self._img.dump_HTML() + '</a></div>' + self.text
+		if self.expanded:
+			s += '<div class="ui-el-treecontainernode-inner">' + VContainer.dump_HTML(self) + '</div>'
+		s += '</div>'
+		return s
+		
+	def handle(self, target, event, data):
+		VContainer.handle(self, target, event, data)
+		self._img.handle(target, event, data)
+		
+	def _on_clicked(self, target, event, data):
+		print 'asd'
+		if event == 'click':
+			self.expanded = not self.expanded
+
 
