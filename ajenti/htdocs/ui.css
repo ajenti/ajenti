@@ -104,7 +104,7 @@ body {
 
 /* Image */
 .ui-el-image {
-	padding: 5px;
+	padding: 1px;
 }
 
 .ui-el-image-small {
@@ -266,4 +266,18 @@ body {
 
 .ui-el-modal-buttons {
 
+}
+
+
+/* TreeContainer */
+.ui-el-treecontainernode {
+}
+
+.ui-el-treecontainernode-button {
+	display: inline;
+	padding-right: 5px;
+}
+
+.ui-el-treecontainernode-inner {
+	padding-left: 20px;
 }
