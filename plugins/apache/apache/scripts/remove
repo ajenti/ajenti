@@ -1,0 +1,4 @@
+#!/bin/bash
+apt-get --force-yes --assume-yes remove apache2
+apt-get --force-yes --assume-yes autoremove
+rm -rf /etc/apache2
