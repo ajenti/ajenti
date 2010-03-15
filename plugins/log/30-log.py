@@ -128,10 +128,9 @@ class TreeViewer():
 				for fl in fileList:
 					tn[i].add_element(ui.Link(fl))
 					
-			except: print 'Cannot view files in folder: '+self._dirname+d+"/"
-				
-
-				
+			except: 
+				log.err('Log', 'Cannot view files in folder: '+self._dirname+d+"/")
+								
 			self._cTree.add_element(tn[i])			
 			i=i+1
 		return
