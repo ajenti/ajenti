@@ -12,9 +12,6 @@ import time
 class AjentiBackupPluginMaster(PluginMaster):
 	name = 'Ajenti Backup'
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = AjentiBackupPluginInstance(self)
 		self.instances.append(i)

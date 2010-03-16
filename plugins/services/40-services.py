@@ -8,9 +8,6 @@ import tools
 class ServicesPluginMaster(PluginMaster):
 	name = 'Services'
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = ServicesPluginInstance(self)
 		self.instances.append(i)

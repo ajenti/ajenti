@@ -8,9 +8,6 @@ import tools
 class CorePluginMaster(PluginMaster):
 	name = 'Core'
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = CorePluginInstance(self)
 		self.instances.append(i)

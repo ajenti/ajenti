@@ -14,9 +14,6 @@ class ApachePluginMaster(PluginMaster):
 	name = 'Apache'
 	platform = ['debian', 'ubuntu']
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = ApachePluginInstance(self)
 		self.instances.append(i)
