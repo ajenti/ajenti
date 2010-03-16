@@ -208,9 +208,11 @@ class Checkbox(Element):
 		s += '/>';
 		return s
 
-	def handler(self, t, e, d):
-		if e == 'click':
-			self.checked = not self.checked
+	def handle(self, t, e, d):
+		if self.id == target and not self.handler == None:
+			self.handler(self, event, data)
+			if e == 'click':
+				self.checked = not self.checked
 
 
 class Radio(Element):
