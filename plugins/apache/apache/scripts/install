@@ -1,0 +1,3 @@
+#!/bin/bash
+apt-get --force-yes --assume-yes install apache2
+ln -s /etc/apache2/httpd.conf /etc/apache2/apache2.conf
