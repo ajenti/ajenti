@@ -21,8 +21,7 @@ class LogPluginInstance(PluginInstance):
 	name = 'Log'
 
 	_pathLabel = None;
-	_pathTree = None;
-	_logArea = None	
+	_pathTree = None;	
 
 	def _on_load(self, s): 
 		PluginInstance._on_load(self, s)
@@ -38,7 +37,7 @@ class LogPluginInstance(PluginInstance):
 		log.info('LogPlugin', 'Started instance') 
 
 	def build_panel(self):
-		l = ui.Label('')
+		l = ui.Label('Log viewer')
 		l.size = 5
 
 		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10, 1), l])
@@ -46,7 +45,6 @@ class LogPluginInstance(PluginInstance):
 		_pathLabel = ui.Label('/var/log/')
 		
 		lb = ui.Label('')
-		self._logArea = lb
 		sl = ui.ScrollContainer([lb])
 		sl.width = 500
 		sl.height = 380
@@ -75,9 +73,9 @@ class LogTreeNode(ui.TreeContainerNode):
 	def __init__(self, d='/var/log', own = None):
 		ui.TreeContainerNode.__init__(self)
 		self.text = os.path.basename(d)
-		self.dir_name = d		
-		self.owner = own
+		self.dir_name = d
 		self.rescan()
+		self.owner = own
 		
 	def rescan(self):
 		dirList = os.listdir(self.dir_name)
@@ -86,7 +84,7 @@ class LogTreeNode(ui.TreeContainerNode):
 		for x in dirList:
 			try:
 				if os.path.isdir(os.path.join(self.dir_name, x)):
-					tn = LogTreeNode(os.path.join(self.dir_name), self.owner)
+					tn = LogTreeNode(os.path.join(self.dir_name, x))
 					self.add_element(tn)
 				else:		
 					tn = ui.Link(x)		
@@ -96,6 +94,6 @@ class LogTreeNode(ui.TreeContainerNode):
 			except:
 				pass	
 	
-	def _on_link_clicked(self, t, e, d):
-		self.owner._logArea.text = "hello from log tree"	
+	def _on_link_clicked(self):
+		self.owner.lb.text = "hello from log tree"	
 
