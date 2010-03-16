@@ -90,6 +90,9 @@ class Session:
 		p.visible = False
 		self.core.switch.add_element(p)
 
+	def schedule_update(self, t):
+		self.ui.update_timer = t
+
 	def destroy(self):
 		log.info('Session', 'Destroying session for ' + self.client)
 		for p in self.plugins:

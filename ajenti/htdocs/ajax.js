@@ -36,6 +36,10 @@ function ajax(URL)
 function ajaxHandler(data)
 {
 	document.getElementById('main').innerHTML = data
+	var re = new RegExp('update=([0-9]+)');
+	var m = re.exec(data);
+	if (m[1] != 0)
+		setTimeout("ajax(\"/handle;update;;\")", m[1])
 }
 
 

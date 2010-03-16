@@ -3,6 +3,7 @@ import util
 
 class UI:
 	root = None
+	update_timer = 0
 
 	def dump_base_page(self):
 		s = ''#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
@@ -16,9 +17,11 @@ class UI:
 		s += "</body></html>"
 		return s
 
-
 	def dump_HTML(self):
-		return self.root.dump_HTML()
+		s = self.root.dump_HTML()
+		s += '<!-- update=' + str(self.update_timer) + ' -->'
+		self.update_timer = 0
+		return s
 
 
 class Element(object):
