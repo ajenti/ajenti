@@ -1,3 +1,5 @@
+import os
+
 from plugin import PluginMaster, PluginInstance
 import commands
 import session
@@ -5,7 +7,6 @@ import ui
 import log
 import tools
 
-import os
 
 class ApachePluginMaster(PluginMaster):
 	name = 'Apache'
@@ -18,6 +19,7 @@ class ApachePluginMaster(PluginMaster):
 		i = ApachePluginInstance(self)
 		self.instances.append(i)
 		return i
+
 		
 class ApachePluginInstance(PluginInstance):
 	name = 'Apache'
@@ -114,9 +116,9 @@ class ApachePluginInstance(PluginInstance):
 			
 	def InstallButtonClicked(self,t,e,d):
 		if t == self._actInstall:
-			tools.Actions['apache/install'].Run()
+			tools.actions['apache/install'].run()
 		if t == self._actRemove:
-			tools.Actions['apache/remove'].Run()
+			tools.actions['apache/remove'].run()
 		return
 		
 class EditApachePluginsDialog(ui.DialogBox):
