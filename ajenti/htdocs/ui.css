@@ -287,3 +287,11 @@ body {
 .ui-el-scrollcontainer {
 	overflow: scroll;
 }
+
+
+/* TextArea */
+.ui-el-textarea {
+	overflow: scroll;
+	background: #ffffff;
+	border: 1px solid #888888;
+}

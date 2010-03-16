@@ -1,3 +1,5 @@
+import os
+
 from plugin import PluginMaster, PluginInstance
 import commands
 import session
@@ -5,9 +7,12 @@ import ui
 import log
 import tools
 
+<<<<<<< HEAD
 import os
 import glob
 import re
+=======
+>>>>>>> ff3401eba3a9ff26fbd011abd03d0cd8269ca180
 
 class ApachePluginMaster(PluginMaster):
 	name = 'Apache'
@@ -20,6 +25,7 @@ class ApachePluginMaster(PluginMaster):
 		i = ApachePluginInstance(self)
 		self.instances.append(i)
 		return i
+
 		
 class ApachePluginInstance(PluginInstance):
 	name = 'Apache'
@@ -198,6 +204,7 @@ class ApachePluginInstance(PluginInstance):
 			return 1
 				
 	def InstallButtonClicked(self,t,e,d):
+<<<<<<< HEAD
 		print t, e, d
 		#if t == self._actInstall:
 		#	tools.actions['apache/install'].run()
@@ -205,6 +212,12 @@ class ApachePluginInstance(PluginInstance):
 		#	tools.actions['apache/remove'].run()
 		this.Panel = None
 		self.build_panel()
+=======
+		if t == self._actInstall:
+			tools.actions['apache/install'].run()
+		if t == self._actRemove:
+			tools.actions['apache/remove'].run()
+>>>>>>> ff3401eba3a9ff26fbd011abd03d0cd8269ca180
 		return
 		
 	def StartStopBtnClicked(self,t,e,d):
@@ -381,6 +394,7 @@ class RemoveAction(tools.Action):
 		out = tools.actions['core/script-run'].run(['apache', 'remove', ''])
 		log.info('ApachePlugin','Apache has been removed')
 		return out
+<<<<<<< HEAD
 
 class StatusAction(tools.Action):
 	name = 'status'
@@ -392,3 +406,5 @@ class StatusAction(tools.Action):
 		else:
 			out = tools.actions['core/script-run'].run(['apache', 'status', d])
 		return out
+=======
+>>>>>>> ff3401eba3a9ff26fbd011abd03d0cd8269ca180

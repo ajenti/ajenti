@@ -78,7 +78,7 @@ class BeeperPluginInstance(PluginInstance):
 		d.add_element(self._txtCmd)
 		d.add_element(self._btnAdd)
 
-		
+
 		t = ui.TreeContainer()
 		tn1 = ui.TreeContainerNode('logs')
 		tn2 = ui.TreeContainerNode('apache')
@@ -95,10 +95,13 @@ class BeeperPluginInstance(PluginInstance):
 		s.width = 100
 		s.height = 100
 		d.add_element(s)
-		
-		
+
+		ta = ui.TextArea('Lorem ipsum dolor sit amet.')
+		ta.width = 100
+		ta.height = 100
+
 		# Assemble the stuff altogether
-		self.panel = ui.VContainer([c, d])
+		self.panel = ui.VContainer([c, d, ta])
 		return
 
 
