@@ -31,6 +31,7 @@ class ApachePluginInstance(PluginInstance):
 	_isInstalled = 0
 	_isRunning = 0
 	_lblStats = None
+	_lblAction = None
 
 	# #####
 	# Predifined buttons
@@ -50,7 +51,7 @@ class ApachePluginInstance(PluginInstance):
 	# #####
 	# Dialogs
 	_edit_apache_modules = None
-	_edit_apache_module_configuration = None
+	_edit_apache_hosts = None
 
 
 	def _on_load(self, s):
@@ -69,18 +70,32 @@ class ApachePluginInstance(PluginInstance):
 	def _on_post_load(self):
 		# Apache modules dialog
 		self.session.register_panel(self._edit_apache_modules)
-		self.session.register_panel(self._edit_apache_module_configuration)
-
-		self._edit_apache_modules.btnOK.tag = 'modules'
-		self._edit_apache_modules.btnOK.handler = self.back_button_clicked
-		self._edit_apache_modules.openConfigDialog = self.open_module_config
+		self._edit_apache_modules.session = self.session
+		#Apache hosts
+		self.session.register_panel(self._edit_apache_hosts)
+		self._edit_apache_hosts.session = self.session
+		
 
 	def build_panel(self):
 		l = ui.Label('Apache')
 		l.size = 5
 		self._lblStats = ui.Label()
+		
+		self._lblAction = ui.Link()
 
-		c = ui.HContainer([ui.Image('plug/apache;bigicon.png'), ui.Spacer(10,1), ui.VContainer([l, self._lblStats])])
+		c = ui.HContainer([
+			ui.Image('plug/apache;bigicon.png'),
+			ui.Spacer(10,1),
+			ui.VContainer([
+				l,
+				ui.HContainer([
+					self._lblStats,
+					ui.Spacer(10,1),
+					self._lblAction
+				])
+			])
+		])
+		
 		d = ui.VContainer([])
 		self._main = d
 
@@ -97,7 +112,9 @@ class ApachePluginInstance(PluginInstance):
 
 		# Creating dialogs
 		self._edit_apache_modules = EditApacheModulesDialog()
-		self._edit_apache_module_configuration = EditApacheModuleConfig()
+		self._edit_apache_modules.parent = self
+		self._edit_apache_hosts = EditApacheHostsDialog()
+		self._edit_apache_hosts.parent = self
 
 		return
 
@@ -164,7 +181,7 @@ class ApachePluginInstance(PluginInstance):
 			if self.FindApache():
 				# Apache is installed
 				self.isRunning()
-
+				
 			else:
 				# Apache is not installed
 				self._actStratStop.visible = False
@@ -187,12 +204,13 @@ class ApachePluginInstance(PluginInstance):
 
 	def isRunning(self):
 		st = tools.actions['apache/status'].run()
-		if st == 'w3m: Can\'t load http://localhost:80/server-status.':
+		#print st
+		if st[:3] == 'w3m':
 
 			self._lblStats.text = 'Apache is currently down'
 			self._actStratStop.text = 'Start'
 			self._act_start_stop_description.text = 'Start Apache server'
-
+			
 			self._isRunning = 0
 			return 0
 
@@ -201,7 +219,10 @@ class ApachePluginInstance(PluginInstance):
 			self._lblStats.text = 'Apache is working'
 			self._actStratStop.text = 'Stop'
 			self._act_start_stop_description.text = 'Stop Apache server'
-
+			
+			self._lblAction.text = 'Restart'
+			self._lblAction.handler = self.StartStopBtnClicked
+			
 			self._isRunning = 1
 			return 1
 
@@ -211,50 +232,173 @@ class ApachePluginInstance(PluginInstance):
 		if t == self._actRemove:
 			tools.actions['apache/remove'].run()
 		return
-	
-	def open_module_config(self,t,e,d):
-		self._edit_apache_module_configuration.visible = True
-		return
-	
+		
 	def StartStopBtnClicked(self,t,e,d):
 		if t == self._actStratStop:
 			if self._isRunning == 1:
 				tools.actions['apache/status'].run('stop')
 			else:
 				tools.actions['apache/status'].run('start')
+		if t == self._lblAction:
+			tools.actions['apache/status'].run('restart')
 		return
 
 	def menuClicked(self,t,e,d):
 		if t.tag == 'modules':
-			self.panel.visible = False
-			self._edit_apache_modules.visible = True
+			self.session.core.switch.switch(self._edit_apache_modules)
 
 		if t.tag == 'hosts':
-			self.panel.visible = False
+			self.session.core.switch.switch(self._edit_apache_hosts)
+			
 		return
 
-	def back_button_clicked(self,t,e,d):
-		if t.tag == 'modules':
-			self.panel.visible = True
-			self._edit_apache_modules.visible = False
+class ApacheHost():
+	enabled = False
+	name = ''
+	config = ''
+	
+	def __init__(self,name):
+		self.name = name
+		#Config
+		f = open('/etc/apache2/sites-available/'+self.name, 'r')
+		self.config = f.readlines()
+		#Enabling
+		if os.path.exists('/etc/apache2/sites-enabled/000-'+self.name):
+			self.enabled = True
+	
+	def save(self):
+		# Config
+		c = open('/etc/apache2/sites-available/'+self.name,'w')
+		for s in self.config:
+			c.write(s)
+		c.close()
+		# Enable / Disable
+		if self.enabled:
+			os.symlink('/etc/apache2/sites-available/'+self.name,'/etc/apache2/sites-enabled/000-'+self.name)
+		else:
+			os.remove( '/etc/apache2/sites-enabled/000-'+self.name )
+		
+		# Restarting Apache
+		tools.actions['apache/status'].run('restart')
 
-		if t.tag == 'hosts':
-			self.panel.visible = False
 		return
-
+	
+	def enable_disable_action(self,t,e,d):
+		if self.enabled:
+			self.enabled = False
+			t.text = 'Enable'
+		else:
+			self.enabled = True
+			t.text = 'Disable'
+		self.save()
+		return
 
 class ApacheHosts():
-	_avaible = None
-	_enable = None
-
+	hosts = None
+	
+	def add(self, host):
+		return
+	
 	def parse(self):
-		self._avaible = {}
-		self._enable = {}
-
+		self.hosts = []
+		hosts = glob.glob('/etc/apache2/sites-available/*')
+		for host in hosts:
+			self.hosts.append( ApacheHost( host.replace('/etc/apache2/sites-available/','') ) )
+		return self.hosts
+	
+	def saveAll(self):
+		for m in self.hosts:
+			m.save()
 		return
-	def save(self):
+
+class EditApacheHostConfig(ui.DialogBox):
+	parent = None
+	def __init__(self):
+		ui.DialogBox.__init__(self)
+		self.lblTitle.text = 'Apache Host configuration'
+		self.width = "auto"
+		self.visible = False
+		
+		
+		ta = ui.TextArea( '' )
+		ta.width = 600
+		ta.height = 400
+		
+		parent = None
+		
+		self.btnCancel.handler = self.btn_clicked
+		self.btnCancel.text = 'Back'
+		self.btnOK.handler = self.btn_clicked
+		self.btnOK.text = 'Save'
+		
+		self.inner = ta
+
+	def customize(self, host):
+		self.apache_host = ApacheHost(host)
+		self.inner.text = ''.join(self.apache_host.config)
+
+	def btn_clicked(self,t,e,d):
+		if t == self.btnCancel:
+			self.parent.session.core.switch.switch(self.parent)
+		if t == self.btnOK:
+			self.apache_host.config = self.inner.text
+			self.apache_host.save()
 		return
 
+class EditApacheHostsDialog(ui.DialogBox):
+	parent = None
+	def __init__(self):
+		ui.DialogBox.__init__(self)
+		self.lblTitle.text = 'Apache Hosts'
+
+		self.width = "auto"
+		self.visible = False
+
+		self.btnOK.text = "Back"
+		self.btnOK.handler = self._on_back_clicked
+		self.btnCancel.visible = False
+		
+		aph = ApacheHosts()
+		hosts = aph.parse()
+
+		t = ui.DataTable()
+		r = ui.DataTableRow([ui.Label('Host'), ui.Label('Control')])
+		t.widths = [150,200]
+		r.is_header = True
+		t.rows.append(r)
+
+		for m in hosts:
+			
+			name = ui.Link(m.name)
+			name.handler = self._on_module_clicked
+			name.tag = m.name
+
+			btn_enable_disable = ui.Link()
+			btn_enable_disable.handler = m.enable_disable_action
+			if m.enabled:
+				btn_enable_disable.text = 'Disable'
+			else:
+				btn_enable_disable.text = 'Enable'
+
+
+			f = ui.DataTableRow([ name, ui.HContainer([btn_enable_disable])])
+			t.rows.append(f)
+
+		self.inner = t
+		self.tab = t
+		
+	def _on_back_clicked(self,t,e,d):
+		if e == 'click' and t == self.btnOK:
+			self.parent.session.core.switch.switch(self.parent.panel)
+
+	def _on_module_clicked(self, t, e, d):
+		if e == 'click':
+			n = t.tag
+			confd = EditApacheHostConfig()
+			confd.customize(n)
+			confd.parent = self
+			self.session.register_panel(confd)
+			self.session.core.switch.switch(confd)
 
 class ApacheModule():
 	enabled = False
@@ -317,11 +461,13 @@ class ApacheModule():
 		self.save()
 		return
 	
+	'''
 	def open_config_dialog(self,t,e,d):
 		confd = EditApacheModuleConfig()
-		session.switch.switch( confd )
+		self.session.switch.switch( confd )
 		self.config_dialog = confd
 		return
+	'''
 
 class ApacheModules():
 	modules = None
@@ -337,6 +483,7 @@ class ApacheModules():
 		return
 
 class EditApacheModuleConfig(ui.DialogBox):
+	parent = None
 	def __init__(self):
 		ui.DialogBox.__init__(self)
 		self.lblTitle.text = 'Apache Module configuration'
@@ -345,16 +492,32 @@ class EditApacheModuleConfig(ui.DialogBox):
 		
 		
 		ta = ui.TextArea( '' )
-		ta.width = 300
-		ta.height = 300
+		ta.width = 600
+		ta.height = 400
+		
+		parent = None
+		
+		self.btnCancel.handler = self.btn_clicked
+		self.btnCancel.text = 'Back'
+		self.btnOK.handler = self.btn_clicked
+		self.btnOK.text = 'Save'
 		
 		self.inner = ta
-	
+
+	def customize(self, module):
+		self.apache_module = ApacheModule(module)
+		self.inner.text = ''.join(self.apache_module.config)
+
 	def btn_clicked(self,t,e,d):
-		print self.inner.text
+		if t == self.btnCancel:
+			self.parent.session.core.switch.switch(self.parent)
+		if t == self.btnOK:
+			self.apache_module.config = self.inner.text
+			self.apache_module.save()
 		return
 
 class EditApacheModulesDialog(ui.DialogBox):
+	parent = None
 	def __init__(self):
 		ui.DialogBox.__init__(self)
 		self.lblTitle.text = 'Apache Modules'
@@ -363,6 +526,7 @@ class EditApacheModulesDialog(ui.DialogBox):
 		self.visible = False
 
 		self.btnOK.text = "Back"
+		self.btnOK.handler = self._on_back_clicked
 		self.btnCancel.visible = False
 		
 		apm = ApacheModules()
@@ -376,12 +540,11 @@ class EditApacheModulesDialog(ui.DialogBox):
 
 		for m in modules:
 
-			description = ui.Label(m.description)
-
 			name = None
 			if m.hasConfig:
 				name = ui.Link(m.name)
-				name.handler = m.open_config_dialog
+				#name.handler = m.open_config_dialog
+				name.handler = self._on_module_clicked
 				name.tag = m.name
 			else:
 				name = ui.Label(m.name)
@@ -399,7 +562,21 @@ class EditApacheModulesDialog(ui.DialogBox):
 
 		self.inner = t
 		self.tab = t
-	
+		
+	def _on_back_clicked(self,t,e,d):
+		if e == 'click' and t == self.btnOK:
+			self.parent.session.core.switch.switch(self.parent.panel)
+
+	def _on_module_clicked(self, t, e, d):
+		if e == 'click':
+			n = t.tag
+			confd = EditApacheModuleConfig()
+			confd.customize(n)
+			confd.parent = self
+			self.session.register_panel(confd)
+			self.session.core.switch.switch(confd)
+			
+
 class InstallAction(tools.Action):
 	name = 'install'
 	plugin = 'apache'
