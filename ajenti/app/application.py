@@ -15,7 +15,7 @@ class Application (PluginManager, Plugin):
 
     def __init__(self, config=None):
         self.config = config
-        self.log = config.get('ajenti', 'log_facility')
+        self.log = config.get('log_facility')
         self.platform = config.get('ajenti','platform')
         # Get path for static content
         for c in self.content_providers:

@@ -23,7 +23,7 @@ def simple_server():
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
     # Add log handler to config, so all plugins could access it
-    config.set('ajenti','log_facility',log)
+    config.set('log_facility',log)
 
     # Start server
     httpd = make_server(host, port, AppDispatcher(config).dispatcher)
