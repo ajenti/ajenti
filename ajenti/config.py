@@ -1,26 +1,21 @@
-ajenti_version = 'alpha (GIT snapshot)'
-server_name = 'New server'
-http_port = 8000
+from ConfigParser import ConfigParser
 
-def load():
-	global server_name, http_port
+from ajenti.utils import detect_platform
 
-	try:
-		f = open('/etc/ajenti/ajenti.conf')
-		ss = f.read().splitlines()
-		f.close()
+default_values = {
+                    'bind_host': '',
+                    'bind_port': '8000'
+                 }
 
-		for s in ss:
-			try:
-				s = s.strip(' \t\r\n').split('=')
-				k = s[0].strip(' \t')
-				v = s[1].strip(' \t')
-				if k == 'servername':
-					server_name = v
-				elif k == 'httpport':
-					http_port = int(v)
-					
-			except:
-				pass
-	except:
-		pass
+default_values['platform'] = detect_platform()
+
+class Config(ConfigParser):
+
+    def __init__(self):
+        ConfigParser.__init__(self, default_values)
+        # Add default configuration section, 
+        # which could be overrided in config file
+        self.add_section('ajenti')
+
+# class Config
+

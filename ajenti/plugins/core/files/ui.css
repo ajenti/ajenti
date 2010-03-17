@@ -1,0 +1,297 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+	vertical-align: top;
+	border: none;
+	text-decoration: none;
+	color: #000000;
+	font-family: Droid Sans, Tahoma, sans-serif;
+}
+
+body {
+	background: #e6e1db;
+	width: 100%;
+	height: 100%;
+}
+
+/* category */
+.ui-el-action {
+	width: 188px;
+	height: 59px;
+	background: url('/dl/core/ui/action.png');
+	margin: 5px;
+}
+
+.ui-el-action-icon {
+	padding: 5px;
+}
+
+.ui-el-action-text {
+	font-weight: bold;
+	font-size: 16px;
+	color: #555555;
+}
+
+.ui-el-action-description {
+	font-size: 11px;
+	color: #797979;
+	padding-left: 3px;
+}
+
+
+/* Button */
+.ui-el-button {
+	float: left;
+	width: 86px;
+	height: 24px;
+	background: url('/dl/core/ui/button.png') no-repeat;
+	margin: 5px;
+	font-size: 14px;
+	color: #555555;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 5px;
+}
+
+
+/* Input */
+.ui-el-input {
+	background: #ffffff;
+	border: 1px solid #aaaaaa;
+	height: 20px;
+}
+
+
+/* Label */
+.ui-el-label-1 {
+	color: #555555;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+	display: inline;
+	text-align: left;
+}
+.ui-el-label-2 {
+	color: #555555;
+}
+.ui-el-label-3 {
+	color: #555555;
+	font-size: 16px;
+	padding-bottom: 5px;
+}
+.ui-el-label-4 {
+	color: #555555;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
+	clear: left;
+	font-size: 20px;
+}
+.ui-el-label-5 {
+	color: #555555;
+	font-size: 28px;
+}
+
+
+/* Link */
+.ui-el-link {
+	color: #705b3d;
+	border-bottom: 1px dashed #705b3d;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+
+
+/* Image */
+.ui-el-image {
+	padding: 1px;
+}
+
+.ui-el-image-small {
+	padding: 0px;
+	padding-right: 5px;
+}
+
+
+
+/* MainWindow */
+.ui-el-mainwindow {
+	width: 100%;
+}
+
+.ui-el-mainwindow-left {
+	width: 220px;
+	padding-top: 15px;
+}
+
+.ui-el-mainwindow-right {
+	padding-top: 15px;
+}
+
+.ui-el-mainwindow-top {
+	background: url('/dl/core/ui/topbar.png');
+	height: 37px;
+	padding-left: 5px;
+}
+
+
+/* Category */
+.ui-el-category {
+	width: 212px;
+	height: 56px;
+	background: url('/dl/core/ui/category.png') no-repeat;
+	margin: 2px;
+}
+
+.ui-el-category-selected {
+	width: 212px;
+	height: 56px;
+	background: url('/dl/core/ui/category-sel.png') no-repeat;
+	margin: 2px;
+}
+
+.ui-el-category-icon {
+	padding: 4px;
+}
+
+.ui-el-category-text {
+	font-weight: bold;
+	font-size: 22px;
+	color: #555555;
+	height: 2px;
+}
+
+.ui-el-category-description {
+	font-size: 12px;
+	color: #797979;
+	padding-left: 3px;
+}
+
+.ui-el-category-selected .ui-el-category-text {
+	font-weight: bold;
+	font-size: 22px;
+	color: #ffffff;
+	height: 10px;
+}
+
+.ui-el-category-selected .ui-el-category-description {
+	font-size: 12px;
+	color: #cccccc;
+	padding-left: 3px;
+}
+
+/* Table */
+.ui-el-table {
+	background: #ffffff;
+	border: 1px solid #aaaaaa;
+}
+
+.ui-el-table-row {
+}
+
+.ui-el-table-row-header {
+	background: #eeeeee;
+}
+.ui-el-table-row-header td {
+	border-bottom: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+.ui-el-table-row:hover {
+	background: #f3d9b4;
+}
+
+.ui-el-table-row:hover td {
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+}
+
+.ui-el-table-cell {
+	border-bottom: 1px solid #ffffff;
+	border-top: 1px solid #ffffff;
+	padding: 2px;
+	padding-left: 5px;
+}
+
+
+/* ModalBox */
+.ui-el-modal-rt {
+	background: url('/dl/core/ui/dialog-rt.png');
+	width: 5px;
+	height: 5px;
+}
+
+.ui-el-modal-lt {
+	background: url('/dl/core/ui/dialog-lt.png');
+	width: 5px;
+	height: 5px;
+}
+
+.ui-el-modal-rb {
+	background: url('/dl/core/ui/dialog-rb.png');
+	width: 5px;
+	height: 5px;
+}
+
+.ui-el-modal-lb {
+	background: url('/dl/core/ui/dialog-lb.png');
+	width: 5px;
+	height: 5px;
+}
+
+.ui-el-modal-l {
+	background: url('/dl/core/ui/dialog-l.png');
+	width: 5px;
+}
+
+.ui-el-modal-r {
+	background: url('/dl/core/ui/dialog-r.png');
+	width: 5px;
+}
+
+.ui-el-modal-t {
+	background: url('/dl/core/ui/dialog-t.png');
+	height: 5px;
+}
+
+.ui-el-modal-b {
+	background: url('/dl/core/ui/dialog-b.png');
+	height: 5px;
+}
+
+.ui-el-modal-c {
+	background: #ffffff;
+	padding: 0px 15px;
+}
+
+.ui-el-modal-buttons {
+
+}
+
+
+/* TreeContainer */
+.ui-el-treecontainernode {
+}
+
+.ui-el-treecontainernode-button {
+	display: inline;
+	padding-right: 5px;
+}
+
+.ui-el-treecontainernode-inner {
+	padding-left: 20px;
+}
+
+
+/* ScrollContainer */
+.ui-el-scrollcontainer {
+	overflow: scroll;
+}
+
+
+/* TextArea */
+.ui-el-textarea {
+	overflow: scroll;
+	background: #ffffff;
+	border: 1px solid #888888;
+}
