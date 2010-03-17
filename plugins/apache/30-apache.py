@@ -1,9 +1,6 @@
 import os
-<<<<<<< HEAD
-=======
 import glob
 import re
->>>>>>> 3d9c7baae1df964d416365694b2e8c7f2d6b40f0
 
 from plugin import PluginMaster, PluginInstance
 import commands
@@ -15,18 +12,17 @@ import tools
 
 class ApachePluginMaster(PluginMaster):
 	name = 'Apache'
-	platform = ['debian', 'ubuntu']
+	platform = 'any' #['debian', 'ubuntu']
+
+	def _on_load(self):
+		PluginMaster._on_load(self)
 
 	def make_instance(self):
 		i = ApachePluginInstance(self)
 		self.instances.append(i)
 		return i
 
-<<<<<<< HEAD
-		
-=======
 
->>>>>>> 3d9c7baae1df964d416365694b2e8c7f2d6b40f0
 class ApachePluginInstance(PluginInstance):
 	name = 'Apache'
 
@@ -54,6 +50,8 @@ class ApachePluginInstance(PluginInstance):
 	# #####
 	# Dialogs
 	_edit_apache_modules = None
+	_edit_apache_module_configuration = None
+
 
 	def _on_load(self, s):
 		PluginInstance._on_load(self, s)
@@ -71,8 +69,11 @@ class ApachePluginInstance(PluginInstance):
 	def _on_post_load(self):
 		# Apache modules dialog
 		self.session.register_panel(self._edit_apache_modules)
+		self.session.register_panel(self._edit_apache_module_configuration)
+
 		self._edit_apache_modules.btnOK.tag = 'modules'
 		self._edit_apache_modules.btnOK.handler = self.back_button_clicked
+		self._edit_apache_modules.openConfigDialog = self.open_module_config
 
 	def build_panel(self):
 		l = ui.Label('Apache')
@@ -96,6 +97,7 @@ class ApachePluginInstance(PluginInstance):
 
 		# Creating dialogs
 		self._edit_apache_modules = EditApacheModulesDialog()
+		self._edit_apache_module_configuration = EditApacheModuleConfig()
 
 		return
 
@@ -204,26 +206,16 @@ class ApachePluginInstance(PluginInstance):
 			return 1
 
 	def InstallButtonClicked(self,t,e,d):
-<<<<<<< HEAD
 		if t == self._actInstall:
 			tools.actions['apache/install'].run()
 		if t == self._actRemove:
 			tools.actions['apache/remove'].run()
-=======
-		print t, e, d
-		#if t == self._actInstall:
-		#	tools.actions['apache/install'].run()
-		#if t == self._actRemove:
-		#	tools.actions['apache/remove'].run()
-
-		# Bad, bad code
-		# This stuff won't work, 'cause you can't delete the panel
-		# Consider updating it in self.update()
-		this.Panel = None
-		self.build_panel()
->>>>>>> 3d9c7baae1df964d416365694b2e8c7f2d6b40f0
 		return
-
+	
+	def open_module_config(self,t,e,d):
+		self._edit_apache_module_configuration.visible = True
+		return
+	
 	def StartStopBtnClicked(self,t,e,d):
 		if t == self._actStratStop:
 			if self._isRunning == 1:
@@ -337,8 +329,27 @@ class ApacheModules():
 			m.save()
 		return
 
+class EditApacheModuleConfig(ui.DialogBox):
+	def __init__(self):
+		ui.DialogBox.__init__(self)
+		self.lblTitle.text = 'Apache Module configuration'
+		self.width = "auto"
+		self.visible = False
+		
+		
+		ta = ui.TextArea( '' )
+		ta.width = 300
+		ta.height = 300
+		
+		self.inner = ta
+	
+	def btn_clicked(self,t,e,d):
+		print self.inner.text
+		return
 
 class EditApacheModulesDialog(ui.DialogBox):
+	openConfigDialog = None
+	
 	def __init__(self):
 		ui.DialogBox.__init__(self)
 		self.lblTitle.text = 'Apache Modules'
@@ -348,7 +359,7 @@ class EditApacheModulesDialog(ui.DialogBox):
 
 		self.btnOK.text = "Back"
 		self.btnCancel.visible = False
-
+		
 		apm = ApacheModules()
 		modules = apm.parse()
 
@@ -365,6 +376,8 @@ class EditApacheModulesDialog(ui.DialogBox):
 			name = None
 			if m.hasConfig:
 				name = ui.Link(m.name)
+				name.handler = self.openConfigDialog
+				name.tag = m.name
 			else:
 				name = ui.Label(m.name)
 
@@ -381,8 +394,7 @@ class EditApacheModulesDialog(ui.DialogBox):
 
 		self.inner = t
 		self.tab = t
-
-
+	
 class InstallAction(tools.Action):
 	name = 'install'
 	plugin = 'apache'
