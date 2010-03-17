@@ -22,12 +22,11 @@ def simple_server():
     # config.read('/etc/ajenti/ajenti.conf')
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
-
-    # Init application
-    d = AppDispatcher(config=config, log=log)
+    # Add log handler to config, so all plugins could access it
+    config.set('ajenti','log_facility',log)
 
     # Start server
-    httpd = make_server(host, port, d.dispatcher)
+    httpd = make_server(host, port, AppDispatcher(config).dispatcher)
     try:
         httpd.serve_forever()
     except KeyboardInterrupt, e:

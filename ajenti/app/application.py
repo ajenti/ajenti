@@ -13,10 +13,9 @@ class Application (PluginManager, Plugin):
 
     content = {}
 
-    def __init__(self, config=None, log=None):
+    def __init__(self, config=None):
         self.config = config
-        self.log = log
-        #self.ui = UI(self)
+        self.log = config.get('ajenti', 'log_facility')
         self.platform = config.get('ajenti','platform')
         # Get path for static content
         for c in self.content_providers:
@@ -57,13 +56,13 @@ class Application (PluginManager, Plugin):
         plugin.app = self
 
 class AppDispatcher(object):
-    def __init__(self, config=None, log=None):
+    def __init__(self, config=None):
         self.config = config
-        self.log = log
 
     def dispatcher(self, environ, start_response):
         # Use unique instances for each request
-        app = Application(self.config, self.log)
+        # So any plugins data will not interused between different clients 
+        app = Application(self.config)
 
         return app.dispatcher(environ, start_response)
 
