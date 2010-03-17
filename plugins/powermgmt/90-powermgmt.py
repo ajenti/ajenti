@@ -8,9 +8,6 @@ import tools
 class PowerMgmtPluginMaster(PluginMaster):
 	name = 'Power management'
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = PowerMgmtPluginInstance(self)
 		self.instances.append(i)

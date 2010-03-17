@@ -11,9 +11,6 @@ import tools
 class DashboardPluginMaster(PluginMaster):
 	name = 'Dashboard'
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = DashboardPluginInstance(self)
 		self.instances.append(i)

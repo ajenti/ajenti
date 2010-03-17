@@ -12,9 +12,6 @@ import tools # Support for actions
 class BeeperPluginMaster(PluginMaster):
 	name = 'Beeper'
 
-	def _on_load(self): # This event is fired when Ajenti loads the plugin
-		PluginMaster._on_load(self)
-
 	def make_instance(self): # Should return a new Instance plugin
 		i = BeeperPluginInstance(self)
 		self.instances.append(i)

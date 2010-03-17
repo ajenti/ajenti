@@ -2,6 +2,8 @@ import os
 import sys
 import log
 import tools
+import glob
+
 
 plugins = []
 
@@ -46,14 +48,13 @@ class PluginInstance(object):
 def load_all():
 	global plugins
 
-	ss = os.listdir('plugins')
 	sys.path.insert(0, 'plugins')
+	ss = [os.path.basename(s) for s in glob.glob('plugins/*.py')]
  	ss.sort()
 
 	for s in ss:
-		if '.py' in s:
-			__import__(os.path.splitext(s)[0], None, None, [''])
-			log.info('Plugins', 'Found plugin ' + s)
+		__import__(os.path.splitext(s)[0], None, None, [''])
+		log.info('Plugins', 'Found plugin ' + s)
 
 	for plugin in PluginMaster.__subclasses__():
 		p = plugin()

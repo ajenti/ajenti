@@ -9,9 +9,6 @@ class NetworkPluginMaster(PluginMaster):
 	name = 'Network'
 	platform = 'any' #['debian', 'ubuntu']
 
-	def _on_load(self):
-		PluginMaster._on_load(self)
-
 	def make_instance(self):
 		i = NetworkPluginInstance(self)
 		self.instances.append(i)
