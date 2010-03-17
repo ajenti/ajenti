@@ -285,13 +285,15 @@ body {
 
 /* ScrollContainer */
 .ui-el-scrollcontainer {
-	overflow: scroll;
+	overflow: auto;
+	background: #ffffff;
+	border: 1px solid #888888;
 }
 
 
 /* TextArea */
 .ui-el-textarea {
-	overflow: scroll;
+	overflow: auto;
 	background: #ffffff;
 	border: 1px solid #888888;
 }

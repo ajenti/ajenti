@@ -12,7 +12,8 @@ class UI:
 		s += '<title>Ajenti alpha</title>'
 		s += '<link href="/dl;core;ui.css" rel="stylesheet" media="all" />'
 		s += '<link rel="shortcut icon" href="/dl;core;ui/favicon.png" />'
-		s += '<script src="/dl;core;ajax.js"></script></head>\n<body id="main">'
+		s += '<script src="/dl;core;ajax.js"></script>'
+		s += '<script src="/dl;core;util.js"></script></head>\n<body id="main">'
 		s += self.dump_HTML()
 		s += "</body></html>"
 		return s
@@ -531,32 +532,45 @@ class TreeContainer(VContainer):
 
 class TreeContainerNode(VContainer):
 	text = ""
-	expanded = ""
-	_img = None
+	expanded = False
 
+	_tpl = '<div class="ui-el-treecontainernode"><div class="ui-el-treecontainernode-button"><a href="#">' + \
+			'<img id="$ID-btn" src="/dl;core;ui/tree-$IMG.png" ' + \
+			'onclick="javascript:showhide(\'$ID\');ajaxNoUpdate(\'/handle;$ID;click;\');treeicon(\'$ID-btn\')"/></a></div>' + \
+			'$TEXT<div class="ui-el-treecontainernode-inner" id="$ID" $VS>$INNER</div>'
+			
 	def __init__(self, t=''):
 		VContainer.__init__(self)
 		self.text = t
-		self._img = Image('')
-		self._img.handler = self._on_clicked
 
 	def dump_HTML(self):
-		self._img.file = 'core;ui/tree-minus.png' if self.expanded else 'core;ui/tree-plus.png'
-		s = '<div class="ui-el-treecontainernode"><div class="ui-el-treecontainernode-button"><a href="#">' + self._img.dump_HTML() + '</a></div>' + self.text
-		if self.expanded:
-			s += '<div class="ui-el-treecontainernode-inner">' + VContainer.dump_HTML(self) + '</div>'
-		s += '</div>'
+		img = 'minus' if self.expanded else 'plus'
+		vs = ''
+		if not self.expanded:
+			vs = 'style="display:none;"'		
+		inner = VContainer.dump_HTML(self)
+
+		s = self._tpl.replace('$IMG', img).replace('$TEXT', self.text)
+		s = s.replace('$ID', self.id).replace('$INNER', inner).replace('$VS', vs)
 		return s
 
 	def handle(self, target, event, data):
-		VContainer.handle(self, target, event, data)
-		self._img.handle(target, event, data)
-
-	def _on_clicked(self, target, event, data):
-		print 'asd'
-		if event == 'click':
+		if target == self.id and event == 'click':
 			self.expanded = not self.expanded
+ 		VContainer.handle(self, target, event, data)
+ 		
 
+class TreeContainerSimpleNode(Element):
+	inner = None
+
+	def __init__(self, e):
+		Element.__init__(self)
+		self.inner = e
+		
+	def dump_HTML(self):
+		s = '<div class="ui-el-treecontainernode-inner">' + self.inner.dump_HTML() + '</div>'
+		return s
+		
 
 class TextArea(Element):
 	text = ""
