@@ -571,7 +571,10 @@ class TreeContainerSimpleNode(Element):
 		s = '<div class="ui-el-treecontainernode-inner">' + self.inner.dump_HTML() + '</div>'
 		return s
 		
+	def handle(self, t, e, d):
+		self.inner.handle(t, e, d)
 
+		
 class TextArea(Element):
 	text = ""
 	width = "auto"
