@@ -74,6 +74,7 @@ class LogTreeNode(ui.TreeContainerNode):
 	
 	def __init__(self, d='/var/log', own = None):
 		ui.TreeContainerNode.__init__(self)
+		print d
 		self.text = os.path.basename(d)
 		self.dir_name = d		
 		self.owner = own
@@ -86,7 +87,7 @@ class LogTreeNode(ui.TreeContainerNode):
 		for x in dirList:
 			try:
 				if os.path.isdir(os.path.join(self.dir_name, x)):
-					tn = LogTreeNode(os.path.join(self.dir_name), self.owner)
+					tn = LogTreeNode(os.path.join(self.dir_name, x), self.owner)
 					self.add_element(tn)
 				else:		
 					tn = ui.Link(x)		
