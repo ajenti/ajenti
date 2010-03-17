@@ -1,2 +1,0 @@
-#!/bin/bash
-cat /var/run/network/ifstate | grep $1
