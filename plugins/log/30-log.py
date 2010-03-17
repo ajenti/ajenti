@@ -6,6 +6,7 @@ import log
 import tools
 import sys
 import os
+import gzip # for unzipped *.gz logs
 
 
 class LogPluginMaster(PluginMaster):
@@ -17,7 +18,7 @@ class LogPluginMaster(PluginMaster):
 		return i
 
 
-class LogPluginInstance(PluginInstance):
+class LogPluginInstance(PluginInstance):	
 	name = 'Log'
 
 	_pathLabel = None
@@ -104,17 +105,21 @@ class LogTreeNode(ui.TreeContainerNode):
 			
 	def _get_log_file(self, path):
 		buff = ""
+		fp = file
+		if path.endswith("gz"):
+			fp = gzip.open(path, 'rb')
+		else:
+			fp = open(path, "r")
+		
 		try:
-			fp = open(path)
-			while True:
-				rd = fp.read(8192)				
-				if not rd: break
-				buff += rd+"<br><br>"
+			for line in fp.readlines():				
+				buff += line		
 		except IOException:
 			log.err('Log', "Cannot open log file. Path "+path)
 		finally: fp.close()
 		
 		buff = buff.replace("\n", "<br/>")
+		buff = buff.replace("\t", "&nbsp;"*10)
 		return buff
 		
 	
