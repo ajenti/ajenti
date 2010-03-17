@@ -264,6 +264,8 @@ class ApacheModule():
 	# Files
 	config = ''
 	load = ''
+	#Config dialog
+	config_dialog = None
 
 	def __init__(self,name):
 		self.name = name
@@ -314,7 +316,12 @@ class ApacheModule():
 			t.text = 'Disable'
 		self.save()
 		return
-
+	
+	def open_config_dialog(self,t,e,d):
+		confd = EditApacheModuleConfig()
+		session.switch.switch( confd )
+		self.config_dialog = confd
+		return
 
 class ApacheModules():
 	modules = None
@@ -348,8 +355,6 @@ class EditApacheModuleConfig(ui.DialogBox):
 		return
 
 class EditApacheModulesDialog(ui.DialogBox):
-	openConfigDialog = None
-	
 	def __init__(self):
 		ui.DialogBox.__init__(self)
 		self.lblTitle.text = 'Apache Modules'
@@ -376,7 +381,7 @@ class EditApacheModulesDialog(ui.DialogBox):
 			name = None
 			if m.hasConfig:
 				name = ui.Link(m.name)
-				name.handler = self.openConfigDialog
+				name.handler = m.open_config_dialog
 				name.tag = m.name
 			else:
 				name = ui.Label(m.name)
