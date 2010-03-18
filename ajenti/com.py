@@ -77,8 +77,9 @@ class PluginManager (object):
     # Class-wide properties
     __classes = []
     __plugins = {}
-    # Instance-wide properties
-    __instances = {}
+
+    def __init__(self):
+        self.__instances = {}
 
     @staticmethod
     def class_register (cls):
@@ -139,10 +140,6 @@ class MetaPlugin (type):
         if name == 'Plugin':
             return new_class
 
-        # If this is abstract class, do no record it
-        if d.get('abstract'):
-            return new_class
-
         # Override __init__ for Plugins, for instantiation process
         if True not in [issubclass(x, PluginManager) for x in bases]:
             # Allow Plugins to have own __init__ without parameters
@@ -165,6 +162,10 @@ class MetaPlugin (type):
                     plugin_manager.instance_set(cls, self)
             maybe_init._original = init
             new_class.__init__ = maybe_init
+
+        # If this is abstract class, do no record it
+        if d.get('abstract'):
+            return new_class
 
         # Save created class for future reference
         PluginManager.class_register(new_class)
