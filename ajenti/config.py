@@ -4,7 +4,9 @@ from ajenti.utils import detect_platform
 
 default_values = {
                     'bind_host': '',
-                    'bind_port': '8000'
+                    'bind_port': '8000',
+                    'ssl'      : '1',
+                    'cert_file': 'server.pem'
                  }
 
 default_values['platform'] = detect_platform()

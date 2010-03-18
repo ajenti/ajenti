@@ -3,12 +3,36 @@
  
 import sys
 import logging
-from wsgiref.simple_server import make_server
+from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
+from OpenSSL import SSL
+import socket
 
 from ajenti.config import Config
 from ajenti.app import AppDispatcher
 
-def simple_server():
+ 
+class SecureRequestHandler(WSGIRequestHandler):
+    def setup(self):
+        self.connection = self.request
+        self.rfile = socket._fileobject(self.request, "rb", self.rbufsize)
+        self.wfile = socket._fileobject(self.request, "wb", self.wbufsize)
+     
+		
+class SecureServer(WSGIServer):
+    cert_file = ''
+    
+    def __init__(self, server_address, HandlerClass):
+        WSGIServer.__init__(self, server_address, HandlerClass)
+        ctx = SSL.Context(SSL.SSLv23_METHOD)
+        ctx.use_privatekey_file(SecureServer.cert_file)
+        ctx.use_certificate_file(SecureServer.cert_file)
+        self.socket = SSL.Connection(ctx, socket.socket(self.address_family,
+                                                        self.socket_type))
+        self.server_bind()
+        self.server_activate()
+
+        
+def server():
     # Initialize logging subsystem
     log = logging.getLogger('ajenti')
     stderr = logging.StreamHandler()
@@ -26,9 +50,15 @@ def simple_server():
     config.set('log_facility',log)
 
     # Start server
-    httpd = make_server(host, port, AppDispatcher(config).dispatcher)
+    if config.getint('ajenti', 'ssl') == 1:
+        SecureServer.cert_file = config.get('ajenti','cert_file')
+        httpd = make_server(host, port, AppDispatcher(config).dispatcher, SecureServer, SecureRequestHandler)
+    else:
+        httpd = make_server(host, port, AppDispatcher(config).dispatcher)
+    
     try:
         httpd.serve_forever()
     except KeyboardInterrupt, e:
         log.warn('Stopping by <Control-C>') 
+        
      
