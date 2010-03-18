@@ -1,16 +1,16 @@
+from ajenti.ui import *
 from ajenti.com import *
-from ajenti.ui import Category
-from ajenti.app.api import IDOMCategoryProvider
+from ajenti.app.api import ICategoryProvider
 
 class Dashboard(Plugin):
-    implements(IDOMCategoryProvider)
+    implements(ICategoryProvider)
 
     text = 'Dashboard'
     description = 'Server status'
-    icon = 'dashboard/icon.png'
+    icon = '/dl/dashboard/icon.png'
 
     def category_dom(self):
-        return Category(text=self.text, 
-                        description=self.description, 
-                        icon=self.icon)
+        return { 'text':self.text, 
+                 'description':self.description, 
+                 'img':self.icon }
 

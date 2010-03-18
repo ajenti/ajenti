@@ -13,6 +13,6 @@ class IContentProvider(Interface):
         pass
 
 
-class IDOMCategoryProvider(Interface):
+class ICategoryProvider(Interface):
     def category_dom(self):
         pass

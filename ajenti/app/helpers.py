@@ -7,9 +7,6 @@ class ModuleContent(Plugin):
     abstract = True
     implements(IContentProvider)
 
-    path = ''
-    module = ''
-
     def content_path(self):
         if self.path == '' or self.module == '':
             raise AttributeError('You should provide path/module information')  
