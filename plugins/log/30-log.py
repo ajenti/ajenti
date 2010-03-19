@@ -114,6 +114,7 @@ class LogTreeNode(ui.TreeContainerNode):
 			log.err('Log', "Cannot open log file. Path "+path)
 		finally: fp.close()
 		
+		buff = buff.replace("\n", "<br/>")
 		return buff
 		
 	
