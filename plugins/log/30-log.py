@@ -20,9 +20,10 @@ class LogPluginMaster(PluginMaster):
 class LogPluginInstance(PluginInstance):
 	name = 'Log'
 
-	_pathLabel = None;
-	_pathTree = None;
-	_logArea = None	
+	_pathLabel = None
+	_pathTree = None
+	_logArea = None
+	_lblStat = None
 
 	def _on_load(self, s): 
 		PluginInstance._on_load(self, s)
@@ -38,18 +39,22 @@ class LogPluginInstance(PluginInstance):
 		log.info('LogPlugin', 'Started instance') 
 
 	def build_panel(self):
-		l = ui.Label('')
+		self._lblStat = ui.Label('/usr/log')
+		l = ui.Label('Log plugin')
 		l.size = 5
 
-		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10, 1), l])
+		c = ui.HContainer([ui.Image('plug/ajentibackup;bigicon.png'), ui.Spacer(10, 1), ui.VContainer([l, self._lblStat])])
 
-		_pathLabel = ui.Label('/var/log/')
+		pl = ui.Label('/var/log/')
+		self._pathLabel = pl
 		
 		lb = ui.Label('')
+		lb.size = 1
+		
 		self._logArea = lb
 		sl = ui.ScrollContainer([lb])
-		sl.width = 500
-		sl.height = 380
+		sl.width = 800
+		sl.height = 400
 		
 		t = ui.TreeContainer()
 		t.add_element(LogTreeNode('/var/log', self))
@@ -59,12 +64,12 @@ class LogPluginInstance(PluginInstance):
 		s.width = 180
 		s.height = 400	
 		
-		v1 = ui.VContainer([_pathLabel, sl])
-		c1 = ui.HContainer([s, ui.Spacer(10, 1), v1])
+		c1 = ui.HContainer([s, ui.Spacer(10, 1), sl])
 		self.panel = ui.VContainer([c, c1])
 
 	def update(self):
 		if self.panel.visible:
+			self._lblStat.text = self._pathLabel.text
 			return
 	
 
@@ -95,8 +100,25 @@ class LogTreeNode(ui.TreeContainerNode):
 					tn.handler = self._on_link_clicked
 					self.add_element(ui.TreeContainerSimpleNode(tn))
 			except:
-				pass	
+				pass
+			
+	def _get_log_file(self, path):
+		buff = ""
+		try:
+			fp = open(path)
+			while True:
+				rd = fp.read(8192)				
+				if not rd: break
+				buff += rd+"<br><br>"
+		except IOException:
+			log.err('Log', "Cannot open log file. Path "+path)
+		finally: fp.close()
+		
+		return buff
+		
 	
 	def _on_link_clicked(self, t, e, d):
-		self.owner._logArea.text = "hello from log tree"	
+		self.owner._pathLabel.text = t.path		
+		self.owner._logArea.text = self._get_log_file(t.path)
+		
 
