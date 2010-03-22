@@ -4,6 +4,7 @@ from genshi.template import MarkupTemplate, TemplateLoader
 
 from ajenti.ui.classes import Html
 
+
 EMPTY_TEMPLATE="""<html xmlns="http://www.w3.org/1999/xhtml" 
         xmlns:py="http://genshi.edgewall.org/" 
         xmlns:xi="http://www.w3.org/2001/XInclude" py:strip="" />
@@ -69,5 +70,5 @@ class BasicTemplate(object):
     def render(self, *args, **kwargs):
         loader = TemplateLoader(self.search_path)
         template = MarkupTemplate(self.toxml(), loader=loader)
-        return template.generate(**kwargs).render('html', doctype='html')
+        return template.generate(**kwargs).render('xhtml', doctype='xhtml')
 

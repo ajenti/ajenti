@@ -48,8 +48,7 @@ class Category(Element):
 
 class VContainer(Element):
     """ Container class
-    TODO: Make class a list, with automatic vnode addition/deletion
-          when adding/retrieving items
+    To maintain same syntax with XML Templates - we should use vnode() 
     """
     def __init__(self, *args):
         Element.__init__(self, 'vcontainer')
@@ -58,6 +57,6 @@ class VContainer(Element):
             if isinstance(e, dom.Element):
                 self.elements.append(e)
 
-    def append(self, e):
+    def vnode(self, e):
         self.appendChild(Html().vnode(e))
         

@@ -29,9 +29,16 @@ class RootDispatcher(Plugin):
 
         v = ui.VContainer()
         for c in self.categories:
-            v.append(ui.Category(c.category_dom()))
+            v.vnode(ui.Category(c.category_dom()))
 
         templ.appendChildInto('leftplaceholder', v)
+
+        number = req['app.session'].get('number', None)
+        if not number:
+            import random
+            number = str(random.randint(1, 9000*9000))
+            req['app.session']['number'] = number
+        templ.appendChildInto('topplaceholder', h.p({'py:content':number}))
 
         # Debug, to see how template looks before template engine
         print templ.toxml()

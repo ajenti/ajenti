@@ -1,8 +1,13 @@
+import time
+import Cookie
+import hashlib
 import traceback
 
 from ajenti.com import *
 from ajenti.plugins import *
+from ajenti.app.session import SessionStore, SessionManager
 from ajenti.app.api import IRequestDispatcher, IContentProvider
+from ajenti.app.helpers import WSGIDispatcher
 from ajenti.ui.api import ITemplateProvider
 from ajenti.ui.template import BasicTemplate
 
@@ -40,6 +45,7 @@ class Application (PluginManager, Plugin):
         self.headers = headers
 
     def dispatcher(self, environ, start_response):
+        self.environ = environ
         self.status = '200 OK'
         self.headers = [('Content-type','text/html')]
 
@@ -47,14 +53,13 @@ class Application (PluginManager, Plugin):
         for handler in self.uri_handlers:
             if handler.match(environ['PATH_INFO']):
                 try:
-                    content = handler.process(environ, self.start_response)
+                    content = handler.process(self.environ, self.start_response)
                 except Exception, e:
                     self.status = '500 Error'
                     self.headers = [('Content-type', 'text/plain')]
                     content = traceback.format_exc()
 
         start_response(self.status, self.headers)
-
         return content
 
     def plugin_enabled(self, cls):
@@ -76,11 +81,14 @@ class Application (PluginManager, Plugin):
 class AppDispatcher(object):
     def __init__(self, config=None):
         self.config = config
+        # TODO: add config parameter for session timeout
+        self.sessions = SessionStore()
 
     def dispatcher(self, environ, start_response):
-        # Use unique instances for each request
-        # So any plugins data will not interused between different clients 
-        app = Application(self.config)
+        # Use unique instances for each request,
+        # so no plugin data will be interused between different clients
+        app = Application(self.config).dispatcher
+        app = SessionManager(self.sessions, app)
 
-        return app.dispatcher(environ, start_response)
+        return app(environ, start_response)
 
