@@ -14,5 +14,21 @@ class IContentProvider(Interface):
 
 
 class ICategoryProvider(Interface):
-    def category_dom(self):
+    """ ICategoryProvider should contain:
+    'category' property
+    'get_ui()' method to retrieve main panel
+    """
+    category = {'text': 'Caption text',
+                'description': 'Topic description',
+                'icon': '/dl/core/ui/category-icon.png'}
+
+    def get_ui():
         pass
+
+class IEventDispatcher(Interface):
+    def match_event(self, event):
+        pass
+
+    def event(self, event, *params, **kwparams):
+        pass
+

@@ -1,3 +1,4 @@
+import commands
 import platform
 
 def detect_platform():
@@ -15,4 +16,10 @@ def detect_platform():
         dist='unknown'
 
     return dist
+
+def detect_distro():
+    s, r = commands.getstatusoutput('lsb_release -sd')
+    if s == 0: return r
+    s, r = commands.getstatusoutput('uname -mrs')
+    return r
 

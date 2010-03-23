@@ -4,6 +4,7 @@ from genshi.template import MarkupTemplate, TemplateLoader
 
 from ajenti.ui.classes import Html
 
+
 EMPTY_TEMPLATE="""<html xmlns="http://www.w3.org/1999/xhtml" 
         xmlns:py="http://genshi.edgewall.org/" 
         xmlns:xi="http://www.w3.org/2001/XInclude" py:strip="" />
@@ -36,11 +37,7 @@ class BasicTemplate(object):
         else:
             self._dom = dom.parseString(EMPTY_TEMPLATE)
 
-
-        e = self._dom.childNodes[0]
-        h = Html()
-        for i in includes:
-            e.insertBefore(h.gen('xi:include', href=i), e.firstChild)
+        self.includes = includes
 
     def appendChildInto(self, dest, child):
         """ Tries to append child element to given tag
@@ -60,6 +57,9 @@ class BasicTemplate(object):
         e = self._dom.childNodes[0]
         e.appendChild(child)
 
+    def elements(self):
+        return self._dom.childNodes[0]
+
     def toxml(self):
         return self._dom.toxml()
 
@@ -67,7 +67,12 @@ class BasicTemplate(object):
         return self._dom.toprettyxml()
     
     def render(self, *args, **kwargs):
+        e = self._dom.childNodes[0]
+        h = Html()
+        for i in self.includes:
+            e.insertBefore(h.gen('xi:include', href=i), e.firstChild)
+
         loader = TemplateLoader(self.search_path)
         template = MarkupTemplate(self.toxml(), loader=loader)
-        return template.generate(**kwargs).render('html', doctype='html')
+        return template.generate(**kwargs).render('xhtml', doctype='xhtml')
 

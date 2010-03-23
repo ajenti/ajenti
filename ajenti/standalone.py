@@ -9,7 +9,7 @@ import socket
 
 from ajenti.config import Config
 from ajenti.app import AppDispatcher
-
+import ajenti.app.plugins as plugins
 
 class SecureRequestHandler(WSGIRequestHandler):
     def setup(self):
@@ -49,10 +49,14 @@ def server():
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
 
+    # Load external plugins
+    plugins.loader(config.get('ajenti', 'plugins'))
+
     # Start server
     if config.getint('ajenti', 'ssl') == 1:
         SecureServer.cert_file = config.get('ajenti','cert_file')
         httpd = make_server(host, port, AppDispatcher(config).dispatcher, SecureServer, SecureRequestHandler)
+        #httpd = make_server(host, port, AppDispatcher(config).dispatcher, SecureServer)
     else:
         httpd = make_server(host, port, AppDispatcher(config).dispatcher)
 
