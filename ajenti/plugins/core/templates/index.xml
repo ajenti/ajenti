@@ -9,21 +9,5 @@
     <script src="/dl/core/ajax.js" />
 </head>
 <body id="main">
-    <table cellspacing="0" cellpadding="0" class="ui-el-mainwindow">
-        <tr>
-		    <td class="ui-el-mainwindow-top" colspan="2">
-                <topbar />
-                <topplaceholder py:strip="" />
-            </td>
-        </tr>
-        <tr>
-			<td class="ui-el-mainwindow-left">
-                <leftplaceholder py:strip="" />
-            </td>
-			<td class="ui-el-mainwindow-right">
-                <rightplaceholder py:strip="" />
-            </td>
-		</tr>
-    </table>
 </body>
 </html>

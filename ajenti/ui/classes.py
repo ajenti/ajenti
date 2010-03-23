@@ -41,10 +41,14 @@ class Html(object):
     def gen(self, name, *args, **kwargs):
         return Element(name, *args, **kwargs)
 
+class Text(Element):
+    """ FIXME: xml.dom.minidom does not provide plain text element """ 
+    def __init__(self, text):
+        Element.__init__(self, 'span', {'py:content':"'%s'"%text, 'py:strip':""})
+
 class Category(Element):
     def __init__(self, *args, **kwargs):
         Element.__init__(self, 'category', *args, **kwargs)
-        self._init(id=self.id)
 
 class VContainer(Element):
     """ Container class
@@ -55,8 +59,32 @@ class VContainer(Element):
         self.elements = []
         for e in args:
             if isinstance(e, dom.Element):
-                self.elements.append(e)
+                self.vnode(e)
 
     def vnode(self, e):
         self.appendChild(Html().vnode(e))
         
+class HContainer(Element):
+    """ Container class
+    To maintain same syntax with XML Templates - we should use hnode() 
+    """
+    def __init__(self, *args):
+        Element.__init__(self, 'hcontainer')
+        self.elements = []
+        for e in args:
+            if isinstance(e, dom.Element):
+                self.hnode(e)
+
+    def hnode(self, e):
+        self.appendChild(Html().hnode(e))
+
+class Image(Element):
+    def __init__(self, image, *args, **kwargs):
+        Element.__init__(self, 'img', *args, **kwargs)
+        self._init(src=image)
+        
+class Spacer(Element):
+    def __init__(self, width=1, height=1):
+        Element.__init__(self, 'spacer')
+        self._init(width=str(width), height=str(height))
+

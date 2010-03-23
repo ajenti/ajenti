@@ -37,11 +37,7 @@ class BasicTemplate(object):
         else:
             self._dom = dom.parseString(EMPTY_TEMPLATE)
 
-
-        e = self._dom.childNodes[0]
-        h = Html()
-        for i in includes:
-            e.insertBefore(h.gen('xi:include', href=i), e.firstChild)
+        self.includes = includes
 
     def appendChildInto(self, dest, child):
         """ Tries to append child element to given tag
@@ -61,6 +57,9 @@ class BasicTemplate(object):
         e = self._dom.childNodes[0]
         e.appendChild(child)
 
+    def elements(self):
+        return self._dom.childNodes[0]
+
     def toxml(self):
         return self._dom.toxml()
 
@@ -68,6 +67,11 @@ class BasicTemplate(object):
         return self._dom.toprettyxml()
     
     def render(self, *args, **kwargs):
+        e = self._dom.childNodes[0]
+        h = Html()
+        for i in self.includes:
+            e.insertBefore(h.gen('xi:include', href=i), e.firstChild)
+
         loader = TemplateLoader(self.search_path)
         template = MarkupTemplate(self.toxml(), loader=loader)
         return template.generate(**kwargs).render('xhtml', doctype='xhtml')

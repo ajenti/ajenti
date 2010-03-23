@@ -1,19 +1,12 @@
-import re
 import os.path
 import mimetypes
 
 from ajenti.com import *
-from ajenti.app.api import IRequestDispatcher
+from ajenti.app.urlhandler import URLHandler, url
 
-class Downloader(Plugin):
-    implements(IRequestDispatcher)
+class Downloader(URLHandler, Plugin):
 
-    def match(self, uri):
-        if re.match('^/dl/.+/.+', uri):
-            return True
-        else:
-            return False
-
+    @url('^/dl/.+/.+')
     def process(self, req, start_response):
         params = req['PATH_INFO'].split('/',3)
 

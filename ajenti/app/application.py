@@ -6,15 +6,16 @@ import traceback
 from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.app.session import SessionStore, SessionManager
-from ajenti.app.api import IRequestDispatcher, IContentProvider
-from ajenti.app.helpers import WSGIDispatcher
+from ajenti.app.api import IContentProvider
 from ajenti.ui.api import ITemplateProvider
 from ajenti.ui.template import BasicTemplate
+from ajenti.app.urlhandler import IURLHandler
 
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
 
-    uri_handlers = Interface(IRequestDispatcher)
+    #uri_handlers = Interface(IRequestDispatcher)
+    uri_handlers = Interface(IURLHandler)
     content_providers = Interface(IContentProvider)
     template_providers = Interface(ITemplateProvider)
 
@@ -48,12 +49,14 @@ class Application (PluginManager, Plugin):
         self.environ = environ
         self.status = '200 OK'
         self.headers = [('Content-type','text/html')]
+        self.session = environ['app.session']
 
         content = "Sorry, no content"
         for handler in self.uri_handlers:
-            if handler.match(environ['PATH_INFO']):
+            if handler.match_url(environ):
                 try:
-                    content = handler.process(self.environ, self.start_response)
+                    content = handler.url_handler(self.environ, 
+                                                  self.start_response)
                 except Exception, e:
                     self.status = '500 Error'
                     self.headers = [('Content-type', 'text/plain')]

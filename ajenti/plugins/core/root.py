@@ -2,47 +2,54 @@ import re
 
 import ajenti.ui as ui
 from ajenti.com import *
-from ajenti.app.api import IRequestDispatcher, ICategoryProvider
+from ajenti.app.api import ICategoryProvider
+from ajenti.app.helpers import CategoryPlugin
+from ajenti.app.urlhandler import URLHandler, url
 
-class TestCategory(Plugin):
-    implements(ICategoryProvider)
-
-    def category_dom(self):
-        return { 'text': 'Caption',
-                 'description': 'Description',
-                 'img': '/dev/null' }
-
-class RootDispatcher(Plugin):
-    implements(IRequestDispatcher)
+class RootDispatcher(URLHandler, Plugin):
     
     categories = Interface(ICategoryProvider)
-
-    def match(self, uri):
-        if re.match('^/$', uri):
-            return True
-        else:
-            return False
-
-    def process(self, req, start_response):
-        templ = self.app.get_template('index.xml')
+    
+    def main_ui(self):
+        templ = self.app.get_template('main.xml')
         h = ui.Html()
 
+        cat_selected = self.app.session.get('cat_selected',0)
+
+        cat = None
         v = ui.VContainer()
-        for c in self.categories:
-            v.vnode(ui.Category(c.category_dom()))
+        for num, c in enumerate(self.categories):
+            if num == cat_selected:
+                v.vnode(ui.Category(c.category, id=str(num), selected='true'))
+                cat = c
+            else:
+                v.vnode(ui.Category(c.category, id=str(num)))
 
         templ.appendChildInto('leftplaceholder', v)
 
-        number = req['app.session'].get('number', None)
-        if not number:
-            import random
-            number = str(random.randint(1, 9000*9000))
-            req['app.session']['number'] = number
-        templ.appendChildInto('topplaceholder', h.p({'py:content':number}))
+        templ.appendChildInto('rightplaceholder', cat.get_ui())
 
-        # Debug, to see how template looks before template engine
-        print templ.toxml()
+        return templ
+
+    @url('^/$')
+    def process(self, req, start_response):
+        templ = self.app.get_template('index.xml')
+
+        main = self.main_ui()
+
+        templ.appendChildInto('body', main.elements())
 
         return templ.render()
-            
-            
+                       
+    @url('^/handle/category/click/\d+')
+    def handle(self, req, start_response):
+        match = re.match('^/handle/category/click/(\d+)', req['PATH_INFO'])
+        if not match:
+            return 'Error'
+
+        cat = match.group(1)
+        self.app.session['cat_selected'] = int(cat)
+
+        main = self.main_ui()
+
+        return main.render()

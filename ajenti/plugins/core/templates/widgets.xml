@@ -10,12 +10,12 @@
 
 <!--! Widget for Category -->
 <py:match path="category"> 
-    <a href="#" onclick="javascript:ajax('/handle/${select('@id')}/click');">
-	    <div class="ui-el-category">
+    <a href="#" onclick="javascript:ajax('/handle/category/click/${select('@id')}');">
+	    <div class="${'ui-el-category-selected' if str(select('@selected'))=='true' else 'ui-el-category'}">
 		    <table>
                 <tr>
                     <td rowspan="2" class="ui-el-category-icon">
-                        <img src="${select('@img')}" />
+                        <img src="${select('@icon')}" />
                     </td>
                     <td class="ui-el-category-text">${select('@text')}</td>
                 </tr>
@@ -35,6 +35,23 @@
 </py:match>
 <py:match path="vnode">
     <tr><td>${select('node()')}</td></tr>
+</py:match>
+
+<!--! HContainer widget -->
+<py:match path="hcontainer">
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            ${select('node()')}
+        </tr>
+    </table>
+</py:match>
+<py:match path="hnode">
+    <td>${select('node()')}</td>
+</py:match>
+
+<!--! Spacer -->
+<py:match path="spacer">
+    <div style="width: ${select('@width')}px; ${select('@height')}px;" />
 </py:match>
 
 <py:match path="test">

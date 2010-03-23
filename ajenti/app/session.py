@@ -58,6 +58,33 @@ import hashlib
 def sha1(var):
     return hashlib.sha1(str(var)).hexdigest()
 
+class SessionProxy(object):
+    """ SessionProxy used to automatically add prefixes to keys
+
+    >>> sess = Session('')
+    >>> proxy = sess.proxy('test')
+    >>> proxy['123'] = 'value'
+    >>> sess
+    {'test-123': 'value'}
+    >>> proxy.get('123')
+    'value'
+    >>> proxy['123']
+    'value'
+    >>> 
+    """
+    def __init__(self, session, prefix):
+        self._session = session
+        self._prefix = prefix + '-'
+
+    def __getitem__(self, key):
+        return self._session[self._prefix + key]
+
+    def __setitem__(self, key, value):
+        self._session[self._prefix + key] = value
+
+    def get(self, key, default=None):
+        return self._session.get(self._prefix + key, default)
+
 class Session(dict):
     """ Session object
     Holds data between requests
@@ -84,6 +111,9 @@ class Session(dict):
 
     def touch(self):
         self._accessTime = time.time()
+
+    def proxy(self, prefix):
+        return SessionProxy(self, prefix)
 
     @staticmethod
     def generateId():
