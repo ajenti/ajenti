@@ -7,6 +7,7 @@ from ajenti.app.api import IContentProvider
 from ajenti.app.api import IEventDispatcher
 from ajenti.app.api import ICategoryProvider
 
+
 def event(event_name):
     """ Decorator function to register event handlers
 
@@ -40,6 +41,7 @@ def event(event_name):
 
     return event_decorator
 #def event
+
 
 class ModuleContent(Plugin):
     abstract = True
@@ -116,7 +118,37 @@ class EventProcessor(object):
 
         return handler(event, *params, **kwparams)
 
-class CategoryPlugin(Plugin):
+
+class SessionPlugin(Plugin):
+    session_proxy = None
+
+    def __init__(self):
+        if self.session_proxy is None:
+            self.session_proxy = self.app.session.proxy(self.__class__.__name__)
+
+        if self.session_proxy.get('estabilished', None) is None:
+            self.session_proxy['estabilished'] = 'yes'
+            self.on_session_start()
+
+    def __getattr__(self, name):
+        # TODO: use regexps
+        if name[0] == '_' and not name[1] == '_':
+            return self.session_proxy.get(name, None)
+        else:
+            raise AttributeError
+
+    def __setattr__(self, name, value):
+        # TODO: use regexps
+        if name[0] == '_' and not name[1] == '_':
+            self.session_proxy[name] = value
+        else:
+            self.__dict__[name] = value
+
+    def on_session_start(self):
+        pass
+
+
+class CategoryPlugin(SessionPlugin):
     abstract = True
 
     implements(ICategoryProvider)
