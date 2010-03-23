@@ -13,10 +13,10 @@ class Dashboard(CategoryPlugin):
 
     def get_ui(self):
         h = HContainer(
-                Image('/dl/dashboard/server.png'), 
+                Image('/dl/dashboard/server.png'),
                 Spacer(10,1),
                 VContainer(
-                    Text(platform.node()),
+                    Label(platform.node(), 5),
                     Text('Ajenti ' + version),
                     Text(detect_distro())
                 )

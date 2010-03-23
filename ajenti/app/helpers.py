@@ -14,19 +14,19 @@ def event(event_name):
     ...     @event('some/event')
     ...     def test1 (self):
     ...         pass
-    ...         
+    ...
     ...     @event('other/event')
     ...     def test2 (self):
     ...         pass
     >>> a._events
     {'other/event': 'test2', 'some/event': 'test1'}
-    >>> 
+    >>>
     """
     # Get parent exection frame
     frame = inspect.stack()[1][0]
     # Get locals from it
     locals = frame.f_locals
-    
+
     if ((locals is frame.f_globals) or
         ('__module__' not in locals)):
         raise TypeError('@event() can only be used in class definition')
@@ -37,7 +37,7 @@ def event(event_name):
         loc_events[event_name] = func.__name__
         return func
     #def event_decorator
-    
+
     return event_decorator
 #def event
 
@@ -47,24 +47,26 @@ class ModuleContent(Plugin):
 
     def content_path(self):
         if self.path == '' or self.module == '':
-            raise AttributeError('You should provide path/module information')  
+            raise AttributeError('You should provide path/module information')
         norm_path = os.path.join(os.path.dirname(self.path),'files')
         return (self.module, norm_path)
 
 
 class EventProcessor(object):
+    implements(IEventDispatcher)
+
     def _get_event_handler(self, event):
         """
         >>> class Test(EventProcessor):
         ...     @event('test')
         ...     def test(self):
         ...         pass
-        ... 
+        ...
         >>> t = Test()
         >>> t._get_event_handler('test')
         'test'
         >>>
-        """ 
+        """
         for cls in self.__class__.mro():
             if '_events' in dir(cls):
                 if event in cls._events:
@@ -78,7 +80,7 @@ class EventProcessor(object):
         ...     @event('test')
         ...     def test(self):
         ...         pass
-        ... 
+        ...
         >>> t = Test()
         >>> t._get_event_handler('test')
         'test'
@@ -86,7 +88,7 @@ class EventProcessor(object):
         True
         >>> t.match_event('test2')
         False
-        >>> 
+        >>>
         """
         if self._get_event_handler(event) is not None:
             return True
@@ -98,11 +100,11 @@ class EventProcessor(object):
         ...     @event('test')
         ...     def test(self, *p, **kw):
         ...         print(kw)
-        ... 
+        ...
         >>> t = Test()
         >>> t.event('test', value='test')
         {'value': 'test'}
-        >>> 
+        >>>
         """
         handler = self._get_event_handler(event)
         if handler is None:
@@ -113,7 +115,7 @@ class EventProcessor(object):
             return
 
         return handler(event, *params, **kwparams)
-         
+
 class CategoryPlugin(Plugin):
     abstract = True
 

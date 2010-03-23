@@ -1,6 +1,6 @@
-<widgets xmlns="http://www.w3.org/1999/xhtml" 
-         xmlns:xi="http://www.w3.org/2001/XInclude" 
-         xmlns:py="http://genshi.edgewall.org/" 
+<widgets xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:py="http://genshi.edgewall.org/"
          py:strip="" >
 
 <!--! Top logo widget -->
@@ -9,7 +9,7 @@
 </py:match>
 
 <!--! Widget for Category -->
-<py:match path="category"> 
+<py:match path="category">
     <a href="#" onclick="javascript:ajax('/handle/category/click/${select('@id')}');">
 	    <div class="${'ui-el-category-selected' if str(select('@selected'))=='true' else 'ui-el-category'}">
 		    <table>
@@ -23,6 +23,15 @@
                     <td class="ui-el-category-description">${select('@description')}</td>
                 </tr>
             </table>
+        </div>
+    </a>
+</py:match>
+
+<!--! Widget for Button -->
+<py:match path="button">
+    <a href="#" onclick="javascript:ajax('/handle/button/click/${select('@id')}');">
+        <div class="ui-el-button">
+            ${select('@text')}
         </div>
     </a>
 </py:match>
@@ -59,6 +68,13 @@
     <span>${select('@name')}</span>
     <span py:with="p='123'" py:content="p"></span>
   </div>
+</py:match>
+
+<!--! Label widget -->
+<py:match path="label">
+    <span class="ui-el-label-${select('@size')}">
+        ${select('@text')}
+    </span>
 </py:match>
 
 </widgets>
