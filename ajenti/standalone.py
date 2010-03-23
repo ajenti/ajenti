@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
- 
+
 import sys
 import logging
 from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
@@ -10,20 +10,20 @@ import socket
 from ajenti.config import Config
 from ajenti.app import AppDispatcher
 
- 
+
 class SecureRequestHandler(WSGIRequestHandler):
     def setup(self):
         self.connection = self.request
         self.rfile = socket._fileobject(self.request, "rb", self.rbufsize)
         self.wfile = socket._fileobject(self.request, "wb", self.wbufsize)
-     
-		
+
+
 class SecureServer(WSGIServer):
     cert_file = ''
-    
+
     def __init__(self, server_address, HandlerClass):
         WSGIServer.__init__(self, server_address, HandlerClass)
-        ctx = SSL.Context(SSL.SSLv23_METHOD)
+        ctx = SSL.Context(SSL.SSLv3_METHOD)
         ctx.use_privatekey_file(SecureServer.cert_file)
         ctx.use_certificate_file(SecureServer.cert_file)
         self.socket = SSL.Connection(ctx, socket.socket(self.address_family,
@@ -31,7 +31,7 @@ class SecureServer(WSGIServer):
         self.server_bind()
         self.server_activate()
 
-        
+
 def server():
     # Initialize logging subsystem
     log = logging.getLogger('ajenti')
@@ -55,10 +55,10 @@ def server():
         httpd = make_server(host, port, AppDispatcher(config).dispatcher, SecureServer, SecureRequestHandler)
     else:
         httpd = make_server(host, port, AppDispatcher(config).dispatcher)
-    
+
     try:
         httpd.serve_forever()
     except KeyboardInterrupt, e:
-        log.warn('Stopping by <Control-C>') 
-        
-     
+        log.warn('Stopping by <Control-C>')
+
+
