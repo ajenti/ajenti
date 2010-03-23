@@ -15,7 +15,11 @@ class Beeper(CategoryPlugin, EventProcessor):
     description = 'Beep, beep, beep!'
     icon = '/dl/beeper/icon.png'
 
-    #_sp = SessionProxy('beeper')
+    _sp = None
+    _lbl = None
+
+    def __init__(self):
+        self._sp = self.app.session.proxy('beeper')
 
     def get_ui(self):
         h = HContainer(
@@ -32,13 +36,14 @@ class Beeper(CategoryPlugin, EventProcessor):
         p = VContainer(
                 h,
                 Spacer(1,20),
-                Label('text'),
+                Label(self._sp.get('text','')),
                 b
             )
         return p
 
     @event('/handle/button/click/beeper-btn-clickme')
     def on_click(self, *args, **kwargs):
+        self._sp['text'] = self._sp.get('text', '') + 'Beep! '
         print 'Clicked!'
 
 """
