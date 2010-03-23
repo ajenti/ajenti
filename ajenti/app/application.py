@@ -1,26 +1,39 @@
 import traceback
 
-#from ajenti.ui import UI
 from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.app.api import IRequestDispatcher, IContentProvider
+from ajenti.ui.api import ITemplateProvider
+from ajenti.ui.template import BasicTemplate
 
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
 
     uri_handlers = Interface(IRequestDispatcher)
     content_providers = Interface(IContentProvider)
-
-    content = {}
+    template_providers = Interface(ITemplateProvider)
 
     def __init__(self, config=None):
+        PluginManager.__init__(self)
+        
+        # Init instance variables
+        self.template_path = []
+        self.template_include = []
+        self.content = {}
         self.config = config
         self.log = config.get('log_facility')
         self.platform = config.get('ajenti','platform')
+
         # Get path for static content
         for c in self.content_providers:
             (module, path) = c.content_path()
             self.content[module] = path
+
+        # Update all template paths/includes for auto searching
+        for t in self.template_providers:
+            tparams = t.template()
+            self.template_path += tparams['path']
+            self.template_include += tparams['include']
 
     def start_response(self, status, headers=[]):
         self.status = status
@@ -54,6 +67,11 @@ class Application (PluginManager, Plugin):
         plugin.log = self.log
         plugin.config = self.config
         plugin.app = self
+
+    def get_template(self, filename=None, search_path=[], includes=[]):
+        return BasicTemplate(filename=filename, 
+                             search_path=search_path+self.template_path,
+                             includes=includes+self.template_include) 
 
 class AppDispatcher(object):
     def __init__(self, config=None):

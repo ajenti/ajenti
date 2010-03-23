@@ -2,12 +2,20 @@ import re
 
 import ajenti.ui as ui
 from ajenti.com import *
-from ajenti.app.api import IRequestDispatcher, IDOMCategoryProvider
+from ajenti.app.api import IRequestDispatcher, ICategoryProvider
+
+class TestCategory(Plugin):
+    implements(ICategoryProvider)
+
+    def category_dom(self):
+        return { 'text': 'Caption',
+                 'description': 'Description',
+                 'img': '/dev/null' }
 
 class RootDispatcher(Plugin):
     implements(IRequestDispatcher)
     
-    categories = Interface(IDOMCategoryProvider)
+    categories = Interface(ICategoryProvider)
 
     def match(self, uri):
         if re.match('^/$', uri):
@@ -16,18 +24,18 @@ class RootDispatcher(Plugin):
             return False
 
     def process(self, req, start_response):
-        mw = ui.MainWindow()
+        templ = self.app.get_template('index.xml')
+        h = ui.Html()
 
-        v = ui.VContainer() 
-        cat_doms = [cat.category_dom() for cat in self.categories]
-        for c in cat_doms:
-            v.appendChild(c)
+        v = ui.VContainer()
+        for c in self.categories:
+            v.append(ui.Category(c.category_dom()))
 
-        mw.top(ui.TopBar())
-        mw.left(v)
+        templ.appendChildInto('leftplaceholder', v)
 
-        d = ui.Document([mw])
+        # Debug, to see how template looks before template engine
+        print templ.toxml()
 
-        return d.toprettyxml('')
+        return templ.render()
             
             

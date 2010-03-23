@@ -60,5 +60,3 @@ def server():
         httpd.serve_forever()
     except KeyboardInterrupt, e:
         log.warn('Stopping by <Control-C>')
-
-

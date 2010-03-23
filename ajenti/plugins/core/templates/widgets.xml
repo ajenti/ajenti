@@ -1,0 +1,47 @@
+<widgets xmlns="http://www.w3.org/1999/xhtml" 
+         xmlns:xi="http://www.w3.org/2001/XInclude" 
+         xmlns:py="http://genshi.edgewall.org/" 
+         py:strip="" >
+
+<!--! Top logo widget -->
+<py:match path="topbar">
+    <span class="ui-logo"><img src="/dl/core/ui/logo.png" /></span>
+</py:match>
+
+<!--! Widget for Category -->
+<py:match path="category"> 
+    <a href="#" onclick="javascript:ajax('/handle/${select('@id')}/click');">
+	    <div class="ui-el-category">
+		    <table>
+                <tr>
+                    <td rowspan="2" class="ui-el-category-icon">
+                        <img src="${select('@img')}" />
+                    </td>
+                    <td class="ui-el-category-text">${select('@text')}</td>
+                </tr>
+                <tr>
+                    <td class="ui-el-category-description">${select('@description')}</td>
+                </tr>
+            </table>
+        </div>
+    </a>
+</py:match>
+
+<!--! VContainer widget -->
+<py:match path="vcontainer">
+    <table cellspacing="0" cellpadding="0">
+        ${select('node()')}
+    </table>
+</py:match>
+<py:match path="vnode">
+    <tr><td>${select('node()')}</td></tr>
+</py:match>
+
+<py:match path="test">
+  <div>
+    <span>${select('@name')}</span>
+    <span py:with="p='123'" py:content="p"></span>
+  </div>
+</py:match>
+
+</widgets>
