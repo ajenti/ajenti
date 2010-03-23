@@ -33,5 +33,5 @@ class Downloader(URLHandler, Plugin):
         headers.append(('Last-modified','Mon, 01 Jan 1960 00:00:00 GMT'))
 
         start_response('200 OK', headers)
-        return open(file).read()
+        return req['wsgi.file_wrapper'](open(file))
 
