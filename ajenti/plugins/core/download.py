@@ -23,13 +23,14 @@ class Downloader(URLHandler, Plugin):
             return ''
 
         headers = []
-        # Check if we have any known file type 
+        # Check if we have any known file type
         (mimetype, encoding) = mimetypes.guess_type(file)
         if mimetype is not None:
             headers.append(('Content-type',mimetype))
 
         size = os.path.getsize(file)
         headers.append(('Content-length',str(size)))
+        headers.append(('Last-modified','Mon, 01 Jan 1960 00:00:00 GMT'))
 
         start_response('200 OK', headers)
         return open(file).read()
