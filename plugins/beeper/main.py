@@ -19,7 +19,6 @@ class Beeper(CategoryPlugin, EventProcessor):
     _lbl = None
 
     def __init__(self):
-        print 'init!'
         self._sp = self.app.session.proxy('beeper')
         self._sp['text'] = ''
 
@@ -46,9 +45,12 @@ class Beeper(CategoryPlugin, EventProcessor):
             )
         return p
 
-    @event('/handle/button/click/beeper-btn-clickme')
-    def on_click(self, *args, **kwargs):
+    @event('button/click')
+    def on_click(self, event, params, vars=None):
+        from pprint import pprint
         print 'Clicked!'
+        pprint(params)
+        pprint(vars)
 
 """
 from plugin import PluginMaster, PluginInstance #Import base plugin classes from Ajenti's plugin.py

@@ -45,6 +45,15 @@ class Application (PluginManager, Plugin):
         self.status = status
         self.headers = headers
 
+    def fix_length(self, content):
+        # TODO: maybe move this method to middleware
+        has_content_length = False
+        for header, value in self.headers:
+            if header.upper() == 'CONTENT-LENGTH':
+                has_content_length = True
+        if not has_content_length:
+            self.headers.append(('Content-Length',str(len(content))))
+
     def dispatcher(self, environ, start_response):
         self.environ = environ
         self.status = '200 OK'
@@ -63,6 +72,7 @@ class Application (PluginManager, Plugin):
                     content = traceback.format_exc()
 
         start_response(self.status, self.headers)
+        self.fix_length(content)
         return content
 
     def plugin_enabled(self, cls):

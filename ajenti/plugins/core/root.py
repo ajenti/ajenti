@@ -4,7 +4,7 @@ import ajenti.ui as ui
 from ajenti.com import *
 from ajenti.app.api import ICategoryProvider, IEventDispatcher
 from ajenti.app.helpers import CategoryPlugin
-from ajenti.app.urlhandler import URLHandler, url
+from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
 
 class RootDispatcher(URLHandler, Plugin):
 
@@ -59,10 +59,22 @@ class RootDispatcher(URLHandler, Plugin):
     def handle_generic(self, req, start_response):
         # Iterate through the IEventDispatchers and find someone who will take care of the event
         # TODO: use regexp for shorter event names, ex. 'btn_clickme/click'
-        for num, d in enumerate(self.event_dispatchers):
-            if d.match_event(req['PATH_INFO']):
-                d.event(req['PATH_INFO'])
+        path = req['PATH_INFO'].split('/')
+        event = '/'.join(path[2:4])
+        params = path[4:]
+        handler = None
 
+        # Current module
+        cat = self.app.session.get('cat_selected',0)
+
+        if self.categories[cat].match_event(event):
+            vars = get_environment_vars(req)
+            result = self.categories[cat].event(event, params, vars = vars)
+            if result is not None:
+                # Usefull for inplace AJAX calls (that returns partial page)
+                return result.render()
+
+        # We have no result or handler - return default page
         main = self.main_ui()
 
         return main.render()
