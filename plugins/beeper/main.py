@@ -9,7 +9,7 @@ class BeeperContent(ModuleContent):
     module = 'beeper'
     path = __file__
 
-class Beeper(CategoryPlugin, EventProcessor):
+class Beeper(CategoryPlugin):
 
     text = 'Beeper'
     description = 'Beep, beep, beep!'

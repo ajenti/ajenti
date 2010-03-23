@@ -2,14 +2,13 @@ import re
 
 import ajenti.ui as ui
 from ajenti.com import *
-from ajenti.app.api import ICategoryProvider, IEventDispatcher
-from ajenti.app.helpers import CategoryPlugin
+from ajenti.app.api import ICategoryProvider
+from ajenti.app.helpers import EventProcessor, event
 from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
 
-class RootDispatcher(URLHandler, Plugin):
+class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
     categories = Interface(ICategoryProvider)
-    event_dispatchers = Interface(IEventDispatcher)
 
     def main_ui(self):
         templ = self.app.get_template('main.xml')
@@ -42,18 +41,18 @@ class RootDispatcher(URLHandler, Plugin):
 
         return templ.render()
 
-    @url('^/handle/category/click/\d+')
-    def handle(self, req, start_response):
-        match = re.match('^/handle/category/click/(\d+)', req['PATH_INFO'])
-        if not match:
-            return 'Error'
+    @event('category/click')
+    def category(self, event, params, **kw):
+        if not isinstance(params, list):
+            return
+        if len(params) != 1:
+            return
+        try:
+            cat = int(params[0])
+        except:
+            return
 
-        cat = match.group(1)
-        self.app.session['cat_selected'] = int(cat)
-
-        main = self.main_ui()
-
-        return main.render()
+        self.app.session['cat_selected'] = cat
 
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):
@@ -62,17 +61,18 @@ class RootDispatcher(URLHandler, Plugin):
         path = req['PATH_INFO'].split('/')
         event = '/'.join(path[2:4])
         params = path[4:]
-        handler = None
 
         # Current module
         cat = self.app.session.get('cat_selected',0)
 
-        if self.categories[cat].match_event(event):
-            vars = get_environment_vars(req)
-            result = self.categories[cat].event(event, params, vars = vars)
-            if result is not None:
-                # Usefull for inplace AJAX calls (that returns partial page)
-                return result.render()
+        # Search self and current category for event handler
+        for handler in (self.categories[cat], self):
+            if handler.match_event(event):
+                vars = get_environment_vars(req)
+                result = handler.event(event, params, vars = vars)
+                if result is not None:
+                    # Usefull for inplace AJAX calls (that returns partial page)
+                    return result.render()
 
         # We have no result or handler - return default page
         main = self.main_ui()
