@@ -22,6 +22,9 @@ class Beeper(CategoryPlugin, EventProcessor):
         self._sp = self.app.session.proxy('beeper')
 
     def get_ui(self):
+        self._sp['text'] += 'Beep! '
+        print self.app.session
+
         h = HContainer(
                 Image('/dl/beeper/bigicon.png'),
                 Spacer(10,1),
