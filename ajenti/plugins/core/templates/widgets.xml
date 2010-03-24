@@ -121,13 +121,13 @@
 
 <!--! TextInput widget -->
 <py:match path="textinput">
-    <input class="ui-el-input" value="${select('@value')}" id="${select('id')}" />
+    <input class="ui-el-input" value="${select('@value')}" id="${select('@id')}" />
 </py:match>
 
 
 <!--! CheckBox widget -->
 <py:match path="checkbox">
-    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('name')}" id="${select('id')}" py:attrs="{'checked':''} if str(select('@checked')) != '' else ''" />
+    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" py:attrs="{'checked':''} if str(select('@checked')) != '' else ''" />
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>
@@ -136,7 +136,7 @@
 
 <!--! Radio widget -->
 <py:match path="radio">
-    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('name')}" id="${select('id')}" py:attrs="{'checked':''} if str(select('@checked')) != '' else ''" />
+    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" py:attrs="{'checked':''} if str(select('@checked')) != '' else ''" />
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>
