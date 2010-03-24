@@ -135,7 +135,8 @@ class SessionPlugin(Plugin):
         if name[0] == '_' and not name[1] == '_':
             return self.session_proxy.get(name, None)
         else:
-            return self.__dict__[name]
+            raise AttributeError("'%s' object has no attribute '%s'"%
+                                  (self.__class__.__name__, name))
 
     def __setattr__(self, name, value):
         # TODO: use regexps
