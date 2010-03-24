@@ -127,7 +127,7 @@
 
 <!--! CheckBox widget -->
 <py:match path="checkbox">
-    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" py:attrs="{'checked':''} if str(select('@checked')) != '' else ''" />
+    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${str(select('@checked')) or None}" />
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>
@@ -136,7 +136,7 @@
 
 <!--! Radio widget -->
 <py:match path="radio">
-    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" py:attrs="{'checked':''} if str(select('@checked')) != '' else ''" />
+    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${str(select('@checked')) or None}" />
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>

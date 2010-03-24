@@ -47,10 +47,11 @@ class Beeper(CategoryPlugin):
                 a,
                 Spacer(1,50),
                 TextInput('123'),
-                Checkbox(name='vote', text='I wanna vote for:'),
+                Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
                 Radio(name='for', text='Checkboxes'),
                 Radio(name='for', text='Radio buttons', checked='yes')
             )
+
         return p
 
     @event('button/click')

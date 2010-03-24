@@ -17,12 +17,12 @@ class Element(dom.Element):
 
     def _init(self, *args, **kwargs):
         for attr in kwargs:
-            self.setAttribute(attr, kwargs[attr])
+            self.setAttribute(attr, str(kwargs[attr]))
         for attrs in args:
             if isinstance(attrs, dict):
                 # Append attributes in dicts
                 for attr in attrs:
-                    self.setAttribute(attr, attrs[attr])
+                    self.setAttribute(attr, str(attrs[attr]))
             elif isinstance(attrs, dom.Element):
                 # Append childs
                 self.appendChild(attrs)
@@ -31,7 +31,7 @@ class Element(dom.Element):
         return self.getAttribute(key)
 
     def __setitem__(self, key, value):
-        self.setAttribute(key, value)
+        self.setAttribute(key, str(value))
 
 
 class Html(object):
