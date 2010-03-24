@@ -19,6 +19,7 @@ class Beeper(CategoryPlugin):
         self._text = ''
 
     def get_ui(self):
+        print self._events
         h = HContainer(
                 Image('/dl/beeper/bigicon.png'),
                 Spacer(10,1),
@@ -27,24 +28,59 @@ class Beeper(CategoryPlugin):
                     Text('Awesome beeping action')
                 )
             )
-        b = Button('Click me')
+        b = Button('Beep!')
         # TODO: maybe some autoprefixing is needed
         b['id'] = 'beeper-btn-clickme'
+        a = Action('Bang!')
+        a['description'] = 'Come on, click me!'
+        a['icon'] = '/dl/core/ui/icon-ok.png'
+        a['id'] = 'beeper-act-clickme'
+        l = LinkLabel('Boom!')
+        l['id'] = 'beeper-ll-clickme'
+
         p = VContainer(
                 h,
                 Spacer(1,20),
                 Label(self._text),
-                b
+                b,
+                l,
+                a,
+                Spacer(1,50),
+                TextInput('123'),
+                Checkbox(name='vote', text='I wanna vote for:'),
+                Radio(name='for', text='Checkboxes'),
+                Radio(name='for', text='Radio buttons', checked='yes')
             )
         return p
 
     @event('button/click')
     def on_click(self, event, params, vars=None):
-        self._text += 'Beep! '
+        if params[0] == 'beeper-btn-clickme':
+            self._text += 'Beep! '
+            from pprint import pprint
+            print 'Clicked button!'
+            pprint(params)
+            pprint(vars)
+
+    @event('action/click')
+    def on_aclick(self, event, params, vars=None):
+        if params[0] == 'beeper-act-clickme':
+            self._text += 'Bang! '
+            from pprint import pprint
+            print 'Clicked action!'
+            pprint(params)
+            pprint(vars)
+
+    @event('linklabel/click')
+    def on_lclick(self, event, params, vars=None):
         from pprint import pprint
-        print 'Clicked!'
         pprint(params)
         pprint(vars)
+        if params[0] == 'beeper-ll-clickme':
+            self._text += 'Boom! '
+            print 'Clicked link!'
+            pprint(params)
+            pprint(vars)
 
 """
 from plugin import PluginMaster, PluginInstance #Import base plugin classes from Ajenti's plugin.py

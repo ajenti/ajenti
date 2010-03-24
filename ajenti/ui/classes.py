@@ -104,12 +104,38 @@ class Spacer(Element):
 
 
 class Label(Element):
-    def __init__(self, txt='', size=1):
+    def __init__(self, text='', size=1):
         Element.__init__(self, 'label')
-        self._init(text=txt, size=str(size))
+        self._init(text=text, size=str(size))
 
 
 class Button(Element):
-    def __init__(self, txt=''):
+    def __init__(self, text=''):
         Element.__init__(self, 'button')
-        self._init(text=txt, id=self.id)
+        self._init(text=text, id=self.id)
+
+
+class LinkLabel(Element):
+    def __init__(self, text=''):
+        Element.__init__(self, 'linklabel')
+        self._init(text=text, id=self.id)
+
+class Action(Element):
+    def __init__(self, text=''):
+        Element.__init__(self, 'action')
+        self._init(text=text, id=self.id)
+
+class TextInput(Element):
+    def __init__(self, val=''):
+        Element.__init__(self, 'textinput')
+        self._init(value=val, id=self.id)
+
+class Checkbox(Element):
+    def __init__(self, value='', text='', checked='', name=''):
+        Element.__init__(self, 'checkbox')
+        self._init(value=value, id=self.id, text=text, checked=str(checked), name=name)
+
+class Radio(Element):
+    def __init__(self, value='', text='', checked='', name=''):
+        Element.__init__(self, 'radio')
+        self._init(value=value, id=self.id, text=text, checked=str(checked), name=name)
