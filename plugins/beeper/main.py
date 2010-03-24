@@ -1,4 +1,5 @@
 import platform
+from pprint import pprint, pformat
 
 from ajenti.ui import *
 from ajenti import version
@@ -17,6 +18,7 @@ class Beeper(CategoryPlugin):
 
     def on_session_start(self):
         self._text = ''
+        self._form_text = []
 
     def get_ui(self):
         print self._events
@@ -38,6 +40,11 @@ class Beeper(CategoryPlugin):
         l = LinkLabel('Boom!')
         l['id'] = 'beeper-ll-clickme'
 
+        html = Html()
+        f = VContainer()
+        for s in self._form_text:
+            f.vnode(Text(s))
+
         p = VContainer(
                 h,
                 Spacer(1,20),
@@ -49,16 +56,35 @@ class Beeper(CategoryPlugin):
                 TextInput('123'),
                 Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
                 Radio(name='for', text='Checkboxes'),
-                Radio(name='for', text='Radio buttons', checked='yes')
+                Radio(name='for', text='Radio buttons', checked='yes'),
+                Spacer(1,50),
+                f,
+                DialogBox("test", 
+                            TextInput(name="someInput"),
+                            Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                            Radio(name='for', text='Checkboxes'),
+                            Radio(name='for', text='Radio buttons', checked='yes'),
+                            id="testDialog", action="/handle/dialog/submit/testDialog"
+                         )
             )
 
         return p
+
+    @event('dialog/submit')
+    def on_submit(self, event, params, vars=None):
+        self._form_text = []
+        self._form_text.append("You submited form: %s"%str(params[0]))
+        self._form_text.append("Vars:")
+        for k in vars.keys():
+            if len(vars.getlist(k)) > 1:
+                self._form_text.append("%s = [%s]\n"%(k, ', '.join(vars.getlist(k))))
+            else:
+                self._form_text.append("%s = %s\n"%(k, vars.getvalue(k,'')))
 
     @event('button/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'beeper-btn-clickme':
             self._text += 'Beep! '
-            from pprint import pprint
             print 'Clicked button!'
             pprint(params)
             pprint(vars)
@@ -67,14 +93,12 @@ class Beeper(CategoryPlugin):
     def on_aclick(self, event, params, vars=None):
         if params[0] == 'beeper-act-clickme':
             self._text += 'Bang! '
-            from pprint import pprint
             print 'Clicked action!'
             pprint(params)
             pprint(vars)
 
     @event('linklabel/click')
     def on_lclick(self, event, params, vars=None):
-        from pprint import pprint
         pprint(params)
         pprint(vars)
         if params[0] == 'beeper-ll-clickme':

@@ -32,6 +32,78 @@ function ajax(URL)
 	xmlReq.send (null);
 }
 
+function ajaxPOST(URL, params)
+{
+	xmlReq = null;
+	if(window.XMLHttpRequest) 		xmlReq = new XMLHttpRequest();
+	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
+	if(xmlReq==null) return; // Failed to create the request
+
+	xmlReq.onreadystatechange = function()
+	{
+		switch(xmlReq.readyState)
+		{
+		case 0:	// Uninitialized
+			break;
+		case 1: // Loading
+			break;
+		case 2: // Loaded
+			break;
+		case 3: // Interactive
+			break;
+		case 4:	// Done!
+//			ajaxHandler(xmlReq.responseXML.getElementsByTagName('info')[0].firstChild.data,
+//						xmlReq.responseXML.getElementsByTagName('data')[0].firstChild.data);
+			ajaxHandler(xmlReq.responseText);
+			break;
+		default:
+			break;
+		}
+	}
+
+// Make the request
+	xmlReq.open ('POST', URL, true);
+    xmlReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlReq.setRequestHeader("Content-length", params.length);
+    xmlReq.setRequestHeader("Connection", "close");
+    xmlReq.send(params);
+}
+
+function ajaxForm(formId, action)
+{
+    form = document.getElementById(formId);
+    if (form)
+    {
+        params = "action="+escape(encodeURI(action));
+
+        var inputs = form.getElementsByTagName("input")
+        if (inputs) {
+            for (i=0; i<inputs.length; i++) {
+                if (inputs[i].type == "text") {
+                    params += "&" + inputs[i].name + "=" + escape(encodeURI(inputs[i].value));
+                }
+                if (inputs[i].type == "checkbox") {
+                    if (inputs[i].checked) {
+                        params += "&" + inputs[i].name + "=" + escape(encodeURI(inputs[i].value));
+                    } else {
+                        params += "&" + inputs[i].name + "=";
+                    }
+                }
+                if (inputs[i].type == "radio") {
+                    if (inputs[i].checked) {
+                        params += "&" + inputs[i].name + "=" + escape(encodeURI(inputs[i].value));
+                    }
+                }
+                if (inputs[i].tagName == "SELECT") {
+                    var sel = inputs[i];
+                    params += "&" + sel.name + "=" + escape(encodeURI(sel.options[sel.selectedIndex].value));
+                }      
+     
+            }
+        }
+        ajaxPOST(form.action, params);
+    }
+}
 
 function ajaxHandler(data)
 {

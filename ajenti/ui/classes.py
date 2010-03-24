@@ -126,8 +126,8 @@ class Action(Element):
         self._init(text=text, id=self.id)
 
 class TextInput(Element):
-    def __init__(self, val=''):
-        Element.__init__(self, 'textinput')
+    def __init__(self, val='', **kw):
+        Element.__init__(self, 'textinput', **kw)
         self._init(value=val, id=self.id)
 
 class Checkbox(Element):
@@ -139,3 +139,8 @@ class Radio(Element):
     def __init__(self, value='', text='', checked='', name=''):
         Element.__init__(self, 'radio')
         self._init(value=value, id=self.id, text=text, checked=str(checked), name=name)
+
+class DialogBox(Element):
+    def __init__(self, title='Dialog', *args, **kw):
+            Element.__init__(self, 'dialogbox', title=title, *args, **kw)
+ 
