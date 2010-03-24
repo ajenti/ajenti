@@ -126,8 +126,8 @@ class SessionPlugin(Plugin):
         if self.session_proxy is None:
             self.session_proxy = self.app.session.proxy(self.__class__.__name__)
 
-        if self.session_proxy.get('estabilished', None) is None:
-            self.session_proxy['estabilished'] = 'yes'
+        if self.session_proxy.get('sp_estabilished', None) is None:
+            self.session_proxy['sp_estabilished'] = 'yes'
             self.on_session_start()
 
     def __getattr__(self, name):
@@ -135,7 +135,8 @@ class SessionPlugin(Plugin):
         if name[0] == '_' and not name[1] == '_':
             return self.session_proxy.get(name, None)
         else:
-            raise AttributeError
+            raise AttributeError("'%s' object has no attribute '%s'"%
+                                  (self.__class__.__name__, name))
 
     def __setattr__(self, name, value):
         # TODO: use regexps
@@ -148,7 +149,7 @@ class SessionPlugin(Plugin):
         pass
 
 
-class CategoryPlugin(SessionPlugin):
+class CategoryPlugin(SessionPlugin, EventProcessor):
     abstract = True
 
     implements(ICategoryProvider)

@@ -9,7 +9,7 @@ class BeeperContent(ModuleContent):
     module = 'beeper'
     path = __file__
 
-class Beeper(CategoryPlugin, EventProcessor):
+class Beeper(CategoryPlugin):
 
     text = 'Beeper'
     description = 'Beep, beep, beep!'
@@ -38,10 +38,13 @@ class Beeper(CategoryPlugin, EventProcessor):
             )
         return p
 
-    @event('/handle/button/click/beeper-btn-clickme')
-    def on_click(self, *args, **kwargs):
+    @event('button/click')
+    def on_click(self, event, params, vars=None):
         self._text += 'Beep! '
+        from pprint import pprint
         print 'Clicked!'
+        pprint(params)
+        pprint(vars)
 
 """
 from plugin import PluginMaster, PluginInstance #Import base plugin classes from Ajenti's plugin.py

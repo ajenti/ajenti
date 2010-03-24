@@ -1,4 +1,5 @@
 import re
+import cgi
 import inspect
 
 from ajenti.com import Interface, implements
@@ -61,4 +62,19 @@ class URLHandler(object):
             return
 
         return handler(req, start_response)
+
+def get_environment_vars(req):
+    res = None
+    req.setdefault('QUERY_STRING', '')
+    if req['REQUEST_METHOD'].upper() == 'POST':
+        ctype = req.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
+        if ctype.startswith('application/x-www-form-urlencoded') \
+           or ctype.startswith('multipart/form-data'):
+            res = cgi.FieldStorage(fp=req['wsgi.input'],
+                                   environ=req,
+                                   keep_blank_values=1)
+    else:
+        res = cgi.FieldStorage(environ=req, keep_blank_values=1)
+
+    return res
 
