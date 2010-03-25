@@ -55,57 +55,49 @@ class UI(object):
         def __getattr__(cls, name):
             return lambda *args, **kwargs: Element(name.lower(), *args, **kwargs)
 
+    @staticmethod
+    def VContainer(*args):
+        class VContainer(Element):
+            """ Container class
+            To maintain same syntax with XML Templates - we should use vnode()
+            """
+            def __init__(self, *args):
+                Element.__init__(self, 'vcontainer')
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        self.vnode(e)
 
-class Text(Element):
-    """ FIXME: xml.dom.minidom does not provide plain text element """
-    def __init__(self, text):
-        Element.__init__(self, 'span', {'py:content':"'%s'"%text, 'py:strip':""})
+            def vnode(self, e):
+                self.appendChild(Html().vnode(e))
 
+        return VContainer(*args)
 
-class Category(Element):
-    def __init__(self, *args, **kwargs):
-        Element.__init__(self, 'category', *args, **kwargs)
+    @staticmethod
+    def HContainer(*args):
+        class HContainer(Element):
+            """ Container class
+            To maintain same syntax with XML Templates - we should use hnode()
+            """
+            def __init__(self, *args):
+                Element.__init__(self, 'hcontainer')
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        self.hnode(e)
 
+            def hnode(self, e):
+                self.appendChild(Html().hnode(e))
 
-class VContainer(Element):
-    """ Container class
-    To maintain same syntax with XML Templates - we should use vnode()
-    """
-    def __init__(self, *args):
-        Element.__init__(self, 'vcontainer')
-        self.elements = []
-        for e in args:
-            if isinstance(e, dom.Element):
-                self.vnode(e)
+        return HContainer(*args)
 
-    def vnode(self, e):
-        self.appendChild(Html().vnode(e))
+    @staticmethod
+    def Text(text):
+        return Element('span', {'py:content':"'%s'"%text, 'py:strip':""})
 
-
-class HContainer(Element):
-    """ Container class
-    To maintain same syntax with XML Templates - we should use hnode()
-    """
-    def __init__(self, *args):
-        Element.__init__(self, 'hcontainer')
-        self.elements = []
-        for e in args:
-            if isinstance(e, dom.Element):
-                self.hnode(e)
-
-    def hnode(self, e):
-        self.appendChild(Html().hnode(e))
-
-class DialogBox(Element):
-    def __init__(self, title='Dialog', *args, **kw):
-        Element.__init__(self, 'dialogbox', title=title, *args, **kw)
- 
-class Select(Element):
-    def __init__(self, *args, **kw):
-        Element.__init__(self, 'select', *args, **kw)
-
-class Option(Element):
-    def __init__(self, text='option', *args, **kw):
-        Element.__init__(self, 'option', *args, **kw)
-        self.appendChild(Text(text))
+    @staticmethod
+    def Option(text='option', **kw):
+        el = Element('option', **kw)
+        el.appendChild(UI.Text(text))
+        return el
 

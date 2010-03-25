@@ -21,10 +21,10 @@ class Beeper(CategoryPlugin):
         self._form_text = []
 
     def get_ui(self):
-        h = HContainer(
+        h = UI.HContainer(
                 UI.Image(file='/dl/beeper/bigicon.png'),
                 UI.Spacer(width=10),
-                VContainer(
+                UI.VContainer(
                     UI.Label(text='Beeper', size=5),
                     UI.Label(text='Awesome beeping action')
                 )
@@ -40,12 +40,12 @@ class Beeper(CategoryPlugin):
         l['id'] = 'beeper-ll-clickme'
 
         html = Html()
-        f = VContainer()
+        f = UI.VContainer()
         for s in self._form_text:
-            f.vnode(Text(s))
+            f.vnode(UI.Text(s))
 
-        p = HContainer(
-                VContainer(
+        p = UI.HContainer(
+                UI.VContainer(
                     h,
                     UI.Spacer(height=20),
                     UI.Label(text=self._text),
@@ -59,21 +59,21 @@ class Beeper(CategoryPlugin):
                     UI.Radio(name='for', text='Radio buttons', checked='yes')
                 ),
                 UI.Spacer(width=30),
-                VContainer(
+                UI.VContainer(
                     f,
-                    DialogBox("test", 
-                                VContainer(
+                    UI.DialogBox(
+                                UI.VContainer(
                                     UI.TextInput(name="someInput"),
                                     UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
                                     UI.Radio(name='for', text='Checkboxes', value="checkbox"),
                                     UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio"),
-                                    Select(
-                                        Option("option1", value="1"),
-                                        Option("option2", value="2"),
+                                    UI.Select(
+                                        UI.Option("option1", value="1"),
+                                        UI.Option("option2", value="2"),
                                         name="select"
                                     )
                                 ),
-                                id="testDialog", action="/handle/dialog/submit/testDialog"
+                                title="test", id="testDialog", action="/handle/dialog/submit/testDialog"
                             )
                 )
             )

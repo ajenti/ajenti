@@ -1,6 +1,7 @@
 import re
 
 import ajenti.ui as ui
+from ajenti.ui import UI
 from ajenti.com import *
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import EventProcessor, event
@@ -17,13 +18,13 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         cat_selected = self.app.session.get('cat_selected',0)
 
         cat = None
-        v = ui.VContainer()
+        v = UI.VContainer()
         for num, c in enumerate(self.categories):
             if num == cat_selected:
-                v.vnode(ui.Category(c.category, id=str(num), selected='true'))
+                v.vnode(UI.Category(c.category, id=str(num), selected='true'))
                 cat = c
             else:
-                v.vnode(ui.Category(c.category, id=str(num)))
+                v.vnode(UI.Category(c.category, id=str(num)))
 
         templ.appendChildInto('leftplaceholder', v)
 

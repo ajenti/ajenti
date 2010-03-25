@@ -12,10 +12,10 @@ class Dashboard(CategoryPlugin):
     icon = '/dl/dashboard/icon.png'
 
     def get_ui(self):
-        h = HContainer(
+        h = UI.HContainer(
                 UI.Image(file='/dl/dashboard/server.png'),
                 UI.Spacer(width=10),
-                VContainer(
+                UI.VContainer(
                     UI.Label(text=platform.node(), size=5),
                     UI.Label(text='Ajenti ' + version),
                     UI.Label(text=detect_distro())
