@@ -39,7 +39,6 @@ class Beeper(CategoryPlugin):
         l = UI.LinkLabel(text='Boom!')
         l['id'] = 'beeper-ll-clickme'
 
-        html = Html()
         f = UI.VContainer()
         for s in self._form_text:
             f.vnode(UI.Text(s))

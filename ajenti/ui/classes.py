@@ -34,26 +34,28 @@ class Element(dom.Element):
         self.setAttribute(key, str(value))
 
 
-class Html(object):
-    """ Automatically generate XML tag by calling name
-
-    >>> from ajenti.ui.html import Html
-    >>> h = Html()
-    >>> h.meta(encoding='ru').toxml()
-    '<meta encoding="ru"/>'
-    >>>
-    """
-    def __getattr__(self, name):
-        return lambda *args, **kwargs: Element(name, *args, **kwargs)
-
-    def gen(self, name, *args, **kwargs):
-        return Element(name, *args, **kwargs)
-
-
 class UI(object):
+    """ Automatically generate XML tags by calling name
+
+    >>> m = UI.Meta(encoding="ru")
+    >>> m.toxml()
+    '<meta encoding="ru"/>'
+    >>> 
+    """
     class __metaclass__(type):
         def __getattr__(cls, name):
-            return lambda *args, **kwargs: Element(name.lower(), *args, **kwargs)
+            return lambda *args, **kw: Element(name.lower(), *args, **kw)
+
+    @staticmethod
+    def gen(name, *args, **kwargs):
+        """ Generate XML tags by name, if name will violate Pyhton syntax
+
+        >>> xi = UI.gen('xml:include', href="some.xml")
+        >>> xi.toxml()
+        '<xml:include href="some.xml"/>'
+        >>> 
+        """
+        return Element(name.lower(), *args, **kwargs)
 
     @staticmethod
     def VContainer(*args):
@@ -69,7 +71,7 @@ class UI(object):
                         self.vnode(e)
 
             def vnode(self, e):
-                self.appendChild(Html().vnode(e))
+                self.appendChild(UI.vnode(e))
 
         return VContainer(*args)
 
@@ -87,7 +89,7 @@ class UI(object):
                         self.hnode(e)
 
             def hnode(self, e):
-                self.appendChild(Html().hnode(e))
+                self.appendChild(UI.hnode(e))
 
         return HContainer(*args)
 
