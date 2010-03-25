@@ -74,33 +74,39 @@ function ajaxForm(formId, action)
     form = document.getElementById(formId);
     if (form)
     {
-        params = "action="+escape(encodeURI(action));
+        params = "action="+escape(action);
 
         var inputs = form.getElementsByTagName("input")
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 if (inputs[i].type == "text") {
-                    params += "&" + inputs[i].name + "=" + escape(encodeURI(inputs[i].value));
+                    params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
                 }
                 if (inputs[i].type == "checkbox") {
                     if (inputs[i].checked) {
-                        params += "&" + inputs[i].name + "=" + escape(encodeURI(inputs[i].value));
+                        if (inputs[i].value) {
+                            params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
+                        } else {
+                            params += "&" + inputs[i].name + "=1";
+                        }
                     } else {
                         params += "&" + inputs[i].name + "=";
                     }
                 }
                 if (inputs[i].type == "radio") {
                     if (inputs[i].checked) {
-                        params += "&" + inputs[i].name + "=" + escape(encodeURI(inputs[i].value));
+                        params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
                     }
                 }
-                if (inputs[i].tagName == "SELECT") {
-                    var sel = inputs[i];
-                    params += "&" + sel.name + "=" + escape(encodeURI(sel.options[sel.selectedIndex].value));
-                }      
-     
             }
         }
+        inputs = form.getElementsByTagName("select")
+        if (inputs) {
+            for (i=0; i<inputs.length; i++) {
+                var sel = inputs[i];
+                params += "&" + sel.name + "=" + escape(sel.options[sel.selectedIndex].value);
+            }
+        } 
         ajaxPOST(form.action, params);
     }
 }

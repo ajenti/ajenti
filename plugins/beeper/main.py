@@ -45,27 +45,38 @@ class Beeper(CategoryPlugin):
         for s in self._form_text:
             f.vnode(Text(s))
 
-        p = VContainer(
-                h,
-                Spacer(1,20),
-                Label(self._text),
-                b,
-                l,
-                a,
-                Spacer(1,50),
-                TextInput('123'),
-                Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                Radio(name='for', text='Checkboxes'),
-                Radio(name='for', text='Radio buttons', checked='yes'),
-                Spacer(1,50),
-                f,
-                DialogBox("test", 
-                            TextInput(name="someInput"),
-                            Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                            Radio(name='for', text='Checkboxes'),
-                            Radio(name='for', text='Radio buttons', checked='yes'),
-                            id="testDialog", action="/handle/dialog/submit/testDialog"
-                         )
+        p = HContainer(
+                VContainer(
+                    h,
+                    Spacer(1,20),
+                    Label(self._text),
+                    b,
+                    l,
+                    a,
+                    Spacer(1,50),
+                    TextInput('123'),
+                    Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                    Radio(name='for', text='Checkboxes'),
+                    Radio(name='for', text='Radio buttons', checked='yes')
+                ),
+                Spacer(30,1),
+                VContainer(
+                    f,
+                    DialogBox("test", 
+                                VContainer(
+                                    TextInput(name="someInput"),
+                                    Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                                    Radio(name='for', text='Checkboxes', value="checkbox"),
+                                    Radio(name='for', text='Radio buttons', checked='yes', value="radio"),
+                                    Select(
+                                        Option("option1", value="1"),
+                                        Option("option2", value="2"),
+                                        name="select"
+                                    )
+                                ),
+                                id="testDialog", action="/handle/dialog/submit/testDialog"
+                            )
+                )
             )
 
         return p

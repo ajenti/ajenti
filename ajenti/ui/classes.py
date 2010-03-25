@@ -142,5 +142,14 @@ class Radio(Element):
 
 class DialogBox(Element):
     def __init__(self, title='Dialog', *args, **kw):
-            Element.__init__(self, 'dialogbox', title=title, *args, **kw)
+        Element.__init__(self, 'dialogbox', title=title, *args, **kw)
  
+class Select(Element):
+    def __init__(self, *args, **kw):
+        Element.__init__(self, 'select', *args, **kw)
+
+class Option(Element):
+    def __init__(self, text='option', *args, **kw):
+        Element.__init__(self, 'option', *args, **kw)
+        self.appendChild(Text(text))
+
