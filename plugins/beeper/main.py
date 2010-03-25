@@ -19,6 +19,7 @@ class Beeper(CategoryPlugin):
     def on_session_start(self):
         self._text = ''
         self._form_text = []
+        self._dlg_visible = False
 
     def get_ui(self):
         h = UI.HContainer(
@@ -43,6 +44,33 @@ class Beeper(CategoryPlugin):
         for s in self._form_text:
             f.vnode(UI.Text(s))
 
+        dlg = UI.DialogBox(
+                UI.LayoutTable(
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.TextInput(name="someInput"),
+                            UI.Select(
+                                UI.Option("option1", value="1"),
+                                UI.Option("option2", value="2"),
+                                name="select"
+                            ),
+                            rowspan="3"
+                        ),
+                        UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                    ),
+                    UI.LayoutTableRow(
+                        UI.Radio(name='for', text='Checkboxes', value="checkbox"),
+                    ),
+                    UI.LayoutTableRow(
+                        UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio")
+                    )
+                ),
+                title="Test Dialog", id="testDialog", action="/handle/dialog/submit/testDialog"
+            )
+
+        b2 = UI.Button(text='Show dialog')
+        b2['id'] = 'btn-dialog'
+
         p = UI.HContainer(
                 UI.VContainer(
                     h,
@@ -52,28 +80,27 @@ class Beeper(CategoryPlugin):
                     l,
                     a,
                     UI.Spacer(height=50),
-                    UI.TextInput(text='123'),
-                    UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                    UI.Radio(name='for', text='Checkboxes'),
-                    UI.Radio(name='for', text='Radio buttons', checked='yes')
+                    UI.DataTable(
+                        UI.DataTableRow(
+                            UI.Label(text='Key'),
+                            UI.Label(text='Value'),
+                            header=True,
+                        ),
+                        UI.DataTableRow(
+                            UI.Label(text='12'),
+                            UI.Label(text='34')
+                        ),
+                        UI.DataTableRow(
+                            UI.Label(text='56'),
+                            UI.Label(text='78')
+                        )
+                    )
                 ),
                 UI.Spacer(width=30),
                 UI.VContainer(
                     f,
-                    UI.DialogBox(
-                                UI.VContainer(
-                                    UI.TextInput(name="someInput"),
-                                    UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                                    UI.Radio(name='for', text='Checkboxes', value="checkbox"),
-                                    UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio"),
-                                    UI.Select(
-                                        UI.Option("option1", value="1"),
-                                        UI.Option("option2", value="2"),
-                                        name="select"
-                                    )
-                                ),
-                                title="test", id="testDialog", action="/handle/dialog/submit/testDialog"
-                            )
+                    b2,
+                    dlg if self._dlg_visible else None
                 )
             )
 
@@ -89,6 +116,7 @@ class Beeper(CategoryPlugin):
                 self._form_text.append("%s = [%s]\n"%(k, ', '.join(vars.getlist(k))))
             else:
                 self._form_text.append("%s = %s\n"%(k, vars.getvalue(k,'')))
+        self._dlg_visible = False
 
     @event('button/click')
     def on_click(self, event, params, vars=None):
@@ -97,6 +125,8 @@ class Beeper(CategoryPlugin):
             print 'Clicked button!'
             pprint(params)
             pprint(vars)
+        if params[0] == 'btn-dialog':
+            self._dlg_visible = True
 
     @event('action/click')
     def on_aclick(self, event, params, vars=None):
