@@ -126,7 +126,7 @@ class UI(object):
                         if e.tagName == 'layouttablecell':
                             self.appendChild(e)
                         else:
-                            self.appendChild(Html().layouttablecell(e))
+                            self.appendChild(UI.LayoutTableCell(e))
 
         return LayoutTableRow(*args)
 
@@ -153,6 +153,6 @@ class UI(object):
                         if e.tagName == 'datatablecell':
                             self.appendChild(e)
                         else:
-                            self.appendChild(Html().datatablecell(e))
+                            self.appendChild(UI.DataTableCell(e))
 
         return DataTableRow(*args)
