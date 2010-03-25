@@ -13,7 +13,6 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
     def main_ui(self):
         templ = self.app.get_template('main.xml')
-        h = ui.Html()
 
         cat_selected = self.app.session.get('cat_selected',0)
 

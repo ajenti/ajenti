@@ -2,7 +2,7 @@ import os.path
 import xml.dom.minidom as dom
 from genshi.template import MarkupTemplate, TemplateLoader
 
-from ajenti.ui.classes import Html
+from ajenti.ui import UI
 
 
 EMPTY_TEMPLATE="""<html xmlns="http://www.w3.org/1999/xhtml" 
@@ -68,9 +68,8 @@ class BasicTemplate(object):
     
     def render(self, *args, **kwargs):
         e = self._dom.childNodes[0]
-        h = Html()
         for i in self.includes:
-            e.insertBefore(h.gen('xi:include', href=i), e.firstChild)
+            e.insertBefore(UI.gen('xi:include', href=i), e.firstChild)
 
         loader = TemplateLoader(self.search_path)
         template = MarkupTemplate(self.toxml(), loader=loader)
