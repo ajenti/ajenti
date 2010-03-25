@@ -215,6 +215,25 @@ body {
 
 
 /* ModalBox */
+.ui-el-modal-blackout {
+    background: url('/dl/core/ui/blackout.png');
+    width: 9000px;
+    height: 9000px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 50;
+}
+
+.ui-el-modal-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 100;
+}
+
 .ui-el-modal-rt {
 	background: url('/dl/core/ui/dialog-rt.png');
 	width: 5px;

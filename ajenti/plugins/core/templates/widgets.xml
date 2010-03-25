@@ -38,7 +38,8 @@
 @height
 -->
 <py:match path="dialogbox">
-    <div class="ui-el-modal-main">
+    <div class="ui-el-modal-blackout" />
+    <div class="ui-el-modal-wrapper">
         <form action="${select('@action')}" name="${select('@id')}" id="${select('@id')}">
             <table cellspacing="0" cellpadding="0">
                 <tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t"></td><td class="ui-el-modal-rt"></td></tr>
