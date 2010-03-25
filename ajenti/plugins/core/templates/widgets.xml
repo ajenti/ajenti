@@ -45,7 +45,7 @@
                 <tr><td class="ui-el-modal-l"></td>
                     <td class="ui-el-modal-c" width="${select('@width')}" height="${select('@height')}">
                         <vcontainer>
-                            <vnode><label text="${select('@title')}" /></vnode>
+                            <vnode><label text="${select('@title')}" size="4" /></vnode>
                             <vnode><spacer height="10" /></vnode>
                             <vnode>${select('node()')}</vnode>
                         </vcontainer>
@@ -110,7 +110,7 @@
 <!--! Button widget -->
 <py:match path="button">
     <py:choose test="">
-        <a py:when="str(select('@onclick')) == 'form'" href="#" 
+        <a py:when="str(select('@onclick')) == 'form'" href="#"
                 onclick="javascript:ajaxForm('${select('@form')}', '${select('@action')}');">
             <div class="ui-el-button"> ${select('@text')} </div>
         </a>
@@ -178,6 +178,45 @@
     </span>
 </py:match>
 
+
+<!--! LayoutTable widget -->
+<py:match path="layouttable">
+    <table cellpadding="3">
+        ${select('node()')}
+    </table>
+</py:match>
+
+<py:match path="layouttablerow">
+    <tr>
+        ${select('node()')}
+    </tr>
+</py:match>
+
+<py:match path="layouttablecell">
+    <td colspan="${select('@colspan')}" rowspan="${select('@rowspan')}">
+        ${select('node()')}
+    </td>
+</py:match>
+
+
+<!--! DataTable widget -->
+<py:match path="datatable">
+    <table cellpadding="0" cellspacing="0" class="ui-el-table">
+        ${select('node()')}
+    </table>
+</py:match>
+
+<py:match path="datatablerow">
+    <tr class="ui-el-table-row${'-header' if str(select('@header')) else ''}">
+        ${select('node()')}
+    </tr>
+</py:match>
+
+<py:match path="datatablecell">
+    <td class="ui-el-table-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}">
+        ${select('node()')}
+    </td>
+</py:match>
 
 
 </widgets>

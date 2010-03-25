@@ -101,3 +101,56 @@ class UI(object):
         el.appendChild(UI.Text(text))
         return el
 
+    @staticmethod
+    def LayoutTable(*args):
+        class LayoutTable(Element):
+            def __init__(self, *args):
+                Element.__init__(self, 'layouttable')
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        self.appendChild(e)
+
+        return LayoutTable(*args)
+
+    @staticmethod
+    def LayoutTableRow(*args):
+        class LayoutTableRow(Element):
+            def __init__(self, *args):
+                Element.__init__(self, 'layouttablerow')
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        if e.tagName == 'layouttablecell':
+                            self.appendChild(e)
+                        else:
+                            self.appendChild(Html().layouttablecell(e))
+
+        return LayoutTableRow(*args)
+
+    @staticmethod
+    def DataTable(*args):
+        class DataTable(Element):
+            def __init__(self, *args):
+                Element.__init__(self, 'datatable')
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        self.appendChild(e)
+
+        return DataTable(*args)
+
+    @staticmethod
+    def DataTableRow(*args, **kwargs):
+        class DataTableRow(Element):
+            def __init__(self, *args):
+                Element.__init__(self, 'datatablerow', **kwargs)
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        if e.tagName == 'datatablecell':
+                            self.appendChild(e)
+                        else:
+                            self.appendChild(Html().datatablecell(e))
+
+        return DataTableRow(*args)

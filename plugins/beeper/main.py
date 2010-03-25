@@ -53,24 +53,44 @@ class Beeper(CategoryPlugin):
                     l,
                     a,
                     UI.Spacer(height=50),
-                    UI.TextInput(text='123'),
-                    UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                    UI.Radio(name='for', text='Checkboxes'),
-                    UI.Radio(name='for', text='Radio buttons', checked='yes')
+                    UI.DataTable(
+                        UI.DataTableRow(
+                            UI.Label(text='Key'),
+                            UI.Label(text='Value'),
+                            header=True,
+                        ),
+                        UI.DataTableRow(
+                            UI.Label(text='12'),
+                            UI.Label(text='34')
+                        ),
+                        UI.DataTableRow(
+                            UI.Label(text='56'),
+                            UI.Label(text='78')
+                        )
+                    )
                 ),
                 UI.Spacer(width=30),
                 UI.VContainer(
                     f,
                     UI.DialogBox(
-                                UI.VContainer(
-                                    UI.TextInput(name="someInput"),
-                                    UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                                    UI.Radio(name='for', text='Checkboxes', value="checkbox"),
-                                    UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio"),
-                                    UI.Select(
-                                        UI.Option("option1", value="1"),
-                                        UI.Option("option2", value="2"),
-                                        name="select"
+                                UI.LayoutTable(
+                                    UI.LayoutTableRow(
+                                        UI.LayoutTableCell(
+                                            UI.TextInput(name="someInput"),
+                                            UI.Select(
+                                                UI.Option("option1", value="1"),
+                                                UI.Option("option2", value="2"),
+                                                name="select"
+                                            ),
+                                            rowspan="3"
+                                        ),
+                                        UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                                    ),
+                                    UI.LayoutTableRow(
+                                        UI.Radio(name='for', text='Checkboxes', value="checkbox"),
+                                    ),
+                                    UI.LayoutTableRow(
+                                        UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio")
                                     )
                                 ),
                                 title="test", id="testDialog", action="/handle/dialog/submit/testDialog"
