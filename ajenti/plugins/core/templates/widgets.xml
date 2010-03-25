@@ -38,8 +38,8 @@
 @height
 -->
 <py:match path="dialogbox">
-    <table class="ui-el-modal-blackout"><tr>
-    <td class="ui-el-modal-wrapper">
+    <div class="ui-el-modal-blackout" />
+    <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
         <form action="${select('@action')}" name="${select('@id')}" id="${select('@id')}">
             <table cellspacing="0" cellpadding="0">
                 <tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t"></td><td class="ui-el-modal-rt"></td></tr>
@@ -61,8 +61,8 @@
                 <tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr>
             </table>
         </form>
-    </td>
-    </tr></table>
+    </div>
+    <script> ui_center('${select('@id')}-wr'); </script>
 </py:match>
 
 <!--! VContainer widget -->

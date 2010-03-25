@@ -222,17 +222,12 @@ body {
     position: absolute;
     left: 0px;
     top: 0px;
-    z-index: 50;
-    text-align: center;
-    vertical-align: middle;
-    margin:auto;
 }
 
 .ui-el-modal-wrapper {
-text-align: center;
-    vertical-align: middle;
-    text-align: center;
-    margin:auto;
+    position: absolute;
+    left: 40%;
+    top: 40%;
 }
 
 .ui-el-modal-rt {
