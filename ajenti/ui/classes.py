@@ -50,6 +50,12 @@ class Html(object):
         return Element(name, *args, **kwargs)
 
 
+class UI(object):
+    class __metaclass__(type):
+        def __getattr__(cls, name):
+            return lambda *args, **kwargs: Element(name.lower(), *args, **kwargs)
+
+
 class Text(Element):
     """ FIXME: xml.dom.minidom does not provide plain text element """
     def __init__(self, text):
@@ -89,56 +95,6 @@ class HContainer(Element):
 
     def hnode(self, e):
         self.appendChild(Html().hnode(e))
-
-
-class Image(Element):
-    def __init__(self, image, *args, **kwargs):
-        Element.__init__(self, 'img', *args, **kwargs)
-        self._init(src=image)
-
-
-class Spacer(Element):
-    def __init__(self, width=1, height=1):
-        Element.__init__(self, 'spacer')
-        self._init(width=str(width), height=str(height))
-
-
-class Label(Element):
-    def __init__(self, text='', size=1):
-        Element.__init__(self, 'label')
-        self._init(text=text, size=str(size))
-
-
-class Button(Element):
-    def __init__(self, text=''):
-        Element.__init__(self, 'button')
-        self._init(text=text, id=self.id)
-
-
-class LinkLabel(Element):
-    def __init__(self, text=''):
-        Element.__init__(self, 'linklabel')
-        self._init(text=text, id=self.id)
-
-class Action(Element):
-    def __init__(self, text=''):
-        Element.__init__(self, 'action')
-        self._init(text=text, id=self.id)
-
-class TextInput(Element):
-    def __init__(self, val='', **kw):
-        Element.__init__(self, 'textinput', **kw)
-        self._init(value=val, id=self.id)
-
-class Checkbox(Element):
-    def __init__(self, value='', text='', checked='', name=''):
-        Element.__init__(self, 'checkbox')
-        self._init(value=value, id=self.id, text=text, checked=str(checked), name=name)
-
-class Radio(Element):
-    def __init__(self, value='', text='', checked='', name=''):
-        Element.__init__(self, 'radio')
-        self._init(value=value, id=self.id, text=text, checked=str(checked), name=name)
 
 class DialogBox(Element):
     def __init__(self, title='Dialog', *args, **kw):

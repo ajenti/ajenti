@@ -11,4 +11,4 @@ class NetworkPlugin(CategoryPlugin):
     icon = '/dl/network/icon.png'
 
     def get_ui(self):
-        return Image('/dl/network/icon.png')
+        return UI.Image(file='/dl/network/icon.png')

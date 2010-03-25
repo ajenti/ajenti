@@ -21,23 +21,22 @@ class Beeper(CategoryPlugin):
         self._form_text = []
 
     def get_ui(self):
-        print self._events
         h = HContainer(
-                Image('/dl/beeper/bigicon.png'),
-                Spacer(10,1),
+                UI.Image(file='/dl/beeper/bigicon.png'),
+                UI.Spacer(width=10),
                 VContainer(
-                    Label('Beeper', 5),
-                    Text('Awesome beeping action')
+                    UI.Label(text='Beeper', size=5),
+                    UI.Label(text='Awesome beeping action')
                 )
             )
-        b = Button('Beep!')
+        b = UI.Button(text='Beep!')
         # TODO: maybe some autoprefixing is needed
         b['id'] = 'beeper-btn-clickme'
-        a = Action('Bang!')
+        a = UI.Action(text='Bang!')
         a['description'] = 'Come on, click me!'
         a['icon'] = '/dl/core/ui/icon-ok.png'
         a['id'] = 'beeper-act-clickme'
-        l = LinkLabel('Boom!')
+        l = UI.LinkLabel(text='Boom!')
         l['id'] = 'beeper-ll-clickme'
 
         html = Html()
@@ -48,26 +47,26 @@ class Beeper(CategoryPlugin):
         p = HContainer(
                 VContainer(
                     h,
-                    Spacer(1,20),
-                    Label(self._text),
+                    UI.Spacer(height=20),
+                    UI.Label(text=self._text),
                     b,
                     l,
                     a,
-                    Spacer(1,50),
-                    TextInput('123'),
-                    Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                    Radio(name='for', text='Checkboxes'),
-                    Radio(name='for', text='Radio buttons', checked='yes')
+                    UI.Spacer(height=50),
+                    UI.TextInput(text='123'),
+                    UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                    UI.Radio(name='for', text='Checkboxes'),
+                    UI.Radio(name='for', text='Radio buttons', checked='yes')
                 ),
-                Spacer(30,1),
+                UI.Spacer(width=30),
                 VContainer(
                     f,
                     DialogBox("test", 
                                 VContainer(
-                                    TextInput(name="someInput"),
-                                    Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
-                                    Radio(name='for', text='Checkboxes', value="checkbox"),
-                                    Radio(name='for', text='Radio buttons', checked='yes', value="radio"),
+                                    UI.TextInput(name="someInput"),
+                                    UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
+                                    UI.Radio(name='for', text='Checkboxes', value="checkbox"),
+                                    UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio"),
                                     Select(
                                         Option("option1", value="1"),
                                         Option("option2", value="2"),

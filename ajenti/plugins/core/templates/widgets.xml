@@ -46,7 +46,7 @@
                     <td class="ui-el-modal-c" width="${select('@width')}" height="${select('@height')}">
                         <vcontainer>
                             <vnode><label text="${select('@title')}" /></vnode>
-                            <vnode><spacer width="1" height="10" /></vnode>
+                            <vnode><spacer height="10" /></vnode>
                             <vnode>${select('node()')}</vnode>
                         </vcontainer>
                         <div class="ui-el-modal-buttons">
@@ -89,15 +89,21 @@
 
 <!--! Spacer -->
 <py:match path="spacer">
-    <div style="width: ${select('@width')}px; height: ${select('@height')}px;" />
+    <div style="width: ${str(select('@width')) or '1'}px; height: ${str(select('@height')) or '1'}px;" />
 </py:match>
 
 
 <!--! Label widget -->
 <py:match path="label">
-    <span class="ui-el-label-${select('@size')}">
+    <span class="ui-el-label-${str(select('@size')) or '1'}">
         ${select('@text')}
     </span>
+</py:match>
+
+
+<!--! Image -->
+<py:match path="image">
+    <img class="ui-el-image" src="${select('@file')}" />
 </py:match>
 
 
@@ -151,7 +157,7 @@
 
 <!--! TextInput widget -->
 <py:match path="textinput">
-    <input class="ui-el-input" name="${select('@name')}" value="${select('@value')}" id="${select('@id')}" />
+    <input class="ui-el-input" name="${select('@name')}" value="${str(select('@value')) or ''}" id="${select('@id')}" />
 </py:match>
 
 
