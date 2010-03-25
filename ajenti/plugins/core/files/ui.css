@@ -217,21 +217,22 @@ body {
 /* ModalBox */
 .ui-el-modal-blackout {
     background: url('/dl/core/ui/blackout.png');
-    width: 9000px;
-    height: 9000px;
+    width: 100%;
+    height: 100%;
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: 50;
+    text-align: center;
+    vertical-align: middle;
+    margin:auto;
 }
 
 .ui-el-modal-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    text-align: center;
+text-align: center;
     vertical-align: middle;
-    z-index: 100;
+    text-align: center;
+    margin:auto;
 }
 
 .ui-el-modal-rt {
