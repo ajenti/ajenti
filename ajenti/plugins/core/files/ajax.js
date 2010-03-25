@@ -9,17 +9,7 @@ function ajax(URL)
 	{
 		switch(xmlReq.readyState)
 		{
-		case 0:	// Uninitialized
-			break;
-		case 1: // Loading
-			break;
-		case 2: // Loaded
-			break;
-		case 3: // Interactive
-			break;
 		case 4:	// Done!
-//			ajaxHandler(xmlReq.responseXML.getElementsByTagName('info')[0].firstChild.data,
-//						xmlReq.responseXML.getElementsByTagName('data')[0].firstChild.data);
 			ajaxHandler(xmlReq.responseText);
 			break;
 		default:
@@ -43,17 +33,7 @@ function ajaxPOST(URL, params)
 	{
 		switch(xmlReq.readyState)
 		{
-		case 0:	// Uninitialized
-			break;
-		case 1: // Loading
-			break;
-		case 2: // Loaded
-			break;
-		case 3: // Interactive
-			break;
 		case 4:	// Done!
-//			ajaxHandler(xmlReq.responseXML.getElementsByTagName('info')[0].firstChild.data,
-//						xmlReq.responseXML.getElementsByTagName('data')[0].firstChild.data);
 			ajaxHandler(xmlReq.responseText);
 			break;
 		default:
@@ -61,7 +41,6 @@ function ajaxPOST(URL, params)
 		}
 	}
 
-// Make the request
 	xmlReq.open ('POST', URL, true);
     xmlReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlReq.setRequestHeader("Content-length", params.length);
@@ -114,6 +93,11 @@ function ajaxForm(formId, action)
 function ajaxHandler(data)
 {
 	document.getElementById('main').innerHTML = data
+    var ob = document.getElementsByTagName("script");
+    for(var i=0; i<ob.length-1; i++)
+        if(ob[i+1].text!=null) eval(ob[i+1].text);
+    
+
 	var re = new RegExp('update=([0-9]+)');
 	var m = re.exec(data);
 	if (m[1] != 0)
