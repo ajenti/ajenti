@@ -290,11 +290,11 @@ body {
 
 .ui-el-treecontainernode-button {
 	display: inline;
-	padding-right: 5px;
+	width: 12px;
 }
 
 .ui-el-treecontainernode-inner {
-	padding-left: 20px;
+	padding-left: 16px;
 }
 
 
