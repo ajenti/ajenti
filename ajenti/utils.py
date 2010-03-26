@@ -23,3 +23,5 @@ def detect_distro():
     s, r = commands.getstatusoutput('uname -mrs')
     return r
 
+def shell(c):
+    return commands.getstatusoutput(c)[1]

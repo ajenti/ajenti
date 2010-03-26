@@ -5,12 +5,15 @@ function ajax(URL)
 	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
 	if(xmlReq==null) return; // Failed to create the request
 
+    showAjaxLoader(true);
+    
 	xmlReq.onreadystatechange = function()
 	{
 		switch(xmlReq.readyState)
 		{
 		case 4:	// Done!
 			ajaxHandler(xmlReq.responseText);
+            showAjaxLoader(false);
 			break;
 		default:
 			break;
@@ -22,6 +25,10 @@ function ajax(URL)
 	xmlReq.send (null);
 }
 
+function showAjaxLoader(s) {
+    document.getElementById('ajax-loader').style.display = s ? 'block' : 'none';
+}
+
 function ajaxPOST(URL, params)
 {
 	xmlReq = null;
@@ -29,11 +36,14 @@ function ajaxPOST(URL, params)
 	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
 	if(xmlReq==null) return; // Failed to create the request
 
+    showAjaxLoader(true);
+
 	xmlReq.onreadystatechange = function()
 	{
 		switch(xmlReq.readyState)
 		{
 		case 4:	// Done!
+            showAjaxLoader(false);
 			ajaxHandler(xmlReq.responseText);
 			break;
 		default:

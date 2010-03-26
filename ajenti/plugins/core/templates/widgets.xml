@@ -6,7 +6,16 @@
 
 <!--! Top logo widget -->
 <py:match path="topbar">
-    <span class="ui-logo"><img src="/dl/core/ui/logo.png" /></span>
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <span class="ui-logo"><img src="/dl/core/ui/logo.png" /></span>
+            </td>
+            <td width="20" style="vertical-align:middle">
+                <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+            </td>
+        </tr>
+    </table>
 </py:match>
 
 
