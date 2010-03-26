@@ -50,11 +50,14 @@ class Beeper(CategoryPlugin):
                     UI.LayoutTableRow(
                         UI.LayoutTableCell(
                             UI.TextInput(name="someInput"),
+                            UI.br(),
                             UI.Select(
                                 UI.Option("option1", value="1"),
                                 UI.Option("option2", value="2"),
                                 name="select"
                             ),
+                            UI.br(),
+                            UI.TextInputArea(name='text', width=100, height=100, text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus."),
                             rowspan="3"
                         ),
                         UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),

@@ -79,13 +79,22 @@ function ajaxForm(formId, action)
                 }
             }
         }
+
         inputs = form.getElementsByTagName("select")
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 var sel = inputs[i];
                 params += "&" + sel.name + "=" + escape(sel.options[sel.selectedIndex].value);
             }
-        } 
+        }
+
+        inputs = form.getElementsByTagName("textarea")
+        if (inputs) {
+            for (i=0; i<inputs.length; i++) {
+                var ta = inputs[i];
+                params += "&" + ta.name + "=" + escape(ta.value);
+            }
+        }
         ajaxPOST(form.action, params);
     }
 }
@@ -96,7 +105,7 @@ function ajaxHandler(data)
     var ob = document.getElementsByTagName("script");
     for(var i=0; i<ob.length-1; i++)
         if(ob[i+1].text!=null) eval(ob[i+1].text);
-    
+
 
 	var re = new RegExp('update=([0-9]+)');
 	var m = re.exec(data);

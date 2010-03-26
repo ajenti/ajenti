@@ -183,7 +183,7 @@
 
 <!--! LayoutTable widget -->
 <py:match path="layouttable">
-    <table cellpadding="3">
+    <table cellspacing="8">
         ${select('node()')}
     </table>
 </py:match>
@@ -241,6 +241,20 @@
         <div class="ui-el-treecontainernode-inner">
             ${select('node()')}
         </div>
+</py:match>
+
+
+<!--! ScrollContainer -->
+<py:match path="scrollcontainer">
+    <div class="ui-el-scrollcontainer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;" />
+</py:match>
+
+
+<!--! TextInputArea -->
+<py:match path="textinputarea">
+    <textarea class="ui-el-textarea" name="${select('@name')}" disabled="${str(select('@disabled')) or None}" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
+        ${select('@text')}
+    </textarea>
 </py:match>
 
 
