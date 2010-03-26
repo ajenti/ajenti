@@ -26,7 +26,7 @@ class Power(CategoryPlugin):
                UI.Spacer(width=10),
                UI.VContainer(
                    UI.Label(text='Power management', size=5),
-                   UI.Label(text=('Uptime: ' + self.get_uptime()))
+                   UI.Label(text=('Uptime: ' + get_uptime()))
                )
             )
         p = UI.VContainer(
@@ -49,13 +49,6 @@ class Power(CategoryPlugin):
             )
         return p
 
-    def get_uptime(self):
-        s = int(shell("cat /proc/uptime|awk '{print $1}'|head -c-4"));
-        h = s / 3600
-        m = s / 60 % 60
-        s %= 60
-        return str(h) + ':' + ('0' if m < 10 else '') + \
-               str(m) + ':' + ('0' if s < 10 else '') + str(s)
 
     @event('action/click')
     def on_aclick(self, event, params, vars=None):
@@ -64,3 +57,12 @@ class Power(CategoryPlugin):
         if params[0] == 'act-reboot':
             shell('notify-send Reboot')
 
+
+def get_uptime():
+    s = int(shell("cat /proc/uptime|awk '{print $1}'|head -c-4"));
+    h = s / 3600
+    m = s / 60 % 60
+    s %= 60
+    return str(h) + ':' + ('0' if m < 10 else '') + \
+           str(m) + ':' + ('0' if s < 10 else '') + str(s)
+               

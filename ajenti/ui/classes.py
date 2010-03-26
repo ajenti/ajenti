@@ -57,13 +57,13 @@ class UI(object):
         return Element(name.lower(), *args, **kwargs)
 
     @staticmethod
-    def VContainer(*args):
+    def VContainer(*args, **kwargs):
         class VContainer(Element):
             """ Container class
             To maintain same syntax with XML Templates - we should use vnode()
             """
-            def __init__(self, *args):
-                Element.__init__(self, 'vcontainer')
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'vcontainer', [], **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
@@ -72,16 +72,16 @@ class UI(object):
             def vnode(self, e):
                 self.appendChild(UI.vnode(e))
 
-        return VContainer(*args)
+        return VContainer(*args, **kwargs)
 
     @staticmethod
-    def HContainer(*args):
+    def HContainer(*args, **kwargs):
         class HContainer(Element):
             """ Container class
             To maintain same syntax with XML Templates - we should use hnode()
             """
-            def __init__(self, *args):
-                Element.__init__(self, 'hcontainer')
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'hcontainer', [], **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
@@ -90,7 +90,7 @@ class UI(object):
             def hnode(self, e):
                 self.appendChild(UI.hnode(e))
 
-        return HContainer(*args)
+        return HContainer(*args, **kwargs)
 
     @staticmethod
     def Text(text):

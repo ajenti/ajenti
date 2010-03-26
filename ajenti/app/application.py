@@ -36,7 +36,7 @@ class Application (PluginManager, Plugin):
             self.content[module] = path
 
         # Update all template paths/includes for auto searching
-        for t in self.template_providers:
+        for t in reversed(self.template_providers):
             tparams = t.template()
             self.template_path += tparams['path']
             self.template_include += tparams['include']

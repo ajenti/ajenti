@@ -1,5 +1,8 @@
 import platform
 
+from api import *
+
+from ajenti.com import Interface
 from ajenti.ui import *
 from ajenti import version
 from ajenti.utils import detect_distro
@@ -11,6 +14,8 @@ class Dashboard(CategoryPlugin):
     description = 'Dashboard overview'
     icon = '/dl/dashboard/icon.png'
 
+    widgets = Interface(IDashboardWidget)
+    
     def get_ui(self):
         h = UI.HContainer(
                 UI.Image(file='/dl/dashboard/server.png'),
@@ -19,6 +24,13 @@ class Dashboard(CategoryPlugin):
                     UI.Label(text=platform.node(), size=5),
                     UI.Label(text='Ajenti ' + version),
                     UI.Label(text=detect_distro())
-                )
+                ),
+                width="100%"
             )
-        return h
+            
+        w = UI.VContainer()
+        for x in self.widgets:
+            w.appendChild(x.get_ui())
+
+        u = UI.VContainer(h, UI.Spacer(height=30), w, width="100%")
+        return u

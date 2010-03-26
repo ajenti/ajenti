@@ -76,7 +76,7 @@
 
 <!--! VContainer widget -->
 <py:match path="vcontainer">
-    <table cellspacing="0" cellpadding="0">
+    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
@@ -87,7 +87,7 @@
 
 <!--! HContainer widget -->
 <py:match path="hcontainer">
-    <table cellspacing="0" cellpadding="0">
+    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         <tr>
             ${select('node()')}
         </tr>
@@ -106,7 +106,7 @@
 
 <!--! Label widget -->
 <py:match path="label">
-    <span class="ui-el-label-${str(select('@size')) or '1'}">
+    <span class="ui-el-label-${str(select('@size')) or '1'}" style="${'font-weight: bold;' if str(select('@bold')) == 'True' else None}">
         ${select('@text')}
     </span>
 </py:match>
