@@ -20,6 +20,7 @@ class Beeper(CategoryPlugin):
         self._text = ''
         self._form_text = []
         self._dlg_visible = False
+        self._tree = TreeManager()
 
     def get_ui(self):
         h = UI.HContainer(
@@ -71,6 +72,17 @@ class Beeper(CategoryPlugin):
         b2 = UI.Button(text='Show dialog')
         b2['id'] = 'btn-dialog'
 
+        tree =      UI.TreeContainer(
+                        UI.TreeContainer(
+                            UI.Label(text='789',id='123/456/789'),
+                            UI.Label(text='101',id='123/456/101'),
+                            text='456',id='123/456'
+                        ),
+                        UI.Label(text='112',id='123/112'),
+                        text='123', id='123'
+                    )
+        self._tree.apply(tree)
+
         p = UI.HContainer(
                 UI.VContainer(
                     h,
@@ -100,7 +112,8 @@ class Beeper(CategoryPlugin):
                 UI.VContainer(
                     f,
                     b2,
-                    dlg if self._dlg_visible else None
+                    dlg if self._dlg_visible else None,
+                    tree
                 )
             )
 
@@ -145,6 +158,10 @@ class Beeper(CategoryPlugin):
             print 'Clicked link!'
             pprint(params)
             pprint(vars)
+
+    @event('treecontainer/click')
+    def on_tclick(self, event, params, vars=None):
+        self._tree.node_click('/'.join(params))
 
 """
 from plugin import PluginMaster, PluginInstance #Import base plugin classes from Ajenti's plugin.py

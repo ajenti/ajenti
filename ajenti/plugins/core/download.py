@@ -30,7 +30,8 @@ class Downloader(URLHandler, Plugin):
 
         size = os.path.getsize(file)
         headers.append(('Content-length',str(size)))
-        headers.append(('Last-modified','Mon, 01 Jan 1960 00:00:00 GMT'))
+        headers.append(('Last-modified','Thu Jan 01 1970 00:00:00 GMT'))
+        headers.append(('Expires','Thu Jan 01 2970 00:00:00 GMT'))
 
         start_response('200 OK', headers)
         return req['wsgi.file_wrapper'](open(file))
