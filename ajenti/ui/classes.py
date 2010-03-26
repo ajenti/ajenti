@@ -9,10 +9,9 @@ class Element(dom.Element):
     *args - any number of dictionaries {'attribute':'value'}
     **kwargs - any number of keyword arguments attribute="value"
     """
-    visible = True
     def __init__(self, tag, *args, **kwargs):
         dom.Element.__init__(self, tag)
-        self.id = str(random.randint(1,9000*9000))
+        self.setAttribute('id', str(random.randint(1,9000*9000)))
         self._init(*args, **kwargs)
 
     def _init(self, *args, **kwargs):
@@ -40,7 +39,7 @@ class UI(object):
     >>> m = UI.Meta(encoding="ru")
     >>> m.toxml()
     '<meta encoding="ru"/>'
-    >>> 
+    >>>
     """
     class __metaclass__(type):
         def __getattr__(cls, name):
@@ -53,7 +52,7 @@ class UI(object):
         >>> xi = UI.gen('xml:include', href="some.xml")
         >>> xi.toxml()
         '<xml:include href="some.xml"/>'
-        >>> 
+        >>>
         """
         return Element(name.lower(), *args, **kwargs)
 
@@ -156,3 +155,46 @@ class UI(object):
                             self.appendChild(UI.DataTableCell(e))
 
         return DataTableRow(*args)
+
+    @staticmethod
+    def TreeContainer(*args, **kwargs):
+        class TreeContainer(Element):
+            def __init__(self, *args):
+                Element.__init__(self, 'treecontainer', **kwargs)
+                self.elements = []
+                for e in args:
+                    if isinstance(e, dom.Element):
+                        if e.tagName == 'treecontainer':
+                            self.appendChild(e)
+                        elif e.tagName == 'treecontainernode':
+                            self.appendChild(e)
+                        else:
+                            self.appendChild(UI.TreeContainerNode(e))
+
+        return TreeContainer(*args)
+
+
+class TreeManager(object):
+    states = None
+
+    def __init__(self):
+        self.reset()
+
+    def reset(self):
+        self.states = []
+
+    def node_click(self, id):
+        if id in self.states:
+            self.states.remove(id)
+        else:
+            self.states.append(id)
+        print self.states
+        pass
+
+    def apply(self, tree):
+        tree['expanded'] = tree['id'] in self.states;
+
+        for n in tree.childNodes:
+            if n.tagName == 'treecontainer':
+                self.apply(n)
+        pass

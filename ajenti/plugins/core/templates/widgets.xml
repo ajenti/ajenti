@@ -221,4 +221,27 @@
 </py:match>
 
 
+<!--! TreeContainer widget -->
+<py:match path="treecontainer">
+    <div class="ui-el-treecontainernode">
+        <div class="ui-el-treecontainernode-button">
+            <a href="#">
+                <img id="${select('@id')}-btn" src="/dl/core/ui/tree-${'minus' if str(select('@expanded'))=='True' else 'plus'}.png"
+                    onclick="javascript:ui_showhide('${select('@id')}');ajaxNoUpdate('/handle/treecontainer/click/${select('@id')}');ui_treeicon('${select('@id')}-btn')"/>
+            </a>
+        </div>
+        ${select('@text')}
+        <div class="ui-el-treecontainernode-inner" id="${select('@id')}" style="${'display:none;' if str(select('@expanded'))!='True' else None}">
+            ${select('node()')}
+        </div>
+    </div>
+</py:match>
+
+<py:match path="treecontainernode">
+        <div class="ui-el-treecontainernode-inner">
+            ${select('node()')}
+        </div>
+</py:match>
+
+
 </widgets>
