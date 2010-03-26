@@ -4,7 +4,7 @@
          py:strip="" >
 
 <py:match path="widget">
-    <table cellspacing="0" cellpadding="0" width="50%">
+    <table cellspacing="0" cellpadding="0" width="100%">
         <tr>
             <td class="ui-el-modal-lt" />
             <td class="ui-el-modal-t" />
@@ -13,7 +13,7 @@
         <tr>
             <td class="ui-el-modal-l" />
             <td height="${select('@height')}"
-                style="background: #fff; text-align: left; vertical-align: top;">
+                style="background: #ececee; text-align: left; vertical-align: top;">
 
                 ${select('node()')}
                

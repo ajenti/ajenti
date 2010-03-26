@@ -103,22 +103,22 @@ class UI(object):
         return el
 
     @staticmethod
-    def LayoutTable(*args):
+    def LayoutTable(*args, **kwargs):
         class LayoutTable(Element):
-            def __init__(self, *args):
-                Element.__init__(self, 'layouttable')
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'layouttable', [], **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
                         self.appendChild(e)
 
-        return LayoutTable(*args)
+        return LayoutTable(*args, **kwargs)
 
     @staticmethod
-    def LayoutTableRow(*args):
+    def LayoutTableRow(*args, **kwargs):
         class LayoutTableRow(Element):
             def __init__(self, *args):
-                Element.__init__(self, 'layouttablerow')
+                Element.__init__(self, 'layouttablerow', [], **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
@@ -127,25 +127,25 @@ class UI(object):
                         else:
                             self.appendChild(UI.LayoutTableCell(e))
 
-        return LayoutTableRow(*args)
+        return LayoutTableRow(*args, **kwargs)
 
     @staticmethod
-    def DataTable(*args):
+    def DataTable(*args, **kwargs):
         class DataTable(Element):
-            def __init__(self, *args):
-                Element.__init__(self, 'datatable')
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'datatable', [], **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
                         self.appendChild(e)
 
-        return DataTable(*args)
+        return DataTable(*args, **kwargs)
 
     @staticmethod
     def DataTableRow(*args, **kwargs):
         class DataTableRow(Element):
-            def __init__(self, *args):
-                Element.__init__(self, 'datatablerow', **kwargs)
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'datatablerow', [], **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
@@ -154,7 +154,7 @@ class UI(object):
                         else:
                             self.appendChild(UI.DataTableCell(e))
 
-        return DataTableRow(*args)
+        return DataTableRow(*args, **kwargs)
 
     @staticmethod
     def TreeContainer(*args, **kwargs):

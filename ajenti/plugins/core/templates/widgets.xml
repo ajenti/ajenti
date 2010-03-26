@@ -192,19 +192,19 @@
 
 <!--! LayoutTable widget -->
 <py:match path="layouttable">
-    <table cellspacing="8">
+    <table cellspacing="8" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
 
 <py:match path="layouttablerow">
-    <tr>
+    <tr style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </tr>
 </py:match>
 
 <py:match path="layouttablecell">
-    <td colspan="${select('@colspan')}" rowspan="${select('@rowspan')}">
+    <td colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </td>
 </py:match>
@@ -212,19 +212,19 @@
 
 <!--! DataTable widget -->
 <py:match path="datatable">
-    <table cellpadding="0" cellspacing="0" class="ui-el-table">
+    <table cellpadding="0" cellspacing="0" class="ui-el-table" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
 
 <py:match path="datatablerow">
-    <tr class="ui-el-table-row${'-header' if str(select('@header')) else ''}">
+    <tr class="ui-el-table-row${'-header' if str(select('@header')) else ''}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </tr>
 </py:match>
 
 <py:match path="datatablecell">
-    <td class="ui-el-table-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}">
+    <td class="ui-el-table-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </td>
 </py:match>

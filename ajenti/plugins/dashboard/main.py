@@ -24,13 +24,25 @@ class Dashboard(CategoryPlugin):
                     UI.Label(text=platform.node(), size=5),
                     UI.Label(text='Ajenti ' + version),
                     UI.Label(text=detect_distro())
-                ),
-                width="100%"
+                )
             )
             
-        w = UI.VContainer()
-        for x in self.widgets:
-            w.appendChild(x.get_ui())
+        w = UI.LayoutTable(width="600px")
+        for i in range(0, len(self.widgets)/2):
+            x = self.widgets[i*2]
+            y = self.widgets[i*2+1]
+            w.appendChild(UI.LayoutTableRow(
+                                UI.LayoutTableCell(x.get_ui(), width="300px"),
+                                UI.LayoutTableCell(y.get_ui(), width="300px")
+                          )
+              )
 
-        u = UI.VContainer(h, UI.Spacer(height=30), w, width="100%")
+        if len(self.widgets) % 2 == 1:
+            w.appendChild(UI.LayoutTableRow(
+                                UI.LayoutTableCell(self.widgets[len(self.widgets)-1].get_ui(), width="300px"),
+                                UI.LayoutTableCell(width="300px")
+                          )
+              )
+        
+        u = UI.VContainer(h, UI.Spacer(height=30), w)
         return u
