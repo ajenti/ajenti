@@ -7,6 +7,7 @@ import traceback
 from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.app.session import SessionStore, SessionManager
+from ajenti.app.auth import AuthManager
 from ajenti.app.api import IContentProvider
 from ajenti.ui.api import ITemplateProvider
 from ajenti.ui.template import BasicTemplate
@@ -120,6 +121,8 @@ class AppDispatcher(object):
         self.log = config.get('log_facility')
         # TODO: add config parameter for session timeout
         self.sessions = SessionStore()
+        # Ugly hack :) for permanent middleware
+        self.dispatcher = AuthManager(self.config, self.dispatcher)
 
     def dispatcher(self, environ, start_response):
         self.log.debug('Dispatching %s'%environ['PATH_INFO'])
