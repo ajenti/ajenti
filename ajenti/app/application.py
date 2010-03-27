@@ -105,11 +105,11 @@ class Application (PluginManager, Plugin):
         plugin.config = self.config
         plugin.app = self
 
-    def grab_plugin(self, iface, flt=None):
+    def grab_plugins(self, iface, flt=None):
         plugins = self.plugin_get(iface)
         if flt:
             plugins = filter(flt, plugins)
-        return filter(None, [self.instance_get(cls, True) for cls in plugins])[0]
+        return filter(None, [self.instance_get(cls, True) for cls in plugins])
         
 
     def get_template(self, filename=None, search_path=[], includes=[]):

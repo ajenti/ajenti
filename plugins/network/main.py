@@ -15,7 +15,7 @@ class NetworkPlugin(CategoryPlugin):
         self._status_text = ''
 
     def get_ui(self):
-        net_config = self.app.grab_plugin(INetworkConfig)
+        net_config = self.app.grab_plugins(INetworkConfig)[0]
         self._status_text = net_config.get_text()
 
     
