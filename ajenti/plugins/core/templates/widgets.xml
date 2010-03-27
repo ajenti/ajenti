@@ -6,7 +6,16 @@
 
 <!--! Top logo widget -->
 <py:match path="topbar">
-    <span class="ui-logo"><img src="/dl/core/ui/logo.png" /></span>
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <span class="ui-logo"><img src="/dl/core/ui/logo.png" /></span>
+            </td>
+            <td width="20" style="vertical-align:middle">
+                <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+            </td>
+        </tr>
+    </table>
 </py:match>
 
 
@@ -67,7 +76,7 @@
 
 <!--! VContainer widget -->
 <py:match path="vcontainer">
-    <table cellspacing="0" cellpadding="0">
+    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
@@ -78,7 +87,7 @@
 
 <!--! HContainer widget -->
 <py:match path="hcontainer">
-    <table cellspacing="0" cellpadding="0">
+    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         <tr>
             ${select('node()')}
         </tr>
@@ -97,7 +106,7 @@
 
 <!--! Label widget -->
 <py:match path="label">
-    <span class="ui-el-label-${str(select('@size')) or '1'}">
+    <span class="ui-el-label-${str(select('@size')) or '1'}" style="${'font-weight: bold;' if str(select('@bold')) == 'True' else None}">
         ${select('@text')}
     </span>
 </py:match>
@@ -183,19 +192,19 @@
 
 <!--! LayoutTable widget -->
 <py:match path="layouttable">
-    <table cellpadding="3">
+    <table cellspacing="8" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
 
 <py:match path="layouttablerow">
-    <tr>
+    <tr style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </tr>
 </py:match>
 
 <py:match path="layouttablecell">
-    <td colspan="${select('@colspan')}" rowspan="${select('@rowspan')}">
+    <td colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </td>
 </py:match>
@@ -203,19 +212,19 @@
 
 <!--! DataTable widget -->
 <py:match path="datatable">
-    <table cellpadding="0" cellspacing="0" class="ui-el-table">
+    <table cellpadding="0" cellspacing="0" class="ui-el-table" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
 
 <py:match path="datatablerow">
-    <tr class="ui-el-table-row${'-header' if str(select('@header')) else ''}">
+    <tr class="ui-el-table-row${'-header' if str(select('@header')) else ''}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </tr>
 </py:match>
 
 <py:match path="datatablecell">
-    <td class="ui-el-table-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}">
+    <td class="ui-el-table-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </td>
 </py:match>
@@ -241,6 +250,20 @@
         <div class="ui-el-treecontainernode-inner">
             ${select('node()')}
         </div>
+</py:match>
+
+
+<!--! ScrollContainer -->
+<py:match path="scrollcontainer">
+    <div class="ui-el-scrollcontainer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;" />
+</py:match>
+
+
+<!--! TextInputArea -->
+<py:match path="textinputarea">
+    <textarea class="ui-el-textarea" name="${select('@name')}" disabled="${str(select('@disabled')) or None}" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
+        ${select('@text')}
+    </textarea>
 </py:match>
 
 

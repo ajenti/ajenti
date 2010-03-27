@@ -5,12 +5,15 @@ function ajax(URL)
 	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
 	if(xmlReq==null) return; // Failed to create the request
 
+    showAjaxLoader(true);
+    
 	xmlReq.onreadystatechange = function()
 	{
 		switch(xmlReq.readyState)
 		{
 		case 4:	// Done!
 			ajaxHandler(xmlReq.responseText);
+            showAjaxLoader(false);
 			break;
 		default:
 			break;
@@ -23,6 +26,10 @@ function ajax(URL)
     return false;
 }
 
+function showAjaxLoader(s) {
+    document.getElementById('ajax-loader').style.display = s ? 'block' : 'none';
+}
+
 function ajaxPOST(URL, params)
 {
 	xmlReq = null;
@@ -30,11 +37,14 @@ function ajaxPOST(URL, params)
 	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
 	if(xmlReq==null) return; // Failed to create the request
 
+    showAjaxLoader(true);
+
 	xmlReq.onreadystatechange = function()
 	{
 		switch(xmlReq.readyState)
 		{
 		case 4:	// Done!
+            showAjaxLoader(false);
 			ajaxHandler(xmlReq.responseText);
 			break;
 		default:
@@ -81,13 +91,22 @@ function ajaxForm(formId, action)
                 }
             }
         }
+
         inputs = form.getElementsByTagName("select")
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 var sel = inputs[i];
                 params += "&" + sel.name + "=" + escape(sel.options[sel.selectedIndex].value);
             }
-        } 
+        }
+
+        inputs = form.getElementsByTagName("textarea")
+        if (inputs) {
+            for (i=0; i<inputs.length; i++) {
+                var ta = inputs[i];
+                params += "&" + ta.name + "=" + escape(ta.value);
+            }
+        }
         ajaxPOST(form.action, params);
     }
     return false;
@@ -99,7 +118,7 @@ function ajaxHandler(data)
     var ob = document.getElementsByTagName("script");
     for(var i=0; i<ob.length-1; i++)
         if(ob[i+1].text!=null) eval(ob[i+1].text);
-    
+
 
 	var re = new RegExp('update=([0-9]+)');
 	var m = re.exec(data);

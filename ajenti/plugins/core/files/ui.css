@@ -290,23 +290,26 @@ body {
 
 .ui-el-treecontainernode-button {
 	display: inline;
-	padding-right: 5px;
+	width: 12px;
 }
 
 .ui-el-treecontainernode-inner {
-	padding-left: 20px;
+	padding-left: 16px;
 }
 
 
 /* ScrollContainer */
 .ui-el-scrollcontainer {
-	overflow: scroll;
+	overflow: auto;
 }
 
 
 /* TextArea */
 .ui-el-textarea {
-	overflow: scroll;
+	overflow: auto;
 	background: #ffffff;
 	border: 1px solid #888888;
 }
+
+
+
