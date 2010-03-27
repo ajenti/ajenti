@@ -168,3 +168,38 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
                  'description': self.description,
                  'icon': self.icon }
 
+
+class Abstraction(object):
+    """
+    class INetworking(Interface):
+        def restart(self): pass
+        
+    class UbuntuNetworking(Plugin):
+        implements(INetworking)
+        supported_platforms = ['ubuntu']
+        def restart(self):
+            shell('restart networking')
+    
+    class DebianNetworking(Plugin):
+        implements(INetworking)
+        supported_platforms = ['debian']
+        def restart(self):
+            shell('/etc/init.d/networking restart')
+
+
+    ...
+
+    a = Abstraction(INetworking, platform=self.app.platform)
+    a.restart()    
+    """
+    class __metaclass__(type):
+        def __call__(cls, iface=None, platform='any', variant='any'):
+            l = Interface(iface)
+            for x in l:
+                if ('any' in x.supported_platforms or
+                   platform in x.supported_platforms) and \
+                   ('any' in x.supported_variants or
+                   variant in x.supported_variants):
+                    return x
+
+

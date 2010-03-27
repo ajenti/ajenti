@@ -1,5 +1,6 @@
 from ajenti.ui import *
-from ajenti.app.helpers import CategoryPlugin, ModuleContent
+from ajenti.app.helpers import CategoryPlugin, ModuleContent, Abstraction
+from api import *
 
 class NetworkContent(ModuleContent):
     module = 'network'
@@ -10,5 +11,21 @@ class NetworkPlugin(CategoryPlugin):
     description = 'Configure adapters'
     icon = '/dl/network/icon.png'
 
+    def on_session_start(self):
+        self._status_text = ''
+
     def get_ui(self):
-        return UI.Image(file='/dl/network/icon.png')
+        a = Abstraction(iface=INetworkConfig, platform=self.app.platform)
+        self._status_text = a.get_text()
+
+    
+        h = UI.HContainer(
+                UI.Image(file='/dl/network/bigicon.png'),
+                UI.Spacer(width=10),
+                UI.VContainer(
+                    UI.Label(text='Network', size=5),
+                    UI.Label(text=self._status_text)
+                )
+            )
+        return h
+ 

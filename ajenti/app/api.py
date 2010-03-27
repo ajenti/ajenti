@@ -25,6 +25,7 @@ class ICategoryProvider(Interface):
     def get_ui():
         pass
 
+
 class IEventDispatcher(Interface):
     def match_event(self, event):
         pass
@@ -32,3 +33,8 @@ class IEventDispatcher(Interface):
     def event(self, event, *params, **kwparams):
         pass
 
+
+class IAbstraction(Interface):
+    supported_platforms = ['any']
+    supported_variants = ['any']
+    
