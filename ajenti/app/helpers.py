@@ -47,12 +47,16 @@ class ModuleContent(Plugin):
     abstract = True
     implements(IContentProvider)
 
+    js_files = []
+    css_files = []
+    
     def content_path(self):
         if self.path == '' or self.module == '':
             raise AttributeError('You should provide path/module information')
         norm_path = os.path.join(os.path.dirname(self.path),'files')
         return (self.module, norm_path)
 
+        
 
 class EventProcessor(object):
     implements(IEventDispatcher)
