@@ -47,7 +47,7 @@ class CustomServer(WSGIServer):
             self.server_activate()
 
 
-def server(log_level=logging.INFO):
+def server(log_level=logging.INFO, config_file=''):
     # Initialize logging subsystem
     log = logging.getLogger('ajenti')
     log.setLevel(log_level)
@@ -62,9 +62,15 @@ def server(log_level=logging.INFO):
 
     # Read config
     config = Config()
-    # config.read('/etc/ajenti/ajenti.conf')
+    if config_file:
+        log.info('Using config file %s'%config_file)
+        config.read(config_file)
+    else:
+        log.info('Using default settings')
+
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
+    log.info('Listening on %s:%d'%(host, port)) 
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
 

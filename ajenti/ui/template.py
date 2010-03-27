@@ -1,6 +1,6 @@
 import os.path
 import xml.dom.minidom as dom
-from genshi.template import MarkupTemplate, TemplateLoader
+from genshi.template import Context, MarkupTemplate, TemplateLoader
 
 from ajenti.ui import UI
 
@@ -11,7 +11,7 @@ EMPTY_TEMPLATE="""<html xmlns="http://www.w3.org/1999/xhtml"
 """
 
 class BasicTemplate(object):
-    def __init__(self, filename=None, search_path=[], includes=[]):
+    def __init__(self, filename=None, search_path=[], includes=[], vars={}):
         """ Initializes UI templates from file, or from default one
 
         @filename - if not empty, will load template from file
@@ -38,6 +38,7 @@ class BasicTemplate(object):
             self._dom = dom.parseString(EMPTY_TEMPLATE)
 
         self.includes = includes
+        self.vars = vars
 
     def appendChildInto(self, dest, child):
         """ Tries to append child element to given tag
@@ -73,5 +74,8 @@ class BasicTemplate(object):
 
         loader = TemplateLoader(self.search_path)
         template = MarkupTemplate(self.toxml(), loader=loader)
-        return template.generate(**kwargs).render('xhtml', doctype='xhtml')
+        ctx = Context()
+        ctx.push(self.vars)
+        ctx.push(kwargs)
+        return template.generate(ctx).render('xhtml', doctype='xhtml')
 
