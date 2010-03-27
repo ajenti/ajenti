@@ -14,7 +14,6 @@ from ajenti.app.urlhandler import IURLHandler
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
 
-    #uri_handlers = Interface(IRequestDispatcher)
     uri_handlers = Interface(IURLHandler)
     content_providers = Interface(IContentProvider)
     template_providers = Interface(ITemplateProvider)
@@ -41,6 +40,8 @@ class Application (PluginManager, Plugin):
             self.template_path += tparams['path']
             self.template_include += tparams['include']
 
+        self.log.debug('Initialized')
+
     def start_response(self, status, headers=[]):
         self.status = status
         self.headers = headers
@@ -55,6 +56,7 @@ class Application (PluginManager, Plugin):
             self.headers.append(('Content-Length',str(len(content))))
 
     def dispatcher(self, environ, start_response):
+        self.log.debug('Dispatching %s'%environ['PATH_INFO'])
         self.environ = environ
         self.status = '200 OK'
         self.headers = [('Content-type','text/html')]
@@ -64,6 +66,7 @@ class Application (PluginManager, Plugin):
         for handler in self.uri_handlers:
             if handler.match_url(environ):
                 try:
+                    self.log.debug('Calling handler for %s'%environ['PATH_INFO'])
                     content = handler.url_handler(self.environ, 
                                                   self.start_response)
                 except Exception, e:
@@ -73,6 +76,7 @@ class Application (PluginManager, Plugin):
 
         start_response(self.status, self.headers)
         self.fix_length(content)
+        self.log.debug('Finishing %s'%environ['PATH_INFO'])
         return content
 
     def plugin_enabled(self, cls):
@@ -91,13 +95,17 @@ class Application (PluginManager, Plugin):
                              search_path=search_path+self.template_path,
                              includes=includes+self.template_include) 
 
+
+
 class AppDispatcher(object):
     def __init__(self, config=None):
         self.config = config
+        self.log = config.get('log_facility')
         # TODO: add config parameter for session timeout
         self.sessions = SessionStore()
 
     def dispatcher(self, environ, start_response):
+        self.log.debug('Dispatching %s'%environ['PATH_INFO'])
         # Use unique instances for each request,
         # so no plugin data will be interused between different clients
         app = Application(self.config).dispatcher

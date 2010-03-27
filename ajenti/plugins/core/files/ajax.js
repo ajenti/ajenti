@@ -23,6 +23,7 @@ function ajax(URL)
 // Make the request
 	xmlReq.open ('GET', URL, true);
 	xmlReq.send (null);
+    return false;
 }
 
 function showAjaxLoader(s) {
@@ -56,6 +57,7 @@ function ajaxPOST(URL, params)
     xmlReq.setRequestHeader("Content-length", params.length);
     xmlReq.setRequestHeader("Connection", "close");
     xmlReq.send(params);
+    return false;
 }
 
 function ajaxForm(formId, action)
@@ -107,6 +109,7 @@ function ajaxForm(formId, action)
         }
         ajaxPOST(form.action, params);
     }
+    return false;
 }
 
 function ajaxHandler(data)
@@ -119,8 +122,9 @@ function ajaxHandler(data)
 
 	var re = new RegExp('update=([0-9]+)');
 	var m = re.exec(data);
-	if (m[1] != 0)
-		setTimeout("ajax(\"/handle/update//\")", m[1])
+    if (m) 
+        if (m[1] != 0)
+		    setTimeout("ajax(\"/handle/update//\")", m[1])
 }
 
 
