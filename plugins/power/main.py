@@ -59,10 +59,20 @@ class Power(CategoryPlugin):
 
 
 def get_uptime():
+    minute = 60
+    hour = minute * 60
+    day = hour * 24
+
     s = int(open('/proc/uptime').read().split('.')[0])
-    h = s / 3600
-    m = s / 60 % 60
-    s %= 60
-    return str(h) + ':' + ('0' if m < 10 else '') + \
-           str(m) + ':' + ('0' if s < 10 else '') + str(s)
+
+    d = s / day
+    s -= d * day
+    h = s / hour
+    s -= h * hour
+    m = s / minute
+    s -= m * minute
+    uptime = ""
+    if d > 0:
+        uptime = "%d days, "%d
+    return uptime + "%d:%02d:%02d"%(h,m,s)
                
