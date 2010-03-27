@@ -15,5 +15,5 @@ class TemplateProvider(Plugin):
 
     def template(self):
         norm_path = os.path.join(os.path.dirname(__file__),'templates')
-        return {'path':[norm_path], 'include':self.includes}
+        return {'path':norm_path, 'include':self.includes}
 

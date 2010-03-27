@@ -11,9 +11,9 @@ class ContentProvider(ModuleContent):
 class TemplateProvider(Plugin):
     implements(ITemplateProvider)
 
-    includes = ['dashboard-widget.xml']
+    includes = ['widgets.xml']
 
     def template(self):
         norm_path = os.path.join(os.path.dirname(__file__),'templates')
-        return {'path':[norm_path], 'include':self.includes}
+        return {'path':norm_path, 'include':self.includes}
 
