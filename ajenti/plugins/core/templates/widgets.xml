@@ -12,7 +12,7 @@
 
 <!--! Widget for Category -->
 <py:match path="category">
-    <a href="#" onclick="javascript:ajax('/handle/category/click/${select('@id')}');">
+    <a href="#" onclick="javascript:return ajax('/handle/category/click/${select('@id')}');">
 	    <div class="${'ui-el-category-selected' if str(select('@selected'))=='true' else 'ui-el-category'}">
 		    <table>
                 <tr>
@@ -113,10 +113,10 @@
 <py:match path="button">
     <py:choose test="">
         <a py:when="str(select('@onclick')) == 'form'" href="#"
-                onclick="javascript:ajaxForm('${select('@form')}', '${select('@action')}');">
+                onclick="javascript:return ajaxForm('${select('@form')}', '${select('@action')}');">
             <div class="ui-el-button"> ${select('@text')} </div>
         </a>
-        <a py:otherwise="" href="#" onclick="javascript:ajax('/handle/button/click/${select('@id')}');">
+        <a py:otherwise="" href="#" onclick="javascript:return ajax('/handle/button/click/${select('@id')}');">
             <div class="ui-el-button"> ${select('@text')} </div>
         </a>
     </py:choose>
@@ -125,7 +125,7 @@
 
 <!--! LinkLabel widget -->
 <py:match path="linklabel">
-    <a href="#" onclick="javascript:ajax('/handle/linklabel/click/${select('@id')}');">
+    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/${select('@id')}');">
         <span class="ui-el-link">
             ${select('@text')}
         </span>
@@ -135,7 +135,7 @@
 
 <!--! Action widget -->
 <py:match path="action">
-    <a href="#" onclick="javascript:ajax('/handle/action/click/${select('@id')}');">
+    <a href="#" onclick="javascript:return ajax('/handle/action/click/${select('@id')}');">
         <div class="ui-el-action">
             <table>
                 <tr>
@@ -227,7 +227,7 @@
         <div class="ui-el-treecontainernode-button">
             <a href="#">
                 <img id="${select('@id')}-btn" src="/dl/core/ui/tree-${'minus' if str(select('@expanded'))=='True' else 'plus'}.png"
-                    onclick="javascript:ui_showhide('${select('@id')}');ajaxNoUpdate('/handle/treecontainer/click/${select('@id')}');ui_treeicon('${select('@id')}-btn')"/>
+                    onclick="javascript:ui_showhide('${select('@id')}');ajaxNoUpdate('/handle/treecontainer/click/${select('@id')}');ui_treeicon('${select('@id')}-btn');return false"/>
             </a>
         </div>
         ${select('@text')}
