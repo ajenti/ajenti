@@ -59,7 +59,7 @@ class Power(CategoryPlugin):
 
 
 def get_uptime():
-    s = int(shell("cat /proc/uptime|awk '{print $1}'|head -c-4"));
+    s = open('/proc/uptime').read().split('.')[0]
     h = s / 3600
     m = s / 60 % 60
     s %= 60
