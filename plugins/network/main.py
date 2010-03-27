@@ -1,5 +1,5 @@
 from ajenti.ui import *
-from ajenti.app.helpers import CategoryPlugin, ModuleContent, Abstraction
+from ajenti.app.helpers import CategoryPlugin, ModuleContent
 from api import *
 
 class NetworkContent(ModuleContent):
@@ -15,8 +15,8 @@ class NetworkPlugin(CategoryPlugin):
         self._status_text = ''
 
     def get_ui(self):
-        a = Abstraction(iface=INetworkConfig, platform=self.app.platform)
-        self._status_text = a.get_text()
+        net_config = self.app.grab_plugin(INetworkConfig)
+        self._status_text = net_config.get_text()
 
     
         h = UI.HContainer(
