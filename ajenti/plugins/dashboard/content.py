@@ -7,7 +7,9 @@ from ajenti.ui.api import ITemplateProvider
 class ContentProvider(ModuleContent):
     path = __file__
     module = 'dashboard' 
+    css_files = ['widget.css']
 
+    
 class TemplateProvider(Plugin):
     implements(ITemplateProvider)
 

@@ -4,6 +4,18 @@
          py:strip="" >
 
 
+<!--! CSS -->
+<py:match path="headcss">
+    <link rel="stylesheet" href="${select('@url')}" media="all" />
+</py:match>
+
+
+<!--! JS -->
+<py:match path="headjs">
+    <script src="${select('@url')}" />
+</py:match>
+
+
 <!--! Top logo widget -->
 <py:match path="topbar">
     <table width="100%" cellspacing="0" cellpadding="0">
