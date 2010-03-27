@@ -4,17 +4,13 @@ from ajenti.plugins.core import *
 from ajenti.plugins.dashboard import *
 
 from ajenti.com import *
-from ajenti.app.api import IRequestDispatcher
+from ajenti.app.urlhandler import URLHandler, url
 
-class DemoDispatcher(Plugin):
-    implements(IRequestDispatcher)
+class DemoDispatcher(URLHandler, Plugin):
 
-    def match(self, uri):
-        if re.match('^/demo',uri):
-            return True
-        else:
-            return False
-
+    @url('^/demo')
     def process(self, req, sr):
-        return "Demo Page"
+        from pprint import pformat
+        sr('200 OK', [('Content-type','text/plain')])
+        return pformat(req)
  
