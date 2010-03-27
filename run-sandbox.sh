@@ -4,7 +4,7 @@ mkdir sandbox 2> /dev/null
 
 echo Cleaning
 rm sandbox/* -rf
-
+ 
 echo Building the sandbox
 echo '* Copying Ajenti'
 mkdir sandbox/ajenti
