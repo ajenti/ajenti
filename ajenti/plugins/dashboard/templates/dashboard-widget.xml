@@ -1,0 +1,30 @@
+<widgets xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:py="http://genshi.edgewall.org/"
+         py:strip="" >
+
+<py:match path="widget">
+    <table cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+            <td class="ui-el-modal-lt" />
+            <td class="ui-el-modal-t" />
+            <td class="ui-el-modal-rt" />
+        </tr>
+        <tr>
+            <td class="ui-el-modal-l" />
+            <td height="${select('@height')}" class="ui-el-widget-c">
+
+                ${select('node()')}
+               
+            </td>
+            <td class="ui-el-modal-r" />
+        </tr>
+        <tr>
+            <td class="ui-el-modal-lb" />
+            <td class="ui-el-modal-b" />
+            <td class="ui-el-modal-rb" />
+        </tr>
+    </table>
+</py:match>
+
+</widgets>
