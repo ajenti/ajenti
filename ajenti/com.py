@@ -20,7 +20,7 @@ class Interface (property):
     to check if Plugin implements all methods
     (internal use only)
     """
-    def __init__(self, interface=None):
+    def __init__(self, interface=None, filter_func=None):
         if interface is not None:
             # Assume property invocation
             property.__init__(self, self._plugins)
@@ -33,6 +33,8 @@ class Interface (property):
         """
         pm = plugin.plugin_manager
         plugins = pm.plugin_get(self.interface)
+        if filter_func:
+            plugins = filter(filter_func, plugins)
         return filter(None, [pm.instance_get(cls, True) for cls in plugins])
 
     def __call__(self, cls):

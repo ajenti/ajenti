@@ -11,7 +11,6 @@ from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
 class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
     categories = Interface(ICategoryProvider)
-    content = Interface(IContentProvider)
 
     def main_ui(self):
         templ = self.app.get_template('main.xml')
@@ -40,23 +39,6 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         main = self.main_ui()
 
         templ.appendChildInto('body', main.elements())
-
-        styles = []
-        scripts = []
-        for x in self.content:
-            try:
-                for s in x.css_files:
-                    styles.append('/dl/' + x.module + '/' + s)
-                for s in x.js_files:
-                    scripts.append('/dl/' + x.module + '/' + s)
-            except:
-                pass
-                
-        for s in styles:
-            templ.appendChildInto('head', UI.HeadCSS(url=s))
-
-        for s in scripts:
-            templ.appendChildInto('head', UI.HeadJS(url=s))
 
         return templ.render()
 

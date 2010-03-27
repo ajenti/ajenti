@@ -5,9 +5,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Ajenti alpha</title>
     <link href="/dl/core/ui.css" rel="stylesheet" media="all" />
+    <link py:for="s in styles" href="${s}" rel="stylesheet" media="all" />
     <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
     <script src="/dl/core/ajax.js" />
     <script src="/dl/core/ui.js" />
+    <script py:for="s in scripts" src="${s}" />
 </head>
 <body id="main">
 </body>
