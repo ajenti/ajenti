@@ -162,6 +162,7 @@ class Beeper(CategoryPlugin):
     @event('treecontainer/click')
     def on_tclick(self, event, params, vars=None):
         self._tree.node_click('/'.join(params))
+        return ''
 
 """
 from plugin import PluginMaster, PluginInstance #Import base plugin classes from Ajenti's plugin.py

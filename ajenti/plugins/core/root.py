@@ -1,8 +1,8 @@
 import re
 
-import ajenti.ui as ui
 from ajenti.ui import UI
 from ajenti.com import *
+from ajenti.ui.template import BasicTemplate
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import EventProcessor, event
 from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
@@ -70,7 +70,11 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
             if handler.match_event(event):
                 vars = get_environment_vars(req)
                 result = handler.event(event, params, vars = vars)
-                if result is not None:
+                if isinstance(result, str):
+                    # For AJAX calls that do not require information
+                    # just return ''
+                    return result
+                if isinstance(result, BasicTemplate):
                     # Usefull for inplace AJAX calls (that returns partial page)
                     return result.render()
 
