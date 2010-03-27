@@ -105,6 +105,13 @@ class Application (PluginManager, Plugin):
         plugin.config = self.config
         plugin.app = self
 
+    def grab_plugin(self, iface, flt=None):
+        plugins = self.plugin_get(iface)
+        if flt:
+            plugins = filter(flt, plugins)
+        return filter(None, [self.instance_get(cls, True) for cls in plugins])[0]
+        
+
     def get_template(self, filename=None, search_path=[], includes=[]):
         vars = {'styles': self.template_styles,
                 'scripts': self.template_scripts}
