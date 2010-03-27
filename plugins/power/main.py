@@ -1,4 +1,5 @@
-import commands
+import re
+import os
 
 from ajenti.ui import *
 from ajenti import version
@@ -63,16 +64,29 @@ def get_uptime():
     hour = minute * 60
     day = hour * 24
 
-    s = int(open('/proc/uptime').read().split('.')[0])
+    d = h = m = 0
 
-    d = s / day
-    s -= d * day
-    h = s / hour
-    s -= h * hour
-    m = s / minute
-    s -= m * minute
+    try:
+        s = int(open('/proc/uptime').read().split('.')[0])
+
+        d = s / day
+        s -= d * day
+        h = s / hour
+        s -= h * hour
+        m = s / minute
+        s -= m * minute
+    except IOError:
+        # Try use 'uptime' command
+        up = os.popen('uptime').read()
+        if up:
+            uptime = re.search('up\s+(.*?),\s+[0-9]+ user',up).group(1)
+            return uptime
+
     uptime = ""
-    if d > 0:
+    if d > 1:
         uptime = "%d days, "%d
+    elif d == 1:
+        uptime = "1 day, "
+
     return uptime + "%d:%02d:%02d"%(h,m,s)
                

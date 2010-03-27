@@ -1,5 +1,6 @@
 import time
 import Cookie
+import os.path
 import hashlib
 import traceback
 
@@ -35,10 +36,13 @@ class Application (PluginManager, Plugin):
             self.content[module] = path
 
         # Update all template paths/includes for auto searching
-        for t in reversed(self.template_providers):
+        for t in self.template_providers:
             tparams = t.template()
-            self.template_path += tparams['path']
-            self.template_include += tparams['include']
+            includes = []
+            for inc in tparams['include']:
+                includes.append(os.path.join(tparams['path'],inc))
+            self.template_include += includes
+            self.template_path += [tparams['path']]
 
         self.log.debug('Initialized')
 
@@ -73,9 +77,13 @@ class Application (PluginManager, Plugin):
                     self.status = '500 Error'
                     self.headers = [('Content-type', 'text/plain')]
                     content = traceback.format_exc()
+                finally:
+                    break
 
         start_response(self.status, self.headers)
         self.fix_length(content)
+        if not isinstance(content, environ['wsgi.file_wrapper']):
+            content = [content]
         self.log.debug('Finishing %s'%environ['PATH_INFO'])
         return content
 

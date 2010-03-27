@@ -4,7 +4,7 @@ class ITemplateProvider(Interface):
     def template(self):
         """ Returns dict of parameters
         {
-         'path': []
+         'path': '/some/path'
          'include': []
         }
         """
