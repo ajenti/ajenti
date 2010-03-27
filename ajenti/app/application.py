@@ -25,6 +25,8 @@ class Application (PluginManager, Plugin):
         # Init instance variables
         self.template_path = []
         self.template_include = []
+        self.template_styles = []
+        self.template_scripts = []
         self.content = {}
         self.config = config
         self.log = config.get('log_facility')
@@ -34,6 +36,10 @@ class Application (PluginManager, Plugin):
         for c in self.content_providers:
             (module, path) = c.content_path()
             self.content[module] = path
+            styles = ['/dl/'+module+'/'+s for s in c.css_files]
+            self.template_styles.extend(styles)
+            scripts = ['/dl/'+module+'/'+s for s in c.css_files]
+            self.template_scripts.extend(scripts)
 
         # Update all template paths/includes for auto searching
         for t in self.template_providers:
@@ -99,9 +105,12 @@ class Application (PluginManager, Plugin):
         plugin.app = self
 
     def get_template(self, filename=None, search_path=[], includes=[]):
+        vars = {'styles': self.template_styles,
+                'scripts': self.template_scripts}
         return BasicTemplate(filename=filename, 
                              search_path=search_path+self.template_path,
-                             includes=includes+self.template_include) 
+                             includes=includes+self.template_include,
+                             vars=vars) 
 
 
 
