@@ -175,9 +175,9 @@ class MetaPlugin (type):
 
         # Collect all interfaces that this class implements
         interfaces = d.get('_implements',[])
-        for base in [base for base in bases if hasattr(base, '_implements')]:
+        for base in [base for base in new_class.mro()[1:] if hasattr(base, '_implements')]:
             interfaces.extend(base._implements)
-
+        
         # Check that class supports all needed methods
         for interface in interfaces:
             interface()(new_class)

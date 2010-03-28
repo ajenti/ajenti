@@ -9,9 +9,17 @@ class IRequestDispatcher(Interface):
 
 
 class IContentProvider(Interface):
+    path = ''
+    module = ''
+    js_files = []
+    css_files = []
+    widget_files = []
+
     def content_path(self):
         pass
 
+    def template_path(self):
+        pass
 
 class ICategoryProvider(Interface):
     """ ICategoryProvider should contain:
@@ -25,7 +33,6 @@ class ICategoryProvider(Interface):
     def get_ui():
         pass
 
-
 class IEventDispatcher(Interface):
     def match_event(self, event):
         pass
@@ -33,8 +40,3 @@ class IEventDispatcher(Interface):
     def event(self, event, *params, **kwparams):
         pass
 
-
-class IAbstraction(Interface):
-    supported_platforms = ['any']
-    supported_variants = ['any']
-    
