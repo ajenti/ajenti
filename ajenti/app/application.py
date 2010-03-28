@@ -18,7 +18,6 @@ class Application (PluginManager, Plugin):
 
     uri_handlers = Interface(IURLHandler)
     content_providers = Interface(IContentProvider)
-    template_providers = Interface(ITemplateProvider)
 
     def __init__(self, config=None):
         PluginManager.__init__(self)
@@ -33,23 +32,25 @@ class Application (PluginManager, Plugin):
         self.log = config.get('log_facility')
         self.platform = config.get('ajenti','platform')
 
-        # Get path for static content
+        # Get path for static content and templates
         for c in self.content_providers:
+            print c
             (module, path) = c.content_path()
             self.content[module] = path
+            print module, path
             styles = ['/dl/'+module+'/'+s for s in c.css_files]
             self.template_styles.extend(styles)
-            scripts = ['/dl/'+module+'/'+s for s in c.css_files]
+            scripts = ['/dl/'+module+'/'+s for s in c.js_files]
             self.template_scripts.extend(scripts)
+            print styles
+            print scripts
 
-        # Update all template paths/includes for auto searching
-        for t in self.template_providers:
-            tparams = t.template()
+            path = c.template_path()
             includes = []
-            for inc in tparams['include']:
-                includes.append(os.path.join(tparams['path'],inc))
+            for inc in c.widget_files:
+                includes.append(os.path.join(path,inc))
             self.template_include += includes
-            self.template_path += [tparams['path']]
+            self.template_path += [path]
 
         self.log.debug('Initialized')
 
