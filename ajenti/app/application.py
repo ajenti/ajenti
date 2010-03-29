@@ -34,16 +34,12 @@ class Application (PluginManager, Plugin):
 
         # Get path for static content and templates
         for c in self.content_providers:
-            print c
             (module, path) = c.content_path()
             self.content[module] = path
-            print module, path
             styles = ['/dl/'+module+'/'+s for s in c.css_files]
             self.template_styles.extend(styles)
             scripts = ['/dl/'+module+'/'+s for s in c.js_files]
             self.template_scripts.extend(scripts)
-            print styles
-            print scripts
 
             path = c.template_path()
             includes = []
