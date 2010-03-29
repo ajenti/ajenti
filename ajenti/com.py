@@ -13,6 +13,8 @@
 
 import inspect
 
+from PrioList import PrioList
+
 class Interface (property):
     """ Base abstract class for all interfaces
 
@@ -98,7 +100,7 @@ class PluginManager (object):
 
     @staticmethod
     def plugin_register (iface, cls):
-        PluginManager.__plugins.setdefault(iface,[]).append(cls)
+        PluginManager.__plugins.setdefault(iface,PrioList()).append(cls)
 
     @staticmethod
     def plugin_get (iface):
@@ -178,13 +180,34 @@ class MetaPlugin (type):
         for base in [base for base in new_class.mro()[1:] if hasattr(base, '_implements')]:
             interfaces.extend(base._implements)
         
+        # Delete duplicates, in case we inherit same Intarfaces
+        # or we need to override priority
+        _ints = []
+        _interfaces = []
+        for interface in interfaces:
+            _int = interface
+            if isinstance(interface, tuple):
+                _int = interface[0]
+
+            if _int not in _ints:
+                _ints.append(_int)
+                _interfaces.append(interface)
+
+        interfaces = _interfaces
+
         # Check that class supports all needed methods
         for interface in interfaces:
-            interface()(new_class)
+            _int = interface
+            if isinstance(interface, tuple):
+                _int = interface[0]
+            _int()(new_class)
         
         # Register plugin
         for interface in interfaces:
-            PluginManager.plugin_register(interface, new_class)
+            if isinstance(interface, tuple):
+                PluginManager.plugin_register(interface[0], (new_class, interface[1]))
+            else:
+                PluginManager.plugin_register(interface, new_class)
 
         return new_class
 
