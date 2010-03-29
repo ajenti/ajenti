@@ -25,3 +25,4 @@ def detect_distro():
 
 def shell(c):
     return commands.getstatusoutput(c)[1]
+
