@@ -164,7 +164,8 @@ class MetaPlugin (type):
                             init(self)
                         except:
                             raise
-                    plugin_manager.instance_set(cls, self)
+                    if not self.multi_instance:
+                        plugin_manager.instance_set(cls, self)
             maybe_init._original = init
             new_class.__init__ = maybe_init
 
@@ -218,6 +219,8 @@ class Plugin (object):
 
     __metaclass__ = MetaPlugin
 
+    multi_instance = False
+
     platform = ['any']
 
     def __new__(cls, *args, **kwargs):
@@ -232,8 +235,11 @@ class Plugin (object):
             return self
 
         # Normal case when we are standalone plugin
+        self = None
         plugin_manager = args[0]
-        self = plugin_manager.instance_get(cls)
+        if not cls.multi_instance:
+            self = plugin_manager.instance_get(cls)
+
         if self is None:
             self = super(Plugin, cls).__new__(cls)
             self.plugin_manager = plugin_manager
