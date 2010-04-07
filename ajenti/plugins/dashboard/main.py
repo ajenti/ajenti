@@ -6,7 +6,13 @@ from ajenti.com import Interface
 from ajenti.ui import *
 from ajenti import version
 from ajenti.utils import detect_distro
-from ajenti.app.helpers import CategoryPlugin
+from ajenti.app.helpers import CategoryPlugin, ModuleContent
+
+class DashboardContent(ModuleContent):
+    path = __file__
+    module = 'dashboard' 
+    css_files = ['widget.css']
+    widget_files = ['widgets.xml']
 
 class Dashboard(CategoryPlugin):
 

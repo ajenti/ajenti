@@ -13,6 +13,8 @@
 
 import inspect
 
+from PrioList import PrioList
+
 class Interface (property):
     """ Base abstract class for all interfaces
 
@@ -98,7 +100,7 @@ class PluginManager (object):
 
     @staticmethod
     def plugin_register (iface, cls):
-        PluginManager.__plugins.setdefault(iface,[]).append(cls)
+        PluginManager.__plugins.setdefault(iface,PrioList()).append(cls)
 
     @staticmethod
     def plugin_get (iface):
@@ -162,7 +164,8 @@ class MetaPlugin (type):
                             init(self)
                         except:
                             raise
-                    plugin_manager.instance_set(cls, self)
+                    if not self.multi_instance:
+                        plugin_manager.instance_set(cls, self)
             maybe_init._original = init
             new_class.__init__ = maybe_init
 
@@ -175,16 +178,37 @@ class MetaPlugin (type):
 
         # Collect all interfaces that this class implements
         interfaces = d.get('_implements',[])
-        for base in [base for base in bases if hasattr(base, '_implements')]:
+        for base in [base for base in new_class.mro()[1:] if hasattr(base, '_implements')]:
             interfaces.extend(base._implements)
+        
+        # Delete duplicates, in case we inherit same Intarfaces
+        # or we need to override priority
+        _ints = []
+        _interfaces = []
+        for interface in interfaces:
+            _int = interface
+            if isinstance(interface, tuple):
+                _int = interface[0]
+
+            if _int not in _ints:
+                _ints.append(_int)
+                _interfaces.append(interface)
+
+        interfaces = _interfaces
 
         # Check that class supports all needed methods
         for interface in interfaces:
-            interface()(new_class)
+            _int = interface
+            if isinstance(interface, tuple):
+                _int = interface[0]
+            _int()(new_class)
         
         # Register plugin
         for interface in interfaces:
-            PluginManager.plugin_register(interface, new_class)
+            if isinstance(interface, tuple):
+                PluginManager.plugin_register(interface[0], (new_class, interface[1]))
+            else:
+                PluginManager.plugin_register(interface, new_class)
 
         return new_class
 
@@ -194,6 +218,8 @@ class Plugin (object):
     """ Base class for all plugins """
 
     __metaclass__ = MetaPlugin
+
+    multi_instance = False
 
     platform = ['any']
 
@@ -209,8 +235,11 @@ class Plugin (object):
             return self
 
         # Normal case when we are standalone plugin
+        self = None
         plugin_manager = args[0]
-        self = plugin_manager.instance_get(cls)
+        if not cls.multi_instance:
+            self = plugin_manager.instance_get(cls)
+
         if self is None:
             self = super(Plugin, cls).__new__(cls)
             self.plugin_manager = plugin_manager

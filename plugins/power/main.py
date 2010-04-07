@@ -3,6 +3,8 @@ import os
 
 from ajenti.ui import *
 from ajenti import version
+from ajenti.com import implements
+from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import CategoryPlugin, ModuleContent, EventProcessor, event
 from ajenti.app.session import SessionProxy
 from ajenti.utils import shell
@@ -13,6 +15,8 @@ class PowerContent(ModuleContent):
 
 
 class Power(CategoryPlugin):
+
+    implements((ICategoryProvider, 90))
 
     text = 'Power'
     description = 'Shudown & reboot'

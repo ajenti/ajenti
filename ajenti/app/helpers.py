@@ -49,12 +49,23 @@ class ModuleContent(Plugin):
 
     js_files = []
     css_files = []
-    
+    widget_files = []
+
+    files_location = 'files'
+    templates_location = 'templates'
+
     def content_path(self):
         if self.path == '' or self.module == '':
             raise AttributeError('You should provide path/module information')
-        norm_path = os.path.join(os.path.dirname(self.path),'files')
+        norm_path = os.path.join(os.path.dirname(self.path),self.files_location)
         return (self.module, norm_path)
+
+    def template_path(self):
+        if self.path == '':
+            raise AttributeError('You should provide path/module information')
+        norm_path = os.path.join(os.path.dirname(self.path),self.templates_location)
+        return norm_path
+        
 
         
 
@@ -167,39 +178,4 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
         return { 'text': self.text,
                  'description': self.description,
                  'icon': self.icon }
-
-
-class Abstraction(object):
-    """
-    class INetworking(Interface):
-        def restart(self): pass
-        
-    class UbuntuNetworking(Plugin):
-        implements(INetworking)
-        supported_platforms = ['ubuntu']
-        def restart(self):
-            shell('restart networking')
-    
-    class DebianNetworking(Plugin):
-        implements(INetworking)
-        supported_platforms = ['debian']
-        def restart(self):
-            shell('/etc/init.d/networking restart')
-
-
-    ...
-
-    a = Abstraction(INetworking, platform=self.app.platform)
-    a.restart()    
-    """
-    class __metaclass__(type):
-        def __call__(cls, iface=None, platform='any', variant='any'):
-            l = Interface(iface)
-            for x in l:
-                if ('any' in x.supported_platforms or
-                   platform in x.supported_platforms) and \
-                   ('any' in x.supported_variants or
-                   variant in x.supported_variants):
-                    return x
-
 
