@@ -186,12 +186,15 @@ body {
 	border: 1px solid #aaaaaa;
 }
 
-.ui-el-table-row {
+.ui-el-table-row .ui-el-table-cell {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
 }
 
 .ui-el-table-row-header {
 	background: #eeeeee;
 }
+
 .ui-el-table-row-header td {
 	border-bottom: 1px solid #cccccc;
 	border-right: 1px solid #cccccc;
@@ -201,7 +204,7 @@ body {
 	background: #f3d9b4;
 }
 
-.ui-el-table-row:hover td {
+.ui-el-table-row:hover .ui-el-table-cell {
 	border-top: 1px solid #cccccc;
 	border-bottom: 1px solid #cccccc;
 }
