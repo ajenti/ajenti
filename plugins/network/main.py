@@ -63,9 +63,9 @@ class NetworkPlugin(CategoryPlugin):
             )
 
         if self._editing_iface != "":
-            cnt = UI.VContainer()
+            cnt = UI.TabControl()
             for x in net_config.interfaces[self._editing_iface].bits:
-                cnt.vnode(x.get_ui())
+                cnt.add(x.title, x.get_ui())
             dlg = UI.DialogBox(
                         cnt,
                         title="Interface '" + self._editing_iface + "' options", id="dlgEditIface", action="/handle/dialog/submit/dlgEditIface"

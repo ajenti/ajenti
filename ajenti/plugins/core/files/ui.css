@@ -315,4 +315,21 @@ body {
 }
 
 
+/* Tabs */
+.ui-el-tab-header {
+    border: 5px #ffffff solid;
+    float: left;
+}
+
+.ui-el-tab-header-active {
+    padding: 5px;
+    background: #cccccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+}
+
+.ui-el-tab-header-box {
+    padding-bottom: 10px;
+}
 

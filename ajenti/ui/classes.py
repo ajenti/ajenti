@@ -173,6 +173,28 @@ class UI(object):
 
         return TreeContainer(*args)
 
+    @staticmethod
+    def TabControl(*args, **kwargs):
+        class TabControl(Element):
+            vnt = None
+            vnb = None
+            tc = 0
+
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'tabcontrol', [], **kwargs)
+                self.elements = []
+                self.vnt = UI.TabHeaderNode(id=self['id'])
+                self.vnb = UI.VNode()
+                self.appendChild(self.vnt)
+                self.appendChild(self.vnb)
+
+            def add(self, name, content):
+                self.vnt.appendChild(UI.TabHeader(text=name, pid=self['id'], id=str(self.tc)))
+                self.vnb.appendChild(UI.TabBody(content, pid=self['id'], id=str(self.tc)))
+                self.tc += 1
+
+        return TabControl(*args, **kwargs)
+
 
 class TreeManager(object):
     states = None
@@ -188,7 +210,6 @@ class TreeManager(object):
             self.states.remove(id)
         else:
             self.states.append(id)
-        print self.states
         pass
 
     def apply(self, tree):

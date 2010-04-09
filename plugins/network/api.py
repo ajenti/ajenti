@@ -19,6 +19,7 @@ class NetworkConfigBit(Plugin):
 
     cls = 'unknown'
     iface = None
+    title = 'Unknown'
 
     def __init__(self):
         self.params = {}

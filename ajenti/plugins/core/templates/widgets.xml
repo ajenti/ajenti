@@ -266,5 +266,36 @@
     </textarea>
 </py:match>
 
+<!--! Tabs -->
+<py:match path="tabheader">
+    <a href="#">
+        <div class="ui-el-tab-header" id="tabheader-${select('@pid')}-${select('@id')}" onclick="javascript:ui_tabswitch('${select('@pid')}','${select('@id')}')">
+            ${select('@text')}
+        </div>
+    </a>
+</py:match>
+
+<py:match path="tabheadernode">
+    <tr>
+        <td id="${select('@id')}" class="ui-el-tab-header-box">
+            ${select('node()')}
+        </td>
+    </tr>
+</py:match>
+
+<py:match path="tabbody">
+    <div class="ui-el-tab-body" id="tabbody-${select('@pid')}-${select('@id')}">
+        ${select('node()')}
+    </div>
+</py:match>
+
+<py:match path="tabcontrol">
+    <table>
+        ${select('node()')}
+    </table>
+    <script>
+        ui_tabswitch('${select('@id')}', '0');
+    </script>
+</py:match>
 
 </widgets>
