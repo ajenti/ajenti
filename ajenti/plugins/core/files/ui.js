@@ -1,9 +1,12 @@
-function ui_center(el) {
+function ui_center_el(e) {
     sw = document.width;
     sh = document.height;
-    e = document.getElementById(el);
     e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
     e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
+}
+
+function ui_center(el) {
+    ui_center_el(document.getElementById(el));
 }
 
 function ui_showhide(id) {
@@ -40,8 +43,14 @@ function ui_tabswitch(pid, id) {
         p.children[i].children[0].setAttribute('class', 'ui-el-tab-header');
     h.setAttribute('class', 'ui-el-tab-header-active');
 
-    p = p.parentNode.parentNode.children[1].children[0]
+    p = p.parentNode.parentNode.children[1].children[0];
     for (i=0;i<p.children.length;i++)
         p.children[i].style.display = 'none';
     b.style.display = '';
+
+    while (p != null) {
+        p = p.parentNode;
+        if (p.getAttribute('class') == 'ui-el-modal-wrapper')
+            ui_center_el(p)
+    }
 }

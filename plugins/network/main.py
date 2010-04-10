@@ -17,6 +17,7 @@ class NetworkPlugin(CategoryPlugin):
     def on_session_start(self):
         self._status_text = ''
         self._editing_iface = ""
+        self._editing_ns = -1
 
     def get_ui(self):
         ti = UI.DataTable()
@@ -51,12 +52,39 @@ class NetworkPlugin(CategoryPlugin):
                 )
             )
 
+
+        td = UI.DataTable()
+        hr = UI.DataTableRow(
+                UI.DataTableCell(UI.Label(text='Type'), width="100px"),
+                UI.DataTableCell(UI.Label(text='Address'), width="200px"),
+                UI.DataTableCell(UI.Label(text='Controls'), width="100px"),
+                header=True
+             )
+        td.appendChild(hr)
+
+        for x in range(0, len(self.net_config.nameservers)):
+            i = self.net_config.nameservers[x]
+            td.appendChild(UI.DataTableRow(
+                            UI.Label(text=i.cls),
+                            UI.Label(text=i.address),
+                            UI.HContainer(
+                                UI.LinkLabel(text='Edit', id='editns/' + str(x)),
+                                UI.LinkLabel(text='Remove', id='delns/' + str(x))
+                            )
+                           ))
+
         p = UI.VContainer(
                 h,
                 UI.Spacer(height=20),
                 UI.Label(text='Network interfaces', size=3),
                 UI.Spacer(height=10),
-                ti
+                ti,
+                UI.Spacer(height=20),
+                UI.Label(text='Nameservers', size=3),
+                UI.Spacer(height=10),
+                td,
+                UI.Spacer(height=10),
+                UI.LinkLabel(text='Add new entry', id='addns')
             )
 
         if self._editing_iface != "":
@@ -69,12 +97,27 @@ class NetworkPlugin(CategoryPlugin):
                     )
             p.vnode(dlg)
 
+        if self._editing_ns != -1:
+            dlg = UI.DialogBox(
+                        self.net_config.ns_edit_dialog(self.net_config.nameservers[self._editing_ns]),
+                        title="Nameserver entry options", id="dlgEditNS", action="/handle/dialog/submit/dlgEditNS"
+                    )
+            p.vnode(dlg)
+
         return p
 
     @event('linklabel/click')
     def on_ll_click(self, event, params, vars=None):
         if params[0] == 'editiface':
             self._editing_iface = params[1]
+        if params[0] == 'editns':
+            self._editing_ns = int(params[1])
+        if params[0] == 'delns':
+            self.net_config.nameservers.remove(self.net_config.nameservers[int(params[1])])
+            self.net_config.save()
+        if params[0] == 'addns':
+            self.net_config.nameservers.append(Nameserver())
+            self._editing_ns = len(self.net_config.nameservers) - 1
 
     @event('dialog/submit')
     def on_dlg_submit(self, event, params, vars=None):
@@ -86,4 +129,18 @@ class NetworkPlugin(CategoryPlugin):
                 self.net_config.save()
 
             self._editing_iface = ''
+
+        if params[0] == 'dlgEditNS':
+            if vars.getvalue('action', '') == 'OK':
+                try:
+                    i = self.net_config.nameservers[self._editing_ns]
+                except:
+                    i = Nameserver()
+                    self.net_config.nameservers.append(i)
+
+                i.cls = vars.getvalue('cls', 'nameserver')
+                i.address = vars.getvalue('address', '127.0.0.1')
+                self.net_config.save()
+
+            self._editing_ns = -1
 

@@ -9,6 +9,10 @@
 	font-family: Droid Sans, Tahoma, sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
 	background: #e6e1db;
 	width: 100%;
@@ -117,6 +121,7 @@ body {
 /* MainWindow */
 .ui-el-mainwindow {
 	width: 100%;
+	height: 100%;
 }
 
 .ui-el-mainwindow-left {

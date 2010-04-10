@@ -3,8 +3,12 @@ from ajenti.app.api import *
 
 class INetworkConfig(Interface):
     interfaces = None
+    nameservers = None
 
     def save(self):
+        pass
+
+    def ns_edit_dialog(self, ns):
         pass
 
 
@@ -34,3 +38,8 @@ class NetworkConfigBit(Plugin):
         for k in vars:
             if vars.getvalue(k, '') != '':
                 self.iface[k] = vars.getvalue(k, '')
+
+#TODO: add InterfaceBase class with members that are used from main.py
+class Nameserver(object):
+    cls = ''
+    address = ''

@@ -1,16 +1,20 @@
 from ajenti.com import *
 from api import *
 from ajenti.utils import *
+from ajenti.ui import *
 
 class DebianNetworkConfig(Plugin):
     implements(INetworkConfig)
     platform = ['Debian', 'Ubuntu']
 
     interfaces = None
+    nameservers = None
 
     def __init__(self):
         self.interfaces = {}
+        self.nameservers = []
 
+        # Load interfaces
         try:
             f = open('/etc/network/interfaces')
             ss = f.read().splitlines()
@@ -47,7 +51,24 @@ class DebianNetworkConfig(Plugin):
             self.interfaces[x].auto = True
         for x in hotplug:
             self.interfaces[x].hotplug = True
-            
+
+
+        # Load DNS servers
+        try:
+            f = open('/etc/resolv.conf')
+            ss = f.read().splitlines()
+            f.close()
+        except IOError, e:
+            return
+
+        for s in ss:
+            if len(s) > 0:
+                if s[0] != '#':
+                    s = s.split(' ')
+                    ns = Nameserver()
+                    ns.cls = s[0]
+                    ns.address = ' '.join(s[1:])
+                    self.nameservers.append(ns)
 
     def get_iface(self, name, cls):
         if not self.interfaces.has_key(name):
@@ -107,7 +128,32 @@ class DebianNetworkConfig(Plugin):
         for i in self.interfaces:
             self.interfaces[i].save(f)
         f.close()
+
+        f = open('/etc/resolv.conf', 'w')
+        for i in self.nameservers:
+            f.write(i.cls + ' ' + i.address + '\n')
+        f.close()
         return
+
+    def ns_edit_dialog(self, ns):
+        p = UI.LayoutTable(
+                UI.LayoutTableRow(
+                    UI.Label(text='Type:'),
+                    UI.Select(
+                        UI.SelectOption(text='Nameserver', value='nameserver', selected=(ns.cls=='nameserver')),
+                        UI.SelectOption(text='Local domain', value='domain', selected=(ns.cls=='domain')),
+                        UI.SelectOption(text='Search list', value='search', selected=(ns.cls=='search')),
+                        UI.SelectOption(text='Sort list', value='sortlist', selected=(ns.cls=='sortlist')),
+                        UI.SelectOption(text='Options', value='options', selected=(ns.cls=='options')),
+                        name='cls'
+                    ),
+                UI.LayoutTableRow(
+                    UI.Label(text='Value:'),
+                    UI.TextInput(name='address', value=ns.address),
+                    )
+                )
+            )
+        return p
 
 
 class NetworkInterface(Plugin):
@@ -147,3 +193,4 @@ class NetworkInterface(Plugin):
         for x in self.params:
             f.write('\t' + x + ' ' + self.params[x] + '\n')
         f.write('\n')
+
