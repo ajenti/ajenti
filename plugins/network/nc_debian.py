@@ -4,7 +4,7 @@ from ajenti.utils import *
 
 class DebianNetworkConfig(Plugin):
     implements(INetworkConfig)
-    platform = ['debian', 'ubuntu']
+    platform = ['Debian', 'Ubuntu']
 
     interfaces = None
 
