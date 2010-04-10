@@ -52,8 +52,8 @@ class Beeper(CategoryPlugin):
                             UI.TextInput(name="someInput"),
                             UI.br(),
                             UI.Select(
-                                UI.Option("option1", value="1"),
-                                UI.Option("option2", value="2"),
+                                UI.SelectOption(text="option1", value="1"),
+                                UI.SelectOption(text="option2", value="2"),
                                 name="select"
                             ),
                             UI.br(),

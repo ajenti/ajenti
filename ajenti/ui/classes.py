@@ -97,12 +97,6 @@ class UI(object):
         return Element('span', {'py:content':"'%s'"%text, 'py:strip':""})
 
     @staticmethod
-    def Option(text='option', **kw):
-        el = Element('option', **kw)
-        el.appendChild(UI.Text(text))
-        return el
-
-    @staticmethod
     def LayoutTable(*args, **kwargs):
         class LayoutTable(Element):
             def __init__(self, *args, **kwargs):

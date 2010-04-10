@@ -6,5 +6,28 @@ class LinuxBasicNetworkConfigSet(NetworkConfigBit):
     title = 'Basic'
 
     def get_ui(self):
-        return UI.Label(text='Basic', size=3)
+        p = UI.LayoutTable(
+                UI.LayoutTableRow(
+                    UI.Label(text='Auto-enable:'),
+                    UI.Checkbox(name='auto', checked=(self.iface.auto)),
+                ),
+                UI.LayoutTableRow(
+                    UI.Label(text='Mode:'),
+                    UI.Select(
+                        UI.SelectOption(text='Loopback', value='loopback', selected=(self.iface.mode=='loopback')),
+                        UI.SelectOption(text='Static', value='static', selected=(self.iface.mode=='static')),
+                        UI.SelectOption(text='Manual', value='manual', selected=(self.iface.mode=='manual')),
+                        UI.SelectOption(text='DHCP', value='dhcp', selected=(self.iface.mode=='dhcp')),
+                        UI.SelectOption(text='BootP', value='bootp', selected=(self.iface.mode=='bootp')),
+                        UI.SelectOption(text='WVDial', value='wvdial', selected=(self.iface.mode=='wvdial')),
+                        UI.SelectOption(text='Zeroconf', value='ipv4ll', selected=(self.iface.mode=='ipv4ll')),
+                        name='mode'
+                    )
+                )
+            )
+        return p
+
+    def apply(self, vars):
+        self.iface.mode = vars.getvalue('mode', '')
+        self.iface.auto = (vars.getvalue('auto', 'off') == 'on')
 

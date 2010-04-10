@@ -4,12 +4,15 @@ from ajenti.app.api import *
 class INetworkConfig(Interface):
     interfaces = None
 
-    def get_text(self):
+    def save(self):
         pass
 
 
 class INetworkConfigBit(Interface):
     def get_ui(self):
+        pass
+
+    def apply(self, vars):
         pass
 
 
@@ -26,3 +29,8 @@ class NetworkConfigBit(Plugin):
 
     def get_ui(self):
         pass
+
+    def apply(self, vars):
+        for k in vars:
+            if vars.getvalue(k, '') != '':
+                self.iface[k] = vars.getvalue(k, '')

@@ -26,3 +26,5 @@ def detect_distro():
 def shell(c):
     return commands.getstatusoutput(c)[1]
 
+def shell_status(c):
+    return commands.getstatusoutput(c)[0]

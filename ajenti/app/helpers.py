@@ -65,9 +65,9 @@ class ModuleContent(Plugin):
             raise AttributeError('You should provide path/module information')
         norm_path = os.path.join(os.path.dirname(self.path),self.templates_location)
         return norm_path
-        
 
-        
+
+
 
 class EventProcessor(object):
     implements(IEventDispatcher)
@@ -179,3 +179,6 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
                  'description': self.description,
                  'icon': self.icon }
 
+
+    def on_init(self):
+        pass

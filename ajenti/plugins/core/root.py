@@ -32,10 +32,19 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
         return templ
 
+    def do_init(self):
+        cat_selected = self.app.session.get('cat_selected',0)
+        cat = None
+        for num, c in enumerate(self.categories):
+            if num == cat_selected:
+                cat = c
+        cat.on_init()
+
     @url('^/$')
     def process(self, req, start_response):
         templ = self.app.get_template('index.xml')
 
+        self.do_init()
         main = self.main_ui()
 
         templ.appendChildInto('body', main.elements())
@@ -43,7 +52,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         return templ.render()
 
     @event('category/click')
-    def category(self, event, params, **kw):
+    def handle_category(self, event, params, **kw):
         if not isinstance(params, list):
             return
         if len(params) != 1:
@@ -54,6 +63,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
             return
 
         self.app.session['cat_selected'] = cat
+        self.do_init()
 
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):
@@ -62,6 +72,8 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         path = req['PATH_INFO'].split('/')
         event = '/'.join(path[2:4])
         params = path[4:]
+
+        self.do_init()
 
         # Current module
         cat = self.app.session.get('cat_selected',0)
