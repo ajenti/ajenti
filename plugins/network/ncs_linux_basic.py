@@ -12,6 +12,10 @@ class LinuxBasicNetworkConfigSet(NetworkConfigBit):
                     UI.Checkbox(name='auto', checked=(self.iface.auto)),
                 ),
                 UI.LayoutTableRow(
+                    UI.Label(text='Allow hotplug:'),
+                    UI.Checkbox(name='hotplug', checked=(self.iface.hotplug)),
+                ),
+                UI.LayoutTableRow(
                     UI.Label(text='Mode:'),
                     UI.Select(
                         UI.SelectOption(text='Loopback', value='loopback', selected=(self.iface.mode=='loopback')),
@@ -30,4 +34,4 @@ class LinuxBasicNetworkConfigSet(NetworkConfigBit):
     def apply(self, vars):
         self.iface.mode = vars.getvalue('mode', '')
         self.iface.auto = (vars.getvalue('auto', 'off') == 'on')
-
+        self.iface.hotplug = (vars.getvalue('hotplug', 'off') == 'on')

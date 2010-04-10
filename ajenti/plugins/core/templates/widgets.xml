@@ -174,7 +174,7 @@
 
 <!--! CheckBox widget -->
 <py:match path="checkbox">
-    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${str(select('@checked')) or None}" />
+    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" />
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>

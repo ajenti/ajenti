@@ -19,6 +19,7 @@ class DebianNetworkConfig(Plugin):
             return
 
         auto = []
+        hotplug = []
 
         while len(ss)>0:
             if (len(ss[0]) > 0 and not ss[0][0] == '#'):
@@ -27,6 +28,8 @@ class DebianNetworkConfig(Plugin):
                     if s == '': a.remove(s)
                 if (a[0] == 'auto'):
                     auto.append(a[1])
+                elif (a[0] == 'allow-hotplug'):
+                    hotplug.append(a[1])
                 elif (a[0] == 'iface'):
                     e = self.get_iface(a[1], self.detect_iface_class(a))
                     e.cls = a[2]
@@ -42,15 +45,21 @@ class DebianNetworkConfig(Plugin):
 
         for x in auto:
             self.interfaces[x].auto = True
+        for x in hotplug:
+            self.interfaces[x].hotplug = True
+            
 
     def get_iface(self, name, cls):
         if not self.interfaces.has_key(name):
             self.interfaces[name] = NetworkInterface(self.app)
             for x in cls:
-                b = self.app.grab_plugins(INetworkConfigBit,
-                        lambda p: p.cls == x)[0]
-                b.iface = self.interfaces[name]
-                self.interfaces[name].bits.append(b)
+		try:
+                    b = self.app.grab_plugins(INetworkConfigBit,
+                            lambda p: p.cls == x)[0]
+                    b.iface = self.interfaces[name]
+                    self.interfaces[name].bits.append(b)
+                except:
+                    pass
 
         self.interfaces[name].name = name
         return self.interfaces[name]
@@ -111,6 +120,7 @@ class NetworkInterface(Plugin):
     mode = 'static'
     params = None
     auto = False
+    hotplug = False
     name = 'unknown'
     bits = None
 
@@ -125,13 +135,14 @@ class NetworkInterface(Plugin):
             return ''
 
     def __setitem__(self, idx, val):
-        if idx in ['auto', 'mode', 'action']: return
+        if idx in ['auto', 'mode', 'action', 'hotplug']: return
         self.params[idx] = val
 
     def save(self, f):
-        print self.params
         if self.auto:
             f.write('auto ' + self.name + '\n')
+        if self.hotplug:
+            f.write('allow-hotplug ' + self.name + '\n')
         f.write('iface ' + self.name + ' ' + self.cls + ' ' + self.mode + '\n')
         for x in self.params:
             f.write('\t' + x + ' ' + self.params[x] + '\n')

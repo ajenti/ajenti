@@ -19,8 +19,6 @@ class NetworkPlugin(CategoryPlugin):
         self._editing_iface = ""
 
     def get_ui(self):
-        self._status_text = self.net_config.get_text()
-
         ti = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Interface'), width="100px"),
@@ -81,7 +79,6 @@ class NetworkPlugin(CategoryPlugin):
     @event('dialog/submit')
     def on_dlg_submit(self, event, params, vars=None):
         if params[0] == 'dlgEditIface':
-            print vars['action']
             if vars.getvalue('action', '') == 'OK':
                 i = self.net_config.interfaces[self._editing_iface]
                 for x in i.bits:
