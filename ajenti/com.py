@@ -1,11 +1,11 @@
 # encoding: utf-8
-# 
+#
 # Copyright (C) 2007-2010 Dmitry Zamaruev (dmitry.zamaruev@gmail.com)
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as published by
 #   the Free Software Foundation; version 2 of the License.
-# 
+#
 #   This program is distributed in the hope that it will be useful,
 #   but WITHOUT ANY WARRANTY; without even the implied warranty of
 #   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -18,7 +18,7 @@ from PrioList import PrioList
 class Interface (property):
     """ Base abstract class for all interfaces
 
-    Could be used as callable (decorator) 
+    Could be used as callable (decorator)
     to check if Plugin implements all methods
     (internal use only)
     """
@@ -32,7 +32,7 @@ class Interface (property):
 
     def _plugins(self, plugin):
         """ Returns a list of currently registered plugins
-            for requested interface 
+            for requested interface
         """
         pm = plugin.plugin_manager
         plugins = pm.plugin_get(self.interface)
@@ -61,7 +61,7 @@ def implements (*interfaces):
     frame = inspect.stack()[1][0]
     # Get locals from it
     locals = frame.f_locals
-    
+
     if ((locals is frame.f_globals) or
         ('__module__' not in locals)):
         raise TypeError('implements() can only be used in class definition')
@@ -75,7 +75,7 @@ def implements (*interfaces):
 
 
 class PluginManager (object):
-    """ Holds all registered classes, instances and implementations 
+    """ Holds all registered classes, instances and implementations
     You should have one class instantiated from both PluginManager and Plugin
     to trigger plugins magick
     """
@@ -118,7 +118,7 @@ class PluginManager (object):
             except TypeError, e:
                 raise Exception('Unable instantiate plugin %r (%s)'%(cls, e))
         return inst
-    
+
     def instance_set(self, cls, inst):
         self.__instances[cls] = inst
 
@@ -180,7 +180,7 @@ class MetaPlugin (type):
         interfaces = d.get('_implements',[])
         for base in [base for base in new_class.mro()[1:] if hasattr(base, '_implements')]:
             interfaces.extend(base._implements)
-        
+
         # Delete duplicates, in case we inherit same Intarfaces
         # or we need to override priority
         _ints = []
@@ -202,7 +202,7 @@ class MetaPlugin (type):
             if isinstance(interface, tuple):
                 _int = interface[0]
             _int()(new_class)
-        
+
         # Register plugin
         for interface in interfaces:
             if isinstance(interface, tuple):

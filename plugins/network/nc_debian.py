@@ -2,6 +2,7 @@ from ajenti.com import *
 from api import *
 from ajenti.utils import *
 from ajenti.ui import *
+import time
 
 class DebianNetworkConfig(Plugin):
     implements(INetworkConfig)
@@ -11,6 +12,9 @@ class DebianNetworkConfig(Plugin):
     nameservers = None
 
     def __init__(self):
+        self.rescan()
+
+    def rescan(self):
         self.interfaces = {}
         self.nameservers = []
 
@@ -72,7 +76,7 @@ class DebianNetworkConfig(Plugin):
 
     def get_iface(self, name, cls):
         if not self.interfaces.has_key(name):
-            self.interfaces[name] = NetworkInterface(self.app)
+            self.interfaces[name] = NetworkInterface()
             for x in cls:
 		try:
                     b = self.app.grab_plugins(INetworkConfigBit,
@@ -155,24 +159,33 @@ class DebianNetworkConfig(Plugin):
             )
         return p
 
+    def new_iface(self):
+        return NetworkInterface()
 
-class NetworkInterface(Plugin):
-    multi_instance = True
+    def new_nameserver(self):
+        return Nameserver()
 
+    def up(self, iface):
+        shell('ifconfig %s up' % iface.name)
+        time.sleep(1)
+        self.rescan()
+
+    def down(self, iface):
+        shell('ifconfig %s down' % iface.name)
+        time.sleep(1)
+        self.rescan()
+
+
+class NetworkInterface(NetworkInterfaceBase):
     cls = 'unknown'
-    clsname = ''
-    up = False
-    addr = ''
     mode = 'static'
     params = None
     auto = False
     hotplug = False
-    name = 'unknown'
-    bits = None
 
     def __init__(self):
+        NetworkInterfaceBase.__init__(self)
         self.params = {}
-        self.bits = []
 
     def __getitem__(self, idx):
         if self.params.has_key(idx):
@@ -194,3 +207,6 @@ class NetworkInterface(Plugin):
             f.write('\t' + x + ' ' + self.params[x] + '\n')
         f.write('\n')
 
+
+class Nameserver(NameserverBase):
+    pass

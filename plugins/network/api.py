@@ -11,6 +11,18 @@ class INetworkConfig(Interface):
     def ns_edit_dialog(self, ns):
         pass
 
+    def new_iface(self):
+        pass
+
+    def new_nameserver(self):
+        pass
+
+    def up(self, iface):
+        pass
+
+    def down(self, iface):
+        pass
+
 
 class INetworkConfigBit(Interface):
     def get_ui(self):
@@ -39,7 +51,19 @@ class NetworkConfigBit(Plugin):
             if vars.getvalue(k, '') != '':
                 self.iface[k] = vars.getvalue(k, '')
 
-#TODO: add InterfaceBase class with members that are used from main.py
-class Nameserver(object):
+
+class NetworkInterfaceBase(object):
+    clsname = ''
+    up = False
+    addr = ''
+    name = 'unknown'
+    bits = None
+
+    def __init__(self):
+        self.bits = []
+
+
+class NameserverBase(object):
     cls = ''
     address = ''
+

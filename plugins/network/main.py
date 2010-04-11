@@ -15,7 +15,6 @@ class NetworkPlugin(CategoryPlugin):
         self.net_config = self.app.grab_plugins(INetworkConfig)[0]
 
     def on_session_start(self):
-        self._status_text = ''
         self._editing_iface = ""
         self._editing_ns = -1
 
@@ -26,20 +25,23 @@ class NetworkPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='Class'), width="100px"),
                 UI.DataTableCell(UI.Label(text='Address'), width="100px"),
                 UI.DataTableCell(UI.Label(text='Status'), width="100px"),
-                UI.DataTableCell(UI.Label(text='Controls'), width="200px"),
+                UI.DataTableCell(UI.Label(text='Controls'), width="100px"),
                 header=True
              )
         ti.appendChild(hr)
 
+        cup = 0
         for x in self.net_config.interfaces:
             i = self.net_config.interfaces[x]
+            if i.up: cup += 1
             ti.appendChild(UI.DataTableRow(
                             UI.Label(text=i.name),
                             UI.Label(text=i.clsname),
                             UI.Label(text=i.addr),
                             UI.Label(text=('Up' if i.up else 'Down')),
                             UI.HContainer(
-                                UI.LinkLabel(text='Edit', id='editiface/' + i.name)
+                                UI.LinkLabel(text='Edit', id='editiface/' + i.name),
+                                UI.LinkLabel(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name))
                             )
                            ))
 
@@ -48,7 +50,7 @@ class NetworkPlugin(CategoryPlugin):
                 UI.Spacer(width=10),
                 UI.VContainer(
                     UI.Label(text='Network', size=5),
-                    UI.Label(text=self._status_text)
+                    UI.Label(text='%i interfaces up out of %i total' % (cup, len(self.net_config.interfaces)))
                 )
             )
 
@@ -116,8 +118,12 @@ class NetworkPlugin(CategoryPlugin):
             self.net_config.nameservers.remove(self.net_config.nameservers[int(params[1])])
             self.net_config.save()
         if params[0] == 'addns':
-            self.net_config.nameservers.append(Nameserver())
+            self.net_config.nameservers.append(self.net_config.get_nameserver())
             self._editing_ns = len(self.net_config.nameservers) - 1
+        if params[0] == 'ifup':
+            self.net_config.up(self.net_config.interfaces[params[1]])
+        if params[0] == 'ifdown':
+            self.net_config.down(self.net_config.interfaces[params[1]])
 
     @event('dialog/submit')
     def on_dlg_submit(self, event, params, vars=None):
