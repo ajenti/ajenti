@@ -12,6 +12,7 @@ from ajenti.app.api import IContentProvider
 from ajenti.ui.api import ITemplateProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.urlhandler import IURLHandler
+from ajenti.utils import dequote
 
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
@@ -21,7 +22,7 @@ class Application (PluginManager, Plugin):
 
     def __init__(self, config=None):
         PluginManager.__init__(self)
-        
+
         # Init instance variables
         self.template_path = []
         self.template_include = []
@@ -75,7 +76,7 @@ class Application (PluginManager, Plugin):
             if handler.match_url(environ):
                 try:
                     self.log.debug('Calling handler for %s'%environ['PATH_INFO'])
-                    content = handler.url_handler(self.environ, 
+                    content = handler.url_handler(self.environ,
                                                   self.start_response)
                 except Exception, e:
                     self.status = '500 Error'
@@ -107,17 +108,18 @@ class Application (PluginManager, Plugin):
         if flt:
             plugins = filter(flt, plugins)
         return filter(None, [self.instance_get(cls, True) for cls in plugins])
-        
+
 
     def get_template(self, filename=None, search_path=[], includes=[]):
+        from pprint import pprint
         vars = {'styles': self.template_styles,
-                'scripts': self.template_scripts}
-        return BasicTemplate(filename=filename, 
+                'scripts': self.template_scripts,
+                'dequote': dequote}
+
+        return BasicTemplate(filename=filename,
                              search_path=search_path+self.template_path,
                              includes=includes+self.template_include,
-                             vars=vars) 
-
-
+                             vars=vars)
 
 class AppDispatcher(object):
     def __init__(self, config=None):

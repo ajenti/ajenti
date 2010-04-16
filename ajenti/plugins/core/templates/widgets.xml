@@ -168,7 +168,7 @@
 
 <!--! TextInput widget -->
 <py:match path="textinput">
-    <input class="ui-el-input" name="${select('@name')}" value="${str(select('@value')) or ''}" id="${select('@id')}" size="${str(select('@size')) or ''}"/>
+    <input class="ui-el-input" name="${select('@name')}" value="${dequote(str(select('@value'))) or ''}" id="${select('@id')}" size="${str(select('@size')) or ''}"/>
 </py:match>
 
 
@@ -270,7 +270,7 @@
 <!--! TextInputArea -->
 <py:match path="textinputarea">
     <textarea class="ui-el-textarea" name="${select('@name')}" disabled="${str(select('@disabled')) or None}" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
-        ${select('@text')}
+        ${dequote(select('@text'))}
     </textarea>
 </py:match>
 
