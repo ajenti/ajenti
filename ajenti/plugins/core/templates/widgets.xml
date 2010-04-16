@@ -261,7 +261,9 @@
 
 <!--! ScrollContainer -->
 <py:match path="scrollcontainer">
-    <div class="ui-el-scrollcontainer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;" />
+    <div class="ui-el-scrollcontainer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
+        ${select('node()')}
+    </div>
 </py:match>
 
 
