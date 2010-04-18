@@ -54,3 +54,8 @@ function ui_tabswitch(pid, id) {
             ui_center_el(p)
     }
 }
+
+function noenter()
+{
+  return !(window.event && window.event.keyCode == 13);
+}

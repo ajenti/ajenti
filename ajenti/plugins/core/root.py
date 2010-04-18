@@ -88,7 +88,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
                     # just return ''
                     return result
                 if isinstance(result, BasicTemplate):
-                    # Usefull for inplace AJAX calls (that returns partial page)
+                    # Useful for inplace AJAX calls (that returns partial page)
                     return result.render()
 
         # We have no result or handler - return default page

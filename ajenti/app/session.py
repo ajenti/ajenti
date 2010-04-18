@@ -1,5 +1,5 @@
-# encoding: utf-8 
-# 
+# encoding: utf-8
+#
 # Copyright (C) 2010 Dmitry Zamaruev (dmitry.zamaruev@gmail.com)
 #
 #   This program is free software; you can redistribute it and/or modify
@@ -13,50 +13,52 @@ You should instantiate SessionStore, and pass it to WSGI middleware
 along with next WSGI application in chain.
 Example:
 >>> environ = {}
->>> 
+>>>
 >>> def my_start_response(status, headers):
 ...     environ['HTTP_COOKIE'] = headers[0][1]
-... 
+...
 >>> def my_application(env, sr):
 ...     print("var = " + env['app.session'].get('var','None'))
 ...     env['app.session']['var'] = environ.get('REMOTE_ADDR', 'Test')
 ...     sr('200 OK',[])
 ...     return None  # Just for test, please return string
-... 
+...
 >>> s = SessionStore()
->>> 
+>>>
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = None
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = Test
->>> 
+>>>
 >>> environ['REMOTE_ADDR'] = '127.0.0.1'
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = None
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = 127.0.0.1
 >>> cookie = environ['HTTP_COOKIE']
->>> 
+>>>
 >>> environ['REMOTE_ADDR'] = '127.0.0.2'
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = None
 >>> environ['HTTP_COOKIE'] = None
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = None
->>> 
+>>>
 >>> environ['REMOTE_ADDR'] = '127.0.0.1'
 >>> environ['HTTP_COOKIE'] = cookie
 >>> SessionManager(s, my_application)(environ, my_start_response)
 var = 127.0.0.1
->>> 
-""" 
+>>>
+"""
 import os
 import time
 import Cookie
 import hashlib
 
+
 def sha1(var):
     return hashlib.sha1(str(var)).hexdigest()
+
 
 class SessionProxy(object):
     """ SessionProxy used to automatically add prefixes to keys
@@ -70,7 +72,7 @@ class SessionProxy(object):
     'value'
     >>> proxy['123']
     'value'
-    >>> 
+    >>>
     """
     def __init__(self, session, prefix):
         self._session = session
@@ -84,6 +86,7 @@ class SessionProxy(object):
 
     def get(self, key, default=None):
         return self._session.get(self._prefix + key, default)
+
 
 class Session(dict):
     """ Session object
@@ -99,7 +102,7 @@ class Session(dict):
         """ Session ID """
         return self._id
 
-    @property 
+    @property
     def creationTime(self):
         """ Session create time """
         return self._creationTime
@@ -119,6 +122,7 @@ class Session(dict):
     def generateId():
         return sha1(os.urandom(40))
 
+
 class SessionStore(object):
     """ Manages multiple session objects
     Could be made thread-safe
@@ -129,16 +133,16 @@ class SessionStore(object):
         # Use internal timeout in seconds (for easier calculations)
         self._timeout = timeout*60
         self._store = {}
-    
+
     def create(self):
-        """ Create a new session, 
+        """ Create a new session,
         you should commit session to save it for future
         """
         sessId = Session.generateId()
         return Session(sessId)
 
     def checkout(self, id):
-        """ Checkout session for use, 
+        """ Checkout session for use,
         you should commit session to save it for future
         """
         sess = self._store.get(id, None)
@@ -152,7 +156,7 @@ class SessionStore(object):
         """ Saves session for future use (usefull in database backends)
         """
         self._store[session.id] = session
-    
+
     def vacuum(self):
         """ Goes through all sessions and deletes all old sessions
         Should be called periodically
@@ -162,6 +166,7 @@ class SessionStore(object):
         for sessId in self._store.keys():
             if (ctime - self._store[sessId].accessTime) > self._timeout:
                 del self._store[sessId]
+
 
 class SessionManager(object):
     """ Session middleware
@@ -173,14 +178,14 @@ class SessionManager(object):
     # TODO: Add deletion of invalid session
     def __init__(self, store, application):
         """ Initializes SessionManager
-        
+
         @store - instance of SessionStore
         @application - wsgi dispatcher callable
         """
         self._session_store = store
         self._application = application
         self._session = None
-    
+
     def add_cookie(self, headers):
         if self._session is None:
             raise RuntimeError('Attempt to save non-initialized session!')
@@ -213,7 +218,7 @@ class SessionManager(object):
     def _get_session(self, environ):
         # Load session from cookie
         self._load_session_cookie(environ)
-        
+
         # Check is session exists and valid
         client_id = self._get_client_id(environ)
         if self._session is not None:
@@ -239,6 +244,7 @@ class SessionManager(object):
             self._session_store.commit(self._session)
 
         return result
+
 
 if __name__ == "__main__":
     import doctest

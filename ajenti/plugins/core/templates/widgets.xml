@@ -74,6 +74,33 @@
     <script> ui_center('${select('@id')}-wr'); </script>
 </py:match>
 
+
+<py:match path="progressbox">
+    <div class="ui-el-modal-blackout" />
+    <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
+        <table cellspacing="0" cellpadding="0">
+            <tr><td class="ui-el-modal-lt"></td><td class="ui-el-modal-t"></td><td class="ui-el-modal-rt"></td></tr>
+            <tr><td class="ui-el-modal-l"></td>
+                <td class="ui-el-modal-c" width="${select('@width')}" height="${select('@height')}">
+                    <vcontainer>
+                        <vnode><label text="${select('@title')}" size="4" /></vnode>
+                        <vnode><spacer height="10" /></vnode>
+                        <vnode><image file="/dl/core/ui/ajax-big.gif" /></vnode>
+                        <vnode><spacer height="10" /></vnode>
+                        <vnode><label text="${select('@status')}" /></vnode>
+                    </vcontainer>
+                </td><td class="ui-el-modal-r"></td>
+            </tr>
+            <tr><td class="ui-el-modal-lb"></td><td class="ui-el-modal-b"></td><td class="ui-el-modal-rb"></td></tr>
+        </table>
+    </div>
+    <script>
+        scheduleRefresh(3000);
+        ui_center('${select('@id')}-wr');
+    </script>
+</py:match>
+
+
 <!--! VContainer widget -->
 <py:match path="vcontainer">
     <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
@@ -168,13 +195,13 @@
 
 <!--! TextInput widget -->
 <py:match path="textinput">
-    <input class="ui-el-input" name="${select('@name')}" value="${dequote(str(select('@value'))) or ''}" id="${select('@id')}" size="${str(select('@size')) or ''}"/>
+    <input class="ui-el-input" name="${select('@name')}" value="${dequote(str(select('@value'))) or ''}" id="${select('@id')}" size="${str(select('@size')) or ''}" onkeypress="return noenter()"/>
 </py:match>
 
 
 <!--! CheckBox widget -->
 <py:match path="checkbox">
-    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" />
+    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" onkeypress="return noenter()"/>
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>
@@ -182,14 +209,14 @@
 
 <!--! SelectOption widget -->
 <py:match path="selectoption">
-    <option value="${select('@value')}" selected="${'selected' if str(select('@selected'))=='True' else None}">
+    <option value="${select('@value')}" selected="${'selected' if str(select('@selected'))=='True' else None}" onkeypress="return noenter()">
         ${select('@text')}
     </option>
 </py:match>
 
 <!--! Radio widget -->
 <py:match path="radio">
-    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${str(select('@checked')) or None}" />
+    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${str(select('@checked')) or None}" onkeypress="return noenter()"/>
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>
@@ -302,7 +329,7 @@
         ${select('node()')}
     </table>
     <script>
-        ui_tabswitch('${select('@id')}', '0');
+        ui_tabswitch('${select('@id')}', '${str(select('@active')) or '0'}');
     </script>
 </py:match>
 

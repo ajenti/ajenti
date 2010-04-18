@@ -7,6 +7,7 @@
 	text-decoration: none;
 	color: #000000;
 	font-family: Droid Sans, Tahoma, sans-serif;
+	outline: none;
 }
 
 html {
@@ -50,12 +51,13 @@ body {
 	width: 86px;
 	height: 24px;
 	background: url('/dl/core/ui/button.png') no-repeat;
-	margin: 5px;
-	font-size: 14px;
+    font-size: 14px;
 	color: #555555;
 	text-align: center;
 	vertical-align: middle;
 	padding-top: 5px;
+	margin-right: 5px;
+    margin-left: 5px;
 }
 
 
@@ -63,7 +65,7 @@ body {
 .ui-el-input {
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
-	height: 20px;
+	height: 18px;
 }
 
 
@@ -161,7 +163,7 @@ body {
 
 .ui-el-category-text {
 	font-weight: bold;
-	font-size: 22px;
+	font-size: 20px;
 	color: #555555;
 	height: 2px;
 }
@@ -174,7 +176,7 @@ body {
 
 .ui-el-category-selected .ui-el-category-text {
 	font-weight: bold;
-	font-size: 22px;
+	font-size: 20px;
 	color: #ffffff;
 	height: 10px;
 }
@@ -322,7 +324,7 @@ body {
 
 /* Tabs */
 .ui-el-tab-header {
-    border: 5px #ffffff solid;
+    margin: 5px;
     float: left;
 }
 

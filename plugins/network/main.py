@@ -19,6 +19,10 @@ class NetworkPlugin(CategoryPlugin):
         self._editing_ns = -1
 
     def get_ui(self):
+        if self._in_progress and not self.mgr.is_busy():
+            self._in_progress = False
+            self.mgr.refresh(self._status)
+
         ti = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Interface'), width="100px"),

@@ -6,7 +6,7 @@ function ajax(URL)
 	if(xmlReq==null) return; // Failed to create the request
 
     showAjaxLoader(true);
-    
+
 	xmlReq.onreadystatechange = function()
 	{
 		switch(xmlReq.readyState)
@@ -117,16 +117,17 @@ function ajaxHandler(data)
 	document.getElementById('main').innerHTML = data
     var ob = document.getElementsByTagName("script");
     for(var i=0; i<ob.length-1; i++)
-        if(ob[i+1].text!=null) eval(ob[i+1].text);
+        try {
+            if(ob[i+1].text!=null) eval(ob[i+1].text);
+        } catch (err) {}
 
 
 	var re = new RegExp('update=([0-9]+)');
 	var m = re.exec(data);
-    if (m) 
+    if (m)
         if (m[1] != 0)
 		    setTimeout("ajax(\"/handle/update//\")", m[1])
 }
-
 
 function ajaxNoUpdate(URL)
 {
@@ -136,4 +137,9 @@ function ajaxNoUpdate(URL)
 	if(xmlReq==null) return; // Failed to create the request
 	xmlReq.open ('GET', URL, true);
 	xmlReq.send (null);
+}
+
+function scheduleRefresh(timeout)
+{
+    setTimeout("location.reload(true)", timeout)
 }
