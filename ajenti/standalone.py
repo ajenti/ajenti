@@ -64,7 +64,7 @@ def server(log_level=logging.INFO, config_file=''):
     config = Config()
     if config_file:
         log.info('Using config file %s'%config_file)
-        config.read(config_file)
+        config.load(config_file)
     else:
         log.info('Using default settings')
 
