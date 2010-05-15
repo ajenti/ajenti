@@ -1,6 +1,7 @@
 import os.path
 import mimetypes
 from datetime import datetime
+import tempfile
 
 from ajenti.com import *
 from ajenti.app.urlhandler import URLHandler, url
@@ -22,12 +23,12 @@ class Downloader(URLHandler, Plugin):
 
         return self.serve_file(req, start_response, path, file)
 
-    @url('^/static/.+')
+    @url('^/temp/.+')
     def process(self, req, start_response):
         params = req['PATH_INFO'].split('/',2)
-        self.log.debug('Dispatching static: %s'%req['PATH_INFO'])
+        self.log.debug('Dispatching temp: %s'%req['PATH_INFO'])
 
-        path = self.config.get('ajenti','static')
+        path = tempfile.gettempdir()
         file = os.path.join(path, params[2])
 
         return self.serve_file(req, start_response, path, file)
