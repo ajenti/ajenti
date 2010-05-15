@@ -7,6 +7,7 @@ default_values = {
                     'bind_port': '8000',
                     'ssl'      : '0',
                     'cert_file': 'server.pem',
+                    'static'   : './static',
                     'plugins'  : './plugins'
                  }
 

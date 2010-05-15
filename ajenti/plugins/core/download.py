@@ -20,6 +20,19 @@ class Downloader(URLHandler, Plugin):
         path = self.app.content[params[2]]
         file = os.path.join(path, params[3])
 
+        return self.serve_file(req, start_response, path, file)
+
+    @url('^/static/.+')
+    def process(self, req, start_response):
+        params = req['PATH_INFO'].split('/',2)
+        self.log.debug('Dispatching static: %s'%req['PATH_INFO'])
+
+        path = self.config.get('ajenti','static')
+        file = os.path.join(path, params[2])
+
+        return self.serve_file(req, start_response, path, file)
+
+    def serve_file(self, req, start_response, path, file):
         # Check for directory traversal
         if file.find('..') > -1:
             start_response('404 Not Found',[])
