@@ -57,7 +57,7 @@ class Beeper(CategoryPlugin):
                                 name="select"
                             ),
                             UI.br(),
-                            UI.TextInputArea(name='text', width=100, height=100, text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus."),
+                            UI.TextInputArea(name='text', width=100, height=100, text="L[br]orem[br]ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus."),
                             rowspan="3"
                         ),
                         UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),

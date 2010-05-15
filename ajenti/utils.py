@@ -2,7 +2,7 @@ import commands
 import platform
 
 def dequote(s):
-    s = s.replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
+    s = str(s).replace('[br]', '\n').replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
     return s
 
 def detect_platform():

@@ -226,4 +226,4 @@ class PackageManager(CategoryPlugin):
 class PackageManagerContent(ModuleContent):
     module = 'pkgman'
     path = __file__
-    js_files = ['progress.js']
+    

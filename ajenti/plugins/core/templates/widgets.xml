@@ -296,9 +296,7 @@
 
 <!--! TextInputArea -->
 <py:match path="textinputarea">
-    <textarea class="ui-el-textarea" name="${select('@name')}" disabled="${str(select('@disabled')) or None}" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
-        ${dequote(select('@text'))}
-    </textarea>
+    <textarea class="ui-el-textarea" name="${select('@name')}" disabled="${str(select('@disabled')) or None}" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">${dequote(select('@text'))}</textarea>
 </py:match>
 
 <!--! Tabs -->

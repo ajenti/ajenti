@@ -9,7 +9,7 @@ from ajenti.app.urlhandler import URLHandler, url
 class Downloader(URLHandler, Plugin):
 
     @url('^/dl/.+/.+')
-    def process(self, req, start_response):
+    def process_dl(self, req, start_response):
         params = req['PATH_INFO'].split('/',3)
         self.log.debug('Dispatching download: %s'%req['PATH_INFO'])
 
@@ -24,7 +24,7 @@ class Downloader(URLHandler, Plugin):
         return self.serve_file(req, start_response, path, file)
 
     @url('^/temp/.+')
-    def process(self, req, start_response):
+    def process_temp(self, req, start_response):
         params = req['PATH_INFO'].split('/',2)
         self.log.debug('Dispatching temp: %s'%req['PATH_INFO'])
 
