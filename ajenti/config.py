@@ -7,7 +7,8 @@ default_values = {
                     'bind_port': '8000',
                     'ssl'      : '0',
                     'cert_file': 'server.pem',
-                    'plugins'  : './plugins'
+                    'plugins'  : './plugins',
+                    'htdocs'   : '/var/lib/ajenti'
                  }
 
 default_values['platform'] = detect_platform()
