@@ -290,7 +290,7 @@ body {
 }
 
 .ui-el-modal-buttons {
-
+    padding-top: 10px;
 }
 
 
@@ -318,6 +318,7 @@ body {
 .ui-el-textarea {
 	overflow: auto;
 	background: #ffffff;
+	font-family: Courier New, monospace;
 	border: 1px solid #888888;
 }
 

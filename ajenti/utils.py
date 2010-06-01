@@ -32,3 +32,4 @@ def shell(c):
 
 def shell_status(c):
     return commands.getstatusoutput(c)[0]
+    
