@@ -102,6 +102,11 @@
 
 
 <!--! VContainer widget -->
+<py:match path="container">
+    ${select('node()')}
+</py:match>
+
+<!--! VContainer widget -->
 <py:match path="vcontainer">
     <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}

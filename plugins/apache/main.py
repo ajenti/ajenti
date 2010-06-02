@@ -72,13 +72,12 @@ class Apache(CategoryPlugin):
                 ctl = UI.LinkLabel(text='Disable', id='stopmod/' + h)
             else: 
                 ctl = UI.LinkLabel(text='Enable', id='startmod/' + h)
+            if module_has_config(h):
+                ctl = UI.Container(UI.LinkLabel(text='Edit', id='editmod/' + h), ctl)
             r = UI.DataTableRow(
                     UI.Image(file=('/dl/apache/' + ('run.png' if module_enabled(h) else 'stop.png'))),
                     UI.Label(text=h),
-                    UI.HContainer(
-                        (UI.LinkLabel(text='Edit', id='editmod/' + h) if module_has_config(h) else None),
-                        ctl
-                    )
+                    ctl
                 )
             tm.appendChild(r)
         
