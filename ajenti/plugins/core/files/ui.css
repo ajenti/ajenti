@@ -5,22 +5,30 @@
 	vertical-align: top;
 	border: none;
 	text-decoration: none;
-	color: #000000;
 	font-family: Droid Sans, Tahoma, sans-serif;
 	outline: none;
 }
 
 html {
+	width: 100%;
     height: 100%;
+	color: #555;
 }
 
 body {
-	background: #e6e1db;
-	width: 100%;
-	height: 100%;
+    width: auto;
+    min-width: 940px;
+    min-height: 100%;
+	padding-left: 30px;
+	padding-right: 30px;
+	background: #f8f8f8;
 }
 
-/* category */
+a {
+	color: #555;
+}
+
+/* Action */
 .ui-el-action {
 	width: 188px;
 	height: 59px;
@@ -46,20 +54,57 @@ body {
 
 
 /* Button */
+
 .ui-el-button {
+	min-width: 80px;
+	height: 23px;
 	float: left;
-	width: 86px;
-	height: 24px;
-	background: url('/dl/core/ui/button.png') no-repeat;
-    font-size: 14px;
-	color: #555555;
-	text-align: center;
-	vertical-align: middle;
-	padding-top: 5px;
 	margin-right: 5px;
     margin-left: 5px;
 }
 
+.ui-el-button .left {
+	min-width: 80px;
+	height: 23px;
+	line-height: 23px;
+	background: url('/dl/core/ui/button.png') no-repeat left;
+    font-size: 12px;
+	color: #444; 
+    font-weight: bold;
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.ui-el-button .right {
+	display: block;	
+	float: right;
+	width: 3px;
+	height: 23px;
+	background: url('/dl/core/ui/button.png') no-repeat right;
+}
+
+.ui-el-button:hover .left {
+	background: url('/dl/core/ui/button-hover.png') no-repeat left;
+	color: #fff; 
+    text-shadow: -1px -1px #d3a158;
+}
+
+.ui-el-button:active .left {
+	background: url('/dl/core/ui/button-pressed.png') no-repeat left;
+	color: #fff; 
+    text-shadow: -1px -1px #d3a158;
+}
+
+.ui-el-button:hover .right {
+	display: block;	
+	float: right;
+
+	width: 3px;
+	height: 23px;
+
+	background: url('/dl/core/ui/button-hover.png') no-repeat right;
+}
 
 /* Input */
 .ui-el-input {
@@ -68,32 +113,30 @@ body {
 	height: 18px;
 }
 
+.ui-el-input:focus {
+    border: 1px solid #e4b97a;
+}
 
 /* Label */
 .ui-el-label-1 {
-	color: #555555;
 	padding-bottom: 2px;
 	margin-bottom: 2px;
 	display: inline;
 	text-align: left;
 }
 .ui-el-label-2 {
-	color: #555555;
 }
 .ui-el-label-3 {
-	color: #555555;
 	font-size: 16px;
 	padding-bottom: 5px;
 }
 .ui-el-label-4 {
-	color: #555555;
 	padding-bottom: 2px;
 	margin-bottom: 2px;
 	clear: left;
 	font-size: 20px;
 }
 .ui-el-label-5 {
-	color: #555555;
 	font-size: 28px;
 }
 
@@ -127,64 +170,98 @@ body {
 }
 
 .ui-el-mainwindow-left {
-	width: 220px;
-	padding-top: 15px;
+	width: 180px;
+    background: url('/dl/core/ui/categorylist-bg.png') no-repeat;
+    padding-top: 1px;
+	float: left;
+	margin-top: 20px;
 }
 
 .ui-el-mainwindow-right {
-	padding-top: 15px;
+	padding: 20px;
+    width: auto;
+    
+	background: #f5f5f5;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #ccc;
+	float: left;
+	margin-top: 20px;
 }
 
 .ui-el-mainwindow-top {
-	background: url('/dl/core/ui/topbar.png');
+	width: 100%;
 	height: 37px;
-	padding-left: 5px;
 }
 
+
+/* Top bar */
+.ui-el-topbar {
+    width: 100%;
+}
+
+.ui-el-topbar-l {
+    width: 147px;
+}
+
+.ui-el-topbar-c {
+    width: auto;
+	background: url('/dl/core/ui/topbar.png');
+	height: 37px;
+}
+
+.ui-el-topbar-ldr {
+    width: 20px;
+	background: url('/dl/core/ui/topbar.png');
+	height: 37px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.ui-el-topbar-r {
+	background: url('/dl/core/ui/topbar-r.png') no-repeat;
+	height: 37px;
+	width: 6px;
+}
 
 /* Category */
 .ui-el-category {
-	width: 212px;
-	height: 56px;
+	width: 154px;
+	height: 29px;
 	background: url('/dl/core/ui/category.png') no-repeat;
-	margin: 2px;
+	line-height: 26px;
+	vertical-align: middle;
+	color: #555555;
+}
+
+.ui-el-category:hover {
+	background: url('/dl/core/ui/category-hover.png') no-repeat;
 }
 
 .ui-el-category-selected {
-	width: 212px;
-	height: 56px;
+	width: 170px;
+	height: 29px;
+	line-height: 26px;
+	vertical-align: middle;
 	background: url('/dl/core/ui/category-sel.png') no-repeat;
-	margin: 2px;
+	color: #ffffff;
+    text-shadow: -1px -1px #d3a158;
 }
 
-.ui-el-category-icon {
+.ui-el-category-icon img {
+    width: 20px;
+	height: 20px;
 	padding: 4px;
 }
 
 .ui-el-category-text {
-	font-weight: bold;
-	font-size: 20px;
-	color: #555555;
-	height: 2px;
-}
-
-.ui-el-category-description {
-	font-size: 12px;
-	color: #797979;
-	padding-left: 3px;
+	font-size: 15px;
+	padding: 0px;
 }
 
 .ui-el-category-selected .ui-el-category-text {
-	font-weight: bold;
-	font-size: 20px;
-	color: #ffffff;
-	height: 10px;
-}
-
-.ui-el-category-selected .ui-el-category-description {
-	font-size: 12px;
-	color: #cccccc;
-	padding-left: 3px;
+    color: #fff;
 }
 
 /* Table */
@@ -234,59 +311,37 @@ body {
     top: 0px;
 }
 
+.ui-el-dialog {
+    background: #ececee;
+    text-align: left;
+    vertical-align: top;
+    
+   
+    border: 1px solid #888;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.ui-el-dialog-content {
+    padding: 0px 5px 15px 5px;
+}
+
+.ui-el-dialog-title {
+    color: #eee;
+    text-shadow: -1px -1px 0px #555;
+    font-weight: bold;
+    background: url('/dl/core/ui/dialog-title.png');;
+    padding: 3px;
+    border-radius: 2px 2px 0px 0px;
+    -moz-border-radius: 2px 2px 0px 0px;
+    -webkit-border-radius: 2px 2px 0px 0px;
+}
+
 .ui-el-modal-wrapper {
     position: absolute;
     left: 40%;
     top: 40%;
-}
-
-.ui-el-modal-rt {
-	background: url('/dl/core/ui/dialog-rt.png');
-	width: 5px;
-	height: 5px;
-}
-
-.ui-el-modal-lt {
-	background: url('/dl/core/ui/dialog-lt.png');
-	width: 5px;
-	height: 5px;
-}
-
-.ui-el-modal-rb {
-	background: url('/dl/core/ui/dialog-rb.png');
-	width: 5px;
-	height: 5px;
-}
-
-.ui-el-modal-lb {
-	background: url('/dl/core/ui/dialog-lb.png');
-	width: 5px;
-	height: 5px;
-}
-
-.ui-el-modal-l {
-	background: url('/dl/core/ui/dialog-l.png');
-	width: 5px;
-}
-
-.ui-el-modal-r {
-	background: url('/dl/core/ui/dialog-r.png');
-	width: 5px;
-}
-
-.ui-el-modal-t {
-	background: url('/dl/core/ui/dialog-t.png');
-	height: 5px;
-}
-
-.ui-el-modal-b {
-	background: url('/dl/core/ui/dialog-b.png');
-	height: 5px;
-}
-
-.ui-el-modal-c {
-	background: #ffffff;
-	padding: 0px 15px;
 }
 
 .ui-el-modal-buttons {

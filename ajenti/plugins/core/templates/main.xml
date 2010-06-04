@@ -2,20 +2,13 @@
      xmlns:py="http://genshi.edgewall.org/"
      xmlns:xi="http://www.w3.org/2001/XInclude"
      py:strip="" >
-<table cellspacing="0" cellpadding="0" class="ui-el-mainwindow">
-    <tr>
-	    <td class="ui-el-mainwindow-top" colspan="2">
+	    <div class="ui-el-mainwindow-top">
             <topbar />
-            <topplaceholder py:strip="" />
-        </td>
-    </tr>
-    <tr>
-		<td class="ui-el-mainwindow-left">
+        </div>
+		<div class="ui-el-mainwindow-left">
             <leftplaceholder py:strip="" />
-        </td>
-		<td class="ui-el-mainwindow-right">
+        </div>
+		<div class="ui-el-mainwindow-right">
             <rightplaceholder py:strip="" />
-        </td>
-	</tr>
-</table>
+        </div>
 </xml>

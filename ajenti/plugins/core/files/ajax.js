@@ -141,5 +141,5 @@ function ajaxNoUpdate(URL)
 
 function scheduleRefresh(timeout)
 {
-    setTimeout("location.reload(true)", timeout)
+    setTimeout("ajax('/handle/nothing')", timeout)
 }

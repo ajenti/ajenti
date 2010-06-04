@@ -153,7 +153,7 @@ class SessionStore(object):
         return sess
 
     def commit(self, session):
-        """ Saves session for future use (usefull in database backends)
+        """ Saves session for future use (useful in database backends)
         """
         self._store[session.id] = session
 
@@ -170,7 +170,7 @@ class SessionStore(object):
 
 class SessionManager(object):
     """ Session middleware
-    Takes care of creat/checkout/commit of a session
+    Takes care of creation/checkout/commit of a session
     Sets 'app.session' variable inside WSGI environment
 
     """
