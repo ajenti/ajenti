@@ -8,16 +8,29 @@
 <py:match path="topbar">
     <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
         <tr>
-            <td class="ui-el-topbar-l">
+            <td class="ui-el-topbar-l" />
+            <td class="ui-el-topbar-c"> 
                 <img src="/dl/core/ui/logo.png" />
             </td>
-            <td class="ui-el-topbar-c" />
             <td class="ui-el-topbar-ldr">
                 <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
             </td>
             <td class="ui-el-topbar-r" />
         </tr>
     </table>
+</py:match>
+
+
+<py:match path="errorbox">
+    <div class="ui-el-error" width="${select('@width')}" height="${select('@height')}">
+        <div class="ui-el-error-title">
+            <label text="${select('@title')}" size="2" />
+        </div>
+        <div class="ui-el-error-content">
+           <img src="/dl/core/ui/warning.png" class="ui-el-error-icon" />
+           <label text="${select('@text')}" />
+        </div>    
+    </div>
 </py:match>
 
 

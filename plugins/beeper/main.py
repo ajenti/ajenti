@@ -86,9 +86,12 @@ class Beeper(CategoryPlugin):
                     )
         self._tree.apply(tree)
 
+        e = UI.ErrorBox(title='Panic!', text='This is SPARTAAA!!!')
+
         p = UI.HContainer(
                 UI.VContainer(
                     h,
+                    e,
                     UI.Spacer(height=20),
                     UI.Label(text=self._text),
                     b,

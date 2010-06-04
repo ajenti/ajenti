@@ -22,6 +22,9 @@ class Apache(CategoryPlugin):
         
         
     def get_ui(self):
+        if not is_installed():
+            return UI.ErrorBox(title='Error', text='Apache 2 is not installed')
+            
         hdr = UI.HContainer(
                UI.Image(file='/dl/apache/bigicon.png'),
                UI.Spacer(width=10),

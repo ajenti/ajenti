@@ -37,7 +37,7 @@ class MySQL(CategoryPlugin):
                UI.Spacer(width=10),
                UI.VContainer(
                    UI.Label(text='Database server', size=5),
-                   UI.Button(text='Logout', id='btnLogout')
+                   UI.Button(text='Reconnect', id='btnLogout')
                )
             )
 
@@ -68,7 +68,7 @@ class MySQL(CategoryPlugin):
                                 UI.TextInput(name='db', value='')
                             )
                         ),
-                        title="Login into MySQL", id="dlgLogin", action="/handle/dialog/submit/dlgLogin"
+                        title="SQL server connection", id="dlgLogin", action="/handle/dialog/submit/dlgLogin"
                     )
 
         tblTables = UI.DataTable(
@@ -80,13 +80,17 @@ class MySQL(CategoryPlugin):
                     )
 
 
+        tsql = None
         if not self._logging_in:
-            self.backend.connect(
-                self.config.get('mysql', 'host'),
-                self.config.get('mysql', 'login'),
-                self.config.get('mysql', 'passwd'),
-                self.config.get('mysql', 'db')
-            )
+            try:
+                self.backend.connect(
+                    self.config.get('mysql', 'host'),
+                    self.config.get('mysql', 'login'),
+                    self.config.get('mysql', 'passwd'),
+                    self.config.get('mysql', 'db')
+                )
+            except Exception as e:
+                return UI.VContainer(h, UI.ErrorBox(title='Error', text='Connection problem: ' + str(e)))
             
             t = self.backend.sql('SHOW TABLES;')
             for r in t:
@@ -100,11 +104,14 @@ class MySQL(CategoryPlugin):
             if self._tab == 1 and len(self._sql)>0:
                 if self._sql[-1] != ';': self._sql += ';'
                 data = self.backend.sql(self._sql)
-                for row in data:
-                    r = UI.DataTableRow()
-                    for f in row:
-                        r.appendChild(UI.DataTableCell(UI.Label(text=str(f))))
-                    tsql.appendChild(r)
+                if data == None:
+                    tsql = UI.ErrorBox(title='SQL', text='Invalid query')
+                else:
+                    for row in data:
+                        r = UI.DataTableRow()
+                        for f in row:
+                            r.appendChild(UI.DataTableCell(UI.Label(text=str(f))))
+                        tsql.appendChild(r)
     
             self.backend.disconnect()
 

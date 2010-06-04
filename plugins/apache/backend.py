@@ -10,6 +10,9 @@ dir_sites_enabled = dir_apache + 'sites-enabled/'
 dir_mods_avail = dir_apache + 'mods-available/'
 dir_mods_enabled = dir_apache + 'mods-enabled/'
 
+def is_installed():
+    return os.path.exists(dir_apache)
+    
 def is_running():
     return shell_status('pgrep apache2') == 0
 

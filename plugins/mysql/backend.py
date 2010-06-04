@@ -30,5 +30,5 @@ class MySQLDBBackend(Plugin):
             self.cur.close()
             return res
         except:
-            return [['Invalid query']]
+            return None
             
