@@ -22,36 +22,68 @@ class PackageManager(CategoryPlugin):
         self._confirm_apply = False
         self._in_progress = False
         self._search = {}
-        self.mgr = self.app.grab_plugins(IPackageManager)[0]
-        self.mgr.refresh(self._status)
+        self._need_refresh = True
 
     def get_ui(self):
+        if self._need_refresh:
+            self._need_refresh = False
+            self.mgr.refresh(self._status)
+
         if self._in_progress and not self.mgr.is_busy():
             self.mgr.refresh(self._status)
             self._status.pending = {}
         self._in_progress = self.mgr.is_busy()
 
 
-        h = UI.HContainer(
-               UI.Image(file='/dl/pkgman/bigicon.png'),
-               UI.Spacer(width=10),
-               UI.VContainer(
-                   UI.Label(text='Package manager', size=5),
-                   UI.Spacer(height=10),
-                   UI.HContainer(
-                       UI.Button(text='Refresh', id='refresh'),
-                       UI.Button(text='Get lists', id='getlists'),
-                   )
-               )
-            )
+        ctl = UI.HContainer(
+                UI.Button(text='Refresh', id='refresh'),
+                UI.Button(text='Get lists', id='getlists'),
+              )
+        panel = UI.PluginPanel(ctl, title='Package Manager', icon='/dl/pkgman/icon.png')
+        panel.appendChild(self.get_default_ui())
 
+        return panel
 
+    def get_default_ui(self):
         tabs = UI.TabControl(active=self._tab)
+        tabs.add('Upgrades', self.get_ui_upgrades())
+        tabs.add('Search', self.get_ui_search())
+        tabs.add('Pending actions', self.get_ui_pending())
 
-        # Upgrades
+        pnl = UI.Container(tabs)
+        
+        if self._config_apply:
+            res = UI.DataTable()
+            if self._confirm_apply:
+                r = self.mgr.get_expected_result(self._status)
+                for x in r:
+                    t = UI.DataTableRow(
+                            UI.Label(text=('Install/upgrade' if r[x] == 'install' else 'Remove')),
+                            UI.Label(text=x, bold=True)
+                        )
+                    res.appendChild(t)
+
+            dlg = UI.DialogBox(
+                    res,
+                    UI.Spacer(height=20),
+                    title="Apply changes?", id="dlgApply", action="/handle/dialog/submit/dlgApply"
+                  )
+            pnl.appendChild(dlg)
+            
+            
+        if self._in_progress:            
+            pb = UI.ProgressBox(
+                    title = "Appplying changes",
+                    status = self.mgr.get_busy_status()
+                 )
+            pnl.appendChild(pb)
+
+        return pnl
+        
+    def get_ui_upgrades(self):
         tu = UI.DataTable()
         hr = UI.DataTableRow(
-                UI.DataTableCell(UI.Label(text='Package'), width="200px"),
+                UI.DataTableCell(UI.Label(text='Package'), width="350px"),
                 UI.DataTableCell(UI.Label(text='New version'), width="100px"),
                 UI.DataTableCell(UI.Label(text=''), width="80px"),
                 header=True
@@ -63,15 +95,16 @@ class PackageManager(CategoryPlugin):
             r = UI.DataTableRow(
                     UI.Label(text=p.name, bold=(self._status.pending.has_key(p.name))),
                     UI.Label(text=p.version),
-                    UI.LinkLabel(text="Select", id="upgrade/"+p.name)
+                    UI.DataTableCell(
+                        UI.MiniButton(text="Select", id="upgrade/"+p.name),
+                        hidden=True
+                    )
                 )
             tu.appendChild(r)
 
-        cu = UI.VContainer(tu)
-        tabs.add('Upgrades', cu)
+        return tu
 
-
-        # Search
+    def get_ui_search(self):
         ts = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Package'), width="150px"),
@@ -83,10 +116,13 @@ class PackageManager(CategoryPlugin):
 
         for p in self._search:
             r = UI.DataTableRow(
-                    UI.Label(text=p, bold=(self._status.pending.has_key(p))),
+                    UI.Label(text=p, bold=(self._search[p].state == 'installed')),
                     UI.Label(text=self._search[p].description),
-                    UI.LinkLabel(text='Install', id='install/'+p) if self._search[p].state == 'removed' else
-                    UI.LinkLabel(text='Remove', id='remove/'+p)
+                    UI.DataTableCell(
+                        UI.MiniButton(text='Install', id='install/'+p) if self._search[p].state == 'removed' else
+                        UI.MiniButton(text='Remove', id='remove/'+p),
+                        hidden=True
+                    )
                 )
             ts.appendChild(r)
 
@@ -104,11 +140,9 @@ class PackageManager(CategoryPlugin):
                 UI.Spacer(height=20),
                 ts
              )
+        return cs
 
-        tabs.add('Search', cs)
-
-
-        # Pending
+    def get_ui_pending(self):
         tu = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Package'), width="200px"),
@@ -121,7 +155,10 @@ class PackageManager(CategoryPlugin):
             if self._status.pending[p] == 'install':
                 r = UI.DataTableRow(
                         UI.Label(text=p),
-                        UI.LinkLabel(text="Cancel", id="cancel/"+p)
+                        UI.DataTableCell(
+                            UI.MiniButton(text="Cancel", id="cancel/"+p),
+                            hidden=True
+                        )
                     )
                 tu.appendChild(r)
 
@@ -138,7 +175,10 @@ class PackageManager(CategoryPlugin):
             if self._status.pending[p] == 'remove':
                 r = UI.DataTableRow(
                         UI.Label(text=p),
-                        UI.LinkLabel(text="Cancel", id="cancel/"+p)
+                        UI.DataTableCell(
+                            UI.MiniButton(text="Cancel", id="cancel/"+p),
+                            hidden=True
+                        )
                     )
                 ti.appendChild(r)
 
@@ -152,43 +192,10 @@ class PackageManager(CategoryPlugin):
                 UI.Button(text='Apply now', id='apply')
              )
 
-        tabs.add('Pending actions', cp)
-
-
-        # Apply?
-        res = UI.DataTable()
-        if self._confirm_apply:
-            r = self.mgr.get_expected_result(self._status)
-            for x in r:
-                t = UI.DataTableRow(
-                        UI.Label(text=('Install/upgrade' if r[x] == 'install' else 'Remove')),
-                        UI.Label(text=x, bold=True)
-                    )
-                res.appendChild(t)
-
-        dlg = UI.DialogBox(
-                res,
-                UI.Spacer(height=20),
-                title="Apply changes?", id="dlgApply", action="/handle/dialog/submit/dlgApply"
-              )
-
-        # Progress
-        pb = UI.ProgressBox(
-                title = "Appplying changes",
-                status = self.mgr.get_busy_status()
-             )
-
-        p = UI.VContainer(
-                h,
-                UI.Spacer(height=20),
-                tabs,
-                dlg if self._confirm_apply else None,
-                pb if self._in_progress else None
-            )
-
-        return p
-
+        return cp
+            
     @event('button/click')
+    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'refresh':
             self.mgr.refresh(self._status)
@@ -197,9 +204,6 @@ class PackageManager(CategoryPlugin):
         if params[0] == 'apply':
             self._tab = 2
             self._confirm_apply = True
-
-    @event('linklabel/click')
-    def on_llclick(self, event, params, vars=None):
         if params[0] == 'install':
             self._tab = 1
             self.mgr.mark_install(self._status, params[1])

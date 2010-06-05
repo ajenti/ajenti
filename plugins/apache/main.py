@@ -11,7 +11,6 @@ class Apache(CategoryPlugin):
     implements((ICategoryProvider, 50))
 
     text = 'Apache'
-    description = 'Web server'
     icon = '/dl/apache/icon.png'
     platform = ['Debian', 'Ubuntu']
     
@@ -22,98 +21,96 @@ class Apache(CategoryPlugin):
         
         
     def get_ui(self):
+        status = 'is running' if is_running() else 'is stopped';
+        panel = UI.PluginPanel(UI.Label(text=status), title='Apache web server', icon='/dl/apache/icon.png')
+
         if not is_installed():
-            return UI.ErrorBox(title='Error', text='Apache 2 is not installed')
+            panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Apache 2 is not installed')))
+        else:
+            panel.appendChild(self.get_default_ui())        
+
+        return panel
+
+    def get_default_ui(self):
+        tc = UI.TabControl(active=self._tab)
+        tc.add('Hosts', self.get_ui_hosts())
+        tc.add('Modules', self.get_ui_mods())
+        return tc
             
-        hdr = UI.HContainer(
-               UI.Image(file='/dl/apache/bigicon.png'),
-               UI.Spacer(width=10),
-               UI.VContainer(
-                   UI.Label(text='Apache web server', size=5),
-                   UI.Label(text=('is running' if is_running() else 'is stopped'))
-               )
-            )
-            
-        
+    def get_ui_hosts(self):
         th = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(), width='20px'),
                 UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label(text='Controls'), width='150px'),
+                UI.DataTableCell(UI.Label(text=''), width='150px'),
                 header=True
              )
         th.appendChild(hr)
         
         for h in list_hosts():
             if host_enabled(h):
-                ctl = UI.LinkLabel(text='Disable', id='stophost/' + h)
+                ctl = UI.MiniButton(text='Disable', id='stophost/' + h)
             else: 
-                ctl = UI.LinkLabel(text='Enable', id='starthost/' + h)
+                ctl = UI.MiniButton(text='Enable', id='starthost/' + h)
             r = UI.DataTableRow(
                     UI.Image(file=('/dl/apache/' + ('run.png' if host_enabled(h) else 'stop.png'))),
                     UI.Label(text=h),
-                    UI.HContainer(
-                        UI.LinkLabel(text='Edit', id='edithost/' + h),
-                        ctl
+                    UI.DataTableCell(
+                        UI.HContainer(
+                            UI.MiniButton(text='Edit', id='edithost/' + h),
+                            ctl
+                        ),
+                        hidden=True
                     )
                 )
             th.appendChild(r)
-            
-        phosts = UI.VContainer(th)
         
+        p = UI.Container(th)
+        if self._editing_host != '':
+            dlg = UI.DialogBox(
+                      UI.TextInputArea(name='config', text=read_host_config(self._editing_host).replace('\n', '[br]'), width=800, height=500),
+                      title="Edit host config", id="dlgEditHost", action="/handle/dialog/submit/dlgEditHost"
+                  )
+            p.appendChild(dlg)
+        return p
+        
+    def get_ui_mods(self):
         tm = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(), width='20px'),
                 UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label(text='Controls'), width='150px'),
+                UI.DataTableCell(UI.Label(text=''), width='150px'),
                 header=True
              )
         tm.appendChild(hr)
         
         for h in list_modules():
             if module_enabled(h):
-                ctl = UI.LinkLabel(text='Disable', id='stopmod/' + h)
+                ctl = UI.MiniButton(text='Disable', id='stopmod/' + h)
             else: 
-                ctl = UI.LinkLabel(text='Enable', id='startmod/' + h)
+                ctl = UI.MiniButton(text='Enable', id='startmod/' + h)
             if module_has_config(h):
-                ctl = UI.Container(UI.LinkLabel(text='Edit', id='editmod/' + h), ctl)
+                ctl = UI.Container(UI.MiniButton(text='Edit', id='editmod/' + h), ctl)
             r = UI.DataTableRow(
                     UI.Image(file=('/dl/apache/' + ('run.png' if module_enabled(h) else 'stop.png'))),
                     UI.Label(text=h),
-                    ctl
+                    UI.DataTableCell(
+                        ctl, hidden=True
+                    )
                 )
             tm.appendChild(r)
-        
-        pmods = UI.VContainer(tm)
-        
-        tc = UI.TabControl(active=self._tab)
-        tc.add('Hosts', phosts)
-        tc.add('Modules', pmods)
-
-        p = UI.VContainer(
-                hdr,
-                UI.Spacer(height=20),
-                tc
-            )
-
-        if self._editing_host != '':
-            dlg = UI.DialogBox(
-                      UI.TextInputArea(name='config', text=read_host_config(self._editing_host).replace('\n', '[br]'), width=800, height=500),
-                      title="Edit host config", id="dlgEditHost", action="/handle/dialog/submit/dlgEditHost"
-                  )
-            p.appendChild(UI.vnode(dlg))
-
+        p = UI.Container(tm)
         if self._editing_module != '':
             dlg = UI.DialogBox(
                       UI.TextInputArea(name='config', text=read_module_config(self._editing_module).replace('\n', '[br]'), width=800, height=500),
                       title="Edit module config", id="dlgEditModule", action="/handle/dialog/submit/dlgEditModule"
                   )
             p.appendChild(UI.vnode(dlg))
-
-        return p
-
+        return p            
+    
+    @event('minibutton/click')
     @event('linklabel/click')
-    def on_llclick(self, event, params, vars=None):
+    def on_click(self, event, params, vars=None):
         if params[0] == 'stophost':
             self._tab = 0
             disable_host(params[1])

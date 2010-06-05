@@ -170,13 +170,11 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     implements(ICategoryProvider)
 
     text = 'Caption'
-    description = 'Topic description'
     icon = '/dl/core/ui/category-icon.png'
 
     @property
     def category(self):
         return { 'text': self.text,
-                 'description': self.description,
                  'icon': self.icon }
 
 

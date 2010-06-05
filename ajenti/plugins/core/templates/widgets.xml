@@ -21,6 +21,7 @@
 </py:match>
 
 
+<!--! ErrorBox widget -->
 <py:match path="errorbox">
     <div class="ui-el-error" width="${select('@width')}" height="${select('@height')}">
         <div class="ui-el-error-title">
@@ -29,6 +30,27 @@
         <div class="ui-el-error-content">
            <img src="/dl/core/ui/warning.png" class="ui-el-error-icon" />
            <label text="${select('@text')}" />
+        </div>    
+    </div>
+</py:match>
+
+
+<!--! PluginPanel widget -->
+<py:match path="pluginpanel">
+    <div class="ui-el-pluginpanel">
+        <div class="ui-el-pluginpanel-head">
+            <hcontainer>
+                <hnode><image file="${select('@icon')}" /></hnode>
+                <hnode>
+                    <vcontainer>
+                        <vnode><label text="${select('@title')}" size="5" /></vnode>
+                        <vnode>${select('node()[1]')}</vnode>
+                    </vcontainer>
+                </hnode>
+            </hcontainer>
+        </div>
+        <div class="ui-el-pluginpanel-content">
+           ${select('node()[2]')}
         </div>    
     </div>
 </py:match>
@@ -83,6 +105,8 @@
 </py:match>
 
 
+<!--! ProgressBox widget -->
+
 <py:match path="progressbox">
     <div class="ui-el-modal-blackout" />
     <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
@@ -104,7 +128,7 @@
 </py:match>
 
 
-<!--! VContainer widget -->
+<!--! Container widget -->
 <py:match path="container">
     ${select('node()')}
 </py:match>
@@ -164,6 +188,13 @@
             <div class="ui-el-button"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
         </a>
     </py:choose>
+</py:match>
+
+<!--! MiniButton widget -->
+<py:match path="minibutton">
+    <a href="#" onclick="javascript:return ajax('/handle/minibutton/click/${select('@id')}');">
+        <div class="ui-el-minibutton"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+    </a>
 </py:match>
 
 
@@ -245,7 +276,7 @@
 </py:match>
 
 <py:match path="layouttablecell">
-    <td colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <td class="ui-el-layouttable-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </td>
 </py:match>
@@ -265,7 +296,7 @@
 </py:match>
 
 <py:match path="datatablecell">
-    <td class="ui-el-table-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <td class="ui-el-table-cell${'-hidden' if str(select('@hidden')) else ''}" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </td>
 </py:match>

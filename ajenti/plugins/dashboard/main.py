@@ -17,7 +17,6 @@ class DashboardContent(ModuleContent):
 class Dashboard(CategoryPlugin):
 
     text = 'Dashboard'
-    description = 'Dashboard overview'
     icon = '/dl/dashboard/icon.png'
 
     widgets = Interface(IDashboardWidget)
@@ -50,5 +49,5 @@ class Dashboard(CategoryPlugin):
                           )
               )
         
-        u = UI.VContainer(h, UI.Spacer(height=30), w)
+        u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/server.png')
         return u

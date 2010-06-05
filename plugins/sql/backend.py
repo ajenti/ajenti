@@ -29,6 +29,5 @@ class MySQLDBBackend(Plugin):
                 res.append(row)
             self.cur.close()
             return res
-        except:
-            return None
-            
+        except Exception as (c,e):
+            return '%s (%s)' % (e,str(c))

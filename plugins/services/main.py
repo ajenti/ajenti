@@ -10,7 +10,6 @@ class Services(CategoryPlugin):
     implements((ICategoryProvider, 50))
 
     text = 'Services'
-    description = 'Control init.d scripts'
     icon = '/dl/services/icon.png'
     
     def on_init(self):
@@ -21,19 +20,13 @@ class Services(CategoryPlugin):
         self._labeltext = ''
 
     def get_ui(self):
-        h = UI.HContainer(
-               UI.Image(file='/dl/services/bigicon.png'),
-               UI.Spacer(width=10),
-               UI.VContainer(
-                    UI.Label(text='Service manager', size=5),
-               )
-            )
+        panel = UI.PluginPanel(UI.Label(text=''), title='Service Manager', icon='/dl/services/icon.png')
 
         ts = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(), width='20px'),
                 UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label(text='Controls'), width='150px'),
+                UI.DataTableCell(UI.Label(text=''), width='150px'),
                 header=True
              )
         ts.appendChild(hr)
@@ -42,31 +35,25 @@ class Services(CategoryPlugin):
         for svc in lst:
             if svc.status == 'running':
                 ctl = UI.HContainer(
-                          UI.LinkLabel(text='Stop', id='stop/' + svc.name),
-                          UI.LinkLabel(text='Restart', id='restart/' + svc.name)
+                          UI.MiniButton(text='Stop', id='stop/' + svc.name),
+                          UI.MiniButton(text='Restart', id='restart/' + svc.name)
                       )
             else:
-                ctl = UI.LinkLabel(text='Start', id='start/' + svc.name)
+                ctl = UI.MiniButton(text='Start', id='start/' + svc.name)
             fn = '/dl/services/' + ('run.png' if svc.status == 'running' else 'stop.png')
             row = UI.DataTableRow(
                     UI.Image(file=fn),
                     UI.Label(text=svc.name),
-                    ctl
+                    UI.DataTableCell(
+                        ctl, hidden=True
+                    )
                   )
             ts.appendChild(row)
               
+        panel.appendChild(ts)
+        return panel
 
-        p = UI.VContainer(
-                h,
-                UI.Spacer(height=20),
-                UI.VContainer(
-                    ts
-                )
-            )
-
-        return p
-
-    @event('linklabel/click')
+    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'start':
             self.svc_mgr.start(params[1])

@@ -103,7 +103,6 @@ class APTPackageManager(Plugin):
 
     def _parse_apt(self, ss):
         r = {}
-        print ss
         for s in ss:
             s = s.split()
             try:
