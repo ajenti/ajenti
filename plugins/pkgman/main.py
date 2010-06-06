@@ -66,7 +66,7 @@ class PackageManager(CategoryPlugin):
             dlg = UI.DialogBox(
                     res,
                     UI.Spacer(height=20),
-                    title="Apply changes?", id="dlgApply", action="/handle/dialog/submit/dlgApply"
+                    title="Apply changes?", id="dlgApply"
                   )
             pnl.appendChild(dlg)
             
@@ -85,7 +85,7 @@ class PackageManager(CategoryPlugin):
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Package'), width="350px"),
                 UI.DataTableCell(UI.Label(text='New version'), width="100px"),
-                UI.DataTableCell(UI.Label(text=''), width="80px"),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         tu.appendChild(hr)
@@ -109,7 +109,7 @@ class PackageManager(CategoryPlugin):
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Package'), width="150px"),
                 UI.DataTableCell(UI.Label(text='Description'), width="350px"),
-                UI.DataTableCell(UI.Label(text=''), width="100px"),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         ts.appendChild(hr)
@@ -146,7 +146,7 @@ class PackageManager(CategoryPlugin):
         tu = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Package'), width="200px"),
-                UI.DataTableCell(UI.Label(text=''), width="80px"),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         tu.appendChild(hr)
@@ -166,7 +166,7 @@ class PackageManager(CategoryPlugin):
         ti = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Package'), width="200px"),
-                UI.DataTableCell(UI.Label(text=''), width="80px"),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         ti.appendChild(hr)

@@ -69,7 +69,7 @@ class Beeper(CategoryPlugin):
                         UI.Radio(name='for', text='Radio buttons', checked='yes', value="radio")
                     )
                 ),
-                title="Test Dialog", id="testDialog", action="/handle/dialog/submit/testDialog"
+                title="Test Dialog", id="testDialog"
             )
 
         b2 = UI.Button(text='Show dialog')

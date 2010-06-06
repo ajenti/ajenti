@@ -70,8 +70,7 @@ class NetworkPlugin(CategoryPlugin):
             dlg = UI.DialogBox(
                         cnt,
                         title="Interface '" + self._editing_iface + "' properties",
-                        id="dlgEditIface",
-                        action="/handle/dialog/submit/dlgEditIface"
+                        id="dlgEditIface"
                     )
             c.vnode(dlg)
 
@@ -112,7 +111,7 @@ class NetworkPlugin(CategoryPlugin):
         if self._editing_ns != -1:
             dlg = UI.DialogBox(
                         self.net_config.ns_edit_dialog(self.net_config.nameservers[self._editing_ns]),
-                        title="Nameserver entry options", id="dlgEditNS", action="/handle/dialog/submit/dlgEditNS"
+                        title="Nameserver entry options", id="dlgEditNS"
                     )
             c.vnode(dlg)       
 

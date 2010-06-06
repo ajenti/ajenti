@@ -2,6 +2,7 @@ import re
 
 from ajenti.plugins.core import *
 from ajenti.plugins.dashboard import *
+from ajenti.plugins.config import *
 
 from ajenti.com import *
 from ajenti.app.urlhandler import URLHandler, url

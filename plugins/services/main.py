@@ -26,7 +26,7 @@ class Services(CategoryPlugin):
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(), width='20px'),
                 UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label(text=''), width='150px'),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         ts.appendChild(hr)

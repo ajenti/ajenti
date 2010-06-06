@@ -253,7 +253,7 @@ a {
     border: 1px solid #ccc;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #ccc);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
     padding: 7px 0px 10px 10px;
 }
 
@@ -343,6 +343,7 @@ a {
 .ui-el-table {
 	background: #ffffff;
 	border: 1px solid #bbb;
+	margin-bottom: 3px;
 }
 
 .ui-el-table-row .ui-el-table-cell {
@@ -368,14 +369,17 @@ a {
 .ui-el-table-cell, .ui-el-table-cell-hidden {
 	padding: 2px;
 	padding-left: 5px;
+	vertical-align: middle;
 }
 
-.ui-el-table-cell-hidden * {
-    visibility: hidden;
-}
-
-.ui-el-table-row:hover .ui-el-table-cell-hidden * {
+.ui-el-table-cell-hidden {
     visibility: visible;
+    opacity: 0.2;
+}
+
+.ui-el-table-row:hover .ui-el-table-cell-hidden {
+    visibility: visible;
+    opacity: 1.0;
 }
 
 .ui-el-layouttable-cell {

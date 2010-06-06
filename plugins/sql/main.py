@@ -25,6 +25,7 @@ class SQL(CategoryPlugin):
     def on_session_start(self):
         self._labeltext = ''
         self._logging_in = False
+        self._login_dialog = False
         self._tab = 0
         self._sql = ''
 
@@ -70,7 +71,7 @@ class SQL(CategoryPlugin):
         tblTables = UI.DataTable(
                         UI.DataTableRow(
                             UI.Label(text='Name', width=200),
-                            UI.Label(text='', width=200),
+                            UI.Label(text=''),
                             header = True
                         )
                     )
@@ -116,8 +117,7 @@ class SQL(CategoryPlugin):
                             UI.TextInput(name='query', size=60, value=self._sql),
                             UI.Button(text='Run', onclick='form', form='frmSQL')
                         ),
-                        id='frmSQL',
-                        action='/handle/dialog/submit/frmSQL'
+                        id='frmSQL'
                     )
                 ),
                 UI.Spacer(height=20),
@@ -153,11 +153,11 @@ class SQL(CategoryPlugin):
                                 UI.TextInput(name='db', value='')
                             )
                         ),
-                        title="SQL server connection", id="dlgLogin", action="/handle/dialog/submit/dlgLogin"
+                        title="SQL server connection", id="dlgLogin"
                     )
                     
         warn = UI.ErrorBox(title='SQL', text='Not connected')
-        return UI.VContainer(warn, dlgLogin)
+        return UI.VContainer(warn, dlgLogin if self._login_dialog else None)
             
     def logout(self):
         self.config.remove_option('sql', 'login')
@@ -181,6 +181,7 @@ class SQL(CategoryPlugin):
     def on_click(self, event, params, vars=None):
         if params[0] == 'btnLogout':
             self.logout()
+            self._login_dialog = True
         if params[0] == 'view':
             self._tab = 1
             self._sql = 'SELECT * FROM %s;' % params[1]
@@ -191,6 +192,7 @@ class SQL(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 self.login(vars)
             self._logging_in = False    
+            self._login_dialog = False    
         if params[0] == 'frmSQL':
             self._tab = 1
             self._sql = vars.getvalue('query', '')

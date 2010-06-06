@@ -53,7 +53,7 @@ class Apache(CategoryPlugin):
             else: 
                 ctl = UI.MiniButton(text='Enable', id='starthost/' + h)
             r = UI.DataTableRow(
-                    UI.Image(file=('/dl/apache/' + ('run.png' if host_enabled(h) else 'stop.png'))),
+                    UI.Image(file=('/dl/core/ui/icon-' + ('enabled.png' if host_enabled(h) else 'disabled.png'))),
                     UI.Label(text=h),
                     UI.DataTableCell(
                         UI.HContainer(
@@ -69,7 +69,7 @@ class Apache(CategoryPlugin):
         if self._editing_host != '':
             dlg = UI.DialogBox(
                       UI.TextInputArea(name='config', text=read_host_config(self._editing_host).replace('\n', '[br]'), width=800, height=500),
-                      title="Edit host config", id="dlgEditHost", action="/handle/dialog/submit/dlgEditHost"
+                      title="Edit host config", id="dlgEditHost"
                   )
             p.appendChild(dlg)
         return p
@@ -79,7 +79,7 @@ class Apache(CategoryPlugin):
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(), width='20px'),
                 UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label(text=''), width='150px'),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         tm.appendChild(hr)
@@ -92,7 +92,7 @@ class Apache(CategoryPlugin):
             if module_has_config(h):
                 ctl = UI.Container(UI.MiniButton(text='Edit', id='editmod/' + h), ctl)
             r = UI.DataTableRow(
-                    UI.Image(file=('/dl/apache/' + ('run.png' if module_enabled(h) else 'stop.png'))),
+                    UI.Image(file=('/dl/core/ui/icon-' + ('enabled.png' if module_enabled(h) else 'disabled.png'))),
                     UI.Label(text=h),
                     UI.DataTableCell(
                         ctl, hidden=True
@@ -103,7 +103,7 @@ class Apache(CategoryPlugin):
         if self._editing_module != '':
             dlg = UI.DialogBox(
                       UI.TextInputArea(name='config', text=read_module_config(self._editing_module).replace('\n', '[br]'), width=800, height=500),
-                      title="Edit module config", id="dlgEditModule", action="/handle/dialog/submit/dlgEditModule"
+                      title="Edit module config", id="dlgEditModule"
                   )
             p.appendChild(UI.vnode(dlg))
         return p            

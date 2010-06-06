@@ -2,6 +2,7 @@ from ConfigParser import ConfigParser
 
 from ajenti.utils import detect_platform
 
+"""
 default_values = {
                     'bind_host': '',
                     'bind_port': '8000',
@@ -12,17 +13,17 @@ default_values = {
                  }
 
 default_values['platform'] = detect_platform()
+"""
 
 class Config(ConfigParser):
     internal = {}
     filename = ''
     
     def __init__(self):
-        ConfigParser.__init__(self, default_values)
-        # Add default configuration section, 
-        # which could be overrided in config file
+        ConfigParser.__init__(self)
         self.add_section('ajenti')
-
+        self.set('ajenti', 'platform', detect_platform())
+        
     def load(self, fn):
         self.filename = fn
         self.read(fn)

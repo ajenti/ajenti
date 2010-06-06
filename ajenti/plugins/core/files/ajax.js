@@ -74,15 +74,10 @@ function ajaxForm(formId, action)
                     params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
                 }
                 if (inputs[i].type == "checkbox") {
-                    if (inputs[i].checked) {
-                        if (inputs[i].value) {
-                            params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
-                        } else {
-                            params += "&" + inputs[i].name + "=1";
-                        }
-                    } else {
-                        params += "&" + inputs[i].name + "=";
-                    }
+                    if (inputs[i].checked)
+                        params += "&" + inputs[i].name + "=1";
+                    else
+                        params += "&" + inputs[i].name + "=0";
                 }
                 if (inputs[i].type == "radio") {
                     if (inputs[i].checked) {

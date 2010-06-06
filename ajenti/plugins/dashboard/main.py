@@ -22,16 +22,6 @@ class Dashboard(CategoryPlugin):
     widgets = Interface(IDashboardWidget)
     
     def get_ui(self):
-        h = UI.HContainer(
-                UI.Image(file='/dl/dashboard/server.png'),
-                UI.Spacer(width=10),
-                UI.VContainer(
-                    UI.Label(text=platform.node(), size=5),
-                    UI.Label(text='Ajenti ' + version),
-                    UI.Label(text=detect_distro())
-                )
-            )
-            
         w = UI.LayoutTable(width="600px")
         for i in range(0, len(self.widgets)/2):
             x = self.widgets[i*2]

@@ -83,7 +83,7 @@
 <py:match path="dialogbox">
     <div class="ui-el-modal-blackout" />
     <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
-        <form action="${select('@action')}" name="${select('@id')}" id="${select('@id')}">
+        <form action="/handle/dialog/submit/${select('@id')}" name="${select('@id')}" id="${select('@id')}">
             <div class="ui-el-dialog" width="${select('@width')}" height="${select('@height')}">
                 <div class="ui-el-dialog-title"><label text="${select('@title')}" size="2" /></div>
                 <div class="ui-el-dialog-content">
@@ -104,6 +104,20 @@
     <script> ui_center('${select('@id')}-wr'); </script>
 </py:match>
 
+
+<!--! FormBox widget -->
+
+<py:match path="formbox">
+        <form action="/handle/form/submit/${select('@id')}" name="${select('@id')}" id="${select('@id')}">
+            ${select('node()')}
+            <div class="ui-el-modal-buttons">
+                <hcontainer>
+                    <hnode><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
+                    <hnode><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                </hcontainer>
+            </div>
+        </form>
+</py:match>
 
 <!--! ProgressBox widget -->
 
