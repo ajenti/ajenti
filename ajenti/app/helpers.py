@@ -180,3 +180,16 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
 
     def on_init(self):
         pass
+        
+    def get_name(self):
+        return self.__class__.__name__
+        
+    def get_weight(self):
+        if self.config.has_option('categories', self.text.lower()):
+            return int(self.config.get('categories', self.text.lower()))
+        return 1000
+        
+    def is_visible(self):
+        return self.get_weight() != 0
+        
+        

@@ -6,7 +6,7 @@ from ajenti.app.helpers import *
 from api import *
 
 
-class Services(CategoryPlugin):
+class ServicesPlugin(CategoryPlugin):
     implements((ICategoryProvider, 50))
 
     text = 'Services'

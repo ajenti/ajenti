@@ -65,9 +65,9 @@ function ajaxForm(formId, action)
     form = document.getElementById(formId);
     if (form)
     {
-        params = "action="+escape(action);
+        params = "action=" + escape(action);
 
-        var inputs = form.getElementsByTagName("input")
+        var inputs = form.getElementsByTagName("input");
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 if (inputs[i].type == "text") {
@@ -87,7 +87,7 @@ function ajaxForm(formId, action)
             }
         }
 
-        inputs = form.getElementsByTagName("select")
+        inputs = form.getElementsByTagName("select");
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 var sel = inputs[i];
@@ -95,13 +95,19 @@ function ajaxForm(formId, action)
             }
         }
 
-        inputs = form.getElementsByTagName("textarea")
+        inputs = form.getElementsByTagName("textarea");
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 var ta = inputs[i];
                 params += "&" + ta.name + "=" + escape(ta.value);
             }
         }
+
+        inputs = form.getElementsByClassName("ui-el-sortlist")[0];
+        if (inputs) {
+            params += "&" + inputs.id + "=" + ui_dumpSortList(inputs.id);
+        }
+
         ajaxPOST(form.action, params);
     }
     return false;

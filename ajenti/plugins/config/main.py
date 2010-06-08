@@ -3,6 +3,7 @@ import platform
 from hashlib import sha1
 from base64 import b64encode
 
+from ajenti.app.api import *
 from ajenti import version
 from ajenti.com import *
 from ajenti.ui import *
@@ -13,7 +14,7 @@ class ConfigContent(ModuleContent):
     path = __file__
     module = 'config' 
 
-class Config(CategoryPlugin):
+class ConfigPlugin(CategoryPlugin):
     text = 'Configure'
     icon = '/dl/config/icon.png'
 
@@ -28,6 +29,7 @@ class Config(CategoryPlugin):
         
         tabs = UI.TabControl(active=self._tab)
         tabs.add('General', self.get_ui_general())
+        tabs.add('Plugins', self.get_ui_plugins())
         tabs.add('Security', self.get_ui_sec())
         
         u.appendChild(tabs)
@@ -54,6 +56,23 @@ class Config(CategoryPlugin):
             )        
         p = UI.FormBox(o, id="frmGeneral")
         return p
+
+    def get_ui_plugins(self):
+        li = UI.SortList(id='list')
+
+        cats = self.app.grab_plugins(ICategoryProvider)
+        cats = sorted(cats, key=lambda p: p.get_weight())
+        cats_enabled = filter(lambda p: p.is_visible(), cats)
+        cats_disabled = filter(lambda p: not p.is_visible(), cats)
+
+        li.appendChild(UI.SortListItem(UI.Label(text="Enabled plugins:", bold=True), fixed=True, id='enabled'))
+        for p in cats_enabled:
+            li.appendChild(UI.SortListItem(UI.Label(text=p.text), id=p.text))
+        li.appendChild(UI.SortListItem(UI.Label(text="Disabled plugins:", bold=True), fixed=True, id='disabled'))
+        for p in cats_disabled:
+            li.appendChild(UI.SortListItem(UI.Label(text=p.text), id=p.text))
+        
+        return UI.FormBox(li, id='frmPlugins')
         
     def get_ui_sec(self):
         tbl = UI.DataTable(
@@ -123,7 +142,9 @@ class Config(CategoryPlugin):
     @event('form/submit')
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
+        print params
         if params[0] == 'dlgAddUser':
+            self._tab = 2
             if vars.getvalue('action', '') == 'OK':
                 self.config.set('users', vars.getvalue('login', ''), self.hashpw(vars.getvalue('password', '')))
                 self.config.save()
@@ -137,8 +158,26 @@ class Config(CategoryPlugin):
                 self.config.set('ajenti', 'cert_file', vars.getvalue('cert_file', ''))
             self.config.save()
         if params[0] == 'frmSecurity':
-            self._tab = 1
+            self._tab = 2
             if vars.getvalue('action', '') == 'OK':
                 self.config.set('ajenti', 'auth_enabled', vars.getvalue('httpauth', '0'))
             self.config.save()
-            
+        if params[0] == 'frmPlugins':
+            self._tab = 1
+            if vars.getvalue('action', '') == 'OK':
+                for k in self.config.options('categories'):
+                    self.config.remove_option('categories', k)
+                en = True
+                c = 10
+                for k in vars.getvalue('list', '').split('|'):            
+                    if k == 'enabled':
+                        en = True
+                    elif k == 'disabled':
+                        en = False
+                    elif k != 'action':
+                        if en:
+                            self.config.set('categories', k, str(c))
+                            c += 10
+                        else:
+                            self.config.set('categories', k, '0')
+                self.config.save()

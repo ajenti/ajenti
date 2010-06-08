@@ -32,7 +32,7 @@ class CustomRequestHandler(WSGIRequestHandler):
 
 class CustomServer(WSGIServer):
     cert_file = ''
-    request_queue_size = 10
+    request_queue_size = 100
 
     def __init__(self, server_address, HandlerClass):
         WSGIServer.__init__(self, server_address, HandlerClass)

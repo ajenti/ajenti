@@ -4,7 +4,7 @@ from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 
 
-class Demo(CategoryPlugin):
+class DemoPlugin(CategoryPlugin):
     implements((ICategoryProvider, 90))
 
     text = 'Demo'

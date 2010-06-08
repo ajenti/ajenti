@@ -1,6 +1,7 @@
 import re
 
 from ajenti.plugins.core import *
+from ajenti.plugins.advancedcontrols import *
 from ajenti.plugins.dashboard import *
 from ajenti.plugins.config import *
 

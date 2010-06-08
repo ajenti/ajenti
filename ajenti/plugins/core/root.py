@@ -15,16 +15,21 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
     def main_ui(self):
         templ = self.app.get_template('main.xml')
 
-        cat_selected = self.app.session.get('cat_selected',0)
+        cat_selected = self.app.session.get('cat_selected', 'Dashboard')
 
         cat = None
         v = UI.VContainer()
-        for num, c in enumerate(self.categories):
-            if num == cat_selected:
-                v.vnode(UI.Category(c.category, id=str(num), selected='true'))
+        
+        cats = self.categories
+        cats = sorted(cats, key=lambda p: p.get_weight())
+        cats = filter(lambda p: p.is_visible(), cats)
+        
+        for c in cats:
+            if c.get_name() == cat_selected:
+                v.vnode(UI.Category(c.category, id=c.get_name(), selected='true'))
                 cat = c
             else:
-                v.vnode(UI.Category(c.category, id=str(num)))
+                v.vnode(UI.Category(c.category, id=c.get_name()))
 
         templ.appendChildInto('leftplaceholder', v)
 
@@ -33,10 +38,10 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         return templ
 
     def do_init(self):
-        cat_selected = self.app.session.get('cat_selected',0)
+        cat_selected = self.app.session.get('cat_selected', 'Dashboard')
         cat = None
-        for num, c in enumerate(self.categories):
-            if num == cat_selected:
+        for c in self.categories:
+            if c.get_name() == cat_selected:
                 cat = c
         cat.on_init()
 
@@ -57,12 +62,8 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
             return
         if len(params) != 1:
             return
-        try:
-            cat = int(params[0])
-        except:
-            return
 
-        self.app.session['cat_selected'] = cat
+        self.app.session['cat_selected'] = params[0]
         self.do_init()
 
     @url('^/handle/.+')
@@ -76,10 +77,10 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         self.do_init()
 
         # Current module
-        cat = self.app.session.get('cat_selected',0)
-
+        cat = filter(lambda x: x.get_name() == self.app.session.get('cat_selected', 'Dashboard'), self.categories)[0]
+        
         # Search self and current category for event handler
-        for handler in (self.categories[cat], self):
+        for handler in (cat, self):
             if handler.match_event(event):
                 vars = get_environment_vars(req)
                 result = handler.event(event, params, vars = vars)

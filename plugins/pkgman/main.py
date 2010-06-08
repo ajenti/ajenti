@@ -4,7 +4,7 @@ from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from api import *
 
-class PackageManager(CategoryPlugin):
+class PackageManagerPlugin(CategoryPlugin):
     implements((ICategoryProvider, 60))
 
     text = 'Packages'

@@ -6,7 +6,7 @@ from ajenti.app.helpers import *
 from api import *
 
 
-class SQL(CategoryPlugin):
+class SQLPlugin(CategoryPlugin):
     implements((ICategoryProvider, 60))
 
     text = 'SQL client'

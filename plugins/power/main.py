@@ -14,7 +14,7 @@ class PowerContent(ModuleContent):
     path = __file__
 
 
-class Power(CategoryPlugin):
+class PowerPlugin(CategoryPlugin):
 
     implements((ICategoryProvider, 90))
 

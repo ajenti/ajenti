@@ -7,7 +7,7 @@ from ajenti.utils import *
 from backend import *
 
 
-class Apache(CategoryPlugin):
+class ApachePlugin(CategoryPlugin):
     implements((ICategoryProvider, 50))
 
     text = 'Apache'
