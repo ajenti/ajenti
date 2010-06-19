@@ -142,7 +142,6 @@ class ConfigPlugin(CategoryPlugin):
     @event('form/submit')
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
-        print params
         if params[0] == 'dlgAddUser':
             self._tab = 2
             if vars.getvalue('action', '') == 'OK':
