@@ -1,7 +1,7 @@
-from api import *
 from ajenti.com import *
 from ajenti.utils import *
 
+from plugins.services.api import *
 
 class UpstartServiceManager(Plugin):
     implements(IServiceManager)
@@ -27,4 +27,4 @@ class UpstartServiceManager(Plugin):
 
     def restart(self, name):
         shell('service ' + name + ' --full-restart')
-
+ 

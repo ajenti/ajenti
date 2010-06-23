@@ -1,5 +1,5 @@
-from api import *
 from ajenti.com import *
+from ajenti.app.api import *
 
 class IServiceManager(Interface):
     def list_all(self):

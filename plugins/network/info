@@ -1,0 +1,4 @@
+pkg network
+desc Network management plugin
+ver 0.1
+

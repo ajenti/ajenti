@@ -1,5 +1,6 @@
-from api import *
 from ajenti.com import *
+
+from plugins.sql.api import *
 
 import MySQLdb
 

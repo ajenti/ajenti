@@ -1,9 +1,10 @@
 import os
 import subprocess
 
-from api import *
 from ajenti.com import *
 from ajenti.utils import *
+
+from plugins.pkgman.api import *
 
 class APTPackageManager(Plugin):
     implements(IPackageManager)

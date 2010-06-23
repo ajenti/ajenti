@@ -2,3 +2,5 @@
 *.swp
 tmp
 ajenti.conf
+packaging/tmp
+packaging/out

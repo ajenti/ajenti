@@ -6,7 +6,7 @@ import sys
 def loader(path):
     plugs = [plug for plug in os.listdir(path) if not plug.startswith('.')]
     plugs = [plug[:-3] if plug.endswith('.py') else plug for plug in plugs]
-    plugs = list(set(plugs)) # Leave just unique items
+    plugs = sorted(list(set(plugs))) # Leave just unique items
     plugs_found = {}
     for plug in plugs:
         try:
