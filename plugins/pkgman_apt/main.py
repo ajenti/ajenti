@@ -3,11 +3,10 @@ import subprocess
 
 from ajenti.com import *
 from ajenti.utils import *
-
-from plugins.pkgman.api import *
+from ajenti import apis
 
 class APTPackageManager(Plugin):
-    implements(IPackageManager)
+    implements(apis.pkgman.IPackageManager)
     platform = ['Debian', 'Ubuntu']
 
     _pending = {}

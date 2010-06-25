@@ -2,8 +2,7 @@ from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
-
-from api import *
+from ajenti import apis
 
 
 class SQLPlugin(CategoryPlugin):
@@ -17,9 +16,9 @@ class SQLPlugin(CategoryPlugin):
     
     def on_init(self):
         self._logging_in = not self.config.has_option('sql', 'backend')
-        self.backends = [b.name for b in self.app.grab_plugins(IDBBackend)] 
+        self.backends = [b.name for b in self.app.grab_plugins(apis.sql.IDBBackend)] 
         if self.config.has_option('sql', 'backend'):
-            self.backend = self.app.grab_plugins(IDBBackend, 
+            self.backend = self.app.grab_plugins(apis.sql.IDBBackend, 
                             lambda x: x.name == self.config.get('sql', 'backend'))[0]
             
     def on_session_start(self):

@@ -1,11 +1,10 @@
 from ajenti.com import *
-
-from plugins.sql.api import *
+from ajenti import apis
 
 import MySQLdb
 
 class MySQLDBBackend(Plugin):
-    implements(IDBBackend)
+    implements(apis.sql.IDBBackend)
 
     name = 'MySQL'
 

@@ -1,15 +1,16 @@
 from ajenti.com import *
-from ajenti.app.api import *
+from ajenti.apis import API
 
-class IDBBackend(Interface):
-    name = 'Unknown'
+class SQL(API):
+    class IDBBackend(Interface):
+        name = 'Unknown'
 
-    def connect(self, host, login, password, db):
-        pass
+        def connect(self, host, login, password, db):
+            pass
 
-    def disconnect(self):
-        pass
+        def disconnect(self):
+            pass
 
-    def sql(self, query):
-        pass
+        def sql(self, query):
+            pass
         

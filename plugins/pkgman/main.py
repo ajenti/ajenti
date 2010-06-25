@@ -2,7 +2,7 @@ from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
-from api import *
+from ajenti import apis
 
 class PackageManagerPlugin(CategoryPlugin):
     implements((ICategoryProvider, 60))
@@ -13,11 +13,11 @@ class PackageManagerPlugin(CategoryPlugin):
 
 
     def on_init(self):
-        self.mgr = self.app.grab_plugins(IPackageManager)[0]
+        self.mgr = self.app.grab_plugins(apis.pkgman.IPackageManager)[0]
 
     def on_session_start(self):
         self._labeltext = ''
-        self._status = Status()
+        self._status = apis.pkgman.Status()
         self._tab = 0
         self._confirm_apply = False
         self._in_progress = False

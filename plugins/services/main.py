@@ -2,8 +2,7 @@ from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
-
-from api import *
+from ajenti import apis
 
 
 class ServicesPlugin(CategoryPlugin):
@@ -13,7 +12,7 @@ class ServicesPlugin(CategoryPlugin):
     icon = '/dl/services/icon.png'
     
     def on_init(self):
-        self.svc_mgr = self.app.grab_plugins(IServiceManager)[0]
+        self.svc_mgr = self.app.grab_plugins(apis.services.IServiceManager)[0]
 
 
     def on_session_start(self):
