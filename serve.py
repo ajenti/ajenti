@@ -62,7 +62,7 @@ if __name__ == '__main__':
             config_file = os.path.join(sys.path[0], 'ajenti.conf')
 
     
-    ajentid = AjentiDaemon()
+    ajentid = AjentiDaemon('/tmp/ajenti.pid')
     ajentid.log_level = log_level
     ajentid.config_file = config_file
 	
