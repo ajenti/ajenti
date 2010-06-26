@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import sys
 import getopt
 import os.path
@@ -17,6 +18,10 @@ Options:
 
 if __name__ == '__main__':
 
+    import sys
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
+    
     log_level = logging.INFO
     config_file = ''
 
