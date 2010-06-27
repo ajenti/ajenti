@@ -45,5 +45,19 @@ class SquidConfig:
                     pass
                 
     def save(self):
+        s = ''
+        
+        s += '\n# ACLs\n'
+        for k,v in self.acls:
+            s += 'acl %s %s\n' % (k,v)
+
+        s += '\n# HTTP access\n'
+        for k,v in self.http_access:
+            s += 'http_access %s %s\n' % (k,v)
+
+        s += '\n# Misc options\n'
         for k,v in self.misc:
-            print '%s = %s' % (k,v)
+            s += '%s %s\n' % (k,v)
+            
+        with open(dir_squid + 'squid.conf', 'w') as f:
+            f.write(s)

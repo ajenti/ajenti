@@ -25,8 +25,6 @@ Options:
     """
 
 if __name__ == '__main__':
-
-    import sys
     reload(sys)
     sys.setdefaultencoding('utf-8')
     
