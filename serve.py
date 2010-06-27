@@ -6,10 +6,19 @@ import os.path
 import logging
 
 from ajenti.standalone import server
+from ajenti.daemon import Daemon
+
+class AjentiDaemon(Daemon):
+	def run(self):
+		server(self.log_level, self.config_file)
 
 def usage():
     print """
-Usage: serve.py [options]
+Usage: %s [method] [options]
+Methods:
+	start	- Starts Ajenti server
+	stop	- Terminates Ajenti
+	restart	- Terminate and Start server again
 Options:
     -c, --config <file> - Use given config file instead of default
     -v                  - Debug/verbose logging
@@ -24,9 +33,15 @@ if __name__ == '__main__':
     
     log_level = logging.INFO
     config_file = ''
-
+    
+    if len(sys.argv) < 2:
+		usage()
+		sys.exit(2)
+		
+    method = sys.argv[1]
+	
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hc:v', ['help', 'config='])
+        opts, args = getopt.getopt(sys.argv[2:], 'hc:v', ['help', 'config='])
     except getopt.GetoptError, e:
         print str(e)
         usage()
@@ -51,5 +66,19 @@ if __name__ == '__main__':
             # Try local config file
             config_file = os.path.join(sys.path[0], 'ajenti.conf')
 
-    server(log_level, config_file)
-
+    
+    ajentid = AjentiDaemon('./ajenti.pid',stdout='./stdout.log',stderr='./stderr.log')
+    ajentid.log_level = log_level
+    ajentid.config_file = config_file
+	
+    if 'start' == sys.argv[1]:
+        ajentid.start()
+    elif 'stop' == sys.argv[1]:
+        ajentid.stop()
+    elif 'restart' == sys.argv[1]:
+        ajentid.restart()
+    else:
+        usage()
+        sys.exit(2)
+		
+    sys.exit(0)
