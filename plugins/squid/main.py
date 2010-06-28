@@ -17,8 +17,12 @@ class SquidPlugin(CategoryPlugin):
     text = 'Squid'
     icon = '/dl/squid/icon.png'
     platform = ['Debian', 'Ubuntu']
+                
+    def on_session_start(self):
+        self._tab = 0
+        self._cfg = SquidConfig()
+        self._cfg.load()
 
-    def on_init(self):
         self._parts = sorted(self.app.grab_plugins(apis.squid.IPluginPart),
                              key=lambda x: x.weight)
         
@@ -26,12 +30,7 @@ class SquidPlugin(CategoryPlugin):
         for p in self._parts:
             p.init(self, self._cfg, idx)
             idx += 1
-                
-    def on_session_start(self):
-        self._tab = 0
-        self._cfg = SquidConfig()
-        self._cfg.load()
-        
+
     def get_ui(self):
         status = 'is running' if is_running() else 'is stopped';
         panel = UI.PluginPanel(UI.Label(text=status), title='Squid Proxy Server', icon='/dl/squid/icon.png')
@@ -53,6 +52,7 @@ class SquidPlugin(CategoryPlugin):
 
     
     @event('button/click')
+    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         for p in self._parts:
             p.on_click(event, params, vars)
