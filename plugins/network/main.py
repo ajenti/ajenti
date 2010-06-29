@@ -81,7 +81,7 @@ class NetworkPlugin(CategoryPlugin):
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Type'), width="100px"),
                 UI.DataTableCell(UI.Label(text='Address'), width="200px"),
-                UI.DataTableCell(UI.Label(text=''), width="140px"),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         td.appendChild(hr)
