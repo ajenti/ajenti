@@ -17,6 +17,7 @@ class SquidConfig:
     rules = []
     http_port = []
     https_port = []
+    ref_pats = []
     
     access_lists = [
         'http_access',
@@ -48,7 +49,8 @@ class SquidConfig:
         self.rules = []
         self.http_port = []
         self.https_port = []
-
+        self.ref_pats = []
+        
         ss = open(dir_squid + 'squid.conf').read().split('\n')
         
         for s in ss:
@@ -75,6 +77,15 @@ class SquidConfig:
                     elif k == 'https_port':
                         v = v.split(':')
                         self.https_port.append((v[0], v[1]))
+                    elif k == 'refresh_pattern':
+                        v = v.split()
+                        o = ''
+                        if v[0] == '-i':
+                            v.remove('-i')
+                            o = '-i '
+                        if len(v) > 4:
+                            o += ' '.join(v[4:])
+                        self.ref_pats.append((v[0], v[1], v[2], v[3], o))
                     else:
                         self.misc.append((k, v))
                 except:
@@ -96,6 +107,14 @@ class SquidConfig:
         s += '\n# Access rules\n'
         for t,k,v in self.rules:
             s += '%s %s %s\n' % (t,k,v)
+
+        s += '\n# Refresh patterns\n'
+        for r,mn,p,mx,o in self.ref_pats:
+            s += 'refresh_pattern ';
+            if '-i' in o.split():
+                s += '-i '
+                o = o[2:]
+            s += '%s %s %s %s %s\n' % (r,mn,p,mx,o)
 
         s += '\n# Misc options\n'
         for k,v in self.misc:
