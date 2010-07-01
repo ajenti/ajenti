@@ -14,14 +14,15 @@ def ann_build(s):
 
 base_desc = 'Server administration web-interface\n '
 
-if len(sys.argv) == 1:
-    print 'Usage: main.py <package format>'
+if len(sys.argv) < 3:
+    print 'Usage: main.py <package format> <version number>'
     sys.exit(1)
     
 pkg = __import__(sys.argv[1])
-run('mkdir out')
+run('mkdir out') 
 clean()
-
+version = sys.argv[2]
+    
 ann_build('ajenti')
 run('mkdir tmp/usr/share/ajenti/ajenti/ -p')
 run('mkdir tmp/usr/lib/ajenti/plugins/ -p')
@@ -37,7 +38,7 @@ run('cp files/initscript tmp/etc/init.d/ajenti')
 run('ln -s /usr/share/ajenti/serve.py tmp/usr/bin/ajenti')
 
 deps = ['python2.6', 'python-genshi', 'python-openssl']
-pkg.build('tmp/', 'ajenti', '0.1', base_desc, deps)
+pkg.build('tmp/', 'ajenti', version, base_desc, deps)
 
 for p in os.listdir('../plugins'):
     try:
@@ -61,11 +62,12 @@ for p in os.listdir('../plugins'):
                 pass
        
         clean()
+        deps.append('ajenti')
         ann_build('ajenti-plugin-' + pkgname + '-'+ ver)
         run('mkdir tmp/usr/lib/ajenti/plugins/' + p + ' -p')
         run('cp -r ../plugins/' + p + '/* tmp/usr/lib/ajenti/plugins/' + p)
         run('rm tmp/usr/lib/ajenti/plugins/' + p + '/info')
-        pkg.build('tmp/', 'ajenti-plugin-' + pkgname, ver, base_desc + desc, deps)
+        pkg.build('tmp/', 'ajenti-plugin-' + pkgname, version, base_desc + desc, deps)
     except:
         print 'Skipping plugin ' + p + ': no info file'
 

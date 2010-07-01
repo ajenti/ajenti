@@ -5,7 +5,7 @@ def run(c):
 
 share_path = '/usr/share/'
 etc_path = '/etc/'
-bin_path = '/usr/bin/'
+bin_path = '/usr/bin/' 
 
 def build(dir, name, ver, desc, deps):
     run('mkdir ' + dir + 'DEBIAN')
