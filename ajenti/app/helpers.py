@@ -63,7 +63,7 @@ class ModuleContent(Plugin):
     def template_path(self):
         if self.path == '':
             raise AttributeError('You should provide path/module information')
-        norm_path = os.path.join(os.path.dirname(self.path),self.templates_location)
+        norm_path = os.path.abspath(os.path.join(os.path.dirname(self.path),self.templates_location))
         return norm_path
 
 

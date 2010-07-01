@@ -7,7 +7,7 @@ from ajenti.utils import *
 import gzip
 
 
-class LogPlugin(CategoryPlugin):
+class LogsPlugin(CategoryPlugin):
     implements((ICategoryProvider, 60))
 
     text = 'Logs'
