@@ -198,8 +198,8 @@ a {
 
 /* Link */
 .ui-el-link {
-	color: #705b3d;
-	border-bottom: 1px dashed #705b3d;
+	color: #888;
+	border-bottom: 1px dashed #ccc;
 	margin-left: 3px;
 	margin-right: 3px;
 }
@@ -455,10 +455,25 @@ a {
 	padding-left: 16px;
 }
 
+.ui-el-treecontainernode-title {
+    border: 1px solid transparent;
+}
+
+.ui-el-treecontainernode-title:hover {
+	background: #eabf81;
+    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
+    border: 1px solid #eabf81;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
 
 /* ScrollContainer */
 .ui-el-scrollcontainer {
 	overflow: auto;
+	background: #fff;
+	border: 1px solid #ccc;
 }
 
 

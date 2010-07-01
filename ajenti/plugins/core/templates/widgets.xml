@@ -327,13 +327,14 @@
 <!--! TreeContainer widget -->
 <py:match path="treecontainer">
     <div class="ui-el-treecontainernode">
-        <div class="ui-el-treecontainernode-button">
-            <a href="#">
-                <img id="${select('@id')}-btn" src="/dl/core/ui/tree-${'minus' if str(select('@expanded'))=='True' else 'plus'}.png"
-                    onclick="javascript:ui_showhide('${select('@id')}');ajaxNoUpdate('/handle/treecontainer/click/${select('@id')}');ui_treeicon('${select('@id')}-btn');return false"/>
-            </a>
-        </div>
-        ${select('@text')}
+        <a href="#">
+            <div class="ui-el-treecontainernode-title" onclick="javascript:ui_showhide('${select('@id')}');ajaxNoUpdate('/handle/treecontainer/click/${select('@id')}');ui_treeicon('${select('@id')}-btn');return false">
+                <div class="ui-el-treecontainernode-button">
+                    <img id="${select('@id')}-btn" src="/dl/core/ui/tree-${'minus' if str(select('@expanded'))=='True' else 'plus'}.png" />
+                </div>
+                ${select('@text')}
+            </div>
+        </a>
         <div class="ui-el-treecontainernode-inner" id="${select('@id')}" style="${'display:none;' if str(select('@expanded'))!='True' else None}">
             ${select('node()')}
         </div>
@@ -341,9 +342,11 @@
 </py:match>
 
 <py:match path="treecontainernode">
+    <div class="ui-el-treecontainernode-title">
         <div class="ui-el-treecontainernode-inner">
             ${select('node()')}
         </div>
+    </div>
 </py:match>
 
 
