@@ -12,7 +12,6 @@ class UsersPlugin(CategoryPlugin):
 
     text = 'Users'
     icon = '/dl/users/icon.png'
-    platform = ['Debian', 'Ubuntu']
 
     params = {
             'login': 'Login',

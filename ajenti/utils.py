@@ -5,6 +5,9 @@ def dequote(s):
     s = str(s).replace('[br]', '\n').replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
     return s
 
+def fix_unicode(s):
+    return s.encode('utf-8', 'xmlcharref')
+    
 def detect_platform():
     if platform.system() != 'Linux':
         return platform.system().lower()
