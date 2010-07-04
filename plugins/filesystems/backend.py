@@ -1,3 +1,7 @@
+from ajenti.utils import *
+import re
+import os
+
 class Entry:
     def __new__(self):
         self.src = ''
@@ -17,12 +21,15 @@ def read():
             try:
                 s = s.split()
                 e = Entry()
-                e.src = s[0]
-                e.dst = s[1]
-                e.fs_type = s[2]
-                e.options = s[3]
-                e.dump_p = int(s[4])
-                e.fsck_p = int(s[5])
+                try:
+                    e.src = s[0]
+                    e.dst = s[1]
+                    e.fs_type = s[2]
+                    e.options = s[3]
+                    e.dump_p = int(s[4])
+                    e.fsck_p = int(s[5])
+                except:
+                    pass
                 r.append(e)
             except:
                 pass
@@ -36,3 +43,26 @@ def save(ee):
     with open('/etc/fstab', 'w') as f:
         f.write(d)
            
+def list_disks():
+    r = []
+    for s in os.listdir('/dev'):
+        if re.match('sd.$|hd.$|scd.$|fd.$', s):
+            r.append('/dev/' + s)
+    return sorted(r)
+
+def list_partitions():
+    r = []
+    for s in os.listdir('/dev'):
+        if re.match('sd..$|hd..$|scd.$|fd.$', s):
+            r.append('/dev/' + s)
+    return sorted(r)
+               
+def get_disk_vendor(d):
+    return ' '.join(shell('hdparm -I ' + d + ' | grep Model').split()[3:])
+    
+def get_partition_uuid_by_name(p):
+    return shell('blkid -o value -s UUID ' + p).split('\n')[0]
+    
+def get_partition_name_by_uuid(u):
+    return shell('blkid -U ' + u)
+    

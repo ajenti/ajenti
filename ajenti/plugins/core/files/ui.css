@@ -3,10 +3,13 @@
 	padding: 0px;
 	text-align: left;
 	vertical-align: top;
-	border: none;
 	text-decoration: none;
 	font-family: Droid Sans, Tahoma, sans-serif;
 	outline: none;
+}
+
+a, img {
+	border: none;
 }
 
 html {
