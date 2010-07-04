@@ -1,0 +1,4 @@
+pkg filesystems
+desc Filesystem management plugin
+ver 0.1
+
