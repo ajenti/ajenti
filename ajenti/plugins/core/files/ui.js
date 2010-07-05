@@ -57,5 +57,9 @@ function ui_tabswitch(pid, id) {
 
 function noenter()
 {
-  return !(window.event && window.event.keyCode == 13);
+    return !(window.event && window.event.keyCode == 13);
+}
+
+function ui_fill_custom_html(id, html) {
+    document.getElementById(id).innerHTML = Base64.decode(html)
 }

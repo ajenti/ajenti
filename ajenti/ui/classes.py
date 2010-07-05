@@ -1,4 +1,5 @@
 import random
+import base64
 import xml.dom.minidom as dom
 
 
@@ -55,6 +56,19 @@ class UI(object):
         >>>
         """
         return Element(name.lower(), *args, **kwargs)
+
+
+    @staticmethod
+    def CustomHTML(*args, **kwargs):
+        class CustomHTML(Element):
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'customhtml', [], **kwargs)
+                self.elements = []
+                for e in args:
+                    self['html'] = base64.b64encode(str(e))
+                    
+        return CustomHTML(*args, **kwargs)
+
 
     @staticmethod
     def VContainer(*args, **kwargs):

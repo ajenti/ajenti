@@ -76,7 +76,8 @@ class BeeperPlugin(CategoryPlugin):
                             UI.SortListItem(UI.Label(text='Delta'), id='d'),
                             id='list'
                         )
-                    )
+                    ),
+                    UI.CustomHTML('<b>Hello</b> <i>HTML!</i>')
                 ),
                 title="Test Dialog", id="testDialog"
             )

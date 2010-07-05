@@ -4,6 +4,17 @@
          py:strip="" >
 
 
+
+
+<!--! Custom HTML widget -->
+<py:match path="customhtml">
+    <div id="${select('@id')}" />
+    <script>
+         ui_fill_custom_html('${select('@id')}', '${select('@html')}');
+    </script>
+</py:match>
+
+
 <!--! Top logo widget -->
 <py:match path="topbar">
     <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
