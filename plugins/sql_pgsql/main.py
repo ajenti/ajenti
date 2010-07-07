@@ -12,7 +12,7 @@ class MySQLDBBackend(Plugin):
     cur = None
     
     def connect(self, host, login, password, db):
-    	DSN = 'user=%s pass=%s host=%s base=%s' % ( login, password, host, db )
+    	DSN = 'user=%s password=%s host=%s base=%s' % ( login, password, host, db )
     	print DSN
     	self.conn = psycopg2.connect(DSN)
         #self.conn = MySQLdb.connect(host=host, user=login, passwd=password, db=db)
