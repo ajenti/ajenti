@@ -6,7 +6,7 @@ import psycopg2
 class MySQLDBBackend(Plugin):
     implements(apis.sql.IDBBackend)
 
-    name = 'MySQL'
+    name = 'Postgres (throughout psycopg2)'
 
     conn = None
     cur = None
