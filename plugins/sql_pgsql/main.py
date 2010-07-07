@@ -3,7 +3,7 @@ from ajenti import apis
 
 import psycopg2
 
-class MySQLDBBackend(Plugin):
+class PgSQLDBBackend(Plugin):
     implements(apis.sql.IDBBackend)
 
     name = 'Postgres (throughout psycopg2)'
