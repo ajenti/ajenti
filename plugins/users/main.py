@@ -49,7 +49,7 @@ class UsersPlugin(CategoryPlugin):
         tc.add('Groups', self.get_ui_groups())
         
         if self._editing != '':
-            tc = UI.Container(tc, self.get_ui_edit(self.params[self._editing]))
+            tc = UI.Container(tc, UI.InputBox(title=self.params[self._editing], id='dlgEdit'))
         return tc
 
     def get_ui_users(self):
@@ -185,15 +185,6 @@ class UsersPlugin(CategoryPlugin):
               )
         return dlg
 
-    def get_ui_edit(self, t):
-        return UI.DialogBox(
-                UI.HContainer(
-                    UI.Label(text=t+':'),
-                    UI.TextInput(name='value')
-                ),
-                title='Edit',
-                id='dlgEdit'
-               ) 
     @event('minibutton/click')
     @event('button/click')
     def on_click(self, event, params, vars=None):

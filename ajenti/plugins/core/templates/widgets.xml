@@ -160,6 +160,34 @@
     </script>
 </py:match>
 
+<!--! InputBox widget -->
+
+<py:match path="inputbox">
+    <div class="ui-el-modal-blackout" />
+    <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
+        <form action="/handle/dialog/submit/${select('@id')}" name="${select('@id')}" id="${select('@id')}">
+            <div class="ui-el-dialog" width="${select('@width')}" height="${select('@height')}">
+                <div class="ui-el-dialog-title"><label text="${select('@title')}" size="2" /></div>
+                <div class="ui-el-dialog-content">
+                    <vcontainer>
+                        <vnode><spacer height="10" /></vnode>
+                        <vnode><label text="${select('@text')}"/></vnode>
+                        <vnode><textinput name="value" value="${select('@value')}" text="${select('@text')}"/></vnode>
+                    </vcontainer>
+                    <div class="ui-el-modal-buttons">
+                        <hcontainer>
+                            <hnode><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
+                            <hnode><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                        </hcontainer>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        ui_center('${select('@id')}-wr');
+    </script>
+</py:match>
 
 <!--! Container widget -->
 <py:match path="container">
