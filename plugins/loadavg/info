@@ -1,0 +1,4 @@
+pkg loadavg
+desc System stats dashboard widget
+ver 0.1
+

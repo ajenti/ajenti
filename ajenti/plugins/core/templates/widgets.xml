@@ -434,4 +434,12 @@
     </script>
 </py:match>
 
+
+<!--! Progress bar -->
+<py:match path="progressbar">
+    <table cellspacing="0" cellpadding="0">
+        <tr><td style="width:${int(str(select('@width'))) * int(str(select('@value'))) / int(str(select('@max')))}px" class="ui-el-progressbar-active"/>
+        <td style="width:${int(str(select('@width'))) - int(str(select('@width'))) * int(str(select('@value'))) / int(str(select('@max')))}px" class="ui-el-progressbar"/></tr>
+    </table>
+</py:match>
 </widgets>

@@ -89,14 +89,12 @@ a {
 
 .ui-el-button:hover .left {
 	background: url('/dl/core/ui/button-hover.png') no-repeat left;
-	color: #fff; 
-    text-shadow: -1px -1px #d3a158;
+	color: #222; 
 }
 
 .ui-el-button:active .left {
 	background: url('/dl/core/ui/button-pressed.png') no-repeat left;
-	color: #fff; 
-    text-shadow: -1px -1px #d3a158;
+	color: #000; 
 }
 
 .ui-el-button:hover .right {
@@ -107,6 +105,16 @@ a {
 	height: 23px;
 
 	background: url('/dl/core/ui/button-hover.png') no-repeat right;
+}
+
+.ui-el-button:active .right {
+	display: block;	
+	float: right;
+
+	width: 3px;
+	height: 23px;
+
+	background: url('/dl/core/ui/button-pressed.png') no-repeat right;
 }
 
 
@@ -143,14 +151,12 @@ a {
 
 .ui-el-minibutton:hover .left {
 	background: url('/dl/core/ui/button-hover.png') no-repeat left;
-	color: #fff; 
-    text-shadow: -1px -1px #d3a158;
+	color: #222; 
 }
 
 .ui-el-minibutton:active .left {
 	background: url('/dl/core/ui/button-pressed.png') no-repeat left;
-	color: #fff; 
-    text-shadow: -1px -1px #d3a158;
+	color: #000; 
 }
 
 .ui-el-minibutton:hover .right {
@@ -161,6 +167,16 @@ a {
 	height: 23px;
 
 	background: url('/dl/core/ui/button-hover.png') no-repeat right;
+}
+
+.ui-el-minibutton:active .right {
+	display: block;	
+	float: right;
+
+	width: 3px;
+	height: 23px;
+
+	background: url('/dl/core/ui/button-pressed.png') no-repeat right;
 }
 
 /* Input */
@@ -544,3 +560,25 @@ a {
     left: 0px;
     top: -25px;
 }
+
+
+/* ProgressBar */
+.ui-el-progressbar {
+    height: 16px;
+    background: url('/dl/core/ui/progressbar.png') right;
+}
+
+.ui-el-progressbar-active {
+    height: 16px;
+    background: url('/dl/core/ui/progressbar-active.png') left;
+    min-width: 1px;
+}
+
+.ui-el-progressbar-text {
+    position:relative;
+    height: 0px;
+    top: 2px;
+    text-align: center;
+    min-width: 1px;
+}
+

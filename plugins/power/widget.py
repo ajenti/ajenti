@@ -9,6 +9,7 @@ class PowerWidget(Plugin):
     
     def get_ui(self):
         w = UI.Widget(
+                UI.Image(file='/dl/power/widget.png'),
                 UI.Label(text='Uptime:', bold=True),
                 UI.Label(text=get_uptime())
             )
