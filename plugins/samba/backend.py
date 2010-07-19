@@ -56,13 +56,7 @@ class SambaConfig:
         return self.defaults.copy()
         
     def set_param(self, share, param, value):
-        if value != self.defaults[param]:
-            self.shares[share][param] = value
-        else:
-            try:
-                self.shares[share].pop(param)
-            except:
-                pass
+        self.shares[share][param] = value
                 
     def set_param_from_vars(self, share, param, vars):
         value = vars.getvalue(param, self.defaults[param])

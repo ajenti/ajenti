@@ -47,28 +47,35 @@ class SambaPlugin(CategoryPlugin):
                     UI.Label(text=self._cfg.shares[h]['path']),
                     UI.DataTableCell(
                         UI.HContainer(
-                            UI.MiniButton(text='Edit', id='edit/' + h)
+                            UI.MiniButton(text='Edit', id='editshare/' + h),
+                            UI.WarningMiniButton(text='Delete', id='delshare/' + h)
                         ),
                         hidden=True
                     )
                 )
             th.appendChild(r)
         
+        th = UI.VContainer(th, UI.Button(text='Add new share', id='newshare'))
+        
         if not self._editing_share is None:
-            th = UI.Container(
-                    th, 
-                    self.get_ui_edit_share(
-                        self._cfg.shares[self._editing_share]
-                    )
-                 )
+            if self._editing_share == '':
+                th.vnode(self.get_ui_edit_share())
+            else:
+                th.vnode(self.get_ui_edit_share(
+                            self._cfg.shares[self._editing_share]
+                        ))
         return th
         
     def get_ui_edit_share(self, s=None):
-        if s is None:
+        if s is None or s == '':
             s = self._cfg.new_share()
             
         dlg = UI.DialogBox(
                   UI.LayoutTable(
+                      UI.LayoutTableRow(
+                          UI.Label(text='Name:'),
+                          UI.TextInput(name='name', value='new')
+                      ) if self._editing_share == '' else None,
                       UI.LayoutTableRow(
                           UI.Label(text='Path:'),
                           UI.TextInput(name='path', value=s['path'])
@@ -118,8 +125,13 @@ class SambaPlugin(CategoryPlugin):
     def on_click(self, event, params, vars=None):
         if params[0] == 'restart':
             backend.restart()
-        if params[0] == 'edit':
+        if params[0] == 'editshare':
             self._editing_share = params[1]
+        if params[0] == 'delshare':
+            self._cfg.shares.pop(params[1])
+            self._cfg.save()
+        if params[0] == 'newshare':
+            self._editing_share = ''
        
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
@@ -127,6 +139,10 @@ class SambaPlugin(CategoryPlugin):
             v = vars.getvalue('value', '')
             if vars.getvalue('action', '') == 'OK':
                 es = self._editing_share
+                if es == '': 
+                    es = vars.getvalue('name', 'new')
+                    self._cfg.shares[es] = self._cfg.new_share()
+                    
                 self._cfg.set_param_from_vars(es, 'path', vars)
                 self._cfg.set_param_from_vars(es, 'valid users', vars)
                 self._cfg.set_param_from_vars_yn(es, 'available', vars)
