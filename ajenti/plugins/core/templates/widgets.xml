@@ -251,9 +251,25 @@
     </py:choose>
 </py:match>
 
+<!--! WarningButton widget -->
+<py:match path="warningbutton">
+    <py:choose test="">
+        <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/${select('@id')}');">
+            <div class="ui-el-button"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+        </a>
+    </py:choose>
+</py:match>
+
 <!--! MiniButton widget -->
 <py:match path="minibutton">
     <a href="#" onclick="javascript:return ajax('/handle/minibutton/click/${select('@id')}');">
+        <div class="ui-el-minibutton"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+    </a>
+</py:match>
+
+<!--! WarningMiniButton widget -->
+<py:match path="warningminibutton">
+    <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/minibutton/click/${select('@id')}');">
         <div class="ui-el-minibutton"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
     </a>
 </py:match>

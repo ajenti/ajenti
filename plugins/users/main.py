@@ -117,7 +117,7 @@ class UsersPlugin(CategoryPlugin):
                     ),
                     UI.LayoutTableRow(
                         UI.Label(),
-                        UI.Button(text='Delete user', id='deluser')
+                        UI.WarningButton(text='Delete user', id='deluser')
                     ),
                     UI.LayoutTableRow(
                         UI.Label(text='UID: '+ str(u.uid)),
@@ -163,7 +163,7 @@ class UsersPlugin(CategoryPlugin):
                     ),
                     UI.LayoutTableRow(
                         UI.Label(),
-                        UI.Button(text='Delete group', id='delgroup')
+                        UI.WarningButton(text='Delete group', id='delgroup')
                     ),
                     UI.LayoutTableRow(
                         UI.Label(text='GID: ' + str(u.gid)),

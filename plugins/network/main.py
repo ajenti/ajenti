@@ -36,7 +36,7 @@ class NetworkPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='Class'), width="100px"),
                 UI.DataTableCell(UI.Label(text='Address'), width="100px"),
                 UI.DataTableCell(UI.Label(text='Status'), width="100px"),
-                UI.DataTableCell(UI.Label(text=''), width="140px"),
+                UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
         ti.appendChild(hr)
@@ -51,7 +51,7 @@ class NetworkPlugin(CategoryPlugin):
                             UI.DataTableCell(
                                 UI.HContainer(
                                     UI.MiniButton(text='Edit', id='editiface/' + i.name),
-                                    UI.MiniButton(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name))
+                                    UI.WarningMiniButton(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name))
                                 ),
                                 hidden=True
                             )

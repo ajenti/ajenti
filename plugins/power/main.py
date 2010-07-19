@@ -30,8 +30,8 @@ class PowerPlugin(CategoryPlugin):
                 UI.ErrorBox(title='Dangerous area', text='These actions cannot be cancelled. Be careful when using them remotely.'),
                 UI.Spacer(height=20),
                 UI.HContainer(
-                    UI.Button(text='Shutdown', id='shutdown'),
-                    UI.Button(text='Reboot', id='reboot')
+                    UI.WarningButton(text='Shutdown', id='shutdown'),
+                    UI.WarningButton(text='Reboot', id='reboot')
                 )
             )
         panel.appendChild(c)

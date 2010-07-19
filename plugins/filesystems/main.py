@@ -47,7 +47,7 @@ class FSPlugin(CategoryPlugin):
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(id='edit/'+str(self.fstab.index(u)), text='Edit'),
-                            UI.MiniButton(id='del/'+str(self.fstab.index(u)), text='Delete')
+                            UI.WarningMiniButton(id='del/'+str(self.fstab.index(u)), text='Delete')
                         ),
                         hidden=True
                     )
