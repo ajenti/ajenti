@@ -1,4 +1,5 @@
 from ajenti.utils import *
+import os
 
 def restart():
     shell('service smbd restart')
@@ -7,6 +8,7 @@ def restart():
 class SambaConfig:
     shares = {}
     general = {}
+    users = {}
     
     defaults = {
         'available': 'yes',
@@ -17,6 +19,20 @@ class SambaConfig:
         'guest ok': 'yes',
         'guest only': 'no'
     }
+    
+    editable = {
+        'Account Flags': '-c',
+        'User SID': '-U',
+        'Primary Group SID': '-G',
+        'Full Name': '-f',
+        'Home Directory': '-h',
+        'HomeDir Drive': '-D',
+        'Logon Script': '-S',
+        'Profile Path': '-p',
+        'Kickoff time': '-K'
+    }
+    
+    fields = []
     
     def load(self):
         self.shares = {}
@@ -37,7 +53,18 @@ class SambaConfig:
 
         self.general = self.shares['global']
         self.shares.pop('global')
+
+        self.users = {}
+        ss = [s.split(',')[0].split(':')[0] for s in shell('pdbedit -L').split('\n')]
+        for s in ss:
+            x = shell('pdbedit -L -v -u ' + s).split('\n')
+            self.users[s] = {}
+            self.fields = []
+            for l in x:
+                self.fields.append(l.split(':')[0])
+                self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
             
+                        
     def save(self):
         with open('/etc/samba/smb.conf', 'w') as f:
             f.write('[global]\n')
@@ -48,7 +75,19 @@ class SambaConfig:
                 for k in self.shares[s]:    
                     if not k in self.defaults or self.shares[s][k] != self.defaults[k]:
                         f.write('%s = %s\n' % (k,self.shares[s][k]))
-                                  
+    
+    def modify_user(self, u, p, v):
+        shell('pdbedit -r -u %s %s "%s"' % (u,self.editable[p],v))
+                 
+    def del_user(self, u):
+        shell('pdbedit -x -u ' + u)
+                        
+    def add_user(self, u):
+        with open('/tmp/pdbeditnn', 'w') as f:
+            f.write('\n\n\n')
+        shell('pdbedit -a -t -u ' + u + ' < /tmp/pdbeditnn')
+        os.unlink('/tmp/pdbeditnn')
+                                        
     def get_shares(self):
         return self.shares.keys()                                          
         

@@ -172,7 +172,7 @@
                     <vcontainer>
                         <vnode><spacer height="10" /></vnode>
                         <vnode><label text="${select('@text')}"/></vnode>
-                        <vnode><textinput name="value" value="${select('@value')}" text="${select('@text')}"/></vnode>
+                        <vnode><textinput name="value" value="${select('@value')}"/></vnode>
                     </vcontainer>
                     <div class="ui-el-modal-buttons">
                         <hcontainer>
