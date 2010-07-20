@@ -2,7 +2,7 @@ import re
 
 from ajenti.ui import UI
 from ajenti.com import *
-
+from ajenti import version
 from ajenti.app.api import ICategoryProvider, IContentProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.helpers import EventProcessor, event
@@ -32,8 +32,14 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
                 v.vnode(UI.Category(c.category, id=c.get_name()))
 
         templ.appendChildInto('leftplaceholder', v)
-
         templ.appendChildInto('rightplaceholder', cat.get_ui())
+        templ.appendChildInto('version', UI.Label(text='Ajenti '+version))
+        templ.appendChildInto('links', 
+            UI.HContainer(
+                UI.OutLinkLabel(text='About', url='http://wiki.github.com/Eugeny/ajenti/'),
+                UI.OutLinkLabel(text='License', url='http://eugeny.github.com/ajenti/license/')
+            ))
+            
 
         return templ
 

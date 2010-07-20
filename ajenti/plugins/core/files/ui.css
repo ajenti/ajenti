@@ -223,6 +223,12 @@ a {
 	margin-right: 3px;
 }
 
+.ui-el-link:hover {
+	color: #444;
+	border-bottom: 1px dashed #888;
+	margin-left: 3px;
+	margin-right: 3px;
+}
 
 
 /* Image */
@@ -262,6 +268,14 @@ a {
 .ui-el-mainwindow-top {
 	width: 100%;
 	height: 37px;
+}
+
+.ui-el-mainwindow-bottom {
+	width: 90%;
+	height: 30px;
+	float: left;
+	position: absolute;
+	bottom: 0;
 }
 
 /* PluginPanel */
@@ -318,6 +332,42 @@ a {
 	height: 37px;
 	width: 6px;
 }
+
+/* Bottom bar */
+.ui-el-bottombar {
+    width: 70%;
+    margin: auto;
+    height: 30px;
+}
+
+.ui-el-bottombar-l {
+    width: 6px;
+    height: 20px;
+	background: url('/dl/core/ui/bottombar-l.png');
+}
+
+.ui-el-bottombar-c {
+	background: url('/dl/core/ui/bottombar.png') repeat-x;
+    width: auto;
+	height: 30px;
+	line-height: 28px;
+	padding-left: 8	px;
+}
+
+.ui-el-bottombar-c-2 {
+	background: url('/dl/core/ui/bottombar.png') repeat-x;
+    width: 100px;
+	height: 30px;
+	text-align: right;
+	line-height: 28px;
+}
+
+.ui-el-bottombar-r {
+	background: url('/dl/core/ui/bottombar-r.png');
+	height: 30px;
+	width: 6px;
+}
+
 
 /* Category */
 .ui-el-category {

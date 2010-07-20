@@ -3,12 +3,37 @@
      xmlns:xi="http://www.w3.org/2001/XInclude"
      py:strip="" >
 	    <div class="ui-el-mainwindow-top">
-            <topbar />
+            <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ui-el-topbar-l" />
+                    <td class="ui-el-topbar-c"> 
+                        <img src="/dl/core/ui/logo.png" />
+                    </td>
+                    <td class="ui-el-topbar-ldr">
+                        <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+                    </td>
+                    <td class="ui-el-topbar-r" />
+                </tr>
+            </table>
         </div>
 		<div class="ui-el-mainwindow-left">
             <leftplaceholder py:strip="" />
         </div>
 		<div class="ui-el-mainwindow-right">
             <rightplaceholder py:strip="" />
+        </div>
+        <div class="ui-el-mainwindow-bottom">
+            <table class="ui-el-bottombar" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ui-el-bottombar-l" />
+                    <td class="ui-el-bottombar-c"> 
+                        <version py:strip="" />
+                    </td>
+                    <td class="ui-el-bottombar-c-2"> 
+                        <links py:strip="" />
+                    </td>
+                    <td class="ui-el-bottombar-r" />
+                </tr>
+            </table>
         </div>
 </xml>

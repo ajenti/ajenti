@@ -31,6 +31,7 @@ run('mkdir tmp/etc/ajenti -p')
 run('mkdir tmp/etc/init.d/ -p')
 
 run('cp -r ../ajenti/* tmp/usr/share/ajenti/ajenti/')
+run('echo "version = \'%s\'\n" > tmp/usr/share/ajenti/ajenti/__init__.py' % version)
 run('cp ../serve.py tmp/usr/share/ajenti/')
 run('cp ../server.pem tmp/usr/share/ajenti/')
 run('cp files/ajenti.conf tmp/etc/ajenti/')

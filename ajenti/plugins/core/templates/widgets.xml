@@ -15,23 +15,6 @@
 </py:match>
 
 
-<!--! Top logo widget -->
-<py:match path="topbar">
-    <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
-        <tr>
-            <td class="ui-el-topbar-l" />
-            <td class="ui-el-topbar-c"> 
-                <img src="/dl/core/ui/logo.png" />
-            </td>
-            <td class="ui-el-topbar-ldr">
-                <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
-            </td>
-            <td class="ui-el-topbar-r" />
-        </tr>
-    </table>
-</py:match>
-
-
 <!--! ErrorBox widget -->
 <py:match path="errorbox">
     <div class="ui-el-error" width="${select('@width')}" height="${select('@height')}">
@@ -278,6 +261,16 @@
 <!--! LinkLabel widget -->
 <py:match path="linklabel">
     <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/${select('@id')}');">
+        <span class="ui-el-link">
+            ${select('@text')}
+        </span>
+    </a>
+</py:match>
+
+
+<!--! OutLinkLabel widget -->
+<py:match path="outlinklabel">
+    <a href="${select('@url')}" target="blank">
         <span class="ui-el-link">
             ${select('@text')}
         </span>
