@@ -1,6 +1,9 @@
 from ajenti.utils import *
 import os
 
+def is_installed():
+    return os.path.exists('/etc/samba/')
+
 def restart():
     shell('service smbd restart')
     shell('service samba restart') # older samba packages
@@ -57,13 +60,15 @@ class SambaConfig:
         self.users = {}
         ss = [s.split(',')[0].split(':')[0] for s in shell('pdbedit -L').split('\n')]
         for s in ss:
-            x = shell('pdbedit -L -v -u ' + s).split('\n')
-            self.users[s] = {}
-            self.fields = []
-            for l in x:
-                self.fields.append(l.split(':')[0])
-                self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
-            
+            try:
+                x = shell('pdbedit -L -v -u ' + s).split('\n')
+                self.users[s] = {}
+                self.fields = []
+                for l in x:
+                    self.fields.append(l.split(':')[0])
+                    self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
+            except:
+                pass        
                         
     def save(self):
         with open('/etc/samba/smb.conf', 'w') as f:

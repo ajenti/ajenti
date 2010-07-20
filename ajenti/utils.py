@@ -22,7 +22,7 @@ def detect_platform():
     if dist == '':
         dist='unknown'
 
-    return dist
+    return dist.strip()
 
 def detect_distro():
     s, r = commands.getstatusoutput('lsb_release -sd')
@@ -35,4 +35,4 @@ def shell(c):
 
 def shell_status(c):
     return commands.getstatusoutput(c)[0]
-    
+

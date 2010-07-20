@@ -17,7 +17,8 @@ class SambaPlugin(CategoryPlugin):
     def on_session_start(self):
         self._tab = 0
         self._cfg = backend.SambaConfig()
-        self._cfg.load()
+        if backend.is_installed():
+            self._cfg.load()
         self._editing_share = None
         self._editing_user = None
         self._editing = None
@@ -26,7 +27,10 @@ class SambaPlugin(CategoryPlugin):
     def get_ui(self):
         panel = UI.PluginPanel(UI.Button(text='Apply config', id='restart'), title='Samba', icon='/dl/samba/icon.png')
 
-        panel.appendChild(self.get_default_ui())        
+        if not backend.is_installed():
+            panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Samba is not installed')))
+        else:
+            panel.appendChild(self.get_default_ui())        
 
         return panel
 
