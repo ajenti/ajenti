@@ -1,0 +1,11 @@
+.ui-el-widget {
+    background: #ececee;
+    text-align: left;
+    vertical-align: top;
+    padding: 4px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}

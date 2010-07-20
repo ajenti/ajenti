@@ -1,0 +1,6 @@
+pkg packages-apt
+desc APT backend for package management plugin
+dep apt
+dep dpkg
+ver 0.1
+

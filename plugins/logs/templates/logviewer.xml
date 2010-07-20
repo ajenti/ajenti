@@ -1,0 +1,23 @@
+<widgets xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:py="http://genshi.edgewall.org/"
+         py:strip="" >
+
+
+<py:match path="logviewer">
+    <div class="ui-el-logviewer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
+        <table cellspacing="0" cellpadding="0">
+            ${select('node()')}
+        </table>
+    </div>
+</py:match>
+
+<py:match path="logviewerline">
+    <tr>
+        <td class="ui-el-logviewer-line">
+            ${select('@text')}
+        </td>
+    </tr>
+</py:match>
+
+</widgets>

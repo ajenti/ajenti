@@ -1,0 +1,14 @@
+<xml xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:py="http://genshi.edgewall.org/"
+     xmlns:xi="http://www.w3.org/2001/XInclude"
+     py:strip="" >
+	    <div class="ui-el-mainwindow-top">
+            <topbar />
+        </div>
+		<div class="ui-el-mainwindow-left">
+            <leftplaceholder py:strip="" />
+        </div>
+		<div class="ui-el-mainwindow-right">
+            <rightplaceholder py:strip="" />
+        </div>
+</xml>
