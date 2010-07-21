@@ -132,10 +132,10 @@ class ConfigPlugin(CategoryPlugin):
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'adduser':
-            self._tab = 1
+            self._tab = 2
             self._adding_user = True
         if params[0] == 'deluser':
-            self._tab = 1
+            self._tab = 2
             self.config.remove_option('users', params[1])
             self.config.save()
             
@@ -180,3 +180,4 @@ class ConfigPlugin(CategoryPlugin):
                         else:
                             self.config.set('categories', k, '0')
                 self.config.save()
+                

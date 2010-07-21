@@ -33,5 +33,5 @@ class LinuxBasicNetworkConfigSet(NetworkConfigBit):
 
     def apply(self, vars):
         self.iface.mode = vars.getvalue('mode', '')
-        self.iface.auto = (vars.getvalue('auto', 'off') == 'on')
-        self.iface.hotplug = (vars.getvalue('hotplug', 'off') == 'on')
+        self.iface.auto = (vars.getvalue('auto', 'off') == '1')
+        self.iface.hotplug = (vars.getvalue('hotplug', 'off') == '1')
