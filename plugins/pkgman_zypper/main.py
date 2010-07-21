@@ -35,7 +35,7 @@ class ZypperPackageManager(Plugin):
         subprocess.Popen(['bash', '-c', cmd])
 
     def search(self, q):
-        return self._parse_zypp(shell('zypper -A search %s' % q).splitlines())
+        return self._parse_zypp(shell('zypper -An search %s' % q).splitlines())
 
     def mark_install(self, st, name):
         st.pending[name] = 'install'
@@ -50,14 +50,14 @@ class ZypperPackageManager(Plugin):
         self._save_pending(st.pending)
 
     def apply(self, st):
-        cmd = 'apt-get -y install ' #!
+        cmd = 'zypper -n install ' #!
         for x in st.pending:
-            cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
+            cmd += (' ' if st.pending[x] == 'install' else ' -') + x
         cmd += ' > /tmp/ajenti-zypper-output; rm -f /tmp/ajenti-zypper-output &'
         subprocess.Popen(['bash', '-c', cmd])
 
     def is_busy(self):
-        if shell_status('pgrep apt-get') != 0: return False
+        if shell_status('pgrep zypper') != 0: return False
         return os.path.exists('/tmp/ajenti-zypper-output')
 
     def get_busy_status(self):
@@ -67,16 +67,7 @@ class ZypperPackageManager(Plugin):
             return ''
 
     def get_expected_result(self, st):
-        cmd = 'apt-get -qq -s install ' #!
-        for x in st.pending:
-            cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
-        r = self._parse_apt(shell(cmd).splitlines())
-        for x in r:
-            if r[x].action == 'installed':
-                r[x] = 'install'
-            else:
-                r[x] = 'remove'
-        return r
+        return st.pending
 
     def _save_pending(self, p):
         f = open('/tmp/ajenti-zypper-pending.list', 'w')
@@ -116,6 +107,6 @@ class ZypperPackageManager(Plugin):
         return r
 
     def _get_all(self):
-        ss = shell('zypper -A search \'*\'').splitlines()
+        ss = shell('zypper -An search \'*\'').splitlines()
         return self._parse_zypp(ss)
         
