@@ -180,3 +180,4 @@ class ConfigPlugin(CategoryPlugin):
                         else:
                             self.config.set('categories', k, '0')
                 self.config.save()
+                
