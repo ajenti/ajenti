@@ -1,4 +1,4 @@
-import commands
+import subprocess
 import platform
 
 def dequote(s):
@@ -22,17 +22,20 @@ def detect_platform():
     if dist == '':
         dist='unknown'
 
-    return dist
+    return dist.strip()
 
 def detect_distro():
-    s, r = commands.getstatusoutput('lsb_release -sd')
-    if s == 0: return r
-    s, r = commands.getstatusoutput('uname -mrs')
-    return r
+    if shell_status('lsb_release -sd') == 0:
+        return shell('lsb_release -sd')
+    return shell('uname -mrs')
 
 def shell(c):
-    return commands.getstatusoutput(c)[1]
+    p = subprocess.Popen(c, shell=True, 
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE)
+    p.wait()
+    return p.stdout.read() + p.stderr.read()
 
 def shell_status(c):
-    return commands.getstatusoutput(c)[0]
+    return subprocess.Popen(c, shell=True).wait()
     
