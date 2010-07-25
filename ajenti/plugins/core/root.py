@@ -62,6 +62,12 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
         return templ.render()
 
+    @url('^/session_reset$')
+    def process_reset(self, req, start_response):
+        self.app.session.clear()
+        start_response('301 Moved Permanently', [('Location', '/')])
+        return ''
+
     @event('category/click')
     def handle_category(self, event, params, **kw):
         if not isinstance(params, list):

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude" >
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ajenti</title>
+    <link py:for="s in styles" href="${s}" rel="stylesheet" media="all" />
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+</head>
+
+<body id="main">
+<div style="width: 100%; height: 100%; margin:auto">
+    <div class="ui-el-error" style="width:400px; margin:auto; margin-top:50px;">
+        <div class="ui-el-error-title">
+            <label text="Oops" size="2" />
+        </div>
+        <div class="ui-el-error-content">
+           <img src="/dl/core/ui/warning.png" class="ui-el-error-icon" />
+           <label size="2" text="  Something bad happened"/><br/>
+           <div style="margin-left: 40px;">
+               <a href="#" onclick="javascript:document.getElementById('traceback').style.display='block';">
+                   <div class="ui-el-button"> <span class="left"> Traceback </span> <span class="right" /></div>
+               </a>
+               <a href="#" onclick="javascript:document.location.reload();">
+                   <div class="ui-el-button"> <span class="left"> Refresh </span> <span class="right" /></div>
+               </a>
+               <a href="#" onclick="javascript:document.location.href='/session_reset';">
+                   <div class="ui-el-button"> <span class="left"> New session </span> <span class="right" /></div>
+               </a>
+               <br/>
+               <div id="traceback" style="display:none">
+               <br/>
+                   <trace py:strip=""/>
+               </div>
+               <br/>
+           </div>
+        </div>    
+    </div>
+</div>    
+</body>
+
+</html>

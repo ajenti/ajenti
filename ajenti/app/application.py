@@ -6,6 +6,7 @@ import traceback
 
 from ajenti.com import *
 from ajenti.plugins import *
+from ajenti.error import *
 from ajenti.app.session import SessionStore, SessionManager
 from ajenti.app.auth import AuthManager
 from ajenti.app.api import IContentProvider
@@ -79,9 +80,7 @@ class Application (PluginManager, Plugin):
                     content = handler.url_handler(self.environ,
                                                   self.start_response)
                 except Exception, e:
-                    self.status = '500 Error'
-                    self.headers = [('Content-type', 'text/plain')]
-                    content = traceback.format_exc()
+                    content = format_error(self, traceback.format_exc())
                 finally:
                     break
 
