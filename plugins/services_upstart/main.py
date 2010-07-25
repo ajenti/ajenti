@@ -9,12 +9,13 @@ class UpstartServiceManager(Plugin):
     def list_all(self):
         r = []
         for s in shell('service --status-all').split('\n'):
-            ss = s.split()
-            if ss[1] != '?':
-                svc = apis.services.Service()
-                svc.name = ss[3]
-                svc.status = 'running' if ss[1] == '+' else 'stopped'            
-                r.append(svc)
+            if s != '':
+                ss = s.split()
+                if ss[1] != '?':
+                    svc = apis.services.Service()
+                    svc.name = ss[3]
+                    svc.status = 'running' if ss[1] == '+' else 'stopped'            
+                    r.append(svc)
                 
         return sorted(r, key=lambda s: s.name)
         
