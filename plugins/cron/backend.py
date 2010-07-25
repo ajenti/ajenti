@@ -9,3 +9,12 @@ class Task():
         self.month = ''
         self.dow = ''
         
+def read_crontab(user="root"):
+    tasks = []
+    try:
+        f = open("/var/spool/cron/crontab/root", "r")
+    except:
+        return None
+    f.readline()
+    for line in f.readlines():
+        pass
