@@ -1,6 +1,7 @@
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
+import os
 
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
@@ -8,14 +9,16 @@ class UpstartServiceManager(Plugin):
     
     def list_all(self):
         r = []
-        for s in shell('service --status-all').split('\n'):
-            if s != '':
-                ss = s.split()
-                if ss[1] != '?':
-                    svc = apis.services.Service()
-                    svc.name = ss[3]
-                    svc.status = 'running' if ss[1] == '+' else 'stopped'            
-                    r.append(svc)
+        for s in os.listdir('/etc/init'):
+            if len(s) > 5:
+                s = s[:-5]
+                svc = apis.services.Service()
+                svc.name = s
+                r.append(svc)
+                if 'start/running' in shell('service %s status' % s):
+                    svc.status = 'running'
+                else:
+                    svc.status = 'stopped'            
                 
         return sorted(r, key=lambda s: s.name)
         
