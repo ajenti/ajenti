@@ -1,5 +1,4 @@
 pkg sql
 desc SQL server management plugin
-dep ajenti-plugin-sql-mysql
-ver 0.1
+dep ajenti-plugin-sql-backend
 

@@ -1,5 +1,4 @@
 pkg services
 desc Services management plugin
-dep ajenti-plugin-services-upstart
-ver 0.1
+dep ajenti-plugin-services-backend
 

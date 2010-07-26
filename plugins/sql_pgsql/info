@@ -1,5 +1,5 @@
 pkg sql-pgsql
 desc PgSQL backend for SQL plugin
 dep python-psycopg2
-ver 0.1
+prov ajenti-plugin-sql-backend
 

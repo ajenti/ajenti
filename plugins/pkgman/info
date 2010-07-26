@@ -1,5 +1,4 @@
 pkg packages
 desc Package management plugin
-dep ajenti-plugin-packages-apt | ajenti-plugin-packages-yum | ajenti-plugin-packages-portages
-ver 0.1
+dep ajenti-plugin-packages-backend
 

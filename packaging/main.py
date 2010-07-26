@@ -48,6 +48,7 @@ for p in os.listdir('../plugins'):
         pkgname = ''
         ver = ''
         deps = []
+        provs = []
         desc = ''
         
         for s in ss:
@@ -59,6 +60,7 @@ for p in os.listdir('../plugins'):
                 if k == 'desc': desc = v
                 if k == 'ver': ver = v
                 if k == 'dep': deps.append(v)
+                if k == 'prov': provs.append(v)
             except:
                 pass
        
@@ -68,7 +70,7 @@ for p in os.listdir('../plugins'):
         run('mkdir tmp/usr/lib/ajenti/plugins/' + p + ' -p')
         run('cp -r ../plugins/' + p + '/* tmp/usr/lib/ajenti/plugins/' + p)
         run('rm tmp/usr/lib/ajenti/plugins/' + p + '/info')
-        pkg.build('tmp/', 'ajenti-plugin-' + pkgname, version, base_desc + desc, deps)
+        pkg.build('tmp/', 'ajenti-plugin-' + pkgname, version, base_desc + desc, deps, provs)
     except:
         print 'Skipping plugin ' + p + ': no info file'
 
