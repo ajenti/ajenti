@@ -1,6 +1,5 @@
-pkg packages-apt
-desc APT backend for package management plugin
-dep apt
-dep dpkg
-ver 0.1
+pkg packages-zypper
+desc Zypper backend for package management plugin
+dep zypper
+prov ajenti-plugin-packages-backend
 
