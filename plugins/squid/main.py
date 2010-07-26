@@ -16,7 +16,6 @@ class SquidPlugin(CategoryPlugin):
 
     text = 'Squid'
     icon = '/dl/squid/icon.png'
-    platform = ['Debian', 'Ubuntu']
                 
     def on_session_start(self):
         if not is_installed(): return

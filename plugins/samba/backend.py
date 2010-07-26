@@ -1,6 +1,9 @@
 from ajenti.utils import *
 import os
 
+def is_installed():
+    return os.path.exists('/etc/samba/')
+
 def restart():
     shell('service smbd restart')
     shell('service samba restart') # older samba packages

@@ -28,12 +28,11 @@ class PackageManagerPlugin(CategoryPlugin):
         if self._need_refresh:
             self._need_refresh = False
             self.mgr.refresh(self._status)
-
+ 
         if self._in_progress and not self.mgr.is_busy():
             self.mgr.refresh(self._status)
             self._status.pending = {}
         self._in_progress = self.mgr.is_busy()
-
 
         ctl = UI.HContainer(
                 UI.Button(text='Refresh', id='refresh'),
@@ -52,7 +51,7 @@ class PackageManagerPlugin(CategoryPlugin):
 
         pnl = UI.Container(tabs)
         
-        if self._config_apply:
+        if self._confirm_apply:
             res = UI.DataTable()
             if self._confirm_apply:
                 r = self.mgr.get_expected_result(self._status)
@@ -221,6 +220,7 @@ class PackageManagerPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 self.mgr.apply(self._status)
                 self._in_progress = True
+                self._status.pending = {}
         if params[0] == 'frmSearch':
             self._tab = 1
             if vars.getvalue('query','') != '':

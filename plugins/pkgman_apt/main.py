@@ -34,7 +34,7 @@ class APTPackageManager(Plugin):
         except:
             pass
 
-        st.list = self._get_all()
+        st.list = a
 
     def get_lists(self):
         cmd = 'apt-get update > /tmp/ajenti-apt-output; rm -f /tmp/ajenti-apt-output &'
@@ -46,7 +46,7 @@ class APTPackageManager(Plugin):
         r = {}
         for s in ss:
             s = s.split()
-            r[s[0]] = Package()
+            r[s[0]] = apis.pkgman.Package()
             r[s[0]].name = s[0]
             r[s[0]].description = ' '.join(s[2:])
             r[s[0]].state = 'removed'
@@ -107,12 +107,12 @@ class APTPackageManager(Plugin):
             s = s.split()
             try:
                 if s[0] == 'Inst':
-                    r[s[1]] = Package()
+                    r[s[1]] = apis.pkgman.Package()
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
                     r[s[1]].action = 'installed'
                 if s[0] == 'Purg':
-                    r[s[1]] = Package()
+                    r[s[1]] = apis.pkgman.Package()
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
                     r[s[1]].action = 'removed'
@@ -126,7 +126,7 @@ class APTPackageManager(Plugin):
         for s in ss:
             s = s.split()
             try:
-                p = Package()
+                p = apis.pkgman.Package()
                 p.name = s[1]
                 p.version = s[2]
                 if s[0][1] == 'i':
