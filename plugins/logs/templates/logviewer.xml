@@ -6,18 +6,9 @@
 
 <py:match path="logviewer">
     <div class="ui-el-logviewer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
-        <table cellspacing="0" cellpadding="0">
-            ${select('node()')}
-        </table>
+        ${select('node()')}
     </div>
 </py:match>
 
-<py:match path="logviewerline">
-    <tr>
-        <td class="ui-el-logviewer-line">
-            ${select('@text')}
-        </td>
-    </tr>
-</py:match>
 
 </widgets>
