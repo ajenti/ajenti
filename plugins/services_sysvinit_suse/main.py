@@ -3,22 +3,18 @@ from ajenti.utils import *
 from ajenti import apis
 import os
 
-class UpstartServiceManager(Plugin):
+class SuseInitServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['Debian', 'Ubuntu']
+    platform = ['openSUSE']
     
     def list_all(self):
         r = []
-        for s in os.listdir('/etc/init'):
-            if len(s) > 5:
-                s = s[:-5]
-                svc = apis.services.Service()
-                svc.name = s
-                r.append(svc)
-                if 'start/running' in shell('service %s status' % s):
-                    svc.status = 'running'
-                else:
-                    svc.status = 'stopped'            
+        for s in shell('chkconfig').split('\n'):
+            s = ' '.join(s.split()[:-1])
+            svc = apis.services.Service()
+            svc.name = s
+            svc.status = 'running' if 'running' in shell('/etc/init.d/%s status'%s) else 'stopped'            
+            r.append(svc)
                 
         return sorted(r, key=lambda s: s.name)
         

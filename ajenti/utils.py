@@ -38,4 +38,4 @@ def shell(c):
 
 def shell_status(c):
     return subprocess.Popen(c, shell=True).wait()
-    
+

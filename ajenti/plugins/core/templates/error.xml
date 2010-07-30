@@ -10,7 +10,7 @@
 
 <body id="main">
 <div style="width: 100%; height: 100%; margin:auto">
-    <div class="ui-el-error" style="width:400px; margin:auto; margin-top:50px;">
+    <div class="ui-el-error" style="width:480px; margin:auto; margin-top:50px;">
         <div class="ui-el-error-title">
             <label text="Oops" size="2" />
         </div>
@@ -20,6 +20,9 @@
            <div style="margin-left: 40px;">
                <a href="#" onclick="javascript:document.getElementById('traceback').style.display='block';">
                    <div class="ui-el-button"> <span class="left"> Traceback </span> <span class="right" /></div>
+               </a>
+               <a href="#" onclick="javascript:document.getElementById('report').style.display='block';">
+                   <div class="ui-el-button"> <span class="left"> Report bug </span> <span class="right" /></div>
                </a>
                <a href="#" onclick="javascript:document.location.reload();">
                    <div class="ui-el-button"> <span class="left"> Refresh </span> <span class="right" /></div>
@@ -31,6 +34,12 @@
                <div id="traceback" style="display:none">
                <br/>
                    <trace py:strip=""/>
+               </div>
+               <div id="report" style="display:none">
+               <br/>
+                   Please <outlinklabel url="mailto:john.pankov@gmail.com?subj=Ajenti%20bug%20report" text="drop us a message" /> with the following data:
+                   <br/><br/>
+                   <report py:strip=""/>
                </div>
                <br/>
            </div>

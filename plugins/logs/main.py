@@ -67,8 +67,11 @@ class LogsPlugin(CategoryPlugin):
 
     def format_log(self, data):
         r = UI.LogViewer(width=600, height=500)
+        d = ''
         for s in data.split('\n'):
-            r.appendChild(UI.LogViewerLine(text=s))
+            d += s.replace('\n', '<br/>')
+        d = '<span style="font-family: monospace">' + d + '</span>'    
+        r.appendChild(UI.CustomHTML(d))    
         return r
         
     @event('minibutton/click')
@@ -82,42 +85,7 @@ class LogsPlugin(CategoryPlugin):
     def on_tclick(self, event, params, vars=None):
         self._tree.node_click('/'.join(params))
         return ''
-       
-"""   @event('dialog/submit')
-    def on_submit(self, event, params, vars=None):
-        if params[0] == 'dlgEdit':
-            v = vars.getvalue('value', '')
-            if vars.getvalue('action', '') == 'OK':
-                if self._editing == 'adduser':
-                    backend.add_user(v)
-                    self._selected_user = v
-                if self._editing == 'addgrp':
-                    backend.add_group(v)
-                    self._selected_group = v
-                if self._editing == 'login':
-                    backend.change_user_login(self._selected_user, v)
-                    self._selected_user = v
-                if self._editing == 'uid':
-                    backend.change_user_uid(self._selected_user, v)
-                if self._editing == 'gid':
-                    backend.change_user_gid(self._selected_user, v)
-                if self._editing == 'shell':
-                    backend.change_user_shell(self._selected_user, v)
-                if self._editing == 'password':
-                    backend.change_user_password(self._selected_user, v)
-                if self._editing == 'home':
-                    backend.change_user_home(self._selected_user, v)
-                if self._editing == 'name':
-                    backend.change_group_name(self._selected_group, v)
-                    self._selected_group = v
-                if self._editing == 'ggid':
-                    backend.change_group_gid(self._selected_group, v)
-            self._editing = '' 
-        if params[0] == 'dlgEditUser':
-            self._selected_user = '' 
-        if params[0] == 'dlgEditGroup':
-            self._selected_group = '' 
-"""
+
         
 class LogsContent(ModuleContent):
     module = 'logs'

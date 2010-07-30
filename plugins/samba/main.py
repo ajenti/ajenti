@@ -17,7 +17,8 @@ class SambaPlugin(CategoryPlugin):
     def on_session_start(self):
         self._tab = 0
         self._cfg = backend.SambaConfig()
-        self._cfg.load()
+        if backend.is_installed():
+            self._cfg.load()
         self._editing_share = None
         self._editing_user = None
         self._editing = None
@@ -26,7 +27,10 @@ class SambaPlugin(CategoryPlugin):
     def get_ui(self):
         panel = UI.PluginPanel(UI.Button(text='Apply config', id='restart'), title='Samba', icon='/dl/samba/icon.png')
 
-        panel.appendChild(self.get_default_ui())        
+        if not backend.is_installed():
+            panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Samba is not installed')))
+        else:
+            panel.appendChild(self.get_default_ui())        
 
         return panel
 
@@ -34,6 +38,7 @@ class SambaPlugin(CategoryPlugin):
         tc = UI.TabControl(active=self._tab)
         tc.add('Shares', self.get_ui_shares())
         tc.add('Users', self.get_ui_users())
+        tc.add('General', self.get_ui_general())
         return tc
             
     def get_ui_shares(self):
@@ -193,6 +198,50 @@ class SambaPlugin(CategoryPlugin):
         return dlg
         
             
+    def get_ui_general(self):
+        dlg = UI.FormBox(
+                  UI.LayoutTable(
+                      UI.LayoutTableRow(
+                          UI.Label(text='Machine description:'),
+                          UI.TextInput(name='server string', value=self._cfg.general['server string'])
+                      ),
+                      UI.LayoutTableRow(
+                          UI.Label(text='Workgroup:'),
+                          UI.TextInput(name='workgroup', value=self._cfg.general['workgroup'])
+                      ),
+                      UI.LayoutTableRow(
+                          UI.Label(text='Listen on interfaces:'),
+                          UI.TextInput(name='interfaces', value=self._cfg.general['interfaces'])
+                      ),
+                      UI.LayoutTableRow(
+                          UI.Label(text='Socket options:'),
+                          UI.TextInput(name='socket options', value=self._cfg.general['socket options'])
+                      ),
+                      UI.LayoutTableRow(
+                          UI.Label(text='Security:'),
+                          UI.Select(
+                              UI.SelectOption(text='Share', value='share',
+                                    selected=self._cfg.general['security']=='share'),
+                              UI.SelectOption(text='User', value='user',
+                                    selected=self._cfg.general['security']=='user'),
+                              UI.SelectOption(text='Password', value='password',
+                                    selected=self._cfg.general['security']=='password'),
+                              UI.SelectOption(text='Other server', value='server',
+                                    selected=self._cfg.general['security']=='server'),
+                              UI.SelectOption(text='Active Directory', value='ads',
+                                    selected=self._cfg.general['security']=='ads'),
+                              name='security'
+                          )
+                      ),
+                      UI.LayoutTableRow(
+                          UI.Label(text='Password server:'),
+                          UI.TextInput(name='password server', value=self._cfg.general['password server'])
+                      )
+                  ),
+                  id='frmGeneral'
+              )
+        return dlg
+    
     @event('minibutton/click')
     @event('button/click')
     def on_click(self, event, params, vars=None):
@@ -223,9 +272,9 @@ class SambaPlugin(CategoryPlugin):
             self._editing = params[1]
        
     @event('dialog/submit')
+    @event('form/submit')
     def on_submit(self, event, params, vars=None):
         if params[0] == 'dlgEditShare':
-            v = vars.getvalue('value', '')
             if vars.getvalue('action', '') == 'OK':
                 es = self._editing_share
                 if es == '': 
@@ -242,8 +291,18 @@ class SambaPlugin(CategoryPlugin):
                 self._cfg.save()
             self._editing_share = None
 
+        if params[0] == 'frmGeneral':
+            if vars.getvalue('action', '') == 'OK':
+                self._cfg.set_param_from_vars('general', 'server string', vars)
+                self._cfg.set_param_from_vars('general', 'workgroup', vars)
+                self._cfg.set_param_from_vars('general', 'interfaces', vars)
+                self._cfg.set_param_from_vars('general', 'socket options', vars)
+                self._cfg.set_param_from_vars('general', 'security', vars)
+                self._cfg.set_param_from_vars('general', 'password server', vars)
+                self._cfg.save()
+            self._tab = 2
+
         if params[0] == 'dlgEditUser':
-            v = vars.getvalue('value', '')
             self._editing_user = None
 
         if params[0] == 'dlgAddUser':
@@ -256,12 +315,7 @@ class SambaPlugin(CategoryPlugin):
             self._adding_user = False
             
         if params[0] == 'dlgEdit':
-            v = vars.getvalue('value', '')
             if vars.getvalue('action', '') == 'OK':
-                eu = self._editing_user
-                #if es == '': 
-                #    es = vars.getvalue('name', 'new')
-                #    self._cfg.shares[es] = self._cfg.new_share()
                 self._cfg.modify_user(self._editing_user, self._editing, vars.getvalue('value', ''))
                 self._cfg.load()
             self._editing = None

@@ -1,6 +1,9 @@
 from ajenti.utils import *
 import os
 
+def is_installed():
+    return os.path.exists('/etc/samba/')
+
 def restart():
     shell('service smbd restart')
     shell('service samba restart') # older samba packages
@@ -9,6 +12,15 @@ class SambaConfig:
     shares = {}
     general = {}
     users = {}
+    
+    general_defaults = {
+        'server string': '',
+        'workgroup': 'WORKGROUP',
+        'interfaces': '',
+        'socket options': 'TCP_NODELAY',
+        'password server': '',
+        'security': 'user'
+    }
     
     defaults = {
         'available': 'yes',
@@ -44,7 +56,7 @@ class SambaConfig:
                 if s[0] != '#' and s[0] != ';':
                     if s[0] == '[':
                         cs = s[1:-1]
-                        self.shares[cs] = self.new_share() if cs != 'global' else {}
+                        self.shares[cs] = self.new_share() if cs != 'global' else self.general_defaults.copy()
                     else:
                         s = s.split('=')
                         self.shares[cs][s[0].strip()] = s[1].strip()
@@ -57,27 +69,30 @@ class SambaConfig:
         self.users = {}
         ss = [s.split(',')[0].split(':')[0] for s in shell('pdbedit -L').split('\n')]
         for s in ss:
-            x = shell('pdbedit -L -v -u ' + s).split('\n')
-            self.users[s] = {}
-            self.fields = []
-            for l in x:
-                try:
-                    self.fields.append(l.split(':')[0])
-                    self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
-                except:
-                    pass
+            if s != '':
+                x = shell('pdbedit -L -v -u ' + s).split('\n')
+                self.users[s] = {}
+                self.fields = []
+                for l in x:
+                    try:
+                        self.fields.append(l.split(':')[0])
+                        self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
+                    except:
+                        pass
             
                         
     def save(self):
         with open('/etc/samba/smb.conf', 'w') as f:
             f.write('[global]\n')
             for k in self.general:
-                f.write('%s = %s\n' % (k,self.general[k]))
+                if not k in self.general_defaults or \
+                    self.general[k] != self.general_defaults[k]:
+                    f.write('\t%s = %s\n' % (k,self.general[k]))
             for s in self.shares:
                 f.write('\n[%s]\n' % s)
                 for k in self.shares[s]:    
                     if not k in self.defaults or self.shares[s][k] != self.defaults[k]:
-                        f.write('%s = %s\n' % (k,self.shares[s][k]))
+                        f.write('\t%s = %s\n' % (k,self.shares[s][k]))
     
     def modify_user(self, u, p, v):
         shell('pdbedit -r -u %s %s "%s"' % (u,self.editable[p],v))
@@ -98,13 +113,22 @@ class SambaConfig:
         return self.defaults.copy()
         
     def set_param(self, share, param, value):
-        self.shares[share][param] = value
+        if share == 'general':
+            self.general[param] = value
+        else:
+            self.shares[share][param] = value
                 
     def set_param_from_vars(self, share, param, vars):
-        value = vars.getvalue(param, self.defaults[param])
+        if share == 'general':
+            value = vars.getvalue(param, self.general_defaults[param])
+        else:
+            value = vars.getvalue(param, self.defaults[param])
         self.set_param(share, param, value)
         
     def set_param_from_vars_yn(self, share, param, vars):
-        value = 'yes' if vars.getvalue(param, self.defaults[param]) == '1' else 'no'
+        if share == 'general':
+            value = 'yes' if vars.getvalue(param, self.general_defaults[param]) == '1' else 'no'
+        else:
+            value = 'yes' if vars.getvalue(param, self.defaults[param]) == '1' else 'no'
         self.set_param(share, param, value)
         
