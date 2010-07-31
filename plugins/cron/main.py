@@ -12,6 +12,7 @@ class CronPlugin(CategoryPlugin):
     icon = '/dl/cron/icon.png'
 
     def on_session_start(self):
+        self._log = ''
         self._labeltext = ''
         self._editing = -1
         self._error = ''
