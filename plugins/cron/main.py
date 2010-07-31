@@ -11,6 +11,9 @@ class CronPlugin(CategoryPlugin):
     description = 'Cron plugin'
     icon = '/dl/cron/icon.png'
 
+    def on_init(self):
+        self._tasks, self._others = backend.read_crontab()
+        
     def on_session_start(self):
         self._log = ''
         self._labeltext = ''
@@ -20,9 +23,9 @@ class CronPlugin(CategoryPlugin):
         self._others = []
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=self._log),
+        panel = UI.PluginPanel(UI.Label(text='%s tasks' % len(self._tasks)),
                                title='Crontab',
-                               icon='/dl/filesystems/icon.png')
+                               icon='/dl/cron/icon.png')
         panel.appendChild(self.get_default_ui())
         return panel
         
@@ -37,7 +40,6 @@ class CronPlugin(CategoryPlugin):
                 UI.Label(text=''),
                 header=True,
                ))
-        self._tasks, self._others = backend.read_crontab()
         for i, t in enumerate(self._tasks):
             table.appendChild(UI.DataTableRow(
                     UI.Label(text=t.m),
@@ -144,3 +146,4 @@ class CronPlugin(CategoryPlugin):
 class CronContent(ModuleContent):
     module = 'cron'
     path = __file__
+    
