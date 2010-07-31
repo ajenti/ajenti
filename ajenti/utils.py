@@ -39,3 +39,9 @@ def shell(c):
 def shell_status(c):
     return subprocess.Popen(c, shell=True).wait()
 
+def shell_stdin(c, input):
+    p = subprocess.Popen(c, shell=True, 
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stdin=subprocess.PIPE)
+    return p.communicate(input)
