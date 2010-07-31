@@ -1,6 +1,7 @@
 from ajenti.utils import shell, shell_stdin
 import re
 import datetime
+import subprocess
 
 class Task():
     def __init__(self, line=''):
