@@ -1,5 +1,4 @@
 from ajenti.utils import shell, shell_stdin
-import subprocess
 
 class Task():
     def __init__(self, line=''):
@@ -8,7 +7,7 @@ class Task():
             self.command = ''
         elif line[0] == '@':
             self.special = line.split()[0]
-            self.command = ' '.join(line.split[1:])
+            self.command = ' '.join(line.split[1:])\
                                 if line.split()[1] else ''
         else:
             params = line.split()
