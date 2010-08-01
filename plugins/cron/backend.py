@@ -1,6 +1,4 @@
 from ajenti.utils import shell, shell_stdin
-import re
-import datetime
 import subprocess
 
 class Task():
@@ -8,6 +6,10 @@ class Task():
         if not line:
             self.m, self.h, self.dom, self.mon, self.dow = ['*'] * 5
             self.command = ''
+        elif line[0] == '@':
+            self.special = line.split()[0]
+            self.command = ' '.join(line.split[1:])
+                                if line.split()[1] else ''
         else:
             params = line.split()
             self.m, self.h, self.dom, self.mon, self.dow = params[:5]

@@ -23,7 +23,8 @@ class CronPlugin(CategoryPlugin):
         self._others = []
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text='%s tasks' % len(self._tasks)),
+        panel = UI.PluginPanel(UI.Label(text='%s tasks' %
+                                        len(self._tasks)),
                                title='Crontab',
                                icon='/dl/cron/icon.png')
         panel.appendChild(self.get_default_ui())
@@ -59,7 +60,11 @@ class CronPlugin(CategoryPlugin):
                     ))
         part = self._error.partition(":")[2]
         self._error = 'Error:' + part if part else self._error
-        vbox = UI.VContainer(UI.Label(text=self._error, bold=True),
+        if self._error:
+            er = UI.ErrorBox(title='Error', text=self._error)
+        else:
+            er = UI.Spacer()
+        vbox = UI.VContainer(er,
                             table,
                             UI.Button(text='Add task', id='add'),
                             )
@@ -141,6 +146,8 @@ class CronPlugin(CategoryPlugin):
                     self._tasks.append(new_task)
                 self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
+                if self._error:
+                    self._tasks, self._others = backend.read_crontab()
             self._editing = -1
             
 class CronContent(ModuleContent):
