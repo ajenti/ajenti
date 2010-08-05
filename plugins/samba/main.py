@@ -8,11 +8,11 @@ import backend
 
 
 class SambaPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 50))
+    implements (ICategoryProvider)
 
     text = 'Samba'
-    icon = '/dl/samba/icon.png'
-
+    icon = '/dl/samba/icon_small.png'
+    folder = 'servers'
 
     def on_session_start(self):
         self._tab = 0
@@ -53,7 +53,10 @@ class SambaPlugin(CategoryPlugin):
         
         for h in self._cfg.get_shares():
             r = UI.DataTableRow(
-                    UI.Label(text=h),
+                    UI.DataTableCell(
+                        UI.Image(file='/dl/core/ui/stock/folder.png'),
+                        UI.Label(text=h)
+                    ),
                     UI.Label(text=self._cfg.shares[h]['path']),
                     UI.DataTableCell(
                         UI.HContainer(
@@ -87,7 +90,10 @@ class SambaPlugin(CategoryPlugin):
         
         for h in sorted(self._cfg.users.keys()):
             r = UI.DataTableRow(
-                    UI.Label(text=h),
+                    UI.DataTableCell(
+                        UI.Image(file='/dl/core/ui/stock/user.png'),
+                        UI.Label(text=h)
+                    ),
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(text='Edit', id='edituser/' + h),

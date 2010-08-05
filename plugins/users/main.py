@@ -8,10 +8,11 @@ import backend
 
 
 class UsersPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 50))
+    implements (ICategoryProvider)
 
     text = 'Users'
-    icon = '/dl/users/icon.png'
+    icon = '/dl/users/icon_small.png'
+    folder = 'system'
 
     params = {
             'login': 'Login',
@@ -62,7 +63,10 @@ class UsersPlugin(CategoryPlugin):
                ))
         for u in self.users:       
             t.appendChild(UI.DataTableRow(
-                    UI.Label(text=u.login, bold=True),
+                    UI.DataTableCell(
+                        UI.Image(file='/dl/core/ui/stock/user.png'),
+                        UI.Label(text=u.login, bold=True)
+                    ),
                     UI.Label(text=u.uid, bold=(u.uid>=1000)),
                     UI.Label(text=u.home),
                     UI.Label(text=u.shell),
@@ -86,7 +90,10 @@ class UsersPlugin(CategoryPlugin):
                ))
         for u in self.groups:   
             t.appendChild(UI.DataTableRow(
-                    UI.Label(text=u.name, bold=True),
+                    UI.DataTableCell(
+                        UI.Image(file='/dl/core/ui/stock/group.png'),
+                        UI.Label(text=u.name, bold=True)
+                    ),
                     UI.Label(text=u.gid, bold=(u.gid>=1000)),
                     UI.Label(text=', '.join(u.users)),
                     UI.DataTableCell(

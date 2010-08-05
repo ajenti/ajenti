@@ -67,6 +67,31 @@
 </py:match>
 
 
+<!--! Widget for CategoryFolder -->
+<py:match path="categoryfolder">
+    <a href="#" onclick="javascript:ui_categoryfolder('${select('@id')}');">
+	    <div class="ui-el-categoryfolder" id="${select('@id')}">
+		    <table>
+                <tr>
+                    <td rowspan="2" class="ui-el-category-icon">
+                        <img src="${select('@icon')}" />
+                    </td>
+                    <td class="ui-el-category-text">${select('@text')}</td>
+                </tr>
+            </table>
+        </div>
+    </a>
+    <div class="ui-el-categoryfolder-children" id="${select('@id')}-children"
+        style="display:none">
+        ${select('node()')}
+    </div>
+    <py:choose test="">
+        <script py:when="str(select('@expanded'))=='True'">
+            ui_categoryfolder('${select('@id')}')
+        </script>
+    </py:choose>
+</py:match>
+
 <!--! DialogBox widget -->
 <!--! Attributes
 @id

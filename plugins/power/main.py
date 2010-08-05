@@ -9,17 +9,18 @@ from ajenti.app.helpers import CategoryPlugin, ModuleContent, EventProcessor, ev
 from ajenti.app.session import SessionProxy
 from ajenti.utils import shell
 
+
 class PowerContent(ModuleContent):
     module = 'power'
     path = __file__
 
 
 class PowerPlugin(CategoryPlugin):
-
-    implements((ICategoryProvider, 90))
+    implements(ICategoryProvider)
 
     text = 'Power'
-    icon = '/dl/power/icon.png'
+    icon = '/dl/power/icon_small.png'
+    folder = 'system'
 
     def on_session_start(self):
         pass

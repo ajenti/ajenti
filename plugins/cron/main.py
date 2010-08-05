@@ -2,14 +2,17 @@ from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
+
 import backend
 
+
 class CronPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 90))
+    implements (ICategoryProvider)
 
     text = 'Cron'
     description = 'Cron plugin'
-    icon = '/dl/cron/icon.png'
+    icon = '/dl/cron/icon_small.png'
+    folder = 'system'
 
     def on_init(self):
         self._tasks, self._others = backend.read_crontab()

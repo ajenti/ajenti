@@ -408,6 +408,34 @@ a {
     color: #fff;
 }
 
+
+/* CategoryFolder */
+.ui-el-categoryfolder {
+	width: 154px;
+	height: 29px;
+	background: url('/dl/core/ui/category.png') no-repeat;
+	line-height: 26px;
+	vertical-align: middle;
+	color: #555555;
+}
+
+.ui-el-categoryfolder:hover {
+	background: url('/dl/core/ui/category-hover.png') no-repeat;
+}
+
+.ui-el-categoryfolder-selected {
+	width: 170px;
+	height: 29px;
+	line-height: 26px;
+	vertical-align: middle;
+	background: url('/dl/core/ui/categoryfolder-sel.png') no-repeat;
+}
+
+.ui-el-categoryfolder-children {
+    border-left: 3px solid #b4b4b4;
+}
+
+
 /* Table */
 .ui-el-table {
 	background: #ffffff;

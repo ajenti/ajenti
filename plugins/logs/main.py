@@ -8,11 +8,12 @@ import gzip
 
 
 class LogsPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 60))
+    implements (ICategoryProvider)
 
     text = 'Logs'
-    icon = '/dl/logs/icon.png'
-        
+    icon = '/dl/logs/icon_small.png'
+    folder = 'system'
+            
     def on_session_start(self):
         self._log = ''
         self._tree = TreeManager()

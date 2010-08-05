@@ -11,7 +11,16 @@ from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
 class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
     categories = Interface(ICategoryProvider)
-
+    folders = {
+        'top': '',
+        'system': 'System',
+        'apps': 'Applications',
+        'servers': 'Servers',
+        'other': 'Other',
+        'bottom': ''
+    }
+    folder_ids = ['top', 'system', 'apps', 'servers', 'other', 'bottom']
+    
     def main_ui(self):
         templ = self.app.get_template('main.xml')
 
@@ -21,16 +30,35 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         v = UI.VContainer()
         
         cats = self.categories
-        cats = sorted(cats, key=lambda p: p.get_weight())
-        cats = filter(lambda p: p.is_visible(), cats)
-        
-        for c in cats:
-            if c.get_name() == cat_selected:
-                v.vnode(UI.Category(c.category, id=c.get_name(), selected='true'))
-                cat = c
-            else:
-                v.vnode(UI.Category(c.category, id=c.get_name()))
+        cats = sorted(cats, key=lambda p: p.text)
 
+        for fld in self.folder_ids:
+            cat_vc = UI.VContainer()
+            if self.folders[fld] == '':
+                cat_folder = cat_vc # Omit wrapper for special folders
+            else:
+                cat_folder = UI.CategoryFolder(
+                                cat_vc,
+                                text=self.folders[fld],
+                                icon='/dl/core/ui/catfolders/'+ fld + '.png'
+                                    if self.folders[fld] != '' else '',
+                                id=fld
+                             )
+            exp = False
+            empty = True
+            for c in cats:
+                if c.folder == fld:
+                    empty = False
+                    if c.get_name() == cat_selected:
+                        cat_vc.vnode(UI.Category(c.category, id=c.get_name(), selected='true'))
+                        cat = c
+                        exp = True
+                    else:
+                        cat_vc.vnode(UI.Category(c.category, id=c.get_name()))
+
+            if not empty: v.vnode(cat_folder)
+            cat_folder['expanded'] = exp
+            
         templ.appendChildInto('leftplaceholder', v)
         templ.appendChildInto('rightplaceholder', cat.get_ui())
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version))

@@ -6,11 +6,13 @@ from ajenti.utils import *
 
 import backend
 
+
 class FSPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 60))
+    implements (ICategoryProvider)
 
     text = 'Filesystems'
-    icon = '/dl/filesystems/icon.png'
+    icon = '/dl/filesystems/icon_small.png'
+    folder = 'system'
         
     def on_init(self):
         self.fstab = backend.read()

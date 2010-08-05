@@ -15,7 +15,7 @@ class BeeperPlugin(CategoryPlugin):
     text = 'Beeper'
     description = 'Beep, beep, beep!'
     icon = '/dl/beeper/icon.png'
-
+    
     def on_session_start(self):
         self._text = ''
         self._form_text = []

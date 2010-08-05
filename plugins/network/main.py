@@ -8,8 +8,8 @@ class NetworkContent(ModuleContent):
 
 class NetworkPlugin(CategoryPlugin):
     text = 'Network'
-    description = 'Configure adapters'
     icon = '/dl/network/icon.png'
+    folder = 'system'
 
     def on_init(self):
         self.net_config = self.app.grab_plugins(INetworkConfig)[0]
@@ -47,7 +47,10 @@ class NetworkPlugin(CategoryPlugin):
                             UI.Label(text=i.name),
                             UI.Label(text=i.clsname),
                             UI.Label(text=i.addr),
-                            UI.Label(text=('Up' if i.up else 'Down')),
+                            UI.HContainer(
+                                UI.Image(file='/dl/network/%s.png'%('up' if i.up else 'down')),
+                                UI.Label(text=('Up' if i.up else 'Down')),
+                            ),
                             UI.DataTableCell(
                                 UI.HContainer(
                                     UI.MiniButton(text='Edit', id='editiface/' + i.name),

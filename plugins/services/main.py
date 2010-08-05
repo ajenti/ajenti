@@ -6,14 +6,14 @@ from ajenti import apis
 
 
 class ServicesPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 50))
+    implements (ICategoryProvider)
 
     text = 'Services'
-    icon = '/dl/services/icon.png'
+    icon = '/dl/services/icon_small.png'
+    folder = 'system'
     
     def on_init(self):
         self.svc_mgr = self.app.grab_plugins(apis.services.IServiceManager)[0]
-
 
     def on_session_start(self):
         self._labeltext = ''
