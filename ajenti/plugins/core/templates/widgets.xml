@@ -9,7 +9,7 @@
 <!--! Custom HTML widget -->
 <py:match path="customhtml">
     <div id="${select('@id')}" />
-    <script>
+    <script>layou
          ui_fill_custom_html('${select('@id')}', '${select('@html')}');
     </script>
 </py:match>
@@ -204,12 +204,12 @@
 
 <!--! VContainer widget -->
 <py:match path="vcontainer">
-    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <table cellspacing="${str(select('@spacing')) or '0'}" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
 <py:match path="vnode">
-    <tr><td>${select('node()')}</td></tr>
+    <tr style="padding-bottom: ${str(select('@spacing')) or '4'}px"><td>${select('node()')}</td></tr>
 </py:match>
 
 
@@ -222,7 +222,7 @@
     </table>
 </py:match>
 <py:match path="hnode">
-    <td style="padding-right: 5px;">${select('node()')}</td>
+    <td style="padding-right: ${str(select('@spacing')) or '4'}px">${select('node()')}</td>
 </py:match>
 
 
@@ -359,7 +359,7 @@
 
 <!--! LayoutTable widget -->
 <py:match path="layouttable">
-    <table cellspacing="8" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <table cellspacing="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
@@ -371,7 +371,7 @@
 </py:match>
 
 <py:match path="layouttablecell">
-    <td class="ui-el-layouttable-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <td class="ui-el-layouttable-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'}; padding-right: ${str(select('@spacing')) or '4'}px; padding-bottom: ${str(select('@spacing')) or '4'}px">
         ${select('node()')}
     </td>
 </py:match>
@@ -476,4 +476,13 @@
         <td style="width:${int(str(select('@width'))) - int(str(select('@width'))) * int(str(select('@value'))) / int(str(select('@max')))}px" class="ui-el-progressbar"/></tr>
     </table>
 </py:match>
+
+<!-- ElementBox -->
+<py:match path="elementbox">
+<div class="ui-el-elementbox">
+    ${select('node()')}
+</div>
+</py:match>
+
 </widgets>
+
