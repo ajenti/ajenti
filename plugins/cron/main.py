@@ -21,6 +21,8 @@ class CronPlugin(CategoryPlugin):
         self._error = ''
         self._tasks = []
         self._others = []
+        self._tab = 0
+        self._show_dialog = 0
 
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text='%s tasks' %
@@ -42,7 +44,22 @@ class CronPlugin(CategoryPlugin):
                 header=True,
                ))
         for i, t in enumerate(self._tasks):
-            table.appendChild(UI.DataTableRow(
+            if t.special:
+                table.appendChild(UI.DataTableRow(
+                    UI.Label(text=t.special),
+                    UI.Label(), UI.Label(), UI.Label(), UI.Label(),
+                    UI.Label(text=t.command),
+                    UI.DataTableCell(
+                        UI.HContainer(
+                            UI.MiniButton(id='edit/' + str(i),
+                                text='Edit'),
+                            UI.WarningMiniButton(id='del/' + str(i),
+                                text='Delete')
+                        ),
+                        hidden=True)
+                    ))
+            else:
+                table.appendChild(UI.DataTableRow(
                     UI.Label(text=t.m),
                     UI.Label(text=t.h),
                     UI.Label(text=t.dom),
@@ -73,11 +90,25 @@ class CronPlugin(CategoryPlugin):
                 task = self._tasks[self._editing]
             except IndexError:
                 task = backend.Task()
-            vbox.vnode(self.get_ui_edit(task))
+            if self._show_dialog:
+                vbox.vnode(self.get_ui_edit(task))
         return vbox
     
     def get_ui_edit(self, t):
-        vbox = UI.VContainer(UI.LayoutTable(
+        tabbar = UI.TabControl(active=self._tab)
+        #tabbar.add("Advanced", self.get_ui_advanced(t))
+        tabbar.add("Special", self.get_ui_special(t))
+        dlg = UI.DialogBox(
+                tabbar,
+                title='Edit task',
+                id='dlgEdit',
+                hideok=True,
+                hidecancel=True
+              )
+        return dlg
+    
+    def get_ui_advanced(self, t):
+        adv_table = UI.LayoutTable(
                     UI.LayoutTableRow(
                         UI.Label(text='Minutes'),
                         UI.TextInput(name='m', value=t.m)
@@ -101,43 +132,77 @@ class CronPlugin(CategoryPlugin):
                     UI.LayoutTableRow(
                         UI.Label(text='Command'),
                         UI.TextInput(name='command', value=t.command)
-                    )))
-        
-        dlg = UI.DialogBox(
-                vbox,
-                title='Edit task',
-                id='dlgEdit'
-              )
-        return dlg
+                    ),
+                    UI.LayoutTableRow(
+                        UI.Button(text='Ok', id='ok_advanced'),
+                        UI.Button(text='Cancel', id='cancel'),
+                    ))
+        return UI.FormBox(adv_table, id='frmAdvanced')
     
+    def get_ui_special(self, t):
+        spc_table = UI.LayoutTable(UI.LayoutTableRow(
+                            UI.Radio(value="reboot", text="reboot",
+                                    name="special", checked=True),
+                            UI.Radio(value="hourly", text="hourly",
+                                    name="special")),
+                        UI.LayoutTableRow(
+                            UI.Radio(value="daily", text="daily",
+                                    name="special"),
+                            UI.Radio(value="weekly", text="weekly",
+                                    name="special")),
+                        UI.LayoutTableRow(
+                            UI.Radio(value="monthly", text="monthly",
+                                    name="special"),
+                            UI.Radio(value="yearly", text="yearly",
+                                    name="special")),
+                        UI.LayoutTableRow(
+                                UI.Label(text='Command'),
+                                UI.TextInput(name='command',
+                                            value=t.command)),
+                        UI.LayoutTableRow(
+                            UI.Button(text='Ok', id='ok_special'),
+                            UI.Button(text='Cancel', id='cancel'),
+                    )
+                )
+        return UI.FormBox(spc_table, id='frmSpecial')
+        
     @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'add':
             self._editing = len(self._tasks)
+            self._show_dialog = 1
         if params[0] == 'edit':
             self._editing = int(params[1])
+            self._show_dialog = 1
         if params[0] == 'del':
             self._tasks.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
+        if params[0] == 'cancel':
+            print vars.getvalue('command')
+            self._show_dialog = 0
             
     
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
-        if params[0] == 'dlgEdit':
-            if vars.getvalue('action', '') == 'OK':
-                task_str = ' '.join((vars.getvalue('m'),
-                                     vars.getvalue('h'),
-                                     vars.getvalue('dom'),
-                                     vars.getvalue('mon'),
-                                     vars.getvalue('dow')))
+        if params[0] == 'dlgEdit' and\
+            vars.getvalue('action', '') == 'OK':
+            print self._tab
+            if self._tab == 0:
+                task_str = ' '.join((
+                        vars.getvalue('m').replace(' ', '') or '*',
+                        vars.getvalue('h').replace(' ', '') or '*',
+                        vars.getvalue('dom').replace(' ', '') or '*',
+                        vars.getvalue('mon').replace(' ', '') or '*',
+                        vars.getvalue('dow').replace(' ', '') or '*'
+                        ))
                 task_str += '\t' + vars.getvalue('command')
                 try:
                     new_task = backend.Task(task_str)
                 except:
-                    self._error = "Error: Missing options."
+                    self._error = "Error: Wrong options."
                     self._editing = -1
                     return 1
                 if self._editing < len(self._tasks):
@@ -148,7 +213,30 @@ class CronPlugin(CategoryPlugin):
                                                 self._tasks)
                 if self._error:
                     self._tasks, self._others = backend.read_crontab()
-            self._editing = -1
+            elif self._tab == 1:
+                task_str = '@' + vars.getvalue('special')
+                print vars.getvalue('special')
+                print task_str
+                print vars.getvalue('command')
+                print type(task_str)
+                print type(vars.getvalue('command'))
+                task_str += '\t' + vars.getvalue('command')
+                try:
+                    new_task = backend.Task(task_str)
+                except:
+                    self._error = "Error: Wrong options."
+                    self._editing = -1
+                    return 1
+                if self._editing < len(self._tasks):
+                    self._tasks[self._editing] = new_task
+                else:
+                    self._tasks.append(new_task)
+                self._error = backend.write_crontab(self._others +\
+                                                self._tasks)
+                if self._error:
+                    self._tasks, self._others = backend.read_crontab()
+        self._editing = -1
+        self._tab = 0
             
 class CronContent(ModuleContent):
     module = 'cron'

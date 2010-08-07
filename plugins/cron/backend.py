@@ -1,5 +1,4 @@
 from ajenti.utils import shell, shell_stdin
-import subprocess
 
 class Task():
     def __init__(self, line=''):
@@ -7,16 +6,21 @@ class Task():
             self.m, self.h, self.dom, self.mon, self.dow = ['*'] * 5
             self.command = ''
         elif line[0] == '@':
-            self.special = line.split()[0]
-            self.command = ' '.join(line.split[1:])
-                                if line.split()[1] else ''
+            tlist = line.split()
+            self.special = tlist[0]
+            self.command = ' '.join(tlist[1:])\
+                                if tlist[1] else ''
         else:
             params = line.split()
             self.m, self.h, self.dom, self.mon, self.dow = params[:5]
             self.command = ' '.join(params[5:])
+            self.special = ''
         
     def __repr__(self):
-        string = ' '.join((self.m, self.h, self.dom, self.mon,
+        if self.special:
+            string = self.special + '\t' + self.command
+        else:
+            string = ' '.join((self.m, self.h, self.dom, self.mon,
                           self.dow)) + '\t' + self.command
         return string
 
