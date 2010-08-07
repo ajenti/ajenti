@@ -9,6 +9,15 @@ function ui_center(el) {
     ui_center_el(document.getElementById(el));
 }
 
+function ui_categoryfolder(id) {
+    ui_showhide(id+'-children');
+    x = document.getElementById(id);
+    if (x.className == 'ui-el-categoryfolder')
+        x.className = 'ui-el-categoryfolder-selected';
+    else
+        x.className = 'ui-el-categoryfolder';
+}
+
 function ui_showhide(id) {
     x = document.getElementById(id);
     if (x.style.display != 'none')
