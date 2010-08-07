@@ -17,15 +17,6 @@ function ui_showhide(id) {
         x.style.display = '';
 }
 
-function ui_categoryfolder(id) {
-    ui_showhide(id+'-children');
-    x = document.getElementById(id);
-    if (x.className == 'ui-el-categoryfolder')
-        x.className = 'ui-el-categoryfolder-selected';
-    else
-        x.className = 'ui-el-categoryfolder';
-}
-
 function ui_show(id) {
     x = document.getElementById(id);
     x.style.display = '';
@@ -45,16 +36,20 @@ function ui_treeicon(id) {
 }
 
 function ui_tabswitch(pid, id) {
+    tc = 20;
     p = document.getElementById(pid);
     h = document.getElementById('tabheader-' + pid + '-' + id);
     b = document.getElementById('tabbody-' + pid + '-' + id);
-    for (i=0;i<p.children.length;i++)
-        p.children[i].children[0].setAttribute('class', 'ui-el-tab-header');
+    for (i=0;i<tc;i++)
+        try {
+            document.getElementById('tabheader-' + pid + '-' + i).setAttribute('class', 'ui-el-tab-header');
+        } catch (err) { }
     h.setAttribute('class', 'ui-el-tab-header-active');
 
-    p = p.parentNode.parentNode.children[1].children[0];
-    for (i=0;i<p.children.length;i++)
-        p.children[i].style.display = 'none';
+    for (i=0;i<tc;i++)
+        try {
+            document.getElementById('tabbody-' + pid + '-' + i).style.display = 'none';
+        } catch (err) { }
     b.style.display = '';
 
     while (p != null) {
