@@ -84,7 +84,9 @@ class UI(object):
                         self.vnode(e)
 
             def vnode(self, e):
-                self.appendChild(UI.vnode(e))
+                vn = UI.vnode(e)
+                vn['spacing'] = self['spacing']
+                self.appendChild(vn)
 
         return VContainer(*args, **kwargs)
 
@@ -102,7 +104,9 @@ class UI(object):
                         self.hnode(e)
 
             def hnode(self, e):
-                self.appendChild(UI.hnode(e))
+                hn = UI.hnode(e)
+                hn['spacing'] = self['spacing']
+                self.appendChild(hn)
 
         return HContainer(*args, **kwargs)
 
@@ -133,7 +137,9 @@ class UI(object):
                         if e.tagName == 'layouttablecell':
                             self.appendChild(e)
                         else:
-                            self.appendChild(UI.LayoutTableCell(e))
+                            c = UI.LayoutTableCell(e)
+                            c['spacing'] = self['spacing']
+                            self.appendChild(c)
 
         return LayoutTableRow(*args, **kwargs)
 
