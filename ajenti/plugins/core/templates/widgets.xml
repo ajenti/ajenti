@@ -112,8 +112,14 @@
                     </vcontainer>
                     <div class="ui-el-modal-buttons">
                         <hcontainer>
-                            <hnode><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
-                            <hnode><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                            <py:choose test="">
+                                <a py:when="str(select('@hideok'))" />
+                                <hnode py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
+                            </py:choose>
+                            <py:choose test="">
+                                <a py:when="str(select('@hidecancel'))" />
+                                <hnode py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                            </py:choose>
                             <py:choose test="">
                                 <button py:when="str(select('@miscbtn'))" id="${select('@miscbtnid')}" text="${select('@miscbtn')}" />
                                 <a py:otherwise=""></a>
