@@ -96,7 +96,7 @@ class CronPlugin(CategoryPlugin):
     
     def get_ui_edit(self, t):
         tabbar = UI.TabControl(active=self._tab)
-        #tabbar.add("Advanced", self.get_ui_advanced(t))
+        tabbar.add("Advanced", self.get_ui_advanced(t))
         tabbar.add("Special", self.get_ui_special(t))
         dlg = UI.DialogBox(
                 tabbar,
@@ -132,38 +132,31 @@ class CronPlugin(CategoryPlugin):
                     UI.LayoutTableRow(
                         UI.Label(text='Command'),
                         UI.TextInput(name='command', value=t.command)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Button(text='Ok', id='ok_advanced'),
-                        UI.Button(text='Cancel', id='cancel'),
                     ))
         return UI.FormBox(adv_table, id='frmAdvanced')
     
     def get_ui_special(self, t):
-        spc_table = UI.LayoutTable(UI.LayoutTableRow(
-                            UI.Radio(value="reboot", text="reboot",
-                                    name="special", checked=True),
-                            UI.Radio(value="hourly", text="hourly",
-                                    name="special")),
-                        UI.LayoutTableRow(
-                            UI.Radio(value="daily", text="daily",
-                                    name="special"),
-                            UI.Radio(value="weekly", text="weekly",
-                                    name="special")),
-                        UI.LayoutTableRow(
-                            UI.Radio(value="monthly", text="monthly",
-                                    name="special"),
-                            UI.Radio(value="yearly", text="yearly",
-                                    name="special")),
-                        UI.LayoutTableRow(
-                                UI.Label(text='Command'),
-                                UI.TextInput(name='command',
-                                            value=t.command)),
-                        UI.LayoutTableRow(
-                            UI.Button(text='Ok', id='ok_special'),
-                            UI.Button(text='Cancel', id='cancel'),
-                    )
-                )
+        spc_table = UI.LayoutTable(
+                    UI.LayoutTableRow(
+                        UI.Radio(value="reboot", text="reboot",
+                                name="special", checked=True),
+                        UI.Radio(value="hourly", text="hourly",
+                                name="special")),
+                    UI.LayoutTableRow(
+                        UI.Radio(value="daily", text="daily",
+                                name="special"),
+                        UI.Radio(value="weekly", text="weekly",
+                                name="special")),
+                    UI.LayoutTableRow(
+                        UI.Radio(value="monthly", text="monthly",
+                                name="special"),
+                        UI.Radio(value="yearly", text="yearly",
+                                name="special")),
+                    UI.LayoutTableRow(
+                            UI.Label(text='Command'),
+                            UI.TextInput(name='command',
+                                        value=t.command)
+                    ))
         return UI.FormBox(spc_table, id='frmSpecial')
         
     @event('minibutton/click')
