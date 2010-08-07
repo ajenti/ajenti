@@ -1,0 +1,42 @@
+Copyright (c) 2010 The Ajenti Team
+* Eugeny Pankov <john.pankov@gmail.com>
+* Dmitry Zamaruev <dmitry.zamaruev@gmail.com>
+
+
+LICENSE TERMS:
+
+1. You can:
+1.1 Use Ajenti in any environment, be it commercial or non-commercial
+1.2 Modify it according to #2.2
+1.3 Share the original source code and your own modifications
+
+2. You can't:
+2.1 Sell it
+2.2 Remove branding or copyrights
+
+
+FEEDBACK:
+
+If you use Ajenti, we would be happy if you drop us a message about your experiences.
+
+
+PARTIAL COPYRIGHTS:
+
+Apache plugin (c) 2010 
+AlexSnet <me@alexsnet.ru>
+
+File Manager plugin (c) 2010 
+revis0r <revis0r.mob@gmail.com>
+
+Cron plugin (c) 2010 
+Valentin Bruhanov <bvv.mag@gmail.com>
+
+Code parts (c) 2010 
+/ajenti/plugins/advancedcontrols/files/ui.js
+Paranoid Ferret Productions: http://www.paranoidferret.com
+
+Faenza icon theme (c) 2010 
+Matthieu James <matthieu.james@gmail.com>
+
+Humanity icon theme (c) 2010
+Elementary Project Team: http://www.elementary-project.com/

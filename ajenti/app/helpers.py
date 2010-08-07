@@ -171,7 +171,8 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
 
     text = 'Caption'
     icon = '/dl/core/ui/category-icon.png'
-
+    folder = 'other'
+    
     @property
     def category(self):
         return { 'text': self.text,
@@ -184,12 +185,5 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     def get_name(self):
         return self.__class__.__name__
         
-    def get_weight(self):
-        if self.config.has_option('categories', self.text.lower()):
-            return int(self.config.get('categories', self.text.lower()))
-        return 1000
-        
-    def is_visible(self):
-        return self.get_weight() != 0
         
         

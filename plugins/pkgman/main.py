@@ -8,9 +8,8 @@ class PackageManagerPlugin(CategoryPlugin):
     implements((ICategoryProvider, 60))
 
     text = 'Packages'
-    description = 'Install software'
     icon = '/dl/pkgman/icon.png'
-
+    folder = 'system'
 
     def on_init(self):
         self.mgr = self.app.grab_plugins(apis.pkgman.IPackageManager)[0]

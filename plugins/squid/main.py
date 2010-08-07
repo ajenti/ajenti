@@ -16,7 +16,8 @@ class SquidPlugin(CategoryPlugin):
 
     text = 'Squid'
     icon = '/dl/squid/icon.png'
-                
+    folder = 'servers'
+                    
     def on_session_start(self):
         if not is_installed(): return
         self._tab = 0

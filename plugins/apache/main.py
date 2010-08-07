@@ -13,6 +13,7 @@ class ApachePlugin(CategoryPlugin):
     text = 'Apache'
     icon = '/dl/apache/icon.png'
     platform = ['Debian', 'Ubuntu']
+    folder = 'servers'
     
     def on_session_start(self):
         self._tab = 0

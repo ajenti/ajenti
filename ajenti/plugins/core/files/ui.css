@@ -193,8 +193,6 @@ a {
 
 /* Label */
 .ui-el-label-1 {
-	padding-bottom: 2px;
-	margin-bottom: 2px;
 	display: inline;
 	text-align: left;
 }
@@ -202,11 +200,9 @@ a {
 }
 .ui-el-label-3 {
 	font-size: 16px;
-	padding-bottom: 5px;
+	font-weight: bold;
 }
 .ui-el-label-4 {
-	padding-bottom: 2px;
-	margin-bottom: 2px;
 	clear: left;
 	font-size: 20px;
 }
@@ -408,6 +404,34 @@ a {
     color: #fff;
 }
 
+
+/* CategoryFolder */
+.ui-el-categoryfolder {
+	width: 154px;
+	height: 29px;
+	background: url('/dl/core/ui/category.png') no-repeat;
+	line-height: 26px;
+	vertical-align: middle;
+	color: #555555;
+}
+
+.ui-el-categoryfolder:hover {
+	background: url('/dl/core/ui/category-hover.png') no-repeat;
+}
+
+.ui-el-categoryfolder-selected {
+	width: 170px;
+	height: 29px;
+	line-height: 26px;
+	vertical-align: middle;
+	background: url('/dl/core/ui/categoryfolder-sel.png') no-repeat;
+}
+
+.ui-el-categoryfolder-children {
+    border-left: 3px solid #b4b4b4;
+}
+
+
 /* Table */
 .ui-el-table {
 	background: #ffffff;
@@ -430,6 +454,7 @@ a {
 .ui-el-table-row:hover {
 	background: #eabf81;
     background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffdfa1), to(#facf91))
 }
 
 .ui-el-table-row:hover .ui-el-table-cell{
@@ -632,3 +657,16 @@ a {
     min-width: 1px;
 }
 
+.ui-el-elementbox {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border: 1px solid #999;
+    padding: 4px;
+    margin: 2px;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ccc,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd))
+    width: 100%;
+    height: 100%;
+}

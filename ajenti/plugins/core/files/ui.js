@@ -17,6 +17,15 @@ function ui_showhide(id) {
         x.style.display = '';
 }
 
+function ui_categoryfolder(id) {
+    ui_showhide(id+'-children');
+    x = document.getElementById(id);
+    if (x.className == 'ui-el-categoryfolder')
+        x.className = 'ui-el-categoryfolder-selected';
+    else
+        x.className = 'ui-el-categoryfolder';
+}
+
 function ui_show(id) {
     x = document.getElementById(id);
     x.style.display = '';

@@ -15,10 +15,10 @@ class DashboardContent(ModuleContent):
     widget_files = ['widgets.xml']
 
 class Dashboard(CategoryPlugin):
-
     text = 'Dashboard'
     icon = '/dl/dashboard/icon.png'
-
+    folder = 'top'
+    
     widgets = Interface(IDashboardWidget)
     
     def get_ui(self):

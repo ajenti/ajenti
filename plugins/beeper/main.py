@@ -15,7 +15,7 @@ class BeeperPlugin(CategoryPlugin):
     text = 'Beeper'
     description = 'Beep, beep, beep!'
     icon = '/dl/beeper/icon.png'
-
+    
     def on_session_start(self):
         self._text = ''
         self._form_text = []
@@ -79,7 +79,8 @@ class BeeperPlugin(CategoryPlugin):
                     ),
                     UI.CustomHTML('<b>Hello</b> <i>HTML!</i>')
                 ),
-                title="Test Dialog", id="testDialog"
+                title="Test Dialog", id="testDialog",
+                hidecancel=True
             )
 
         b2 = UI.Button(text='Show dialog')

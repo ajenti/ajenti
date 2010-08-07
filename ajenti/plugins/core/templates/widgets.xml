@@ -9,7 +9,7 @@
 <!--! Custom HTML widget -->
 <py:match path="customhtml">
     <div id="${select('@id')}" />
-    <script>
+    <script>layou
          ui_fill_custom_html('${select('@id')}', '${select('@html')}');
     </script>
 </py:match>
@@ -67,6 +67,31 @@
 </py:match>
 
 
+<!--! Widget for CategoryFolder -->
+<py:match path="categoryfolder">
+    <a href="#" onclick="javascript:ui_categoryfolder('${select('@id')}');">
+	    <div class="ui-el-categoryfolder" id="${select('@id')}">
+		    <table>
+                <tr>
+                    <td rowspan="2" class="ui-el-category-icon">
+                        <img src="${select('@icon')}" />
+                    </td>
+                    <td class="ui-el-category-text">${select('@text')}</td>
+                </tr>
+            </table>
+        </div>
+    </a>
+    <div class="ui-el-categoryfolder-children" id="${select('@id')}-children"
+        style="display:none">
+        ${select('node()')}
+    </div>
+    <py:choose test="">
+        <script py:when="str(select('@expanded'))=='True'">
+            ui_categoryfolder('${select('@id')}')
+        </script>
+    </py:choose>
+</py:match>
+
 <!--! DialogBox widget -->
 <!--! Attributes
 @id
@@ -87,8 +112,14 @@
                     </vcontainer>
                     <div class="ui-el-modal-buttons">
                         <hcontainer>
-                            <hnode><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
-                            <hnode><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                            <py:choose test="">
+                                <a py:when="str(select('@hideok'))" />
+                                <hnode py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
+                            </py:choose>
+                            <py:choose test="">
+                                <a py:when="str(select('@hidecancel'))" />
+                                <hnode py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                            </py:choose>
                             <py:choose test="">
                                 <button py:when="str(select('@miscbtn'))" id="${select('@miscbtnid')}" text="${select('@miscbtn')}" />
                                 <a py:otherwise=""></a>
@@ -179,12 +210,12 @@
 
 <!--! VContainer widget -->
 <py:match path="vcontainer">
-    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <table cellspacing="${str(select('@spacing')) or '0'}" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
 <py:match path="vnode">
-    <tr><td>${select('node()')}</td></tr>
+    <tr style="padding-bottom: ${str(select('@spacing')) or '4'}px"><td>${select('node()')}</td></tr>
 </py:match>
 
 
@@ -197,7 +228,7 @@
     </table>
 </py:match>
 <py:match path="hnode">
-    <td style="padding-right: 5px;">${select('node()')}</td>
+    <td style="padding-right: ${str(select('@spacing')) or '4'}px">${select('node()')}</td>
 </py:match>
 
 
@@ -334,7 +365,7 @@
 
 <!--! LayoutTable widget -->
 <py:match path="layouttable">
-    <table cellspacing="8" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <table cellspacing="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
         ${select('node()')}
     </table>
 </py:match>
@@ -346,7 +377,7 @@
 </py:match>
 
 <py:match path="layouttablecell">
-    <td class="ui-el-layouttable-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
+    <td class="ui-el-layouttable-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'}; padding-right: ${str(select('@spacing')) or '4'}px; padding-bottom: ${str(select('@spacing')) or '4'}px">
         ${select('node()')}
     </td>
 </py:match>
@@ -451,4 +482,13 @@
         <td style="width:${int(str(select('@width'))) - int(str(select('@width'))) * int(str(select('@value'))) / int(str(select('@max')))}px" class="ui-el-progressbar"/></tr>
     </table>
 </py:match>
+
+<!-- ElementBox -->
+<py:match path="elementbox">
+<div class="ui-el-elementbox">
+    ${select('node()')}
+</div>
+</py:match>
+
 </widgets>
+
