@@ -176,63 +176,58 @@ class CronPlugin(CategoryPlugin):
             self._tasks.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
-        if params[0] == 'cancel':
-            print vars.getvalue('command')
-            self._show_dialog = 0
-            
-    
-    @event('dialog/submit')
+        
+    @event('form/submit')
     def on_submit(self, event, params, vars=None):
-        if params[0] == 'dlgEdit' and\
-            vars.getvalue('action', '') == 'OK':
-            print self._tab
-            if self._tab == 0:
-                task_str = ' '.join((
+        if params[0] == 'frmAdvanced' and\
+                vars.getvalue('action') == 'OK':
+            task_str = ' '.join((
                         vars.getvalue('m').replace(' ', '') or '*',
                         vars.getvalue('h').replace(' ', '') or '*',
                         vars.getvalue('dom').replace(' ', '') or '*',
                         vars.getvalue('mon').replace(' ', '') or '*',
                         vars.getvalue('dow').replace(' ', '') or '*'
                         ))
-                task_str += '\t' + vars.getvalue('command')
-                try:
-                    new_task = backend.Task(task_str)
-                except:
-                    self._error = "Error: Wrong options."
-                    self._editing = -1
-                    return 1
-                if self._editing < len(self._tasks):
-                    self._tasks[self._editing] = new_task
-                else:
-                    self._tasks.append(new_task)
-                self._error = backend.write_crontab(self._others +\
-                                                self._tasks)
-                if self._error:
-                    self._tasks, self._others = backend.read_crontab()
-            elif self._tab == 1:
-                task_str = '@' + vars.getvalue('special')
-                print vars.getvalue('special')
-                print task_str
-                print vars.getvalue('command')
-                print type(task_str)
-                print type(vars.getvalue('command'))
-                task_str += '\t' + vars.getvalue('command')
-                try:
-                    new_task = backend.Task(task_str)
-                except:
-                    self._error = "Error: Wrong options."
-                    self._editing = -1
-                    return 1
-                if self._editing < len(self._tasks):
-                    self._tasks[self._editing] = new_task
-                else:
-                    self._tasks.append(new_task)
-                self._error = backend.write_crontab(self._others +\
-                                                self._tasks)
-                if self._error:
-                    self._tasks, self._others = backend.read_crontab()
+            task_str += '\t' + vars.getvalue('command')
+            try:
+                new_task = backend.Task(task_str)
+            except:
+                self._error = "Error: Wrong options."
+                self._editing = -1
+                return 1
+            if self._editing < len(self._tasks):
+                self._tasks[self._editing] = new_task
+            else:
+                self._tasks.append(new_task)
+            self._error = backend.write_crontab(self._others +\
+                                            self._tasks)
+            if self._error:
+                self._tasks, self._others = backend.read_crontab()
+        if params[0] == 'frmSpecial' and\
+                vars.getvalue('action') == 'OK':
+            task_str = '@' + vars.getvalue('special')
+            print vars.getvalue('special')
+            print task_str
+            print vars.getvalue('command')
+            print type(task_str)
+            print type(vars.getvalue('command'))
+            task_str += '\t' + vars.getvalue('command')
+            try:
+                new_task = backend.Task(task_str)
+            except:
+                self._error = "Error: Wrong options."
+                self._editing = -1
+                return 1
+            if self._editing < len(self._tasks):
+                self._tasks[self._editing] = new_task
+            else:
+                self._tasks.append(new_task)
+            self._error = backend.write_crontab(self._others +\
+                                            self._tasks)
+            if self._error:
+                self._tasks, self._others = backend.read_crontab()
+        self._show_dialog = 0
         self._editing = -1
-        self._tab = 0
             
 class CronContent(ModuleContent):
     module = 'cron'
