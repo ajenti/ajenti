@@ -26,6 +26,7 @@ class CronPlugin(CategoryPlugin):
         self._others = []
         self._tab = 0
         self._show_dialog = 0
+        self._newtask = False
 
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text='%s tasks' %
@@ -99,8 +100,13 @@ class CronPlugin(CategoryPlugin):
     
     def get_ui_edit(self, t):
         tabbar = UI.TabControl(active=self._tab)
-        tabbar.add("Advanced", self.get_ui_advanced(t))
-        tabbar.add("Special", self.get_ui_special(t))
+        if self._newtask or t.special:
+            tabbar.add("Special", self.get_ui_special(t))
+        if self._newtask or not t.special:
+            tabbar.add("Advanced", self.get_ui_advanced(t))
+        if self._newtask:
+            tabbar.add("Template", self.get_ui_template())
+        
         dlg = UI.DialogBox(
                 tabbar,
                 title='Edit task',
@@ -161,7 +167,73 @@ class CronPlugin(CategoryPlugin):
                                         value=t.command)
                     ))
         return UI.FormBox(spc_table, id='frmSpecial')
-        
+    
+    def get_ui_template(self):
+        tabbar = UI.TabControl(active=self._tab)
+        tabbar.add("Every Minutes", self.get_ui_temp_minutes())
+        tabbar.add("Every hours", self.get_ui_temp_hours())
+        return tabbar
+    
+    def get_ui_temp_minutes(self):
+        temp_table = UI.LayoutTable(
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.Label(text='Start task every'),
+                            colspan=3
+                            )
+                        ),
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.TextInput(name='minutes'),
+                            colspan=1
+                            ),
+                        UI.LayoutTableCell(
+                            UI.Label(text='minutes'),
+                            colspan=2
+                            )
+                        ),
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.Label(text='Command'),
+                            colspan=1
+                        ),
+                        UI.LayoutTableCell(
+                            UI.TextInput(name='command'),
+                            colspan=2
+                            )
+                    ))
+        return UI.FormBox(temp_table, id='frmTempMinutes')
+    
+    def get_ui_temp_hours(self):
+        temp_table = UI.LayoutTable(
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.Label(text='Start task every'),
+                            colspan=3
+                            )
+                        ),
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.TextInput(name='hours'),
+                            colspan=1
+                            ),
+                        UI.LayoutTableCell(
+                            UI.Label(text='hours'),
+                            colspan=2
+                            )
+                        ),
+                    UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.Label(text='Command'),
+                            colspan=1
+                        ),
+                        UI.LayoutTableCell(
+                            UI.TextInput(name='command'),
+                            colspan=2
+                            )
+                    ))
+        return UI.FormBox(temp_table, id='frmTempHours')
+    
     @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
@@ -169,6 +241,7 @@ class CronPlugin(CategoryPlugin):
         if params[0] == 'add':
             self._editing = len(self._tasks)
             self._show_dialog = 1
+            self._newtask = True
         if params[0] == 'edit':
             self._editing = int(params[1])
             self._show_dialog = 1
@@ -189,46 +262,49 @@ class CronPlugin(CategoryPlugin):
                         vars.getvalue('dow').replace(' ', '') or '*'
                         ))
             task_str += '\t' + vars.getvalue('command')
-            try:
-                new_task = backend.Task(task_str)
-            except:
-                self._error = "Error: Wrong options."
-                self._editing = -1
+            if self.set_task(task_str):
                 return 1
-            if self._editing < len(self._tasks):
-                self._tasks[self._editing] = new_task
-            else:
-                self._tasks.append(new_task)
-            self._error = backend.write_crontab(self._others +\
-                                            self._tasks)
-            if self._error:
-                self._tasks, self._others = backend.read_crontab()
-        if params[0] == 'frmSpecial' and\
+        elif params[0] == 'frmSpecial' and\
                 vars.getvalue('action') == 'OK':
             task_str = '@' + vars.getvalue('special')
-            print vars.getvalue('special')
-            print task_str
-            print vars.getvalue('command')
-            print type(task_str)
-            print type(vars.getvalue('command'))
             task_str += '\t' + vars.getvalue('command')
-            try:
-                new_task = backend.Task(task_str)
-            except:
-                self._error = "Error: Wrong options."
-                self._editing = -1
+            if self.set_task(task_str):
                 return 1
-            if self._editing < len(self._tasks):
-                self._tasks[self._editing] = new_task
-            else:
-                self._tasks.append(new_task)
-            self._error = backend.write_crontab(self._others +\
-                                            self._tasks)
-            if self._error:
-                self._tasks, self._others = backend.read_crontab()
+        elif params[0] == 'frmTempMinutes' and\
+                vars.getvalue('action') == 'OK':
+            task_str = '*/' + vars.getvalue('minutes') + ' * * * *'
+            task_str += '\t' + vars.getvalue('command')
+            print task_str
+            if self.set_task(task_str):
+                return 1
+        elif params[0] == 'frmTempHours' and\
+                vars.getvalue('action') == 'OK':
+            task_str = '0 ' + '*/' + vars.getvalue('hours') + ' * * *'
+            task_str += '\t' + vars.getvalue('command')
+            print task_str
+            if self.set_task(task_str):
+                return 1
         self._show_dialog = 0
         self._editing = -1
-            
+        self._newtask = False
+    
+    def set_task(self, task_str):
+        try:
+            new_task = backend.Task(task_str)
+        except:
+            self._error = "Error: Wrong options."
+            self._editing = -1
+            return 1
+        if self._editing < len(self._tasks):
+            self._tasks[self._editing] = new_task
+        else:
+            self._tasks.append(new_task)
+        self._error = backend.write_crontab(self._others +\
+                                        self._tasks)
+        if self._error:
+            self._tasks, self._others = backend.read_crontab()
+        return 0
+
 class CronContent(ModuleContent):
     module = 'cron'
     path = __file__
