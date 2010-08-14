@@ -460,9 +460,9 @@
 </py:match>
 
 <py:match path="tabbody">
-    <div class="ui-el-tab-body" id="tabbody-${select('@pid')}-${select('@id')}">
+    <span class="ui-el-tab-body" id="tabbody-${select('@pid')}-${select('@id')}">
         ${select('node()')}
-    </div>
+    </span>
 </py:match>
 
 <py:match path="tabcontrol">
