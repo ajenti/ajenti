@@ -173,6 +173,7 @@ class CronPlugin(CategoryPlugin):
         tabbar.add("Every Minutes", self.get_ui_temp_minutes())
         tabbar.add("Every hours", self.get_ui_temp_hours())
         tabbar.add("Every days", self.get_ui_temp_days())
+        tabbar.add("Every months", self.get_ui_temp_days())
         return tabbar
     
     def get_ui_temp_minutes(self):
@@ -279,6 +280,65 @@ class CronPlugin(CategoryPlugin):
                             )
                     ))
         return UI.FormBox(temp_table, id='frmTempDays')
+    
+    def get_ui_temp_months(self):
+        hour_select = [UI.SelectOption(text=str(h), value=str(h))
+                        for h in range(24)]
+        minute_select = [UI.SelectOption(text=str(m), value=str(m))
+                        for m in range(60)]
+        day_select = [UI.SelectOption(text=str(d), value=str(d))
+                        for m in range(1, 32)]
+        temp_table = UI.VContainer(
+                    UI.Hcontainer(
+                        UI.Hnode(
+                            UI.Label(text='Start task every'),
+                            width = '60%'
+                            ),
+                        UI.Hnode(
+                            UI.TextInput(name='months'),
+                            width = '20%'
+                            ),
+                        UI.Hnode(
+                            UI.Label(text='months'),
+                            width = '20%'
+                            )
+                        ),
+                    UI.Hcontainer(
+                        UI.Hnode(
+                            UI.Label(text='At'),
+                        ),
+                        UI.Hnode(
+                            UI.Select(*day_select,
+                            name='day'),
+                        ),
+                        UI.Hnode(
+                            UI.Label(text='day'),
+                        ),
+                        UI.Hnode(
+                            UI.Select(*hour_select,
+                            name='hour'),
+                        ),
+                        UI.Hnode(
+                            UI.Label(text='hour'),
+                        ),
+                        UI.Hnode(
+                            UI.Select(*minute_select,
+                            name='minute'),
+                        ),
+                        UI.Hnode(
+                            UI.Label(text='minute'),
+                        ),
+                    ),
+                    UI.Hcontainer(
+                        UI.Hnode(
+                            UI.Label(text='Command'),
+                        ),
+                        UI.Hnode(
+                            UI.TextInput(name='command'),
+                            colspan=2
+                            )
+                    ))
+        return UI.FormBox(temp_table, id='frmTempMonths')
 
     @event('minibutton/click')
     @event('button/click')
@@ -318,14 +378,16 @@ class CronPlugin(CategoryPlugin):
                 return 1
         elif params[0] == 'frmTempMinutes' and\
                 vars.getvalue('action') == 'OK':
-            task_str = '*/' + vars.getvalue('minutes') + ' * * * *'
+            task_str = '*/' + (vars.getvalue('minutes') or '1')
+            task_str += ' * * * *'
             task_str += '\t' + vars.getvalue('command')
             print task_str
             if self.set_task(task_str):
                 return 1
         elif params[0] == 'frmTempHours' and\
                 vars.getvalue('action') == 'OK':
-            task_str = '0 ' + '*/' + vars.getvalue('hours') + ' * * *'
+            task_str = '0 ' + '*/' + (vars.getvalue('hours')  or '1')
+            task_str += ' * * *'
             task_str += '\t' + vars.getvalue('command')
             print task_str
             if self.set_task(task_str):
@@ -334,8 +396,19 @@ class CronPlugin(CategoryPlugin):
                 vars.getvalue('action') == 'OK':
             task_str = vars.getvalue('minute') + ' '
             task_str += vars.getvalue('hour') + ' '
-            task_str += '*/' + vars.getvalue('days')
+            task_str += '*/' + (vars.getvalue('days')  or '1')
             task_str += ' * *'
+            task_str += '\t' + vars.getvalue('command')
+            print task_str
+            if self.set_task(task_str):
+                return 1
+        elif params[0] == 'frmTempMonths' and\
+                vars.getvalue('action') == 'OK':
+            task_str = vars.getvalue('minute') + ' '
+            task_str += vars.getvalue('hour') + ' '
+            task_str += vars.getvalue('day') + ' '
+            task_str += '*/' + (vars.getvalue('months')  or '1')
+            task_str += ' *'
             task_str += '\t' + vars.getvalue('command')
             print task_str
             if self.set_task(task_str):
