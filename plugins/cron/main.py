@@ -179,17 +179,15 @@ class CronPlugin(CategoryPlugin):
                     UI.LayoutTableRow(
                         UI.LayoutTableCell(
                             UI.Label(text='Start task every'),
-                            colspan=3
-                            )
-                        ),
-                    UI.LayoutTableRow(
+                            width = '60%'
+                            ),
                         UI.LayoutTableCell(
                             UI.TextInput(name='minutes'),
-                            colspan=1
+                            width = '20%'
                             ),
                         UI.LayoutTableCell(
                             UI.Label(text='minutes'),
-                            colspan=2
+                            width = '20%'
                             )
                         ),
                     UI.LayoutTableRow(
@@ -209,23 +207,20 @@ class CronPlugin(CategoryPlugin):
                     UI.LayoutTableRow(
                         UI.LayoutTableCell(
                             UI.Label(text='Start task every'),
-                            colspan=3
-                            )
-                        ),
-                    UI.LayoutTableRow(
+                            width = '60%'
+                            ),
                         UI.LayoutTableCell(
                             UI.TextInput(name='hours'),
-                            colspan=1
+                            width = '20%'
                             ),
                         UI.LayoutTableCell(
                             UI.Label(text='hours'),
-                            colspan=2
+                            width = '20%'
                             )
                         ),
                     UI.LayoutTableRow(
                         UI.LayoutTableCell(
                             UI.Label(text='Command'),
-                            colspan=1
                         ),
                         UI.LayoutTableCell(
                             UI.TextInput(name='command'),
