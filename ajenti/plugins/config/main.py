@@ -93,13 +93,15 @@ class ConfigPlugin(CategoryPlugin):
 
         if self._adding_user:
             dlg = UI.DialogBox(
-                      UI.LayoutTableRow(
-                          UI.Label(text='Login: '),
-                          UI.TextInput(name='login')
-                      ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Password: '),
-                          UI.TextInput(name='password')
+                      UI.LayoutTable(
+                          UI.LayoutTableRow(
+                              UI.Label(text='Login: '),
+                              UI.TextInput(name='login')
+                          ),
+                          UI.LayoutTableRow(
+                              UI.Label(text='Password: '),
+                              UI.TextInput(name='password')
+                          )
                       ),
                       title='New user', id='dlgAddUser'  
                   )

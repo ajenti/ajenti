@@ -106,25 +106,24 @@
             <div class="ui-el-dialog" width="${select('@width')}" height="${select('@height')}">
                 <div class="ui-el-dialog-title"><label text="${select('@title')}" size="2" /></div>
                 <div class="ui-el-dialog-content">
-                    <vcontainer>
-                        <vnode><spacer height="10" /></vnode>
-                        <vnode>${select('node()')}</vnode>
-                    </vcontainer>
+                    ${select('node()')}
                     <div class="ui-el-modal-buttons">
-                        <hcontainer>
+                        <table cellspacing="0" cellpadding="0">
+                            <tr>
                             <py:choose test="">
-                                <a py:when="str(select('@hideok'))" />
-                                <hnode py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></hnode>
+                                <td py:when="str(select('@hideok'))" />
+                                <td py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></td>
                             </py:choose>
                             <py:choose test="">
-                                <a py:when="str(select('@hidecancel'))" />
-                                <hnode py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></hnode>
+                                <td py:when="str(select('@hidecancel'))" />
+                                <td py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></td>
                             </py:choose>
                             <py:choose test="">
-                                <button py:when="str(select('@miscbtn'))" id="${select('@miscbtnid')}" text="${select('@miscbtn')}" />
-                                <a py:otherwise=""></a>
+                                <td py:when="str(select('@miscbtn'))"><button id="${select('@miscbtnid')}" text="${select('@miscbtn')}" /></td>
+                                <td py:otherwise=""/>
                             </py:choose>
-                        </hcontainer>
+                        </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -377,7 +376,7 @@
 </py:match>
 
 <py:match path="layouttablecell">
-    <td class="ui-el-layouttable-cell" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'}; padding-right: ${str(select('@spacing')) or '4'}px; padding-bottom: ${str(select('@spacing')) or '4'}px">
+    <td class="ui-el-layouttable-cell" colspan="${str(select('@colspan'))}" rowspan="${str(select('@rowspan'))}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'}; padding-right: ${str(select('@spacing')) or '4'}px; padding-bottom: ${str(select('@spacing')) or '4'}px">
         ${select('node()')}
     </td>
 </py:match>

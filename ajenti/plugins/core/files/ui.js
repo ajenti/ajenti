@@ -62,9 +62,13 @@ function ui_tabswitch(pid, id) {
     b.style.display = '';
 
     while (p != null) {
-        p = p.parentNode;
-        if (p.getAttribute('class') == 'ui-el-modal-wrapper')
-            ui_center_el(p)
+        try {
+            p = p.parentNode;
+            if (p.getAttribute('class') == 'ui-el-modal-wrapper')
+                ui_center_el(p);
+        } catch (err) {
+            break;
+        }
     }
 }
 
