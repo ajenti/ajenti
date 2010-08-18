@@ -217,7 +217,7 @@
     </table>
 </py:match>
 <py:match path="vnode">
-    <tr style="padding-bottom: ${str(select('@spacing')) or '4'}px"><td>${select('node()')}</td></tr>
+    <tr><td style="padding-bottom: ${str(select('@spacing')) or '4'}px">${select('node()')}</td></tr>
 </py:match>
 
 

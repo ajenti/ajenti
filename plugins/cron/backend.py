@@ -24,7 +24,7 @@ class Task():
                           self.dow)) + '\t' + self.command
         return string
 
-def read_crontab(user="root"):
+def read_crontab(user='root'):
     tasks = []
     others = []
     lines = shell('crontab -l').split('\n')
@@ -44,6 +44,7 @@ def read_crontab(user="root"):
 def write_crontab(tasks, user='root'):
     lines = '\n'.join([str(task) for task in tasks])
     lines += '\n'
+    print lines
     return shell_stdin('crontab -', lines)[1]
     
     

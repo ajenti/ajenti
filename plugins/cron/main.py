@@ -79,7 +79,7 @@ class CronPlugin(CategoryPlugin):
                         ),
                         hidden=True)
                     ))
-        part = self._error.partition(":")[2]
+        part = self._error.partition(':')[2]
         self._error = 'Error:' + part if part else self._error
         if self._error:
             er = UI.ErrorBox(title='Error', text=self._error)
@@ -101,11 +101,11 @@ class CronPlugin(CategoryPlugin):
     def get_ui_edit(self, t):
         tabbar = UI.TabControl(active=self._tab)
         if self._newtask or t.special:
-            tabbar.add("Special", self.get_ui_special(t))
+            tabbar.add('Simple', self.get_ui_special(t))
         if self._newtask or not t.special:
-            tabbar.add("Advanced", self.get_ui_advanced(t))
+            tabbar.add('Advanced', self.get_ui_advanced(t))
         if self._newtask:
-            tabbar.add("Template", self.get_ui_template())
+            tabbar.add('Regular', self.get_ui_template())
         
         dlg = UI.DialogBox(
                 tabbar,
@@ -147,20 +147,20 @@ class CronPlugin(CategoryPlugin):
     def get_ui_special(self, t):
         spc_table = UI.LayoutTable(
                     UI.LayoutTableRow(
-                        UI.Radio(value="reboot", text="reboot",
-                                name="special", checked=True),
-                        UI.Radio(value="hourly", text="hourly",
-                                name="special")),
+                        UI.Radio(value='reboot', text='On reboot',
+                                name='special', checked=True),
+                        UI.Radio(value='hourly', text='Hourly',
+                                name='special')),
                     UI.LayoutTableRow(
-                        UI.Radio(value="daily", text="daily",
-                                name="special"),
-                        UI.Radio(value="weekly", text="weekly",
-                                name="special")),
+                        UI.Radio(value='daily', text='Daily',
+                                name='special'),
+                        UI.Radio(value='weekly', text='Weekly',
+                                name='special')),
                     UI.LayoutTableRow(
-                        UI.Radio(value="monthly", text="monthly",
-                                name="special"),
-                        UI.Radio(value="yearly", text="yearly",
-                                name="special")),
+                        UI.Radio(value='monthly', text='Monthly',
+                                name='special'),
+                        UI.Radio(value='yearly', text='Yearly',
+                                name='special')),
                     UI.LayoutTableRow(
                             UI.Label(text='Command'),
                             UI.TextInput(name='command',
@@ -170,64 +170,41 @@ class CronPlugin(CategoryPlugin):
     
     def get_ui_template(self):
         tabbar = UI.TabControl(active=self._tab)
-        tabbar.add("Every Minutes", self.get_ui_temp_minutes())
-        tabbar.add("Every hours", self.get_ui_temp_hours())
-        tabbar.add("Every days", self.get_ui_temp_days())
-        tabbar.add("Every months", self.get_ui_temp_days())
+        tabbar.add('Minutes', self.get_ui_temp_minutes())
+        tabbar.add('Hours', self.get_ui_temp_hours())
+        tabbar.add('Days', self.get_ui_temp_days())
+        tabbar.add('Months', self.get_ui_temp_months())
         return tabbar
     
     def get_ui_temp_minutes(self):
         temp_table = UI.LayoutTable(
                     UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.Label(text='Start task every'),
-                            width = '60%'
-                            ),
-                        UI.LayoutTableCell(
-                            UI.TextInput(name='minutes'),
-                            width = '20%'
-                            ),
-                        UI.LayoutTableCell(
-                            UI.Label(text='minutes'),
-                            width = '20%'
-                            )
-                        ),
+                        UI.Label(text='Start task every'),
+                        UI.TextInput(name='minutes'),
+                        UI.Label(text='minutes')
+                    ),
                     UI.LayoutTableRow(
+                        UI.Label(text='Command'),
                         UI.LayoutTableCell(
-                            UI.Label(text='Command'),
-                            colspan=1
-                        ),
-                        UI.LayoutTableCell(
-                            UI.TextInput(name='command'),
+                            UI.TextInput(name='command', size='30'),
                             colspan=2
-                            )
+                        )
                     ))
         return UI.FormBox(temp_table, id='frmTempMinutes')
     
     def get_ui_temp_hours(self):
         temp_table = UI.LayoutTable(
                     UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.Label(text='Start task every'),
-                            width = '60%'
-                            ),
-                        UI.LayoutTableCell(
-                            UI.TextInput(name='hours'),
-                            width = '20%'
-                            ),
-                        UI.LayoutTableCell(
-                            UI.Label(text='hours'),
-                            width = '20%'
-                            )
-                        ),
+                        UI.Label(text='Start task every'),
+                        UI.TextInput(name='hours'),
+                        UI.Label(text='hours')
+                    ),
                     UI.LayoutTableRow(
+                        UI.Label(text='Command'),
                         UI.LayoutTableCell(
-                            UI.Label(text='Command'),
-                        ),
-                        UI.LayoutTableCell(
-                            UI.TextInput(name='command'),
+                            UI.TextInput(name='command', size='30'),
                             colspan=2
-                            )
+                        )
                     ))
         return UI.FormBox(temp_table, id='frmTempHours')
 
@@ -237,47 +214,21 @@ class CronPlugin(CategoryPlugin):
         minute_select = [UI.SelectOption(text=str(m), value=str(m))
                         for m in range(60)]
         temp_table = UI.VContainer(
-                    UI.Hcontainer(
-                        UI.Hnode(
-                            UI.Label(text='Start task every'),
-                            width = '60%'
-                            ),
-                        UI.Hnode(
-                            UI.TextInput(name='days'),
-                            width = '20%'
-                            ),
-                        UI.Hnode(
-                            UI.Label(text='days'),
-                            width = '20%'
-                            )
-                        ),
-                    UI.Hcontainer(
-                        UI.Hnode(
-                            UI.Label(text='At'),
-                        ),
-                        UI.Hnode(
-                            UI.Select(*hour_select,
-                            name='hour'),
-                        ),
-                        UI.Hnode(
-                            UI.Label(text='hour'),
-                        ),
-                        UI.Hnode(
-                            UI.Select(*minute_select,
-                            name='minute'),
-                        ),
-                        UI.Hnode(
-                            UI.Label(text='minute'),
-                        ),
+                    UI.HContainer(
+                        UI.Label(text='Start task every'),
+                        UI.TextInput(name='days', size='3'),
+                        UI.Label(text='days')
                     ),
-                    UI.Hcontainer(
-                        UI.Hnode(
-                            UI.Label(text='Command'),
-                        ),
-                        UI.Hnode(
-                            UI.TextInput(name='command'),
-                            colspan=2
-                            )
+                    UI.HContainer(
+                        UI.Label(text='At'),
+                        UI.Select(*hour_select, name='hour'),
+                        UI.Label(text=':'),
+                        UI.Select(*minute_select, name='minute'),
+                        spacing=5
+                    ),
+                    UI.HContainer(
+                        UI.Label(text='Command'),
+                        UI.TextInput(name='command', size='30')
                     ))
         return UI.FormBox(temp_table, id='frmTempDays')
     
@@ -287,56 +238,25 @@ class CronPlugin(CategoryPlugin):
         minute_select = [UI.SelectOption(text=str(m), value=str(m))
                         for m in range(60)]
         day_select = [UI.SelectOption(text=str(d), value=str(d))
-                        for m in range(1, 32)]
+                        for d in range(1, 32)]
         temp_table = UI.VContainer(
-                    UI.Hcontainer(
-                        UI.Hnode(
-                            UI.Label(text='Start task every'),
-                            width = '60%'
-                            ),
-                        UI.Hnode(
-                            UI.TextInput(name='months'),
-                            width = '20%'
-                            ),
-                        UI.Hnode(
-                            UI.Label(text='months'),
-                            width = '20%'
-                            )
-                        ),
-                    UI.Hcontainer(
-                        UI.Hnode(
-                            UI.Label(text='At'),
-                        ),
-                        UI.Hnode(
-                            UI.Select(*day_select,
-                            name='day'),
-                        ),
-                        UI.Hnode(
-                            UI.Label(text='day'),
-                        ),
-                        UI.Hnode(
-                            UI.Select(*hour_select,
-                            name='hour'),
-                        ),
-                        UI.Hnode(
-                            UI.Label(text='hour'),
-                        ),
-                        UI.Hnode(
-                            UI.Select(*minute_select,
-                            name='minute'),
-                        ),
-                        UI.Hnode(
-                            UI.Label(text='minute'),
-                        ),
+                    UI.HContainer(
+                        UI.Label(text='Start task every'),
+                        UI.TextInput(name='months', size='3'),
+                        UI.Label(text='months')
                     ),
-                    UI.Hcontainer(
-                        UI.Hnode(
-                            UI.Label(text='Command'),
-                        ),
-                        UI.Hnode(
-                            UI.TextInput(name='command'),
-                            colspan=2
-                            )
+                    UI.HContainer(
+                        UI.Label(text='On'),
+                        UI.Select(*day_select, name='day'),
+                        UI.Label(text='th at'),
+                        UI.Select(*hour_select, name='hour'),
+                        UI.Label(text=':'),
+                        UI.Select(*minute_select, name='minute'),
+                        spacing=5
+                    ),
+                    UI.HContainer(
+                        UI.Label(text='Command'),
+                        UI.TextInput(name='command', size='30') 
                     ))
         return UI.FormBox(temp_table, id='frmTempMonths')
 
@@ -374,6 +294,7 @@ class CronPlugin(CategoryPlugin):
                 vars.getvalue('action') == 'OK':
             task_str = '@' + vars.getvalue('special')
             task_str += '\t' + vars.getvalue('command')
+            print task_str
             if self.set_task(task_str):
                 return 1
         elif params[0] == 'frmTempMinutes' and\
@@ -421,7 +342,7 @@ class CronPlugin(CategoryPlugin):
         try:
             new_task = backend.Task(task_str)
         except:
-            self._error = "Error: Wrong options."
+            self._error = 'Error: Wrong options.'
             self._editing = -1
             return 1
         if self._editing < len(self._tasks):
