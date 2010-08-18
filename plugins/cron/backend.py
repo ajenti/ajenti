@@ -44,7 +44,6 @@ def read_crontab(user='root'):
 def write_crontab(tasks, user='root'):
     lines = '\n'.join([str(task) for task in tasks])
     lines += '\n'
-    print lines
     return shell_stdin('crontab -', lines)[1]
     
     
