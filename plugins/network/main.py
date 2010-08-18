@@ -9,7 +9,7 @@ class NetworkContent(ModuleContent):
 class NetworkPlugin(CategoryPlugin):
     text = 'Network'
     icon = '/dl/network/icon.png'
-    folder = 'system'
+    folder = 'hardware'
 
     def on_init(self):
         self.net_config = self.app.grab_plugins(INetworkConfig)[0]

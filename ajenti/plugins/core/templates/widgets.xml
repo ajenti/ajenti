@@ -143,13 +143,19 @@
                 <div class="ui-el-modal-buttons">
                 <table cellspacing="0" cellpadding="0">
                     <tr>
-                    <td><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></td>
-                    <td><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></td>
+                    <py:choose test="">
+                         <td py:when="str(select('@hideok'))" />
+                         <td py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></td>
+                    </py:choose>
+                    <py:choose test="">
+                         <td py:when="str(select('@hidecancel'))" />
+                         <td py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></td>
+                    </py:choose>
                     <py:choose test="">
                         <td py:when="str(select('@miscbtn'))"><button id="${select('@miscbtnid')}" text="${select('@miscbtn')}" /></td>
                         <td py:otherwise=""/>
                     </py:choose>
-                </tr>
+                   </tr>
                 </table>
             </div>
         </div>

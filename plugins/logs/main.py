@@ -69,7 +69,7 @@ class LogsPlugin(CategoryPlugin):
     def format_log(self, data):
         r = UI.LogViewer(width=500, height=500)
         d = '<span style="font-family: monospace">'    
-        d += data.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
+        d += enquote(data)
         d += '</span>'
         r.appendChild(UI.CustomHTML(d))    
         return r

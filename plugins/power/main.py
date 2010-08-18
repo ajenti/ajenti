@@ -15,11 +15,9 @@ class PowerContent(ModuleContent):
 
 
 class PowerPlugin(CategoryPlugin):
-    implements(ICategoryProvider)
-
     text = 'Power'
     icon = '/dl/power/icon_small.png'
-    folder = 'system'
+    folder = 'hardware'
 
     def on_session_start(self):
         pass

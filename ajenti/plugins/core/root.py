@@ -14,12 +14,14 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
     folders = {
         'top': '',
         'system': 'System',
+        'hardware': 'Hardware',
         'apps': 'Applications',
         'servers': 'Servers',
+        'tools': 'Tools',
         'other': 'Other',
         'bottom': ''
     }
-    folder_ids = ['top', 'system', 'apps', 'servers', 'other', 'bottom']
+    folder_ids = ['top', 'system', 'apps', 'hardware', 'tools', 'servers', 'other', 'bottom']
     
     def main_ui(self):
         templ = self.app.get_template('main.xml')
