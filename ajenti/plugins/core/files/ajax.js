@@ -68,6 +68,7 @@ function ajaxForm(formId, action)
         params = "action=" + escape(action);
 
         var inputs = form.getElementsByTagName("input");
+        url = inputs[0].value;
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 if (inputs[i].type == "text") {
@@ -108,7 +109,7 @@ function ajaxForm(formId, action)
             params += "&" + inputs.id + "=" + ui_dumpSortList(inputs.id);
         }
 
-        ajaxPOST(form.action, params);
+        ajaxPOST(url, params);
     }
     return false;
 }
