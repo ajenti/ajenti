@@ -78,5 +78,5 @@ function noenter()
 }
 
 function ui_fill_custom_html(id, html) {
-    document.getElementById(id).innerHTML = Base64.decode(html)
+    document.getElementById(id).innerHTML = Base64.decode(html);
 }

@@ -26,7 +26,7 @@ class LogsPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
-        data = UI.LogViewer(width=600, height=500)
+        data = UI.LogViewer(width=500, height=500)
         if self._log != '':
             if self._log.endswith('.gz'):
                 data = self.format_log(gzip.open(self._log).read())
@@ -67,11 +67,10 @@ class LogsPlugin(CategoryPlugin):
             
 
     def format_log(self, data):
-        r = UI.LogViewer(width=600, height=500)
-        d = ''
-        for s in data.split('\n'):
-            d += s.replace('\n', '<br/>')
-        d = '<span style="font-family: monospace">' + d + '</span>'    
+        r = UI.LogViewer(width=500, height=500)
+        d = '<span style="font-family: monospace">'    
+        d += data.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
+        d += '</span>'
         r.appendChild(UI.CustomHTML(d))    
         return r
         

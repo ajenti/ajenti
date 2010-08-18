@@ -27,13 +27,13 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         cat_selected = self.app.session.get('cat_selected', 'Dashboard')
 
         cat = None
-        v = UI.VContainer()
+        v = UI.VContainer(spacing=0)
         
         cats = self.categories
         cats = sorted(cats, key=lambda p: p.text)
 
         for fld in self.folder_ids:
-            cat_vc = UI.VContainer()
+            cat_vc = UI.VContainer(spacing=0)
             if self.folders[fld] == '':
                 cat_folder = cat_vc # Omit wrapper for special folders
             else:
