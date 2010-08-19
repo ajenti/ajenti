@@ -1,7 +1,12 @@
+"""
+This module provide an interface for working with crontab.
+It's using shell command 'crontab' and donn't change file manualy
+"""
 from ajenti.utils import shell, shell_stdin
 
 
 class Task():
+    """Class to represent the task in crontab"""
     def __init__(self, line=''):
         if not line:
             self.m, self.h, self.dom, self.mon, self.dow = ['*'] * 5
@@ -18,6 +23,7 @@ class Task():
             self.special = ''
 
     def __repr__(self):
+    """task in string for write in crontab"""
         if self.special:
             string = self.special + '\t' + self.command
         else:
@@ -27,6 +33,7 @@ class Task():
 
 
 def read_crontab(user='root'):
+    """Read crontab file with shell command 'crontab -l'"""
     tasks = []
     others = []
     lines = shell('crontab -l').split('\n')
@@ -43,8 +50,11 @@ def read_crontab(user='root'):
             continue
     return tasks, others
 
-
 def write_crontab(tasks, user='root'):
+    """
+    Write tasks to crontab file with shell command and stdin.
+    tasks - list of instance Task class.
+    """
     lines = '\n'.join([str(task) for task in tasks])
     lines += '\n'
     return shell_stdin('crontab -', lines)[1]
