@@ -8,8 +8,6 @@ import backend
 
 
 class FSPlugin(CategoryPlugin):
-    implements (ICategoryProvider)
-
     text = 'Filesystems'
     icon = '/dl/filesystems/icon_small.png'
     folder = 'system'
@@ -23,9 +21,7 @@ class FSPlugin(CategoryPlugin):
         
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=self._log), title='Mounted filesystems', icon='/dl/filesystems/icon.png')
-
         panel.appendChild(self.get_default_ui())        
-
         return panel
 
     def get_default_ui(self):
@@ -216,5 +212,3 @@ class FSPlugin(CategoryPlugin):
 class FSContent(ModuleContent):
     module = 'filesystems'
     path = __file__
-    
-    
