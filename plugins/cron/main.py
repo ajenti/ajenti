@@ -7,16 +7,13 @@ import backend
 
 
 class CronPlugin(CategoryPlugin):
-    implements (ICategoryProvider)
-
     text = 'Cron'
-    description = 'Cron plugin'
     icon = '/dl/cron/icon_small.png'
     folder = 'system'
 
     def on_init(self):
         self._tasks, self._others = backend.read_crontab()
-        
+
     def on_session_start(self):
         self._log = ''
         self._labeltext = ''
@@ -35,7 +32,7 @@ class CronPlugin(CategoryPlugin):
                                icon='/dl/cron/icon.png')
         panel.appendChild(self.get_default_ui())
         return panel
-        
+
     def get_default_ui(self):
         table = UI.DataTable(UI.DataTableRow(
                 UI.Label(text='Minutes'),
@@ -97,7 +94,7 @@ class CronPlugin(CategoryPlugin):
             if self._show_dialog:
                 vbox.vnode(self.get_ui_edit(task))
         return vbox
-    
+
     def get_ui_edit(self, t):
         tabbar = UI.TabControl(active=self._tab)
         if self._newtask:
@@ -106,7 +103,6 @@ class CronPlugin(CategoryPlugin):
             tabbar.add('Advanced', self.get_ui_advanced(t))
         if self._newtask or t.special:
             tabbar.add('Special', self.get_ui_special(t))
-        
         dlg = UI.DialogBox(
                 tabbar,
                 title='Edit task',
@@ -115,7 +111,7 @@ class CronPlugin(CategoryPlugin):
                 hidecancel=True
               )
         return dlg
-    
+
     def get_ui_advanced(self, t):
         adv_table = UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -143,7 +139,7 @@ class CronPlugin(CategoryPlugin):
                         UI.TextInput(name='command', value=t.command)
                     ))
         return UI.FormBox(adv_table, id='frmAdvanced')
-    
+
     def get_ui_special(self, t):
         spc_table = UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -167,7 +163,7 @@ class CronPlugin(CategoryPlugin):
                                         value=t.command)
                     ))
         return UI.FormBox(spc_table, id='frmSpecial')
-    
+
     def get_ui_template(self):
         tabbar = UI.TabControl(active=self._tab)
         tabbar.add('Minutely', self.get_ui_temp_minutely())
@@ -176,7 +172,7 @@ class CronPlugin(CategoryPlugin):
         tabbar.add('Weekly', self.get_ui_temp_weekly())
         tabbar.add('Monthly', self.get_ui_temp_monthly())
         return tabbar
-    
+
     def get_ui_temp_minutely(self):
         temp_table = UI.VContainer(
                     UI.HContainer(
@@ -190,7 +186,7 @@ class CronPlugin(CategoryPlugin):
                         )
                     )
         return UI.FormBox(temp_table, id='frmTempMinutes')
-    
+
     def get_ui_temp_hourly(self):
         minute_select = [UI.SelectOption(text=str(m), value=str(m))
                         for m in range(60)]
@@ -254,7 +250,7 @@ class CronPlugin(CategoryPlugin):
                         UI.TextInput(name='command', size='30')
                     ))
         return UI.FormBox(temp_table, id='frmTempWeek')
-    
+
     def get_ui_temp_monthly(self):
         hour_select = [UI.SelectOption(text=str(h), value=str(h))
                         for h in range(24)]
@@ -278,7 +274,7 @@ class CronPlugin(CategoryPlugin):
                     ),
                     UI.HContainer(
                         UI.Label(text='Command'),
-                        UI.TextInput(name='command', size='30') 
+                        UI.TextInput(name='command', size='30')
                     ))
         return UI.FormBox(temp_table, id='frmTempMonths')
 
@@ -297,7 +293,7 @@ class CronPlugin(CategoryPlugin):
             self._tasks.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
-        
+
     @event('form/submit')
     def on_submit(self, event, params, vars=None):
         if params[0] == 'frmAdvanced' and\
@@ -364,7 +360,7 @@ class CronPlugin(CategoryPlugin):
         self._show_dialog = 0
         self._editing = -1
         self._newtask = False
-    
+
     def set_task(self, task_str):
         try:
             new_task = backend.Task(task_str)
@@ -382,7 +378,7 @@ class CronPlugin(CategoryPlugin):
             self._tasks, self._others = backend.read_crontab()
         return 0
 
+
 class CronContent(ModuleContent):
     module = 'cron'
     path = __file__
-    

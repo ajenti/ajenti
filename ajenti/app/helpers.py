@@ -67,8 +67,6 @@ class ModuleContent(Plugin):
         return norm_path
 
 
-
-
 class EventProcessor(object):
     implements(IEventDispatcher)
 
@@ -170,20 +168,20 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     implements(ICategoryProvider)
 
     text = 'Caption'
-    icon = '/dl/core/ui/category-icon.png'
+    icon = '/dl/core/ui/catfolders/other.png'
     folder = 'other'
-    
+
     @property
     def category(self):
         return { 'text': self.text,
-                 'icon': self.icon }
+                  'icon': self.icon }
 
 
     def on_init(self):
         pass
-        
+
     def get_name(self):
         return self.__class__.__name__
-        
-        
-        
+
+
+

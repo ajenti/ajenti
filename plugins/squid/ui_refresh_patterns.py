@@ -2,17 +2,18 @@ from ajenti import apis
 from ajenti.com import *
 from ajenti.ui import *
 
+
 class SquidRefPats(Plugin):
     implements(apis.squid.IPluginPart)
-    
+
     weight = 40
     title = 'Refresh patterns'
 
     tab = 0
     cfg = 0
     parent = None
-        
-       
+
+
     def init(self, parent, cfg, tab):
         self.parent = parent
         self.cfg = cfg
@@ -23,24 +24,24 @@ class SquidRefPats(Plugin):
     def get_ui(self):
         t = UI.DataTable()
         t.appendChild(UI.DataTableRow(
-                UI.Label(text='Regex'), 
-                UI.Label(text='Min'), 
+                UI.Label(text='Regex'),
+                UI.Label(text='Min'),
                 UI.Label(text='%'),
                 UI.Label(text='Max'),
                 UI.Label(text='Options'),
                 UI.Label(),
                 header=True
               ))
-              
+
         i = 0
         for a in self.cfg.ref_pats:
             t.appendChild(
                 UI.DataTableRow(
-                    UI.Label(text=a[0]), 
-                    UI.Label(text=a[1]), 
-                    UI.Label(text=a[2]), 
-                    UI.Label(text=a[3]), 
-                    UI.Label(text=a[4]), 
+                    UI.Label(text=a[0]),
+                    UI.Label(text=a[1]),
+                    UI.Label(text=a[2]),
+                    UI.Label(text=a[3]),
+                    UI.Label(text=a[4]),
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(text='Edit', id='edit_ref_pat/' + str(i)),
@@ -51,18 +52,18 @@ class SquidRefPats(Plugin):
                 )
               )
             i += 1
-              
+
         vc = UI.VContainer(
-                 t, 
-                 UI.Button(text='Add', id='add_ref_pat'), 
-             )    
-        
+                 t,
+                 UI.Button(text='Add', id='add_ref_pat'),
+             )
+
         if self.parent._adding_ref_pat:
             vc.vnode(self.get_ui_add())
         if self.parent._editing_ref_pat != -1:
             a = self.cfg.ref_pats[self.parent._editing_ref_pat]
             vc.vnode(self.get_ui_edit(a))
-            
+
         return vc
 
     def get_ui_add(self):
@@ -89,7 +90,7 @@ class SquidRefPats(Plugin):
                         UI.TextInput(name='opts')
                     )
                 )
-            )    
+            )
         return UI.DialogBox(c, title='Add refresh pattern', id='dlgAddRefPat')
 
     def get_ui_edit(self, a):
@@ -116,7 +117,7 @@ class SquidRefPats(Plugin):
                         UI.TextInput(name='opts', value=a[4])
                     )
                 )
-            )    
+            )
         return UI.DialogBox(c, title='Edit refresh pattern', id='dlgEditRefPat')
 
     def on_click(self, event, params, vars=None):
@@ -153,4 +154,3 @@ class SquidRefPats(Plugin):
                 self.cfg.ref_pats[self.parent._editing_ref_pat] = (r, mn, p, mx, o)
                 self.cfg.save()
             self.parent._editing_ref_pat = -1
-

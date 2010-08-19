@@ -1,7 +1,8 @@
+import psycopg2
+
 from ajenti.com import *
 from ajenti import apis
 
-import psycopg2
 
 class PgSQLDBBackend(Plugin):
     implements(apis.sql.IDBBackend)
@@ -10,13 +11,13 @@ class PgSQLDBBackend(Plugin):
 
     conn = None
     cur = None
-    
+
     def connect(self, host, login, password, db):
     	DSN = 'user=%s password=%s host=%s dbname=%s' % ( login, password, host, db )
     	print DSN
     	self.conn = psycopg2.connect(DSN)
         #self.conn = MySQLdb.connect(host=host, user=login, passwd=password, db=db)
-        
+
     def disconnect(self):
         self.conn.close()
 

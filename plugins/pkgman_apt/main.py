@@ -5,6 +5,7 @@ from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
 
+
 class APTPackageManager(Plugin):
     implements(apis.pkgman.IPackageManager)
     platform = ['Debian', 'Ubuntu']

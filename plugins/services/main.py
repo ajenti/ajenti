@@ -6,12 +6,10 @@ from ajenti import apis
 
 
 class ServicesPlugin(CategoryPlugin):
-    implements (ICategoryProvider)
-
     text = 'Services'
     icon = '/dl/services/icon_small.png'
     folder = 'system'
-    
+
     def on_init(self):
         self.svc_mgr = self.app.grab_plugins(apis.services.IServiceManager)[0]
 
@@ -48,7 +46,7 @@ class ServicesPlugin(CategoryPlugin):
                     )
                   )
             ts.appendChild(row)
-              
+
         panel.appendChild(ts)
         return panel
 

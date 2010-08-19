@@ -1,12 +1,14 @@
+import os
+
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
-import os
+
 
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
     platform = ['Debian', 'Ubuntu']
-    
+
     def list_all(self):
         r = []
         for s in os.listdir('/etc/init'):
@@ -18,16 +20,15 @@ class UpstartServiceManager(Plugin):
                 if 'start/running' in shell('service %s status' % s):
                     svc.status = 'running'
                 else:
-                    svc.status = 'stopped'            
-                
+                    svc.status = 'stopped'
+
         return sorted(r, key=lambda s: s.name)
-        
+
     def start(self, name):
         shell('service ' + name + ' start')
-        
+
     def stop(self, name):
         shell('service ' + name + ' stop')
 
     def restart(self, name):
         shell('service ' + name + ' --full-restart')
- 

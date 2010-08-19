@@ -20,4 +20,3 @@ def loader(path):
     for plug in sorted(plugs_names):
         p = plugs_found[plug]
         imp.load_module(plug, p[0], p[1], p[2])
-

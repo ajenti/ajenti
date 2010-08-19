@@ -1,5 +1,7 @@
-from api import *
 from ajenti.ui import *
+
+from api import *
+
 
 class LinuxBasicNetworkConfigSet(NetworkConfigBit):
     cls = 'linux-basic'

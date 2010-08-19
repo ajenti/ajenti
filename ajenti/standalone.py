@@ -11,6 +11,7 @@ from ajenti.config import Config
 from ajenti.app import AppDispatcher
 import ajenti.app.plugins as plugins
 
+
 class CustomRequestHandler(WSGIRequestHandler):
     log = None
     def setup(self):
@@ -24,8 +25,8 @@ class CustomRequestHandler(WSGIRequestHandler):
     def log_request(self, code, size):
         # "GET /dl/core/ui/category-sel.png HTTP/1.1" 200 8994
         if self.log:
-            self.log.info('"%s %s %s" %s %d'%(self.command, 
-                                              self.path, 
+            self.log.info('"%s %s %s" %s %d'%(self.command,
+                                              self.path,
                                               self.request_version,
                                               code, size))
 
@@ -70,7 +71,7 @@ def server(log_level=logging.INFO, config_file=''):
 
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
-    log.info('Listening on %s:%d'%(host, port)) 
+    log.info('Listening on %s:%d'%(host, port))
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
 
@@ -82,11 +83,10 @@ def server(log_level=logging.INFO, config_file=''):
     if config.getint('ajenti', 'ssl') == 1:
         CustomServer.cert_file = config.get('ajenti','cert_file')
 
-    httpd = make_server(host, port, AppDispatcher(config).dispatcher, 
+    httpd = make_server(host, port, AppDispatcher(config).dispatcher,
                             CustomServer, CustomRequestHandler)
 
     try:
         httpd.serve_forever()
     except KeyboardInterrupt, e:
         log.warn('Stopping by <Control-C>')
-#"""

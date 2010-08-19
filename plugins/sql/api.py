@@ -1,6 +1,7 @@
 from ajenti.com import *
 from ajenti.apis import API
 
+
 class SQL(API):
     class IDBBackend(Interface):
         name = 'Unknown'
@@ -13,4 +14,3 @@ class SQL(API):
 
         def sql(self, query):
             pass
-        

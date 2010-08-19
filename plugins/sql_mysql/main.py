@@ -1,7 +1,8 @@
+import MySQLdb
+
 from ajenti.com import *
 from ajenti import apis
 
-import MySQLdb
 
 class MySQLDBBackend(Plugin):
     implements(apis.sql.IDBBackend)
@@ -10,10 +11,10 @@ class MySQLDBBackend(Plugin):
 
     conn = None
     cur = None
-    
+
     def connect(self, host, login, password, db):
         self.conn = MySQLdb.connect(host=host, user=login, passwd=password, db=db)
-        
+
     def disconnect(self):
         self.conn.close()
 

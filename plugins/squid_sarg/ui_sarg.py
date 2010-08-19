@@ -1,31 +1,32 @@
+import os
+
 from ajenti import apis
 from ajenti.com import *
 from ajenti.ui import *
 from ajenti.app.urlhandler import URLHandler, url
 from ajenti.utils import wsgi_serve_file, shell
 
-import os
 
 class SquidReports(Plugin, URLHandler):
     implements(apis.squid.IPluginPart)
-    
+
     weight = 20
     title = 'Reports'
 
     tab = 0
     cfg = 0
     parent = None
-        
+
     def init(self, parent, cfg, tab):
         self.parent = parent
         self.cfg = cfg
         self.tab = tab
-   
-    @url('^/sarg_report/.+$') 
+
+    @url('^/sarg_report/.+$')
     def process(self, req, start_response):
         file = os.path.join('/var/lib/sarg/', req['PATH_INFO'][13:])
-        return wsgi_serve_file(req, start_response, file)        
-        
+        return wsgi_serve_file(req, start_response, file)
+
     def get_ui(self):
         vc = UI.VContainer(
                 UI.Button(text='Generate report', id='gen'),

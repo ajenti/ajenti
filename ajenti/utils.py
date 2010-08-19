@@ -4,6 +4,7 @@ import os
 import mimetypes
 from datetime import datetime
 
+
 def dequote(s):
     s = str(s).replace('[br]', '\n').replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
     return s
@@ -14,7 +15,7 @@ def enquote(s):
 
 def fix_unicode(s):
     return s.encode('utf-8', 'xmlcharref')
-    
+
 def detect_platform():
     if platform.system() != 'Linux':
         return platform.system().lower()
@@ -37,7 +38,7 @@ def detect_distro():
     return shell('uname -mrs')
 
 def shell(c):
-    p = subprocess.Popen(c, shell=True, 
+    p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
     p.wait()
@@ -47,18 +48,18 @@ def shell_status(c):
     return subprocess.Popen(c, shell=True).wait()
 
 def shell_stdin(c, input):
-    p = subprocess.Popen(c, shell=True, 
+    p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stdin=subprocess.PIPE)
     return p.communicate(input)
-    
+
 def wsgi_serve_file(req, start_response, file):
     # Check for directory traversal
     if file.find('..') > -1:
         start_response('404 Not Found', [])
         return ''
-            
+
     # Check if this is a file
     if not os.path.isfile(file):
         start_response('404 Not Found',[])
@@ -93,10 +94,9 @@ def wsgi_serve_file(req, start_response, file):
                 start_response('304 Not Modified',[])
                 return ''
         except:
-            pass 
- 
+            pass
+
     headers.append(('Content-length',str(size)))
     headers.append(('Last-modified',mtime.strftime('%a, %b %d %Y %H:%M:%S GMT')))
     start_response('200 OK', headers)
-    return req['wsgi.file_wrapper'](open(file))    
-     
+    return req['wsgi.file_wrapper'](open(file))

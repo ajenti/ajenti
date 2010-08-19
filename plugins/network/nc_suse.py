@@ -1,9 +1,11 @@
-from ajenti.com import *
-from api import *
-from ajenti.utils import *
-from ajenti.ui import *
 import time
 import os
+
+from ajenti.com import *
+from ajenti.utils import *
+from ajenti.ui import *
+
+from api import *
 
 
 optionmap = {
@@ -32,7 +34,7 @@ class SuseNetworkConfig(Plugin):
         'dhcp': ('inet', 'dhcp'),
         'loopback': ('inet', 'loopback')
     }
-    
+
     def __init__(self):
         self.rescan()
 
@@ -53,7 +55,7 @@ class SuseNetworkConfig(Plugin):
                             d[k] = v
                         except:
                             pass
-                        
+
                     m = 'loopback'
                     c = 'inet'
                     try:
@@ -62,11 +64,11 @@ class SuseNetworkConfig(Plugin):
                         c,m = self.modes[m]
                     except:
                         pass
-                        
+
                     e = self.get_iface(ifcn, self.detect_iface_class(ifcn, c, m))
                     e.name = ifcn
                     e.mode = m
-                    e.cls = c 
+                    e.cls = c
                     for k in d:
                         if k == 'STARTMODE':
                             e.auto = d[k] == 'auto' or d[k] =='hotplug'
@@ -77,7 +79,7 @@ class SuseNetworkConfig(Plugin):
                             e.params[optionmap[k]] = d[k]
                         else:
                             e.params[k] = d[k]
-                            
+
                     e.clsname = self.detect_iface_class_name(e.name)
                     e.up = (shell_status('ifconfig ' + e.name + '|grep UP') == 0)
                     if e.up:
@@ -242,7 +244,7 @@ class SuseNetworkInterface(NetworkInterfaceBase):
         for x in self.classes:
             if x == (self.cls, self.mode):
                 f.write('BOOTPROTO=\'' + self.classes[x] + '\'\n');
-                
+
         for x in self.params:
             fnd = False
             for k in optionmap:
@@ -251,7 +253,7 @@ class SuseNetworkInterface(NetworkInterfaceBase):
                     fnd = True
             if not fnd:
                 f.write(x + '=\'' + self.params[x] + '\'\n')
-     
+
 
 class Nameserver(NameserverBase):
     pass

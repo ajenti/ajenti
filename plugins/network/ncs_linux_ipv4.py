@@ -1,5 +1,7 @@
-from api import *
 from ajenti.ui import *
+
+from api import *
+
 
 class LinuxIPv4NetworkConfigSet(NetworkConfigBit):
     cls = 'linux-ipv4'
@@ -45,4 +47,3 @@ class LinuxIPv4NetworkConfigSet(NetworkConfigBit):
                 )
             )
         return p
-

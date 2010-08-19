@@ -5,7 +5,8 @@ import os
 class ACAdapter:
     present = False
     name = ''
-    
+
+
 def get_ac_adapters():
     r = []
     for x in os.listdir('/proc/acpi/ac_adapter'):
@@ -21,13 +22,15 @@ def get_ac_adapters():
             pass
     return r
 
+
 class Battery:
     present = False
     name = ''
     charge = 0
     total = 0
     current = 0
-    
+
+
 def get_batteries():
     r = []
     for x in os.listdir('/proc/acpi/battery'):
@@ -41,17 +44,18 @@ def get_batteries():
                 if s.startswith('present:'):
                     b.present = s.endswith('yes')
                 if s.startswith('remaining capacity:'):
-                    b.current = int(s.split()[2])    
+                    b.current = int(s.split()[2])
             ss = open('/proc/acpi/battery/%s/info' % x).read().split('\n')
             for s in ss:
                 if s.startswith('design capacity:'):
-                    b.total = int(s.split()[2])    
+                    b.total = int(s.split()[2])
             b.charge = int(b.current * 100 / b.total)
             r.append(b)
         except:
             pass
     return r
-    
+
+
 def get_uptime():
     minute = 60
     hour = minute * 60

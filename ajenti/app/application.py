@@ -15,6 +15,7 @@ from ajenti.ui.template import BasicTemplate
 from ajenti.app.urlhandler import IURLHandler
 from ajenti.utils import dequote
 
+
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
 
@@ -123,6 +124,7 @@ class Application (PluginManager, Plugin):
                              includes=includes+self.template_include,
                              vars=vars)
 
+
 class AppDispatcher(object):
     def __init__(self, config=None):
         self.config = config
@@ -140,4 +142,3 @@ class AppDispatcher(object):
         app = SessionManager(self.sessions, app)
 
         return app(environ, start_response)
-

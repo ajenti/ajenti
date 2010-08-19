@@ -4,9 +4,10 @@ from ajenti.com import implements, Plugin
 from ajenti.app.helpers import *
 from ajenti.utils import *
 
+
 class LoadWidget(Plugin):
     implements(IDashboardWidget)
-    
+
     def get_ui(self):
         w = UI.Widget(
                 UI.Image(file='/dl/loadavg/widget.png'),
@@ -17,11 +18,11 @@ class LoadWidget(Plugin):
 
     def get_load(self):
         return ' / '.join(open('/proc/loadavg', 'r').read().split()[0:3])
-        
+
 
 class MemWidget(Plugin):
     implements(IDashboardWidget)
-    
+
     def get_ui(self):
         ru, rt = self.get_ram()
         w = UI.Widget(
@@ -46,7 +47,7 @@ class MemWidget(Plugin):
 
 class SwapWidget(Plugin):
     implements(IDashboardWidget)
-    
+
     def get_ui(self):
         ru, rt = self.get_swap()
         w = UI.Widget(
@@ -62,8 +63,8 @@ class SwapWidget(Plugin):
     def get_swap(self):
         s = shell('free -m | grep Swap').split()[1:]
         return (s[1], s[0])
-                              
+
+
 class LoadContent(ModuleContent):
     module = 'loadavg'
     path = __file__
-    

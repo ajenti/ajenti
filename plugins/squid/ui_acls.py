@@ -2,17 +2,17 @@ from ajenti import apis
 from ajenti.com import *
 from ajenti.ui import *
 
+
 class SquidACLs(Plugin):
     implements(apis.squid.IPluginPart)
-    
+
     weight = 20
     title = 'ACLs'
 
     tab = 0
     cfg = 0
     parent = None
-        
-            
+
     acl_types = [
         ('Source IP', 'src'),
         ('Destination IP', 'dst'),
@@ -52,7 +52,7 @@ class SquidACLs(Plugin):
         ('External helper - user', 'ext_user'),
         ('External helper - user regex', 'ext_user_regex')
        ]
-       
+
     def init(self, parent, cfg, tab):
         self.parent = parent
         self.cfg = cfg
@@ -68,9 +68,9 @@ class SquidACLs(Plugin):
             tp = filter(lambda x: x[1] == a[1], self.acl_types)[0][0]
             t.appendChild(
                 UI.DataTableRow(
-                    UI.Label(text=a[0]), 
-                    UI.Label(text=tp), 
-                    UI.Label(text=a[2]), 
+                    UI.Label(text=a[0]),
+                    UI.Label(text=tp),
+                    UI.Label(text=a[2]),
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(text='Edit', id='edit_acl/' + a[0]),
@@ -80,13 +80,13 @@ class SquidACLs(Plugin):
                    )
                 )
               )
-        vc = UI.VContainer(t, 
+        vc = UI.VContainer(t,
                 UI.HContainer(
-                    UI.Button(text='Add', id='add_acl'), 
+                    UI.Button(text='Add', id='add_acl'),
                     UI.Button(text='Shuffle', id='shuffle_acls')
                 )
-             )    
-        
+             )
+
         if self.parent._shuffling_acls:
             vc.vnode(self.get_ui_acls_shuffler())
         if self.parent._adding_acls:
@@ -94,14 +94,14 @@ class SquidACLs(Plugin):
         if self.parent._editing_acl != '':
             a = filter(lambda x: x[0] == self.parent._editing_acl, self.cfg.acls)[0]
             vc.vnode(self.get_ui_edit(a[0], a[1], a[2]))
-            
+
         return vc
 
     def get_ui_add(self):
         li = UI.Select(name='type')
         for (d, v) in self.acl_types:
             li.appendChild(UI.SelectOption(text=d, value=v))
-            
+
         c = UI.HContainer(
                 UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -117,14 +117,14 @@ class SquidACLs(Plugin):
                         UI.TextInput(name='value')
                     )
                 )
-            )    
+            )
         return UI.DialogBox(c, title='Add ACL', id='dlgAddACL')
 
     def get_ui_edit(self, n, t, p):
         li = UI.Select(name='type')
         for (d, v) in self.acl_types:
             li.appendChild(UI.SelectOption(text=d, value=v, selected=(v==t)))
-            
+
         c = UI.HContainer(
                 UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -140,7 +140,7 @@ class SquidACLs(Plugin):
                         UI.TextInput(name='value', value=p)
                     )
                 )
-            )    
+            )
         return UI.DialogBox(c, title='Edit ACL', id='dlgEditACL')
 
     def get_ui_acls_shuffler(self):
@@ -148,7 +148,7 @@ class SquidACLs(Plugin):
         for p in self.cfg.acls:
             s = ' '.join(p)
             li.appendChild(UI.SortListItem(UI.Label(text=s), id=s))
-      
+
         return UI.DialogBox(li, title='Shuffle ACLs', id='dlgACLs')
 
     def on_click(self, event, params, vars=None):
@@ -198,4 +198,3 @@ class SquidACLs(Plugin):
                         self.cfg.acls[x] = (n, t, v)
                 self.cfg.save()
             self.parent._editing_acl = ''
-

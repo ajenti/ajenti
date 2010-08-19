@@ -5,8 +5,8 @@ from genshi.template import Context, MarkupTemplate, TemplateLoader
 from ajenti.ui import UI
 
 
-EMPTY_TEMPLATE="""<html xmlns="http://www.w3.org/1999/xhtml" 
-        xmlns:py="http://genshi.edgewall.org/" 
+EMPTY_TEMPLATE="""<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:py="http://genshi.edgewall.org/"
         xmlns:xi="http://www.w3.org/2001/XInclude" py:strip="" />
 """
 
@@ -66,7 +66,7 @@ class BasicTemplate(object):
 
     def toprettyxml(self):
         return self._dom.toprettyxml()
-    
+
     def render(self, *args, **kwargs):
         e = self._dom.childNodes[0]
         for i in self.includes:
@@ -78,4 +78,3 @@ class BasicTemplate(object):
         ctx.push(self.vars)
         ctx.push(kwargs)
         return template.generate(ctx).render('xhtml', doctype='xhtml')
-
