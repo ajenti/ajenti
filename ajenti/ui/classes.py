@@ -57,7 +57,6 @@ class UI(object):
         """
         return Element(name.lower(), *args, **kwargs)
 
-
     @staticmethod
     def CustomHTML(*args, **kwargs):
         class CustomHTML(Element):
@@ -66,9 +65,8 @@ class UI(object):
                 self.elements = []
                 for e in args:
                     self['html'] = base64.b64encode(str(e))
-                    
-        return CustomHTML(*args, **kwargs)
 
+        return CustomHTML(*args, **kwargs)
 
     @staticmethod
     def VContainer(*args, **kwargs):
@@ -211,6 +209,12 @@ class UI(object):
 
 
 class TreeManager(object):
+    """ Processes treenode click events and stores the nodes'
+    collapsed/expanded states.
+    You should keep the TreeManager inside the session,
+    call node_click() on each 'click' event, and apply() to the tree
+    object before rendering it.
+    """
     states = None
 
     def __init__(self):

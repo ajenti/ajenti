@@ -2,11 +2,12 @@ import os
 
 from ajenti.utils import *
 
+
 dir_squid = '/etc/squid/'
 
 def is_installed():
     return os.path.exists(dir_squid)
-    
+
 def is_running():
     return shell_status('pgrep squid') == 0
 
@@ -18,7 +19,7 @@ class SquidConfig:
     http_port = []
     https_port = []
     ref_pats = []
-    
+
     access_lists = [
         'http_access',
         'http_reply_access',
@@ -50,9 +51,9 @@ class SquidConfig:
         self.http_port = []
         self.https_port = []
         self.ref_pats = []
-        
+
         ss = open(dir_squid + 'squid.conf').read().split('\n')
-        
+
         for s in ss:
             if len(s) > 0 and s[0] != '#':
                 try:
@@ -90,10 +91,10 @@ class SquidConfig:
                         self.misc.append((k, v))
                 except:
                     pass
-                
+
     def save(self):
         s = ''
-        
+
         s += '\n# Bindings\n'
         for k,v in self.http_port:
             s += 'http_port %s:%s\n' % (k,v)
@@ -119,6 +120,6 @@ class SquidConfig:
         s += '\n# Misc options\n'
         for k,v in self.misc:
             s += '%s %s\n' % (k,v)
-            
+
         with open(dir_squid + 'squid.conf', 'w') as f:
             f.write(s)

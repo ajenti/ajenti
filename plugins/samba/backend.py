@@ -1,5 +1,7 @@
-from ajenti.utils import *
 import os
+
+from ajenti.utils import *
+
 
 def is_installed():
     return os.path.exists('/etc/samba/')
@@ -7,12 +9,13 @@ def is_installed():
 def restart():
     shell('service smbd restart')
     shell('service samba restart') # older samba packages
-    
+
+
 class SambaConfig:
     shares = {}
     general = {}
     users = {}
-    
+
     general_defaults = {
         'server string': '',
         'workgroup': 'WORKGROUP',
@@ -21,7 +24,7 @@ class SambaConfig:
         'password server': '',
         'security': 'user'
     }
-    
+
     defaults = {
         'available': 'yes',
         'browseable': 'yes',
@@ -31,7 +34,7 @@ class SambaConfig:
         'guest ok': 'yes',
         'guest only': 'no'
     }
-    
+
     editable = {
         'Account Flags': '-c',
         'User SID': '-U',
@@ -43,9 +46,9 @@ class SambaConfig:
         'Profile Path': '-p',
         'Kickoff time': '-K'
     }
-    
+
     fields = []
-    
+
     def load(self):
         self.shares = {}
         ss = open('/etc/samba/smb.conf', 'r').read().split('\n')
@@ -79,8 +82,8 @@ class SambaConfig:
                         self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
                     except:
                         pass
-            
-                        
+
+
     def save(self):
         with open('/etc/samba/smb.conf', 'w') as f:
             f.write('[global]\n')
@@ -90,45 +93,44 @@ class SambaConfig:
                     f.write('\t%s = %s\n' % (k,self.general[k]))
             for s in self.shares:
                 f.write('\n[%s]\n' % s)
-                for k in self.shares[s]:    
+                for k in self.shares[s]:
                     if not k in self.defaults or self.shares[s][k] != self.defaults[k]:
                         f.write('\t%s = %s\n' % (k,self.shares[s][k]))
-    
+
     def modify_user(self, u, p, v):
         shell('pdbedit -r -u %s %s "%s"' % (u,self.editable[p],v))
-                 
+
     def del_user(self, u):
         shell('pdbedit -x -u ' + u)
-                        
+
     def add_user(self, u):
         with open('/tmp/pdbeditnn', 'w') as f:
             f.write('\n\n\n')
         shell('pdbedit -a -t -u ' + u + ' < /tmp/pdbeditnn')
         os.unlink('/tmp/pdbeditnn')
-                                        
+
     def get_shares(self):
-        return self.shares.keys()                                          
-        
+        return self.shares.keys()
+
     def new_share(self):
         return self.defaults.copy()
-        
+
     def set_param(self, share, param, value):
         if share == 'general':
             self.general[param] = value
         else:
             self.shares[share][param] = value
-                
+
     def set_param_from_vars(self, share, param, vars):
         if share == 'general':
             value = vars.getvalue(param, self.general_defaults[param])
         else:
             value = vars.getvalue(param, self.defaults[param])
         self.set_param(share, param, value)
-        
+
     def set_param_from_vars_yn(self, share, param, vars):
         if share == 'general':
             value = 'yes' if vars.getvalue(param, self.general_defaults[param]) == '1' else 'no'
         else:
             value = 'yes' if vars.getvalue(param, self.defaults[param]) == '1' else 'no'
         self.set_param(share, param, value)
-        

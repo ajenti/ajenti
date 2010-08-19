@@ -26,6 +26,7 @@ def check_password(passw, hash):
             traceback.print_exc()
     return False
 
+
 class AuthManager(object):
     """ Authentication middleware
     Takes care of user authentication
@@ -66,10 +67,10 @@ class AuthManager(object):
                     if self._config.has_option('users', user):
                         hash_passw = self._config.get('users', user)
                         if check_password(passw, hash_passw):
-                            authorized = True 
+                            authorized = True
                 else:
                     self._log.debug('Wrong auth scheme "%s"'%scheme)
-            # Request auth 
+            # Request auth
             if not authorized:
                 start_response('401 Authorization Required',
                                [('WWW-Authenticate','Basic realm="Ajenti"'),

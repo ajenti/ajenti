@@ -15,6 +15,7 @@ import inspect
 
 from PrioList import PrioList
 
+
 class Interface (property):
     """ Base abstract class for all interfaces
 
@@ -73,7 +74,6 @@ def implements (*interfaces):
     # TODO: trac also all base interfaces (if needed)
 
 
-
 class PluginManager (object):
     """ Holds all registered classes, instances and implementations
     You should have one class instantiated from both PluginManager and Plugin
@@ -130,6 +130,7 @@ class PluginManager (object):
 
     def plugin_activated(self, plugin):
         pass
+
 
 class MetaPlugin (type):
     """ MetaClass for Plugin
@@ -214,6 +215,7 @@ class MetaPlugin (type):
 
 #class MetaPlugin
 
+
 class Plugin (object):
     """ Base class for all plugins """
 
@@ -247,4 +249,3 @@ class Plugin (object):
             plugin_manager.plugin_activated(self)
 
         return self
-

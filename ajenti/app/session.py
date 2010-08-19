@@ -244,8 +244,3 @@ class SessionManager(object):
             self._session_store.commit(self._session)
 
         return result
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod(verbose=True)

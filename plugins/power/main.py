@@ -9,11 +9,6 @@ from ajenti.utils import shell
 from backend import *
 
 
-class PowerContent(ModuleContent):
-    module = 'power'
-    path = __file__
-
-
 class PowerPlugin(CategoryPlugin):
     text = 'Power'
     icon = '/dl/power/icon_small.png'
@@ -21,7 +16,7 @@ class PowerPlugin(CategoryPlugin):
 
     def on_session_start(self):
         pass
-        
+
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=('Uptime: ' + get_uptime())), title='Power Management', icon='/dl/power/icon.png')
 
@@ -43,9 +38,9 @@ class PowerPlugin(CategoryPlugin):
             else:
                 img = 'none'
             st = 'Active' if bat.present else 'Offline'
-            if bat.present: 
+            if bat.present:
                 st += ' - %i%%' % bat.charge
-                
+
             els.vnode(UI.ElementBox(UI.HContainer(
                           UI.Image(file='/dl/power/battery-%s.png'%img),
                           UI.VContainer(
@@ -76,4 +71,6 @@ class PowerPlugin(CategoryPlugin):
             shell('reboot')
 
 
-               
+class PowerContent(ModuleContent):
+    module = 'power'
+    path = __file__

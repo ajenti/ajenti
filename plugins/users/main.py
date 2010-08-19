@@ -8,8 +8,6 @@ import backend
 
 
 class UsersPlugin(CategoryPlugin):
-    implements (ICategoryProvider)
-
     text = 'Users'
     icon = '/dl/users/icon_small.png'
     folder = 'system'
@@ -25,18 +23,18 @@ class UsersPlugin(CategoryPlugin):
             'shell': 'Shell',
             'adduser': 'New user login',
             'addgrp': 'New group name'
-        }    
-        
+        }
+
     def on_session_start(self):
         self._tab = 0
         self._selected_user = ''
         self._selected_group = ''
         self._editing = ''
-        
+
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(), title='User accounts', icon='/dl/users/icon.png')
 
-        panel.appendChild(self.get_default_ui())        
+        panel.appendChild(self.get_default_ui())
 
         return panel
 
@@ -48,7 +46,7 @@ class UsersPlugin(CategoryPlugin):
         tc = UI.TabControl(active=self._tab)
         tc.add('Users', self.get_ui_users())
         tc.add('Groups', self.get_ui_groups())
-        
+
         if self._editing != '':
             tc = UI.Container(tc, UI.InputBox(title=self.params[self._editing], id='dlgEdit'))
         return tc
@@ -61,7 +59,7 @@ class UsersPlugin(CategoryPlugin):
                 UI.Label(text='Shell'),
                 UI.Label(), header=True
                ))
-        for u in self.users:       
+        for u in self.users:
             t.appendChild(UI.DataTableRow(
                     UI.DataTableCell(
                         UI.Image(file='/dl/core/ui/stock/user.png'),
@@ -75,12 +73,12 @@ class UsersPlugin(CategoryPlugin):
                         hidden=True
                     )
                 ))
-        
+
         t = UI.VContainer(t, UI.Button(text='Add user', id='adduser'))
-        if self._selected_user != '':        
+        if self._selected_user != '':
             t = UI.Container(t, self.get_ui_edit_user())
         return t
-        
+
     def get_ui_groups(self):
         t = UI.DataTable(UI.DataTableRow(
                 UI.Label(text='Name'),
@@ -88,7 +86,7 @@ class UsersPlugin(CategoryPlugin):
                 UI.Label(text='Users'),
                 UI.Label(), header=True
                ))
-        for u in self.groups:   
+        for u in self.groups:
             t.appendChild(UI.DataTableRow(
                     UI.DataTableCell(
                         UI.Image(file='/dl/core/ui/stock/group.png'),
@@ -101,9 +99,9 @@ class UsersPlugin(CategoryPlugin):
                         hidden=True
                     )
                 ))
-        
+
         t = UI.VContainer(t, UI.Button(text='Add group', id='addgrp'))
-        if self._selected_group != '':        
+        if self._selected_group != '':
             t = UI.Container(t, self.get_ui_edit_group())
         return t
 
@@ -111,7 +109,7 @@ class UsersPlugin(CategoryPlugin):
         u = backend.get_user(self._selected_user, self.users)
         backend.map_groups([u], backend.get_all_groups())
         g = ', '.join(u.groups)
-        
+
         dlg = UI.DialogBox(
                 UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -157,11 +155,11 @@ class UsersPlugin(CategoryPlugin):
                 id='dlgEditUser'
               )
         return dlg
-                      
+
     def get_ui_edit_group(self):
         u = backend.get_group(self._selected_group, self.groups)
         g = ', '.join(u.users)
-        
+
         dlg = UI.DialogBox(
                 UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -197,10 +195,10 @@ class UsersPlugin(CategoryPlugin):
     def on_click(self, event, params, vars=None):
         if params[0] == 'edit':
             self._tab = 0
-            self._selected_user = params[1]        
+            self._selected_user = params[1]
         if params[0] == 'gedit':
             self._tab = 1
-            self._selected_group = params[1]        
+            self._selected_group = params[1]
         if params[0] == 'chlogin':
             self._tab = 0
             self._editing = 'login'
@@ -239,7 +237,7 @@ class UsersPlugin(CategoryPlugin):
             self._tab = 1
             backend.del_group(self._selected_group)
             self._selected_group = ''
-       
+
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
         if params[0] == 'dlgEdit':
@@ -269,13 +267,13 @@ class UsersPlugin(CategoryPlugin):
                     self._selected_group = v
                 if self._editing == 'ggid':
                     backend.change_group_gid(self._selected_group, v)
-            self._editing = '' 
+            self._editing = ''
         if params[0] == 'dlgEditUser':
-            self._selected_user = '' 
+            self._selected_user = ''
         if params[0] == 'dlgEditGroup':
-            self._selected_group = '' 
-        
+            self._selected_group = ''
+
+
 class UsersContent(ModuleContent):
     module = 'users'
     path = __file__
-    

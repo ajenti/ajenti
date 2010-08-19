@@ -1,5 +1,6 @@
 from ajenti.utils import shell, shell_stdin
 
+
 class Task():
     def __init__(self, line=''):
         if not line:
@@ -15,7 +16,7 @@ class Task():
             self.m, self.h, self.dom, self.mon, self.dow = params[:5]
             self.command = ' '.join(params[5:])
             self.special = ''
-        
+
     def __repr__(self):
         if self.special:
             string = self.special + '\t' + self.command
@@ -23,6 +24,7 @@ class Task():
             string = ' '.join((self.m, self.h, self.dom, self.mon,
                           self.dow)) + '\t' + self.command
         return string
+
 
 def read_crontab(user='root'):
     tasks = []
@@ -40,11 +42,10 @@ def read_crontab(user='root'):
             others.append(line)
             continue
     return tasks, others
-    
+
+
 def write_crontab(tasks, user='root'):
     lines = '\n'.join([str(task) for task in tasks])
     lines += '\n'
     print lines
     return shell_stdin('crontab -', lines)[1]
-    
-    

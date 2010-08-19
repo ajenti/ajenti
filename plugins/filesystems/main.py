@@ -11,17 +11,17 @@ class FSPlugin(CategoryPlugin):
     text = 'Filesystems'
     icon = '/dl/filesystems/icon_small.png'
     folder = 'system'
-        
+
     def on_init(self):
         self.fstab = backend.read()
-        
+
     def on_session_start(self):
         self._log = ''
         self._editing = -1
-        
+
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=self._log), title='Mounted filesystems', icon='/dl/filesystems/icon.png')
-        panel.appendChild(self.get_default_ui())        
+        panel.appendChild(self.get_default_ui())
         return panel
 
     def get_default_ui(self):
@@ -34,7 +34,7 @@ class FSPlugin(CategoryPlugin):
                 UI.Label(),
                 UI.Label(), header=True
                ))
-        for u in self.fstab:       
+        for u in self.fstab:
             t.appendChild(UI.DataTableRow(
                     UI.Label(text=u.src, bold=True),
                     UI.Label(text=u.dst),
@@ -50,7 +50,7 @@ class FSPlugin(CategoryPlugin):
                         hidden=True
                     )
                 ))
-                
+
         t = UI.VContainer(t, UI.Button(text='Add mount', id='add'))
         if self._editing != -1:
             try:
@@ -64,9 +64,9 @@ class FSPlugin(CategoryPlugin):
                 e.dump_p = 0
                 e.fsck_p = 0
             t.vnode(self.get_ui_edit(e))
-            
+
         return t
-        
+
     def get_ui_sources_list(self, e):
         lst = UI.Select(name='disk')
         cst = True
@@ -87,11 +87,11 @@ class FSPlugin(CategoryPlugin):
                 cst &= not sel
                 lst.appendChild(UI.SelectOption(value=s, text=p+': '+u , selected=sel))
 
-        lst.appendChild(UI.SelectOption(text='proc', value='proc', selected=e.src=='proc'))  
-        cst &= e.src != 'proc'  
-        lst.appendChild(UI.SelectOption(text='Custom', value='custom', selected=cst))    
+        lst.appendChild(UI.SelectOption(text='proc', value='proc', selected=e.src=='proc'))
+        cst &= e.src != 'proc'
+        lst.appendChild(UI.SelectOption(text='Custom', value='custom', selected=cst))
         return lst, cst
-                
+
     def get_ui_edit(self, e):
         opts = e.options.split(',')
         bind = False
@@ -107,10 +107,10 @@ class FSPlugin(CategoryPlugin):
             opts.remove('loop')
             loop = True
         opts = ','.join(opts)
-        
+
         lst,cst = self.get_ui_sources_list(e)
-        
-        t = UI.VContainer(  
+
+        t = UI.VContainer(
               UI.LayoutTable(
                     UI.LayoutTableRow(
                         UI.Label(text='Source: '),
@@ -132,7 +132,7 @@ class FSPlugin(CategoryPlugin):
                         UI.Label(text='Options: '),
                         UI.TextInput(name='opts', value=opts)
                     )
-              ),      
+              ),
               UI.LayoutTable(
                     UI.LayoutTableRow(
                         UI.Checkbox(name='ro', checked=ro),
@@ -156,7 +156,7 @@ class FSPlugin(CategoryPlugin):
                         UI.Label(text='Fsck option: '),
                         UI.TextInput(name='fsck_p', value=str(e.fsck_p))
                     )
-              )      
+              )
             )
         dlg = UI.DialogBox(
                 t,
@@ -164,7 +164,7 @@ class FSPlugin(CategoryPlugin):
                 id='dlgEdit'
               )
         return dlg
-                    
+
     @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
@@ -176,7 +176,7 @@ class FSPlugin(CategoryPlugin):
         if params[0] == 'del':
             self.fstab.pop(int(params[1]))
             backend.save(self.fstab)
-        
+
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
         if params[0] == 'dlgEdit':
@@ -199,7 +199,7 @@ class FSPlugin(CategoryPlugin):
                 e.options = e.options.strip(',')
                 if e.options.startswith('none,'):
                     e.options = e.options[5:]
-                    
+
                 e.dump_p = int(vars.getvalue('dump_p', '0'))
                 e.fsck_p = int(vars.getvalue('fsck_p', '0'))
                 try:
@@ -208,7 +208,8 @@ class FSPlugin(CategoryPlugin):
                     self.fstab.append(e)
                 backend.save(self.fstab)
             self._editing = -1
-        
+
+
 class FSContent(ModuleContent):
     module = 'filesystems'
     path = __file__

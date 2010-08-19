@@ -1,6 +1,7 @@
 from ajenti.com import *
 from ajenti.app.api import *
 
+
 class INetworkConfig(Interface):
     interfaces = None
     nameservers = None
@@ -66,4 +67,3 @@ class NetworkInterfaceBase(object):
 class NameserverBase(object):
     cls = ''
     address = ''
-

@@ -4,6 +4,7 @@ import inspect
 
 from ajenti.com import Interface, implements
 
+
 def url(uri):
     """ Decorator function to register URL handlers
     """
@@ -11,7 +12,7 @@ def url(uri):
     frame = inspect.stack()[1][0]
     # Get locals from it
     locals = frame.f_locals
-    
+
     if ((locals is frame.f_globals) or
         ('__module__' not in locals)):
         raise TypeError('@url() can only be used in class definition')
@@ -22,9 +23,10 @@ def url(uri):
         loc_urls[re.compile(uri)] = func.__name__
         return func
     #def url_decorator
-    
+
     return url_decorator
 #def url
+
 
 class IURLHandler(Interface):
     def match_url(self, req):
@@ -63,6 +65,7 @@ class URLHandler(object):
 
         return handler(req, start_response)
 
+
 def get_environment_vars(req):
     res = None
     req.setdefault('QUERY_STRING', '')
@@ -77,4 +80,3 @@ def get_environment_vars(req):
         res = cgi.FieldStorage(environ=req, keep_blank_values=1)
 
     return res
-

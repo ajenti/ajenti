@@ -8,9 +8,10 @@ from ajenti.ui.template import BasicTemplate
 from ajenti.app.helpers import EventProcessor, event
 from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
 
-class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
+class RootDispatcher(URLHandler, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
+    # Plugin folders. This dict is until we make MUI support
     folders = {
         'top': '',
         'system': 'System',
@@ -21,8 +22,9 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         'other': 'Other',
         'bottom': ''
     }
+    # Folder order
     folder_ids = ['top', 'system', 'apps', 'hardware', 'tools', 'servers', 'other', 'bottom']
-    
+
     def main_ui(self):
         templ = self.app.get_template('main.xml')
 
@@ -30,7 +32,8 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
         cat = None
         v = UI.VContainer(spacing=0)
-        
+
+        # Sort plugins by name
         cats = self.categories
         cats = sorted(cats, key=lambda p: p.text)
 
@@ -46,10 +49,12 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
                                     if self.folders[fld] != '' else '',
                                 id=fld
                              )
+            # cat_vc will be VContainer or CategoryFolder
+
             exp = False
             empty = True
             for c in cats:
-                if c.folder == fld:
+                if c.folder == fld: # Put corresponding plugins in this folder
                     empty = False
                     if c.get_name() == cat_selected:
                         cat_vc.vnode(UI.Category(c.category, id=c.get_name(), selected='true'))
@@ -60,24 +65,22 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
             if not empty: v.vnode(cat_folder)
             cat_folder['expanded'] = exp
-            
+
         templ.appendChildInto('leftplaceholder', v)
         templ.appendChildInto('rightplaceholder', cat.get_ui())
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version))
-        templ.appendChildInto('links', 
+        templ.appendChildInto('links',
             UI.HContainer(
                 UI.OutLinkLabel(text='About', url='http://wiki.github.com/Eugeny/ajenti/'),
                 UI.OutLinkLabel(text='License', url='http://eugeny.github.com/ajenti/license/')
             ))
-            
-
         return templ
 
     def do_init(self):
         cat_selected = self.app.session.get('cat_selected', 'Dashboard')
         cat = None
         for c in self.categories:
-            if c.get_name() == cat_selected:
+            if c.get_name() == cat_selected: # initialize current plugin
                 cat = c
         cat.on_init()
 
@@ -120,7 +123,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
         # Current module
         cat = filter(lambda x: x.get_name() == self.app.session.get('cat_selected', 'Dashboard'), self.categories)[0]
-        
+
         # Search self and current category for event handler
         for handler in (cat, self):
             if handler.match_event(event):

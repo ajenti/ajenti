@@ -1,5 +1,4 @@
 import platform
-
 from hashlib import sha1
 from base64 import b64encode
 
@@ -10,16 +9,11 @@ from ajenti.ui import *
 from ajenti.utils import detect_distro
 from ajenti.app.helpers import *
 
-class ConfigContent(ModuleContent):
-    path = __file__
-    module = 'config' 
 
 class ConfigPlugin(CategoryPlugin):
     text = 'Configure'
     icon = '/dl/config/icon_small.png'
     folder = 'bottom'
-    
-    implements((ICategoryProvider, 9000))
 
     def on_session_start(self):
         self._tab = 0
@@ -27,14 +21,14 @@ class ConfigPlugin(CategoryPlugin):
 
     def get_ui(self):
         u = UI.PluginPanel(UI.Label(text='Ajenti %s' % version), title='Ajenti configuration', icon='/dl/config/icon.png')
-        
+
         tabs = UI.TabControl(active=self._tab)
         tabs.add('General', self.get_ui_general())
         tabs.add('Security', self.get_ui_sec())
-        
+
         u.appendChild(tabs)
         return u
-        
+
     def get_ui_general(self):
         o = UI.LayoutTable(
                 UI.LayoutTableRow(
@@ -53,7 +47,7 @@ class ConfigPlugin(CategoryPlugin):
                     UI.Label(text='SSL certificate file:'),
                     UI.TextInput(name='cert_file', value=self.config.get('ajenti', 'cert_file'))
                 ),
-            )        
+            )
         p = UI.FormBox(o, id="frmGeneral")
         return p
 
@@ -63,7 +57,7 @@ class ConfigPlugin(CategoryPlugin):
                     UI.DataTableCell(UI.Label(text='Login'), width='200px'),
                     UI.Label(),
                     header=True
-                )  
+                )
               )
         for s in self.config.options('users'):
             tbl.appendChild(
@@ -78,8 +72,8 @@ class ConfigPlugin(CategoryPlugin):
         o = UI.VContainer(
                 UI.Container(
                     UI.Checkbox(
-                        text='HTTP Authorization', 
-                        name='httpauth', 
+                        text='HTTP Authorization',
+                        name='httpauth',
                         checked=self.config.get('ajenti','auth_enabled')=='1'
                     )
                 ),
@@ -103,15 +97,15 @@ class ConfigPlugin(CategoryPlugin):
                               UI.TextInput(name='password')
                           )
                       ),
-                      title='New user', id='dlgAddUser'  
+                      title='New user', id='dlgAddUser'
                   )
             p.vnode(dlg)
 
         return p
-        
+
     def hashpw(self, passw):
         return '{SHA}' + b64encode(sha1(passw).digest())
-        
+
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')
@@ -123,7 +117,7 @@ class ConfigPlugin(CategoryPlugin):
             self._tab = 1
             self.config.remove_option('users', params[1])
             self.config.save()
-            
+
     @event('form/submit')
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
@@ -147,3 +141,7 @@ class ConfigPlugin(CategoryPlugin):
                 self.config.set('ajenti', 'auth_enabled', vars.getvalue('httpauth', '0'))
             self.config.save()
 
+
+class ConfigContent(ModuleContent):
+    path = __file__
+    module = 'config'

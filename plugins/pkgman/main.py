@@ -5,8 +5,6 @@ from ajenti.app.helpers import *
 from ajenti import apis
 
 class PackageManagerPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 60))
-
     text = 'Packages'
     icon = '/dl/pkgman/icon.png'
     folder = 'system'
@@ -27,7 +25,7 @@ class PackageManagerPlugin(CategoryPlugin):
         if self._need_refresh:
             self._need_refresh = False
             self.mgr.refresh(self._status)
- 
+
         if self._in_progress and not self.mgr.is_busy():
             self.mgr.refresh(self._status)
             self._status.pending = {}
@@ -49,7 +47,7 @@ class PackageManagerPlugin(CategoryPlugin):
         tabs.add('Pending actions', self.get_ui_pending())
 
         pnl = UI.Container(tabs)
-        
+
         if self._confirm_apply:
             res = UI.DataTable()
             if self._confirm_apply:
@@ -67,9 +65,9 @@ class PackageManagerPlugin(CategoryPlugin):
                     title="Apply changes?", id="dlgApply"
                   )
             pnl.appendChild(dlg)
-            
-            
-        if self._in_progress:            
+
+
+        if self._in_progress:
             pb = UI.ProgressBox(
                     title = "Appplying changes",
                     status = self.mgr.get_busy_status()
@@ -77,7 +75,7 @@ class PackageManagerPlugin(CategoryPlugin):
             pnl.appendChild(pb)
 
         return pnl
-        
+
     def get_ui_upgrades(self):
         tu = UI.DataTable()
         hr = UI.DataTableRow(
@@ -191,7 +189,7 @@ class PackageManagerPlugin(CategoryPlugin):
              )
 
         return cp
-            
+
     @event('button/click')
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
@@ -229,4 +227,3 @@ class PackageManagerPlugin(CategoryPlugin):
 class PackageManagerContent(ModuleContent):
     module = 'pkgman'
     path = __file__
-    

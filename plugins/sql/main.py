@@ -6,21 +6,20 @@ from ajenti import apis
 
 
 class SQLPlugin(CategoryPlugin):
-    implements((ICategoryProvider, 60))
-
     text = 'SQL client'
     icon = '/dl/sql/icon.png'
+    folder = 'tools'
 
     backends = None
     backend = None
-    
+
     def on_init(self):
         self._logging_in = not self.config.has_option('sql', 'backend')
-        self.backends = [b.name for b in self.app.grab_plugins(apis.sql.IDBBackend)] 
+        self.backends = [b.name for b in self.app.grab_plugins(apis.sql.IDBBackend)]
         if self.config.has_option('sql', 'backend'):
-            self.backend = self.app.grab_plugins(apis.sql.IDBBackend, 
+            self.backend = self.app.grab_plugins(apis.sql.IDBBackend,
                             lambda x: x.name == self.config.get('sql', 'backend'))[0]
-            
+
     def on_session_start(self):
         self._labeltext = ''
         self._logging_in = False
@@ -30,14 +29,14 @@ class SQLPlugin(CategoryPlugin):
 
     def get_ui(self):
         self.on_init()
-        
+
         status = UI.VContainer(
                     UI.Label(text=('Disconnected' if self._logging_in else '%s@%s' % (self.config.get('sql', 'login'), self.config.get('sql', 'host')))),
                     UI.Button(text='Reconnect', id='btnLogout')
                  )
-        
+
         panel = UI.PluginPanel(status, title='SQL Client', icon='/dl/sql/icon.png')
-        
+
 
         if self._logging_in:
             panel.appendChild(self.get_ui_login())
@@ -53,7 +52,7 @@ class SQLPlugin(CategoryPlugin):
             except Exception as e:
                 panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Connection problem: ' + str(e))))
                 return panel
-            
+
             panel.appendChild(self.get_default_ui())
 
         self.backend.disconnect()
@@ -65,7 +64,7 @@ class SQLPlugin(CategoryPlugin):
         t.add('Tables', self.get_ui_tables())
         t.add('SQL', self.get_ui_sql())
         return t
-    
+
     def get_ui_tables(self):
         tblTables = UI.DataTable(
                         UI.DataTableRow(
@@ -76,7 +75,7 @@ class SQLPlugin(CategoryPlugin):
                     )
 
 
-            
+
         data = self.backend.sql('SHOW TABLES;')
         if str(data) == data: # 'if data is str', please write something more senseful here
             tblTables = UI.ErrorBox(title='SQL', text='Error: ' + data)
@@ -91,7 +90,7 @@ class SQLPlugin(CategoryPlugin):
                       )
                 tblTables.appendChild(row)
         return tblTables
-           
+
     def get_ui_sql(self):
         cnt = UI.DataTable()
         if len(self._sql)>0:
@@ -108,7 +107,7 @@ class SQLPlugin(CategoryPlugin):
         else:
             cnt = UI.ErrorBox(title='SQL', text='Please specify your query')
 
-        
+
         cntSQL = UI.VContainer(
                 UI.HContainer(
                     UI.Form(
@@ -121,14 +120,14 @@ class SQLPlugin(CategoryPlugin):
                 ),
                 UI.Spacer(height=20),
                 cnt
-             )    
-        return cntSQL        
-    
+             )
+        return cntSQL
+
     def get_ui_login(self):
         lstBends = UI.Select(name='backend')
         for b in self.backends:
             lstBends.appendChild(UI.SelectOption(value=b, text=b))
-            
+
         dlgLogin = UI.DialogBox(
                         UI.LayoutTable(
                             UI.LayoutTableRow(
@@ -154,25 +153,25 @@ class SQLPlugin(CategoryPlugin):
                         ),
                         title="SQL server connection", id="dlgLogin"
                     )
-                    
+
         warn = UI.ErrorBox(title='SQL', text='Not connected')
         return UI.VContainer(warn, dlgLogin if self._login_dialog else None)
-            
+
     def logout(self):
         self.config.remove_option('sql', 'login')
         self.config.remove_option('sql', 'host')
         self.config.remove_option('sql', 'passwd')
         self.config.remove_option('sql', 'db')
         self.config.remove_option('sql', 'backend')
-        self.config.save()    
+        self.config.save()
 
     def login(self, vars):
-        self.config.set('sql', 'backend', vars.getvalue('backend', 'mysql'))        
-        self.config.set('sql', 'host', vars.getvalue('host', 'localhost'))        
-        self.config.set('sql', 'login', vars.getvalue('login', 'root'))        
-        self.config.set('sql', 'passwd', vars.getvalue('passwd', '')) # plaintext!        
-        self.config.set('sql', 'db', vars.getvalue('db', ''))   
-        self.config.save()    
+        self.config.set('sql', 'backend', vars.getvalue('backend', 'mysql'))
+        self.config.set('sql', 'host', vars.getvalue('host', 'localhost'))
+        self.config.set('sql', 'login', vars.getvalue('login', 'root'))
+        self.config.set('sql', 'passwd', vars.getvalue('passwd', '')) # plaintext!
+        self.config.set('sql', 'db', vars.getvalue('db', ''))
+        self.config.save()
 
     @event('button/click')
     @event('minibutton/click')
@@ -184,14 +183,14 @@ class SQLPlugin(CategoryPlugin):
         if params[0] == 'view':
             self._tab = 1
             self._sql = 'SELECT * FROM %s;' % params[1]
-            
+
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
         if params[0] == 'dlgLogin':
             if vars.getvalue('action', '') == 'OK':
                 self.login(vars)
-            self._logging_in = False    
-            self._login_dialog = False    
+            self._logging_in = False
+            self._login_dialog = False
         if params[0] == 'frmSQL':
             self._tab = 1
             self._sql = vars.getvalue('query', '')
@@ -200,4 +199,3 @@ class SQLPlugin(CategoryPlugin):
 class SQLContent(ModuleContent):
     module = 'sql'
     path = __file__
-    

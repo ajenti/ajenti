@@ -5,6 +5,7 @@ from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
 
+
 class ZypperPackageManager(Plugin):
     implements(apis.pkgman.IPackageManager)
     platform = ['openSUSE']
@@ -109,4 +110,3 @@ class ZypperPackageManager(Plugin):
     def _get_all(self):
         ss = shell('zypper -An search \'*\'').splitlines()
         return self._parse_zypp(ss)
-        

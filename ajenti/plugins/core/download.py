@@ -4,6 +4,7 @@ from ajenti.com import *
 from ajenti.app.urlhandler import URLHandler, url
 from ajenti.utils import wsgi_serve_file
 
+
 class Downloader(URLHandler, Plugin):
 
     @url('^/dl/.+/.+')
@@ -35,5 +36,3 @@ class Downloader(URLHandler, Plugin):
             return ''
 
         return wsgi_serve_file(req, start_response, file)
-
-

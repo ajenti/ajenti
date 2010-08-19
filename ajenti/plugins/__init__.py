@@ -15,4 +15,3 @@ class DemoDispatcher(URLHandler, Plugin):
         from pprint import pformat
         sr('200 OK', [('Content-type','text/plain')])
         return pformat(req)
- 

@@ -1,10 +1,8 @@
 from ajenti.ui import *
 from ajenti.app.helpers import CategoryPlugin, ModuleContent, event
+
 from api import *
 
-class NetworkContent(ModuleContent):
-    module = 'network'
-    path = __file__
 
 class NetworkPlugin(CategoryPlugin):
     text = 'Network'
@@ -20,7 +18,7 @@ class NetworkPlugin(CategoryPlugin):
 
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=""), title='Networking', icon='/dl/network/icon.png')
-        
+
         ui = UI.VContainer(
                 self.get_ui_ifaces(),
                 UI.Spacer(height=20),
@@ -64,7 +62,7 @@ class NetworkPlugin(CategoryPlugin):
                 UI.Label(text='Network interfaces', size=3),
                 UI.Spacer(height=10),
                 ti,
-            )               
+            )
 
         if self._editing_iface != "":
             cnt = UI.TabControl()
@@ -78,7 +76,7 @@ class NetworkPlugin(CategoryPlugin):
             c.vnode(dlg)
 
         return c
-    
+
     def get_ui_dns(self):
         td = UI.DataTable()
         hr = UI.DataTableRow(
@@ -101,7 +99,7 @@ class NetworkPlugin(CategoryPlugin):
                                 ),
                                 hidden=True
                             )
-                           )) 
+                           ))
 
         c = UI.VContainer(
                 UI.Label(text='DNS options', size=3),
@@ -109,17 +107,17 @@ class NetworkPlugin(CategoryPlugin):
                 td,
                 UI.Spacer(height=10),
                 UI.Button(text='Add option', id='addns')
-            )               
+            )
 
         if self._editing_ns != -1:
             dlg = UI.DialogBox(
                         self.net_config.ns_edit_dialog(self.net_config.nameservers[self._editing_ns]),
                         title="Nameserver entry options", id="dlgEditNS"
                     )
-            c.vnode(dlg)       
+            c.vnode(dlg)
 
         return c
-        
+
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')
@@ -164,3 +162,7 @@ class NetworkPlugin(CategoryPlugin):
 
             self._editing_ns = -1
 
+
+class NetworkContent(ModuleContent):
+    module = 'network'
+    path = __file__

@@ -1,5 +1,7 @@
-from api import *
 from ajenti.ui import *
+
+from api import *
+
 
 class LinuxDHCPNetworkConfigSet(NetworkConfigBit):
     cls = 'linux-dhcp'
@@ -33,4 +35,3 @@ class LinuxDHCPNetworkConfigSet(NetworkConfigBit):
                 )
             )
         return p
-

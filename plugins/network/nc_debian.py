@@ -1,8 +1,11 @@
+import time
+
 from ajenti.com import *
-from api import *
 from ajenti.utils import *
 from ajenti.ui import *
-import time
+
+from api import *
+
 
 class DebianNetworkConfig(Plugin):
     implements(INetworkConfig)

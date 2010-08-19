@@ -1,5 +1,7 @@
 from subprocess import *
+
 from ajenti.utils import *
+
 
 class User:
     login = ''
@@ -9,12 +11,13 @@ class User:
     shell = ''
     info = ''
     groups = []
-    
+
 class Group:
     name = ''
     gid = 0
     users = []
-        
+
+
 def get_all_users():
     r = []
     for s in open('/etc/passwd', 'r').read().split('\n'):
@@ -33,8 +36,8 @@ def get_all_users():
 
     sf = lambda x: -1 if x.uid==0 else (x.uid+1000 if x.uid<1000 else x.uid-1000)
     return sorted(r, key=sf)
-    
-    
+
+
 def get_all_groups():
     r = []
     for s in open('/etc/group', 'r').read().split('\n'):
@@ -47,16 +50,16 @@ def get_all_groups():
             r.append(g)
         except:
             pass
-            
+
     return r
-        
+
 def map_groups(users, groups):
     for u in users:
         u.groups = []
         for g in groups:
             if u.login in g.users:
                 u.groups.append(g.name)
-                
+
 def get_user(name, users):
     return filter(lambda x:x.login == name, users)[0]
 
@@ -65,19 +68,19 @@ def get_group(name, groups):
 
 def add_user(v):
     shell('useradd ' + v)
-    
+
 def add_group(v):
     shell('groupadd ' + v)
 
 def del_user(v):
     shell('userdel ' + v)
-    
+
 def del_group(v):
     shell('groupdel ' + v)
 
 def change_user_login(u, l):
     shell('usermod -l %s %s' % (l,u))
- 
+
 def change_user_uid(u, l):
     shell('usermod -u %s %s' % (l,u))
 
@@ -99,4 +102,3 @@ def change_group_name(u, l):
 
 def change_group_gid(u, l):
     shell('groupmod -g %s %s' % (l,u))
-
