@@ -86,7 +86,7 @@ class PackageManagerPlugin(CategoryPlugin):
              )
         tu.appendChild(hr)
 
-        for p in self._status.upgradeable:
+        for p in sorted(self._status.upgradeable.keys()):
             p = self._status.upgradeable[p]
             r = UI.DataTableRow(
                     UI.Label(text=p.name, bold=(self._status.pending.has_key(p.name))),
@@ -147,7 +147,7 @@ class PackageManagerPlugin(CategoryPlugin):
              )
         tu.appendChild(hr)
 
-        for p in self._status.pending:
+        for p in sorted(self._status.pending.keys()):
             if self._status.pending[p] == 'install':
                 r = UI.DataTableRow(
                         UI.Label(text=p),
@@ -167,7 +167,7 @@ class PackageManagerPlugin(CategoryPlugin):
              )
         ti.appendChild(hr)
 
-        for p in self._status.pending:
+        for p in sorted(self._status.pending.keys()):
             if self._status.pending[p] == 'remove':
                 r = UI.DataTableRow(
                         UI.Label(text=p),

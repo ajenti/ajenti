@@ -41,8 +41,10 @@ def shell(c):
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
+
+    data = p.stdout.read() # Workaround; waiting first causes a deadlock
     p.wait()
-    return p.stdout.read() + p.stderr.read()
+    return data + p.stdout.read() + p.stderr.read()
 
 def shell_status(c):
     return subprocess.Popen(c, shell=True).wait()
