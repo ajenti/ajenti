@@ -68,7 +68,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
         templ.appendChildInto('leftplaceholder', v)
         templ.appendChildInto('rightplaceholder', cat.get_ui())
-        templ.appendChildInto('version', UI.Label(text='Ajenti '+version))
+        templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
         templ.appendChildInto('links',
             UI.HContainer(
                 UI.OutLinkLabel(text='About', url='http://wiki.github.com/Eugeny/ajenti/'),

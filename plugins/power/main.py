@@ -27,7 +27,7 @@ class PowerPlugin(CategoryPlugin):
             els.vnode(UI.ElementBox(UI.HContainer(
                           UI.Image(file='/dl/power/ac-%s.png'%img),
                           UI.VContainer(
-                              UI.Label(text='AC Adapter %s' % ac.name, size=3),
+                              UI.Label(text='AC Adapter %s' % ac.name, size=2),
                               UI.Label(text=st)
                           )
                       )))
@@ -44,7 +44,7 @@ class PowerPlugin(CategoryPlugin):
             els.vnode(UI.ElementBox(UI.HContainer(
                           UI.Image(file='/dl/power/battery-%s.png'%img),
                           UI.VContainer(
-                              UI.Label(text='Battery %s' % bat.name, size=3),
+                              UI.Label(text='Battery %s' % bat.name, size=2),
                               UI.Label(text=st)
                           )
                       )))

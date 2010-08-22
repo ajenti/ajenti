@@ -24,7 +24,7 @@
         <div class="ui-el-error-content">
            <img src="/dl/core/ui/warning.png" class="ui-el-error-icon" />
            <label text="${select('@text')}" />
-        </div>    
+        </div>
     </div>
 </py:match>
 
@@ -34,18 +34,18 @@
     <div class="ui-el-pluginpanel">
         <div class="ui-el-pluginpanel-head">
             <hcontainer>
-                <hnode><image file="${select('@icon')}" /></hnode>
+                <hnode spacing="0"><image file="${select('@icon')}" /></hnode>
                 <hnode>
                     <vcontainer>
-                        <vnode><label text="${select('@title')}" size="5" /></vnode>
-                        <vnode>${select('node()[1]')}</vnode>
+                        <vnode spacing="0"><label text="${select('@title')}" size="5" /></vnode>
+                        <vnode spacing="0"><div style="padding-left: 3px;">${select('node()[1]')}</div></vnode>
                     </vcontainer>
                 </hnode>
             </hcontainer>
         </div>
         <div class="ui-el-pluginpanel-content">
            ${select('node()[2]')}
-        </div>    
+        </div>
     </div>
 </py:match>
 
@@ -266,10 +266,10 @@
     <py:choose test="">
         <a py:when="str(select('@onclick')) == 'form'" href="#"
                 onclick="javascript:return ajaxForm('${select('@form')}', '${select('@action')}');">
-            <div class="ui-el-button"> <span class="left">  ${select('@text')} </span> <span class="right" /></div>
+            <div class="ui-el-button"> ${select('@text')} </div>
         </a>
         <a py:otherwise="" href="#" onclick="javascript:return ajax('/handle/button/click/${select('@id')}');">
-            <div class="ui-el-button"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+            <div class="ui-el-button"> ${select('@text')} </div>
         </a>
     </py:choose>
 </py:match>
@@ -278,7 +278,7 @@
 <py:match path="warningbutton">
     <py:choose test="">
         <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/${select('@id')}');">
-            <div class="ui-el-button"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+            <div class="ui-el-button"> ${select('@text')} </div>
         </a>
     </py:choose>
 </py:match>
@@ -286,14 +286,14 @@
 <!--! MiniButton widget -->
 <py:match path="minibutton">
     <a href="#" onclick="javascript:return ajax('/handle/minibutton/click/${select('@id')}');">
-        <div class="ui-el-minibutton"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+        <div class="ui-el-minibutton"> ${select('@text')} </div>
     </a>
 </py:match>
 
 <!--! WarningMiniButton widget -->
 <py:match path="warningminibutton">
     <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/minibutton/click/${select('@id')}');">
-        <div class="ui-el-minibutton"> <span class="left"> ${select('@text')} </span> <span class="right" /></div>
+        <div class="ui-el-minibutton"> ${select('@text')} </div>
     </a>
 </py:match>
 
@@ -314,30 +314,6 @@
         <span class="ui-el-link">
             ${select('@text')}
         </span>
-    </a>
-</py:match>
-
-
-<!--! Action widget -->
-<py:match path="action">
-    <a href="#" onclick="javascript:return ajax('/handle/action/click/${select('@id')}');">
-        <div class="ui-el-action">
-            <table>
-                <tr>
-                    <td rowspan="2" class="ui-el-action-icon">
-                        <img src="${select('@icon')}" />
-                    </td>
-                    <td class="ui-el-action-text">
-                        ${select('@text')}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ui-el-action-description">
-                        ${select('@description')}
-                    </td>
-                </tr>
-            </table>
-        </div>
     </a>
 </py:match>
 
