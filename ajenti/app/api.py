@@ -40,3 +40,8 @@ class IEventDispatcher(Interface):
 
     def event(self, event, *params, **kwparams):
         pass
+
+
+class IHeaderProvider(Interface):
+    def get_headers(self):
+        return []

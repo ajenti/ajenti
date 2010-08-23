@@ -2,11 +2,12 @@ from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
+from uzuri.api import *
 
 import backend
 
 
-class CronPlugin(CategoryPlugin):
+class CronPlugin(ClusteredPlugin):
     text = 'Cron'
     icon = '/dl/cron/icon_small.png'
     folder = 'system'
@@ -26,6 +27,8 @@ class CronPlugin(CategoryPlugin):
         self._newtask = False
 
     def get_ui(self):
+        self.clustering_success(True)
+
         panel = UI.PluginPanel(UI.Label(text='%s tasks' %
                                         len(self._tasks)),
                                title='Crontab',

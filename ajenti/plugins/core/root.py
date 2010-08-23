@@ -3,7 +3,7 @@ import re
 from ajenti.ui import UI
 from ajenti.com import *
 from ajenti import version
-from ajenti.app.api import ICategoryProvider, IContentProvider
+from ajenti.app.api import ICategoryProvider, IContentProvider, IHeaderProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.helpers import EventProcessor, event
 from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
@@ -66,6 +66,8 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
             if not empty: v.vnode(cat_folder)
             cat_folder['expanded'] = exp
 
+        self.selected_category = cat
+
         templ.appendChildInto('leftplaceholder', v)
         templ.appendChildInto('rightplaceholder', cat.get_ui())
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
@@ -92,6 +94,9 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         main = self.main_ui()
 
         templ.appendChildInto('body', main.elements())
+
+        if self.selected_category in self.app.grab_plugins(IHeaderProvider):
+            start_response('200 OK', self.selected_category.get_headers())
 
         return templ.render()
 
@@ -140,5 +145,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         # We have no result or handler - return default page
         main = self.main_ui()
 
-        return main.render()
+        if self.selected_category in self.app.grab_plugins(IHeaderProvider):
+            start_response('200 OK', self.selected_category.get_headers())
 
+        return main.render()

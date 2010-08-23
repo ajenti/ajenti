@@ -1,0 +1,35 @@
+<widgets xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:py="http://genshi.edgewall.org/"
+         py:strip="" >
+
+
+<py:match path="remoteview">
+    <div id="remote-wrapper-${select('@id')}" class="uzuri-remote-view-wrapper">
+	<div class="uzuri-remote-view" id="remote-${select('@id')}" />
+	<script>
+	    load_remote("${select('@id')}", "/uzurigate/${select('@addr')}/");
+	</script>
+    </div>
+</py:match>
+
+<py:match path="remoteallbutton">
+    <div class="uzuri-remote-host-button" id="remoteallbtn" onclick="switch_host_num(0)">
+	<span class="title">All hosts</span>
+    </div>
+</py:match>
+
+<py:match path="remotehostbutton">
+    <div class="uzuri-remote-host-button" id="remotebtn-${select('@id')}" onclick="switch_host('remote-wrapper-${select('@id')}')">
+	<img src="/dl/uzuri_master/host.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-idle"/>
+	<img src="/dl/uzuri_master/active.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-active"/>
+	<img src="/dl/uzuri_master/error.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-error"/>
+	<img src="/dl/uzuri_master/warning.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-warning"/>
+	<span class="title">${select('@addr')}</span>
+	<script>
+	    show_host_status("${select('@id')}", "idle");
+	</script>
+    </div>
+</py:match>
+
+</widgets>

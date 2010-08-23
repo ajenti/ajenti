@@ -1,0 +1,69 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background: #333;
+}
+
+.uzuri-main {
+    width: 100%;
+    height: 100%;
+}
+
+.uzuri-top {
+    height: 25px;
+}
+
+.uzuri-sidepane {
+    width: 200px;
+}
+
+.uzuri-mainpane {
+    width: auto;
+    padding-left: 30px;
+}
+
+
+/* Controls */
+
+.uzuri-remote-view {
+    border: 1px solid #999;
+    background: #eee;
+    padding: 10px;
+    width: 95%;
+    height: 100%;
+}
+
+.uzuri-remote-view-wrapper {
+    width: 95%;
+    height: 90%;
+}
+
+.uzuri-remote-host-button {
+    width: 200px;
+    height: 20px;
+    line-height: 20px;
+    padding: 3px 4px 3px 10px;
+
+    border: 1px solid #555;
+    border-left: none;
+    background: #444;
+}
+
+.uzuri-remote-host-button:hover {
+    border: 1px solid #666;
+    border-left: none;
+    background: #555;
+    background: -moz-linear-gradient(top,  #666,  #555);
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
+}
+
+.uzuri-remote-host-button .title {
+    color: #ccc;
+    font-weight: bold;
+}
+
+.uzuri-remote-host-icon {
+    margin-top: 2px;
+}

@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude" >
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Uzuri</title>
+    <link py:for="s in styles" href="${s}" rel="stylesheet" media="all" />
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+    <script py:for="s in scripts" src="${s}" />
+</head>
+
+<body>
+    <table cellpadding="0" cellspacing="0" class="uzuri-main">
+        <tr>
+            <td class="uzuri-top" colspan="2"> </td>
+        </tr>
+        <tr>
+            <td class="uzuri-sidepane"> <sidepane py:strip=""/> </td>
+            <td class="uzuri-mainpane" id="uzuri-mainpane"> <mainpane py:strip=""/> </td>
+        </tr>
+    </table>
+   	<script>
+	    switch_host_num(-1);
+	</script>
+</body>
+</html>
