@@ -103,7 +103,6 @@ class CronPlugin(CategoryPlugin):
             tabbar.add('Advanced', self.get_ui_advanced(t))
         if self._newtask or t.special:
             tabbar.add('Special', self.get_ui_special(t))
-
         dlg = UI.DialogBox(
                 tabbar,
                 title='Edit task',
