@@ -6,7 +6,7 @@ class IClusteredPlugin(Interface):
     pass
 
 class ClusteredPlugin(CategoryPlugin):
-    implements(IHeaderProvider)
+    implements(IClusteredPlugin, IHeaderProvider)
     abstract = True
 
     uzuri_success = True
@@ -15,4 +15,7 @@ class ClusteredPlugin(CategoryPlugin):
         self.uzuri_success = s
 
     def get_headers(self):
-        return [('X-Uzuri-Success', '1' if self.uzuri_success else '0')]
+        return [
+            ('X-Uzuri-Success', '1' if self.uzuri_success else '0'),
+            ('X-Uzuri-Plugin', self.get_name())
+        ]

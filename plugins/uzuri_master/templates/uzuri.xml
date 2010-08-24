@@ -5,22 +5,49 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Uzuri</title>
     <link py:for="s in styles" href="${s}" rel="stylesheet" media="all" />
+    <link href="/dl/uzuri_master/uzuri.css" rel="stylesheet" media="all" />
     <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
     <script py:for="s in scripts" src="${s}" />
 </head>
 
 <body>
+    <div class="uzuri-activity-shield" id="activity-shield"/>
+    <div class="uzuri-activity-message" id="activity-message">
+	<img src="/dl/core/ui/ajax.gif"/>
+	<br/>
+	<span class="ui-el-label-3">In progress</span>
+	<br/>
+	<span class="ui-el-label-1" id="activity-left">Some</span>
+	<span class="ui-el-label-1"> more to go</span>
+    </div>
+
     <table cellpadding="0" cellspacing="0" class="uzuri-main">
         <tr>
             <td class="uzuri-top" colspan="2"> </td>
         </tr>
         <tr>
-            <td class="uzuri-sidepane"> <sidepane py:strip=""/> </td>
-            <td class="uzuri-mainpane" id="uzuri-mainpane"> <mainpane py:strip=""/> </td>
+            <td class="uzuri-sidepane" id="uzuri-sidepane">
+                <div class="uzuri-sidepane-label">Plugins</div>
+                <plugins py:strip=""/>
+                <div class="uzuri-sidepane-label">Hosts</div>
+                <hosts py:strip=""/>
+            </td>
+            <td class="uzuri-mainpane">
+		<div class="full-dock" id="uzuri-mainpane">
+		    <mainpane py:strip=""/>
+		</div>
+	    </td>
         </tr>
     </table>
-   	<script>
-	    switch_host_num(-1);
-	</script>
+
+    <script>
+	load_hosts();
+	switch_host_num(-1);
+	ui_center("activity-message");
+	sw = document.width;
+	document.getElementById("activity-shield").style.width = (sw-200) + 'px';
+	ui_hide("activity-shield");
+	ui_hide("activity-message");
+    </script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 </py:match>
 
 <py:match path="remoteallbutton">
-    <div class="uzuri-remote-host-button" id="remoteallbtn" onclick="switch_host_num(0)">
+    <div class="uzuri-remote-host-button" id="remoteallbtn" onclick="switch_host_num(-1)">
 	<span class="title">All hosts</span>
     </div>
 </py:match>
@@ -28,7 +28,15 @@
 	<span class="title">${select('@addr')}</span>
 	<script>
 	    show_host_status("${select('@id')}", "idle");
+	    set_cookie("${select('@id')}", "${select('@cookie')}");
 	</script>
+    </div>
+</py:match>
+
+<py:match path="remotepluginbutton">
+    <div class="uzuri-remote-plugin-button" id="plugin-${select('@id')}" onclick="execute_query('/handle/category/click/${select('@id')}')">
+	<img src="${select('@icon')}" class="uzuri-remote-plugin-icon"/>
+	<span class="title">${select('@name')}</span>
     </div>
 </py:match>
 

@@ -5,13 +5,14 @@ from ajenti.ui import *
 from ajenti import version
 from ajenti.utils import detect_distro
 from ajenti.app.helpers import CategoryPlugin, ModuleContent
+from uzuri.api import *
 
 from api import *
 
 
-class Dashboard(CategoryPlugin):
+class Dashboard(ClusteredPlugin):
     text = 'Dashboard'
-    icon = '/dl/dashboard/icon.png'
+    icon = '/dl/dashboard/icon_small.png'
     folder = 'top'
 
     widgets = Interface(IDashboardWidget)

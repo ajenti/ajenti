@@ -14,10 +14,20 @@ class UzuriMasterDispatcher(URLHandler, EventProcessor, Plugin):
 
     @url('^/uzuri/$')
     def process(self, req, start_response):
+        master = self.app.grab_plugins(IUzuriMaster)[0]
+        master.init()
         templ = self.app.get_template('uzuri.xml')
-        templ.appendChildInto('sidepane', UzuriMaster().get_sidepane())
-        templ.appendChildInto('mainpane', UzuriMaster().get_mainpane())
+        templ.appendChildInto('plugins', master.get_ui_plugins())
+        templ.appendChildInto('hosts', master.get_ui_hosts())
+        templ.appendChildInto('mainpane', master.get_mainpane())
         return templ.render()
+
+    @url('^/uzuri/setcookie/.+')
+    def setcookie(self, req, start_response):
+        master = self.app.grab_plugins(IUzuriMaster)[0]
+        master.init()
+        path = req['PATH_INFO'].split('/')
+        master._cookies[path[3]] = path[4]
 
     @url('^/uzurigate/.+')
     def gateway(self, req, start_response):
@@ -38,7 +48,11 @@ class UzuriMasterDispatcher(URLHandler, EventProcessor, Plugin):
             htr.endheaders()
 
             resp = htr.getresponse()
-            start_response("%i %s" % (resp.status, resp.reason), resp.getheaders())
+            hdrs = resp.getheaders()
+            for x in hdrs:
+                if x[0] == 'set-cookie':
+                    hdrs.append(('X-Uzuri-Cookie', x[1].split(' ')[0]))
+            start_response("%i %s" % (resp.status, resp.reason), hdrs)
             return req['wsgi.file_wrapper'](resp)
         except:
             start_response("404 Not Found", [])
