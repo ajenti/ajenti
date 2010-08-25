@@ -24,6 +24,7 @@
 	<img src="/dl/uzuri_master/host.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-idle"/>
 	<img src="/dl/uzuri_master/active.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-active"/>
 	<img src="/dl/uzuri_master/error.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-error"/>
+	<img src="/dl/uzuri_master/desync.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-desync"/>
 	<img src="/dl/uzuri_master/warning.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-warning"/>
 	<span class="title">${select('@addr')}</span>
 	<script>

@@ -15,6 +15,10 @@ class CronPlugin(ClusteredPlugin):
     def on_init(self):
         self._tasks, self._others = backend.read_crontab()
 
+    def get_configuration_string(self):
+        # Return just first word of each command
+        return ';'.join([x.command.split()[0] for x in self._tasks])
+
     def on_session_start(self):
         self._log = ''
         self._labeltext = ''
@@ -83,6 +87,7 @@ class CronPlugin(ClusteredPlugin):
         self._error = 'Error:' + part if part else self._error
         if self._error:
             er = UI.ErrorBox(title='Error', text=self._error)
+            self.clustering_success(False)
         else:
             er = UI.Spacer()
         vbox = UI.VContainer(er,

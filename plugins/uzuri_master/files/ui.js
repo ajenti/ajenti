@@ -17,10 +17,19 @@ function show_host_status(id, st)
     else
 	ui_hide(id + "-icon-error");
 
+    if (st == "desync")
+	ui_show(id + "-icon-desync");
+    else
+	ui_hide(id + "-icon-desync");
+
     if (st == "warning")
 	ui_show(id + "-icon-warning");
     else
 	ui_hide(id + "-icon-warning");
+
+    host_controlled[id] = (st == "idle" || st == "active");
+    host_status[id] = st;
+    update_counters();
 }
 
 function update_activity(dx)
@@ -40,7 +49,7 @@ function update_activity(dx)
 function highlight_currents()
 {
     var x = document.getElementById("uzuri-sidepane");
-    for (i=0; i<x.children.length; i++) {
+    for (var i=0; i<x.children.length; i++) {
 	e = x.children[i];
 	if (e.className == "uzuri-remote-plugin-button-active")
 	    e.className = "uzuri-remote-plugin-button";
@@ -53,4 +62,30 @@ function highlight_currents()
 	if (e.id == "remoteallbtn" && current_host == "all")
 	    e.className = "uzuri-remote-host-button-active";
     }
+    update_counters();
+}
+
+
+function update_counters()
+{
+    var chid = "";
+    var chc = 0;
+
+    for (var i=0; i<hosts.length; i++)
+	if (host_controlled[hosts[i]]) {
+	    chid = hosts[i];
+	    chc++;
+	}
+
+    s = "<span>Controlling</span> ";
+    if (current_host == "all")
+	if (chc == 1)
+	    s += chid;
+	else
+	    s += chc + " hosts";
+    else
+	s += current_host;
+
+    document.getElementById("uzuri-controlling").innerHTML = s;
+    document.getElementById("uzuri-viewing").innerHTML = "<span>Viewing</span> " + visible_host;
 }

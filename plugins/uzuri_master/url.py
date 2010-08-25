@@ -28,6 +28,7 @@ class UzuriMasterDispatcher(URLHandler, EventProcessor, Plugin):
         master.init()
         path = req['PATH_INFO'].split('/')
         master._cookies[path[3]] = path[4]
+        return ''
 
     @url('^/uzurigate/.+')
     def gateway(self, req, start_response):

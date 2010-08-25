@@ -23,7 +23,13 @@
 
     <table cellpadding="0" cellspacing="0" class="uzuri-main">
         <tr>
-            <td class="uzuri-top" colspan="2"> </td>
+            <td class="uzuri-top-cell" colspan="2">
+		<div class="uzuri-top">
+		    <span class="uzuri-top-title">
+			Uzuri
+		    </span>
+		</div>
+	    </td>
         </tr>
         <tr>
             <td class="uzuri-sidepane" id="uzuri-sidepane">
@@ -31,8 +37,21 @@
                 <plugins py:strip=""/>
                 <div class="uzuri-sidepane-label">Hosts</div>
                 <hosts py:strip=""/>
+		<br/>
+                <div class="uzuri-sidepane-label2" id="uzuri-viewing"/>
+                <div class="uzuri-sidepane-label2" id="uzuri-controlling"/>
             </td>
             <td class="uzuri-mainpane">
+		<div class="uzuri-toolbar">
+		    <div class="uzuri-toolbutton" onclick="execute_refresh()">
+			<img src="/dl/uzuri_master/refresh.png"/>
+			Refresh
+		    </div>
+		    <div class="uzuri-toolbutton" onclick="execute_reset()">
+			<img src="/dl/uzuri_master/reset.png"/>
+			Reset
+		    </div>
+		</div>
 		<div class="full-dock" id="uzuri-mainpane">
 		    <mainpane py:strip=""/>
 		</div>

@@ -1,14 +1,17 @@
 var current_plugin = [];
 var current_host = "";
 var visible_host = "";
+var host_controlled = [];
 var hosts = [];
 var cookies = [];
+var host_status = [];
+var config_hash = [];
 
 function load_hosts()
 {
     var n = 0;
     var x = document.getElementById("uzuri-mainpane");
-    for (i=0; i<x.children.length; i++)
+    for (var i=0; i<x.children.length; i++)
 	hosts[n++] = x.children[i].id.split('-')[2];
 }
 
@@ -39,16 +42,31 @@ function load_remote(id, url)
 		    obj.innerHTML = filter_page(oo.innerHTML)
 		} catch (err) { }
 		eval_scripts(obj);
+
 		show_host_status(id, "idle");
 
 		try {
-		    current_plugin[id] = xmlReq.getResponseHeader("X-Uzuri-Plugin");
+		    current_plugin[id] = xmlReq.getResponseHeader("x-uzuri-plugin");
 		    highlight_currents();
-		} catch (err) { }
+		} catch (err) {
+		    show_host_status(id, "error");
+		}
+
 		try {
-		    cookies[id] = xmlReq.getResponseHeader("X-Uzuri-Cookie");
+		    res = xmlReq.getResponseHeader("x-uzuri-success");
+		    if (res == "0")
+			show_host_status(id, "warning");
+		    config_hash[id] = xmlReq.getResponseHeader("x-uzuri-config-hash");
+		} catch (err) {
+		    show_host_status(id, "error");
+		}
+
+		try {
+		    cookies[id] = xmlReq.getResponseHeader("x-uzuri-cookie");
 		    ajaxNoUpdate("/uzuri/setcookie/" + id + "/" + cookies[id]);
 		} catch (err) { }
+
+		check_desync();
 
 	    } else {
 		show_host_status(id, "error");
@@ -93,19 +111,20 @@ function eval_scripts(obj)
 function switch_host(id)
 {
     var x = document.getElementById("uzuri-mainpane");
-    for (i=0; i<x.children.length; i++)
+    for (var i=0; i<x.children.length; i++)
 	if (x.children[i].id != id)
 	    ui_hide(x.children[i].id);
     ui_show(id);
     current_host = id.split('-')[2];
     visible_host = current_host;
     highlight_currents();
+    update_counters();
 }
 
 function switch_host_num(num)
 {
     var x = document.getElementById("uzuri-mainpane");
-    for (i=0; i<x.children.length; i++)
+    for (var i=0; i<x.children.length; i++)
 	if (i == num) {
 	    ui_show(x.children[i].id);
 	    current_host = x.children[i].id.split('-')[2];
@@ -118,6 +137,19 @@ function switch_host_num(num)
 	ui_show(x.children[0].id);
     }
     highlight_currents();
+    update_counters();
+}
+
+function check_desync()
+{
+    for (var i=0; i<hosts.length; i++)
+	if (host_status[hosts[i]] != "error")
+	    if (current_plugin[hosts[i]] != current_plugin[hosts[0]])
+		show_host_status(hosts[i], "warning");
+	    else if (config_hash[hosts[i]] != config_hash[hosts[0]])
+		show_host_status(hosts[i], "warning");
+	    else
+		show_host_status(hosts[i], "idle");
 }
 
 function set_cookie(host, cookie)
@@ -132,8 +164,9 @@ function execute_query_single(hostid, url)
 
 function execute_query_all(url)
 {
-    for (i=0; i<hosts.length; i++)
-	execute_query_single(hosts[i], url);
+    for (var i=0; i<hosts.length; i++)
+	if (host_controlled[hosts[i]])
+	    execute_query_single(hosts[i], url);
 }
 
 function execute_query(url)
@@ -142,4 +175,14 @@ function execute_query(url)
 	execute_query_single(current_host, url);
     else
 	execute_query_all(url);
+}
+
+function execute_refresh()
+{
+    execute_query("/handle///");
+}
+
+function execute_reset()
+{
+    execute_query("/session_reset");
 }
