@@ -141,22 +141,34 @@ class CronPlugin(CategoryPlugin):
         return UI.FormBox(adv_table, id='frmAdvanced')
 
     def get_ui_special(self, t):
+        avaible_values = ('@reboot', '@hourly', '@daily',
+                            '@weekly', '@monthly', '@yearly')
+        if t.special and t.special in avaible_values:
+            index = avaible_values.index(t.special)
+        else:
+            index = 0
         spc_table = UI.LayoutTable(
                     UI.LayoutTableRow(
                         UI.Radio(value='reboot', text='On reboot',
-                                name='special', checked=True),
+                                name='special',
+                                checked=(index == 0)),
                         UI.Radio(value='hourly', text='Hourly',
-                                name='special')),
+                                name='special',
+                                checked=(index == 1))),
                     UI.LayoutTableRow(
                         UI.Radio(value='daily', text='Daily',
-                                name='special'),
+                                name='special',
+                                checked=(index == 2)),
                         UI.Radio(value='weekly', text='Weekly',
-                                name='special')),
+                                name='special',
+                                checked=(index == 3))),
                     UI.LayoutTableRow(
                         UI.Radio(value='monthly', text='Monthly',
-                                name='special'),
+                                name='special',
+                                checked=(index == 4)),
                         UI.Radio(value='yearly', text='Yearly',
-                                name='special')),
+                                name='special',
+                                checked=(index == 5))),
                     UI.LayoutTableRow(
                             UI.Label(text='Command'),
                             UI.TextInput(name='command',

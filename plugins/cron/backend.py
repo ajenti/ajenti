@@ -11,6 +11,7 @@ class Task():
         if not line:
             self.m, self.h, self.dom, self.mon, self.dow = ['*'] * 5
             self.command = ''
+            self.special = ''
         elif line[0] == '@':
             tlist = line.split()
             self.special = tlist[0]
