@@ -1,28 +1,28 @@
 function ajax(URL)
 {
-	xmlReq = null;
-	if(window.XMLHttpRequest) 		xmlReq = new XMLHttpRequest();
-	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
-	if(xmlReq==null) return; // Failed to create the request
+    xmlReq = null;
+    if(window.XMLHttpRequest)         xmlReq = new XMLHttpRequest();
+    else if(window.ActiveXObject)     xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
+    if(xmlReq==null) return; // Failed to create the request
 
     showAjaxLoader(true);
 
-	xmlReq.onreadystatechange = function()
-	{
-		switch(xmlReq.readyState)
-		{
-		case 4:	// Done!
-			ajaxHandler(xmlReq.responseText);
+    xmlReq.onreadystatechange = function()
+    {
+        switch(xmlReq.readyState)
+        {
+        case 4:    // Done!
+            ajaxHandler(xmlReq.responseText);
             showAjaxLoader(false);
-			break;
-		default:
-			break;
-		}
-	}
+            break;
+        default:
+            break;
+        }
+    }
 
 // Make the request
-	xmlReq.open ('GET', URL, true);
-	xmlReq.send (null);
+    xmlReq.open ('GET', URL, true);
+    xmlReq.send (null);
     return false;
 }
 
@@ -32,27 +32,27 @@ function showAjaxLoader(s) {
 
 function ajaxPOST(URL, params)
 {
-	xmlReq = null;
-	if(window.XMLHttpRequest) 		xmlReq = new XMLHttpRequest();
-	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
-	if(xmlReq==null) return; // Failed to create the request
+    xmlReq = null;
+    if(window.XMLHttpRequest)         xmlReq = new XMLHttpRequest();
+    else if(window.ActiveXObject)     xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
+    if(xmlReq==null) return; // Failed to create the request
 
     showAjaxLoader(true);
 
-	xmlReq.onreadystatechange = function()
-	{
-		switch(xmlReq.readyState)
-		{
-		case 4:	// Done!
+    xmlReq.onreadystatechange = function()
+    {
+        switch(xmlReq.readyState)
+        {
+        case 4:    // Done!
             showAjaxLoader(false);
-			ajaxHandler(xmlReq.responseText);
-			break;
-		default:
-			break;
-		}
-	}
+            ajaxHandler(xmlReq.responseText);
+            break;
+        default:
+            break;
+        }
+    }
 
-	xmlReq.open ('POST', URL, true);
+    xmlReq.open ('POST', URL, true);
     xmlReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlReq.setRequestHeader("Content-length", params.length);
     xmlReq.setRequestHeader("Connection", "close");
@@ -116,7 +116,7 @@ function ajaxForm(formId, action)
 
 function ajaxHandler(data)
 {
-	document.getElementById('main').innerHTML = data
+    document.getElementById('main').innerHTML = data
     var ob = document.getElementsByTagName("script");
     for(var i=0; i<ob.length; i++)
         try {
@@ -124,21 +124,21 @@ function ajaxHandler(data)
         } catch (err) {}
 
 
-	var re = new RegExp('update=([0-9]+)');
-	var m = re.exec(data);
+    var re = new RegExp('update=([0-9]+)');
+    var m = re.exec(data);
     if (m)
         if (m[1] != 0)
-		    setTimeout("ajax(\"/handle/update//\")", m[1])
+            setTimeout("ajax(\"/handle/update//\")", m[1])
 }
 
 function ajaxNoUpdate(URL)
 {
-	xmlReq = null;
-	if(window.XMLHttpRequest) 		xmlReq = new XMLHttpRequest();
-	else if(window.ActiveXObject) 	xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
-	if(xmlReq==null) return; // Failed to create the request
-	xmlReq.open ('GET', URL, true);
-	xmlReq.send (null);
+    xmlReq = null;
+    if(window.XMLHttpRequest)         xmlReq = new XMLHttpRequest();
+    else if(window.ActiveXObject)     xmlReq = new ActiveXObject("Microsoft.XMLHTTP");
+    if(xmlReq==null) return; // Failed to create the request
+    xmlReq.open ('GET', URL, true);
+    xmlReq.send (null);
 }
 
 function scheduleRefresh(timeout)

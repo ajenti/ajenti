@@ -205,7 +205,7 @@ class SessionManager(object):
         C = Cookie.SimpleCookie(environ.get('HTTP_COOKIE'))
         cookie = C.get('sess', None)
         if cookie is None:
-            C = Cookie.SimpleCookie(environ.get('HTTP_HTTP_X_COOKIE'))
+            C = Cookie.SimpleCookie(environ.get('HTTP_X_COOKIE'))
             cookie = C.get('sess', None)
         if cookie is not None:
             self._session = self._session_store.checkout(cookie.value)

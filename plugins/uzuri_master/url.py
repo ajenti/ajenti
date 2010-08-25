@@ -42,11 +42,19 @@ class UzuriMasterDispatcher(URLHandler, EventProcessor, Plugin):
 
             htr = HTTPConnection(host=host, port=port)
             htr.connect()
-            htr.putrequest('GET', url)
 
+            hdrs = {}
             for h in req:
-                htr.putheader(h, req[h])
-            htr.endheaders()
+                if h.startswith('HTTP') and h != 'HTTP_COOKIE':
+                    hdrs[h[5:].lower().replace('_', '-')] = req[h]
+                if h == 'CONTENT_TYPE':
+                    hdrs['Content-type'] = req[h]
+
+            body = None
+
+            if (req['REQUEST_METHOD'] == 'POST'):
+                body = str(req['wsgi.input'].readline())
+            htr.request(req['REQUEST_METHOD'], url, body, hdrs)
 
             resp = htr.getresponse()
             hdrs = resp.getheaders()

@@ -15,7 +15,7 @@ function load_hosts()
 	hosts[n++] = x.children[i].id.split('-')[2];
 }
 
-function load_remote(id, url)
+function load_remote(id, url, params)
 {
     var xmlReq = null;
     if(window.XMLHttpRequest)
@@ -52,19 +52,18 @@ function load_remote(id, url)
 		    show_host_status(id, "error");
 		}
 
-		try {
-		    res = xmlReq.getResponseHeader("x-uzuri-success");
-		    if (res == "0")
-			show_host_status(id, "warning");
-		    config_hash[id] = xmlReq.getResponseHeader("x-uzuri-config-hash");
-		} catch (err) {
-		    show_host_status(id, "error");
-		}
+		res = xmlReq.getResponseHeader("x-uzuri-success");
+		if (res == "0")
+		    show_host_status(id, "warning");
+		ch = xmlReq.getResponseHeader("x-uzuri-config-hash");
+		if (ch != null)
+		    config_hash[id] = ch;
 
-		try {
-		    cookies[id] = xmlReq.getResponseHeader("x-uzuri-cookie");
+		ck = xmlReq.getResponseHeader("x-uzuri-cookie");
+		if (ck != null) {
+		    cookies[id] = ck;
 		    ajaxNoUpdate("/uzuri/setcookie/" + id + "/" + cookies[id]);
-		} catch (err) { }
+		}
 
 		check_desync();
 
@@ -75,13 +74,18 @@ function load_remote(id, url)
     }
 
 
-    xmlReq.open ("GET", url, true);
+    xmlReq.open(params==null?"GET":"POST", url, true);
+    if (params != null) {
+	xmlReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlReq.setRequestHeader("Content-length", params.length);
+	xmlReq.setRequestHeader("Connection", "close");
+    }
 
     try {
 	xmlReq.setRequestHeader("X-Cookie", cookies[id]);
     } catch (err) { alert(err); }
 
-    xmlReq.send (null);
+    xmlReq.send (params + "\n\n");
     return false;
 }
 
@@ -95,7 +99,6 @@ function repl(s, f, r)
 function filter_page(html)
 {
     html = repl(html, "ajax('/handle", "execute_query('/handle");
-    html = repl(html, "ajaxForm('", "execute_query('/handle/form/submit/");
     return html;
 }
 
@@ -157,25 +160,27 @@ function set_cookie(host, cookie)
     cookies[host] = cookie;
 }
 
-function execute_query_single(hostid, url)
+function execute_query_single(hostid, url, params)
 {
-    load_remote(hostid, "/uzurigate/" + hostid + url);
+    load_remote(hostid, "/uzurigate/" + hostid + url, params);
 }
 
-function execute_query_all(url)
+function execute_query_all(url, params)
 {
     for (var i=0; i<hosts.length; i++)
 	if (host_controlled[hosts[i]])
-	    execute_query_single(hosts[i], url);
+	    execute_query_single(hosts[i], url, params);
 }
 
-function execute_query(url)
+function execute_query(url, params)
 {
     if (current_host != "all")
-	execute_query_single(current_host, url);
+	execute_query_single(current_host, url, params);
     else
-	execute_query_all(url);
+	execute_query_all(url, params);
 }
+
+ajaxPOST = execute_query;
 
 function execute_refresh()
 {
