@@ -40,6 +40,11 @@
 		<br/>
                 <div class="uzuri-sidepane-label2" id="uzuri-viewing"/>
                 <div class="uzuri-sidepane-label2" id="uzuri-controlling"/>
+		<br/>
+		<form action="/uzuri/addhost" method="GET">
+		    <input name="addr" class="uzuri-add-host"/>
+		    <input type="submit" class="uzuri-add-host-btn" value="Add host"/>
+		</form>
             </td>
             <td class="uzuri-mainpane">
 		<div class="uzuri-toolbar">
@@ -50,6 +55,10 @@
 		    <div class="uzuri-toolbutton" onclick="execute_reset()">
 			<img src="/dl/uzuri_master/reset.png"/>
 			Reset
+		    </div>
+		    <div class="uzuri-toolbutton" onclick="javascript:if (confirm('Are you sure?')) document.location.href='/uzuri/delhost?addr='+visible_host;">
+			<img src="/dl/uzuri_master/delete.png"/>
+			Delete host
 		    </div>
 		</div>
 		<div class="full-dock" id="uzuri-mainpane">

@@ -30,6 +30,20 @@ class UzuriMasterDispatcher(URLHandler, EventProcessor, Plugin):
         master._cookies[path[3]] = path[4]
         return ''
 
+    @url('^/uzuri/addhost')
+    def setcookie(self, req, start_response):
+        master = self.app.grab_plugins(IUzuriMaster)[0]
+        master.init()
+        master.add_host(req['QUERY_STRING'][5:])
+        return self.process(req, start_response)
+
+    @url('^/uzuri/delhost')
+    def setcookie(self, req, start_response):
+        master = self.app.grab_plugins(IUzuriMaster)[0]
+        master.init()
+        master.del_host(req['QUERY_STRING'][5:])
+        return self.process(req, start_response)
+
     @url('^/uzurigate/.+')
     def gateway(self, req, start_response):
         try:

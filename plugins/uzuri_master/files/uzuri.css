@@ -76,7 +76,7 @@ body {
 .uzuri-toolbutton {
     border: 1px solid #555;
     background: #444;
-    width: 100px;
+    min-width: 100px;
     height: 26px;
     float: left;
     line-height: 26px;
@@ -84,6 +84,7 @@ body {
     margin: 2px 4px 2px 0px;
     color: #ccc;
     font-weight: bold;
+    padding: 0px 5px 0px 5px;
 }
 
 .uzuri-toolbutton:hover {
@@ -115,13 +116,30 @@ body {
     font-size: 12px;
 }
 
+.uzuri-add-host {
+    border: 1px solid #555;
+    background: #333;
+    color: #ccc;
+    width: 150px;
+    height: 16px;
+    font-size: 12px;
+}
 
+.uzuri-add-host-btn {
+    border: 1px solid #555;
+    background: #333;
+    color: #ccc;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+}
 
 /* Host switch */
 .uzuri-remote-host-button {
     width: 200px;
     height: 20px;
     line-height: 20px;
+    vertical-align: middle;
     padding: 3px 4px 3px 10px;
 
     border: 1px solid #555;

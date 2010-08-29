@@ -14,7 +14,34 @@ class UzuriMaster(SessionPlugin):
 	self._cookies = {}
 
     def init(self):
-	self.remotes = ['localhost:8001', 'localhost:8002', 'nowhere:8000']
+	self.remotes = []
+	self.config.has_option('uzuri', '') # Create section if there is none
+
+	i = 0
+	while self.config.has_option('uzuri', 'host%i'%i):
+	    self.remotes.append(self.config.get('uzuri', 'host%i'%i))
+	    i += 1
+
+	if len(self.remotes) == 0:
+	    self.remotes = ['nowhere:port']
+
+    def add_host(self, addr):
+	self.remotes.append(addr)
+	self.save_remotes()
+
+    def del_host(self, addr):
+	self.remotes.remove(addr)
+	self.save_remotes()
+
+    def save_remotes(self):
+	r = sorted(self.remotes)
+	self.config.remove_section('uzuri')
+	self.config.add_section('uzuri')
+	i = 0
+	for x in r:
+	    self.config.set('uzuri', 'host%i'%i, x)
+	    i += 1
+	self.config.save()
 
     def get_ui_plugins(self):
 	c = UI.Container()
