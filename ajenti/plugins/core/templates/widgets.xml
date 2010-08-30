@@ -341,7 +341,7 @@
 
 <!--! Radio widget -->
 <py:match path="radio">
-    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked=${'checked' if str(select('@checked'))=='True' else None} onkeypress="return noenter()"/>
+    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" onkeypress="return noenter()"/>
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>
