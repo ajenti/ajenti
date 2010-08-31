@@ -31,14 +31,14 @@ class UzuriMasterDispatcher(URLHandler, EventProcessor, Plugin):
         return ''
 
     @url('^/uzuri/addhost')
-    def setcookie(self, req, start_response):
+    def add_host(self, req, start_response):
         master = self.app.grab_plugins(IUzuriMaster)[0]
         master.init()
         master.add_host(req['QUERY_STRING'][5:])
         return self.process(req, start_response)
 
     @url('^/uzuri/delhost')
-    def setcookie(self, req, start_response):
+    def del_host(self, req, start_response):
         master = self.app.grab_plugins(IUzuriMaster)[0]
         master.init()
         master.del_host(req['QUERY_STRING'][5:])
