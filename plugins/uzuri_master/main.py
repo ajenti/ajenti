@@ -70,5 +70,4 @@ class UzuriMaster(SessionPlugin):
 class UzuriContent(ModuleContent):
     module = 'uzuri_master'
     path = __file__
-    js_files = ['core.js', 'ui.js']
     widget_files = ['widgets.xml']

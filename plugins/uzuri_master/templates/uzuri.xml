@@ -7,6 +7,8 @@
     <link py:for="s in styles" href="${s}" rel="stylesheet" media="all" />
     <link href="/dl/uzuri_master/uzuri.css" rel="stylesheet" media="all" />
     <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+    <script src="/dl/uzuri_master/core.js" />
+    <script src="/dl/uzuri_master/ui.js" />
     <script py:for="s in scripts" src="${s}" />
 </head>
 
