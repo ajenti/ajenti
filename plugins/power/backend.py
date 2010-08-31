@@ -9,7 +9,14 @@ class ACAdapter:
 
 def get_ac_adapters():
     r = []
-    for x in os.listdir('/proc/acpi/ac_adapter'):
+    
+    try:
+        lst = []
+        lst = os.listdir('/proc/acpi/ac_adapter')
+    except:
+        pass
+        
+    for x in lst:
         try:
             a = ACAdapter()
             a.name = x
@@ -33,7 +40,14 @@ class Battery:
 
 def get_batteries():
     r = []
-    for x in os.listdir('/proc/acpi/battery'):
+    
+    try:
+        lst = []
+        lst = os.listdir('/proc/acpi/battery')
+    except:
+        pass
+        
+    for x in lst:
         try:
             b = Battery()
             b.name = x
