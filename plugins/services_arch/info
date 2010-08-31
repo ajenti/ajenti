@@ -1,0 +1,4 @@
+pkg services-arch
+desc Arch Linux backend for services management plugin
+prov ajenti-plugin-services-backend
+
