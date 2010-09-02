@@ -38,13 +38,13 @@
                 <hnode>
                     <vcontainer>
                         <vnode spacing="0"><label text="${select('@title')}" size="5" /></vnode>
-                        <vnode spacing="0"><div style="padding-left: 3px;">${select('node()[1]')}</div></vnode>
+                        <vnode spacing="0"><div style="padding-left: 3px;">${select('*[1]')}</div></vnode>
                     </vcontainer>
                 </hnode>
             </hcontainer>
         </div>
         <div class="ui-el-pluginpanel-content">
-           ${select('node()[2]')}
+           ${select('*[2]')}
         </div>
     </div>
 </py:match>
