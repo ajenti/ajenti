@@ -4,6 +4,7 @@ from api import *
 # NetworkConfigs
 from nc_debian import *
 from nc_suse import *
+from nc_arch import *
 
 # NetworkConfigBits
 from ncs_linux_basic import *
