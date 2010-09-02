@@ -17,6 +17,7 @@
             </table>
         </div>
 		<div class="ui-el-mainwindow-left">
+		    <div class="ui-el-mainwindow-left-border"/>
             <leftplaceholder py:strip="" />
         </div>
 		<div class="ui-el-mainwindow-right">
