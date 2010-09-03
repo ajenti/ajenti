@@ -10,7 +10,7 @@ class PackageManagerPlugin(CategoryPlugin):
     folder = 'system'
 
     def on_init(self):
-        self.mgr = self.app.grab_plugins(apis.pkgman.IPackageManager)[0]
+        self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
 
     def on_session_start(self):
         self._labeltext = ''

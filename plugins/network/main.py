@@ -10,7 +10,7 @@ class NetworkPlugin(CategoryPlugin):
     folder = 'hardware'
 
     def on_init(self):
-        self.net_config = self.app.grab_plugins(INetworkConfig)[0]
+        self.net_config = self.app.get_backend(INetworkConfig)
 
     def on_session_start(self):
         self._editing_iface = ""

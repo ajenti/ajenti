@@ -80,6 +80,8 @@ class Application (PluginManager, Plugin):
                     self.log.debug('Calling handler for %s'%environ['PATH_INFO'])
                     content = handler.url_handler(self.environ,
                                                   self.start_response)
+                except BackendUnavailableException, e:
+                    content = format_backend_error(self, e)
                 except Exception, e:
                     try:
                         content = format_error(self, traceback.format_exc())
@@ -112,7 +114,12 @@ class Application (PluginManager, Plugin):
             plugins = filter(flt, plugins)
         return filter(None, [self.instance_get(cls, True) for cls in plugins])
 
-
+    def get_backend(self, iface, flt=None):
+        try:
+            return self.grab_plugins(iface, flt)[0]
+        except:
+            raise BackendUnavailableException(iface.__name__, self.platform) 
+            
     def get_template(self, filename=None, search_path=[], includes=[]):
         from pprint import pprint
         vars = {'styles': self.template_styles,
