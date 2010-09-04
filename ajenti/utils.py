@@ -29,7 +29,7 @@ def detect_platform():
 
     if dist == '':
         try:
-            dist = open('/etc/issue').read().split()[0]
+            dist = open('/etc/issue').read().strip('\n\t ').split()[0]
         except:
             dist = 'unknown'
 
