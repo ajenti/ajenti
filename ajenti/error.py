@@ -5,6 +5,7 @@ from ajenti.ui.template import BasicTemplate
 import platform
 
 def format_error(app, err):
+    print '\n%s\n' % err
     templ = app.get_template('error.xml')
     err = err.replace('\n', '[br]')
     templ.appendChildInto('trace',

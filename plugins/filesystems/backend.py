@@ -5,7 +5,7 @@ from ajenti.utils import *
 
 
 class Entry:
-    def __new__(self):
+    def __init__(self):
         self.src = ''
         self.dst = ''
         self.options = ''
