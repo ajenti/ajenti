@@ -86,6 +86,7 @@ class Application (PluginManager, Plugin):
                     try:
                         content = format_error(self, traceback.format_exc())
                     except:
+                        status = '418 I\'m a teapot'
                         content = 'Fatal error occured:\n' + traceback.format_exc()
                 finally:
                     break
