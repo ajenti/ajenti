@@ -31,11 +31,11 @@ class ShellPlugin(CategoryPlugin):
         log = UI.CustomHTML(enquote(self._log))
 
         frm = UI.FormBox(
-                UI.TextInput(name='cmd', size=30),
+                UI.TextInput(name='cmd', size=30, id='shell-command'),
                 id='frmRun', hideok=True, hidecancel=True
               )
         frmr = UI.FormBox(
-                UI.Select(*recent, name='cmd'),
+                UI.Select(*recent, name='cmd', id='shell-recent', onclick='shellRecentClick()'),
                 id='frmRecent', hideok=True, hidecancel=True
               )
 
@@ -74,3 +74,5 @@ class ShellPlugin(CategoryPlugin):
 class ShellContent(ModuleContent):
     module = 'shell'
     path = __file__
+    js_files = ['recent.js']
+    
