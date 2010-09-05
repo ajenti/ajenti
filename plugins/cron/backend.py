@@ -39,6 +39,8 @@ def read_crontab(user='root'):
     others = []
     lines = shell('crontab -l').split('\n')
     for line in lines:
+        if line and line.startswith('no'):
+            continue
         if line and line[0] == '#':
             others.append(line)
             continue
