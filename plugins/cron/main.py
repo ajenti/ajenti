@@ -22,7 +22,7 @@ class CronPlugin(CategoryPlugin):
         self._error = ''
         self._tasks = []
         self._others = []
-        self._tab = 0
+        #self._tab = 0
         self._show_dialog = 0
         self._newtask = False
 
@@ -35,6 +35,7 @@ class CronPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
+        tabbar = UI.TabControl()
         table_other = UI.DataTable(UI.DataTableRow(
                 UI.Label(text='String', size=80),
                 UI.Label(text=''),
@@ -100,14 +101,15 @@ class CronPlugin(CategoryPlugin):
             er = UI.ErrorBox(title='Error', text=self._error)
         else:
             er = UI.Spacer()
-        vbox = UI.VContainer(er,
-                            UI.Label(text="Non task strings", size=2),
-                            table_other,
-                            UI.Button(text='Add non task string', id='add_oth'),
-                            UI.Label(text="Tasks", size=2),
-                            table_task,
-                            UI.Button(text='Add task', id='add_oth'),
-                            )
+        vbox_task = UI.VContainer(
+                        table_task,
+                        UI.Button(text='Add task', id='add'))
+        vbox_oth = UI.VContainer(
+                        table_other,
+                        UI.Button(text='Add non task string', id='add_oth'))
+        tabbar.add("Tasks", vbox_task)
+        tabbar.add("Non task strings", vbox_oth)
+        vbox = UI.VContainer(er, tabbar)
         if self._editing_task != -1:
             try:
                 task = self._tasks[self._editing_task]
@@ -136,7 +138,7 @@ class CronPlugin(CategoryPlugin):
         return dlg
 
     def get_ui_edit(self, t):
-        tabbar = UI.TabControl(active=self._tab)
+        tabbar = UI.TabControl()
         if self._newtask:
             tabbar.add('Regular', self.get_ui_template())
         if self._newtask or not t.special:
@@ -217,7 +219,7 @@ class CronPlugin(CategoryPlugin):
         return UI.FormBox(spc_table, id='frmSpecial')
 
     def get_ui_template(self):
-        tabbar = UI.TabControl(active=self._tab)
+        tabbar = UI.TabControl()
         tabbar.add('Minutely', self.get_ui_temp_minutely())
         tabbar.add('Hourly', self.get_ui_temp_hourly())
         tabbar.add('Daily', self.get_ui_temp_daily())
