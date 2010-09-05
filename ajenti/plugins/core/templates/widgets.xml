@@ -15,6 +15,12 @@
 </py:match>
 
 
+<!--! Refresher -->
+<py:match path="refresh">
+    <script>scheduleRefresh(${str(select('@time'))})</script>
+</py:match>
+
+
 <!--! ErrorBox widget -->
 <py:match path="errorbox">
     <div class="ui-el-error" width="${select('@width')}" height="${select('@height')}">
