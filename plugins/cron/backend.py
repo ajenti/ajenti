@@ -14,7 +14,12 @@ class Task():
             self.special = ''
         elif line[0] == '@':
             tlist = line.split()
-            self.special = tlist[0]
+            if tlist[0] == '@annually':
+                self.special = '@yearly'
+            elif tlist[0] == '@midnight':
+                self.special = '@hourly'
+            else:
+                self.special = tlist[0]
             self.command = ' '.join(tlist[1:])\
                                 if tlist[1] else ''
         else:
@@ -39,12 +44,12 @@ def read_crontab(user='root'):
     others = []
     lines = shell('crontab -l').split('\n')
     for line in lines:
-        if line and line.startswith('no'):
+        if not line:
             continue
-        if line and line[0] == '#':
+        if line.startswith('no'):
+            continue
+        if line[0] == '#':
             others.append(line)
-            continue
-        elif not line:
             continue
         try:
             tasks.append(Task(line))
