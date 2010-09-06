@@ -194,12 +194,12 @@
 <py:match path="inputbox">
     <div class="ui-el-modal-blackout" />
     <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
-        <form action="/handle/dialog/submit/${select('@id')}" name="${select('@id')}" id="${select('@id')}">
+        <div name="${select('@id')}" id="${select('@id')}">
             <div class="ui-el-dialog" width="${select('@width')}" height="${select('@height')}">
+                <input id="${select('@id')}-url" type="hidden" name="url" value="/handle/dialog/submit/${select('@id')}"/>
                 <div class="ui-el-dialog-title"><label text="${select('@title')}" size="2" /></div>
                 <div class="ui-el-dialog-content">
                     <vcontainer>
-                        <vnode><spacer height="10" /></vnode>
                         <vnode><label text="${select('@text')}"/></vnode>
                         <vnode><textinput name="value" value="${select('@value')}"/></vnode>
                     </vcontainer>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <script>
         ui_center('${select('@id')}-wr');
