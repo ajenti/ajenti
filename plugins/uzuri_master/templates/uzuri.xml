@@ -23,32 +23,41 @@
 	<span class="ui-el-label-1"> more to go</span>
     </div>
 
-    <table cellpadding="0" cellspacing="0" class="uzuri-main">
-        <tr>
-            <td class="uzuri-top-cell" colspan="2">
-		<div class="uzuri-top">
-		    <span class="uzuri-top-title">
-			Uzuri
-		    </span>
-		</div>
-	    </td>
-        </tr>
-        <tr>
-            <td class="uzuri-sidepane" id="uzuri-sidepane">
-                <div class="uzuri-sidepane-label">Plugins</div>
+	    <div class="ui-el-mainwindow-top">
+            <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="ui-el-topbar-l" />
+                    <td class="ui-el-topbar-c"> 
+                        Uzuri clustering
+                    </td>
+                    <td class="ui-el-topbar-ldr">
+                        <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+                    </td>
+                    <td class="ui-el-topbar-r" />
+                </tr>
+            </table>
+        </div>
+
+		<div class="ui-el-mainwindow-left" id="uzuri-sidepane">
+                <div class="ui-el-label-3">Plugins</div>
+    		    <div class="ui-el-mainwindow-left-border"/>
                 <plugins py:strip=""/>
-                <div class="uzuri-sidepane-label">Hosts</div>
+                <br/>
+                <div class="ui-el-label-3">Hosts</div>
+    		    <div class="ui-el-mainwindow-left-border"/>
                 <hosts py:strip=""/>
-		<br/>
-                <div class="uzuri-sidepane-label2" id="uzuri-viewing"/>
-                <div class="uzuri-sidepane-label2" id="uzuri-controlling"/>
-		<br/>
-		<form action="/uzuri/addhost" method="GET">
-		    <input name="addr" class="uzuri-add-host"/>
-		    <input type="submit" class="uzuri-add-host-btn" value="Add host"/>
-		</form>
-            </td>
-            <td class="uzuri-mainpane">
+        		<br/>
+                <div id="uzuri-viewing"/>
+                <div id="uzuri-controlling"/>
+        		<br/>
+        		<form action="/uzuri/addhost" method="GET">
+        		    <input name="addr" class="ui-el-input"/>
+        		    <input type="submit" class="ui-el-button" value="Add host"/>
+        		</form>
+        </div>
+
+		<div class="ui-el-mainwindow-right">
+            <rightplaceholder py:strip="" />
 		<div class="uzuri-toolbar">
 		    <div class="uzuri-toolbutton" onclick="execute_refresh()">
 			<img src="/dl/uzuri_master/refresh.png"/>
@@ -66,9 +75,7 @@
 		<div class="full-dock" id="uzuri-mainpane">
 		    <mainpane py:strip=""/>
 		</div>
-	    </td>
-        </tr>
-    </table>
+        </div>
 
     <script>
 	load_hosts();

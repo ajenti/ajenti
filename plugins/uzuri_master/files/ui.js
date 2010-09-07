@@ -51,16 +51,14 @@ function highlight_currents()
     var x = document.getElementById("uzuri-sidepane");
     for (var i=0; i<x.children.length; i++) {
 	e = x.children[i];
-	if (e.className == "uzuri-remote-plugin-button-active")
-	    e.className = "uzuri-remote-plugin-button";
-	if (e.className == "uzuri-remote-host-button-active")
-	    e.className = "uzuri-remote-host-button";
+	if (e.className == "ui-el-category-selected")
+	    e.className = "ui-el-category";
 	if (e.id == ("plugin-" + current_plugin[visible_host]))
-	    e.className = "uzuri-remote-plugin-button-active";
+	    e.className = "ui-el-category-selected";
 	if (e.id == ("remotebtn-" + current_host))
-	    e.className = "uzuri-remote-host-button-active";
+	    e.className = "ui-el-category-selected";
 	if (e.id == "remoteallbtn" && current_host == "all")
-	    e.className = "uzuri-remote-host-button-active";
+	    e.className = "ui-el-category-selected";
     }
     update_counters();
 }

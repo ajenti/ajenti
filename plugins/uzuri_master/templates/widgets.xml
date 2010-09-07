@@ -14,19 +14,19 @@
 </py:match>
 
 <py:match path="remoteallbutton">
-    <div class="uzuri-remote-host-button" id="remoteallbtn" onclick="switch_host_num(-1)">
-	<span class="title">All hosts</span>
+    <div class="ui-el-category" id="remoteallbtn" onclick="switch_host_num(-1)">
+	<span class="title-host">All hosts</span>
     </div>
 </py:match>
 
 <py:match path="remotehostbutton">
-    <div class="uzuri-remote-host-button" id="remotebtn-${select('@id')}" onclick="switch_host('remote-wrapper-${select('@id')}')">
+    <div class="ui-el-category" id="remotebtn-${select('@id')}" onclick="switch_host('remote-wrapper-${select('@id')}')">
 	<img src="/dl/uzuri_master/host.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-idle"/>
 	<img src="/dl/uzuri_master/active.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-active"/>
 	<img src="/dl/uzuri_master/error.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-error"/>
 	<img src="/dl/uzuri_master/desync.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-desync"/>
 	<img src="/dl/uzuri_master/warning.png" class="uzuri-remote-host-icon" id="${select('@id')}-icon-warning"/>
-	<span class="title">${select('@addr')}</span>
+	<span class="title-host">${select('@addr')}</span>
 	<script>
 	    show_host_status("${select('@id')}", "idle");
 	    set_cookie("${select('@id')}", "${select('@cookie')}");
@@ -35,8 +35,8 @@
 </py:match>
 
 <py:match path="remotepluginbutton">
-    <div class="uzuri-remote-plugin-button" id="plugin-${select('@id')}" onclick="execute_query('/handle/category/click/${select('@id')}')">
-	<img src="${select('@icon')}" class="uzuri-remote-plugin-icon"/>
+    <div class="ui-el-category" id="plugin-${select('@id')}" onclick="execute_query('/handle/category/click/${select('@id')}')">
+	<img src="${select('@icon')}" class="ui-el-category-icon"/>
 	<span class="title">${select('@name')}</span>
     </div>
 </py:match>

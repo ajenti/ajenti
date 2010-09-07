@@ -1,52 +1,18 @@
-body {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;
-    background: #222;
-}
-
 .full-dock {
     width: 100%;
     height: 100%;
-}
-
-.uzuri-main {
-    width: 100%;
-    height: 100%;
-}
-
-.uzuri-top {
-    height: 35px;
-    border: 1px solid #555;
-    border-radius: 0px 0px 5px 5px;
-    -moz-border-radius: 0px 0px 5px 5px;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    border-top: none;
-    background: #444;
-}
-
-.uzuri-top-cell {
-    height: 40px;
-    padding: 0px 5px 5px 5px;
-}
-
-.uzuri-top-title {
-    color: #eee;
-    text-shadow: 1px -px 0px #555;
-    font-size: 24px;
-    line-height: 35px;
-    padding-left: 10px;
-}
-
-.uzuri-sidepane {
-    width: 200px;
 }
 
 .uzuri-mainpane {
     width: auto;
     padding-left: 30px;
 }
+
+.ui-el-topbar-c {
+    font-size: 24px;
+    line-height: 36px;
+}
+
 
 
 /* Host view */
@@ -66,172 +32,70 @@ body {
 
 /* Host toolbar */
 .uzuri-toolbar {
-    border: 1px solid #282828;
-    background: #222;
+    border: 1px solid #ddd;
+    background: #eee;
     width: 100%;
     height: 32px;
     margin-bottom: 5px;
+    padding-left: 3px;
 }
 
 .uzuri-toolbutton {
-    border: 1px solid #555;
-    background: #444;
-    min-width: 100px;
-    height: 26px;
+    border: 1px solid #ccc;
+    background: #ddd;
+    height: 23px;
     float: left;
-    line-height: 26px;
+    line-height: 23px;
     text-align: center;
     margin: 2px 4px 2px 0px;
-    color: #ccc;
-    font-weight: bold;
+    color: #666;
     padding: 0px 5px 0px 5px;
 }
 
+.uzuri-toolbutton img {
+    width: 22px;
+    height: 22px;
+}
+
 .uzuri-toolbutton:hover {
-    border: 1px solid #666;
+    border: 1px solid #bbb;
     background: #555;
-    background: -moz-linear-gradient(top,  #666,  #555);
-    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
 }
 
 .uzuri-toolbutton:active {
-    border: 1px solid #DE6E41;
-}
-
-
-.uzuri-sidepane-label {
-    color: #ddd;
-    font-size: 16px;
-    padding: 7px 0px 5px 5px;
-}
-
-.uzuri-sidepane-label2 {
-    color: #666;
-    font-size: 12px;
-    padding: 3px 0px 0px 5px;
-}
-
-.uzuri-sidepane-label2 span {
-    color: #444;
-    font-size: 12px;
-}
-
-.uzuri-add-host {
-    border: 1px solid #555;
-    background: #333;
-    color: #ccc;
-    width: 150px;
-    height: 16px;
-    font-size: 12px;
-}
-
-.uzuri-add-host-btn {
-    border: 1px solid #555;
-    background: #333;
-    color: #ccc;
-    height: 18px;
-    line-height: 18px;
-    font-size: 12px;
+    border: 1px solid #666;
 }
 
 /* Host switch */
-.uzuri-remote-host-button {
-    width: 200px;
-    height: 20px;
-    line-height: 20px;
-    vertical-align: middle;
-    padding: 3px 4px 3px 10px;
-
-    border: 1px solid #555;
-    border-left: none;
-    background: #444;
+.ui-el-category .title {
+    font-size: 15px;
+    padding: 0px;
 }
 
-.uzuri-remote-host-button:hover {
-    border: 1px solid #666;
-    border-left: none;
-    background: #555;
-    background: -moz-linear-gradient(top,  #666,  #555);
-    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
+.ui-el-category-selected .title {
+    color: #fff;
+    padding: 0px;
 }
 
-.uzuri-remote-host-button:active {
-    border: 1px solid #DE6E41;
-    border-left: none;
+.ui-el-category .title-host {
+    padding: 0px;
+    padding-left: 2px;
 }
 
-.uzuri-remote-host-button .title {
-    color: #ccc;
-    font-weight: bold;
+.ui-el-category-selected .title-host {
+    color: #fff;
+    padding-left: 2px;
 }
 
-.uzuri-remote-host-icon {
-    margin-top: 2px;
+.ui-el-category img {
+    padding: 4px;
 }
 
-.uzuri-remote-host-button-active {
-    width: 200px;
-    height: 20px;
-    line-height: 20px;
-    padding: 3px 4px 3px 10px;
-
-    border: 1px solid #DE6E41;
-    border-left: none;
-    background: #7E1E01;
+.ui-el-category-selected img {
+    padding: 4px;
 }
-
-.uzuri-remote-host-button-active .title {
-    color: #ccc;
-    font-weight: bold;
-}
-
-
-/* Plugin switch */
-.uzuri-remote-plugin-button {
-    width: 200px;
-    height: 20px;
-    line-height: 20px;
-    padding: 3px 4px 3px 10px;
-
-    border: 1px solid #555;
-    border-left: none;
-    background: #444;
-}
-
-.uzuri-remote-plugin-button:hover {
-    border: 1px solid #666;
-    border-left: none;
-    background: #555;
-    background: -moz-linear-gradient(top,  #666,  #555);
-    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
-}
-
-.uzuri-remote-plugin-button:active {
-    border: 1px solid #DE6E41;
-    border-left: none;
-}
-
-.uzuri-remote-plugin-button .title {
-    color: #ccc;
-    font-weight: bold;
-}
-
-.uzuri-remote-plugin-button-active {
-    width: 200px;
-    height: 20px;
-    line-height: 20px;
-    padding: 3px 4px 3px 10px;
-
-    border: 1px solid #DE6E41;
-    border-left: none;
-    background: #7E1E01;
-}
-
-.uzuri-remote-plugin-button-active .title {
-    color: #ccc;
-    font-weight: bold;
-}
-
 
 
 /* Dialog override */
