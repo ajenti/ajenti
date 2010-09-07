@@ -22,24 +22,31 @@ pkg = __import__(sys.argv[1])
 run('mkdir out') 
 clean()
 version = sys.argv[2]
+run('cd ..;find|grep .pyc|xargs rm')    
     
 ann_build('ajenti')
 run('mkdir tmp/usr/share/ajenti/ajenti/ -p')
 run('mkdir tmp/usr/lib/ajenti/plugins/ -p')
 run('mkdir tmp/usr/bin/ -p')
 run('mkdir tmp/etc/ajenti -p')
-run('mkdir tmp/etc/init.d/ -p')
+if sys.argv[1] == 'arch':
+    run('mkdir tmp/etc/rc.d/ -p')
+else:
+    run('mkdir tmp/etc/init.d/ -p')
 
 run('cp -r ../ajenti/* tmp/usr/share/ajenti/ajenti/')
 run('echo "version = \'%s\'\n" > tmp/usr/share/ajenti/ajenti/__init__.py' % version)
 run('cp ../serve.py tmp/usr/share/ajenti/')
 run('cp ../server.pem tmp/usr/share/ajenti/')
 run('cp files/ajenti.conf tmp/etc/ajenti/')
-run('cp files/initscript tmp/etc/init.d/ajenti')
+if sys.argv[1] == 'arch':
+    run('cp files/initscript tmp/etc/rc.d/ajenti')
+else:
+    run('cp files/initscript tmp/etc/init.d/ajenti')
 run('ln -s /usr/share/ajenti/serve.py tmp/usr/bin/ajenti')
 
 deps = ['python2.6', 'python-genshi', 'python-openssl']
-pkg.build('tmp/', 'ajenti', version, base_desc, deps)
+pkg.build('tmp/', 'ajenti', version, base_desc, deps, [])
 
 for p in os.listdir('../plugins'):
     try:
@@ -66,7 +73,7 @@ for p in os.listdir('../plugins'):
        
         clean()
         deps.append('ajenti')
-        ann_build('ajenti-plugin-' + pkgname + '-'+ ver)
+        ann_build('ajenti-plugin-' + pkgname + '-'+ version)
         run('mkdir tmp/usr/lib/ajenti/plugins/' + p + ' -p')
         run('cp -r ../plugins/' + p + '/* tmp/usr/lib/ajenti/plugins/' + p)
         run('rm tmp/usr/lib/ajenti/plugins/' + p + '/info')
