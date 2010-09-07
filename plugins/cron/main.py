@@ -15,6 +15,7 @@ class CronPlugin(CategoryPlugin):
         self._tasks, self._others = backend.read_crontab()
 
     def on_session_start(self):
+        backend.fix_crontab()
         self._log = ''
         self._labeltext = ''
         self._editing_task = -1
@@ -71,9 +72,9 @@ class CronPlugin(CategoryPlugin):
                     UI.Label(text=t.command),
                     UI.DataTableCell(
                         UI.HContainer(
-                            UI.MiniButton(id='edit/' + str(i),
+                            UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
-                            UI.WarningMiniButton(id='del/' + str(i),
+                            UI.WarningMiniButton(id='del_task/' + str(i),
                                 text='Delete')
                         ),
                         hidden=True)
@@ -88,9 +89,9 @@ class CronPlugin(CategoryPlugin):
                     UI.Label(text=t.command),
                     UI.DataTableCell(
                         UI.HContainer(
-                            UI.MiniButton(id='edit/' + str(i),
+                            UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
-                            UI.WarningMiniButton(id='del/' + str(i),
+                            UI.WarningMiniButton(id='del_task/' + str(i),
                                 text='Delete')
                         ),
                         hidden=True)
@@ -103,12 +104,12 @@ class CronPlugin(CategoryPlugin):
             er = UI.Spacer()
         vbox_task = UI.VContainer(
                         table_task,
-                        UI.Button(text='Add task', id='add'))
+                        UI.Button(text='Add task', id='add_task'))
         vbox_oth = UI.VContainer(
                         table_other,
-                        UI.Button(text='Add non task string', id='add_oth'))
+                        UI.Button(text='Add non-task string', id='add_oth'))
         tabbar.add("Tasks", vbox_task)
-        tabbar.add("Non task strings", vbox_oth)
+        tabbar.add("Non-task strings", vbox_oth)
         vbox = UI.VContainer(er, tabbar)
         if self._editing_task != -1:
             try:
@@ -133,7 +134,7 @@ class CronPlugin(CategoryPlugin):
                             UI.TextInput(value=other_value, name='other_str'))
         dlg = UI.DialogBox(
                 vbox,
-                title='Edit non task string',
+                title='Edit non-task string',
                 id='dlgEditOther')
         return dlg
 
@@ -336,14 +337,14 @@ class CronPlugin(CategoryPlugin):
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
-        if params[0] == 'add':
+        if params[0] == 'add_task':
             self._editing_task = len(self._tasks)
             self._show_dialog = 1
             self._newtask = True
-        if params[0] == 'edit':
+        if params[0] == 'edit_task':
             self._editing_task = int(params[1])
             self._show_dialog = 1
-        if params[0] == 'del':
+        if params[0] == 'del_task':
             self._tasks.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
