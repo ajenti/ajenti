@@ -15,13 +15,15 @@ class CronPlugin(CategoryPlugin):
         self._tasks, self._others = backend.read_crontab()
 
     def on_session_start(self):
+        backend.fix_crontab()
         self._log = ''
         self._labeltext = ''
-        self._editing = -1
+        self._editing_task = -1
+        self._editing_other = -1
         self._error = ''
         self._tasks = []
         self._others = []
-        self._tab = 0
+        #self._tab = 0
         self._show_dialog = 0
         self._newtask = False
 
@@ -34,7 +36,25 @@ class CronPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
-        table = UI.DataTable(UI.DataTableRow(
+        tabbar = UI.TabControl()
+        table_other = UI.DataTable(UI.DataTableRow(
+                UI.Label(text='String', size=80),
+                UI.Label(text=''),
+                header=True,
+               ))
+        for i, oth_str in enumerate(self._others):
+            table_other.appendChild(UI.DataTableRow(
+                    UI.Label(text=oth_str),
+                    UI.DataTableCell(
+                        UI.HContainer(
+                            UI.MiniButton(id='edit_oth/' + str(i),
+                                text='Edit'),
+                            UI.WarningMiniButton(id='del_oth/' + str(i),
+                                text='Delete')
+                        ),
+                        hidden=True)
+                    ))
+        table_task = UI.DataTable(UI.DataTableRow(
                 UI.Label(text='Minutes'),
                 UI.Label(text='Hours'),
                 UI.Label(text='Days'),
@@ -46,21 +66,21 @@ class CronPlugin(CategoryPlugin):
                ))
         for i, t in enumerate(self._tasks):
             if t.special:
-                table.appendChild(UI.DataTableRow(
+                table_task.appendChild(UI.DataTableRow(
                     UI.Label(text=t.special),
                     UI.Label(), UI.Label(), UI.Label(), UI.Label(),
                     UI.Label(text=t.command),
                     UI.DataTableCell(
                         UI.HContainer(
-                            UI.MiniButton(id='edit/' + str(i),
+                            UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
-                            UI.WarningMiniButton(id='del/' + str(i),
+                            UI.WarningMiniButton(id='del_task/' + str(i),
                                 text='Delete')
                         ),
                         hidden=True)
                     ))
             else:
-                table.appendChild(UI.DataTableRow(
+                table_task.appendChild(UI.DataTableRow(
                     UI.Label(text=t.m),
                     UI.Label(text=t.h),
                     UI.Label(text=t.dom),
@@ -69,9 +89,9 @@ class CronPlugin(CategoryPlugin):
                     UI.Label(text=t.command),
                     UI.DataTableCell(
                         UI.HContainer(
-                            UI.MiniButton(id='edit/' + str(i),
+                            UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
-                            UI.WarningMiniButton(id='del/' + str(i),
+                            UI.WarningMiniButton(id='del_task/' + str(i),
                                 text='Delete')
                         ),
                         hidden=True)
@@ -82,21 +102,44 @@ class CronPlugin(CategoryPlugin):
             er = UI.ErrorBox(title='Error', text=self._error)
         else:
             er = UI.Spacer()
-        vbox = UI.VContainer(er,
-                            table,
-                            UI.Button(text='Add task', id='add'),
-                            )
-        if self._editing != -1:
+        vbox_task = UI.VContainer(
+                        table_task,
+                        UI.Button(text='Add task', id='add_task'))
+        vbox_oth = UI.VContainer(
+                        table_other,
+                        UI.Button(text='Add non-task string', id='add_oth'))
+        tabbar.add("Tasks", vbox_task)
+        tabbar.add("Non-task strings", vbox_oth)
+        vbox = UI.VContainer(er, tabbar)
+        if self._editing_task != -1:
             try:
-                task = self._tasks[self._editing]
+                task = self._tasks[self._editing_task]
             except IndexError:
                 task = backend.Task()
             if self._show_dialog:
                 vbox.vnode(self.get_ui_edit(task))
+        if self._editing_other != -1:
+            try:
+                other = self._others[self._editing_other]
+            except IndexError:
+                other = ''
+            if self._show_dialog:
+                vbox.vnode(self.get_ui_edit_other(other))
         return vbox
 
+    def get_ui_edit_other(self, other):
+        other_value = self._others[self._editing_other]\
+            if self._editing_other < len(self._others) else ''
+        vbox = UI.VContainer(UI.Label(text="Edit string", size=2),
+                            UI.TextInput(value=other_value, name='other_str'))
+        dlg = UI.DialogBox(
+                vbox,
+                title='Edit non-task string',
+                id='dlgEditOther')
+        return dlg
+
     def get_ui_edit(self, t):
-        tabbar = UI.TabControl(active=self._tab)
+        tabbar = UI.TabControl()
         if self._newtask:
             tabbar.add('Regular', self.get_ui_template())
         if self._newtask or not t.special:
@@ -177,7 +220,7 @@ class CronPlugin(CategoryPlugin):
         return UI.FormBox(spc_table, id='frmSpecial')
 
     def get_ui_template(self):
-        tabbar = UI.TabControl(active=self._tab)
+        tabbar = UI.TabControl()
         tabbar.add('Minutely', self.get_ui_temp_minutely())
         tabbar.add('Hourly', self.get_ui_temp_hourly())
         tabbar.add('Daily', self.get_ui_temp_daily())
@@ -294,20 +337,30 @@ class CronPlugin(CategoryPlugin):
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
-        if params[0] == 'add':
-            self._editing = len(self._tasks)
+        if params[0] == 'add_task':
+            self._editing_task = len(self._tasks)
             self._show_dialog = 1
             self._newtask = True
-        if params[0] == 'edit':
-            self._editing = int(params[1])
+        if params[0] == 'edit_task':
+            self._editing_task = int(params[1])
             self._show_dialog = 1
-        if params[0] == 'del':
+        if params[0] == 'del_task':
             self._tasks.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
-
+        if params[0] == 'add_oth':
+            self._editing_other = len(self._others)
+            self._show_dialog = 1
+        if params[0] == 'edit_oth':
+            self._editing_other = int(params[1])
+            self._show_dialog = 1
+        if params[0] == 'del_oth':
+            self._others.pop(int(params[1]))
+            self._error = backend.write_crontab(self._others +\
+                                                self._tasks)
+        
     @event('form/submit')
-    def on_submit(self, event, params, vars=None):
+    def on_submit_form(self, event, params, vars=None):
         if params[0] == 'frmAdvanced' and\
                 vars.getvalue('action') == 'OK':
             task_str = ' '.join((
@@ -370,7 +423,7 @@ class CronPlugin(CategoryPlugin):
             if self.set_task(task_str):
                 return 1
         self._show_dialog = 0
-        self._editing = -1
+        self._editing_task = -1
         self._newtask = False
 
     def set_task(self, task_str):
@@ -378,10 +431,10 @@ class CronPlugin(CategoryPlugin):
             new_task = backend.Task(task_str)
         except:
             self._error = 'Error: Wrong options.'
-            self._editing = -1
+            self._editing_task = -1
             return 1
-        if self._editing < len(self._tasks):
-            self._tasks[self._editing] = new_task
+        if self._editing_task < len(self._tasks):
+            self._tasks[self._editing_task] = new_task
         else:
             self._tasks.append(new_task)
         self._error = backend.write_crontab(self._others +\
@@ -390,7 +443,21 @@ class CronPlugin(CategoryPlugin):
             self._tasks, self._others = backend.read_crontab()
         return 0
 
-
+    @event('dialog/submit')
+    def on_submit_dlg(self, event, params, vars=None):
+        if params[0] == 'dlgEditOther' and\
+                vars.getvalue('action') == 'OK':
+            if self._editing_other < len(self._others):
+                self._others[self._editing_other] = vars.getvalue('other_str')
+            else:
+                self._others.append(vars.getvalue('other_str'))
+            self._error = backend.write_crontab(self._others +\
+                                        self._tasks)
+            if self._error:
+                self._tasks, self._others = backend.read_crontab()
+            self._show_dialog = 0
+            self._editing_other = -1
+                
 class CronContent(ModuleContent):
     module = 'cron'
     path = __file__

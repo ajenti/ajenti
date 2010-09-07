@@ -4,7 +4,6 @@ It's using shell command 'crontab' and donn't change file manualy
 """
 from ajenti.utils import shell, shell_stdin
 
-
 class Task():
     """Class to represent the task in crontab"""
     def __init__(self, line=''):
@@ -61,8 +60,22 @@ def read_crontab(user='root'):
 def write_crontab(tasks, user='root'):
     """
     Write tasks to crontab file with shell command and stdin.
-    tasks - list of instance Task class.
+    tasks - list of instance Task class or string.
     """
     lines = '\n'.join([str(task) for task in tasks])
     lines += '\n'
     return shell_stdin('crontab -', lines)[1]
+
+def fix_crontab():
+    """
+    Read and comment wrong for crontab string.
+    """
+    cron_lines = shell('crontab -l').split('\n')
+    fixed_lines = []
+    for line in cron_lines:
+        if shell_stdin('crontab -', line + '\n')[1]:
+            fixed_lines.append('#' + line)
+        else:
+            fixed_lines.append(line)
+    write_crontab(fixed_lines)
+    return 0
