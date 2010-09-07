@@ -17,6 +17,7 @@
             </table>
         </div>
 		<div class="ui-el-mainwindow-left">
+		    <div class="ui-el-mainwindow-left-border"/>
             <leftplaceholder py:strip="" />
         </div>
 		<div class="ui-el-mainwindow-right">
@@ -25,14 +26,12 @@
         <div class="ui-el-mainwindow-bottom">
             <table class="ui-el-bottombar" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td class="ui-el-bottombar-l" />
                     <td class="ui-el-bottombar-c"> 
                         <version py:strip="" />
                     </td>
                     <td class="ui-el-bottombar-c-2"> 
                         <links py:strip="" />
                     </td>
-                    <td class="ui-el-bottombar-r" />
                 </tr>
             </table>
         </div>

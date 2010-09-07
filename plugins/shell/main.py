@@ -3,6 +3,7 @@ from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti.utils import shell, enquote
+from ajenti.misc import BackgroundProcess
 
 
 class ShellPlugin(CategoryPlugin):
@@ -11,8 +12,8 @@ class ShellPlugin(CategoryPlugin):
     folder = 'tools'
 
     def on_session_start(self):
-        self._log = ''
         self._recent = []
+        self._process = BackgroundProcess('')
 
     def get_status(self):
         return shell('echo `logname`@`hostname`')
@@ -28,14 +29,14 @@ class ShellPlugin(CategoryPlugin):
 
     def get_default_ui(self):
         recent = [UI.SelectOption(text=x, value=x) for x in self._recent]
-        log = UI.CustomHTML(enquote(self._log))
+        log = UI.CustomHTML(enquote(self._process.output + self._process.errors))
 
         frm = UI.FormBox(
-                UI.TextInput(name='cmd', size=30),
+                UI.TextInput(name='cmd', size=30, id='shell-command'),
                 id='frmRun', hideok=True, hidecancel=True
               )
         frmr = UI.FormBox(
-                UI.Select(*recent, name='cmd'),
+                UI.Select(*recent, name='cmd', id='shell-recent', onclick='shellRecentClick()'),
                 id='frmRecent', hideok=True, hidecancel=True
               )
 
@@ -48,23 +49,37 @@ class ShellPlugin(CategoryPlugin):
                     UI.Button(text='Repeat', form='frmRecent', onclick='form')
                 )
              )
-        t = UI.VContainer(lt, logc)
+             
+        rp = None
+        if self._process.is_running():
+            rp = UI.VContainer( 
+                     UI.HContainer(
+                         UI.Image(file='/dl/core/ui/ajax.gif'),
+                         UI.Label(text='Running: ' + self._process.cmdline, size=2),
+                         UI.Refresh(time=3000)
+                     ),
+                     UI.Button(text='Abort command', id='abort')
+                 )
+             
+        t = UI.VContainer(lt, rp, logc, spacing=10)
         return t
 
     def go(self, cmd):
-        self._log = shell(cmd)
-        rcnt = [cmd]
-        if len(self._recent) > 0:
-            for x in self._recent:
-                rcnt.append(x)
-        if len(rcnt) > 5:
-            rcnt = rcnt[:5]
-        self._recent = rcnt
+        if not self._process.is_running():
+            self._process = BackgroundProcess(cmd)
+            self._process.start()
+            rcnt = [cmd]
+            if len(self._recent) > 0:
+                for x in self._recent:
+                    rcnt.append(x)
+            if len(rcnt) > 5:
+                rcnt = rcnt[:5]
+            self._recent = rcnt
 
     @event('button/click')
     def on_click(self, event, params, vars=None):
-        if params[0] == 'btnClear':
-            self._log = ''
+        if params[0] == 'abort':
+            self._process.kill()
 
     @event('form/submit')
     def on_submit(self, event, params, vars=None):
@@ -74,3 +89,5 @@ class ShellPlugin(CategoryPlugin):
 class ShellContent(ModuleContent):
     module = 'shell'
     path = __file__
+    js_files = ['recent.js']
+    

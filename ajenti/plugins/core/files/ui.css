@@ -23,8 +23,6 @@ body {
     width: auto;
     min-width: 940px;
     min-height: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
     background: #f8f8f8;
 }
 
@@ -185,10 +183,16 @@ a {
 
 .ui-el-mainwindow-left {
     width: 180px;
-    background: url('/dl/core/ui/categorylist-bg.png') no-repeat;
     padding-top: 1px;
     float: left;
     margin-top: 20px;
+    margin-left: 30px;
+}
+
+.ui-el-mainwindow-left-border {
+    background: #d4d4d4;
+    width: 154px;
+    height: 1px;
 }
 
 .ui-el-mainwindow-right {
@@ -197,19 +201,25 @@ a {
     background: #f5f5f5;
     float: left;
     margin-top: 20px;
+    padding-right: 30px;
 }
 
 .ui-el-mainwindow-top {
-    width: 100%;
     height: 37px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .ui-el-mainwindow-bottom {
-    width: 90%;
+    width: 100%;
     height: 30px;
     float: left;
-    position: absolute;
-    bottom: 0;
+    margin-top: 30px;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ddd,  #ccc);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
 }
 
 /* PluginPanel */
@@ -240,82 +250,79 @@ a {
 /* Top bar */
 .ui-el-topbar {
     width: 100%;
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    border-bottom: 1px solid #ddd;
 }
 
 .ui-el-topbar-l {
     width: 6px;
     height: 37px;
-    background: url('/dl/core/ui/topbar-l.png');
 }
 
 .ui-el-topbar-c {
-    background: url('/dl/core/ui/topbar.png') repeat-x;
     width: auto;
     height: 37px;
 }
 
 .ui-el-topbar-ldr {
     width: 20px;
-    background: url('/dl/core/ui/topbar.png');
     height: 37px;
     vertical-align: middle;
     text-align: center;
 }
 
 .ui-el-topbar-r {
-    background: url('/dl/core/ui/topbar-r.png');
     height: 37px;
     width: 6px;
 }
 
 /* Bottom bar */
 .ui-el-bottombar {
-    width: 70%;
+    width: 90%;
     margin: auto;
     height: 30px;
 }
 
-.ui-el-bottombar-l {
-    width: 6px;
-    height: 20px;
-    background: url('/dl/core/ui/bottombar-l.png');
-}
 
 .ui-el-bottombar-c {
-    background: url('/dl/core/ui/bottombar.png') repeat-x;
     width: auto;
     height: 30px;
     line-height: 28px;
-    padding-left: 8    px;
+    padding-left: 8 px;
 }
 
 .ui-el-bottombar-c-2 {
-    background: url('/dl/core/ui/bottombar.png') repeat-x;
     width: 100px;
     height: 30px;
     text-align: right;
     line-height: 28px;
 }
 
-.ui-el-bottombar-r {
-    background: url('/dl/core/ui/bottombar-r.png');
-    height: 30px;
-    width: 6px;
-}
-
 
 /* Category */
 .ui-el-category {
-    width: 154px;
-    height: 29px;
-    background: url('/dl/core/ui/category.png') no-repeat;
+    width: 152px;
+    height: 28px;
     line-height: 26px;
     vertical-align: middle;
     color: #555555;
+
+    background: #f3f3f3;
+    border: 1px solid #d4d4d4;
+    border-top: none;
 }
 
 .ui-el-category:hover {
-    background: url('/dl/core/ui/category-hover.png') no-repeat;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-top: none;
 }
 
 .ui-el-category-selected {
@@ -346,28 +353,39 @@ a {
 
 /* CategoryFolder */
 .ui-el-categoryfolder {
-    width: 154px;
-    height: 29px;
-    background: url('/dl/core/ui/category.png') no-repeat;
+    width: 152px;
+    height: 28px;
+    background: #f3f3f3;
+    border: 1px solid #d4d4d4;
+    border-top: none;
     line-height: 26px;
     vertical-align: middle;
     color: #555555;
 }
 
 .ui-el-categoryfolder:hover {
-    background: url('/dl/core/ui/category-hover.png') no-repeat;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-top: none;
 }
 
 .ui-el-categoryfolder-selected {
-    width: 170px;
-    height: 29px;
+    width: 155px;
+    height: 28px;
     line-height: 26px;
     vertical-align: middle;
-    background: url('/dl/core/ui/categoryfolder-sel.png') no-repeat;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ddd,  #bbb);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb));
+    border: 1px solid #bbb;
+    border-top: 1px solid #ddd;
+    border-radius: 0px 4px 0px 0px;
+    -moz-border-radius: 0px 4px 0px 0px;
+    -webkit-border-radius: 0px 4px 0px 0px;
 }
 
 .ui-el-categoryfolder-children {
-    border-left: 3px solid #b4b4b4;
+    border-left: 3px solid #bbb;
 }
 
 
@@ -565,7 +583,9 @@ a {
     color: #eee;
     text-shadow: -1px -1px 0px #555;
     font-weight: bold;
-    background: url('/dl/core/ui/dialog-title.png');;
+    background: #666;
+    background: -moz-linear-gradient(top,  #666,  #555);
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
     padding: 3px 0px 3px 40px;
     border-radius: 2px 2px 0px 0px;
     -moz-border-radius: 2px 2px 0px 0px;
@@ -581,14 +601,19 @@ a {
 
 /* ProgressBar */
 .ui-el-progressbar {
-    height: 13px;
-    background: url('/dl/core/ui/progressbar.png') right;
+    height: 14px;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ddd,  #eee);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));
+    border: 1px solid #ccc;
 }
 
 .ui-el-progressbar-active {
-    height: 13px;
-    background: url('/dl/core/ui/progressbar-active.png') left;
-    min-width: 1px;
+    height: 14px;
+    background: #ddb275;
+    background: -moz-linear-gradient(top,  #efcb9b,  #ddb275);
+    background: -webkit-gradient(linear, left top, left bottom, from(#efcb9b), to(#ddb275));
+    border: 1px solid #cda265;
 }
 
 

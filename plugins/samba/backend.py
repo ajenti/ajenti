@@ -78,8 +78,8 @@ class SambaConfig:
                 self.fields = []
                 for l in x:
                     try:
-                        self.fields.append(l.split(':')[0])
                         self.users[s][l.split(':')[0]] = l.split(':')[1].strip()
+                        self.fields.append(l.split(':')[0])
                     except:
                         pass
 

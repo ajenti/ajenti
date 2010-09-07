@@ -11,7 +11,7 @@ class ServicesPlugin(CategoryPlugin):
     folder = 'system'
 
     def on_init(self):
-        self.svc_mgr = self.app.grab_plugins(apis.services.IServiceManager)[0]
+        self.svc_mgr = self.app.get_backend(apis.services.IServiceManager)
 
     def on_session_start(self):
         self._labeltext = ''

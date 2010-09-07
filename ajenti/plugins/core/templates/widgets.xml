@@ -15,6 +15,12 @@
 </py:match>
 
 
+<!--! Refresher -->
+<py:match path="refresh">
+    <script>scheduleRefresh(${str(select('@time'))})</script>
+</py:match>
+
+
 <!--! ErrorBox widget -->
 <py:match path="errorbox">
     <div class="ui-el-error" width="${select('@width')}" height="${select('@height')}">
@@ -38,13 +44,13 @@
                 <hnode>
                     <vcontainer>
                         <vnode spacing="0"><label text="${select('@title')}" size="5" /></vnode>
-                        <vnode spacing="0"><div style="padding-left: 3px;">${select('node()[1]')}</div></vnode>
+                        <vnode spacing="0"><div style="padding-left: 3px;">${select('*[1]')}</div></vnode>
                     </vcontainer>
                 </hnode>
             </hcontainer>
         </div>
         <div class="ui-el-pluginpanel-content">
-           ${select('node()[2]')}
+           ${select('*[2]')}
         </div>
     </div>
 </py:match>
@@ -188,12 +194,12 @@
 <py:match path="inputbox">
     <div class="ui-el-modal-blackout" />
     <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
-        <form action="/handle/dialog/submit/${select('@id')}" name="${select('@id')}" id="${select('@id')}">
+        <div name="${select('@id')}" id="${select('@id')}">
             <div class="ui-el-dialog" width="${select('@width')}" height="${select('@height')}">
+                <input id="${select('@id')}-url" type="hidden" name="url" value="/handle/dialog/submit/${select('@id')}"/>
                 <div class="ui-el-dialog-title"><label text="${select('@title')}" size="2" /></div>
                 <div class="ui-el-dialog-content">
                     <vcontainer>
-                        <vnode><spacer height="10" /></vnode>
                         <vnode><label text="${select('@text')}"/></vnode>
                         <vnode><textinput name="value" value="${select('@value')}"/></vnode>
                     </vcontainer>
@@ -205,7 +211,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <script>
         ui_center('${select('@id')}-wr');
@@ -341,7 +347,7 @@
 
 <!--! Radio widget -->
 <py:match path="radio">
-    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${str(select('@checked')) or None}" onkeypress="return noenter()"/>
+    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" onkeypress="return noenter()"/>
     <span class="ui-el-label-1">
             ${select('@text')}
     </span>

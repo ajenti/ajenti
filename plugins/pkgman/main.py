@@ -10,7 +10,7 @@ class PackageManagerPlugin(CategoryPlugin):
     folder = 'system'
 
     def on_init(self):
-        self.mgr = self.app.grab_plugins(apis.pkgman.IPackageManager)[0]
+        self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
 
     def on_session_start(self):
         self._labeltext = ''
@@ -124,13 +124,14 @@ class PackageManagerPlugin(CategoryPlugin):
 
         cs = UI.VContainer(
                 UI.HContainer(
-                    UI.Form(
+                    UI.FormBox(
                         UI.HContainer(
                             UI.TextInput(name='query'),
                             UI.Button(text='Search', onclick='form', form='frmSearch')
                         ),
                         id='frmSearch',
-                        action='/handle/dialog/submit/frmSearch'
+                        hideok=True,
+                        hidecancel=True
                     )
                 ),
                 UI.Spacer(height=20),
@@ -211,6 +212,7 @@ class PackageManagerPlugin(CategoryPlugin):
             self.mgr.mark_cancel(self._status, params[1])
 
     @event('dialog/submit')
+    @event('form/submit')
     def on_dialog(self, event, params, vars=None):
         if params[0] == 'dlgApply':
             self._confirm_apply = False

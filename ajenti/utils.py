@@ -28,7 +28,10 @@ def detect_platform():
         dist = platform.dist()[0]
 
     if dist == '':
-        dist='unknown'
+        try:
+            dist = shell('strings -4 /etc/issue').split()[0]
+        except:
+            dist = 'unknown'
 
     return dist.strip()
 

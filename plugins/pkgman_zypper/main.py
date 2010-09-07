@@ -14,8 +14,7 @@ class ZypperPackageManager(Plugin):
 
     def refresh(self, st):
         a = self._get_all()
-        st.upgradeable = self._parse_zypp_lu(shell('zypper -A list-updates').splitlines())
-
+        st.upgradeable = self._parse_zypp_lu(shell('zypper -An list-updates').splitlines())
 
         st.pending = {}
         try:
@@ -78,6 +77,7 @@ class ZypperPackageManager(Plugin):
 
     def _parse_zypp(self, ss):
         r = {}
+        
         for s in ss:
             s = [x.strip() for x in s.split('|')]
             try:
@@ -98,6 +98,8 @@ class ZypperPackageManager(Plugin):
         for s in ss:
             s = [x.strip() for x in s.split('|')]
             try:
+                if s[2] == 'Name':
+                    continue
                 r[s[2]] = apis.pkgman.Package()
                 r[s[2]].name = s[2]
                 r[s[2]].version = s[3]

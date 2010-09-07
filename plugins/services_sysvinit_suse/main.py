@@ -16,7 +16,8 @@ class SuseInitServiceManager(Plugin):
             svc = apis.services.Service()
             svc.name = s
             svc.status = 'running' if 'running' in shell('/etc/init.d/%s status'%s) else 'stopped'
-            r.append(svc)
+            if s != '':
+                r.append(svc)
 
         return sorted(r, key=lambda s: s.name)
 
