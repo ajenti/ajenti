@@ -76,7 +76,7 @@ def server(log_level=logging.INFO, config_file=''):
     config.set('log_facility',log)
 
     # Load external plugins
-    plugins.loader(config.get('ajenti', 'plugins'))
+    plugins.loader(config.get('ajenti', 'plugins'), log)
 
     CustomRequestHandler.log = log
     # Start server

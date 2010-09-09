@@ -1,6 +1,7 @@
 from ajenti.com import *
 from ajenti.apis import API
 
+
 class Squid(API):
     class IPluginPart(Interface):
         weight = 0
