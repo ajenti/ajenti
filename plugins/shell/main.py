@@ -28,7 +28,8 @@ class ShellPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
-        recent = [UI.SelectOption(text=x, value=x) for x in self._recent]
+        recent = [UI.SelectOption(text=x[0:40] + '...' if len(x) > 40 else x,
+                                  value=x) for x in self._recent]
         log = UI.CustomHTML(enquote(self._process.output + self._process.errors))
 
         frm = UI.FormBox(
@@ -36,15 +37,17 @@ class ShellPlugin(CategoryPlugin):
                 id='frmRun', hideok=True, hidecancel=True
               )
         frmr = UI.FormBox(
-                UI.Select(*recent, name='cmd', id='shell-recent', onclick='shellRecentClick()'),
+                UI.Select(*recent, name='cmd', id='shell-recent',
+                          onclick='shellRecentClick()'),
                 id='frmRecent', hideok=True, hidecancel=True
               )
 
         logc = UI.ScrollContainer(log, width=500, height=300)
-        lt = UI.HContainer(
-                frm, 
-                UI.Button(text='Run', form='frmRun', onclick='form'), 
-                UI.VContainer(
+        lt = UI.VContainer(
+                UI.HContainer(
+                    frm, 
+                    UI.Button(text='Run', form='frmRun', onclick='form')), 
+                UI.HContainer(
                     UI.Label(text='Repeat:'),
                     frmr
                 )
@@ -55,7 +58,8 @@ class ShellPlugin(CategoryPlugin):
             rp = UI.VContainer( 
                      UI.HContainer(
                          UI.Image(file='/dl/core/ui/ajax.gif'),
-                         UI.Label(text='Running: ' + self._process.cmdline, size=2),
+                         UI.Label(text='Running: ' + self._process.cmdline,
+                                  size=2),
                          UI.Refresh(time=3000)
                      ),
                      UI.Button(text='Abort command', id='abort')
