@@ -41,12 +41,12 @@ class ShellPlugin(CategoryPlugin):
               )
 
         logc = UI.ScrollContainer(log, width=500, height=300)
-        lt = UI.LayoutTable(
-                UI.LayoutTableRow(frm, UI.Spacer(width=40), frmr),
-                UI.LayoutTableRow(
-                    UI.Button(text='Run', form='frmRun', onclick='form'),
-                    UI.Spacer(width=40),
-                    UI.Button(text='Repeat', form='frmRecent', onclick='form')
+        lt = UI.HContainer(
+                frm, 
+                UI.Button(text='Run', form='frmRun', onclick='form'), 
+                UI.VContainer(
+                    UI.Label(text='Repeat:'),
+                    frmr
                 )
              )
              
