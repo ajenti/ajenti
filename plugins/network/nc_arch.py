@@ -46,8 +46,8 @@ class ArchNetworkConfig(Plugin):
                     e.clsname = self.detect_iface_class_name(e.name)
                     e.up = (shell_status('ifconfig ' + e.name + '|grep UP') == 0)
                     if e.up:
-                        e.addr = shell('ifconfig ' + e.name + ' | grep \'inet addr\' | awk \'{print $2}\' | tail -c+6')
-                        
+                        e.addr = shell('ifconfig ' +  e.name + ' | grep \'inet addr\' | awk \'{print $2}\' | tail -c+6')
+
                     if params[0] != 'dhcp':
                         e.params['address'] = params[1]
                         i = 2
@@ -79,7 +79,7 @@ class ArchNetworkConfig(Plugin):
 
     def get_iface(self, name, cls):
         if not self.interfaces.has_key(name):
-            self.interfaces[name] = SuseNetworkInterface()
+            self.interfaces[name] = ArchNetworkInterface()
         for x in cls:
             try:
                 b = self.app.grab_plugins(INetworkConfigBit,
@@ -122,16 +122,22 @@ class ArchNetworkConfig(Plugin):
                 idx += 1
                 
         f = open('/etc/rc.conf', 'w')
-        f.write('\n'.join(rcconf[0:insidx]) + '\n')
-        ifcline = 'INTERFACES=('
-        autos = []
-        for i in self.interfaces:
-            self.interfaces[i].save(f)
-            if self.interfaces[i].auto:
-                autos.append(i)
-        ifcline += ','.join(autos) + ')\n'
-        f.write(ifcline)
-        f.write('\n'.join(rcconf[insidx:]))
+        try:
+            f.write('\n'.join(rcconf[0:insidx]) + '\n')
+            autos = []
+            for i in self.interfaces:
+                self.interfaces[i].save(f)
+                if self.interfaces[i].auto:
+                    autos.append(i)
+            ifcline = 'INTERFACES=('
+            for i in self.interfaces:
+                ifcline += self.interfaces[i].name
+            ifcline += ','.join(autos) + ')\n'
+            f.write(ifcline)
+            f.write('\n'.join(rcconf[insidx:]))
+        except Exception, error:
+            print error
+            f.write('\n'.join(rcconf))
         f.close()
         
         f = open('/etc/resolv.conf', 'w')
@@ -145,11 +151,16 @@ class ArchNetworkConfig(Plugin):
                 UI.LayoutTableRow(
                     UI.Label(text='Type:'),
                     UI.Select(
-                        UI.SelectOption(text='Nameserver', value='nameserver', selected=(ns.cls=='nameserver')),
-                        UI.SelectOption(text='Local domain', value='domain', selected=(ns.cls=='domain')),
-                        UI.SelectOption(text='Search list', value='search', selected=(ns.cls=='search')),
-                        UI.SelectOption(text='Sort list', value='sortlist', selected=(ns.cls=='sortlist')),
-                        UI.SelectOption(text='Options', value='options', selected=(ns.cls=='options')),
+                        UI.SelectOption(text='Nameserver', value='nameserver',
+                                        selected=(ns.cls=='nameserver')),
+                        UI.SelectOption(text='Local domain', value='domain',
+                                        selected=(ns.cls=='domain')),
+                        UI.SelectOption(text='Search list', value='search',
+                                        selected=(ns.cls=='search')),
+                        UI.SelectOption(text='Sort list', value='sortlist',
+                                        selected=(ns.cls=='sortlist')),
+                        UI.SelectOption(text='Options', value='options',
+                                        selected=(ns.cls=='options')),
                         name='cls'
                     ),
                 UI.LayoutTableRow(
@@ -177,7 +188,7 @@ class ArchNetworkConfig(Plugin):
         self.rescan()
 
 
-class SuseNetworkInterface(NetworkInterfaceBase):
+class ArchNetworkInterface(NetworkInterfaceBase):
     cls = 'unknown'
     mode = 'static'
     params = None
