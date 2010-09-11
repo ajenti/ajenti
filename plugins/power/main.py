@@ -36,7 +36,7 @@ class PowerPlugin(CategoryPlugin):
             if bat.present:
                 img = str(int((bat.charge+19)/20)*20)
             else:
-                img = 'none'
+                img = '0'
             st = 'Active' if bat.present else 'Offline'
             if bat.present:
                 st += ' - %i%%' % bat.charge
