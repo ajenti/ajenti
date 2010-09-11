@@ -30,6 +30,7 @@ Options:
 if __name__ == '__main__':
     reload(sys)
     sys.setdefaultencoding('utf-8')
+    sys.dont_write_bytecode = True
 
     log_level = logging.INFO
     config_file = ''
