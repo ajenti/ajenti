@@ -6,7 +6,7 @@ def run(c):
     return commands.getstatusoutput(c)[0]
 
 def clean():
-    run('rm -r tmp/*')
+    run('rm -r tmp')
     run('mkdir tmp')
 
 def ann_build(s):
