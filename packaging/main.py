@@ -57,13 +57,15 @@ for p in os.listdir('../plugins'):
         deps = []
         provs = []
         desc = ''
-        
+        only = sys.argv[1]
+         
         for s in ss:
             try:
                 k = s.split(' ')[0]
                 v = ' '.join(s.split(' ')[1:])
                 if k == 'name': name = v
                 if k == 'pkg': pkgname = v
+                if k == 'only': only = v
                 if k == 'desc': desc = v
                 if k == 'ver': ver = v
                 if k == 'dep': deps.append(v)
@@ -72,6 +74,9 @@ for p in os.listdir('../plugins'):
                 pass
        
         clean()
+        if only != sys.argv[1]:
+            raise Exception()
+            
         deps.append('ajenti')
         ann_build('ajenti-plugin-' + pkgname + '-'+ version)
         run('mkdir tmp/usr/lib/ajenti/plugins/' + p + ' -p')
@@ -79,7 +84,7 @@ for p in os.listdir('../plugins'):
         run('rm tmp/usr/lib/ajenti/plugins/' + p + '/info')
         pkg.build('tmp/', 'ajenti-plugin-' + pkgname, version, base_desc + desc, deps, provs)
     except:
-        print 'Skipping plugin ' + p + ': no info file'
+        print '  Skipping plugin ' + p
 
 print 'Complete'
 clean()

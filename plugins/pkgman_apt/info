@@ -3,4 +3,4 @@ desc APT backend for package management plugin
 dep apt
 dep dpkg
 prov ajenti-plugin-packages-backend
-
+only deb
