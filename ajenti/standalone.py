@@ -14,6 +14,8 @@ import ajenti.app.plugins as plugins
 
 class CustomRequestHandler(WSGIRequestHandler):
     log = None
+    multithread = True
+
     def setup(self):
         if self.server.cert_file:
             self.connection = self.request
