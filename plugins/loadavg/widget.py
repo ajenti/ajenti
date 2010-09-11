@@ -54,7 +54,7 @@ class SwapWidget(Plugin):
                 UI.HContainer(
                     UI.Image(file='/dl/loadavg/widget_swap.png'),
                     UI.Label(text='Swap:', bold=True),
-                    UI.ProgressBar(value=ru, max=rt, width="100"),
+                    UI.ProgressBar(value=ru, max=rt, width="100") if rt != '0' else None,
                     UI.Label(text="%sM / %sM"%(ru,rt))
                 )
             )
