@@ -1,9 +1,8 @@
 import random
 import base64
-import xml.dom.minidom as dom
+from lxml import etree 
 
-
-class Element(dom.Element):
+class Element(etree.ElementBase):
     """ Generate XML element
 
     @tag - element name
@@ -11,8 +10,10 @@ class Element(dom.Element):
     **kwargs - any number of keyword arguments attribute="value"
     """
     def __init__(self, tag, *args, **kwargs):
-        dom.Element.__init__(self, tag)
-        self.setAttribute('id', str(random.randint(1,9000*9000)))
+        etree._Element.__init__(self)
+        self.set('id', str(random.randint(1,9000*9000)))
+
+        """
         self._init(*args, **kwargs)
 
     def _init(self, *args, **kwargs):
@@ -26,7 +27,8 @@ class Element(dom.Element):
             elif isinstance(attrs, dom.Element):
                 # Append childs
                 self.appendChild(attrs)
-
+"""
+    
     def __getitem__(self, key):
         return self.getAttribute(key)
 

@@ -87,7 +87,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
     @url('^/$')
     def process(self, req, start_response):
         templ = self.app.get_template('index.xml')
-
+        
         self.do_init()
         main = self.main_ui()
 
