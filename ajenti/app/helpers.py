@@ -171,12 +171,6 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     icon = '/dl/core/ui/catfolders/other.png'
     folder = 'other'
 
-    @property
-    def category(self):
-        return { 'text': self.text,
-                  'icon': self.icon }
-
-
     def on_init(self):
         pass
 

@@ -1,3 +1,25 @@
+<xsl:template match="hcontainer">
+     <table cellspacing="@spacing" cellpadding="0" style="width: @width; height: @height;">
+         <tr>
+             <xsl:for-each select="*">
+                <td style="padding-bottom: @spacing">
+                    <xsl:apply-templates select="." />
+                </td>
+             </xsl:for-each>    
+         </tr>
+    </table>
+</xsl:template>
+
+<xsl:template match="vcontainer">
+     <table cellspacing="@spacing" cellpadding="0" style="width: @width; height: @height;">
+         <xsl:for-each select="*">
+             <tr><td style="padding-bottom: @spacing">  
+                 <xsl:apply-templates select="."/>
+             </td></tr>
+         </xsl:for-each>    
+    </table>
+</xsl:template>
+
 <widgets xmlns="http://www.w3.org/1999/xhtml"
          xmlns:xi="http://www.w3.org/2001/XInclude"
          xmlns:py="http://genshi.edgewall.org/"
@@ -224,14 +246,7 @@
 </py:match>
 
 <!--! VContainer widget -->
-<py:match path="vcontainer">
-    <table cellspacing="${str(select('@spacing')) or '0'}" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        ${select('node()')}
-    </table>
-</py:match>
-<py:match path="vnode">
-    <tr><td style="padding-bottom: ${str(select('@spacing')) or '4'}px">${select('node()')}</td></tr>
-</py:match>
+
 
 
 <!--! HContainer widget -->

@@ -10,33 +10,23 @@ class Element(etree.ElementBase):
     **kwargs - any number of keyword arguments attribute="value"
     """
     def __init__(self, tag, *args, **kwargs):
-        etree._Element.__init__(self)
+        etree.ElementBase.__init__(self)
+        self.tag = tag
         self.set('id', str(random.randint(1,9000*9000)))
-
-        """
-        self._init(*args, **kwargs)
-
-    def _init(self, *args, **kwargs):
-        for attr in kwargs:
-            self.setAttribute(attr, str(kwargs[attr]))
-        for attrs in args:
-            if isinstance(attrs, dict):
-                # Append attributes in dicts
-                for attr in attrs:
-                    self.setAttribute(attr, str(attrs[attr]))
-            elif isinstance(attrs, dom.Element):
-                # Append childs
-                self.appendChild(attrs)
-"""
+        for k in args:
+            self.append(k)
+        for k in kwargs:
+            self[k] = kwargs[k]
     
-    def __getitem__(self, key):
-        return self.getAttribute(key)
-
-    def __setitem__(self, key, value):
-        self.setAttribute(key, str(value))
-
-
+    def __setitem__(self, idx, val):
+        self.set(idx, str(val))
+        
+    def __getitem__(self, idx):
+        return self.get(idx)
+    
+        
 class UI(object):
+
     """ Automatically generate XML tags by calling name
 
     >>> m = UI.Meta(encoding="ru")
@@ -70,46 +60,35 @@ class UI(object):
 
         return CustomHTML(*args, **kwargs)
 
-    @staticmethod
+    """    @staticmethod
     def VContainer(*args, **kwargs):
         class VContainer(Element):
-            """ Container class
-            To maintain same syntax with XML Templates - we should use vnode()
-            """
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'vcontainer', [], **kwargs)
-                self.elements = []
+                Element.__init__(self, 'vcontainer', **kwargs)
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        self.vnode(e)
+                    self.vnode(e)
 
             def vnode(self, e):
                 vn = UI.vnode(e)
                 vn['spacing'] = self['spacing']
-                self.appendChild(vn)
+                self.append(vn)
 
         return VContainer(*args, **kwargs)
-
     @staticmethod
     def HContainer(*args, **kwargs):
         class HContainer(Element):
-            """ Container class
-            To maintain same syntax with XML Templates - we should use hnode()
-            """
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'hcontainer', [], **kwargs)
-                self.elements = []
+                Element.__init__(self, 'hcontainer', **kwargs)
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        self.hnode(e)
+                    self.hnode(e)
 
             def hnode(self, e):
                 hn = UI.hnode(e)
                 hn['spacing'] = self['spacing']
-                self.appendChild(hn)
+                self.append(hn)
 
         return HContainer(*args, **kwargs)
-
+"""
     @staticmethod
     def Text(text):
         return Element('span', {'py:content':"'%s'"%text, 'py:strip':""})
@@ -118,11 +97,9 @@ class UI(object):
     def LayoutTable(*args, **kwargs):
         class LayoutTable(Element):
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'layouttable', [], **kwargs)
-                self.elements = []
+                Element.__init__(self, 'layouttable', **kwargs)
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        self.appendChild(e)
+                    self.append(e)
 
         return LayoutTable(*args, **kwargs)
 
@@ -130,16 +107,14 @@ class UI(object):
     def LayoutTableRow(*args, **kwargs):
         class LayoutTableRow(Element):
             def __init__(self, *args):
-                Element.__init__(self, 'layouttablerow', [], **kwargs)
-                self.elements = []
+                Element.__init__(self, 'layouttablerow', **kwargs)
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        if e.tagName == 'layouttablecell':
-                            self.appendChild(e)
-                        else:
-                            c = UI.LayoutTableCell(e)
-                            c['spacing'] = self['spacing']
-                            self.appendChild(c)
+                    if e.tag == 'layouttablecell':
+                        self.append(e)
+                    else:
+                        c = UI.LayoutTableCell(e)
+                        c['spacing'] = self['spacing']
+                        self.append(c)
 
         return LayoutTableRow(*args, **kwargs)
 
@@ -147,11 +122,9 @@ class UI(object):
     def DataTable(*args, **kwargs):
         class DataTable(Element):
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'datatable', [], **kwargs)
-                self.elements = []
+                Element.__init__(self, 'datatable', **kwargs)
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        self.appendChild(e)
+                    self.append(e)
 
         return DataTable(*args, **kwargs)
 
@@ -159,7 +132,7 @@ class UI(object):
     def DataTableRow(*args, **kwargs):
         class DataTableRow(Element):
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'datatablerow', [], **kwargs)
+                Element.__init__(self, 'datatablerow', **kwargs)
                 self.elements = []
                 for e in args:
                     if isinstance(e, dom.Element):
@@ -195,7 +168,7 @@ class UI(object):
             tc = 0
 
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'tabcontrol', [], **kwargs)
+                Element.__init__(self, 'tabcontrol', **kwargs)
                 self.elements = []
                 self.vnt = UI.TabHeaderNode(id=self['id'])
                 self.vnb = UI.VNode()

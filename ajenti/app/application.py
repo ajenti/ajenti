@@ -51,7 +51,13 @@ class Application (PluginManager, Plugin):
             self.template_include += includes
             self.template_path += [path]
 
+        if xslt.xslt is None:
+            xslt.prepare(
+                self.template_include
+            )
+            
         self.log.debug('Initialized')
+
 
     def start_response(self, status, headers=[]):
         self.status = status
@@ -121,16 +127,13 @@ class Application (PluginManager, Plugin):
         except:
             raise BackendUnavailableException(iface.__name__, self.platform) 
             
-    def get_template(self, filename=None, search_path=[], includes=[]):
-        from pprint import pprint
-        vars = {'styles': self.template_styles,
-                'scripts': self.template_scripts,
-                'dequote': dequote}
-
-        return BasicTemplate(filename=filename,
-                             search_path=search_path+self.template_path,
-                             includes=includes+self.template_include,
-                             vars=vars)
+    def get_template(self, filename=None, search_path=[]):
+        return BasicTemplate(
+                filename=filename,
+                search_path=search_path+self.template_path,
+                styles=self.template_styles,
+                scripts=self.template_scripts
+               )
 
 
 class AppDispatcher(object):

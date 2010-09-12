@@ -24,11 +24,8 @@ class IContentProvider(Interface):
 
 class ICategoryProvider(Interface):
     """ ICategoryProvider should contain:
-    'category' property
     'get_ui()' method to retrieve main panel
     """
-    category = {'text': 'Caption text',
-                'icon': '/dl/core/ui/category-icon.png'}
 
     def get_ui():
         pass
