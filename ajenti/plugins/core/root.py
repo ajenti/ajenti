@@ -57,11 +57,11 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
                 if c.folder == fld: # Put corresponding plugins in this folder
                     empty = False
                     if c.get_name() == cat_selected:
-                        cat_vc.append(UI.Category(icon=c.icon, text=c.text, id=c.get_name(), selected='true'))
+                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name(), selected='true'))
                         cat = c
                         exp = True
                     else:
-                        cat_vc.append(UI.Category(icon=c.icon, text=c.text, id=c.get_name()))
+                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name()))
 
             if not empty: v.append(cat_folder)
             cat_folder['expanded'] = exp
@@ -91,7 +91,10 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         self.do_init()
         main = self.main_ui()
 
-        templ.appendChildInto('body', main.elements())
+        templ.appendChildInto('main', main.elements())
+        #vc = UI.VContainer(UI.A(), UI.A(), UI.B(), spacing='1', width=20)
+        #vc['height'] = 30
+        #templ.appendChildInto('main', vc)
         
         return templ.render()
 

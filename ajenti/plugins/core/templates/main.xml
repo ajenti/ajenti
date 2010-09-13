@@ -13,22 +13,15 @@
                 </tr>
             </table>
         </div>
-		<div class="ui-el-mainwindow-left">
+		<div class="ui-el-mainwindow-left" id="leftplaceholder">
 		    <div class="ui-el-mainwindow-left-border"/>
-            <leftplaceholder/>
         </div>
-		<div class="ui-el-mainwindow-right">
-            <rightplaceholder/>
-        </div>
+		<div class="ui-el-mainwindow-right" id="rightplaceholder" />
         <div class="ui-el-mainwindow-bottom">
             <table class="ui-el-bottombar" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td class="ui-el-bottombar-c"> 
-                        <version/>
-                    </td>
-                    <td class="ui-el-bottombar-c-2"> 
-                        <links/>
-                    </td>
+                    <td class="ui-el-bottombar-c" id="version" /> 
+                    <td class="ui-el-bottombar-c-2" id="links" /> 
                 </tr>
             </table>
         </div>

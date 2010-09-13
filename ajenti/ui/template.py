@@ -28,11 +28,11 @@ class BasicTemplate(object):
             print e
 
     def appendChildInto(self, dest, child):
-        el = self._dom.find('.//%s'%dest)
+        el = self._dom.find('//*[@id=\'%s\']'%dest)
         if el is not None:
             el.append(child)
         else:
-            raise RuntimeError("Tag <%s> not found"%dest)
+            raise RuntimeError("Tag with id=%s not found"%dest)
 
     def elements(self):
         return self._dom.getroot()
