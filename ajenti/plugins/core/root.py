@@ -92,8 +92,10 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         main = self.main_ui()
 
         templ.appendChildInto('main', main.elements())
+        
         #vc = UI.VContainer(UI.A(), UI.A(), UI.B(), spacing='1', width=20)
         #vc['height'] = 30
+        #vc = UI.Big()
         #templ.appendChildInto('main', vc)
         
         return templ.render()

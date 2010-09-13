@@ -14,9 +14,11 @@
             </table>
         </div>
 		<div class="ui-el-mainwindow-left" id="leftplaceholder">
-		    <div class="ui-el-mainwindow-left-border"/>
+		    <div class="ui-el-mainwindow-left-border"> 
+		    </div>
         </div>
-		<div class="ui-el-mainwindow-right" id="rightplaceholder" />
+		<div class="ui-el-mainwindow-right" id="rightplaceholder"> 
+		</div>
         <div class="ui-el-mainwindow-bottom">
             <table class="ui-el-bottombar" cellspacing="0" cellpadding="0">
                 <tr>

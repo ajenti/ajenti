@@ -1,3 +1,11 @@
+<xsl:template name="small" match="small">
+    <div><xsl:value-of select="@text"/></div>
+</xsl:template>
+
+<xsl:template match="big">
+    <small text="123"/>
+</xsl:template>
+
 
 <xsl:template match="hcontainer">
     <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
@@ -65,6 +73,26 @@
     </xsl:if>
 </xsl:template>
 
+
+<xsl:template match="pluginpanel">
+    <div class="ui-el-pluginpanel">
+        <div class="ui-el-pluginpanel-head">
+            <hcontainer spacing="0">
+                <image file="{@icon}"/>
+                <vcontainer spacing="0">
+                    <label text="{@title}" size="5" />
+                    <div style="padding-left: 3px;">
+                        <x:node index="0"/>
+                    </div>
+                </vcontainer>
+            </hcontainer>
+        </div>
+        <div class="ui-el-pluginpanel-content">
+           <x:node index="1"/>
+        </div>
+    </div>
+</xsl:template>
+
 <widgets xmlns="http://www.w3.org/1999/xhtml"
          xmlns:xi="http://www.w3.org/2001/XInclude"
          xmlns:py="http://genshi.edgewall.org/"
@@ -103,24 +131,7 @@
 
 
 <!--! PluginPanel widget -->
-<py:match path="pluginpanel">
-    <div class="ui-el-pluginpanel">
-        <div class="ui-el-pluginpanel-head">
-            <hcontainer>
-                <hnode spacing="0"><image file="${select('@icon')}" /></hnode>
-                <hnode>
-                    <vcontainer>
-                        <vnode spacing="0"><label text="${select('@title')}" size="5" /></vnode>
-                        <vnode spacing="0"><div style="padding-left: 3px;">${select('*[1]')}</div></vnode>
-                    </vcontainer>
-                </hnode>
-            </hcontainer>
-        </div>
-        <div class="ui-el-pluginpanel-content">
-           ${select('*[2]')}
-        </div>
-    </div>
-</py:match>
+
 
 
 

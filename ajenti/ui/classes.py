@@ -14,10 +14,14 @@ class Element(etree.ElementBase):
         self.tag = tag
         self.set('id', str(random.randint(1,9000*9000)))
         for k in args:
-            self.append(k)
+            if k is not None:
+                self.append(k)
         for k in kwargs:
             self[k] = kwargs[k]
     
+    def appendChild(self, el):
+        self.append(el)
+        
     def __setitem__(self, idx, val):
         self.set(idx, str(val))
         
@@ -53,42 +57,12 @@ class UI(object):
     def CustomHTML(*args, **kwargs):
         class CustomHTML(Element):
             def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'customhtml', [], **kwargs)
-                self.elements = []
+                Element.__init__(self, 'customhtml', **kwargs)
                 for e in args:
                     self['html'] = base64.b64encode(str(e))
 
         return CustomHTML(*args, **kwargs)
 
-    """    @staticmethod
-    def VContainer(*args, **kwargs):
-        class VContainer(Element):
-            def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'vcontainer', **kwargs)
-                for e in args:
-                    self.vnode(e)
-
-            def vnode(self, e):
-                vn = UI.vnode(e)
-                vn['spacing'] = self['spacing']
-                self.append(vn)
-
-        return VContainer(*args, **kwargs)
-    @staticmethod
-    def HContainer(*args, **kwargs):
-        class HContainer(Element):
-            def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'hcontainer', **kwargs)
-                for e in args:
-                    self.hnode(e)
-
-            def hnode(self, e):
-                hn = UI.hnode(e)
-                hn['spacing'] = self['spacing']
-                self.append(hn)
-
-        return HContainer(*args, **kwargs)
-"""
     @staticmethod
     def Text(text):
         return Element('span', {'py:content':"'%s'"%text, 'py:strip':""})

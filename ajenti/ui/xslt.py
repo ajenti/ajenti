@@ -18,20 +18,26 @@ def css(_, v, d):
 def iif(_, q, a, b):
     return a if len(q)>0 and q[0].lower() == 'true' else b
     
-    
+
+class Selector(etree.XSLTExtension):
+    def execute(self, context, self_node, input_node, output_parent):
+        print context, self_node, input_node, output_parent
+        
+       
 def prepare(includes):
     global xslt
     xml = XSLT % ''.join([open(x).read() for x in includes])
     ex = {
         ('ext', 'attr') : attr,
         ('ext', 'iif') : iif,
+        ('ext', 'node') : Selector(),
         ('ext', 'css') : css
     }
     xslt = etree.XSLT(etree.fromstring(xml), extensions=ex)
         
 def render(templ):
     global xslt
-    return DT + etree.tostring(xslt(templ))
+    return DT + etree.tostring(xslt(xslt(templ))) #!!!
     
     
 DT = """
@@ -41,7 +47,8 @@ DT = """
 XSLT="""
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-    xmlns:x="ext">
+    xmlns:x="ext"
+    extension-element-prefixes="x">
     
   <xsl:output method="html" indent="yes" encoding="UTF-8"/>
   

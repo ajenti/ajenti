@@ -24,8 +24,8 @@ class BasicTemplate(object):
                 self._dom.find('.//headstylesheets').append(etree.Element('headstylesheet', href=x))
             for x in scripts:
                 self._dom.find('.//headscripts').append(etree.Element('headscript', href=x))
-        except Exception,e:
-            print e
+        except:
+            pass
 
     def appendChildInto(self, dest, child):
         el = self._dom.find('//*[@id=\'%s\']'%dest)
