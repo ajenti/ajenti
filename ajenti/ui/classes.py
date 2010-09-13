@@ -68,6 +68,16 @@ class UI(object):
         return Element('span', {'py:content':"'%s'"%text, 'py:strip':""})
 
     @staticmethod
+    def ProgressBar(*args, **kwargs):
+        class ProgressBar(Element):
+            def __init__(self, value=0, max=1, width=1):
+                Element.__init__(self, 'progressbar', **kwargs)
+                self['right'] = width - int(value*width/max)
+                self['left'] = int(value*width/max)
+                
+        return ProgressBar(*args, **kwargs)
+
+    @staticmethod
     def LayoutTable(*args, **kwargs):
         class LayoutTable(Element):
             def __init__(self, *args, **kwargs):

@@ -7,91 +7,11 @@
 </xsl:template>
 
 
-<xsl:template match="hcontainer">
-    <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
-         <tr>
-             <xsl:for-each select="*">
-                <td style="padding-bottom: {x:css(../@spacing, '4')}">
-                    <xsl:apply-templates select="." />
-                </td>
-             </xsl:for-each>    
-         </tr>
-    </table>
-</xsl:template>
-
-<xsl:template match="vcontainer">
-     <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
-         <xsl:for-each select="*">
-             <tr><td style="padding-bottom: {x:css(../@spacing, '4')}">  
-                 <xsl:apply-templates select="."/>
-             </td></tr>
-         </xsl:for-each>    
-    </table>
-</xsl:template>
 
 
-<xsl:template match="category">
-    <a href="#" onclick="javascript:return ajax('/handle/category/click/{@id}');">
-	    <div class="{x:iif(@selected, 'ui-el-category-selected', 'ui-el-category')}">
-		    <table>
-                <tr>
-                    <td rowspan="2" class="ui-el-category-icon">
-                        <img src="{@icon}" />
-                    </td>
-                    <td class="ui-el-category-text">
-                        <xsl:value-of select="@name"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </a>
-</xsl:template>
-
-<xsl:template match="categoryfolder">
-    <a href="#" onclick="javascript:ui_categoryfolder('{@id}');">
-	    <div class="ui-el-categoryfolder" id="{@id}">
-		    <table>
-                <tr>
-                    <td rowspan="2" class="ui-el-category-icon">
-                        <img src="{@icon}" />
-                    </td>
-                    <td class="ui-el-category-text">
-                        <xsl:value-of select="@text"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </a>
-    <div class="ui-el-categoryfolder-children" id="{@id}-children"
-        style="display:none">
-        <xsl:apply-templates />
-    </div>
-    <xsl:if test="@expanded = 'true'">
-        <script>
-            ui_categoryfolder('{@id}')
-        </script>
-    </xsl:if>
-</xsl:template>
 
 
-<xsl:template match="pluginpanel">
-    <div class="ui-el-pluginpanel">
-        <div class="ui-el-pluginpanel-head">
-            <hcontainer spacing="0">
-                <image file="{@icon}"/>
-                <vcontainer spacing="0">
-                    <label text="{@title}" size="5" />
-                    <div style="padding-left: 3px;">
-                        <x:node index="0"/>
-                    </div>
-                </vcontainer>
-            </hcontainer>
-        </div>
-        <div class="ui-el-pluginpanel-content">
-           <x:node index="1"/>
-        </div>
-    </div>
-</xsl:template>
+
 
 <widgets xmlns="http://www.w3.org/1999/xhtml"
          xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -260,60 +180,25 @@
     </script>
 </py:match>
 
-<!--! Container widget -->
-<py:match path="container">
-    ${select('node()')}
-</py:match>
-
 <!--! VContainer widget -->
 
 
 
-<!--! HContainer widget -->
-<py:match path="hcontainer">
-    <table cellspacing="0" cellpadding="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        <tr>
-            ${select('node()')}
-        </tr>
-    </table>
-</py:match>
-<py:match path="hnode">
-    <td style="padding-right: ${str(select('@spacing')) or '4'}px">${select('node()')}</td>
-</py:match>
-
 
 <!--! Spacer -->
-<py:match path="spacer">
-    <div style="width: ${str(select('@width')) or None}px; height: ${str(select('@height')) or '1'}px;" />
-</py:match>
+
 
 
 <!--! Label widget -->
-<py:match path="label">
-    <span class="ui-el-label-${str(select('@size')) or '1'}" style="${'font-weight: bold;' if str(select('@bold')) == 'True' else None}">
-        ${select('@text')}
-    </span>
-</py:match>
 
-
-<!--! Image -->
-<py:match path="image">
-    <img class="ui-el-image" src="${select('@file')}" />
-</py:match>
 
 
 <!--! Button widget -->
-<py:match path="button">
-    <py:choose test="">
         <a py:when="str(select('@onclick')) == 'form'" href="#"
                 onclick="javascript:return ajaxForm('${select('@form')}', '${select('@action')}');">
             <div class="ui-el-button"> ${select('@text')} </div>
         </a>
-        <a py:otherwise="" href="#" onclick="javascript:return ajax('/handle/button/click/${select('@id')}');">
-            <div class="ui-el-button"> ${select('@text')} </div>
-        </a>
-    </py:choose>
-</py:match>
+
 
 <!--! WarningButton widget -->
 <py:match path="warningbutton">
@@ -389,44 +274,7 @@
 </py:match>
 
 
-<!--! LayoutTable widget -->
-<py:match path="layouttable">
-    <table cellspacing="0" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        ${select('node()')}
-    </table>
-</py:match>
 
-<py:match path="layouttablerow">
-    <tr style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        ${select('node()')}
-    </tr>
-</py:match>
-
-<py:match path="layouttablecell">
-    <td class="ui-el-layouttable-cell" colspan="${str(select('@colspan'))}" rowspan="${str(select('@rowspan'))}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'}; padding-right: ${str(select('@spacing')) or '4'}px; padding-bottom: ${str(select('@spacing')) or '4'}px">
-        ${select('node()')}
-    </td>
-</py:match>
-
-
-<!--! DataTable widget -->
-<py:match path="datatable">
-    <table cellpadding="0" cellspacing="0" class="ui-el-table" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        ${select('node()')}
-    </table>
-</py:match>
-
-<py:match path="datatablerow">
-    <tr class="ui-el-table-row${'-header' if str(select('@header')) else ''}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        ${select('node()')}
-    </tr>
-</py:match>
-
-<py:match path="datatablecell">
-    <td class="ui-el-table-cell${'-hidden' if str(select('@hidden')) else ''}" colspan="${select('@colspan')}" rowspan="${select('@rowspan')}" style="width: ${str(select('@width')) or 'auto'}; height: ${str(select('@height')) or 'auto'};">
-        ${select('node()')}
-    </td>
-</py:match>
 
 
 <!--! TreeContainer widget -->
@@ -456,11 +304,7 @@
 
 
 <!--! ScrollContainer -->
-<py:match path="scrollcontainer">
-    <div class="ui-el-scrollcontainer" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">
-        ${select('node()')}
-    </div>
-</py:match>
+
 
 
 <!--! TextInputArea -->
@@ -502,19 +346,7 @@
 
 
 <!--! Progress bar -->
-<py:match path="progressbar">
-    <table cellspacing="0" cellpadding="0">
-        <tr><td style="width:${int(str(select('@width'))) * int(str(select('@value'))) / int(str(select('@max')))}px" class="ui-el-progressbar-active"/>
-        <td style="width:${int(str(select('@width'))) - int(str(select('@width'))) * int(str(select('@value'))) / int(str(select('@max')))}px" class="ui-el-progressbar"/></tr>
-    </table>
-</py:match>
 
-<!-- ElementBox -->
-<py:match path="elementbox">
-<div class="ui-el-elementbox">
-    ${select('node()')}
-</div>
-</py:match>
 
 </widgets>
 

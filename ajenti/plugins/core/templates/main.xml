@@ -1,4 +1,4 @@
-<xml>
+<div>
 	    <div class="ui-el-mainwindow-top">
             <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
                 <tr>
@@ -27,4 +27,4 @@
                 </tr>
             </table>
         </div>
-</xml>
+</div>

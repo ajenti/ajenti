@@ -43,4 +43,4 @@ class DashboardContent(ModuleContent):
     path = __file__
     module = 'dashboard'
     css_files = ['widget.css']
-    widget_files = ['widgets.xml']
+    widget_files = ['widget.xslt']

@@ -21,7 +21,10 @@ def iif(_, q, a, b):
 
 class Selector(etree.XSLTExtension):
     def execute(self, context, self_node, input_node, output_parent):
-        print context, self_node, input_node, output_parent
+        print input_node.getchildren()
+        child = input_node[int(self_node.get('index'))]
+        results = self.apply_templates(context, child)
+        output_parent.append(results[0])
         
        
 def prepare(includes):

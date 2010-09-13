@@ -10,9 +10,11 @@ class LoadWidget(Plugin):
 
     def get_ui(self):
         w = UI.Widget(
-                UI.Image(file='/dl/loadavg/widget.png'),
-                UI.Label(text='System load:', bold=True),
-                UI.Label(text=self.get_load())
+                UI.HContainer(
+                    UI.Image(file='/dl/loadavg/widget.png'),
+                    UI.Label(text='System load:', bold=True),
+                    UI.Label(text=self.get_load())
+                )
             )
         return w
 
@@ -29,7 +31,7 @@ class MemWidget(Plugin):
                 UI.HContainer(
                     UI.Image(file='/dl/loadavg/widget_mem.png'),
                     UI.Label(text='RAM:', bold=True),
-                    UI.ProgressBar(value=ru, max=rt, width="100"),
+                    UI.ProgressBar(value=ru, max=rt, width=100),
                     UI.Label(text="%sM / %sM"%(ru,rt))
                 )
             )
@@ -42,7 +44,7 @@ class MemWidget(Plugin):
         b = int(s[4])
         c = int(s[5])
         u -= c + b;
-        return (str(u),str(t))
+        return (u, t)
 
 
 class SwapWidget(Plugin):
@@ -54,7 +56,7 @@ class SwapWidget(Plugin):
                 UI.HContainer(
                     UI.Image(file='/dl/loadavg/widget_swap.png'),
                     UI.Label(text='Swap:', bold=True),
-                    UI.ProgressBar(value=ru, max=rt, width="100") if rt != '0' else None,
+                    UI.ProgressBar(value=ru, max=rt, width=100) if rt != '0' else None,
                     UI.Label(text="%sM / %sM"%(ru,rt))
                 )
             )
@@ -62,7 +64,7 @@ class SwapWidget(Plugin):
 
     def get_swap(self):
         s = shell('free -m | grep Swap').split()[1:]
-        return (s[1], s[0])
+        return (int(s[1]), int(s[0]))
 
 
 class LoadContent(ModuleContent):
