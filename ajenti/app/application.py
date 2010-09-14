@@ -44,12 +44,12 @@ class Application (PluginManager, Plugin):
             scripts = ['/dl/'+module+'/'+s for s in c.js_files]
             self.template_scripts.extend(scripts)
 
-            path = c.template_path()
+            path = c.widget_path()
             includes = []
             for inc in c.widget_files:
                 includes.append(os.path.join(path,inc))
             self.template_include += includes
-            self.template_path += [path]
+            self.template_path += [c.template_path()]
 
         if xslt.xslt is None:
             xslt.prepare(

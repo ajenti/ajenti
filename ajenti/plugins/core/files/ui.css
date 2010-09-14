@@ -118,7 +118,6 @@ a {
     background: #ffffff;
     border: 1px solid #aaaaaa;
     height: 16px;
-    margin: 2px;
     font-size: 12px;
 }
 
@@ -126,11 +125,18 @@ a {
     border: 1px solid #e4b97a;
 }
 
+select {
+    height: 18px;
+    font-size: 12px;
+}
+
+
 /* Label */
 .ui-el-label-1 {
     display: inline;
     text-align: left;
     font-size: 12px;
+    line-height: 18px;
 }
 .ui-el-label-2 {
     font-size: 14px;
@@ -166,6 +172,7 @@ a {
 
 /* Image */
 .ui-el-image {
+    padding: 0px 3px 0px 2px;
 }
 
 .ui-el-image-small {
@@ -448,24 +455,24 @@ a {
 }
 
 .ui-el-dialog {
+    -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 5px 5px;
+    border: 3px solid transparent;
+    
     text-align: left;
     vertical-align: top;
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
-    box-shadow: 0px 0px 10px #000;
-    -moz-box-shadow: 0px 0px 10px #000;
-    -webkit-box-shadow: 0px 0px 10px #000;
 }
 
 .ui-el-dialog-content {
     background: #ececee;
     padding: 10px 10px 10px 10px;
-    border: 2px solid #555;
-    border-top: none;
-    border-radius: 0px 0px 3px 3px;
-    -moz-border-radius: 0px 0px 3px 3px;
-    -webkit-border-radius: 0px 0px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
 }
 
 .ui-el-dialog-title {
@@ -584,7 +591,7 @@ a {
 
 /* ProgressBar */
 .ui-el-progressbar {
-    height: 14px;
+    height: 12px;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #eee);
     background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));
@@ -592,13 +599,16 @@ a {
 }
 
 .ui-el-progressbar-active {
-    height: 14px;
+    height: 12px;
     background: #ddb275;
     background: -moz-linear-gradient(top,  #efcb9b,  #ddb275);
     background: -webkit-gradient(linear, left top, left bottom, from(#efcb9b), to(#ddb275));
     border: 1px solid #cda265;
 }
 
+.ui-el-progressbar-wrapper {
+    margin: 1px 0px 0px 0px;
+}
 
 .ui-el-elementbox {
     background: #efefef;

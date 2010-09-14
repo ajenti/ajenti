@@ -11,7 +11,7 @@
 </xsl:template>
 
 <xsl:template match="layouttablecell">
-    <td class="ui-el-layouttable-cell" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; padding-right: {x:css(@spacing, '4')}; padding-bottom: {x:css(@spacing, '4')};">
+    <td class="ui-el-layouttable-cell" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; padding-right: {x:css(@spacing, '7')}; padding-bottom: {x:css(@spacing, '7')};">
         <xsl:apply-templates />
     </td>
 </xsl:template>

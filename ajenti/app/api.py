@@ -18,6 +18,9 @@ class IContentProvider(Interface):
     def content_path(self):
         pass
 
+    def widget_path(self):
+        pass
+
     def template_path(self):
         pass
 

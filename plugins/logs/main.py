@@ -69,7 +69,7 @@ class LogsPlugin(CategoryPlugin):
         d = '<span style="font-family: monospace">'
         d += enquote(data)
         d += '</span>'
-        r.appendChild(UI.CustomHTML(html=d))
+        r.appendChild(UI.CustomHTML(d))
         return r
 
     @event('minibutton/click')
@@ -88,5 +88,5 @@ class LogsPlugin(CategoryPlugin):
 class LogsContent(ModuleContent):
     module = 'logs'
     path = __file__
-    widget_files = ['logviewer.xml']
+    widget_files = ['logviewer.xslt']
     css_files = ['logviewer.css']

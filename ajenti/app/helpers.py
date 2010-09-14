@@ -52,6 +52,7 @@ class ModuleContent(Plugin):
     widget_files = []
 
     files_location = 'files'
+    widgets_location = 'widgets'
     templates_location = 'templates'
 
     def content_path(self):
@@ -59,6 +60,12 @@ class ModuleContent(Plugin):
             raise AttributeError('You should provide path/module information')
         norm_path = os.path.join(os.path.dirname(self.path),self.files_location)
         return (self.module, norm_path)
+
+    def widget_path(self):
+        if self.path == '':
+            raise AttributeError('You should provide path/module information')
+        norm_path = os.path.abspath(os.path.join(os.path.dirname(self.path),self.widgets_location))
+        return norm_path
 
     def template_path(self):
         if self.path == '':

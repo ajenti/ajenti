@@ -7,11 +7,9 @@
 </xsl:template>
 
 <xsl:template match="tabheadernode">
-    <tr>
-        <td id="{@id}" class="ui-el-tab-header-box">
+        <div id="{@id}" class="ui-el-tab-header-box">
             <xsl:apply-templates />
-        </td>
-    </tr>
+        </div>
 </xsl:template>
 
 <xsl:template match="tabbody">
@@ -21,12 +19,12 @@
 </xsl:template>
 
 <xsl:template match="tabcontrol">
-    <table>
+    <div>
         <xsl:apply-templates />
         <script>
             ui_tabswitch('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:attr(@active, '0')"/>');
         </script>
-    </table>
+    </div>
 </xsl:template>
 
 

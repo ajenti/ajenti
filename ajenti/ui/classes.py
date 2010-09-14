@@ -58,7 +58,7 @@ class UI(object):
         return Element(name.lower(), *args, **kwargs)
 
     @staticmethod
-    def CustomHTMLj(*args, **kwargs):
+    def CustomHTML(*args, **kwargs):
         class CustomHTML(Element):
             def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'customhtml', **kwargs)
@@ -117,7 +117,7 @@ class UI(object):
                 Element.__init__(self, 'datatable', **kwargs)
                 for e in args:
                     if isinstance(e, Element):
-                        if e.tag == 'datatablecell':
+                        if e.tag == 'datatablerow':
                             self.append(e)
                         else:
                             self.append(UI.DataTableCell(e))
@@ -160,24 +160,21 @@ class UI(object):
     @staticmethod
     def TabControl(*args, **kwargs):
         class TabControl(Element):
-            vnt = None
-            vnb = None
-            tc = 0
-
             def __init__(self, *args, **kwargs):
-                print self
                 Element.__init__(self, 'tabcontrol', **kwargs)
                 self.vnt = UI.TabHeaderNode(id=self['id'])
-                self.vnb = UI.VContainer()
-                self.append(self.vnt)
-                self.append(self.vnb)
+                self.vnc = UI.Container()
+                self.append(UI.VContainer(self.vnt, spacing=10))
+                self.append(self.vnc)
+                self.tc = 0
 
             def add(self, name, content):
                 self.vnt.append(UI.TabHeader(text=name, pid=self['id'], id=str(self.tc)))
-                self.vnb.append(UI.TabBody(content, pid=self['id'], id=str(self.tc)))
+                self.vnc.append(UI.TabBody(content, pid=self['id'], id=str(self.tc)))
                 self.tc += 1
 
-        return TabControl(*args, **kwargs)
+        tc = TabControl(*args, **kwargs)
+        return tc
 
 
 class TreeManager(object):

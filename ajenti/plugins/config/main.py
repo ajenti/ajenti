@@ -99,7 +99,7 @@ class ConfigPlugin(CategoryPlugin):
                       ),
                       title='New user', id='dlgAddUser'
                   )
-            p.vnode(dlg)
+            p.append(dlg)
 
         return p
 

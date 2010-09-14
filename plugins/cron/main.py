@@ -117,14 +117,14 @@ class CronPlugin(CategoryPlugin):
             except IndexError:
                 task = backend.Task()
             if self._show_dialog:
-                vbox.vnode(self.get_ui_edit(task))
+                vbox.append(self.get_ui_edit(task))
         if self._editing_other != -1:
             try:
                 other = self._others[self._editing_other]
             except IndexError:
                 other = ''
             if self._show_dialog:
-                vbox.vnode(self.get_ui_edit_other(other))
+                vbox.append(self.get_ui_edit_other(other))
         return vbox
 
     def get_ui_edit_other(self, other):

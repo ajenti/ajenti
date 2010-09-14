@@ -11,11 +11,22 @@
 
 
 <xsl:template match="button">
-    <a href="#" onclick="javascript:return ajax('/handle/button/click/{@id}');">
-        <div class="ui-el-button">
-            <xsl:value-of select="@text" />
-        </div>
-    </a>
+    <xsl:choose>
+        <xsl:when test="@onclick = 'form'">
+            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');">
+                <div class="ui-el-button">
+                    <xsl:value-of select="@text" />
+                </div>
+            </a>
+        </xsl:when>
+        <xsl:otherwise>
+            <a href="#" onclick="javascript:return ajax('/handle/button/click/{@id}');">
+                <div class="ui-el-button">
+                    <xsl:value-of select="@text" />
+                </div>
+            </a>
+        </xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template match="warningbutton">
@@ -59,10 +70,11 @@
 </xsl:template>
 
 <xsl:template match="progressbar">
-    <table cellspacing="0" cellpadding="0">
+    <table cellspacing="0" cellpadding="0" class="ui-el-progressbar-wrapper">
         <tr>
             <td style="width:{@left}px" class="ui-el-progressbar-active"/>
-            <td style="width:{@right}px" class="ui-el-progressbar"/></tr>
+            <td style="width:{@right}px" class="ui-el-progressbar"/>
+        </tr>
     </table>
 </xsl:template>
 

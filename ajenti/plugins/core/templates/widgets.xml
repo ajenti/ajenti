@@ -14,20 +14,6 @@
 </py:match>
 
 
-<!--! ErrorBox widget -->
-<py:match path="errorbox">
-    <div class="ui-el-error" width="${select('@width')}" height="${select('@height')}">
-        <div class="ui-el-error-title">
-            <label text="${select('@title')}" size="2" />
-        </div>
-        <div class="ui-el-error-content">
-           <img src="/dl/core/ui/warning.png" class="ui-el-error-icon" />
-           <label text="${select('@text')}" />
-        </div>
-    </div>
-</py:match>
-
-
 <!--! PluginPanel widget -->
 
 
@@ -45,39 +31,7 @@
 @width
 @height
 -->
-<py:match path="dialogbox">
-    <div class="ui-el-modal-blackout" />
-    <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
-        <div id="${select('@id')}">
-            <input id="${select('@id')}-url" type="hidden" name="url" value="/handle/dialog/submit/${select('@id')}"/>
-            <div class="ui-el-dialog" width="${select('@width')}" height="${select('@height')}">
-                <div class="ui-el-dialog-title"><label text="${select('@title')}" size="2" /></div>
-                <div class="ui-el-dialog-content">
-                    ${select('node()')}
-                    <div class="ui-el-modal-buttons">
-                        <table cellspacing="0" cellpadding="0">
-                            <tr>
-                            <py:choose test="">
-                                <td py:when="str(select('@hideok'))" />
-                                <td py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></td>
-                            </py:choose>
-                            <py:choose test="">
-                                <td py:when="str(select('@hidecancel'))" />
-                                <td py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></td>
-                            </py:choose>
-                            <py:choose test="">
-                                <td py:when="str(select('@miscbtn'))"><button id="${select('@miscbtnid')}" text="${select('@miscbtn')}" /></td>
-                                <td py:otherwise=""/>
-                            </py:choose>
-                        </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script> ui_center('${select('@id')}-wr'); </script>
-</py:match>
+
 
 
 <!--! FormBox widget -->
@@ -148,10 +102,7 @@
 
 
 <!--! Button widget -->
-        <a py:when="str(select('@onclick')) == 'form'" href="#"
-                onclick="javascript:return ajaxForm('${select('@form')}', '${select('@action')}');">
-            <div class="ui-el-button"> ${select('@text')} </div>
-        </a>
+       
 
 
 <!--! WarningButton widget -->
@@ -185,30 +136,6 @@
 
 
 
-<!--! TreeContainer widget -->
-<py:match path="treecontainer">
-    <div class="ui-el-treecontainernode">
-        <a href="#">
-            <div class="ui-el-treecontainernode-title" onclick="javascript:ui_showhide('${select('@id')}');ajaxNoUpdate('/handle/treecontainer/click/${select('@id')}');ui_treeicon('${select('@id')}-btn');return false">
-                <div class="ui-el-treecontainernode-button">
-                    <img id="${select('@id')}-btn" src="/dl/core/ui/tree-${'minus' if str(select('@expanded'))=='True' else 'plus'}.png" />
-                </div>
-                ${select('@text')}
-            </div>
-        </a>
-        <div class="ui-el-treecontainernode-inner" id="${select('@id')}" style="${'display:none;' if str(select('@expanded'))!='True' else None}">
-            ${select('node()')}
-        </div>
-    </div>
-</py:match>
-
-<py:match path="treecontainernode">
-    <div class="ui-el-treecontainernode-title">
-        <div class="ui-el-treecontainernode-inner">
-            ${select('node()')}
-        </div>
-    </div>
-</py:match>
 
 
 <!--! ScrollContainer -->

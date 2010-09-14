@@ -73,7 +73,7 @@ class NetworkPlugin(CategoryPlugin):
                         title="Interface '" + self._editing_iface + "' properties",
                         id="dlgEditIface"
                     )
-            c.vnode(dlg)
+            c.append(dlg)
 
         return c
 
@@ -114,7 +114,7 @@ class NetworkPlugin(CategoryPlugin):
                         self.net_config.ns_edit_dialog(self.net_config.nameservers[self._editing_ns]),
                         title="Nameserver entry options", id="dlgEditNS"
                     )
-            c.vnode(dlg)
+            c.append(dlg)
 
         return c
 
