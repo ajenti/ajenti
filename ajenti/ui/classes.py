@@ -14,13 +14,17 @@ class Element(etree.ElementBase):
         self.tag = tag
         self.set('id', str(random.randint(1,9000*9000)))
         for k in args:
-            if k is not None:
-                self.append(k)
+            self.append(k)
         for k in kwargs:
             self[k] = kwargs[k]
     
     def appendChild(self, el):
+        print 'Remove that f#cking appendChild()!'
         self.append(el)
+        
+    def append(self, el):
+        if el is not None:
+            etree.ElementBase.append(self, el)
         
     def __setitem__(self, idx, val):
         self.set(idx, str(val))
@@ -83,7 +87,11 @@ class UI(object):
             def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'layouttable', **kwargs)
                 for e in args:
-                    self.append(e)
+                    if isinstance(e, Element):
+                        if e.tag == 'layouttablerow':
+                            self.append(e)
+                        else:
+                            self.append(UI.LayoutTableRow(e))
 
         return LayoutTable(*args, **kwargs)
 
@@ -108,6 +116,12 @@ class UI(object):
             def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'datatable', **kwargs)
                 for e in args:
+                    if isinstance(e, Element):
+                        if e.tag == 'datatablecell':
+                            self.append(e)
+                        else:
+                            self.append(UI.DataTableCell(e))
+                for e in args:
                     self.append(e)
 
         return DataTable(*args, **kwargs)
@@ -117,13 +131,12 @@ class UI(object):
         class DataTableRow(Element):
             def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'datatablerow', **kwargs)
-                self.elements = []
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        if e.tagName == 'datatablecell':
-                            self.appendChild(e)
+                    if isinstance(e, Element):
+                        if e.tag == 'datatablecell':
+                            self.append(e)
                         else:
-                            self.appendChild(UI.DataTableCell(e))
+                            self.append(UI.DataTableCell(e))
 
         return DataTableRow(*args, **kwargs)
 
@@ -132,15 +145,14 @@ class UI(object):
         class TreeContainer(Element):
             def __init__(self, *args):
                 Element.__init__(self, 'treecontainer', **kwargs)
-                self.elements = []
                 for e in args:
-                    if isinstance(e, dom.Element):
-                        if e.tagName == 'treecontainer':
-                            self.appendChild(e)
-                        elif e.tagName == 'treecontainernode':
-                            self.appendChild(e)
+                    if isinstance(e, Element):
+                        if e.tag == 'treecontainer':
+                            self.append(e)
+                        elif e.tag == 'treecontainernode':
+                            self.append(e)
                         else:
-                            self.appendChild(UI.TreeContainerNode(e))
+                            self.append(UI.TreeContainerNode(e))
 
         return TreeContainer(*args)
 
@@ -153,15 +165,14 @@ class UI(object):
 
             def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'tabcontrol', **kwargs)
-                self.elements = []
                 self.vnt = UI.TabHeaderNode(id=self['id'])
-                self.vnb = UI.VNode()
-                self.appendChild(self.vnt)
-                self.appendChild(self.vnb)
+                self.vnb = UI.VContainer()
+                self.append(self.vnt)
+                self.append(self.vnb)
 
             def add(self, name, content):
-                self.vnt.appendChild(UI.TabHeader(text=name, pid=self['id'], id=str(self.tc)))
-                self.vnb.appendChild(UI.TabBody(content, pid=self['id'], id=str(self.tc)))
+                self.vnt.append(UI.TabHeader(text=name, pid=self['id'], id=str(self.tc)))
+                self.vnb.append(UI.TabBody(content, pid=self['id'], id=str(self.tc)))
                 self.tc += 1
 
         return TabControl(*args, **kwargs)

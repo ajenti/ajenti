@@ -30,7 +30,7 @@
 </xsl:template>
 
 <xsl:template match="datatablecell">
-    <td class="ui-el-table-cell{x:iff(@hidden, '-hidden', '')}" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; padding-right: {x:css(@spacing, '4')}; padding-bottom: {x:css(@spacing, '4')};">
+    <td class="ui-el-table-cell{x:iif(@hidden, '-hidden', '')}" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; padding-right: {x:css(@spacing, '4')}; padding-bottom: {x:css(@spacing, '4')};">
         <xsl:apply-templates />
     </td>
 </xsl:template>

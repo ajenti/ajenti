@@ -24,7 +24,7 @@ class PowerPlugin(CategoryPlugin):
         for ac in get_ac_adapters():
             img = 'present' if ac.present else 'none'
             st = 'Active' if ac.present else 'Offline'
-            els.vnode(UI.ElementBox(UI.HContainer(
+            els.append(UI.ElementBox(UI.HContainer(
                           UI.Image(file='/dl/power/ac-%s.png'%img),
                           UI.VContainer(
                               UI.Label(text='AC Adapter %s' % ac.name, size=2),
@@ -41,7 +41,7 @@ class PowerPlugin(CategoryPlugin):
             if bat.present:
                 st += ' - %i%%' % bat.charge
 
-            els.vnode(UI.ElementBox(UI.HContainer(
+            els.append(UI.ElementBox(UI.HContainer(
                           UI.Image(file='/dl/power/battery-%s.png'%img),
                           UI.VContainer(
                               UI.Label(text='Battery %s' % bat.name, size=2),

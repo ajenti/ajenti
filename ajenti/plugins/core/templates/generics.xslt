@@ -31,7 +31,7 @@
 
 
 <xsl:template match="scrollcontainer">
-    <div class="ui-el-scrollcontainer" style="width: {x:css(@width, '200')}; height: {css(@height, '200')};">
+    <div class="ui-el-scrollcontainer" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};">
         <xsl:apply-templates />
     </div>
 </xsl:template>

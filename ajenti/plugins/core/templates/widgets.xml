@@ -1,22 +1,3 @@
-<xsl:template name="small" match="small">
-    <div><xsl:value-of select="@text"/></div>
-</xsl:template>
-
-<xsl:template match="big">
-    <small text="123"/>
-</xsl:template>
-
-
-
-
-
-
-
-
-<widgets xmlns="http://www.w3.org/1999/xhtml"
-         xmlns:xi="http://www.w3.org/2001/XInclude"
-         xmlns:py="http://genshi.edgewall.org/"
-         py:strip="" >
 
 
 
@@ -104,30 +85,6 @@
 
 <!--! FormBox widget -->
 
-<py:match path="formbox">
-        <div id="${select('@id')}">
-                <input id="${select('@id')}-url" type="hidden" name="url" value="/handle/form/submit/${select('@id')}"/>
-                ${select('node()')}
-                <div class="ui-el-modal-buttons">
-                <table cellspacing="0" cellpadding="0">
-                    <tr>
-                    <py:choose test="">
-                         <td py:when="str(select('@hideok'))" />
-                         <td py:otherwise=""><button text="OK" onclick="form" action="OK" form="${select('@id')}"/></td>
-                    </py:choose>
-                    <py:choose test="">
-                         <td py:when="str(select('@hidecancel'))" />
-                         <td py:otherwise=""><button text="Cancel" onclick="form" action="Cancel" form="${select('@id')}"/></td>
-                    </py:choose>
-                    <py:choose test="">
-                        <td py:when="str(select('@miscbtn'))"><button id="${select('@miscbtnid')}" text="${select('@miscbtn')}" /></td>
-                        <td py:otherwise=""/>
-                    </py:choose>
-                   </tr>
-                </table>
-            </div>
-        </div>
-</py:match>
 
 <!--! ProgressBox widget -->
 
@@ -201,77 +158,31 @@
 
 
 <!--! WarningButton widget -->
-<py:match path="warningbutton">
-    <py:choose test="">
-        <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/${select('@id')}');">
-            <div class="ui-el-button"> ${select('@text')} </div>
-        </a>
-    </py:choose>
-</py:match>
+
 
 <!--! MiniButton widget -->
-<py:match path="minibutton">
-    <a href="#" onclick="javascript:return ajax('/handle/minibutton/click/${select('@id')}');">
-        <div class="ui-el-minibutton"> ${select('@text')} </div>
-    </a>
-</py:match>
-
-<!--! WarningMiniButton widget -->
-<py:match path="warningminibutton">
-    <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/minibutton/click/${select('@id')}');">
-        <div class="ui-el-minibutton"> ${select('@text')} </div>
-    </a>
-</py:match>
 
 
 <!--! LinkLabel widget -->
-<py:match path="linklabel">
-    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/${select('@id')}');">
-        <span class="ui-el-link">
-            ${select('@text')}
-        </span>
-    </a>
-</py:match>
+
 
 
 <!--! OutLinkLabel widget -->
-<py:match path="outlinklabel">
-    <a href="${select('@url')}" target="blank">
-        <span class="ui-el-link">
-            ${select('@text')}
-        </span>
-    </a>
-</py:match>
+
 
 
 <!--! TextInput widget -->
-<py:match path="textinput">
-    <input class="ui-el-input" name="${select('@name')}" value="${dequote(str(select('@value'))) or ''}" id="${select('@id')}" size="${str(select('@size')) or ''}" onkeypress="return noenter()"/>
-</py:match>
+
 
 
 <!--! CheckBox widget -->
-<py:match path="checkbox">
-    <input class="ui-el-checkbox" type="checkbox" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" onkeypress="return noenter()"/>
-    <span class="ui-el-label-1">
-            ${select('@text')}
-    </span>
-</py:match>
+
 
 <!--! SelectOption widget -->
-<py:match path="selectoption">
-    <option value="${select('@value')}" selected="${'selected' if str(select('@selected'))=='True' else None}" onkeypress="return noenter()">
-        ${select('@text')}
-    </option>
-</py:match>
+
 
 <!--! Radio widget -->
-<py:match path="radio">
-    <input class="ui-el-radio" type="radio" value="${select('@value')}" name="${select('@name')}" id="${select('@id')}" checked="${'checked' if str(select('@checked'))=='True' else None}" onkeypress="return noenter()"/>
-    <span class="ui-el-label-1">
-            ${select('@text')}
-    </span>
-</py:match>
+
 
 
 
@@ -308,43 +219,9 @@
 
 
 <!--! TextInputArea -->
-<py:match path="textinputarea">
-    <textarea class="ui-el-textarea" name="${select('@name')}" disabled="${str(select('@disabled')) or None}" style="width: ${str(select('@width')) or '200'}px; height: ${str(select('@height')) or '200'}px;">${dequote(select('@text'))}</textarea>
-</py:match>
+
 
 <!--! Tabs -->
-<py:match path="tabheader">
-    <a href="#">
-        <div class="ui-el-tab-header" id="tabheader-${select('@pid')}-${select('@id')}" onclick="javascript:ui_tabswitch('${select('@pid')}','${select('@id')}')">
-            ${select('@text')}
-        </div>
-    </a>
-</py:match>
-
-<py:match path="tabheadernode">
-    <tr>
-        <td id="${select('@id')}" class="ui-el-tab-header-box">
-            ${select('node()')}
-        </td>
-    </tr>
-</py:match>
-
-<py:match path="tabbody">
-    <span class="ui-el-tab-body" id="tabbody-${select('@pid')}-${select('@id')}">
-        ${select('node()')}
-    </span>
-</py:match>
-
-<py:match path="tabcontrol">
-    <table>
-        ${select('node()')}
-    </table>
-    <script>
-        ui_tabswitch('${select('@id')}', '${str(select('@active')) or '0'}');
-    </script>
-</py:match>
-
-
 <!--! Progress bar -->
 
 

@@ -24,7 +24,7 @@ class NetworkPlugin(CategoryPlugin):
                 UI.Spacer(height=20),
                 self.get_ui_dns()
              )
-        panel.appendChild(ui)
+        panel.append(ui)
         return panel
 
     def get_ui_ifaces(self):
@@ -37,11 +37,11 @@ class NetworkPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        ti.appendChild(hr)
+        ti.append(hr)
 
         for x in self.net_config.interfaces:
             i = self.net_config.interfaces[x]
-            ti.appendChild(UI.DataTableRow(
+            ti.append(UI.DataTableRow(
                             UI.Label(text=i.name),
                             UI.Label(text=i.clsname),
                             UI.Label(text=i.addr),
@@ -85,11 +85,11 @@ class NetworkPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        td.appendChild(hr)
+        td.append(hr)
 
         for x in range(0, len(self.net_config.nameservers)):
             i = self.net_config.nameservers[x]
-            td.appendChild(UI.DataTableRow(
+            td.append(UI.DataTableRow(
                             UI.Label(text=i.cls),
                             UI.Label(text=i.address),
                             UI.DataTableCell(

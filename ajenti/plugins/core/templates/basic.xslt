@@ -18,6 +18,46 @@
     </a>
 </xsl:template>
 
+<xsl:template match="warningbutton">
+    <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/{@id}');">
+        <div class="ui-el-button">
+            <xsl:value-of select="@text" />
+        </div>
+    </a>
+</xsl:template>
+
+<xsl:template match="minibutton">
+    <a href="#" onclick="javascript:return ajax('/handle/button/click/{@id}');">
+        <div class="ui-el-minibutton">
+            <xsl:value-of select="@text" />
+        </div>
+    </a>
+</xsl:template>
+
+<xsl:template match="warningminibutton">
+    <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/{@id}');">
+        <div class="ui-el-minibutton">
+            <xsl:value-of select="@text" />
+        </div>
+    </a>
+</xsl:template>
+
+<xsl:template match="linklabel">
+    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');">
+        <span class="ui-el-link">
+            <xsl:value-of select="@text" />
+        </span>
+    </a>
+</xsl:template>
+
+<xsl:template match="outlinklabel">
+    <a href="{@url}" target="blank">
+        <span class="ui-el-link">
+            <xsl:value-of select="@text" />
+        </span>
+    </a>
+</xsl:template>
+
 <xsl:template match="progressbar">
     <table cellspacing="0" cellpadding="0">
         <tr>
