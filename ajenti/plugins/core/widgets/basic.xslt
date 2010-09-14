@@ -20,7 +20,7 @@
             </a>
         </xsl:when>
         <xsl:otherwise>
-            <a href="#" onclick="javascript:return ajax('/handle/button/click/{@id}');">
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/button/click/{@id}');">
                 <div class="ui-el-button">
                     <xsl:value-of select="@text" />
                 </div>
@@ -30,7 +30,7 @@
 </xsl:template>
 
 <xsl:template match="warningbutton">
-    <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/{@id}');">
+    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');">
         <div class="ui-el-button">
             <xsl:value-of select="@text" />
         </div>
@@ -46,7 +46,7 @@
 </xsl:template>
 
 <xsl:template match="warningminibutton">
-    <a href="#" onclick="javascript:if (confirm('Are you sure?')) return ajax('/handle/button/click/{@id}');">
+    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');">
         <div class="ui-el-minibutton">
             <xsl:value-of select="@text" />
         </div>

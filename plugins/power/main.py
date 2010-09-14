@@ -50,11 +50,9 @@ class PowerPlugin(CategoryPlugin):
                       )))
 
         c = UI.VContainer(
-                UI.ErrorBox(title='Dangerous area', text='These actions cannot be cancelled. Be careful when using them remotely.'),
-                UI.Spacer(height=20),
                 UI.HContainer(
-                    UI.WarningButton(text='Shutdown', id='shutdown'),
-                    UI.WarningButton(text='Reboot', id='reboot')
+                    UI.WarningButton(text='Shutdown', id='shutdown', msg='Shutdown machine'),
+                    UI.WarningButton(text='Reboot', id='reboot', msg='Reboot machine')
                 ),
                 UI.Spacer(height=20),
                 els

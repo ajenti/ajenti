@@ -80,3 +80,22 @@ function noenter()
 function ui_fill_custom_html(id, html) {
     document.getElementById(id).innerHTML = Base64.decode(html);
 }
+
+function ui_hidewarning() {
+    ui_hide('warningbox-all');
+}
+
+var warning_button_id
+
+function accept_warning() {
+    ui_hidewarning();
+    ajax('/handle/button/click/' + warning_button_id);
+}
+
+function ui_showwarning(text, btnid) {
+    ui_show('warningbox-all');
+    ui_center('warningbox-wr');
+    document.getElementById('warning-text').innerHTML = text;    
+    warning_button_id = btnid;
+    document.getElementById('warning-button').onclick = accept_warning;
+}

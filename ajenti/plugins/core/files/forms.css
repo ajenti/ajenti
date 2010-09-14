@@ -1,0 +1,78 @@
+.ui-el-modal-blackout {
+    background: url('/dl/core/ui/blackout.png');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.ui-el-dialog {
+    -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+    border-radius: 5px 5px 5px 5px;
+    border: 3px solid transparent;
+    
+    text-align: left;
+    vertical-align: top;
+}
+
+.ui-el-dialog-content {
+    background: #ececee;
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+}
+
+.ui-el-dialog-title {
+    color: #eee;
+    text-shadow: -1px -1px 0px #555;
+    font-weight: bold;
+
+    background: #666;
+    background: -moz-linear-gradient(top,  #666,  #555);
+    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
+
+    padding: 3px 10px 1px 10px;
+
+    border: 1px solid #555;
+    border-radius: 3px 3px 0px 0px;
+    -moz-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+}
+
+.ui-el-modal-wrapper {
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+.ui-el-modal-buttons {
+    padding: 5px 10px 0px 10px;
+}
+
+
+
+.ui-el-error {
+    background: #efefef;
+    text-align: left;
+    vertical-align: top;
+
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.ui-el-error-content {
+    padding: 5px 10px 0px 5px;
+    min-height: 20px;
+    min-width: 400px;
+    max-width: 700px;
+}

@@ -5,6 +5,10 @@
     </script> 
 </xsl:template>
 
+<xsl:template match="refresh">
+    <script>scheduleRefresh(<xsl:value-of select="@time"/>)</script>
+</xsl:template>
+
 <xsl:template match="container">
     <xsl:apply-templates />
 </xsl:template>

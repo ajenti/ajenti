@@ -2,14 +2,12 @@
 	    <div class="ui-el-mainwindow-top">
             <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td class="ui-el-topbar-l" />
                     <td class="ui-el-topbar-c"> 
                         <img src="/dl/core/ui/logo.png" />
                     </td>
                     <td class="ui-el-topbar-ldr">
                         <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
                     </td>
-                    <td class="ui-el-topbar-r" />
                 </tr>
             </table>
         </div>
@@ -27,4 +25,50 @@
                 </tr>
             </table>
         </div>
+        
+        
+        
+        
+        
+        
+        
+        
+<div id="warningbox-all" style="display:none">
+    <div class="ui-el-modal-blackout" />
+    <div class="ui-el-modal-wrapper" id="warningbox-wr">
+        <div class="ui-el-dialog">
+            <div class="ui-el-dialog-content">
+                <table>
+                    <tr>
+                        <td width="40">
+                            <img src="/dl/core/ui/stock/warning.png" />
+                        </td>
+                        <td>
+                            <div class="ui-el-error-title">
+                                <span class="ui-el-label-3">You are about to:</span>
+                            </div>
+                            <div class="ui-el-error-content" style="min-width:0px">
+                                <span id="warning-text" />
+                            </div>
+                            <div class="ui-el-modal-buttons">
+                                <table cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td><button text="OK" id="warning-button"/></td>
+                                        <td>
+                                            <a href="#" id="{@id}" onclick="ui_hidewarning()">
+                                                <div class="ui-el-button">Cancel</div>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </div>

@@ -1,0 +1,46 @@
+.ui-el-table {
+    background: #ffffff;
+    border: 1px solid #bbb;
+    margin-bottom: 3px;
+}
+
+.ui-el-table-row .ui-el-table-cell {
+}
+
+.ui-el-table-row-header {
+    background: #eeeeee;
+}
+
+.ui-el-table-row-header td {
+    border-bottom: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+
+.ui-el-table-row:hover {
+    background: #eabf81;
+    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffdfa1), to(#facf91));
+}
+
+.ui-el-table-row:hover .ui-el-table-cell{
+}
+
+.ui-el-table-cell, .ui-el-table-cell-hidden {
+    padding: 2px;
+    padding-left: 4px;
+    vertical-align: middle;
+}
+
+.ui-el-table-cell-hidden {
+    visibility: visible;
+    opacity: 0.2;
+}
+
+.ui-el-table-row:hover .ui-el-table-cell-hidden {
+    visibility: visible;
+    opacity: 1.0;
+}
+
+.ui-el-layouttable-cell {
+    vertical-align: middle;
+}

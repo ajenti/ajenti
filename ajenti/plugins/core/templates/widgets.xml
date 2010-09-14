@@ -1,44 +1,4 @@
 
-
-
-
-<!--! Custom HTML widget -->
-<py:match path="customhtml">
-
-</py:match>
-
-
-<!--! Refresher -->
-<py:match path="refresh">
-    <script>scheduleRefresh(${str(select('@time'))})</script>
-</py:match>
-
-
-<!--! PluginPanel widget -->
-
-
-
-
-
-
-<!--! Widget for CategoryFolder -->
-
-
-<!--! DialogBox widget -->
-<!--! Attributes
-@id
-@title
-@width
-@height
--->
-
-
-
-<!--! FormBox widget -->
-
-
-<!--! ProgressBox widget -->
-
 <py:match path="progressbox">
     <div class="ui-el-modal-blackout" />
     <div class="ui-el-modal-wrapper" id="${select('@id')}-wr">
@@ -105,49 +65,4 @@
        
 
 
-<!--! WarningButton widget -->
-
-
-<!--! MiniButton widget -->
-
-
-<!--! LinkLabel widget -->
-
-
-
-<!--! OutLinkLabel widget -->
-
-
-
-<!--! TextInput widget -->
-
-
-
-<!--! CheckBox widget -->
-
-
-<!--! SelectOption widget -->
-
-
-<!--! Radio widget -->
-
-
-
-
-
-
-
-
-<!--! ScrollContainer -->
-
-
-
-<!--! TextInputArea -->
-
-
-<!--! Tabs -->
-<!--! Progress bar -->
-
-
-</widgets>
 

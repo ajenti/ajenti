@@ -1,0 +1,44 @@
+.ui-el-treecontainernode {
+}
+
+.ui-el-treecontainernode-button {
+    display: inline;
+    width: 12px;
+}
+
+.ui-el-treecontainernode-inner {
+    padding-left: 16px;
+}
+
+.ui-el-treecontainernode-title {
+    border: 1px solid transparent;
+}
+
+.ui-el-treecontainernode-title:hover {
+    background: #eabf81;
+    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
+    border: 1px solid #eabf81;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+
+
+.ui-el-tab-header {
+    margin: 5px;
+    float: left;
+}
+
+.ui-el-tab-header-active {
+    padding: 5px;
+    background: #cccccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    float: left;
+}
+
+.ui-el-tab-header-box {
+    padding-bottom: 10px;
+}
+

@@ -8,7 +8,7 @@ def attr(_, v, d):
     return d if v == [] or v == ['None'] else v[0]
 
 def css(_, v, d):
-    print 'css',v,d
+    #print 'css',v,d
     v = d if v == [] or v == ['None'] else v[0]
     if v == 'auto': 
         return v
