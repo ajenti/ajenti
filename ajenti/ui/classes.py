@@ -27,7 +27,7 @@ class Element(etree.ElementBase):
             etree.ElementBase.append(self, el)
         
     def __setitem__(self, idx, val):
-        self.set(idx, str(val))
+        self.set(idx, unicode(str(val)))
         
     def __getitem__(self, idx):
         return self.get(idx)
@@ -58,7 +58,7 @@ class UI(object):
         return Element(name.lower(), *args, **kwargs)
 
     @staticmethod
-    def CustomHTML(*args, **kwargs):
+    def CustomHTMLj(*args, **kwargs):
         class CustomHTML(Element):
             def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'customhtml', **kwargs)
@@ -144,6 +144,7 @@ class UI(object):
     def TreeContainer(*args, **kwargs):
         class TreeContainer(Element):
             def __init__(self, *args):
+                print self.__class__
                 Element.__init__(self, 'treecontainer', **kwargs)
                 for e in args:
                     if isinstance(e, Element):
@@ -164,6 +165,7 @@ class UI(object):
             tc = 0
 
             def __init__(self, *args, **kwargs):
+                print self
                 Element.__init__(self, 'tabcontrol', **kwargs)
                 self.vnt = UI.TabHeaderNode(id=self['id'])
                 self.vnb = UI.VContainer()
@@ -198,12 +200,13 @@ class TreeManager(object):
             self.states.remove(id)
         else:
             self.states.append(id)
-        pass
-
+        
     def apply(self, tree):
-        tree['expanded'] = tree['id'] in self.states;
+        try:
+            tree['expanded'] = tree['id'] in self.states
 
-        for n in tree.childNodes:
-            if n.tagName == 'treecontainer':
-                self.apply(n)
-        pass
+            for n in tree.getchildren():
+                if n.tag == 'treecontainer':
+                    self.apply(n)
+        except:
+            pass

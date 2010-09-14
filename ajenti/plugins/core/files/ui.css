@@ -561,42 +561,25 @@ a {
 /* ErrorBox */
 
 .ui-el-error {
-    background: #ececee;
+    background: #efefef;
     text-align: left;
     vertical-align: top;
 
+    padding: 5px;
     margin: 5px;
-    border: 1px solid #888;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 .ui-el-error-content {
-    padding: 5px 10px 5px 5px;
+    padding: 5px 10px 0px 5px;
     min-height: 20px;
     min-width: 400px;
     max-width: 700px;
 }
 
-.ui-el-error-title {
-    color: #eee;
-    text-shadow: -1px -1px 0px #555;
-    font-weight: bold;
-    background: #666;
-    background: -moz-linear-gradient(top,  #666,  #555);
-    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
-    padding: 3px 0px 3px 40px;
-    border-radius: 2px 2px 0px 0px;
-    -moz-border-radius: 2px 2px 0px 0px;
-    -webkit-border-radius: 2px 2px 0px 0px;
-}
-
-.ui-el-error-icon {
-    position: relative;
-    left: 0px;
-    top: -25px;
-}
 
 
 /* ProgressBar */
@@ -618,15 +601,18 @@ a {
 
 
 .ui-el-elementbox {
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border: 1px solid #999;
-    padding: 4px;
-    margin: 2px;
-    background: #ddd;
-    background: -moz-linear-gradient(top,  #ccc,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
+    background: #efefef;
+    text-align: left;
+    vertical-align: top;
+
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+
     width: 100%;
     height: 100%;
 }

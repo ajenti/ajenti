@@ -35,3 +35,24 @@
         </div>
 </xsl:template>
 
+
+<xsl:template match="errorbox">
+    <div class="ui-el-error" width="{@width}" height="{@height}">
+        <table>
+            <tr>
+                <td width="40">
+                    <img src="/dl/core/ui/stock/warning.png" />
+                </td>
+                <td>
+                    <div class="ui-el-error-title">
+                        <label text="{@title}" size="3" />
+                    </div>
+                    <div class="ui-el-error-content">
+                        <label text="{@text}" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</xsl:template>
+

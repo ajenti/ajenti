@@ -4,10 +4,7 @@
 
 <!--! Custom HTML widget -->
 <py:match path="customhtml">
-    <div id="${select('@id')}" />
-    <script>
-         ui_fill_custom_html('${select('@id')}', '${select('@html')}');
-    </script>
+
 </py:match>
 
 
