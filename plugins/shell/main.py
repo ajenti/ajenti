@@ -24,7 +24,7 @@ class ShellPlugin(CategoryPlugin):
                     title='Command shell',
                     icon='/dl/shell/icon.png'
                 )
-        panel.appendChild(self.get_default_ui())
+        panel.append(self.get_default_ui())
         return panel
 
     def get_default_ui(self):

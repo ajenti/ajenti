@@ -79,7 +79,7 @@
             <div class="ui-el-dialog" width="{@width}" height="{@height}">
                 <div class="ui-el-dialog-content">
                     <table>
-                        <tr><td><label text="{x:attr(@text, @title)}"/></td></tr>
+                        <tr><td><label text="{@text}"/></td></tr>
                         <tr><td><textinput name="value" value="{@value}"/></td></tr>
                     </table>
                     <div class="ui-el-modal-buttons">

@@ -27,8 +27,23 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
     def main_ui(self):
         templ = self.app.get_template('main.xml')
+        templ.appendChildInto('main-content', self.selected_category.get_ui())
+        return templ
 
+    def do_init(self):
         cat_selected = self.app.session.get('cat_selected', 'Dashboard')
+        cat = None
+        for c in self.categories:
+            if c.get_name() == cat_selected: # initialize current plugin
+                cat = c
+        self.selected_category = cat
+        cat.on_init()
+
+    @url('^/$')
+    def process(self, req, start_response):
+        self.do_init()
+
+        templ = self.app.get_template('index.xml')
 
         cat = None
         v = UI.VContainer(spacing=0)
@@ -56,9 +71,8 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
             for c in cats:
                 if c.folder == fld: # Put corresponding plugins in this folder
                     empty = False
-                    if c.get_name() == cat_selected:
+                    if c == self.selected_category:
                         cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name(), selected='true'))
-                        cat = c
                         exp = True
                     else:
                         cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name()))
@@ -67,37 +81,14 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
             cat_folder['expanded'] = exp
 
         templ.appendChildInto('leftplaceholder', v)
-        templ.appendChildInto('rightplaceholder', cat.get_ui())
+        templ.appendChildInto('rightplaceholder', self.main_ui().elements())
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
         templ.appendChildInto('links',
             UI.HContainer(
                 UI.OutLinkLabel(text='About', url='http://ajenti.assembla.com/wiki/show/ajenti/aLa8XiGfWr36nLeJe5cbLA'),
                 UI.OutLinkLabel(text='License', url='http://eugeny.github.com/ajenti/license/')
             ))
-        return templ
-
-    def do_init(self):
-        cat_selected = self.app.session.get('cat_selected', 'Dashboard')
-        cat = None
-        for c in self.categories:
-            if c.get_name() == cat_selected: # initialize current plugin
-                cat = c
-        cat.on_init()
-
-    @url('^/$')
-    def process(self, req, start_response):
-        templ = self.app.get_template('index.xml')
-        
-        self.do_init()
-        main = self.main_ui()
-
-        templ.appendChildInto('main', main.elements())
-        
-        #vc = UI.VContainer(UI.A(), UI.A(), UI.B(), spacing='1', width=20)
-        #vc['height'] = 30
-        #vc = UI.Big()
-        #templ.appendChildInto('main', vc)
-        
+            
         return templ.render()
 
     @url('^/session_reset$')

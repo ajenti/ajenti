@@ -26,7 +26,7 @@ class ServicesPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        ts.appendChild(hr)
+        ts.append(hr)
 
         lst = self.svc_mgr.list_all()
         for svc in lst:
@@ -45,9 +45,9 @@ class ServicesPlugin(CategoryPlugin):
                         ctl, hidden=True
                     )
                   )
-            ts.appendChild(row)
+            ts.append(row)
 
-        panel.appendChild(ts)
+        panel.append(ts)
         return panel
 
     @event('minibutton/click')

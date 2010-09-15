@@ -116,19 +116,12 @@ function ajaxForm(formId, action)
 
 function ajaxHandler(data)
 {
-	document.getElementById('main').innerHTML = data
+	document.getElementById("main-content").innerHTML = data
     var ob = document.getElementsByTagName("script");
     for(var i=0; i<ob.length-1; i++)
         try {
             if(ob[i+1].text!=null) eval(ob[i+1].text);
         } catch (err) {}
-
-
-	var re = new RegExp('update=([0-9]+)');
-	var m = re.exec(data);
-    if (m)
-        if (m[1] != 0)
-		    setTimeout("ajax(\"/handle/update//\")", m[1])
 }
 
 function ajaxNoUpdate(URL)

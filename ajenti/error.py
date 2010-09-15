@@ -15,7 +15,7 @@ def format_error(app, err):
 
 def format_backend_error(app, ex):
     templ = app.get_template('nobackend.xml')
-    text = 'Your platform: <b>%s</b><br/>Plugin interface: <b>%s</b><br/>' % (ex.platform, ex.interface)
+    text = 'You need a plugin that provides <b>%s</b> interface support for <b>%s</b> platform.<br/>' % (ex.interface, ex.platform)
     templ.appendChildInto('hint', UI.CustomHTML(text))
     return templ.render()
 

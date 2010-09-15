@@ -39,7 +39,7 @@ class SQLPlugin(CategoryPlugin):
 
 
         if self._logging_in:
-            panel.appendChild(self.get_ui_login())
+            panel.append(self.get_ui_login())
             return panel
         else:
             try:
@@ -50,10 +50,10 @@ class SQLPlugin(CategoryPlugin):
                     self.config.get('sql', 'db')
                 )
             except Exception as e:
-                panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Connection problem: ' + str(e))))
+                panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Connection problem: ' + str(e))))
                 return panel
 
-            panel.appendChild(self.get_default_ui())
+            panel.append(self.get_default_ui())
 
         self.backend.disconnect()
 
@@ -88,7 +88,7 @@ class SQLPlugin(CategoryPlugin):
                             hidden=True
                         )
                       )
-                tblTables.appendChild(row)
+                tblTables.append(row)
         return tblTables
 
     def get_ui_sql(self):
@@ -102,8 +102,8 @@ class SQLPlugin(CategoryPlugin):
                 for row in data:
                     r = UI.DataTableRow()
                     for f in row:
-                        r.appendChild(UI.DataTableCell(UI.Label(text=str(f))))
-                    cnt.appendChild(r)
+                        r.append(UI.DataTableCell(UI.Label(text=str(f))))
+                    cnt.append(r)
         else:
             cnt = UI.ErrorBox(title='SQL', text='Please specify your query')
 
@@ -126,7 +126,7 @@ class SQLPlugin(CategoryPlugin):
     def get_ui_login(self):
         lstBends = UI.Select(name='backend')
         for b in self.backends:
-            lstBends.appendChild(UI.SelectOption(value=b, text=b))
+            lstBends.append(UI.SelectOption(value=b, text=b))
 
         dlgLogin = UI.DialogBox(
                         UI.LayoutTable(

@@ -34,7 +34,7 @@ class UsersPlugin(CategoryPlugin):
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(), title='User accounts', icon='/dl/users/icon.png')
 
-        panel.appendChild(self.get_default_ui())
+        panel.append(self.get_default_ui())
 
         return panel
 
@@ -48,7 +48,7 @@ class UsersPlugin(CategoryPlugin):
         tc.add('Groups', self.get_ui_groups())
 
         if self._editing != '':
-            tc = UI.VContainer(tc, UI.InputBox(title=self.params[self._editing], id='dlgEdit'))
+            tc = UI.VContainer(tc, UI.InputBox(text=self.params[self._editing], id='dlgEdit'))
         return tc
 
     def get_ui_users(self):
@@ -60,7 +60,7 @@ class UsersPlugin(CategoryPlugin):
                 UI.Label(), header=True
                ))
         for u in self.users:
-            t.appendChild(UI.DataTableRow(
+            t.append(UI.DataTableRow(
                     UI.DataTableCell(
                         UI.Image(file='/dl/core/ui/stock/user.png'),
                         UI.Label(text=u.login, bold=True)
@@ -87,7 +87,7 @@ class UsersPlugin(CategoryPlugin):
                 UI.Label(), header=True
                ))
         for u in self.groups:
-            t.appendChild(UI.DataTableRow(
+            t.append(UI.DataTableRow(
                     UI.DataTableCell(
                         UI.Image(file='/dl/core/ui/stock/group.png'),
                         UI.Label(text=u.name, bold=True)
