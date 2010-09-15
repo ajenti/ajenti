@@ -26,7 +26,7 @@ class ConfigPlugin(CategoryPlugin):
         tabs.add('General', self.get_ui_general())
         tabs.add('Security', self.get_ui_sec())
 
-        u.appendChild(tabs)
+        u.append(tabs)
         return u
 
     def get_ui_general(self):
@@ -60,7 +60,7 @@ class ConfigPlugin(CategoryPlugin):
                 )
               )
         for s in self.config.options('users'):
-            tbl.appendChild(
+            tbl.append(
                     UI.DataTableRow(
                         UI.Label(text=s),
                         UI.DataTableCell(
@@ -70,17 +70,15 @@ class ConfigPlugin(CategoryPlugin):
                     )
                 )
         o = UI.VContainer(
-                UI.Container(
-                    UI.Checkbox(
-                        text='HTTP Authorization',
-                        name='httpauth',
-                        checked=self.config.get('ajenti','auth_enabled')=='1'
-                    )
-                ),
-                UI.Spacer(height=10),
                 UI.Label(text='HTTP Accounts:', size='3'),
+                UI.Checkbox(
+                    text='HTTP Authorization',
+                    name='httpauth',
+                    checked=self.config.get('ajenti','auth_enabled')=='1'
+                ),
                 tbl,
-                UI.Button(text='Add new', id='adduser')
+                UI.Button(text='Add new', id='adduser'),
+                spacing=10
             )
 
         p = UI.VContainer(UI.FormBox(o, id="frmSecurity"))

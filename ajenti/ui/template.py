@@ -4,21 +4,13 @@ from lxml.etree import *
 import xslt
 
 
-EMPTY_TEMPLATE='<html xmlns="http://www.w3.org/1999/xhtml" />'
-
-
 class BasicTemplate(object):
-    def __init__(self, filename=None, search_path=[], styles=[], scripts=[]):
-        self.search_path = search_path
+    def __init__(self, filename, search_path=[], styles=[], scripts=[]):
+        for p in search_path:
+            if os.path.isfile(os.path.join(p, filename)):
+                filename = os.path.join(p, filename)
+        self._dom = etree.parse(filename)
 
-        if filename is not None:
-            for p in search_path:
-                if os.path.isfile(os.path.join(p, filename)):
-                    filename = os.path.join(p, filename)
-
-            self._dom = etree.parse(filename)
-        else:
-            self._dom = etree.fromstring(EMPTY_TEMPLATE)
         try:
             for x in styles:
                 self._dom.find('.//headstylesheets').append(etree.Element('headstylesheet', href=x))

@@ -3,12 +3,6 @@ import base64
 from lxml import etree 
 
 class Element(etree.ElementBase):
-    """ Generate XML element
-
-    @tag - element name
-    *args - any number of dictionaries {'attribute':'value'}
-    **kwargs - any number of keyword arguments attribute="value"
-    """
     def __init__(self, tag, *args, **kwargs):
         etree.ElementBase.__init__(self)
         self.tag = tag
@@ -18,10 +12,6 @@ class Element(etree.ElementBase):
         for k in kwargs:
             self[k] = kwargs[k]
     
-    def appendChild(self, el):
-        print 'Remove that f#cking appendChild()!'
-        self.append(el)
-        
     def append(self, el):
         if el is not None:
             etree.ElementBase.append(self, el)
@@ -66,10 +56,6 @@ class UI(object):
                     self['html'] = base64.b64encode(str(e))
 
         return CustomHTML(*args, **kwargs)
-
-    @staticmethod
-    def Text(text):
-        return Element('span', {'py:content':"'%s'"%text, 'py:strip':""})
 
     @staticmethod
     def ProgressBar(*args, **kwargs):

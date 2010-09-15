@@ -7,7 +7,6 @@ import platform
 def format_error(app, err):
     print '\n%s\n' % err
     templ = app.get_template('error.xml')
-    err = err.replace('\n', '[br]')
     templ.appendChildInto('trace',
             UI.TextInputArea(text=err, width=350))
     templ.appendChildInto('report',
@@ -36,7 +35,7 @@ def make_report(app, err):
                '.'.join(platform.python_version_tuple()),
                str(app.class_list()).replace(',','\n'),
                err
-              )).replace('\n', '[br]')
+              ))
               
 
 class BackendUnavailableException(Exception):

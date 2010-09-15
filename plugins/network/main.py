@@ -52,7 +52,7 @@ class NetworkPlugin(CategoryPlugin):
                             UI.DataTableCell(
                                 UI.HContainer(
                                     UI.MiniButton(text='Edit', id='editiface/' + i.name),
-                                    UI.WarningMiniButton(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name))
+                                    UI.WarningMiniButton(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name), msg='Bring %s interface %s' % (('Down' if i.up else 'Up'), i.name))
                                 ),
                                 hidden=True
                             )
@@ -60,8 +60,8 @@ class NetworkPlugin(CategoryPlugin):
 
         c = UI.VContainer(
                 UI.Label(text='Network interfaces', size=3),
-                UI.Spacer(height=10),
                 ti,
+                spacing=10
             )
 
         if self._editing_iface != "":
@@ -103,10 +103,9 @@ class NetworkPlugin(CategoryPlugin):
 
         c = UI.VContainer(
                 UI.Label(text='DNS options', size=3),
-                UI.Spacer(height=10),
                 td,
-                UI.Spacer(height=10),
-                UI.Button(text='Add option', id='addns')
+                UI.Button(text='Add option', id='addns'),
+                spacing=10
             )
 
         if self._editing_ns != -1:

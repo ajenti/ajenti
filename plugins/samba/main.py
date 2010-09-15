@@ -26,9 +26,9 @@ class SambaPlugin(CategoryPlugin):
         panel = UI.PluginPanel(UI.Button(text='Apply config', id='restart'), title='Samba', icon='/dl/samba/icon.png')
 
         if not backend.is_installed():
-            panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Samba is not installed')))
+            panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Samba is not installed')))
         else:
-            panel.appendChild(self.get_default_ui())
+            panel.append(self.get_default_ui())
 
         return panel
 
@@ -47,7 +47,7 @@ class SambaPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label()),
                 header=True
              )
-        th.appendChild(hr)
+        th.append(hr)
 
         for h in self._cfg.get_shares():
             r = UI.DataTableRow(
@@ -59,20 +59,20 @@ class SambaPlugin(CategoryPlugin):
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(text='Edit', id='editshare/' + h),
-                            UI.WarningMiniButton(text='Delete', id='delshare/' + h)
+                            UI.WarningMiniButton(text='Delete', id='delshare/' + h, msg='Delete share %s'%h)
                         ),
                         hidden=True
                     )
                 )
-            th.appendChild(r)
+            th.append(r)
 
         th = UI.VContainer(th, UI.Button(text='Add new share', id='newshare'))
 
         if not self._editing_share is None:
             if self._editing_share == '':
-                th.vnode(self.get_ui_edit_share())
+                th.append(self.get_ui_edit_share())
             else:
-                th.vnode(self.get_ui_edit_share(
+                th.append(self.get_ui_edit_share(
                             self._cfg.shares[self._editing_share]
                         ))
         return th
@@ -84,7 +84,7 @@ class SambaPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label()),
                 header=True
              )
-        th.appendChild(hr)
+        th.append(hr)
 
         for h in sorted(self._cfg.users.keys()):
             r = UI.DataTableRow(
@@ -95,32 +95,32 @@ class SambaPlugin(CategoryPlugin):
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(text='Edit', id='edituser/' + h),
-                            UI.WarningMiniButton(text='Delete', id='deluser/' + h)
+                            UI.WarningMiniButton(text='Delete', id='deluser/' + h, msg='Delete user %s'%h)
                         ),
                         hidden=True
                     )
                 )
-            th.appendChild(r)
+            th.append(r)
 
         th = UI.VContainer(th, UI.Button(text='Add new user', id='newuser'))
 
         if not self._editing_user is None:
             if self._editing_user == '':
-                th.vnode(self.get_ui_edit_user())
+                th.append(self.get_ui_edit_user())
             else:
-                th.vnode(self.get_ui_edit_user(
+                th.append(self.get_ui_edit_user(
                             self._cfg.users[self._editing_user]
                         ))
 
         if not self._editing is None:
-            th.vnode(UI.InputBox(
+            th.append(UI.InputBox(
                 title=self._editing,
                 value=self._cfg.users[self._editing_user][self._editing],
                 id='dlgEdit'
             ))
 
         if self._adding_user:
-            th.vnode(UI.InputBox(
+            th.append(UI.InputBox(
                 title='New user',
                 text='Unix login:',
                 id='dlgAddUser'
@@ -186,7 +186,7 @@ class SambaPlugin(CategoryPlugin):
     def get_ui_edit_user(self, u=None):
         t = UI.LayoutTable()
         for k in self._cfg.fields:
-            t.appendChild(
+            t.append(
                 UI.LayoutTableRow(
                     UI.Label(text=k+':'),
                     UI.Label(text=u[k]),

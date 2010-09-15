@@ -36,7 +36,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 UI.Button(text='Get lists', id='getlists'),
               )
         panel = UI.PluginPanel(ctl, title='Package Manager', icon='/dl/pkgman/icon.png')
-        panel.appendChild(self.get_default_ui())
+        panel.append(self.get_default_ui())
 
         return panel
 
@@ -46,7 +46,7 @@ class PackageManagerPlugin(CategoryPlugin):
         tabs.add('Search', self.get_ui_search())
         tabs.add('Pending actions', self.get_ui_pending())
 
-        pnl = UI.Container(tabs)
+        pnl = UI.VContainer(tabs)
 
         if self._confirm_apply:
             res = UI.DataTable()
@@ -57,14 +57,14 @@ class PackageManagerPlugin(CategoryPlugin):
                             UI.Label(text=('Install/upgrade' if r[x] == 'install' else 'Remove')),
                             UI.Label(text=x, bold=True)
                         )
-                    res.appendChild(t)
+                    res.append(t)
 
             dlg = UI.DialogBox(
                     res,
                     UI.Spacer(height=20),
                     title="Apply changes?", id="dlgApply"
                   )
-            pnl.appendChild(dlg)
+            pnl.append(dlg)
 
 
         if self._in_progress:
@@ -72,7 +72,7 @@ class PackageManagerPlugin(CategoryPlugin):
                     title = "Appplying changes",
                     status = self.mgr.get_busy_status()
                  )
-            pnl.appendChild(pb)
+            pnl.append(pb)
 
         return pnl
 
@@ -84,7 +84,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        tu.appendChild(hr)
+        tu.append(hr)
 
         for p in sorted(self._status.upgradeable.keys()):
             p = self._status.upgradeable[p]
@@ -96,7 +96,7 @@ class PackageManagerPlugin(CategoryPlugin):
                         hidden=True
                     )
                 )
-            tu.appendChild(r)
+            tu.append(r)
 
         return tu
 
@@ -108,7 +108,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        ts.appendChild(hr)
+        ts.append(hr)
 
         for p in self._search:
             r = UI.DataTableRow(
@@ -120,7 +120,7 @@ class PackageManagerPlugin(CategoryPlugin):
                         hidden=True
                     )
                 )
-            ts.appendChild(r)
+            ts.append(r)
 
         cs = UI.VContainer(
                 UI.HContainer(
@@ -146,7 +146,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        tu.appendChild(hr)
+        tu.append(hr)
 
         for p in sorted(self._status.pending.keys()):
             if self._status.pending[p] == 'install':
@@ -157,7 +157,7 @@ class PackageManagerPlugin(CategoryPlugin):
                             hidden=True
                         )
                     )
-                tu.appendChild(r)
+                tu.append(r)
 
 
         ti = UI.DataTable()
@@ -166,7 +166,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        ti.appendChild(hr)
+        ti.append(hr)
 
         for p in sorted(self._status.pending.keys()):
             if self._status.pending[p] == 'remove':
@@ -177,7 +177,7 @@ class PackageManagerPlugin(CategoryPlugin):
                             hidden=True
                         )
                     )
-                ti.appendChild(r)
+                ti.append(r)
 
         cp = UI.VContainer(
                 UI.Label(text='Upgrade / install:', size=3),

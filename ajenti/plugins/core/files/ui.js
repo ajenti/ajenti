@@ -1,8 +1,18 @@
 function ui_center_el(e) {
-    sw = document.width;
-    sh = document.height;
+    sw = window.innerWidth;
+    sh = window.innerHeight;
     e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
     e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
+    if (sh < e.clientHeight)
+        e.style.top = '0px';
+}
+
+function ui_fullscreen(el) {
+    e = document.getElementById(el)
+    sw = document.width;
+    sh = document.height;
+    e.style.width = sw + 'px';
+    e.style.height = sh + 'px';
 }
 
 function ui_center(el) {

@@ -3,20 +3,31 @@
 </xsl:template>
 
 <xsl:template match="checkbox">
-    <input class="ui-el-checkbox" type="checkbox" name="{@name}" id="{@id}" checked="{x:iif(@checked, 'checked', '')}" onkeypress="return noenter()"/>
+    <input class="ui-el-checkbox" type="checkbox" name="{@name}" id="{@id}" onkeypress="return noenter()">
+        <xsl:if test="@checked = 'True'">
+            <xsl:attribute name="checked"/>
+        </xsl:if>
+    </input>
     <span class="ui-el-label-1">
         <xsl:value-of select="@text" />
     </span>
 </xsl:template>
 
 <xsl:template match="selectoption">
-    <option value="{@value}" selected="{x:iif(@selected, 'selected', '')}" onkeypress="return noenter()">
+    <option value="{@value}" onkeypress="return noenter()">
+        <xsl:if test="@selected = 'True'">
+            <xsl:attribute name="selected"/>
+        </xsl:if>
         <xsl:value-of select="@text" />
     </option>
 </xsl:template>
 
 <xsl:template match="radio">
-    <input class="ui-el-radio" type="radio" value="{@value}" name="{@name}" id="{@id}" checked="{x:iif(@checked, 'checked', '')}" onkeypress="return noenter()"/>
+    <input class="ui-el-radio" type="radio" value="{@value}" name="{@name}" id="{@id}" onkeypress="return noenter()">
+        <xsl:if test="@checked = 'True'">
+            <xsl:attribute name="checked"/>
+        </xsl:if>
+    </input>
     <span class="ui-el-label-1">
         <xsl:value-of select="@text" />
     </span>

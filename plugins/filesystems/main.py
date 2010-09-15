@@ -21,7 +21,7 @@ class FSPlugin(CategoryPlugin):
 
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=self._log), title='Mounted filesystems', icon='/dl/filesystems/icon.png')
-        panel.appendChild(self.get_default_ui())
+        panel.append(self.get_default_ui())
         return panel
 
     def get_default_ui(self):
@@ -35,7 +35,7 @@ class FSPlugin(CategoryPlugin):
                 UI.Label(), header=True
                ))
         for u in self.fstab:
-            t.appendChild(UI.DataTableRow(
+            t.append(UI.DataTableRow(
                     UI.Label(text=u.src, bold=True),
                     UI.Label(text=u.dst),
                     UI.Label(text=u.fs_type),
@@ -45,7 +45,7 @@ class FSPlugin(CategoryPlugin):
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(id='edit/'+str(self.fstab.index(u)), text='Edit'),
-                            UI.WarningMiniButton(id='del/'+str(self.fstab.index(u)), text='Delete')
+                            UI.WarningMiniButton(id='del/'+str(self.fstab.index(u)), text='Delete', msg='Remove %s from fstab'%u.src)
                         ),
                         hidden=True
                     )
@@ -63,7 +63,7 @@ class FSPlugin(CategoryPlugin):
                 e.fs_type = 'none'
                 e.dump_p = 0
                 e.fsck_p = 0
-            t.vnode(self.get_ui_edit(e))
+            t.append(self.get_ui_edit(e))
 
         return t
 
@@ -78,18 +78,18 @@ class FSPlugin(CategoryPlugin):
                 pass
             sel = e != None and e.src == p
             cst &= not sel
-            lst.appendChild(UI.SelectOption(value=p, text=s, selected=sel))
+            lst.append(UI.SelectOption(value=p, text=s, selected=sel))
         for p in backend.list_partitions():
             u = backend.get_partition_uuid_by_name(p)
             if u != '':
                 s = 'UUID=' + u
                 sel = e != None and e.src == s
                 cst &= not sel
-                lst.appendChild(UI.SelectOption(value=s, text=p+': '+u , selected=sel))
+                lst.append(UI.SelectOption(value=s, text=p+': '+u , selected=sel))
 
-        lst.appendChild(UI.SelectOption(text='proc', value='proc', selected=e.src=='proc'))
+        lst.append(UI.SelectOption(text='proc', value='proc', selected=e.src=='proc'))
         cst &= e.src != 'proc'
-        lst.appendChild(UI.SelectOption(text='Custom', value='custom', selected=cst))
+        lst.append(UI.SelectOption(text='Custom', value='custom', selected=cst))
         return lst, cst
 
     def get_ui_edit(self, e):

@@ -14,9 +14,6 @@ class PowerPlugin(CategoryPlugin):
     icon = '/dl/power/icon_small.png'
     folder = 'hardware'
 
-    def on_session_start(self):
-        pass
-
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=('Uptime: ' + get_uptime())), title='Power Management', icon='/dl/power/icon.png')
 
@@ -54,10 +51,10 @@ class PowerPlugin(CategoryPlugin):
                     UI.WarningButton(text='Shutdown', id='shutdown', msg='Shutdown machine'),
                     UI.WarningButton(text='Reboot', id='reboot', msg='Reboot machine')
                 ),
-                UI.Spacer(height=20),
-                els
+                els,
+                spacing=20
             )
-        panel.appendChild(c)
+        panel.append(c)
         return panel
 
 

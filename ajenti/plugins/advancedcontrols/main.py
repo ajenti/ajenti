@@ -6,4 +6,4 @@ class AdvancedControlsContent(ModuleContent):
     module = 'advancedcontrols'
     css_files = ['ui.css']
     js_files = ['ui.js']
-    widget_files = ['widgets.xml']
+    widget_files = ['advanced.xslt']

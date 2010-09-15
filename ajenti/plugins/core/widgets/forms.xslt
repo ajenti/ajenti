@@ -29,7 +29,7 @@
 
 <xsl:template match="dialogbox">
 <div>
-    <div class="ui-el-modal-blackout" />
+    <div class="ui-el-modal-blackout" id="{@id}-bo"/>
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
         <div id="{@id}">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
@@ -62,9 +62,67 @@
             </div>
         </div>
     </div>
-    <script> ui_center('<xsl:value-of select="@id"/>-wr'); </script>
+    <script> 
+        ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
+        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    </script>
 </div>
 </xsl:template>
+
+
+<xsl:template match="inputbox">
+<div>
+    <div class="ui-el-modal-blackout" id="{@id}-bo"/>
+    <div class="ui-el-modal-wrapper" id="{@id}-wr">
+        <div id="{@id}">
+            <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
+            <div class="ui-el-dialog" width="{@width}" height="{@height}">
+                <div class="ui-el-dialog-content">
+                    <table>
+                        <tr><td><label text="{x:attr(@text, @title)}"/></td></tr>
+                        <tr><td><textinput name="value" value="{@value}"/></td></tr>
+                    </table>
+                    <div class="ui-el-modal-buttons">
+                        <table cellspacing="0" cellpadding="0">
+                            <tr>
+                                 <td><button text="OK" onclick="form" action="OK" form="{@id}"/></td>
+                                 <td><button text="Cancel" onclick="form" action="Cancel" form="{@id}"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script> 
+        ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
+        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    </script>
+</div>
+</xsl:template>
+
+
+
+<xsl:template match="progressbox">
+    <div class="ui-el-modal-blackout" id="{@id}-wr"/>
+    <div class="ui-el-modal-wrapper" id="{@id}-wr">
+            <div class="ui-el-dialog" width="{@width}" height="{@height}">
+                <div class="ui-el-dialog-content">
+                    <vcontainer>
+                        <vnode><image file="/dl/core/ui/ajax-big.gif" /></vnode>
+                        <vnode><spacer height="10" /></vnode>
+                        <vnode><label text="{@status}" /></vnode>
+                    </vcontainer>
+                </div>
+            </div>
+    </div>
+    <script>
+        scheduleRefresh(3000);
+        ui_fullscreen('<xsl:value-of select="@id" />-bo');
+        ui_center('<xsl:value-of select="@id" />-wr');
+    </script>
+</xsl:template>
+
 
 
 <xsl:template match="errorbox">

@@ -32,7 +32,7 @@ class CronPlugin(CategoryPlugin):
                                         len(self._tasks)),
                                title='Crontab',
                                icon='/dl/cron/icon.png')
-        panel.appendChild(self.get_default_ui())
+        panel.append(self.get_default_ui())
         return panel
 
     def get_default_ui(self):
@@ -43,14 +43,14 @@ class CronPlugin(CategoryPlugin):
                 header=True,
                ))
         for i, oth_str in enumerate(self._others):
-            table_other.appendChild(UI.DataTableRow(
+            table_other.append(UI.DataTableRow(
                     UI.Label(text=oth_str),
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.MiniButton(id='edit_oth/' + str(i),
                                 text='Edit'),
                             UI.WarningMiniButton(id='del_oth/' + str(i),
-                                text='Delete')
+                                text='Delete', msg='Delete a string')
                         ),
                         hidden=True)
                     ))
@@ -64,9 +64,10 @@ class CronPlugin(CategoryPlugin):
                 UI.Label(text=''),
                 header=True,
                ))
+               
         for i, t in enumerate(self._tasks):
             if t.special:
-                table_task.appendChild(UI.DataTableRow(
+                table_task.append(UI.DataTableRow(
                     UI.Label(text=t.special),
                     UI.Label(), UI.Label(), UI.Label(), UI.Label(),
                     UI.Label(text=t.command),
@@ -75,12 +76,12 @@ class CronPlugin(CategoryPlugin):
                             UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
                             UI.WarningMiniButton(id='del_task/' + str(i),
-                                text='Delete')
+                                text='Delete', msg='Delete a task')
                         ),
                         hidden=True)
                     ))
             else:
-                table_task.appendChild(UI.DataTableRow(
+                table_task.append(UI.DataTableRow(
                     UI.Label(text=t.m),
                     UI.Label(text=t.h),
                     UI.Label(text=t.dom),
@@ -92,7 +93,7 @@ class CronPlugin(CategoryPlugin):
                             UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
                             UI.WarningMiniButton(id='del_task/' + str(i),
-                                text='Delete')
+                                text='Delete', msg='Delete a task')
                         ),
                         hidden=True)
                     ))

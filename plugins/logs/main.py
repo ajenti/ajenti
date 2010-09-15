@@ -18,9 +18,7 @@ class LogsPlugin(CategoryPlugin):
 
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=self._log), title='Log viewer', icon='/dl/logs/icon.png')
-
-        panel.appendChild(self.get_default_ui())
-
+        panel.append(self.get_default_ui())
         return panel
 
     def get_default_ui(self):
@@ -54,12 +52,12 @@ class LogsPlugin(CategoryPlugin):
             try:
                 if os.path.isdir(os.path.join(path, x)):
                     tn = UI.TreeContainer(text=x, id=nodepath+'/'+x)
-                    node.appendChild(tn)
+                    node.append(tn)
                     self.scan_logs(os.path.join(path, x), tn, nodepath+'/'+x)
                 else:
                     tn = UI.LinkLabel(text=fix_unicode(x), id='view/'+nodepath+'/'+fix_unicode(x))
                     tn = UI.TreeContainerNode(tn)
-                    node.appendChild(tn)
+                    node.append(tn)
             except:
                 pass
 
@@ -69,7 +67,7 @@ class LogsPlugin(CategoryPlugin):
         d = '<span style="font-family: monospace">'
         d += enquote(data)
         d += '</span>'
-        r.appendChild(UI.CustomHTML(d))
+        r.append(UI.CustomHTML(d))
         return r
 
     @event('minibutton/click')

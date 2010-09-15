@@ -48,7 +48,7 @@ class UsersPlugin(CategoryPlugin):
         tc.add('Groups', self.get_ui_groups())
 
         if self._editing != '':
-            tc = UI.Container(tc, UI.InputBox(title=self.params[self._editing], id='dlgEdit'))
+            tc = UI.VContainer(tc, UI.InputBox(title=self.params[self._editing], id='dlgEdit'))
         return tc
 
     def get_ui_users(self):
@@ -122,7 +122,7 @@ class UsersPlugin(CategoryPlugin):
                     ),
                     UI.LayoutTableRow(
                         UI.Label(),
-                        UI.WarningButton(text='Delete user', id='deluser')
+                        UI.WarningButton(text='Delete user', id='deluser', msg='Delete user %s'%u.login)
                     ),
                     UI.LayoutTableRow(
                         UI.Label(text='UID: '+ str(u.uid)),
@@ -168,7 +168,7 @@ class UsersPlugin(CategoryPlugin):
                     ),
                     UI.LayoutTableRow(
                         UI.Label(),
-                        UI.WarningButton(text='Delete group', id='delgroup')
+                        UI.WarningButton(text='Delete group', id='delgroup', msg='Delete group %s'%u.name)
                     ),
                     UI.LayoutTableRow(
                         UI.Label(text='GID: ' + str(u.gid)),

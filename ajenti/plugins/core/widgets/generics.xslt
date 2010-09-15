@@ -10,7 +10,9 @@
 </xsl:template>
 
 <xsl:template match="container">
-    <xsl:apply-templates />
+    <div>
+           <xsl:apply-templates />
+    </div>
 </xsl:template>
 
 <xsl:template match="hcontainer">
