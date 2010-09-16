@@ -119,9 +119,9 @@ function ajaxHandler(data)
 	main = document.getElementById("main-content")
 	main.innerHTML = data
     var ob = main.getElementsByTagName("script");
-    for(var i=0; i<ob.length-1; i++)
+    for(var i=0; i<ob.length; i++)
         try {
-            if(ob[i+1].text!=null) eval(ob[i+1].text);
+            if(ob[i].text!=null) eval(ob[i].text);
         } catch (err) {}
 }
 
