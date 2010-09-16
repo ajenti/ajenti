@@ -45,7 +45,7 @@ else:
     run('cp files/initscript tmp/etc/init.d/ajenti')
 run('ln -s /usr/share/ajenti/serve.py tmp/usr/bin/ajenti')
 
-deps = ['python2.6', 'python-genshi', 'python-openssl']
+deps = ['python2.6', 'python-lxml', 'python-openssl']
 pkg.build('tmp/', 'ajenti', version, base_desc, deps, [])
 
 for p in os.listdir('../plugins'):

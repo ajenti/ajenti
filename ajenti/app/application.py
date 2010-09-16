@@ -10,7 +10,7 @@ from ajenti.error import *
 from ajenti.app.session import SessionStore, SessionManager
 from ajenti.app.auth import AuthManager
 from ajenti.app.api import IContentProvider
-from ajenti.ui.api import ITemplateProvider
+from ajenti.ui.api import IXSLTTagProvider, IXSLTFunctionProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.urlhandler import IURLHandler
 from ajenti.utils import dequote
@@ -21,20 +21,31 @@ class Application (PluginManager, Plugin):
 
     uri_handlers = Interface(IURLHandler)
     content_providers = Interface(IContentProvider)
+    tag_providers = Interface(IXSLTTagProvider)
+    func_providers = Interface(IXSLTFunctionProvider)
 
     def __init__(self, config=None):
         PluginManager.__init__(self)
 
         # Init instance variables
         self.template_path = []
-        self.template_include = []
         self.template_styles = []
         self.template_scripts = []
-        self.content = {}
         self.config = config
+        self.content = {}
         self.log = config.get('log_facility')
         self.platform = config.get('ajenti','platform')
 
+        includes = []
+        functions = {}
+        tags = {}
+        
+        for f in self.func_providers:
+            functions.update(f.get_funcs())
+
+        for t in self.tag_providers:
+            tags.update(t.get_tags())
+        
         # Get path for static content and templates
         for c in self.content_providers:
             (module, path) = c.content_path()
@@ -45,15 +56,15 @@ class Application (PluginManager, Plugin):
             self.template_scripts.extend(scripts)
 
             path = c.widget_path()
-            includes = []
             for inc in c.widget_files:
                 includes.append(os.path.join(path,inc))
-            self.template_include += includes
             self.template_path += [c.template_path()]
 
         if xslt.xslt is None:
             xslt.prepare(
-                self.template_include
+                includes,
+                functions,
+                tags
             )
             
         self.log.debug('Initialized')
@@ -130,7 +141,7 @@ class Application (PluginManager, Plugin):
     def get_template(self, filename=None, search_path=[]):
         return BasicTemplate(
                 filename=filename,
-                search_path=search_path+self.template_path,
+                search_path=self.template_path + search_path,
                 styles=self.template_styles,
                 scripts=self.template_scripts
                )

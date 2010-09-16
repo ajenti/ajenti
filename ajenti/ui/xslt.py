@@ -1,44 +1,19 @@
 from lxml import etree
 from lxml.etree import *
-from ajenti.utils import dequote
+
 
 xslt = None
 
-
-def attr(_, v, d):
-    #print 'att',v,d
-    return d if v == [] or v == ['None'] else v[0]
-
-def css(_, v, d):
-    #print 'css',v,d
-    v = d if v == [] or v == ['None'] else v[0]
-    if v == 'auto': 
-        return v
-    #print v if '%' in v else '%spx'%v
-    return v if '%' in v else '%spx'%v
-
-def iif(_, q, a, b):
-    return a if len(q)>0 and q[0].lower() == 'true' else b
-    
-def brdequote(_, s):
-    return dequote(s[0])
-    
-class Selector(etree.XSLTExtension):
-    def execute(self, context, self_node, input_node, output_parent):
-        child = input_node[int(self_node.get('index'))]
-        results = self.apply_templates(context, child)
-        output_parent.append(results[0])
-        
-def prepare(includes):
+def prepare(includes, funcs, tags):
     global xslt
     xml = XSLT % ''.join([open(x).read() for x in includes])
-    ex = {
-        ('ext', 'attr') : attr,
-        ('ext', 'iif') : iif,
-        ('ext', 'brdequote') : brdequote,
-        ('ext', 'node') : Selector(),
-        ('ext', 'css') : css
-    }
+    
+    ex = {}
+    for x in funcs:
+        ex[('ext', x)] = funcs[x]
+    for x in tags:
+        ex[('ext', x)] = tags[x]
+
     xslt = etree.XSLT(etree.fromstring(xml), extensions=ex)
         
 def render(templ):

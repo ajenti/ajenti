@@ -1,16 +1,18 @@
-import os.path
 from lxml import etree
-from lxml.etree import *
+import os.path
+
 import xslt
 
 
 class BasicTemplate(object):
+
     def __init__(self, filename, search_path=[], styles=[], scripts=[]):
         for p in search_path:
             if os.path.isfile(os.path.join(p, filename)):
                 filename = os.path.join(p, filename)
         self._dom = etree.parse(filename)
 
+        # Fill in CSS and JS refs
         try:
             for x in styles:
                 self._dom.find('.//headstylesheets').append(etree.Element('headstylesheet', href=x))

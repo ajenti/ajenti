@@ -2,6 +2,7 @@ import subprocess
 import threading
 import os
 
+
 class BackgroundProcess:
     thread = None
     process = None

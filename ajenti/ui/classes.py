@@ -2,6 +2,7 @@ import random
 import base64
 from lxml import etree 
 
+
 class Element(etree.ElementBase):
     def __init__(self, tag, *args, **kwargs):
         etree.ElementBase.__init__(self)

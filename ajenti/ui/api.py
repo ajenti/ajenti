@@ -1,11 +1,11 @@
 from ajenti.com import Interface
 
-class ITemplateProvider(Interface):
-    def template(self):
-        """ Returns dict of parameters
-        {
-         'path': '/some/path'
-         'include': []
-        }
-        """
+
+class IXSLTFunctionProvider(Interface):
+    def get_funcs(self):
         pass
+        
+        
+class IXSLTTagProvider(Interface):
+    def get_tags(self):
+        pass                

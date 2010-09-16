@@ -40,3 +40,5 @@ class IEventDispatcher(Interface):
 
     def event(self, event, *params, **kwparams):
         pass
+        
+
