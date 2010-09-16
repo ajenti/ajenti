@@ -108,10 +108,10 @@
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
             <div class="ui-el-dialog" width="{@width}" height="{@height}">
                 <div class="ui-el-dialog-content">
-                    <vcontainer>
-                        <vnode><image file="/dl/core/ui/ajax-big.gif" /></vnode>
-                        <vnode><spacer height="10" /></vnode>
-                        <vnode><label text="{@status}" /></vnode>
+                    <vcontainer spacing="10">
+                        <image file="/dl/core/ui/ajax-big.gif" />
+                        <spacer height="10" />
+                        <label text="{@status}" />
                     </vcontainer>
                 </div>
             </div>

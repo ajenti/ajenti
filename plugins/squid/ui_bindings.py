@@ -22,9 +22,9 @@ class SquidBindings(Plugin):
 
     def get_ui(self):
         t1 = UI.DataTable()
-        t1.appendChild(UI.DataTableRow(UI.Label(text='Host'), UI.Label(text='Port'), UI.Label(), header=True))
+        t1.append(UI.DataTableRow(UI.Label(text='Host'), UI.Label(text='Port'), UI.Label(), header=True))
         for a in self.cfg.http_port:
-            t1.appendChild(
+            t1.append(
                 UI.DataTableRow(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
@@ -32,9 +32,9 @@ class SquidBindings(Plugin):
                 )
               )
         t2 = UI.DataTable()
-        t2.appendChild(UI.DataTableRow(UI.Label(text='Host'), UI.Label(text='Port'), UI.Label(), header=True))
+        t2.append(UI.DataTableRow(UI.Label(text='Host'), UI.Label(text='Port'), UI.Label(), header=True))
         for a in self.cfg.https_port:
-            t2.appendChild(
+            t2.append(
                 UI.DataTableRow(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
@@ -48,7 +48,7 @@ class SquidBindings(Plugin):
         c = UI.HContainer(v1, UI.Spacer(width=20), v2)
 
         if self.parent._adding_http_binding or self.parent._adding_https_binding:
-            c.hnode(self.get_ui_add())
+            c.append(self.get_ui_add())
 
         return c
 

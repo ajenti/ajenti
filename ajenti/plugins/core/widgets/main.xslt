@@ -1,6 +1,6 @@
 <xsl:template match="category">
-    <a href="#" onclick="javascript:return ajax('/handle/category/click/{@id}');">
-	    <div class="{x:iif(@selected, 'ui-el-category-selected', 'ui-el-category')}">
+    <a href="#" onclick="javascript:ui_select_category('{@id}');return ajax('/handle/category/click/{@id}');">
+	    <div id="{@id}" class="{x:iif(@selected, 'ui-el-category-selected', 'ui-el-category')}">
 		    <table>
                 <tr>
                     <td rowspan="2" class="ui-el-category-icon">

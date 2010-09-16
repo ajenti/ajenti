@@ -28,6 +28,11 @@ function ui_categoryfolder(id) {
         x.className = 'ui-el-categoryfolder';
 }
 
+function ui_select_category(id) {
+    document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
+    document.getElementById(id).className = 'ui-el-category-selected';
+}
+
 function ui_showhide(id) {
     x = document.getElementById(id);
     if (x.style.display != 'none')

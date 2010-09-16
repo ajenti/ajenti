@@ -23,7 +23,7 @@ class SquidRefPats(Plugin):
 
     def get_ui(self):
         t = UI.DataTable()
-        t.appendChild(UI.DataTableRow(
+        t.append(UI.DataTableRow(
                 UI.Label(text='Regex'),
                 UI.Label(text='Min'),
                 UI.Label(text='%'),
@@ -35,7 +35,7 @@ class SquidRefPats(Plugin):
 
         i = 0
         for a in self.cfg.ref_pats:
-            t.appendChild(
+            t.append(
                 UI.DataTableRow(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
@@ -59,10 +59,10 @@ class SquidRefPats(Plugin):
              )
 
         if self.parent._adding_ref_pat:
-            vc.vnode(self.get_ui_add())
+            vc.append(self.get_ui_add())
         if self.parent._editing_ref_pat != -1:
             a = self.cfg.ref_pats[self.parent._editing_ref_pat]
-            vc.vnode(self.get_ui_edit(a))
+            vc.append(self.get_ui_edit(a))
 
         return vc
 

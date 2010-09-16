@@ -31,9 +31,9 @@ class SquidPlugin(CategoryPlugin):
         panel = UI.PluginPanel(UI.Label(text=status), title='Squid Proxy Server', icon='/dl/squid/icon.png')
 
         if not is_installed():
-            panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Squid is not installed')))
+            panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Squid is not installed')))
         else:
-            panel.appendChild(self.get_default_ui())
+            panel.append(self.get_default_ui())
 
         return panel
 

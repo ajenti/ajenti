@@ -22,9 +22,9 @@ class SquidRules(Plugin):
 
     def get_ui(self):
         t = UI.DataTable()
-        t.appendChild(UI.DataTableRow(UI.Label(text='List'), UI.Label(text='Access'), UI.Label(text='ACL'), UI.Label(), header=True))
+        t.append(UI.DataTableRow(UI.Label(text='List'), UI.Label(text='Access'), UI.Label(text='ACL'), UI.Label(), header=True))
         for a in self.cfg.rules:
-            t.appendChild(
+            t.append(
                 UI.DataTableRow(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
@@ -40,16 +40,16 @@ class SquidRules(Plugin):
              )
 
         if self.parent._shuffling_rules:
-            vc.vnode(self.get_ui_rules_shuffler())
+            vc.append(self.get_ui_rules_shuffler())
         if self.parent._adding_rules:
-            vc.vnode(self.get_ui_add())
+            vc.append(self.get_ui_add())
 
         return vc
 
     def get_ui_add(self):
         li = UI.Select(name='list')
         for a in self.cfg.access_lists:
-            li.appendChild(UI.SelectOption(text=a, value=a))
+            li.append(UI.SelectOption(text=a, value=a))
 
         c = UI.LayoutTable(
                 UI.LayoutTableRow(
@@ -71,7 +71,7 @@ class SquidRules(Plugin):
         li = UI.SortList(id='list')
         for p in self.cfg.rules:
             s = ' '.join(p)
-            li.appendChild(UI.SortListItem(UI.Label(text=s), id=s))
+            li.append(UI.SortListItem(UI.Label(text=s), id=s))
 
         return UI.DialogBox(li, title='Shuffle HTTP access', id='dlgRules')
 

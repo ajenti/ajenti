@@ -1,5 +1,0 @@
-pkg apache
-desc Apache web server management plugin
-dep apache2
-ver 0.1
-

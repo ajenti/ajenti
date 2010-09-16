@@ -8,8 +8,6 @@ from backend import *
 
 
 class ApachePlugin(CategoryPlugin):
-    implements((ICategoryProvider, 50))
-
     text = 'Apache'
     icon = '/dl/apache/icon.png'
     platform = ['Debian', 'Ubuntu']
@@ -20,15 +18,14 @@ class ApachePlugin(CategoryPlugin):
         self._editing_host = ''
         self._editing_module = ''
         
-        
     def get_ui(self):
         status = 'is running' if is_running() else 'is stopped';
         panel = UI.PluginPanel(UI.Label(text=status), title='Apache web server', icon='/dl/apache/icon.png')
 
         if not is_installed():
-            panel.appendChild(UI.VContainer(UI.ErrorBox(title='Error', text='Apache 2 is not installed')))
+            panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Apache 2 is not installed')))
         else:
-            panel.appendChild(self.get_default_ui())        
+            panel.append(self.get_default_ui())        
 
         return panel
 
@@ -46,7 +43,7 @@ class ApachePlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text=''), width='150px'),
                 header=True
              )
-        th.appendChild(hr)
+        th.append(hr)
         
         for h in list_hosts():
             if host_enabled(h):
@@ -64,7 +61,7 @@ class ApachePlugin(CategoryPlugin):
                         hidden=True
                     )
                 )
-            th.appendChild(r)
+            th.append(r)
         
         p = UI.Container(th)
         if self._editing_host != '':
@@ -72,7 +69,7 @@ class ApachePlugin(CategoryPlugin):
                       UI.TextInputArea(name='config', text=read_host_config(self._editing_host).replace('\n', '[br]'), width=800, height=500),
                       title="Edit host config", id="dlgEditHost"
                   )
-            p.appendChild(dlg)
+            p.append(dlg)
         return p
         
     def get_ui_mods(self):
@@ -83,7 +80,7 @@ class ApachePlugin(CategoryPlugin):
                 UI.DataTableCell(UI.Label(text='')),
                 header=True
              )
-        tm.appendChild(hr)
+        tm.append(hr)
         
         for h in list_modules():
             if module_enabled(h):
@@ -99,14 +96,14 @@ class ApachePlugin(CategoryPlugin):
                         ctl, hidden=True
                     )
                 )
-            tm.appendChild(r)
+            tm.append(r)
         p = UI.Container(tm)
         if self._editing_module != '':
             dlg = UI.DialogBox(
                       UI.TextInputArea(name='config', text=read_module_config(self._editing_module).replace('\n', '[br]'), width=800, height=500),
                       title="Edit module config", id="dlgEditModule"
                   )
-            p.appendChild(UI.vnode(dlg))
+            p.append(dlg)
         return p            
     
     @event('minibutton/click')

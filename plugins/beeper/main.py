@@ -43,7 +43,7 @@ class BeeperPlugin(CategoryPlugin):
 
         f = UI.VContainer()
         for s in self._form_text:
-            f.vnode(UI.Text(s))
+            f.append(UI.Text(s))
 
         dlg = UI.DialogBox(
                 UI.LayoutTable(
