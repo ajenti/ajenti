@@ -28,22 +28,6 @@
     -webkit-border-radius: 3px 3px 3px 3px;
 }
 
-.ui-el-dialog-title {
-    color: #eee;
-    text-shadow: -1px -1px 0px #555;
-    font-weight: bold;
-
-    background: #666;
-    background: -moz-linear-gradient(top,  #666,  #555);
-    background: -webkit-gradient(linear, left top, left bottom, from(#666), to(#555));
-
-    padding: 3px 10px 1px 10px;
-
-    border: 1px solid #555;
-    border-radius: 3px 3px 0px 0px;
-    -moz-border-radius: 3px 3px 0px 0px;
-    -webkit-border-radius: 3px 3px 0px 0px;
-}
 
 .ui-el-modal-wrapper {
     position: absolute;
