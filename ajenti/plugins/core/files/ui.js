@@ -9,8 +9,8 @@ function ui_center_el(e) {
 
 function ui_fullscreen(el) {
     e = document.getElementById(el)
-    sw = document.width;
-    sh = document.height;
+    sw = document.body.clientWidth;
+    sh = document.body.clientHeight;
     e.style.width = sw + 'px';
     e.style.height = sh + 'px';
 }

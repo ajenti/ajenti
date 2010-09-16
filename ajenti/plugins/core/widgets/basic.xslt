@@ -38,7 +38,7 @@
 </xsl:template>
 
 <xsl:template match="minibutton">
-    <a href="#" onclick="javascript:return ajax('/handle/button/click/{@id}');">
+    <a href="#" onclick="javascript:return ajax('/handle/minibutton/click/{@id}');">
         <div class="ui-el-minibutton">
             <xsl:value-of select="@text" />
         </div>

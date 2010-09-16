@@ -1,7 +1,9 @@
 from lxml import etree
 from lxml.etree import *
+from ajenti.utils import dequote
 
 xslt = None
+
 
 def attr(_, v, d):
     #print 'att',v,d
@@ -18,7 +20,9 @@ def css(_, v, d):
 def iif(_, q, a, b):
     return a if len(q)>0 and q[0].lower() == 'true' else b
     
-
+def brdequote(_, s):
+    return dequote(s)
+    
 class Selector(etree.XSLTExtension):
     def execute(self, context, self_node, input_node, output_parent):
         child = input_node[int(self_node.get('index'))]
@@ -31,6 +35,7 @@ def prepare(includes):
     ex = {
         ('ext', 'attr') : attr,
         ('ext', 'iif') : iif,
+        ('ext', 'brdequote') : brdequote,
         ('ext', 'node') : Selector(),
         ('ext', 'css') : css
     }

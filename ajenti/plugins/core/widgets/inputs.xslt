@@ -35,7 +35,7 @@
 
 <xsl:template match="textinputarea">
     <textarea class="ui-el-textarea" name="{@name}" disabled="{x:iif(@disabled, 'disabled', '')}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};">
-        <xsl:value-of select="@text" />
+        <xsl:value-of select="x:brdequote(@text)" />
     </textarea>
 </xsl:template>
 
