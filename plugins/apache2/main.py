@@ -12,11 +12,12 @@ class ApachePlugin(CategoryPlugin):
     icon = '/dl/apache/icon.png'
     platform = ['Debian', 'Ubuntu']
     folder = 'servers'
-    
+        
     def on_session_start(self):
         self._tab = 0
         self._editing_host = ''
         self._editing_module = ''
+        
         
     def get_ui(self):
         status = 'is running' if is_running() else 'is stopped';
