@@ -21,7 +21,7 @@ def iif(_, q, a, b):
     return a if len(q)>0 and q[0].lower() == 'true' else b
     
 def brdequote(_, s):
-    return dequote(s)
+    return dequote(s[0])
     
 class Selector(etree.XSLTExtension):
     def execute(self, context, self_node, input_node, output_parent):
