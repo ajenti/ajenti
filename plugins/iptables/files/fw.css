@@ -85,15 +85,15 @@
     font-weight: bold;
 }
 
-.ui-el-fwchain-tl {
-    border-radius: 3px 0px 3px 0px;
-    -moz-border-radius: 3px 0px 3px 0px;
+.ui-el-fwchain-tl-table {
+    border-radius: 3px 0px 0px 0px;
+    -moz-border-radius: 3px 0px 0px 0px;
     background: #888;
     background: -moz-linear-gradient(top,  #999,  #777);
     background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#777));
 
     height: 20px;
-    width: 200px;
+    width: 80px;
     float: left;
 
     line-height: 20px;
@@ -105,13 +105,56 @@
     font-weight: bold;
 }
 
-.ui-el-fwchain-tr {
+.ui-el-fwchain-tl {
+    background: #888;
+    background: -moz-linear-gradient(top,  #999,  #777);
+    background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#777));
+
+    height: 20px;
+    width: 120px;
+    float: left;
+
+    line-height: 20px;
+
+    border: 1px solid #777;
+    padding-left: 10px;
+    color: #fff;
+    text-shadow: -1px -1px 1px #777;
+    font-weight: bold;
+}
+
+.ui-el-fwchain-tr-accept {
     border-radius: 0px 3px 0px 0px;
     -moz-border-radius: 0px 3px 0px 0px;
-    border-top: 1px solid #777;
-    border-right: 1px solid #777;
+    background: #569b3d;
+    background: -moz-linear-gradient(top,  #83ea5f,  #569b3d);
+    background: -webkit-gradient(linear, left top, left bottom, from(#83ea5f), to(#569b3d));
+    border: 1px solid #777;
+    color: #fff;
+    text-shadow: -1px -1px 1px #777;
+    font-weight: bold;
+    height: 20px;
+    padding-left: 10px;
+    line-height: 20px;
     width: 260px;
 }    
+
+.ui-el-fwchain-tr-drop {
+    border-radius: 0px 3px 0px 0px;
+    -moz-border-radius: 0px 3px 0px 0px;
+    border: 1px solid #777;
+    background: #ff4646;
+    background: -moz-linear-gradient(top,  #ff7676,  #569b3d);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff7676), to(#ff4646));
+    color: #fff;
+    text-shadow: -1px -1px 1px #777;
+    font-weight: bold;
+    height: 20px;
+    padding-left: 10px;
+    line-height: 20px;
+    width: 260px;
+}    
+
 
 .ui-el-fwchain-c {
     border-radius: 0px 0px 3px 3px;

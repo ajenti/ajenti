@@ -29,7 +29,7 @@
         </xsl:if>    
             
         <div class="ui-el-fwrule-r-normal">
-            from all
+            <xsl:value-of select="@desc"/>
         </div>
     </div>
 </xsl:template>
@@ -38,17 +38,36 @@
 <xsl:template match="fwchain">
     <table cellspacing="0" cellpadding="0">
         <tr>
+            <td class="ui-el-fwchain-tl-table">
+                <xsl:value-of select="@tname"/>
+            </td>
             <td class="ui-el-fwchain-tl">
                 <xsl:value-of select="@name"/>
             </td>
-            <td class="ui-el-fwchain-tr">
-            </td>
+            <xsl:if test="@default = 'ACCEPT'">
+                <td class="ui-el-fwchain-tr-accept">
+                    ACCEPT
+                </td>
+            </xsl:if>
+            <xsl:if test="@default = 'REJECT' or @default = 'DROP'">
+                <td class="ui-el-fwchain-tr-drop">
+                    <xsl:value-of select="@default"/>
+                </td>
+            </xsl:if>
         </tr>
         <tr>
-            <td class="ui-el-fwchain-c" colspan="2">
+            <td class="ui-el-fwchain-c" colspan="3">
                 <vcontainer spacing="5">
                     <xsl:apply-templates />
                 </vcontainer>
+                    <hcontainer>
+                        <button text="Add rule" id="addrule/{@tname}/{@name}"/>
+                        <button text="Sort" id="sort/{@tname}/{@name}"/>
+                        <label text="Set default:"/>
+                        <minibutton text="Accept" id="setdefault/{@tname}/{@name}/ACCEPT"/>
+                        <minibutton text="Drop" id="setdefault/{@tname}/{@name}/DROP"/>
+                        <minibutton text="Reject" id="setdefault/{@tname}/{@name}/REJECT"/>
+                    </hcontainer>
             </td>
         </tr>
     </table>

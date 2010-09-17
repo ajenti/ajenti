@@ -12,32 +12,35 @@ class FirewallPlugin(CategoryPlugin):
     icon = '/dl/firewall/icon_small.png'
     folder = 'system'
 
+    def on_init(self):
+        self.cfg = Config()
+        self.cfg.load('/etc/iptables.up.rules')
+
     def get_ui(self):
-        cfg = Config()
-        cfg.load('/etc/iptables.up.rules')
-        print cfg.dump()
-                
         panel = UI.PluginPanel(UI.Label(), title='IPTables Firewall', icon='/dl/firewall/icon.png')
         panel.append(self.get_default_ui())
         return panel
 
     def get_default_ui(self):
-        return UI.FWChain(
-                UI.FWRule(action='ACCEPT'),
-                UI.FWRule(action='DROP'),
-                UI.FWRule(action='REJECT'),
-                UI.FWRule(action='MASQUERADE'),
-                UI.FWRule(action='EXIT'),
-                UI.FWRule(action='RUN'),
-                UI.FWRule(action='LOG'),
-                name="Test"
-               )
+        ui = UI.VContainer()
+        for t in self.cfg.tables:
+            t = self.cfg.tables[t]
+            for ch in t.chains:
+                ch = t.chains[ch]
+                uic = UI.FWChain(tname=t.name, name=ch.name, default=ch.default)
+                for r in ch.rules:
+                    uic.append(UI.FWRule(action=r.action, desc=r.raw))
+                ui.append(uic)
+            
+        return ui
                
     @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
-        pass
+        if params[0] == 'setdefault':
+            self.cfg.tables[params[1]].chains[params[2]].default = params[3]
+            self.cfg.save('/etc/iptables.up.rules')
         
 
 class FirewallContent(ModuleContent):

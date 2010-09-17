@@ -4,6 +4,7 @@ class Rule:
         self.raw = line
         d = line.split()
         self.chain = d[1]
+        self.action = d[-1]
         
     def dump(self):
         return self.raw
@@ -74,5 +75,9 @@ class Config:
         s = ''
         for r in self.tables:
             s += '%s\n' % self.tables[r].dump()
-        return s        
+        return s    
+        
+    def save(self, file):
+        open(file, 'w').write(self.dump())
+            
             
