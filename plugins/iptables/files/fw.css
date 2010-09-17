@@ -86,7 +86,7 @@
     font-weight: bold;
 }
 
-.ui-el-fwchain-tl-table {
+.ui-el-fwchain-tl {
     border-radius: 3px 0px 0px 0px;
     -moz-border-radius: 3px 0px 0px 0px;
     background: #888;
@@ -94,26 +94,7 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#777));
 
     height: 20px;
-    width: 80px;
-    float: left;
-
-    line-height: 20px;
-
-    border: 1px solid #777;
-    border-right: none;
-    padding-left: 10px;
-    color: #fff;
-    text-shadow: -1px -1px 1px #777;
-    font-weight: bold;
-}
-
-.ui-el-fwchain-tl {
-    background: #888;
-    background: -moz-linear-gradient(top,  #999,  #777);
-    background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#777));
-
-    height: 20px;
-    width: 120px;
+    width: 360px;
     float: left;
 
     line-height: 20px;
@@ -139,7 +120,7 @@
     height: 20px;
     padding-left: 10px;
     line-height: 20px;
-    width: 260px;
+    width: 80px;
 }    
 
 .ui-el-fwchain-tr-drop {
@@ -155,8 +136,8 @@
     height: 20px;
     padding-left: 10px;
     line-height: 20px;
-    width: 260px;
-}    
+    width: 80px;
+}       
 
 
 .ui-el-fwchain-c {

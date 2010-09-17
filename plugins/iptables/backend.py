@@ -65,7 +65,7 @@ class Table:
 class Config:
     tables = {}
     
-    def load(self, file):
+    def load(self, file='/etc/iptables.up.rules'):
         data = open(file).read().split('\n')
         self.tables = {}
         while len(data)>0:
@@ -82,7 +82,7 @@ class Config:
             s += '%s\n' % self.tables[r].dump()
         return s    
         
-    def save(self, file):
+    def save(self, file='/etc/iptables.up.rules'):
         open(file, 'w').write(self.dump())
             
     def table_index(self, name):

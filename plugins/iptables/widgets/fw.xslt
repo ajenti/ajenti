@@ -1,5 +1,5 @@
 <xsl:template match="fwrule">
-    <a href="#" class="ui-el-fwrule-wr">
+    <a href="#" onclick="ajax('/handle/fwrule/click/{@id}')" class="ui-el-fwrule-wr">
         <xsl:choose>
             <xsl:when test="@action = 'ACCEPT'">
                 <div class="ui-el-fwrule-l-accept">ACC</div>
@@ -40,9 +40,6 @@
 <xsl:template match="fwchain">
     <table cellspacing="0" cellpadding="0">
         <tr>
-            <td class="ui-el-fwchain-tl-table">
-                <xsl:value-of select="@tname"/>
-            </td>
             <td class="ui-el-fwchain-tl">
                 <xsl:value-of select="@name"/>
             </td>
@@ -73,7 +70,8 @@
                         <minibutton text="Shuffle" id="shuffle/{@tname}/{@name}"/>
                         <xsl:choose>
                             <xsl:when test="@default = '-'">
-                                <minibutton text="Delete chain" id="deletechain/{@tname}/{@name}"/>
+                                <warningminibutton text="Delete chain" id="deletechain/{@tname}/{@name}"
+                                    msg="Delete rule chain {@name}"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <label text="Set default:"/>

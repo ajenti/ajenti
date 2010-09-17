@@ -14,12 +14,13 @@ class FirewallPlugin(CategoryPlugin):
 
     def on_init(self):
         self.cfg = Config()
-        self.cfg.load('/etc/iptables.up.rules')
+        self.cfg.load()
 
     def on_session_start(self):
         self._tab = 0
         self._shuffling = None
         self._shuffling_table = None
+        self._adding_chain = None
         
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(), title='IPTables Firewall', icon='/dl/firewall/icon.png')
@@ -47,7 +48,10 @@ class FirewallPlugin(CategoryPlugin):
              
         if self._shuffling != None:
             ui.append(self.get_ui_shuffler())
-            
+      
+        if self._adding_chain != None:
+            ui.append(UI.InputBox(id='dlgAddChain', text='Chain name:'))
+
         return ui
 
     def get_ui_shuffler(self):
@@ -67,13 +71,38 @@ class FirewallPlugin(CategoryPlugin):
         if params[0] == 'setdefault':
             self._tab = self.cfg.table_index(params[1])
             self.cfg.tables[params[1]].chains[params[2]].default = params[3]
-            self.cfg.save('/etc/iptables.up.rules')
+            self.cfg.save()
         if params[0] == 'shuffle':
             self._tab = self.cfg.table_index(params[1])
             self._shuffling_table = params[1]
             self._shuffling = params[2]
-        
-
+        if params[0] == 'addchain':
+            self._tab = self.cfg.table_index(params[1])
+            self._adding_chain = params[1]
+        if params[0] == 'deletechain':
+            self._tab = self.cfg.table_index(params[1])
+            self.cfg.tables[params[1]].chains.pop(params[2])
+            self.cfg.save()
+            
+    @event('dialog/submit')
+    def on_submit(self, event, params, vars):
+        if params[0] == 'dlgAddChain':
+            if vars.getvalue('action', '') == 'OK':
+                n = vars.getvalue('value', '')
+                if n == '': return
+                self.cfg.tables[self._adding_chain].chains[n] = Chain(n, '-')
+                self.cfg.save()
+            self._adding_chain = None
+        if params[0] == 'dlgShuffler':
+            if vars.getvalue('action', '') == 'OK':
+                d = vars.getvalue('list', '').split('|')
+                ch = self.cfg.tables[self._shuffling_table].chains[self._shuffling]
+                ch.rules = []
+                for s in d:
+                    ch.rules.append(Rule(s))
+                self.cfg.save()
+            self._shuffling = None
+            self._shuffling_table = None
 class FirewallContent(ModuleContent):
     module = 'firewall'
     path = __file__
