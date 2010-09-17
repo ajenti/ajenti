@@ -44,16 +44,22 @@
             <td class="ui-el-fwchain-tl">
                 <xsl:value-of select="@name"/>
             </td>
-            <xsl:if test="@default = 'ACCEPT'">
-                <td class="ui-el-fwchain-tr-accept">
-                    ACCEPT
-                </td>
-            </xsl:if>
-            <xsl:if test="@default = 'REJECT' or @default = 'DROP'">
-                <td class="ui-el-fwchain-tr-drop">
-                    <xsl:value-of select="@default"/>
-                </td>
-            </xsl:if>
+            <xsl:choose>
+                <xsl:when test="@default = 'ACCEPT'">
+                   <td class="ui-el-fwchain-tr-accept">
+                       ACCEPT
+                   </td>
+                </xsl:when>
+                <xsl:when test="@default = 'REJECT' or @default = 'DROP'">
+                   <td class="ui-el-fwchain-tr-drop">
+                       <xsl:value-of select="@default"/>
+                   </td>
+                </xsl:when>
+                <xsl:when test="@default = '-'">
+                   <td class="ui-el-fwchain-tr-accept">
+                   </td>
+                </xsl:when>
+            </xsl:choose>
         </tr>
         <tr>
             <td class="ui-el-fwchain-c" colspan="3">
@@ -61,12 +67,19 @@
                     <xsl:apply-templates />
                 </vcontainer>
                     <hcontainer>
-                        <button text="Add rule" id="addrule/{@tname}/{@name}"/>
-                        <button text="Sort" id="sort/{@tname}/{@name}"/>
-                        <label text="Set default:"/>
-                        <minibutton text="Accept" id="setdefault/{@tname}/{@name}/ACCEPT"/>
-                        <minibutton text="Drop" id="setdefault/{@tname}/{@name}/DROP"/>
-                        <minibutton text="Reject" id="setdefault/{@tname}/{@name}/REJECT"/>
+                        <minibutton text="Add rule" id="addrule/{@tname}/{@name}"/>
+                        <minibutton text="Shuffle" id="shuffle/{@tname}/{@name}"/>
+                        <xsl:choose>
+                            <xsl:when test="@default = '-'">
+                                <minibutton text="Delete chain" id="deletechain/{@tname}/{@name}"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <label text="Set default:"/>
+                                <minibutton text="Accept" id="setdefault/{@tname}/{@name}/ACCEPT"/>
+                                <minibutton text="Drop" id="setdefault/{@tname}/{@name}/DROP"/>
+                                <minibutton text="Reject" id="setdefault/{@tname}/{@name}/REJECT"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </hcontainer>
             </td>
         </tr>

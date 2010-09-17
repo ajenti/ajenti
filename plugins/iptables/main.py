@@ -22,7 +22,7 @@ class FirewallPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
-        ui = UI.VContainer()
+        ui = UI.VContainer(spacing=15)
         for t in self.cfg.tables:
             t = self.cfg.tables[t]
             for ch in t.chains:
@@ -31,7 +31,7 @@ class FirewallPlugin(CategoryPlugin):
                 for r in ch.rules:
                     uic.append(UI.FWRule(action=r.action, desc=r.raw))
                 ui.append(uic)
-            
+            ui.append(UI.Button(text='Add new chain to '+t.name, id='addchain/'+t.name))
         return ui
                
     @event('minibutton/click')
