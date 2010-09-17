@@ -3,13 +3,14 @@
 
 .ui-el-fwrule-r-normal {
     background: #999;
-    background: -moz-linear-gradient(top,  #83ea5f,  #569b3d);
+    background: -moz-linear-gradient(top,  #eee,  #ccc);
     background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
 
     height: 20px;
     width: 380px;
     float: left;
-
+    overflow: hidden;
+    
     line-height: 20px;
     padding-left: 5px;
     
@@ -18,14 +19,14 @@
     -moz-border-radius: 0px 3px 3px 0px;
     border-left: none;
     
-    color: #777;
+    color: #444;
 }
 
 
 .ui-el-fwrule-l-misc {
     background: #888;
-    background: -moz-linear-gradient(top,  #999,  #777);
-    background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#777));
+    background: -moz-linear-gradient(top,  #ecc183,  #d3a158);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ecc183), to(#d3a158));
 
     height: 20px;
     width: 50px;
@@ -34,12 +35,12 @@
     line-height: 20px;
     text-align: center;
 
-    border: 1px solid #777;
+    border: 1px solid #a77c3e;
     border-radius: 3px 0px 0px 3px;
     -moz-border-radius: 3px 0px 0px 3px;
 
     color: #fff;
-    text-shadow: -1px -1px 1px #777;
+    text-shadow: -1px -1px 1px #a77c3e;
     font-weight: bold;
 }
 
@@ -66,8 +67,8 @@
 
 .ui-el-fwrule-l-drop {
     background: #ff4646;
-    background: -moz-linear-gradient(top,  #ff7676,  #569b3d);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff7676), to(#ff4646));
+    background: -moz-linear-gradient(top,  #ff3737,  #e00000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff3737), to(#e00000));
 
     height: 20px;
     width: 50px;
@@ -76,12 +77,12 @@
     line-height: 20px;
     text-align: center;
 
-    border: 1px solid #ff4646;
+    border: 1px solid #e00000;
     border-radius: 3px 0px 0px 3px;
     -moz-border-radius: 3px 0px 0px 3px;
 
     color: #fff;
-    text-shadow: -1px -1px 1px #ff4646;
+    text-shadow: -1px -1px 1px #e00000;
     font-weight: bold;
 }
 
@@ -99,6 +100,7 @@
     line-height: 20px;
 
     border: 1px solid #777;
+    border-right: none;
     padding-left: 10px;
     color: #fff;
     text-shadow: -1px -1px 1px #777;
@@ -117,6 +119,7 @@
     line-height: 20px;
 
     border: 1px solid #777;
+    border-right: none;
     padding-left: 10px;
     color: #fff;
     text-shadow: -1px -1px 1px #777;
@@ -142,12 +145,12 @@
 .ui-el-fwchain-tr-drop {
     border-radius: 0px 3px 0px 0px;
     -moz-border-radius: 0px 3px 0px 0px;
-    border: 1px solid #777;
-    background: #ff4646;
-    background: -moz-linear-gradient(top,  #ff7676,  #569b3d);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff7676), to(#ff4646));
+    border: 1px solid #e00000;
+    background: #e00000;
+    background: -moz-linear-gradient(top,  #ff3737,  #e00000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff3737), to(#e00000));
     color: #fff;
-    text-shadow: -1px -1px 1px #777;
+    text-shadow: -1px -1px 1px #e00000;
     font-weight: bold;
     height: 20px;
     padding-left: 10px;

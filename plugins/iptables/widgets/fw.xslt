@@ -1,37 +1,39 @@
 <xsl:template match="fwrule">
-    <div class="ui-el-fwrule-wr">
-        <xsl:if test="@action = 'ACCEPT'">
-            <div class="ui-el-fwrule-l-accept">ACC</div>
-        </xsl:if>    
+    <a href="#" class="ui-el-fwrule-wr">
+        <xsl:choose>
+            <xsl:when test="@action = 'ACCEPT'">
+                <div class="ui-el-fwrule-l-accept">ACC</div>
+            </xsl:when>    
             
-        <xsl:if test="@action = 'REJECT'">
-            <div class="ui-el-fwrule-l-drop">REJ</div>
-        </xsl:if>    
+            <xsl:when test="@action = 'REJECT'">
+                <div class="ui-el-fwrule-l-drop">REJ</div>
+            </xsl:when>    
 
-        <xsl:if test="@action = 'DROP'">
-            <div class="ui-el-fwrule-l-drop">DROP</div>
-        </xsl:if>    
+            <xsl:when test="@action = 'DROP'">
+                <div class="ui-el-fwrule-l-drop">DROP</div>
+            </xsl:when>    
 
-        <xsl:if test="@action = 'LOG'">
-            <div class="ui-el-fwrule-l-misc">LOG</div>
-        </xsl:if>    
+            <xsl:when test="@action = 'LOG'">
+                <div class="ui-el-fwrule-l-misc">LOG</div>
+            </xsl:when>    
 
-        <xsl:if test="@action = 'EXIT'">
-            <div class="ui-el-fwrule-l-misc">EXIT</div>
-        </xsl:if>    
+            <xsl:when test="@action = 'EXIT'">
+                <div class="ui-el-fwrule-l-misc">EXIT</div>
+            </xsl:when>    
 
-        <xsl:if test="@action = 'RUN'">
-            <div class="ui-el-fwrule-l-misc">RUN</div>
-        </xsl:if>    
+            <xsl:when test="@action = 'MASQUERADE'">
+                <div class="ui-el-fwrule-l-accept">MASQ</div>
+            </xsl:when>    
 
-        <xsl:if test="@action = 'MASQUERADE'">
-            <div class="ui-el-fwrule-l-accept">MASQ</div>
-        </xsl:if>    
-            
+            <xsl:otherwise>
+                <div class="ui-el-fwrule-l-misc">RUN</div>
+            </xsl:otherwise>    
+        </xsl:choose>
+        
         <div class="ui-el-fwrule-r-normal">
             <xsl:value-of select="@desc"/>
         </div>
-    </div>
+    </a>
 </xsl:template>
 
 

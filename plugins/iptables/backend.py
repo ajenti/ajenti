@@ -9,6 +9,10 @@ class Rule:
     def dump(self):
         return self.raw
         
+    def summary(self):
+        return ''
+        
+        
 class Chain:
     rules = None
     
@@ -23,6 +27,7 @@ class Chain:
         for r in self.rules:
             s += '%s\n' % r.dump()
         return s
+        
         
 class Table:
     chains = None
@@ -79,5 +84,12 @@ class Config:
         
     def save(self, file):
         open(file, 'w').write(self.dump())
+            
+    def table_index(self, name):
+        i = 0
+        for t in self.tables:
+            if self.tables[t].name == name:
+                return i
+            i += 1
             
             

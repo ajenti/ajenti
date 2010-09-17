@@ -36,7 +36,8 @@
 .ui-el-sortlist-drag, .ui-el-sortlist-item, .ui-el-sortlist-item-fixed
 {
     min-width: 150px;
-    height: 20px;
+    min-height: 22px;
+    padding: 1px;
 }
 
 .ui-el-sortlist-drag
