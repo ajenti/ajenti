@@ -70,7 +70,7 @@ def fix_crontab():
     """
     Read and comment wrong for crontab string.
     """
-    cron_lines = shell('crontab -l').split('\n')
+    cron_lines = filter(None, shell('crontab -l').split('\n'))
     fixed_lines = []
     for line in cron_lines:
         if shell_stdin('crontab -', line + '\n')[1]:
