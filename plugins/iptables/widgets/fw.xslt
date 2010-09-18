@@ -1,5 +1,13 @@
 <xsl:template match="fwrule">
-    <a href="#" onclick="ajax('/handle/fwrule/click/{@id}')" class="ui-el-fwrule-wr">
+    <a href="#" class="ui-el-fwrule-wr">
+        <xsl:choose>
+            <xsl:when test="@id = ''" />
+            <xsl:otherwise>
+                <xsl:attribute name="onclick">
+                    ajax('/handle/fwrule/click/<xsl:value-of select="@id"/>')
+                </xsl:attribute>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:choose>
             <xsl:when test="@action = 'ACCEPT'">
                 <div class="ui-el-fwrule-l-accept">ACC</div>

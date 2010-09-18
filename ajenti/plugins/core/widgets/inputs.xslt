@@ -34,8 +34,19 @@
 </xsl:template>
 
 <xsl:template match="textinputarea">
-    <textarea class="ui-el-textarea" name="{@name}" disabled="{x:iif(@disabled, 'disabled', '')}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};">
+    <textarea class="ui-el-textarea" name="{@name}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};">
+        <xsl:if test="@disabled = 'True'">
+            <xsl:attribute name="disabled"/>
+        </xsl:if>
         <xsl:value-of select="x:brdequote(@text)" />
     </textarea>
+</xsl:template>
+
+<xsl:template match="selecttextinput">
+    <input class="ui-el-input" name="{@name}" value="{@value}" id="{@id}" size="{@size}" onkeypress="return noenter()" />
+    <select onchange="document.getElementById('{@id}').value = this.value" id='{@id}-hints'>
+        <option selected="">...</option>
+        <xsl:apply-templates/>
+    </select>
 </xsl:template>
 

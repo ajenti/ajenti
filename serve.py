@@ -36,7 +36,7 @@ if __name__ == '__main__':
     config_file = ''
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hcdrs:v', ['help', 'config=', 'start', 'stop', 'restart'])
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:drsv', ['help', 'config=', 'start', 'stop', 'restart'])
     except getopt.GetoptError, e:
         print str(e)
         usage()

@@ -16,6 +16,7 @@ class Element(etree.ElementBase):
     def append(self, el):
         if el is not None:
             etree.ElementBase.append(self, el)
+        return self
         
     def __setitem__(self, idx, val):
         self.set(idx, unicode(str(val)))
