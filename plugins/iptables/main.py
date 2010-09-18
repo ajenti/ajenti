@@ -106,11 +106,17 @@ class FirewallPlugin(CategoryPlugin):
                     rule.get_ui_bool('fragmented', 'Fragmentation:'),
                     UI.LayoutTableRow(           
                         UI.Label(text='Modules:'),
-                        UI.TextInput(name='modules', value=' '.join(rule.modules))
+                        UI.LayoutTableCell(
+                            UI.TextInput(name='modules', value=' '.join(rule.modules)),
+                            colspan=2
+                        )
                     ),
                     UI.LayoutTableRow(           
                         UI.Label(text='More options:'),
-                        UI.TextInput(name='options', value=' '.join(rule.miscopts))
+                        UI.LayoutTableCell(
+                            UI.TextInput(name='options', value=' '.join(rule.miscopts)),
+                            colspan=2
+                        )
                     )
                 )
             ))
@@ -119,6 +125,8 @@ class FirewallPlugin(CategoryPlugin):
             UI.LayoutTable(
                 rule.get_ui_text('sport', 'Source port:').append(UI.Label(text='(can accept ranges like 1:10,15)')),
                 rule.get_ui_text('dport', 'Destination port:'),
+                rule.get_ui_flags('TCP flags:'),
+                rule.get_ui_states('TCP states:'),
             ))
             
         return UI.DialogBox(tc, id='dlgEditRule', miscbtn='Delete', miscbtnid='deleterule')
@@ -181,6 +189,9 @@ class FirewallPlugin(CategoryPlugin):
             self._shuffling_table = None
         if params[0] == 'dlgEditRule':
             if vars.getvalue('action', '') == 'OK':
+                self.cfg.tables[self._editing_table].\
+                         chains[self._editing_chain].\
+                          rules[self._editing_rule].apply_vars(vars)
                 self.cfg.save()
             self._editing_chain = None
             self._editing_table = None

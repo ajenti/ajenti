@@ -139,6 +139,10 @@
     margin: 2px 3px 0px 0px;
 }
 
+.ui-el-checkbox {
+    margin: 2px 3px 0px 0px;
+}
+
 select {
     height: 20px;
     font-size: 10px;

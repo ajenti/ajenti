@@ -6,6 +6,8 @@ from ajenti.utils import shell
 
 
 class Rule:
+    states = ['NEW', 'ESTABLISHED', 'RELATED', 'INVALID']
+    flags = ['SYN', 'ACK', 'FIN', 'RST', 'URG', 'PSH', 'ALL', 'NONE']
 
     def __init__(self, line='-A INPUT -j ACCEPT'):
         self.reset()
@@ -19,7 +21,9 @@ class Rule:
                 inv = True
                 opts = opts[1:]
             s = [opts[0]]
+            prefix = ''
             while s[0].startswith('-'):
+                prefix += s[0][0]
                 s[0] = s[0][1:]
             opts = opts[1:]
             while len(opts) > 0 and not opts[0].startswith('-'):
@@ -42,6 +46,12 @@ class Rule:
             if s[0] == 'm':
                 self.modules.append(s[1])
                 continue
+            if s[0] == 'tcp-flags':
+                self.tcp_flags = (inv, s[1].split(','), s[2].split(','))
+                continue
+            if s[0] == 'state':
+                self.state = (inv, s[1].split(','))
+                continue
 
             self.tryset('protocol', inv, s, 'p', 'protocol') or \
             self.tryset('source', inv, s, 's', 'src') or \
@@ -53,7 +63,7 @@ class Rule:
             self.tryset('dport', inv, s, 'dport', 'destination-port') or \
             self.tryset('sport', inv, s, 'sports', 'source-ports') or \
             self.tryset('dport', inv, s, 'dports', 'destination-ports') or \
-            self.add_option(inv, s)
+            self.add_option(inv, prefix, s)
         
         
     def get_ui_text(self, param, desc):
@@ -101,31 +111,158 @@ class Rule:
                         size=size
                     )
                )
-    
+               
+    def get_ui_flags(self, desc):
+        v = self.tcp_flags
+        
+        return UI.LayoutTableRow(
+                    UI.Label(text=desc),
+                    UI.Select(
+                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Are', value='nrm', selected=not v[0] and v[1] is not None),
+                        UI.SelectOption(text='Are not', value='inv', selected=v[0] and v[1] is not None),
+                        name='tcpflags-mode'
+                    ),
+                    UI.LayoutTableCell(
+                        UI.LayoutTable(
+                            UI.LayoutTableRow(
+                                UI.Label(text='Check:'),
+                                *[UI.Checkbox(text=x, name='tcpflags-vals[]', value=x, checked=x in v[2] if v[2] else False) 
+                                    for x in self.flags]
+                            ),
+                            UI.LayoutTableRow(
+                                UI.Label(text='Mask:'),
+                                *[UI.Checkbox(text=x, name='tcpflags-mask[]', value=x, checked=x in v[1] if v[1] else False) 
+                                    for x in self.flags]
+                            )
+                        ),
+                        colspan=2
+                    )
+               )    
+
+    def get_ui_states(self, desc):
+        v = self.state
+        return UI.LayoutTableRow(
+                    UI.Label(text=desc),
+                    UI.Select(
+                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
+                        UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
+                        name='state-mode'
+                    ),
+                    UI.LayoutTableCell(
+                        UI.LayoutTable(
+                            UI.LayoutTableRow(
+                                *[UI.Checkbox(text=x, name='state[]', value=x, checked=v[1] and x in v[1]) 
+                                    for x in self.states]
+                            )
+                        ),
+                        colspan=2
+                    )
+               )    
+               
     def tryset(self, param, inv, args, *names):
         if args[0] in names:
             setattr(self, param, (inv, ' '.join(args[1:])))
         return args[0] in names
             
-    def add_option(self, inv, s):
-        self.miscopts.append(('! ' if inv else '') + ' '.join(s))
+    def add_option(self, inv, prefix, s):
+        self.miscopts.append(('! ' if inv else '') + prefix + ' '.join(s))
         
     def reset(self):
         self.action = 'ACCEPT'
         self.chain = 'INPUT'
         self.miscopts = []
         self.modules = []
+        self.tcp_flags = (False, None, None)
         
     def __getattr__(self, attr):
         return (False, None) 
         
     def dump(self):
         return self.raw
+ 
+    def apply_vars(self, vars):
+        line = '-A ' + self.chain
+
+        self.modules = vars.getvalue('modules', '').split()
+        for m in self.modules:
+            line += ' -m ' + m
+            
+        line += self._format_option('-p', 'protocol', vars)
+        line += self._format_option('-s', 'source', vars)
+        line += self._format_option('-d', 'destination', vars)
+        line += self._format_option('--mac-source', 'mac_source', vars, module='mac')
+        line += self._format_option('-i', 'in_interface', vars)
+        line += self._format_option('-o', 'out_interface', vars)
+
+        line += self._format_option('--sports', 'sport', vars, module='multiport')
+        line += self._format_option('--dports', 'dport', vars, module='multiport')
         
-    def summary(self):
-        return ''
+        if vars.getvalue('fragmented-mode', '') == 'nrm':
+            line += ' -f'
+        if vars.getvalue('fragmented-mode', '') == 'inv':
+            line += ' ! -f'
         
+        if vars.getvalue('tcpflags-mode', '') != 'ign':
+            if vars.getvalue('tcpflags-mode', '') == 'inv':
+                line += ' !'
+            
+            mask = []
+            for i in range(0, len(self.flags)):
+                if vars.getvalue('tcpflags-mask[]')[i] == '1':
+                    mask.append(self.flags[i])
+            vals = []
+            for i in range(0, len(self.flags)):
+                if vars.getvalue('tcpflags-vals[]')[i] == '1':
+                    vals.append(self.flags[i])
+
+            if mask == []: 
+                mask = ['NONE']
+            if vals == []: 
+                vals = ['NONE']
+
+            line += ' --tcp-flags ' + ','.join(mask) + ' '  + ','.join(vals)
+                       
+        if vars.getvalue('state-mode', '') != 'ign':
+            if not 'state' in self.modules:
+                line += ' -m state'
+            if vars.getvalue('state-mode', '') == 'inv':
+                line += ' !'
+            st = []
+            for i in range(0, len(self.states)):
+                if vars.getvalue('state[]')[i] == '1':
+                    st.append(self.states[i])
+            if st == []: 
+                st = ['NONE']
+            line += ' --state ' + ','.join(st)
+            
+        line += ' ' + ' '.join(self.miscopts)
         
+        self.action = vars.getvalue('caction', 'ACCEPT')        
+        if self.action == 'RUN':
+            self.action = vars.getvalue('runchain', 'ACCEPT')
+        
+        line += ' -j ' + self.action
+         
+        self.__init__(line)
+        
+                       
+    def _format_option(self, name, key, vars, flt=lambda x: x, module=None):
+        if vars.getvalue(key+'-mode') == 'ign':
+            return ''
+        s = ''
+        if module is not None:  
+            if not module in self.modules:
+                self.modules.append(module)
+                s = ' -m '+ module
+        if vars.getvalue(key+'-mode') == 'nrm':
+            s += ' ' + name + ' ' + flt(vars.getvalue(key, ''))
+        if vars.getvalue(key+'-mode') == 'inv':
+            s += ' ! ' + name + ' ' + flt(vars.getvalue(key, ''))
+        return s
+
+                               
 class Chain:
     rules = None
     
