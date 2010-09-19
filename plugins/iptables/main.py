@@ -27,9 +27,19 @@ class FirewallPlugin(CategoryPlugin):
         self._editing_table = None
         self._editing_chain = None
         self._editing_rule = None
-
+        self._error = ''
+        
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(), title='IPTables Firewall', icon='/dl/firewall/icon.png')
+        st = UI.HContainer( 
+                UI.MiniButton(text='Apply', id='apply'),
+                UI.WarningMiniButton(text='Load current', id='loadruntime', msg='Dispose saved configuration and load current iptables status'),
+                UI.MiniButton(text='Autostart', id='autostart') 
+                    if not self.cfg.has_autostart() else
+                    UI.MiniButton(text='Disable autostart', id='noautostart'),
+                spacing=0
+             )
+             
+        panel = UI.PluginPanel(st, title='IPTables Firewall', icon='/dl/firewall/icon.png')
         panel.append(self.get_default_ui())
         return panel
 
@@ -54,10 +64,12 @@ class FirewallPlugin(CategoryPlugin):
             vc.append(UI.Button(text='Add new chain to '+t.name, id='addchain/'+t.name))
             tc.add(t.name, vc)
             
-        ui = UI.VContainer(
-                UI.Label(size=3, text='Rule tables'),
-                tc
-             )
+        ui = UI.VContainer()
+        if self._error != '':
+            ui.append(UI.ErrorBox(text=self._error, title='Can\'t apply config'))
+            
+        ui.append(UI.Label(size=3, text='Rule tables'))
+        ui.append(tc)
              
         if self._shuffling != None:
             ui.append(self.get_ui_shuffler())
@@ -101,8 +113,8 @@ class FirewallPlugin(CategoryPlugin):
                     rule.get_ui_text('source', 'Source address:'),
                     rule.get_ui_text('destination', 'Destination address:'),
                     rule.get_ui_text('mac_source', 'Source MAC address:'),
-                    rule.get_ui_text('in_interface', 'Incoming interface:'),
-                    rule.get_ui_text('out_interface', 'Outgoing interface:'),
+                    rule.get_ui_select('in_interface', 'Incoming interface:', self.cfg.get_devices(), size=7),
+                    rule.get_ui_select('out_interface', 'Outgoing interface:', self.cfg.get_devices(), size=7),
                     rule.get_ui_bool('fragmented', 'Fragmentation:'),
                     UI.LayoutTableRow(           
                         UI.Label(text='Modules:'),
@@ -145,6 +157,14 @@ class FirewallPlugin(CategoryPlugin):
     @event('minibutton/click')
     @event('button/click')
     def on_click(self, event, params, vars=None):
+        if params[0] == 'apply':
+            self._error = self.cfg.apply_now()
+        if params[0] == 'autostart':
+            self.cfg.set_autostart(True)
+        if params[0] == 'noautostart':
+            self.cfg.set_autostart(False)
+        if params[0] == 'loadruntime':
+            self.cfg.load_runtime()
         if params[0] == 'setdefault':
             self._tab = self.cfg.table_index(params[1])
             self.cfg.tables[params[1]].chains[params[2]].default = params[3]
@@ -159,6 +179,24 @@ class FirewallPlugin(CategoryPlugin):
         if params[0] == 'deletechain':
             self._tab = self.cfg.table_index(params[1])
             self.cfg.tables[params[1]].chains.pop(params[2])
+            self.cfg.save()
+        if params[0] == 'addrule':
+            self._tab = self.cfg.table_index(params[1])
+            self._editing_table = params[1]
+            self._editing_chain = params[2]
+            ch = self.cfg.tables[self._editing_table].\
+                         chains[self._editing_chain]
+            self._editing_rule = len(ch.rules)
+            ch.rules.append(Rule('-A %s -j ACCEPT'%params[2]))
+            self.cfg.save()
+            
+        if params[0] == 'deleterule':
+            self.cfg.tables[self._editing_table].\
+                     chains[self._editing_chain].\
+                     rules.pop(self._editing_rule)
+            self._editing_chain = None
+            self._editing_table = None
+            self._editing_rule = None
             self.cfg.save()
 
     @event('fwrule/click')

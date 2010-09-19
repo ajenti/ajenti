@@ -314,23 +314,54 @@ class Table:
         
 class Config:
     tables = {}
+    apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
     
     def load_runtime(self):
-        shell('iptables-save > /tmp/ajenti-iptables')
-        load('/tmp/ajenti-iptables')
-        os.unlink('/tmp/ajenti-iptables')
+        shell('iptables-save > /etc/iptables.up.rules')
+        self.load()
     
+    def apply_now(self):
+        return shell(self.apply_shell)
+        
+    def has_autostart(self):
+        return self.apply_shell in open('/etc/rc.local').read().splitlines()
+
+    def set_autostart(self, active):
+        ll = open('/etc/rc.local').read().splitlines()
+        f = open('/etc/rc.local', 'w')
+        saved = False
+        for l in ll:
+            if l == 'exit 0' and active and not saved:
+                f.write(self.apply_shell + '\n')
+                saved = True
+            if l != self.apply_shell:
+                f.write(l + '\n')
+        if active and not saved:
+            f.write(self.apply_shell + '\n')
+        f.close()
+        
     def load(self, file='/etc/iptables.up.rules'):
-        data = open(file).read().split('\n')
         self.tables = {}
-        while len(data)>0:
-            s = data[0]
-            data = data[1:]
-            if s != '':
-                if s[0] == '*':
-                    self.tables[s[1:]] = Table(s[1:])
-                    self.tables[s[1:]].load(data)        
-                    
+        try:
+            data = open(file).read().split('\n')
+            while len(data)>0:
+                s = data[0]
+                data = data[1:]
+                if s != '':
+                    if s[0] == '*':
+                        self.tables[s[1:]] = Table(s[1:])
+                        self.tables[s[1:]].load(data)        
+        except:
+            self.load_runtime()
+           
+    def get_devices(self):
+        d = []
+        for l in open('/proc/net/dev').read().splitlines():
+            if ':' in l:
+                dev = l.split(':')[0].strip()
+                d.append((dev,dev))
+        return d
+        
     def dump(self):
         s = ''
         for r in self.tables:
