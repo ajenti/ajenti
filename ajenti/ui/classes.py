@@ -132,7 +132,6 @@ class UI(object):
     def TreeContainer(*args, **kwargs):
         class TreeContainer(Element):
             def __init__(self, *args):
-                print self.__class__
                 Element.__init__(self, 'treecontainer', **kwargs)
                 for e in args:
                     if isinstance(e, Element):

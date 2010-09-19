@@ -10,19 +10,17 @@ class Config(ConfigParser):
     def __init__(self):
         ConfigParser.__init__(self)
         self.add_section('ajenti')
-        self.set('ajenti', 'platform', detect_platform())
+        self.set('platform', detect_platform())
 
     def load(self, fn):
         self.filename = fn
         self.read(fn)
 
     def save(self):
-        pl = self.get('ajenti', 'platform')
-        self.set('ajenti', 'platform', None)
         with open(self.filename, 'w') as f:
             self.write(f)
         self.set('ajenti', 'platform', pl)
-        
+       
     def get(self, val, *args):
         if len(args) == 0:
             return self.internal[val]

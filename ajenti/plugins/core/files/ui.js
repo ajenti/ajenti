@@ -114,3 +114,21 @@ function ui_showwarning(text, btnid) {
     warning_button_id = btnid;
     document.getElementById('warning-button').onclick = accept_warning;
 }
+
+
+function ui_help_setup(text) {
+    hint = document.getElementById('help-hint');
+    hint.innerHTML = text;
+}
+
+function ui_help_show(evt) {
+    hint = document.getElementById('help-hint');
+    hint.style.display = 'block';
+    hint.style.left = (evt.clientX + window.pageXOffset + 10) + 'px';
+    hint.style.top = (evt.clientY + window.pageYOffset + 10) + 'px'; 
+}
+
+function ui_help_hide() {
+    hint = document.getElementById('help-hint');
+    hint.style.display = 'none';
+}

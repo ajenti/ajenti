@@ -37,5 +37,7 @@ img {
     border: 1px solid #ccc;
 }
 
-
+table {
+    border-spacing: 0px;
+}
 

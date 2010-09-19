@@ -84,3 +84,9 @@
     </div>
 </xsl:template>
 
+<xsl:template match="helpicon">
+    <div class="ui-el-helpicon" onmouseover="ui_help_setup('{@text}')" onmousemove="ui_help_show(event)" onmouseout="ui_help_hide(event)">
+        <img src="/dl/core/ui/help.png"/>
+    </div>
+</xsl:template>
+

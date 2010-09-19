@@ -66,7 +66,7 @@ class Rule:
             self.add_option(inv, prefix, s)
         
         
-    def get_ui_text(self, param, desc):
+    def get_ui_text(self, param, desc, help=''):
         v = getattr(self, param)
         return UI.LayoutTableRow(
                     UI.Label(text=desc),
@@ -76,7 +76,7 @@ class Rule:
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
                         name='%s-mode'%param
                     ),
-                    UI.TextInput(name=param, value=v[1] or '')
+                    UI.TextInput(name=param, value=v[1] or '', help=help)
                )
 
     def get_ui_bool(self, param, desc):

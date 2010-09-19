@@ -34,8 +34,7 @@ class Application (PluginManager, Plugin):
         self.config = config
         self.content = {}
         self.log = config.get('log_facility')
-        self.platform = config.get('ajenti','platform')
-
+        self.platform = config.get('platform')
         includes = []
         functions = {}
         tags = {}

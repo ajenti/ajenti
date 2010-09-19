@@ -110,7 +110,7 @@ class FirewallPlugin(CategoryPlugin):
                 ),
                 UI.LayoutTable(
                     rule.get_ui_select('protocol', 'Protocol:', protocols, size=5),
-                    rule.get_ui_text('source', 'Source address:'),
+                    rule.get_ui_text('source', 'Source address:', help="You can specify IP mask like 192.168.0.0/24"),
                     rule.get_ui_text('destination', 'Destination address:'),
                     rule.get_ui_text('mac_source', 'Source MAC address:'),
                     rule.get_ui_select('in_interface', 'Incoming interface:', self.cfg.get_devices(), size=7),
@@ -119,7 +119,7 @@ class FirewallPlugin(CategoryPlugin):
                     UI.LayoutTableRow(           
                         UI.Label(text='Modules:'),
                         UI.LayoutTableCell(
-                            UI.TextInput(name='modules', value=' '.join(rule.modules)),
+                            UI.TextInput(name='modules', value=' '.join(rule.modules), help="Additional IPTables modules to load"),
                             colspan=2
                         )
                     ),
@@ -135,7 +135,7 @@ class FirewallPlugin(CategoryPlugin):
             
         tc.add('TCP/UDP',
             UI.LayoutTable(
-                rule.get_ui_text('sport', 'Source port:').append(UI.Label(text='(can accept ranges like 1:10,15)')),
+                rule.get_ui_text('sport', 'Source port:', help='Can accept lists and ranges like 80:85,8000 up to 15 ports'),
                 rule.get_ui_text('dport', 'Destination port:'),
                 rule.get_ui_flags('TCP flags:'),
                 rule.get_ui_states('TCP states:'),
