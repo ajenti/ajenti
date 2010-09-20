@@ -20,6 +20,13 @@
 <xsl:template match="datatable">
     <table cellspacing="0" cellpadding="0" class="ui-el-table" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:apply-templates />
+        <xsl:if test="count(*) = 1">
+            <tr class="ui-el-table-row">
+                <td class="ui-el-table-cell-empty" colspan="1000">
+                    Empty
+                </td>
+            </tr>
+        </xsl:if>
     </table>
 </xsl:template>
 

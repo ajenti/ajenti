@@ -41,7 +41,7 @@
 .ui-el-minibutton {
     min-width: 40px;
     height: 18px;
-    line-height: 20px;
+    line-height: 18px;
     float: left;
     margin-right: 10px;
 
@@ -180,7 +180,7 @@ select {
 }
 
 .ui-el-progressbar-wrapper {
-    margin: 1px 0px 0px 0px;
+    margin: 3px 0px 0px 0px;
 }
 
 

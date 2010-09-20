@@ -4,10 +4,11 @@
 .ui-el-treecontainernode-button {
     display: inline;
     width: 12px;
+    padding-right: 4px;
 }
 
 .ui-el-treecontainernode-inner {
-    padding-left: 16px;
+    padding-left: 14px;
 }
 
 .ui-el-treecontainernode-title {
@@ -26,12 +27,14 @@
 
 
 .ui-el-tab-header {
-    margin: 5px;
+    margin: 4px;
     float: left;
+    font-size: 12px;
 }
 
 .ui-el-tab-header-active {
-    padding: 5px;
+    font-size: 12px;
+    padding: 4px;
     background: #cccccc;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;

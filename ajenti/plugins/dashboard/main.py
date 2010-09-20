@@ -11,7 +11,7 @@ from api import *
 
 class Dashboard(CategoryPlugin):
     text = 'Dashboard'
-    icon = '/dl/dashboard/icon.png'
+    icon = '/dl/dashboard/icon_small.png'
     folder = 'top'
 
     widgets = Interface(IDashboardWidget)
