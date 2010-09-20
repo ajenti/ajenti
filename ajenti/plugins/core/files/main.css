@@ -137,10 +137,11 @@
 
 .ui-el-category-text {
     font-size: 15px;
-    padding: 0px;
+    padding: 2px 0px 0px;
 }
 
 .ui-el-category-selected .ui-el-category-text {
+    padding: 1px 0px 0px;
     color: #fff;
 }
 

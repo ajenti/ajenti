@@ -49,7 +49,12 @@ class PackageManagerPlugin(CategoryPlugin):
         pnl = UI.VContainer(tabs)
 
         if self._confirm_apply:
-            res = UI.DataTable()
+            res = UI.DataTable(UI.DataTableRow(
+                    UI.Label(text='Action'),
+                    UI.Label(text='Package'),
+                    header=True
+                  ))
+                  
             if self._confirm_apply:
                 r = self.mgr.get_expected_result(self._status)
                 for x in r:
@@ -61,7 +66,6 @@ class PackageManagerPlugin(CategoryPlugin):
 
             dlg = UI.DialogBox(
                     res,
-                    UI.Spacer(height=20),
                     title="Apply changes?", id="dlgApply"
                   )
             pnl.append(dlg)
@@ -182,10 +186,8 @@ class PackageManagerPlugin(CategoryPlugin):
         cp = UI.VContainer(
                 UI.Label(text='Upgrade / install:', size=3),
                 tu,
-                UI.Spacer(height=20),
                 UI.Label(text='Remove:', size=3),
                 ti,
-                UI.Spacer(height=20),
                 UI.Button(text='Apply now', id='apply')
              )
 

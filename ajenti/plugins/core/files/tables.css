@@ -31,6 +31,13 @@
     vertical-align: middle;
 }
 
+.ui-el-table-cell-empty {
+    padding: 5px;
+    font-size: 10px;
+    text-align: center;
+    color: #999;
+}
+
 .ui-el-table-cell-hidden {
     visibility: visible;
     opacity: 0.2;
