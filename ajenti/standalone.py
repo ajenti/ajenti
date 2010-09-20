@@ -4,6 +4,7 @@
 import sys
 import logging
 from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
+import SocketServer
 from OpenSSL import SSL
 import socket
 
@@ -33,7 +34,7 @@ class CustomRequestHandler(WSGIRequestHandler):
                                               code, size))
 
 
-class CustomServer(WSGIServer):
+class CustomServer(SocketServer.ThreadingMixIn, WSGIServer):
     cert_file = ''
     request_queue_size = 100
 
