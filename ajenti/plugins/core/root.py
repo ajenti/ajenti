@@ -86,7 +86,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         templ.appendChildInto('links',
             UI.HContainer(
                 UI.OutLinkLabel(text='About', url='http://ajenti.assembla.com/wiki/show/ajenti/aLa8XiGfWr36nLeJe5cbLA'),
-                UI.OutLinkLabel(text='License', url='http://eugeny.github.com/ajenti/license/')
+                UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')
             ))
             
         return templ.render()
