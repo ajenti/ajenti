@@ -26,7 +26,6 @@ run('cd ..;find|grep .pyc|xargs rm')
     
 ann_build('ajenti')
 run('mkdir tmp/usr/share/ajenti/ajenti/ -p')
-run('mkdir tmp/usr/lib/ajenti/plugins/ -p')
 run('mkdir tmp/usr/bin/ -p')
 run('mkdir tmp/etc/ajenti -p')
 if sys.argv[1] == 'arch':
@@ -43,7 +42,8 @@ if sys.argv[1] == 'arch':
     run('cp files/initscript tmp/etc/rc.d/ajenti')
 else:
     run('cp files/initscript tmp/etc/init.d/ajenti')
-run('ln -s /usr/share/ajenti/serve.py tmp/usr/bin/ajenti')
+run('cp files/starter tmp/usr/bin/ajenti')
+run('chmod 755 tmp/usr/bin/ajenti')
 
 deps = ['python2.6', 'python-lxml', 'python-openssl']
 pkg.build('tmp/', 'ajenti', version, base_desc, deps, [])
@@ -79,9 +79,9 @@ for p in os.listdir('../plugins'):
             
         deps.append('ajenti')
         ann_build('ajenti-plugin-' + pkgname + '-'+ version)
-        run('mkdir tmp/usr/lib/ajenti/plugins/' + p + ' -p')
-        run('cp -r ../plugins/' + p + '/* tmp/usr/lib/ajenti/plugins/' + p)
-        run('rm tmp/usr/lib/ajenti/plugins/' + p + '/info')
+        run('mkdir tmp/usr/share/ajenti/plugins/' + p + ' -p')
+        run('cp -r ../plugins/' + p + '/* tmp/usr/share/ajenti/plugins/' + p)
+        run('rm tmp/usr/share/ajenti/plugins/' + p + '/info')
         pkg.build('tmp/', 'ajenti-plugin-' + pkgname, version, base_desc + desc, deps, provs)
     except:
         print '  Skipping plugin ' + p
