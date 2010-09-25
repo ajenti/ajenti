@@ -65,7 +65,7 @@ def read_module_config(s):
     with open(dir_mods_avail + s + '.conf', 'r') as f:
         return f.read()
 
-def save_host_config(s, c):
+def save_module_config(s, c):
     with open(dir_mods_avail + s + '.conf', 'w') as f:
         f.write(c)
 
