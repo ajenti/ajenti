@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /usr/share/ajenti
+python -B serve.py $1 $2 $3 $4 $5
