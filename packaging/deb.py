@@ -9,6 +9,10 @@ bin_path = '/usr/bin/'
 
 def build(dir, name, ver, desc, deps, provs):
     run('mkdir ' + dir + 'DEBIAN')
+    if name == 'ajenti':
+        run('echo "#!/bin/sh\nupdate-rc.d ajenti start 2 3 4 5 . stop 0 1 6 .; exit 0" > %sDEBIAN/postinst'%dir)
+        run('echo "#!/bin/sh\nupdate-rc.d -f ajenti remove; exit 0" > %sDEBIAN/postrm'%dir)
+        run('chmod 755 %sDEBIAN/post*'%dir)
     
     l = (name, ver, ', '.join(deps))
     i = 'Package: %s\nPriority: optional\nSection: admin\nArchitecture: i386\nVersion: %s\nDepends: %s\n' % l
