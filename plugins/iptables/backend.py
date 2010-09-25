@@ -352,7 +352,7 @@ class Config:
                         self.tables[s[1:]] = Table(s[1:])
                         self.tables[s[1:]].load(data)        
         except:
-            self.load_runtime()
+            pass
            
     def get_devices(self):
         d = []
