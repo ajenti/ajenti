@@ -19,7 +19,6 @@ class Config(ConfigParser):
     def save(self):
         with open(self.filename, 'w') as f:
             self.write(f)
-        self.set('ajenti', 'platform', pl)
        
     def get(self, val, *args):
         if len(args) == 0:
