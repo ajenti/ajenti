@@ -115,7 +115,7 @@ class Application (PluginManager, Plugin):
         return content
 
     def plugin_enabled(self, cls):
-        if self.platform in cls.platform \
+        if self.platform.lower() in [x.lower() for x in cls.platform] \
            or 'any' in cls.platform:
             return True
         return False
