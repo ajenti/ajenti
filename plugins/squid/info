@@ -1,5 +1,6 @@
 pkg squid
 desc Squid proxy server management plugin
 dep squid
-ver 0.1
+dep ajenti-plugin-services
+
 

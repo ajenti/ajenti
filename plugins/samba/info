@@ -1,5 +1,5 @@
 pkg samba
 desc Samba file server management plugin
 dep samba
-ver 0.1
+dep ajenti-plugin-services
 

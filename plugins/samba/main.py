@@ -3,15 +3,17 @@ from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti.utils import *
+from ajenti import apis
 
 import backend
 
 
-class SambaPlugin(CategoryPlugin):
+class SambaPlugin(apis.services.ServiceControlPlugin):
     text = 'Samba'
     icon = '/dl/samba/icon_small.png'
     folder = 'servers'
-
+    service_name = 'smbd'
+    
     def on_session_start(self):
         self._tab = 0
         self._cfg = backend.SambaConfig()
@@ -22,8 +24,8 @@ class SambaPlugin(CategoryPlugin):
         self._editing = None
         self._adding_user = False
 
-    def get_ui(self):
-        panel = UI.PluginPanel(UI.Button(text='Apply config', id='restart'), title='Samba', icon='/dl/samba/icon.png')
+    def get_main_ui(self):
+        panel = UI.ServicePluginPanel(title='Samba', icon='/dl/samba/icon.png', status=self.service_status, servicename=self.service_name)
 
         if not backend.is_installed():
             panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Samba is not installed')))

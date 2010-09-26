@@ -7,11 +7,12 @@ from ajenti import apis
 from backend import *
 
 
-class SquidPlugin(CategoryPlugin):
+class SquidPlugin(apis.services.ServiceControlPlugin):
     text = 'Squid'
     icon = '/dl/squid/icon.png'
     folder = 'servers'
-
+    service_name = 'squid'
+    
     def on_session_start(self):
         if not is_installed(): return
         self._tab = 0
@@ -26,9 +27,8 @@ class SquidPlugin(CategoryPlugin):
             p.init(self, self._cfg, idx)
             idx += 1
 
-    def get_ui(self):
-        status = 'is running' if is_running() else 'is stopped';
-        panel = UI.PluginPanel(UI.Label(text=status), title='Squid Proxy Server', icon='/dl/squid/icon.png')
+    def get_main_ui(self):
+        panel = UI.ServicePluginPanel(title='Squid Proxy Server', icon='/dl/squid/icon.png', status=self.service_status, servicename=self.service_name)
 
         if not is_installed():
             panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Squid is not installed')))

@@ -62,4 +62,6 @@ class ServicesPlugin(CategoryPlugin):
 
 class ServicesContent(ModuleContent):
     module = 'services'
+    widget_files = ['widgets.xslt']
+    css_files = ['services.css']
     path = __file__

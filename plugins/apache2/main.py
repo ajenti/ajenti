@@ -3,15 +3,16 @@ from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti.utils import *
+from ajenti import apis
 
 from backend import *
 
 
-class ApachePlugin(CategoryPlugin):
+class ApachePlugin(apis.services.ServiceControlPlugin):
     text = 'Apache'
     icon = '/dl/apache/icon.png'
-    platform = ['Debian', 'Ubuntu']
     folder = 'servers'
+    service_name = 'apache2'
         
     def on_session_start(self):
         self._tab = 0
@@ -19,9 +20,8 @@ class ApachePlugin(CategoryPlugin):
         self._editing_module = ''
         
         
-    def get_ui(self):
-        status = 'is running' if is_running() else 'is stopped';
-        panel = UI.PluginPanel(UI.Label(text=status), title='Apache web server', icon='/dl/apache/icon.png')
+    def get_main_ui(self):
+        panel = UI.ServicePluginPanel(title='Apache web server', icon='/dl/apache/icon.png', status=self.service_status, servicename=self.service_name)
 
         if not is_installed():
             panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Apache 2 is not installed')))

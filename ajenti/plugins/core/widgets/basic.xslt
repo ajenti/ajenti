@@ -20,7 +20,7 @@
             </a>
         </xsl:when>
         <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/button/click/{@id}');">
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');">
                 <div class="ui-el-button">
                     <xsl:value-of select="@text" />
                 </div>
@@ -38,7 +38,7 @@
 </xsl:template>
 
 <xsl:template match="minibutton">
-    <a href="#" onclick="javascript:return ajax('/handle/minibutton/click/{@id}');">
+    <a href="#" onclick="javascript:return ajax('/handle/{x:attr(@class, 'minibutton')}/click/{@id}');">
         <div class="ui-el-minibutton">
             <xsl:value-of select="@text" />
         </div>
