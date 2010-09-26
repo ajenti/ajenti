@@ -1,5 +1,6 @@
 from main import *
 from api import *
+from widget import *
 
 # NetworkConfigs
 from nc_debian import *

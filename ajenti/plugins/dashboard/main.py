@@ -18,22 +18,15 @@ class Dashboard(CategoryPlugin):
 
     def get_ui(self):
         # Arrange widgets in two columns
-        w = UI.LayoutTable(width="600px")
-        for i in range(0, len(self.widgets)/2):
-            x = self.widgets[i*2]
-            y = self.widgets[i*2+1]
-            w.append(UI.LayoutTableRow(
-                                UI.LayoutTableCell(x.get_ui(), width="300px"),
-                                UI.LayoutTableCell(y.get_ui(), width="300px")
-                          )
-              )
-
-        if len(self.widgets) % 2 == 1:
-            w.append(UI.LayoutTableRow(
-                                UI.LayoutTableCell(self.widgets[len(self.widgets)-1].get_ui(), width="300px"),
-                                UI.LayoutTableCell(width="300px")
-                          )
-              )
+        lc = UI.VContainer()
+        rc = UI.VContainer()
+        w = UI.HContainer(lc, rc)
+        
+        for i in range(0, len(self.widgets)):
+            if i % 2 == 0:
+                rc.append(self.widgets[i].get_ui())
+            else:
+                lc.append(self.widgets[i].get_ui())
 
         u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/server.png')
         return u

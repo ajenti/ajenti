@@ -79,14 +79,16 @@ class UI(object):
                         if e.tag == 'layouttablerow':
                             self.append(e)
                         else:
-                            self.append(UI.LayoutTableRow(e))
+                            c = UI.LayoutTableRow(e) 
+                            c['spacing'] = self['spacing']
+                            self.append(c)
 
         return LayoutTable(*args, **kwargs)
 
     @staticmethod
     def LayoutTableRow(*args, **kwargs):
         class LayoutTableRow(Element):
-            def __init__(self, *args):
+            def __init__(self, *args, **kwargs):
                 Element.__init__(self, 'layouttablerow', **kwargs)
                 for e in args:
                     if e.tag == 'layouttablecell':
