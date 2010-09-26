@@ -16,7 +16,7 @@ def build(dir, name, ver, desc, deps, provs):
         run('echo /etc/ajenti/ajenti.conf > %sDEBIAN/conffiles'%dir)
     
     l = (name, ver, ', '.join(deps))
-    i = 'Package: %s\nPriority: optional\nSection: admin\nArchitecture: i386\nVersion: %s\nDepends: %s\n' % l
+    i = 'Package: %s\nPriority: optional\nSection: admin\nArchitecture: all\nVersion: %s\nDepends: %s\n' % l
     if provs != []:
         i += 'Provides: %s\n' % ', '.join(provs)
     i += 'Description: %s\n' % desc

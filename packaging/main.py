@@ -26,6 +26,7 @@ run('cd ..;find|grep .pyc|xargs rm')
     
 ann_build('ajenti')
 run('mkdir tmp/usr/share/ajenti/ajenti/ -p')
+run('mkdir tmp/usr/share/ajenti/plugins/ -p')
 run('mkdir tmp/usr/bin/ -p')
 run('mkdir tmp/etc/ajenti -p')
 if sys.argv[1] == 'arch':
