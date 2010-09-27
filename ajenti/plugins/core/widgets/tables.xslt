@@ -18,7 +18,7 @@
     
 
 <xsl:template match="datatable">
-    <table cellspacing="0" cellpadding="0" class="ui-el-table" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+    <table cellspacing="0" cellpadding="0" class="ui-el-table" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; {x:iif(@noborder, 'border: none', '')}">
         <xsl:apply-templates />
         <xsl:if test="count(*) = 1">
             <tr class="ui-el-table-row">
