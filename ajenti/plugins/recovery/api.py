@@ -46,6 +46,9 @@ class Manager(Plugin):
         
     def list_backups(self, id):
         r = []
+        if not os.path.exists(os.path.join(self.dir, id)):
+            return r
+            
         for x in os.listdir(os.path.join(self.dir, id)):
             r.append(BackupRevision(
                         x.split('.')[0], 
@@ -58,10 +61,7 @@ class Manager(Plugin):
         return reversed(sorted(r, key=lambda x: x._date))
 
     def delete_backup(self, id, rev):
-        try:
-            os.unlink(os.path.join(self.dir, id, rev+'.tar.gz'))
-        except:
-            pass
+        os.unlink(os.path.join(self.dir, id, rev+'.tar.gz'))
         
     def find_provider(self, id):
         for x in self.app.grab_plugins(IRecoveryProvider):
@@ -74,29 +74,39 @@ class Manager(Plugin):
         except:
             pass
         dir = tempfile.mkdtemp()
-        provider.backup(dir)
-        if shell_status('cd %s; tar -cvpzf backup.tar.gz *'%dir) != 0:
-            raise Exception()
-            
-        name = 0
+        
         try:
-            name = int(os.listdir(self.dir+'/'+provider.id)[0].split('.')[0])
+            provider.backup(dir)
+
+            if shell_status('cd %s; tar -cvpzf backup.tar.gz *'%dir) != 0:
+                raise Exception()
+            
+            name = 0
+            try:
+                name = int(os.listdir(self.dir+'/'+provider.id)[0].split('.')[0])
+            except:
+                pass
+            
+            while os.path.exists('%s/%s/%i.tar.gz'%(self.dir,provider.id,name)):
+                name += 1
+            
+            shutil.move('%s/backup.tar.gz'%dir, '%s/%s/%s.tar.gz'%(self.dir,provider.id,name))
         except:
-            pass
-            
-        while os.path.exists('%s/%s/%i.tar.gz'%(self.dir,provider.id,name)):
-            name += 1
-            
-        shutil.move('%s/backup.tar.gz'%dir, '%s/%s/%s.tar.gz'%(self.dir,provider.id,name))
-        shutil.rmtree(dir)
+            raise Exception()
+        finally:
+            shutil.rmtree(dir)
         
     def restore_now(self, provider, revision):
         dir = tempfile.mkdtemp()
         shutil.copy('%s/%s/%s.tar.gz'%(self.dir,provider.id,revision), '%s/backup.tar.gz'%dir)
         if shell_status('cd %s; tar -xf backup.tar.gz'%dir) != 0:
             raise Exception()
-        provider.restore(dir)
-        shutil.rmtree(dir)
-        
-        
-        
+        os.unlink('%s/backup.tar.gz'%dir)
+
+        try:
+            provider.restore(dir)
+        except:
+            raise
+        finally:
+            shutil.rmtree(dir)
+

@@ -16,12 +16,13 @@ class RecoveryPlugin(CategoryPlugin):
     def on_init(self):
         self.manager = Manager(self.app)
         self.providers = self.app.grab_plugins(IRecoveryProvider)
+        self.providers = sorted(self.providers, key=lambda x: x.name)
         if not self._current:
             self._current = self.providers[0].id
             self._current_name = self.providers[0].name
         
     def on_session_start(self):
-        pass
+        self._err = None
         
     def get_ui(self):
         u = UI.PluginPanel(
@@ -39,8 +40,10 @@ class RecoveryPlugin(CategoryPlugin):
                         UI.Label(text='Provider'),
                         header=True
                     ),
-                    width='100%'
+                    width='100%',
+                    noborder=True
                 )
+                
         for p in self.providers:
             provs.append(
                     UI.DataTableRow(
@@ -67,7 +70,7 @@ class RecoveryPlugin(CategoryPlugin):
                     UI.DataTableCell(
                         UI.HContainer(
                             UI.WarningMiniButton(
-                                text='Restore',
+                                text='Recover',
                                 id='restore/%s/%s'%(self._current,rev.revision),
                                 msg='Restore configuration of %s as of %s (rev %s)'%(
                                         self._current_name,
@@ -92,7 +95,7 @@ class RecoveryPlugin(CategoryPlugin):
                 )
             )       
                 
-        return UI.LayoutTable(
+        ui = UI.LayoutTable(
                    UI.LayoutTableRow(
                        UI.Label(text='Recovery providers'),
                        UI.Label(text='Backups for %s' % self._current_name),
@@ -121,17 +124,31 @@ class RecoveryPlugin(CategoryPlugin):
                        )
                    )
                )
-        
+               
+        if self._err is not None:
+            ui = UI.VContainer(UI.ErrorBox(title=self._err), ui)
+            self._err = None
+        return ui
+                
     @event('button/click')
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'backup':
-            self.manager.backup_now(self.manager.find_provider(params[1]))
+            try:
+                self.manager.backup_now(self.manager.find_provider(params[1]))
+            except:
+                self._err = 'Backup failed'
         if params[0] == 'restore':
-            self.manager.restore_now(self.manager.find_provider(params[1]), params[2])
+            try:
+                self.manager.restore_now(self.manager.find_provider(params[1]), params[2])
+            except:
+                self._err = 'Recovery failed'
         if params[0] == 'drop':
-            self.manager.delete_backup(params[1], params[2])
-        
+            try:
+                self.manager.delete_backup(params[1], params[2])
+            except:
+                self._err = 'Deletion failed'
+                        
     @event('linklabel/click')
     def on_list_click(self, event, params, vars=None):
         for p in self.providers:
