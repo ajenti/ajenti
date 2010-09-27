@@ -41,7 +41,7 @@ class MemWidget(Plugin):
                         UI.Image(file='/dl/loadavg/widget_swap.png'),
                         UI.Label(text='Swap:', bold=True),
                         UI.ProgressBar(value=su, max=st, width=100) if int(st) != 0 else None,
-                        UI.Label(text="%sM / %sM"%(ru,rt)),
+                        UI.Label(text="%sM / %sM"%(su,st)),
                         spacing=4
                     )
                 )
