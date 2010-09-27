@@ -13,19 +13,20 @@ class UpstartServiceManager(Plugin):
         r = []
         found = []
                 
-        for s in os.listdir('/etc/init'):
-            if len(s) > 5:
-                s = s[:-5]
-                svc = apis.services.Service()
-                svc.name = s
-                if 'start/running' in shell('service %s status' % s):
-                    svc.status = 'running'
-                    r.append(svc)
-                    found.append(s)
-                elif 'stop/waiting' in shell('service %s status' % s):
-                    svc.status = 'stopped'
-                    r.append(svc)
-                    found.append(s)
+        if os.path.exists('/etc/init'):        
+            for s in os.listdir('/etc/init'):
+                if len(s) > 5:
+                    s = s[:-5]
+                    svc = apis.services.Service()
+                    svc.name = s
+                    if 'start/running' in shell('service %s status' % s):
+                        svc.status = 'running'
+                        r.append(svc)
+                        found.append(s)
+                    elif 'stop/waiting' in shell('service %s status' % s):
+                        svc.status = 'stopped'
+                        r.append(svc)
+                        found.append(s)
                     
         for s in shell('service --status-all').split('\n'):
             if len(s) > 3 and s[3] != '?':
