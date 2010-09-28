@@ -33,10 +33,59 @@ class NginxBackend:
         if os.path.exists(p):
             os.unlink(p)
             
+    def _clean(self, data):
+        lines = data.split('\n')
+        r = []
+        for l in lines:
+            l = l.split()
+            if len(l) > 0:
+                for x in l:
+                    if not x.startswith('#'):
+                        r.append(x)
+                    else:
+                        break
+        return r
+        
     def _parse_host(self, data):
+        data = self._clean(data)[2:-1]
         h = apis.webserver.VirtualHost()
+        while len(data) > 0:
+            key = data[0]
+            
+            value = []
+            data = data[1:]
+            while len(data)>0 and not data[0] in [';', '{']:
+                if data[0].endswith(';'):
+                    value.append(data[0][:-1])
+                    data[0] = ';'
+                    break
+                else:
+                    value.append(data[0])
+                    data = data[1:]
+            value = ' '.join(value)
+            
+            if data[0] == ';':
+                data = data[1:]
+                if key == 'listen':
+                    h.names.append(value)
+                elif key == 'server_name':
+                    h.servername = value
+                else:
+                    h.params.append((key, value))
+            else:
+                if key == 'location':
+                    data, loc = self._parse_location(data)
+                    h.locations.append(loc)
         return h
     
+    def _parse_location(self, data):
+        while data[0] != '}':
+            data = data[1:]
+        if len(data)>0:
+            data = data[1:]
+        return data, None
+        
+        
 class NginxPlugin(apis.webserver.WebserverPlugin):
     text = 'nginx'
     icon = '/dl/nginx/icon_small.png'

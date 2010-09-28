@@ -10,12 +10,21 @@ class Webserver(API):
     class VirtualHost:
         names = None
         enabled = False
+        servername = None
+        params = None
+        locations = None
         
         def __init__(self):
             self.enabled = False
             self.names = []
+            self.servername = ''
+            self.params = []
+            self.locations = []
             
-                    
+            
+    class Location:
+        pass
+                        
     class WebserverPlugin(apis.services.ServiceControlPlugin):
         abstract = True
         
@@ -30,7 +39,8 @@ class Webserver(API):
 
         def on_session_start(self):
             self._backend = self.ws_backend
-        
+            self._editing_host = None
+            
         def get_main_ui(self):
             panel = UI.ServicePluginPanel(title=self.ws_title, icon=self.ws_icon, status=self.service_status, servicename=self.service_name)
 
@@ -78,8 +88,37 @@ class Webserver(API):
                             )
                           ))
                             
-            return UI.VContainer(tbl, UI.Button(text='Add host', id='addhost'))
-        
+            ui = UI.VContainer(tbl, UI.Button(text='Add host', id='addhost'))
+            
+            if self._editing_host is not None:
+                ui.append(
+                    self.get_ui_edit_host(
+                        self._backend.get_hosts()[self._editing_host]
+                    )
+                )
+            return ui
+                
+        def get_ui_edit_host(self, h):
+            dlg = UI.DialogBox(
+                    UI.LayoutTable(
+                        UI.LayoutTableRow(
+                            UI.Label(text='Listen at:'),
+                            UI.TextInputArea(
+                                text='\n'.join(h.names),
+                                name='listenat',
+                                help='One per line',
+                                height=50
+                            )
+                        ),
+                        UI.LayoutTableRow(
+                            UI.Label(text='Server name:'),
+                            UI.TextInput(value=h.servername, name='servername')
+                        )
+                    ),
+                    id='dlgEditHost'
+                  )
+            return dlg
+            
         @event('minibutton/click')
         def on_click(self, event, params, vars=None):
             if params[0] == 'togglehost':
@@ -88,4 +127,12 @@ class Webserver(API):
                     self._backend.disable_host(params[1])
                 else:
                     self._backend.enable_host(params[1])
-          
+            if params[0] == 'edithost':
+                self._editing_host = params[1]
+
+        @event('dialog/submit')
+        def on_submit(self, event, params, vars):
+            if params[0] == 'dlgEditHost':
+                self._editing_host = None
+                
+                
