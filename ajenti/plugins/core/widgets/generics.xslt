@@ -1,7 +1,7 @@
 <xsl:template match="customhtml">
     <div id="{@id}" />
     <script>
-         ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@html"/>');
+         ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@html)"/>');
     </script> 
 </xsl:template>
 
