@@ -20,6 +20,10 @@ class ArchServiceManager(Plugin):
 
         return sorted(r, key=lambda s: s.name)
 
+    def get_status(self, name):
+        s = shell('/etc/rc.d/' + name + ' status')
+        return 'running' if 'running' in s else 'stopped'
+
     def start(self, name):
         shell('/etc/rc.d/' + name + ' start')
 

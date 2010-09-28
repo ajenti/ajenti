@@ -10,6 +10,9 @@ class Services(API):
         def list_all(self):
             pass
 
+        def get_status(self, name):
+            pass
+
         def start(self, name):
             pass
 
@@ -41,11 +44,9 @@ class Services(API):
             mgr = self.app.get_backend(apis.services.IServiceManager)
             
             st = 'failed'
+            st = mgr.get_status(self.service_name)
             try:
-                for x in mgr.list_all():
-                    if x.name == self.service_name:
-                        st = x.status
-                        break
+                st = mgr.get_status(self.service_name)
                 if self.service_expected_status:        
                     if self.service_expected_status != st:
                         st = 'failed'
