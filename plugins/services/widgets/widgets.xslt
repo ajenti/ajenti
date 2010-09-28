@@ -15,7 +15,7 @@
             <xsl:when test="@status = 'running'">
                 <div class="ui-el-servicepluginpanel-controls">
                     <hcontainer>
-                        <img src="/dl/services/run.png" style="padding-top: 2px;"/>
+                        <img src="/dl/core/ui/stock/status-running.png" style="padding-top: 2px;"/>
                         <label text="Running"/>
                         <spacer width="10"/>
                         <minibutton class="servicecontrol" text="Restart" id="restart" />
@@ -26,7 +26,7 @@
             <xsl:when test="@status = 'stopped'">
                 <div class="ui-el-servicepluginpanel-controls">
                     <hcontainer>
-                        <img src="/dl/services/stop.png" style="padding-top: 2px;"/>
+                        <img src="/dl/core/ui/stock/status-stopped.png" style="padding-top: 2px;"/>
                         <label text="Stopped"/>
                         <spacer width="10"/>
                         <minibutton class="servicecontrol" text="Start" id="start"/>
@@ -36,7 +36,7 @@
             <xsl:when test="@status = 'failed'">
                 <div class="ui-el-servicepluginpanel-controls">
                     <hcontainer>
-                        <img src="/dl/services/fail.png" style="padding-top: 2px;"/>
+                        <img src="/dl/core/ui/stock/status-failed.png" style="padding-top: 2px;"/>
                         <label text="Failed"/>
                         <spacer width="10"/>
                         <minibutton class="servicecontrol" text="Restart" id="restart"/>
