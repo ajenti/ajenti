@@ -3,11 +3,13 @@ import os
 
 from ajenti.utils import *
 
+
 class Host:
     def __init__(self):
         self.ip = '';
         self.name = '';
         self.aliases = '';
+
 
 def read():
     ss = open('/etc/hosts', 'r').read().split('\n')

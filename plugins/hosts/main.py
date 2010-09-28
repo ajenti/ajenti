@@ -3,6 +3,7 @@ from ajenti.app.helpers import *
 
 import backend
 
+
 class HostsPlugin(CategoryPlugin):
     text = 'Hosts'
     icon = '/dl/hosts/icon_small.png'
@@ -13,10 +14,14 @@ class HostsPlugin(CategoryPlugin):
 
     def on_session_start(self):
         self._log = ''
-        self._editing = -1
+        self._editing = None
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text = 'The static table lookup for hostnames'), title='Hosts', icon='/dl/hosts/icon.png')
+        panel = UI.PluginPanel(
+                    UI.Label(text='The static lookup table for hostnames'), 
+                    title='Hosts', 
+                    icon='/dl/hosts/icon.png'
+                )
 
         t = UI.DataTable(UI.DataTableRow(
             UI.Label(text='IP address'),
@@ -32,15 +37,22 @@ class HostsPlugin(CategoryPlugin):
                 UI.Label(text=h.aliases),
                 UI.DataTableCell(
                     UI.HContainer(
-                        UI.MiniButton(id = 'edit/' + str(self.hosts.index(h)), text = 'Edit'),
-                        UI.WarningMiniButton(id = 'del/' + str(self.hosts.index(h)), text = 'Delete', msg = 'Remove %s from hosts' % h.ip)
+                        UI.MiniButton(
+                            id='edit/' + str(self.hosts.index(h)), 
+                            text='Edit'
+                        ),
+                        UI.WarningMiniButton(
+                            id='del/' + str(self.hosts.index(h)),
+                            text='Delete', 
+                            msg='Remove %s from hosts'%h.ip
+                        )
                     ),
                     hidden=True
                 )
             ))
         t = UI.VContainer(t, UI.Button(text='Add host', id='add'))
 
-        if self._editing != -1:
+        if self._editing is not None:
             try:
                 h = self.hosts[self._editing]
             except:
@@ -54,11 +66,19 @@ class HostsPlugin(CategoryPlugin):
         dlg = UI.DialogBox(
             UI.VContainer(
                 UI.LayoutTable(
-                    UI.LayoutTableRow(UI.Label(text = 'IP address: '), UI.TextInput(name='ip', value = h.ip)),
-                    UI.LayoutTableRow(UI.Label(text = 'Hostname: '), UI.TextInput(name='name', value = h.name)),
-                    UI.LayoutTableRow(UI.Label(text = 'Aliases: '), UI.TextInput(name='aliases', value = h.aliases))
+                    UI.LayoutTableRow(
+                        UI.Label(text='IP address:'), 
+                        UI.TextInput(name='ip', value=h.ip)
+                    ),
+                    UI.LayoutTableRow(
+                        UI.Label(text='Hostname:'), 
+                        UI.TextInput(name='name', value=h.name)
+                    ),
+                    UI.LayoutTableRow(
+                        UI.Label(text='Aliases:'), 
+                        UI.TextInput(name='aliases', value=h.aliases)
+                    )
             )),
-            title = 'Edit host',
             id = 'dlgEdit'
         )
 
@@ -90,7 +110,8 @@ class HostsPlugin(CategoryPlugin):
                 except:
                     self.hosts.append(h)
                 backend.save(self.hosts)
-            self._editing = -1
+            self._editing = None
+
 
 class HostsContent(ModuleContent):
     module = 'hosts'
