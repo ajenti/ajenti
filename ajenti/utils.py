@@ -5,10 +5,6 @@ import mimetypes
 from datetime import datetime
 
 
-def dequote(s):
-    s = str(s).replace('[br]', '\n').replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
-    return s
-
 def enquote(s):
     s = s.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
     return s

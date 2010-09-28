@@ -30,7 +30,7 @@ class ShellPlugin(CategoryPlugin):
     def get_default_ui(self):
         recent = [UI.SelectOption(text=x[0:40] + '...' if len(x) > 40 else x,
                                   value=x) for x in self._recent]
-        log = UI.CustomHTML(enquote(self._process.output + self._process.errors))
+        log = UI.CustomHTML(html=enquote(self._process.output + self._process.errors))
 
         frm = UI.FormBox(
                 UI.TextInput(name='cmd', size=30, id='shell-command'),

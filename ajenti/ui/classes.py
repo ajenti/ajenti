@@ -1,5 +1,4 @@
 import random
-import base64
 from lxml import etree 
 
 
@@ -48,26 +47,6 @@ class UI(object):
         >>>
         """
         return Element(name.lower(), *args, **kwargs)
-
-    @staticmethod
-    def CustomHTML(*args, **kwargs):
-        class CustomHTML(Element):
-            def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'customhtml', **kwargs)
-                for e in args:
-                    self['html'] = base64.b64encode(str(e))
-
-        return CustomHTML(*args, **kwargs)
-
-    @staticmethod
-    def TextInputArea(*args, **kwargs):
-        class TextInputArea(Element):
-            def __init__(self, *args, **kwargs):
-                Element.__init__(self, 'textinputarea', **kwargs)
-                for e in args:
-                    self['data'] = base64.b64encode(str(e))
-
-        return TextInputArea(*args, **kwargs)
 
     @staticmethod
     def ProgressBar(*args, **kwargs):

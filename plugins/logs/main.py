@@ -67,7 +67,7 @@ class LogsPlugin(CategoryPlugin):
         d = '<span style="font-family: monospace">'
         d += enquote(data)
         d += '</span>'
-        r.append(UI.CustomHTML(d))
+        r.append(UI.CustomHTML(html=d))
         return r
 
     @event('minibutton/click')

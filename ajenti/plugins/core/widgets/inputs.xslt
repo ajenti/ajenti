@@ -66,7 +66,7 @@
                 </xsl:if>
             </textarea>
             <script>
-                 ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@data"/>');
+                 ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@value)"/>');
             </script> 
         </td>
         <td>

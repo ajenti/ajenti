@@ -13,7 +13,6 @@ from ajenti.app.api import IContentProvider
 from ajenti.ui.api import IXSLTTagProvider, IXSLTFunctionProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.urlhandler import IURLHandler
-from ajenti.utils import dequote
 
 
 # Base class for application/plugin infrastructure

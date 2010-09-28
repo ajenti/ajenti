@@ -9,15 +9,15 @@ def format_error(app, err):
     print '\n%s\n' % err
     templ = app.get_template('error.xml')
     templ.appendChildInto('trace',
-            UI.TextInputArea(err, width=350))
+            UI.TextInputArea(value=err, width=350))
     templ.appendChildInto('report',
-            UI.TextInputArea(make_report(app, err), width=350))
+            UI.TextInputArea(value=make_report(app, err), width=350))
     return templ.render()
 
 def format_backend_error(app, ex):
     templ = app.get_template('nobackend.xml')
     text = 'You need a plugin that provides <b>%s</b> interface support for <b>%s</b> platform.<br/>' % (ex.interface, ex.platform)
-    templ.appendChildInto('hint', UI.CustomHTML(text))
+    templ.appendChildInto('hint', UI.CustomHTML(html=text))
     return templ.render()
 
 def make_report(app, err):

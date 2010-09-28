@@ -56,7 +56,7 @@ class BeeperPlugin(CategoryPlugin):
                                 name="select"
                             ),
                             UI.br(),
-                            UI.TextInputArea('L\norem\nipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus.', name='text', width=100, height=100),
+                            UI.TextInputArea(value='L\norem\nipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus.', name='text', width=100, height=100),
                             rowspan="3"
                         ),
                         UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),
@@ -76,7 +76,7 @@ class BeeperPlugin(CategoryPlugin):
                             id='list'
                         )
                     ),
-                    UI.CustomHTML('<b>Hello</b> <i>HTML!</i>')
+                    UI.CustomHTML(html='<b>Hello</b> <i>HTML!</i>')
                 ),
                 title="Test Dialog", id="testDialog",
                 hidecancel=True
