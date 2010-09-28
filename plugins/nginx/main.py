@@ -70,20 +70,34 @@ class NginxBackend:
                     h.names.append(value)
                 elif key == 'server_name':
                     h.servername = value
+                elif key == 'ssl':
+                    h.ssl = value == 'on'
+                elif key == 'ssl_certificate':
+                    h.ssl_cert = value
+                elif key == 'ssl_certificate_key':
+                    h.ssl_key = value
                 else:
                     h.params.append((key, value))
             else:
                 if key == 'location':
                     data, loc = self._parse_location(data)
+                    loc.name = value
                     h.locations.append(loc)
         return h
     
     def _parse_location(self, data):
-        while data[0] != '}':
+        data = data[1:]
+        loc = apis.webserver.Location()
+                
+        while not data[0] == '}':
+            loc.params += data[0]
+            if data[0].endswith(';'):
+                loc.params += '\n' 
+            else:
+                loc.params += ' ' 
             data = data[1:]
-        if len(data)>0:
-            data = data[1:]
-        return data, None
+        data = data[1:]
+        return data, loc
         
         
 class NginxPlugin(apis.webserver.WebserverPlugin):

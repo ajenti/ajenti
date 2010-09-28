@@ -66,7 +66,14 @@
                 </xsl:if>
             </textarea>
             <script>
-                 ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@value)"/>');
+                <xsl:choose>
+                    <xsl:when test="@nodecode = 'True'">
+                        ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@value"/>');
+                    </xsl:when>
+                    <xsl:otherwise>
+                        ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@value)"/>');
+                    </xsl:otherwise>
+                </xsl:choose>
             </script> 
         </td>
         <td>

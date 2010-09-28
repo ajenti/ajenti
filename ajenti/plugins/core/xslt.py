@@ -18,7 +18,10 @@ def iif(_, q, a, b):
     return a if len(q)>0 and q[0].lower() == 'true' else b
     
 def b64(_, s):
-    return base64.b64encode(str(s[0]))
+    try:
+        return base64.b64encode(str(s[0]))
+    except:
+        return base64.b64encode(str(s))
 
 
 class Selector(etree.XSLTExtension):
@@ -42,8 +45,6 @@ class CoreFunctions (Plugin):
 
 class CoreTags (Plugin):
     implements(IXSLTTagProvider)
-            
-
             
     def get_tags(self):
         return {'node' : Selector()}           
