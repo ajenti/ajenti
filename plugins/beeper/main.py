@@ -32,7 +32,6 @@ class BeeperPlugin(CategoryPlugin):
                 )
             )
         b = UI.Button(text='Beep!')
-        # TODO: maybe some autoprefixing is needed
         b['id'] = 'beeper-btn-clickme'
         a = UI.Action(text='Bang!')
         a['description'] = 'Come on, click me!'
@@ -57,7 +56,7 @@ class BeeperPlugin(CategoryPlugin):
                                 name="select"
                             ),
                             UI.br(),
-                            UI.TextInputArea(name='text', width=100, height=100, text="L[br]orem[br]ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus."),
+                            UI.TextInputArea('L\norem\nipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus.', name='text', width=100, height=100),
                             rowspan="3"
                         ),
                         UI.Checkbox(name='vote', text='I wanna vote for:', checked='yes'),

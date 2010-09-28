@@ -9,9 +9,9 @@ def format_error(app, err):
     print '\n%s\n' % err
     templ = app.get_template('error.xml')
     templ.appendChildInto('trace',
-            UI.TextInputArea(text=err, width=350))
+            UI.TextInputArea(err, width=350))
     templ.appendChildInto('report',
-            UI.TextInputArea(text=make_report(app, err), width=350))
+            UI.TextInputArea(make_report(app, err), width=350))
     return templ.render()
 
 def format_backend_error(app, ex):

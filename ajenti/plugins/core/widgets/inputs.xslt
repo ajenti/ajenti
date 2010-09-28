@@ -60,12 +60,14 @@
 <xsl:template match="textinputarea">
     <table><tr>
         <td>
-            <textarea class="ui-el-textarea" name="{@name}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};">
+            <textarea class="ui-el-textarea" name="{@name}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};" id="{@id}">
                 <xsl:if test="@disabled = 'True'">
                     <xsl:attribute name="disabled"/>
                 </xsl:if>
-                <xsl:value-of select="x:brdequote(@text)" />
             </textarea>
+            <script>
+                 ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@data"/>');
+            </script> 
         </td>
         <td>
             <xsl:if test="@help and (@help != '')">
