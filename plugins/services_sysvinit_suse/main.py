@@ -21,6 +21,10 @@ class SuseInitServiceManager(Plugin):
 
         return sorted(r, key=lambda s: s.name)
 
+    def get_status(self, name):
+        s = shell('service ' + name + ' status')
+        return 'running' if 'running' in s else 'stopped'
+
     def start(self, name):
         shell('service ' + name + ' start')
 
