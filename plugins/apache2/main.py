@@ -67,7 +67,7 @@ class ApachePlugin(apis.services.ServiceControlPlugin):
         p = UI.Container(th)
         if self._editing_host != '':
             dlg = UI.DialogBox(
-                      UI.TextInputArea(name='config', text=read_host_config(self._editing_host).replace('\n', '[br]'), width=800, height=500),
+                      UI.TextInputArea(read_host_config(self._editing_host), name='config', width=800, height=500),
                       title="Edit host config", id="dlgEditHost"
                   )
             p.append(dlg)
@@ -101,7 +101,7 @@ class ApachePlugin(apis.services.ServiceControlPlugin):
         p = UI.Container(tm)
         if self._editing_module != '':
             dlg = UI.DialogBox(
-                      UI.TextInputArea(name='config', text=read_module_config(self._editing_module).replace('\n', '[br]'), width=800, height=500),
+                      UI.TextInputArea(read_module_config(self._editing_module), name='config', width=800, height=500),
                       title="Edit module config", id="dlgEditModule"
                   )
             p.append(dlg)

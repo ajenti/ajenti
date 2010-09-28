@@ -60,6 +60,16 @@ class UI(object):
         return CustomHTML(*args, **kwargs)
 
     @staticmethod
+    def TextInputArea(*args, **kwargs):
+        class TextInputArea(Element):
+            def __init__(self, *args, **kwargs):
+                Element.__init__(self, 'textinputarea', **kwargs)
+                for e in args:
+                    self['data'] = base64.b64encode(str(e))
+
+        return TextInputArea(*args, **kwargs)
+
+    @staticmethod
     def ProgressBar(*args, **kwargs):
         class ProgressBar(Element):
             def __init__(self, value=0, max=1, width=1):
