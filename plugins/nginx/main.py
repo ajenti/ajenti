@@ -16,6 +16,7 @@ class NginxBackend:
         for h in os.listdir(os.path.join(self.config_dir, 'sites-available')):
             data = open(os.path.join(self.config_dir, 'sites-available', h)).read()
             host = self._parse_host(data)
+            host.name = h
             host.enabled = os.path.exists(
                             os.path.join(self.config_dir, 'sites-enabled', h)
                            )
@@ -32,7 +33,29 @@ class NginxBackend:
         p = os.path.join(self.config_dir, 'sites-enabled', id)
         if os.path.exists(p):
             os.unlink(p)
-            
+
+    def save_host(self, host):
+        data = 'server {\n'
+        for x in host.names:
+            data += self._format_param('listen', x)
+        data += self._format_param('server_name', host.servername)
+        
+        for x in host.params:
+            data += self._format_param(*x)
+
+        data += self._format_param('ssl', 'on' if host.ssl else '')
+        data += self._format_param('ssl_certificate', host.ssl_cert)
+        data += self._format_param('ssl_certificate_key', host.ssl_key)
+        
+        for x in host.locations:
+            data += '\n\tlocation %s {\n%s\n\t}\n' %\
+                (x.name, '\n'.join(['\t\t%s'%l for l in x.params.split('\n')]))
+        
+        data += '}\n'
+        
+        path = os.path.join(self.config_dir, 'sites-available', host.name)  
+        open(path, 'w').write(data)
+          
     def _clean(self, data):
         lines = data.split('\n')
         r = []
@@ -85,6 +108,12 @@ class NginxBackend:
                     h.locations.append(loc)
         return h
     
+    def _format_param(self, k, v):
+        if v == '':
+            return ''
+        else:
+            return '\t%s %s;\n' % (k,v)
+            
     def _parse_location(self, data):
         data = data[1:]
         loc = apis.webserver.Location()
@@ -97,6 +126,10 @@ class NginxBackend:
                 loc.params += ' ' 
             data = data[1:]
         data = data[1:]
+        
+        if loc.params.endswith('\n'):
+            loc.params = loc.params[:-1]
+            
         return data, loc
         
         

@@ -9,6 +9,7 @@ class Webserver(API):
     
     class VirtualHost:
         def __init__(self):
+            self.name = ''
             self.enabled = False
             self.names = []
             self.servername = ''
@@ -17,6 +18,7 @@ class Webserver(API):
             self.ssl = False
             self.ssl_cert = ''
             self.ssl_key = ''
+
             
     class Location:
         def __init__(self):
@@ -37,6 +39,7 @@ class Webserver(API):
             self.service_name = self.ws_service
 
         def on_session_start(self):
+            self._tab = 0
             self._backend = self.ws_backend
             self._editing_host = None
             self._editing_location = None
@@ -195,21 +198,34 @@ class Webserver(API):
         @event('minibutton/click')
         def on_click(self, event, params, vars=None):
             if params[0] == 'togglehost':
+                self._tab = 0
                 h = self._backend.get_hosts()[params[1]]
                 if h.enabled:
                     self._backend.disable_host(params[1])
                 else:
                     self._backend.enable_host(params[1])
             if params[0] == 'edithost':
+                self._tab = 0
                 self._editing_host = params[1]
+
             if params[0] == 'editlocation':
+                self._host_tab = 1
                 self._editing_location = int(params[1])
 
         @event('dialog/submit')
         def on_submit(self, event, params, vars):
             if params[0] == 'dlgEditHost':
+                if vars.getvalue('action', '') == 'OK':
+                    h = self._backend.get_hosts()[self._editing_host]
+                    h.names = vars.getvalue('listenat', '').split('\n')
+                    self._backend.save_host(h)
                 self._editing_host = None
             if params[0] == 'dlgEditLocation':
+                if vars.getvalue('action', '') == 'OK':
+                    h = self._backend.get_hosts()[self._editing_host]
+                    l = h.locations[self._editing_location]
+                    l.params = vars.getvalue('value', '')
+                    self._backend.save_host(h)
                 self._editing_location = None
                 
                 
