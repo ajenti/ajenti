@@ -153,13 +153,8 @@ class ConfigContent(ModuleContent):
     module = 'config'
     
     
-class ConfigRecovery(RecoveryProvider):
+class ConfigRecovery(SimpleFileRecoveryProvider):
     name = 'Ajenti'
     id = 'ajenti'
-    
-    def backup(self, dir):
-        shutil.copy('/etc/ajenti/ajenti.conf', dir+'/ajenti.conf')
-    
-    def restore(self, dir):
-        shutil.copy(dir+'/ajenti.conf', '/etc/ajenti/ajenti.conf')
+    path = '/etc/ajenti/ajenti.conf'
     

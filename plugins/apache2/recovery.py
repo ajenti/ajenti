@@ -1,15 +1,8 @@
-from ajenti.plugins.recovery.api import *
-from ajenti.utils import shell
+from ajenti.plugins.recovery.api import SimpleDirectoryRecoveryProvider
 
 
-class ApacheRecovery(RecoveryProvider):
+class ApacheRecovery(SimpleDirectoryRecoveryProvider):
     name = 'Apache 2'
     id = 'apache'
-    
-    def backup(self, dir):
-        shell('cp -r /etc/apache2/* %s/'%dir)
-    
-    def restore(self, dir):
-        shell('rm /etc/apache2/* -r')
-        shell('cp -r %s/* /etc/apache2/'%dir)
+    path = '/etc/apache2'
     

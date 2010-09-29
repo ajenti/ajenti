@@ -26,7 +26,30 @@ class RecoveryProvider(Plugin):
         
     def restore(self, dir):
         pass        
-        
+
+
+class SimpleFileRecoveryProvider(RecoveryProvider):
+    abstract = True
+    path = ''
+    
+    def backup(self, dir):
+        shutil.copy(self.path, dir+'/data')
+    
+    def restore(self, dir):
+        shutil.copy(dir+'/data', self.path)
+
+
+class SimpleDirectoryRecoveryProvider(RecoveryProvider):
+    abstract = True
+    path = ''
+    
+    def backup(self, dir):
+        shell('cp -r %s/* %s/'%(self.path,dir))
+    
+    def restore(self, dir):
+        shell('rm %s/* -r'%self.path)
+        shell('cp -r %s/* %s/'%(dir,self.path))
+    
 
 class BackupRevision:
     def __init__(self, rev, date):
