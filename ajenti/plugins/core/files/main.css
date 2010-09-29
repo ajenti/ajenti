@@ -72,25 +72,19 @@
 
 
 
-.ui-el-bottombar {
-    width: 90%;
-    margin: auto;
-    height: 30px;
-}
 
-
-.ui-el-bottombar-c {
-    width: auto;
+.ui-el-bottombar-l {
+    float: left;
     height: 30px;
     line-height: 28px;
-    padding-left: 8 px;
+    margin-left: 18px;
 }
 
-.ui-el-bottombar-c-2 {
-    width: 100px;
+.ui-el-bottombar-r {
+    float: right;
     height: 30px;
-    text-align: right;
     line-height: 28px;
+    margin-right: 18px;
 }
 
 
