@@ -116,6 +116,7 @@
     background: url('/dl/core/ui/category-sel.png') no-repeat;
     color: #ffffff;
     text-shadow: -1px -1px #d3a158;
+    padding-left: 1px;
 }
 
 .ui-el-category-icon img {
