@@ -8,33 +8,28 @@
 </head>
 <body id="main">
 
-<div>
-	    <div class="ui-el-mainwindow-top">
-            <table class="ui-el-topbar" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td class="ui-el-topbar-c"> 
-                        <img src="/dl/core/ui/logo.png" />
-                    </td>
-                    <td class="ui-el-topbar-ldr">
-                        <img src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
+<div class="ui-el-page">
+    <div class="ui-el-mainwindow-top">
+        <img class="ui-el-logo" src="/dl/core/ui/logo.png" />
+        <img class="ui-el-ajax-loader" src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+    </div>
+        
+    <div class="ui-el-mainwindow-body">
 		<div class="ui-el-mainwindow-left" id="leftplaceholder">
 		    <div class="ui-el-mainwindow-left-border"> 
 		    </div>
         </div>
+        
 		<div class="ui-el-mainwindow-right" id="rightplaceholder"> 
 		</div>
-        <div class="ui-el-mainwindow-bottom">
-            <table class="ui-el-bottombar" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td class="ui-el-bottombar-c" id="version" /> 
-                    <td class="ui-el-bottombar-c-2" id="links" /> 
-                </tr>
-            </table>
-        </div>
+		
+		<div style="clear: both"></div> 
+	</div>
+		
+    <div class="ui-el-mainwindow-bottom">
+        <div class="ui-el-bottombar-l" id="version" /> 
+        <div class="ui-el-bottombar-r" id="links" /> 
+    </div>
         
         
         

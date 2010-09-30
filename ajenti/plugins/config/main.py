@@ -1,4 +1,6 @@
 import platform
+import shutil
+import os
 from hashlib import sha1
 from base64 import b64encode
 
@@ -8,6 +10,7 @@ from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import detect_distro
 from ajenti.app.helpers import *
+from ajenti.plugins.recovery.api import *
 
 
 class ConfigPlugin(CategoryPlugin):
@@ -20,6 +23,7 @@ class ConfigPlugin(CategoryPlugin):
         self._adding_user = False
 
     def get_ui(self):
+        
         u = UI.PluginPanel(UI.Label(text='Ajenti %s' % version), title='Ajenti configuration', icon='/dl/config/icon.png')
 
         tabs = UI.TabControl(active=self._tab)
@@ -115,6 +119,7 @@ class ConfigPlugin(CategoryPlugin):
             self._tab = 1
             self.config.remove_option('users', params[1])
             self.config.save()
+            ConfigRecovery(self.app).backup_now()
 
     @event('form/submit')
     @event('dialog/submit')
@@ -124,6 +129,7 @@ class ConfigPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 self.config.set('users', vars.getvalue('login', ''), self.hashpw(vars.getvalue('password', '')))
                 self.config.save()
+                ConfigRecovery(self.app).backup_now()
             self._adding_user = False
         if params[0] == 'frmGeneral':
             self._tab = 0
@@ -132,14 +138,23 @@ class ConfigPlugin(CategoryPlugin):
                 self.config.set('ajenti', 'bind_port', vars.getvalue('bind_port', '8000'))
                 self.config.set('ajenti', 'ssl', vars.getvalue('ssl', '0'))
                 self.config.set('ajenti', 'cert_file', vars.getvalue('cert_file', ''))
-            self.config.save()
+                self.config.save()
+                ConfigRecovery(self.app).backup_now()
         if params[0] == 'frmSecurity':
             self._tab = 1
             if vars.getvalue('action', '') == 'OK':
                 self.config.set('ajenti', 'auth_enabled', vars.getvalue('httpauth', '0'))
-            self.config.save()
+                self.config.save()
+                ConfigRecovery(self.app).backup_now()
 
 
 class ConfigContent(ModuleContent):
     path = __file__
     module = 'config'
+    
+    
+class ConfigRecovery(SimpleFileRecoveryProvider):
+    name = 'Ajenti'
+    id = 'ajenti'
+    path = '/etc/ajenti/ajenti.conf'
+    
