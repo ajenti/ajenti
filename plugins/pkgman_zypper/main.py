@@ -18,7 +18,7 @@ class ZypperPackageManager(Plugin):
 
         st.pending = {}
         try:
-            ss = open('/tmp/ajenti-apt-pending.list', 'r').read().splitlines()
+            ss = open('/tmp/ajenti-zypper-pending.list', 'r').read().splitlines()
             for s in ss:
                 s = s.split()
                 try:
@@ -28,13 +28,13 @@ class ZypperPackageManager(Plugin):
         except:
             pass
 
-        st.list = a
+        st.full = a
 
     def get_lists(self):
         cmd = 'zypper ref> /tmp/ajenti-zypp-output; rm -f /tmp/ajenti-zypp-output &'
         subprocess.Popen(['bash', '-c', cmd])
 
-    def search(self, q):
+    def search(self, q, st):
         return self._parse_zypp(shell('zypper -An search %s' % q).splitlines())
 
     def mark_install(self, st, name):
@@ -103,7 +103,6 @@ class ZypperPackageManager(Plugin):
                 r[s[2]] = apis.pkgman.Package()
                 r[s[2]].name = s[2]
                 r[s[2]].version = s[3]
-                r[s[2]].action = 'installed'
                 r[s[2]].state = 'installed'
             except:
                 pass

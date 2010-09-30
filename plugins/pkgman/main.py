@@ -234,3 +234,7 @@ class PackageManagerPlugin(CategoryPlugin):
             if q != '':
                 self._search = self.mgr.search(q, self._status)
         
+        
+class PackageManagerContent(ModuleContent):
+    module = 'pkgman'
+    path = __file__        
