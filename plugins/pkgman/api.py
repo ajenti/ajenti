@@ -37,13 +37,15 @@ class PkgMan(API):
 
 
     class Package(object):
-        name = ''
-        version = ''
-        state = ''
-        action = ''
+        def __init__(self):
+            self.name = ''
+            self.version = ''
+            self.state = ''
+            self.description = ''
 
 
     class Status(object):
         upgradeable = None
         pending = None
-        fulllist = None
+        full = None
+        
