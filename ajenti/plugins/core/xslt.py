@@ -2,7 +2,7 @@ from lxml import etree
 import base64
 
 from ajenti.com import Plugin, implements
-from ajenti.ui.api import IXSLTTagProvider, IXSLTFunctionProvider
+from ajenti.ui.api import IXSLTFunctionProvider
 
 
 def attr(_, v, d):
@@ -39,11 +39,3 @@ class CoreFunctions (Plugin):
             'css' : css
         }
 
-
-class CoreTags (Plugin):
-    implements(IXSLTTagProvider)
-            
-
-            
-    def get_tags(self):
-        return {'node' : Selector()}           

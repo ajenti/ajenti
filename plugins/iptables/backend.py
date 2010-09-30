@@ -3,6 +3,7 @@ import getopt
 
 from ajenti.ui import UI
 from ajenti.utils import shell
+from ajenti.com import *
 
 
 class Rule:
@@ -312,11 +313,14 @@ class Table:
         return s        
         
         
-class Config:
+class Config(Plugin):
     tables = {}
     apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
     
     def load_runtime(self):
+        shell('iptables -L -t filter')
+        shell('iptables -L -t mangle')
+        shell('iptables -L -t nat')
         shell('iptables-save > /etc/iptables.up.rules')
         self.load()
     
@@ -324,21 +328,12 @@ class Config:
         return shell(self.apply_shell)
         
     def has_autostart(self):
-        return self.apply_shell in open('/etc/rc.local').read().splitlines()
+        b = self.app.get_backend(IConfig)
+        return b.has_autostart()
 
     def set_autostart(self, active):
-        ll = open('/etc/rc.local').read().splitlines()
-        f = open('/etc/rc.local', 'w')
-        saved = False
-        for l in ll:
-            if l == 'exit 0' and active and not saved:
-                f.write(self.apply_shell + '\n')
-                saved = True
-            if l != self.apply_shell:
-                f.write(l + '\n')
-        if active and not saved:
-            f.write(self.apply_shell + '\n')
-        f.close()
+        b = self.app.get_backend(IConfig)
+        b.set_autostart(active)
         
     def load(self, file='/etc/iptables.up.rules'):
         self.tables = {}
@@ -379,3 +374,75 @@ class Config:
             i += 1
             
             
+class IConfig(Interface):
+    def has_autostart(self):
+        pass
+
+    def set_autostart(self, active):
+        pass
+     
+        
+class IDebianConfig(Plugin):
+    implements(IConfig)
+    platform = ['Debian', 'Ubuntu']
+    apply_shell = '#!/bin/sh\ncat /etc/iptables.up.rules | iptables-restore'
+    path = '/etc/network/if-up.d/iptables'
+    
+    def has_autostart(self):
+        return os.path.exists(self.path)
+        
+    def set_autostart(self, active):
+        if active:
+            open(self.path, 'w').write(self.apply_shell)
+            shell('chmod 755 ' + self.path)
+        else:
+            try:
+                os.unlink(self.path)
+            except:
+                pass
+            
+            
+class ISuseConfig(Plugin):
+    implements(IConfig)
+    platform = ['openSUSE']
+    apply_shell = '#!/bin/sh\ncat /etc/iptables.up.rules | iptables-restore'
+    path = '/etc/sysconfig/network/if-up.d/50-iptables'
+    
+    def has_autostart(self):
+        return os.path.exists(self.path)
+        
+    def set_autostart(self, active):
+        if active:
+            open(self.path, 'w').write(self.apply_shell)
+            shell('chmod 755 ' + self.path)
+        else:
+            try:
+                os.unlink(self.path)
+            except:
+                pass
+
+
+class IArchConfig(Plugin):
+    implements(IConfig)
+    platform = ['Arch']
+    apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
+    path = '/etc/network.d/hooks/iptables'
+    
+    def has_autostart(self):
+        return self.apply_shell in open('/etc/rc.local').read().splitlines()
+
+    def set_autostart(self, active):
+        ll = open('/etc/rc.local').read().splitlines()
+        f = open('/etc/rc.local', 'w')
+        saved = False
+        for l in ll:
+            if l == 'exit 0' and active and not saved:
+                f.write(self.apply_shell + '\n')
+                saved = True
+            if l != self.apply_shell:
+                f.write(l + '\n')
+        if active and not saved:
+            f.write(self.apply_shell + '\n')
+        f.close()
+
+

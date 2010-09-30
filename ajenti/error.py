@@ -33,7 +33,7 @@ def make_report(app, err):
                shell('uname -a'),
                detect_platform(),
                detect_distro(),
-               '.'.join(platform.python_version_tuple()),
+               '.'.join([str(x) for x in platform.python_version_tuple()]),
                str(app.class_list()).replace(',','\n'),
                err
               ))
