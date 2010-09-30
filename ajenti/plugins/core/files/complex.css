@@ -45,3 +45,22 @@
     padding-bottom: 10px;
 }
 
+
+.ui-el-list {
+    overflow: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.ui-el-list-item {
+    padding: 2px;
+    width: 100%;
+}
+
+.ui-el-list-item-active {
+    padding: 2px;
+    width: 100%;
+    background: #eabf81;
+    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffdfa1), to(#facf91));
+}

@@ -35,19 +35,14 @@ class RecoveryPlugin(CategoryPlugin):
 
 
     def get_default_ui(self):
-        provs = UI.DataTable(
-                    UI.DataTableRow(
-                        UI.Label(text='Provider'),
-                        header=True
-                    ),
-                    width='100%',
-                    noborder=True
-                )
+        provs = UI.List(width=200, height=400)
                 
         for p in self.providers:
             provs.append(
-                    UI.DataTableRow(
-                        UI.LinkLabel(id=p.id, text=p.name)
+                    UI.ListItem(
+                        UI.Label(text=p.name), 
+                        id=p.id,
+                        active=p.id==self._current
                     )
                   )
             
@@ -109,11 +104,7 @@ class RecoveryPlugin(CategoryPlugin):
                        )
                    ),                    
                    UI.LayoutTableRow(
-                       UI.ScrollContainer(
-                           provs, 
-                           width=200,
-                           height=400
-                       ),
+                       provs, 
                        UI.LayoutTableCell(
                            UI.ScrollContainer(
                                backs,
@@ -149,7 +140,7 @@ class RecoveryPlugin(CategoryPlugin):
             except:
                 self._err = 'Deletion failed'
                         
-    @event('linklabel/click')
+    @event('listitem/click')
     def on_list_click(self, event, params, vars=None):
         for p in self.providers:
             if p.id == params[0]:
