@@ -10,7 +10,7 @@ from ajenti.error import *
 from ajenti.app.session import SessionStore, SessionManager
 from ajenti.app.auth import AuthManager
 from ajenti.app.api import IContentProvider
-from ajenti.ui.api import IXSLTTagProvider, IXSLTFunctionProvider
+from ajenti.ui.api import IXSLTFunctionProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.urlhandler import IURLHandler
 
@@ -20,7 +20,6 @@ class Application (PluginManager, Plugin):
 
     uri_handlers = Interface(IURLHandler)
     content_providers = Interface(IContentProvider)
-    tag_providers = Interface(IXSLTTagProvider)
     func_providers = Interface(IXSLTFunctionProvider)
 
     def __init__(self, config=None):
@@ -41,9 +40,6 @@ class Application (PluginManager, Plugin):
         for f in self.func_providers:
             functions.update(f.get_funcs())
 
-        for t in self.tag_providers:
-            tags.update(t.get_tags())
-        
         # Get path for static content and templates
         for c in self.content_providers:
             (module, path) = c.content_path()
@@ -61,8 +57,7 @@ class Application (PluginManager, Plugin):
         if xslt.xslt is None:
             xslt.prepare(
                 includes,
-                functions,
-                tags
+                functions
             )
             
         self.log.debug('Initialized')
