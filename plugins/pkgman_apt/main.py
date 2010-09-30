@@ -88,6 +88,7 @@ class APTPackageManager(Plugin):
         cmd = 'apt-get -qq -s install '
         for x in st.pending:
             cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
+        print cmd
         r = self._parse_apt(shell(cmd).splitlines())
         for x in r:
             if r[x].state == 'installed':
@@ -112,7 +113,7 @@ class APTPackageManager(Plugin):
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
                     r[s[1]].state = 'installed'
-                if s[0] == 'Purg':
+                if s[0] == 'Purg' or s[0] == 'Remv':
                     r[s[1]] = apis.pkgman.Package()
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
