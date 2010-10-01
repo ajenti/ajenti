@@ -109,11 +109,11 @@
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
         <div id="{@id}">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
-            <div class="ui-el-dialog" width="{@width}" height="{@height}">
+            <div class="ui-el-dialog">
                 <div class="ui-el-dialog-content">
                     <table>
                         <tr><td><label text="{@text}"/></td></tr>
-                        <tr><td><textinputarea id="{@id}-inner" name="value" nodecode="True" value="{x:b64(@value)}" width="300"/></td></tr>
+                        <tr><td><textinputarea id="{@id}-inner" name="value" nodecode="True" value="{x:b64(@value)}" width="{x:attr(@width,400)}" height="{x:attr(@height,400)}"/></td></tr>
                     </table>
                     <div class="ui-el-modal-buttons">
                         <table cellspacing="0" cellpadding="0">
