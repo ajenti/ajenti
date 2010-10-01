@@ -11,6 +11,14 @@ class Webserver(API):
         def __init__(self):
             self.name = ''
             self.config = ''            
+
+
+    class Module:
+        def __init__(self):
+            self.name = ''
+            self.config = ''          
+            self.has_config = False
+              
                                 
     class WebserverPlugin(apis.services.ServiceControlPlugin):
         abstract = True
@@ -20,7 +28,8 @@ class Webserver(API):
         ws_icon = 'none'
         ws_name = 'none'
         ws_backend = None
-
+        ws_mods = False
+        
         def on_init(self):
             self.service_name = self.ws_service
 
@@ -28,8 +37,7 @@ class Webserver(API):
             self._tab = 0
             self._backend = self.ws_backend
             self._editing_host = None
-            self._editing_location = None
-            self._host_tab = 0
+            self._editin_mod = None
             
         def get_main_ui(self):
             panel = UI.ServicePluginPanel(title=self.ws_title, icon=self.ws_icon, status=self.service_status, servicename=self.service_name)
@@ -44,6 +52,8 @@ class Webserver(API):
         def get_default_ui(self):
             tc = UI.TabControl(active=self._tab)
             tc.add('Hosts', self.get_ui_hosts())
+            if self.ws_mods:
+                tc.add('Modules', self.get_ui_mods())
             return tc
             
         def get_ui_hosts(self):
@@ -91,6 +101,48 @@ class Webserver(API):
                 
             return ui
             
+        def get_ui_mods(self):
+            tbl = UI.DataTable(UI.DataTableRow(
+                    UI.DataTableCell(UI.Label(), width='20px'),
+                    UI.DataTableCell(UI.Label(text='Name'), width='200px'),
+                    UI.DataTableCell(UI.Label(text='')),
+                    header=True
+                 ))
+            
+            mods = self._backend.get_mods()
+            for x in sorted(mods.keys()):
+                tbl.append(UI.DataTableRow(
+                            UI.Image(file='/dl/core/ui/stock/status-%sabled.png'%(
+                                'en' if mods[x].enabled else 'dis')),
+                            UI.Label(text=x),
+                            UI.DataTableCell(
+                                UI.HContainer(
+                                    UI.MiniButton(
+                                        id='editmod/'+x, 
+                                        text='Edit'
+                                    ) if mods[x].has_config else None,
+                                    UI.MiniButton(
+                                        id='togglemod/'+x, 
+                                        text='Disable' if mods[x].enabled else 'Enable'
+                                    ),
+                                    spacing=0
+                                ),
+                                hidden=True
+                            )
+                          ))
+            
+            ui = UI.Container(tbl)
+            if self._editing_mod is not None:
+                ui.append(
+                    UI.AreaInputBox(
+                        text='Module config:', 
+                        value=self._backend.get_mods()[self._editing_mod].config,
+                        id='dlgEditMod'
+                    )
+                )
+                
+            return ui
+                
         @event('minibutton/click')
         def on_click(self, event, params, vars=None):
             if params[0] == 'togglehost':
@@ -103,6 +155,17 @@ class Webserver(API):
             if params[0] == 'edithost':
                 self._tab = 0
                 self._editing_host = params[1]
+                
+            if params[0] == 'togglemod':
+                self._tab = 1
+                h = self._backend.get_mods()[params[1]]
+                if h.enabled:
+                    self._backend.disable_mod(params[1])
+                else:
+                    self._backend.enable_mod(params[1])
+            if params[0] == 'editmod':
+                self._tab = 1
+                self._editing_mod = params[1]
 
         @event('dialog/submit')
         def on_submit(self, event, params, vars):
@@ -112,5 +175,11 @@ class Webserver(API):
                     h.config = vars.getvalue('value', '')
                     self._backend.save_host(h)
                 self._editing_host = None
+            if params[0] == 'dlgEditMod':
+                if vars.getvalue('action', '') == 'OK':
+                    h = self._backend.get_mods()[self._editing_mod]
+                    h.config = vars.getvalue('value', '')
+                    self._backend.save_mod(h)
+                self._editing_mod = None
 
                 
