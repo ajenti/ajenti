@@ -4,7 +4,7 @@ import shutil
 import time
 
 from ajenti.com import *
-from ajenti.utils import shell_status
+from ajenti.utils import shell, shell_status
 
 
 class IRecoveryProvider(Interface):
@@ -57,8 +57,8 @@ class BackupRevision:
         self.date = time.strftime('%a, %d %b %Y %H:%M:%S', date)
         self._date = date
 
-class Manager(Plugin):
 
+class Manager(Plugin):
     def __init__(self):
         try:
             self.dir = self.config.get('recovery', 'dir')

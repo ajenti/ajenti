@@ -37,6 +37,7 @@ def detect_distro():
     return shell('uname -mrs')
 
 def shell(c):
+    print c
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
