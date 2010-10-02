@@ -29,10 +29,13 @@ class Webserver(API):
         ws_name = 'none'
         ws_backend = None
         ws_mods = False
+        ws_vhosts = True
         
         def on_init(self):
             self.service_name = self.ws_service
-
+            self.tab_hosts = 0
+            self.tab_mods = 1 if self.ws_vhosts else 0
+            
         def on_session_start(self):
             self._tab = 0
             self._backend = self.ws_backend
@@ -52,7 +55,8 @@ class Webserver(API):
 
         def get_default_ui(self):
             tc = UI.TabControl(active=self._tab)
-            tc.add('Hosts', self.get_ui_hosts())
+            if self.ws_vhosts:
+                tc.add('Hosts', self.get_ui_hosts())
             if self.ws_mods:
                 tc.add('Modules', self.get_ui_mods())
             return tc
@@ -161,31 +165,31 @@ class Webserver(API):
         @event('minibutton/click')
         def on_click(self, event, params, vars=None):
             if params[0] == 'togglehost':
-                self._tab = 0
+                self._tab = self.tab_hosts
                 h = self._backend.get_hosts()[params[1]]
                 if h.enabled:
                     self._backend.disable_host(params[1])
                 else:
                     self._backend.enable_host(params[1])
             if params[0] == 'deletehost':
-                self._tab = 0
+                self._tab = self.tab_hosts
                 self._backend.delete_host(params[1])
             if params[0] == 'edithost':
-                self._tab = 0
+                self._tab = self.tab_hosts
                 self._editing_host = params[1]
             if params[0] == 'addhost':
-                self._tab = 0
+                self._tab = self.tab_hosts
                 self._creating_host = True
                 
             if params[0] == 'togglemod':
-                self._tab = 1
+                self._tab = self.tab_mods
                 h = self._backend.get_mods()[params[1]]
                 if h.enabled:
                     self._backend.disable_mod(params[1])
                 else:
                     self._backend.enable_mod(params[1])
             if params[0] == 'editmod':
-                self._tab = 1
+                self._tab = self.tab_mods
                 self._editing_mod = params[1]
 
         @event('dialog/submit')

@@ -1,0 +1,4 @@
+pkg lighttpd
+desc lighttpd management plugin
+dep ajenti-plugin-webserver-common
+
