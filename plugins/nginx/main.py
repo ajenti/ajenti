@@ -35,10 +35,26 @@ class NginxBackend:
         if os.path.exists(p):
             os.unlink(p)
 
+    def delete_host(self, id):
+        p = os.path.join(self.config_dir, 'sites-available', id)
+        os.unlink(p)
+        
     def save_host(self, host):
         path = os.path.join(self.config_dir, 'sites-available', host.name)  
         open(path, 'w').write(host.config)
           
+    host_template = """
+server {
+	listen 80;
+	server_name localhost;
+	access_log /var/log/nginx/localhost.access.log;
+
+	location / {
+		root /dev/null;
+		index index.html index.htm;
+	}
+}"""                      
+ 
                   
 class NginxPlugin(apis.webserver.WebserverPlugin):
     text = 'nginx'

@@ -36,6 +36,7 @@ class Webserver(API):
         def on_session_start(self):
             self._tab = 0
             self._backend = self.ws_backend
+            self._creating_host = False
             self._editing_host = None
             self._editin_mod = None
             
@@ -82,6 +83,11 @@ class Webserver(API):
                                         id='togglehost/'+x, 
                                         text='Disable' if hosts[x].enabled else 'Enable'
                                     ),
+                                    UI.WarningMiniButton(
+                                        id='deletehost/'+x, 
+                                        text='Delete',
+                                        msg='Delete host %s'%x
+                                    ),
                                     spacing=0
                                 ),
                                 hidden=True
@@ -90,6 +96,14 @@ class Webserver(API):
                             
             ui = UI.VContainer(tbl, UI.Button(text='Add host', id='addhost'))
             
+            if self._creating_host:
+                ui.append(
+                    UI.InputBox(
+                        text='Host config name:', 
+                        id='dlgCreateHost'
+                    )
+                )
+
             if self._editing_host is not None:
                 ui.append(
                     UI.AreaInputBox(
@@ -143,6 +157,7 @@ class Webserver(API):
                 
             return ui
                 
+        @event('button/click')
         @event('minibutton/click')
         def on_click(self, event, params, vars=None):
             if params[0] == 'togglehost':
@@ -152,9 +167,15 @@ class Webserver(API):
                     self._backend.disable_host(params[1])
                 else:
                     self._backend.enable_host(params[1])
+            if params[0] == 'deletehost':
+                self._tab = 0
+                self._backend.delete_host(params[1])
             if params[0] == 'edithost':
                 self._tab = 0
                 self._editing_host = params[1]
+            if params[0] == 'addhost':
+                self._tab = 0
+                self._creating_host = True
                 
             if params[0] == 'togglemod':
                 self._tab = 1
@@ -169,6 +190,13 @@ class Webserver(API):
 
         @event('dialog/submit')
         def on_submit(self, event, params, vars):
+            if params[0] == 'dlgCreateHost':
+                if vars.getvalue('action', '') == 'OK':
+                    h = apis.webserver.VirtualHost()
+                    h.config = self._backend.host_template 
+                    h.name = vars.getvalue('value', '')
+                    self._backend.save_host(h)
+                self._creating_host = False
             if params[0] == 'dlgEditHost':
                 if vars.getvalue('action', '') == 'OK':
                     h = self._backend.get_hosts()[self._editing_host]

@@ -36,6 +36,10 @@ class ApacheBackend:
         if os.path.exists(p):
             os.unlink(p)
 
+    def delete_host(self, id):
+        p = os.path.join(self.config_dir, 'sites-available', id)
+        os.unlink(p)
+
     def save_host(self, host):
         path = os.path.join(self.config_dir, 'sites-available', host.name)  
         open(path, 'w').write(host.config)
@@ -79,6 +83,27 @@ class ApacheBackend:
         path = os.path.join(self.config_dir, 'sites-available', mod.name+'.conf')  
         open(path, 'w').write(mod.config)
      
+    host_template = """
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /dev/null
+	<Directory />
+		Options FollowSymLinks
+		AllowOverride None
+	</Directory>
+	<Directory /dev/null>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride None
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	LogLevel warn
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+"""
                        
 class ApachePlugin(apis.webserver.WebserverPlugin):
     text = 'Apache 2'
