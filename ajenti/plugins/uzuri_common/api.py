@@ -12,7 +12,8 @@ class ClusteredConfig(Plugin):
     name = ''
     id = ''
     files = []
-        
+    run_after = []
+    
     def root(self):
         try:
             return self.config.get('uzuri-root')

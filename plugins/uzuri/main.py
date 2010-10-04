@@ -5,6 +5,7 @@ from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti.utils import *
+from ajenti.plugins.recovery.api import *
 
 from ajenti.plugins.uzuri_common import UzuriMaster, ClusterNode
 
@@ -28,13 +29,13 @@ class UzuriMasterPlugin(CategoryPlugin):
                 ctl = UI.WarningButton(
                             text='Configure local machine',
                             id='disableroot',
-                            msg='Switch Ajenti to configure current host'
+                            msg='Switch Ajenti to configure current host. This will reset your session.'
                         )
             else:
                 ctl = UI.WarningButton(
                             text='Configure cluster',
                             id='enableroot',
-                            msg='Switch Ajenti to configure the cluster'
+                            msg='Switch Ajenti to configure the cluster. This will reset your session.'
                         )
         else:
             ctl = UI.WarningButton(
@@ -219,8 +220,14 @@ class UzuriMasterPlugin(CategoryPlugin):
             self._master.install()
         if params[0] == 'enableroot':
             self._master.enable()
+            templ = self.app.get_template('main.xml')
+            templ.appendChildInto('main-content', UI.CompleteRefresh())
+            return templ
         if params[0] == 'disableroot':
             self._master.disable()
+            templ = self.app.get_template('main.xml')
+            templ.appendChildInto('main-content', UI.CompleteRefresh())
+            return templ
         if params[0] == 'editnode':
             self._tab = 0
             
@@ -302,4 +309,11 @@ class UzuriContent(ModuleContent):
     path = __file__
     widget_files = []
     css_files = []
+    
+    
+class UzuriRecovery(SimpleFileRecoveryProvider):
+    name = 'Uzuri'
+    id = 'uzuri'
+    path = '/etc/ajenti/uzuri.conf'
+        
     

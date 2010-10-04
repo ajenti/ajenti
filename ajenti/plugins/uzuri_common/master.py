@@ -19,7 +19,7 @@ class UzuriMaster(Plugin):
         try:
             self.is_enabled()
         except:
-            self.disable()
+            self.config.set('uzuri-root', '')
         
     def load(self):
         self.cfg = Config()
@@ -56,9 +56,11 @@ class UzuriMaster(Plugin):
             
     def enable(self):
         self.config.set('uzuri-root', self.config_dir)
+        self.app.session.clear()
         
     def disable(self):
         self.config.set('uzuri-root', '')
+        self.app.session.clear()
 
 
     def deploy_all(self):
@@ -89,23 +91,36 @@ class UzuriMaster(Plugin):
             shell('cp -r %s%s/%s %s' % (self.config_dir,f,m,path))
             for root, dirs, files in os.walk(path):
                 for fl in files:
-                    self._insert_vars(os.path.join(root, fl), node)
+                    try:
+                        self._insert_vars(os.path.join(root, fl), node)
+                    except:
+                        pass
                     
             self._ssh_run(node, 'rm -r %s/%s'%(f,m))
         self._ssh_copy('%s/*'%tmp, node, '/')
         shutil.rmtree(tmp)    
+        
+        _rt = self.config.get('uzuri-root')
+        self.config.set('uzuri-root', self.config_dir)
+        for cmd in cfg.run_after:
+            self._ssh_run(node, self._insert_vars_str(cmd, node))
+        self.config.set('uzuri-root', _rt)
+            
     
     def _ssh_copy(self, src, node, dst):
         shell('scp -pBr -P %s %s root@%s:%s'%(node.port, src, node.address, dst))
 
     def _ssh_run(self, node, cmd):
-        shell('ssh -p %s root@%s %s'%(node.port, node.address, cmd))
+        shell('ssh -p %s root@%s \'%s\''%(node.port, node.address, cmd))
     
     def _insert_vars(self, file, node):
         d = open(file, 'r').read()
+        open(file, 'w').write(self._insert_vars_str(d, node))
+
+    def _insert_vars_str(self, d, node):
         for k in node.vars:
             d = re.sub('{u:%s}'%k, node.vars[k], d)
-        open(file, 'w').write(d)
+        return d
         
         
 class DeploymentWorker(BackgroundWorker):

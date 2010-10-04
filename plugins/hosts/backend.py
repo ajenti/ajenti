@@ -4,6 +4,7 @@ import os
 from ajenti.utils import *
 from ajenti.plugins.uzuri_common import ClusteredConfig
 
+
 class Host:
     def __init__(self):
         self.ip = '';
@@ -15,6 +16,10 @@ class Config(ClusteredConfig):
     name = 'Hosts'
     id = 'hosts'
     files = [('/etc', 'hosts'), ('/etc', 'hostname')] 
+    
+    @property
+    def run_after(self):
+        return ['hostname ' + self.gethostname()]
     
     def read(self):
         ss = self.open('/etc/hosts', 'r').read().split('\n')
