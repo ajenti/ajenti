@@ -23,7 +23,6 @@ class UzuriMaster(Plugin):
         
     def load(self):
         self.cfg = Config()
-        #self.deploy_node(self.cfg.nodes[0])
         
     def is_installed(self):
         return os.path.exists(self.config_dir)
@@ -39,13 +38,13 @@ class UzuriMaster(Plugin):
             return False
         return True        
             
-    def get_current_timestamp(self):
-        return os.getmtime(self.config_dir)
-        
+    def get_parts(self):
+        return self.app.grab_plugins(IClusteredConfig)
+            
     def install(self):
         if not os.path.exists(self.config_dir):
             os.mkdir(self.config_dir)
-        cfgs = self.app.grab_plugins(IClusteredConfig)
+        cfgs = self.get_parts()
         for cfg in cfgs:
             self.copy_current_config(cfg)
      
@@ -75,9 +74,10 @@ class UzuriMaster(Plugin):
         self.worker.start()
             
     def deploy_node_synced(self, node):
-        cfgs = self.app.grab_plugins(IClusteredConfig)
+        cfgs = self.get_parts()
         for cfg in cfgs:
-            self.deploy_config(cfg, node)
+            if cfg.id in self.cfg.parts:
+                self.deploy_config(cfg, node)
         node.timestamp = str(int(time.time()))
         self.cfg.save()
         
@@ -121,6 +121,8 @@ class Config:
     def __init__(self):
         self.nodes = []
         self.vars = []
+        self.parts = []
+        
         if not os.path.exists(self.config_file):
             return
         ll = open(self.config_file).read().split('\n')
@@ -135,12 +137,16 @@ class Config:
                     self.nodes.append(n)
                 elif l.startswith('var'):
                     self.vars.append(l.split(':')[1])
+                elif l.startswith('part'):
+                    self.parts.append(l.split(':')[1])
                     
         self.nodes = sorted(self.nodes, key=lambda x:x.address)
         self.vars = sorted(self.vars)
 
     def save(self):
         d = ''
+        for n in self.parts:
+            d += 'part:%s\n'%n
         for n in self.vars:
             d += 'var:%s\n'%n
         for n in self.nodes:

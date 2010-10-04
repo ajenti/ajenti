@@ -17,6 +17,7 @@ class UzuriMasterPlugin(CategoryPlugin):
     def on_session_start(self):
         self._tab = 0
         self._editing_node = None
+        self._editing_parts = False
         self._editing_var = None
         self._master = UzuriMaster(self.app)
         self._master.load()
@@ -121,12 +122,16 @@ class UzuriMasterPlugin(CategoryPlugin):
                         text='Deploy all', 
                         id='deployall',
                         msg='Deploy configuration to all nodes'
-                    )
+                    ),
+                    UI.Button(text='Choose parts', id='parts')
                 )
             )
             
         if self._editing_node is not None:
             ui.append(self.get_ui_edit_node(self._editing_node))
+
+        if self._editing_parts:
+            ui.append(self.get_ui_edit_parts())
             
         return ui
         
@@ -155,6 +160,18 @@ class UzuriMasterPlugin(CategoryPlugin):
                 ))
        
         return UI.DialogBox(ui, id='dlgEditNode')
+
+    def get_ui_edit_parts(self, node=ClusterNode()):
+        ui = UI.VContainer()
+            
+        for p in self._master.get_parts():
+            ui.append(UI.Checkbox(
+                    name='part_'+p.id,
+                    text=p.name,
+                    checked=p.id in self._master.cfg.parts
+                ))
+       
+        return UI.DialogBox(ui, id='dlgEditParts')
          
     def get_ui_vars(self):
         tbl = UI.DataTable(
@@ -233,6 +250,9 @@ class UzuriMasterPlugin(CategoryPlugin):
         if params[0] == 'deployall':
             self._tab = 0
             self._master.deploy_all()
+        if params[0] == 'parts':
+            self._tab = 0
+            self._editing_parts = True
         if params[0] == 'editvar':
             self._tab = 1
             self._editing_var = params[1]
@@ -267,6 +287,14 @@ class UzuriMasterPlugin(CategoryPlugin):
                     self._master.cfg.nodes.append(n)
                 self._master.cfg.save()
             self._editing_node = None
+        if params[0] == 'dlgEditParts':
+            if vars.getvalue('action', '') == 'OK':
+                self._master.cfg.parts = []
+                for p in self._master.get_parts():
+                    if vars.getvalue('part_'+p.id,'') == '1':
+                        self._master.cfg.parts.append(p.id)
+                self._master.cfg.save()
+            self._editing_parts = False
             
             
 class UzuriContent(ModuleContent):

@@ -9,6 +9,8 @@ class ClusteredConfig(Plugin):
     abstract = True
     implements(IClusteredConfig)
 
+    name = ''
+    id = ''
     files = []
         
     def root(self):

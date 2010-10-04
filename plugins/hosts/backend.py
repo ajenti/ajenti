@@ -12,6 +12,8 @@ class Host:
 
 
 class Config(ClusteredConfig):
+    name = 'Hosts'
+    id = 'hosts'
     files = [('/etc', 'hosts'), ('/etc', 'hostname')] 
     
     def read(self):
