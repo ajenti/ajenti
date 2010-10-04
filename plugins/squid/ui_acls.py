@@ -65,7 +65,10 @@ class SquidACLs(Plugin):
         t = UI.DataTable()
         t.append(UI.DataTableRow(UI.Label(text='Name'), UI.Label(text='Type'), UI.Label(text='Value'), UI.Label(), header=True))
         for a in self.cfg.acls:
-            tp = filter(lambda x: x[1] == a[1], self.acl_types)[0][0]
+            try:
+                tp = filter(lambda x: x[1] == a[1], self.acl_types)[0][0]
+            except:
+                tp = a[1]
             t.append(
                 UI.DataTableRow(
                     UI.Label(text=a[0]),
