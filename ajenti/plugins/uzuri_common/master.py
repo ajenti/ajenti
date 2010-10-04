@@ -6,13 +6,15 @@ import re
 
 from ajenti.com import Plugin
 from ajenti.utils import shell
+from ajenti.misc import BackgroundWorker
 
 from api import IClusteredConfig
 
 
 class UzuriMaster(Plugin):
     config_dir = '/var/spool/uzuri'
-
+    worker = None
+    
     def __init__(self):
         try:
             self.is_enabled()
@@ -29,6 +31,14 @@ class UzuriMaster(Plugin):
     def is_enabled(self):
         return self.config.get('uzuri-root') == self.config_dir
 
+    def is_busy(self):
+        if self.worker is None:
+            return False
+        if not self.worker.is_running():
+            self.worker = None
+            return False
+        return True        
+            
     def get_current_timestamp(self):
         return os.getmtime(self.config_dir)
         
@@ -52,11 +62,25 @@ class UzuriMaster(Plugin):
         self.config.set('uzuri-root', '')
 
 
+    def deploy_all(self):
+        if self.is_busy():
+            return 
+        self.worker = DeploymentWorker(self, *self.cfg.nodes)
+        self.worker.start()
+
     def deploy_node(self, node):
+        if self.is_busy():
+            return 
+        self.worker = DeploymentWorker(self, node)
+        self.worker.start()
+            
+    def deploy_node_synced(self, node):
         cfgs = self.app.grab_plugins(IClusteredConfig)
         for cfg in cfgs:
             self.deploy_config(cfg, node)
-                
+        node.timestamp = str(int(time.time()))
+        self.cfg.save()
+        
     def deploy_config(self, cfg, node):
         tmp = tempfile.mkdtemp()
         for f,m in cfg.files:
@@ -84,6 +108,13 @@ class UzuriMaster(Plugin):
         open(file, 'w').write(d)
         
         
+class DeploymentWorker(BackgroundWorker):
+    def run(self, *args):
+        for node in args[1:]:
+            self.status = node.address
+            args[0].deploy_node_synced(node)
+        
+    
 class Config:
     config_file = '/etc/ajenti/uzuri.conf'
 
@@ -95,9 +126,9 @@ class Config:
         ll = open(self.config_file).read().split('\n')
         for l in ll:
             if l != '':
-                if l.startswith('host'):
+                if l.startswith('node'):
                     n = ClusterNode()
-                    tmp, n.address, n.port, n.password, n.timestamp, v = l.split(':')
+                    tmp, n.address, n.port, n.timestamp, v = l.split(':')
                     v = [x.split('=') for x in v.split(';')]
                     for x in v:
                         n.vars[x[0]] = x[1]
@@ -114,7 +145,7 @@ class Config:
             d += 'var:%s\n'%n
         for n in self.nodes:
             v = ';'.join(['%s=%s'%(x,n.vars[x]) for x in n.vars.keys()])
-            d += 'node:%s:%s:%s:%s:%s\n' % (n.address,n.port,n.password,n.timestamp,v)
+            d += 'node:%s:%s:%s:%s\n' % (n.address,n.port,n.timestamp,v)
         open(self.config_file, 'w').write(d)        
         
         
@@ -122,7 +153,6 @@ class ClusterNode:
     def __init__(self):
         self.address = ''
         self.port = '22'
-        self.password = ''
         self.timestamp = '0'
         self.vars = {}
         
