@@ -6,11 +6,17 @@ from ajenti.ui import *
 
 from api import *
 
+from ajenti.plugins.uzuri_common import ClusteredConfig
 
-class DebianNetworkConfig(Plugin):
+
+class DebianNetworkConfig(ClusteredConfig):
     implements(INetworkConfig)
     platform = ['Debian', 'Ubuntu']
-
+    name = 'Network'
+    id = 'network'
+    files = [('/etc/network', '*'), ('/etc', 'resolv.conf')] 
+    run_after = ['/etc/init.d/networking restart']
+    
     interfaces = None
     nameservers = None
 
@@ -23,7 +29,7 @@ class DebianNetworkConfig(Plugin):
 
         # Load interfaces
         try:
-            f = open('/etc/network/interfaces')
+            f = self.open('/etc/network/interfaces')
             ss = f.read().splitlines()
             f.close()
         except IOError, e:
@@ -62,7 +68,7 @@ class DebianNetworkConfig(Plugin):
 
         # Load DNS servers
         try:
-            f = open('/etc/resolv.conf')
+            f = self.open('/etc/resolv.conf')
             ss = f.read().splitlines()
             f.close()
         except IOError, e:
@@ -131,12 +137,12 @@ class DebianNetworkConfig(Plugin):
         return 'Unknown'
 
     def save(self):
-        f = open('/etc/network/interfaces', 'w')
+        f = self.open('/etc/network/interfaces', 'w')
         for i in self.interfaces:
             self.interfaces[i].save(f)
         f.close()
 
-        f = open('/etc/resolv.conf', 'w')
+        f = self.open('/etc/resolv.conf', 'w')
         for i in self.nameservers:
             f.write(i.cls + ' ' + i.address + '\n')
         f.close()
@@ -213,3 +219,5 @@ class NetworkInterface(NetworkInterfaceBase):
 
 class Nameserver(NameserverBase):
     pass
+    
+    

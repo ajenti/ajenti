@@ -2,6 +2,7 @@ import re
 import os
 
 from ajenti.utils import *
+from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 class Host:
@@ -11,32 +12,48 @@ class Host:
         self.aliases = '';
 
 
-def read():
-    ss = open('/etc/hosts', 'r').read().split('\n')
-    r = []
+class Config(ClusteredConfig):
+    name = 'Hosts'
+    id = 'hosts'
+    files = [('/etc', 'hosts'), ('/etc', 'hostname')] 
+    
+    @property
+    def run_after(self):
+        return ['hostname ' + self.gethostname()]
+    
+    def read(self):
+        ss = self.open('/etc/hosts', 'r').read().split('\n')
+        r = []
 
-    for s in ss:
-        if s != '' and s[0] != '#':
-            try:
-                s = s.split()
-                h = Host()
+        for s in ss:
+            if s != '' and s[0] != '#':
                 try:
-                    h.ip = s[0]
-                    h.name = s[1]
-                    for i in range(2, len(s)):
-                        h.aliases += '%s ' % s[i]
-                    h.aliases = h.aliases.rstrip();
+                    s = s.split()
+                    h = Host()
+                    try:
+                        h.ip = s[0]
+                        h.name = s[1]
+                        for i in range(2, len(s)):
+                            h.aliases += '%s ' % s[i]
+                        h.aliases = h.aliases.rstrip();
+                    except:
+                        pass
+                    r.append(h)
                 except:
                     pass
-                r.append(h)
-            except:
-                pass
 
-    return r
+        return r
 
-def save(hh):
-    d = ''
-    for h in hh:
-        d += '%s\t%s\t%s\n' % (h.ip, h.name, h.aliases)
-    with open('/etc/hosts', 'w') as f:
-        f.write(d)
+    def save(self, hh):
+        d = ''
+        for h in hh:
+            d += '%s\t%s\t%s\n' % (h.ip, h.name, h.aliases)
+        with self.open('/etc/hosts', 'w') as f:
+            f.write(d)
+            
+            
+    def gethostname(self):
+        return self.open('/etc/hostname').read()
+        
+    def sethostname(self, hn):
+        return self.open('/etc/hostname', 'w').write(hn)

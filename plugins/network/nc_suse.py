@@ -7,6 +7,8 @@ from ajenti.ui import *
 
 from api import *
 
+from ajenti.plugins.uzuri_common import ClusteredConfig
+
 
 optionmap = {
     'IPADDR': 'address',
@@ -21,9 +23,13 @@ optionmap = {
     'REMOTE_IPADDR': 'pointopoint'
 }
 
-class SuseNetworkConfig(Plugin):
+class SuseNetworkConfig(ClusteredConfig):
     implements(INetworkConfig)
     platform = ['openSUSE']
+    name = 'Network'
+    id = 'network'
+    files = [('/etc/sysconfig/network', '*'), ('/etc', 'resolv.conf')] 
+    run_after = ['/etc/init.d/network restart']
 
     interfaces = None
     nameservers = None
@@ -42,10 +48,10 @@ class SuseNetworkConfig(Plugin):
         self.interfaces = {}
         self.nameservers = []
 
-        for ifcf in os.listdir('/etc/sysconfig/network/'):
+        for ifcf in os.listdir(self.root()+'/etc/sysconfig/network/'):
             if ifcf.startswith('ifcfg-'):
                 ifcn = ifcf[6:]
-                with open('/etc/sysconfig/network/' + ifcf, 'r') as f:
+                with self.open('/etc/sysconfig/network/' + ifcf, 'r') as f:
                     ss = f.read().splitlines()
                     d = {}
                     for s in ss:
@@ -87,7 +93,7 @@ class SuseNetworkConfig(Plugin):
 
         # Load DNS servers
         try:
-            f = open('/etc/resolv.conf')
+            f = self.open('/etc/resolv.conf')
             ss = f.read().splitlines()
             f.close()
         except IOError, e:
@@ -157,10 +163,10 @@ class SuseNetworkConfig(Plugin):
 
     def save(self):
         for i in self.interfaces:
-            with open('/etc/sysconfig/network/ifcfg-' + i, 'w') as f:
+            with self.open('/etc/sysconfig/network/ifcfg-' + i, 'w') as f:
                 self.interfaces[i].save(f)
 
-        f = open('/etc/resolv.conf', 'w')
+        f = self.open('/etc/resolv.conf', 'w')
         for i in self.nameservers:
             f.write(i.cls + ' ' + i.address + '\n')
         f.close()

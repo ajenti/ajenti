@@ -9,6 +9,10 @@
     <script>scheduleRefresh(<xsl:value-of select="@time"/>)</script>
 </xsl:template>
 
+<xsl:template match="completerefresh">
+    <script>document.location.href="/";</script>
+</xsl:template>
+
 <xsl:template match="container">
     <div>
            <xsl:apply-templates />

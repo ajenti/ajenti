@@ -4,6 +4,7 @@ It's using shell command 'crontab' and donn't change file manualy
 """
 from ajenti.utils import shell, shell_stdin
 
+
 class Task():
     """Class to represent the task in crontab"""
     def __init__(self, line=''):

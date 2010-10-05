@@ -10,12 +10,15 @@ class HostsPlugin(CategoryPlugin):
     folder = 'system'
 
     def on_init(self):
-        self.hosts = backend.read()
-
+        be = backend.Config(self.app)
+        self.hosts = be.read()
+        self.hostname = be.gethostname()
+         
     def on_session_start(self):
         self._log = ''
         self._editing = None
-
+        self._editing_self = False
+        
     def get_ui(self):
         panel = UI.PluginPanel(
                     UI.Label(text='The static lookup table for hostnames'), 
@@ -50,7 +53,13 @@ class HostsPlugin(CategoryPlugin):
                     hidden=True
                 )
             ))
-        t = UI.VContainer(t, UI.Button(text='Add host', id='add'))
+        t = UI.VContainer(
+                t, 
+                UI.HContainer(
+                    UI.Button(text='Add host', id='add'),
+                    UI.Button(text='Change hostname', id='hostname')
+                )
+            )
 
         if self._editing is not None:
             try:
@@ -58,6 +67,9 @@ class HostsPlugin(CategoryPlugin):
             except:
                 h = backend.Host()
             t.append(self.get_ui_edit(h))
+
+        if self._editing_self:
+            t.append(UI.InputBox(text='Hostname:', value=self.hostname, id='dlgSelf'))
 
         panel.append(t)
         return panel
@@ -94,7 +106,9 @@ class HostsPlugin(CategoryPlugin):
             self._editing = int(params[1])
         if params[0] == 'del':
             self.hosts.pop(int(params[1]))
-            backend.save(self.hosts)
+            backend.Config(self.app).save(self.hosts)
+        if params[0] == 'hostname':
+            self._editing_self = True
 
     @event('dialog/submit')
     def on_submit(self, event, params, vars = None):
@@ -109,8 +123,13 @@ class HostsPlugin(CategoryPlugin):
                     self.hosts[self._editing] = h
                 except:
                     self.hosts.append(h)
-                backend.save(self.hosts)
+                backend.Config(self.app).save(self.hosts)
             self._editing = None
+        if params[0] == 'dlgSelf':
+            v = vars.getvalue('value', '')
+            if vars.getvalue('action', '') == 'OK':
+                backend.Config(self.app).sethostname(v)
+            self._editing_self = None
 
 
 class HostsContent(ModuleContent):
