@@ -55,8 +55,14 @@ class BackgroundProcess:
     def kill(self):
         self._aborted = True
         if self.is_running():
-            self.process.terminate()
-            self.process.kill()
+            try:
+                self.process.terminate()
+            except:
+                pass
+            try:
+                self.process.kill()
+            except:
+                pass
 
 
 class BackgroundWorker:
