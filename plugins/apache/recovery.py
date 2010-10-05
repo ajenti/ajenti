@@ -1,8 +1,7 @@
-from ajenti.plugins.recovery.api import SimpleDirectoryRecoveryProvider
-
+from ajenti.plugins.recovery.api import *
 
 class ApacheRecovery(SimpleDirectoryRecoveryProvider):
-    name = 'Apache 2'
+    name = 'Apache'
     id = 'apache'
     path = '/etc/apache2'
     

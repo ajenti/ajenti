@@ -38,7 +38,7 @@ class Webserver(API):
             
         def on_session_start(self):
             self._tab = 0
-            self._backend = self.ws_backend
+            self._backend = self.ws_backend(self.app)
             self._creating_host = False
             self._editing_host = None
             self._editin_mod = None
