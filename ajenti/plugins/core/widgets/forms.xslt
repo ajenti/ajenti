@@ -141,9 +141,8 @@
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
             <div class="ui-el-dialog" width="{@width}" height="{@height}">
                 <div class="ui-el-dialog-content">
-                    <vcontainer spacing="10">
+                    <vcontainer spacing="10" width="200">
                         <image file="/dl/core/ui/ajax-big.gif" />
-                        <spacer height="10" />
                         <label text="{@status}" />
                     </vcontainer>
                 </div>

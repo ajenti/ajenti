@@ -4,6 +4,7 @@
 
 
 import inspect
+import traceback
 
 from PrioList import PrioList
 
@@ -108,7 +109,9 @@ class PluginManager (object):
             try:
                 inst = cls(self)
             except TypeError, e:
+                print traceback.format_exc()
                 raise Exception('Unable instantiate plugin %r (%s)'%(cls, e))
+                
         return inst
 
     def instance_set(self, cls, inst):

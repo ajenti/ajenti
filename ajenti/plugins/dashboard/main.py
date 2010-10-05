@@ -28,7 +28,7 @@ class Dashboard(CategoryPlugin):
             else:
                 lc.append(self.widgets[i].get_ui())
 
-        u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/server.png')
+        u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/distributor-logo-%s.png'%self.app.platform.lower())
         return u
 
 

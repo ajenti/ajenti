@@ -19,6 +19,7 @@
     text-align: center;
     vertical-align: middle;
     padding: 0px 5px;
+    white-space: nowrap;
 }
 
 .ui-el-button:hover {
@@ -59,6 +60,7 @@
     text-align: center;
     vertical-align: middle;
     padding: 0px 5px;
+    white-space: nowrap;
 }
 
 .ui-el-minibutton:hover {

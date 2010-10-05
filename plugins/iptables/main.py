@@ -16,7 +16,7 @@ class FirewallPlugin(CategoryPlugin):
 
 
     def on_init(self):
-        self.cfg = Config()
+        self.cfg = Config(self.app)
         self.cfg.load()
 
     def on_session_start(self):

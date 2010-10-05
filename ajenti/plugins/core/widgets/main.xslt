@@ -50,13 +50,13 @@
                 <vcontainer spacing="0">
                     <label text="{@title}" size="5" />
                     <div style="padding-left: 3px;">
-                        <x:node index="0"/>
+                        <xsl:apply-templates select="*[1]" />
                     </div>
                 </vcontainer>
             </hcontainer>
         </div>
         <div class="ui-el-pluginpanel-content">
-           <x:node index="1"/>
+            <xsl:apply-templates select="*[2]" />
         </div>
     </div>
 </xsl:template>

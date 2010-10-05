@@ -16,7 +16,6 @@ class PacmanPackageManager(Plugin):
         a = self._get_all()
         st.upgradeable = self._parse_pm_u(shell('pacman -Qu').splitlines())
 
-
         st.pending = {}
         try:
             ss = open('/tmp/ajenti-pacman-pending.list', 'r').read().splitlines()
@@ -29,13 +28,13 @@ class PacmanPackageManager(Plugin):
         except:
             pass
 
-        st.list = a
+        st.full = a
 
     def get_lists(self):
         cmd = 'pacman -Sy > /tmp/ajenti-pacman-output; rm -f /tmp/ajenti-pacman-output &'
         subprocess.Popen(['bash', '-c', cmd])
 
-    def search(self, q):
+    def search(self, q, st):
         return self._parse_pm(shell('pacman -Ss %s' % q).splitlines())
 
     def mark_install(self, st, name):
@@ -162,7 +161,6 @@ class PacmanPackageManager(Plugin):
                 r[s[0]] = apis.pkgman.Package()
                 r[s[0]].name = s[0]
                 r[s[0]].version = s[1]
-                r[s[0]].action = 'installed'
                 r[s[0]].state = 'installed'
             except:
                 pass
@@ -171,3 +169,4 @@ class PacmanPackageManager(Plugin):
     def _get_all(self):
         ss = shell('pacman -Q').splitlines()
         return self._parse_pm_u(ss)
+        

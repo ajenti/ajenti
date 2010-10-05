@@ -19,7 +19,7 @@ class APTPackageManager(Plugin):
 
         for s in p:
             s = p[s]
-            if s.action == 'installed':
+            if s.state == 'installed':
                 if a.has_key(s.name) and a[s.name].state == 'installed':
                     st.upgradeable[s.name] = a[s.name]
 
@@ -35,15 +35,15 @@ class APTPackageManager(Plugin):
         except:
             pass
 
-        st.list = a
+        st.full = a
 
     def get_lists(self):
         cmd = 'apt-get update > /tmp/ajenti-apt-output; rm -f /tmp/ajenti-apt-output &'
         subprocess.Popen(['bash', '-c', cmd])
 
-    def search(self, q):
+    def search(self, q, st):
         ss = shell('apt-cache search %s' % q).splitlines()
-        a = self._get_all()
+        a = st.full
         r = {}
         for s in ss:
             s = s.split()
@@ -88,9 +88,10 @@ class APTPackageManager(Plugin):
         cmd = 'apt-get -qq -s install '
         for x in st.pending:
             cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
+        print cmd
         r = self._parse_apt(shell(cmd).splitlines())
         for x in r:
-            if r[x].action == 'installed':
+            if r[x].state == 'installed':
                 r[x] = 'install'
             else:
                 r[x] = 'remove'
@@ -111,12 +112,12 @@ class APTPackageManager(Plugin):
                     r[s[1]] = apis.pkgman.Package()
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
-                    r[s[1]].action = 'installed'
-                if s[0] == 'Purg':
+                    r[s[1]].state = 'installed'
+                if s[0] == 'Purg' or s[0] == 'Remv':
                     r[s[1]] = apis.pkgman.Package()
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
-                    r[s[1]].action = 'removed'
+                    r[s[1]].state = 'removed'
             except:
                 pass
         return r
@@ -139,3 +140,4 @@ class APTPackageManager(Plugin):
                 pass
 
         return r
+        
