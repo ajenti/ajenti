@@ -7,6 +7,7 @@ from ajenti.app.api import ICategoryProvider, IContentProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.helpers import EventProcessor, event
 from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
+from api import IProgressBoxProvider
 
 
 class RootDispatcher(URLHandler, EventProcessor, Plugin):
@@ -28,6 +29,17 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
     def main_ui(self):
         templ = self.app.get_template('main.xml')
         templ.appendChildInto('main-content', self.selected_category.get_ui())
+        for p in self.app.grab_plugins(IProgressBoxProvider):
+            if p.has_progress():
+                templ.appendChildInto(
+                    'progressbox-placeholder', 
+                    UI.TopProgressBox(
+                        text=p.get_progress(),
+                        icon=p.icon,
+                        title=p.title
+                    )
+                )
+                break
         return templ
 
     def do_init(self):
@@ -106,6 +118,13 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
 
         self.app.session['cat_selected'] = params[0]
         self.do_init()
+
+    @event('button/click')
+    def handle_abort(self, event, params, **kw):
+        if params[0] == 'aborttask':
+            for p in self.app.grab_plugins(IProgressBoxProvider):
+                if p.has_progress():
+                    p.abort()
 
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):

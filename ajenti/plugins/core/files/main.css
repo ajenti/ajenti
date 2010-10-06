@@ -179,8 +179,8 @@
 
 .ui-el-pluginpanel-head {
     border-radius: 5px 5px 0px 0px;
-    -moz-border-radius: 5px 5px 0px 0px;;
-    -webkit-border-radius: 5px 5px 0px 0px;;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
     border: 1px solid #ccc;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #ccc);
@@ -201,3 +201,38 @@
     border: 1px solid #ccc;
 }
 
+
+.ui-progress-box-wr {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 99%;
+    z-index: 9000;
+}
+
+.ui-progress-box td {
+    padding-right: 5px;
+}
+
+.ui-progress-box img.ajax {
+    padding-top: 2px;
+}
+
+.ui-progress-box {
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    border: 2px solid #d3a158;
+    border-top: none;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ddd,  #ccc);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
+    height: 20px;
+    line-height: 30px;
+    padding: 5px;
+    width: 500px;
+    margin: auto;
+    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}

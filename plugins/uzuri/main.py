@@ -5,6 +5,7 @@ from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti.utils import *
+from ajenti.plugins.core.api import *
 from ajenti.plugins.recovery.api import *
 
 from ajenti.plugins.uzuri_common import UzuriMaster, ClusterNode
@@ -49,16 +50,6 @@ class UzuriMasterPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
-        vc = UI.VContainer(spacing=20)
-        if self._master.is_busy():
-            vc.append(UI.HContainer(
-                         UI.Image(file='/dl/core/ui/ajax.gif'),
-                         UI.Label(text='Deploying to ' + self._master.worker.status,
-                                  size=2),
-                         UI.Refresh(time=3000),
-                         UI.WarningMiniButton(text='Abort', id='abort', msg='Abort deployment. This may leave current node in unconfigured state.'),
-                    ))
-
         if self._master.is_installed():
             ui = UI.TabControl(active=self._tab)
             ui.add('Nodes', self.get_ui_nodes())
@@ -69,9 +60,7 @@ class UzuriMasterPlugin(CategoryPlugin):
                     text='You need to autoconfigure Uzuri first'
                  )
             
-                 
-        vc.append(ui)                 
-        return vc
+        return ui
 
 
     def get_ui_nodes(self):
@@ -276,8 +265,6 @@ class UzuriMasterPlugin(CategoryPlugin):
             self._tab = 1
             self._master.cfg.vars.remove(params[1])
             self._master.cfg.save()
-        if params[0] == 'abort':
-            self._master.worker.kill()
 
     @event('dialog/submit')
     def on_submit(self, event, params, vars):
@@ -310,7 +297,26 @@ class UzuriMasterPlugin(CategoryPlugin):
                 self._master.cfg.save()
             self._editing_parts = False
             
-            
+
+class UzuriProgress(Plugin):
+    implements(IProgressBoxProvider)
+    title = 'Uzuri'
+    icon = '/dl/uzuri/icon_small.png'
+    
+    def __init__(self):
+        self.master = self.app.session.get('UzuriMasterPlugin-_master')
+
+    def has_progress(self):         
+        print self.master.is_busy()   
+        return self.master.is_busy()
+        
+    def get_progress(self):
+        return self.master.worker.output
+    
+    def abort(self):
+        self.master.worker.kill()
+        
+        
 class UzuriContent(ModuleContent):
     module = 'uzuri'
     path = __file__

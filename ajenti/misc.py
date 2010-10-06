@@ -69,6 +69,7 @@ class BackgroundWorker:
     def __init__(self, *args):
         self.thread = KThread(target=self.__run, args=args)
         self.alive = False
+        self.output = ''
         self._aborted = False
         
     def is_running(self):

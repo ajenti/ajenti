@@ -117,7 +117,7 @@ function ajaxForm(formId, action)
 
 function ajaxHandler(data)
 {
-	main = document.getElementById("main-content")
+	main = document.getElementById("rightplaceholder")
 	main.innerHTML = data
     var ob = main.getElementsByTagName("script");
     for(var i=0; i<ob.length; i++)

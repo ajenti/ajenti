@@ -60,3 +60,17 @@
         </div>
     </div>
 </xsl:template>
+
+        
+<xsl:template match="topprogressbox">
+        <div class="ui-progress-box">
+            <table width="100%"><tr>
+                <td width="20"><img class="ajax" src="/dl/core/ui/ajax.gif"/></td>
+                <td width="20"><img src="{@icon}"/></td>
+                <td><label text="{@title}" bold="True"/></td>
+                <td><label text="{@text}"/></td>
+                <td width="10"><warningminibutton text="Abort" id="aborttask" msg="Abort the background task for {@title}"/></td>
+            </tr></table>
+        </div>
+</xsl:template>
+        

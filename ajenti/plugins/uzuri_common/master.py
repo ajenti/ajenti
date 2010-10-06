@@ -124,12 +124,10 @@ class UzuriMaster(Plugin):
         
         
 class DeploymentWorker(BackgroundWorker):
-    status = ''
-    
     def run(self, *args):
         if len(args) == 1: return
         for node in args[1:]:
-            self.status = node.address
+            self.output = 'Deploying to %s' % node.address
             args[0].deploy_node_synced(node)
         
     
