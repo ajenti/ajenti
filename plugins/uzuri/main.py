@@ -78,6 +78,7 @@ class UzuriMasterPlugin(CategoryPlugin):
         tbl = UI.DataTable(
                 UI.DataTableRow(
                     UI.Label(),
+                    UI.Label(text='Description'),
                     UI.Label(text='Address'),
                     UI.Label(text='Last deployed'),
                     UI.Label(),
@@ -93,6 +94,7 @@ class UzuriMasterPlugin(CategoryPlugin):
             tbl.append(
                 UI.DataTableRow(
                     UI.Image(file='/dl/uzuri/node.png'),
+                    UI.Label(text=n.desc),
                     UI.Label(text=n.address+':'+n.port),
                     UI.Label(text=t),
                     UI.DataTableCell(
@@ -138,6 +140,10 @@ class UzuriMasterPlugin(CategoryPlugin):
         
     def get_ui_edit_node(self, node=ClusterNode()):
         ui = UI.LayoutTable(
+                UI.LayoutTableRow(
+                    UI.Label(text='Description:'),
+                    UI.TextInput(name='desc', value=node.desc)
+                ),
                 UI.LayoutTableRow(
                     UI.Label(text='Address:'),
                     UI.TextInput(name='addr', value=node.address)
@@ -287,6 +293,7 @@ class UzuriMasterPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 n = self._editing_node
                 n.address = vars.getvalue('addr', '')
+                n.desc = vars.getvalue('desc', '')
                 n.port = vars.getvalue('port', '22')
                 for k in self._master.cfg.vars:
                     n.vars[k] = vars.getvalue('var_'+k, '')

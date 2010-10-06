@@ -148,7 +148,7 @@ class Config:
             if l != '':
                 if l.startswith('node'):
                     n = ClusterNode()
-                    tmp, n.address, n.port, n.timestamp, v = l.split(':')
+                    tmp, n.desc, n.address, n.port, n.timestamp, v = l.split(':')
                     v = [x.split('=') for x in v.split(';')]
                     for x in v:
                         n.vars[x[0]] = x[1]
@@ -169,12 +169,13 @@ class Config:
             d += 'var:%s\n'%n
         for n in self.nodes:
             v = ';'.join(['%s=%s'%(x,n.vars[x]) for x in n.vars.keys()])
-            d += 'node:%s:%s:%s:%s\n' % (n.address,n.port,n.timestamp,v)
+            d += 'node:%s:%s:%s:%s:%s\n' % (n.desc,n.address,n.port,n.timestamp,v)
         open(self.config_file, 'w').write(d)        
         
         
 class ClusterNode:
     def __init__(self):
+        self.desc = ''
         self.address = ''
         self.port = '22'
         self.timestamp = '0'
