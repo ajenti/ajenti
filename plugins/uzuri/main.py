@@ -302,12 +302,12 @@ class UzuriProgress(Plugin):
     implements(IProgressBoxProvider)
     title = 'Uzuri'
     icon = '/dl/uzuri/icon_small.png'
+    can_abort = True
     
     def __init__(self):
         self.master = self.app.session.get('UzuriMasterPlugin-_master')
 
     def has_progress(self):         
-        print self.master.is_busy()   
         return self.master.is_busy()
         
     def get_progress(self):

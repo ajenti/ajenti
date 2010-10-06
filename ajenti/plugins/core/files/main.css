@@ -232,6 +232,8 @@
     padding: 5px;
     width: 500px;
     margin: auto;
+    overflow: hidden;
+    white-space: nowrap;
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);

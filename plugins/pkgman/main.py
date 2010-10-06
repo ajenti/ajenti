@@ -1,7 +1,10 @@
+import time
+
 from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
+from ajenti.plugins.core.api import *
 from ajenti import apis
 
 
@@ -62,14 +65,6 @@ class PackageManagerPlugin(CategoryPlugin):
                     id='dlgApply'
                   )
             pnl.append(dlg)
-
-
-        if self._in_progress:
-            pb = UI.ProgressBox(
-                    title = 'Appplying changes',
-                    status = self.mgr.get_busy_status()
-                 )
-            pnl.append(pb)
 
         return panel
 
@@ -203,8 +198,10 @@ class PackageManagerPlugin(CategoryPlugin):
             self.mgr.refresh(self._status)
         if params[0] == 'getlists':
             self.mgr.get_lists()
+            time.sleep(0.5)
         if params[0] == 'apply':
             self._confirm_apply = True
+            time.sleep(0.5)
         if params[0] == 'install':
             self.mgr.mark_install(self._status, params[1])
         if params[0] == 'remove':
@@ -235,6 +232,25 @@ class PackageManagerPlugin(CategoryPlugin):
                 self._search = self.mgr.search(q, self._status)
         
         
+class PackageManagerProgress(Plugin):
+    implements(IProgressBoxProvider)
+    title = 'Packages'
+    icon = '/dl/pkgman/icon_small.png'
+    can_abort = True
+    
+    def __init__(self):
+        self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
+
+    def has_progress(self):         
+        return self.mgr.get_busy_status()
+        
+    def get_progress(self):
+        return self.mgr.get_busy_status()
+    
+    def abort(self):
+        self.mgr.abort()
+        
+                
 class PackageManagerContent(ModuleContent):
     module = 'pkgman'
     path = __file__        

@@ -110,6 +110,10 @@ class PacmanPackageManager(Plugin):
  
         return r
 
+    def abort(self):
+        shell('pkill pacman')
+        shell('rm /tmp/ajenti-pacman-output')
+
     def _save_pending(self, p):
         f = open('/tmp/ajenti-pacman-pending.list', 'w')
         for x in p:

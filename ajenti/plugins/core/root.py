@@ -36,7 +36,8 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
                     UI.TopProgressBox(
                         text=p.get_progress(),
                         icon=p.icon,
-                        title=p.title
+                        title=p.title,
+                        can_abort=p.can_abort
                     )
                 )
                 break

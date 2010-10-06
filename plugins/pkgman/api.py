@@ -35,7 +35,10 @@ class PkgMan(API):
         def get_expected_result(self, st):
             pass
 
-
+        def abort(self):
+            pass
+            
+            
     class Package(object):
         def __init__(self):
             self.name = ''

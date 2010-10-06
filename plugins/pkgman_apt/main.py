@@ -97,6 +97,10 @@ class APTPackageManager(Plugin):
                 r[x] = 'remove'
         return r
 
+    def abort(self):
+        shell('pkill apt')
+        shell('rm /tmp/ajenti-apt-output')
+        
     def _save_pending(self, p):
         f = open('/tmp/ajenti-apt-pending.list', 'w')
         for x in p:

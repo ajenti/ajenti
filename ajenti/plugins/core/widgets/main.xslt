@@ -69,8 +69,11 @@
                 <td width="20"><img src="{@icon}"/></td>
                 <td><label text="{@title}" bold="True"/></td>
                 <td><label text="{@text}"/></td>
-                <td width="10"><warningminibutton text="Abort" id="aborttask" msg="Abort the background task for {@title}"/></td>
+                <xsl:if test="@can_abort = 'True'">
+                    <td width="10"><warningminibutton text="Abort" id="aborttask" msg="Abort the background task for {@title}"/></td>
+                </xsl:if>
             </tr></table>
+            <refresh time="3000"/>
         </div>
 </xsl:template>
         

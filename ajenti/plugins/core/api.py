@@ -12,5 +12,8 @@ class IProgressBoxProvider(Interface):
     def get_progress(self):
         return ''
         
+    def can_abort(self):
+        return False
+        
     def abort(self):
         pass

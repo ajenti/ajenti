@@ -135,28 +135,6 @@
 </xsl:template>
 
 
-
-<xsl:template match="progressbox">
-    <div class="ui-el-modal-blackout" id="{@id}-wr"/>
-    <div class="ui-el-modal-wrapper" id="{@id}-wr">
-            <div class="ui-el-dialog" width="{@width}" height="{@height}">
-                <div class="ui-el-dialog-content">
-                    <vcontainer spacing="10" width="200">
-                        <image file="/dl/core/ui/ajax-big.gif" />
-                        <label text="{@status}" />
-                    </vcontainer>
-                </div>
-            </div>
-    </div>
-    <script>
-        scheduleRefresh(3000);
-        ui_fullscreen('<xsl:value-of select="@id" />-bo');
-        ui_center('<xsl:value-of select="@id" />-wr');
-    </script>
-</xsl:template>
-
-
-
 <xsl:template match="errorbox">
     <div class="ui-el-error" width="{@width}" height="{@height}">
         <table>

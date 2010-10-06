@@ -69,6 +69,10 @@ class ZypperPackageManager(Plugin):
     def get_expected_result(self, st):
         return st.pending
 
+    def abort(self):
+        shell('pkill zypper')
+        shell('rm /tmp/ajenti-zypper-output')
+        
     def _save_pending(self, p):
         f = open('/tmp/ajenti-zypper-pending.list', 'w')
         for x in p:
