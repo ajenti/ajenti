@@ -28,7 +28,7 @@ class ServicesPlugin(CategoryPlugin):
              )
         ts.append(hr)
 
-        lst = self.svc_mgr.list_all()
+        lst = sorted(self.svc_mgr.list_all(), key=lambda x: x.status)
         for svc in lst:
             if svc.status == 'running':
                 ctl = UI.HContainer(
