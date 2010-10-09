@@ -1,0 +1,3 @@
+pkg loadavg-linux
+desc Linux backend for system stats dashboard widget
+prov ajenti-plugin-loadavg-backend

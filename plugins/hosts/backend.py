@@ -3,6 +3,7 @@ import os
 
 from ajenti.utils import *
 from ajenti.plugins.uzuri_common import ClusteredConfig
+from ajenti.com import *
 
 
 class Host:
@@ -15,7 +16,7 @@ class Host:
 class Config(ClusteredConfig):
     name = 'Hosts'
     id = 'hosts'
-    files = [('/etc', 'hosts'), ('/etc', 'hostname')] 
+    files = [('/etc', 'hosts'), ('/etc', 'hostname'), ('/etc', 'rc.conf')] 
     
     @property
     def run_after(self):
@@ -51,9 +52,41 @@ class Config(ClusteredConfig):
         with self.open('/etc/hosts', 'w') as f:
             f.write(d)
             
-            
     def gethostname(self):
-        return self.open('/etc/hostname').read()
+        return self.app.get_backend(IHostnameManager).gethostname(self)
         
     def sethostname(self, hn):
-        return self.open('/etc/hostname', 'w').write(hn)
+        self.app.get_backend(IHostnameManager).sethostname(self, hn)
+            
+
+
+class IHostnameManager(Interface):
+    def gethostname(self, cc):
+        pass
+        
+    def sethostname(self, cc, hn):
+        pass
+        
+        
+class LinuxHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['Ubuntu', 'Debian', 'Arch', 'openSUSE']
+    
+    def gethostname(self, cc):
+        return cc.open('/etc/hostname').read()
+        
+    def sethostname(self, cc, hn):
+        return cc.open('/etc/hostname', 'w').write(hn)
+
+
+class BSDHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['FreeBSD']
+    
+    def gethostname(self, cc):
+        return shell('grep \'hostname=\' /etc/rc.conf').split('"')[1]
+        
+    def sethostname(self, cc, hn):
+        d = cc.open('/etc/rc.conf')
+        d = d.replace('hostname="%s"'%self.gethostname(cc), 'hostname="%s"'%hn)
+        cc.open('/etc/rc.conf', 'w').write(d)

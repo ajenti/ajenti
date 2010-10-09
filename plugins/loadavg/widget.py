@@ -2,32 +2,31 @@ from ajenti.ui import *
 from ajenti.plugins.dashboard.api import *
 from ajenti.com import implements, Plugin
 from ajenti.app.helpers import *
-from ajenti.utils import *
+from ajenti import apis
 
 
 class LoadWidget(Plugin):
     implements(IDashboardWidget)
 
     def get_ui(self):
+        stat = self.app.get_backend(apis.sysstat.ISysStat)
         w = UI.Widget(
                 UI.HContainer(
                     UI.Image(file='/dl/loadavg/widget.png'),
                     UI.Label(text='System load:', bold=True),
-                    UI.Label(text=self.get_load())
+                    UI.Label(text=' / '.join(stat.get_load()))
                 )
             )
         return w
-
-    def get_load(self):
-        return ' / '.join(open('/proc/loadavg', 'r').read().split()[0:3])
-
+    
 
 class MemWidget(Plugin):
     implements(IDashboardWidget)
 
     def get_ui(self):
-        ru, rt = self.get_ram()
-        su, st = self.get_swap()
+        stat = self.app.get_backend(apis.sysstat.ISysStat)
+        ru, rt = stat.get_ram()
+        su, st = stat.get_swap()
         w = UI.Widget(
                 UI.LayoutTable(
                     UI.LayoutTableRow(
@@ -47,19 +46,6 @@ class MemWidget(Plugin):
                 )
             )
         return w
-
-    def get_ram(self):
-        s = shell('free -m | grep Mem').split()[1:]
-        t = int(s[0])
-        u = int(s[1])
-        b = int(s[4])
-        c = int(s[5])
-        u -= c + b;
-        return (u, t)
-
-    def get_swap(self):
-        s = shell('free -m | grep Swap').split()[1:]
-        return (int(s[1]), int(s[0]))
 
 
 class LoadContent(ModuleContent):

@@ -48,7 +48,7 @@ def save(ee):
 def list_disks():
     r = []
     for s in os.listdir('/dev'):
-        if re.match('sd.$|hd.$|scd.$|fd.$', s):
+        if re.match('sd.$|hd.$|scd.$|fd.$|ad.+$', s):
             r.append('/dev/' + s)
     return sorted(r)
 
