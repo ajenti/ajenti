@@ -6,7 +6,8 @@ from api import *
 class LinuxDHCPNetworkConfigSet(NetworkConfigBit):
     cls = 'linux-dhcp'
     title = 'DHCP'
-
+    autovars = ['hostname', 'leasehours', 'leasetime', 'vendor', 'client', 'hwaddress']
+    
     def get_ui(self):
         p = UI.LayoutTable(
                 UI.LayoutTableRow(

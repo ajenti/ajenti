@@ -6,7 +6,8 @@ from api import *
 class LinuxBootPNetworkConfigSet(NetworkConfigBit):
     cls = 'linux-bootp'
     title = 'BootP'
-
+    autovars = ['bootfile', 'server', 'hwaddress']
+    
     def get_ui(self):
         p = UI.LayoutTable(
                 UI.LayoutTableRow(

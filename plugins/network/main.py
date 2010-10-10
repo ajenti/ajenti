@@ -14,20 +14,14 @@ class NetworkPlugin(CategoryPlugin):
 
     def on_session_start(self):
         self._editing_iface = ""
-        self._editing_ns = -1
-
+        self._info = None
+        
     def get_ui(self):
         panel = UI.PluginPanel(UI.Label(text=""), title='Networking', icon='/dl/network/icon.png')
-
-        ui = UI.VContainer(
-                self.get_ui_ifaces(),
-                UI.Spacer(height=20),
-                self.get_ui_dns()
-             )
-        panel.append(ui)
+        panel.append(self.get_default_ui())
         return panel
 
-    def get_ui_ifaces(self):
+    def get_default_ui(self):
         ti = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(text='Interface'), width="100px"),
@@ -43,14 +37,15 @@ class NetworkPlugin(CategoryPlugin):
             i = self.net_config.interfaces[x]
             ti.append(UI.DataTableRow(
                             UI.Label(text=i.name),
-                            UI.Label(text=i.clsname),
-                            UI.Label(text=i.addr),
+                            UI.Label(text=i.devclass),
+                            UI.Label(text=self.net_config.get_ip(i)),
                             UI.HContainer(
                                 UI.Image(file='/dl/network/%s.png'%('up' if i.up else 'down')),
                                 UI.Label(text=('Up' if i.up else 'Down')),
                             ),
                             UI.DataTableCell(
                                 UI.HContainer(
+                                    UI.MiniButton(text='Info', id='info/' + i.name),
                                     UI.MiniButton(text='Edit', id='editiface/' + i.name),
                                     UI.WarningMiniButton(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name), msg='Bring %s interface %s' % (('Down' if i.up else 'Up'), i.name))
                                 ),
@@ -58,60 +53,23 @@ class NetworkPlugin(CategoryPlugin):
                             )
                            ))
 
-        c = UI.VContainer(
-                UI.Label(text='Network interfaces', size=3),
-                ti,
-                spacing=10
-            )
+        c = UI.VContainer(ti)
 
+        if self._info is not None:
+            c.append(
+                UI.DialogBox(
+                    self.net_config.get_info(self.net_config.interfaces[self._info]),
+                    id='dlgInfo', 
+                    hidecancel=True
+                ))
+        
         if self._editing_iface != "":
             cnt = UI.TabControl()
             for x in self.net_config.interfaces[self._editing_iface].bits:
                 cnt.add(x.title, x.get_ui())
             dlg = UI.DialogBox(
                         cnt,
-                        title="Interface '" + self._editing_iface + "' properties",
                         id="dlgEditIface"
-                    )
-            c.append(dlg)
-
-        return c
-
-    def get_ui_dns(self):
-        td = UI.DataTable()
-        hr = UI.DataTableRow(
-                UI.DataTableCell(UI.Label(text='Type'), width="100px"),
-                UI.DataTableCell(UI.Label(text='Address'), width="200px"),
-                UI.DataTableCell(UI.Label(text='')),
-                header=True
-             )
-        td.append(hr)
-
-        for x in range(0, len(self.net_config.nameservers)):
-            i = self.net_config.nameservers[x]
-            td.append(UI.DataTableRow(
-                            UI.Label(text=i.cls),
-                            UI.Label(text=i.address),
-                            UI.DataTableCell(
-                                UI.HContainer(
-                                    UI.MiniButton(text='Edit', id='editns/' + str(x)),
-                                    UI.MiniButton(text='Remove', id='delns/' + str(x))
-                                ),
-                                hidden=True
-                            )
-                           ))
-
-        c = UI.VContainer(
-                UI.Label(text='DNS options', size=3),
-                td,
-                UI.Button(text='Add option', id='addns'),
-                spacing=10
-            )
-
-        if self._editing_ns != -1:
-            dlg = UI.DialogBox(
-                        self.net_config.ns_edit_dialog(self.net_config.nameservers[self._editing_ns]),
-                        title="Nameserver entry options", id="dlgEditNS"
                     )
             c.append(dlg)
 
@@ -121,21 +79,15 @@ class NetworkPlugin(CategoryPlugin):
     @event('minibutton/click')
     @event('linklabel/click')
     def on_ll_click(self, event, params, vars=None):
+        if params[0] == 'info':
+            self._info = params[1]
         if params[0] == 'editiface':
             self._editing_iface = params[1]
-        if params[0] == 'editns':
-            self._editing_ns = int(params[1])
-        if params[0] == 'delns':
-            self.net_config.nameservers.remove(self.net_config.nameservers[int(params[1])])
-            self.net_config.save()
         if params[0] == 'ifup':
             self.net_config.up(self.net_config.interfaces[params[1]])
         if params[0] == 'ifdown':
             self.net_config.down(self.net_config.interfaces[params[1]])
-        if params[0] == 'addns':
-            self.net_config.nameservers.append(self.net_config.new_nameserver())
-            self._editing_ns = len(self.net_config.nameservers) - 1
-
+ 
     @event('dialog/submit')
     def on_dlg_submit(self, event, params, vars=None):
         if params[0] == 'dlgEditIface':
@@ -146,20 +98,8 @@ class NetworkPlugin(CategoryPlugin):
                 self.net_config.save()
 
             self._editing_iface = ''
-
-        if params[0] == 'dlgEditNS':
-            if vars.getvalue('action', '') == 'OK':
-                try:
-                    i = self.net_config.nameservers[self._editing_ns]
-                except:
-                    i = Nameserver()
-                    self.net_config.nameservers.append(i)
-
-                i.cls = vars.getvalue('cls', 'nameserver')
-                i.address = vars.getvalue('address', '127.0.0.1')
-                self.net_config.save()
-
-            self._editing_ns = -1
+        if params[0] == 'dlgInfo':
+            self._info = None
 
 
 class NetworkContent(ModuleContent):
