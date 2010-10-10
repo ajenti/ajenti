@@ -4,27 +4,34 @@ from ajenti.app.api import *
 
 class INetworkConfig(Interface):
     interfaces = None
-    nameservers = None
-
+    
     def save(self):
         pass
 
-    def ns_edit_dialog(self, ns):
-        pass
-
-    def new_iface(self):
-        pass
-
-    def new_nameserver(self):
-        pass
-
+"""
     def up(self, iface):
         pass
 
     def down(self, iface):
         pass
 
+    def get_ui_info(self, iface):
+        pass
+        
+    def get_tx(self, iface):
+        pass
 
+    def get_rx(self, iface):
+        pass
+
+    def get_ip(self, iface):
+        pass
+
+    def detect_dev_class(self, iface):
+        pass
+
+"""        
+    
 class INetworkConfigBit(Interface):
     def get_ui(self):
         pass
@@ -41,6 +48,8 @@ class NetworkConfigBit(Plugin):
     iface = None
     title = 'Unknown'
 
+    autovars = []
+    
     def __init__(self):
         self.params = {}
 
@@ -48,22 +57,29 @@ class NetworkConfigBit(Plugin):
         pass
 
     def apply(self, vars):
-        for k in vars:
-            if vars.getvalue(k, '') != '':
+        for k in self.autovars:
+            if vars.getvalue(k, None) is not None:
                 self.iface[k] = vars.getvalue(k, '')
+                if self.iface[k] == '':
+                    del self.iface.params[k]
 
 
-class NetworkInterfaceBase(object):
-    clsname = ''
-    up = False
-    addr = ''
-    name = 'unknown'
-    bits = None
-
+class NetworkInterface(object):
     def __init__(self):
+        self.up = False
+        self.auto = False
+        self.name = ''
+        self.devclass = ''
         self.bits = []
+        self.params = {}
+        self.type = ''
+        
+    def __getitem__(self, idx):
+        if self.params.has_key(idx):
+            return self.params[idx]
+        else:
+            return ''
 
-
-class NameserverBase(object):
-    cls = ''
-    address = ''
+    def __setitem__(self, idx, val):
+        self.params[idx] = val
+        

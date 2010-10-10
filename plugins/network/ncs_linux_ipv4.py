@@ -6,7 +6,8 @@ from api import *
 class LinuxIPv4NetworkConfigSet(NetworkConfigBit):
     cls = 'linux-ipv4'
     title = 'IPv4'
-
+    autovars = ['address', 'netmask', 'gateway', 'network', 'broadcast', 'metric', 'pointopoint', 'hwaddress', 'mtu']
+    
     def get_ui(self):
         p = UI.LayoutTable(
                 UI.LayoutTableRow(

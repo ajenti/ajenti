@@ -6,7 +6,8 @@ from api import *
 class LinuxIfUpDownNetworkConfigSet(NetworkConfigBit):
     cls = 'linux-ifupdown'
     title = 'Scripts'
-
+    autovars = ['up', 'down', 'post-up', 'post-down']
+    
     def get_ui(self):
         p = UI.LayoutTable(
                 UI.LayoutTableRow(

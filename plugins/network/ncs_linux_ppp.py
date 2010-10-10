@@ -6,7 +6,8 @@ from api import *
 class LinuxBootPNetworkConfigSet(NetworkConfigBit):
     cls = 'linux-ppp'
     title = 'PPP'
-
+    autovars = ['provider']
+    
     def get_ui(self):
         p = UI.LayoutTable(
                 UI.LayoutTableRow(
