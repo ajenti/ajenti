@@ -4,6 +4,7 @@ import os
 from ajenti.utils import *
 from ajenti.plugins.uzuri_common import ClusteredConfig
 from ajenti.com import *
+from ajenti import apis
 
 
 class Host:
@@ -84,9 +85,7 @@ class BSDHostnameManager(Plugin):
     platform = ['FreeBSD']
     
     def gethostname(self, cc):
-        return shell('grep \'hostname=\' /etc/rc.conf').split('"')[1]
+        return apis.rcconf.RCConf(self.app).get_param('hostname')
         
     def sethostname(self, cc, hn):
-        d = cc.open('/etc/rc.conf')
-        d = d.replace('hostname="%s"'%self.gethostname(cc), 'hostname="%s"'%hn)
-        cc.open('/etc/rc.conf', 'w').write(d)
+        apis.rcconf.RCConf(self.app).set_param('hostname', hn)
