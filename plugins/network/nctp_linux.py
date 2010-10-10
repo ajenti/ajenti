@@ -7,7 +7,6 @@ from ajenti.utils import shell, str_fsize
 
 class LinuxIfconfig(Plugin):
     platform = ['Debian', 'Ubuntu', 'Arch', 'openSUSE']
-    abstract = True
     
     def get_info(self, iface):
         ui = UI.LayoutTable(

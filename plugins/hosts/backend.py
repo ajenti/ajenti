@@ -88,4 +88,4 @@ class BSDHostnameManager(Plugin):
         return apis.rcconf.RCConf(self.app).get_param('hostname')
         
     def sethostname(self, cc, hn):
-        apis.rcconf.RCConf(self.app).set_param('hostname', hn)
+        apis.rcconf.RCConf(self.app).set_param('hostname', hn, near='hostname')

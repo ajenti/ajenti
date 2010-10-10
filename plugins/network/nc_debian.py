@@ -1,12 +1,10 @@
-import time
-
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti.ui import *
 from ajenti.plugins.uzuri_common import ClusteredConfig
 
 from api import *
-from nctp_ifconfig import *
+from nctp_linux import *
 
 
 class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
@@ -18,7 +16,6 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
     run_after = ['/etc/init.d/networking restart']
     
     interfaces = None
-    nameservers = None
 
     def __init__(self):
         self.rescan()
@@ -26,7 +23,6 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
     def rescan(self):
         self.interfaces = {}
 
-        # Load interfaces
         try:
             f = self.open('/etc/network/interfaces')
             ss = f.read().splitlines()
@@ -68,16 +64,8 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
     def get_iface(self, name, bits):
         if not self.interfaces.has_key(name):
             self.interfaces[name] = NetworkInterface()
-            for x in bits:
-                try:
-                    b = self.app.grab_plugins(INetworkConfigBit,\
-                            lambda p: p.cls == x)[0]
-                    b.iface = self.interfaces[name]
-                    self.interfaces[name].bits.append(b)
-                except:
-                    pass
-
-        self.interfaces[name].name = name
+            self.interfaces[name].get_bits(self.app, bits)
+            self.interfaces[name].name = name
         return self.interfaces[name]
 
 

@@ -83,3 +83,14 @@ class NetworkInterface(object):
     def __setitem__(self, idx, val):
         self.params[idx] = val
         
+    def get_bits(self, app, bits):
+        for x in bits:
+            try:
+                b = app.grab_plugins(INetworkConfigBit,\
+                        lambda p: p.cls == x)[0]
+                b.iface = self
+                self.bits.append(b)
+            except:
+                pass
+        
+    

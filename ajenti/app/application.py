@@ -129,6 +129,7 @@ class Application (PluginManager, Plugin):
         try:
             return self.grab_plugins(iface, flt)[0]
         except:
+            print traceback.format_exc()
             raise BackendUnavailableException(iface.__name__, self.platform) 
             
     def get_template(self, filename=None, search_path=[]):
