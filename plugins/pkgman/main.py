@@ -242,7 +242,7 @@ class PackageManagerProgress(Plugin):
         self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
 
     def has_progress(self):         
-        return self.mgr.get_busy_status()
+        return self.mgr.is_busy()
         
     def get_progress(self):
         return self.mgr.get_busy_status()

@@ -2,6 +2,7 @@ import subprocess
 import platform
 import os
 import mimetypes
+import time
 from datetime import datetime
 
 
@@ -46,6 +47,16 @@ def shell(c):
     p.wait()
     return data + p.stdout.read() + p.stderr.read()
 
+def shell_bg(c, output=None, deleteout=False):
+    if output is not None:
+        c = 'bash -c "%s" > %s 2>&1'%(c,output)
+        if deleteout:
+            c = 'touch %s; %s; rm -f %s'%(output,c,output)
+    print c
+    subprocess.Popen(c, shell=True,
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE)
+    
 def shell_status(c):
     return subprocess.Popen(c, shell=True).wait()
 
