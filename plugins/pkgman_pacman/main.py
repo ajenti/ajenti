@@ -114,6 +114,12 @@ class PacmanPackageManager(Plugin):
         shell('pkill pacman')
         shell('rm /tmp/ajenti-pacman-output')
 
+    def get_info(self, pkg):
+        pass
+
+    def get_info_ui(self, pkg):
+        pass
+               
     def _save_pending(self, p):
         f = open('/tmp/ajenti-pacman-pending.list', 'w')
         for x in p:

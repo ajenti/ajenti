@@ -38,7 +38,13 @@ class PkgMan(API):
         def abort(self):
             pass
             
+        def get_info(self, pkg):
+            pass
+
+        def get_info_ui(self, pkg):
+            pass
             
+                        
     class Package(object):
         def __init__(self):
             self.name = ''
@@ -47,6 +53,13 @@ class PkgMan(API):
             self.description = ''
 
 
+    class PackageInfo(object):
+        def __init__(self):
+            self.installed = ''
+            self.available = ''
+            self.description = ''            
+    
+    
     class Status(object):
         upgradeable = None
         pending = None

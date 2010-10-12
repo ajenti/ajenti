@@ -73,6 +73,12 @@ class ZypperPackageManager(Plugin):
         shell('pkill zypper')
         shell('rm /tmp/ajenti-zypper-output')
         
+    def get_info(self, pkg):
+        pass
+
+    def get_info_ui(self, pkg):
+        pass
+
     def _save_pending(self, p):
         f = open('/tmp/ajenti-zypper-pending.list', 'w')
         for x in p:

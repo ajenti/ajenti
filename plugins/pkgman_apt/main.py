@@ -100,6 +100,24 @@ class APTPackageManager(Plugin):
     def abort(self):
         shell('pkill apt')
         shell('rm /tmp/ajenti-apt-output')
+
+    def get_info(self, pkg):
+        i = apis.pkgman.PackageInfo()
+        ss = shell('apt-cache policy '+pkg).split('\n')
+        i.installed = ss[1].split(':')[1].strip()
+        i.available = ss[2].split(':')[1].strip()
+        ss = shell('apt-cache show '+pkg).split('\n')
+        while len(ss)>0 and not ss[0].startswith('Desc'):
+            ss = ss[1:]
+        i.description = ss[0].split(':')[1]
+        ss = ss[1:]
+        while len(ss)>0 and ss[0].startswith(' '):
+            i.description += '\n' + ss[0][1:]
+            ss = ss[1:]
+        return i
+        
+    def get_info_ui(self, pkg):
+        return None
         
     def _save_pending(self, p):
         f = open('/tmp/ajenti-apt-pending.list', 'w')

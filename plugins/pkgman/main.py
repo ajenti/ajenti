@@ -31,7 +31,8 @@ class PackageManagerPlugin(CategoryPlugin):
         self._in_progress = False
         self._search = {}
         self._search_query = ''
-            
+        self._info = None
+        
     def get_ui(self):
         ctl = UI.HContainer(
                 UI.Button(text='Refresh', id='refresh'),
@@ -66,6 +67,8 @@ class PackageManagerPlugin(CategoryPlugin):
                   )
             pnl.append(dlg)
 
+        if self._info is not None:
+            pnl.append(self.get_ui_info())
         return panel
 
     def _get_icon(self, p):
@@ -110,6 +113,7 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.Label(text=p.version),
                         UI.Label(text=p.description),
                         UI.DataTableCell(
+                            UI.MiniButton(text='Info', id='info/'+p.name),
                             UI.MiniButton(text='Select', id='upgrade/'+p.name),
                             hidden=True
                         )
@@ -126,6 +130,7 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.Label(text=self._search[p].version),
                         UI.Label(text=self._search[p].description),
                         UI.DataTableCell(
+                            UI.MiniButton(text='Info', id='info/'+p),
                             UI.MiniButton(text='Install', id='install/'+p) if self._search[p].state == 'removed' else
                             UI.MiniButton(text='Remove', id='remove/'+p),
                             hidden=True
@@ -151,6 +156,7 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.Label(),
                         UI.Label(),
                         UI.DataTableCell(
+                            UI.MiniButton(text='Info', id='info/'+p),
                             UI.MiniButton(text='Cancel', id='cancel/'+p),
                             hidden=True
                         )
@@ -187,6 +193,52 @@ class PackageManagerPlugin(CategoryPlugin):
         
         return ui
 
+    def get_ui_info(self):
+        pkg = self._info
+        info = self.mgr.get_info(pkg)
+        iui = self.mgr.get_info_ui(pkg)
+        ui = UI.LayoutTable(
+                UI.LayoutTableRow(
+                    UI.LayoutTableCell(
+                        UI.Image(file='/dl/pkgman/icon.png'),
+                        rowspan=6
+                    ),
+                    UI.Label(text='Package:', bold=True),
+                    UI.Label(text=pkg, bold=True)
+                ),
+                UI.LayoutTableRow(
+                    UI.Label(text='Installed:'),
+                    UI.Label(text=info.installed)
+                ),
+                UI.LayoutTableRow(
+                    UI.Label(text='Available:'),
+                    UI.Label(text=info.available)
+                ),
+                UI.LayoutTableRow(
+                    UI.Label(text='Desription:'),
+                    UI.Container(
+                        UI.Label(text=info.description),
+                        width=300
+                    )
+                ),
+                UI.LayoutTableRow(
+                    UI.LayoutTableCell(
+                        UI.HContainer(
+                            UI.MiniButton(text='(Re)install', id='install/'+pkg),
+                            UI.MiniButton(text='Remove', id='remove/'+pkg)
+                        ),
+                        colspan=2
+                    )
+                ),
+                UI.LayoutTableRow(
+                    UI.LayoutTableCell(
+                        iui,
+                        colspan=2
+                    )
+                )
+            )
+        return UI.DialogBox(ui, id='dlgInfo')
+            
     @event('listitem/click')
     def on_li_click(self, event, params, vars=None):
         self._current = params[0]
@@ -204,8 +256,10 @@ class PackageManagerPlugin(CategoryPlugin):
             time.sleep(0.5)
         if params[0] == 'install':
             self.mgr.mark_install(self._status, params[1])
+            self._info = None
         if params[0] == 'remove':
             self.mgr.mark_remove(self._status, params[1])
+            self._info = None
         if params[0] == 'upgrade':
             self.mgr.mark_install(self._status, params[1])
         if params[0] == 'cancel':
@@ -213,6 +267,8 @@ class PackageManagerPlugin(CategoryPlugin):
         if params[0] == 'upgradeall':
             for p in self._status.upgradeable:
                 self.mgr.mark_install(self._status, p)
+        if params[0] == 'info':
+            self._info = params[1]
         if params[0] == 'cancelall':
             self._status.upgradeable = {}
         
@@ -226,11 +282,12 @@ class PackageManagerPlugin(CategoryPlugin):
                 self._in_progress = True
                 self._status.pending = {}
         if params[0] == 'frmSearch':
-            self._tab = 1
             q = vars.getvalue('query','')
             if q != '':
                 self._search = self.mgr.search(q, self._status)
-        
+        if params[0] == 'dlgInfo':
+            self._info = None
+            
         
 class PackageManagerProgress(Plugin):
     implements(IProgressBoxProvider)
