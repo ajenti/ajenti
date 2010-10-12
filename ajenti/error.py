@@ -21,6 +21,13 @@ def format_backend_error(app, ex):
     return templ.render()
 
 def make_report(app, err):
+    pr = ''
+    for p in app.class_list():
+        i = ''
+        if hasattr(p, '_implements'):
+            i = ','.join([x.__name__ for x in p._implements])
+        pr += '%s [%s]\n' % (p.__name__, i)
+
     return (('Ajenti %s bug report\n' +
            '--------------------\n\n' +
            'System: %s\n' +
@@ -34,7 +41,7 @@ def make_report(app, err):
                detect_platform(),
                detect_distro(),
                '.'.join([str(x) for x in platform.python_version_tuple()]),
-               str(app.class_list()).replace(',','\n'),
+               pr,
                err
               ))
               
