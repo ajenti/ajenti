@@ -65,13 +65,4 @@ class ArchNetworkConfig(LinuxIfconfig, ClusteredConfig):
                         s.append(iface.params[k])
                 self.rcconf.set_param(iface.name, ' '.join(s))
 
-    def up(self, iface):
-        shell('ifconfig %s up' % iface.name)
-        time.sleep(1)
-        self.rescan()
-
-    def down(self, iface):
-        shell('ifconfig %s down' % iface.name)
-        time.sleep(1)
-        self.rescan()
-        
+  
