@@ -34,13 +34,17 @@ def make_report(app, err):
            'Detected platform: %s\n' +
            'Detected distro: %s\n' +
            'Python: %s\n\n' +
-           'Loaded plugins:\n%s\n\n' +
+           'Config path: %s\n\n' +
+           'Config content:\n%s\n' +
+           '\n\nLoaded plugins:\n%s\n\n' +
            '%s')
             % (version,
                shell('uname -a'),
                detect_platform(),
                detect_distro(),
                '.'.join([str(x) for x in platform.python_version_tuple()]),
+               app.config.filename,
+               open(app.config.filename).read(),
                pr,
                err
               ))
