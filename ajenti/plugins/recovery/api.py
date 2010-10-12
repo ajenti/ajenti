@@ -91,6 +91,15 @@ class Manager(Plugin):
             if x.id == id:
                 return x
         
+    def backup_all_now(self):
+        errs = []
+        for x in self.app.grab_plugins(IRecoveryProvider):
+            try:
+                self.backup_now(x)
+            except:
+                errs.append(x.name)
+        return errs
+        
     def backup_now(self, provider):
         try:
             os.makedirs(os.path.join(self.dir, provider.id))
