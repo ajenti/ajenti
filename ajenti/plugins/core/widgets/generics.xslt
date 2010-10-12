@@ -14,7 +14,7 @@
 </xsl:template>
 
 <xsl:template match="container">
-    <div>
+    <div style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
            <xsl:apply-templates />
     </div>
 </xsl:template>
