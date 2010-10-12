@@ -8,7 +8,7 @@ from ajenti.plugins.recovery import *
 
 class RCConf(API):
     class RCConf(ClusteredConfig):
-        platform = ['Arch', 'freebsd']
+        platform = ['Arch', 'FreeBSD']
         name = 'rc.conf'
         id = 'rcconf'
         files = [('/etc', 'rc.conf')] 
@@ -17,7 +17,8 @@ class RCConf(API):
             return shell_status('grep \'%s=\' /etc/rc.conf'%param) == 0
             
         def get_param(self, param):
-            return shell('grep \'%s=\' /etc/rc.conf'%param).split('"')[1]
+            s = shell('grep \'^%s=\' /etc/rc.conf'%param).split('=')[1].strip()
+            return s.strip('"')
 
         def set_param(self, param, value, near=None):
             d = open('/etc/rc.conf').read().split('\n')

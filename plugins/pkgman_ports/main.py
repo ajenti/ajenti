@@ -116,6 +116,20 @@ class PortsPackageManager(Plugin):
         shell('pkill make')
         shell('rm /tmp/ajenti-ports-output')
         
+    def get_info(self, pkg):
+        i = apis.pkgman.PackageInfo()
+        ss = shell('pkg_info \'%s-*\''%pkg).split('\n')
+        i.installed = ''
+        i.available = ss[0].split('-')[-1][:-1]
+        while len(ss)>0 and not ss[0].startswith('Desc'):
+            ss = ss[1:]
+        ss = ss[1:]
+        i.description = '\n'.join(ss)
+        return i
+        
+    def get_info_ui(self, pkg):
+        return None
+
     def _save_pending(self, p):
         f = open('/tmp/ajenti-ports-pending.list', 'w')
         for x in p:

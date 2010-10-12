@@ -71,7 +71,7 @@ class NetworkInterface(object):
         self.name = ''
         self.devclass = ''
         self.bits = []
-        self.params = {}
+        self.params = {'address': '0.0.0.0'}
         self.type = ''
         
     def __getitem__(self, idx):

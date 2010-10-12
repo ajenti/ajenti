@@ -84,6 +84,8 @@ class LinuxIfconfig(Plugin):
             r.append('linux-ipv4')
         if iface.type == 'inet6' and iface.addressing == 'static':
             r.append('linux-ipv6')
+        if iface.addressing == 'dhcp':
+            r.append('linux-dhcp')
         if cls == 'ppp':
             r.append('linux-ppp')
         if cls == 'wireless':

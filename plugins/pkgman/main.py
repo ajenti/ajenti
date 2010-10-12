@@ -113,8 +113,11 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.Label(text=p.version),
                         UI.Label(text=p.description),
                         UI.DataTableCell(
-                            UI.MiniButton(text='Info', id='info/'+p.name),
-                            UI.MiniButton(text='Select', id='upgrade/'+p.name),
+                            UI.HContainer(
+                                UI.MiniButton(text='Info', id='info/'+p.name),
+                                UI.MiniButton(text='Select', id='upgrade/'+p.name),
+                                spacing=0
+                            ),
                             hidden=True
                         )
                     )

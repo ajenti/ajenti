@@ -11,7 +11,7 @@ from nctp_bsd import *
 from nc_debian import *
 from nc_bsd import *
 #from nc_suse import *
-#from nc_arch import *
+from nc_arch import *
 
 # NetworkConfigBits
 from ncs_linux_basic import *
