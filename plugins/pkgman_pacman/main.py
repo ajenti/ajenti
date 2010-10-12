@@ -115,7 +115,15 @@ class PacmanPackageManager(Plugin):
         shell('rm /tmp/ajenti-pacman-output')
 
     def get_info(self, pkg):
-        pass
+        i = apis.pkgman.PackageInfo()
+        ss = shell('pacman -Qi '+pkg).split('\n')
+        i.installed = ''
+        i.available = ss[1].split(':')[1]
+        while len(ss)>0 and not ss[0].startswith('Desc'):
+            ss = ss[1:]
+        ss[0] = ss[0].split(':')[1]
+        i.description = '\n'.join(ss)
+        return i
 
     def get_info_ui(self, pkg):
         pass
