@@ -23,6 +23,7 @@ class RecoveryPlugin(CategoryPlugin):
         
     def on_session_start(self):
         self._err = None
+        self._err_text = None
         
     def get_ui(self):
         u = UI.PluginPanel(
@@ -95,10 +96,17 @@ class RecoveryPlugin(CategoryPlugin):
                        UI.Label(text='Recovery providers'),
                        UI.Label(text='Backups for %s' % self._current_name),
                        UI.LayoutTableCell(
-                           UI.WarningMiniButton(
-                               id='backup/%s'%self._current,
-                               text='Backup now',
-                               msg='Backup configuration of %s'%self._current_name
+                           UI.HContainer(
+                               UI.WarningMiniButton(
+                                   id='backup/%s'%self._current,
+                                   text='Backup now',
+                                   msg='Backup configuration of %s'%self._current_name
+                               ),
+                               UI.WarningMiniButton(
+                                   id='backupall',
+                                   text='Backup everything',
+                                   msg='Backup all available configurations'
+                               )
                            ),
                            width=100
                        )
@@ -117,7 +125,7 @@ class RecoveryPlugin(CategoryPlugin):
                )
                
         if self._err is not None:
-            ui = UI.VContainer(UI.ErrorBox(title=self._err), ui)
+            ui = UI.VContainer(UI.ErrorBox(title=self._err, text=self._err_text), ui)
             self._err = None
         return ui
                 
@@ -125,20 +133,39 @@ class RecoveryPlugin(CategoryPlugin):
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'backup':
+            p = self.manager.find_provider(params[1])
             try:
-                self.manager.backup_now(self.manager.find_provider(params[1]))
+                self.manager.backup_now(p)
+                self._err = 'Backup complete'
+                self._err_text = 'Stored backup for %s.' % p.name
             except:
                 self._err = 'Backup failed'
+                self._err_text = 'Failed to backup %s.' % p.name
+        if params[0] == 'backupall':
+            errs = self.manager.backup_all_now()
+            if errs != []:
+                self._err = 'Full backup failed'
+                self._err_text = 'Backup failed for %s.' % ', '.join(errs)
+            else:
+                self._err = 'Full backup complete'
+                self._err_text = 'No errors encountered.'
         if params[0] == 'restore':
+            p = self.manager.find_provider(params[1])
             try:
-                self.manager.restore_now(self.manager.find_provider(params[1]), params[2])
+                self.manager.restore_now(p, params[2])
+                self._err = 'Recovery complete'
+                self._err_text = 'Restored configuration of %s (rev %s).' % (p.name, params[2])
             except:
                 self._err = 'Recovery failed'
+                self._err_text = 'Failed to recover %s.' % p.name
         if params[0] == 'drop':
             try:
                 self.manager.delete_backup(params[1], params[2])
+                self._err = 'Backup dropped'
+                self._err_text = 'Deleted backup rev %s for %s.' % (params[2], params[1])
             except:
                 self._err = 'Deletion failed'
+                self._err_text = 'Failed to delete backup rev %s for %s.' % (params[2], params[1])
                         
     @event('listitem/click')
     def on_list_click(self, event, params, vars=None):
