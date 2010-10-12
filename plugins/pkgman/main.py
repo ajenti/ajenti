@@ -37,6 +37,7 @@ class PackageManagerPlugin(CategoryPlugin):
         ctl = UI.HContainer(
                 UI.Button(text='Refresh', id='refresh'),
                 UI.Button(text='Get lists', id='getlists'),
+                UI.Button(text='Apply now', id='apply')
               )
         panel = UI.PluginPanel(ctl, title='Package Manager', icon='/dl/pkgman/icon.png')
         pnl = UI.Container()
@@ -169,7 +170,6 @@ class PackageManagerPlugin(CategoryPlugin):
             ui_misc = \
                 UI.VContainer(
                     UI.Button(text='Cancel all', id='cancelall'),
-                    UI.Button(text='Apply now', id='apply')
                 )        
                 
         list_cats = UI.List(
