@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from ajenti.com import *
-from ajenti.utils import *
+from ajenti import utils
 from ajenti import apis
 
 
@@ -14,7 +14,7 @@ class ZypperPackageManager(Plugin):
 
     def refresh(self, st):
         a = self._get_all()
-        st.upgradeable = self._parse_zypp_lu(shell('zypper -An list-updates').splitlines())
+        st.upgradeable = self._parse_zypp_lu(utils.shell('zypper -An list-updates').splitlines())
 
         st.pending = {}
         try:
@@ -31,11 +31,10 @@ class ZypperPackageManager(Plugin):
         st.full = a
 
     def get_lists(self):
-        cmd = 'zypper ref> /tmp/ajenti-zypp-output; rm -f /tmp/ajenti-zypp-output &'
-        subprocess.Popen(['bash', '-c', cmd])
+        utils.shell_bg('zypper ref', output='/tmp/ajenti-zypp-output', deleteout=True)
 
     def search(self, q, st):
-        return self._parse_zypp(shell('zypper -An search %s' % q).splitlines())
+        return self._parse_zypp(utils.shell('zypper -An search %s' % q).splitlines())
 
     def mark_install(self, st, name):
         st.pending[name] = 'install'
@@ -49,15 +48,18 @@ class ZypperPackageManager(Plugin):
         del st.pending[name]
         self._save_pending(st.pending)
 
+    def mark_cancel_all(self, st):
+        st.pending = {}
+        self._save_pending(st.pending)
+    
     def apply(self, st):
         cmd = 'zypper -n install ' #!
         for x in st.pending:
             cmd += (' ' if st.pending[x] == 'install' else ' -') + x
-        cmd += ' > /tmp/ajenti-zypper-output; rm -f /tmp/ajenti-zypper-output &'
-        subprocess.Popen(['bash', '-c', cmd])
+        utils.shell_bg(cmd, output='/tmp/ajenti-zypper-output', deleteout=True)
 
     def is_busy(self):
-        if shell_status('pgrep zypper') != 0: return False
+        if utils.shell_status('pgrep zypper') != 0: return False
         return os.path.exists('/tmp/ajenti-zypper-output')
 
     def get_busy_status(self):
@@ -70,8 +72,8 @@ class ZypperPackageManager(Plugin):
         return st.pending
 
     def abort(self):
-        shell('pkill zypper')
-        shell('rm /tmp/ajenti-zypper-output')
+        utils.shell('pkill zypper')
+        utils.shell('rm /tmp/ajenti-zypper-output')
         
     def get_info(self, pkg):
         pass
@@ -119,5 +121,5 @@ class ZypperPackageManager(Plugin):
         return r
 
     def _get_all(self):
-        ss = shell('zypper -An search \'*\'').splitlines()
+        ss = utils.shell('zypper -An search \'*\'').splitlines()
         return self._parse_zypp(ss)

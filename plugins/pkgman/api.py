@@ -23,6 +23,9 @@ class PkgMan(API):
         def mark_cancel(self, st, name):
             pass
 
+        def mark_cancel_all(self, st):
+            pass
+    
         def apply(self, st):
             pass
 

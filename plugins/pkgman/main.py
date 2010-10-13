@@ -15,13 +15,13 @@ class PackageManagerPlugin(CategoryPlugin):
 
     def on_init(self):
         self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
-        if self._need_refresh:
-            self_need_refresh = False
-            self.mgr.refresh(self._status)
         if self._in_progress and not self.mgr.is_busy():
+            self._need_refresh = True
+            self.mgr.mark_cancel_all(self._status)
+            self._in_progress = False
+        if self._need_refresh:
+            self._need_refresh = False
             self.mgr.refresh(self._status)
-            self._status.pending = {}
-        self._in_progress = self.mgr.is_busy()
     
     def on_session_start(self):
         self._status = apis.pkgman.Status()
@@ -35,7 +35,7 @@ class PackageManagerPlugin(CategoryPlugin):
         
     def get_ui(self):
         ctl = UI.HContainer(
-                UI.Button(text='Refresh', id='refresh'),
+                UI.Button(text='Refresh view', id='refresh'),
                 UI.Button(text='Get lists', id='getlists'),
                 UI.Button(text='Apply now', id='apply')
               )
@@ -81,9 +81,12 @@ class PackageManagerPlugin(CategoryPlugin):
                 r += 'remove'
         else:
             if p in self._status.full.keys():
-                r += 'installed'
-                if p in self._status.upgradeable.keys():
-                    r += '-outdated'
+                if self._status.full[p].state == 'broken':
+                    r += 'broken'
+                elif p in self._status.upgradeable.keys():
+                    r += 'outdated'
+                else:
+                    r += 'installed'
             else:
                 r += 'available'
         r += '.png'
@@ -126,6 +129,28 @@ class PackageManagerPlugin(CategoryPlugin):
                 
             ui_misc = UI.Button(text='Select all', id='upgradeall')
 
+        if self._current == 'broken':
+            for p in sorted(self._status.full.keys()):
+                p = self._status.full[p]
+                if p.state != 'broken': continue
+                r = UI.DataTableRow(
+                        UI.Image(file=self._get_icon(p.name)),
+                        UI.Label(text=p.name),
+                        UI.Label(text=p.version),
+                        UI.Label(text=p.description),
+                        UI.DataTableCell(
+                            UI.HContainer(
+                                UI.MiniButton(text='Info', id='info/'+p.name),
+                                UI.MiniButton(text='Reinstall', id='install/'+p.name),
+                                UI.MiniButton(text='Remove', id='remove/'+p.name),
+                                spacing=0
+                            ),
+                            hidden=True
+                        )
+                    )
+                tbl_pkgs.append(r)
+            ui_misc = None
+            
         if self._current == 'search':
             for p in self._search:
                 r = UI.DataTableRow(
@@ -134,9 +159,12 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.Label(text=self._search[p].version),
                         UI.Label(text=self._search[p].description),
                         UI.DataTableCell(
-                            UI.MiniButton(text='Info', id='info/'+p),
-                            UI.MiniButton(text='Install', id='install/'+p) if self._search[p].state == 'removed' else
-                            UI.MiniButton(text='Remove', id='remove/'+p),
+                            UI.HContainer(
+                                UI.MiniButton(text='Info', id='info/'+p),
+                                UI.MiniButton(text='Install', id='install/'+p) if self._search[p].state == 'removed' else
+                                UI.MiniButton(text='Remove', id='remove/'+p),
+                                spacing=0
+                            ),
                             hidden=True
                     )
                 )
@@ -160,8 +188,11 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.Label(),
                         UI.Label(),
                         UI.DataTableCell(
-                            UI.MiniButton(text='Info', id='info/'+p),
-                            UI.MiniButton(text='Cancel', id='cancel/'+p),
+                            UI.HContainer(
+                                UI.MiniButton(text='Info', id='info/'+p),
+                                UI.MiniButton(text='Cancel', id='cancel/'+p),
+                                spacing=0
+                            ),
                             hidden=True
                         )
                     )
@@ -174,6 +205,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 
         list_cats = UI.List(
             UI.ListItem(UI.Label(text='Upgradeable'), id='upgrades', active=self._current=='upgrades'),
+            UI.ListItem(UI.Label(text='Broken'), id='broken', active=self._current=='broken'),
             UI.ListItem(UI.Label(text='Search'), id='search', active=self._current=='search'),
             UI.ListItem(UI.Label(text='Pending'), id='pending', active=self._current=='pending'),
             width=100,
@@ -226,16 +258,16 @@ class PackageManagerPlugin(CategoryPlugin):
                 ),
                 UI.LayoutTableRow(
                     UI.LayoutTableCell(
-                        UI.HContainer(
-                            UI.MiniButton(text='(Re)install', id='install/'+pkg),
-                            UI.MiniButton(text='Remove', id='remove/'+pkg)
-                        ),
+                        iui,
                         colspan=2
                     )
                 ),
                 UI.LayoutTableRow(
                     UI.LayoutTableCell(
-                        iui,
+                        UI.HContainer(
+                            UI.Button(text='(Re)install', id='install/'+pkg),
+                            UI.Button(text='Remove', id='remove/'+pkg)
+                        ),
                         colspan=2
                     )
                 )
@@ -273,7 +305,7 @@ class PackageManagerPlugin(CategoryPlugin):
         if params[0] == 'info':
             self._info = params[1]
         if params[0] == 'cancelall':
-            self._status.upgradeable = {}
+            self.mgr.mark_cancel_all(self._status)
         
     @event('dialog/submit')
     @event('form/submit')
@@ -283,7 +315,6 @@ class PackageManagerPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 self.mgr.apply(self._status)
                 self._in_progress = True
-                self._status.pending = {}
         if params[0] == 'frmSearch':
             q = vars.getvalue('query','')
             if q != '':

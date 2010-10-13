@@ -58,6 +58,7 @@ def shell_bg(c, output=None, deleteout=False):
             stdout=subprocess.PIPE)
     
 def shell_status(c):
+    print c
     return subprocess.Popen(c, shell=True).wait()
 
 def shell_stdin(c, input):

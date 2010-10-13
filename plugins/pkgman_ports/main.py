@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from ajenti.com import *
-from ajenti.utils import *
+from ajenti import utils
 from ajenti import apis
 
 
@@ -13,7 +13,7 @@ class PortsPackageManager(Plugin):
     _pending = {}
 
     def refresh(self, st):
-        p = shell('pkg_version|grep \'<\'').split('\n')
+        p = utils.shell('pkg_version|grep \'<\'').split('\n')
         a = self._get_all()
         st.upgradeable = {}
 
@@ -39,11 +39,10 @@ class PortsPackageManager(Plugin):
         st.full = a
 
     def get_lists(self):
-        cmd = 'portsnap fetch > /tmp/ajenti-ports-output; portsnap update > /tmp/ajenti-ports-output; rm -f /tmp/ajenti-ports-output'
-        shell_bg(cmd)
+        utils.shell_bg('portsnap fetch', output='/tmp/ajenti-ports-output', deleteout=True)
 
     def search(self, q, st):
-        ss = shell('cd /usr/ports; make search name=%s' % q).splitlines()
+        ss = utils.shell('cd /usr/ports; make search name=%s' % q).splitlines()
         a = st.full
         r = {}
         while len(ss)>0:
@@ -71,6 +70,10 @@ class PortsPackageManager(Plugin):
         del st.pending[name]
         self._save_pending(st.pending)
 
+    def mark_cancel_all(self, st):
+        st.pending = {}
+        self._save_pending(st.pending)
+    
     def apply(self, st):
         cmd = 'portupgrade -R'
         cmd2 = 'pkg_deinstall -r'
@@ -79,7 +82,7 @@ class PortsPackageManager(Plugin):
                 cmd += ' ' + x
             else:
                 cmd2 += ' ' + x
-        shell_bg('%s; %s'%(cmd,cmd2), output='/tmp/ajenti-ports-output', deleteout=True)
+        utils.shell_bg('%s; %s'%(cmd,cmd2), output='/tmp/ajenti-ports-output', deleteout=True)
 
     def is_busy(self):
         return os.path.exists('/tmp/ajenti-ports-output')
@@ -99,7 +102,7 @@ class PortsPackageManager(Plugin):
             else:
                 cmd2 += ' ' + x
 
-        r = shell('%s; %s | grep \'[+-] \''%(cmd,cmd2)).splitlines()
+        r = utils.shell('%s; %s | grep \'[+-] \''%(cmd,cmd2)).splitlines()
         res = {}
         for x in r:
             s = x.split()
@@ -113,12 +116,12 @@ class PortsPackageManager(Plugin):
         return res
 
     def abort(self):
-        shell('pkill make')
-        shell('rm /tmp/ajenti-ports-output')
+        utils.shell('pkill make')
+        utils.shell('rm /tmp/ajenti-ports-output')
         
     def get_info(self, pkg):
         i = apis.pkgman.PackageInfo()
-        ss = shell('pkg_info \'%s-*\''%pkg).split('\n')
+        ss = utils.shell('pkg_info \'%s-*\''%pkg).split('\n')
         i.installed = ''
         i.available = ss[0].split('-')[-1][:-1]
         while len(ss)>0 and not ss[0].startswith('Desc'):
@@ -137,7 +140,7 @@ class PortsPackageManager(Plugin):
         f.close()
 
     def _get_all(self):
-        ss = shell('pkg_info').splitlines()
+        ss = utils.shell('pkg_info').splitlines()
         r = {}
         for s in ss:
             s = s.split()

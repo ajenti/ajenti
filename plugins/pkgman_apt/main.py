@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from ajenti.com import *
-from ajenti.utils import *
+from ajenti import utils
 from ajenti import apis
 
 
@@ -13,7 +13,7 @@ class APTPackageManager(Plugin):
     _pending = {}
 
     def refresh(self, st):
-        p = self._parse_apt(shell('apt-get upgrade -s -qq').splitlines())
+        p = self._parse_apt(utils.shell('apt-get upgrade -s -qq').splitlines())
         a = self._get_all()
         st.upgradeable = {}
 
@@ -38,11 +38,10 @@ class APTPackageManager(Plugin):
         st.full = a
 
     def get_lists(self):
-        cmd = 'apt-get update > /tmp/ajenti-apt-output; rm -f /tmp/ajenti-apt-output &'
-        subprocess.Popen(['bash', '-c', cmd])
+        utils.shell_bg('apt-get update', output='/tmp/ajenti-apt-output', deleteout=True)
 
     def search(self, q, st):
-        ss = shell('apt-cache search %s' % q).splitlines()
+        ss = utils.shell('apt-cache search %s' % q).splitlines()
         a = st.full
         r = {}
         for s in ss:
@@ -67,15 +66,18 @@ class APTPackageManager(Plugin):
         del st.pending[name]
         self._save_pending(st.pending)
 
+    def mark_cancel_all(self, st):
+        st.pending = {}
+        self._save_pending(st.pending)
+    
     def apply(self, st):
         cmd = 'apt-get -y install '
         for x in st.pending:
             cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
-        cmd += ' > /tmp/ajenti-apt-output; rm -f /tmp/ajenti-apt-output &'
-        subprocess.Popen(['bash', '-c', cmd])
+        utils.shell_bg(cmd, output='/tmp/ajenti-apt-output', deleteout=True)
 
     def is_busy(self):
-        if shell_status('pgrep apt-get') != 0: return False
+        if utils.shell_status('pgrep apt-get') != 0: return False
         return os.path.exists('/tmp/ajenti-apt-output')
 
     def get_busy_status(self):
@@ -89,7 +91,7 @@ class APTPackageManager(Plugin):
         for x in st.pending:
             cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
         print cmd
-        r = self._parse_apt(shell(cmd).splitlines())
+        r = self._parse_apt(utils.shell(cmd).splitlines())
         for x in r:
             if r[x].state == 'installed':
                 r[x] = 'install'
@@ -98,15 +100,15 @@ class APTPackageManager(Plugin):
         return r
 
     def abort(self):
-        shell('pkill apt')
-        shell('rm /tmp/ajenti-apt-output')
+        utils.shell('pkill apt')
+        utils.shell('rm /tmp/ajenti-apt-output')
 
     def get_info(self, pkg):
         i = apis.pkgman.PackageInfo()
-        ss = shell('apt-cache policy '+pkg).split('\n')
+        ss = utils.shell('apt-cache policy '+pkg).split('\n')
         i.installed = ss[1].split(':')[1].strip()
         i.available = ss[2].split(':')[1].strip()
-        ss = shell('apt-cache show '+pkg).split('\n')
+        ss = utils.shell('apt-cache show '+pkg).split('\n')
         while len(ss)>0 and not ss[0].startswith('Desc'):
             ss = ss[1:]
         i.description = ss[0].split(':')[1]
@@ -145,7 +147,7 @@ class APTPackageManager(Plugin):
         return r
 
     def _get_all(self):
-        ss = shell('dpkg -l').splitlines()
+        ss = utils.shell('dpkg -l').splitlines()
         r = {}
         for s in ss:
             s = s.split()
