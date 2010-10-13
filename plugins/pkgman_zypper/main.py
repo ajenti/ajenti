@@ -76,7 +76,7 @@ class ZypperPackageManager(Plugin):
         utils.shell('rm /tmp/ajenti-zypper-output')
         
     def get_info(self, pkg):
-        pass
+        return apis.pkgman.PackageInfo() # TODO: I've f#cked up my Suse VM so please add info parser here
 
     def get_info_ui(self, pkg):
         pass
