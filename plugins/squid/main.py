@@ -16,7 +16,7 @@ class SquidPlugin(apis.services.ServiceControlPlugin):
     def on_session_start(self):
         if not is_installed(): return
         self._tab = 0
-        self._cfg = SquidConfig()
+        self._cfg = SquidConfig(self.app)
         self._cfg.load()
 
         self._parts = sorted(self.app.grab_plugins(apis.squid.IPluginPart),
