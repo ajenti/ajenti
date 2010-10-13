@@ -11,6 +11,7 @@ class UsersPlugin(CategoryPlugin):
     text = 'Users'
     icon = '/dl/users/icon_small.png'
     folder = 'system'
+    platform =['Ubuntu', 'Debian', 'Arch', 'openSUSE']
 
     params = {
             'login': 'Login',
