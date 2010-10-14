@@ -3,6 +3,7 @@
     height: 20px;
     line-height: 20px;
     float: left;
+    display: block;
     margin-right: 10px;
 
     border-radius: 3px 3px 3px 3px;

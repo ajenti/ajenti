@@ -13,59 +13,45 @@
 <xsl:template match="button">
     <xsl:choose>
         <xsl:when test="@onclick = 'form'">
-            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');">
-                <div class="ui-el-button">
-                    <xsl:value-of select="@text" />
-                </div>
+            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-button">
+                <xsl:value-of select="@text" />
             </a>
         </xsl:when>
         <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');">
-                <div class="ui-el-button">
-                    <xsl:value-of select="@text" />
-                </div>
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button">
+                <xsl:value-of select="@text" />
             </a>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
 
 <xsl:template match="warningbutton">
-    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');">
-        <div class="ui-el-button">
-            <xsl:value-of select="@text" />
-        </div>
+    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button">
+        <xsl:value-of select="@text" />
     </a>
 </xsl:template>
 
 <xsl:template match="minibutton">
-    <a href="#" onclick="javascript:return ajax('/handle/{x:attr(@class, 'minibutton')}/click/{@id}');">
-        <div class="ui-el-minibutton">
-            <xsl:value-of select="@text" />
-        </div>
+    <a href="#" onclick="javascript:return ajax('/handle/{x:attr(@class, 'minibutton')}/click/{@id}');" class="ui-el-minibutton">
+        <xsl:value-of select="@text" />
     </a>
 </xsl:template>
 
 <xsl:template match="warningminibutton">
-    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');">
-        <div class="ui-el-minibutton">
-            <xsl:value-of select="@text" />
-        </div>
+    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-minibutton">
+        <xsl:value-of select="@text" />
     </a>
 </xsl:template>
 
 <xsl:template match="linklabel">
-    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');">
-        <span class="ui-el-link">
-            <xsl:value-of select="@text" />
-        </span>
+    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link">
+        <xsl:value-of select="@text" />
     </a>
 </xsl:template>
 
 <xsl:template match="outlinklabel">
-    <a href="{@url}" target="blank">
-        <span class="ui-el-link">
-            <xsl:value-of select="@text" />
-        </span>
+    <a href="{@url}" target="blank" class="ui-el-link">
+        <xsl:value-of select="@text" />
     </a>
 </xsl:template>
 

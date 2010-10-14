@@ -19,6 +19,12 @@
     </div>
 </xsl:template>
 
+<xsl:template match="centerer">
+    <div class="ui-el-centerer">
+           <xsl:apply-templates />
+    </div>
+</xsl:template>
+
 <xsl:template match="hcontainer">
     <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
          <tr>

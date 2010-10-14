@@ -34,6 +34,11 @@ img {
     border: 1px solid #ccc;
 }
 
+.ui-el-centerer * {
+    margin: auto !important;
+    text-align: center !important;
+}
+
 table {
     border-spacing: 0px;
 }
