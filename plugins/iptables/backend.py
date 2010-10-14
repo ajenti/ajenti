@@ -318,16 +318,28 @@ class Config(ClusteredConfig):
     name = 'Firewall'
     id = 'iptables'
     files = [('/etc', 'iptables.up.rules')] 
-    run_after = ['cat /etc/iptables.up.rules | iptables-restore']
+    run_after = [] # set at runtime
     
     tables = {}
     apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
-    
+
+    def __init__(self):
+        if self.app.config.has_option('iptables', 'rules_file'):
+            self.rules_file = self.app.config.get('iptables', 'rules_file')
+        else:
+            if os.path.exists('/etc/iptables'):
+                self.rules_file = '/etc/iptables/rules'
+            else:
+                self.rules_file = '/etc/iptables.up.rules' # webmin import
+        self.apply_shell = 'cat %s | iptables-restore' % self.rules_file
+        self.run_after = [self.apply_shell]
+
+         
     def load_runtime(self):
         shell('iptables -L -t filter')
         shell('iptables -L -t mangle')
         shell('iptables -L -t nat')
-        shell('iptables-save > /etc/iptables.up.rules')
+        shell('iptables-save > %s' % self.rules_file)
         self.load()
     
     def apply_now(self):
@@ -341,7 +353,8 @@ class Config(ClusteredConfig):
         b = self.app.get_backend(IConfig)
         b.set_autostart(active)
         
-    def load(self, file='/etc/iptables.up.rules'):
+    def load(self, file=None):
+        file = file or self.rules_file
         self.tables = {}
         try:
             data = self.open(file).read().split('\n')
@@ -369,7 +382,8 @@ class Config(ClusteredConfig):
             s += '%s\n' % self.tables[r].dump()
         return s    
         
-    def save(self, file='/etc/iptables.up.rules'):
+    def save(self, file=None):
+        file = file or self.rules_file
         self.open(file, 'w').write(self.dump())
             
     def table_index(self, name):

@@ -25,7 +25,13 @@ def make_report(app, err):
     for p in app.class_list():
         i = ''
         if hasattr(p, '_implements'):
-            i = ','.join([x.__name__ for x in p._implements])
+            imps = []
+            for imp in p._implements:
+                try:
+                    imps.append(imp[0])
+                except:
+                    imps.append(imp)
+            i = ','.join([x.__name__ for x in imps])
         pr += '%s [%s]\n' % (p.__name__, i)
 
     return (('Ajenti %s bug report\n' +
