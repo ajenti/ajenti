@@ -17,7 +17,10 @@ class RCConf(API):
             return shell_status('grep \'%s=\' /etc/rc.conf'%param) == 0
             
         def get_param(self, param):
-            s = shell('grep \'^%s=\' /etc/rc.conf'%param).split('=')[1].strip()
+            try:
+                s = shell('grep \'^%s=\' /etc/rc.conf'%param).split('=')[1].strip()
+            except:
+                s = ''
             return s.strip('"')
 
         def set_param(self, param, value, near=None):
