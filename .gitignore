@@ -6,3 +6,8 @@ packaging/tmp
 packaging/out
 *.geany
 plugins/demo
+.anjuta/
+.anjuta_sym_db.db
+TODO.tasks
+ajenti.anjuta
+*~

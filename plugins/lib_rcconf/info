@@ -1,0 +1,3 @@
+pkg lib-rcconf
+desc rc.conf editing functions for Ajenti
+

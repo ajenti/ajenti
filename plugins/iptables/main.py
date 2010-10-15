@@ -11,12 +11,12 @@ class FirewallPlugin(CategoryPlugin):
     text = 'Firewall'
     icon = '/dl/firewall/icon_small.png'
     folder = 'system'
+    platform =['Ubuntu', 'Debian', 'Arch', 'openSUSE']
 
     defactions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'EXIT', 'MASQUERADE']
 
-
     def on_init(self):
-        self.cfg = Config()
+        self.cfg = Config(self.app)
         self.cfg.load()
 
     def on_session_start(self):

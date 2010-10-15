@@ -1,6 +1,7 @@
 import os
 
 from ajenti.utils import *
+from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 def is_installed():
@@ -11,7 +12,11 @@ def restart():
     shell('service samba restart') # older samba packages
 
 
-class SambaConfig:
+class SambaConfig(ClusteredConfig):
+    name = 'Samba'
+    id = 'samba'
+    files = [('/etc/samba', '*')] 
+    run_after = ['service smbd restart', 'service samba restart']
     shares = {}
     general = {}
     users = {}
@@ -51,7 +56,7 @@ class SambaConfig:
 
     def load(self):
         self.shares = {}
-        ss = open('/etc/samba/smb.conf', 'r').read().split('\n')
+        ss = self.open('/etc/samba/smb.conf', 'r').read().split('\n')
         cs = ''
         for s in ss:
             s = s.strip()
@@ -85,7 +90,7 @@ class SambaConfig:
 
 
     def save(self):
-        with open('/etc/samba/smb.conf', 'w') as f:
+        with self.open('/etc/samba/smb.conf', 'w') as f:
             f.write('[global]\n')
             for k in self.general:
                 if not k in self.general_defaults or \

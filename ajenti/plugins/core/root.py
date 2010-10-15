@@ -5,11 +5,12 @@ from ajenti.com import *
 from ajenti import version
 from ajenti.app.api import ICategoryProvider, IContentProvider
 from ajenti.ui.template import BasicTemplate
-from ajenti.app.helpers import EventProcessor, event
+from ajenti.app.helpers import EventProcessor, SessionPlugin, event
 from ajenti.app.urlhandler import URLHandler, url, get_environment_vars
+from api import IProgressBoxProvider
 
 
-class RootDispatcher(URLHandler, EventProcessor, Plugin):
+class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
     # Plugin folders. This dict is until we make MUI support
     folders = {
@@ -25,19 +26,57 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
     # Folder order
     folder_ids = ['top', 'system', 'apps', 'hardware', 'tools', 'servers', 'other', 'bottom']
 
+    def on_session_start(self):
+        self._cat_selected = 'Dashboard'
+        self._about_visible = False
+        
     def main_ui(self):
         templ = self.app.get_template('main.xml')
         templ.appendChildInto('main-content', self.selected_category.get_ui())
+        if self._about_visible:
+            templ.appendChildInto('main-content', self.get_ui_about())
+        for p in self.app.grab_plugins(IProgressBoxProvider):
+            if p.has_progress():
+                templ.appendChildInto(
+                    'progressbox-placeholder', 
+                    UI.TopProgressBox(
+                        text=p.get_progress(),
+                        icon=p.icon,
+                        title=p.title,
+                        can_abort=p.can_abort
+                    )
+                )
+                break
         return templ
 
     def do_init(self):
-        cat_selected = self.app.session.get('cat_selected', 'Dashboard')
         cat = None
         for c in self.categories:
-            if c.get_name() == cat_selected: # initialize current plugin
+            if c.get_name() == self._cat_selected: # initialize current plugin
                 cat = c
         self.selected_category = cat
         cat.on_init()
+
+    def get_ui_about(self):
+        ui = UI.Centerer(
+                UI.VContainer(
+                    UI.Image(file='/dl/core/ui/logo_big.png'),
+                    UI.Spacer(height=6),
+                    UI.Label(text='Ajenti '+version, size=4),
+                    UI.Label(text='Your personal server affairs agent'),
+                    UI.Spacer(height=10),
+                    UI.HContainer(
+                        UI.OutLinkLabel(url='http://www.assembla.com/spaces/ajenti/wiki?id=aLa8XiGfWr36nLeJe5cbLA', text='Wiki'),
+                        UI.OutLinkLabel(url='http://www.assembla.com/spaces/ajenti/wiki?id=ajenti&wiki_id=Developers', text='Credits'),
+                        UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html'),
+                        UI.OutLinkLabel(text='Bugs', url='http://www.assembla.com/spaces/ajenti/support/tickets'),
+                        spacing=6
+                    ),
+                    UI.Spacer(height=10),
+                    UI.Button(text='Close', id='closeabout')
+                )
+            )
+        return UI.DialogBox(ui, hideok=True, hidecancel=True)
 
     @url('^/$')
     def process(self, req, start_response):
@@ -85,7 +124,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
         templ.appendChildInto('links',
             UI.HContainer(
-                UI.OutLinkLabel(text='About', url='http://ajenti.assembla.com/wiki/show/ajenti/aLa8XiGfWr36nLeJe5cbLA'),
+                UI.LinkLabel(text='About', id='about'),
                 UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')
             ))
             
@@ -104,8 +143,22 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         if len(params) != 1:
             return
 
-        self.app.session['cat_selected'] = params[0]
+        self._cat_selected = params[0]
         self.do_init()
+
+    @event('linklabel/click')
+    def handle_linklabel(self, event, params, vars=None):
+        if params[0] == 'about':
+            self._about_visible = True
+
+    @event('button/click')
+    def handle_abort(self, event, params, **kw):
+        if params[0] == 'aborttask':
+            for p in self.app.grab_plugins(IProgressBoxProvider):
+                if p.has_progress():
+                    p.abort()
+        if params[0] == 'closeabout':
+            self._about_visible = False
 
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):
@@ -118,7 +171,7 @@ class RootDispatcher(URLHandler, EventProcessor, Plugin):
         self.do_init()
 
         # Current module
-        cat = filter(lambda x: x.get_name() == self.app.session.get('cat_selected', 'Dashboard'), self.categories)[0]
+        cat = filter(lambda x: x.get_name() == self._cat_selected, self.categories)[0]
 
         # Search self and current category for event handler
         for handler in (cat, self):

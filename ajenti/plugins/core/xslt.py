@@ -1,8 +1,8 @@
 from lxml import etree
+import base64
 
 from ajenti.com import Plugin, implements
-from ajenti.ui.api import IXSLTTagProvider, IXSLTFunctionProvider
-from ajenti.utils import dequote
+from ajenti.ui.api import IXSLTFunctionProvider
 
 
 def attr(_, v, d):
@@ -17,9 +17,12 @@ def css(_, v, d):
 def iif(_, q, a, b):
     return a if len(q)>0 and q[0].lower() == 'true' else b
     
-def brdequote(_, s):
-    return dequote(s[0])
-        
+def b64(_, s):
+    try:
+        return base64.b64encode(str(s[0]))
+    except:
+        return base64.b64encode(str(s))
+
 
 class Selector(etree.XSLTExtension):
     def execute(self, context, self_node, input_node, output_parent):
@@ -35,15 +38,7 @@ class CoreFunctions (Plugin):
         return {
             'attr' : attr,
             'iif' : iif,
-            'brdequote' : brdequote,
+            'b64' : b64,
             'css' : css
         }
 
-
-class CoreTags (Plugin):
-    implements(IXSLTTagProvider)
-            
-
-            
-    def get_tags(self):
-        return {'node' : Selector()}           

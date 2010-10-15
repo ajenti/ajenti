@@ -16,7 +16,7 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
     
     def on_session_start(self):
         self._tab = 0
-        self._cfg = backend.SambaConfig()
+        self._cfg = backend.SambaConfig(self.app)
         if backend.is_installed():
             self._cfg.load()
         self._editing_share = None

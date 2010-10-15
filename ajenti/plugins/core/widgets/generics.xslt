@@ -1,7 +1,7 @@
 <xsl:template match="customhtml">
     <div id="{@id}" />
     <script>
-         ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@html"/>');
+         ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@html)"/>');
     </script> 
 </xsl:template>
 
@@ -9,8 +9,18 @@
     <script>scheduleRefresh(<xsl:value-of select="@time"/>)</script>
 </xsl:template>
 
+<xsl:template match="completerefresh">
+    <script>document.location.href="/";</script>
+</xsl:template>
+
 <xsl:template match="container">
-    <div>
+    <div style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+           <xsl:apply-templates />
+    </div>
+</xsl:template>
+
+<xsl:template match="centerer">
+    <div class="ui-el-centerer">
            <xsl:apply-templates />
     </div>
 </xsl:template>

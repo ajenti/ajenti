@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from ajenti.com import *
-from ajenti.utils import *
+from ajenti import utils
 from ajenti import apis
 
 
@@ -14,8 +14,7 @@ class PacmanPackageManager(Plugin):
 
     def refresh(self, st):
         a = self._get_all()
-        st.upgradeable = self._parse_pm_u(shell('pacman -Qu').splitlines())
-
+        st.upgradeable = self._parse_pm_u(utils.shell('pacman -Qu').splitlines())
 
         st.pending = {}
         try:
@@ -29,14 +28,13 @@ class PacmanPackageManager(Plugin):
         except:
             pass
 
-        st.list = a
+        st.full = a
 
     def get_lists(self):
-        cmd = 'pacman -Sy > /tmp/ajenti-pacman-output; rm -f /tmp/ajenti-pacman-output &'
-        subprocess.Popen(['bash', '-c', cmd])
+        utils.shell_bg('pacman -Sy', output='/tmp/ajenti-pacman-output', deleteout=True)
 
-    def search(self, q):
-        return self._parse_pm(shell('pacman -Ss %s' % q).splitlines())
+    def search(self, q, st):
+        return self._parse_pm(utils.shell('pacman -Ss %s' % q).splitlines())
 
     def mark_install(self, st, name):
         st.pending[name] = 'install'
@@ -50,6 +48,10 @@ class PacmanPackageManager(Plugin):
         del st.pending[name]
         self._save_pending(st.pending)
 
+    def mark_cancel_all(self, st):
+        st.pending = {}
+        self._save_pending(st.pending)
+    
     def apply(self, st):
         fcmd = '('
         
@@ -73,11 +75,10 @@ class PacmanPackageManager(Plugin):
         if a:
             fcmd += cmd
         
-        fcmd += ') > /tmp/ajenti-pacman-output; rm -f /tmp/ajenti-pacman-output &'
-        subprocess.Popen(['bash', '-c', fcmd])
+        utils.shell_bg(cmd, output='/tmp/ajenti-pacman-output', deleteout=True)
 
     def is_busy(self):
-        if shell_status('pgrep pacman') != 0: return False
+        if utils.shell_status('pgrep pacman') != 0: return False
         return os.path.exists('/tmp/ajenti-pacman-output')
 
     def get_busy_status(self):
@@ -97,7 +98,7 @@ class PacmanPackageManager(Plugin):
                 a = True
                 
         if a:
-            r.update(self._parse_pm_p(shell(cmd).splitlines(), 'install'))
+            r.update(self._parse_pm_p(utils.shell(cmd).splitlines(), 'install'))
         
         cmd = 'pacman -Rpc --noconfirm --print-format \'%n %v\' '
         a = False
@@ -107,10 +108,28 @@ class PacmanPackageManager(Plugin):
                 a = True
                 
         if a:
-            r.update(self._parse_pm_p(shell(cmd).splitlines(), 'remove'))
+            r.update(self._parse_pm_p(utils.shell(cmd).splitlines(), 'remove'))
  
         return r
 
+    def abort(self):
+        utils.shell('pkill pacman')
+        utils.shell('rm /tmp/ajenti-pacman-output')
+
+    def get_info(self, pkg):
+        i = apis.pkgman.PackageInfo()
+        ss = utils.shell('pacman -Qi '+pkg).split('\n')
+        i.installed = ''
+        i.available = ss[1].split(':')[1]
+        while len(ss)>0 and not ss[0].startswith('Desc'):
+            ss = ss[1:]
+        ss[0] = ss[0].split(':')[1]
+        i.description = '\n'.join(ss)
+        return i
+
+    def get_info_ui(self, pkg):
+        pass
+               
     def _save_pending(self, p):
         f = open('/tmp/ajenti-pacman-pending.list', 'w')
         for x in p:
@@ -129,7 +148,7 @@ class PacmanPackageManager(Plugin):
                 r[s[0]].name = s[0]
                 r[s[0]].version = s[1]
                 r[s[0]].description = ''
-                r[s[0]].state = 'installed' if shell_status('pacman -Q '+s[0])==0 else 'removed'
+                r[s[0]].state = 'installed' if utils.shell_status('pacman -Q '+s[0])==0 else 'removed'
                 while ss[0][0] in ['\t', ' '] and len(ss)>0:
                     r[s[0]].description += ss[0]
                     ss.pop(0)
@@ -162,12 +181,12 @@ class PacmanPackageManager(Plugin):
                 r[s[0]] = apis.pkgman.Package()
                 r[s[0]].name = s[0]
                 r[s[0]].version = s[1]
-                r[s[0]].action = 'installed'
                 r[s[0]].state = 'installed'
             except:
                 pass
         return r
 
     def _get_all(self):
-        ss = shell('pacman -Q').splitlines()
+        ss = utils.shell('pacman -Q').splitlines()
         return self._parse_pm_u(ss)
+        

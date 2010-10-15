@@ -4,6 +4,7 @@ from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti.utils import shell, enquote
 from ajenti.misc import BackgroundProcess
+from ajenti.plugins.core.api import *
 
 
 class ShellPlugin(CategoryPlugin):
@@ -30,7 +31,7 @@ class ShellPlugin(CategoryPlugin):
     def get_default_ui(self):
         recent = [UI.SelectOption(text=x[0:40] + '...' if len(x) > 40 else x,
                                   value=x) for x in self._recent]
-        log = UI.CustomHTML(enquote(self._process.output + self._process.errors))
+        log = UI.CustomHTML(html=enquote(self._process.output + self._process.errors))
 
         frm = UI.FormBox(
                 UI.TextInput(name='cmd', size=30, id='shell-command'),
@@ -52,20 +53,8 @@ class ShellPlugin(CategoryPlugin):
                     frmr
                 )
              )
-             
-        rp = None
-        if self._process.is_running():
-            rp = UI.VContainer( 
-                     UI.HContainer(
-                         UI.Image(file='/dl/core/ui/ajax.gif'),
-                         UI.Label(text='Running: ' + self._process.cmdline,
-                                  size=2),
-                         UI.Refresh(time=3000)
-                     ),
-                     UI.Button(text='Abort command', id='abort')
-                 )
-             
-        t = UI.VContainer(lt, rp, logc, spacing=10)
+
+        t = UI.VContainer(lt, logc, spacing=10)
         return t
 
     def go(self, cmd):
@@ -80,16 +69,30 @@ class ShellPlugin(CategoryPlugin):
                 rcnt = rcnt[:5]
             self._recent = rcnt
 
-    @event('button/click')
-    def on_click(self, event, params, vars=None):
-        if params[0] == 'abort':
-            self._process.kill()
-
     @event('form/submit')
     def on_submit(self, event, params, vars=None):
         self.go(vars.getvalue('cmd', ''))
 
 
+class ShellProgress(Plugin):
+    implements(IProgressBoxProvider)
+    title = 'Shell'
+    icon = '/dl/shell/icon_small.png'
+    can_abort = True
+    
+    def __init__(self):
+        self.proc = self.app.session.get('ShellPlugin-_process')
+
+    def has_progress(self):         
+        return self.proc.is_running()
+        
+    def get_progress(self):
+        return self.proc.cmdline
+    
+    def abort(self):
+        self.proc.kill()
+    
+    
 class ShellContent(ModuleContent):
     module = 'shell'
     path = __file__

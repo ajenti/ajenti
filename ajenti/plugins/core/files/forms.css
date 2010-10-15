@@ -26,6 +26,7 @@
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
+    overflow: hidden;
 }
 
 
@@ -36,6 +37,7 @@
 }
 
 .ui-el-modal-buttons {
+    overflow: hidden;
     padding: 5px 10px 0px 10px;
 }
 

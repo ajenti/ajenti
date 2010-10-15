@@ -1,0 +1,5 @@
+pkg packages-ports
+desc FreeBSD ports backend for package management plugin
+dep ajenti-plugin-packages
+prov ajenti-plugin-packages-backend
+

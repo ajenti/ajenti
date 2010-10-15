@@ -2,12 +2,9 @@ import subprocess
 import platform
 import os
 import mimetypes
+import time
 from datetime import datetime
 
-
-def dequote(s):
-    s = str(s).replace('[br]', '\n').replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
-    return s
 
 def enquote(s):
     s = s.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
@@ -41,6 +38,7 @@ def detect_distro():
     return shell('uname -mrs')
 
 def shell(c):
+    print c
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
@@ -49,7 +47,18 @@ def shell(c):
     p.wait()
     return data + p.stdout.read() + p.stderr.read()
 
+def shell_bg(c, output=None, deleteout=False):
+    if output is not None:
+        c = 'bash -c "%s" > %s 2>&1'%(c,output)
+        if deleteout:
+            c = 'touch %s; %s; rm -f %s'%(output,c,output)
+    print c
+    subprocess.Popen(c, shell=True,
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE)
+    
 def shell_status(c):
+    print c
     return subprocess.Popen(c, shell=True).wait()
 
 def shell_stdin(c, input):
@@ -59,6 +68,18 @@ def shell_stdin(c, input):
             stdin=subprocess.PIPE)
     return p.communicate(input)
 
+def str_fsize(sz):
+    if sz < 1024:
+        return '%i bytes' % sz
+    sz /= 1024
+    if sz < 1024:
+        return '%i Kb' % sz
+    sz /= 1024
+    if sz < 1024:
+        return '%i Mb' % sz
+    sz /= 1024
+    return '%i Gb' % sz
+        
 def wsgi_serve_file(req, start_response, file):
     # Check for directory traversal
     if file.find('..') > -1:

@@ -4,35 +4,30 @@ from lxml.etree import *
 
 xslt = None
 
-def prepare(includes, funcs, tags):
+def prepare(includes, funcs):
     global xslt
     xml = XSLT % ''.join([open(x).read() for x in includes])
     
     ex = {}
     for x in funcs:
-        ex[('ext', x)] = funcs[x]
-    for x in tags:
-        ex[('ext', x)] = tags[x]
+        ex[('x', x)] = funcs[x]
 
     xslt = etree.XSLT(etree.fromstring(xml), extensions=ex)
         
 def render(templ):
     global xslt
-    return DT + etree.tostring(xslt(xslt(templ)), method="html", pretty_print=True) #!!!
+    return etree.tostring(xslt(xslt(templ)), method="html", pretty_print=True) #!!!
     
     
-DT = """
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-"""
-    
-XSLT="""
+
+XSLT="""<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" 
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-    xmlns:x="ext"
+    xmlns:x="x"
     extension-element-prefixes="x">
     
-  <xsl:output method="html" indent="yes" encoding="UTF-8"/>
-  
+  <xsl:output method="html" doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" encoding="utf-8" />
+
   <xsl:template match="@*|node()">
      <xsl:copy>
         <xsl:apply-templates select="@*|node()"/>

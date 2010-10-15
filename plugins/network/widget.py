@@ -17,7 +17,7 @@ class NetworkWidget(Plugin):
             t.append(UI.LayoutTableRow(
                     UI.Image(file='/dl/network/%s.png'%('up' if i.up else 'down')),
                     UI.Label(text=i.name),
-                    UI.Label(text=i.addr),
+                    UI.Label(text=cfg.get_ip(i)),
                     spacing=4
                 ))
                 

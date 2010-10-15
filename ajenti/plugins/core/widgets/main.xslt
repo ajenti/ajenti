@@ -50,13 +50,30 @@
                 <vcontainer spacing="0">
                     <label text="{@title}" size="5" />
                     <div style="padding-left: 3px;">
-                        <x:node index="0"/>
+                        <xsl:apply-templates select="*[1]" />
                     </div>
                 </vcontainer>
             </hcontainer>
         </div>
         <div class="ui-el-pluginpanel-content">
-           <x:node index="1"/>
+            <xsl:apply-templates select="*[2]" />
         </div>
     </div>
 </xsl:template>
+
+        
+<xsl:template match="topprogressbox">
+        <div class="ui-progress-box">
+            <table width="100%"><tr>
+                <td width="20"><img class="ajax" src="/dl/core/ui/ajax.gif"/></td>
+                <td width="20"><img src="{@icon}"/></td>
+                <td><label text="{@title}" bold="True"/></td>
+                <td><label text="{@text}"/></td>
+                <xsl:if test="@can_abort = 'True'">
+                    <td width="10"><warningminibutton text="Abort" id="aborttask" msg="Abort the background task for {@title}"/></td>
+                </xsl:if>
+            </tr></table>
+            <refresh time="3000"/>
+        </div>
+</xsl:template>
+        

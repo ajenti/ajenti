@@ -61,7 +61,7 @@ class PowerPlugin(CategoryPlugin):
     @event('button/click')
     def on_aclick(self, event, params, vars=None):
         if params[0] == 'shutdown':
-            shell('poweroff')
+            shell('shuwdown -p now')
         if params[0] == 'reboot':
             shell('reboot')
 
