@@ -127,11 +127,13 @@ class Application (PluginManager, Plugin):
 
     def get_backend(self, iface, flt=None):
         try:
-            return self.grab_plugins(iface, flt)[0]
+            lst = self.grab_plugins(iface, flt)
         except:
             print traceback.format_exc()
+        if len(lst) == 0:
             raise BackendUnavailableException(iface.__name__, self.platform) 
-            
+        return lst[0]
+        
     def get_template(self, filename=None, search_path=[]):
         return BasicTemplate(
                 filename=filename,
