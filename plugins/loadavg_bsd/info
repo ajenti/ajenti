@@ -2,3 +2,4 @@ pkg loadavg-bsd
 desc BSD backend for system stats dashboard widget
 dep freecolor
 prov ajenti-plugin-loadavg-backend
+dep ajenti-plugin-loadavg

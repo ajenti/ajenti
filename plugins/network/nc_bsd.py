@@ -39,10 +39,10 @@ class BSDNetworkConfig(BSDIfconfig, ClusteredConfig):
             if not iface.auto:
                 s = s[:-1]
                 
-            if s[0] == 'DHCP':
+            if s[0].upper() == 'DHCP':
                 iface.type = 'inet'
                 iface.addressing = 'dhcp'
-            if s[0] in ['inet', 'inet6']:
+            if s[0].lower() in ['inet', 'inet6']:
                 iface.type = s[0]
                 iface.addressing = 'static'
                 iface.params['address'] = s[1]
