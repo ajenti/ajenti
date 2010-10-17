@@ -30,11 +30,11 @@ class ArchNetworkConfig(LinuxIfconfig, ClusteredConfig):
                 s = self.rcconf.get_param(name).split()
             except:
                 continue
-
+            if not s:
+                continue
             iface = NetworkInterface()
             iface.name = name
             self.interfaces[name] = iface
-                
             print s
             if s[0] == 'dhcp':
                 iface.type = 'inet'
