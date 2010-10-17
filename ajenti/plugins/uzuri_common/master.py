@@ -148,8 +148,11 @@ class Config:
                     n = ClusterNode()
                     tmp, n.desc, n.address, n.port, n.timestamp, v = l.split(':')
                     v = [x.split('=') for x in v.split(';')]
-                    for x in v:
-                        n.vars[x[0]] = x[1]
+                    try:
+                        for x in v:
+                            n.vars[x[0]] = x[1]
+                    except:
+                        pass
                     self.nodes.append(n)
                 elif l.startswith('var'):
                     self.vars.append(l.split(':')[1])
