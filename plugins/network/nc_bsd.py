@@ -25,6 +25,8 @@ class BSDNetworkConfig(BSDIfconfig, ClusteredConfig):
         self.interfaces = {}
 
         for name in shell('ifconfig -l').split():
+            if not self.rcconf.has_param('ifconfig_'+name):
+                continue
             try:
                 s = self.rcconf.get_param('ifconfig_'+name).split()
             except:
