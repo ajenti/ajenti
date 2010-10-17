@@ -42,6 +42,8 @@ class UpstartServiceManager(Plugin):
 
     def get_status(self, name):
         s = shell('service ' + name + ' status')
+        if 'start/running' in s:
+            return 'running'
         return 'running' if 'is running' in s else 'stopped'
 
     def start(self, name):
