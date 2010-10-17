@@ -1,4 +1,4 @@
 pkg apache
 desc Apache 2 management plugin
 dep ajenti-plugin-webserver-common
-
+dep apache2
