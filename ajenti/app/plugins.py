@@ -53,5 +53,9 @@ def loader(path, log):
             if retries[c] > 10:
                 log.error('Circular dependency between %s and %s. Aborting' % (c,e.name))
                 sys.exit(1)
-            queue.remove(e.name)
-            queue.append(e.name)
+            try:
+                queue.remove(e.name)
+                queue.append(e.name)
+            except:
+                log.error('Plugin %s requires %s, which is not available. Aborting' % (c,e.name))
+                sys.exit(1)
