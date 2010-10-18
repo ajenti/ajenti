@@ -23,6 +23,9 @@ class RCConf(API):
                 s = ''
             return s.strip('"')
 
+        def has_param(self, param):
+            return shell_status('grep \'^%s=\' /etc/rc.conf'%param) == 0
+
         def set_param(self, param, value, near=None):
             d = open('/etc/rc.conf').read().split('\n')
             f = open('/etc/rc.conf', 'w')

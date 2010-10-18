@@ -70,6 +70,7 @@ class NetworkInterface(object):
         self.auto = False
         self.name = ''
         self.devclass = ''
+        self.addressing = 'static'
         self.bits = []
         self.params = {'address': '0.0.0.0'}
         self.type = ''
