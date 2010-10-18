@@ -1,5 +1,0 @@
-pkg squid-sarg
-desc Squid Report Generator plugin
-dep sarg
-dep ajenti-plugin-squid
-

@@ -1,4 +1,0 @@
-pkg nginx
-desc nginx management plugin
-dep ajenti-plugin-webserver-common
-dep nginx

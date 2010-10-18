@@ -1,5 +1,0 @@
-pkg sql-mysql
-desc MySQL backend for SQL plugin
-dep python-mysqldb
-prov ajenti-plugin-sql-backend
-

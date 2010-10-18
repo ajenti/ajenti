@@ -1,4 +1,0 @@
-pkg users
-desc User account management plugin
-dep mcrypt
-

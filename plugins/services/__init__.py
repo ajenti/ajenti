@@ -1,2 +1,1 @@
-from api import *
-from main import *
+MODULES = ['api', 'main']

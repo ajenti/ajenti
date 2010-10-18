@@ -1,3 +1,0 @@
-pkg packages-cluster
-desc Cluster backend for package management plugin
-dep ajenti-plugin-packages

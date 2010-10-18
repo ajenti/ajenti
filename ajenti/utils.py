@@ -6,17 +6,14 @@ import time
 from datetime import datetime
 
 
+logger = None
+
 def enquote(s):
     s = s.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
     return s
 
 def fix_unicode(s):
-    d = ''
-    for i in range(0, len(s)):
-        if ord(s[i])<32: 
-            d += ' '
-        else:
-            d += s[i]
+    d = ''.join(max(i, ' ') for i in s)
     return unicode(d, errors='replace')
 
 def detect_platform():
@@ -44,7 +41,7 @@ def detect_distro():
     return shell('uname -mrs')
 
 def shell(c):
-    print c
+    logger.info('Running %s' % c)
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
@@ -58,16 +55,17 @@ def shell_bg(c, output=None, deleteout=False):
         c = 'bash -c "%s" > %s 2>&1'%(c,output)
         if deleteout:
             c = 'touch %s; %s; rm -f %s'%(output,c,output)
-    print c
+    logger.info('Running in background: %s' % c)
     subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
     
 def shell_status(c):
-    print c
+    logger.info('Running %s' % c)
     return subprocess.Popen(c, shell=True).wait()
 
 def shell_stdin(c, input):
+    logger.info('Running %s' % c)
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE,

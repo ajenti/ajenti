@@ -10,6 +10,7 @@ import socket
 
 from ajenti.config import Config
 from ajenti.app import AppDispatcher
+from ajenti import utils
 import ajenti.app.plugins as plugins
 
 
@@ -77,7 +78,8 @@ def server(log_level=logging.INFO, config_file=''):
     log.info('Listening on %s:%d'%(host, port))
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
-
+    utils.logger = log
+    
     # Load external plugins
     plugins.loader(config.get('ajenti', 'plugins'), log)
 
