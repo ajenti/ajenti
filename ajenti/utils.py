@@ -8,13 +8,14 @@ from datetime import datetime
 
 logger = None
 
+
 def enquote(s):
     s = s.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
     return s
 
 def fix_unicode(s):
-    d = ''.join(max(i, ' ') for i in s)
-    return unicode(d, errors='replace')
+    d = ''.join(max(i, ' ') if not i in ['\n', '\t', '\r'] else i for i in s)
+    return unicode(d, errors='replace').encode('utf-8', 'xmlcharref')
 
 def detect_platform():
     if platform.system() != 'Linux':

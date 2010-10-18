@@ -1,4 +1,3 @@
-from lxml import etree
 import base64
 
 from ajenti.com import Plugin, implements
@@ -23,13 +22,6 @@ def b64(_, s):
     except:
         return base64.b64encode(str(s))
 
-
-class Selector(etree.XSLTExtension):
-    def execute(self, context, self_node, input_node, output_parent):
-        child = input_node[int(self_node.get('index'))]
-        results = self.apply_templates(context, child)
-        output_parent.append(results[0])
-            
                     
 class CoreFunctions (Plugin):
     implements(IXSLTFunctionProvider)

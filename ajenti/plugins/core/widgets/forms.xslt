@@ -131,7 +131,7 @@
     <div class="ui-el-error" width="{@width}" height="{@height}">
         <table>
             <tr>
-                <td width="40">
+                <td width="60">
                     <img src="/dl/core/ui/stock/warning.png" />
                 </td>
                 <td>

@@ -55,6 +55,8 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             if c.get_name() == self._cat_selected: # initialize current plugin
                 cat = c
         self.selected_category = cat
+        if cat.disabled:
+            raise cat.disabled
         cat.on_init()
 
     def get_ui_about(self):
@@ -108,7 +110,10 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             exp = False
             empty = True
             for c in cats:
-                if c.folder == fld: # Put corresponding plugins in this folder
+                enabled = c.disabled is None
+                        
+                if (c.folder == fld and enabled) \
+                    or (fld == 'other' and not enabled): # Put corresponding plugins in this folder
                     empty = False
                     if c == self.selected_category:
                         cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name(), selected='true'))

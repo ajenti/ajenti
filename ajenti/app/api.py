@@ -1,5 +1,6 @@
 from ajenti.com import Interface
 
+
 class IRequestDispatcher(Interface):
     def match(self, uri):
         pass
@@ -26,10 +27,6 @@ class IContentProvider(Interface):
 
 
 class ICategoryProvider(Interface):
-    """ ICategoryProvider should contain:
-    'get_ui()' method to retrieve main panel
-    """
-
     def get_ui():
         pass
 

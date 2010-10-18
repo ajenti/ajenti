@@ -220,6 +220,9 @@ class Plugin (object):
 
     platform = ['any']
 
+    disabled = None
+    
+    
     def __new__(cls, *args, **kwargs):
         """ Returns a class instance,
         If it already instantiated, return it
@@ -244,3 +247,7 @@ class Plugin (object):
             plugin_manager.plugin_activated(self)
 
         return self
+
+    def test(self):
+        pass
+        

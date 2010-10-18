@@ -27,12 +27,8 @@ class CustomRequestHandler(WSGIRequestHandler):
             WSGIRequestHandler.setup(self)
 
     def log_request(self, code, size):
-        # "GET /dl/core/ui/category-sel.png HTTP/1.1" 200 8994
         if self.log:
-            self.log.info('"%s %s %s" %s %d'%(self.command,
-                                              self.path,
-                                              self.request_version,
-                                              code, size))
+            self.log.info('%s %s %s'%(code, self.command, self.path))
 
 
 class CustomServer(SocketServer.ThreadingMixIn, WSGIServer):
@@ -73,9 +69,6 @@ def server(log_level=logging.INFO, config_file=''):
     else:
         log.info('Using default settings')
 
-    host = config.get('ajenti','bind_host')
-    port = config.getint('ajenti','bind_port')
-    log.info('Listening on %s:%d'%(host, port))
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
     utils.logger = log
@@ -88,6 +81,9 @@ def server(log_level=logging.INFO, config_file=''):
     if config.getint('ajenti', 'ssl') == 1:
         CustomServer.cert_file = config.get('ajenti','cert_file')
 
+    host = config.get('ajenti','bind_host')
+    port = config.getint('ajenti','bind_port')
+    log.info('Listening on %s:%d'%(host, port))
     httpd = make_server(host, port, AppDispatcher(config).dispatcher,
                             CustomServer, CustomRequestHandler)
 

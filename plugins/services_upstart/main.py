@@ -3,12 +3,16 @@ import os
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
+from ajenti.requirements import *
 
 
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
     platform = ['Debian', 'Ubuntu']
 
+    def test(self):
+        SoftwareRequirement(self.app, 'Upstart/init', 'service').test()
+       
     def list_all(self):
         r = []
         found = []

@@ -17,21 +17,11 @@
                    <img src="/dl/core/ui/stock/nobackend.png" class="ui-el-error-icon" />
                 </td><td width="500">
                 
-           <label size="3" text="Backend not available"/><br/>
-           Ajenti requires a backend plugin for your distribution. 
+           <label size="3" text="Plugin disabled"/><br/>
+           <div id="reason"/>
            <br/>
-           Please install needed packages.
-           <br/><br/>
            <div id="hint"/>
            <br/>
-           <div>
-               <a href="#" onclick="javascript:document.location.reload();">
-                   <div class="ui-el-button"> <span class="left"> Refresh </span> <span class="right" /></div>
-               </a>
-               <a href="#" onclick="javascript:document.location.href='/session_reset';">
-                   <div class="ui-el-button"> <span class="left"> Reset session </span> <span class="right" /></div>
-               </a>
-           </div>
            </td></tr></table>
         </div>    
     </div>

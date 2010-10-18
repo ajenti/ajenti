@@ -2,10 +2,16 @@ from ajenti.utils import *
 from ajenti import version
 from ajenti.ui import UI
 from ajenti.ui.template import BasicTemplate
+from ajenti.requirements import *
+
 import platform
+import traceback
 
 
-def format_error(app, err):
+
+               
+
+def format_exception(app, err):
     print '\n%s\n' % err
     templ = app.get_template('error.xml')
     templ.appendChildInto('trace',
@@ -14,10 +20,19 @@ def format_error(app, err):
             UI.TextInputArea(value=make_report(app, err), width=350))
     return templ.render()
 
-def format_backend_error(app, ex):
-    templ = app.get_template('nobackend.xml')
-    text = 'You need a plugin that provides <b>%s</b> interface support for <b>%s</b> platform.<br/>' % (ex.interface, ex.platform)
-    templ.appendChildInto('hint', UI.CustomHTML(html=text))
+def format_error(app, ex):
+    templ = app.get_template('disabled.xml')
+    if isinstance(ex, BackendRequirement):
+        reason = 'Required backend is unavailable.'
+        hint = 'You need a plugin that provides <b>%s</b> interface support for <b>%s</b> platform.<br/>' % (ex.interface, app.platform)
+    elif isinstance(ex, SoftwareRequirement):
+        reason = 'Required software is unavailable.'
+        hint = 'This plugin requires <b>%s</b> to be installed.<br/>' % (ex.name)
+    else:
+        return format_exception(app, traceback.format_exc())
+        
+    templ.appendChildInto('reason', UI.CustomHTML(html=reason))
+    templ.appendChildInto('hint', UI.CustomHTML(html=hint))
     return templ.render()
 
 def make_report(app, err):
@@ -55,9 +70,3 @@ def make_report(app, err):
                err
               ))
               
-
-class BackendUnavailableException(Exception):
-    def __init__(self, interface, platform):
-        self.interface = interface
-        self.platform = platform
-                      

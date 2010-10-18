@@ -3,6 +3,7 @@ from ajenti.com import implements
 from ajenti.app.api import ICategoryProvider
 from ajenti.app.helpers import *
 from ajenti import apis
+from ajenti.requirements import *
 
 
 class ServicesPlugin(CategoryPlugin):
@@ -10,6 +11,9 @@ class ServicesPlugin(CategoryPlugin):
     icon = '/dl/services/icon_small.png'
     folder = 'system'
 
+    def test(self):
+        BackendRequirement(self.app, apis.services.IServiceManager).test()
+        
     def on_init(self):
         self.svc_mgr = self.app.get_backend(apis.services.IServiceManager)
 

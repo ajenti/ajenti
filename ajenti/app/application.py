@@ -7,13 +7,14 @@ import traceback
 from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.error import *
+from ajenti.requirements import *
 from ajenti.app.session import SessionStore, SessionManager
 from ajenti.app.auth import AuthManager
 from ajenti.app.api import IContentProvider
 from ajenti.ui.api import IXSLTFunctionProvider
 from ajenti.ui.template import BasicTemplate
 from ajenti.app.urlhandler import IURLHandler
-
+from ajenti.ui import xslt
 
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
@@ -35,7 +36,6 @@ class Application (PluginManager, Plugin):
         self.platform = config.get('platform')
         includes = []
         functions = {}
-        tags = {}
         
         for f in self.func_providers:
             functions.update(f.get_funcs())
@@ -83,18 +83,16 @@ class Application (PluginManager, Plugin):
         self.headers = [('Content-type','text/html')]
         self.session = environ['app.session']
 
-        content = "Sorry, no content"
+        content = 'Sorry, no content for you'
         for handler in self.uri_handlers:
             if handler.match_url(environ):
                 try:
                     self.log.debug('Calling handler for %s'%environ['PATH_INFO'])
                     content = handler.url_handler(self.environ,
                                                   self.start_response)
-                except BackendUnavailableException, e:
-                    content = format_backend_error(self, e)
                 except Exception, e:
                     try:
-                        content = format_error(self, traceback.format_exc())
+                        content = format_error(self, e)
                     except:
                         status = '418 I\'m a teapot'
                         content = 'Fatal error occured:\n' + traceback.format_exc()
@@ -109,15 +107,18 @@ class Application (PluginManager, Plugin):
         return content
 
     def plugin_enabled(self, cls):
-        if self.platform.lower() in [x.lower() for x in cls.platform] \
-           or 'any' in cls.platform:
-            return True
-        return False
+        return self.platform.lower() in [x.lower() for x in cls.platform] \
+           or 'any' in cls.platform
 
     def plugin_activated(self, plugin):
         plugin.log = self.log
         plugin.config = self.config
         plugin.app = self
+        try:
+            plugin.test()
+        except BaseRequirement, e:
+            self.log.warn('Disabling plugin %s (%s).' % (plugin.__class__.__name__, str(e)))
+            plugin.disabled = e
 
     def grab_plugins(self, iface, flt=None):
         plugins = self.plugin_get(iface)
@@ -126,12 +127,9 @@ class Application (PluginManager, Plugin):
         return filter(None, [self.instance_get(cls, True) for cls in plugins])
 
     def get_backend(self, iface, flt=None):
-        try:
-            lst = self.grab_plugins(iface, flt)
-        except:
-            print traceback.format_exc()
+        lst = self.grab_plugins(iface, flt)
         if len(lst) == 0:
-            raise BackendUnavailableException(iface.__name__, self.platform) 
+            raise BackendRequirement(iface.__name__) 
         return lst[0]
         
     def get_template(self, filename=None, search_path=[]):

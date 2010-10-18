@@ -6,7 +6,7 @@ RETRY_LIMIT = 10
 loaded_plugins = []
 
 
-class PluginRequirementError (Exception):
+class PluginRequirementError(Exception):
     def __init__(self, name):
         self.name = name
     
@@ -36,6 +36,9 @@ def loader(path, log):
                 for req in mod.REQUIRE:
                     if not req in loaded_plugins:
                         raise PluginRequirementError(req)
+            if not hasattr(mod, 'MODULES'):
+                log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
+                sys.exit(1)
             for submod in mod.MODULES:
                 description = imp.find_module(submod, mod.__path__)
                 imp.load_module(plugin + '.' + submod, *description)
