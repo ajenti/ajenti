@@ -34,8 +34,10 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def main_ui(self):
         templ = self.app.get_template('main.xml')
         templ.appendChildInto('main-content', self.selected_category.get_ui())
+
         if self._about_visible:
             templ.appendChildInto('main-content', self.get_ui_about())
+
         for p in self.app.grab_plugins(IProgressBoxProvider):
             if p.has_progress():
                 templ.appendChildInto(
@@ -48,12 +50,18 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     )
                 )
                 break
+                
         if self._module_config:
             try:
                 cfg = self.app.get_config(self.selected_category)
                 templ.appendChildInto('main-content', cfg.get_ui_edit())
             except:
                 pass
+           
+        if self.selected_category.get_config():
+            templ.appendChildInto('plugin-buttons',
+                  UI.Button(text='Module config', id='mod_config'))
+                
         return templ
 
     def do_init(self):
@@ -131,7 +139,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
         templ.appendChildInto('links',
             UI.HContainer(
-                UI.LinkLabel(text='Module config', id='mod_config'),
                 UI.LinkLabel(text='About', id='about'),
                 UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')
             ))
@@ -158,17 +165,17 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def handle_linklabel(self, event, params, vars=None):
         if params[0] == 'about':
             self._about_visible = True
-        if params[0] == 'mod_config':
-            self._module_config = self._cat_selected
 
     @event('button/click')
-    def handle_abort(self, event, params, **kw):
+    def handle_btns(self, event, params, vars=None):
         if params[0] == 'aborttask':
             for p in self.app.grab_plugins(IProgressBoxProvider):
                 if p.has_progress():
                     p.abort()
         if params[0] == 'closeabout':
             self._about_visible = False
+        if params[0] == 'mod_config':
+            self._module_config = self._cat_selected
 
     @event('dialog/submit')
     def handle_modconfig(self, event, params, vars=None):

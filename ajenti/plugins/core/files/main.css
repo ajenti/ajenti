@@ -69,7 +69,9 @@
 }
 
 
-
+.ui-el-plugin-buttons {
+    margin-top: 10px;
+}
 
 
 .ui-el-bottombar-l {

@@ -187,7 +187,7 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
 
     def get_config(self):
         try:
-            return self.app.get_config(self.plugin_id)
+            return self.app.get_config(self)
         except:
             return None
             

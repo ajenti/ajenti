@@ -2,5 +2,6 @@
     <div>
         <div id="main-content"/>
         <div class="ui-progress-box-wr" id="progressbox-placeholder"/>
+        <div id="plugin-buttons" class="ui-el-plugin-buttons"/>
     </div>
 </xml>
