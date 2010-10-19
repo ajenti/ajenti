@@ -219,8 +219,6 @@ class Plugin (object):
     multi_instance = False
 
     platform = ['any']
-
-    disabled = None
     
     
     def __new__(cls, *args, **kwargs):
@@ -243,11 +241,9 @@ class Plugin (object):
         if self is None:
             self = super(Plugin, cls).__new__(cls)
             self.plugin_manager = plugin_manager
+            self.plugin_id = cls.__name__.lower()
             # Allow PluginManager implementation to update Plugin
             plugin_manager.plugin_activated(self)
 
         return self
-
-    def test(self):
-        pass
         

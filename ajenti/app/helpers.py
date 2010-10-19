@@ -3,9 +3,8 @@ import os.path
 import inspect
 
 from ajenti.com import *
-from ajenti.app.api import IContentProvider
-from ajenti.app.api import IEventDispatcher
-from ajenti.app.api import ICategoryProvider
+from ajenti.app.api import *
+from ajenti.ui import *
 
 
 def event(event_name):
@@ -186,8 +185,65 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     def on_init(self):
         pass
 
-    def get_name(self):
-        return self.__class__.__name__
-
-
+    def get_config(self):
+        try:
+            return self.app.get_config(self.plugin_id)
+        except:
+            return None
+            
+            
+class ModuleConfig(Plugin):
+    abstract = True
+    implements(IModuleConfig)
+    
+    labels = {}
+    
+    def overlay_config(self):
+        section = 'cfg_' + self.plugin
+        for k in self.__class__.__dict__:
+            if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
+                if self.app.config.has_option(section, k):
+                    setattr(self, k, eval(self.app.config.get(section, k)))
+            
+    def save(self):
+        section = 'cfg_' + self.plugin
+        for k in self.__class__.__dict__:
+            if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
+                if getattr(self, k) != getattr(self.__class__, k):
+                    self.app.config.set(section, k, repr(getattr(self, k)))
+                else:
+                    self.app.config.remove_option(section, k)
+        self.app.config.save()
+                
+    def get_ui_edit(self):
+        t = UI.LayoutTable()
+        for k in self.__class__.__dict__:
+            if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
+                val = getattr(self, k)
+                lbl = k 
+                if k in self.labels:
+                    lbl = self.labels[k]
+                if type(val) is bool:
+                    t.append(UI.LayoutTableRow(
+                        UI.LayoutTableCell(
+                            UI.CheckBox(text=lbl, name=k, checked=val),
+                            colspan=2
+                        )
+                    ))
+                if type(val) is str:
+                    t.append(UI.LayoutTableRow(
+                        UI.Label(text=lbl),
+                        UI.TextInput(name=k, value=val)
+                    ))
+        return UI.DialogBox(t, id='dlgEditModuleConfig')
+        
+    def apply_vars(self, vars):
+        for k in vars:
+            if not k in ['action'] and not k.startswith('_'):
+                nval = vars.getvalue(k, None)
+                oval = getattr(self, k)        
+                if type(oval) is str:
+                    setattr(self, k, nval)
+                if type(oval) is bool:
+                    setattr(self, k, nval=='1')
 

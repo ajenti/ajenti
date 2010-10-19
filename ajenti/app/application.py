@@ -7,7 +7,6 @@ import traceback
 from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.error import *
-from ajenti.requirements import *
 from ajenti.app.session import SessionStore, SessionManager
 from ajenti.app.auth import AuthManager
 from ajenti.app.api import IContentProvider
@@ -114,11 +113,6 @@ class Application (PluginManager, Plugin):
         plugin.log = self.log
         plugin.config = self.config
         plugin.app = self
-        try:
-            plugin.test()
-        except BaseRequirement, e:
-            self.log.warn('Disabling plugin %s (%s).' % (plugin.__class__.__name__, str(e)))
-            plugin.disabled = e
 
     def grab_plugins(self, iface, flt=None):
         plugins = self.plugin_get(iface)
@@ -129,9 +123,15 @@ class Application (PluginManager, Plugin):
     def get_backend(self, iface, flt=None):
         lst = self.grab_plugins(iface, flt)
         if len(lst) == 0:
-            raise BackendRequirement(iface.__name__) 
+            raise BackendRequirementError(iface.__name__) 
         return lst[0]
-        
+
+    def get_config(self, plugin):
+        cfg = self.get_backend(IModuleConfig,  
+                flt=lambda x: x.plugin==plugin.plugin_id)
+        cfg.overlay_config()
+        return cfg
+                
     def get_template(self, filename=None, search_path=[]):
         return BasicTemplate(
                 filename=filename,

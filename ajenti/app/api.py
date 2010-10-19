@@ -31,6 +31,10 @@ class ICategoryProvider(Interface):
         pass
 
 
+class IModuleConfig(Interface):
+    plugin = ''
+
+
 class IEventDispatcher(Interface):
     def match_event(self, event):
         pass

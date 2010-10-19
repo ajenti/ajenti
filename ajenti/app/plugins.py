@@ -2,16 +2,12 @@ import os
 import imp
 import sys
 
+from ajenti.requirements import *
+
+
 RETRY_LIMIT = 10
 loaded_plugins = []
-
-
-class PluginRequirementError(Exception):
-    def __init__(self, name):
-        self.name = name
-    
-    def __str__(self):
-        return 'Plugin \'%s\' required' % self.name
+disabled_plugins = {}
 
 
 def loader(path, log):
@@ -34,8 +30,7 @@ def loader(path, log):
             mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
             if hasattr(mod, 'REQUIRE'):
                 for req in mod.REQUIRE:
-                    if not req in loaded_plugins:
-                        raise PluginRequirementError(req)
+                    req.test(loaded_plugins)
             if not hasattr(mod, 'MODULES'):
                 log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
                 sys.exit(1)
@@ -45,7 +40,7 @@ def loader(path, log):
                 log.debug('Loaded submodule %s.%s' % (plugin,submod))
             queue.remove(plugin)
             loaded_plugins.append(plugin)
-        except PluginRequirementError, e:
+        except PluginRequirement, e:
             retries[plugin] += 1
             if retries[plugin] > RETRY_LIMIT:
                 log.error('Circular dependency between %s and %s. Aborting' % (plugin,e.name))
@@ -53,6 +48,15 @@ def loader(path, log):
             try:
                 queue.remove(e.name)
                 queue.append(e.name)
+                if e.name in disabled_plugins:
+                    raise e
             except:
-                log.error('Plugin %s requires %s, which is not available. Aborting' % (plugin,e.name))
-                sys.exit(1)
+                log.warn('Plugin %s requires %s, which is not available.' % (plugin,e.name))
+                disabled_plugins[plugin] = e
+                queue.remove(plugin)
+        except Exception, e:
+            disabled_plugins[plugin] = e
+            log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
+            queue.remove(plugin)
+    log.info('Plugins loaded.')
+                

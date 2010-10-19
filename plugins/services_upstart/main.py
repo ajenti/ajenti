@@ -3,16 +3,25 @@ import os
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
-from ajenti.requirements import *
 
 
+
+from ajenti.app.helpers import ModuleConfig
+
+class MC(ModuleConfig):
+    plugin = 'dashboard'
+    platform = ['Ubuntu']    
+    labels = {
+        'some': 'Something'
+    }
+    
+    some = 'other'
+   
+    
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
     platform = ['Debian', 'Ubuntu']
 
-    def test(self):
-        SoftwareRequirement(self.app, 'Upstart/init', 'service').test()
-       
     def list_all(self):
         r = []
         found = []
@@ -23,11 +32,12 @@ class UpstartServiceManager(Plugin):
                     s = s[:-5]
                     svc = apis.services.Service()
                     svc.name = s
-                    if 'start/running' in shell('service %s status' % s):
+                    res = shell('service %s status' % s)
+                    if 'start/running' in res:
                         svc.status = 'running'
                         r.append(svc)
                         found.append(s)
-                    elif 'stop/waiting' in shell('service %s status' % s):
+                    elif 'stop/waiting' in res:
                         svc.status = 'stopped'
                         r.append(svc)
                         found.append(s)

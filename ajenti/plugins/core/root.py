@@ -27,8 +27,9 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     folder_ids = ['top', 'system', 'apps', 'hardware', 'tools', 'servers', 'other', 'bottom']
 
     def on_session_start(self):
-        self._cat_selected = 'Dashboard'
+        self._cat_selected = 'dashboard'
         self._about_visible = False
+        self._module_config = None
         
     def main_ui(self):
         templ = self.app.get_template('main.xml')
@@ -47,16 +48,20 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     )
                 )
                 break
+        if self._module_config:
+            try:
+                cfg = self.app.get_config(self.selected_category)
+                templ.appendChildInto('main-content', cfg.get_ui_edit())
+            except:
+                pass
         return templ
 
     def do_init(self):
         cat = None
         for c in self.categories:
-            if c.get_name() == self._cat_selected: # initialize current plugin
+            if c.plugin_id == self._cat_selected: # initialize current plugin
                 cat = c
         self.selected_category = cat
-        if cat.disabled:
-            raise cat.disabled
         cat.on_init()
 
     def get_ui_about(self):
@@ -110,16 +115,13 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             exp = False
             empty = True
             for c in cats:
-                enabled = c.disabled is None
-                        
-                if (c.folder == fld and enabled) \
-                    or (fld == 'other' and not enabled): # Put corresponding plugins in this folder
+                if (c.folder == fld): # Put corresponding plugins in this folder
                     empty = False
                     if c == self.selected_category:
-                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name(), selected='true'))
+                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.plugin_id, selected='true'))
                         exp = True
                     else:
-                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.get_name()))
+                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.plugin_id))
 
             if not empty: v.append(cat_folder)
             cat_folder['expanded'] = exp
@@ -129,6 +131,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
         templ.appendChildInto('links',
             UI.HContainer(
+                UI.LinkLabel(text='Module config', id='mod_config'),
                 UI.LinkLabel(text='About', id='about'),
                 UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')
             ))
@@ -155,6 +158,8 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def handle_linklabel(self, event, params, vars=None):
         if params[0] == 'about':
             self._about_visible = True
+        if params[0] == 'mod_config':
+            self._module_config = self._cat_selected
 
     @event('button/click')
     def handle_abort(self, event, params, **kw):
@@ -165,6 +170,15 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         if params[0] == 'closeabout':
             self._about_visible = False
 
+    @event('dialog/submit')
+    def handle_modconfig(self, event, params, vars=None):
+        if params[0] == 'dlgEditModuleConfig':
+            if vars.getvalue('action','') == 'OK':
+                cfg = self.app.get_config(self.selected_category)
+                cfg.apply_vars(vars)
+                cfg.save()            
+            self._module_config = None
+            
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):
         # Iterate through the IEventDispatchers and find someone who will take care of the event
@@ -176,7 +190,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         self.do_init()
 
         # Current module
-        cat = filter(lambda x: x.get_name() == self._cat_selected, self.categories)[0]
+        cat = filter(lambda x: x.plugin_id == self._cat_selected, self.categories)[0]
 
         # Search self and current category for event handler
         for handler in (cat, self):

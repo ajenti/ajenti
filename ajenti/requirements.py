@@ -1,30 +1,31 @@
 from ajenti.utils import shell_status
 
+
 class BaseRequirement(Exception):
     pass
     
-class BackendRequirement(BaseRequirement):
-    def __init__(self, app, interface):
-        self.app = app
-        self.interface = interface
-                      
-    def test(self):
-        self.app.get_backend(self.interface).test()
-                  
-    def __str__(self):
-        return 'Backend required: ' + str(self.interface)
 
                           
-class SoftwareRequirement(BaseRequirement):
-    def __init__(self, app, name, binary):
-        self.app = app
+class PluginRequirement(BaseRequirement):
+    def __init__(self, name):
         self.name = name
+        
+    def test(self, plugins):
+        if not self.name in plugins:
+            raise self
+            
+    def __str__(self):
+        return 'Plugin required: ' + self.name
+            
+            
+class SoftwareRequirement(BaseRequirement):
+    def __init__(self, binary):
         self.bin = binary
         
-    def test(self):
+    def test(self, plugins):
         if shell_status('which ' + self.bin) != 0:
             raise self
             
     def __str__(self):
         return 'Binary required: ' + self.bin
-            
+                        

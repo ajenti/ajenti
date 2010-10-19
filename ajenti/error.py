@@ -2,12 +2,18 @@ from ajenti.utils import *
 from ajenti import version
 from ajenti.ui import UI
 from ajenti.ui.template import BasicTemplate
-from ajenti.requirements import *
 
 import platform
 import traceback
 
 
+    
+class BackendRequirementError(Exception):
+    def __init__(self, interface):
+        self.interface = interface
+                  
+    def __str__(self):
+        return 'Backend required: ' + str(self.interface)
 
                
 
@@ -22,12 +28,9 @@ def format_exception(app, err):
 
 def format_error(app, ex):
     templ = app.get_template('disabled.xml')
-    if isinstance(ex, BackendRequirement):
+    if isinstance(ex, BackendRequirementError):
         reason = 'Required backend is unavailable.'
         hint = 'You need a plugin that provides <b>%s</b> interface support for <b>%s</b> platform.<br/>' % (ex.interface, app.platform)
-    elif isinstance(ex, SoftwareRequirement):
-        reason = 'Required software is unavailable.'
-        hint = 'This plugin requires <b>%s</b> to be installed.<br/>' % (ex.name)
     else:
         return format_exception(app, traceback.format_exc())
         
