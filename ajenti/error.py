@@ -15,6 +15,13 @@ class BackendRequirementError(Exception):
     def __str__(self):
         return 'Backend required: ' + str(self.interface)
 
+class ConfigurationError(Exception):
+    def __init__(self, hint):
+        self.hint = hint
+                  
+    def __str__(self):
+        return 'Plugin failed to configure: ' + self.hint
+
                
 
 def format_exception(app, err):
@@ -31,6 +38,9 @@ def format_error(app, ex):
     if isinstance(ex, BackendRequirementError):
         reason = 'Required backend is unavailable.'
         hint = 'You need a plugin that provides <b>%s</b> interface support for <b>%s</b> platform.<br/>' % (ex.interface, app.platform)
+    elif isinstance(ex, ConfigurationError):
+        reason = 'The plugin was unable to start with current configuration.<br/>Consider using configuration dialog for this plugin.'
+        hint = ex.hint
     else:
         return format_exception(app, traceback.format_exc())
         

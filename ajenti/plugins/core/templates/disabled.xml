@@ -13,7 +13,7 @@
     <div class="ui-el-dialog-content" style="width: 480px">
         <div class="ui-el-error-content">
             <table>
-                <tr><td width="40">
+                <tr><td width="50">
                    <img src="/dl/core/ui/stock/nobackend.png" class="ui-el-error-icon" />
                 </td><td width="500">
                 

@@ -17,8 +17,6 @@ class ServicesPlugin(CategoryPlugin):
         self._labeltext = ''
 
     def get_ui(self):
-        cfg = self.app.get_config(self)
-        
         panel = UI.PluginPanel(UI.Label(text=''), title='Service Manager', icon='/dl/services/icon.png')
 
         ts = UI.DataTable()

@@ -3,7 +3,7 @@ import os
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
-
+from ajenti.error import *
 
 
 from ajenti.app.helpers import ModuleConfig
@@ -23,6 +23,7 @@ class UpstartServiceManager(Plugin):
     platform = ['Debian', 'Ubuntu']
 
     def list_all(self):
+        raise ConfigurationError('OH MAI GODS')
         r = []
         found = []
                 
