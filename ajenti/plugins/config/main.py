@@ -4,12 +4,11 @@ import os
 from hashlib import sha1
 from base64 import b64encode
 
-from ajenti.app.api import *
+from ajenti.api import *
 from ajenti import version
 from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import detect_distro
-from ajenti.app.helpers import *
 from ajenti.plugins.recovery.api import *
 
 

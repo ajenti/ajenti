@@ -3,7 +3,7 @@ import os.path
 import inspect
 
 from ajenti.com import *
-from ajenti.app.api import *
+from ajenti.api import *
 from ajenti.ui import *
 
 

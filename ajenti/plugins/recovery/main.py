@@ -1,9 +1,8 @@
-from ajenti.app.api import *
+from ajenti.api import *
 from ajenti import version
 from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import detect_distro
-from ajenti.app.helpers import *
 
 from api import IRecoveryProvider, Manager
 

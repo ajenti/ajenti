@@ -4,16 +4,16 @@ import os.path
 import hashlib
 import traceback
 
+from ajenti.api import *
 from ajenti.com import *
 from ajenti.plugins import *
-from ajenti.error import *
-from ajenti.app.session import SessionStore, SessionManager
-from ajenti.app.auth import AuthManager
-from ajenti.app.api import IContentProvider
-from ajenti.ui.api import IXSLTFunctionProvider
-from ajenti.ui.template import BasicTemplate
-from ajenti.app.urlhandler import IURLHandler
-from ajenti.ui import xslt
+from ajenti.utils import *
+from ajenti.ui import *
+import ajenti.ui.xslt as xslt
+
+from session import *
+from auth import *
+
 
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
@@ -139,7 +139,6 @@ class Application (PluginManager, Plugin):
                 styles=self.template_styles,
                 scripts=self.template_scripts
                )
-
 
 class AppDispatcher(object):
     def __init__(self, config=None):

@@ -2,15 +2,18 @@ import os
 import imp
 import sys
 
-from ajenti.requirements import *
-
 
 RETRY_LIMIT = 10
 loaded_plugins = []
 disabled_plugins = {}
 
 
-def loader(path, log):
+class PluginRequirementError(Exception):
+    def __init__(self, name):
+        self.name = name
+    
+    
+def load_plugins(path, log):
     global loaded_plugins
     
     plugs = [plug for plug in os.listdir(path) if not plug.startswith('.')]
@@ -30,7 +33,9 @@ def loader(path, log):
             mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
             if hasattr(mod, 'REQUIRE'):
                 for req in mod.REQUIRE:
-                    req.test(loaded_plugins)
+                    if not req in loaded_plugins:
+                        raise PluginRequirementError(req)
+                        
             if not hasattr(mod, 'MODULES'):
                 log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
                 sys.exit(1)
@@ -40,7 +45,7 @@ def loader(path, log):
                 log.debug('Loaded submodule %s.%s' % (plugin,submod))
             queue.remove(plugin)
             loaded_plugins.append(plugin)
-        except PluginRequirement, e:
+        except PluginRequirementError, e:
             retries[plugin] += 1
             if retries[plugin] > RETRY_LIMIT:
                 log.error('Circular dependency between %s and %s. Aborting' % (plugin,e.name))
@@ -59,4 +64,3 @@ def loader(path, log):
             log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
             queue.remove(plugin)
     log.info('Plugins loaded.')
-                

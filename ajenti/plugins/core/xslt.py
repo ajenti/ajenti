@@ -1,7 +1,7 @@
 import base64
 
 from ajenti.com import Plugin, implements
-from ajenti.ui.api import IXSLTFunctionProvider
+from ajenti.api import IXSLTFunctionProvider
 
 
 def attr(_, v, d):

@@ -1,4 +1,4 @@
-from ajenti.app.helpers import ModuleContent
+from ajenti.api import ModuleContent
 
 
 class AdvancedControlsContent(ModuleContent):

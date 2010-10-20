@@ -1,12 +1,10 @@
-# encoding: utf-8
-#
 # Copyright (C) 2007-2010 Dmitry Zamaruev (dmitry.zamaruev@gmail.com)
 
 
 import inspect
 import traceback
 
-from PrioList import PrioList
+from ajenti.utils import PrioList
 
 
 class Interface (property):

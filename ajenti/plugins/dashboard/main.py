@@ -4,7 +4,7 @@ from ajenti.com import Interface
 from ajenti.ui import *
 from ajenti import version
 from ajenti.utils import detect_distro
-from ajenti.app.helpers import CategoryPlugin, ModuleContent
+from ajenti.api import CategoryPlugin, ModuleContent
 
 from api import *
 

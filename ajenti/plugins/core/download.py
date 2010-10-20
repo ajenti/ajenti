@@ -1,7 +1,7 @@
 import os.path
 
 from ajenti.com import *
-from ajenti.app.urlhandler import URLHandler, url
+from ajenti.api import URLHandler, url
 from ajenti.utils import wsgi_serve_file
 
 

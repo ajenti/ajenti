@@ -5,8 +5,7 @@ import mimetypes
 import time
 from datetime import datetime
 
-
-logger = None
+import ajenti.utils 
 
 
 def enquote(s):
@@ -42,7 +41,7 @@ def detect_distro():
     return shell('uname -mrs')
 
 def shell(c):
-    logger.info('Running %s' % c)
+    ajenti.utils.logger.info('Running %s' % c)
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
@@ -56,17 +55,17 @@ def shell_bg(c, output=None, deleteout=False):
         c = 'bash -c "%s" > %s 2>&1'%(c,output)
         if deleteout:
             c = 'touch %s; %s; rm -f %s'%(output,c,output)
-    logger.info('Running in background: %s' % c)
+    ajenti.utils.logger.info('Running in background: %s' % c)
     subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
     
 def shell_status(c):
-    logger.info('Running %s' % c)
+    ajenti.utils.logger.info('Running %s' % c)
     return subprocess.Popen(c, shell=True).wait()
 
 def shell_stdin(c, input):
-    logger.info('Running %s' % c)
+    ajenti.utils.logger.info('Running %s' % c)
     p = subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE,

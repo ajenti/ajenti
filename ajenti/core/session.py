@@ -51,7 +51,6 @@ import time
 import Cookie
 import hashlib
 
-
 def sha1(var):
     return hashlib.sha1(str(var)).hexdigest()
 

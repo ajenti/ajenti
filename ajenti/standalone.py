@@ -3,15 +3,15 @@
 
 import sys
 import logging
-from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
 import SocketServer
-from OpenSSL import SSL
 import socket
+from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
+from OpenSSL import SSL
 
 from ajenti.config import Config
-from ajenti.app import AppDispatcher
-from ajenti import utils
-import ajenti.app.plugins as plugins
+from ajenti.core import AppDispatcher
+from ajenti.plugmgr import load_plugins
+import ajenti.utils
 
 
 class CustomRequestHandler(WSGIRequestHandler):
@@ -71,10 +71,10 @@ def server(log_level=logging.INFO, config_file=''):
 
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
-    utils.logger = log
+    ajenti.utils.logger = log
     
     # Load external plugins
-    plugins.loader(config.get('ajenti', 'plugins'), log)
+    load_plugins(config.get('ajenti', 'plugins'), log)
 
     CustomRequestHandler.log = log
     # Start server
