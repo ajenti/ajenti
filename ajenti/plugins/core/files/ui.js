@@ -29,8 +29,23 @@ function ui_categoryfolder(id) {
 }
 
 function ui_select_category(id) {
-    document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
+    try {
+        document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
+    } catch (e) {}
+    try {
+        document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
+    } catch (e) {}
     document.getElementById(id).className = 'ui-el-category-selected';
+}
+
+function ui_select_top_category(id) {
+    try {
+        document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
+    } catch (e) {}
+    try {
+        document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
+    } catch (e) {}
+    document.getElementById(id).className = 'ui-el-top-category-selected';
 }
 
 function ui_showhide(id) {

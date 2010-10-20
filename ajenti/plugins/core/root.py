@@ -12,17 +12,15 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
     # Plugin folders. This dict is until we make MUI support
     folders = {
-        'top': '',
         'system': 'System',
         'hardware': 'Hardware',
         'apps': 'Applications',
         'servers': 'Servers',
         'tools': 'Tools',
         'other': 'Other',
-        'bottom': ''
     }
     # Folder order
-    folder_ids = ['top', 'system', 'apps', 'hardware', 'tools', 'servers', 'other', 'bottom']
+    folder_ids = ['system', 'apps', 'hardware', 'tools', 'servers', 'other']
 
     def on_session_start(self):
         self._cat_selected = 'dashboard'
@@ -131,6 +129,17 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
             if not empty: v.append(cat_folder)
             cat_folder['expanded'] = exp
+
+        for c in cats:
+            if c.folder in ['top', 'bottom']:
+                templ.appendChildInto(
+                    'topplaceholder-'+c.folder, 
+                    UI.TopCategory(
+                        text=c.text, 
+                        id=c.plugin_id,
+                        selected=c==self.selected_category
+                    )
+                )
 
         templ.appendChildInto('leftplaceholder', v)
         templ.appendChildInto('rightplaceholder', self.main_ui().elements())

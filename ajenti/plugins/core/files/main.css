@@ -1,4 +1,4 @@
-.ui-el-page {
+#page {
     height: auto !important;
     margin: auto;
     min-height: 100%;
@@ -22,20 +22,40 @@
     float: left;
 }
 
-.ui-el-mainwindow-top {
-    height: 37px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    
+#topbar div {
     width: 960px;
-    border-radius: 0px 0px 5px 5px;
-    -moz-border-radius: 0px 0px 5px 5px;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    border: 1px solid #ccc;
-    border-top: none;
-    background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    margin: auto;
+    padding: 13px 0px 0px 0px;
+    line-height: 32px;
+    font-size: 22px;
+    color: #ccc;
+}
+
+#topbar {
+    background: #333;
+    background: -moz-linear-gradient(top,  #333,  #222);
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#222));
+    border-bottom: 1px solid #181818;
+    height: 50px;
+    width: 100%;
+}
+
+#topbar2 {
+    background: #222;
+    background: -moz-linear-gradient(top,  #222,  #111);
+    background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
+    height: 25px;
+    margin-bottom: 20px;
+    border-top: 1px solid #303030;
+    box-shadow: 0 3px 3px #222;
+    -moz-box-shadow: 0 3px 3px #555;
+    -webkit-box-shadow: 0 3px 3px #000;
+}
+
+#topbar2 .wr {
+    width: 960px;
+    margin: auto;
+    text-align: right;
 }
 
 .ui-el-mainwindow-body {
@@ -50,16 +70,18 @@
     position: absolute;
     bottom: 0;
     
+    color: #aaa !important;
     margin-top: 30px;
-    background: #ddd;
-    background: -moz-linear-gradient(top,  #ddd,  #ccc);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
-    border-top: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
+    background: #333;
+    background: -moz-linear-gradient(top,  #333,  #222);
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#222));
+    border-top: 1px solid #181818;
 }
 
 .ui-el-logo {
-    margin-left: 7px;
+    padding: 1px 7px 0px 0px;
+    display: block;
+    float: left;
 }
 
 .ui-el-ajax-loader {
@@ -89,6 +111,37 @@
 }
 
 
+
+.ui-el-top-category {
+    display: inline-block;
+    font-size: 13px;
+    padding: 0px 10px 0px 10px;
+    height: 25px;
+    line-height: 25px;
+    color: #aaa;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;    
+}
+
+.ui-el-top-category-selected,
+.ui-el-top-category:hover {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;    
+    line-height: 25px;
+    background: #222;
+    background: -moz-linear-gradient(top,  #333,  #222);
+    background: -webkit-gradient(linear, left top, left bottom, from(#333), to(#222));
+    border-bottom: 1px solid #922017;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    padding: 0px 9px 0px 9px;
+    height: 24px;
+    color: #eee;
+}
 
 
 .ui-el-category {

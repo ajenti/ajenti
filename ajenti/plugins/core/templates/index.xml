@@ -8,12 +8,22 @@
 </head>
 <body id="main">
 
-<div class="ui-el-page">
-    <div class="ui-el-mainwindow-top">
-        <img class="ui-el-logo" src="/dl/core/ui/logo.png" />
-        <img class="ui-el-ajax-loader" src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+<div id="page">
+    <div id="topbar">
+        <div>
+            <img class="ui-el-logo" src="/dl/core/ui/logo.png" />
+            Ajenti
+            <img class="ui-el-ajax-loader" src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
+        </div>
     </div>
-        
+
+    <div id="topbar2">
+        <div class="wr">
+            <span id="topplaceholder-top"/>
+            <span id="topplaceholder-bottom"/>
+        </div>
+    </div>
+    
     <div class="ui-el-mainwindow-body">
 		<div class="ui-el-mainwindow-left" id="leftplaceholder">
 		    <div class="ui-el-mainwindow-left-border"> 
