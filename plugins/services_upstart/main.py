@@ -3,10 +3,8 @@ import os
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
-from ajenti.error import *
+from ajenti.api import *
 
-
-from ajenti.app.helpers import ModuleConfig
 
 class MC(ModuleConfig):
     plugin = 'dashboard'
@@ -23,7 +21,7 @@ class UpstartServiceManager(Plugin):
     platform = ['Debian', 'Ubuntu']
 
     def list_all(self):
-        raise ConfigurationError('OH MAI GODS')
+        #raise ConfigurationError('OH MAI GODS')
         r = []
         found = []
                 

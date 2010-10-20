@@ -1,6 +1,6 @@
 from ajenti.com import *
 from ajenti.apis import API
-from ajenti.app.helpers import CategoryPlugin, event
+from ajenti.api import CategoryPlugin, event
 from ajenti.ui import UI
 from ajenti import apis
 

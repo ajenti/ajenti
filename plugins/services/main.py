@@ -1,7 +1,6 @@
-from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
+from ajenti.api import *
+from ajenti.ui import *
 from ajenti import apis
 
 

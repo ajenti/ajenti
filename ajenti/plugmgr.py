@@ -1,10 +1,11 @@
 import os
 import imp
 import sys
-
+import traceback
 
 RETRY_LIMIT = 10
 loaded_plugins = []
+loaded_mods = {}
 disabled_plugins = {}
 
 
@@ -31,6 +32,7 @@ def load_plugins(path, log):
         try:
             log.debug('Loading plugin %s' % plugin)
             mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
+            loaded_mods[plugin] = mod
             if hasattr(mod, 'REQUIRE'):
                 for req in mod.REQUIRE:
                     if not req in loaded_plugins:
@@ -62,5 +64,6 @@ def load_plugins(path, log):
         except Exception, e:
             disabled_plugins[plugin] = e
             log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
+            print traceback.format_exc()
             queue.remove(plugin)
     log.info('Plugins loaded.')

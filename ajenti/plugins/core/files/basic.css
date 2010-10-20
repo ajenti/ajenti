@@ -111,6 +111,7 @@
 
 .ui-el-link {
     color: #888;
+    font-size: 12px;
     border-bottom: 1px dashed #ccc;
     margin-left: 3px;
     margin-right: 3px;
@@ -119,8 +120,6 @@
 .ui-el-link:hover {
     color: #444;
     border-bottom: 1px dashed #888;
-    margin-left: 3px;
-    margin-right: 3px;
 }
 
 
