@@ -1,6 +1,6 @@
 import time
 import Cookie
-import os.path
+import os
 import hashlib
 import traceback
 
@@ -140,6 +140,14 @@ class Application (PluginManager, Plugin):
                 scripts=self.template_scripts
                )
 
+    def stop(self):
+        self.config.get('server').shutdown()
+        
+    def restart(self):
+        self.config.get('server').restart_marker = True
+        self.stop()
+        
+    
 class AppDispatcher(object):
     def __init__(self, config=None):
         self.config = config

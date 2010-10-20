@@ -2,6 +2,7 @@
 #
 
 import sys
+import os
 import logging
 import SocketServer
 import socket
@@ -34,7 +35,8 @@ class CustomRequestHandler(WSGIRequestHandler):
 class CustomServer(SocketServer.ThreadingMixIn, WSGIServer):
     cert_file = ''
     request_queue_size = 100
-
+    allow_reuse_address = True
+    
     def __init__(self, server_address, HandlerClass):
         WSGIServer.__init__(self, server_address, HandlerClass)
         if self.cert_file:
@@ -86,8 +88,25 @@ def server(log_level=logging.INFO, config_file=''):
     log.info('Listening on %s:%d'%(host, port))
     httpd = make_server(host, port, AppDispatcher(config).dispatcher,
                             CustomServer, CustomRequestHandler)
-
+    config.set('server', httpd)
+    
     try:
         httpd.serve_forever()
     except KeyboardInterrupt, e:
         log.warn('Stopping by <Control-C>')
+
+    if hasattr(httpd, 'restart_marker'):
+        log.info('Restarting by request')
+        
+        fd = 20 # Close all descriptors. Creepy thing
+        while fd > 2:
+            try:
+                os.close(fd)
+                log.debug('Closed descriptor #%i'%fd)
+            except:
+                pass
+            fd -= 1
+            
+        os.execv(sys.argv[0], sys.argv)
+    else: 
+        log.info('Stopped by request')
