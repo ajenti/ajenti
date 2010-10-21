@@ -42,7 +42,7 @@ def read_crontab(user='root'):
     """Read crontab file with shell command 'crontab -l'"""
     tasks = []
     others = []
-    lines = shell('crontab -l').split('\n')
+    lines = shell('crontab -l -u ' + user).split('\n')
     for line in lines:
         if not line:
             continue
@@ -65,18 +65,29 @@ def write_crontab(tasks, user='root'):
     """
     lines = '\n'.join([str(task) for task in tasks])
     lines += '\n'
-    return shell_stdin('crontab -', lines)[1]
+    return shell_stdin('crontab - -u ' + user, lines)[1]
 
-def fix_crontab():
+def fix_crontab(user='root'):
     """
     Read and comment wrong for crontab string.
     """
-    cron_lines = filter(None, shell('crontab -l').split('\n'))
+    cron_lines = filter(None, shell('crontab -l -u ' + user).split('\n'))
     fixed_lines = []
     for line in cron_lines:
-        if shell_stdin('crontab -', line + '\n')[1]:
+        if shell_stdin('crontab - -u ' + user, line + '\n')[1]:
             fixed_lines.append('#' + line)
         else:
             fixed_lines.append(line)
-    write_crontab(fixed_lines)
+    write_crontab(fixed_lines, user)
     return 0
+
+def get_all_users():
+    user_list = []
+    for s in open('/etc/passwd', 'r').read().split('\n'):
+        try:
+            s = s.split(':')
+            u = s[0]
+            user_list.append(u)
+        except:
+            pass
+    return sorted(user_list)
