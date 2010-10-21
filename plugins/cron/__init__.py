@@ -3,7 +3,7 @@ MODULES = ['main']
 DEPS =  [
     (['any'],
      [
-        ('app',     'Cron', 'crontab'),
+        ('app', 'Cron', 'crontab'),
      ])
 ]
 
