@@ -8,6 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'Cron'
+PLATFORMS = ['any']
 DESCRIPTION = 'Edit crontabs easily'
 VERSION = '1.0'
 AUTHOR = 'Ajenti team'

@@ -60,6 +60,7 @@ class PluginInstaller(Plugin):
             self.available = eval(data)
         except:
             pass
+        self.available = eval(data)
 
     def remove(self, id):        
         dir = self.app.config.get('ajenti', 'plugins')

@@ -55,7 +55,7 @@ class PluginManager(CategoryPlugin):
                 )
             ) 
             
-        if self._changes or True:
+        if self._changes:
             tbl = UI.VContainer(
                 UI.Button(id='restart', text='Restart Ajenti for changes to take effect'),
                 tbl,
@@ -77,11 +77,11 @@ class PluginManager(CategoryPlugin):
             for p in inst: 
                 if k['id'] == p.id and k['version'] == p.version: 
                     same = True
-            if same:
-                continue
+            #if same:
+            #    continue
             
-            desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k['desc']
-            reqd = ajenti.plugmgr.get_deps(self.app.platform, eval(k['deps']))
+            desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k['description']
+            reqd = ajenti.plugmgr.get_deps(self.app.platform, k['deps'])
             req = UI.VContainer(
                     UI.Label(text='Requires:', bold=True),
                     spacing=0

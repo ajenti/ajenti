@@ -8,6 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'System Load'
+PLATFORMS = ['any']
 DESCRIPTION = 'CPU load and memory usage widgets for dashboard'
 VERSION = '0.1'
 AUTHOR = 'Ajenti team'

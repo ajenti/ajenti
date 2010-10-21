@@ -8,6 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'Services'
+PLATFORMS = ['any']
 DESCRIPTION = 'Control system services'
 VERSION = '0.6'
 AUTHOR = 'Ajenti team'
