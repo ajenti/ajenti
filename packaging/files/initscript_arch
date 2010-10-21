@@ -1,0 +1,56 @@
+#!/bin/sh
+#
+# $Id: ajenti.init.d,v 1.4 2003/07/13 19:12:41 mdz Exp $
+#
+
+### BEGIN INIT INFO
+# Provides:          ajenti
+# Required-Start:    $network $syslog
+# Required-Stop:     $network $syslog
+# Should-Start:      $local_fs
+# Should-Stop:       $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Ajenti
+# Description:       Ajenti administration frontend
+### END INIT INFO
+
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+#. /lib/lsb/init-functions
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+NAME=ajenti
+DESC="Ajenti"
+PID=/var/run/ajenti.pid
+
+case "$1" in
+	start)
+		#log_daemon_msg "Starting $DESC"
+        stat_busy "Starting $DESC daemon"
+		/usr/bin/ajenti --start
+		#log_end_msg $?
+        stat_done "Starting $DESC daemon"
+    	;;
+	stop)
+		#log_daemon_msg "Stopping $DESC"
+        stat_busy "Stopping $DESC daemon"
+		/usr/bin/ajenti --stop
+		#log_end_msg $?
+        stat_done "Stopping $DESC daemon"
+		;;
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		if [ "$?" != "0" ]; then
+			exit 1
+		fi
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1 
+esac
+
+exit 0

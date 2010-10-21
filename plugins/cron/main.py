@@ -1,6 +1,7 @@
 from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.api import *
+from ajenti.utils import shell
 
 import backend
 
@@ -11,10 +12,11 @@ class CronPlugin(CategoryPlugin):
     folder = 'system'
 
     def on_init(self):
-        self._tasks, self._others = backend.read_crontab()
+        self._tasks, self._others = backend.read_crontab(self._user)
 
     def on_session_start(self):
-        backend.fix_crontab()
+        self._user = shell('whoami').strip()
+        backend.fix_crontab(self._user)
         self._log = ''
         self._labeltext = ''
         self._editing_task = -1
@@ -25,16 +27,24 @@ class CronPlugin(CategoryPlugin):
         #self._tab = 0
         self._show_dialog = 0
         self._newtask = False
+        #self._user = ''
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text='%s tasks' %
-                                        len(self._tasks)),
+        panel = UI.PluginPanel(UI.Label(text='%s %s tasks' %
+                                        (self._user, len(self._tasks))),
                                title='Crontab',
                                icon='/dl/cron/icon.png')
         panel.append(self.get_default_ui())
         return panel
 
     def get_default_ui(self):
+        user_sel = [UI.SelectOption(text = x, value = x,
+                    selected = True if x == self._user else False)
+                    for x in backend.get_all_users()]
+        topbox = UI.FormBox(UI.HContainer(UI.Label(text='User: '),
+                            UI.Select(*user_sel, name='users'),
+                            UI.Button(text='Select',onclick="form", action='OK', form='frmUsers')
+                            ), hideok=True, hidecancel=True, id='frmUsers')
         tabbar = UI.TabControl()
         table_other = UI.DataTable(UI.DataTableRow(
                 UI.Label(text='String', size=80),
@@ -110,7 +120,7 @@ class CronPlugin(CategoryPlugin):
                         UI.Button(text='Add non-task string', id='add_oth'))
         tabbar.add("Tasks", vbox_task)
         tabbar.add("Non-task strings", vbox_oth)
-        vbox = UI.VContainer(er, tabbar)
+        vbox = UI.VContainer(topbox, er, tabbar)
         if self._editing_task != -1:
             try:
                 task = self._tasks[self._editing_task]
@@ -358,9 +368,19 @@ class CronPlugin(CategoryPlugin):
             self._others.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
+        #if params[0] == 'ch_user':
+        #    self._user = vars.getvalue('users') or 'root'
+        #    print self._user
+            #self._show_dialog = 1
+            #self._newtask = True
         
     @event('form/submit')
     def on_submit_form(self, event, params, vars=None):
+        if params[0] == 'frmUsers' and\
+                vars.getvalue('action') == 'OK':
+            self._user = vars.getvalue('users') or 'root'
+            backend.fix_crontab(self._user)
+            self._tasks, self._others = backend.read_crontab(self._user)
         if params[0] == 'frmAdvanced' and\
                 vars.getvalue('action') == 'OK':
             task_str = ' '.join((
