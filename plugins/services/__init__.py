@@ -1,14 +1,14 @@
-MODULES = ['api', 'main']
+MODULES = ['api', 'main', 's_upstart', 's_arch', 's_suse', 's_bsd']
 
 DEPS =  [
-    (['any'],
+    (['opensuse'],
      [
-        ('app',     'Service manager', 'service'),
+        ('app', 'Service manager', 'chkconfig'),
      ])
 ]
 
 NAME = 'Services'
 DESCRIPTION = 'Control system services'
-VERSION = '0.5'
+VERSION = '0.6'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

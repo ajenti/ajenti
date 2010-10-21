@@ -127,8 +127,11 @@ def load_plugins(path, log):
                 sys.exit(1)
             for submod in mod.MODULES:
                 description = imp.find_module(submod, mod.__path__)
-                imp.load_module(plugin + '.' + submod, *description)
-                log.debug('Loaded submodule %s.%s' % (plugin,submod))
+                try:
+                    imp.load_module(plugin + '.' + submod, *description)
+                    log.debug('Loaded submodule %s.%s' % (plugin,submod))
+                except Exception, e:
+                    log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
             queue.remove(plugin)
             loaded_plugins.append(plugin)
         except PluginRequirementError, e:

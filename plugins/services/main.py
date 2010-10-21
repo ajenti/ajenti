@@ -16,8 +16,6 @@ class ServicesPlugin(CategoryPlugin):
         self._labeltext = ''
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=''), title='Service Manager', icon='/dl/services/icon.png')
-
         ts = UI.DataTable()
         hr = UI.DataTableRow(
                 UI.DataTableCell(UI.Label(), width='20px'),
@@ -28,8 +26,10 @@ class ServicesPlugin(CategoryPlugin):
         ts.append(hr)
 
         lst = sorted(self.svc_mgr.list_all(), key=lambda x: x.status)
+        running = 0
         for svc in lst:
             if svc.status == 'running':
+                running += 1
                 ctl = UI.HContainer(
                           UI.MiniButton(text='Stop', id='stop/' + svc.name),
                           UI.MiniButton(text='Restart', id='restart/' + svc.name)
@@ -45,6 +45,12 @@ class ServicesPlugin(CategoryPlugin):
                     )
                   )
             ts.append(row)
+
+        panel = UI.PluginPanel(
+            UI.Label(text='%i out of %i running'%(running,len(lst))), 
+            title='Service Manager', 
+            icon='/dl/services/icon.png'
+        )
 
         panel.append(ts)
         return panel
