@@ -7,7 +7,7 @@ from ajenti import apis
 
 class ArchServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['Arch']
+    platform = ['arch']
 
     def list_all(self):
         r = []

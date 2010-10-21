@@ -33,7 +33,7 @@ def detect_platform():
         except:
             dist = 'unknown'
 
-    return dist.strip()
+    return dist.strip().lower()
 
 def detect_distro():
     if shell_status('lsb_release -sd') == 0:

@@ -7,7 +7,7 @@ from ajenti import apis
 
 class SuseInitServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['openSUSE']
+    platform = ['opensuse']
 
     def list_all(self):
         r = []

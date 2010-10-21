@@ -8,6 +8,7 @@ class Element(etree.ElementBase):
         etree.ElementBase.__init__(self)
         self.tag = tag
         self.set('id', str(random.randint(1,9000*9000)))
+        self._children = []
         for k in args:
             self.append(k)
         for k in kwargs:
@@ -15,6 +16,7 @@ class Element(etree.ElementBase):
     
     def append(self, el):
         if el is not None:
+            self._children.append(el)
             etree.ElementBase.append(self, el)
         return self
         
@@ -182,8 +184,8 @@ class TreeManager(object):
         try:
             tree['expanded'] = tree['id'] in self.states
 
-            for n in tree.getchildren():
+            for n in tree._children:
                 if n.tag == 'treecontainer':
                     self.apply(n)
         except:
-            pass
+            raise

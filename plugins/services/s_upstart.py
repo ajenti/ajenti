@@ -5,20 +5,10 @@ from ajenti.utils import *
 from ajenti import apis
 from ajenti.api import *
 
-
-class MC(ModuleConfig):
-    plugin = 'dashboard'
-    platform = ['Ubuntu']    
-    labels = {
-        'some': 'Something'
-    }
-    
-    some = 'other'
-   
     
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['Debian', 'Ubuntu']
+    platform = ['debian', 'ubuntu']
 
     def list_all(self):
         #raise ConfigurationError('OH MAI GODS')

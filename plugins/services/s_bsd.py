@@ -7,7 +7,7 @@ from ajenti import apis
 
 class BSDServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['FreeBSD']
+    platform = ['freebsd']
 
     def list_all(self):
         r = []

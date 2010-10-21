@@ -29,7 +29,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         
     def main_ui(self):
         templ = self.app.get_template('main.xml')
-        templ.appendChildInto('main-content', self.selected_category.get_ui())
 
         if self._about_visible:
             templ.appendChildInto('main-content', self.get_ui_about())
@@ -53,10 +52,12 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                 templ.appendChildInto('main-content', cfg.get_ui_edit())
             except:
                 pass
-           
-        if self.selected_category.get_config():
-            templ.appendChildInto('plugin-buttons',
-                  UI.Button(text='Module config', id='mod_config'))
+        else:
+            templ.appendChildInto('main-content', self.selected_category.get_ui())
+            if self.selected_category.get_config():
+                templ.appendChildInto('plugin-buttons',
+                      UI.Button(text='Module config', id='mod_config'))
+                       
                 
         return templ
 
