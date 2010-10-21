@@ -43,7 +43,7 @@ class CronPlugin(CategoryPlugin):
                     for x in backend.get_all_users()]
         topbox = UI.FormBox(UI.HContainer(UI.Label(text='User: '),
                             UI.Select(*user_sel, name='users'),
-                            UI.Button(text='Select',onclick="form", action='OK', form='frmUsers')
+                            UI.MiniButton(text='Select',onclick="form", action='OK', form='frmUsers')
                             ), hideok=True, hidecancel=True, id='frmUsers')
         tabbar = UI.TabControl()
         table_other = UI.DataTable(UI.DataTableRow(
