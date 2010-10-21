@@ -77,8 +77,8 @@ class PluginManager(CategoryPlugin):
             for p in inst: 
                 if k['id'] == p.id and k['version'] == p.version: 
                     same = True
-            #if same:
-            #    continue
+            if same:
+                continue
             
             desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k['description']
             reqd = ajenti.plugmgr.get_deps(self.app.platform, k['deps'])
