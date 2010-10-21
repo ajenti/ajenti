@@ -3,6 +3,7 @@ from ajenti import version
 from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import *
+
 import ajenti.plugmgr
 
 
@@ -13,7 +14,7 @@ class PluginManager(CategoryPlugin):
 
     def on_session_start(self):
         self._tab = 0
-        self._mgr = PluginManager(self.app)
+        self._mgr = ajenti.plugmgr.PluginInstaller(self.app)
         self._changes = False
         
     def get_ui(self):
@@ -80,6 +81,21 @@ class PluginManager(CategoryPlugin):
                 continue
             
             desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k['desc']
+            reqd = ajenti.plugmgr.get_deps(self.app.platform, eval(k['deps']))
+            req = UI.VContainer(
+                    UI.Label(text='Requires:', bold=True),
+                    spacing=0
+                  )
+                  
+            for r in reqd:
+                if ajenti.plugmgr.verify_dep(r):
+                    continue
+                if r[0] == 'app':
+                    req.append(UI.Label(text='App %s (%s)'%r[1:]))
+                if r[0] == 'plugin':
+                    req.append(UI.Label(text='Plugin %s'%r[1]))
+                    
+                    
             tbl.append(
                 UI.LayoutTableRow(
                     UI.Image(file=k['icon']),
@@ -88,6 +104,7 @@ class PluginManager(CategoryPlugin):
                         UI.OutLinkLabel(text='by '+k['author'], url=k['homepage']),
                         UI.Spacer(height=5),
                         UI.CustomHTML(html=desc),
+                        req if len(reqd)>0 else UI.Label(),
                         UI.Spacer(height=5),
                         spacing=0
                     ),
@@ -95,7 +112,7 @@ class PluginManager(CategoryPlugin):
                         text='Install', 
                         id='install/'+k['id'],
                         msg='Download and install plugin "%s"'%k['name']
-                    )
+                    ) if len(reqd)==0 else None
                 )
             )   
         return UI.VContainer(btn, tbl, spacing=15)
@@ -130,57 +147,4 @@ class PluginsContent(ModuleContent):
     module = 'plugins'    
 
 
-class PluginManager(Plugin):
-    def __init__(self):
-        self.server = self.app.config.get('ajenti', 'update_server')
-        self.available = []
-        try:
-            data = open('/var/lib/ajenti/plugins.list').read()
-            self.available = eval(data)
-        except:
-            pass
-            
-    def list_plugins(self):
-        res = []
-        dir = self.app.config.get('ajenti', 'plugins')
-        plugs = []
-        plugs.extend(ajenti.plugmgr.loaded_plugins)
-        plugs.extend(ajenti.plugmgr.disabled_plugins.keys())
-
-        for k in plugs:
-            i = PluginInfo()
-            i.id = k
-            i.icon = '/dl/%s/icon.png'%k
-            m = ajenti.plugmgr.loaded_mods[k]
-            i.name, i.desc, i.version = m.NAME, m.DESCRIPTION, m.VERSION
-            i.author, i.homepage = m.AUTHOR, m.HOMEPAGE
-            res.append(i)
-        return res
         
-    def update_list(self):        
-        if not os.path.exists('/var/lib/ajenti'):
-            os.mkdir('/var/lib/ajenti')
-        data = shell('curl -sm 4 http://%s/plugins.php' % self.server)
-        try:
-            open('/var/lib/ajenti/plugins.list', 'w').write(data)
-            self.available = eval(data)
-        except:
-            pass
-
-    def remove(self, id):        
-        dir = self.app.config.get('ajenti', 'plugins')
-        shell('rm -r %s/%s' % (dir, id))
-
-    def install(self, id):        
-        dir = self.app.config.get('ajenti', 'plugins')
-        self.remove(id)
-                
-        if shell_status('curl -sm 4 http://%s/plugins/%s/plugin.tar.gz -o %s/plugin.tar.gz' % (self.server, id, dir)):
-            raise Exception()
-            
-        shell('cd %s; tar -xf plugin.tar.gz' % dir)
-        shell('rm %s/plugin.tar.gz' % dir)
-    
-    
-class PluginInfo:
-    pass        

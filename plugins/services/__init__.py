@@ -1,5 +1,11 @@
-REQUIRE = []
 MODULES = ['api', 'main']
+
+DEPS =  [
+    (['any'],
+     [
+        ('app',     'Service manager', 'service'),
+     ])
+]
 
 NAME = 'Services'
 DESCRIPTION = 'Control system services'

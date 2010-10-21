@@ -3,6 +3,10 @@ import imp
 import sys
 import traceback
 
+from ajenti.com import *
+from ajenti.utils import detect_platform, shell, shell_status
+
+
 RETRY_LIMIT = 10
 loaded_plugins = []
 loaded_mods = {}
@@ -12,8 +16,84 @@ disabled_plugins = {}
 class PluginRequirementError(Exception):
     def __init__(self, name):
         self.name = name
+
+class SoftwareRequirementError(Exception):
+    def __init__(self, name, bin):
+        self.name = name
+        self.bin = bin
+    
+
+
+class PluginInstaller(Plugin):
+    def __init__(self):
+        self.server = self.app.config.get('ajenti', 'update_server')
+        self.available = []
+        try:
+            data = open('/var/lib/ajenti/plugins.list').read()
+            self.available = eval(data)
+        except:
+            pass
+            
+    def list_plugins(self):
+        res = []
+        dir = self.app.config.get('ajenti', 'plugins')
+        plugs = []
+        plugs.extend(loaded_plugins)
+        plugs.extend(disabled_plugins.keys())
+
+        for k in plugs:
+            i = PluginInfo()
+            i.id = k
+            i.icon = '/dl/%s/icon.png'%k
+            m = loaded_mods[k]
+            i.name, i.desc, i.version = m.NAME, m.DESCRIPTION, m.VERSION
+            i.author, i.homepage = m.AUTHOR, m.HOMEPAGE
+            res.append(i)
+        return res
+        
+    def update_list(self):        
+        if not os.path.exists('/var/lib/ajenti'):
+            os.mkdir('/var/lib/ajenti')
+        data = shell('curl -sm 4 http://%s/plugins.php' % self.server)
+        try:
+            open('/var/lib/ajenti/plugins.list', 'w').write(data)
+            self.available = eval(data)
+        except:
+            pass
+
+    def remove(self, id):        
+        dir = self.app.config.get('ajenti', 'plugins')
+        shell('rm -r %s/%s' % (dir, id))
+
+    def install(self, id):        
+        dir = self.app.config.get('ajenti', 'plugins')
+        self.remove(id)
+                
+        if shell_status('curl -sm 4 http://%s/plugins/%s/plugin.tar.gz -o %s/plugin.tar.gz' % (self.server, id, dir)):
+            raise Exception()
+            
+        shell('cd %s; tar -xf plugin.tar.gz' % dir)
+        shell('rm %s/plugin.tar.gz' % dir)
     
     
+class PluginInfo:
+    pass    
+    
+            
+def get_deps(platform, dep):
+    d = []
+    for k in dep:
+        if platform.lower() in k[0] or 'any' in k[0]:
+            d.extend(k[1])
+    return d
+        
+def verify_dep(dep):
+    if dep[0] == 'app':
+        return shell_status('which '+dep[2])==0
+    if dep[0] == 'plugin':
+        return dep[1] in loaded_plugins
+
+        
 def load_plugins(path, log):
     global loaded_plugins
     
@@ -23,7 +103,8 @@ def load_plugins(path, log):
 
     queue = plugs
     retries = {}
-    
+    platform = detect_platform()
+        
     while len(queue) > 0:
         plugin = queue[-1]
         if not plugin in retries:
@@ -33,10 +114,13 @@ def load_plugins(path, log):
             log.debug('Loading plugin %s' % plugin)
             mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
             loaded_mods[plugin] = mod
-            if hasattr(mod, 'REQUIRE'):
-                for req in mod.REQUIRE:
-                    if not req in loaded_plugins:
-                        raise PluginRequirementError(req)
+            if hasattr(mod, 'DEPS'):
+                for req in get_deps(platform, mod.DEPS):
+                    if not verify_dep(req):
+                        if req[0] == 'plugin':
+                            raise PluginRequirementError(req[1])
+                        if req[0] == 'app':
+                            raise SoftwareRequirementError(*req[1:])
                         
             if not hasattr(mod, 'MODULES'):
                 log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
@@ -61,6 +145,10 @@ def load_plugins(path, log):
                 log.warn('Plugin %s requires %s, which is not available.' % (plugin,e.name))
                 disabled_plugins[plugin] = e
                 queue.remove(plugin)
+        except SoftwareRequirementError, e:
+            log.warn('Plugin %s requires application %s (%s), which is not available.' % (plugin,e.name,e.bin))
+            disabled_plugins[plugin] = e
+            queue.remove(plugin)
         except Exception, e:
             disabled_plugins[plugin] = e
             log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))

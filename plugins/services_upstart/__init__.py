@@ -1,5 +1,12 @@
-REQUIRE = ['services']
 MODULES = ['main']
+
+DEPS =  [
+    (['ubuntu', 'debian'],
+     [
+        ('app',     'Upstart', 'service'),
+        ('plugin',  'services')
+     ])
+]
 
 NAME = 'Upstart'
 DESCRIPTION = 'Upstart backend for services plugin'
