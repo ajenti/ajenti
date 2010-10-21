@@ -1,0 +1,7 @@
+.ui-el-logviewer {
+    border: 1px solid #ccc;
+	overflow: auto;
+	background: #fff;
+	font-family: monospace;
+}
+

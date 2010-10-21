@@ -12,7 +12,7 @@ class LoadWidget(Plugin):
         stat = self.app.get_backend(apis.sysstat.ISysStat)
         w = UI.Widget(
                 UI.HContainer(
-                    UI.Image(file='/dl/loadavg/widget.png'),
+                    UI.Image(file='/dl/sysload/widget.png'),
                     UI.Label(text='System load:', bold=True),
                     UI.Label(text=' / '.join(stat.get_load()))
                 )
@@ -30,14 +30,14 @@ class MemWidget(Plugin):
         w = UI.Widget(
                 UI.LayoutTable(
                     UI.LayoutTableRow(
-                        UI.Image(file='/dl/loadavg/widget_mem.png'),
+                        UI.Image(file='/dl/sysload/widget_mem.png'),
                         UI.Label(text='RAM:', bold=True),
                         UI.ProgressBar(value=ru, max=rt, width=100),
                         UI.Label(text="%sM / %sM"%(ru,rt)),
                         spacing=4
                     ),
                     UI.LayoutTableRow(
-                        UI.Image(file='/dl/loadavg/widget_swap.png'),
+                        UI.Image(file='/dl/sysload/widget_swap.png'),
                         UI.Label(text='Swap:', bold=True),
                         UI.ProgressBar(value=su, max=st, width=100) if int(st) != 0 else None,
                         UI.Label(text="%sM / %sM"%(su,st)),
@@ -49,5 +49,5 @@ class MemWidget(Plugin):
 
 
 class LoadContent(ModuleContent):
-    module = 'loadavg'
+    module = 'sysload'
     path = __file__

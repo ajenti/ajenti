@@ -8,20 +8,21 @@
 }
 
 .ui-el-treecontainernode-inner {
+    min-height: 16px;
     padding-left: 14px;
 }
 
 .ui-el-treecontainernode-title {
+    font-size: 12px;
+    line-height: 14px;
     border: 1px solid transparent;
+    border-right: none;
 }
 
 .ui-el-treecontainernode-title:hover {
-    background: #eabf81;
-    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
-    border: 1px solid #eabf81;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-right: none;
 }
 
 

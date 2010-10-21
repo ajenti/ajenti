@@ -30,8 +30,8 @@ class CronPlugin(CategoryPlugin):
         #self._user = ''
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text='%s %s tasks' %
-                                        (self._user, len(self._tasks))),
+        panel = UI.PluginPanel(UI.Label(text='%s tasks for %s' %
+                                        (len(self._tasks), self._user)),
                                title='Crontab',
                                icon='/dl/cron/icon.png')
         panel.append(self.get_default_ui())
@@ -47,7 +47,7 @@ class CronPlugin(CategoryPlugin):
                             ), hideok=True, hidecancel=True, id='frmUsers')
         tabbar = UI.TabControl()
         table_other = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='String', size=80),
+                UI.Label(text='String'),
                 UI.Label(text=''),
                 header=True,
                ))

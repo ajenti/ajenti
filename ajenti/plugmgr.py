@@ -49,7 +49,7 @@ class PluginInstaller(Plugin):
             i.name, i.desc, i.version = m.NAME, m.DESCRIPTION, m.VERSION
             i.author, i.homepage = m.AUTHOR, m.HOMEPAGE
             res.append(i)
-        return res
+        return sorted(res, key=lambda x:x.name)
         
     def update_list(self):        
         if not os.path.exists('/var/lib/ajenti'):
