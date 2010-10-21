@@ -1,5 +1,6 @@
 import random
 from lxml import etree 
+from ajenti.utils import fix_unicode
 
 
 class Element(etree.ElementBase):
@@ -18,7 +19,7 @@ class Element(etree.ElementBase):
         return self
         
     def __setitem__(self, idx, val):
-        self.set(idx, unicode(str(val)))
+        self.set(idx, fix_unicode(str(val)))
         
     def __getitem__(self, idx):
         return self.get(idx)
