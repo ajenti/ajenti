@@ -6,15 +6,13 @@
 }
 
 .ui-el-mainwindow-left {
-    width: 180px;
-    float: left;
-    padding-top: 1px;
-}
-
-.ui-el-mainwindow-left-border {
-    background: #d4d4d4;
     width: 154px;
-    height: 1px;
+    margin-right: 10px;
+    border: 4px solid #aaa;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    float: left;
 }
 
 .ui-el-mainwindow-right {
@@ -163,13 +161,19 @@
 }
 
 .ui-el-category-selected {
-    width: 170px;
+    width: 153px;
     height: 29px;
     line-height: 26px;
     vertical-align: middle;
-    background: url('/dl/core/ui/category-sel.png') no-repeat;
-    color: #ffffff;
-    text-shadow: -1px -1px #d3a158;
+
+    border-top: none;
+
+    background: #922017;
+    background: -moz-linear-gradient(top,  #d04909,  #922017);
+    background: -webkit-gradient(linear, left top, left bottom, from(#d04909), to(#922017));
+
+    color: #555 !important;
+    text-shadow: -1px -1px #d04909;
     padding-left: 1px;
 }
 
@@ -195,37 +199,32 @@
 .ui-el-categoryfolder {
     width: 152px;
     height: 28px;
-    background: #f3f3f3;
+    background: #eee url('/dl/core/ui/tree-plus.png') no-repeat 135px 6px;
     border: 1px solid #d4d4d4;
     border-top: none;
     line-height: 26px;
     vertical-align: middle;
+    padding-top: 1px;
     color: #555555;
 }
 
 .ui-el-categoryfolder:hover {
-    background: #ffffff;
+    background: #ffffff url('/dl/core/ui/tree-plus.png') no-repeat 135px 6px;
     border: 1px solid #ddd;
     border-top: none;
 }
 
 .ui-el-categoryfolder-selected {
-    width: 155px;
-    height: 28px;
+    width: 152px;
+    height: 27px;
     line-height: 26px;
     vertical-align: middle;
-    background: #ddd;
-    background: -moz-linear-gradient(top,  #ddd,  #bbb);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb));
-    border: 1px solid #bbb;
+    background: #ddd url('/dl/core/ui/tree-minus.png') no-repeat 135px 6px;
+    border: 1px solid #ccc;
     border-top: 1px solid #ddd;
-    border-radius: 0px 4px 0px 0px;
-    -moz-border-radius: 0px 4px 0px 0px;
-    -webkit-border-radius: 0px 4px 0px 0px;
 }
 
 .ui-el-categoryfolder-children {
-    border-left: 3px solid #bbb;
 }
 
 
