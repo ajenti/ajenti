@@ -14,7 +14,7 @@ def enquote(s):
 
 def fix_unicode(s):
     d = ''.join(max(i, ' ') if not i in ['\n', '\t', '\r'] else i for i in s)
-    return unicode(d, errors='replace').encode('utf-8', 'xmlcharref')
+    return unicode(d.encode('utf-8', 'xmlcharref'), errors='replace')
 
 def detect_platform():
     if platform.system() != 'Linux':

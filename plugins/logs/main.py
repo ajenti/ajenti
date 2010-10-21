@@ -30,6 +30,13 @@ class LogsPlugin(CategoryPlugin):
 
         lt = UI.LayoutTable(
                 UI.LayoutTableRow(
+                    UI.Label(text='Log files'),
+                    UI.LayoutTableCell(
+                        UI.LogFilter(),
+                        float='right'
+                    )
+                ),
+                UI.LayoutTableRow(
                     UI.ScrollContainer(self.get_ui_tree(), height=500),
                     data
                 )
@@ -92,3 +99,4 @@ class LogsContent(ModuleContent):
     path = __file__
     widget_files = ['logviewer.xslt']
     css_files = ['logviewer.css']
+    js_files = ['logviewer.js']
