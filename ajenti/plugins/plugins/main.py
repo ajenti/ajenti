@@ -87,6 +87,7 @@ class PluginManager(CategoryPlugin):
                     spacing=0
                   )
                   
+            ready = True      
             for r in reqd:
                 if ajenti.plugmgr.verify_dep(r):
                     continue
@@ -94,7 +95,7 @@ class PluginManager(CategoryPlugin):
                     req.append(UI.Label(text='App %s (%s)'%r[1:]))
                 if r[0] == 'plugin':
                     req.append(UI.Label(text='Plugin %s'%r[1]))
-                    
+                ready = False    
                     
             tbl.append(
                 UI.LayoutTableRow(
@@ -104,7 +105,7 @@ class PluginManager(CategoryPlugin):
                         UI.OutLinkLabel(text='by '+k['author'], url=k['homepage']),
                         UI.Spacer(height=5),
                         UI.CustomHTML(html=desc),
-                        req if len(reqd)>0 else UI.Label(),
+                        req if not ready else None,
                         UI.Spacer(height=5),
                         spacing=0
                     ),
@@ -112,7 +113,7 @@ class PluginManager(CategoryPlugin):
                         text='Install', 
                         id='install/'+k['id'],
                         msg='Download and install plugin "%s"'%k['name']
-                    ) if len(reqd)==0 else None
+                    ) if ready else None
                 )
             )   
         return UI.VContainer(btn, tbl, spacing=15)
