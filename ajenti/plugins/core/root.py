@@ -201,7 +201,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         path = req['PATH_INFO'].split('/')
         event = '/'.join(path[2:4])
         params = path[4:]
-
         self.do_init()
 
         # Current module
@@ -222,6 +221,5 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
         # We have no result or handler - return default page
         main = self.main_ui()
-
         return main.render()
 

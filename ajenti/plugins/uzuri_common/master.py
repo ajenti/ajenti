@@ -5,8 +5,7 @@ import shutil
 import re
 
 from ajenti.com import Plugin
-from ajenti.utils import shell
-from ajenti.misc import BackgroundWorker
+from ajenti.utils import *
 
 from api import IClusteredConfig
 
