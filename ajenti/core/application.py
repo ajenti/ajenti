@@ -100,8 +100,7 @@ class Application (PluginManager, Plugin):
 
         start_response(self.status, self.headers)
         self.fix_length(content)
-        if not isinstance(content, environ['wsgi.file_wrapper']):
-            content = [content]
+        content = [content]
         self.log.debug('Finishing %s'%environ['PATH_INFO'])
         return content
 

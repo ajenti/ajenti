@@ -5,13 +5,13 @@ import getopt
 import os.path
 import logging
 
-from ajenti.standalone import server
+from ajenti.standalone import run_server
 from ajenti.daemon import Daemon
 
 
 class AjentiDaemon(Daemon):
 	def run(self):
-		server(self.log_level, self.config_file)
+		run_server(self.log_level, self.config_file)
 
 
 def usage():
@@ -70,7 +70,7 @@ if __name__ == '__main__':
             config_file = os.path.join(sys.path[0], 'ajenti.conf')
 
     if action == 'run':
-        server(log_level, config_file)
+       run_server(log_level, config_file)
     else:
         ajentid = AjentiDaemon('/var/run/ajenti.pid',stdout='/var/log/ajenti.log',stderr='/var/log/ajenti.err.log')
         ajentid.log_level = log_level

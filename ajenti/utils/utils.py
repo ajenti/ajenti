@@ -129,4 +129,4 @@ def wsgi_serve_file(req, start_response, file):
     headers.append(('Content-length',str(size)))
     headers.append(('Last-modified',mtime.strftime('%a, %b %d %Y %H:%M:%S GMT')))
     start_response('200 OK', headers)
-    return req['wsgi.file_wrapper'](open(file))
+    return open(file).read()

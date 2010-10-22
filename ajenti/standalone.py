@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
-#
-
 import sys
 import os
 import logging
-import SocketServer
-import socket
-from wsgiref.simple_server import make_server, WSGIRequestHandler, WSGIServer
 from OpenSSL import SSL
+
+
+from twisted.web import server
+from twisted.internet import reactor, ssl
+from twisted.web.wsgi import WSGIResource
 
 from ajenti.config import Config
 from ajenti.core import AppDispatcher
@@ -15,42 +14,8 @@ from ajenti.plugmgr import load_plugins
 import ajenti.utils
 
 
-class CustomRequestHandler(WSGIRequestHandler):
-    log = None
-    multithread = True
 
-    def setup(self):
-        if self.server.cert_file:
-            self.connection = self.request
-            self.rfile = socket._fileobject(self.request, "rb", self.rbufsize)
-            self.wfile = socket._fileobject(self.request, "wb", self.wbufsize)
-        else:
-            WSGIRequestHandler.setup(self)
-
-    def log_request(self, code, size):
-        if self.log:
-            self.log.info('%s %s %s'%(code, self.command, self.path))
-
-
-class CustomServer(SocketServer.ThreadingMixIn, WSGIServer):
-    cert_file = ''
-    request_queue_size = 100
-    allow_reuse_address = True
-    
-    def __init__(self, server_address, HandlerClass):
-        WSGIServer.__init__(self, server_address, HandlerClass)
-        if self.cert_file:
-            ctx = SSL.Context(SSL.SSLv3_METHOD)
-            ctx.use_privatekey_file(self.cert_file)
-            ctx.use_certificate_file(self.cert_file)
-
-            self.socket = SSL.Connection(ctx, socket.socket(self.address_family,
-                                                            self.socket_type))
-            self.server_bind()
-            self.server_activate()
-
-
-def server(log_level=logging.INFO, config_file=''):
+def run_server(log_level=logging.INFO, config_file=''):
     # Initialize logging subsystem
     log = logging.getLogger('ajenti')
     log.setLevel(log_level)
@@ -78,24 +43,37 @@ def server(log_level=logging.INFO, config_file=''):
     # Load external plugins
     load_plugins(config.get('ajenti', 'plugins'), log)
 
-    CustomRequestHandler.log = log
     # Start server
-    if config.getint('ajenti', 'ssl') == 1:
-        CustomServer.cert_file = config.get('ajenti','cert_file')
 
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
     log.info('Listening on %s:%d'%(host, port))
-    httpd = make_server(host, port, AppDispatcher(config).dispatcher,
-                            CustomServer, CustomRequestHandler)
-    config.set('server', httpd)
     
-    try:
-        httpd.serve_forever()
-    except KeyboardInterrupt, e:
-        log.warn('Stopping by <Control-C>')
+    resource = WSGIResource(
+            reactor, 
+            reactor.getThreadPool(),
+            AppDispatcher(config).dispatcher
+    )
+    
+    site = server.Site(resource)	
+    config.set('server', reactor)
 
-    if hasattr(httpd, 'restart_marker'):
+    if config.getint('ajenti', 'ssl') == 1:
+        ssl_context = ssl.DefaultOpenSSLContextFactory(
+    	    config.get('ajenti','cert_file'), 
+    	    config.get('ajenti','cert_file')
+        )
+        reactor.listenSSL(
+        	port,
+        	site,
+        	contextFactory = ssl_context,
+        )
+    else:
+        reactor.listenTCP(port, site)
+
+    reactor.run()
+
+    if hasattr(reactor, 'restart_marker'):
         log.info('Restarting by request')
         
         fd = 20 # Close all descriptors. Creepy thing
@@ -110,3 +88,4 @@ def server(log_level=logging.INFO, config_file=''):
         os.execv(sys.argv[0], sys.argv)
     else: 
         log.info('Stopped by request')
+        
