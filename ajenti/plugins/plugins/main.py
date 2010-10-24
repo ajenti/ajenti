@@ -135,7 +135,6 @@ class PluginManager(CategoryPlugin):
         if params[0] == 'install':
             self._tab = 0
             self._mgr.install(params[1])
-            self._changes = True
         
     @event('form/submit')
     @event('dialog/submit')

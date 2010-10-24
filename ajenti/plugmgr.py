@@ -14,7 +14,11 @@ loaded_mods = {}
 disabled_plugins = {}
 
 
-class PluginRequirementError(Exception):
+class BaseRequirementError(Exception):
+    pass
+    
+    
+class PluginRequirementError(BaseRequirementError):
     def __init__(self, name):
         self.name = name
 
@@ -22,7 +26,7 @@ class PluginRequirementError(Exception):
         return 'requires plugin %s' % self.name
 
 
-class SoftwareRequirementError(Exception):
+class SoftwareRequirementError(BaseRequirementError):
     def __init__(self, name, bin):
         self.name = name
         self.bin = bin
@@ -81,7 +85,7 @@ class PluginInstaller(Plugin):
             
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
-    
+        load_plugin(self.app.config.get('ajenti', 'plugins'), id, self.log, self.app.platform)
     
 class PluginInfo:
     pass    
@@ -106,6 +110,48 @@ def get_plugin_path(app, id):
     else:
         return os.path.join(os.path.split(__file__)[0], 'plugins') # ./plugins
         
+def load_plugin(path, plugin, log, platform):
+    try:
+        log.debug('Loading plugin %s' % plugin)
+        mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
+        loaded_mods[plugin] = mod
+            
+        # Verify dependencies
+        if hasattr(mod, 'DEPS'):
+            for req in get_deps(platform, mod.DEPS):
+                if not verify_dep(req):
+                    if req[0] == 'plugin':
+                        raise PluginRequirementError(req[1])
+                    if req[0] == 'app':
+                        raise SoftwareRequirementError(*req[1:])
+           
+        # Load submodules
+        if not hasattr(mod, 'MODULES'):
+            log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
+            sys.exit(1)
+        for submod in mod.MODULES:
+            description = imp.find_module(submod, mod.__path__)
+            try:
+                imp.load_module(plugin + '.' + submod, *description)
+                log.debug('Loaded submodule %s.%s' % (plugin,submod))
+            except Exception, e:
+                log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
+                    
+        # Save info
+        i = PluginInfo()
+        i.id = plugin
+        i.icon = '/dl/%s/icon.png'%plugin
+        i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
+        i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
+        plugin_info[plugin] = i
+        loaded_plugins.append(plugin)
+    except BaseRequirementError, e:
+        raise e
+    except Exception, e:
+        disabled_plugins[plugin] = e
+        log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
+        print traceback.format_exc()
+        raise e        
         
 def load_plugins(path, log):
     global loaded_plugins
@@ -124,43 +170,8 @@ def load_plugins(path, log):
             retries[plugin] = 0
             
         try:
-            log.debug('Loading plugin %s' % plugin)
-            mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
-            loaded_mods[plugin] = mod
-            
-            # Verify dependencies
-            if hasattr(mod, 'DEPS'):
-                for req in get_deps(platform, mod.DEPS):
-                    if not verify_dep(req):
-                        if req[0] == 'plugin':
-                            raise PluginRequirementError(req[1])
-                        if req[0] == 'app':
-                            raise SoftwareRequirementError(*req[1:])
-                        
-            
-            # Load submodules
-            if not hasattr(mod, 'MODULES'):
-                log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
-                sys.exit(1)
-            for submod in mod.MODULES:
-                description = imp.find_module(submod, mod.__path__)
-                try:
-                    imp.load_module(plugin + '.' + submod, *description)
-                    log.debug('Loaded submodule %s.%s' % (plugin,submod))
-                except Exception, e:
-                    log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
-                    
-            # Save info
-            i = PluginInfo()
-            i.id = plugin
-            i.icon = '/dl/%s/icon.png'%plugin
-            i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
-            i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
-            plugin_info[plugin] = i
-            
+            load_plugin(path, plugin, log, platform) 
             queue.remove(plugin)
-            loaded_plugins.append(plugin)
-            
         except PluginRequirementError, e:
             retries[plugin] += 1
             if retries[plugin] > RETRY_LIMIT:
@@ -180,8 +191,6 @@ def load_plugins(path, log):
             disabled_plugins[plugin] = e
             queue.remove(plugin)
         except Exception, e:
-            disabled_plugins[plugin] = e
-            log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
-            print traceback.format_exc()
             queue.remove(plugin)
+
     log.info('Plugins loaded.')
