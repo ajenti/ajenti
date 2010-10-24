@@ -159,7 +159,7 @@ class Application (PluginManager, Plugin):
                )
 
     def stop(self):
-        self.config.get('server').shutdown()
+        self.config.get('server').stop()
         
     def restart(self):
         self.config.get('server').restart_marker = True
