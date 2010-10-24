@@ -28,6 +28,10 @@ function ui_categoryfolder(id) {
         x.className = 'ui-el-categoryfolder';
 }
 
+function ui_scroll_top() {
+    window.scrollTo(0,0);
+}
+
 function ui_select_category(id) {
     try {
         document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';

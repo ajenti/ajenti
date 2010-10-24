@@ -57,6 +57,7 @@
     <script> 
         ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
         ui_center('<xsl:value-of select="@id"/>-wr'); 
+        ui_scroll_top();
     </script>
 </div>
 </xsl:template>
@@ -89,6 +90,7 @@
     <script> 
         ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
         ui_center('<xsl:value-of select="@id"/>-wr'); 
+        ui_scroll_top();
     </script>
 </div>
 </xsl:template>
@@ -122,6 +124,7 @@
     <script> 
         ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
         ui_center('<xsl:value-of select="@id"/>-wr'); 
+        ui_scroll_top();
     </script>
 </div>
 </xsl:template>
