@@ -32,9 +32,18 @@
 </xsl:template>
 
 <xsl:template match="minibutton">
-    <a href="#" onclick="javascript:return ajax('/handle/{x:attr(@class, 'minibutton')}/click/{@id}');" class="ui-el-minibutton">
-        <xsl:value-of select="@text" />
-    </a>
+    <xsl:choose>
+        <xsl:when test="@onclick = 'form'">
+            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-minibutton">
+                <xsl:value-of select="@text" />
+            </a>
+        </xsl:when>
+        <xsl:otherwise>
+            <a href="#" onclick="javascript:return ajax('/handle/{x:attr(@class, 'minibutton')}/click/{@id}');" class="ui-el-minibutton">
+                <xsl:value-of select="@text" />
+            </a>
+        </xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template match="warningminibutton">
