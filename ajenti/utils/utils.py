@@ -83,7 +83,7 @@ def str_fsize(sz):
         return '%i Mb' % sz
     sz /= 1024
     return '%i Gb' % sz
-        
+
 def wsgi_serve_file(req, start_response, file):
     # Check for directory traversal
     if file.find('..') > -1:

@@ -141,11 +141,3 @@ class PluginManager(CategoryPlugin):
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
         pass
-
-
-class PluginsContent(ModuleContent):
-    path = __file__
-    module = 'plugins'    
-
-
-        

@@ -3,7 +3,7 @@ import re
 from ajenti.ui import UI
 from ajenti.com import *
 from ajenti import version
-from ajenti.api import ICategoryProvider, IContentProvider, EventProcessor, SessionPlugin, event, URLHandler, url, get_environment_vars
+from ajenti.api import ICategoryProvider, EventProcessor, SessionPlugin, event, URLHandler, url, get_environment_vars
 from ajenti.ui import BasicTemplate
 from api import IProgressBoxProvider
 

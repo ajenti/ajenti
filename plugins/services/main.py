@@ -63,10 +63,3 @@ class ServicesPlugin(CategoryPlugin):
             self.svc_mgr.restart(params[1])
         if params[0] == 'stop':
             self.svc_mgr.stop(params[1])
-
-
-class ServicesContent(ModuleContent):
-    module = 'services'
-    widget_files = ['widgets.xslt']
-    css_files = ['services.css']
-    path = __file__

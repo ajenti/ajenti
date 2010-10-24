@@ -146,11 +146,6 @@ class ConfigPlugin(CategoryPlugin):
                 self.config.save()
                 ConfigRecovery(self.app).backup_now()
 
-
-class ConfigContent(ModuleContent):
-    path = __file__
-    module = 'config'
-    
     
 class ConfigRecovery(SimpleFileRecoveryProvider):
     name = 'Ajenti'

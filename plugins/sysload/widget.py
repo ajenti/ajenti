@@ -46,8 +46,3 @@ class MemWidget(Plugin):
                 )
             )
         return w
-
-
-class LoadContent(ModuleContent):
-    module = 'sysload'
-    path = __file__

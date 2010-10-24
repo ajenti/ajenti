@@ -9,23 +9,6 @@ class IRequestDispatcher(Interface):
         pass
 
 
-class IContentProvider(Interface):
-    path = ''
-    module = ''
-    js_files = []
-    css_files = []
-    widget_files = []
-
-    def content_path(self):
-        pass
-
-    def widget_path(self):
-        pass
-
-    def template_path(self):
-        pass
-
-
 class ICategoryProvider(Interface):
     def get_ui():
         pass

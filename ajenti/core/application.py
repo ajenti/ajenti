@@ -9,7 +9,9 @@ from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.utils import *
 from ajenti.ui import *
+from ajenti.plugmgr import loaded_plugins, get_plugin_path
 import ajenti.ui.xslt as xslt
+
 
 from session import *
 from auth import *
@@ -19,7 +21,6 @@ from auth import *
 class Application (PluginManager, Plugin):
 
     uri_handlers = Interface(IURLHandler)
-    content_providers = Interface(IContentProvider)
     func_providers = Interface(IXSLTFunctionProvider)
 
     def __init__(self, config=None):
@@ -30,7 +31,6 @@ class Application (PluginManager, Plugin):
         self.template_styles = []
         self.template_scripts = []
         self.config = config
-        self.content = {}
         self.log = config.get('log_facility')
         self.platform = config.get('platform')
         includes = []
@@ -40,18 +40,37 @@ class Application (PluginManager, Plugin):
             functions.update(f.get_funcs())
 
         # Get path for static content and templates
-        for c in self.content_providers:
-            (module, path) = c.content_path()
-            self.content[module] = path
-            styles = ['/dl/'+module+'/'+s for s in c.css_files]
-            self.template_styles.extend(styles)
-            scripts = ['/dl/'+module+'/'+s for s in c.js_files]
-            self.template_scripts.extend(scripts)
-
-            path = c.widget_path()
-            for inc in c.widget_files:
-                includes.append(os.path.join(path,inc))
-            self.template_path += [c.template_path()]
+        plugins = []
+        plugins.extend(loaded_plugins)
+        plugins.extend(ajenti.plugins.list)
+        
+        for c in plugins:
+            path = os.path.join(get_plugin_path(self, c), c)
+            
+            fp = os.path.join(path, 'files')
+            if os.path.exists(fp):
+                self.template_styles.extend([
+                    '/dl/'+c+'/'+s 
+                    for s in os.listdir(fp) 
+                    if s.endswith('.css')
+                ])
+                self.template_scripts.extend([
+                    '/dl/'+c+'/'+s 
+                    for s in os.listdir(fp) 
+                    if s.endswith('.js')
+                ])
+                
+            wp = os.path.join(path, 'widgets')
+            if os.path.exists(wp):
+                includes.extend([
+                    os.path.join(wp, s)
+                    for s in os.listdir(wp) 
+                    if s.endswith('.xslt')
+                ])
+                
+            tp = os.path.join(path, 'templates')
+            if os.path.exists(tp):
+                self.template_path.append(tp)
 
         if xslt.xslt is None:
             xslt.prepare(

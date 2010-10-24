@@ -9,6 +9,7 @@ from ajenti.utils import detect_platform, shell, shell_status
 
 RETRY_LIMIT = 10
 loaded_plugins = []
+plugin_info = {}
 loaded_mods = {}
 disabled_plugins = {}
 
@@ -17,11 +18,17 @@ class PluginRequirementError(Exception):
     def __init__(self, name):
         self.name = name
 
+    def __str__(self):
+        return 'requires plugin %s' % self.name
+
+
 class SoftwareRequirementError(Exception):
     def __init__(self, name, bin):
         self.name = name
         self.bin = bin
     
+    def __str__(self):
+        return 'requires %s (%s)' % (self.name, self.bin)
 
 
 class PluginInstaller(Plugin):
@@ -37,18 +44,17 @@ class PluginInstaller(Plugin):
     def list_plugins(self):
         res = []
         dir = self.app.config.get('ajenti', 'plugins')
-        plugs = []
-        plugs.extend(loaded_plugins)
-        plugs.extend(disabled_plugins.keys())
 
-        for k in plugs:
+        for k in disabled_plugins.keys():
             i = PluginInfo()
             i.id = k
             i.icon = '/dl/%s/icon.png'%k
-            m = loaded_mods[k]
-            i.name, i.desc, i.version = m.NAME, m.DESCRIPTION, m.VERSION
-            i.author, i.homepage = m.AUTHOR, m.HOMEPAGE
+            i.name, i.desc, i.version = k, 'Disabled: ' + str(disabled_plugins[k]), ''
+            i.author, i.homepage = '', ''
             res.append(i)
+
+        res.extend(plugin_info.values())
+        
         return sorted(res, key=lambda x:x.name)
         
     def update_list(self):        
@@ -93,7 +99,13 @@ def verify_dep(dep):
         return shell_status('which '+dep[2])==0
     if dep[0] == 'plugin':
         return dep[1] in loaded_plugins
-
+        
+def get_plugin_path(app, id):
+    if id in loaded_plugins:
+        return app.config.get('ajenti', 'plugins')
+    else:
+        return os.path.join(os.path.split(__file__)[0], 'plugins') # ./plugins
+        
         
 def load_plugins(path, log):
     global loaded_plugins
@@ -115,6 +127,8 @@ def load_plugins(path, log):
             log.debug('Loading plugin %s' % plugin)
             mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
             loaded_mods[plugin] = mod
+            
+            # Verify dependencies
             if hasattr(mod, 'DEPS'):
                 for req in get_deps(platform, mod.DEPS):
                     if not verify_dep(req):
@@ -123,6 +137,8 @@ def load_plugins(path, log):
                         if req[0] == 'app':
                             raise SoftwareRequirementError(*req[1:])
                         
+            
+            # Load submodules
             if not hasattr(mod, 'MODULES'):
                 log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
                 sys.exit(1)
@@ -133,8 +149,18 @@ def load_plugins(path, log):
                     log.debug('Loaded submodule %s.%s' % (plugin,submod))
                 except Exception, e:
                     log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
+                    
+            # Save info
+            i = PluginInfo()
+            i.id = plugin
+            i.icon = '/dl/%s/icon.png'%plugin
+            i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
+            i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
+            plugin_info[plugin] = i
+            
             queue.remove(plugin)
             loaded_plugins.append(plugin)
+            
         except PluginRequirementError, e:
             retries[plugin] += 1
             if retries[plugin] > RETRY_LIMIT:

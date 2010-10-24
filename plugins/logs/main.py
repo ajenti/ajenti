@@ -92,11 +92,3 @@ class LogsPlugin(CategoryPlugin):
     def on_tclick(self, event, params, vars=None):
         self._tree.node_click('/'.join(params))
         return ''
-
-
-class LogsContent(ModuleContent):
-    module = 'logs'
-    path = __file__
-    widget_files = ['logviewer.xslt']
-    css_files = ['logviewer.css']
-    js_files = ['logviewer.js']

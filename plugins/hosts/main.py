@@ -130,8 +130,3 @@ class HostsPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 backend.Config(self.app).sethostname(v)
             self._editing_self = None
-
-
-class HostsContent(ModuleContent):
-    module = 'hosts'
-    path = __file__

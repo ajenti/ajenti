@@ -106,8 +106,3 @@ class DNSPlugin(CategoryPlugin):
                 i.address = vars.getvalue('address', '127.0.0.1')
                 self.config.save()
             self._editing_ns = None
-
-
-class DNSContent(ModuleContent):
-    module = 'dns'
-    path = __file__

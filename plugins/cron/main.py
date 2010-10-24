@@ -478,6 +478,3 @@ class CronPlugin(CategoryPlugin):
             self._show_dialog = 0
             self._editing_other = -1
                 
-class CronContent(ModuleContent):
-    module = 'cron'
-    path = __file__

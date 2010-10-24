@@ -4,7 +4,7 @@ from ajenti.com import Interface
 from ajenti.ui import *
 from ajenti import version
 from ajenti.utils import detect_distro
-from ajenti.api import CategoryPlugin, ModuleContent
+from ajenti.api import CategoryPlugin
 
 from api import *
 
@@ -30,10 +30,3 @@ class Dashboard(CategoryPlugin):
 
         u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/distributor-logo-%s.png'%self.app.platform.lower())
         return u
-
-
-class DashboardContent(ModuleContent):
-    path = __file__
-    module = 'dashboard'
-    css_files = ['widget.css']
-    widget_files = ['widget.xslt']

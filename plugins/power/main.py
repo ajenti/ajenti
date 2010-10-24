@@ -62,8 +62,3 @@ class PowerPlugin(CategoryPlugin):
             shell('shuwdown -p now')
         if params[0] == 'reboot':
             shell('reboot')
-
-
-class PowerContent(ModuleContent):
-    module = 'power'
-    path = __file__

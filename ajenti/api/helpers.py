@@ -42,37 +42,6 @@ def event(event_name):
 #def event
 
 
-class ModuleContent(Plugin):
-    abstract = True
-    implements(IContentProvider)
-
-    js_files = []
-    css_files = []
-    widget_files = []
-
-    files_location = 'files'
-    widgets_location = 'widgets'
-    templates_location = 'templates'
-
-    def content_path(self):
-        if self.path == '' or self.module == '':
-            raise AttributeError('You should provide path/module information')
-        norm_path = os.path.join(os.path.dirname(self.path),self.files_location)
-        return (self.module, norm_path)
-
-    def widget_path(self):
-        if self.path == '':
-            raise AttributeError('You should provide path/module information')
-        norm_path = os.path.abspath(os.path.join(os.path.dirname(self.path),self.widgets_location))
-        return norm_path
-
-    def template_path(self):
-        if self.path == '':
-            raise AttributeError('You should provide path/module information')
-        norm_path = os.path.abspath(os.path.join(os.path.dirname(self.path),self.templates_location))
-        return norm_path
-
-
 class EventProcessor(object):
     implements(IEventDispatcher)
 

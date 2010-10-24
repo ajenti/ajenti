@@ -173,7 +173,3 @@ class RecoveryPlugin(CategoryPlugin):
                 self._current = p.id
                 self._current_name = p.name
                 
-
-class RecoveryContent(ModuleContent):
-    path = __file__
-    module = 'recovery'
