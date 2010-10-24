@@ -2,6 +2,17 @@
     border: 1px solid #ccc;
 	overflow: auto;
 	background: #fff;
-	font-family: monospace;
 }
 
+.ui-el-logviewer span {
+	font-family: monospace;
+	font-size: 12px;
+}
+
+.ui-el-logviewer .highlight {
+    border: 1px solid #922017; 
+    background: #f2a077;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}

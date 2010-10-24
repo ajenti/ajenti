@@ -7,16 +7,19 @@ function ui_update_log_filter() {
     if (!logfilter_orig)
         logfilter_orig = lg.innerHTML;
 
-    if (el.value == "")
+    if (el.value == "") {
         lg.innerHTML = logfilter_orig;
+        return;
+    }
         
     var lines = logfilter_orig.split("<");
     
     var r = "";
         
-    for (i=0;i<lines.length;i++)
-        if (lines[i].indexOf(el.value) != -1)
-            r += "<" + lines[i];
-
+    for (i=0;i<lines.length;i++) {
+        idx = lines[i].indexOf(el.value);
+        if (idx != -1)
+            r += "<" + lines[i].substr(0, idx) + "<span class=\"highlight\">" + el.value + "</span>" + lines[i].substr(idx + el.value.length);
+    }
     lg.innerHTML = r;
 }
