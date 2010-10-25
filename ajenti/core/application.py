@@ -145,11 +145,14 @@ class Application (PluginManager, Plugin):
         return lst[0]
 
     def get_config(self, plugin):
+        return self.get_config_by_id(plugin.plugin_id)
+
+    def get_config_by_id(self, id):
         cfg = self.get_backend(IModuleConfig,  
-                flt=lambda x: x.plugin==plugin.plugin_id)
+                flt=lambda x: x.plugin==id)
         cfg.overlay_config()
         return cfg
-                
+
     def get_template(self, filename=None, search_path=[]):
         return BasicTemplate(
                 filename=filename,

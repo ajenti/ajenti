@@ -20,7 +20,8 @@ class ConfigPlugin(CategoryPlugin):
     def on_session_start(self):
         self._tab = 0
         self._adding_user = False
-
+        self._config = None
+        
     def get_ui(self):
         
         u = UI.PluginPanel(UI.Label(text='Ajenti %s' % version), title='Ajenti configuration', icon='/dl/config/icon.png')
@@ -28,9 +29,16 @@ class ConfigPlugin(CategoryPlugin):
         tabs = UI.TabControl(active=self._tab)
         tabs.add('General', self.get_ui_general())
         tabs.add('Security', self.get_ui_sec())
+        tabs.add('Configurations', self.get_ui_configs())
 
         u.append(tabs)
         return u
+
+    def get_config(self):
+        try:
+            return self.app.get_config_by_id(self._config)
+        except:
+            return None
 
     def get_ui_general(self):
         o = UI.LayoutTable(
@@ -107,6 +115,27 @@ class ConfigPlugin(CategoryPlugin):
     def hashpw(self, passw):
         return '{SHA}' + b64encode(sha1(passw).digest())
 
+    def get_ui_configs(self):
+        t = UI.DataTable(
+            UI.DataTableRow(
+                UI.Label(text='Plugin'),
+                UI.Label(text='Name'),
+                UI.Label(),
+                header=True
+            ))
+        cfgs = self.app.grab_plugins(IModuleConfig)
+        
+        for c in cfgs:
+            t.append(UI.DataTableRow(
+                UI.Label(text=c.plugin),
+                UI.Label(text=c.__class__.__name__),
+                UI.DataTableCell(
+                    UI.MiniButton(text='Edit', id='editconfig/'+c.plugin),
+                    hidden=True
+                )
+            )) 
+        return t
+        
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')
@@ -119,6 +148,11 @@ class ConfigPlugin(CategoryPlugin):
             self.config.remove_option('users', params[1])
             self.config.save()
             ConfigRecovery(self.app).backup_now()
+        if params[0] == 'editconfig':
+            self._tab = 2
+            self._config = params[1]
+            print self.app.session
+            self.app.session['RootDispatcher-_module_config'] = '1'
 
     @event('form/submit')
     @event('dialog/submit')
