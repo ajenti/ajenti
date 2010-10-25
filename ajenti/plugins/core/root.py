@@ -57,8 +57,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             if self.selected_category.get_config():
                 templ.appendChildInto('plugin-buttons',
                       UI.Button(text='Module config', id='mod_config'))
-                       
-                
         return templ
 
     def do_init(self):
