@@ -74,7 +74,7 @@
                 <td width="20"><img class="ajax" src="/dl/core/ui/ajax.gif"/></td>
                 <td width="20"><img src="{@icon}"/></td>
                 <td><label text="{@title}" bold="True"/></td>
-                <td><label text="{@text}"/></td>
+                <td style="max-width: 280px; display: block; overflow: hidden"><label text="{@text}"/></td>
                 <xsl:if test="@can_abort = 'True'">
                     <td width="10"><warningminibutton text="Abort" id="aborttask" msg="Abort the background task for {@title}"/></td>
                 </xsl:if>

@@ -274,8 +274,8 @@
 .ui-progress-box {
     border-radius: 0px 0px 5px 5px;
     -moz-border-radius: 0px 0px 5px 5px;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    border: 2px solid #d3a158;
+    -webkit-border-radius: 0px 0px 2px 2px;
+    border: 1px solid #888;
     border-top: none;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #ccc);

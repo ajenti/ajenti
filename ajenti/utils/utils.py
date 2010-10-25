@@ -17,6 +17,11 @@ def fix_unicode(s):
     return unicode(d.encode('utf-8', 'xmlcharref'), errors='replace')
 
 def detect_platform():
+    platform_mapping = {
+        'ubuntu': 'debian',
+        'linuxmint': 'debian'
+    }
+    
     if platform.system() != 'Linux':
         return platform.system().lower()
 
@@ -33,7 +38,10 @@ def detect_platform():
         except:
             dist = 'unknown'
 
-    return dist.strip().lower()
+    res = dist.strip().lower()
+    if res in platform_mapping:
+        res = platform_mapping[res]
+    return res
 
 def detect_distro():
     if shell_status('lsb_release -sd') == 0:

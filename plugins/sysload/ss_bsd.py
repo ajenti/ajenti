@@ -5,7 +5,7 @@ from ajenti.com import *
 
 class BSDSysStat(Plugin):
     implements(apis.sysstat.ISysStat)
-    platform = ['FreeBSD']
+    platform = ['freebsd']
     
     def get_load(self):
         return shell('sysctl vm.loadavg').split()[2:5]

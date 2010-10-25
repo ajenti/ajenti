@@ -8,10 +8,9 @@ from ajenti.api import *
     
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['debian', 'ubuntu']
+    platform = ['ubuntu']
 
     def list_all(self):
-        #raise ConfigurationError('OH MAI GODS')
         r = []
         found = []
                 

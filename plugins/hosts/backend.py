@@ -71,7 +71,7 @@ class IHostnameManager(Interface):
         
 class LinuxHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['Ubuntu', 'Debian', 'Arch', 'openSUSE']
+    platform = ['debian', 'arch', 'opensuse']
     
     def gethostname(self, cc):
         return cc.open('/etc/hostname').read()
@@ -82,7 +82,7 @@ class LinuxHostnameManager(Plugin):
 
 class BSDHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['FreeBSD']
+    platform = ['freebsd']
     
     def gethostname(self, cc):
         return apis.rcconf.RCConf(self.app).get_param('hostname')

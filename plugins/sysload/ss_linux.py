@@ -5,7 +5,7 @@ from ajenti.com import *
 
 class LinuxSysStat(Plugin):
     implements(apis.sysstat.ISysStat)
-    platform = ['Ubuntu', 'Debian', 'Arch', 'openSUSE']
+    platform = ['debian', 'arch', 'opensuse']
     
     def get_load(self):
         return open('/proc/loadavg', 'r').read().split()[0:3]
