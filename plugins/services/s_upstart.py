@@ -8,7 +8,7 @@ from ajenti.api import *
     
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['ubuntu']
+    platform = ['debian']
 
     def list_all(self):
         r = []

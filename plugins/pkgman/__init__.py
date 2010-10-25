@@ -15,7 +15,7 @@ DEPS =  [
      ])
 ]
 
-NAME = 'pkgman'
+NAME = 'Package manager'
 PLATFORMS = ['debian', 'arch', 'opensuse', 'freebsd']
 DESCRIPTION = 'Manage software packages'
 VERSION = '0.1'

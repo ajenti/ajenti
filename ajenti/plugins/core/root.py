@@ -48,7 +48,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                 
         if self._module_config:
             try:
-                cfg = self.app.get_config(self.selected_category)
+                cfg = self.selected_category.get_config()
                 templ.appendChildInto('main-content', cfg.get_ui_edit())
             except:
                 pass

@@ -6,11 +6,14 @@ from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 class NginxBackend(ClusteredConfig):
-    config_dir = '/etc/nginx/'
+    config_dir = ''
     name = 'nginx'
     id = 'nginx'
     files = [('/etc/nginx', '*')] 
     run_after = ['service nginx restart']
+
+    def __init__(self):
+        self.config_dir = self.app.get_config(self).cfg_dir
     
     def is_installed(self):
         return os.path.exists(self.root()+self.config_dir)

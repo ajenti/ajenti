@@ -7,11 +7,14 @@ from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 class ApacheBackend(ClusteredConfig):
-    config_dir = '/etc/apache2/'
+    config_dir = ''
     name = 'Apache'
     id = 'apache'
     files = [('/etc/apache2', '*')] 
     run_after = ['service apache2 restart']
+    
+    def __init__(self):
+        self.config_dir = self.app.get_config(self).cfg_dir
     
     def is_installed(self):
         return os.path.exists(self.root()+self.config_dir)

@@ -43,6 +43,9 @@ class Webserver(API):
             self._editing_host = None
             self._editin_mod = None
             
+        def get_config(self):
+            return self.app.get_config(self._backend)
+            
         def get_main_ui(self):
             panel = UI.ServicePluginPanel(
                 title=self.ws_title, 

@@ -6,11 +6,14 @@ from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 class LighttpdBackend(ClusteredConfig):
-    config_dir = '/etc/lighttpd/'
+    config_dir = ''
     name = 'lighttpd'
     id = 'lighttpd'
     files = [('/etc/lighttpd', '*')] 
     run_after = ['service lighttpd restart']
+    
+    def __init__(self):
+        self.config_dir = self.app.get_config(self).cfg_dir
     
     def is_installed(self):
         return os.path.exists(self.root()+self.config_dir)
