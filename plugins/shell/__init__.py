@@ -1,10 +1,10 @@
-MODULES = ['backend', 'main']
+MODULES = ['main']
 
 DEPS =  []
 
-NAME = 'Users'
+NAME = 'Shell'
 PLATFORMS = ['any']
-DESCRIPTION = 'Manage user accounts'
+DESCRIPTION = 'Remote command execution'
 VERSION = '0.1'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
