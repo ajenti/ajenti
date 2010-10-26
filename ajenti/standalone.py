@@ -1,8 +1,6 @@
 import sys
 import os
 import logging
-from OpenSSL import SSL
-
 
 from twisted.web import server
 from twisted.internet import reactor, ssl
