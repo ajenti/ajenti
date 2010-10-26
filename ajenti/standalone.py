@@ -26,6 +26,9 @@ def run_server(log_level=logging.INFO, config_file=''):
     stderr.setFormatter(formatter)
     log.addHandler(stderr)
 
+    # We need this early
+    ajenti.utils.logger = log
+
     # Read config
     config = Config()
     if config_file:
@@ -36,7 +39,6 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
-    ajenti.utils.logger = log
     
     # Load external plugins
     load_plugins(config.get('ajenti', 'plugins'), log)

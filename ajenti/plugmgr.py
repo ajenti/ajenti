@@ -163,7 +163,8 @@ def load_plugins(path, log):
     queue = plugs
     retries = {}
     platform = detect_platform()
-        
+    log.info('Detected platform: %s'%platform)
+    
     while len(queue) > 0:
         plugin = queue[-1]
         if not plugin in retries:

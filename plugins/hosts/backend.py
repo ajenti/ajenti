@@ -69,17 +69,28 @@ class IHostnameManager(Interface):
         pass
         
         
-class LinuxHostnameManager(Plugin):
+class LinuxGenericHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['debian', 'arch', 'opensuse']
+    platform = ['debian', 'opensuse']
     
     def gethostname(self, cc):
         return cc.open('/etc/hostname').read()
         
     def sethostname(self, cc, hn):
-        return cc.open('/etc/hostname', 'w').write(hn)
+        cc.open('/etc/hostname', 'w').write(hn)
 
 
+class ArchHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['arch']
+    
+    def gethostname(self, cc):
+        return apis.rcconf.RCConf(self.app).get_param('HOSTNAME')
+        
+    def sethostname(self, cc, hn):
+        apis.rcconf.RCConf(self.app).set_param('HOSTNAME', hn, near='HOSTNAME')
+        
+        
 class BSDHostnameManager(Plugin):
     implements(IHostnameManager)
     platform = ['freebsd']

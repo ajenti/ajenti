@@ -8,7 +8,7 @@ from ajenti import apis
 
 class ZypperPackageManager(Plugin):
     implements(apis.pkgman.IPackageManager)
-    platform = ['openSUSE']
+    platform = ['opensuse']
 
     _pending = {}
 
