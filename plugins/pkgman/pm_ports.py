@@ -8,7 +8,7 @@ from ajenti import apis
 
 class PortsPackageManager(Plugin):
     implements(apis.pkgman.IPackageManager)
-    platform = ['FreeBSD']
+    platform = ['freebsd']
 
     _pending = {}
 

@@ -8,7 +8,7 @@ from ajenti import apis
 
 class PacmanPackageManager(Plugin):
     implements(apis.pkgman.IPackageManager)
-    platform = ['Arch']
+    platform = ['arch']
 
     _pending = {}
 
@@ -53,7 +53,7 @@ class PacmanPackageManager(Plugin):
         self._save_pending(st.pending)
     
     def apply(self, st):
-        fcmd = '('
+        fcmd = ''
         
         cmd = 'pacman -S --noconfirm '
         a = False
@@ -75,7 +75,7 @@ class PacmanPackageManager(Plugin):
         if a:
             fcmd += cmd
         
-        utils.shell_bg(cmd, output='/tmp/ajenti-pacman-output', deleteout=True)
+        utils.shell_bg(fcmd, output='/tmp/ajenti-pacman-output', deleteout=True)
 
     def is_busy(self):
         if utils.shell_status('pgrep pacman') != 0: return False

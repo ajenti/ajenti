@@ -4,6 +4,7 @@ DEPS =  [
     (['any'],
      [
         ('plugin', 'webserver_common'),
+        ('app', 'Apache 2', 'apache2'),
      ])
 ]
 

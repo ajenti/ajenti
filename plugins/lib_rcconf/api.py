@@ -8,7 +8,7 @@ from ajenti.plugins.recovery import *
 
 class RCConf(API):
     class RCConf(ClusteredConfig):
-        platform = ['Arch', 'FreeBSD']
+        platform = ['arch', 'freebsd']
         name = 'rc.conf'
         id = 'rcconf'
         files = [('/etc', 'rc.conf')] 
