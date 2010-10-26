@@ -3,7 +3,7 @@ import platform
 from ajenti.com import Interface
 from ajenti.ui import *
 from ajenti import version
-from ajenti.utils import detect_distro
+from ajenti.utils import detect_distro, detect_platform
 from ajenti.api import CategoryPlugin
 
 from api import *
@@ -28,5 +28,5 @@ class Dashboard(CategoryPlugin):
             else:
                 lc.append(self.widgets[i].get_ui())
 
-        u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/distributor-logo-%s.png'%self.app.platform.lower())
+        u = UI.PluginPanel(UI.Label(text=detect_distro()), w, title=platform.node(), icon='/dl/dashboard/distributor-logo-%s.png'%detect_platform(mapping=False))
         return u

@@ -16,7 +16,7 @@ def fix_unicode(s):
     d = ''.join(max(i, ' ') if not i in ['\n', '\t', '\r'] else i for i in s)
     return unicode(d.encode('utf-8', 'xmlcharref'), errors='replace')
 
-def detect_platform():
+def detect_platform(mapping=True):
     platform_mapping = {
         'ubuntu': 'debian',
         'linuxmint': 'debian'
@@ -39,8 +39,9 @@ def detect_platform():
             dist = 'unknown'
 
     res = dist.strip().lower()
-    if res in platform_mapping:
-        res = platform_mapping[res]
+    if mapping:
+        if res in platform_mapping:
+            res = platform_mapping[res]
     return res
 
 def detect_distro():
