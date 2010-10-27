@@ -124,7 +124,7 @@ class Manager(Plugin):
             
             shutil.move('%s/backup.tar.gz'%dir, '%s/%s/%s.tar.gz'%(self.dir,provider.id,name))
         except:
-            raise Exception()
+            raise
         finally:
             shutil.rmtree(dir)
         
