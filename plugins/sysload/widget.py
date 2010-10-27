@@ -7,28 +7,26 @@ from ajenti import apis
 
 class LoadWidget(Plugin):
     implements(IDashboardWidget)
-
+    title = 'System load'
+    
     def get_ui(self):
         stat = self.app.get_backend(apis.sysstat.ISysStat)
-        w = UI.Widget(
-                UI.HContainer(
+        w = UI.HContainer(
                     UI.Image(file='/dl/sysload/widget.png'),
-                    UI.Label(text='System load:', bold=True),
                     UI.Label(text=' / '.join(stat.get_load()))
                 )
-            )
         return w
     
 
 class MemWidget(Plugin):
     implements(IDashboardWidget)
-
+    title = 'Memory'
+    
     def get_ui(self):
         stat = self.app.get_backend(apis.sysstat.ISysStat)
         ru, rt = stat.get_ram()
         su, st = stat.get_swap()
-        w = UI.Widget(
-                UI.LayoutTable(
+        w = UI.LayoutTable(
                     UI.LayoutTableRow(
                         UI.Image(file='/dl/sysload/widget_mem.png'),
                         UI.Label(text='RAM:', bold=True),
@@ -43,6 +41,5 @@ class MemWidget(Plugin):
                         UI.Label(text="%sM / %sM"%(su,st)),
                         spacing=4
                     )
-                )
             )
         return w

@@ -2,7 +2,7 @@ from ajenti.api import ModuleConfig
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = 'lighttpdbackend'
+    plugin = 'nginxbackend'
     platform = ['any']
     
     labels = {

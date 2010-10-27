@@ -109,6 +109,7 @@ class Application (PluginManager, Plugin):
                     content = handler.url_handler(self.environ,
                                                   self.start_response)
                 except Exception, e:
+                    print traceback.format_exc()
                     try:
                         content = format_error(self, e)
                     except:
