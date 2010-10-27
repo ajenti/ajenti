@@ -4,7 +4,8 @@ import sys
 import traceback
 
 from ajenti.com import *
-from ajenti.utils import detect_platform, shell, shell_status
+from ajenti.utils import detect_platform, shell, shell_status, download
+from ajenti.feedback import *
 
 
 RETRY_LIMIT = 10
@@ -64,7 +65,8 @@ class PluginInstaller(Plugin):
     def update_list(self):        
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
-        data = shell('curl -sm 4 http://%s/plugins.php' % self.server)
+        send_stats(self.server)
+        data = download('http://%s/plugins.php' % self.server)
         try:
             open('/var/lib/ajenti/plugins.list', 'w').write(data)
             self.available = eval(data)
@@ -74,17 +76,19 @@ class PluginInstaller(Plugin):
 
     def remove(self, id):        
         dir = self.app.config.get('ajenti', 'plugins')
+        send_stats(self.server, delplugin=id)
         shell('rm -r %s/%s' % (dir, id))
 
     def install(self, id):        
         dir = self.app.config.get('ajenti', 'plugins')
         self.remove(id)
                 
-        if shell_status('curl -sm 4 http://%s/plugins/%s/plugin.tar.gz -o %s/plugin.tar.gz' % (self.server, id, dir)):
-            raise Exception()
+        download('http://%s/plugins/%s/plugin.tar.gz' % (self.server, id), 
+            file='%s/plugin.tar.gz'%dir)
             
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
+        send_stats(self.server, addplugin=id)
         load_plugin(self.app.config.get('ajenti', 'plugins'), id, self.log, self.app.platform)
     
 class PluginInfo:

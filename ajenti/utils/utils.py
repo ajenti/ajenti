@@ -3,6 +3,7 @@ import platform
 import os
 import mimetypes
 import time
+import urllib
 from datetime import datetime
 
 import ajenti.utils 
@@ -49,6 +50,16 @@ def detect_distro():
         return shell('lsb_release -sd')
     return shell('uname -mrs')
 
+def download(url, file=None):
+    try:
+        ajenti.utils.logger.debug('Downloading %s' % url)
+        if file:
+            urllib.urlretrieve(url, file)
+        else:
+            return urllib.urlopen(url).read()
+    except:
+        ajenti.utils.logger.debug('Download failed')
+        
 def shell(c):
     ajenti.utils.logger.debug('Running %s' % c)
     p = subprocess.Popen(c, shell=True,

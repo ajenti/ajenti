@@ -7,6 +7,7 @@ import logging
 
 from ajenti.standalone import run_server
 from ajenti.daemon import Daemon
+from ajenti.feedback import check_uid
 
 
 class AjentiDaemon(Daemon):
@@ -69,6 +70,8 @@ if __name__ == '__main__':
             # Try local config file
             config_file = os.path.join(sys.path[0], 'ajenti.conf')
 
+    check_uid()
+    
     if action == 'run':
        run_server(log_level, config_file)
     else:
