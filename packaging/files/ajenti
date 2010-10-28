@@ -5,8 +5,8 @@
 
 ### BEGIN INIT INFO
 # Provides:          ajenti
-# Required-Start:    $network $syslog
-# Required-Stop:     $network $syslog
+# Required-Start:    $network $syslog $local_fs
+# Required-Stop:     $network $syslog $local_fs
 # Should-Start:      $local_fs
 # Should-Stop:       $local_fs
 # Default-Start:     2 3 4 5
@@ -15,10 +15,6 @@
 # Description:       Ajenti administration frontend
 ### END INIT INFO
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-
-. /lib/lsb/init-functions
-
 NAME=ajenti
 DESC="Ajenti"
 PID=/var/run/ajenti.pid
@@ -26,13 +22,11 @@ PID=/var/run/ajenti.pid
 case "$1" in
 	start)
 		log_daemon_msg "Starting $DESC"
-		/usr/bin/ajenti --start
-		log_end_msg $?
+		ajenti-panel --start
     	;;
 	stop)
 		log_daemon_msg "Stopping $DESC"
-		/usr/bin/ajenti --stop
-		log_end_msg $?
+		ajenti-panel --stop
 		;;
 	restart)
 		$0 stop
@@ -42,8 +36,12 @@ case "$1" in
 			exit 1
 		fi
 		;;
+	force-reload)
+	    pkill -9 ajenti
+	    $0 start
+	    ;;
 	*)
-		echo "Usage: $0 {start|stop|restart}"
+		echo "Usage: $0 {start|stop|restart|force-reload}"
 		exit 1 
 esac
 

@@ -66,9 +66,7 @@ class BSDIfconfig(Plugin):
             return 'tunnel'
         if iface.name == 'lo':
             return 'loopback'
-        if iface.name[:-1] == 'em':
-            return 'ethernet'
-        return ''
+        return 'ethernet'
 
     def detect_iface_bits(self, iface):
         r = ['bsd-basic']

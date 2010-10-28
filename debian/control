@@ -1,0 +1,17 @@
+Source: ajenti
+Section: admin
+Priority: optional
+Maintainer: Eugeny Pankov <e@ajenti.org>
+Build-Depends: debhelper (>=8.0.0), python-support (>= 0.6), cdbs (>= 0.4.49)
+XS-Python-Version: >=2.6
+Standards-Version: 3.9.1
+
+Package: ajenti
+Architecture: all
+Homepage: http://ajenti.org/
+XB-Python-Version: ${python:Versions}
+Depends: ${misc:Depends}, ${python:Depends}, python-lxml (>=2.2.6), python-twisted-web (>=8.2.0)
+Description: Server administration web interface
+ It provides rich functionality and support for lots of server software,
+ along with system configuration options and clustering support.
+ Lots of additional plugins can be downloaded with plugin manager.
