@@ -97,12 +97,20 @@ class PluginManager(CategoryPlugin):
                     req.append(UI.Label(text='Plugin %s'%r[1]))
                 ready = False    
                     
+            url = 'http://%s/view/plugins.php?id=%s' % (
+                    self.app.config.get('ajenti', 'update_server'),
+                    k['id']
+                   )
+                   
             tbl.append(
                 UI.LayoutTableRow(
                     UI.Image(file=k['icon']),
                     UI.VContainer(
                         UI.Label(text='%s %s'%(k['name'], k['version']), size=3),
-                        UI.OutLinkLabel(text='by '+k['author'], url=k['homepage']),
+                        UI.Container(
+                            UI.OutLinkLabel(text='Info', url=url),
+                            UI.OutLinkLabel(text=k['author'], url=k['homepage']),
+                        ),
                         UI.Spacer(height=5),
                         UI.CustomHTML(html=desc),
                         req if not ready else None,

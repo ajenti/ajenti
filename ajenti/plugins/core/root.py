@@ -76,6 +76,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     UI.Label(text='Your personal server affairs agent'),
                     UI.Spacer(height=10),
                     UI.HContainer(
+                        UI.OutLinkLabel(url='http://ajenti.org', text='Home'),
                         UI.OutLinkLabel(url='http://www.assembla.com/spaces/ajenti/wiki?id=aLa8XiGfWr36nLeJe5cbLA', text='Wiki'),
                         UI.OutLinkLabel(url='http://www.assembla.com/spaces/ajenti/wiki?id=ajenti&wiki_id=Developers', text='Credits'),
                         UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html'),
