@@ -38,7 +38,7 @@ class YumPackageManager(Plugin):
         st.full = a
 
     def get_lists(self):
-        utils.shell_bg('yum repolist', output='/tmp/ajenti-yum-output', deleteout=True)
+        utils.shell_bg('yum check-update', output='/tmp/ajenti-yum-output', deleteout=True)
 
     def search(self, q, st):
         ss = utils.shell('yum -q -C search %s' % q).splitlines()
@@ -46,7 +46,7 @@ class YumPackageManager(Plugin):
         r = {}
         for s in ss:
             s = s.split()
-	    if s[0].startwith('===='):
+	    if s[0].startswith('===='):
 	        continue
 	    else:
 	        r[s[0]] = apis.pkgman.Package()
@@ -97,7 +97,8 @@ class YumPackageManager(Plugin):
         utils.shell('rm /tmp/ajenti-yum-output')
 
     def get_info(self, pkg):
-	pass #do it later        
+        pass #do it later       
+	 
     def get_info_ui(self, pkg):
         return None
 
