@@ -100,3 +100,53 @@ class BSDHostnameManager(Plugin):
         
     def sethostname(self, cc, hn):
         apis.rcconf.RCConf(self.app).set_param('hostname', hn, near='hostname')
+
+class CentOSHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['CentOS']
+
+    def gethostname(self, cc):
+        optionmap = {
+             'NETWORKING': 'networking',
+             'NETWORKING_IPV6': 'networking6',
+             'HOSTNAME': 'hostname'
+        }
+
+        f = open('/etc/sysconfig/network', 'r')
+        ss = f.read().splitlines()
+        d = {}
+        for s in ss:
+             try:
+                 k = s.split('=')[0].strip('\t \'');
+                 v = s.split('=')[1].strip('\t \'');
+                 d[k] = v
+             except:
+                pass
+        return d['HOSTNAME']
+
+    def sethostname(self, cc, hn):
+        optionmap = {
+             'NETWORKING': 'networking',
+             'NETWORKING_IPV6': 'networking6',
+             'HOSTNAME': 'hostname'
+        }
+
+        f = open('/etc/sysconfig/network', 'r')
+        ss = f.read().splitlines()
+        d = {}
+        for s in ss:
+             try:
+                 k = s.split('=')[0].strip('\t \'');
+                 v = s.split('=')[1].strip('\t \'');
+                 d[k] = v
+             except:
+                pass
+
+        d['HOSTNAME'] = hn
+
+        f = open('/etc/sysconfig/network', 'w')
+
+        for k in d:
+            f.write(k + '=' + d[k] + '\n')
+        f.close()
+        utils.shell('hostname %s' % h
