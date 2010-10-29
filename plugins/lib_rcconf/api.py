@@ -9,26 +9,25 @@ from ajenti.plugins.recovery import *
 class RCConf(API):
     class RCConf(ClusteredConfig):
         platform = ['arch', 'freebsd']
+        multi_instance = True
         name = 'rc.conf'
         id = 'rcconf'
         files = [('/etc', 'rc.conf')] 
-
+        file = '/etc/rc.conf'
+        
         def has_param(self, param):
-            return shell_status('grep \'%s=\' /etc/rc.conf'%param) == 0
+            return shell_status('grep \'%s=\' %s'%(param,self.file)) == 0
             
-        def get_param(self, param):
+        def get_param(self, param, file=):
             try:
-                s = shell('grep \'^%s=\' /etc/rc.conf'%param).split('=')[1].strip()
+                s = shell('grep \'^%s=\' %s'%(param,self.file)).split('=')[1].strip()
             except:
                 s = ''
             return s.strip('"')
 
-        def has_param(self, param):
-            return shell_status('grep \'^%s=\' /etc/rc.conf'%param) == 0
-
         def set_param(self, param, value, near=None):
-            d = open('/etc/rc.conf').read().split('\n')
-            f = open('/etc/rc.conf', 'w')
+            d = open(self.file).read().split('\n')
+            f = open(self.file, 'w')
             done = False
             for s in d:
                 if (not done) and (near is not None) and s.startswith(near):
