@@ -5,7 +5,7 @@ DEPS =  [
      [
         ('app', 'Service manager', 'chkconfig'),
      ]),
-    (['centos'],
+    (['centos', 'fedora'],
      [
 	('app', 'Service manager', 'chkconfig'),
      ])

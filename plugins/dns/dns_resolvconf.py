@@ -8,7 +8,7 @@ from ajenti.plugins.uzuri_common import ClusteredConfig
 
 class ResolvConfDNSConfig(ClusteredConfig):
     implements(IDNSConfig)
-    platform = ['debian', 'opensuse', 'arch', 'freebsd', 'centos']
+    platform = ['debian', 'opensuse', 'arch', 'freebsd', 'centos', 'fedora']
     name = 'DNS'
     id = 'dns'
     files = [('/etc', 'resolv.conf')] 

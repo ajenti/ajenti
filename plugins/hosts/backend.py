@@ -121,3 +121,4 @@ class CentOSHostnameManager(ClusteredConfig):
         rc = apis.rcconf.RCConf(self.app)
         rc.file = '/etc/sysconfig/network'
         rc.set_param('HOSTNAME', hn, near='HOSTNAME')
+
