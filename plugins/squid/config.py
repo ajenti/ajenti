@@ -1,4 +1,4 @@
-from ajenti.api import ModuleConfig
+from ajenti.api import *
 
 
 class GeneralConfig(ModuleConfig):
@@ -11,3 +11,9 @@ class GeneralConfig(ModuleConfig):
     
     cfg_file = '/etc/squid/squid.conf'
    
+   
+class BSDConfig(GeneralConfig):
+    implements(IModuleConfig, 100)
+    platform = ['freebsd']
+    
+    cfg_dir = '/usr/local/etc/squid/squid.conf'

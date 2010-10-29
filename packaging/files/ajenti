@@ -21,11 +21,11 @@ PID=/var/run/ajenti.pid
 
 case "$1" in
 	start)
-		log_daemon_msg "Starting $DESC"
+		echo "Starting $DESC"
 		ajenti-panel --start
     	;;
 	stop)
-		log_daemon_msg "Stopping $DESC"
+		echo "Stopping $DESC"
 		ajenti-panel --stop
 		;;
 	restart)
