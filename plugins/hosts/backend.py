@@ -17,7 +17,7 @@ class Host:
 class Config(ClusteredConfig):
     name = 'Hosts'
     id = 'hosts'
-    files = [('/etc', 'hosts'), ('/etc', 'hostname'), ('/etc', 'rc.conf')] 
+    files = [('/etc', 'hosts'), ('/etc', 'rc.conf')] 
     
     @property
     def run_after(self):
@@ -69,15 +69,18 @@ class IHostnameManager(Interface):
         pass
         
         
-class LinuxGenericHostnameManager(Plugin):
+class LinuxGenericHostnameManager(ClusteredConfig):
     implements(IHostnameManager)
     platform = ['debian', 'opensuse']
+    name = 'Hostname'
+    id = 'hostname'
+    files = [('/etc', 'hostname')] 
     
     def gethostname(self, cc):
-        return cc.open('/etc/hostname').read()
+        return cc.open(self.root()+'/etc/hostname').read()
         
     def sethostname(self, cc, hn):
-        cc.open('/etc/hostname', 'w').write(hn)
+        cc.open(self.root()+'/etc/hostname', 'w').write(hn)
 
 
 class ArchHostnameManager(Plugin):
@@ -101,52 +104,20 @@ class BSDHostnameManager(Plugin):
     def sethostname(self, cc, hn):
         apis.rcconf.RCConf(self.app).set_param('hostname', hn, near='hostname')
 
-class CentOSHostnameManager(Plugin):
+
+class CentOSHostnameManager(ClusteredConfig):
     implements(IHostnameManager)
-    platform = ['CentOS']
+    platform = ['centos']
+    name = 'Hostname'
+    id = 'hostname'
+    files = [('/etc/sysconfig', 'network')] 
 
     def gethostname(self, cc):
-        optionmap = {
-             'NETWORKING': 'networking',
-             'NETWORKING_IPV6': 'networking6',
-             'HOSTNAME': 'hostname'
-        }
-
-        f = open('/etc/sysconfig/network', 'r')
-        ss = f.read().splitlines()
-        d = {}
-        for s in ss:
-             try:
-                 k = s.split('=')[0].strip('\t \'');
-                 v = s.split('=')[1].strip('\t \'');
-                 d[k] = v
-             except:
-                pass
-        return d['HOSTNAME']
+        rc = apis.rcconf.RCConf(self.app)
+        rc.file = '/etc/sysconfig/network'
+        return rc.get_param('HOSTNAME')
 
     def sethostname(self, cc, hn):
-        optionmap = {
-             'NETWORKING': 'networking',
-             'NETWORKING_IPV6': 'networking6',
-             'HOSTNAME': 'hostname'
-        }
-
-        f = open('/etc/sysconfig/network', 'r')
-        ss = f.read().splitlines()
-        d = {}
-        for s in ss:
-             try:
-                 k = s.split('=')[0].strip('\t \'');
-                 v = s.split('=')[1].strip('\t \'');
-                 d[k] = v
-             except:
-                pass
-
-        d['HOSTNAME'] = hn
-
-        f = open('/etc/sysconfig/network', 'w')
-
-        for k in d:
-            f.write(k + '=' + d[k] + '\n')
-        f.close()
-        utils.shell('hostname %s' % h
+        rc = apis.rcconf.RCConf(self.app)
+        rc.file = '/etc/sysconfig/network'
+        rc.set_param('HOSTNAME', hn, near='HOSTNAME')

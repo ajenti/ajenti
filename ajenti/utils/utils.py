@@ -62,7 +62,7 @@ def download(url, file=None):
         
 def shell(c):
     ajenti.utils.logger.debug('Running %s' % c)
-    p = subprocess.Popen('LANG=C '+c, shell=True,
+    p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
 
@@ -72,7 +72,7 @@ def shell(c):
 
 def shell_bg(c, output=None, deleteout=False):
     if output is not None:
-        c = 'LANG=C bash -c "%s" > %s 2>&1'%(c,output)
+        c = 'LC_ALL=C bash -c "%s" > %s 2>&1'%(c,output)
         if deleteout:
             c = 'touch %s; %s; rm -f %s'%(output,c,output)
     ajenti.utils.logger.debug('Running in background: %s' % c)
@@ -82,11 +82,11 @@ def shell_bg(c, output=None, deleteout=False):
     
 def shell_status(c):
     ajenti.utils.logger.debug('Running %s' % c)
-    return subprocess.Popen('LANG=C '+c, shell=True).wait()
+    return subprocess.Popen('LC_ALL=C '+c, shell=True).wait()
 
 def shell_stdin(c, input):
     ajenti.utils.logger.debug('Running %s' % c)
-    p = subprocess.Popen('LANG=C '+c, shell=True,
+    p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stdin=subprocess.PIPE)
