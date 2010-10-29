@@ -2,12 +2,12 @@ from ajenti.com import *
 from ajenti.apis import API
 from ajenti import apis
 from ajenti.utils import shell_status, shell
-from ajenti.plugins.uzuri_common import ClusteredConfig
+from ajenti.plugins.uzuri_common import ClusteredPlugin, ClusteredConfig
 from ajenti.plugins.recovery import *
 
 
 class RCConf(API):
-    class RCConf(ClusteredConfig):
+    class RCConf(ClusteredPlugin):
         platform = ['arch', 'freebsd', 'centos']
         multi_instance = True
         name = 'rc.conf'
@@ -41,6 +41,13 @@ class RCConf(API):
             f.close()        
 
 
+class RCConfCluster(ClusteredConfig):
+    platform = ['arch', 'freebsd']
+    name = 'rc.conf'
+    id = 'rcconf'
+    files = [('/etc', 'rc.conf')] 
+ 
+ 
 class RCConfRecovery(SimpleFileRecoveryProvider):
     name = 'rc.conf'
     id = 'rcconf'
