@@ -149,4 +149,3 @@ class CentOSHostnameManager(Plugin):
         for k in d:
             f.write(k + '=' + d[k] + '\n')
         f.close()
-        utils.shell('hostname %s' % h

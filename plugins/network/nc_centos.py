@@ -19,7 +19,7 @@ optionmap = {
 
 class CentosNetworkConfig(LinuxIfconfig, ClusteredConfig):
     implements(INetworkConfig)
-    platform = ['CentOS']
+    platform = ['centos']
     name = 'Network'
     id = 'network'
     files = [('/etc/sysconfig/network-scripts', '*')] 
