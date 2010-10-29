@@ -50,7 +50,7 @@ def detect_distro():
         return shell('lsb_release -sd')
     return shell('uname -mrs')
 
-def download(url, file=None):
+def download(url, file=None, crit=False):
     try:
         ajenti.utils.logger.debug('Downloading %s' % url)
         if file:
@@ -59,6 +59,8 @@ def download(url, file=None):
             return urllib.urlopen(url).read()
     except:
         ajenti.utils.logger.debug('Download failed')
+        if crit: 
+            raise
         
 def shell(c):
     ajenti.utils.logger.debug('Running %s' % c)

@@ -84,7 +84,7 @@ class PluginInstaller(Plugin):
         self.remove(id)
                 
         download('http://%s/plugins/%s/plugin.tar.gz' % (self.server, id), 
-            file='%s/plugin.tar.gz'%dir)
+            file='%s/plugin.tar.gz'%dir, crit=True)
             
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
@@ -139,6 +139,7 @@ def load_plugin(path, plugin, log, platform):
                 imp.load_module(plugin + '.' + submod, *description)
                 log.debug('Loaded submodule %s.%s' % (plugin,submod))
             except Exception, e:
+                print traceback.format_exc()
                 log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
                     
         # Save info
