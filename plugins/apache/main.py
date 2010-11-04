@@ -87,7 +87,7 @@ class ApacheBackend(ClusteredConfig):
             os.unlink(p+'.conf')
 
     def save_mod(self, mod):
-        path = os.path.join(self.root()+self.config_dir, 'sites-available', mod.name+'.conf')  
+        path = os.path.join(self.root()+self.config_dir, 'mods-available', mod.name+'.conf')  
         self.open(path, 'w').write(mod.config)
      
     host_template = """
