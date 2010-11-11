@@ -92,3 +92,9 @@
     </select>
 </xsl:template>
 
+<xsl:template match="uploader">
+    <form action="{@url}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" class="ui-el-button" value="{x:attr(@text, 'Upload')}"/>
+    </form>
+</xsl:template>

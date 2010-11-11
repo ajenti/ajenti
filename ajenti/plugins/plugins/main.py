@@ -7,7 +7,7 @@ from ajenti.utils import *
 import ajenti.plugmgr
 
 
-class PluginManager(CategoryPlugin):
+class PluginManager(CategoryPlugin, URLHandler):
     text = 'Plugins'
     icon = '/dl/plugins/icon_small.png'
     folder = 'bottom'
@@ -27,6 +27,7 @@ class PluginManager(CategoryPlugin):
         tabs = UI.TabControl(active=self._tab)
         tabs.add('Installed', self.get_ui_installed())
         tabs.add('Available', self.get_ui_available())
+        tabs.add('Upload', self.get_ui_upload())
 
         u.append(tabs)
         return u
@@ -126,7 +127,24 @@ class PluginManager(CategoryPlugin):
             )   
         return UI.VContainer(btn, tbl, spacing=15)
 
-
+    def get_ui_upload(self):
+        return UI.Uploader(
+            url='/upload_plugin',
+            text='Install'
+        )
+    
+    @url('^/upload_plugin$')
+    def upload(self, req, sr):
+        vars = get_environment_vars(req)
+        f = vars.getvalue('file', None)
+        try:
+            self._mgr.install_file(f)
+        except:
+            pass
+        sr('301 Moved Permanently', [('Location', '/')])
+        self._changes = True
+        return ''
+        
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')
