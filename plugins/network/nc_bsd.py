@@ -23,10 +23,7 @@ class BSDNetworkConfig(BSDIfconfig):
         for name in shell('ifconfig -l').split():
             if not self.rcconf.has_param('ifconfig_'+name):
                 continue
-            try:
-                s = self.rcconf.get_param('ifconfig_'+name).split()
-            except:
-                continue
+            s = self.rcconf.get_param('ifconfig_'+name).split()
 
             iface = NetworkInterface()
             iface.name = name

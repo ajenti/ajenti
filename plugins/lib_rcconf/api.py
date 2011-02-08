@@ -15,10 +15,7 @@ class RCConf(API):
             return shell_status('grep \'%s=\' %s'%(param,self.file)) == 0
             
         def get_param(self, param):
-            try:
-                s = shell('grep \'^%s=\' %s'%(param,file)).split('=')[1].strip()
-            except:
-                s = ''
+            s = shell('grep \'^%s=\' %s'%(param,self.file)).split('=')[1].strip()
             return s.strip('"')
 
         def set_param(self, param, value, near=None):
