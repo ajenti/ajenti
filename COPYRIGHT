@@ -1,4 +1,4 @@
-Copyright (c) 2010 The Ajenti Team
+Copyright (c) 2010-2011 The Ajenti Team
 * Eugeny Pankov <john.pankov@gmail.com>
 * Dmitry Zamaruev <dmitry.zamaruev@gmail.com>
 
@@ -12,17 +12,17 @@ If you use Ajenti, we would be happy if you drop us a message about your experie
 
 PARTIAL COPYRIGHTS:
 
-Apache plugin (c) 2010 
-AlexSnet <me@alexsnet.ru>
-
-File Manager plugin (c) 2010 
-revis0r <revis0r.mob@gmail.com>
-
 Cron plugin (c) 2010 
 Valentin Bryukhanov <bvv.mag@gmail.com>
 
 Hosts plugin (c) 2010
 Andrey Fishchenko <fishchenko.andrey@gmail.com>
+
+CentOS support (c) 2010-2011
+Ilya Gorbunov <daverk@gmail.com>
+
+FreeBSD support code parts (c) 2011
+Paul Shepel <tacid@tacid.kiev.ua>
 
 Code parts (c) 2010 
 /ajenti/plugins/advancedcontrols/files/ui.js
@@ -36,4 +36,5 @@ Elementary Project Team: http://www.elementary-project.com/
 
 
 
-LICENSED UNDER LGPLv3:
+LICENSED UNDER LGPLv3
+See LICENSE.
