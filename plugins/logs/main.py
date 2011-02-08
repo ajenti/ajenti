@@ -1,4 +1,5 @@
 import gzip
+import bz2
 
 from ajenti.ui import *
 from ajenti.com import implements
@@ -25,6 +26,8 @@ class LogsPlugin(CategoryPlugin):
         if self._log != '':
             if self._log.endswith('.gz'):
                 data = self.format_log(gzip.open(self._log).read())
+            elif self._log.endswith('.bz2'):
+                data = self.format_log(bz2.BZ2File(self._log, 'r').read())
             else:
                 data = self.format_log(open(self._log).read())
 
