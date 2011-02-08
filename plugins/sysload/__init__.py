@@ -1,11 +1,6 @@
 MODULES = ['api', 'widget', 'ss_linux', 'ss_bsd']
 
-DEPS =  [
-    (['freebsd'],
-     [
-        ('app', 'sysutils/freecolor', 'freecolor'),
-     ])
-]
+DEPS =  []
 
 NAME = 'System Load'
 PLATFORMS = ['any']
