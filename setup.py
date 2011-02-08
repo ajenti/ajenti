@@ -15,7 +15,6 @@ setup(
     scripts=['ajenti-panel'],
     data_files=[
         ('/etc/ajenti', ['packaging/files/ajenti.conf']),
-        ('/etc/ajenti', ['packaging/files/uzuri.conf']),
         ('/etc/init.d', ['packaging/files/ajenti']),
         ('/var/lib/ajenti/plugins', ['packaging/files/.placeholder']),
     ],

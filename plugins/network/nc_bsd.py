@@ -1,19 +1,15 @@
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti.ui import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 from ajenti import apis
 
 from api import *
 from nctp_bsd import *
 
 
-class BSDNetworkConfig(BSDIfconfig, ClusteredConfig):
+class BSDNetworkConfig(BSDIfconfig):
     implements(INetworkConfig)
     platform = ['FreeBSD']
-    name = 'Network'
-    id = 'network'
-    run_after = ['/etc/rc.d/netif restart']
     
     interfaces = None
 

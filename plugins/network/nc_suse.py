@@ -4,7 +4,6 @@ import os
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti.ui import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
 from api import *
 from nctp_linux import *
@@ -23,13 +22,9 @@ optionmap = {
     'REMOTE_IPADDR': 'pointopoint'
 }
 
-class SuseNetworkConfig(LinuxIfconfig, ClusteredConfig):
+class SuseNetworkConfig(LinuxIfconfig):
     implements(INetworkConfig)
     platform = ['openSUSE']
-    name = 'Network'
-    id = 'network'
-    files = [('/etc/sysconfig/network', '*')] 
-    run_after = ['/etc/init.d/network restart']
 
     interfaces = None
 
@@ -46,10 +41,10 @@ class SuseNetworkConfig(LinuxIfconfig, ClusteredConfig):
     def rescan(self):
         self.interfaces = {}
 
-        for ifcf in os.listdir(self.root()+'/etc/sysconfig/network/'):
+        for ifcf in os.listdir('/etc/sysconfig/network/'):
             if ifcf.startswith('ifcfg-'):
                 ifcn = ifcf[6:]
-                with self.open('/etc/sysconfig/network/' + ifcf, 'r') as f:
+                with open('/etc/sysconfig/network/' + ifcf, 'r') as f:
                     ss = f.read().splitlines()
                     d = {}
                     for s in ss:
@@ -92,7 +87,7 @@ class SuseNetworkConfig(LinuxIfconfig, ClusteredConfig):
        
     def save(self):
         for i in self.interfaces:
-            with self.open('/etc/sysconfig/network/ifcfg-' + i, 'w') as f:
+            with open('/etc/sysconfig/network/ifcfg-' + i, 'w') as f:
                 self.save_iface(self.interfaces[i], f)
         return
 

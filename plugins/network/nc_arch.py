@@ -1,19 +1,14 @@
 from ajenti.com import *
 from ajenti.utils import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 from ajenti import apis
 
 from api import *
 from nctp_linux import *
 
 
-class ArchNetworkConfig(LinuxIfconfig, ClusteredConfig):
+class ArchNetworkConfig(LinuxIfconfig):
     implements(INetworkConfig)
     platform = ['Arch']
-    name = 'Network'
-    id = 'network'
-    files = [('/etc', 'rc.conf')] 
-    run_after = ['/etc/rc.d/network restart']
     
     interfaces = None
     
@@ -24,7 +19,6 @@ class ArchNetworkConfig(LinuxIfconfig, ClusteredConfig):
 
     def rescan(self):
         self.interfaces = {}
-        print self.rcconf.get_param('INTERFACES')
         for name in self.rcconf.get_param('INTERFACES')[1:-1].split(','):
             try:
                 s = self.rcconf.get_param(name).split()
@@ -35,7 +29,6 @@ class ArchNetworkConfig(LinuxIfconfig, ClusteredConfig):
             iface = NetworkInterface()
             iface.name = name
             self.interfaces[name] = iface
-            print s
             if s[0] == 'dhcp':
                 iface.type = 'inet'
                 iface.addressing = 'dhcp'
