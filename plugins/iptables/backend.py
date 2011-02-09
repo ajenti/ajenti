@@ -4,7 +4,6 @@ import getopt
 from ajenti.ui import UI
 from ajenti.utils import shell
 from ajenti.com import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 class Rule:
@@ -314,12 +313,7 @@ class Table:
         return s        
         
         
-class Config(ClusteredConfig):
-    name = 'Firewall'
-    id = 'iptables'
-    files = [('/etc', 'iptables.up.rules')] 
-    run_after = [] # set at runtime
-    
+class Config(Plugin):
     tables = {}
     apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
 
@@ -332,8 +326,6 @@ class Config(ClusteredConfig):
             else:
                 self.rules_file = '/etc/iptables.up.rules' # webmin import
         self.apply_shell = 'cat %s | iptables-restore' % self.rules_file
-        self.run_after = [self.apply_shell]
-
          
     def load_runtime(self):
         shell('iptables -L -t filter')
@@ -357,7 +349,7 @@ class Config(ClusteredConfig):
         file = file or self.rules_file
         self.tables = {}
         try:
-            data = self.open(file).read().split('\n')
+            data = open(file).read().split('\n')
             while len(data)>0:
                 s = data[0]
                 data = data[1:]
@@ -384,7 +376,7 @@ class Config(ClusteredConfig):
         
     def save(self, file=None):
         file = file or self.rules_file
-        self.open(file, 'w').write(self.dump())
+        open(file, 'w').write(self.dump())
             
     def table_index(self, name):
         i = 0

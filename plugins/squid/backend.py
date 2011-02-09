@@ -1,15 +1,9 @@
 import os
 
 from ajenti.utils import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
-class SquidConfig(ClusteredConfig):
-    name = 'Squid'
-    id = 'squid'
-    files = [('/etc/squid', '*')] 
-    run_after = ['service squid restart']
-
+class SquidConfig(Plugin):
     misc = []
     acls = []
     rules = []
@@ -51,7 +45,7 @@ class SquidConfig(ClusteredConfig):
         self.https_port = []
         self.ref_pats = []
 
-        ss = self.open(self.cfg_file).read().split('\n')
+        ss = open(self.cfg_file).read().split('\n')
 
         for s in ss:
             if len(s) > 0 and s[0] != '#':
@@ -120,5 +114,5 @@ class SquidConfig(ClusteredConfig):
         for k,v in self.misc:
             s += '%s %s\n' % (k,v)
 
-        with self.open(self.cfg_file, 'w') as f:
+        with open(self.cfg_file, 'w') as f:
             f.write(s)

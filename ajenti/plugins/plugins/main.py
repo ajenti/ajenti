@@ -34,27 +34,22 @@ class PluginManager(CategoryPlugin, URLHandler):
 
     def get_ui_installed(self):
         lst = self._mgr.list_plugins()
-        tbl = UI.LayoutTable()
+        tbl = UI.Tiles()
         for k in lst:
             desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k.desc
             tbl.append(
-                UI.LayoutTableRow(
-                    UI.Image(file=k.icon),
-                    UI.VContainer(
-                        UI.Label(text='%s %s'%(k.name, k.version), size=3),
-                        UI.OutLinkLabel(text='by '+k.author, url=k.homepage),
-                        UI.Spacer(height=5),
-                        UI.CustomHTML(html=desc),
-                        UI.Spacer(height=5),
-                        spacing=0
-                    ),
+                UI.PluginInfo(
                     UI.WarningMiniButton(
                         text='Uninstall', 
                         id='remove/'+k.id,
                         msg='Completely remove plugin "%s"'%k.name
-                    )
-                )
-            ) 
+                    ),
+                    icon=k.icon,
+                    name=k.name,
+                    desc=k.desc,
+                    version=k.version,
+                    author=k.author
+                ))
             
         if self._changes:
             tbl = UI.VContainer(

@@ -39,7 +39,7 @@
                </div>
                <div id="reportw" style="display:none">
                    <br/><br/>
-                       Please <outlinklabel url="mailto:john.pankov@gmail.com?subj=Ajenti%20bug%20report" text="drop us a message" /> with the following data:
+                       Please <outlinklabel url="https://bugs.launchpad.net/ajenti/+filebug" text="file this bug to Launchpad" /> and post the following data:
                        <br/><br/>
                        <div id="report"/>
                </div>

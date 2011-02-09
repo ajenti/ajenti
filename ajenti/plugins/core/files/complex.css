@@ -65,3 +65,43 @@
     background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
     background: -webkit-gradient(linear, left top, left bottom, from(#ffdfa1), to(#facf91));
 }
+
+
+.ui-el-tiles {
+    overflow: hidden;
+}
+
+.ui-el-tiles > div {
+    margin: 10px 5px;
+    border: 1px solid transparent;
+    width: 200px;
+}
+
+.ui-el-tiles > div:hover {
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+
+.ui-el-plugin-info {
+    padding: 1px;
+}
+
+.ui-el-plugin-info > img {
+    float: left;
+}
+
+.ui-el-plugin-info > div {
+    float: left;
+    padding-left: 6px;
+}
+    
+.ui-el-plugin-info > .description {
+    float: left;
+    padding-top: 6px;
+    clear: both;
+}
+   

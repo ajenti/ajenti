@@ -4,7 +4,6 @@ import os
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti.ui import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
 from api import *
 from nctp_linux import *
@@ -17,13 +16,9 @@ optionmap = {
     'MACADDR': 'hwaddr',
 }
 
-class CentosNetworkConfig(LinuxIfconfig, ClusteredConfig):
+class CentosNetworkConfig(LinuxIfconfig):
     implements(INetworkConfig)
     platform = ['centos']
-    name = 'Network'
-    id = 'network'
-    files = [('/etc/sysconfig/network-scripts', '*')] 
-    run_after = ['/etc/init.d/network restart']
 
     interfaces = None
 
@@ -40,10 +35,10 @@ class CentosNetworkConfig(LinuxIfconfig, ClusteredConfig):
     def rescan(self):
         self.interfaces = {}
 
-        for ifcf in os.listdir(self.root()+'/etc/sysconfig/network-scripts/'):
+        for ifcf in os.listdir('/etc/sysconfig/network-scripts/'):
             if ifcf.startswith('ifcfg-'):
                 ifcn = ifcf[6:]
-                with self.open('/etc/sysconfig/network-scripts/' + ifcf, 'r') as f:
+                with open('/etc/sysconfig/network-scripts/' + ifcf, 'r') as f:
                     ss = f.read().splitlines()
                     d = {}
                     for s in ss:
@@ -83,7 +78,7 @@ class CentosNetworkConfig(LinuxIfconfig, ClusteredConfig):
        
     def save(self):
         for i in self.interfaces:
-            with self.open('/etc/sysconfig/network-scripts/ifcfg-' + i, 'w') as f:
+            with open('/etc/sysconfig/network-scripts/ifcfg-' + i, 'w') as f:
                 self.save_iface(self.interfaces[i], f)
         return
 

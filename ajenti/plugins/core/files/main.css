@@ -45,9 +45,6 @@
     height: 25px;
     margin-bottom: 20px;
     border-top: 1px solid #303030;
-    box-shadow: 0 3px 3px #222;
-    -moz-box-shadow: 0 3px 3px #555;
-    -webkit-box-shadow: 0 3px 3px #000;
 }
 
 #topbar2 .wr {
