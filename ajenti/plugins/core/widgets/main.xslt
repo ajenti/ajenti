@@ -83,3 +83,10 @@
         </div>
 </xsl:template>
         
+        
+<xsl:template match="systemmessage">
+    <div class="ui-el-message ui-el-message-{@cls}">
+        <xsl:value-of select="@text" />
+    </div>
+</xsl:template>
+        

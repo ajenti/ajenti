@@ -17,7 +17,6 @@ class CronPlugin(CategoryPlugin):
     def on_session_start(self):
         self._user = shell('whoami').strip()
         backend.fix_crontab(self._user)
-        self._log = ''
         self._labeltext = ''
         self._editing_task = -1
         self._editing_other = -1
@@ -106,12 +105,12 @@ class CronPlugin(CategoryPlugin):
                         ),
                         hidden=True)
                     ))
+                    
         part = self._error.partition(':')[2]
         self._error = 'Error:' + part if part else self._error
         if self._error:
-            er = UI.ErrorBox(title='Error', text=self._error)
-        else:
-            er = UI.Spacer()
+            self.put_message('err', self._error)
+
         vbox_task = UI.VContainer(
                         table_task,
                         UI.Button(text='Add task', id='add_task'))
@@ -120,7 +119,7 @@ class CronPlugin(CategoryPlugin):
                         UI.Button(text='Add non-task string', id='add_oth'))
         tabbar.add("Tasks", vbox_task)
         tabbar.add("Non-task strings", vbox_oth)
-        vbox = UI.VContainer(topbox, er, tabbar)
+        vbox = UI.VContainer(topbox, tabbar)
         if self._editing_task != -1:
             try:
                 task = self._tasks[self._editing_task]

@@ -48,7 +48,8 @@ class PluginManager(CategoryPlugin, URLHandler):
                     name=k.name,
                     desc=k.desc,
                     version=k.version,
-                    author=k.author
+                    author=k.author,
+                    url=k.homepage,
                 ))
             
         if self._changes:
@@ -67,7 +68,7 @@ class PluginManager(CategoryPlugin, URLHandler):
         if len(lst) == 0:
             btn['text'] = 'Download plugin list'
             
-        tbl = UI.LayoutTable()
+        tbl = UI.Tiles()
         for k in lst:
             same = False
             for p in inst: 
@@ -99,25 +100,19 @@ class PluginManager(CategoryPlugin, URLHandler):
                    )
                    
             tbl.append(
-                UI.LayoutTableRow(
-                    UI.Image(file=k['icon']),
-                    UI.VContainer(
-                        UI.Label(text='%s %s'%(k['name'], k['version']), size=3),
-                        UI.Container(
-                            UI.OutLinkLabel(text='Info', url=url),
-                            UI.OutLinkLabel(text=k['author'], url=k['homepage']),
-                        ),
-                        UI.Spacer(height=5),
-                        UI.CustomHTML(html=desc),
-                        req if not ready else None,
-                        UI.Spacer(height=5),
-                        spacing=0
-                    ),
+                UI.PluginInfo(
+                    req if not ready else None,
                     UI.WarningMiniButton(
                         text='Install', 
                         id='install/'+k['id'],
                         msg='Download and install plugin "%s"'%k['name']
-                    ) if ready else None
+                    ) if ready else None,
+                    icon=k['icon'],
+                    name=k['name'],
+                    desc=k['description'],
+                    version=k['version'],
+                    author=k['author'],
+                    url=k['homepage'],
                 )
             )   
         return UI.VContainer(btn, tbl, spacing=15)

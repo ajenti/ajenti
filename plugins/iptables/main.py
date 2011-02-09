@@ -65,7 +65,7 @@ class FirewallPlugin(CategoryPlugin):
             
         ui = UI.VContainer()
         if self._error != '':
-            ui.append(UI.ErrorBox(text=self._error, title='Can\'t apply config'))
+            put_message('err', self._error)
             
         ui.append(UI.Label(size=3, text='Rule tables'))
         ui.append(tc)

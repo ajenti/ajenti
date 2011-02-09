@@ -1,5 +1,6 @@
 <xml>
     <div>
+        <div id="system-messages" class="ui-el-messages"/>
         <div id="main-content"/>
         <div class="ui-progress-box-wr" id="progressbox-placeholder"/>
         <div id="plugin-buttons" class="ui-el-plugin-buttons"/>

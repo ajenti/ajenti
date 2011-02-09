@@ -15,11 +15,10 @@ class FSPlugin(CategoryPlugin):
         self.fstab = backend.read()
 
     def on_session_start(self):
-        self._log = ''
         self._editing = -1
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=self._log), title='Mounted filesystems', icon='/dl/filesystems/icon.png')
+        panel = UI.PluginPanel(UI.Label(), title='Mounted filesystems', icon='/dl/filesystems/icon.png')
         panel.append(self.get_default_ui())
         return panel
 

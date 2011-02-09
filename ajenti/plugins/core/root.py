@@ -57,6 +57,18 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             if self.selected_category.get_config():
                 templ.appendChildInto('plugin-buttons',
                       UI.Button(text='Module config', id='mod_config'))
+
+    
+        if self.app.session.has_key('messages'):
+            for msg in self.app.session['messages']:
+                templ.appendChildInto(
+                    'system-messages', 
+                    UI.SystemMessage(
+                        cls=msg[0],
+                        text=msg[1],
+                    )
+                )
+            del self.app.session['messages']
         return templ
 
     def do_init(self):

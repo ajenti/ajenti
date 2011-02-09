@@ -160,6 +160,11 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
         except:
             return None
             
+    def put_message(self, cls, msg):
+        if not self.app.session.has_key('messages'):
+            self.app.session['messages'] = []
+        self.app.session['messages'].append((cls, msg))
+            
             
 class ModuleConfig(Plugin):
     abstract = True

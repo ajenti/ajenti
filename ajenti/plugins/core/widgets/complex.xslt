@@ -90,8 +90,8 @@
     <div class="ui-el-plugin-info">
         <img src="{@icon}"/>
         <div>
-             <label size="3" text="{@name}"/><br/>
-             <outlinklabel url="{@url}" text="v{@version}, by {@author}"/>
+            <label size="3" text="{@name}"/><br/>
+            <outlinklabel url="{@url}" text="v{@version}, by {@author}"/>
         </div>
         <div class="description">
             <xsl:value-of select="@desc"/>

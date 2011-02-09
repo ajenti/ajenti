@@ -271,7 +271,7 @@
 .ui-progress-box {
     border-radius: 0px 0px 5px 5px;
     -moz-border-radius: 0px 0px 5px 5px;
-    -webkit-border-radius: 0px 0px 2px 2px;
+    -webkit-border-radius: 0px 0px 5px 5px;
     border: 1px solid #888;
     border-top: none;
     background: #ddd;
@@ -288,3 +288,34 @@
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
+
+
+.ui-el-message {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-bottom: 4px;
+    padding: 5px;
+}
+
+.ui-el-message-info {
+    background: #cdf;
+    background: -moz-linear-gradient(top,  #cdf,  #abf);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cdf), to(#bcf));
+    border: 1px solid #abf;
+}
+
+.ui-el-message-warn {
+    background: #ffa;
+    background: -moz-linear-gradient(top,  #ffa,  #dd9);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffa), to(#dd9));
+    border: 1px solid #cc8;
+}
+
+.ui-el-message-err {
+    background: #fa9;
+    background: -moz-linear-gradient(top,  #f98,  #d87);
+    background: -webkit-gradient(linear, left top, left bottom, from(#f98), to(#d87));
+    border: 1px solid #c88;
+}
+
