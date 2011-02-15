@@ -1,4 +1,0 @@
-#!/bin/sh
-update-rc.d ajenti defaults > /dev/null
-#DEBHELPER#
-

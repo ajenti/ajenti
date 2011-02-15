@@ -4,7 +4,6 @@ MODULES = [
     'nc_arch', 
     'nc_bsd', 
     'nc_debian',
-    'nc_suse', 
     'nc_centos',
     'ncs_bsd_basic', 
     'ncs_bsd_ipv4', 

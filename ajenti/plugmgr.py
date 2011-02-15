@@ -199,7 +199,7 @@ def load_plugins(path, log):
                 if e.name in disabled_plugins:
                     raise e
             except:
-                log.warn('Plugin %s requires %s, which is not available.' % (plugin,e.name))
+                log.warn('Plugin %s requires plugin %s, which is not available.' % (plugin,e.name))
                 disabled_plugins[plugin] = e
                 queue.remove(plugin)
         except SoftwareRequirementError, e:

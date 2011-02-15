@@ -59,7 +59,7 @@ def download(url, file=None, crit=False):
             return urllib.urlopen(url).read()
     except:
         ajenti.utils.logger.debug('Download failed')
-        if crit: 
+        if crit:
             raise
         
 def shell(c):

@@ -1,4 +1,0 @@
-#!/bin/sh
-update-rc.d -f ajenti remove > /dev/null
-#DEBHELPER#
-

@@ -1,10 +1,6 @@
-MODULES = ['api', 'main', 's_upstart', 's_arch', 's_suse', 's_bsd', 's_centos']
+MODULES = ['api', 'main', 's_upstart', 's_arch', 's_bsd', 's_centos']
 
 DEPS =  [
-    (['opensuse'],
-     [
-        ('app', 'Service manager', 'chkconfig'),
-     ]),
     (['centos', 'fedora'],
      [
 	('app', 'Service manager', 'chkconfig'),

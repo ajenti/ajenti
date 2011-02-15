@@ -1,13 +1,9 @@
-MODULES = ['api', 'main', 'pm_apt', 'pm_zypper', 'pm_pacman', 'pm_ports',  'pm_yum']
+MODULES = ['api', 'main', 'pm_apt', 'pm_pacman', 'pm_ports',  'pm_yum']
 
 DEPS =  [
     (['debian'],
      [
         ('app', 'dpkg', 'dpkg')
-     ]),
-    (['opensuse'],
-     [
-        ('app', 'zypper', 'zypper')
      ]),
     (['arch'],
      [
@@ -20,7 +16,7 @@ DEPS =  [
 ]
 
 NAME = 'Package manager'
-PLATFORMS = ['debian', 'arch', 'opensuse', 'freebsd', 'centos', 'fedora']
+PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora']
 DESCRIPTION = 'Manage software packages'
 VERSION = '0.1'
 AUTHOR = 'Ajenti team'
