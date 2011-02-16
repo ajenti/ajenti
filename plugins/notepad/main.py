@@ -135,4 +135,6 @@ class NotepadPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'unfav':
                 self._favs.remove(self._file)
             self.app.config.set('notepad', 'favs', '|'.join(self._favs))
+            self.app.config.save()
+            
             
