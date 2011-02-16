@@ -14,15 +14,25 @@ class NotepadPlugin(CategoryPlugin):
     def on_session_start(self):
         self._root = self.app.get_config(self).dir
         self._file = None
+        self._favs = []
+        if self.app.config.has_option('notepad', 'favs'):
+            self._favs = self.app.config.get('notepad', 'favs').split('|')
+
         
     def get_ui(self):
         btn = None
+        fbtn = None
         if self._file is not None:
             btn = UI.Button(text='Save', form='frmEdit', onclick='form', action='save')
+            if not self._file in self._favs:
+                fbtn = UI.Button(text='Bookmark', form='frmEdit', onclick='form', action='fav')
+            else:
+                fbtn = UI.Button(text='Unbookmark', form='frmEdit', onclick='form', action='unfav')
+                
         panel = UI.PluginPanel(
                     UI.VContainer(
                         UI.Label(text=(self._file or self._root)), 
-                        btn
+                        UI.HContainer(btn, fbtn),
                     ),
                     title='Notepad',
                     icon='/dl/notepad/icon.png'
@@ -31,8 +41,18 @@ class NotepadPlugin(CategoryPlugin):
         return panel
 
     def get_default_ui(self):
+        favs = UI.List(width=200)
         files = UI.List(width=200, height=400)
                 
+        for f in self._favs:
+            favs.append(
+                UI.ListItem(
+                    UI.Label(text=f), 
+                    id='*'+str(self._favs.index(f)),
+                    active=f==self._file
+                )
+              )
+            
         if self._root != '/':
             files.append(
                 UI.ListItem(
@@ -77,19 +97,27 @@ class NotepadPlugin(CategoryPlugin):
             btn = UI.Button(text='Save', action='OK')
             edit = UI.FormBox(
                 area,
-                width=530, height=450,
+                width=530, height='100%',
                 id='frmEdit', right=True,
                 hideok=True, hidecancel=True,
                 miscbtn='Save', miscbtnid='save',
             )    
         
-        t = UI.HContainer(files, edit, spacing=10)
+        t = UI.HContainer(
+                UI.VContainer(
+                    favs, files
+                ),
+                edit, 
+                spacing=10
+            )
         return t
    
     @event('listitem/click')
     def on_list_click(self, event, params, vars=None):
         if params[0] == '<back>':
             params[0] = '..'
+        if params[0].startswith('*'):
+            params[0] = self._favs[int(params[0][1:])]
         p = os.path.abspath(os.path.join(self._root, params[0]))
         if os.path.isdir(p):
             self._root = p
@@ -99,8 +127,12 @@ class NotepadPlugin(CategoryPlugin):
     @event('form/submit')
     def on_submit(self, event, params, vars=None):
         text = vars.getvalue('text', None)
-        print text, params
         if text is not None:
             open(self._file, 'w').write(text)
             self.put_message('info', 'Saved')
-                   
+            if vars.getvalue('action', '') == 'fav':
+                self._favs.append(self._file)
+            if vars.getvalue('action', '') == 'unfav':
+                self._favs.remove(self._file)
+            self.app.config.set('notepad', 'favs', '|'.join(self._favs))
+            

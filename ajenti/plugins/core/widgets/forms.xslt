@@ -1,5 +1,5 @@
 <xsl:template match="formbox">
-        <div id="{@id}">
+        <div id="{@id}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
             <xsl:apply-templates />
             <div class="ui-el-modal-buttons">

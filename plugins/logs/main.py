@@ -17,10 +17,7 @@ class LogsPlugin(CategoryPlugin):
         self._tree = TreeManager()
 
     def get_ui(self):
-        btn = None
-        if self._file is not None:
-            btn = UI.Button(text='Save', form='frmEdit', onclick='form', action='save')
-        panel = UI.PluginPanel(UI.HContainer(UI.Label(text=self._log), btn), title='Log viewer', icon='/dl/logs/icon.png')
+        panel = UI.PluginPanel(UI.Label(text=self._log), title='Log viewer', icon='/dl/logs/icon.png')
         panel.append(self.get_default_ui())
         return panel
 

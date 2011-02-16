@@ -102,7 +102,6 @@ function ajaxForm(formId, action)
             for (i=0; i<inputs.length; i++) {
                 var ta = inputs[i];
                 params += "&" + ta.name + "=" + encodeURI(ta.value);
-            alert(encodeURI(ta.value));
             }
         }
 
