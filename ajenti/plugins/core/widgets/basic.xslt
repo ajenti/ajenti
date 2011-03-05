@@ -25,6 +25,12 @@
     </xsl:choose>
 </xsl:template>
 
+<xsl:template match="pluginbutton">
+    <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-pluginbutton">
+        <xsl:value-of select="@text" />
+    </a>
+</xsl:template>
+
 <xsl:template match="warningbutton">
     <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button">
         <xsl:value-of select="@text" />

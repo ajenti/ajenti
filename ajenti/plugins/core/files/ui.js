@@ -1,10 +1,10 @@
 function ui_center_el(e) {
     sw = window.innerWidth;
     sh = window.innerHeight;
-    e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
-    e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
+    e.clientLeft = (sw / 2 - e.clientWidth / 2) + 'px';
+    e.clientTop = (sh / 2 - e.clientHeight / 2) + 'px';
     if (sh < e.clientHeight)
-        e.style.top = '0px';
+        e.clientTop = '0px';
 }
 
 function ui_fullscreen(el) {
@@ -13,19 +13,12 @@ function ui_fullscreen(el) {
     sh = document.documentElement.scrollHeight;
     e.style.width = sw + 'px';
     e.style.height = sh + 'px';
+    e.clientLeft = -e.parentElement.parentElement.offsetLeft;
+    e.clientTop = -e.parentElement.parentElement.offsetTop;
 }
 
 function ui_center(el) {
     ui_center_el(document.getElementById(el));
-}
-
-function ui_categoryfolder(id) {
-    ui_showhide(id+'-children');
-    x = document.getElementById(id);
-    if (x.className == 'ui-el-categoryfolder')
-        x.className = 'ui-el-categoryfolder-selected';
-    else
-        x.className = 'ui-el-categoryfolder';
 }
 
 function ui_scroll_top() {

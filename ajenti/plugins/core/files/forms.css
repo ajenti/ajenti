@@ -5,6 +5,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    z-index: 2;
 }
 
 .ui-el-dialog {
@@ -15,7 +16,6 @@
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
     border-radius: 5px 5px 5px 5px;
     border: 3px solid transparent;
-    
     text-align: left;
     vertical-align: top;
 }
@@ -32,6 +32,7 @@
 
 .ui-el-modal-wrapper {
     position: absolute;
+    z-index: 4 !important;
     left: 40%;
     top: 40%;
 }

@@ -6,18 +6,33 @@
 }
 
 .ui-el-mainwindow-left {
-    width: 154px;
-    margin-right: 10px;
-    border: 4px solid #aaa;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    border: 1px solid #bbb;
+    border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    border-right: none;
+    padding: 0 0 10px;
+    width: 150px;
     float: left;
 }
 
 .ui-el-mainwindow-right {
+    border: 1px solid #bbb;
+    border-radius: 0 4px 4px 0;
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
     width: 780px;
+    background: #eee;
+    background: -moz-linear-gradient(top,  #fff,  #eee);
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
     float: left;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    min-height: 550px;
 }
 
 #topbar div {
@@ -87,7 +102,9 @@
 
 
 .ui-el-plugin-buttons {
-    margin-top: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 
@@ -140,54 +157,40 @@
 
 
 .ui-el-category {
-    width: 152px;
-    height: 28px;
+    width: 120px;
     line-height: 26px;
-    vertical-align: middle;
+    padding: 2px 10px 2px 20px;
     color: #555555;
-
-    background: #f3f3f3;
-    border: 1px solid #d4d4d4;
-    border-top: none;
 }
 
 .ui-el-category:hover {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-top: none;
 }
 
 .ui-el-category-selected {
-    width: 153px;
-    height: 29px;
-    line-height: 26px;
-    vertical-align: middle;
-
-    border-top: none;
+    width: 120px;
+    padding: 2px 10px 2px 20px;
 
     background: #922017;
     background: -moz-linear-gradient(top,  #d04909,  #922017);
     background: -webkit-gradient(linear, left top, left bottom, from(#d04909), to(#922017));
-
-    color: #555 !important;
-    text-shadow: -1px -1px #d04909;
-    padding-left: 1px;
 }
 
-.ui-el-category-icon img {
-    width: 20px;
-    height: 20px;
-    padding: 4px;
+.ui-el-category-icon {
+    width: 16px !important;
+    height: 16px !important;
+    padding: 2px 5px 0 0;
 }
 
 .ui-el-category-text {
-    font-size: 15px;
-    padding: 2px 0px 0px;
+    font-size: 13px;
+    display: inline-block;
+    line-height: 16px;
+    padding: 2px 0 0;
 }
 
 .ui-el-category-selected .ui-el-category-text {
-    padding: 1px 0px 0px;
     color: #fff;
+    text-shadow: -1px -1px #d04909;
 }
 
 
@@ -196,47 +199,31 @@
 .ui-el-categoryfolder {
     width: 152px;
     height: 28px;
-    background: #eee url('/dl/core/ui/tree-plus.png') no-repeat 135px 6px;
-    border: 1px solid #d4d4d4;
     border-top: none;
     line-height: 26px;
-    vertical-align: middle;
-    padding-top: 1px;
-    color: #555555;
-}
-
-.ui-el-categoryfolder:hover {
-    background: #ffffff url('/dl/core/ui/tree-plus.png') no-repeat 135px 6px;
-    border: 1px solid #ddd;
-    border-top: none;
-}
-
-.ui-el-categoryfolder-selected {
-    width: 152px;
-    height: 27px;
-    line-height: 26px;
-    vertical-align: middle;
-    background: #ddd url('/dl/core/ui/tree-minus.png') no-repeat 135px 6px;
-    border: 1px solid #ccc;
-    border-top: 1px solid #ddd;
+    color: #888;
+    padding: 10px 0 0 10px;
+    text-size: 12px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #ffffff;
 }
 
 .ui-el-categoryfolder-children {
 }
 
 
-
+.ui-el-pluginpanel {
+    width: 100%;
+}
 
 .ui-el-pluginpanel-head {
-    border-radius: 5px 5px 0px 0px;
-    -moz-border-radius: 5px 5px 0px 0px;
-    -webkit-border-radius: 5px 5px 0px 0px;
-    border: 1px solid #ccc;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #ccc);
     background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
-    border-bottom: 1px solid #ddd;
     padding: 3px 0px 0px 10px;
+    border-bottom: 1px solid #aaa;
+    overflow: hidden;
+    width: 100%;
 }
 
 .ui-el-pluginpanel-head img {
@@ -245,10 +232,6 @@
 
 .ui-el-pluginpanel-content {
     padding: 20px;
-    border-radius: 0px 0px 5px 5px;
-    -moz-border-radius: 0px 0px 5px 5px;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    border: 1px solid #ccc;
 }
 
 

@@ -37,6 +37,15 @@
     color: #000;
 }
 
+.ui-el-pluginbutton {
+    margin-right: 0;
+    border-top: none;
+    border-right: none;
+    border-radius: 0px 0px 0px 3px;
+    -moz-border-radius: 0px 0px 0px 3px;
+    -webkit-border-radius: 0px 0px 0px 3px;
+}
+
 
 
 

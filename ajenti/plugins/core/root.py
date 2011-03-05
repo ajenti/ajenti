@@ -12,12 +12,12 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
     # Plugin folders. This dict is until we make MUI support
     folders = {
-        'system': 'System',
-        'hardware': 'Hardware',
-        'apps': 'Applications',
-        'servers': 'Servers',
-        'tools': 'Tools',
-        'other': 'Other',
+        'system': 'SYSTEM',
+        'hardware': 'HARDWARE',
+        'apps': 'APPLICATIONS',
+        'servers': 'SERVERS',
+        'tools': 'TOOLS',
+        'other': 'OTHER',
     }
     # Folder order
     folder_ids = ['system', 'apps', 'hardware', 'tools', 'servers', 'other']
@@ -56,7 +56,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             templ.appendChildInto('main-content', self.selected_category.get_ui())
             if self.selected_category.get_config():
                 templ.appendChildInto('plugin-buttons',
-                      UI.Button(text='Module config', id='mod_config'))
+                      UI.PluginButton(text='Module config', id='mod_config'))
 
     
         if self.app.session.has_key('messages'):

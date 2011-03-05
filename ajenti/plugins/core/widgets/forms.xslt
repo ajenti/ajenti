@@ -25,7 +25,6 @@
 
 <xsl:template match="dialogbox">
 <div>
-    <div class="ui-el-modal-blackout" id="{@id}-bo"/>
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
         <div id="{@id}">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
@@ -55,7 +54,6 @@
         </div>
     </div>
     <script> 
-        ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
     </script>
@@ -65,7 +63,6 @@
 
 <xsl:template match="inputbox">
 <div>
-    <div class="ui-el-modal-blackout" id="{@id}-bo"/>
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
         <div id="{@id}">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
@@ -88,7 +85,6 @@
         </div>
     </div>
     <script> 
-        ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
     </script>
@@ -99,7 +95,6 @@
 
 <xsl:template match="areainputbox">
 <div>
-    <div class="ui-el-modal-blackout" id="{@id}-bo"/>
     <div class="ui-el-modal-wrapper" id="{@id}-wr">
         <div id="{@id}">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
@@ -122,7 +117,6 @@
         </div>
     </div>
     <script> 
-        ui_fullscreen('<xsl:value-of select="@id"/>-bo'); 
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
     </script>
