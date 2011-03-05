@@ -24,7 +24,7 @@
     border-radius: 0 4px 4px 0;
     -moz-border-radius: 0 4px 4px 0;
     -webkit-border-radius: 0 4px 4px 0;
-    width: 780px;
+    width: 795px;
     background: #eee;
     background: -moz-linear-gradient(top,  #fff,  #eee);
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
@@ -98,13 +98,6 @@
     float: right;
     vertical-align: middle;
     padding: 10px 12px 0px 0px;
-}
-
-
-.ui-el-plugin-buttons {
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 
 
@@ -220,14 +213,24 @@
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #ccc);
     background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
-    padding: 3px 0px 0px 10px;
     border-bottom: 1px solid #aaa;
     overflow: hidden;
     width: 100%;
 }
 
-.ui-el-pluginpanel-head img {
-    padding: 4px 10px 4px 0px;
+.ui-el-pluginpanel-head span {
+    color: #555;
+    text-shadow: 0 1px 0 #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px 3px 10px;
+    display: inline-block;
+    line-height: 19px;
+    border-right: 1px solid #bbb;
+}
+
+.ui-el-pluginpanel-head div {
+    display: inline-block;
 }
 
 .ui-el-pluginpanel-content {
@@ -274,10 +277,6 @@
 
 
 .ui-el-message {
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    margin-bottom: 4px;
     padding: 5px;
 }
 

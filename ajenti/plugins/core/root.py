@@ -56,7 +56,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             templ.appendChildInto('main-content', self.selected_category.get_ui())
             if self.selected_category.get_config():
                 templ.appendChildInto('plugin-buttons',
-                      UI.PluginButton(text='Module config', id='mod_config'))
+                      UI.Button(text='Module config', id='mod_config'))
 
     
         if self.app.session.has_key('messages'):

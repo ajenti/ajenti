@@ -38,12 +38,16 @@
 }
 
 .ui-el-pluginbutton {
-    margin-right: 0;
+    margin: 0;
     border-top: none;
-    border-right: none;
-    border-radius: 0px 0px 0px 3px;
-    -moz-border-radius: 0px 0px 0px 3px;
-    -webkit-border-radius: 0px 0px 0px 3px;
+    border-bottom: none;
+    min-width: 0;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }
 
 

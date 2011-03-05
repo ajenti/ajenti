@@ -30,6 +30,7 @@ class Application (PluginManager, Plugin):
         self.template_path = []
         self.template_styles = []
         self.template_scripts = []
+        self.layouts = {}
         self.config = config
         self.log = config.get('log_facility')
         self.platform = config.get('platform')
@@ -67,6 +68,12 @@ class Application (PluginManager, Plugin):
                     for s in os.listdir(wp) 
                     if s.endswith('.xslt')
                 ])
+                
+            lp = os.path.join(path, 'layout')
+            if os.path.exists(lp):
+                for s in os.listdir(lp):
+                    if s.endswith('.xml'):
+                        self.layouts['%s:%s'%(c,s)] = os.path.join(lp, s)
                 
             tp = os.path.join(path, 'templates')
             if os.path.exists(tp):
@@ -162,6 +169,10 @@ class Application (PluginManager, Plugin):
                 scripts=self.template_scripts
                )
 
+    def inflate(self, layout):
+        f = self.layouts[layout+'.xml']
+        return Layout(f)
+    
     def stop(self):
         self.config.get('server').stop()
         

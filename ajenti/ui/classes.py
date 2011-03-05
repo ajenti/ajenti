@@ -21,7 +21,10 @@ class Element(etree.ElementBase):
         return self
         
     def __setitem__(self, idx, val):
-        self.set(idx, fix_unicode(str(val)))
+        self.set(idx, val)
+        
+    def set(self, idx, val):
+        etree.ElementBase.set(self, idx, fix_unicode(str(val)))
         
     def __getitem__(self, idx):
         return self.get(idx)

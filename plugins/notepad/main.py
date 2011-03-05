@@ -20,29 +20,23 @@ class NotepadPlugin(CategoryPlugin):
 
         
     def get_ui(self):
-        btn = None
-        fbtn = None
+        ui = self.app.inflate('notepad:main')
+        fbtn = ui.find('btnFav')
         if self._file is not None:
-            btn = UI.Button(text='Save', form='frmEdit', onclick='form', action='save')
             if not self._file in self._favs:
-                fbtn = UI.Button(text='Bookmark', form='frmEdit', onclick='form', action='fav')
+                fbtn.set('text', 'Bookmark')
+                fbtn.set('action', 'fav')
             else:
-                fbtn = UI.Button(text='Unbookmark', form='frmEdit', onclick='form', action='unfav')
-                
-        panel = UI.PluginPanel(
-                    UI.VContainer(
-                        UI.Label(text=(self._file or self._root)), 
-                        UI.HContainer(btn, fbtn),
-                    ),
-                    title='Notepad',
-                    icon='/dl/notepad/icon.png'
-                )
-        panel.append(self.get_default_ui())
-        return panel
+                fbtn.set('text', 'Unbookmark')
+                fbtn.set('action', 'unfav')
+        else:
+            ui.remove('btnSave')
+            ui.remove('btnFav')
+            
+        ui.find('file').set('text', (self._file or self._root)) 
 
-    def get_default_ui(self):
-        favs = UI.List(width=200)
-        files = UI.List(width=200, height=400)
+        favs = ui.find('favs')
+        files = ui.find('files')
                 
         for f in self._favs:
             favs.append(
@@ -86,31 +80,10 @@ class NotepadPlugin(CategoryPlugin):
                     )
                   )
 
-        edit = None
         if self._file is not None:
-            area = UI.TextInputArea(
-                width=530, 
-                height=400, 
-                value=open(self._file).read(), 
-                name='text',
-            )    
-            btn = UI.Button(text='Save', action='OK')
-            edit = UI.FormBox(
-                area,
-                width=530, height='100%',
-                id='frmEdit', right=True,
-                hideok=True, hidecancel=True,
-                miscbtn='Save', miscbtnid='save',
-            )    
+            ui.find('data').set('value', open(self._file).read()) 
         
-        t = UI.HContainer(
-                UI.VContainer(
-                    favs, files
-                ),
-                edit, 
-                spacing=10
-            )
-        return t
+        return ui
    
     @event('listitem/click')
     def on_list_click(self, event, params, vars=None):

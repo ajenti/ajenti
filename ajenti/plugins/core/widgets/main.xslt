@@ -29,15 +29,11 @@
     <table class="ui-el-pluginpanel">
         <tr>
         <td class="ui-el-pluginpanel-head">
-            <hcontainer spacing="0">
-                <image file="{@icon}"/>
-                <vcontainer spacing="0">
-                    <label text="{@title}" size="5" />
-                    <div style="padding-left: 3px;">
+                    <label size="3" text="{@title}" />
+                    <div>
+                        <xsl:apply-templates select="*[0]" />
                         <xsl:apply-templates select="*[1]" />
                     </div>
-                </vcontainer>
-            </hcontainer>
         </td>
         </tr>
         <tr>

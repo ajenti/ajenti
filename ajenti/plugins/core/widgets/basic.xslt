@@ -26,9 +26,18 @@
 </xsl:template>
 
 <xsl:template match="pluginbutton">
-    <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-pluginbutton">
-        <xsl:value-of select="@text" />
-    </a>
+    <xsl:choose>
+        <xsl:when test="@onclick = 'form'">
+            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-button ui-el-pluginbutton">
+                <xsl:value-of select="@text" />
+            </a>
+        </xsl:when>
+        <xsl:otherwise>
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-pluginbutton">
+                <xsl:value-of select="@text" />
+            </a>
+        </xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template match="warningbutton">
