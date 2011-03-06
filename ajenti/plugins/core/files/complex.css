@@ -44,6 +44,7 @@
 
 .ui-el-tab-header-box {
     padding-bottom: 10px;
+    overflow: hidden;
 }
 
 

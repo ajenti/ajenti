@@ -5,6 +5,9 @@
     </script> 
 </xsl:template>
 
+<xsl:template match="null">
+</xsl:template>
+
 <xsl:template match="refresh">
     <script>scheduleRefresh(<xsl:value-of select="@time"/>)</script>
 </xsl:template>
@@ -19,8 +22,8 @@
     </div>
 </xsl:template>
 
-<xsl:template match="centerer">
-    <div class="ui-el-centerer">
+<xsl:template match="pad">
+    <div class="ui-el-pad">
            <xsl:apply-templates />
     </div>
 </xsl:template>

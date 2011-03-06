@@ -7,7 +7,7 @@ from ajenti.plugins.core.api import *
 
 class ShellPlugin(CategoryPlugin):
     text = 'Shell'
-    icon = '/dl/shell/icon_small.png'
+    icon = '/dl/shell/icon.png'
     folder = 'tools'
 
     def on_session_start(self):

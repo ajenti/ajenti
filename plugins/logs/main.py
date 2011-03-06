@@ -9,7 +9,7 @@ from ajenti.utils import *
 
 class LogsPlugin(CategoryPlugin):
     text = 'Logs'
-    icon = '/dl/logs/icon_small.png'
+    icon = '/dl/logs/icon.png'
     folder = 'system'
 
     def on_session_start(self):

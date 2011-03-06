@@ -1,11 +1,13 @@
 from lxml import etree
+from classes import *
 import os.path
-
 import xslt
 
 class Layout:
     def __init__(self, file):
-        self._dom = etree.parse(file)
+        parser = etree.XMLParser()
+        parser.set_element_class_lookup(Lookup())
+        self._dom = etree.parse(file, parser=parser)
         
     def find(self, id):
         el = self._dom.find('//*[@id=\'%s\']'%id)
@@ -27,9 +29,16 @@ class Layout:
         else:
             raise RuntimeError("Tag with id=%s not found"%dest)
 
+    def appendAll(self, dest, *args):
+        for a in args:
+            self.append(dest, a)
+            
     def appendChildInto(self, dest, child):
         self.append(dest, child)
         
+    def insertText(self, dest, text):
+        self.find(dest).text = text
+    
     def elements(self):
         return self._dom.getroot()
 
@@ -55,4 +64,12 @@ class BasicTemplate(Layout):
             pass
 
 
-
+class Lookup(etree.CustomElementClassLookup):
+    def lookup(self, node_type, document, namespace, name):
+        if node_type != 'element':
+            return None
+        ovs = UI.list_overrides()
+        if name in ovs:
+            return ovs[name]
+        return Element
+        

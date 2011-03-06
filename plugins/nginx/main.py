@@ -60,7 +60,7 @@ server {
                   
 class NginxPlugin(apis.webserver.WebserverPlugin):
     text = 'nginx'
-    icon = '/dl/nginx/icon_small.png'
+    icon = '/dl/nginx/icon.png'
     folder = 'servers'
     ws_service = 'nginx'
     ws_name = 'nginx'

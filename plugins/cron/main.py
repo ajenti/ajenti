@@ -8,7 +8,7 @@ import backend
 
 class CronPlugin(CategoryPlugin):
     text = 'Cron'
-    icon = '/dl/cron/icon_small.png'
+    icon = '/dl/cron/icon.png'
     folder = 'system'
 
     def on_init(self):

@@ -26,22 +26,17 @@
 
 
 <xsl:template match="pluginpanel">
-    <table class="ui-el-pluginpanel">
-        <tr>
-        <td class="ui-el-pluginpanel-head">
-                    <label size="3" text="{@title}" />
-                    <div>
-                        <xsl:apply-templates select="*[0]" />
-                        <xsl:apply-templates select="*[1]" />
-                    </div>
-        </td>
-        </tr>
-        <tr>
-        <td class="ui-el-pluginpanel-content">
+    <div class="ui-el-pluginpanel">
+        <div class="ui-el-pluginpanel-head">
+            <span><xsl:value-of select="@title" /></span>
+        </div>
+        <div>
+            <xsl:apply-templates select="*[1]" />
+        </div>
+        <div class="ui-el-pluginpanel-content">
             <xsl:apply-templates select="*[2]" />
-        </td>
-        </tr>
-    </table>
+        </div>
+    </div>
 </xsl:template>
 
         

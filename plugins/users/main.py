@@ -8,7 +8,7 @@ from backend import *
 
 class UsersPlugin(CategoryPlugin):
     text = 'Users'
-    icon = '/dl/users/icon_small.png'
+    icon = '/dl/users/icon.png'
     folder = 'system'
 
     params = {

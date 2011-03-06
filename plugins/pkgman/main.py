@@ -9,7 +9,7 @@ from ajenti import apis
 
 class PackageManagerPlugin(CategoryPlugin):
     text = 'Packages'
-    icon = '/dl/pkgman/icon_small.png'
+    icon = '/dl/pkgman/icon.png'
     folder = 'system'
 
     def on_init(self):

@@ -23,6 +23,9 @@
             <span id="topplaceholder-bottom"/>
         </div>
     </div>
+
+    <div id="topbar3">
+    </div>
     
     <div class="ui-el-mainwindow-body">
 		<div class="ui-el-mainwindow-left" id="leftplaceholder"/>

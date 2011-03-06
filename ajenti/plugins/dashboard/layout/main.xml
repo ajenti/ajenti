@@ -1,0 +1,15 @@
+<xml>
+<div class="ui-dashboard-banner">
+    <img id="icon" />
+    <span id="host" />
+    <div id="distro" />
+</div>
+<pad>
+    <hcontainer spacing="15">
+        <vcontainer id="cleft" spacing="10">
+        </vcontainer>
+        <vcontainer id="cright" spacing="10">
+        </vcontainer>
+    </hcontainer>
+</pad>    
+</xml>

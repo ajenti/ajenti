@@ -9,7 +9,7 @@ from backend import *
 
 class PowerPlugin(CategoryPlugin):
     text = 'Power'
-    icon = '/dl/power/icon_small.png'
+    icon = '/dl/power/icon.png'
     folder = 'hardware'
 
     def get_ui(self):

@@ -1,0 +1,106 @@
+<xml>
+    <pad>
+    <tabcontrol id="tabs">
+        <tabheadernode id="tabs">
+            <tabheader pid="tabs" text="General" id="0"/>
+            <tabheader pid="tabs" text="Security" id="1"/>
+            <tabheader pid="tabs" text="Configurations" id="2"/>
+        </tabheadernode>
+        <container>
+        
+            <tabbody pid="tabs" id="0">
+                <formbox id="frmGeneral">
+                    <layouttable>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Bind to host:"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <textinput name="bind_host" id="bind_host"/>
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Bind to port:"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <textinput name="bind_port" id="bind_port"/>
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Enable SSL"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <checkbox name="ssl" id="ssl"/>
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="SSL certificate:"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <textinput name="cert_file" id="cert_file"/>
+                            </layouttablecell>
+                        </layouttablerow>
+                    </layouttable>
+                </formbox>
+            </tabbody>
+            
+            <tabbody pid="tabs" id="1">
+                <formbox id="frmSecurity">
+                    <checkbox text="Enable HTTP authorization" id="httpauth" name="httpauth" />
+                    <datatable width="300" id="accounts">
+                        <datatablerow header="True">
+                            <datatablecell>
+                                <label text="Account"/>
+                            </datatablecell>
+                            <datatablecell width="60">
+                            </datatablecell>
+                        </datatablerow>
+                    </datatable>
+                    <button text="Add account" id="adduser" />
+                    <br/>
+                </formbox>
+                
+                <dialogbox id="dlgAddUser" title="New account">
+                    <layouttable>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Login:"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <textinput name="login" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Password:"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <textinput name="password" />
+                            </layouttablecell>
+                        </layouttablerow>
+                    </layouttable>
+                </dialogbox>
+            </tabbody>
+            
+            <tabbody pid="tabs" id="2">
+                    <datatable width="300" id="configs">
+                        <datatablerow header="True">
+                            <datatablecell>
+                                <label text="Plugin"/>
+                            </datatablecell>
+                            <datatablecell>
+                                <label text="Name"/>
+                            </datatablecell>
+                            <datatablecell width="60">
+                            </datatablecell>
+                        </datatablerow>
+                    </datatable>
+            </tabbody>
+            
+        </container>
+    </tabcontrol>
+    </pad>
+</xml>

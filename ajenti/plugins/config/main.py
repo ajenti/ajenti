@@ -1,14 +1,9 @@
-import platform
-import shutil
-import os
 from hashlib import sha1
 from base64 import b64encode
 
 from ajenti.api import *
 from ajenti import version
-from ajenti.com import *
 from ajenti.ui import *
-from ajenti.utils import detect_distro
 from ajenti.plugins.recovery.api import *
 
 
@@ -23,53 +18,19 @@ class ConfigPlugin(CategoryPlugin):
         self._config = None
         
     def get_ui(self):
+        ui = self.app.inflate('config:main')
         
-        u = UI.PluginPanel(UI.Label(text='Ajenti %s' % version), title='Ajenti configuration', icon='/dl/config/icon.png')
+        ui.find('tabs').set('active', self._tab)
 
-        tabs = UI.TabControl(active=self._tab)
-        tabs.add('General', self.get_ui_general())
-        tabs.add('Security', self.get_ui_sec())
-        tabs.add('Configurations', self.get_ui_configs())
-
-        u.append(tabs)
-        return u
-
-    def get_config(self):
-        try:
-            return self.app.get_config_by_id(self._config)
-        except:
-            return None
-
-    def get_ui_general(self):
-        o = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Bind to host:'),
-                    UI.TextInput(name='bind_host', value=self.config.get('ajenti', 'bind_host'))
-                ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Bind to port:'),
-                    UI.TextInput(name='bind_port', value=self.config.get('ajenti', 'bind_port'))
-                ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Enable SSL:'),
-                    UI.Checkbox(name='ssl', checked=self.config.get('ajenti', 'ssl')=='1')
-                ),
-                UI.LayoutTableRow(
-                    UI.Label(text='SSL certificate file:'),
-                    UI.TextInput(name='cert_file', value=self.config.get('ajenti', 'cert_file'))
-                ),
-            )
-        p = UI.FormBox(o, id="frmGeneral")
-        return p
-
-    def get_ui_sec(self):
-        tbl = UI.DataTable(
-                UI.DataTableRow(
-                    UI.DataTableCell(UI.Label(text='Login'), width='200px'),
-                    UI.Label(),
-                    header=True
-                )
-              )
+        # General
+        ui.find('bind_host').set('value', self.config.get('ajenti', 'bind_host'))
+        ui.find('bind_port').set('value', self.config.get('ajenti', 'bind_port'))
+        ui.find('ssl').set('checked', self.config.get('ajenti', 'ssl')=='1')
+        ui.find('cert_file').set('value', self.config.get('ajenti', 'cert_file'))
+        
+        # Security
+        ui.find('httpauth').set('checked', self.config.get('ajenti','auth_enabled')=='1')
+        tbl = ui.find('accounts')
         for s in self.config.options('users'):
             tbl.append(
                     UI.DataTableRow(
@@ -80,51 +41,13 @@ class ConfigPlugin(CategoryPlugin):
                         )
                     )
                 )
-        o = UI.VContainer(
-                UI.Label(text='HTTP Accounts:', size='3'),
-                UI.Checkbox(
-                    text='HTTP Authorization',
-                    name='httpauth',
-                    checked=self.config.get('ajenti','auth_enabled')=='1'
-                ),
-                tbl,
-                UI.Button(text='Add new', id='adduser'),
-                spacing=10
-            )
-
-        p = UI.VContainer(UI.FormBox(o, id="frmSecurity"))
-
-        if self._adding_user:
-            dlg = UI.DialogBox(
-                      UI.LayoutTable(
-                          UI.LayoutTableRow(
-                              UI.Label(text='Login: '),
-                              UI.TextInput(name='login')
-                          ),
-                          UI.LayoutTableRow(
-                              UI.Label(text='Password: '),
-                              UI.TextInput(name='password')
-                          )
-                      ),
-                      title='New user', id='dlgAddUser'
-                  )
-            p.append(dlg)
-
-        return p
-
-    def hashpw(self, passw):
-        return '{SHA}' + b64encode(sha1(passw).digest())
-
-    def get_ui_configs(self):
-        t = UI.DataTable(
-            UI.DataTableRow(
-                UI.Label(text='Plugin'),
-                UI.Label(text='Name'),
-                UI.Label(),
-                header=True
-            ))
-        cfgs = self.app.grab_plugins(IModuleConfig)
         
+        if not self._adding_user:
+            ui.remove('dlgAddUser')
+        
+        # Configs
+        cfgs = self.app.grab_plugins(IModuleConfig)
+        t = ui.find('configs')
         for c in cfgs:
             t.append(UI.DataTableRow(
                 UI.Label(text=c.plugin),
@@ -133,9 +56,18 @@ class ConfigPlugin(CategoryPlugin):
                     UI.MiniButton(text='Edit', id='editconfig/'+c.plugin),
                     hidden=True
                 )
-            )) 
-        return t
-        
+            ))         
+        return ui
+
+    def get_config(self):
+        try:
+            return self.app.get_config_by_id(self._config)
+        except:
+            return None
+
+    def hashpw(self, passw):
+        return '{SHA}' + b64encode(sha1(passw).digest())
+
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')

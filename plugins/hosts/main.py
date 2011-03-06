@@ -6,7 +6,7 @@ import backend
 
 class HostsPlugin(CategoryPlugin):
     text = 'Hosts'
-    icon = '/dl/hosts/icon_small.png'
+    icon = '/dl/hosts/icon.png'
     folder = 'system'
 
     def on_init(self):

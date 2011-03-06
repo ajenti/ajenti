@@ -33,18 +33,20 @@ class Dashboard(CategoryPlugin):
             (li if wgt.plugin_id in self._left else ri).append(wgt)
         li = sorted(li, key=lambda x: self._left.index(x.plugin_id))
         ri = sorted(ri, key=lambda x: self._right.index(x.plugin_id))
+
+        ui = self.app.inflate('dashboard:main')
+                
+        ui.appendAll('cleft', 
+            *[UI.Widget(x.get_ui(), pos='l', title=x.title, id=x.plugin_id) for x in li]
+        )
+        ui.appendAll('cright',
+            *[UI.Widget(x.get_ui(), pos='r', title=x.title, id=x.plugin_id) for x in ri]
+        )
         
-        lc = UI.VContainer(*[UI.Widget(x.get_ui(), pos='l', title=x.title, id=x.plugin_id) for x in li])
-        rc = UI.VContainer(*[UI.Widget(x.get_ui(), pos='r', title=x.title, id=x.plugin_id) for x in ri])
-        w = UI.HContainer(lc, rc)
-        
-        u = UI.PluginPanel(
-                UI.Label(text=detect_distro()), 
-                w, 
-                title=platform.node(), 
-                icon='/dl/dashboard/distributor-logo-%s.png'%detect_platform(mapping=False)
-            )
-        return u
+        ui.insertText('host', platform.node())
+        ui.insertText('distro', detect_distro())
+        ui.find('icon').set('src', '/dl/dashboard/distributor-logo-%s.png'%detect_platform(mapping=False))
+        return ui
 
     @event('widget/move')
     def on_move(self, event, params, vars=None):

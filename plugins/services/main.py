@@ -6,7 +6,7 @@ from ajenti import apis
 
 class ServicesPlugin(CategoryPlugin):
     text = 'Services'
-    icon = '/dl/services/icon_small.png'
+    icon = '/dl/services/icon.png'
     folder = 'system'
 
     def on_init(self):

@@ -8,7 +8,7 @@ import backend
 
 class FSPlugin(CategoryPlugin):
     text = 'Filesystems'
-    icon = '/dl/filesystems/icon_small.png'
+    icon = '/dl/filesystems/icon.png'
     folder = 'system'
 
     def on_init(self):

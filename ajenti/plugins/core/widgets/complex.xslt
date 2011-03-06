@@ -13,9 +13,9 @@
 </xsl:template>
 
 <xsl:template match="tabbody">
-    <span class="ui-el-tab-body" id="tabbody-{@pid}-{@id}">
+    <div class="ui-el-tab-body" id="tabbody-{@pid}-{@id}">
         <xsl:apply-templates />
-    </span>
+    </div>
 </xsl:template>
 
 <xsl:template match="tabcontrol">

@@ -28,14 +28,16 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         self._module_config = None
         
     def main_ui(self):
-        templ = self.app.get_template('main.xml')
+        templ = self.app.inflate('core:main')
 
+        templ.find('panel').set('title', self.selected_category.text)
+        
         if self._about_visible:
-            templ.appendChildInto('main-content', self.get_ui_about())
+            templ.append('main-content', self.get_ui_about())
 
         for p in self.app.grab_plugins(IProgressBoxProvider):
             if p.has_progress():
-                templ.appendChildInto(
+                templ.append(
                     'progressbox-placeholder', 
                     UI.TopProgressBox(
                         text=p.get_progress(),
@@ -49,19 +51,19 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         if self._module_config:
             try:
                 cfg = self.selected_category.get_config()
-                templ.appendChildInto('main-content', cfg.get_ui_edit())
+                templ.append('main-content', cfg.get_ui_edit())
             except:
                 pass
         else:
-            templ.appendChildInto('main-content', self.selected_category.get_ui())
+            templ.append('main-content', self.selected_category.get_ui())
             if self.selected_category.get_config():
-                templ.appendChildInto('plugin-buttons',
+                templ.append('plugin-buttons',
                       UI.Button(text='Module config', id='mod_config'))
 
     
         if self.app.session.has_key('messages'):
             for msg in self.app.session['messages']:
-                templ.appendChildInto(
+                templ.append(
                     'system-messages', 
                     UI.SystemMessage(
                         cls=msg[0],

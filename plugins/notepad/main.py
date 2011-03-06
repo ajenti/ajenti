@@ -8,7 +8,7 @@ from ajenti.utils import *
 
 class NotepadPlugin(CategoryPlugin):
     text = 'Notepad'
-    icon = '/dl/notepad/icon_small.png'
+    icon = '/dl/notepad/icon.png'
     folder = 'tools'
 
     def on_session_start(self):

@@ -48,7 +48,7 @@ class LighttpdBackend(Plugin):
 
 class LighttpdPlugin(apis.webserver.WebserverPlugin):
     text = 'lighttpd'
-    icon = '/dl/lighttpd/icon_small.png'
+    icon = '/dl/lighttpd/icon.png'
     folder = 'servers'
     ws_service = 'lighttpd'
     ws_name = 'lighttpd'

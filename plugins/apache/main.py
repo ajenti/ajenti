@@ -111,7 +111,7 @@ class ApacheBackend(Plugin):
                        
 class ApachePlugin(apis.webserver.WebserverPlugin):
     text = 'Apache 2'
-    icon = '/dl/apache/icon_small.png'
+    icon = '/dl/apache/icon.png'
     folder = 'servers'
     ws_service = 'apache2'
     ws_name = 'apache'
