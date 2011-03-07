@@ -54,7 +54,8 @@ class PluginInstaller(Plugin):
             i = PluginInfo()
             i.id = k
             i.icon = '/dl/%s/icon.png'%k
-            i.name, i.desc, i.version = k, 'Disabled: ' + str(disabled_plugins[k]), ''
+            i.name, i.desc, i.version = k, 'Disabled', ''
+            i.problem = str(disabled_plugins[k])
             i.author, i.homepage = '', ''
             res.append(i)
 
@@ -158,6 +159,7 @@ def load_plugin(path, plugin, log, platform):
         i.icon = '/dl/%s/icon.png'%plugin
         i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
         i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
+        i.problem = None
         plugin_info[plugin] = i
         loaded_plugins.append(plugin)
     except BaseRequirementError, e:

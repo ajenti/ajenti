@@ -18,49 +18,32 @@ class PluginManager(CategoryPlugin, URLHandler):
         self._changes = False
         
     def get_ui(self):
-        u = UI.PluginPanel(
-                UI.Label(text='%s plugins active'%len(self._mgr.list_plugins())), 
-                title='Plugins', 
-                icon='/dl/plugins/icon.png'
-            )
-
-        tabs = UI.TabControl(active=self._tab)
-        tabs.add('Installed', self.get_ui_installed())
-        tabs.add('Available', self.get_ui_available())
-        tabs.add('Upload', self.get_ui_upload())
-
-        u.append(tabs)
-        return u
-
-    def get_ui_installed(self):
+        ui = self.app.inflate('plugins:main')
+        
         lst = self._mgr.list_plugins()
-        tbl = UI.Tiles()
+
         for k in lst:
+            row = self.app.inflate('plugins:item')
             desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k.desc
-            tbl.append(
-                UI.PluginInfo(
-                    UI.WarningMiniButton(
+            row.find('name').set('text', k.name)
+            row.find('desc').set('text', k.problem or k.desc)
+            row.find('icon').set('file', k.icon)
+            row.find('version').set('text', k.version)
+            row.find('author').set('text', k.author)
+            row.find('author').set('url', k.homepage)
+            row.append('buttons', UI.WarningMiniButton(
                         text='Uninstall', 
                         id='remove/'+k.id,
                         msg='Completely remove plugin "%s"'%k.name
-                    ),
-                    icon=k.icon,
-                    name=k.name,
-                    desc=k.desc,
-                    version=k.version,
-                    author=k.author,
-                    url=k.homepage,
-                ))
+                    ))
+                    
+            if k.problem:
+                row.find('status').set('file', '/dl/plugins/broken.png')
+            else:
+                row.find('status').set('file', '/dl/plugins/good.png')
+            ui.append('list', row)
             
-        if self._changes:
-            tbl = UI.VContainer(
-                UI.Button(id='restart', text='Restart Ajenti for changes to take effect'),
-                tbl,
-                spacing=15
-            )  
-        return tbl
-
-    def get_ui_available(self):
+                
         lst = self._mgr.available
         inst = self._mgr.list_plugins()
         
@@ -68,16 +51,27 @@ class PluginManager(CategoryPlugin, URLHandler):
         if len(lst) == 0:
             btn['text'] = 'Download plugin list'
             
-        tbl = UI.Tiles()
         for k in lst:
             same = False
             for p in inst: 
-                if k['id'] == p.id and k['version'] == p.version: 
+                if k['id'] == p.id and (k['version'] == p.version or p.problem): 
                     same = True
             if same:
                 continue
             
-            desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k['description']
+            row = self.app.inflate('plugins:item')
+            row.find('name').set('text', k['name'])
+            row.find('desc').set('text', k['description'])
+            row.find('icon').set('file', k['icon'])
+            row.find('version').set('text', k['version'])
+            row.find('author').set('text', k['author'])
+            row.find('author').set('url', k['homepage'])
+                    
+            row.find('status').set('file', '/dl/plugins/none.png')
+            for p in inst: 
+                if k['id'] == p.id:
+                    row.find('status').set('file', '/dl/plugins/upgrade.png')
+
             reqd = ajenti.plugmgr.get_deps(self.app.platform, k['deps'])
             req = UI.VContainer(
                     UI.Label(text='Requires:', bold=True),
@@ -89,7 +83,7 @@ class PluginManager(CategoryPlugin, URLHandler):
                 if ajenti.plugmgr.verify_dep(r):
                     continue
                 if r[0] == 'app':
-                    req.append(UI.Label(text='App %s (%s)'%r[1:]))
+                    req.append(UI.Label(text='Application %s (%s)'%r[1:]))
                 if r[0] == 'plugin':
                     req.append(UI.Label(text='Plugin %s'%r[1]))
                 ready = False    
@@ -98,24 +92,19 @@ class PluginManager(CategoryPlugin, URLHandler):
                     self.app.config.get('ajenti', 'update_server'),
                     k['id']
                    )
-                   
-            tbl.append(
-                UI.PluginInfo(
-                    req if not ready else None,
-                    UI.WarningMiniButton(
+
+            if not ready:
+                row.append('reqs', req)
+            else:                   
+                row.append('buttons', UI.WarningMiniButton(
                         text='Install', 
                         id='install/'+k['id'],
                         msg='Download and install plugin "%s"'%k['name']
-                    ) if ready else None,
-                    icon=k['icon'],
-                    name=k['name'],
-                    desc=k['description'],
-                    version=k['version'],
-                    author=k['author'],
-                    url=k['homepage'],
-                )
-            )   
-        return UI.VContainer(btn, tbl, spacing=15)
+                    ))
+
+            ui.append('list', row)
+
+        return ui
 
     def get_ui_upload(self):
         return UI.Uploader(
