@@ -1,6 +1,16 @@
 <xml>
+    <toolbar>
+        <toolbutton text="Restart Ajenti" id="restart" />
+    </toolbar>
     <pad>
+        <label size="2" text="Plugin list" />
+        <spacer height="5" />
         <datatable width="100%" id="list">
         </datatable>
+        
+        <spacer height="10" />
+        <label size="2" text="Upload plugin package" />
+        <spacer height="5" />
+        <uploader url="/upload_plugin" text="Install" />
     </pad>
 </xml>

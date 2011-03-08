@@ -33,7 +33,7 @@ class NotepadPlugin(CategoryPlugin):
             ui.remove('btnSave')
             ui.remove('btnFav')
             
-        ui.find('file').set('text', (self._file or self._root)) 
+        #ui.find('file').set('text', (self._file or self._root)) 
 
         favs = ui.find('favs')
         files = ui.find('files')

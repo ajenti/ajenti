@@ -6,10 +6,10 @@
         <datatablecell>
             <image id="icon" />
         </datatablecell>
-        <datatablecell>
+        <datatablecell id="reqs">
             <label id="name" />
         </datatablecell>
-        <datatablecell id="reqs">
+        <datatablecell>
             <label id="desc" />
         </datatablecell>
         <datatablecell>

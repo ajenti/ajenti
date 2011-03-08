@@ -1,10 +1,10 @@
 <xml>
-    <pluginpanel title="Notepad">
-        <hcontainer spacing="0">
-            <pluginbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" />
-            <pluginbutton id="btnFav" form="frmEdit" onclick="form" />
-            <label id="file" />
-        </hcontainer>
+    <toolbar spacing="0">
+        <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" />
+        <toolbutton id="btnFav" form="frmEdit" onclick="form" />
+        <label id="file" />
+    </toolbar>
+    <pad>
         <hcontainer>
             <vcontainer>
                 <list id="favs" width="200" />
@@ -14,5 +14,5 @@
                 <textinputarea id="data" width="530" height="400" name="text" value="" />
             </formbox>
         </hcontainer>
-    </pluginpanel>
+    </pad>
 </xml>

@@ -39,6 +39,11 @@
     </div>
 </xsl:template>
 
+<xsl:template match="toolbar">
+        <div class="ui-el-toolbar">
+            <xsl:apply-templates />
+        </div>
+</xsl:template>
         
 <xsl:template match="topprogressbox">
         <div class="ui-progress-box">

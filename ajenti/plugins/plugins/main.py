@@ -26,7 +26,7 @@ class PluginManager(CategoryPlugin, URLHandler):
             row = self.app.inflate('plugins:item')
             desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k.desc
             row.find('name').set('text', k.name)
-            row.find('desc').set('text', k.problem or k.desc)
+            row.find('desc').set('text', k.desc)
             row.find('icon').set('file', k.icon)
             row.find('version').set('text', k.version)
             row.find('author').set('text', k.author)
@@ -39,6 +39,7 @@ class PluginManager(CategoryPlugin, URLHandler):
                     
             if k.problem:
                 row.find('status').set('file', '/dl/plugins/broken.png')
+                row.append('reqs', UI.HelpIcon(text=k.problem))
             else:
                 row.find('status').set('file', '/dl/plugins/good.png')
             ui.append('list', row)
@@ -73,19 +74,17 @@ class PluginManager(CategoryPlugin, URLHandler):
                     row.find('status').set('file', '/dl/plugins/upgrade.png')
 
             reqd = ajenti.plugmgr.get_deps(self.app.platform, k['deps'])
-            req = UI.VContainer(
-                    UI.Label(text='Requires:', bold=True),
-                    spacing=0
-                  )
+
+            req = 'Requires: '
                   
             ready = True      
             for r in reqd:
                 if ajenti.plugmgr.verify_dep(r):
                     continue
                 if r[0] == 'app':
-                    req.append(UI.Label(text='Application %s (%s)'%r[1:]))
+                    req += 'application %s (%s); '%r[1:]
                 if r[0] == 'plugin':
-                    req.append(UI.Label(text='Plugin %s'%r[1]))
+                    req += 'plugin %s; '%r[1]
                 ready = False    
                     
             url = 'http://%s/view/plugins.php?id=%s' % (
@@ -93,14 +92,14 @@ class PluginManager(CategoryPlugin, URLHandler):
                     k['id']
                    )
 
-            if not ready:
-                row.append('reqs', req)
-            else:                   
+            if ready:
                 row.append('buttons', UI.WarningMiniButton(
                         text='Install', 
                         id='install/'+k['id'],
                         msg='Download and install plugin "%s"'%k['name']
                     ))
+            else:
+                row.append('reqs', UI.HelpIcon(text=req))
 
             ui.append('list', row)
 
@@ -131,17 +130,16 @@ class PluginManager(CategoryPlugin, URLHandler):
         if params[0] == 'update':
             self._tab = 1
             self._mgr.update_list()
+            self.put_message('info', 'Plugin list updated')
         if params[0] == 'remove':
             self._tab = 0
             self._mgr.remove(params[1])
             self._changes = True
+            self.put_message('warn', 'Plugin removed. Restart Ajenti for changes to take effect.')
         if params[0] == 'restart':
             self.app.restart()
         if params[0] == 'install':
             self._tab = 0
+            self.put_message('info', 'Plugin installed. Refresh page for changes to take effect.')
             self._mgr.install(params[1])
         
-    @event('form/submit')
-    @event('dialog/submit')
-    def on_submit(self, event, params, vars=None):
-        pass

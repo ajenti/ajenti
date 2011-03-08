@@ -37,7 +37,7 @@
     color: #000;
 }
 
-.ui-el-pluginbutton {
+.ui-el-toolbutton {
     margin: 0;
     border-top: none;
     border-bottom: none;
@@ -102,11 +102,14 @@
 }
 
 .ui-el-label-2 {
-    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff;
+    font-size: 12px;
 }
 
 .ui-el-label-3 {
-    font-size: 16px;
+    font-size: 14px;
+    text-shadow: 0 1px 0 #fff;
     font-weight: bold;
 }
 

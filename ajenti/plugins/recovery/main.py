@@ -21,17 +21,9 @@ class RecoveryPlugin(CategoryPlugin):
             self._current_name = self.providers[0].name
         
     def get_ui(self):
-        u = UI.PluginPanel(
-                UI.Label(text='%i providers available' % len(self.providers)),
-                self.get_default_ui(), 
-                title='Configuration recovery', 
-                icon='/dl/recovery/icon.png'
-            )
-        return u
-
-
-    def get_default_ui(self):
-        provs = UI.List(width=200, height=400)
+        ui = self.app.inflate('recovery:main')
+        
+        provs = ui.find('provs')
                 
         for p in self.providers:
             provs.append(
@@ -42,16 +34,7 @@ class RecoveryPlugin(CategoryPlugin):
                     )
                   )
             
-        backs = UI.DataTable(
-                    UI.DataTableRow(
-                        UI.Label(text='Revision'),
-                        UI.Label(text='Date'),
-                        UI.Label(),
-                        header=True
-                    ),
-                    width='100%',
-                    noborder=True
-                )
+        backs = ui.find('backs')
                 
         for rev in self.manager.list_backups(self._current):
             backs.append(
@@ -85,41 +68,10 @@ class RecoveryPlugin(CategoryPlugin):
                     )
                 )
             )       
-                
-        ui = UI.LayoutTable(
-                   UI.LayoutTableRow(
-                       UI.Label(text='Recovery providers'),
-                       UI.Label(text='Backups for %s' % self._current_name),
-                       UI.LayoutTableCell(
-                           UI.HContainer(
-                               UI.WarningMiniButton(
-                                   id='backup/%s'%self._current,
-                                   text='Backup now',
-                                   msg='Backup configuration of %s'%self._current_name
-                               ),
-                               UI.WarningMiniButton(
-                                   id='backupall',
-                                   text='Backup everything',
-                                   msg='Backup all available configurations'
-                               )
-                           ),
-                           width=100
-                       )
-                   ),                    
-                   UI.LayoutTableRow(
-                       provs, 
-                       UI.LayoutTableCell(
-                           UI.ScrollContainer(
-                               backs,
-                               width=400,
-                               height=400
-                           ),
-                           colspan=2
-                       )
-                   )
-               )
-               
-        return ui
+        
+        ui.find('btnBackup').set('text', 'Backup %s'%self._current_name)
+        ui.find('btnBackup').set('id', 'backup/%s'%self._current)
+        return ui                
                 
     @event('button/click')
     @event('minibutton/click')
