@@ -21,17 +21,6 @@ class NotepadPlugin(CategoryPlugin):
         
     def get_ui(self):
         ui = self.app.inflate('notepad:main')
-        fbtn = ui.find('btnFav')
-        if self._file is not None:
-            if not self._file in self._favs:
-                fbtn.set('text', 'Bookmark')
-                fbtn.set('action', 'fav')
-            else:
-                fbtn.set('text', 'Unbookmark')
-                fbtn.set('action', 'unfav')
-        else:
-            ui.remove('btnSave')
-            ui.remove('btnFav')
             
         #ui.find('file').set('text', (self._file or self._root)) 
 
@@ -81,8 +70,26 @@ class NotepadPlugin(CategoryPlugin):
                   )
 
         if self._file is not None:
-            ui.find('data').set('value', open(self._file).read()) 
+            data = ''
+            try:
+                data = open(self._file).read()        
+                ui.find('data').set('value', data) 
+            except:
+                self.put_message('warn', 'Cannot open %s'%self._file)
+                self._file = None
         
+        fbtn = ui.find('btnFav')
+        if self._file is not None:
+            if not self._file in self._favs:
+                fbtn.set('text', 'Bookmark')
+                fbtn.set('action', 'fav')
+            else:
+                fbtn.set('text', 'Unbookmark')
+                fbtn.set('action', 'unfav')
+        else:
+            ui.remove('btnSave')
+            ui.remove('btnFav')
+
         return ui
    
     @event('listitem/click')

@@ -23,10 +23,13 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     folder_ids = ['system', 'apps', 'hardware', 'tools', 'servers', 'other']
 
     def on_session_start(self):
-        self._cat_selected = 'dashboard'
+        self._cat_selected = 'firstrun' if self.is_firstrun() else 'dashboard'
         self._about_visible = False
         self._module_config = None
-        
+
+    def is_firstrun(self):
+        return not self.app.config.has_option('ajenti', 'firstrun')
+                
     def main_ui(self):
         templ = self.app.inflate('core:main')
 
@@ -74,6 +77,10 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         return templ
 
     def do_init(self):
+        # end firstrun wizard
+        if self._cat_selected == 'firstrun' and not self.is_firstrun():
+            self._cat_selected = 'dashboard'
+            
         cat = None
         for c in self.categories:
             if c.plugin_id == self._cat_selected: # initialize current plugin
@@ -179,7 +186,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         if len(params) != 1:
             return
 
-        self._cat_selected = params[0]
+        self._cat_selected = 'firstrun' if self.is_firstrun() else params[0]
         self.do_init()
 
     @event('linklabel/click')

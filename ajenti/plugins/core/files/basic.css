@@ -2,10 +2,9 @@
     min-width: 80px;
     height: 20px;
     line-height: 20px;
-    float: left;
-    display: block;
-    margin-right: 10px;
-
+    display: inline-block;
+    margin: 0 3px;
+    
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
@@ -44,7 +43,7 @@
     min-width: 0;
     height: 28px;
     line-height: 28px;
-    display: block;
+    border-left: none;
     border-radius: 0px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -58,7 +57,7 @@
     height: 18px;
     line-height: 18px;
     float: left;
-    margin-right: 10px;
+    margin: 0 3px;
 
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
@@ -84,7 +83,7 @@
     color: #222;
 }
 
-.ui-el-minibutton:active{
+.ui-el-minibutton:active {
     background: #eee;
     background: -moz-linear-gradient(top,  #fff,  #eee);
     background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
@@ -98,19 +97,23 @@
     display: inline;
     text-align: left;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 20px;
 }
 
 .ui-el-label-2 {
     font-weight: bold;
     text-shadow: 0 1px 0 #fff;
     font-size: 12px;
+    display: inline-block;
+    padding: 4px 0;
 }
 
 .ui-el-label-3 {
     font-size: 14px;
     text-shadow: 0 1px 0 #fff;
     font-weight: bold;
+    display: inline-block;
+    padding: 4px 0;
 }
 
 .ui-el-label-4 {
@@ -142,10 +145,10 @@
 
 
 .ui-el-input {
-    margin-top: 1px;
     background: #ffffff;
     border: 1px solid #aaaaaa;
-    height: 16px;
+    height: 18px;
+    margin: 0 3px;
     font-size: 12px;
 }
 
@@ -168,13 +171,14 @@ select {
 
 
 .ui-el-image {
-    padding: 0px 3px 0px 2px;
+    padding: 1px 3px 0px 2px;
 }
 
 
 .ui-el-textarea {
     overflow: auto;
     background: #ffffff;
+    margin: 0 3px;
     font-family: Courier New, monospace;
     border: 1px solid #888888;
 }
@@ -183,6 +187,7 @@ select {
 
 .ui-el-progressbar {
     height: 12px;
+    margin: 0 3px;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #eee);
     background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));

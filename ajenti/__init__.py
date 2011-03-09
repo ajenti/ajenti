@@ -1,1 +1,1 @@
-version = 'alpha (GIT snapshot)'
+version = '(GIT snapshot)'

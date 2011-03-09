@@ -14,6 +14,7 @@
 .ui-el-table-row-header td {
     border-bottom: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
+    padding-bottom: 0 !important;
 }
 
 .ui-el-table-row:hover {

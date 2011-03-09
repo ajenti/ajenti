@@ -1,7 +1,6 @@
 <xml>
     <toolbar>
-        <toolbutton id="btnBackup" />
-        <toolbutton id="backupall" text="Backup everything" />
+        <toolbutton id="btnBackup" /><toolbutton id="backupall" text="Backup everything" />
     </toolbar>
     <pad>
         <hcontainer>

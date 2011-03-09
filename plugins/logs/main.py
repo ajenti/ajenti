@@ -17,12 +17,8 @@ class LogsPlugin(CategoryPlugin):
         self._tree = TreeManager()
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=self._log), title='Log viewer', icon='/dl/logs/icon.png')
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
-        data = UI.LogViewer(width=500, height=500)
+        ui = self.app.inflate('logs:main')
+        data = None
         if self._log != '':
             if self._log.endswith('.gz'):
                 data = self.format_log(gzip.open(self._log).read())
@@ -30,21 +26,9 @@ class LogsPlugin(CategoryPlugin):
                 data = self.format_log(bz2.BZ2File(self._log, 'r').read())
             else:
                 data = self.format_log(open(self._log).read())
-
-        lt = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Log files'),
-                    UI.LayoutTableCell(
-                        UI.LogFilter(),
-                        float='right'
-                    )
-                ),
-                UI.LayoutTableRow(
-                    UI.ScrollContainer(self.get_ui_tree(), height=500),
-                    data
-                )
-             )
-        return lt
+        ui.append('data', data)
+        ui.append('tree', self.get_ui_tree())
+        return ui
 
     def get_ui_tree(self):
         root = UI.TreeContainer(text='Logs', id='/')
@@ -77,12 +61,10 @@ class LogsPlugin(CategoryPlugin):
 
 
     def format_log(self, data):
-        r = UI.LogViewer(width=500, height=500)
         d = '<span style="font-family: monospace">'
         d += enquote(data)
         d += '</span>'
-        r.append(UI.CustomHTML(html=d))
-        return r
+        return UI.CustomHTML(html=d)
 
     @event('minibutton/click')
     @event('button/click')

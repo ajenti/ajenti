@@ -1,9 +1,7 @@
-from hashlib import sha1
-from base64 import b64encode
-
 from ajenti.api import *
 from ajenti import version
 from ajenti.ui import *
+from ajenti.utils import hashpw
 from ajenti.plugins.recovery.api import *
 
 
@@ -65,8 +63,6 @@ class ConfigPlugin(CategoryPlugin):
         except:
             return None
 
-    def hashpw(self, passw):
-        return '{SHA}' + b64encode(sha1(passw).digest())
 
     @event('button/click')
     @event('minibutton/click')
@@ -92,7 +88,7 @@ class ConfigPlugin(CategoryPlugin):
         if params[0] == 'dlgAddUser':
             self._tab = 1
             if vars.getvalue('action', '') == 'OK':
-                self.config.set('users', vars.getvalue('login', ''), self.hashpw(vars.getvalue('password', '')))
+                self.config.set('users', vars.getvalue('login', ''), hashpw(vars.getvalue('password', '')))
                 self.config.save()
                 ConfigRecovery(self.app).backup_now()
             self._adding_user = False

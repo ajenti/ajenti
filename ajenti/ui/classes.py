@@ -124,7 +124,7 @@ class UI(object):
                         self.append(UI.DataTableCell(e))
 
     class TreeContainer(Element):
-        def __init__(self, *args):
+        def __init__(self, *args, **kwargs):
             Element.__init__(self, 'treecontainer', **kwargs)
             for e in args:
                 if isinstance(e, Element):

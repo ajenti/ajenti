@@ -32,7 +32,7 @@
     <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
          <tr>
              <xsl:for-each select="*">
-                <td style="padding-right: {x:css(../@spacing, '4')}">
+                <td style="padding-right: {x:css(../@spacing, '0')}">
                     <xsl:apply-templates select="." />
                 </td>
              </xsl:for-each>    
@@ -43,7 +43,7 @@
 <xsl:template match="vcontainer">
      <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
          <xsl:for-each select="*">
-             <tr><td style="padding-bottom: {x:css(../@spacing, '4')}">  
+             <tr><td style="padding-bottom: {x:css(../@spacing, '0')}">  
                  <xsl:apply-templates select="."/>
              </td></tr>
          </xsl:for-each>    

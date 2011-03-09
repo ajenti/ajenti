@@ -90,7 +90,10 @@ class PluginInstaller(Plugin):
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
         send_stats(self.server, addplugin=id)
-        load_plugin(self.app.config.get('ajenti', 'plugins'), id, self.log, self.app.platform)
+        try:
+            load_plugin(self.app.config.get('ajenti', 'plugins'), id, self.log, self.app.platform)
+        except:
+            pass
     
     def install_file(self, stream):        
         dir = self.app.config.get('ajenti', 'plugins')

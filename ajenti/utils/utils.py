@@ -5,6 +5,9 @@ import mimetypes
 import time
 import urllib
 from datetime import datetime
+from hashlib import sha1
+from base64 import b64encode
+
 
 import ajenti.utils 
 
@@ -94,6 +97,10 @@ def shell_stdin(c, input):
             stdin=subprocess.PIPE)
     return p.communicate(input)
 
+
+def hashpw(passw):
+    return '{SHA}' + b64encode(sha1(passw).digest())
+        
 def str_fsize(sz):
     if sz < 1024:
         return '%i bytes' % sz
