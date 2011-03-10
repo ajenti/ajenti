@@ -1,0 +1,16 @@
+<xml>
+    <pad>
+        <vcontainer>
+            <hcontainer spacing="10">
+                <label text="Command: " />
+                <formbox id="frmRun" hideok="True" hidecancel="True">
+                    <textinput name="cmd" size="30" id="shell-command" />
+                </formbox>
+                <button form="frmRun" onclick="form" text="Run" />
+                <label text="Recent: " />
+                <select id="shell-recent" onchange="shellRecentClick()" onmousedown="shellRecentClick()" />
+            </hcontainer>
+            <scrollcontainer id="log" width="550" height="500" />
+        </vcontainer>
+    </pad>
+</xml>
