@@ -1,0 +1,48 @@
+<xml>
+
+    <toolbar>
+        <toolbutton text="Add option" id="addns" />
+    </toolbar>
+    
+    <pad>
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="Type" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Address" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+    
+    <dialogbox id="dlgEdit">
+        <layouttable>    
+            <layouttablerow>    
+                <layouttablecell>    
+                    <label text="Type" />
+                </layouttablecell>    
+                <layouttablecell>    
+                    <select name="cls">
+                        <selectoption text="Nameserver" id="cls-nameserver" />
+                        <selectoption text="Local domain" id="cls-domain" />
+                        <selectoption text="Search list" id="cls-search" />
+                        <selectoption text="Sort list" id="cls-sortlist" />
+                        <selectoption text="Options" id="cls-options" />
+                    </select>
+                </layouttablecell>    
+            </layouttablerow>    
+            <layouttablerow>    
+                <layouttablecell>    
+                    <label text="Value" />
+                </layouttablecell>    
+                <layouttablecell>    
+                    <textinput name="address" id="value" />
+                </layouttablecell>    
+            </layouttablerow>    
+        </layouttable>    
+    </dialogbox>
+    
+</xml>    
