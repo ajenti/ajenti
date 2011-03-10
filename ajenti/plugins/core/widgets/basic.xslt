@@ -46,6 +46,12 @@
     </a>
 </xsl:template>
 
+<xsl:template match="warningtoolbutton">
+    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button ui-el-toolbutton">
+        <xsl:value-of select="@text" />
+    </a>
+</xsl:template>
+
 <xsl:template match="minibutton">
     <xsl:choose>
         <xsl:when test="@onclick = 'form'">

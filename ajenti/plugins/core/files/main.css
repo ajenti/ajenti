@@ -29,8 +29,6 @@
     background: -moz-linear-gradient(top,  #fff,  #eee);
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
     float: left;
-    position: relative;
-    z-index: 1;
     height: 100%;
     min-height: 550px;
 }

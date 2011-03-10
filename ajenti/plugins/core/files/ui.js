@@ -1,20 +1,19 @@
 function ui_center_el(e) {
     sw = window.innerWidth;
     sh = window.innerHeight;
-    e.clientLeft = (sw / 2 - e.clientWidth / 2) + 'px';
-    e.clientTop = (sh / 2 - e.clientHeight / 2) + 'px';
+    e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
+    e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
     if (sh < e.clientHeight)
-        e.clientTop = '0px';
+        e.clientTop = 0;
 }
 
 function ui_fullscreen(el) {
-    e = document.getElementById(el)
+    ui_show(el);
+    e = document.getElementById(el);
     sw = document.documentElement.scrollWidth;
     sh = document.documentElement.scrollHeight;
     e.style.width = sw + 'px';
     e.style.height = sh + 'px';
-    e.clientLeft = -e.parentElement.parentElement.offsetLeft;
-    e.clientTop = -e.parentElement.parentElement.offsetTop;
 }
 
 function ui_center(el) {
