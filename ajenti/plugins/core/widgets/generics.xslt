@@ -12,6 +12,10 @@
     <script>scheduleRefresh(<xsl:value-of select="@time"/>)</script>
 </xsl:template>
 
+<xsl:template match="headtitle">
+    <title><xsl:value-of select="@text"/></title>
+</xsl:template>
+
 <xsl:template match="completerefresh">
     <script>document.location.href="/";</script>
 </xsl:template>

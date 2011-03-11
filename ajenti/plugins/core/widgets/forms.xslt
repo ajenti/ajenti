@@ -54,6 +54,7 @@
         </div>
     </div>
     <script> 
+        ui_fullscreen('blackout');
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
     </script>
@@ -85,6 +86,7 @@
         </div>
     </div>
     <script> 
+        ui_fullscreen('blackout');
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
     </script>
@@ -117,6 +119,7 @@
         </div>
     </div>
     <script> 
+        ui_fullscreen('blackout');
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
     </script>

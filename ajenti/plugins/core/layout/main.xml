@@ -1,5 +1,6 @@
 <xml>
     <div>
+        <div id="blackout" class="ui-el-modal-blackout" style="display: none" />
         <pluginpanel id="panel">
             <div id="system-messages" class="ui-el-messages"/>
             <div id="main-content"/>

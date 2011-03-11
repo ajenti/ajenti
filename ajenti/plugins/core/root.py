@@ -1,4 +1,5 @@
 import re
+import platform
 
 from ajenti.ui import UI
 from ajenti.com import *
@@ -162,10 +163,11 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     )
                 )
 
-        templ.appendChildInto('leftplaceholder', v)
-        templ.appendChildInto('rightplaceholder', self.main_ui().elements())
-        templ.appendChildInto('version', UI.Label(text='Ajenti '+version, size=2))
-        templ.appendChildInto('links',
+        templ.append('_head', UI.HeadTitle(text='Ajenti @ %s'%platform.node()))
+        templ.append('leftplaceholder', v)
+        templ.append('rightplaceholder', self.main_ui().elements())
+        templ.append('version', UI.Label(text='Ajenti '+version, size=2))
+        templ.append('links',
             UI.HContainer(
                 UI.LinkLabel(text='About', id='about'),
                 UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')

@@ -1,0 +1,12 @@
+<xml>
+
+    <toolbar>
+        <toolbutton text="Apply" id="apply" /><warningtoolbutton text="Load current" msg="Dispose saved configuration and load current iptables status" /><toolbutton text="Autostart" id="autostart" />
+    </toolbar>
+    
+    <pad id="root">
+        <tabcontrol id="tabs" />
+    </pad>
+    
+</xml>    
+                        
