@@ -1,12 +1,11 @@
-from ajenti.ui import *
-from ajenti.com import implements
-from ajenti.api import *
+from ajenti.ui import UI
+from ajenti.api import event, helpers
 from ajenti.utils import shell
 
 import backend
 
 
-class CronPlugin(CategoryPlugin):
+class CronPlugin(helpers.CategoryPlugin):
     text = 'Cron'
     icon = '/dl/cron/icon.png'
     folder = 'system'
@@ -127,16 +126,11 @@ class CronPlugin(CategoryPlugin):
                 task = backend.Task()
             if self._show_dialog:
                 vbox.append(self.get_ui_edit(task))
-        if self._editing_other != -1:
-            try:
-                other = self._others[self._editing_other]
-            except IndexError:
-                other = ''
-            if self._show_dialog:
-                vbox.append(self.get_ui_edit_other(other))
+        if self._editing_other != -1 and self._show_dialog:
+            vbox.append(self.get_ui_edit_other())
         return vbox
 
-    def get_ui_edit_other(self, other):
+    def get_ui_edit_other(self):
         other_value = self._others[self._editing_other]\
             if self._editing_other < len(self._others) else ''
         vbox = UI.VContainer(UI.Label(text="Edit string", size=2),
