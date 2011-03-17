@@ -45,34 +45,24 @@ class UsersPlugin(CategoryPlugin):
         self._editing = ''
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(), title='User accounts', icon='/dl/users/icon.png')
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
         self.users = self.backend.get_all_users()
         self.groups = self.backend.get_all_groups()
         self.backend.map_groups(self.users, self.groups)
 
-        tc = UI.TabControl(active=self._tab)
-        tc.add('Users', self.get_ui_users())
-        tc.add('Groups', self.get_ui_groups())
+        ui = self.app.inflate('users:main')
+        ui.find('tabs').set('active', self._tab)
 
         if self._editing != '':
             if self._editing in self.params:
-                tc = UI.VContainer(tc, UI.InputBox(text=self.params[self._editing], id='dlgEdit'))
+                ui.find('dlgEdit').set('text', self.params[self._editing])
             else:
-                tc = UI.VContainer(tc, UI.InputBox(text=self.gparams[self._editing], id='dlgEdit'))
-        return tc
+                ui.find('dlgEdit').set('text', self.gparams[self._editing])
+        else:
+            ui.remove('dlgEdit')
 
-    def get_ui_users(self):
-        t = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='Login'),
-                UI.Label(text='UID'),
-                UI.Label(text='Home'),
-                UI.Label(text='Shell'),
-                UI.Label(), header=True
-               ))
+        # Users
+        t = ui.find('userlist') 
+        
         for u in self.users:
             t.append(UI.DataTableRow(
                     UI.DataTableCell(
@@ -88,18 +78,24 @@ class UsersPlugin(CategoryPlugin):
                     )
                 ))
 
-        t = UI.VContainer(t, UI.Button(text='Add user', id='adduser'))
         if self._selected_user != '':
-            t = UI.Container(t, self.get_ui_edit_user())
-        return t
+            u = self.backend.get_user(self._selected_user, self.users)
+            self.backend.map_groups([u], self.backend.get_all_groups())
 
-    def get_ui_groups(self):
-        t = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='Name'),
-                UI.Label(text='GID'),
-                UI.Label(text='Users'),
-                UI.Label(), header=True
-               ))
+            ui.find('lblulogin').set('text', 'Login: '+ u.login)
+            ui.find('deluser').set('msg', 'Delete user %s'%u.login)
+            ui.find('lbluuid').set('text', 'UID: '+ str(u.uid))
+            ui.find('lblugid').set('text', 'GID: '+ str(u.gid))
+            ui.find('lbluhome').set('text', 'Home: '+ u.home)
+            ui.find('lblushell').set('text', 'Shell: '+ u.shell)
+            ui.find('lblugroups').set('text', ', '.join(u.groups))
+        else:
+            ui.remove('dlgEditUser')
+            
+            
+        # Groups
+        t = ui.find('grouplist')
+
         for u in self.groups:
             t.append(UI.DataTableRow(
                     UI.DataTableCell(
@@ -114,99 +110,20 @@ class UsersPlugin(CategoryPlugin):
                     )
                 ))
 
-        t = UI.VContainer(t, UI.Button(text='Add group', id='addgrp'))
         if self._selected_group != '':
             t = UI.Container(t, self.get_ui_edit_group())
-        return t
+    
+            u = self.backend.get_group(self._selected_group, self.groups)
+            g = ', '.join(u.users)
 
-    def get_ui_edit_user(self):
-        u = self.backend.get_user(self._selected_user, self.users)
-        self.backend.map_groups([u], self.backend.get_all_groups())
+            ui.find('lblgname').set('text', 'Name: '+ u.name)
+            ui.find('delgroup').set('msg', 'Delete group %s'%u.name)
+            ui.find('lblggid').set('text', 'GID: '+ str(u.gid))
+            ui.find('lblgusers').set('text', g)
+        else:
+            ui.remove('dlgEditGroup')
 
-        dlg = UI.DialogBox(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Login: '+ u.login, bold=True),
-                        UI.Button(text='Change', id='chlogin')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.Button(text='Change password', id='chpassword')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.WarningButton(text='Delete user', id='deluser', msg='Delete user %s'%u.login)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='UID: '+ str(u.uid)),
-                        UI.Button(text='Change', id='chuid')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='GID: '+ str(u.gid)),
-                        UI.Button(text='Change', id='chgid')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Home directory: '+ u.home),
-                        UI.Button(text='Change', id='chhome')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Shell: '+ u.shell),
-                        UI.Button(text='Change', id='chshell')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Groups: '),
-                        UI.LayoutTableCell(
-                            UI.MiniButton(text='Add', id='chaddtogroup'),
-                            UI.MiniButton(text='Delete', id='chdelfromgroup')
-                        )      
-                    ),
-                    UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.Label(text=', '.join(u.groups)),
-                            colspan=2
-                        )
-                    )
-                ),
-                title='Edit user',
-                hidecancel=True,
-                id='dlgEditUser'
-              )
-        return dlg
-
-    def get_ui_edit_group(self):
-        u = self.backend.get_group(self._selected_group, self.groups)
-        g = ', '.join(u.users)
-
-        dlg = UI.DialogBox(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Name: ' + u.name, bold=True),
-                        UI.Button(text='Change', id='chgname')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.WarningButton(text='Delete group', id='delgroup', msg='Delete group %s'%u.name)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='GID: ' + str(u.gid)),
-                        UI.Button(text='Change', id='chggid')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Users: '),
-                        UI.Label()
-                    ),
-                    UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.Label(text=g),
-                            colspan=2
-                        )
-                    )
-                ),
-                title='Edit group',
-                hidecancel=True,
-                id='dlgEditGroup'
-              )
-        return dlg
+        return ui
 
     @event('minibutton/click')
     @event('button/click')

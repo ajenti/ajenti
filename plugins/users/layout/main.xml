@@ -1,0 +1,164 @@
+<xml>
+    <toolbar>
+        <toolbutton id="adduser" text="Add user"/><toolbutton id="addgrp" text="Add group"/>
+    </toolbar>
+    
+    <pad>
+    <tabcontrol id="tabs">
+        <tabheadernode id="tabs">
+            <tabheader pid="tabs" text="Users" id="0"/>
+            <tabheader pid="tabs" text="Groups" id="1"/>
+        </tabheadernode>
+
+        <container>
+            <tabbody pid="tabs" id="0">
+                <datatable id="userlist">
+                    <datatablerow header="True">
+                        <datatablecell>
+                            <label text="Login" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="UID" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="Home" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="Shell" />
+                        </datatablecell>
+                        <datatablecell />
+                    </datatablerow>
+                </datatable>
+            </tabbody>
+            
+            <tabbody pid="tabs" id="1">
+                <datatable id="grouplist">
+                    <datatablerow header="True">
+                        <datatablecell>
+                            <label text="Name" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="GID" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="Users" />
+                        </datatablecell>
+                        <datatablecell />
+                    </datatablerow>
+                </datatable>
+            </tabbody>
+        </container>
+    </tabcontrol>
+        
+        <dialogbox id="dlgEditUser" hidecancel="True">
+                    <layouttable>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label id="lblulogin" bold="True" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button text="Change" id="chlogin" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell />
+                            <layouttablecell>
+                                <button text="Change password" id="chpassword" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell />
+                            <layouttablecell>
+                                <warningbutton text="Delete user" id="deluser" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label id="lbluuid" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button text="Change" id="chuid" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label id="lblugid" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button text="Change" id="chgid" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label id="lbluhome" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button text="Change" id="chhome" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label id="lblushell" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button text="Change" id="chshell" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Groups:" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <minibutton text="Add" id="chaddtogroup" />
+                                <minibutton text="Remove" id="chdelfromgroup" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell colspan="2">
+                                <label id="lblugroups" />
+                            </layouttablecell>
+                        </layouttablerow>
+                    </layouttable>
+        </dialogbox>
+
+        <dialogbox id="dlgEditGroup">
+                    <layouttable>
+                        <layouttablerow>
+                            <layouttablecell>   
+                                <label id="lblgname" bold="True" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button id="" text="Change" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell />
+                            <layouttablecell>
+                                <warningbutton text="Delete group" id="delgroup" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>   
+                                <label id="lblggid" />
+                            </layouttablecell>
+                            <layouttablecell>
+                                <button id="chggid" text="Change" />
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Users:" />
+                            </layouttablecell>
+                            <layouttablecell />
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell colspan="2">
+                                <label id="lblgusers" />
+                            </layouttablecell>
+                        </layouttablerow>
+                  </layouttable>
+        </dialogbox>
+        
+        <inputbox id="dlgEdit" />
+    </pad>
+</xml>
