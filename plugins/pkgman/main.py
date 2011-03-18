@@ -277,7 +277,7 @@ class PackageManagerPlugin(CategoryPlugin):
 class PackageManagerProgress(Plugin):
     implements(IProgressBoxProvider)
     title = 'Packages'
-    icon = '/dl/pkgman/icon_small.png'
+    icon = '/dl/pkgman/icon.png'
     can_abort = True
     
     def __init__(self):

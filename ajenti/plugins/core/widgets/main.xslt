@@ -47,16 +47,15 @@
         
 <xsl:template match="topprogressbox">
         <div class="ui-progress-box">
-            <table width="100%"><tr>
-                <td width="20"><img class="ajax" src="/dl/core/ui/ajax-light.gif"/></td>
-                <td width="20"><img src="{@icon}"/></td>
-                <td><label text="{@title}" bold="True"/></td>
-                <td style="max-width: 280px; display: block; overflow: hidden"><label text="{@text}"/></td>
+                <img class="ajax" src="/dl/core/ui/ajax-light.gif"/>
+                <img src="{@icon}"/>
+                <label text="{@title}" bold="True"/>
+                <div class="ui-progress-box-text"><label text="{@text}"/></div>
                 <xsl:if test="@can_abort = 'True'">
-                    <td width="10"><warningminibutton text="Abort" id="aborttask" msg="Abort the background task for {@title}"/></td>
+                <div style="float:right; display: inline-block">
+                    <warningminibutton  text="Abort" id="aborttask" msg="Abort the background task for {@title}"/>
+                </div>
                 </xsl:if>
-            </tr></table>
-            <refresh time="3000"/>
         </div>
 </xsl:template>
         
