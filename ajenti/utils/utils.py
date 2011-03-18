@@ -55,18 +55,18 @@ def detect_distro():
 
 def download(url, file=None, crit=False):
     try:
-        ajenti.utils.logger.debug('Downloading %s' % url)
+        # ajenti.utils.logger.debug('Downloading %s' % url)
         if file:
             urllib.urlretrieve(url, file)
         else:
             return urllib.urlopen(url).read()
-    except:
-        ajenti.utils.logger.debug('Download failed')
+    except Exception, e:
+        # ajenti.utils.logger.debug('Download failed')
         if crit:
             raise
         
 def shell(c):
-    ajenti.utils.logger.debug('Running %s' % c)
+    #ajenti.utils.logger.debug('Running %s' % c)
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
@@ -80,17 +80,19 @@ def shell_bg(c, output=None, deleteout=False):
         c = 'LC_ALL=C bash -c "%s" > %s 2>&1'%(c,output)
         if deleteout:
             c = 'touch %s; %s; rm -f %s'%(output,c,output)
-    ajenti.utils.logger.debug('Running in background: %s' % c)
+    #ajenti.utils.logger.debug('Running in background: %s' % c)
     subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
     
 def shell_status(c):
-    ajenti.utils.logger.debug('Running %s' % c)
-    return subprocess.Popen('LC_ALL=C '+c, shell=True).wait()
+    #ajenti.utils.logger.debug('Running %s' % c)
+    return subprocess.Popen('LC_ALL=C '+c, shell=True,
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE).wait()
 
 def shell_stdin(c, input):
-    ajenti.utils.logger.debug('Running %s' % c)
+    #ajenti.utils.logger.debug('Running %s' % c)
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE,
