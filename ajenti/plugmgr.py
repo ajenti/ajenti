@@ -6,7 +6,7 @@ import traceback
 from ajenti.com import *
 from ajenti.utils import detect_platform, shell, shell_status, download
 from ajenti.feedback import *
-
+from ajenti import generation
 
 RETRY_LIMIT = 10
 loaded_plugins = []
@@ -88,7 +88,7 @@ class PluginManager:
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
         send_stats(self.server)
-        data = download('http://%s/plugins.php' % self.server)
+        data = download('http://%s/plugins.php?gen=%s' % (self.server,generation))
         try:
             open('/var/lib/ajenti/plugins.list', 'w').write(data)
         except:

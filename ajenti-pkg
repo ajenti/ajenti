@@ -37,6 +37,14 @@ def main():
             print 'Downloading', pkg
             mgr.install(pkg)
         print 'Done'
+    if sys.argv[1] == 'upgrade':
+        print 'Upgrading Ajenti plugins'
+        for pkg in mgr.available:
+            for p in mgr.installed:
+                if pkg.id == p.id and pkg.version != p.version:
+                    print 'Downloading', pkg.id
+                    mgr.install(pkg.id)
+        print 'Done'
         
 def print_one(i):
     st = 'i ' if i.installed else ' .'

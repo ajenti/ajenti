@@ -12,7 +12,7 @@ setup(
     url='http://ajenti.org/',
     packages = find_packages(),
     package_data={'': ['files/*.*', 'files/*/*.*', 'files/*/*/*.*', 'templates/*.*', 'widgets/*.*', 'layout/*.*']},
-    scripts=['ajenti-panel'],
+    scripts=['ajenti-panel', 'ajenti-pkg'],
     data_files=[
         ('/etc/ajenti', ['packaging/files/ajenti.conf']),
         ('/etc/init.d', ['packaging/files/ajenti']),

@@ -1,6 +1,6 @@
 <xml>
     <toolbar>
-        <toolbutton text="Restart Ajenti" id="restart" />
+        <toolbutton text="Update plugin list" id="update" /><toolbutton text="Restart Ajenti" id="restart" />
     </toolbar>
     <pad>
         <label size="2" text="Plugin list" />
