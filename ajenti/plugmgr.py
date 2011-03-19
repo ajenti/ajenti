@@ -47,11 +47,11 @@ class PluginManager:
 
     def update_available(self):
         try:
-            data = open('/var/lib/ajenti/plugins.list').read()
+            data = eval(open('/var/lib/ajenti/plugins.list').read())
         except:
             return
         self.available = []
-        for item in eval(data):
+        for item in data:
             inst = False
             for i in self.installed:
                 if i.id == item['id'] and i.version == item['version']:
@@ -108,7 +108,7 @@ class PluginManager:
         dir = self.config.get('ajenti', 'plugins')
         self.remove(id)
                 
-        download('http://%s/plugins/%s/plugin.tar.gz' % (self.server, id), 
+        download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id), 
             file='%s/plugin.tar.gz'%dir, crit=True)
         self.install_tar()            
     
@@ -120,7 +120,7 @@ class PluginManager:
     def install_tar(self):        
         dir = self.config.get('ajenti', 'plugins')
             
-        id = shell('tar tf %s/plugin.tar.gz'%dir).split('\n')[0].strip('/')
+        id = shell('tar tzf %s/plugin.tar.gz'%dir).split('\n')[0].strip('/')
             
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)

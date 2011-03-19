@@ -19,21 +19,21 @@ class FirstRun(CategoryPlugin, URLHandler):
         ui.append('content', step)
         
         if self._step == 2:
-            self._mgr = ajenti.plugmgr.PluginInstaller(self.app)        
+            self._mgr = ajenti.plugmgr.PluginManager(self.app.config)        
             self._mgr.update_list()
             
             lst = self._mgr.available
             
             for k in lst:
                 row = self.app.inflate('firstrun:item')
-                row.find('name').set('text', k['name'])
-                row.find('desc').set('text', k['description'])
-                row.find('icon').set('file', k['icon'])
-                row.find('version').set('text', k['version'])
-                row.find('author').set('text', k['author'])
-                row.find('author').set('url', k['homepage'])
+                row.find('name').set('text', k.name)
+                row.find('desc').set('text', k.description)
+                row.find('icon').set('file', k.icon)
+                row.find('version').set('text', k.version)
+                row.find('author').set('text', k.author)
+                row.find('author').set('url', k.homepage)
                     
-                reqd = ajenti.plugmgr.get_deps(self.app.platform, k['deps'])
+                reqd = ajenti.plugmgr.get_deps(self.app.platform, k.deps)
 
                 req = 'Requires: '
                   
@@ -47,7 +47,7 @@ class FirstRun(CategoryPlugin, URLHandler):
                         req += 'plugin %s; '%r[1]
                     ready = False    
                 
-                row.find('check').set('name', 'install-'+k['id'])
+                row.find('check').set('name', 'install-'+k.id)
                 if not ready:
                     row.append('reqs', UI.HelpIcon(text=req))
 
@@ -74,9 +74,8 @@ class FirstRun(CategoryPlugin, URLHandler):
             lst = self._mgr.available
             
             for k in lst:
-                if vars.getvalue('install-'+k['id'], '0') == '1':
-                    print 'installing', k['id']            
-                    self._mgr.install(k['id'])
+                if vars.getvalue('install-'+k.id, '0') == '1':
+                    self._mgr.install(k.id)
             
             self.config.set('ajenti', 'firstrun', 'no')
             self.config.save()

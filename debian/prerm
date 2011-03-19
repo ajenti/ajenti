@@ -1,5 +1,5 @@
 #!/bin/sh
-/etc/init.d/ajenti start
+/etc/init.d/ajenti stop
 update-rc.d -f ajenti remove > /dev/null
 #DEBHELPER#
 
