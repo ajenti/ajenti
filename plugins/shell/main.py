@@ -73,7 +73,7 @@ class ShellPlugin(CategoryPlugin):
 class ShellProgress(Plugin):
     implements(IProgressBoxProvider)
     title = 'Shell'
-    icon = '/dl/shell/icon_small.png'
+    icon = '/dl/shell/icon.png'
     can_abort = True
     
     def __init__(self):

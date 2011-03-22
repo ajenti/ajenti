@@ -23,5 +23,27 @@ class PlaygroundPlugin(CategoryPlugin):
             self.put_message('warn', 'Warning')
         if params[0] == 'msgErr':
             self.put_message('err', 'Error')
+        if params[0] == 'progress':
+            PlaygroundProgress(self.app).start()
             
             
+class PlaygroundProgress(SessionPlugin):
+    implements(IProgressBoxProvider)
+    title = 'Playground'
+    icon = '/dl/playground/icon.png'
+    can_abort = True
+    
+    def on_session_start(self):
+        self._w = False
+        
+    def start(self): self._w = True
+
+    def has_progress(self):  
+        return self._w
+        
+    def get_progress(self):
+        return 'Working'
+    
+    def abort(self):
+        self._w = False
+                            

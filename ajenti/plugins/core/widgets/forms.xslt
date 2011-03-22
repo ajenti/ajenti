@@ -2,7 +2,7 @@
         <div id="{@id}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; overflow: hidden">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
             <xsl:apply-templates />
-            <div class="ui-el-modal-buttons">
+            <div>
                                 <xsl:choose>
                                     <xsl:when test="@hideok = 'True'" />
                                     <xsl:otherwise>

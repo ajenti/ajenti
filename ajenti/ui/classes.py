@@ -25,6 +25,11 @@ class Element(etree.ElementBase):
             self._children.append(el)
             etree.ElementBase.append(self, el)
         return self
+
+    def append_all(self, *els):
+        for el in els:
+            self.append(el)
+        return self
         
     def __setitem__(self, idx, val):
         self.set(idx, val)

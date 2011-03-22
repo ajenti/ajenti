@@ -20,19 +20,9 @@ class HostsPlugin(CategoryPlugin):
         self._editing_self = False
         
     def get_ui(self):
-        panel = UI.PluginPanel(
-                    UI.Label(text='The static lookup table for hostnames'), 
-                    title='Hosts', 
-                    icon='/dl/hosts/icon.png'
-                )
-
-        t = UI.DataTable(UI.DataTableRow(
-            UI.Label(text='IP address'),
-            UI.Label(text='Hostname'),
-            UI.Label(text='Aliases'),
-            UI.Label(),
-            header = True
-        ))
+        ui = self.app.inflate('hosts:main')
+        t = ui.find('list')
+        
         for h in self.hosts:
             t.append(UI.DataTableRow(
                 UI.Label(text=h.ip),
@@ -53,48 +43,24 @@ class HostsPlugin(CategoryPlugin):
                     hidden=True
                 )
             ))
-        t = UI.VContainer(
-                t, 
-                UI.HContainer(
-                    UI.Button(text='Add host', id='add'),
-                    UI.Button(text='Change hostname', id='hostname')
-                )
-            )
-
+            
         if self._editing is not None:
             try:
                 h = self.hosts[self._editing]
             except:
                 h = backend.Host()
-            t.append(self.get_ui_edit(h))
-
+            ui.find('ip').set('value', h.ip)
+            ui.find('name').set('value', h.name)
+            ui.find('aliases').set('value', h.aliases)
+        else:
+            ui.remove('dlgEdit')
+            
         if self._editing_self:
-            t.append(UI.InputBox(text='Hostname:', value=self.hostname, id='dlgSelf'))
+            ui.find('dlgSelf').set('value', self.hostname)
+        else:
+            ui.remove('dlgSelf')
 
-        panel.append(t)
-        return panel
-
-    def get_ui_edit(self, h):
-        dlg = UI.DialogBox(
-            UI.VContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='IP address:'), 
-                        UI.TextInput(name='ip', value=h.ip)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Hostname:'), 
-                        UI.TextInput(name='name', value=h.name)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Aliases:'), 
-                        UI.TextInput(name='aliases', value=h.aliases)
-                    )
-            )),
-            id = 'dlgEdit'
-        )
-
-        return dlg
+        return ui
 
     @event('minibutton/click')
     @event('button/click')

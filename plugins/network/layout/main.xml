@@ -1,0 +1,21 @@
+<xml>
+    <pad id="main">
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="Interface" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Class" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Address" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Status" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+</xml>

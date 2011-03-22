@@ -9,8 +9,8 @@
                 <list id="favs" width="200" />
                 <list id="files" width="200" height="400" />
             </vcontainer>
-            <formbox width="530" height="100%" id="frmEdit" hideok="True" hidecancel="True">
-                <textinputarea id="data" width="530" height="400" name="text" value="" />
+            <formbox height="100%" id="frmEdit" hideok="True" hidecancel="True">
+                <textinputarea id="data" width="540" height="400" name="text" value="" />
             </formbox>
         </hcontainer>
     </pad>
