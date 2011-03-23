@@ -22,33 +22,23 @@ class CronPlugin(helpers.CategoryPlugin):
         self._error = ''
         self._tasks = []
         self._others = []
-        #self._tab = 0
+        self._tab = 0
         self._show_dialog = 0
         self._newtask = False
         #self._user = ''
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text='%s tasks for %s' %
-                                        (len(self._tasks), self._user)),
-                               title='Crontab',
-                               icon='/dl/cron/icon.png')
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
+        ui = self.app.inflate('cron:main')
+        ui.find('tabs').set('active', self._tab)
         user_sel = [UI.SelectOption(text = x, value = x,
                     selected = True if x == self._user else False)
                     for x in backend.get_all_users()]
-        topbox = UI.FormBox(UI.HContainer(UI.Label(text='User: '),
-                            UI.Select(*user_sel, name='users'),
-                            UI.MiniButton(text='Select',onclick='form', action='OK', form='frmUsers')
-                            ), hideok=True, hidecancel=True, id='frmUsers')
-        tabbar = UI.TabControl()
-        table_other = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='String'),
-                UI.Label(text=''),
-                header=True,
-               ))
+        ui.appendAll("users_select", *user_sel)
+        self.put_message('info',
+                         '{0} tasks for {1}'.format(len(self._tasks), self._user))
+        table_other = ui.find("table_other")
+        table_task = ui.find("table_task")
+        #Fill non-task strings table
         for i, oth_str in enumerate(self._others):
             table_other.append(UI.DataTableRow(
                     UI.Label(text=oth_str),
@@ -61,17 +51,7 @@ class CronPlugin(helpers.CategoryPlugin):
                         ),
                         hidden=True)
                     ))
-        table_task = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='Minutes'),
-                UI.Label(text='Hours'),
-                UI.Label(text='Days'),
-                UI.Label(text='Months'),
-                UI.Label(text='DoW'),
-                UI.Label(text='Command'),
-                UI.Label(text=''),
-                header=True,
-               ))
-               
+        #Fill tasks table
         for i, t in enumerate(self._tasks):
             if t.special:
                 table_task.append(UI.DataTableRow(
@@ -104,18 +84,34 @@ class CronPlugin(helpers.CategoryPlugin):
                         ),
                         hidden=True)
                     ))
-                    
+
         part = self._error.partition(':')[2]
         self._error = 'Error:' + part if part else self._error
         if self._error:
             self.put_message('err', self._error)
 
-        vbox_task = UI.VContainer(
-                        table_task,
-                        UI.Button(text='Add task', id='add_task'))
-        vbox_oth = UI.VContainer(
-                        table_other,
-                        UI.Button(text='Add non-task string', id='add_oth'))
+        if self._editing_task != -1:
+            try:
+                task = self._tasks[self._editing_task]
+            except IndexError:
+                task = backend.Task()
+            if self._show_dialog:
+                ui.append(self.get_ui_edit(task))
+        if self._editing_other != -1 and self._show_dialog:
+            ui.append(self.get_ui_edit_other())
+        if self._editing_task != -1:
+            try:
+                task = self._tasks[self._editing_task]
+            except IndexError:
+                task = backend.Task()
+            if self._show_dialog:
+                ui.append(self.get_ui_edit(task))
+        if self._editing_other != -1 and self._show_dialog:
+            ui.append(self.get_ui_edit_other())
+        return ui
+
+    def get_default_ui(self):
+       
         tabbar.add("Tasks", vbox_task)
         tabbar.add("Non-task strings", vbox_oth)
         vbox = UI.VContainer(topbox, tabbar)
@@ -371,9 +367,11 @@ class CronPlugin(helpers.CategoryPlugin):
     def on_submit_form(self, event, params, vars=None):
         if params[0] == 'frmUsers' and\
                 vars.getvalue('action') == 'OK':
-            self._user = vars.getvalue('users') or 'root'
+            print vars
+            self._user = vars.getvalue('users_select') or 'root'
             backend.fix_crontab(self._user)
             self._tasks, self._others = backend.read_crontab(self._user)
+            print self._user
         if params[0] == 'frmAdvanced' and\
                 vars.getvalue('action') == 'OK':
             task_str = ' '.join((
