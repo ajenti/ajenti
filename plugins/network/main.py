@@ -17,22 +17,9 @@ class NetworkPlugin(CategoryPlugin):
         self._info = None
         
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=""), title='Networking', icon='/dl/network/icon.png')
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
-        ti = UI.DataTable()
-        hr = UI.DataTableRow(
-                UI.DataTableCell(UI.Label(text='Interface'), width="100px"),
-                UI.DataTableCell(UI.Label(text='Class'), width="100px"),
-                UI.DataTableCell(UI.Label(text='Address'), width="100px"),
-                UI.DataTableCell(UI.Label(text='Status'), width="100px"),
-                UI.DataTableCell(UI.Label(text='')),
-                header=True
-             )
-        ti.append(hr)
-
+        ui = self.app.inflate('network:main')
+        ti = ui.find('list')
+        
         for x in self.net_config.interfaces:
             i = self.net_config.interfaces[x]
             ti.append(UI.DataTableRow(
@@ -53,7 +40,7 @@ class NetworkPlugin(CategoryPlugin):
                             )
                            ))
 
-        c = UI.VContainer(ti)
+        c = ui.find('main')
 
         if self._info is not None:
             c.append(

@@ -13,9 +13,9 @@ class PowerPlugin(CategoryPlugin):
     folder = 'hardware'
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=('Uptime: ' + get_uptime())), title='Power Management', icon='/dl/power/icon.png')
-
-        els = UI.VContainer()
+        ui = self.app.inflate('power:main')
+        
+        els = ui.find('list')
         for ac in get_ac_adapters():
             img = 'present' if ac.present else 'none'
             st = 'Active' if ac.present else 'Offline'
@@ -44,16 +44,7 @@ class PowerPlugin(CategoryPlugin):
                           )
                       )))
 
-        c = UI.VContainer(
-                UI.HContainer(
-                    UI.WarningButton(text='Shutdown', id='shutdown', msg='Shutdown machine'),
-                    UI.WarningButton(text='Reboot', id='reboot', msg='Reboot machine')
-                ),
-                els,
-                spacing=20
-            )
-        panel.append(c)
-        return panel
+        return ui
 
 
     @event('button/click')

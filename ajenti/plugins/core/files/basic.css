@@ -157,14 +157,15 @@
 }
 
 .ui-el-radio {
-    margin: 2px 3px 0px 0px;
+    margin: 2px 3px 0px 3px;
 }
 
 .ui-el-checkbox {
-    margin: 2px 3px 0px 0px;
+    margin: 2px 3px 0px 3px;
 }
 
 select {
+    margin: 0 3px;
     height: 20px;
     font-size: 10px;
 }
@@ -180,7 +181,7 @@ select {
     background: #ffffff;
     margin: 0 3px;
     font-family: Courier New, monospace;
-    border: 1px solid #888888;
+    border: 1px solid #aaa;
 }
 
 

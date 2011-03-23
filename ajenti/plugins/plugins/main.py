@@ -14,15 +14,15 @@ class PluginManager(CategoryPlugin, URLHandler):
 
     def on_session_start(self):
         self._tab = 0
-        self._mgr = ajenti.plugmgr.PluginInstaller(self.app)
+        self._mgr = ajenti.plugmgr.PluginManager(self.app.config)
         self._changes = False
         
     def get_ui(self):
         ui = self.app.inflate('plugins:main')
         
-        lst = self._mgr.list_plugins()
+        inst = self._mgr.installed
 
-        for k in lst:
+        for k in inst:
             row = self.app.inflate('plugins:item')
             desc = '<span class="ui-el-label-1" style="padding-left: 5px;">%s</span>'%k.desc
             row.find('name').set('text', k.name)
@@ -46,34 +46,26 @@ class PluginManager(CategoryPlugin, URLHandler):
             
                 
         lst = self._mgr.available
-        inst = self._mgr.list_plugins()
         
         btn = UI.Button(text='Check for updates', id='update')
         if len(lst) == 0:
             btn['text'] = 'Download plugin list'
             
         for k in lst:
-            same = False
-            for p in inst: 
-                if k['id'] == p.id and (k['version'] == p.version or p.problem): 
-                    same = True
-            if same:
-                continue
-            
             row = self.app.inflate('plugins:item')
-            row.find('name').set('text', k['name'])
-            row.find('desc').set('text', k['description'])
-            row.find('icon').set('file', k['icon'])
-            row.find('version').set('text', k['version'])
-            row.find('author').set('text', k['author'])
-            row.find('author').set('url', k['homepage'])
+            row.find('name').set('text', k.name)
+            row.find('desc').set('text', k.description)
+            row.find('icon').set('file', k.icon)
+            row.find('version').set('text', k.version)
+            row.find('author').set('text', k.author)
+            row.find('author').set('url', k.homepage)
                     
             row.find('status').set('file', '/dl/plugins/none.png')
             for p in inst: 
-                if k['id'] == p.id:
+                if k.id == p.id and not p.problem:
                     row.find('status').set('file', '/dl/plugins/upgrade.png')
 
-            reqd = ajenti.plugmgr.get_deps(self.app.platform, k['deps'])
+            reqd = ajenti.plugmgr.get_deps(self.app.platform, k.deps)
 
             req = 'Requires: '
                   
@@ -89,14 +81,14 @@ class PluginManager(CategoryPlugin, URLHandler):
                     
             url = 'http://%s/view/plugins.php?id=%s' % (
                     self.app.config.get('ajenti', 'update_server'),
-                    k['id']
+                    k.id
                    )
 
             if ready:
                 row.append('buttons', UI.WarningMiniButton(
                         text='Install', 
-                        id='install/'+k['id'],
-                        msg='Download and install plugin "%s"'%k['name']
+                        id='install/'+k.id,
+                        msg='Download and install plugin "%s"'%k.name
                     ))
             else:
                 row.append('reqs', UI.HelpIcon(text=req))
@@ -116,7 +108,7 @@ class PluginManager(CategoryPlugin, URLHandler):
         vars = get_environment_vars(req)
         f = vars.getvalue('file', None)
         try:
-            self._mgr.install_file(f)
+            self._mgr.install_stream(f)
         except:
             pass
         sr('301 Moved Permanently', [('Location', '/')])

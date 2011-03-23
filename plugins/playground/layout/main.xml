@@ -1,7 +1,10 @@
 <xml>
+<pad>
     <hcontainer>
         <button id="msgInfo" text="Info" />
         <button id="msgWarn" text="Warning" />
         <button id="msgErr" text="Error" />
+        <button id="progress" text="Start working" />
     </hcontainer>
+</pad>    
 </xml>

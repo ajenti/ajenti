@@ -1,7 +1,7 @@
 import os
 
 from ajenti.utils import *
-
+from ajenti.api import *
 
 class SquidConfig(Plugin):
     misc = []

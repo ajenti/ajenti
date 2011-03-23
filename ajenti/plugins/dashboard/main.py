@@ -31,6 +31,9 @@ class Dashboard(CategoryPlugin):
         ri = []
         for wgt in self.app.grab_plugins(IDashboardWidget):
             (li if wgt.plugin_id in self._left else ri).append(wgt)
+            if wgt in ri and not wgt.plugin_id in self._right:
+                self._right.append(wgt.plugin_id)
+                
         li = sorted(li, key=lambda x: self._left.index(x.plugin_id))
         ri = sorted(ri, key=lambda x: self._right.index(x.plugin_id))
 

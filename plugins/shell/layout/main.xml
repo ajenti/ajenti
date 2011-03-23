@@ -1,6 +1,6 @@
 <xml>
     <pad>
-        <vcontainer>
+        <vcontainer spacing="10">
             <hcontainer spacing="10">
                 <label text="Command: " />
                 <formbox id="frmRun" hideok="True" hidecancel="True">

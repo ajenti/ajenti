@@ -1,13 +1,8 @@
 <xsl:template match="textinput">
-    <table><tr><td>
         <input class="ui-el-input" name="{@name}" value="{@value}" id="{@id}" size="{@size}" onkeypress="return noenter()"/>
-        </td>
-        <td>
             <xsl:if test="@help and (@help != '')">
                 <helpicon text="{@help}"/>
             </xsl:if>
-        </td></tr>
-    </table>
 </xsl:template>
 
 <xsl:template match="checkbox">

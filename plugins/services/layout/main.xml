@@ -1,0 +1,13 @@
+<xml>
+    <pad>
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell width="20" />
+                <datatablecell>
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+</xml>

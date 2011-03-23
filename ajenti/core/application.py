@@ -174,6 +174,8 @@ class Application (PluginManager, Plugin):
         return Layout(f)
     
     def stop(self):
+        if os.path.exists('/var/run/ajenti.pid'):
+            os.unlink('/var/run/ajenti.pid')
         self.config.get('server').stop()
         
     def restart(self):
