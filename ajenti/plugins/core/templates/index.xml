@@ -33,8 +33,10 @@
 	</div>
 		
     <div class="ui-el-mainwindow-bottom">
-        <div class="ui-el-bottombar-l" id="version" /> 
-        <div class="ui-el-bottombar-r" id="links" /> 
+        <div class="wr">
+            <div class="ui-el-bottombar-l" id="version" /> 
+            <div class="ui-el-bottombar-r" id="links" /> 
+        </div>
     </div>
         
         

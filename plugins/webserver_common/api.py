@@ -25,8 +25,6 @@ class Webserver(API):
         
         ws_service = 'none'
         ws_title = 'none'
-        ws_icon = 'none'
-        ws_name = 'none'
         ws_backend = None
         ws_mods = False
         ws_vhosts = True
@@ -47,22 +45,12 @@ class Webserver(API):
             return self.app.get_config(self._backend)
             
         def get_main_ui(self):
-            panel = UI.ServicePluginPanel(
-                title=self.ws_title, 
-                icon=self.ws_icon, 
-                status=self.service_status, 
-                servicename=self.service_name
-            )
-            panel.append(self.get_default_ui())
-            return panel
-
-        def get_default_ui(self):
             tc = UI.TabControl(active=self._tab)
             if self.ws_vhosts:
                 tc.add('Hosts', self.get_ui_hosts())
             if self.ws_mods:
                 tc.add('Modules', self.get_ui_mods())
-            return tc
+            return UI.Pad(tc)
             
         def get_ui_hosts(self):
             tbl = UI.DataTable(

@@ -7,12 +7,9 @@ from main import *
 
 class PowerWidget(Plugin):
     implements(IDashboardWidget)
-    title = 'Uptime'
+    title = 'Power'
     
     def get_ui(self):
-        w = UI.HContainer(
-                    UI.Image(file='/dl/power/widget.png'),
-                    UI.Label(text='System uptime:', bold=True),
-                    UI.Label(text=get_uptime())
-            )
-        return w
+        ui = self.app.inflate('power:widget')
+        ui.find('value').set('text', get_uptime())
+        return ui

@@ -90,6 +90,9 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         cat.on_init()
 
     def get_ui_about(self):
+        ui = self.app.inflate('core:about')
+        ui.find('ver').set('text', version)
+        return ui
         ui = UI.Centerer(
                 UI.VContainer(
                     UI.Image(file='/dl/core/ui/logo_big.png'),
@@ -202,8 +205,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             for p in self.app.grab_plugins(IProgressBoxProvider):
                 if p.has_progress():
                     p.abort()
-        if params[0] == 'closeabout':
-            self._about_visible = False
         if params[0] == 'mod_config':
             self._module_config = self._cat_selected
 
@@ -215,6 +216,8 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                 cfg.apply_vars(vars)
                 cfg.save()            
             self._module_config = None
+        if params[0] == 'dlgAbout':
+            self._about_visible = False
             
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):

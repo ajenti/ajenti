@@ -22,6 +22,8 @@ class Element(etree.ElementBase):
     
     def append(self, el):
         if el is not None:
+            if hasattr(el, 'elements'):
+                el = el.elements()
             self._children.append(el)
             etree.ElementBase.append(self, el)
         return self

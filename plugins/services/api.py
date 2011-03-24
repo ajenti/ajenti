@@ -56,7 +56,11 @@ class Services(API):
             self.service_status = st
             self.service_expected_status = None
             
-            return self.get_main_ui()
+            panel = UI.ServicePluginPanel(
+                status=self.service_status, 
+                servicename=self.service_name
+            )
+            return UI.Container(panel, self.get_main_ui())
 
         @event('servicecontrol/click')
         def on_service_control(self, event, params, vars=None):

@@ -49,6 +49,12 @@
     -webkit-border-radius: 0px;
 }
 
+.ui-el-toolbar-separator {
+    border-right: 1px solid #ccc;
+    display: inline-block;
+    width: 1px;
+    height: 28px;
+}
 
 
 
@@ -131,14 +137,14 @@
 .ui-el-link {
     color: #888;
     font-size: 12px;
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px dotted #888;
     margin-left: 3px;
     margin-right: 3px;
 }
 
 .ui-el-link:hover {
-    color: #444;
-    border-bottom: 1px dashed #888;
+    color: #aaa;
+    border-bottom: 1px dotted #aaa;
 }
 
 

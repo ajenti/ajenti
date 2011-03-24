@@ -1,51 +1,23 @@
 <xsl:template match="servicepluginpanel">
-    <div class="ui-el-pluginpanel">
-        <div class="ui-el-pluginpanel-head">
-            <hcontainer spacing="0">
-                <image file="{@icon}"/>
-                <vcontainer spacing="0">
-                    <label text="{@title}" size="5" />
-                    <div style="padding-left: 3px;">
-                        <label text="Service: {@servicename}"/>
-                    </div>
-                </vcontainer>
-            </hcontainer>
-        </div>
+    <toolbar>
+        <div class="ui-el-servicepluginpanel">
         <xsl:choose>
             <xsl:when test="@status = 'running'">
-                <div class="ui-el-servicepluginpanel-controls">
-                    <hcontainer>
-                        <img src="/dl/core/ui/stock/status-running.png" style="padding-top: 2px;"/>
-                        <label text="Running"/>
-                        <spacer width="10"/>
-                        <minibutton class="servicecontrol" text="Restart" id="restart" />
-                        <minibutton class="servicecontrol" text="Stop" id="stop"/>
-                    </hcontainer>
-                </div>
+                <img src="/dl/core/ui/stock/status-running.png" style="padding-top: 2px;"/>
+                <label text="{@servicename}"/>
+                <toolseparator /><toolbutton class="servicecontrol" text="Restart" id="restart" /><toolbutton class="servicecontrol" text="Stop" id="stop"/>
             </xsl:when>
             <xsl:when test="@status = 'stopped'">
-                <div class="ui-el-servicepluginpanel-controls">
-                    <hcontainer>
-                        <img src="/dl/core/ui/stock/status-stopped.png" style="padding-top: 2px;"/>
-                        <label text="Stopped"/>
-                        <spacer width="10"/>
-                        <minibutton class="servicecontrol" text="Start" id="start"/>
-                    </hcontainer>
-                </div>
+                <img src="/dl/core/ui/stock/status-stopped.png" style="padding-top: 2px;"/>
+                <label text="{@servicename}"/>
+                <toolseparator /><toolbutton class="servicecontrol" text="Start" id="start"/>
             </xsl:when>
             <xsl:when test="@status = 'failed'">
-                <div class="ui-el-servicepluginpanel-controls">
-                    <hcontainer>
-                        <img src="/dl/core/ui/stock/status-failed.png" style="padding-top: 2px;"/>
-                        <label text="Failed"/>
-                        <spacer width="10"/>
-                        <minibutton class="servicecontrol" text="Restart" id="restart"/>
-                    </hcontainer>
-                </div>
+                <img src="/dl/core/ui/stock/status-failed.png" style="padding-top: 2px;"/>
+                <label text="{@servicename}"/>
+                <toolseparator /><toolbutton class="servicecontrol" text="Restart" id="restart"/>
             </xsl:when>
         </xsl:choose>
-        <div class="ui-el-pluginpanel-content">
-            <xsl:apply-templates />
         </div>
-    </div>
+    </toolbar>
 </xsl:template>

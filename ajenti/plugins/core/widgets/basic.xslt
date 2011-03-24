@@ -40,6 +40,8 @@
     </xsl:choose>
 </xsl:template>
 
+<xsl:template match="toolseparator"><a class="ui-el-toolbar-separator"></a></xsl:template>
+
 <xsl:template match="warningbutton">
     <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button">
         <xsl:value-of select="@text" />

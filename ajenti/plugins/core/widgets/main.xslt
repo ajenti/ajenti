@@ -56,6 +56,7 @@
                     <warningminibutton  text="Abort" id="aborttask" msg="Abort the background task for {@title}"/>
                 </div>
                 </xsl:if>
+                <refresh time="3000" />
         </div>
 </xsl:template>
         

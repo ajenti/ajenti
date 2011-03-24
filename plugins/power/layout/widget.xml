@@ -1,0 +1,5 @@
+<xml>
+    <image file="/dl/power/widget.png" />
+    <label text="System uptime" bold="True" />
+    <label id="value" />
+</xml>

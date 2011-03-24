@@ -93,6 +93,17 @@
     border-top: 1px solid #181818;
 }
 
+.ui-el-mainwindow-bottom .wr {
+    width: 960px;
+    margin: auto;
+}
+
+.ui-el-mainwindow-bottom #version * {
+    padding: 0 !important;
+    text-shadow: none;
+}
+
+
 .ui-el-logo {
     padding: 1px 7px 0px 0px;
     display: block;
