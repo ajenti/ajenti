@@ -1,0 +1,241 @@
+<xml>
+    <toolbar>
+        <toolbutton id="add_task" text="Add task" /><toolbutton id="add_oth" text="Add non-task string" />
+    </toolbar>
+
+    <pad>
+        <formbox id="frmUsers" hideok="True" hidecancel="True">
+            <label text="User: " />
+                    
+            <select id="users_select" name="users_select" />
+            <button text="Select" action="OK" form='frmUsers' onclick='form'/>
+         </formbox>
+
+        <tabcontrol id="tabs">
+            <tabheadernode id="tabs">
+                <tabheader pid="tabs" text="Tasks" id="0"/>
+                <tabheader pid="tabs" text="Non-task string" id="1"/>
+            </tabheadernode>
+            <container>
+                <tabbody pid="tabs" id="0">
+                    <datatable id="table_task">
+                        <datatablerow header="True">
+                            <datatablecell>
+                                <label text="Minutes" />
+                            </datatablecell>
+                            <datatablecell>
+                                <label text="Hours" />
+                            </datatablecell>
+                            <datatablecell>
+                                <label text="Days" />
+                            </datatablecell>
+                            <datatablecell>
+                                <label text="Months" />
+                            </datatablecell>
+                            <datatablecell>
+                                <label text="DoW" />
+                            </datatablecell>
+                            <datatablecell>
+                                <label text="Command" />
+                            </datatablecell>
+                            <datatablecell />
+                        </datatablerow>
+                    </datatable>
+                </tabbody>
+
+                <tabbody pid="tabs" id="1">
+                    <datatable id="table_other">
+                        <datatablerow header="True">
+                            <datatablecell>
+                                <label text="String" />
+                            </datatablecell>
+
+                            <datatablecell />
+                        </datatablerow>
+                    </datatable>
+                </tabbody>
+            </container>
+        </tabcontrol>
+
+        <dialogbox id="dlgEditTask" hideok="True" hidecancel="True" title='Edit task'>
+            <tabcontrol id="tabsEdit">
+                <tabheadernode id="tabsEdit">
+                    <tabheader pid="tabsEdit" text="Regular" id="11"/>
+                    <tabheader pid="tabsEdit" text="Advanced" id="12"/>
+                    <tabheader pid="tabsEdit" text="Special" id="13"/>
+                </tabheadernode>
+                <container>
+                    <tabbody pid="tabsEdit" id="11">
+                        <tabcontrol id="tabsRegular">
+                            <tabheadernode id="tabs">
+                                <tabheader pid="tabsRegular" text="Minutely" id="15"/>
+                                <tabheader pid="tabsRegular" text="Hourly" id="16"/>
+                                <tabheader pid="tabsRegular" text="Daily" id="17"/>
+                                <tabheader pid="tabsRegular" text="Weekly" id="18"/>
+                                <tabheader pid="tabsRegular" text="Monthly" id="19"/>
+                            </tabheadernode>
+                            <container>
+                                <tabbody pid="tabsRegular" id="15">
+                                    <formbox id="frmTempMinutes">
+                                        <vcontainer spacing="5">
+                                            <hcontainer>
+                                                <label text='Start task every' />
+                                                <textinput name='minutes' size='3' />
+                                                <label text="minutes" />
+                                            </hcontainer>
+                                            <hcontainer>
+                                                <label text='Command' />
+                                                <textinput name='command' size='30' />
+                                            </hcontainer>
+                                        </vcontainer>
+                                    </formbox>
+                                </tabbody>
+
+                                <tabbody pid="tabsRegular" id="16">
+                                    <formbox id="frmTempHours">
+                                        <vcontainer spacing="5">
+                                            <hcontainer>
+                                                <label text='Start task every' />
+                                                <textinput name='hours' size='3' />
+                                                <label text='hours at' />
+                                                <select id="minute_select_h" name="minute_select_h" />
+                                                <label text="minutes" />
+                                            </hcontainer>
+                                            <hcontainer>
+                                                <label text='Command' />
+                                                <textinput name='command' size='30' />
+                                            </hcontainer>
+                                        </vcontainer>
+                                    </formbox>
+                                </tabbody>
+
+                                <tabbody pid="tabsRegular" id="17">
+                                    <formbox id="frmTempDays">
+                                        <vcontainer spacing="5">
+                                            <hcontainer>
+                                                <label text='Start task every' />
+                                                <textinput name='days' size='3' />
+                                                <label text='days at' />
+                                                <select id="hour_select" name="hour_select" />
+                                                <label text="minutes" />
+                                                <select id="minute_select_d" name="minute_select_d" />
+                                                <label text="minutes" />
+                                            </hcontainer>
+                                            <hcontainer>
+                                                <label text='Command' />
+                                                <textinput name='command' size='30' />
+                                            </hcontainer>
+                                        </vcontainer>
+                                    </formbox>
+                                </tabbody>
+                            </container>
+                        </tabcontrol>
+                    </tabbody>
+                    
+                    <tabbody pid="tabsEdit" id="12">
+                        <formbox id="frmAdvanced">
+                            <layouttable>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Minutes" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="m" name="m" />
+                                    </layouttablecell>
+                                </layouttablerow>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Hours" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="h" name="h" />
+                                    </layouttablecell>
+                                </layouttablerow>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Days of month" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="dom" name="dom" />
+                                    </layouttablecell>
+                                </layouttablerow>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Months" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="mon" name="mon" />
+                                    </layouttablecell>
+                                </layouttablerow>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Days of week" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="dow" name="dow" />
+                                    </layouttablecell>
+                                </layouttablerow>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Command" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="command" name="command" />
+                                    </layouttablecell>
+                                </layouttablerow>
+                            </layouttable>
+                        </formbox>
+                    </tabbody>
+
+                   <tabbody pid="tabsEdit" id="13">
+                       <formbox id="frmSpecial">
+                        <layouttable>
+                                <layouttablerow>
+                                    <layouttablecell>
+                                        <radio value='reboot' text='On reboot' id='rreboot' name='special' />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <radio value='hourly' text='Hourly' id='rhourly' name='special' />
+                                    </layouttablecell>
+                            </layouttablerow>
+                            <layouttablerow>
+                                    <layouttablecell>
+                                        <radio value='daily' text='Daily' id='rdaily' name='special' />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <radio value='weekly' text='Weekly' id='rweekly' name='special' />
+                                    </layouttablecell>
+                            </layouttablerow>
+                            <layouttablerow>
+                                    <layouttablecell>
+                                        <radio value='monthly' text='Monthly' id='rmonthly' name='special' />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <radio value='yearly' text='Yearly' id='ryearly' name='special' />
+                                    </layouttablecell>
+                            </layouttablerow>
+                            <layouttablerow>
+                                    <layouttablecell>
+                                        <label text="Command" />
+                                    </layouttablecell>
+                                    <layouttablecell>
+                                        <textinput id="command" name="command" />
+                                    </layouttablecell>
+                            </layouttablerow>
+                        </layouttable>
+                       </formbox>
+                    </tabbody>
+                </container>
+            </tabcontrol>
+
+        </dialogbox>
+
+      
+        <dialogbox id="dlgEditOther" hidecancel="True" title='Edit non-task string'>
+            <vcontainer>
+                <label text="Edit string"/>
+                <textinput id="other_str" name="other_str" />
+            </vcontainer>
+        </dialogbox>
+    </pad>
+</xml>

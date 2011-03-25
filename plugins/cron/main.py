@@ -25,6 +25,7 @@ class CronPlugin(helpers.CategoryPlugin):
         self._tab = 0
         self._show_dialog = 0
         self._newtask = False
+
         #self._user = ''
 
     def get_ui(self):
@@ -90,97 +91,137 @@ class CronPlugin(helpers.CategoryPlugin):
         if self._error:
             self.put_message('err', self._error)
 
+        REGULARTAB = 11
+        ADVANCEDTAB = 12
+        SPECIALTAB = 13
+        avaible_values = ('@reboot', '@hourly', '@daily',
+                            '@weekly', '@monthly', '@yearly')
         if self._editing_task != -1:
             try:
                 task = self._tasks[self._editing_task]
             except IndexError:
                 task = backend.Task()
-            if self._show_dialog:
-                ui.append(self.get_ui_edit(task))
+
+            if not self._newtask:
+                ui.remove(str(REGULARTAB))
+                if task.special:
+                    ui.remove(str(ADVANCEDTAB))
+                    ui.find('tabsEdit').set('active', SPECIALTAB)
+
+                    if task.special and task.special in avaible_values:
+                        ui.find('r' + task.special[1:]).\
+                            set('checked', 'True')
+                    else:
+                        ui.find('rreboot').set('checked', 'True')
+                else:
+                    ui.find('tabsEdit').set('active', ADVANCEDTAB)
+                    ui.remove(str(SPECIALTAB))
+                    ui.find('m').set("value", task.m)
+                    ui.find('h').set("value", task.h)
+                    ui.find('dom').set("value", task.dom)
+                    ui.find('mon').set("value", task.mon)
+                    ui.find('dow').set("value", task.dow)
+                    ui.find('command').set("value", task.command)
+            else:
+                ui.find('tabsEdit').set('active', REGULARTAB)
+                ui.find('rreboot').set('checked', 'True')
+                ui.find('m').set("value", task.m)
+                ui.find('h').set("value", task.h)
+                ui.find('dom').set("value", task.dom)
+                ui.find('mon').set("value", task.mon)
+                ui.find('dow').set("value", task.dow)
+                ui.find('command').set("value", task.command)
+                #For templates
+                ui.find('tabsRegular').set('active', 15)
+                minute_select_h = [UI.SelectOption(text=str(m), value=str(m))
+                                    for m in xrange(60)]
+                minute_select_d = minute_select_h[:]
+                print minute_select_d[0]
+                print minute_select_h[0]
+                hour_select = [UI.SelectOption(text=str(h), value=str(h))
+                                    for h in xrange(24)]
+                ui.appendAll("minute_select_h", *minute_select_h)
+                ui.appendAll("minute_select_d", *minute_select_h)
+                ui.appendAll("hour_select", *hour_select)
+
+
+
+            
+
+        else:
+            ui.remove('dlgEditTask')
         if self._editing_other != -1 and self._show_dialog:
-            ui.append(self.get_ui_edit_other())
-        if self._editing_task != -1:
-            try:
-                task = self._tasks[self._editing_task]
-            except IndexError:
-                task = backend.Task()
-            if self._show_dialog:
-                ui.append(self.get_ui_edit(task))
-        if self._editing_other != -1 and self._show_dialog:
-            ui.append(self.get_ui_edit_other())
+            other_value = self._others[self._editing_other]\
+                if self._editing_other < len(self._others) else ''
+            ui.find("other_str").set("value", other_value)
+            
+        else:
+            ui.remove('dlgEditOther')
+#        if self._editing_task != -1:
+#            try:
+#                task = self._tasks[self._editing_task]
+#            except IndexError:
+#                task = backend.Task()
+#            if self._show_dialog:
+#                ui.append(self.get_ui_edit(task))
+#        if self._editing_other != -1 and self._show_dialog:
+#            ui.append(self.get_ui_edit_other())
         return ui
 
-    def get_default_ui(self):
-       
-        tabbar.add("Tasks", vbox_task)
-        tabbar.add("Non-task strings", vbox_oth)
-        vbox = UI.VContainer(topbox, tabbar)
-        if self._editing_task != -1:
-            try:
-                task = self._tasks[self._editing_task]
-            except IndexError:
-                task = backend.Task()
-            if self._show_dialog:
-                vbox.append(self.get_ui_edit(task))
-        if self._editing_other != -1 and self._show_dialog:
-            vbox.append(self.get_ui_edit_other())
-        return vbox
+#    def get_default_ui(self):
+#
+#        tabbar.add("Tasks", vbox_task)
+#        tabbar.add("Non-task strings", vbox_oth)
+#        vbox = UI.VContainer(topbox, tabbar)
+#        if self._editing_task != -1:
+#            try:
+#                task = self._tasks[self._editing_task]
+#            except IndexError:
+#                task = backend.Task()
+#            if self._show_dialog:
+#                vbox.append(self.get_ui_edit(task))
+#        if self._editing_other != -1 and self._show_dialog:
+#            vbox.append(self.get_ui_edit_other())
+#        return vbox
 
-    def get_ui_edit_other(self):
-        other_value = self._others[self._editing_other]\
-            if self._editing_other < len(self._others) else ''
-        vbox = UI.VContainer(UI.Label(text="Edit string", size=2),
-                            UI.TextInput(value=other_value, name='other_str'))
-        dlg = UI.DialogBox(
-                vbox,
-                title='Edit non-task string',
-                id='dlgEditOther')
-        return dlg
+#    def get_ui_edit_other(self):
+#        other_value = self._others[self._editing_other]\
+#            if self._editing_other < len(self._others) else ''
+#        vbox = UI.VContainer(UI.Label(text="Edit string", size=2),
+#                            UI.TextInput(value=other_value, name='other_str'))
+#        dlg = UI.DialogBox(
+#                vbox,
+#                title='Edit non-task string',
+#                id='dlgEditOther')
+#        return dlg
 
     def get_ui_edit(self, t):
-        tabbar = UI.TabControl()
-        if self._newtask:
-            tabbar.add('Regular', self.get_ui_template())
-        if self._newtask or not t.special:
-            tabbar.add('Advanced', self.get_ui_advanced(t))
-        if self._newtask or t.special:
-            tabbar.add('Special', self.get_ui_special(t))
-        dlg = UI.DialogBox(
-                tabbar,
-                title='Edit task',
-                id='dlgEdit',
-                hideok=True,
-                hidecancel=True
-              )
-        return dlg
+        pass
+#        tabbar = UI.TabControl()
+#        if self._newtask:
+#            tabbar.add('Regular', self.get_ui_template())
+#        if self._newtask or not t.special:
+#            tabbar.add('Advanced', self.get_ui_advanced(t))
+#        if self._newtask or t.special:
+#            tabbar.add('Special', self.get_ui_special(t))
+#        dlg = UI.DialogBox(
+#                tabbar,
+#                title='Edit task',
+#                id='dlgEditTask',
+#                hideok=True,
+#                hidecancel=True
+#              )
+#        return dlg
 
-    def get_ui_advanced(self, t):
-        adv_table = UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Minutes'),
-                        UI.TextInput(name='m', value=t.m)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Hours'),
-                        UI.TextInput(name='h', value=t.h)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Days of month'),
-                        UI.TextInput(name='dom', value=t.dom)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Months'),
-                        UI.TextInput(name='mon', value=t.mon)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Days of week'),
-                        UI.TextInput(name='dow', value=t.dow)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Command'),
-                        UI.TextInput(name='command', value=t.command)
-                    ))
-        return UI.FormBox(adv_table, id='frmAdvanced')
+#    def get_ui_advanced(self, t):
+#        ui.find('m').set("value", t.m)
+#        ui.find('h').set("value", t.h)
+#        ui.find('dom').set("value", t.dom)
+#        ui.find('mon').set("value", t.mon)
+#        ui.find('dow').set("value", t.dow)
+#        ui.find('command').set("value", t.command)
+#
+#        return UI.FormBox(adv_table, id='frmAdvanced')
 
     def get_ui_special(self, t):
         avaible_values = ('@reboot', '@hourly', '@daily',
@@ -357,6 +398,7 @@ class CronPlugin(helpers.CategoryPlugin):
             self._others.pop(int(params[1]))
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
+            self._tab = 1
         #if params[0] == 'ch_user':
         #    self._user = vars.getvalue('users') or 'root'
         #    print self._user
@@ -374,6 +416,7 @@ class CronPlugin(helpers.CategoryPlugin):
             print self._user
         if params[0] == 'frmAdvanced' and\
                 vars.getvalue('action') == 'OK':
+            print "Advanced"
             task_str = ' '.join((
                         vars.getvalue('m').replace(' ', '') or '*',
                         vars.getvalue('h').replace(' ', '') or '*',
@@ -399,7 +442,7 @@ class CronPlugin(helpers.CategoryPlugin):
                 return 1
         elif params[0] == 'frmTempHours' and\
                 vars.getvalue('action') == 'OK':
-            task_str = vars.getvalue('minutes') + ' '
+            task_str = vars.getvalue('minute_select_h') + ' '
             task_str += '*/' + (vars.getvalue('hours')  or '1')
             task_str += ' * * *'
             task_str += '\t' + vars.getvalue('command')
@@ -407,8 +450,8 @@ class CronPlugin(helpers.CategoryPlugin):
                 return 1
         elif params[0] == 'frmTempDays' and\
                 vars.getvalue('action') == 'OK':
-            task_str = vars.getvalue('minute') + ' '
-            task_str += vars.getvalue('hour') + ' '
+            task_str = vars.getvalue('minute_select_d') + ' '
+            task_str += vars.getvalue('hour_select') + ' '
             task_str += '*/' + (vars.getvalue('days')  or '1')
             task_str += ' * *'
             task_str += '\t' + vars.getvalue('command')
@@ -468,4 +511,5 @@ class CronPlugin(helpers.CategoryPlugin):
                 self._tasks, self._others = backend.read_crontab()
             self._show_dialog = 0
             self._editing_other = -1
+            self._tab = 1
                 
