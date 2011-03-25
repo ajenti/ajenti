@@ -27,31 +27,6 @@ class ShellPlugin(CategoryPlugin):
         ui.appendAll('shell-recent', *recent)
         
         return ui
-        
-        frm = UI.FormBox(
-                UI.TextInput(name='cmd', size=30, id='shell-command'),
-                id='frmRun', hideok=True, hidecancel=True
-              )
-        frmr = UI.FormBox(
-                UI.Select(*recent, name='cmd', id='shell-recent',
-                          onchange='shellRecentClick()',
-                          onmousedown='shellRecentClick()'),
-                id='frmRecent', hideok=True, hidecancel=True
-              )
-
-        logc = UI.ScrollContainer(log, width=500, height=300)
-        lt = UI.VContainer(
-                UI.HContainer(
-                    frm, 
-                    UI.Button(text='Run', form='frmRun', onclick='form')), 
-                UI.HContainer(
-                    UI.Label(text='Repeat:'),
-                    frmr
-                )
-             )
-
-        t = UI.VContainer(lt, logc, spacing=10)
-        return ui
 
     def go(self, cmd):
         if not self._process.is_running():

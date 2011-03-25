@@ -28,23 +28,35 @@
 
 
 .ui-el-tab-header {
-    margin: 4px;
+    padding: 4px 7px;
     float: left;
     font-size: 12px;
+    text-shadow: 0 1px 0 #fff;
+    border-right: 1px solid #ccc;
+
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
 }
 
 .ui-el-tab-header-active {
-    font-size: 12px;
-    padding: 4px;
-    background: #cccccc;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    padding: 4px 7px;
     float: left;
+    font-size: 12px;
+    text-shadow: 0 1px 0 #fff;
+    border-right: 1px solid #ccc;
+
+    background: #ccc;
+    background: -moz-linear-gradient(top,  #ccc,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
 }
 
 .ui-el-tab-header-box {
-    padding-bottom: 10px;
+    margin-bottom: 10px;
     overflow: hidden;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-right: none;
 }
 
 

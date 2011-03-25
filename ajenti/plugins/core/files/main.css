@@ -168,7 +168,7 @@
 .ui-el-category {
     width: 120px;
     line-height: 26px;
-    padding: 2px 10px 4px 20px;
+    padding: 2px 10px 3px 20px;
 }
 
 .ui-el-category:hover {
@@ -176,17 +176,19 @@
 
 .ui-el-category-selected {
     width: 120px;
-    padding: 2px 10px 4px 20px;
+    padding: 1px 10px 2px 20px;
 
     background: #922017;
     background: -moz-linear-gradient(top,  #d04909,  #922017);
     background: -webkit-gradient(linear, left top, left bottom, from(#d04909), to(#922017));
+    border-top: 1px solid #922017;
+    border-bottom: 1px solid #fff;
 }
 
 .ui-el-category-icon {
     width: 16px !important;
     height: 16px !important;
-    padding: 1px 5px 0 0;
+    padding: 2px 5px 0 0;
 }
 
 .ui-el-category-text {
@@ -224,33 +226,6 @@
 }
 
 
-.ui-el-pluginpanel {
-    width: 100%;
-}
-
-.ui-el-pluginpanel-head {
-    background: #ddd;
-    background: -moz-linear-gradient(top,  #ddd,  #ccc);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#ccc));
-    border-bottom: 1px solid #aaa;
-    overflow: hidden;
-    width: 100%;
-}
-
-.ui-el-pluginpanel-head span {
-    color: #555;
-    text-shadow: 0 1px 0 #fff;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 6px 10px 3px 10px;
-    display: inline-block;
-    line-height: 19px;
-    border-right: 1px solid #bbb;
-}
-
-.ui-el-pluginpanel-head div {
-    display: inline-block;
-}
 
 .ui-el-toolbar {
     background: #ddd;

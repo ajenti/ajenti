@@ -34,7 +34,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def main_ui(self):
         templ = self.app.inflate('core:main')
 
-        templ.find('panel').set('title', self.selected_category.text)
+        #templ.find('panel').set('title', self.selected_category.text)
         
         if self._about_visible:
             templ.append('main-content', self.get_ui_about())
