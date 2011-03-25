@@ -135,13 +135,13 @@ class CronPlugin(helpers.CategoryPlugin):
                 ui.find('tabsRegular').set('active', 15)
                 minute_select_h = [UI.SelectOption(text=str(m), value=str(m))
                                     for m in xrange(60)]
-                minute_select_d = minute_select_h[:]
-                print minute_select_d[0]
-                print minute_select_h[0]
+                minute_select_d = [UI.SelectOption(text=str(m), value=str(m))
+                                    for m in xrange(60)]
+
                 hour_select = [UI.SelectOption(text=str(h), value=str(h))
                                     for h in xrange(24)]
                 ui.appendAll("minute_select_h", *minute_select_h)
-                ui.appendAll("minute_select_d", *minute_select_h)
+                ui.appendAll("minute_select_d", *minute_select_d)
                 ui.appendAll("hour_select", *hour_select)
 
 
