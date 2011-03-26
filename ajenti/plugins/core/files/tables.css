@@ -29,7 +29,9 @@
 .ui-el-table-row:hover .ui-el-table-cell{
 }
 
-.ui-el-table-cell, .ui-el-table-cell-hidden {
+.ui-el-table-cell, 
+.ui-el-table-cell-hidden,
+.ui-el-table-cell-empty {
     padding: 4px;
     vertical-align: middle;
     border-bottom: 1px solid #ddd;
