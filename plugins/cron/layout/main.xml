@@ -116,10 +116,51 @@
                                                 <label text='Start task every' />
                                                 <textinput name='days' size='3' />
                                                 <label text='days at' />
-                                                <select id="hour_select" name="hour_select" />
-                                                <label text="minutes" />
+                                                <select id="hour_select_d" name="hour_select_d" />
+                                                <label text=":" />
                                                 <select id="minute_select_d" name="minute_select_d" />
-                                                <label text="minutes" />
+                                            </hcontainer>
+                                            <hcontainer>
+                                                <label text='Command' />
+                                                <textinput name='command' size='30' />
+                                            </hcontainer>
+                                        </vcontainer>
+                                    </formbox>
+                                </tabbody>
+
+                                <tabbody pid="tabsRegular" id="18">
+                                    <formbox id="frmTempWeek">
+                                        <vcontainer spacing="5">
+                                            <hcontainer>
+                                                <label text='Start task every' />
+                                                <select id="weekday_select" name="weekday_select" />
+                                                <label text='at' />
+                                                <select id="hour_select_w" name="hour_select_w" />
+                                                <label text=':' />
+                                                <select id="minute_select_w" name="minute_select_w" />
+                                            </hcontainer>
+                                            <hcontainer>
+                                                <label text='Command' />
+                                                <textinput name='command' size='30' />
+                                            </hcontainer>
+                                        </vcontainer>
+                                    </formbox>
+                                </tabbody>
+                                <tabbody pid="tabsRegular" id="19">
+                                    <formbox id="frmTempMonths">
+                                        <vcontainer spacing="5">
+                                            <hcontainer>
+                                                <label text='Start task every' />
+                                                <textinput name='months' size='3' />
+                                                <label text='months' />
+                                            </hcontainer>
+                                            <hcontainer>
+                                                <label text='On' />
+                                                <select id="day_select" name="day_select" />
+                                                <label text='th at' />
+                                                <select id="hour_select_m" name="hour_select_m" />
+                                                <label text=':' />
+                                                <select id="minute_select_m" name="minute_select_m" />
                                             </hcontainer>
                                             <hcontainer>
                                                 <label text='Command' />
@@ -180,7 +221,7 @@
                                         <label text="Command" />
                                     </layouttablecell>
                                     <layouttablecell>
-                                        <textinput id="command" name="command" />
+                                        <textinput id="a_command" name="a_command" />
                                     </layouttablecell>
                                 </layouttablerow>
                             </layouttable>
@@ -219,7 +260,7 @@
                                         <label text="Command" />
                                     </layouttablecell>
                                     <layouttablecell>
-                                        <textinput id="command" name="command" />
+                                        <textinput id="s_command" name="s_command" />
                                     </layouttablecell>
                             </layouttablerow>
                         </layouttable>
