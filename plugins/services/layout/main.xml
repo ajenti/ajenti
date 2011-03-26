@@ -1,4 +1,5 @@
 <xml>
+    <label text="System services" size="5" />
     <pad>
         <datatable id="list">
             <datatablerow header="True">

@@ -3,6 +3,8 @@
         <toolbutton id="add_task" text="Add task" /><toolbutton id="add_oth" text="Add non-task string" /><toolbutton id="change_user"/>
     </toolbar>
 
+    <label text="Scheduled tasks" size="5" />
+        
     <pad>
         <dialogbox id="dlgUsers" title='Change user'>
             <layouttabletable>
@@ -16,10 +18,11 @@
                 </layouttablerow>
             </layouttabletable>
         </dialogbox>
+        
         <tabcontrol id="tabs">
             <tabheadernode id="tabs">
                 <tabheader pid="tabs" text="Tasks" id="0"/>
-                <tabheader pid="tabs" text="Non-task string" id="1"/>
+                <tabheader pid="tabs" text="Non-task strings" id="1"/>
             </tabheadernode>
             <container>
                 <tabbody pid="tabs" id="0">

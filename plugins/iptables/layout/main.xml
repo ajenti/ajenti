@@ -4,6 +4,8 @@
         <toolbutton text="Apply" id="apply" /><warningtoolbutton text="Load current" msg="Dispose saved configuration and load current iptables status" /><toolbutton text="Autostart" id="autostart" />
     </toolbar>
     
+    <label text="Firewall tables" size="5" />
+    
     <pad id="root">
         <tabcontrol id="tabs" />
     </pad>

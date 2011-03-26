@@ -14,16 +14,16 @@
             <tabbody pid="tabs" id="0">
                 <datatable id="userlist">
                     <datatablerow header="True">
-                        <datatablecell>
+                        <datatablecell width="25%">
                             <label text="Login" />
                         </datatablecell>
-                        <datatablecell>
+                        <datatablecell width="25%">
                             <label text="UID" />
                         </datatablecell>
-                        <datatablecell>
+                        <datatablecell width="25%">
                             <label text="Home" />
                         </datatablecell>
-                        <datatablecell>
+                        <datatablecell width="25%">
                             <label text="Shell" />
                         </datatablecell>
                         <datatablecell />

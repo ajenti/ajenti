@@ -3,16 +3,18 @@
         <toolbutton id="add" text="Add host" /><toolbutton id="hostname" text="Change hostname" />
     </toolbar>
     
+    <label text="Hosts" size="5" />
+    
     <pad>
         <datatable id="list">
             <datatablerow header="True">
-                <datatablecell>
+                <datatablecell width="30%">
                     <label text="IP address" />
                 </datatablecell>
-                <datatablecell>
+                <datatablecell width="30%">
                     <label text="Hostname" />
                 </datatablecell>
-                <datatablecell>
+                <datatablecell width="30%">
                     <label text="Aliases" />
                 </datatablecell>
                 <datatablecell />

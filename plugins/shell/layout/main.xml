@@ -1,4 +1,5 @@
 <xml>
+    <label text="Command shell" size="5" />
     <pad>
         <vcontainer spacing="10">
             <hcontainer spacing="10">

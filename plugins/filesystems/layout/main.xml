@@ -12,7 +12,7 @@
                 <datatablecell>
                     <label text="Mountpoint" />
                 </datatablecell>
-                <datatablecell>
+                <datatablecell width="60">
                     <label text="FS type" />
                 </datatablecell>
                 <datatablecell>

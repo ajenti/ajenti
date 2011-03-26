@@ -37,7 +37,13 @@ def main():
             print 'Downloading', pkg
             mgr.install(pkg)
         print 'Done'
+    if sys.argv[1] == 'update':
+        print 'Downloading plugin list'
+        mgr.update_list()
+        print 'Done'
     if sys.argv[1] == 'upgrade':
+        print 'Downloading plugin list'
+        mgr.update_list()
         print 'Upgrading Ajenti plugins'
         for pkg in mgr.available:
             for p in mgr.installed:

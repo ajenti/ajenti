@@ -60,7 +60,7 @@ class NetworkPlugin(CategoryPlugin):
                     )
             c.append(dlg)
 
-        return c
+        return ui
 
     @event('button/click')
     @event('minibutton/click')
