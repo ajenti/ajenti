@@ -4,13 +4,15 @@
         <toolbutton text="Add option" id="addns" />
     </toolbar>
     
+    <label text="DNS servers and options" size="5" />
+    
     <pad>
         <datatable id="list">
             <datatablerow header="True">
-                <datatablecell>
+                <datatablecell width="50%">
                     <label text="Type" />
                 </datatablecell>
-                <datatablecell>
+                <datatablecell width="50%">
                     <label text="Address" />
                 </datatablecell>
                 <datatablecell />

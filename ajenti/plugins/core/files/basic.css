@@ -128,7 +128,12 @@
 }
 
 .ui-el-label-5 {
-    font-size: 26px;
+    font-size: 16px;
+    border-bottom: 3px solid #ddd;
+    font-weight: bold;
+    color: #888;
+    margin: 10px 0 0 15px;
+    display: block;
 }
 
 
