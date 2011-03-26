@@ -1,8 +1,6 @@
 <xml>
     <toolbar>
-        <toolbutton id="add_task" text="Add task" />
-        <toolbutton id="add_oth" text="Add non-task string" />
-        <toolbutton id="change_user"/>
+        <toolbutton id="add_task" text="Add task" /><toolbutton id="add_oth" text="Add non-task string" /><toolbutton id="change_user"/>
     </toolbar>
 
     <pad>
