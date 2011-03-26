@@ -1,16 +1,23 @@
 <xml>
     <toolbar>
-        <toolbutton id="add_task" text="Add task" /><toolbutton id="add_oth" text="Add non-task string" />
+        <toolbutton id="add_task" text="Add task" />
+        <toolbutton id="add_oth" text="Add non-task string" />
+        <toolbutton id="change_user"/>
     </toolbar>
 
     <pad>
-        <formbox id="frmUsers" hideok="True" hidecancel="True">
-            <label text="User: " />
-                    
-            <select id="users_select" name="users_select" />
-            <button text="Select" action="OK" form='frmUsers' onclick='form'/>
-         </formbox>
-
+        <dialogbox id="dlgUsers" title='Change user'>
+            <layouttabletable>
+                <layouttablerow header="True">
+                    <layouttablecell>
+                        <label text="User: " />
+                    </layouttablecell>
+                    <layouttablecell>
+                        <select id="users_select" name="users_select" />
+                    </layouttablecell>
+                </layouttablerow>
+            </layouttabletable>
+        </dialogbox>
         <tabcontrol id="tabs">
             <tabheadernode id="tabs">
                 <tabheader pid="tabs" text="Tasks" id="0"/>
@@ -272,7 +279,7 @@
         </dialogbox>
 
       
-        <dialogbox id="dlgEditOther" hidecancel="True" title='Edit non-task string'>
+        <dialogbox id="dlgEditOther" title='Edit non-task string'>
             <vcontainer>
                 <label text="Edit string"/>
                 <textinput id="other_str" name="other_str" />

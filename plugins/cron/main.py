@@ -24,15 +24,21 @@ class CronPlugin(helpers.CategoryPlugin):
         self._others = []
         self._tab = 0
         self._show_dialog = 0
+        self._show_dialog_user = 0
         self._newtask = False
 
     def get_ui(self):
         ui = self.app.inflate('cron:main')
         ui.find('tabs').set('active', self._tab)
-        user_sel = [UI.SelectOption(text = x, value = x,
+
+        ui.find('change_user').set('text', "User: " + self._user)
+        if self._show_dialog_user:
+            user_sel = [UI.SelectOption(text = x, value = x,
                     selected = True if x == self._user else False)
                     for x in backend.get_all_users()]
-        ui.appendAll("users_select", *user_sel)
+            ui.appendAll('users_select', *user_sel)
+        else:
+            ui.remove('dlgUsers')
         self.put_message('info',
                          '{0} tasks for {1}'.format(len(self._tasks), self._user))
         table_other = ui.find("table_other")
@@ -204,21 +210,16 @@ class CronPlugin(helpers.CategoryPlugin):
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
             self._tab = 1
+        if params[0] == 'change_user':
+            self._show_dialog_user = 1
 
     #noinspection PyUnusedLocal
     @event('form/submit')
     def on_submit_form(self, event, params, vars=None):
         "For user select or Regular and advanced Task"
-        if params[0] == 'frmUsers' and\
-                vars.getvalue('action') == 'OK':
-            print vars
-            self._user = vars.getvalue('users_select') or 'root'
-            backend.fix_crontab(self._user)
-            self._tasks, self._others = backend.read_crontab(self._user)
-            print self._user
+
         if params[0] == 'frmAdvanced' and\
                 vars.getvalue('action') == 'OK':
-            print "Advanced"
             task_str = ' '.join((
                         vars.getvalue('m').replace(' ', '') or '*',
                         vars.getvalue('h').replace(' ', '') or '*',
@@ -281,6 +282,7 @@ class CronPlugin(helpers.CategoryPlugin):
         self._show_dialog = 0
         self._editing_task = -1
         self._newtask = False
+        self._tab = 0
 
     def set_task(self, task_str):
         "Set new or edited task"
@@ -305,17 +307,24 @@ class CronPlugin(helpers.CategoryPlugin):
     @event('dialog/submit')
     def on_submit_dlg(self, event, params, vars=None):
         " for submit non-task string. It is use dialog"
-        if params[0] == 'dlgEditOther' and\
-                vars.getvalue('action') == 'OK':
-            if self._editing_other < len(self._others):
-                self._others[self._editing_other] = vars.getvalue('other_str')
-            else:
-                self._others.append(vars.getvalue('other_str'))
-            self._error = backend.write_crontab(self._others +\
-                                        self._tasks)
-            if self._error:
-                self._tasks, self._others = backend.read_crontab()
+        if params[0] == 'dlgEditOther':
+            if vars.getvalue('action') == 'OK':
+                if self._editing_other < len(self._others):
+                    self._others[self._editing_other] = vars.getvalue('other_str')
+                else:
+                    self._others.append(vars.getvalue('other_str'))
+                self._error = backend.write_crontab(self._others +\
+                                            self._tasks)
+                if self._error:
+                    self._tasks, self._others = backend.read_crontab()
             self._show_dialog = 0
             self._editing_other = -1
             self._tab = 1
+        if params[0] == 'dlgUsers':
+            if vars.getvalue('action') == 'OK':
+                self._user = vars.getvalue('users_select') or 'root'
+                backend.fix_crontab(self._user)
+                self._tasks, self._others = backend.read_crontab(self._user)
+            self._show_dialog_user = 0
+
                 
