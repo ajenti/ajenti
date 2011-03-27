@@ -1,23 +1,21 @@
 <xml>
     <toolbar>
-        <toolbutton id="add_task" text="Add task" />
-        <toolbutton id="add_oth" text="Add non-task string" />
-        <toolbutton id="change_user"/>
+        <hcontainer>
+            <toolbutton id="add_task" text="Add task" />
+            <toolbutton id="add_oth" text="Add non-task string" />
+            <div style="padding: 5px">
+            <formbox id="frmUser" hideok="True" hidecancel="True">
+                <hcontainer  spacing='5'>
+                    <select id="users_select" name="users_select" />
+                    <minibutton id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
+                </hcontainer>
+            </formbox>
+            </div>
+        </hcontainer>
     </toolbar>
 
     <pad>
-        <dialogbox id="dlgUsers" title='Change user'>
-            <layouttabletable>
-                <layouttablerow header="True">
-                    <layouttablecell>
-                        <label text="User: " />
-                    </layouttablecell>
-                    <layouttablecell>
-                        <select id="users_select" name="users_select" />
-                    </layouttablecell>
-                </layouttablerow>
-            </layouttabletable>
-        </dialogbox>
+
         <tabcontrol id="tabs">
             <tabheadernode id="tabs">
                 <tabheader pid="tabs" text="Tasks" id="0"/>
