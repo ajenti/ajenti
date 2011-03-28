@@ -4,7 +4,6 @@ from ajenti.utils import shell
 
 import backend
 
-
 class CronPlugin(helpers.CategoryPlugin):
     text = 'Cron'
     icon = '/dl/cron/icon.png'
@@ -30,17 +29,12 @@ class CronPlugin(helpers.CategoryPlugin):
     def get_ui(self):
         ui = self.app.inflate('cron:main')
         ui.find('tabs').set('active', self._tab)
-
-        ui.find('change_user').set('text', "User: " + self._user)
-        if self._show_dialog_user:
-            user_sel = [UI.SelectOption(text = x, value = x,
+        ui.find('title').set('text','Scheduled tasks for %s' % self._user)
+        user_sel = [UI.SelectOption(text = x, value = x,
                     selected = True if x == self._user else False)
                     for x in backend.get_all_users()]
-            ui.appendAll('users_select', *user_sel)
-        else:
-            ui.remove('dlgUsers')
-        self.put_message('info',
-                         '{0} tasks for {1}'.format(len(self._tasks), self._user))
+        ui.appendAll('users_select', *user_sel)
+
         table_other = ui.find("table_other")
         table_task = ui.find("table_task")
         #Fill non-task strings table
@@ -210,14 +204,18 @@ class CronPlugin(helpers.CategoryPlugin):
             self._error = backend.write_crontab(self._others +\
                                                 self._tasks)
             self._tab = 1
-        if params[0] == 'change_user':
-            self._show_dialog_user = 1
+
+#            self._show_dialog_user = 1
 
     #noinspection PyUnusedLocal
     @event('form/submit')
     def on_submit_form(self, event, params, vars=None):
         "For user select or Regular and advanced Task"
-
+        if params[0] == 'frmUser':
+            self._user = vars.getvalue('users_select') or 'root'
+            backend.fix_crontab(self._user)
+            self._tasks, self._others = backend.read_crontab(self._user)
+            return 0
         if params[0] == 'frmAdvanced' and\
                 vars.getvalue('action') == 'OK':
             task_str = ' '.join((
@@ -320,11 +318,5 @@ class CronPlugin(helpers.CategoryPlugin):
             self._show_dialog = 0
             self._editing_other = -1
             self._tab = 1
-        if params[0] == 'dlgUsers':
-            if vars.getvalue('action') == 'OK':
-                self._user = vars.getvalue('users_select') or 'root'
-                backend.fix_crontab(self._user)
-                self._tasks, self._others = backend.read_crontab(self._user)
-            self._show_dialog_user = 0
 
                 
