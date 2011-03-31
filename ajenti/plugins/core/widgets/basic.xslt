@@ -1,5 +1,5 @@
 <xsl:template match="label">
-    <span class="ui-el-label-{x:attr(@size, '1')}" style="{x:iif(@bold, 'font-weight: bold;', '')}">
+    <span class="ui-el-label-{x:attr(@size, '1')}" style="{x:iif(@bold, 'font-weight: bold;', '')} {x:iif(@monospace, 'font-family: monospace;', '')}">
         <xsl:value-of select="@text" />
     </span>
 </xsl:template>

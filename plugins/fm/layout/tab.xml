@@ -1,0 +1,21 @@
+<xml>
+    <toolbar id="path" />
+    
+    <datatable id="list">
+        <datatablerow header="True" width="100%">
+            <datatablecell />
+            <datatablecell width="60%">
+                <label text="Name" />
+            </datatablecell>
+            <datatablecell width="20%">
+                <label text="Size" />
+            </datatablecell>
+            <datatablecell width="20%">
+                <label text="Owner" />
+            </datatablecell>
+            <datatablecell>
+                <label text="Access" />
+            </datatablecell>
+        </datatablerow>
+    </datatable>
+</xml>

@@ -1,0 +1,11 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="btnNewTab" text="New tab" />
+        </hcontainer>
+    </toolbar>
+    
+    <pad id="main">
+
+    </pad>
+</xml>
