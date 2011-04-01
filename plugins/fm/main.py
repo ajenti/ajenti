@@ -114,9 +114,15 @@ class FMPlugin(CategoryPlugin):
             except:
                 continue
 
-            user = pwd.getpwuid(stat[ST_UID])[0]
-            group = grp.getgrgid(stat[ST_GID])[0]
-
+            try:
+                user = pwd.getpwuid(stat[ST_UID])[0]
+            except:
+                user = str(stat[ST_UID])
+            try:
+                group = grp.getgrgid(stat[ST_GID])[0]
+            except:
+                group = str(stat[ST_GID])
+            
             name = f
             if islink:
                 name += ' → ' + os.path.realpath(np)
@@ -140,16 +146,19 @@ class FMPlugin(CategoryPlugin):
                             self.enc_file(np)
                     )) if isdir else None,
                 ),
-                UI.Label(text=size),
+                UI.Label(text=str_fsize(size)),
                 UI.Label(text='%s:%s'%(user,group), monospace=True),
                 UI.Label(text=self.mode_string(mode), monospace=True),
-                UI.WarningMiniButton(
-                    text='Delete',
-                    msg='Delete %s'%np,
-                    id='delete/%i/%s'%(
-                        tidx,
-                        self.enc_file(np)
-                    )
+                UI.DataTableCell(
+                    UI.WarningMiniButton(
+                        text='Delete',
+                        msg='Delete %s'%np,
+                        id='delete/%i/%s'%(
+                            tidx,
+                            self.enc_file(np)
+                        ),
+                    ),
+                    hidden=True
                 )
             )
 
