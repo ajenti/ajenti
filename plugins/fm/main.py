@@ -1,14 +1,14 @@
 # coding: utf-8
 from ajenti.ui import *
-from ajenti.com import implements
 from ajenti.api import *
-from ajenti.utils import shell, enquote, BackgroundProcess
 from ajenti.plugins.core.api import *
 from ajenti.utils import *
 import os
 from base64 import b64encode, b64decode
 from stat import ST_UID, ST_GID, ST_MODE, ST_SIZE
 import grp, pwd
+import shutil
+import threading
 
 class FMPlugin(CategoryPlugin):
     text = 'File manager'
@@ -19,8 +19,11 @@ class FMPlugin(CategoryPlugin):
         self._root = self.app.get_config(self).dir
         self._tabs = []
         self._tab = 0
+        self._clipboard = []
+        self._cbs = None
+        self._renaming = None
         self.add_tab()
-        
+
     def get_ui(self):
         ui = self.app.inflate('fm:main')
         tc = UI.TabControl(active=self._tab)
@@ -28,13 +31,42 @@ class FMPlugin(CategoryPlugin):
         for tab in self._tabs:
             tc.add(tab, self.get_tab(tab))
 
+        self._clipboard = sorted(self._clipboard)
+        idx = 0
+        for f in self._clipboard:
+            ui.append('clipboard', UI.DataTableRow(
+                UI.DataTableCell(
+                    UI.Image(file='/dl/fm/'+
+                        ('folder' if os.path.isdir(f) else 'file')
+                        +'.png'),
+                    UI.Label(text=f),
+                ),
+                UI.MiniButton(
+                    text='Remove',
+                    id='rmClipboard/%i'%idx
+                ),
+            ))
+            idx += 1
+
         ui.append('main', tc)
+
+        if self._renaming is not None:
+            ui.append('main', UI.InputBox(
+                text='New name',
+                value=os.path.split(self._renaming)[1],
+                id='dlgRename'
+            ))
+
         return ui
 
     def get_tab(self, tab):
         ui = self.app.inflate('fm:tab')
 
         tidx = self._tabs.index(tab)
+        ui.find('paste').set('id', 'paste/%i'%tidx)
+        ui.find('newfld').set('id', 'newfld/%i'%tidx)
+        ui.find('close').set('id', 'close/%i'%tidx)
+
         # Generate breadcrumbs
         path = tab
         parts = path.split('/')
@@ -90,7 +122,7 @@ class FMPlugin(CategoryPlugin):
                 name += ' → ' + os.path.realpath(np)
                 
             row = UI.DataTableRow(
-                UI.Checkbox(id='file/%i/%s' % (
+                UI.Checkbox(name='%i/%s' % (
                     tidx,
                     self.enc_file(np)
                 )),
@@ -101,10 +133,24 @@ class FMPlugin(CategoryPlugin):
                         tidx,
                         self.enc_file(np)
                     )),
+                    UI.LinkLabel(
+                        text='↗',
+                        id='gototab/%i/%s' % (
+                            tidx,
+                            self.enc_file(np)
+                    )) if isdir else None,
                 ),
                 UI.Label(text=size),
                 UI.Label(text='%s:%s'%(user,group), monospace=True),
                 UI.Label(text=self.mode_string(mode), monospace=True),
+                UI.WarningMiniButton(
+                    text='Delete',
+                    msg='Delete %s'%np,
+                    id='delete/%i/%s'%(
+                        tidx,
+                        self.enc_file(np)
+                    )
+                )
             )
 
             ui.append('list', row)
@@ -112,10 +158,10 @@ class FMPlugin(CategoryPlugin):
 
     def enc_file(self, path):
         path = path.replace('//','/')
-        return b64encode(path, altchars='+-')
+        return b64encode(path, altchars='+-').replace('=', '*')
 
     def dec_file(self, b64):
-        return b64decode(b64, altchars='+-')
+        return b64decode(b64.replace('*', '='), altchars='+-')
 
     def add_tab(self):
         self._tabs.append(self._root)
@@ -133,6 +179,7 @@ class FMPlugin(CategoryPlugin):
 
     @event('button/click')
     @event('linklabel/click')
+    @event('minibutton/click')
     def on_btn_click(self, event, params, vars=None):
         if params[0] == 'btnNewTab':
             self.add_tab()
@@ -141,18 +188,117 @@ class FMPlugin(CategoryPlugin):
         if params[0] == 'goto':
             self._tab = int(params[1])
             self._tabs[self._tab] = self.dec_file(params[2])
+        if params[0] == 'gototab':
+            self._tab = len(self._tabs)
+            self._tabs.append(self.dec_file(params[2]))
+        if params[0] == 'rmClipboard':
+            self._clipboard.remove(self._clipboard[int(params[1])])
+        if params[0] == 'close' and len(self._tabs)>1:
+            self._tabs.remove(self._tabs[int(params[1])])
+            self._tab = 0
+        if params[0] == 'paste':
+            self._tab = int(params[1])
+            path = self._tabs[int(params[1])]
+            self.work(self._cbs, self._clipboard, path)
+        if params[0] == 'newfld':
+            self._tab = int(params[1])
+            path = self._tabs[int(params[1])]
+            try:
+                p = os.path.join(path, 'new folder')
+                os.mkdir(p)
+            except:
+                pass
+            self._renaming = p
+        if params[0] == 'delete':
+            self._tab = int(params[1])
+            f = self.dec_file(params[2])
+            try:
+                if os.path.isdir(f):
+                    shutil.rmtree(f)
+                else:
+                    os.unlink(f)
+                self.put_message('info', 'Deleted %s'%f)
+            except Exception, e:
+                self.put_message('err', str(e))
 
     @event('form/submit')
+    @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
-        text = vars.getvalue('text', None)
-        if text is not None:
-            open(self._file, 'w').write(text)
-            self.put_message('info', 'Saved')
-            if vars.getvalue('action', '') == 'fav':
-                self._favs.append(self._file)
-            if vars.getvalue('action', '') == 'unfav':
-                self._favs.remove(self._file)
-            self.app.config.set('notepad', 'favs', '|'.join(self._favs))
-            self.app.config.save()
-            
-            
+        if params[0] == 'files':
+            act = vars.getvalue('action', '')
+            tab = self._tab
+            lst = []
+            for x in vars:
+                if '/' in x and vars.getvalue(x, None) == '1':
+                    tab, f = x.split('/')
+                    f = self.dec_file(f)
+                    lst.append(f)
+            if len(lst) > 0:
+                if act == 'copy':
+                    self._clipboard = lst
+                    self._cbs = 'copy'
+                if act == 'cut':
+                    self._clipboard = lst
+                    self._cbs = 'cut'
+                if act == 'rename':
+                    self._renaming = lst[0]
+            self._tab = tab
+        if params[0] == 'dlgRename':
+            if vars.getvalue('action', None) == 'OK':
+                os.rename(self._renaming,
+                    os.path.join(
+                        os.path.split(self._renaming)[0],
+                        vars.getvalue('value', None)
+                    ))
+            self._renaming = None
+
+    def work(self, action, files, target):
+        w = FMWorker(self, action, files, target)
+        self.app.session['fm_worker'] = w
+        w.start()
+
+        
+class FMWorker(BackgroundWorker):
+
+    def run(self, cat, action, files, target):
+        self.action = action
+        try:
+            if action == 'copy':
+                for f in files:
+                    if (not os.path.isdir(f)) or os.path.islink(f):
+                        shutil.copy2(f, target)
+                    else:
+                        shutil.copytree(f, target, symlinks=True)
+            if action == 'cut':
+                for f in files:
+                    os.rename(f, os.path.join(target, os.path.split(f)[1]))
+        except Exception, e:
+            cat.put_message('err', str(e))
+
+    def get_status(self):
+        return self.action
+
+
+class FMProgress(Plugin):
+    implements(IProgressBoxProvider)
+    title = 'File manager'
+    icon = '/dl/fm/icon.png'
+    can_abort = True
+
+    def get_worker(self):
+        try:
+            return self.app.session['fm_worker']
+        except:
+            return None
+
+    def has_progress(self):
+        if self.get_worker() is None:
+            return False
+        return self.get_worker().alive
+
+    def get_progress(self):
+        return self.get_worker().get_status()
+
+    def abort(self):
+        if self.has_progress():
+            self.get_worker().kill()

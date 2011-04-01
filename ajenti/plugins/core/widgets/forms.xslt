@@ -22,6 +22,12 @@
         </div>
 </xsl:template>
 
+<xsl:template match="simpleform">
+        <div id="{@id}">
+            <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
+            <xsl:apply-templates />
+        </div>
+</xsl:template>
 
 <xsl:template match="dialogbox">
 <div>

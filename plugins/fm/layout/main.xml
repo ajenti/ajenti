@@ -2,10 +2,24 @@
     <toolbar>
         <hcontainer>
             <toolbutton id="btnNewTab" text="New tab" />
+            <toolbutton text="Rename" form="files" onclick="form" action="rename" />
+            <toolbutton text="Cut" form="files" onclick="form" action="cut" />
+            <toolbutton text="Copy" form="files" onclick="form" action="copy" />
         </hcontainer>
     </toolbar>
-    
-    <pad id="main">
 
+    <pad id="main" />
+
+    <label text="Clipboard" size="5" />
+
+    <pad>
+    <datatable id="clipboard">
+        <datatablerow header="True" width="100%">
+             <datatablecell width="100%">
+                  <label text="File" />
+             </datatablecell>
+             <datatablecell />
+        </datatablerow>
+    </datatable>
     </pad>
 </xml>

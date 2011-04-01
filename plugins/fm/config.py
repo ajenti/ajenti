@@ -9,5 +9,5 @@ class GeneralConfig(ModuleConfig):
         'dir': 'Initial directory'
     }
     
-    dir = '/var/lib/mysql'
+    dir = '/'
    
