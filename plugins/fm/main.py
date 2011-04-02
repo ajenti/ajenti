@@ -272,15 +272,15 @@ class FMWorker(BackgroundWorker):
     def run(self, cat, action, files, target):
         self.action = action
         try:
-            if action == 'copy':
-                for f in files:
+            for f in files:
+                np = os.path.join(target, os.path.split(f)[1])
+                if action == 'copy':
                     if (not os.path.isdir(f)) or os.path.islink(f):
-                        shutil.copy2(f, target)
+                        shutil.copy2(f, np)
                     else:
-                        shutil.copytree(f, target, symlinks=True)
-            if action == 'cut':
-                for f in files:
-                    os.rename(f, os.path.join(target, os.path.split(f)[1]))
+                        shutil.copytree(f, np, symlinks=True)
+                if action == 'cut':
+                    os.rename(f, np)
         except Exception, e:
             cat.put_message('err', str(e))
 
