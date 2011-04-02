@@ -12,11 +12,26 @@ class Daemons(Plugin):
     def list_all(self):
         r = []
         for l in open(self.file, 'r'):
-            if not l.strip().startswith('#'):
-                if ' ' in l and l != ' ':
+            l = l.strip()
+            if not l.startswith('#'):
+                if ' ' in l:
                     r.append(Daemon(*(l.strip().split(' ', 1))))
         return sorted(r, key=lambda x: x.name)
 
+    def save(self, items):
+        f = open(self.file, 'w')
+        for i in items:
+            f.write('%s '%i.name)
+            x = []
+            for k in i.opts.keys():
+                if i.opts[k] == None:
+                    x.append(k)
+                else:
+                    x.append('%s="%s"'%(k,i.opts[k].strip(' "')))
+            f.write(','.join(x))
+            f.write('\n')
+        f.close()
+    
     def start(self, name):
         return shell('daemon --name "%s"'%name)
 
@@ -35,7 +50,7 @@ class Daemon:
             v = None
             if '=' in x:
                 k,v = x.split('=')
-                v = v.strip()
+                v = v.strip(' "')
             else:
                 k = x
             self.opts[k.strip()] = v
@@ -46,3 +61,16 @@ class Daemon:
         return shell_status('daemon --running --name "%s"'%self.name) == 0
         
         
+options = [
+    'command',
+    'user',
+    'chroot',
+    'chdir',
+    'umask',
+    'attempts',
+    'delay',
+    'limit',
+    'output',
+    'stdout',
+    'stderr',
+]        
