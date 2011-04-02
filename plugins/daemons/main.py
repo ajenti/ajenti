@@ -91,12 +91,11 @@ class DaemonsPlugin(CategoryPlugin):
                 # other opts
                 for o in options:
                     v = vars.getvalue(o, None)
-                    if o == '' or o == None:
+                    if v == '' or v == None:
                         if o in dmn.opts:
                             del dmn.opts[o]
                     else:
                         dmn.opts[o] = v
-                        
                         
                 Daemons(self.app).save(self._items)
             self._editing = None
