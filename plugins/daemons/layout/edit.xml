@@ -1,0 +1,132 @@
+<xml>
+    <dialogbox id="dlgEdit">
+    
+    <tabcontrol id="tabs">
+        <tabheadernode id="tabs">
+            <tabheader pid="tabs" text="General" id="0"/>
+            <tabheader pid="tabs" text="Output" id="1"/>
+            <tabheader pid="tabs" text="Respawn" id="2"/>
+        </tabheadernode>
+    
+        <container>
+        <tabbody pid="tabs" id="0">
+
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Name" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="name" id="name" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Command" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="command" id="command" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="User / group" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="user" id="user" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="umask" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="umask" id="umask" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Chroot" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="chroot" id="chroot" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Working directory" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="chdir" id="chdir" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+        </tabbody>
+        
+        <tabbody pid="tabs" id="1">
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Output file" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="output" id="output" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="stdout file" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="stdout" id="stdout" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="stderr file" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="stderr" id="stderr" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+        </tabbody>
+        
+        <tabbody pid="tabs" id="2">
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell colspan="2">
+                    <checkbox text="Respawn" name="respawn" id="respawn" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Attempts" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="attempts" id="attempts" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Respawn delay" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="delay" id="delay" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Respawn limit" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput name="limit" id="limit" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+        </tabbody>
+        
+        </container>
+    </tabcontrol>
+    </dialogbox>
+</xml>

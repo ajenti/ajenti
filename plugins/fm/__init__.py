@@ -2,9 +2,9 @@ MODULES = ['main', 'config']
 
 DEPS =  []
 
-NAME = 'Notepad'
+NAME = 'File manager'
 PLATFORMS = ['any']
-DESCRIPTION = 'Configuration files editor'
+DESCRIPTION = 'Simple remote file manager'
 VERSION = '0.1'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
