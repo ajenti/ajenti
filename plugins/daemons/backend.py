@@ -3,43 +3,35 @@ from ajenti.api import *
 from ajenti.utils import *
 from ajenti.ui import UI
 from ajenti import apis
-
+import os
+import time
 
 class Daemons(Plugin):
-    def __init__(self):
-        self.file = '/etc/daemon.conf'
-        
+
     def list_all(self):
         r = []
-        for l in open(self.file, 'r'):
-            l = l.strip()
-            if not l.startswith('#'):
-                if ' ' in l:
-                    r.append(Daemon(*(l.strip().split(' ', 1))))
+        if self.app.config.has_section('daemons'):
+            for n in self.app.config.options('daemons'):
+                l = self.app.config.get('daemons', n)
+                r.append(Daemon(n, l))
         return sorted(r, key=lambda x: x.name)
 
     def save(self, items):
-        f = open(self.file, 'w')
+        self.app.config.remove_section('daemons')
+        self.app.config.add_section('daemons')
+        
         for i in items:
-            f.write('%s '%i.name)
             x = []
             for k in i.opts.keys():
+                if k is None or k == '':
+                    continue
                 if i.opts[k] == None:
                     x.append(k)
                 else:
                     x.append('%s="%s"'%(k,i.opts[k].strip(' "')))
-            f.write(','.join(x))
-            f.write('\n')
-        f.close()
-    
-    def start(self, name):
-        return shell('daemon --name "%s"'%name)
-
-    def restart(self, name):
-        return shell('daemon --restart "%s"'%name)
-        
-    def stop(self, name):
-        return shell('daemon --stop "%s"'%name)
+            self.app.config.set('daemons', i.name, ','.join(x))
+            
+        self.app.config.save()
 
         
 class Daemon:
@@ -49,17 +41,37 @@ class Daemon:
         for x in s.split(','):
             v = None
             if '=' in x:
-                k,v = x.split('=')
+                k,v = x.split('=',1)
                 v = v.strip(' "')
             else:
                 k = x
             self.opts[k.strip()] = v
-        print self.name, self.opts
          
     @property
     def running(self):
         return shell_status('daemon --running --name "%s"'%self.name) == 0
         
+    def start(self):
+        cmd = ''
+        for k in self.opts.keys():
+            if k is None or k == '':
+                continue
+            if self.opts[k] == None:
+                cmd += ' --%s' % k
+            else:
+                cmd += ' --%s "%s"'%(k,self.opts[k])
+        shell('daemon --name "%s" %s'%(self.name, cmd))
+        time.sleep(0.5)
+
+    def restart(self):
+        shell('daemon --restart --name "%s"'%self.name)
+        self.running()
+        time.sleep(0.5)
+        
+    def stop(self):
+        shell('daemon --stop --name "%s"'%self.name)
+        self.running
+        time.sleep(0.5)
         
 options = [
     'command',
@@ -67,7 +79,7 @@ options = [
     'chroot',
     'chdir',
     'umask',
-    'attempts',
+    'attempts',\
     'delay',
     'limit',
     'output',

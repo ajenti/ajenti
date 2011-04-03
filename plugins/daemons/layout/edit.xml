@@ -26,6 +26,7 @@
                 </layouttablecell>
                 <layouttablecell>
                     <textinput name="command" id="command" />
+                    <helpicon text="Absolute path" />
                 </layouttablecell>
             </layouttablerow>
             <layouttablerow>
