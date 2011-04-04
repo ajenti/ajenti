@@ -70,8 +70,11 @@ def shell(c):
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
-
-    data = p.stdout.read() # Workaround; waiting first causes a deadlock
+    
+    try:
+        data = p.stdout.read() # Workaround; waiting first causes a deadlock
+    except: # WTF OSError (interrupted request)
+        data = ''
     p.wait()
     return data + p.stdout.read() + p.stderr.read()
 

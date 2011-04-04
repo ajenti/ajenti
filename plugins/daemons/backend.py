@@ -49,7 +49,10 @@ class Daemon:
          
     @property
     def running(self):
-        return shell_status('daemon --running --name "%s"'%self.name) == 0
+        u = ''
+        if 'user' in self.opts:
+            u = ' --user="%s"'%self.opts['user']
+        return shell_status('daemon --running --name "%s"%s'%(self.name,u)) == 0
         
     def start(self):
         cmd = ''
@@ -64,12 +67,18 @@ class Daemon:
         time.sleep(0.5)
 
     def restart(self):
-        shell('daemon --restart --name "%s"'%self.name)
+        u = ''
+        if 'user' in self.opts:
+            u = ' --user="%s"'%self.opts['user']
+        shell('daemon --restart --name "%s"%s'%(self.name,u))
         self.running()
         time.sleep(0.5)
         
     def stop(self):
-        shell('daemon --stop --name "%s"'%self.name)
+        u = ''
+        if 'user' in self.opts:
+            u = ' --user="%s"'%self.opts['user']
+        shell('daemon --stop --name "%s"%s'%(self.name,u))
         self.running
         time.sleep(0.5)
         
