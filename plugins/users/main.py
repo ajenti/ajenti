@@ -73,7 +73,7 @@ class UsersPlugin(CategoryPlugin):
                     UI.Label(text=u.home),
                     UI.Label(text=u.shell),
                     UI.DataTableCell(
-                        UI.MiniButton(id='edit/'+u.login, text='Select'),
+                        UI.MiniButton(id='edit/'+u.login, text='Edit'),
                         hidden=True
                     )
                 ))
