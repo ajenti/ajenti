@@ -9,7 +9,7 @@ class BaculaDirPlugin(apis.services.ServiceControlPlugin):
     text = 'Bacula Director'
     icon = '/dl/bacula_dir/icon.png'
     folder = 'apps'
-    service_name = 'bacula-dir'
+    service_name = 'bacula-director'
 
     def get_main_ui(self):
         ui = self.app.inflate('bacula_dir:main')

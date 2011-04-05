@@ -1,4 +1,4 @@
-MODULES = ['main']
+MODULES = ['main', 'backend']
 
 DEPS =  [
     (['any'],
