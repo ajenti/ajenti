@@ -4,6 +4,8 @@ from ajenti.ui import *
 from ajenti.plugins.core.api import *
 from ajenti import apis
 
+from backend import *
+
 
 class BaculaDirPlugin(apis.services.ServiceControlPlugin):
     text = 'Bacula Director'
@@ -11,8 +13,13 @@ class BaculaDirPlugin(apis.services.ServiceControlPlugin):
     folder = 'apps'
     service_name = 'bacula-director'
 
+    def on_init(self):
+        self.dir = Director(self.app) 
+        
     def get_main_ui(self):
         ui = self.app.inflate('bacula_dir:main')
+        st = self.dir.get_status()
+        print st
         return ui
    
     @event('button/click')

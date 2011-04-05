@@ -1,0 +1,19 @@
+<xml>
+    <pad>
+        <label size="5" text="Active leases" />
+        
+        <datatable id="list" width="100%">
+            <datatablerow header="True">
+                <datatablecell width="30%">
+                    <label text="MAC" />
+                </datatablecell>
+                <datatablecell width="30%">
+                    <label text="IP" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Host" />
+                </datatablecell>
+            </datatablerow>
+        </datatable>
+    </pad>    
+</xml>
