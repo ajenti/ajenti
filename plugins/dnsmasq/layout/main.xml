@@ -1,7 +1,8 @@
 <xml>
+
+    <label size="5" text="Active leases" />
+
     <pad>
-        <label size="5" text="Active leases" />
-        
         <datatable id="list" width="100%">
             <datatablerow header="True">
                 <datatablecell width="30%">
@@ -15,5 +16,28 @@
                 </datatablecell>
             </datatablerow>
         </datatable>
-    </pad>    
+    </pad>
+
+
+    <label size="5" text="DHCP options" />
+
+    <pad>
+        <datatable id="hosts" width="100%">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="MAC" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Identification" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="IP" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Action" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
 </xml>
