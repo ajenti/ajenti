@@ -1,9 +1,9 @@
 <xml>
     <toolbar>
         <hcontainer id="path">
-            <toolbutton id="paste" text="Paste here" />
-            <toolbutton id="newfld" text="New folder" />
-            <toolbutton id="close" text="Close tab" />
+            <toolbutton id="paste" text="Paste here" icon="/dl/core/ui/stock/paste.png" />
+            <toolbutton id="newfld" text="New folder" icon="/dl/fm/newfolder.png" />
+            <toolbutton id="close" text="Close tab" icon="/dl/core/ui/stock/dialog-cancel.png" />
             <spacer width="20" />
             <toolseparator />
         </hcontainer>

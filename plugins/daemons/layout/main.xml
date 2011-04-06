@@ -1,6 +1,6 @@
 <xml>
     <toolbar>
-        <toolbutton text="Add new daemon" id="add" />
+        <toolbutton text="Add new daemon" id="add" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
     
     <label text="Daemons" size="5" />

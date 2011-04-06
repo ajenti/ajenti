@@ -1,6 +1,6 @@
 <xml>
     <toolbar>
-        <toolbutton id="add" text="Add new mountpoint" />
+        <toolbutton id="add" text="Add new mountpoint" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
     
     <pad>

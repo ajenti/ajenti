@@ -1,11 +1,11 @@
 <xml>
     <toolbar>
         <hcontainer>
-            <toolbutton id="add_task" text="Add task" />
-            <toolbutton id="add_oth" text="Add non-task string" />
-            <div style="padding: 5px">
+            <toolbutton id="add_task" text="Add task" icon="/dl/cron/add-task.png" />
+            <toolbutton id="add_oth" text="Add non-task string" icon="/dl/cron/add-task.png" />
+            <div style="padding: 4px 5px 0">
             <formbox id="frmUser" hideok="True" hidecancel="True">
-                <hcontainer  spacing='5'>
+                <hcontainer spacing="5">
                     <select id="users_select" name="users_select" />
                     <minibutton id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
                 </hcontainer>

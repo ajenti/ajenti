@@ -1,13 +1,16 @@
 <xml>
     <toolbar>
         <hcontainer>
-        <toolbutton id="refresh" text="Refresh" /><toolbutton id="getlists" text="Download lists" /><toolbutton id="apply" text="Apply changes" /><toolbutton id="cancelall" text="Cancel" />
-        <div style="padding: 4px">
-        <formbox id="frmSearch" hideok="True" hidecancel="True">
-            <textinput name="query" size="20" />
-            <button text="Search" onclick="form" form="frmSearch" />
-        </formbox>
-        </div>
+            <toolbutton id="refresh" text="Refresh" icon="/dl/core/ui/stock/refresh.png" />
+            <toolbutton id="getlists" text="Download lists" icon="/dl/pkgman/update-lists.png" />
+            <toolbutton id="apply" text="Apply changes" icon="/dl/core/ui/stock/dialog-ok.png" />
+            <toolbutton id="cancelall" text="Cancel" icon="/dl/core/ui/stock/dialog-cancel.png" />
+            <div style="padding: 4px">
+                <formbox id="frmSearch" hideok="True" hidecancel="True">
+                    <textinput name="query" size="20" />
+                    <button text="Search" onclick="form" form="frmSearch" />
+                </formbox>
+            </div>
         </hcontainer>
     </toolbar>
     

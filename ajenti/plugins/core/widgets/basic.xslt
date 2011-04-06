@@ -56,6 +56,9 @@
 
 <xsl:template match="warningtoolbutton">
     <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button ui-el-toolbutton">
+        <xsl:if test="@icon">
+            <img src="{@icon}" />
+        </xsl:if>
         <xsl:value-of select="@text" />
     </a>
 </xsl:template>

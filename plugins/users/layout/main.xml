@@ -1,6 +1,9 @@
 <xml>
     <toolbar>
-        <toolbutton id="adduser" text="Add user"/><toolbutton id="addgrp" text="Add group"/>
+        <hcontainer>
+            <toolbutton id="adduser" text="Add user" icon="/dl/core/ui/stock/add.png" />
+            <toolbutton id="addgrp" text="Add group" icon="/dl/core/ui/stock/add.png" />
+        </hcontainer>
     </toolbar>
     
     <pad>

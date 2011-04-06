@@ -1,6 +1,9 @@
 <xml>
     <toolbar>
-        <toolbutton id="add" text="Add host" /><toolbutton id="hostname" text="Change hostname" />
+        <hcontainer>
+            <toolbutton id="add" text="Add host" icon="/dl/core/ui/stock/add.png" />
+            <toolbutton id="hostname" text="Change hostname" icon="/dl/core/ui/stock/server.png" />
+        </hcontainer>
     </toolbar>
     
     <label text="Hosts" size="5" />
