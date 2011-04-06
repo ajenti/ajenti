@@ -2,7 +2,6 @@ import platform
 
 from ajenti.com import Interface
 from ajenti.ui import *
-from ajenti import version
 from ajenti.utils import detect_distro, detect_platform
 from ajenti.api import *
 

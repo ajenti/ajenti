@@ -1,5 +1,4 @@
 from ajenti.api import *
-from ajenti import version
 from ajenti.ui import *
 from ajenti.utils import hashpw
 from ajenti.plugins.recovery.api import *
@@ -75,11 +74,13 @@ class ConfigPlugin(CategoryPlugin):
             self._tab = 1
             self.config.remove_option('users', params[1])
             self.config.save()
-            ConfigRecovery(self.app).backup_now()
+            try:
+                ConfigRecovery(self.app).backup_now()
+            except:
+                pass
         if params[0] == 'editconfig':
             self._tab = 2
             self._config = params[1]
-            print self.app.session
             self.app.session['RootDispatcher-_module_config'] = '1'
 
     @event('form/submit')
@@ -90,7 +91,10 @@ class ConfigPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'OK':
                 self.config.set('users', vars.getvalue('login', ''), hashpw(vars.getvalue('password', '')))
                 self.config.save()
-                ConfigRecovery(self.app).backup_now()
+                try:
+                    ConfigRecovery(self.app).backup_now()
+                except:
+                    pass
             self._adding_user = False
         if params[0] == 'frmGeneral':
             self._tab = 0
@@ -100,13 +104,19 @@ class ConfigPlugin(CategoryPlugin):
                 self.config.set('ajenti', 'ssl', vars.getvalue('ssl', '0'))
                 self.config.set('ajenti', 'cert_file', vars.getvalue('cert_file', ''))
                 self.config.save()
-                ConfigRecovery(self.app).backup_now()
+                try:
+                    ConfigRecovery(self.app).backup_now()
+                except:
+                    pass
         if params[0] == 'frmSecurity':
             self._tab = 1
             if vars.getvalue('action', '') == 'OK':
                 self.config.set('ajenti', 'auth_enabled', vars.getvalue('httpauth', '0'))
                 self.config.save()
-                ConfigRecovery(self.app).backup_now()
+                try:
+                    ConfigRecovery(self.app).backup_now()
+                except:
+                    pass
 
     
 class ConfigRecovery(SimpleFileRecoveryProvider):

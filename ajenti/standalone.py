@@ -9,6 +9,7 @@ from twisted.web.wsgi import WSGIResource
 from ajenti.config import Config
 from ajenti.core import AppDispatcher
 from ajenti.plugmgr import load_plugins
+from ajenti import version
 import ajenti.utils
 
 
@@ -26,6 +27,9 @@ def run_server(log_level=logging.INFO, config_file=''):
     stderr.setFormatter(formatter)
     log.addHandler(stderr)
 
+    # For the debugging purposes
+    log.info('Ajenti %s' % version)
+    
     # We need this early
     ajenti.utils.logger = log
 
