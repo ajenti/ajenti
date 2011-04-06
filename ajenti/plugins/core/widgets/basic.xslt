@@ -29,11 +29,17 @@
     <xsl:choose>
         <xsl:when test="@onclick = 'form'">
             <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-button ui-el-toolbutton">
+                <xsl:if test="@icon">
+                    <img src="{@icon}" />
+                </xsl:if>
                 <xsl:value-of select="@text" />
             </a>
         </xsl:when>
         <xsl:otherwise>
             <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-toolbutton">
+                <xsl:if test="@icon">
+                    <img src="{@icon}" />
+                </xsl:if>
                 <xsl:value-of select="@text" />
             </a>
         </xsl:otherwise>

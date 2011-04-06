@@ -21,7 +21,7 @@ class UpstartServiceManager(Plugin):
                     svc = apis.services.Service()
                     svc.name = s
                     res = shell('service %s status' % s)
-                    if 'start/running' in res:
+                    if 'running' in res:
                         svc.status = 'running'
                         r.append(svc)
                         found.append(s)
@@ -44,7 +44,7 @@ class UpstartServiceManager(Plugin):
 
     def get_status(self, name):
         s = shell('service ' + name + ' status')
-        if 'start/running' in s:
+        if 'running' in s:
             return 'running'
         return 'running' if 'is running' in s else 'stopped'
 

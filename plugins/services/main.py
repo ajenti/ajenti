@@ -28,7 +28,7 @@ class ServicesPlugin(CategoryPlugin):
                       )
             else:
                 ctl = UI.MiniButton(text='Start', id='start/' + svc.name)
-            fn = '/dl/core/ui/stock/status-' + ('running.png' if svc.status == 'running' else 'stopped.png')
+            fn = '/dl/core/ui/stock/service-' + ('run.png' if svc.status == 'running' else 'stop.png')
             row = UI.DataTableRow(
                     UI.Image(file=fn),
                     UI.Label(text=svc.name),

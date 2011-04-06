@@ -4,6 +4,6 @@
     padding-right: 10px;
 }
 
-.ui-el-servicepluginpanel img {
-    padding: 6px 5px 0 !important;
+.ui-el-servicepluginpanel > img {
+    padding: 7px 5px 0 !important;
 }

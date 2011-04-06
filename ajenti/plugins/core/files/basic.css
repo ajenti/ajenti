@@ -44,9 +44,14 @@
     height: 28px;
     line-height: 28px;
     border-left: none;
+    padding: 0 10px 0 5px;
     border-radius: 0px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
+}
+
+.ui-el-toolbutton > img {
+    padding: 7px 3px 0;
 }
 
 .ui-el-toolbar-separator {

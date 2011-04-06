@@ -34,7 +34,10 @@ class UsersPlugin(CategoryPlugin):
 
     def on_init(self):
         self.backend = UsersBackend(self.app)
-        
+        self.users = self.backend.get_all_users()
+        self.groups = self.backend.get_all_groups()
+        self.backend.map_groups(self.users, self.groups)
+
     def get_config(self):
         return self.app.get_config(self.backend)
         
@@ -45,10 +48,6 @@ class UsersPlugin(CategoryPlugin):
         self._editing = ''
 
     def get_ui(self):
-        self.users = self.backend.get_all_users()
-        self.groups = self.backend.get_all_groups()
-        self.backend.map_groups(self.users, self.groups)
-
         ui = self.app.inflate('users:main')
         ui.find('tabs').set('active', self._tab)
 
@@ -105,14 +104,12 @@ class UsersPlugin(CategoryPlugin):
                     UI.Label(text=u.gid, bold=(u.gid>=1000)),
                     UI.Label(text=', '.join(u.users)),
                     UI.DataTableCell(
-                        UI.MiniButton(id='gedit/'+u.name, text='Select'),
+                        UI.MiniButton(id='gedit/'+u.name, text='Edit'),
                         hidden=True
                     )
                 ))
 
         if self._selected_group != '':
-            t = UI.Container(t, self.get_ui_edit_group())
-    
             u = self.backend.get_group(self._selected_group, self.groups)
             g = ', '.join(u.users)
 
@@ -158,9 +155,19 @@ class UsersPlugin(CategoryPlugin):
             v = vars.getvalue('value', '')
             if vars.getvalue('action', '') == 'OK':
                 if self._editing == 'adduser':
+                    for u in self.users:
+                        if u.login == v:
+                            self.put_message('err', 'Duplicate name')
+                            self._editing = ''
+                            return
                     self.backend.add_user(v)
-                    self._selected_user = v
+                    self._selected_user = v 
                 elif self._editing == 'addgrp':
+                    for u in self.groups:
+                        if u.name == v:
+                            self.put_message('err', 'Duplicate name')
+                            self._editing = ''
+                            return
                     self.backend.add_group(v)
                     self._selected_group = v
                 elif self._editing == 'addtogroup':
