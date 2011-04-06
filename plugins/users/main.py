@@ -38,6 +38,11 @@ class UsersPlugin(CategoryPlugin):
         self.groups = self.backend.get_all_groups()
         self.backend.map_groups(self.users, self.groups)
 
+    def reload_data(self):
+        self.users = self.backend.get_all_users()
+        self.groups = self.backend.get_all_groups()
+        self.backend.map_groups(self.users, self.groups)
+    
     def get_config(self):
         return self.app.get_config(self.backend)
         
@@ -48,6 +53,7 @@ class UsersPlugin(CategoryPlugin):
         self._editing = ''
 
     def get_ui(self):
+        self.reload_data()
         ui = self.app.inflate('users:main')
         ui.find('tabs').set('active', self._tab)
 
@@ -155,6 +161,7 @@ class UsersPlugin(CategoryPlugin):
             v = vars.getvalue('value', '')
             if vars.getvalue('action', '') == 'OK':
                 if self._editing == 'adduser':
+                    self.reload_data()
                     for u in self.users:
                         if u.login == v:
                             self.put_message('err', 'Duplicate name')
@@ -163,6 +170,7 @@ class UsersPlugin(CategoryPlugin):
                     self.backend.add_user(v)
                     self._selected_user = v 
                 elif self._editing == 'addgrp':
+                    self.reload_data()
                     for u in self.groups:
                         if u.name == v:
                             self.put_message('err', 'Duplicate name')

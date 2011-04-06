@@ -1,0 +1,51 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="newshare" text="Add share" icon="/dl/samba/newshare.png" />
+            <toolbutton id="newuser" text="Add user" icon="/dl/core/ui/stock/add.png" />
+        </hcontainer>
+    </toolbar>
+    
+    <pad id="main">
+    <tabcontrol id="tabs">
+        <tabheadernode id="tabs">
+            <tabheader pid="tabs" text="Share" id="0"/>
+            <tabheader pid="tabs" text="Users" id="1"/>
+            <tabheader pid="tabs" text="General" id="2"/>
+        </tabheadernode>
+
+        <container>
+        
+            <tabbody pid="tabs" id="0">
+                <datatable id="shares" width="100%">
+                    <datatablerow header="True">
+                        <datatablecell>
+                            <label text="Name" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="Path" />
+                        </datatablecell>
+                        <datatablecell width="140"/>
+                    </datatablerow>
+                </datatable>
+            </tabbody>
+            
+            <tabbody pid="tabs" id="1">
+                <datatable id="users" width="100%">
+                    <datatablerow header="True">
+                        <datatablecell>
+                            <label text="Name" />
+                        </datatablecell>
+                        <datatablecell width="140"/>
+                    </datatablerow>
+                </datatable>
+            </tabbody>
+            
+            <tabbody pid="tabs" id="2">
+               <container id="tab2" />
+            </tabbody>
+            
+        </container>
+    </tabcontrol>
+    </pad>
+</xml>

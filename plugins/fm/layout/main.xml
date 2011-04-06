@@ -1,10 +1,10 @@
 <xml>
     <toolbar>
         <hcontainer>
-            <toolbutton id="btnNewTab" text="New tab" />
-            <toolbutton text="Rename" form="files" onclick="form" action="rename" />
-            <toolbutton text="Cut" form="files" onclick="form" action="cut" />
-            <toolbutton text="Copy" form="files" onclick="form" action="copy" />
+            <toolbutton id="btnNewTab" text="New tab" icon="/dl/fm/new-tab.png" />
+            <toolbutton text="Rename" form="files" onclick="form" action="rename" icon="/dl/fm/rename.png" />
+            <toolbutton text="Cut" form="files" onclick="form" action="cut" icon="/dl/core/ui/stock/cut.png" />
+            <toolbutton text="Copy" form="files" onclick="form" action="copy" icon="/dl/core/ui/stock/copy.png" />
         </hcontainer>
     </toolbar>
 

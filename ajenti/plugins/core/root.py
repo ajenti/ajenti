@@ -91,28 +91,8 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
     def get_ui_about(self):
         ui = self.app.inflate('core:about')
-        ui.find('ver').set('text', version)
+        ui.find('ver').set('text', version())
         return ui
-        ui = UI.Centerer(
-                UI.VContainer(
-                    UI.Image(file='/dl/core/ui/logo_big.png'),
-                    UI.Spacer(height=6),
-                    UI.Label(text='Ajenti '+version, size=4),
-                    UI.Label(text='Your personal server affairs agent'),
-                    UI.Spacer(height=10),
-                    UI.HContainer(
-                        UI.OutLinkLabel(url='http://ajenti.org', text='Home'),
-                        UI.OutLinkLabel(url='http://www.assembla.com/spaces/ajenti/wiki?id=aLa8XiGfWr36nLeJe5cbLA', text='Wiki'),
-                        UI.OutLinkLabel(url='http://www.assembla.com/spaces/ajenti/wiki?id=ajenti&wiki_id=Developers', text='Credits'),
-                        UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html'),
-                        UI.OutLinkLabel(text='Bugs', url='http://www.assembla.com/spaces/ajenti/support/tickets'),
-                        spacing=6
-                    ),
-                    UI.Spacer(height=10),
-                    UI.Button(text='Close', id='closeabout')
-                )
-            )
-        return UI.DialogBox(ui, hideok=True, hidecancel=True)
 
     @url('^/$')
     def process(self, req, start_response):
@@ -169,7 +149,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         templ.append('_head', UI.HeadTitle(text='Ajenti @ %s'%platform.node()))
         templ.append('leftplaceholder', v)
         templ.append('rightplaceholder', self.main_ui().elements())
-        templ.append('version', UI.Label(text='Ajenti '+version, size=2))
+        templ.append('version', UI.Label(text='Ajenti '+version(), size=2))
         templ.append('links',
             UI.HContainer(
                 UI.LinkLabel(text='About', id='about'),
