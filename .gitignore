@@ -17,3 +17,5 @@ debian/*stamp*
 
 .project
 .pydevproject
+
+.~lock.*
