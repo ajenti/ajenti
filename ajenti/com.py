@@ -154,10 +154,7 @@ class MetaPlugin (type):
                 if plugin_manager.instance_get(cls) is None:
                     # Plugin is just created
                     if init:
-                        try:
-                            init(self)
-                        except:
-                            raise
+                        init(self)
                     if not self.multi_instance:
                         plugin_manager.instance_set(cls, self)
             maybe_init._original = init

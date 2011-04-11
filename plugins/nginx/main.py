@@ -48,7 +48,7 @@ class NginxBackend(Plugin):
     host_template = """
 server {
 	listen 80;
-	server_name localhost;
+	server_name %s;
 	access_log /var/log/nginx/localhost.access.log;
 
 	location / {

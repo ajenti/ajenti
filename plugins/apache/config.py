@@ -18,3 +18,14 @@ class BSDConfig(GeneralConfig):
     
     cfg_dir = '/usr/local/etc/apache2'
    
+   
+class SingleConfig(ModuleConfig):
+    plugin = 'apachesingleconfigbackend'
+    platform = ['any']
+    
+    labels = {
+        'cfg_file': 'Configuration file'
+    }
+    
+    cfg_file = '/etc/apache2/httpd.conf'
+   

@@ -188,8 +188,8 @@ class Webserver(API):
             if params[0] == 'dlgCreateHost':
                 if vars.getvalue('action', '') == 'OK':
                     h = apis.webserver.VirtualHost()
-                    h.config = self._backend.host_template 
                     h.name = vars.getvalue('value', '')
+                    h.config = self._backend.host_template % h.name
                     self._backend.save_host(h)
                 self._creating_host = False
             if params[0] == 'dlgEditHost':

@@ -88,6 +88,7 @@ class ApacheBackend(Plugin):
         open(path, 'w').write(mod.config)
      
     host_template = """
+# %s
 <VirtualHost *:80>
 	ServerAdmin webmaster@localhost
 
@@ -110,6 +111,7 @@ class ApacheBackend(Plugin):
 """
                        
 class ApachePlugin(apis.webserver.WebserverPlugin):
+    platform = ['any'] # TODO explicit list
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
     folder = 'servers'

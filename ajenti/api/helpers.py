@@ -1,6 +1,7 @@
 import re
 import os.path
 import inspect
+import traceback
 
 from ajenti.com import *
 from ajenti.api import *
@@ -116,7 +117,12 @@ class SessionPlugin(Plugin):
 
         if self.session_proxy.get('sp_estabilished', None) is None:
             self.session_proxy['sp_estabilished'] = 'yes'
-            self.on_session_start()
+            try:
+                self.on_session_start()
+            except Exception, e:
+                traceback.print_exc()
+                raise
+                 
 
     def __getattr__(self, name):
         # TODO: use regexps
