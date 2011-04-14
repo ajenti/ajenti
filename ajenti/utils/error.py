@@ -42,18 +42,11 @@ def format_error(app, ex):
     elif isinstance(ex, ConfigurationError):
         reason = 'The plugin was unable to start with current configuration.<br/>Consider using configuration dialog for this plugin.'
         hint = ex.hint
-        tool = UI.VContainer(
-            UI.Spacer(height=10),
-            UI.Button(text='Edit configuration', id='mod_config'),
-            spacing=0
-        )
     else:
         return format_exception(app, traceback.format_exc())
         
     templ.appendChildInto('reason', UI.CustomHTML(html=reason))
     templ.appendChildInto('hint', UI.CustomHTML(html=hint))
-    if tool is not None:
-        templ.appendChildInto('hint', tool)
     return templ.render()
 
 def make_report(app, err):

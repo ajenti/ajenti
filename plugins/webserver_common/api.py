@@ -33,10 +33,10 @@ class Webserver(API):
             self.service_name = self.ws_service
             self.tab_hosts = 0
             self.tab_mods = 1 if self.ws_vhosts else 0
+            self._backend = self.ws_backend(self.app)
             
         def on_session_start(self):
             self._tab = 0
-            self._backend = self.ws_backend(self.app)
             self._creating_host = False
             self._editing_host = None
             self._editin_mod = None

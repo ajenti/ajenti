@@ -6,12 +6,13 @@ from ajenti.com import *
 from ajenti import version
 from ajenti.api import ICategoryProvider, EventProcessor, SessionPlugin, event, URLHandler, url, get_environment_vars
 from ajenti.ui import BasicTemplate
+from ajenti.utils import ConfigurationError
 from api import IProgressBoxProvider
 
 
 class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
-    # Plugin folders. This dict is until we make MUI support
+    # Plugin folders. This dict is here forever^W until we make MUI support 
     folders = {
         'system': 'SYSTEM',
         'hardware': 'HARDWARE',
@@ -52,18 +53,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                 )
                 break
                 
-        if self._module_config:
-            try:
-                cfg = self.selected_category.get_config()
-                templ.append('main-content', cfg.get_ui_edit())
-            except:
-                pass
-        else:
-            templ.append('main-content', self.selected_category.get_ui())
-            if self.selected_category.get_config():
-                templ.append('plugin-buttons',
-                      UI.Button(text='Module config', id='mod_config'))
-
+        templ.append('main-content', self.selected_category.get_ui())
     
         if self.app.session.has_key('messages'):
             for msg in self.app.session['messages']:
@@ -87,6 +77,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             if c.plugin_id == self._cat_selected: # initialize current plugin
                 cat = c
         self.selected_category = cat
+
         cat.on_init()
 
     def get_ui_about(self):
@@ -185,17 +176,9 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             for p in self.app.grab_plugins(IProgressBoxProvider):
                 if p.has_progress():
                     p.abort()
-        if params[0] == 'mod_config':
-            self._module_config = self._cat_selected
 
     @event('dialog/submit')
-    def handle_modconfig(self, event, params, vars=None):
-        if params[0] == 'dlgEditModuleConfig':
-            if vars.getvalue('action','') == 'OK':
-                cfg = self.app.get_config(self.selected_category)
-                cfg.apply_vars(vars)
-                cfg.save()            
-            self._module_config = None
+    def handle_dlg(self, event, params, vars=None):
         if params[0] == 'dlgAbout':
             self._about_visible = False
             
@@ -206,15 +189,22 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         path = req['PATH_INFO'].split('/')
         event = '/'.join(path[2:4])
         params = path[4:]
-        self.do_init()
+        
+        
+        try:
+            self.do_init()
+        except ConfigurationError, e:
+            # ignore problems if we are leaving the plugin anyway
+            if params[0] == self._cat_selected or event != 'category/click':
+                raise
 
         # Current module
         cat = filter(lambda x: x.plugin_id == self._cat_selected, self.categories)[0]
 
         # Search self and current category for event handler
+        vars = get_environment_vars(req)
         for handler in (cat, self):
             if handler.match_event(event):
-                vars = get_environment_vars(req)
                 result = handler.event(event, params, vars = vars)
                 if isinstance(result, str):
                     # For AJAX calls that do not require information

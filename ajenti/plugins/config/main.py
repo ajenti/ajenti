@@ -53,14 +53,14 @@ class ConfigPlugin(CategoryPlugin):
                     UI.MiniButton(text='Edit', id='editconfig/'+c.plugin),
                     hidden=True
                 )
-            ))         
+            ))   
+            
+        if self._config:
+            ui.append('main',
+                self.app.get_config_by_id(self._config).get_ui_edit()
+            )
+                  
         return ui
-
-    def get_config(self):
-        try:
-            return self.app.get_config_by_id(self._config)
-        except:
-            return None
 
 
     @event('button/click')
@@ -81,7 +81,6 @@ class ConfigPlugin(CategoryPlugin):
         if params[0] == 'editconfig':
             self._tab = 2
             self._config = params[1]
-            self.app.session['RootDispatcher-_module_config'] = '1'
 
     @event('form/submit')
     @event('dialog/submit')
@@ -117,6 +116,12 @@ class ConfigPlugin(CategoryPlugin):
                     ConfigRecovery(self.app).backup_now()
                 except:
                     pass
+        if params[0] == 'dlgEditModuleConfig':
+            if vars.getvalue('action','') == 'OK':
+                cfg = self.app.get_config_by_id(self._config)
+                cfg.apply_vars(vars)
+                cfg.save()            
+            self._config = None
 
     
 class ConfigRecovery(SimpleFileRecoveryProvider):

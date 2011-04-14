@@ -1,5 +1,6 @@
 import os
 
+from ajenti.utils import *
 from ajenti.com import *
 from ajenti import apis
 
@@ -9,10 +10,9 @@ class LighttpdBackend(Plugin):
     
     def __init__(self):
         self.config_dir = self.app.get_config(self).cfg_dir
-    
-    def is_installed(self):
-        return os.path.exists(self.config_dir)
- 
+        if not os.path.exists(self.config_dir):
+            raise ConfigurationError('Config directory does not exist') 
+        
     def get_mods(self):
         r = {}
         dir_conf_avail = self.config_dir + '/conf-available/'

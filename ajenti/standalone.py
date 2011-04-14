@@ -28,7 +28,7 @@ def run_server(log_level=logging.INFO, config_file=''):
     log.addHandler(stderr)
 
     # For the debugging purposes
-    log.info('Ajenti %s' % version)
+    log.info('Ajenti %s' % version())
     
     # We need this early
     ajenti.utils.logger = log
