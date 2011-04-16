@@ -1,6 +1,11 @@
 MODULES = ['main', 'config', 'recovery']
 
 DEPS =  [
+    (['centos'],
+     [
+        ('plugin', 'webserver_common'),
+        ('app', 'Apache 2', 'httpd'),
+     ]),
     (['any'],
      [
         ('plugin', 'webserver_common'),

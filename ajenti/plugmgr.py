@@ -140,11 +140,10 @@ class PluginInfo:
     
             
 def get_deps(platform, dep):
-    d = []
     for k in dep:
         if platform.lower() in k[0] or 'any' in k[0]:
-            d.extend(k[1])
-    return d
+            return k[1]
+    return []
         
 def verify_dep(dep):
     if dep[0] == 'app':
