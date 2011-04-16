@@ -182,7 +182,8 @@ def load_plugin(path, plugin, log, platform):
         for submod in mod.MODULES:
             description = imp.find_module(submod, mod.__path__)
             try:
-                imp.load_module(plugin + '.' + submod, *description)
+                m = imp.load_module(plugin + '.' + submod, *description)
+                setattr(mod, submod, m) # store the submodule
                 if log is not None:
                     log.debug('Loaded submodule %s.%s' % (plugin,submod))
             except Exception, e:
