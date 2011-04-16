@@ -100,12 +100,12 @@ class CentOSHostnameManager(Plugin):
     implements(IHostnameManager)
     platform = ['centos']
 
-    def gethostname(self, cc):
+    def gethostname(self):
         rc = apis.rcconf.RCConf(self.app)
         rc.file = '/etc/sysconfig/network'
         return rc.get_param('HOSTNAME')
 
-    def sethostname(self, cc, hn):
+    def sethostname(self, hn):
         rc = apis.rcconf.RCConf(self.app)
         rc.file = '/etc/sysconfig/network'
         rc.set_param('HOSTNAME', hn, near='HOSTNAME')

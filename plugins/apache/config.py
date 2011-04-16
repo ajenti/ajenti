@@ -27,5 +27,5 @@ class SingleConfig(ModuleConfig):
         'cfg_file': 'Configuration file'
     }
     
-    cfg_file = '/etc/apache2/httpd.conf'
+    cfg_file = '/etc/httpd/conf/httpd.conf'
    

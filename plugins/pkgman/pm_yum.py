@@ -97,8 +97,47 @@ class YumPackageManager(Plugin):
         utils.shell('rm /tmp/ajenti-yum-output')
 
     def get_info(self, pkg):
-        pass #do it later       
-	 
+        i = apis.pkgman.PackageInfo()
+        ss = utils.shell('yum -C info '+pkg).split('\n')
+        
+        section = ''
+        dinst = {}
+        davail = {}
+        lk = None
+        
+        for s in ss:
+            if not ':' in s:
+                section = s
+            else:
+                k,v = s.split(':', 1)
+                k = k.strip()
+                v = v.strip()
+                if k == '':
+                    k = lk
+                if section.startswith('Installed'):
+                    if k in dinst:
+                        dinst[k] += '\n' + v
+                    else:
+                        dinst[k] = v
+                else:
+                    if k in davail:
+                        davail[k] += '\n' + v
+                    else:
+                        davail[k] = v
+                lk = k
+                    
+        i.installed = dinst['Version']
+        try:
+            i.available = davail['Version']
+        except:
+            i.available = None
+
+        dinst.update(davail)
+        
+        i.description = dinst['Description']
+        
+        return i
+        	 
     def get_info_ui(self, pkg):
         return None
 

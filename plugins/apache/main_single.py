@@ -179,7 +179,7 @@ class ApacheSingleConfigBackend(Plugin):
 """
                        
 class ApacheSCPlugin(apis.webserver.WebserverPlugin):
-    platform = [] # <-- TODO put stuff here
+    platform = ['centos']
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
     folder = 'servers'
