@@ -23,9 +23,9 @@
 .ui-el-dialog-content {
     background: #ececee;
     padding: 10px 10px 10px 10px;
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 0px 0px;
+    -moz-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 3px 0px 0px 0px;
     overflow: hidden;
 }
 
@@ -38,10 +38,17 @@
 }
 
 .ui-el-modal-buttons {
+    border-radius: 0px 0px 3px 3px;
+    -moz-border-radius: 0px 0px 3px 3px;
+    -webkit-border-radius: 0px 0px 3px 3px;
+    border-top: 1px solid #bbb;
+    background: #ccc;
+    background: -moz-linear-gradient(top,  #ddd,  #bbb);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb));
     overflow: hidden;
-    padding: 5px 10px 0px 10px;
+    padding: 5px 10px 6px 10px;
+    text-align: right;
 }
-
 
 
 .ui-el-error {

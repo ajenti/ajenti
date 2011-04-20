@@ -58,21 +58,15 @@
                             <div class="ui-el-error-content" style="min-width:0px">
                                 <span id="warning-text" />
                             </div>
-                            <div class="ui-el-modal-buttons">
-                                <table cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td><button text="OK" id="warning-button"/></td>
-                                        <td>
-                                            <a href="#" id="{@id}" onclick="ui_hidewarning()">
-                                                <div class="ui-el-button">Cancel</div>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
                         </td>
                     </tr>
                 </table>
+            </div>
+            <div class="ui-el-modal-buttons">
+                <button text="OK" id="warning-button"/>
+                <a class="ui-el-button" href="#" id="{@id}" onclick="ui_hidewarning()">
+                    Cancel
+                </a>
             </div>
         </div>
     </div>

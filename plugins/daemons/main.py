@@ -35,6 +35,7 @@ class DaemonsPlugin(CategoryPlugin):
                         UI.MiniButton(text='Restart', id='restart/' + svc.name)
                             if running else None,
                         UI.MiniButton(text='Edit', id='edit/' + svc.name),
+                        UI.WarningMiniButton(text='Delete', id='delete/' + svc.name, msg='Delete daemon %s'%svc.name),
                         hidden=True
                     )
                   )
@@ -72,7 +73,10 @@ class DaemonsPlugin(CategoryPlugin):
             self.get_dmn(params[1]).stop()
         if params[0] == 'edit':
             self._editing = params[1]
-
+        if params[0] == 'delete':
+            self._items = filter(lambda x:x.name!=params[1], self._items)
+            Daemons(self.app).save(self._items)
+            
     @event('dialog/submit')
     def on_submit(self, event, params, vars):
         if params[0] == 'dlgEdit':

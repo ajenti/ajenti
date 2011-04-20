@@ -8,7 +8,7 @@
             <div style="padding: 4px">
                 <formbox id="frmSearch" hideok="True" hidecancel="True">
                     <textinput name="query" size="20" />
-                    <button text="Search" onclick="form" form="frmSearch" />
+                    <minibutton text="Search" onclick="form" form="frmSearch" />
                 </formbox>
             </div>
         </hcontainer>

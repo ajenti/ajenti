@@ -37,24 +37,24 @@
             <div class="ui-el-dialog" width="{@width}" height="{@height}">
                 <div class="ui-el-dialog-content">
                     <xsl:apply-templates />
+                </div>
 
-                    <div class="ui-el-modal-buttons">
-                                <xsl:choose>
-                                    <xsl:when test="@hideok = 'True'" />
-                                    <xsl:otherwise>
-                                        <button text="OK" onclick="form" action="OK" form="{@id}"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                                <xsl:choose>
-                                    <xsl:when test="@hidecancel = 'True'" />
-                                    <xsl:otherwise>
-                                        <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                                <xsl:if test="@miscbtn">
-                                     <button text="{@miscbtn}" id="{@miscbtnid}"/>
-                                </xsl:if>
-                    </div>
+                <div class="ui-el-modal-buttons">
+                    <xsl:choose>
+                        <xsl:when test="@hideok = 'True'" />
+                        <xsl:otherwise>
+                            <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:choose>
+                        <xsl:when test="@hidecancel = 'True'" />
+                        <xsl:otherwise>
+                            <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:if test="@miscbtn">
+                        <button text="{@miscbtn}" id="{@miscbtnid}"/>
+                    </xsl:if>
                 </div>
             </div>
         </div>
