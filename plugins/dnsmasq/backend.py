@@ -36,14 +36,46 @@ class Backend(Plugin):
                     
                     if k == 'dhcp-host':
                         r['dhcp-hosts'].append(self.parse_host(v))
-                    elif k == 'domain':
-                        r['domains'].append(v)
+                    elif k == 'address':
+                        r['domains'].append(v.split('/'))
                     else:
                         r['opts'][k] = v
                 else:
                     k = l.strip()
                     r['opts'][k] = None
         return r                    
+        
+    def save_config(self, cfg):
+        s = ''
+        s += '# Hosts\n' 
+        for x in cfg['dhcp-hosts']:
+            v = []
+            for y in x['id']:
+                if y[0] == 'dhcpid':
+                    v.append('id:'+y[1])
+                else:
+                    v.append(y[1])
+            for y in x['act']:
+                if y[0] == 'ignore':
+                    v.append(y[0])
+                elif y[0] == 'set':
+                    v.append('set:' + y[1])
+                else:
+                    v.append(y[1])
+            s += 'dhcp-host=' + ','.join(v) + '\n'
+        
+        s += '\n\n# Domains\n' 
+        for x in cfg['domains']:
+            s += 'address=' + '/'.join(x) + '\n'
+         
+        s += '\n\n# Other options\n'
+        for x in cfg['opts']:
+            if cfg['opts'][x]:
+                s += '%s=%s\n' % (x, cfg['opts'][x])
+            else:
+                s += x + '\n'
+        
+        open(self.config_file, 'w').write(s)
         
     def parse_host(self, s):
         r = { 'id': [], 'act': [] }
@@ -95,7 +127,7 @@ class Backend(Plugin):
         r = []
         for x in h:
             if x[0] == 'set':
-                r.append('apply option set %s' % x[1])
+                r.append('use tag %s' % x[1])
             if x[0] == 'ignore':
                 r.append('ignore')
             if x[0] == 'name':

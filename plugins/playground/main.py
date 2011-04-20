@@ -5,6 +5,8 @@ from ajenti.utils import shell, enquote, BackgroundProcess
 from ajenti.plugins.core.api import *
 from ajenti.utils import *
 
+import sys
+
 
 class PlaygroundPlugin(CategoryPlugin):
     text = 'Playground'
@@ -25,6 +27,8 @@ class PlaygroundPlugin(CategoryPlugin):
             self.put_message('err', 'Error')
         if params[0] == 'progress':
             PlaygroundProgress(self.app).start()
+        if params[0] == 'btnExit':
+            self.app.stop()
             
             
 class PlaygroundProgress(SessionPlugin):

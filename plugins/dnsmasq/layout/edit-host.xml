@@ -1,0 +1,73 @@
+<xml>
+    <dialogbox id="dlgEditHost">
+        <label size="2" text="Identification" />
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="id_mac" name="id_mac" text="MAC" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="id_mac_val" name="id_mac_val" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="id_dhcp" name="id_dhcp" text="DHCP ID" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="id_dhcp_val" name="id_dhcp_val" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="id_name" name="id_name" text="Client name" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="id_name_val" name="id_name_val" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+        
+        <label size="2" text="Actions" />
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="act_ip" name="act_ip" text="Assign IP" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="act_ip_val" name="act_ip_val" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Lease time" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="time" name="time" />
+                    <helpicon text="15m, 2h, 5d or infinite" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="act_tag" name="act_tag" text="Use tag" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="act_tag_val" name="act_tag_val" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="act_ignore" name="act_ignore" text="Ignore" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <checkbox id="act_name" name="act_name" text="Set name" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="act_name_val" name="act_name_val" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+    </dialogbox>
+</xml>

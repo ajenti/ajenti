@@ -1,8 +1,12 @@
 <xml>
 
+    <toolbar>
+        <toolbutton id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+    
     <label size="5" text="Active leases" />
 
-    <pad>
+    <pad id="main">
         <datatable id="list" width="100%">
             <datatablerow header="True">
                 <datatablecell width="30%">
@@ -19,7 +23,7 @@
     </pad>
 
 
-    <label size="5" text="DHCP options" />
+    <label size="5" text="DHCP hosts" />
 
     <pad>
         <datatable id="hosts" width="100%">

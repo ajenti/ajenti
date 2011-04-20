@@ -2,7 +2,7 @@
     <toolbar>
         <hcontainer>
             <toolbutton id="add_task" text="Add task" icon="/dl/cron/add-task.png" />
-            <toolbutton id="add_oth" text="Add non-task string" icon="/dl/cron/add-task.png" />
+            <toolbutton id="add_oth" text="Add non-task string" icon="/dl/core/ui/stock/add.png" />
             <div style="padding: 4px 5px 0">
             <formbox id="frmUser" hideok="True" hidecancel="True">
                 <hcontainer spacing="5">
