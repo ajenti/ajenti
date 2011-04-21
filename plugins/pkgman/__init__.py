@@ -1,4 +1,4 @@
-MODULES = ['api', 'main', 'pm_apt', 'pm_pacman', 'pm_ports',  'pm_yum']
+MODULES = ['api', 'main', 'component', 'pm_apt', 'pm_pacman', 'pm_ports',  'pm_yum']
 
 DEPS =  [
     (['debian'],

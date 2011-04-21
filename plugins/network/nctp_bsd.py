@@ -36,7 +36,6 @@ class BSDIfconfig(Plugin):
         
     def get_tx(self, iface):
         s = shell('netstat -bI %s | grep -v Link | grep -v pkts'%iface.name)
-        print s
         try:
             s = s.split()[10]
         except:
@@ -45,7 +44,6 @@ class BSDIfconfig(Plugin):
     
     def get_rx(self, iface):
         s = shell('netstat -bI %s | grep -v Link | grep -v pkts'%iface.name)
-        print s
         try:
             s = s.split()[7]
         except:

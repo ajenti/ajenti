@@ -85,6 +85,7 @@ class Application (PluginManager, Plugin):
                 functions
             )
             
+            
         self.log.debug('Initialized')
 
 

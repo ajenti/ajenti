@@ -90,7 +90,6 @@ class APTPackageManager(Plugin):
         cmd = 'apt-get -qq -s install '
         for x in st.pending:
             cmd += x + ('+ ' if st.pending[x] == 'install' else '- ')
-        print cmd
         r = self._parse_apt(utils.shell(cmd).splitlines())
         for x in r:
             if r[x].state == 'installed':
