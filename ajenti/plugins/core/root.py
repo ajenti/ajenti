@@ -118,10 +118,14 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                 if (c.folder == fld): # Put corresponding plugins in this folder
                     empty = False
                     if c == self.selected_category:
-                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.plugin_id, selected='true'))
                         exp = True
-                    else:
-                        cat_vc.append(UI.Category(icon=c.icon, name=c.text, id=c.plugin_id))
+                    cat_vc.append(UI.Category(
+                        icon=c.icon, 
+                        name=c.text, 
+                        id=c.plugin_id, 
+                        counter=c.get_counter(),
+                        selected=c == self.selected_category
+                    ))
 
             if not empty: v.append(cat_folder)
             cat_folder['expanded'] = exp

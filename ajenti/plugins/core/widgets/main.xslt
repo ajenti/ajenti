@@ -11,6 +11,11 @@
             <span class="ui-el-category-text">
                 <xsl:value-of select="@name"/>
             </span>
+            <xsl:if test="@counter != 'None'">
+                <div class="ui-el-category-counter">
+                    <xsl:value-of select="@counter"/>
+                </div>
+            </xsl:if>
         </div>
     </a>
 </xsl:template>

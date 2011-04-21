@@ -160,6 +160,9 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     def on_init(self):
         pass
 
+    def get_counter(self):
+        pass
+        
     def get_config(self):
         try:
             return self.app.get_config(self)

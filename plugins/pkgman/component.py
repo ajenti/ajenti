@@ -6,7 +6,7 @@ import time
 
 class PackageManagerComponent (Component):
     name = 'pkgman'
-    
+
     def on_starting(self):
         self.status = apis.pkgman.Status()
         self.last_refresh = 0
@@ -25,7 +25,7 @@ class PackageManagerComponent (Component):
         
     def run(self):
         while True:
-            self.get_status()
+            self.proxy.get_status()
             time.sleep(5*60 + 1)
             
     def __getattr__(self, attr):
