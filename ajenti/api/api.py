@@ -25,6 +25,7 @@ class IEventDispatcher(Interface):
     def event(self, event, *params, **kwparams):
         pass
         
+        
 class IXSLTFunctionProvider(Interface):
     def get_funcs(self):
         pass

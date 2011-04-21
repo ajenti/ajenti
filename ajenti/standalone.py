@@ -6,8 +6,9 @@ from twisted.web import server
 from twisted.internet import reactor, ssl
 from twisted.web.wsgi import WSGIResource
 
+from ajenti.api import ComponentManager
 from ajenti.config import Config
-from ajenti.core import AppDispatcher
+from ajenti.core import Application, AppDispatcher
 from ajenti.plugmgr import load_plugins
 from ajenti import version
 import ajenti.utils
@@ -47,8 +48,11 @@ def run_server(log_level=logging.INFO, config_file=''):
     # Load external plugins
     load_plugins(config.get('ajenti', 'plugins'), log)
 
-    # Start server
 
+    # Start components
+    ComponentManager.create(Application(config))    
+
+    # Start server
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
     log.info('Listening on %s:%d'%(host, port))
@@ -77,6 +81,8 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     reactor.run()
 
+    ComponentManager.get().stop()
+    
     if hasattr(reactor, 'restart_marker'):
         log.info('Restarting by request')
         

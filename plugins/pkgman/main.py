@@ -13,19 +13,23 @@ class PackageManagerPlugin(CategoryPlugin):
     folder = 'system'
 
     def on_init(self):
-        self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
+        self.mgr = ComponentManager.get().find('pkgman')
+        
         if self._in_progress and not self.mgr.is_busy():
             self._need_refresh = True
             self.mgr.mark_cancel_all(self._status)
             self._in_progress = False
+            
         if self._need_refresh:
+            self.mgr.refresh()
             self._need_refresh = False
-            self.mgr.refresh(self._status)
+            
+        self._status = self.mgr.get_status()
     
     def on_session_start(self):
-        self._status = apis.pkgman.Status()
+        self._status = None
         self._current = 'upgrades'
-        self._need_refresh = True
+        self._need_refresh = False
         self._confirm_apply = False
         self._in_progress = False
         self._search = {}
@@ -107,8 +111,6 @@ class PackageManagerPlugin(CategoryPlugin):
                     )
                 tbl_pkgs.append(r)
                 
-            ui_misc = UI.Button(text='Select all', id='upgradeall')
-
         if self._current == 'broken':
             for p in sorted(self._status.full.keys()):
                 p = self._status.full[p]
@@ -129,7 +131,6 @@ class PackageManagerPlugin(CategoryPlugin):
                         )
                     )
                 tbl_pkgs.append(r)
-            ui_misc = None
             
         if self._current == 'search':
             for p in self._search:
