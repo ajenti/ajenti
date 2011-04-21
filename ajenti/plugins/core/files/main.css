@@ -206,7 +206,31 @@
     font-weight: bold;
 }
 
+.ui-el-category-counter {
+    font-size: 13px;
+    display: inline-block;
+    float: right;
+    line-height: 16px;
+    padding: 0px 5px;
+    margin: 1px 0 0;
 
+    color: #fff;
+    text-shadow: 0 1px 0 #720000;
+    font-weight: bold;
+    
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;        
+    background: #922017;
+    background: -moz-linear-gradient(top,  #d04909,  #922017);
+    background: -webkit-gradient(linear, left top, left bottom, from(#d04909), to(#922017));
+}
+
+.ui-el-category-selected .ui-el-category-counter {
+    color: #922017;
+    text-shadow: 0 1px 0 #fff;
+    background: #eee;
+}
 
 
 .ui-el-categoryfolder {

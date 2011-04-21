@@ -35,7 +35,12 @@ class PackageManagerPlugin(CategoryPlugin):
         self._search = {}
         self._search_query = ''
         self._info = None
-        
+    
+    def get_counter(self):
+        c = len(ComponentManager.get().find('pkgman').get_status().upgradeable)
+        if c > 0:
+            return str(c)
+            
     def _get_icon(self, p):
         r = '/dl/pkgman/package-'
         if p in self._status.pending.keys():

@@ -10,6 +10,7 @@ class Component (Plugin, BackgroundWorker):
     implements(IComponent)
     
     name = 'unknown'
+    proxy = None
     
     def __init__(self):
         BackgroundWorker.__init__(self)
@@ -38,7 +39,7 @@ class Component (Plugin, BackgroundWorker):
         
 class ComponentManager (Plugin):
     instance = None
-    
+
     @staticmethod
     def create(app):
         ComponentManager.instance = ComponentManager(app)
@@ -50,8 +51,8 @@ class ComponentManager (Plugin):
     def __init__(self):
         self.components = self.app.grab_plugins(IComponent)
         for c in self.components:
-            c.start()
             c.proxy = ClassProxy(c)
+            c.start()
             
     def stop(self):
         for c in self.components:
