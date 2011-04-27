@@ -65,7 +65,7 @@ class IHostnameManager(Interface):
         
 class LinuxGenericHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['debian', 'opensuse']
+    platform = ['debian']
     
     def gethostname(self):
         return open('/etc/hostname').read()
@@ -98,7 +98,7 @@ class BSDHostnameManager(Plugin):
 
 class CentOSHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['centos']
+    platform = ['centos', 'fedora']
 
     def gethostname(self):
         rc = apis.rcconf.RCConf(self.app)

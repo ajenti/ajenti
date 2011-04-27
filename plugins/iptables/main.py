@@ -10,7 +10,7 @@ class FirewallPlugin(CategoryPlugin):
     text = 'Firewall'
     icon = '/dl/iptables/icon.png'
     folder = 'system'
-    platform = ['debian', 'arch', 'opensuse']
+    platform = ['debian', 'arch', 'centos', 'fedora']
 
     defactions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'EXIT', 'MASQUERADE']
 

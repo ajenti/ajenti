@@ -22,7 +22,7 @@ MODULES = [
 DEPS =  []
 
 NAME = 'Network'
-PLATFORMS = ['any']
+PLATFORMS = ['arch', 'centos', 'debian', 'fedora', 'freebsd']
 DESCRIPTION = 'Network interfaces management'
 VERSION = '0.1'
 AUTHOR = 'Ajenti team'

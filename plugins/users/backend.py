@@ -22,7 +22,7 @@ class Group:
 
 class LinuxConfig(ModuleConfig):
     plugin = 'usersbackend'
-    platform = ['debian', 'arch', 'opensuse', 'centos']
+    platform = ['debian', 'arch', 'fedora', 'centos']
     
     cmd_add = 'useradd {0}'
     cmd_del = 'userdel {0}'

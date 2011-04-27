@@ -8,7 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'Services'
-PLATFORMS = ['any']
+PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora']
 DESCRIPTION = 'Control system services'
 VERSION = '0.6'
 AUTHOR = 'Ajenti team'

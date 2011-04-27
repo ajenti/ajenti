@@ -13,12 +13,21 @@ loaded_plugins = []
 plugin_info = {}
 loaded_mods = {}
 disabled_plugins = {}
+platform = None
 
 
 class BaseRequirementError(Exception):
     pass
     
     
+class PlatformRequirementError(BaseRequirementError):
+    def __init__(self, lst):
+        self.lst = lst
+
+    def __str__(self):
+        return 'requires platforms %s' % self.lst
+
+
 class PluginRequirementError(BaseRequirementError):
     def __init__(self, name):
         self.name = name
@@ -172,7 +181,11 @@ def load_plugin(path, plugin, log, platform):
                         raise PluginRequirementError(req[1])
                     if req[0] == 'app':
                         raise SoftwareRequirementError(*req[1:])
-           
+        
+        if mod.PLATFORMS != ['any'] and not platform in mod.PLATFORMS:
+            raise PlatformRequirementError(mod.PLATFORMS)
+            
+        
         # Load submodules
         if not hasattr(mod, 'MODULES'):
             if log is not None:
@@ -211,6 +224,7 @@ def load_plugin(path, plugin, log, platform):
         
 def load_plugins(path, log):
     global loaded_plugins
+    global platform
     
     plugs = [plug for plug in os.listdir(path) if not plug.startswith('.')]
     plugs = [plug[:-3] if plug.endswith('.py') else plug for plug in plugs]
@@ -249,6 +263,11 @@ def load_plugins(path, log):
         except SoftwareRequirementError, e:
             if log is not None:
                 log.warn('Plugin %s requires application %s (%s), which is not available.' % (plugin,e.name,e.bin))
+            disabled_plugins[plugin] = e
+            queue.remove(plugin)
+        except PlatformRequirementError, e:
+            if log is not None:
+                log.warn('Plugin %s requires platforms %s, but %s was detected.' % (plugin,e.lst,platform))
             disabled_plugins[plugin] = e
             queue.remove(plugin)
         except Exception, e:
