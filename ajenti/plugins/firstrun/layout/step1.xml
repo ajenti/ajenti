@@ -1,6 +1,6 @@
 <xml>
-    <label size="3" text="Welcome to Ajenti" />
-    <br />
+    <label size="5" text="Welcome to Ajenti" />
+    <pad>
     <label size="1" text="An internet connection is advisable to complete installation" />
     <pad>
     <formbox hidecancel="True" id="frmChangePassword">
@@ -24,5 +24,6 @@
             </layouttablerow>
         </layouttable>
     </formbox>
+    </pad>
     </pad>
 </xml>

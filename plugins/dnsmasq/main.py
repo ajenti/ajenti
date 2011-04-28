@@ -37,16 +37,19 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
                 UI.Label(text=self.backend.str_ident(host['id'])),
                 UI.Label(text=self.backend.find_ip(host)),
                 UI.Label(text=self.backend.str_act(host['act'])),
-                UI.HContainer(
-                    UI.MiniButton(
-                        id='editHost/%i' % self.cfg['dhcp-hosts'].index(host),
-                        text='Edit',
+                UI.DataTableCell(
+                    UI.HContainer(
+                        UI.MiniButton(
+                            id='editHost/%i' % self.cfg['dhcp-hosts'].index(host),
+                            text='Edit',
+                        ),
+                        UI.WarningMiniButton(
+                            id='deleteHost/%i' % self.cfg['dhcp-hosts'].index(host),
+                            msg='Delete host rule',
+                            text='Delete',
+                        ),
                     ),
-                    UI.WarningMiniButton(
-                        id='deleteHost/%i' % self.cfg['dhcp-hosts'].index(host),
-                        msg='Delete host rule',
-                        text='Delete',
-                    ),
+                    hidden=True
                 )
             )
             ui.append('hosts', row)

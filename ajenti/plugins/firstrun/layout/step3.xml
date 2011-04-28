@@ -1,6 +1,4 @@
 <xml>
-    <label size="2" text="Installation complete" />
-    <pad>
-        <button text="Go to dashboard" />
-    </pad>	
+    <label size="5" text="Installation complete" />
+    <completerefresh />
 </xml>
