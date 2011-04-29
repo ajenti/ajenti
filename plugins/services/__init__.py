@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'Services'
 PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora']
 DESCRIPTION = 'Control system services'
-VERSION = '0.6'
+VERSION = '0:1.0'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

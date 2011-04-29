@@ -23,7 +23,7 @@ class DaemonsPlugin(CategoryPlugin):
         self._items = lst
         for svc in lst:
             running = svc.running
-            fn = '/dl/core/ui/stock/status-' + ('running.png' if svc.running else 'stopped.png')
+            fn = '/dl/core/ui/stock/service-' + ('run.png' if svc.running else 'stop.png')
             row = UI.DataTableRow(
                     UI.Image(file=fn),
                     UI.Label(text=svc.name),

@@ -16,6 +16,6 @@ DEPS =  [
 NAME = 'Apache'
 PLATFORMS = ['any']
 DESCRIPTION = 'Apache webserver control plugin'
-VERSION = '0.1'
+VERSION = '0:1.0'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

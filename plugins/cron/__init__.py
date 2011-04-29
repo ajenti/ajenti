@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'Cron'
 PLATFORMS = ['any']
 DESCRIPTION = 'Edit crontabs easily'
-VERSION = '0.1'
+VERSION = '0:1.0'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

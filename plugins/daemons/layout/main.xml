@@ -9,10 +9,10 @@
         <datatable id="list" width="100%">
             <datatablerow header="True">
                 <datatablecell width="20" />
-                <datatablecell width="70%">
+                <datatablecell>
                     <label text="Name" />
                 </datatablecell>
-                <datatablecell width="30%" />
+                <datatablecell width="250" />
             </datatablerow>
         </datatable>
     </pad>

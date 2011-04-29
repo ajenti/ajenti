@@ -79,14 +79,10 @@
                         <tr><td><label text="{@text}"/></td></tr>
                         <tr><td><textinput name="value" value="{@value}"/></td></tr>
                     </table>
-                    <div class="ui-el-modal-buttons">
-                        <table cellspacing="0" cellpadding="0">
-                            <tr>
-                                 <td><button text="OK" onclick="form" action="OK" form="{@id}"/></td>
-                                 <td><button text="Cancel" onclick="form" action="Cancel" form="{@id}"/></td>
-                            </tr>
-                        </table>
-                    </div>
+                </div>
+                <div class="ui-el-modal-buttons">
+                    <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                    <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
                 </div>
             </div>
         </div>
@@ -112,14 +108,10 @@
                         <tr><td><label text="{@text}"/></td></tr>
                         <tr><td><textinputarea id="{@id}-inner" name="value" nodecode="True" value="{x:b64(@value)}" width="{x:attr(@width,400)}" height="{x:attr(@height,400)}"/></td></tr>
                     </table>
-                    <div class="ui-el-modal-buttons">
-                        <table cellspacing="0" cellpadding="0">
-                            <tr>
-                                 <td><button text="OK" onclick="form" action="OK" form="{@id}"/></td>
-                                 <td><button text="Cancel" onclick="form" action="Cancel" form="{@id}"/></td>
-                            </tr>
-                        </table>
-                    </div>
+                </div>
+                <div class="ui-el-modal-buttons">
+                    <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                    <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
                 </div>
             </div>
         </div>

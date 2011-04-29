@@ -1,6 +1,9 @@
 <xml>
     <toolbar>
-        <toolbutton text="Update plugin list" id="update" /><toolbutton text="Restart Ajenti" id="restart" />
+        <hcontainer>
+            <toolbutton text="Update plugin list" id="update" icon="/dl/pkgman/update-lists.png" />
+            <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
     </toolbar>
     <pad>
         <label size="2" text="Plugin list" />
