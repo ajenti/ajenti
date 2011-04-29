@@ -114,48 +114,63 @@ class ApacheSingleConfigBackend(Plugin):
         f = open(self.config_path, 'w')
         f.write(text)
         f.close()
-        
-
           
     def get_mods(self):
         r = {}
-        dir_mods_avail = self.config_dir + '/mods-available/'
-        lst = [s.replace(dir_mods_avail, '').replace('.load', '') 
-             for s in glob.glob(dir_mods_avail + '*.load')]
-        for h in lst:
-            mod = apis.webserver.Module()
-            mod.name = h
-            confpath = os.path.join(self.config_dir, 'mods-available', h+'.conf')
-            mod.has_config = os.path.exists(confpath)
-            if mod.has_config:
-                mod.config = open(os.path.join(self.config_dir, 'mods-available', h+'.conf')).read()
-            mod.enabled = os.path.exists(
-                            os.path.join(self.config_dir, 'mods-enabled', h+'.load')
-                           )
-            r[h] = mod
+        f = open(self.config_path);
+        text = f.read();
+        pat = re.compile('LoadModule\s+(.+?)\s+(.+?)\s', re.S)
+        for m in pat.finditer(text):
+            beg = m.start()
+            while(text[beg] != '\n' and beg > 0):
+                beg = beg - 1
+            enabled = not (text[beg + 1] == '#')
+            item = apis.webserver.Module()
+            item.name = str(m.group(1))
+            item.enabled = enabled
+            item.has_config = True
+            item.config = m.group(0)
+            r[item.name] = item 
         return r
         
-    def enable_mod(self, id):
-        p = os.path.join(self.config_dir, 'mods-enabled', id)
-        if not os.path.exists(p+'.load'):
-            ps = os.path.join(self.config_dir, 'mods-available', id+'.load')
-            os.symlink(ps, p+'.load')
-        if not os.path.exists(p+'.conf'):
-            if os.path.exists(os.path.join(self.config_dir, 'mods-available', id+'.conf')):
-                ps = os.path.join(self.config_dir, 'mods-available', id+'.conf')
-                os.symlink(ps, p+'.conf')
+    def enable_mod(self, name):
+        f = open(self.config_path, 'r')
+        text = f.read()
+        f.close()
+        pat = re.compile('#\s*LoadModule\s+'+ name + '.+?\n', re.S)
+        res = pat.search(text)
+        host_text = res.group(0)
+        host_text = host_text.replace('\n#', '\n')
+        host_text = host_text[1:]
+        text = text.replace(res.group(0), host_text)
+        f = open(self.config_path, 'w')
+        f.write(text)
+        f.close()
 
-    def disable_mod(self, id):
-        p = os.path.join(self.config_dir, 'mods-enabled', id)
-        if os.path.exists(p+'.load'):
-            os.unlink(p+'.load')
-        if os.path.exists(p+'.conf'):
-            os.unlink(p+'.conf')
-
+    def disable_mod(self, name):
+        f = open(self.config_path, 'r')
+        text = f.read()
+        f.close()
+        pat = re.compile('(?:#\s*)*LoadModule\s+' + name + '.+?\n', re.S)
+        res = pat.search(text)
+        host_text = res.group(0)
+        host_text = '#' + host_text
+        text = text.replace(res.group(0), host_text)
+        f = open(self.config_path, 'w')
+        f.write(text)
+        f.close()
+    
     def save_mod(self, mod):
-        path = os.path.join(self.config_dir, 'mods-available', mod.name+'.conf')  
-        open(path, 'w').write(mod.config)
-     
+        f = open(self.config_path, 'r')
+        text = f.read()
+        f.close()
+        pat = re.compile('LoadModule\s+' + mod.name + '.+?\n', re.S);
+        res = pat.search(text)
+        text = text.replace(res.group(0), mod.config)
+        f = open(self.config_path, 'w')
+        f.write(text)
+        f.close()
+        
     host_template = """
 <VirtualHost %s>
 	ServerAdmin webmaster@localhost
