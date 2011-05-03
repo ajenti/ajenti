@@ -123,9 +123,4 @@ class ConfigPlugin(CategoryPlugin):
                 cfg.save()            
             self._config = None
 
-    
-class ConfigRecovery(SimpleFileRecoveryProvider):
-    name = 'Ajenti'
-    id = 'ajenti'
-    path = '/etc/ajenti/ajenti.conf'
-    
+
