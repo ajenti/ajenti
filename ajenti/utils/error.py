@@ -73,7 +73,7 @@ def make_report(app, err):
            'Config content:\n%s\n' +
            '\n\nLoaded plugins:\n%s\n\n' +
            '%s')
-            % (version,
+            % (version(),
                shell('uname -a'),
                detect_platform(),
                detect_distro(),

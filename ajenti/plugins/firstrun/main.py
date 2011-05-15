@@ -76,6 +76,7 @@ class FirstRun(CategoryPlugin, URLHandler):
             for k in lst:
                 if vars.getvalue('install-'+k.id, '0') == '1':
                     self._mgr.install(k.id)
+            ComponentManager.get().rescan()
             
             self.config.set('ajenti', 'firstrun', 'no')
             self.config.save()

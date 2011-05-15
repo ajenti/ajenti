@@ -134,4 +134,6 @@ class PluginManager(CategoryPlugin, URLHandler):
             self._tab = 0
             self.put_message('info', 'Plugin installed. Refresh page for changes to take effect.')
             self._mgr.install(params[1])
+            ComponentManager.get().rescan()
+            
         

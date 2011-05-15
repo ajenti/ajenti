@@ -49,10 +49,8 @@ class ComponentManager (Plugin):
         return ComponentManager.instance
                 
     def __init__(self):
-        self.components = self.app.grab_plugins(IComponent)
-        for c in self.components:
-            c.proxy = ClassProxy(c)
-            c.start()
+        self.components = []
+        self.rescan()
             
     def stop(self):
         for c in self.components:
@@ -62,4 +60,11 @@ class ComponentManager (Plugin):
         for c in self.components:
             if c.name == name:
                 return c.proxy
+
+    def rescan(self):
+        for c in self.app.grab_plugins(IComponent):
+            if not c in self.components:
+                c.proxy = ClassProxy(c)
+                c.start()                        
+                self.components.append(c)
                 
