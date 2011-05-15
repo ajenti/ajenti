@@ -238,7 +238,7 @@ class PackageManagerPlugin(CategoryPlugin):
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'refresh':
-            self.mgr.refresh(self._status)
+            self.mgr.refresh()
         if params[0] == 'getlists':
             self.mgr.get_lists()
             time.sleep(0.5)
