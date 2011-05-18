@@ -8,16 +8,17 @@ class ConfManager (Component):
     name = 'confmanager'
 
     configurables = {}
-        
+    hooks = []
+    
     def load(self, id, path):
         cfg = self.get_configurable(id)
-        for c in self.configurables.values():
+        for c in self.hooks:
             c.pre_load(cfg, path)
             
         with open(path, 'r') as f:
             data = f.read()
         
-        for c in self.configurables.values():
+        for c in self.hooks:
             data = c.post_load(cfg, path, data)
         
         return data
@@ -25,24 +26,26 @@ class ConfManager (Component):
     def save(self, id, path, data):
         cfg = self.get_configurable(id)
 
-        for c in self.configurables.values():
+        for c in self.hooks:
             data = c.pre_save(cfg, path, data)
+            if data is None:
+                return
             
         with open(path, 'w') as f:
             f.write(data)
         
-        for c in self.configurables.values():
+        for c in self.hooks:
             c.post_save(cfg, path)
         
         return data
         
     def notify_finished(self, id):
         cfg = self.get_configurable(id)
-        for c in self.configurables.values():
+        for c in self.hooks:
             c.finished(cfg)
         
     def get_configurable(self, id):
-        for c in self.configurables:
+        for c in self.configurables.values():
             if c.name == id:
                 return c
         
@@ -50,6 +53,9 @@ class ConfManager (Component):
         for cfg in self.app.grab_plugins(IConfigurable):
             self.log.debug('Registered configurable: ' + cfg.name)
             self.configurables[cfg.name] = cfg
+        for h in self.app.grab_plugins(IConfMgrHook):
+            self.log.debug('Registered configuration hook: ' + str(h))
+            self.hooks.append(h)
         
     def on_stopping(self):
         pass
@@ -78,7 +84,8 @@ class IConfMgrHook (Interface):
    
 class ConfMgrHook (Plugin):
     implements(IConfMgrHook)
-     
+    abstract = True
+    
     def pre_load(self, cfg, path):
         pass
      

@@ -19,3 +19,5 @@ debian/*stamp*
 .pydevproject
 
 .~lock.*
+
+plugins/uzuri

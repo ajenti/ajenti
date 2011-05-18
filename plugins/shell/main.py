@@ -55,6 +55,9 @@ class ShellProgress(Plugin):
         self.proc = self.app.session.get('ShellPlugin-_process')
 
     def has_progress(self):         
+        if self.proc is None:
+            self.proc = self.app.session.get('ShellPlugin-_process')
+            return False
         return self.proc.is_running()
         
     def get_progress(self):
