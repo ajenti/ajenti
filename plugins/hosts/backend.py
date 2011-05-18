@@ -1,6 +1,7 @@
 import re
 import os
 
+from ajenti.api import *
 from ajenti.utils import *
 from ajenti.com import *
 from ajenti import apis
@@ -14,9 +15,13 @@ class Host:
 
 
 class Config(Plugin):
+    implements(IConfigurable)
     name = 'Hosts'
     id = 'hosts'
     
+    def list_files(self):
+        return ['/etc/hosts']
+        
     def read(self):
         ss = open('/etc/hosts', 'r').read().split('\n')
         r = []

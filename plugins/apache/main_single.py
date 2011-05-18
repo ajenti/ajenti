@@ -1,3 +1,4 @@
+from ajenti.api import *
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
@@ -14,8 +15,12 @@ class ApacheSingleConfigBackend(Plugin):
     
     def __init__(self):
         self.config_path = self.app.get_config(self).cfg_file
+        self.config_dir = self.app.get_config(self).cfg_dir
         if not os.path.exists(self.config_path):
             raise ConfigurationError('Can\'t find config file') 
+
+    def list_files(self):
+        return [self.config_dir + '/*', self.config_dir + '/*/*']
 
     def get_hosts(self):
         r = {}

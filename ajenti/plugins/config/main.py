@@ -124,3 +124,11 @@ class ConfigPlugin(CategoryPlugin):
             self._config = None
 
 
+class AjentiConfig (Plugin):
+    implements (IConfigurable)
+    name = 'Ajenti'
+    id = 'ajenti' 
+   
+    def list_files(self):
+        return ['/etc/ajenti/*']
+        

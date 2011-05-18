@@ -1,5 +1,6 @@
 import os
 
+from ajenti.api import *
 from ajenti.com import *
 from ajenti.utils import *
 
@@ -13,6 +14,7 @@ def restart():
 
 
 class SambaConfig(Plugin):
+    implements(IConfigurable)
     shares = {}
     general = {}
     users = {}
@@ -50,6 +52,9 @@ class SambaConfig(Plugin):
 
     fields = []
 
+    def list_files(self):
+        return ['/etc/samba/*']
+        
     def load(self):
         self.shares = {}
         ss = open('/etc/samba/smb.conf', 'r').read().split('\n')

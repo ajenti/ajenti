@@ -1,12 +1,20 @@
+from ajenti.api import *
 from ajenti.com import *
 import re
 
 class Backend(Plugin):
+    implements (IConfigurable)
+    name = 'dnsmasq'
+    id = 'dnsmasq'
+    
 
     def __init__(self):
         self.lease_file = '/var/lib/misc/dnsmasq.leases'
         self.config_file = '/etc/dnsmasq.conf'
 
+    def list_files(self):
+        return [self.config_file]
+        
     def get_leases(self):
         r = []
         for l in open(self.lease_file, 'r'):

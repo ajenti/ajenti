@@ -2,6 +2,8 @@
 This module provide an interface for working with crontab.
 It's using shell command 'crontab' and donn't change file manualy
 """
+from ajenti.api import IConfigurable
+from ajenti.com import Plugin, implements
 from ajenti.utils import shell, shell_stdin
 
 
@@ -91,3 +93,13 @@ def get_all_users():
         except:
             pass
     return sorted(user_list)
+    
+    
+class CronConfig (Plugin):
+    implements(IConfigurable)
+    name = 'Cron'
+    id = 'cron'
+    
+    def list_files(self):
+        return ['/var/spool/cron/*/*']
+        

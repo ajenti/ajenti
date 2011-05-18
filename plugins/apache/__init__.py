@@ -1,4 +1,4 @@
-MODULES = ['main', 'main_single', 'config', 'recovery']
+MODULES = ['main', 'main_single', 'config']
 
 DEPS =  [
     (['centos'],

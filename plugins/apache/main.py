@@ -1,11 +1,13 @@
 import os
 import glob
 
+from ajenti.api import *
 from ajenti.com import *
 from ajenti import apis
 
 
 class ApacheBackend(Plugin):
+    implements(IConfigurable)
     config_dir = ''
     name = 'Apache'
     id = 'apache'
@@ -13,6 +15,9 @@ class ApacheBackend(Plugin):
     def __init__(self):
         self.config_dir = self.app.get_config(self).cfg_dir
     
+    def list_files(self):
+        return [self.config_dir + '/*', self.config_dir + '/*/*']
+        
     def is_installed(self):
         return os.path.exists(self.config_dir)
         
@@ -121,3 +126,4 @@ class ApachePlugin(apis.webserver.WebserverPlugin):
     ws_title = 'Apache 2'
     ws_backend = ApacheBackend
     ws_mods = True
+    

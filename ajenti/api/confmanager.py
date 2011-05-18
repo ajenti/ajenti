@@ -46,12 +46,13 @@ class ConfManager (Component):
         
     def get_configurable(self, id):
         for c in self.configurables.values():
-            if c.name == id:
+            if c.id == id:
                 return c
         
     def on_starting(self):
+        print self.app.grab_plugins(IConfigurable)
         for cfg in self.app.grab_plugins(IConfigurable):
-            self.log.debug('Registered configurable: ' + cfg.name)
+            self.log.debug('Registered configurable: ' + cfg.name + ' ' + str(cfg))
             self.configurables[cfg.name] = cfg
         for h in self.app.grab_plugins(IConfMgrHook):
             self.log.debug('Registered configuration hook: ' + str(h))

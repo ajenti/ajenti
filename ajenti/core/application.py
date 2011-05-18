@@ -43,7 +43,7 @@ class Application (PluginManager, Plugin):
         # Get path for static content and templates
         plugins = []
         plugins.extend(loaded_plugins)
-        plugins.extend(ajenti.plugins.list)
+        plugins.extend(ajenti.plugins.plist)
         
         for c in plugins:
             path = os.path.join(get_plugin_path(self, c), c)
@@ -145,7 +145,8 @@ class Application (PluginManager, Plugin):
         plugins = self.plugin_get(iface)
         if flt:
             plugins = filter(flt, plugins)
-        return filter(None, [self.instance_get(cls, True) for cls in plugins])
+        print list
+        return list(set(filter(None, [self.instance_get(cls, True) for cls in plugins])))
 
     def get_backend(self, iface, flt=None):
         lst = self.grab_plugins(iface, flt)

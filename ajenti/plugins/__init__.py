@@ -5,4 +5,4 @@ from ajenti.plugins.firstrun import *
 from ajenti.plugins.plugins import *
 from ajenti.plugins.recovery import *
 
-list = ['core', 'advancedcontrols', 'dashboard', 'firstrun', 'config', 'plugins', 'recovery']
+plist = ['core', 'advancedcontrols', 'dashboard', 'firstrun', 'config', 'plugins', 'recovery']

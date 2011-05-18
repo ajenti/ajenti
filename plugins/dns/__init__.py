@@ -1,4 +1,4 @@
-MODULES = ['api', 'main', 'dns_resolvconf', 'recovery']
+MODULES = ['api', 'main', 'dns_resolvconf']
 
 DEPS =  []
 

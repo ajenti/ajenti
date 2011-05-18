@@ -24,8 +24,10 @@ class SingleConfig(ModuleConfig):
     platform = ['any']
     
     labels = {
-        'cfg_file': 'Configuration file'
+        'cfg_file': 'Configuration file',
+        'cfg_dir': 'Configuration directory'
     }
     
     cfg_file = '/etc/httpd/conf/httpd.conf'
+    cfg_path = '/etc/httpd'
    
