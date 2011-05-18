@@ -50,7 +50,6 @@ class ConfManager (Component):
                 return c
         
     def on_starting(self):
-        print self.app.grab_plugins(IConfigurable)
         for cfg in self.app.grab_plugins(IConfigurable):
             self.log.debug('Registered configurable: ' + cfg.name + ' ' + str(cfg))
             self.configurables[cfg.name] = cfg

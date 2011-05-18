@@ -145,7 +145,6 @@ class Application (PluginManager, Plugin):
         plugins = self.plugin_get(iface)
         if flt:
             plugins = filter(flt, plugins)
-        print list
         return list(set(filter(None, [self.instance_get(cls, True) for cls in plugins])))
 
     def get_backend(self, iface, flt=None):

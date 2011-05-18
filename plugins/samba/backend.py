@@ -15,6 +15,8 @@ def restart():
 
 class SambaConfig(Plugin):
     implements(IConfigurable)
+    name = 'Samba'
+    id = 'samba'
     shares = {}
     general = {}
     users = {}
