@@ -36,7 +36,7 @@ class ResolvConfDNSConfig(Plugin):
         for i in self.nameservers:
             s += i.cls + ' ' + i.address + '\n'
         ConfManager.get().save('dns', '/etc/resolv.conf', s)
-        ConfManager.get().notify_finished('dns')
+        ConfManager.get().commit('dns')
         
 
 class DNSConfig (Plugin):

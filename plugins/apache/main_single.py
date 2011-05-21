@@ -24,8 +24,8 @@ class ApacheSingleConfigBackend(Plugin):
 
     def get_hosts(self):
         r = {}
-        f = open(self.config_path)
-        text = f.read()
+        text = self.read()
+
         pat = re.compile('<VirtualHost (.+?:\d+)>',re.S)
         for m in pat.finditer(text):
             beg = m.start()
@@ -48,7 +48,6 @@ class ApacheSingleConfigBackend(Plugin):
             data = data.replace('\n#','\n')
             item.config = re.sub('#.+?\n','',data)
             r[item.name] = item
-        f.close()
         return r
 
     def save_host(self, host):
@@ -56,9 +55,7 @@ class ApacheSingleConfigBackend(Plugin):
         id = id.replace('*','\*')
         id = id.replace('.','\.')
     
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
+        text = self.read()
     
         pat = re.compile('(?:#\s*)*<VirtualHost ' + id + '>(.+?)</VirtualHost>', re.S)
         res = pat.search(text)
@@ -68,62 +65,44 @@ class ApacheSingleConfigBackend(Plugin):
             host_text = host_text.replace('\n', '\n#')
             host_text = '#' + host_text
             text = text.replace(res.group(0), host_text)
-            f = open(self.config_path, 'w')
-            f.write(text)
-            f.close()
+            self.save(text)
         else:    
-            f = open(self.config_path, 'a+')
-            f.write('\n\n' + host.config)
-            f.close()
+            self.save(text + '\n\n' + host.config)
 
     def delete_host(self, id):
         id = id.replace('*','\*')
         id = id.replace('.','\.')
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
-        
+        text = self.read()
         text = repl_pat.sub('', text)
-        f = open(self.config_path, 'w')
-        f.write(text)
-        f.close()
+        self.save(text)
 
     def disable_host(self, id):
         id = id.replace('*','\*')
         id = id.replace('.','\.')
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
+        text = self.read()
         pat = re.compile('(?:#\s*)*<VirtualHost ' + id + '>(.+?)</VirtualHost>', re.S)
         res = pat.search(text)
         host_text = res.group(0)
         host_text = host_text.replace('\n', '\n#')
         host_text = '#' + host_text
         text = text.replace(res.group(0), host_text)
-        f = open(self.config_path, 'w')
-        f.write(text)
-        f.close()
+        self.save(text)
 
     def enable_host(self, id):
         id = id.replace('*','\*')
         id = id.replace('.','\.')
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
+        text = self.read()
         pat = re.compile('#\s*<VirtualHost ' + id + '>(.+?)#\s*</VirtualHost>', re.S)
         res = pat.search(text)
         host_text = res.group(0)
         host_text = host_text.replace('\n#', '\n')
         host_text = host_text[1:]
         text = text.replace(res.group(0), host_text)
-        f = open(self.config_path, 'w')
-        f.write(text)
-        f.close()
+        self.save(text)
           
     def get_mods(self):
         r = {}
-        f = open(self.config_path);
-        text = f.read();
+        text = self.read()
         pat = re.compile('LoadModule\s+(.+?)\s+(.+?)\s', re.S)
         for m in pat.finditer(text):
             beg = m.start()
@@ -139,42 +118,38 @@ class ApacheSingleConfigBackend(Plugin):
         return r
         
     def enable_mod(self, name):
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
+        text = self.read()
         pat = re.compile('#\s*LoadModule\s+'+ name + '.+?\n', re.S)
         res = pat.search(text)
         host_text = res.group(0)
         host_text = host_text.replace('\n#', '\n')
         host_text = host_text[1:]
         text = text.replace(res.group(0), host_text)
-        f = open(self.config_path, 'w')
-        f.write(text)
-        f.close()
+        self.save(text)
 
     def disable_mod(self, name):
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
+        text = self.read()
         pat = re.compile('(?:#\s*)*LoadModule\s+' + name + '.+?\n', re.S)
         res = pat.search(text)
         host_text = res.group(0)
         host_text = '#' + host_text
         text = text.replace(res.group(0), host_text)
-        f = open(self.config_path, 'w')
-        f.write(text)
-        f.close()
+        self.save(text)
     
     def save_mod(self, mod):
-        f = open(self.config_path, 'r')
-        text = f.read()
-        f.close()
+        text = self.read()
         pat = re.compile('LoadModule\s+' + mod.name + '.+?\n', re.S);
         res = pat.search(text)
         text = text.replace(res.group(0), mod.config)
-        f = open(self.config_path, 'w')
-        f.write(text)
-        f.close()
+        self.save(text)
+        
+    def read(self):
+        return ConfManager.get().load('apache', self.config_path)
+    
+    def save(self, t):
+        ConfManager.get().save('apache', self.config_path, t)
+        ConfManager.get().commit('apache')
+        
         
     host_template = """
 <VirtualHost %s>

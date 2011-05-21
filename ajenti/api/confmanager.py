@@ -39,7 +39,7 @@ class ConfManager (Component):
         
         return data
         
-    def notify_finished(self, id):
+    def commit(self, id):
         cfg = self.get_configurable(id)
         for c in self.hooks:
             c.finished(cfg)
