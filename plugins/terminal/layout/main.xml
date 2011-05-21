@@ -1,0 +1,57 @@
+<xml>
+<pad>
+
+    <style>
+        #term * {
+            font-family: monospace;
+        }
+
+    </style>
+    
+    <script src="/dl/terminal/VT100.js"></script>
+
+       <div id="term_box"
+                  style="overflow-x: hidden;
+                         overflow-y: scroll;
+                         -moz-outline: none !important"
+                >
+            <pre id="term"
+                 style="margin: 0 0 0 0;
+                        padding: 0 0 0 0;
+                       -moz-user-select: text;" />
+        </div>
+        
+    <script>
+        _term_box_element = document.getElementById("term_box");
+        _screen = document.getElementById("term");
+        
+        _term = new VT100(80, 24, "term", 100);
+        
+        _term.debug_ = 1;
+        _term.curs_set(true, true, _term_box_element);
+        _term.noecho();
+
+        _window_scroll_size = _term_box_element.scrollHeight;
+        _term_box_element.style.height = _window_scroll_size + "px";
+
+        VT100.go_getch_ = function() {
+            var vt = VT100.the_vt_;
+            if (vt === undefined) {
+                    return;
+            }
+            var ch = vt.key_buf_.shift();
+            //dump("go_getch_:: ch: '" + ch + "'\n");
+            if (ch === undefined) {
+                    return;
+            }
+            if (vt.echo_ &amp;&amp; ch.length == 1) {
+                    vt.addch(ch);
+            }
+            termSend(Base64.encode(ch));
+            _had_keypress = true;
+        }
+
+        termGet();
+    </script>
+</pad>    
+</xml>
