@@ -4,20 +4,11 @@
             <toolbutton id="refresh" text="Restart shell" icon="/dl/core/ui/stock/refresh.png" />
         </hcontainer>
     </toolbar>
-    
+
 <pad>
-    <style>
-        #term * {
-            font-family: monospace;
-        }
-
-    </style>
-    
-    <script src="/dl/terminal/VT100.js"></script>
-
-       <div id="term_box">
-            <pre id="term" />
-        </div>
+    <div id="term_box">
+        <pre id="term" />
+    </div>
         
     <script>
         termInit();

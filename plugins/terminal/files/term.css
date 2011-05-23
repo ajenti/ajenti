@@ -1,3 +1,7 @@
+#term * {
+    font-family: monospace;
+}
+
 #term_box {
     overflow-x: hidden;
     overflow-y: scroll;
