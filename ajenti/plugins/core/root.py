@@ -137,6 +137,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     UI.TopCategory(
                         text=c.text, 
                         id=c.plugin_id,
+                        icon=c.icon, 
                         selected=c==self.selected_category
                     )
                 )

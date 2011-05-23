@@ -9,7 +9,7 @@ import ajenti.plugmgr
 
 class PluginManager(CategoryPlugin, URLHandler):
     text = 'Plugins'
-    icon = '/dl/plugins/icon_small.png'
+    icon = '/dl/plugins/icon.png'
     folder = 'bottom'
 
     def on_session_start(self):

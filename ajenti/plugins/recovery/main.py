@@ -9,7 +9,7 @@ from api import Manager
 
 class RecoveryPlugin(CategoryPlugin):
     text = 'Recovery'
-    icon = '/dl/recovery/icon_small.png'
+    icon = '/dl/recovery/icon.png'
     folder = 'bottom'
 
     def on_init(self):

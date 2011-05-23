@@ -154,11 +154,13 @@ class Application (PluginManager, Plugin):
         return lst[0]
 
     def get_config(self, plugin):
-        return self.get_config_by_id(plugin.plugin_id)
+        if plugin.__class__ != type:
+            plugin = plugin.__class__ 
+        return self.get_config_by_classname(plugin.__name__)
 
-    def get_config_by_id(self, id):
+    def get_config_by_classname(self, name):
         cfg = self.get_backend(IModuleConfig,  
-                flt=lambda x: x.plugin==id)
+                flt=lambda x: x.target.__name__==name)
         cfg.overlay_config()
         return cfg
 

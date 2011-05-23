@@ -31,7 +31,7 @@ function ui_select_category(id) {
     try {
         document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
     } catch (e) {}
-    document.getElementById(id).className = 'ui-el-category-selected';
+    document.getElementById(id).className = 'ui-el-category ui-el-category-selected';
 }
 
 function ui_select_top_category(id) {
@@ -41,7 +41,7 @@ function ui_select_top_category(id) {
     try {
         document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
     } catch (e) {}
-    document.getElementById(id).className = 'ui-el-top-category-selected';
+    document.getElementById(id).className = 'ui-el-top-category ui-el-top-category-selected';
 }
 
 function ui_showhide(id) {

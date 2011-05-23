@@ -1,8 +1,9 @@
 from ajenti.api import *
+from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = 'lighttpdbackend'
+    target = LighttpdBackend
     platform = ['any']
     
     labels = {
@@ -14,6 +15,7 @@ class GeneralConfig(ModuleConfig):
    
 class BSDConfig(GeneralConfig):
     implements((IModuleConfig, -100))
-    platform = ['freebsd']
     
+    platform = ['freebsd']
+
     cfg_dir = '/usr/local/etc/lighttpd'

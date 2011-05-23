@@ -11,6 +11,7 @@ class LighttpdBackend(Plugin):
     config_dir = ''
     name = 'lighttpd'
     id = 'lighttpd'
+    icon = '/dl/webserver_common/icon.png'
     
     def __init__(self):
         self.config_dir = self.app.get_config(self).cfg_dir

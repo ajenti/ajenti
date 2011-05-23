@@ -15,7 +15,7 @@ class ICategoryProvider(Interface):
 
 
 class IModuleConfig(Interface):
-    plugin = ''
+    pass
 
 
 class IEventDispatcher(Interface):

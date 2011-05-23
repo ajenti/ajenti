@@ -88,9 +88,7 @@
             <tabbody pid="tabs" id="2">
                     <datatable width="300" id="configs">
                         <datatablerow header="True">
-                            <datatablecell>
-                                <label text="Plugin"/>
-                            </datatablecell>
+                            <datatablecell width="20" />
                             <datatablecell>
                                 <label text="Name"/>
                             </datatablecell>

@@ -12,6 +12,7 @@ class ApacheSingleConfigBackend(Plugin):
     config_dir = ''
     name = 'Apache'
     id = 'apache'
+    icon = '/dl/webserver_common/icon.png'
     
     def __init__(self):
         self.config_path = self.app.get_config(self).cfg_file
