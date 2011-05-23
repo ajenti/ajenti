@@ -2,16 +2,14 @@ from ajenti.api import *
 from ajenti.utils import *
 from ajenti.ui import *
 
-import sys
-import subprocess
-import pty
 import os
 import threading
+import shlex
+import signal
 from base64 import b64decode, b64encode
 
 from twisted.internet import protocol
 from twisted.internet import reactor
-import re
 
 
 class TerminalPlugin(CategoryPlugin, URLHandler):
@@ -32,71 +30,76 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
 
     def start(self):
         self._proc = PTYProtocol()
-        reactor.spawnProcess(self._proc, '/bin/sh', ['/bin/sh'], usePTY=True, env={'TERM':'vt100'})
+        env = os.environ
+        env['TERM'] = 'vt100'
+        sh = self.app.get_config(self).shell
+        reactor.spawnProcess(
+            self._proc, 
+            shlex.split(sh)[0], 
+            shlex.split(sh), 
+            usePTY=True, 
+            env=env
+        )
         
-    @url('^/term-get$')
+    def restart(self):
+        if self._proc is not None:
+            self._proc.kill()
+        self.start()
+        
+    @url('^/term-get.*$')
     def get(self, req, start_response):
         if self._proc is None:
             self.start();
-        return b64encode(self._proc.read())
+        if req['PATH_INFO'] == '/term-get-history':
+            data = self._proc.history()
+        else:   
+            data = self._proc.read()
+        return b64encode(data)
 
     @url('^/term-post/.+')
     def post(self, req, start_response):
         data = req['PATH_INFO'].split('/')[2]
-        print data
         self._proc.write(b64decode(data))
-        return ''#get(self, req, start_response)
+        return ''
     
+    @event('button/click')
+    def click(self, evt, params, vars):
+        self.restart()
+        
     
-    
-
-
 class PTYProtocol(protocol.ProcessProtocol):
     def __init__(self):
         self.data = ''
+        self.hist = ''
         self.lock = threading.Lock()
-        self.condition = threading.Condition()
+        self.cond = threading.Condition()
         
     def connectionMade(self):
         pass
             
     def outReceived(self, data):
-        print data
-        with self.lock:
-            self.data = self.data + data
-            with self.condition:
-                self.condition.notifyAll()
-        
-    def errReceived(self, data):
-        print "errReceived! with %d bytes!" % len(data)
-        
-    def inConnectionLost(self):
-        print "inConnectionLost! stdin is closed! (we probably did it)"
-        
-    def outConnectionLost(self):
-        print "outConnectionLost! The child closed their stdout!"
-        
-    def errConnectionLost(self):
-        print "errConnectionLost! The child closed their stderr."
-
-    def processEnded(self, status_object):
-        print "processEnded, status %d" % status_object.value.exitCode
-        print "quitting"
+        with self.cond:
+            with self.lock:
+                self.data += data
+                self.hist += data
+                self.hist = self.hist[-2000:]
+            self.cond.notifyAll()        
 
     def read(self):
-        """with self.condition:
-            l = 0
-            while l == 0:
-                with self.lock:
-                    l = len(self.data)
-                if l == 0:
-                    self.condition.wait()
-        """
-        with self.lock:
-            data = self.data
-            self.data = ''
+        with self.cond:
+            if len(self.data) == 0:
+                self.cond.wait(5)
+            with self.lock:
+                data = self.data
+                self.data = ''
         return data
+        
+    def history(self):
+        return self.hist
         
     def write(self, data):
         self.transport.write(data)
-                
+
+    def kill(self):
+        os.kill(self.transport.pid, signal.SIGKILL)
+

@@ -1,0 +1,19 @@
+#term_box {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -moz-outline: none !important;
+    background: black;
+    padding: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+#term {
+    margin: 0;
+    padding: 0;
+    -moz-user-select: text;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}

@@ -30,7 +30,6 @@
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
     float: left;
     height: 100%;
-    min-height: 550px;
 }
 
 #topbar div {
