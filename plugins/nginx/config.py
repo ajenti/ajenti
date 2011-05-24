@@ -1,8 +1,9 @@
 from ajenti.api import *
+from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = 'nginxbackend'
+    target = NginxBackend
     platform = ['any']
     
     labels = {
@@ -13,7 +14,6 @@ class GeneralConfig(ModuleConfig):
    
    
 class BSDConfig(GeneralConfig):
-    implements((IModuleConfig, -100))
     platform = ['freebsd']
     
     cfg_dir = '/usr/local/etc/nginx'

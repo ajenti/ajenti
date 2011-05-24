@@ -1,9 +1,13 @@
 import os
 
 from ajenti.utils import *
+from ajenti.com import *
 from ajenti.api import *
 
 class SquidConfig(Plugin):
+    implements(IConfigurable)
+    name = 'Squid'
+    id = 'squid'
     misc = []
     acls = []
     rules = []
@@ -36,6 +40,9 @@ class SquidConfig(Plugin):
 
     def __init__(self):
         self.cfg_file = self.app.get_config(self).cfg_file
+        
+    def list_files(self):
+        return [self.cfg_file]
         
     def load(self):
         self.misc = []

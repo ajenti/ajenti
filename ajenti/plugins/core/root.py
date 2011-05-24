@@ -14,6 +14,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
     # Plugin folders. This dict is here forever^W until we make MUI support 
     folders = {
+        'cluster': 'CLUSTER',
         'system': 'SYSTEM',
         'hardware': 'HARDWARE',
         'apps': 'APPLICATIONS',
@@ -21,8 +22,9 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         'tools': 'TOOLS',
         'other': 'OTHER',
     }
+    
     # Folder order
-    folder_ids = ['system', 'apps', 'hardware', 'tools', 'servers', 'other']
+    folder_ids = ['cluster', 'system', 'apps', 'hardware', 'tools', 'servers', 'other']
 
     def on_session_start(self):
         self._cat_selected = 'firstrun' if self.is_firstrun() else 'dashboard'
@@ -35,8 +37,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def main_ui(self):
         templ = self.app.inflate('core:main')
 
-        #templ.find('panel').set('title', self.selected_category.text)
-        
         if self._about_visible:
             templ.append('main-content', self.get_ui_about())
 
@@ -137,6 +137,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     UI.TopCategory(
                         text=c.text, 
                         id=c.plugin_id,
+                        icon=c.icon, 
                         selected=c==self.selected_category
                     )
                 )

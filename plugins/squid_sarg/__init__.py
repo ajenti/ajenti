@@ -1,4 +1,4 @@
-MODULES = ['ui_sarg', 'recovery']
+MODULES = ['ui_sarg']
 
 DEPS =  [
     (['any'],

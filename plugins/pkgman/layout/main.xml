@@ -7,8 +7,8 @@
             <toolbutton id="cancelall" text="Cancel" icon="/dl/core/ui/stock/dialog-cancel.png" />
             <div style="padding: 4px">
                 <formbox id="frmSearch" hideok="True" hidecancel="True">
-                    <textinput name="query" size="20" />
                     <minibutton text="Search" onclick="form" form="frmSearch" />
+                    <textinput name="query" size="20" />
                 </formbox>
             </div>
         </hcontainer>

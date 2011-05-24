@@ -91,7 +91,11 @@ class PluginManager (object):
 
     @staticmethod
     def plugin_register (iface, cls):
-        PluginManager.__plugins.setdefault(iface,PrioList()).append(cls)
+        lst = PluginManager.__plugins.setdefault(iface,PrioList())
+        for item in lst:
+            if str(item) == str(cls):
+                return
+        lst.append(cls)
 
     @staticmethod
     def plugin_get (iface):

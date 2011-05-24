@@ -29,16 +29,10 @@ class SquidPlugin(apis.services.ServiceControlPlugin):
             idx += 1
 
     def get_main_ui(self):
-        panel = UI.ServicePluginPanel(title='Squid Proxy Server', icon='/dl/squid/icon.png', status=self.service_status, servicename=self.service_name)
-        panel.append(self.get_default_ui())
-        return panel
-
-
-    def get_default_ui(self):
         tc = UI.TabControl(active=self._tab)
         for p in self._parts:
             tc.add(p.title, p.get_ui())
-        return tc
+        return UI.Pad(tc)
 
     @event('button/click')
     @event('minibutton/click')

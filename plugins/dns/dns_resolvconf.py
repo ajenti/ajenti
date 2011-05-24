@@ -1,3 +1,4 @@
+from ajenti.api import *
 from ajenti.com import *
 from ajenti.utils import *
 
@@ -16,9 +17,8 @@ class ResolvConfDNSConfig(Plugin):
         self.nameservers = []
 
         try:
-            f = open('/etc/resolv.conf')
-            ss = f.read().splitlines()
-            f.close()
+            ss = ConfManager.get().load('dns', '/etc/resolv.conf')
+            ss = ss.splitlines()
         except IOError, e:
             return
 
@@ -32,9 +32,18 @@ class ResolvConfDNSConfig(Plugin):
                     self.nameservers.append(ns)
 
     def save(self):
-        f = open('/etc/resolv.conf', 'w')
+        s = ''
         for i in self.nameservers:
-            f.write(i.cls + ' ' + i.address + '\n')
-        f.close()
-        return
+            s += i.cls + ' ' + i.address + '\n'
+        ConfManager.get().save('dns', '/etc/resolv.conf', s)
+        ConfManager.get().commit('dns')
+        
 
+class DNSConfig (Plugin):
+    implements(IConfigurable)
+    name = 'DNS'
+    id = 'dns'
+    
+    def list_files(self):
+        return ['/etc/resolv.conf']
+    

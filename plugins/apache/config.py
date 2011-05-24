@@ -1,8 +1,10 @@
 from ajenti.api import *
+from main import *
+from main_single import *
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = 'apachebackend'
+    target = ApacheBackend
     platform = ['any']
     
     labels = {
@@ -13,6 +15,7 @@ class GeneralConfig(ModuleConfig):
 
    
 class BSDConfig(GeneralConfig):
+    target = ApacheBackend
     implements((IModuleConfig, -100))
     platform = ['freebsd']
     
@@ -20,12 +23,15 @@ class BSDConfig(GeneralConfig):
    
    
 class SingleConfig(ModuleConfig):
+    target = ApacheSingleConfigBackend
     plugin = 'apachesingleconfigbackend'
     platform = ['any']
     
     labels = {
-        'cfg_file': 'Configuration file'
+        'cfg_file': 'Configuration file',
+        'cfg_dir': 'Configuration directory'
     }
     
     cfg_file = '/etc/httpd/conf/httpd.conf'
+    cfg_path = '/etc/httpd'
    

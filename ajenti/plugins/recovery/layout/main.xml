@@ -1,6 +1,9 @@
 <xml>
     <toolbar>
-        <toolbutton id="btnBackup" /><toolbutton id="backupall" text="Backup everything" />
+        <hcontainer>
+            <toolbutton id="btnBackup" icon="/dl/recovery/backup.png" />
+            <toolbutton id="backupall" icon="/dl/recovery/backup-all.png" text="Backup everything" />
+        </hcontainer>
     </toolbar>
     <pad>
         <hcontainer>

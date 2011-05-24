@@ -3,12 +3,12 @@ from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    target = NotepadPlugin
     platform = ['any']
+    target = RecoveryPlugin
     
     labels = {
-        'dir': 'Initial directory'
+        'auto': 'Automatic backup'
     }
     
-    dir = '/etc'
+    auto = True
    

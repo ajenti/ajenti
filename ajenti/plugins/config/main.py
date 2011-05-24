@@ -6,7 +6,7 @@ from ajenti.plugins.recovery.api import *
 
 class ConfigPlugin(CategoryPlugin):
     text = 'Configure'
-    icon = '/dl/config/icon_small.png'
+    icon = '/dl/config/icon.png'
     folder = 'bottom'
 
     def on_session_start(self):
@@ -43,21 +43,22 @@ class ConfigPlugin(CategoryPlugin):
             ui.remove('dlgAddUser')
         
         # Configs
-        cfgs = self.app.grab_plugins(IModuleConfig)
+        cfgs = sorted(self.app.grab_plugins(IModuleConfig))
         t = ui.find('configs')
         for c in cfgs:
-            t.append(UI.DataTableRow(
-                UI.Label(text=c.plugin),
-                UI.Label(text=c.__class__.__name__),
+            if c.target:
+                t.append(UI.DataTableRow(
+                UI.Image(file=(None if not hasattr(c.target, 'icon') else c.target.icon)),
+                UI.Label(text=(c.target.__name__ if not hasattr(c.target, 'text') else c.target.text)),
                 UI.DataTableCell(
-                    UI.MiniButton(text='Edit', id='editconfig/'+c.plugin),
+                    UI.MiniButton(text='Edit', id='editconfig/'+c.target.__name__),
                     hidden=True
                 )
             ))   
             
         if self._config:
             ui.append('main',
-                self.app.get_config_by_id(self._config).get_ui_edit()
+                self.app.get_config_by_classname(self._config).get_ui_edit()
             )
                   
         return ui
@@ -118,14 +119,17 @@ class ConfigPlugin(CategoryPlugin):
                     pass
         if params[0] == 'dlgEditModuleConfig':
             if vars.getvalue('action','') == 'OK':
-                cfg = self.app.get_config_by_id(self._config)
+                cfg = self.app.get_config_by_classname(self._config)
                 cfg.apply_vars(vars)
                 cfg.save()            
             self._config = None
 
-    
-class ConfigRecovery(SimpleFileRecoveryProvider):
+
+class AjentiConfig (Plugin):
+    implements (IConfigurable)
     name = 'Ajenti'
-    id = 'ajenti'
-    path = '/etc/ajenti/ajenti.conf'
-    
+    id = 'ajenti' 
+   
+    def list_files(self):
+        return ['/etc/ajenti/*']
+        

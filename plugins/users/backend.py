@@ -20,45 +20,9 @@ class Group:
     users = []
 
 
-class LinuxConfig(ModuleConfig):
-    plugin = 'usersbackend'
-    platform = ['debian', 'arch', 'fedora', 'centos']
-    
-    cmd_add = 'useradd {0}'
-    cmd_del = 'userdel {0}'
-    cmd_add_group = 'groupadd {0}'
-    cmd_del_group = 'groupdel {0}'
-    cmd_set_user_login = 'usermod -l {0} {1}'
-    cmd_set_user_uid = 'usermod -u {0} {1}'
-    cmd_set_user_gid = 'usermod -g {0} {1}'
-    cmd_set_user_shell = 'usermod -s {0} {1}'
-    cmd_set_user_home = 'usermod -h {0} {1}'
-    cmd_set_group_gname = 'groupmod -n {0} {1}'
-    cmd_set_group_ggid = 'groupmod -g {0} {1}'
-    cmd_add_to_group = 'adduser {0} {1}'
-    cmd_remove_from_group = 'deluser {0} {1}'
-
-
-class BSDConfig(ModuleConfig):
-    plugin = 'usersbackend'
-    platform = ['freebsd']
-    
-    cmd_add = 'pw useradd {0}'
-    cmd_del = 'pw userdel {0}'
-    cmd_add_group = 'pw groupadd {0}'
-    cmd_del_group = 'pw groupdel {0}'
-    cmd_set_user_login = 'pw usermod {1} -l {0}'
-    cmd_set_user_uid = 'pw usermod {1} -u {0}'
-    cmd_set_user_gid = 'pw usermod {1} -g {0}'
-    cmd_set_user_shell = 'pw usermod {1} -s {0}'
-    cmd_set_user_home = 'pw usermod {1} -h {0}'
-    cmd_set_group_gname = 'pw groupmod {1} -n {0}'
-    cmd_set_group_ggid = 'pw groupmod {1} -g {0}'
-    cmd_add_to_group = 'pw groupmod {1} -m {0}'
-    cmd_remove_from_group = 'pw groupmod {1} -d {0}'
-
-
 class UsersBackend(Plugin):
+    icon = '/dl/users/icon.png'
+
     def __init__(self):
         self.cfg = self.app.get_config(self)
         
@@ -135,3 +99,41 @@ class UsersBackend(Plugin):
 
     def change_group_param(self, u, p, l):
         shell(getattr(self.cfg, 'cmd_set_group_'+p).format(l,u))
+        
+class LinuxConfig(ModuleConfig):
+    target = UsersBackend
+    platform = ['debian', 'arch', 'fedora', 'centos']
+    
+    cmd_add = 'useradd {0}'
+    cmd_del = 'userdel {0}'
+    cmd_add_group = 'groupadd {0}'
+    cmd_del_group = 'groupdel {0}'
+    cmd_set_user_login = 'usermod -l {0} {1}'
+    cmd_set_user_uid = 'usermod -u {0} {1}'
+    cmd_set_user_gid = 'usermod -g {0} {1}'
+    cmd_set_user_shell = 'usermod -s {0} {1}'
+    cmd_set_user_home = 'usermod -h {0} {1}'
+    cmd_set_group_gname = 'groupmod -n {0} {1}'
+    cmd_set_group_ggid = 'groupmod -g {0} {1}'
+    cmd_add_to_group = 'adduser {0} {1}'
+    cmd_remove_from_group = 'deluser {0} {1}'
+
+
+class BSDConfig(ModuleConfig):
+    target = UsersBackend
+    platform = ['freebsd']
+    
+    cmd_add = 'pw useradd {0}'
+    cmd_del = 'pw userdel {0}'
+    cmd_add_group = 'pw groupadd {0}'
+    cmd_del_group = 'pw groupdel {0}'
+    cmd_set_user_login = 'pw usermod {1} -l {0}'
+    cmd_set_user_uid = 'pw usermod {1} -u {0}'
+    cmd_set_user_gid = 'pw usermod {1} -g {0}'
+    cmd_set_user_shell = 'pw usermod {1} -s {0}'
+    cmd_set_user_home = 'pw usermod {1} -h {0}'
+    cmd_set_group_gname = 'pw groupmod {1} -n {0}'
+    cmd_set_group_ggid = 'pw groupmod {1} -g {0}'
+    cmd_add_to_group = 'pw groupmod {1} -m {0}'
+    cmd_remove_from_group = 'pw groupmod {1} -d {0}'
+

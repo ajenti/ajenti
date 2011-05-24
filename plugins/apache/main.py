@@ -1,25 +1,28 @@
 import os
 import glob
 
+from ajenti.api import *
 from ajenti.com import *
 from ajenti import apis
 
 
 class ApacheBackend(Plugin):
+    implements(IConfigurable)
     config_dir = ''
     name = 'Apache'
     id = 'apache'
+    icon = '/dl/webserver_common/icon.png'
     
     def __init__(self):
         self.config_dir = self.app.get_config(self).cfg_dir
     
-    def is_installed(self):
-        return os.path.exists(self.config_dir)
+    def list_files(self):
+        return [self.config_dir + '/*', self.config_dir + '/*/*']
         
     def get_hosts(self):
         r = {}
         for h in os.listdir(os.path.join(self.config_dir, 'sites-available')):
-            data = open(os.path.join(self.config_dir, 'sites-available', h)).read()
+            data = ConfManager.get().load('apache', os.path.join(self.config_dir, 'sites-available', h))
             host = apis.webserver.VirtualHost()
             host.config = data
             host.name = h
@@ -34,20 +37,24 @@ class ApacheBackend(Plugin):
         if not os.path.exists(p):
             ps = os.path.join(self.config_dir, 'sites-available', id)
             os.symlink(ps, p)
+            ConfManager.get().commit('apache')
 
     def disable_host(self, id):
         p = os.path.join(self.config_dir, 'sites-enabled', id)
         if os.path.exists(p):
             os.unlink(p)
+            ConfManager.get().commit('apache')
 
     def delete_host(self, id):
         p = os.path.join(self.config_dir, 'sites-available', id)
         os.unlink(p)
+        ConfManager.get().commit('apache')
 
     def save_host(self, host):
         path = os.path.join(self.config_dir, 'sites-available', host.name)  
-        open(path, 'w').write(host.config)
-          
+        ConfManager.get().save('apache', path, host.config)
+        ConfManager.get().commit('apache')
+                  
     def get_mods(self):
         r = {}
         dir_mods_avail = self.config_dir + '/mods-available/'
@@ -59,7 +66,7 @@ class ApacheBackend(Plugin):
             confpath = os.path.join(self.config_dir, 'mods-available', h+'.conf')
             mod.has_config = os.path.exists(confpath)
             if mod.has_config:
-                mod.config = open(os.path.join(self.config_dir, 'mods-available', h+'.conf')).read()
+                mod.config = ConfManager.get().load('apache', os.path.join(self.config_dir, 'mods-available', h+'.conf'))
             mod.enabled = os.path.exists(
                             os.path.join(self.config_dir, 'mods-enabled', h+'.load')
                            )
@@ -75,6 +82,7 @@ class ApacheBackend(Plugin):
             if os.path.exists(os.path.join(self.config_dir, 'mods-available', id+'.conf')):
                 ps = os.path.join(self.config_dir, 'mods-available', id+'.conf')
                 os.symlink(ps, p+'.conf')
+        ConfManager.get().commit('apache')
 
     def disable_mod(self, id):
         p = os.path.join(self.config_dir, 'mods-enabled', id)
@@ -82,10 +90,12 @@ class ApacheBackend(Plugin):
             os.unlink(p+'.load')
         if os.path.exists(p+'.conf'):
             os.unlink(p+'.conf')
+        ConfManager.get().commit('apache')
 
     def save_mod(self, mod):
         path = os.path.join(self.config_dir, 'mods-available', mod.name+'.conf')  
-        open(path, 'w').write(mod.config)
+        ConfManager.get().save('apache', path, mod.config)
+        ConfManager.get().commit('apache')
      
     host_template = """
 # %s
@@ -121,3 +131,4 @@ class ApachePlugin(apis.webserver.WebserverPlugin):
     ws_title = 'Apache 2'
     ws_backend = ApacheBackend
     ws_mods = True
+    

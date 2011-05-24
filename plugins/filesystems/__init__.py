@@ -1,4 +1,4 @@
-MODULES = ['main', 'recovery']
+MODULES = ['main', 'backend']
 
 DEPS =  []
 

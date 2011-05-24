@@ -4,17 +4,17 @@ from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import detect_distro
 
-from api import IRecoveryProvider, Manager
+from api import Manager
 
 
 class RecoveryPlugin(CategoryPlugin):
     text = 'Recovery'
-    icon = '/dl/recovery/icon_small.png'
+    icon = '/dl/recovery/icon.png'
     folder = 'bottom'
 
     def on_init(self):
         self.manager = Manager(self.app)
-        self.providers = self.app.grab_plugins(IRecoveryProvider)
+        self.providers = self.app.grab_plugins(IConfigurable)
         self.providers = sorted(self.providers, key=lambda x: x.name)
         if not self._current:
             self._current = self.providers[0].id
@@ -47,7 +47,7 @@ class RecoveryPlugin(CategoryPlugin):
                                 text='Recover',
                                 id='restore/%s/%s'%(self._current,rev.revision),
                                 msg='Restore configuration of %s as of %s (rev %s)'%(
-                                        self._current_name,
+                                        self._current,
                                         rev.date,
                                         rev.revision
                                     )
@@ -56,7 +56,7 @@ class RecoveryPlugin(CategoryPlugin):
                                 text='Drop',
                                 id='drop/%s/%s'%(self._current,rev.revision),
                                 msg='Delete backed up configuration of %s as of %s (rev %s)'%(
-                                        self._current_name,
+                                        self._current,
                                         rev.date,
                                         rev.revision
                                     )
@@ -79,12 +79,12 @@ class RecoveryPlugin(CategoryPlugin):
         if params[0] == 'backup':
             p = self.manager.find_provider(params[1])
             try:
-                self.manager.backup_now(p)
+                self.manager.backup(p)
                 self.put_message('info', 'Stored backup for %s.' % p.name)
             except:
                 self.put_message('err', 'Failed to backup %s.' % p.name)
         if params[0] == 'backupall':
-            errs = self.manager.backup_all_now()
+            errs = self.manager.backup_all()
             if errs != []:
                 self.put_message('err', 'Backup failed for %s.' % ', '.join(errs))
             else:
@@ -92,7 +92,7 @@ class RecoveryPlugin(CategoryPlugin):
         if params[0] == 'restore':
             p = self.manager.find_provider(params[1])
             try:
-                self.manager.restore_now(p, params[2])
+                self.manager.restore(p, params[2])
                 self.put_message('info', 'Restored configuration of %s (rev %s).' % (p.name, params[2]))
             except:
                 self.put_message('err', 'Failed to recover %s.' % p.name)
