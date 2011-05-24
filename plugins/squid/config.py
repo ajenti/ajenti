@@ -3,7 +3,7 @@ from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = SquidConfig
+    target = SquidConfig
     platform = ['any']
     
     labels = {

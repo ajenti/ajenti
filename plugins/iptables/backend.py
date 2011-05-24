@@ -338,7 +338,7 @@ class Config(Plugin):
         shell('iptables -L -t filter')
         shell('iptables -L -t mangle')
         shell('iptables -L -t nat')
-        shell('iptables-save > %s' % self.rules_file)
+        print        shell('iptables-save > %s' % self.rules_file)
         self.load()
     
     def apply_now(self):

@@ -3,7 +3,7 @@
     <toolbar>
         <hcontainer>
             <toolbutton text="Apply" id="apply" icon="/dl/core/ui/stock/dialog-ok.png" />
-            <warningtoolbutton text="Load current" msg="Dispose saved configuration and load current iptables status" icon="/dl/core/ui/stock/load.png" />
+            <warningtoolbutton text="Load current" id="loadruntime" msg="Dispose saved configuration and load current iptables status" icon="/dl/core/ui/stock/load.png" />
             <toolbutton text="Autostart" id="autostart" icon="/dl/iptables/autostart.png" />
         </hcontainer>
     </toolbar>

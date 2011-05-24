@@ -28,7 +28,11 @@
     
     <div class="ui-el-mainwindow-body">
 		<div class="ui-el-mainwindow-left" id="leftplaceholder"/>
-		<div class="ui-el-mainwindow-right" id="rightplaceholder"/> 
+		<div class="ui-el-mainwindow-right" id="rightplaceholder"> 
+		    <script>
+		        ajax('/handle///nothing');
+		    </script>
+		</div>
 		<div style="clear: both"/> 
 	</div>
 		
