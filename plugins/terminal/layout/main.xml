@@ -1,0 +1,17 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="refresh" text="Restart shell" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+
+<pad>
+    <div id="term_box">
+        <pre id="term" />
+    </div>
+        
+    <script>
+        termInit();
+    </script>
+</pad>    
+</xml>
