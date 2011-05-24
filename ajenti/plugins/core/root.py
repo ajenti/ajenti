@@ -143,7 +143,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
         templ.append('_head', UI.HeadTitle(text='Ajenti @ %s'%platform.node()))
         templ.append('leftplaceholder', v)
-        templ.append('rightplaceholder', self.main_ui().elements())
         templ.append('version', UI.Label(text='Ajenti '+version(), size=2))
         templ.append('links',
             UI.HContainer(

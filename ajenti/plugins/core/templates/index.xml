@@ -39,7 +39,9 @@
         </div>
     </div>
         
-        
+    <script>
+        ajax('/handle///nothing');
+    </script>        
         
 <div id="warningbox-all" style="display:none">
     <div class="ui-el-modal-blackout" />
