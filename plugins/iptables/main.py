@@ -26,7 +26,7 @@ class FirewallPlugin(CategoryPlugin):
         self._editing_table = None
         self._editing_chain = None
         self._editing_rule = None
-        self._error = ''
+        self._error = None
         
     def get_ui(self):
         ui = self.app.inflate('iptables:main')
@@ -60,8 +60,10 @@ class FirewallPlugin(CategoryPlugin):
                 vc.append(uic)
             vc.append(UI.Button(text='Add new chain to '+t.name, id='addchain/'+t.name))
             tc.add(t.name, vc)
-            
-#!!!!!            put_message('err', self._error)
+
+        if self._error is not None and len(self._error) > 0:            
+            self.put_message('warn', self._error)
+            self._error = None
             
         if self._shuffling != None:
             ui.append('root', self.get_ui_shuffler())
