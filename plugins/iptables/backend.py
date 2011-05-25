@@ -3,6 +3,7 @@ import getopt
 
 from ajenti.ui import UI
 from ajenti.utils import shell
+from ajenti.api import *
 from ajenti.com import *
 
 
@@ -314,6 +315,9 @@ class Table:
         
         
 class Config(Plugin):
+    implements(IConfigurable)
+    name = 'iptables'
+    id = 'iptables'
     tables = {}
     apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
 
@@ -327,11 +331,14 @@ class Config(Plugin):
                 self.rules_file = '/etc/iptables.up.rules' # webmin import
         self.apply_shell = 'cat %s | iptables-restore' % self.rules_file
          
+    def list_files(self):
+        return [self.rules_file]
+        
     def load_runtime(self):
         shell('iptables -L -t filter')
         shell('iptables -L -t mangle')
         shell('iptables -L -t nat')
-        shell('iptables-save > %s' % self.rules_file)
+        print        shell('iptables-save > %s' % self.rules_file)
         self.load()
     
     def apply_now(self):

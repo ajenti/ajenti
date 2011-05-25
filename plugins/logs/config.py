@@ -1,8 +1,9 @@
 from ajenti.api import ModuleConfig
+from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = 'logsplugin'
+    target = LogsPlugin
     platform = ['any']
     
     labels = {

@@ -1,8 +1,9 @@
 from ajenti.api import *
+from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    plugin = 'squidconfig'
+    target = SquidConfig
     platform = ['any']
     
     labels = {

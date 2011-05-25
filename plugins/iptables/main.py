@@ -39,6 +39,9 @@ class FirewallPlugin(CategoryPlugin):
         tc = UI.TabControl(active=self._tab)
         ui.append('root', tc)
 
+        if len(self.cfg.tables) == 0:
+            self.cfg.load_runtime()
+            
         for t in self.cfg.tables:
             t = self.cfg.tables[t]
             vc = UI.VContainer(spacing=15)

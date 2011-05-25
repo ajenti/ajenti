@@ -16,12 +16,20 @@ class ClassProxy (object):
         return MethodProxy(getattr(self.inner, attr), self.locks[attr])
 
             
+def nonblocking(fun):
+    fun.nonblocking = True
+    return fun
+    
+            
 class MethodProxy (object):
     def __init__(self, method, lock):
         self.lock = lock
         self.method = method
         
     def __call__(self, *args, **kwargs):
+        if hasattr(self.method, 'nonblocking'):
+            return self.method(*args, **kwargs)
+            
         self.lock.acquire()
         
         res = None

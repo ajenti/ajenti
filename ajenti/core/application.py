@@ -43,7 +43,7 @@ class Application (PluginManager, Plugin):
         # Get path for static content and templates
         plugins = []
         plugins.extend(loaded_plugins)
-        plugins.extend(ajenti.plugins.list)
+        plugins.extend(ajenti.plugins.plist)
         
         for c in plugins:
             path = os.path.join(get_plugin_path(self, c), c)
@@ -145,7 +145,7 @@ class Application (PluginManager, Plugin):
         plugins = self.plugin_get(iface)
         if flt:
             plugins = filter(flt, plugins)
-        return filter(None, [self.instance_get(cls, True) for cls in plugins])
+        return list(set(filter(None, [self.instance_get(cls, True) for cls in plugins])))
 
     def get_backend(self, iface, flt=None):
         lst = self.grab_plugins(iface, flt)
@@ -154,11 +154,13 @@ class Application (PluginManager, Plugin):
         return lst[0]
 
     def get_config(self, plugin):
-        return self.get_config_by_id(plugin.plugin_id)
+        if plugin.__class__ != type:
+            plugin = plugin.__class__ 
+        return self.get_config_by_classname(plugin.__name__)
 
-    def get_config_by_id(self, id):
+    def get_config_by_classname(self, name):
         cfg = self.get_backend(IModuleConfig,  
-                flt=lambda x: x.plugin==id)
+                flt=lambda x: x.target.__name__==name)
         cfg.overlay_config()
         return cfg
 

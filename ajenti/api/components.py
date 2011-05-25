@@ -6,15 +6,21 @@ class IComponent (Interface):
     def run(self):
         pass
         
+        
 class Component (Plugin, BackgroundWorker):
     implements(IComponent)
     
     name = 'unknown'
     proxy = None
+    abstract = True
     
     def __init__(self):
         BackgroundWorker.__init__(self)
     
+    @classmethod
+    def get(cls):
+        return ComponentManager.get().find(cls.name)
+        
     def start(self):
         self.on_starting()
         BackgroundWorker.start(self)
@@ -64,6 +70,7 @@ class ComponentManager (Plugin):
     def rescan(self):
         for c in self.app.grab_plugins(IComponent):
             if not c in self.components:
+                self.log.debug('Registered component: ' + c.name)
                 c.proxy = ClassProxy(c)
                 c.start()                        
                 self.components.append(c)

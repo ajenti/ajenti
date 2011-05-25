@@ -1,18 +1,26 @@
 import os
 
+from ajenti.api import *
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti import apis
 
 
 class NginxBackend(Plugin):
+    implements(IConfigurable)
     config_dir = ''
-
+    name = 'nginx'
+    id = 'nginx'
+    icon = '/dl/webserver_common/icon.png'
+    
     def __init__(self):
         self.config_dir = self.app.get_config(self).cfg_dir
         if not os.path.exists(self.config_dir):
             raise ConfigurationError('Config directory does not exist') 
-    
+
+    def list_files(self):
+        return [self.config_dir+'/*',self.config_dir+'/*/*']
+        
     def get_hosts(self):
         r = {}
         for h in os.listdir(os.path.join(self.config_dir, 'sites-available')):

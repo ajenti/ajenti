@@ -1,6 +1,8 @@
 import re
 import os
 
+from ajenti.api import *
+from ajenti.com import *
 from ajenti.utils import *
 
 
@@ -67,3 +69,13 @@ def get_partition_uuid_by_name(p):
 
 def get_partition_name_by_uuid(u):
     return shell('blkid -U ' + u)
+    
+    
+class FSConfigurable (Plugin):
+    implements(IConfigurable)
+    name = 'Filesystems'
+    id = 'filesystems'
+    
+    def list_files(self):
+        return ['/etc/fstab']
+        

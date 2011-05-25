@@ -1,4 +1,4 @@
-MODULES = ['api', 'config', 'backend', 'main', 'ui_acls', 'ui_bindings', 'ui_http_access', 'ui_refresh_patterns', 'recovery']
+MODULES = ['api', 'config', 'backend', 'main', 'ui_acls', 'ui_bindings', 'ui_http_access', 'ui_refresh_patterns']
 
 DEPS =  [
     (['any'],

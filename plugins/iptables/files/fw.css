@@ -45,9 +45,9 @@
 }
 
 .ui-el-fwrule-l-accept {
-    background: #569b3d;
-    background: -moz-linear-gradient(top,  #83ea5f,  #569b3d);
-    background: -webkit-gradient(linear, left top, left bottom, from(#83ea5f), to(#569b3d));
+    background: #569b1d;
+    background: -moz-linear-gradient(top,  #73da2f,  #468b0d);
+    background: -webkit-gradient(linear, left top, left bottom, from(#73ca1f), to(#468b0d));
 
     height: 20px;
     width: 50px;
@@ -56,7 +56,7 @@
     line-height: 20px;
     text-align: center;
 
-    border: 1px solid #569b3d;
+    border: 1px solid #367b0d;
     border-radius: 3px 0px 0px 3px;
     -moz-border-radius: 3px 0px 0px 3px;
 
@@ -66,9 +66,9 @@
 }
 
 .ui-el-fwrule-l-drop {
-    background: #ff4646;
-    background: -moz-linear-gradient(top,  #ff3737,  #e00000);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff3737), to(#e00000));
+    background: #ef2626;
+    background: -moz-linear-gradient(top,  #ef2727,  #d00000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cf2727), to(#b00000));
 
     height: 20px;
     width: 50px;
@@ -77,7 +77,7 @@
     line-height: 20px;
     text-align: center;
 
-    border: 1px solid #e00000;
+    border: 1px solid #a00000;
     border-radius: 3px 0px 0px 3px;
     -moz-border-radius: 3px 0px 0px 3px;
 
@@ -110,9 +110,9 @@
 .ui-el-fwchain-tr-accept {
     border-radius: 0px 3px 0px 0px;
     -moz-border-radius: 0px 3px 0px 0px;
-    background: #569b3d;
-    background: -moz-linear-gradient(top,  #83ea5f,  #569b3d);
-    background: -webkit-gradient(linear, left top, left bottom, from(#83ea5f), to(#569b3d));
+    background: #569b1d;
+    background: -moz-linear-gradient(top,  #73da2f,  #468b0d);
+    background: -webkit-gradient(linear, left top, left bottom, from(#73ca1f), to(#468b0d));
     border: 1px solid #777;
     color: #fff;
     text-shadow: -1px -1px 1px #777;
@@ -126,10 +126,10 @@
 .ui-el-fwchain-tr-drop {
     border-radius: 0px 3px 0px 0px;
     -moz-border-radius: 0px 3px 0px 0px;
-    border: 1px solid #e00000;
-    background: #e00000;
-    background: -moz-linear-gradient(top,  #ff3737,  #e00000);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff3737), to(#e00000));
+    border: 1px solid #a00000;
+    background: #ef2626;
+    background: -moz-linear-gradient(top,  #ef2727,  #d00000);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cf2727), to(#b00000));
     color: #fff;
     text-shadow: -1px -1px 1px #e00000;
     font-weight: bold;
