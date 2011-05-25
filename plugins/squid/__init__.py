@@ -11,6 +11,6 @@ DEPS =  [
 NAME = 'Squid'
 PLATFORMS = ['any']
 DESCRIPTION = 'Control Squid caching proxy server'
-VERSION = '0:1.0'
+VERSION = '0:1.1'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
