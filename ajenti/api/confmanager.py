@@ -49,14 +49,19 @@ class ConfManager (Component):
             if c.id == id:
                 return c
         
-    def on_starting(self):
+    def rescan(self):
+        self.configurables = {}
+        self.hooks = []
         for cfg in self.app.grab_plugins(IConfigurable):
             self.log.debug('Registered configurable: ' + cfg.name + ' ' + str(cfg))
             self.configurables[cfg.name] = cfg
         for h in self.app.grab_plugins(IConfMgrHook):
             self.log.debug('Registered configuration hook: ' + str(h))
             self.hooks.append(h)
-        
+    
+    def on_starting(self):
+        self.rescan()
+                
     def on_stopping(self):
         pass
         
