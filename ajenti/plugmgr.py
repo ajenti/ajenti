@@ -77,21 +77,7 @@ class PluginManager:
             self.available.append(i)
                
     def update_installed(self):
-        res = []
-
-        for k in disabled_plugins.keys():
-            i = PluginInfo()
-            i.id = k
-            i.icon = '/dl/%s/icon.png'%k
-            i.name, i.desc, i.version = k, 'Disabled', ''
-            i.problem = str(disabled_plugins[k])
-            i.author, i.homepage = '', ''
-            i.installed = True
-            res.append(i)
-
-        res.extend(plugin_info.values())
-        
-        self.installed = sorted(res, key=lambda x:x.name)
+        self.installed = sorted(plugin_info.values(), key=lambda x:x.name)
 
     def update_list(self):
         if not os.path.exists('/var/lib/ajenti'):
@@ -173,6 +159,16 @@ def load_plugin(path, plugin, log, platform):
         mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
         loaded_mods[plugin] = mod
             
+        # Save info
+        i = PluginInfo()
+        i.id = plugin
+        i.icon = '/dl/%s/icon.png'%plugin
+        i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
+        i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
+        i.problem = None
+        i.installed = True
+        plugin_info[plugin] = i
+
         # Verify dependencies
         if hasattr(mod, 'DEPS'):
             for req in get_deps(platform, mod.DEPS):
@@ -203,19 +199,12 @@ def load_plugin(path, plugin, log, platform):
                 if log is not None:
                     log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
                     
-        # Save info
-        i = PluginInfo()
-        i.id = plugin
-        i.icon = '/dl/%s/icon.png'%plugin
-        i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
-        i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
-        i.problem = None
-        i.installed = True
-        plugin_info[plugin] = i
         loaded_plugins.append(plugin)
     except BaseRequirementError, e:
+        plugin_info[plugin].problem = e
         raise e
     except Exception, e:
+        plugin_info[plugin].problem = e
         disabled_plugins[plugin] = e
         if log is not None:
             log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))

@@ -15,6 +15,12 @@ def css(_, v, d):
 
 def iif(_, q, a, b):
     return a if len(q)>0 and q[0].lower() == 'true' else b
+
+def jsesc(_, s):
+    try:
+        return s.replace('\'', '\\')
+    except:
+        return s[0].replace('\'', '\\')
     
 def b64(_, s):
     try:
@@ -31,6 +37,7 @@ class CoreFunctions (Plugin):
             'attr' : attr,
             'iif' : iif,
             'b64' : b64,
+            'jsesc' : jsesc,
             'css' : css
         }
 
