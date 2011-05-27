@@ -77,7 +77,7 @@
                 <div class="ui-el-dialog-content">
                     <table>
                         <tr><td><label text="{@text}"/></td></tr>
-                        <tr><td><textinput name="value" value="{@value}"/></td></tr>
+                        <tr><td><textinput size="30" password="{@password}" name="value" value="{@value}"/></td></tr>
                     </table>
                 </div>
                 <div class="ui-el-modal-buttons">
