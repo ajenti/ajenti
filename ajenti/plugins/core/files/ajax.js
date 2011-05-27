@@ -72,7 +72,7 @@ function ajaxForm(formId, action)
         url = inputs[0].value;
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
-                if (inputs[i].type == "text") {
+                if (inputs[i].type == "text" || inputs[i].type == "password") {
                     params += "&" + inputs[i].name + "=" + encodeURIComponent(inputs[i].value);
                 }
                 if (inputs[i].type == "checkbox") {

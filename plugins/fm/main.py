@@ -269,6 +269,10 @@ class FMPlugin(CategoryPlugin):
         
 class FMWorker(BackgroundWorker):
 
+    def __init__(self, *args):
+        self.action = ''
+        BackgroundWorker.__init__(self, *args)
+    
     def run(self, cat, action, files, target):
         self.action = action
         try:

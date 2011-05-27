@@ -19,7 +19,7 @@
                     <label text="Password:" />
                 </layouttablecell>
                 <layouttablecell>
-                    <textinput name="password" />
+                    <textinput name="password" password="True" />
                 </layouttablecell>
             </layouttablerow>
         </layouttable>

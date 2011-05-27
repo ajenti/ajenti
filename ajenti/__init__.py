@@ -1,8 +1,8 @@
 import subprocess
 
 def version():
-    release = '0.5-5'
-    p = subprocess.Popen('git describe 2> /dev/null', 
+    release = '0.5-6'
+    p = subprocess.Popen('git describe --tags 2> /dev/null', 
             shell=True,
             stdout=subprocess.PIPE)
     if p.wait() != 0:
