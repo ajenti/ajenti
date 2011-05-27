@@ -97,7 +97,7 @@ class PluginManager:
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
         send_stats(self.server)
-        data = download('http://%s/plugins.php?gen=%s' % (self.server,generation))
+        data = download('http://%s/api/plugins?pl=%s&gen=%s' % (self.server,detect_platform(),generation))
         try:
             open('/var/lib/ajenti/plugins.list', 'w').write(data)
         except:

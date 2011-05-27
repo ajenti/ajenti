@@ -21,7 +21,7 @@ def send_stats(server, addplugin=None, delplugin=None):
     plugs = ','.join(plugs)
     data = '1|%s|%s|%s|,%s,' % (uid, version(), detect_platform(mapping=False), plugs)
     data = base64.b64encode(data)
-    download('http://%s/stats.php?data=%s' % (server, data))
+    download('http://%s/api/submit?data=%s' % (server, data))
     
 def check_uid():
     global uid
