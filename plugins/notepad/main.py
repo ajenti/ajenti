@@ -22,8 +22,6 @@ class NotepadPlugin(CategoryPlugin):
     def get_ui(self):
         ui = self.app.inflate('notepad:main')
             
-        #ui.find('file').set('text', (self._file or self._root)) 
-
         favs = ui.find('favs')
         files = ui.find('files')
                 
@@ -40,7 +38,7 @@ class NotepadPlugin(CategoryPlugin):
             files.append(
                 UI.ListItem(
                     UI.Image(file='/dl/core/ui/stock/folder.png'),
-                    UI.Label(text='Up one level'), 
+                    UI.Label(text='..'), 
                     id='<back>',
                     active=False,
                 )
@@ -89,6 +87,7 @@ class NotepadPlugin(CategoryPlugin):
         else:
             ui.remove('btnSave')
             ui.remove('btnFav')
+            ui.remove('btnClose')
 
         return ui
    
@@ -104,6 +103,11 @@ class NotepadPlugin(CategoryPlugin):
         else:
             self._file = p
 
+    @event('button/click')
+    def on_button(self, event, params, vars=None):
+        if params[0] == 'btnClose':
+            self._file = None
+            
     @event('form/submit')
     def on_submit(self, event, params, vars=None):
         text = vars.getvalue('text', None)

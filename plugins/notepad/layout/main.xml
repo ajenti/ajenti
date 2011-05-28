@@ -1,7 +1,11 @@
 <xml>
     <toolbar spacing="0">
-        <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" /><toolbutton id="btnFav" form="frmEdit" onclick="form" />
-        <label id="file" />
+        <hcontainer>
+            <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" />
+            <toolbutton id="btnFav" form="frmEdit" onclick="form" />
+            <toolbutton id="btnClose" text="Close" />
+            <label id="file" />
+        </hcontainer>
     </toolbar>
     <pad>
         <hcontainer>
