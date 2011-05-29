@@ -21,9 +21,13 @@ def fix_unicode(s):
     return unicode(d.encode('utf-8', 'xmlcharref'), errors='replace')
 
 def detect_platform(mapping=True):
+    base_mapping = {
+        'gentoo base system': 'gentoo',
+    }
+
     platform_mapping = {
         'ubuntu': 'debian',
-        'linuxmint': 'debian'
+        'linuxmint': 'debian',
     }
     
     if platform.system() != 'Linux':
@@ -43,6 +47,8 @@ def detect_platform(mapping=True):
             dist = 'unknown'
 
     res = dist.strip().lower()
+    if res in base_mapping:
+        res = base_mapping[res]
     if mapping:
         if res in platform_mapping:
             res = platform_mapping[res]

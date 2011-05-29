@@ -1,13 +1,12 @@
 from ajenti.com import *
 from ajenti.apis import API
 from ajenti import apis
-from ajenti.utils import shell_status, shell
-from ajenti.plugins.recovery import *
+from ajenti.utils import *
 
 
 class RCConf(API):
     class RCConf(Plugin):
-        platform = ['arch', 'freebsd', 'centos']
+        platform = ['arch', 'freebsd', 'centos', 'gentoo']
         multi_instance = True
         file = '/etc/rc.conf'
         
@@ -33,9 +32,4 @@ class RCConf(API):
                 f.write('%s="%s"\n'%(param,value))
             f.close()        
 
-
-class RCConfRecovery(SimpleFileRecoveryProvider):
-    name = 'rc.conf'
-    id = 'rcconf'
-    path = '/etc/rc.conf'
     

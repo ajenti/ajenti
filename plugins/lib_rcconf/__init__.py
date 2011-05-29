@@ -3,7 +3,7 @@ MODULES = ['api']
 DEPS =  []
 
 NAME = 'rc.conf'
-PLATFORMS = ['centos', 'arch', 'freebsd']
+PLATFORMS = ['centos', 'arch', 'freebsd', 'gentoo']
 DESCRIPTION = 'Common infrastructure for rc.conf management'
 VERSION = '0:1.0'
 AUTHOR = 'Ajenti team'

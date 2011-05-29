@@ -100,9 +100,10 @@ class UsersBackend(Plugin):
     def change_group_param(self, u, p, l):
         shell(getattr(self.cfg, 'cmd_set_group_'+p).format(l,u))
         
+        
 class LinuxConfig(ModuleConfig):
     target = UsersBackend
-    platform = ['debian', 'arch', 'fedora', 'centos']
+    platform = ['debian', 'arch', 'fedora', 'centos', 'gentoo']
     
     cmd_add = 'useradd {0}'
     cmd_del = 'userdel {0}'

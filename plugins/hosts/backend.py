@@ -115,3 +115,18 @@ class CentOSHostnameManager(Plugin):
         rc.file = '/etc/sysconfig/network'
         rc.set_param('HOSTNAME', hn, near='HOSTNAME')
 
+
+class GentooHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['gentoo']
+
+    def gethostname(self):
+        rc = apis.rcconf.RCConf(self.app)
+        rc.file = '/etc/conf.d/hostname'
+        return rc.get_param('hostname')
+
+    def sethostname(self, hn):
+        rc = apis.rcconf.RCConf(self.app)
+        rc.file = '/etc/conf.d/hostname'
+        rc.set_param('hostname', hn, near='hostname')
+        

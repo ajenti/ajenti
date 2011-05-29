@@ -1,4 +1,4 @@
-MODULES = ['api', 'main', 's_upstart', 's_arch', 's_bsd', 's_centos']
+MODULES = ['api', 'main', 's_upstart', 's_arch', 's_bsd', 's_centos', 's_gentoo']
 
 DEPS =  [
     (['centos', 'fedora'],
@@ -8,7 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'Services'
-PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora']
+PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora', 'gentoo']
 DESCRIPTION = 'Control system services'
 VERSION = '0:1.0'
 AUTHOR = 'Ajenti team'
