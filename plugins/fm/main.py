@@ -9,12 +9,17 @@ from stat import ST_UID, ST_GID, ST_MODE, ST_SIZE
 import grp, pwd
 import shutil
 import threading
+from acl import *
+
 
 class FMPlugin(CategoryPlugin):
     text = 'File manager'
     icon = '/dl/fm/icon.png'
     folder = 'tools'
 
+    def on_init(self):
+        self._has_acls = shell_status('which getfacl')==0
+        
     def on_session_start(self):
         self._root = self.app.get_config(self).dir
         self._tabs = []
@@ -57,6 +62,22 @@ class FMPlugin(CategoryPlugin):
                 id='dlgRename'
             ))
 
+        if self._editing_acl is not None:
+            dlg = self.app.inflate('fm:acl')
+            ui.append('main', dlg)
+            acls = get_acls(self._editing_acl)
+            idx = 0
+            for acl in acls:
+                dlg.append('list', UI.DataTableRow(
+                    UI.Label(text=acl[0]),
+                    UI.Label(text=acl[1]),
+                    UI.MiniButton(
+                        text='Delete',
+                        id='delAcl/%i'%idx
+                    )
+                ))
+                idx += 1
+            
         return ui
 
     def get_tab(self, tab):
@@ -150,6 +171,13 @@ class FMPlugin(CategoryPlugin):
                 UI.Label(text='%s:%s'%(user,group), monospace=True),
                 UI.Label(text=self.mode_string(mode), monospace=True),
                 UI.DataTableCell(
+                    UI.MiniButton(
+                        text='ACLs',
+                        id='acls/%i/%s'%(
+                            tidx,
+                            self.enc_file(np)
+                        ),
+                    ) if self._has_acls else None,
                     UI.WarningMiniButton(
                         text='Delete',
                         msg='Delete %s'%np,
@@ -229,7 +257,13 @@ class FMPlugin(CategoryPlugin):
                 self.put_message('info', 'Deleted %s'%f)
             except Exception, e:
                 self.put_message('err', str(e))
-
+        if params[0] == 'acls':
+            self._tab = int(params[1])
+            self._editing_acl = self.dec_file(params[2])
+        if params[0] == 'delAcl':
+            idx = int(params[1])
+            del_acl(self._editing_acl, get_acls(self._editing_acl)[idx][0])
+            
     @event('form/submit')
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
@@ -260,6 +294,14 @@ class FMPlugin(CategoryPlugin):
                         vars.getvalue('value', None)
                     ))
             self._renaming = None
+        if params[0] == 'dlgAcl':
+            self._editing_acl = None
+        if params[0] == 'frmAddAcl':
+            if vars.getvalue('action', None) == 'OK':
+                set_acl(self._editing_acl, 
+                    vars.getvalue('subject', None),
+                    vars.getvalue('perm', None),
+                    )
 
     def work(self, action, files, target):
         w = FMWorker(self, action, files, target)

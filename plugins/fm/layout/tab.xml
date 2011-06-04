@@ -1,4 +1,5 @@
 <xml>
+    <div style="border: 1px solid #ccc;border-bottom: none">
     <toolbar>
         <hcontainer id="path">
             <toolbutton id="paste" text="Paste here" icon="/dl/core/ui/stock/paste.png" />
@@ -8,18 +9,19 @@
             <toolseparator />
         </hcontainer>
     </toolbar>
+    </div>
 
     <simpleform id="files">
     <datatable id="list">
         <datatablerow header="True" width="100%">
             <datatablecell />
-            <datatablecell width="60%">
+            <datatablecell width="40%">
                 <label text="Name" />
             </datatablecell>
-            <datatablecell width="20%">
+            <datatablecell width="12%">
                 <label text="Size" />
             </datatablecell>
-            <datatablecell width="20%">
+            <datatablecell width="15%">
                 <label text="Owner" />
             </datatablecell>
             <datatablecell>
