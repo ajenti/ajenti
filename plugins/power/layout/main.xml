@@ -1,6 +1,9 @@
 <xml>
     <toolbar>
-        <warningtoolbutton id="shutdown" text="Shutdown" msg="Shutdown machine" /><warningtoolbutton id="reboot" text="Reboot" msg="Reboot machine" />
+        <hcontainer>
+            <warningtoolbutton id="shutdown" text="Shutdown" msg="Shutdown machine" icon="/dl/core/ui/stock/service-stop.png"/>
+            <warningtoolbutton id="reboot" text="Reboot" msg="Reboot machine" icon="/dl/core/ui/stock/refresh.png"/>
+        </hcontainer>
     </toolbar>
     <pad>
         <vcontainer id="list" width="150" />
