@@ -1,13 +1,14 @@
 from ajenti.utils import *
 
 def get_acls(f):
-    ss = shell('getfacl "%s"' % f).split('\n')
+    ss = shell('getfacl -cp -- "%s"' % f).split('\n')
     r = []
     for s in ss:
-        if not s.startswith('#'):
+        if not s.startswith('#') and not s.startswith('getfacl'):
             try:
-                x = s.split(':')
-                r.append((x[0]+':'+x[1], x[2].split(' ')[0]))
+                x = [z.strip() for z in s.split(':')]
+                x[-1] = x[-1].split()[0]
+                r.append((':'.join(x[:-1]), x[-1]))
             except:
                 pass
     return r

@@ -24,6 +24,7 @@
                         </layouttablecell>
                         <layouttablecell>
                             <textinput name="subject" />
+                            <helpicon text="u:john, g:admins, default:u:jack, mask:, other:, u:, g:" />
                         </layouttablecell>
                     </layouttablerow>
                     <layouttablerow>
@@ -32,6 +33,7 @@
                         </layouttablecell>
                         <layouttablecell>
                             <textinput name="perm" />
+                            <helpicon text="r, w, x, rw, rwx, ..." />
                         </layouttablecell>
                     </layouttablerow>
                 </layouttable>

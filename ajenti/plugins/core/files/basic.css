@@ -99,8 +99,8 @@ input.ui-el-button {
 }
 
 .ui-el-minibutton:active {
-    background: #eee;
-    background: -moz-linear-gradient(top,  #fff,  #eee);
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ccc,  #ddd);
     background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
     color: #000;
 }

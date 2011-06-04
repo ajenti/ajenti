@@ -21,6 +21,12 @@ def jsesc(_, s):
         return s.replace('\'', '\\')
     except:
         return s[0].replace('\'', '\\')
+
+def idesc(_, s):
+    try:
+        return s.replace('/', '_').replace('.', '_')
+    except:
+        return s[0].replace('/', '_').replace('.', '_')
     
 def b64(_, s):
     try:
@@ -38,6 +44,7 @@ class CoreFunctions (Plugin):
             'iif' : iif,
             'b64' : b64,
             'jsesc' : jsesc,
+            'idesc' : idesc,
             'css' : css
         }
 

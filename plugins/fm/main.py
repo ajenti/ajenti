@@ -69,8 +69,8 @@ class FMPlugin(CategoryPlugin):
             idx = 0
             for acl in acls:
                 dlg.append('list', UI.DataTableRow(
-                    UI.Label(text=acl[0]),
-                    UI.Label(text=acl[1]),
+                    UI.Editable(id='edAclSubject/%i'%idx, value=acl[0]),
+                    UI.Editable(id='edAclPerm/%i'%idx, value=acl[1]),
                     UI.MiniButton(
                         text='Delete',
                         id='delAcl/%i'%idx
@@ -302,6 +302,14 @@ class FMPlugin(CategoryPlugin):
                     vars.getvalue('subject', None),
                     vars.getvalue('perm', None),
                     )
+        if params[0] == 'edAclPerm':
+            idx = int(params[1])
+            set_acl(self._editing_acl, get_acls(self._editing_acl)[idx][0], vars.getvalue('value', None))
+        if params[0] == 'edAclSubject':
+            idx = int(params[1])
+            perm = get_acls(self._editing_acl)[idx][1]
+            del_acl(self._editing_acl, get_acls(self._editing_acl)[idx][0])
+            set_acl(self._editing_acl, vars.getvalue('value', None), perm)
 
     def work(self, action, files, target):
         w = FMWorker(self, action, files, target)

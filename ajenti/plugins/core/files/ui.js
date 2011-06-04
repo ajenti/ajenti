@@ -143,3 +143,20 @@ function ui_help_hide() {
     hint = document.getElementById('help-hint');
     hint.style.display = 'none';
 }
+
+function ui_editable_activate(id) {
+    $('#'+id+'-normal').hide();
+    $('#'+id+'-active').show();    
+    return false;
+}
+
+function ui_editable_save(id) {
+    ajaxForm(id, 'OK');
+    return ui_editable_cancel(id);
+}
+
+function ui_editable_cancel(id) {
+    $('#'+id+'-normal').show();
+    $('#'+id+'-active').hide();    
+    return false;
+}
