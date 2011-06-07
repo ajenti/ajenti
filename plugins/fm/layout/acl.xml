@@ -23,8 +23,8 @@
                             <label text="Subject"/>
                         </layouttablecell>
                         <layouttablecell>
-                            <textinput name="subject" />
                             <helpicon text="u:john, g:admins, default:u:jack, mask:, other:, u:, g:" />
+                            <textinput name="subject" />
                         </layouttablecell>
                     </layouttablerow>
                     <layouttablerow>
@@ -32,8 +32,8 @@
                             <label text="Permissions" />
                         </layouttablecell>
                         <layouttablecell>
-                            <textinput name="perm" />
                             <helpicon text="r, w, x, rw, rwx, ..." />
+                            <textinput name="perm" />
                         </layouttablecell>
                     </layouttablerow>
                 </layouttable>
