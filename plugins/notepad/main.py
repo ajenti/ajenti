@@ -26,8 +26,9 @@ class NotepadPlugin(CategoryPlugin):
         files = ui.find('files')
                 
         for f in self._favs:
-            favs.append(
+            files.append(
                 UI.ListItem(
+                    UI.Image(file='/dl/core/ui/stock/bookmark.png'),
                     UI.Label(text=f), 
                     id='*'+str(self._favs.index(f)),
                     active=f==self._file
@@ -61,6 +62,7 @@ class NotepadPlugin(CategoryPlugin):
             if not os.path.isdir(path):
                 files.append(
                     UI.ListItem(
+                        UI.Image(file='/dl/core/ui/stock/file.png'),
                         UI.Label(text=p), 
                         id=p,
                         active=path==self._file
@@ -81,9 +83,11 @@ class NotepadPlugin(CategoryPlugin):
             if not self._file in self._favs:
                 fbtn.set('text', 'Bookmark')
                 fbtn.set('action', 'fav')
+                fbtn.set('icon', '/dl/core/ui/stock/bookmark-add.png')
             else:
                 fbtn.set('text', 'Unbookmark')
                 fbtn.set('action', 'unfav')
+                fbtn.set('icon', '/dl/core/ui/stock/bookmark-remove.png')
         else:
             ui.remove('btnSave')
             ui.remove('btnFav')

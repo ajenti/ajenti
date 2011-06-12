@@ -1,20 +1,19 @@
 <xml>
     <toolbar spacing="0">
         <hcontainer>
-            <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" />
+            <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" icon="/dl/core/ui/stock/save.png"/>
             <toolbutton id="btnFav" form="frmEdit" onclick="form" />
-            <toolbutton id="btnClose" text="Close" />
+            <toolbutton id="btnClose" text="Close" icon="/dl/core/ui/stock/dialog-cancel.png" />
             <label id="file" />
         </hcontainer>
     </toolbar>
     <pad>
         <hcontainer>
             <vcontainer>
-                <list id="favs" width="200" />
                 <list id="files" width="200" height="400" />
             </vcontainer>
             <formbox height="100%" id="frmEdit" hideok="True" hidecancel="True">
-                <textinputarea id="data" width="540" height="400" name="text" value="" />
+                <codeinputarea id="data" width="540" height="400" name="text" value="" />
             </formbox>
         </hcontainer>
     </pad>
