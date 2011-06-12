@@ -36,7 +36,7 @@ class Backend(Plugin):
         r = {
             'dhcp-hosts': [],
             'domains': [],
-            'opts': {}
+            'opts': {},
         }
         for l in open(self.config_file, 'r'):
             l = l.strip()
@@ -49,7 +49,7 @@ class Backend(Plugin):
                     if k == 'dhcp-host':
                         r['dhcp-hosts'].append(self.parse_host(v))
                     elif k == 'address':
-                        r['domains'].append(v.split('/'))
+                        r['domains'].append(v.split('/')[1:])
                     else:
                         r['opts'][k] = v
                 else:
@@ -78,7 +78,7 @@ class Backend(Plugin):
         
         s += '\n\n# Domains\n' 
         for x in cfg['domains']:
-            s += 'address=' + '/'.join(x) + '\n'
+            s += 'address=/' + '/'.join(x) + '\n'
          
         s += '\n\n# Other options\n'
         for x in cfg['opts']:

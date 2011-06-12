@@ -93,7 +93,7 @@ class PluginManager(CategoryPlugin, URLHandler):
             else:
                 row.append('reqs', UI.HelpIcon(text=req))
 
-            ui.append('list', row)
+            ui.append('avail', row)
 
         return ui
 

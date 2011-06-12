@@ -1,9 +1,28 @@
 <xml>
 
     <toolbar>
-        <toolbutton id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
+        <hcontainer>
+            <toolbutton id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
+            <toolbutton id="btnAddDomain" text="Add domain" icon="/dl/core/ui/stock/add.png" />
+        </hcontainer>
     </toolbar>
     
+    <label size="5" text="DNS entries" />
+
+    <pad>
+        <datatable id="domains" width="100%">
+            <datatablerow header="True">
+                <datatablecell width="40%">
+                    <label text="Hostname" />
+                </datatablecell>
+                <datatablecell width="40%">
+                    <label text="Address" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+
     <label size="5" text="Active leases" />
 
     <pad id="main">

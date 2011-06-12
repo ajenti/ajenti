@@ -5,10 +5,18 @@
             <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
         </hcontainer>
     </toolbar>
+
+    <label size="5" text="Installed" />
+
     <pad>
-        <label size="2" text="Plugin list" />
-        <spacer height="5" />
         <datatable width="100%" id="list">
+        </datatable>
+    </pad>
+
+    <label size="5" text="Available" />
+
+    <pad>
+        <datatable width="100%" id="avail">
         </datatable>
         
         <spacer height="10" />
