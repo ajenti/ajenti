@@ -53,7 +53,8 @@ class DebianNetworkConfig(LinuxIfconfig):
             else: ss = []
 
         for x in auto:
-            self.interfaces[x].auto = True
+            if x in self.interfaces:
+                self.interfaces[x].auto = True
 
 
     def get_iface(self, name, bits):

@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'Webserver commons'
 PLATFORMS = ['any']
 DESCRIPTION = 'Common infrastructure for webserver control plugins'
-VERSION = '0:1.0'
+VERSION = '0:1.1'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
