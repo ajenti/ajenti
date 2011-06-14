@@ -121,18 +121,19 @@
 
 .ui-el-editable {
     border: 1px solid #ccc;
+    height: 16px;
+    margin: 2px 2px;
     display: inline-block;
 }   
 
 .ui-el-editable-inactive {
     display: inline-block;
-    margin-top: 1px;
-    margin-bottom: 1px;
 }
    
 .ui-el-editable input {
     border: none;
     padding: 0 4px;
+    height: 16px;
 }
 
 .ui-el-editable img {

@@ -97,12 +97,12 @@
 </xsl:template>
 
 <xsl:template match="progressbar">
-    <table cellspacing="0" cellpadding="0" class="ui-el-progressbar-wrapper">
-        <tr>
-            <td style="width:{@left}px" class="ui-el-progressbar-active"/>
-            <td style="width:{@right}px" class="ui-el-progressbar"/>
-        </tr>
-    </table>
+    <div class="ui-el-progressbar-wrapper">
+        <div style="width:{@left}px" class="ui-el-progressbar-active">
+            <div><div/></div>
+        </div>
+        <div style="width:{@right}px" class="ui-el-progressbar" />
+    </div>
 </xsl:template>
 
 <xsl:template match="elementbox">

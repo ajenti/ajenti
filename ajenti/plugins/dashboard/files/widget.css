@@ -18,7 +18,7 @@
     background: -moz-linear-gradient(top,  #eee,  #ddd);
     background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
     width: 16px;
-    padding: 2px;
+    padding: 3px 2px;
     border-right: 1px solid #bbb;
 }
 
@@ -29,11 +29,11 @@
 
 .ui-el-widget-title {
     font-weight: bold;
-    line-height: 20px;
+    line-height: 22px;
     padding: 0 5px;
     margin: 0 5px 0 0;
     display: inline-block;
-    height: 20px;
+    height: 22px;
 }
 
 .ui-el-widget-title-linear {

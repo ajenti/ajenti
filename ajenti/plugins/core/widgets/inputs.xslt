@@ -6,22 +6,17 @@
 </xsl:template>
 
 <xsl:template match="checkbox">
-    <table><tr><td>
-            <input class="ui-el-checkbox" type="checkbox" name="{@name}" id="{@id}" onkeypress="return noenter()">
-                <xsl:if test="@checked = 'True'">
-                    <xsl:attribute name="checked"/>
-                </xsl:if>
-            </input>
-            <span class="ui-el-label-1">
-                <xsl:value-of select="@text" />
-            </span>
-        </td>
-        <td>
-            <xsl:if test="@help and (@help != '')">
-                <helpicon text="{@help}"/>
+    <div class="ui-el-checkbox">
+        <input type="checkbox" name="{@name}" id="{@id}" onkeypress="return noenter()">
+            <xsl:if test="@checked = 'True'">
+                <xsl:attribute name="checked"/>
             </xsl:if>
-        </td></tr>
-    </table>
+        </input>
+        <xsl:value-of select="@text" />
+        <xsl:if test="@help and (@help != '')">
+            <helpicon text="{@help}"/>
+        </xsl:if>
+    </div>            
 </xsl:template>
 
 <xsl:template match="selectoption">
@@ -34,22 +29,17 @@
 </xsl:template>
 
 <xsl:template match="radio">
-    <table><tr><td>
-            <input class="ui-el-radio" type="radio" value="{@value}" name="{@name}" id="{@id}" onkeypress="return noenter()">
-                <xsl:if test="@checked = 'True'">
-                    <xsl:attribute name="checked"/>
-                </xsl:if>
-            </input>
-            <span class="ui-el-label-1">
-                <xsl:value-of select="@text" />
-            </span>
-        </td>
-        <td>
-            <xsl:if test="@help and (@help != '')">
-                <helpicon text="{@help}"/>
+    <div class="ui-el-radio">
+        <input type="radio" value="{@value}" name="{@name}" id="{@id}" onkeypress="return noenter()">
+            <xsl:if test="@checked = 'True'">
+                <xsl:attribute name="checked"/>
             </xsl:if>
-        </td></tr>
-    </table>
+        </input>
+        <xsl:value-of select="@text" />
+        <xsl:if test="@help and (@help != '')">
+            <helpicon text="{@help}"/>
+        </xsl:if>
+    </div>        
 </xsl:template>
 
 <xsl:template match="textinputarea">
