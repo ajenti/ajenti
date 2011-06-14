@@ -8,13 +8,12 @@ from main import *
 class PowerWidget(Plugin):
     implements(IDashboardWidget)
     title = 'Uptime'
-    icon = '/dl/power/icon.png'
+    icon = '/dl/power/widget.png'
     name = 'Uptime'
+    style = 'linear'
     
     def get_ui(self, cfg):
-        ui = self.app.inflate('power:widget')
-        ui.find('value').set('text', get_uptime())
-        return ui
+        return UI.Label(text=get_uptime())
         
     def handle(self, event, params, cfg, vars=None):
         pass
@@ -22,6 +21,6 @@ class PowerWidget(Plugin):
     def get_config_dialog(self):
         return None
         
-    def process_config(self, event, params, vars):
+    def process_config(self, vars):
         pass
                 

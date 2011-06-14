@@ -14,7 +14,7 @@ def css(_, v, d):
     return v if '%' in v else '%spx'%v
 
 def iif(_, q, a, b):
-    return a if len(q)>0 and q[0].lower() == 'true' else b
+    return a if (q != False) and ((q == True) or (len(q)>0 and q[0].lower() == 'true')) else b
 
 def jsesc(_, s):
     try:

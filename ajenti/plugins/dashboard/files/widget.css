@@ -2,39 +2,76 @@
     background: #ececee;
     text-align: left;
     vertical-align: top;
-    padding: 4px 4px 3px 4px;
     width: 360px;
     border: 1px solid #ccc;
-    border-radius: 0px 0px 3px 3px;
-    -moz-border-radius: 0px 0px 3px 3px;
-    -webkit-border-radius: 0px 0px 3px 3px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.ui-el-widget table {
+    width: 100%;
+}
+
+.ui-el-widget-icon {
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    width: 16px;
+    padding: 2px;
+    border-right: 1px solid #bbb;
 }
 
 .ui-el-widget-hdr {
-    background: #ccc;
-    text-align: left;
-    color: #666;
-    font-size: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.ui-el-widget-title {
     font-weight: bold;
-    padding: 2px 0px 3px 4px;
-    width: 364px;
-    height: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px 3px 0px 0px;
-    -moz-border-radius: 3px 3px 0px 0px;
-    -webkit-border-radius: 3px 3px 0px 0px;
+    line-height: 20px;
+    padding: 0 5px;
+    margin: 0 5px 0 0;
+    display: inline-block;
+    height: 20px;
 }
 
-.ui-el-widget-hdr a {
+.ui-el-widget-title-linear {
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    border-right: 1px solid #bbb;
+    width: 80px;
+}
+
+.ui-el-widget-content {
+    padding: 0 4px;
+}
+
+.ui-el-widget-hdr .controls {
     display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
     font-size: 10px;
-    float: right;
     padding: 0px 3px;
+    height: 20px;
     color: #777;
+    background: rgba(0,0,0,.1);
 }
 
-.ui-el-widget-hdr:hover a {
-    display: inline;
+.ui-el-widget-hdr .controls a {
+    padding: 0 5px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+.ui-el-widget-hdr .controls a:hover {
+    background: rgba(0,0,0,.1);
+}
+
+.ui-el-widget-hdr:hover .controls {
+    display: block;
 }
 
 .ui-dashboard-banner {

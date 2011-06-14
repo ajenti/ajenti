@@ -31,7 +31,7 @@ class Dashboard(CategoryPlugin):
             except:
                 pass
             
-            for x in self._left:
+            for x in (self._left + self._right):
                 self._widgets[x] = (
                     self.app.config.get('dashboard', '%i-class'%x),
                     eval(b64decode(self.app.config.get('dashboard', '%i-cfg'%x)))
@@ -45,6 +45,8 @@ class Dashboard(CategoryPlugin):
                     UI.Widget(
                         w.get_ui(self._widgets[x][1]),
                         pos=side,
+                        icon=w.icon,
+                        style=w.style,
                         title=w.title,
                         id=str(x),
                     )
@@ -65,7 +67,7 @@ class Dashboard(CategoryPlugin):
         if self._adding_widget == True:
             dlg = self.app.inflate('dashboard:add-widget')
             idx = 0
-            for prov in self.app.grab_plugins(IDashboardWidget):
+            for prov in sorted(self.app.grab_plugins(IDashboardWidget)):
                 dlg.append('list', UI.ListItem(
                     UI.Image(file=prov.icon),
                     UI.Label(text=prov.name),
@@ -74,7 +76,7 @@ class Dashboard(CategoryPlugin):
                 idx += 1
             ui.append('main', dlg)
         elif self._adding_widget != None:
-            ui.append(self.get_widget(self._adding_widget).get_config_dialog())
+            ui.append('main', self.get_widget(self._adding_widget).get_config_dialog())
         else:
             ui.append('main', UI.Refresh(time=5000))
             
@@ -97,7 +99,7 @@ class Dashboard(CategoryPlugin):
             self.app.config.set('dashboard', '%i-class'%x, self._widgets[x][0])
             self.app.config.set(
                 'dashboard', '%i-cfg'%x, 
-                b64encode(str(self._widgets[x][1]))
+                b64encode(repr(self._widgets[x][1]))
             )
         self.app.config.save()
 
@@ -135,6 +137,15 @@ class Dashboard(CategoryPlugin):
     @event('widget/move')
     def on_move(self, event, params, vars=None):
         id = int(params[0])
+        if params[1] == 'delete':
+            if id in self._right:
+                self._right.remove(id)
+            else:
+                self._left.remove(id)
+            del self._widgets[id]
+            self.app.config.remove_option('dashboard', '%i-class'%id)
+            self.app.config.remove_option('dashboard', '%i-cfg'%id)
+            self.save_cfg()
         if params[1] == 'left':
             self._right.remove(id)
             self._left.append(id)

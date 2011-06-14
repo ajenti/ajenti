@@ -193,6 +193,7 @@ select {
 
 .ui-el-image {
     padding: 1px 3px 0px 2px;
+    display: inline-block;
 }
 
 

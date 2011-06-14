@@ -5,6 +5,7 @@ class IDashboardWidget(Interface):
     title = ''
     name = ''
     icon = ''
+    style = 'normal'
     
     def get_ui(self, cfg):
         pass
