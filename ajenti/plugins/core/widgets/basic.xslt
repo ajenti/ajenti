@@ -36,7 +36,7 @@
             </a>
         </xsl:when>
         <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-toolbutton">
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-toolbutton {x:iif(@small, 'ui-el-toolbutton-small', '')}">
                 <xsl:if test="@icon">
                     <img src="{@icon}" />
                 </xsl:if>
@@ -46,7 +46,7 @@
     </xsl:choose>
 </xsl:template>
 
-<xsl:template match="toolseparator"><a class="ui-el-toolbar-separator"></a></xsl:template>
+<xsl:template match="toolseparator"><a class="ui-el-toolbar-separator {x:iif(@small, 'ui-el-toolbar-separator-small', '')}"></a></xsl:template>
 
 <xsl:template match="warningbutton">
     <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button">

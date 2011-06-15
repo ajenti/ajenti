@@ -1,4 +1,4 @@
-MODULES = ['api', 'main', 's_upstart', 's_arch', 's_bsd', 's_centos']
+MODULES = ['api', 'main', 's_upstart', 's_arch', 's_bsd', 's_centos', 'widget']
 
 DEPS =  [
     (['centos', 'fedora'],

@@ -7,7 +7,7 @@ class IDashboardWidget(Interface):
     icon = ''
     style = 'normal'
     
-    def get_ui(self, cfg):
+    def get_ui(self, cfg, id=None):
         pass
 
     def handle(self, event, params, cfg, vars=None):

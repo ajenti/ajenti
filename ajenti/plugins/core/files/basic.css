@@ -65,7 +65,18 @@ input.ui-el-button {
     height: 28px;
 }
 
+.ui-el-toolbar-separator-small {
+    height: 22px;
+}
 
+.ui-el-toolbutton-small {
+    height: 22px;
+    line-height: 22px;
+}
+
+.ui-el-toolbutton-small > img {
+    padding-top: 4px;
+}
 
 .ui-el-minibutton {
     min-width: 40px;

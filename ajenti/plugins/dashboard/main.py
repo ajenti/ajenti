@@ -43,7 +43,7 @@ class Dashboard(CategoryPlugin):
                 w = self.get_widget(self._widgets[x][0])
                 ui.append(tgt, 
                     UI.Widget(
-                        w.get_ui(self._widgets[x][1]),
+                        w.get_ui(self._widgets[x][1], id=str(x)),
                         pos=side,
                         icon=w.icon,
                         style=w.style,
@@ -120,9 +120,18 @@ class Dashboard(CategoryPlugin):
             self._adding_widget = id
         
     @event('button/click')
-    def on_button(self, event, params, vars):
+    @event('minibutton/click')
+    @event('linklabel/click')
+    def on_event(self, event, params, vars):
         if params[0] == 'btnAddWidget':
             self._adding_widget = True
+        try:
+            wid = int(params[0])
+            params = params[1:]
+            self.get_widget(self._widgets[wid][0]).\
+                handle(event, params, self._widgets[wid][1], vars)
+        except:
+            pass
 
     @event('dialog/submit')
     def on_dialog(self, event, params, vars):

@@ -4,7 +4,7 @@ function ui_center_el(e) {
     e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
     e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
     if (sh < e.clientHeight)
-        e.clientTop = 0;
+        e.style.top = '10px';
 }
 
 function ui_fullscreen(el) {

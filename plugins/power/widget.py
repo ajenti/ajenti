@@ -12,7 +12,7 @@ class PowerWidget(Plugin):
     name = 'Uptime'
     style = 'linear'
     
-    def get_ui(self, cfg):
+    def get_ui(self, cfg, id=None):
         return UI.Label(text=get_uptime())
         
     def handle(self, event, params, cfg, vars=None):

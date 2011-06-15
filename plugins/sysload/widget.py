@@ -12,7 +12,7 @@ class LoadWidget(Plugin):
     name = 'System load'
     style = 'linear'
     
-    def get_ui(self, cfg):
+    def get_ui(self, cfg, id=None):
         stat = self.app.get_backend(apis.sysstat.ISysStat)
         ui = self.app.inflate('sysload:load')
         load = stat.get_load()
@@ -38,7 +38,7 @@ class RamWidget(Plugin):
     name = 'Memory'
     style = 'normal'
         
-    def get_ui(self, cfg):
+    def get_ui(self, cfg, id=None):
         stat = self.app.get_backend(apis.sysstat.ISysStat)
         ru, rt = stat.get_ram()
         return UI.HContainer(
@@ -80,7 +80,7 @@ class SwapWidget(Plugin):
     name = 'Swap'
     style = 'normal'
         
-    def get_ui(self, cfg):
+    def get_ui(self, cfg, id=None):
         stat = self.app.get_backend(apis.sysstat.ISysStat)
         su, st = stat.get_swap()
         return UI.HContainer(

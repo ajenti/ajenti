@@ -1,0 +1,10 @@
+<xml>
+    <div style="float:right">
+    <hcontainer width="100px">
+    <toolseparator small="True" />
+    <toolbutton id="start" text="Start" icon="/dl/core/ui/stock/service-run.png" small="True" />
+    <toolbutton id="stop" text="Stop" icon="/dl/core/ui/stock/service-stop.png" small="True" />
+    <toolbutton id="restart" text="Restart" icon="/dl/core/ui/stock/service-restart.png" small="True" />
+    </hcontainer>
+    </div>
+</xml>

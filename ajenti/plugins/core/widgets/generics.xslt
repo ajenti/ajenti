@@ -33,7 +33,7 @@
 </xsl:template>
 
 <xsl:template match="hcontainer">
-    <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+    <table cellspacing="0" cellpadding="0" style="display: inline-block; width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
          <tr>
              <xsl:for-each select="*">
                 <td style="padding-right: {x:css(../@spacing, '0')}">

@@ -15,7 +15,7 @@ class NetworkWidget(Plugin):
     def __init__(self):
         self.iface = None
         
-    def get_ui(self, cfg):
+    def get_ui(self, cfg, id=None):
         self.iface = cfg
         self.title = 'Network interface: %s' % cfg
         be = self.app.get_backend(INetworkConfig)
