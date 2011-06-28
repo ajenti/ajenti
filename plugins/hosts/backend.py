@@ -23,7 +23,7 @@ class Config(Plugin):
         return ['/etc/hosts']
         
     def read(self):
-        ss = open('/etc/hosts', 'r').read().split('\n')
+        ss = ConfManager.get().load('hosts', '/etc/hosts').split('\n')
         r = []
 
         for s in ss:
@@ -49,8 +49,8 @@ class Config(Plugin):
         d = ''
         for h in hh:
             d += '%s\t%s\t%s\n' % (h.ip, h.name, h.aliases)
-        with open('/etc/hosts', 'w') as f:
-            f.write(d)
+        ConfManager.get().save('hosts', '/etc/hosts', d)
+        ConfManager.get().commit('hosts')
             
     def gethostname(self):
         return self.app.get_backend(IHostnameManager).gethostname()

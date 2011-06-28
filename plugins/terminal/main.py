@@ -101,5 +101,6 @@ class PTYProtocol(protocol.ProcessProtocol):
         self.transport.write(data)
 
     def kill(self):
-        os.kill(self.transport.pid, signal.SIGKILL)
+        if self.transport.pid:
+            os.kill(self.transport.pid, signal.SIGKILL)
 
