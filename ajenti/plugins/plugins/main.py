@@ -132,8 +132,11 @@ class PluginManager(CategoryPlugin, URLHandler):
             self.app.restart()
         if params[0] == 'install':
             self._tab = 0
-            self.put_message('info', 'Plugin installed. Refresh page for changes to take effect.')
-            self._mgr.install(params[1])
-            ComponentManager.get().rescan()
-            
-        
+            upgr = params[1] in self._mgr.installed
+            self._mgr.install(params[1], load=not upgr)
+            if upgr:
+                self.put_message('warn', 'Plugin upgraded. Restart Ajenti for changes to take effect.')
+            else:
+                self.put_message('info', 'Plugin installed. Refresh page for changes to take effect.')
+                ComponentManager.get().rescan()
+

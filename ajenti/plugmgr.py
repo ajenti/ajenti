@@ -99,20 +99,20 @@ class PluginManager:
         self.update_installed()
         self.update_available()
 
-    def install(self, id):        
+    def install(self, id, load=True):        
         dir = self.config.get('ajenti', 'plugins')
         self.remove(id)
                 
         download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id), 
             file='%s/plugin.tar.gz'%dir, crit=True)
-        self.install_tar()            
+        self.install_tar(load=load)            
     
     def install_stream(self, stream):        
         dir = self.config.get('ajenti', 'plugins')
         open('%s/plugin.tar.gz'%dir, 'w').write(stream)
         self.install_tar()            
 
-    def install_tar(self):        
+    def install_tar(self, load=True):        
         dir = self.config.get('ajenti', 'plugins')
             
         id = shell('tar tzf %s/plugin.tar.gz'%dir).split('\n')[0].strip('/')
@@ -122,7 +122,8 @@ class PluginManager:
 
         send_stats(self.server, addplugin=id)
         try:
-            load_plugin(self.config.get('ajenti', 'plugins'), id, None, detect_platform())
+            if load:
+                load_plugin(self.config.get('ajenti', 'plugins'), id, None, detect_platform())
         except:
             pass
 
