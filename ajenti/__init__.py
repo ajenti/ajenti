@@ -1,7 +1,7 @@
 import subprocess
 
 def version():
-    release = '0.5-7'
+    release = '0.5-8'
     p = subprocess.Popen('git describe --tags 2> /dev/null', 
             shell=True,
             stdout=subprocess.PIPE)

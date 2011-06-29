@@ -152,11 +152,6 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     icon = '/dl/core/ui/catfolders/other.png'
     folder = 'other'
 
-    is_enabled = None
-    
-    def test(self):
-        return True
-    
     def on_init(self):
         pass
 

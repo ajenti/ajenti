@@ -14,11 +14,11 @@
     <div style="border: 1px solid #bbb">
         <label size="1" text="Size one" />
         <label size="2" text="Size two" />
-    </div>
-
         <label size="3" text="Size three" />
         <label size="4" text="Size four" />
         <label size="5" text="Size five" />
+    </div>
+
 
     <div style="border: 1px solid #bbb">
         <helpicon text="Help" />
