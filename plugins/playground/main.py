@@ -25,6 +25,8 @@ class PlaygroundPlugin(CategoryPlugin):
             self.put_message('warn', 'Warning')
         if params[0] == 'msgErr':
             self.put_message('err', 'Error')
+        if params[0] == 'crash':
+            a = 1/0
         if params[0] == 'progress':
             PlaygroundProgress(self.app).start()
         if params[0] == 'btnExit':

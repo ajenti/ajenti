@@ -7,7 +7,7 @@ def version():
             stdout=subprocess.PIPE)
     if p.wait() != 0:
         return release
-    return p.stdout.read()
+    return p.stdout.read().strip('\n ')
 
 # Generation declares which plugin version range to use
 generation = '0'

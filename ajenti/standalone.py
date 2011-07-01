@@ -15,18 +15,39 @@ import ajenti.utils
 
 
 
+class DebugHandler (logging.NullHandler):
+    def __init__(self):
+        self.capturing = False
+        self.buffer = ''
+        
+    def start(self):
+        self.capturing = True
+        
+    def stop(self):
+        self.capturing = False
+        
+    def handle(self, record):
+        if self.capturing:
+            self.buffer += self.formatter.format(record) + '\n'
+        
+
 def run_server(log_level=logging.INFO, config_file=''):
     # Initialize logging subsystem
     log = logging.getLogger('ajenti')
-    log.setLevel(log_level)
-    stderr = logging.StreamHandler()
-    stderr.setLevel(log_level)
-    if log_level == logging.DEBUG:
-        formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
-    else:
-        formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
-    stderr.setFormatter(formatter)
-    log.addHandler(stderr)
+    log.setLevel(logging.DEBUG)
+    
+    stdout = logging.StreamHandler(stream=sys.stdout)
+    stdout.setLevel(log_level)
+    log.blackbox = DebugHandler()
+    log.blackbox.setLevel(logging.DEBUG)
+    
+    dformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
+    sformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
+    stdout.setFormatter(dformatter if log_level == logging.DEBUG else sformatter)
+    log.blackbox.setFormatter(dformatter)
+
+    log.addHandler(log.blackbox)
+    log.addHandler(stdout)
 
     # For the debugging purposes
     log.info('Ajenti %s' % version())
@@ -44,7 +65,9 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
-    
+
+    log.blackbox.start()
+        
     # Load external plugins
     load_plugins(config.get('ajenti', 'plugins'), log)
 
@@ -78,6 +101,9 @@ def run_server(log_level=logging.INFO, config_file=''):
         )
     else:
         reactor.listenTCP(port, site)
+
+
+    log.blackbox.stop()
 
     reactor.run()
 

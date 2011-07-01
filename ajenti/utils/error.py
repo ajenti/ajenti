@@ -1,5 +1,6 @@
 from ajenti.utils import *
 from ajenti import version
+from ajenti.plugmgr import loaded_plugins
 from ajenti.ui import UI
 from ajenti.ui.template import BasicTemplate
 
@@ -51,17 +52,8 @@ def format_error(app, ex):
 
 def make_report(app, err):
     pr = ''
-    for p in app.class_list():
-        i = ''
-        if hasattr(p, '_implements'):
-            imps = []
-            for imp in p._implements:
-                try:
-                    imps.append(imp[0])
-                except:
-                    imps.append(imp)
-            i = ','.join([x.__name__ for x in imps])
-        pr += '%s [%s]\n' % (p.__name__, i)
+    for p in sorted(loaded_plugins):
+        pr += p + '\n'
 
     return (('Ajenti %s bug report\n' +
            '--------------------\n\n' +
@@ -70,17 +62,18 @@ def make_report(app, err):
            'Detected distro: %s\n' +
            'Python: %s\n\n' +
            'Config path: %s\n\n' +
-           'Config content:\n%s\n' +
-           '\n\nLoaded plugins:\n%s\n\n' +
-           '%s')
+           '%s\n\n'
+           'Loaded plugins:\n%s\n\n' +
+           'Startup log:\n%s\n'
+           )
             % (version(),
                shell('uname -a'),
                detect_platform(),
                detect_distro(),
                '.'.join([str(x) for x in platform.python_version_tuple()]),
                app.config.filename,
-               open(app.config.filename).read(),
+               err,
                pr,
-               err
+               app.log.blackbox.buffer,
               ))
               

@@ -4,6 +4,7 @@
         <button id="msgInfo" text="Info" />
         <button id="msgWarn" text="Warning" />
         <button id="msgErr" text="Error" />
+        <button id="crash" text="Crash" />
         <button id="progress" text="Start working" />
         <button id="btnExit" text="Exit" />
     </hcontainer>
