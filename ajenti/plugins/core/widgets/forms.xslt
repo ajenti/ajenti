@@ -91,6 +91,7 @@
         ui_fullscreen('blackout');
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
+        $('#<xsl:value-of select="@id"/> input[type!=hidden]')[0].focus();
     </script>
 </div>
 </xsl:template>
@@ -120,6 +121,7 @@
         ui_fullscreen('blackout');
         ui_center('<xsl:value-of select="@id"/>-wr'); 
         ui_scroll_top();
+        $('#<xsl:value-of select="@id"/> textarea[type!=hidden]')[0].focus();
     </script>
 </div>
 </xsl:template>

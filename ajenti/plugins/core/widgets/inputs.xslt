@@ -1,5 +1,5 @@
 <xsl:template match="textinput">
-        <input class="ui-el-input" name="{@name}" value="{@value}" id="{@id}" size="{@size}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}"/>
+        <input class="ui-el-input" name="{@name}" value="{@value}" id="{@id}" size="{@size}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};"/>
             <xsl:if test="@help and (@help != '')">
                 <helpicon text="{@help}"/>
             </xsl:if>

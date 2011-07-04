@@ -41,6 +41,8 @@ class Dashboard(CategoryPlugin):
         for x in lst:
             try:
                 w = self.get_widget(self._widgets[x][0])
+                if not w:
+                    continue
                 ui.append(tgt, 
                     UI.Widget(
                         w.get_ui(self._widgets[x][1], id=str(x)),
@@ -104,10 +106,13 @@ class Dashboard(CategoryPlugin):
         self.app.config.save()
 
     def get_widget(self, id):
-        return self.app.grab_plugins(
-           IDashboardWidget, 
-           lambda x:x.plugin_id==id,
-        )[0]
+        try:
+            return self.app.grab_plugins(
+               IDashboardWidget, 
+               lambda x:x.plugin_id==id,
+            )[0]
+        except:
+            return None
         
     @event('listitem/click')
     def on_list(self, event, params, vars):
