@@ -1,23 +1,48 @@
-#term * {
-    font-family: monospace;
-}
-
-#term_box {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -moz-outline: none !important;
-    background: black;
-    padding: 5px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-}
-
 #term {
     margin: 0;
-    padding: 0;
+    padding: 5px;
     -moz-user-select: text;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    background: black;
+    margin: auto;
+    width: 640px;
+}
+
+#term table {
+    background: white;
+}
+
+#term td {
+    font-family: monospace;
+    color: white;
+    background: black;
+    width: 8px;
+    height: 16px;
+    font-size: 11px;
+}
+
+#term td.cursor {
+    border: 1px solid black;
+    border-bottom: 2px solid white;
+}
+
+#capture {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    width: 200px;
+    font-size: 14px;
+    color: #777;
+    padding: 4px;
+    text-align: center;
+}
+
+#capture:focus {
+    border: 3px solid #888;
+    margin: 8px auto;
 }

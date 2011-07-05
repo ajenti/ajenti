@@ -1,15 +1,18 @@
 <xml>
     <toolbar>
         <hcontainer>
-            <toolbutton id="refresh" text="Restart shell" icon="/dl/core/ui/stock/refresh.png" />
+            <toolbutton id="restart" text="Restart shell" icon="/dl/core/ui/stock/refresh.png" />
+            <toolbutton id="input" text="Batch input" icon="/dl/core/ui/stock/file.png" />
         </hcontainer>
     </toolbar>
 
-<pad>
-    <div id="term_box">
-        <pre id="term" />
+<pad id="main">
+    <div id="term">
+        <table />
     </div>
         
+    <input id="capture" value="Click here to capture input" />
+    
     <script>
         termInit();
     </script>
