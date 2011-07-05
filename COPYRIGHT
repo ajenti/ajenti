@@ -34,6 +34,10 @@ Paranoid Ferret Productions: http://www.paranoidferret.com
 CodeMirror embeddable editor (c)
 Marijn Haverbeke <marijnh@gmail.com>
 
+PyTE (c) 2011
+Selectel <https://github.com/selectel/pyte>
+See plugins/terminal/pyte/*
+
 Artwork
 -------
 
