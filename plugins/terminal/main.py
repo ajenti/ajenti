@@ -17,6 +17,10 @@ from twisted.internet import reactor
 import pyte
 
 
+TERM_W = 120
+TERM_H = 30
+
+
 class TerminalPlugin(CategoryPlugin, URLHandler):
     text = 'Terminal'
     icon = '/dl/terminal/icon.png'
@@ -44,6 +48,8 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
         self._proc = PTYProtocol()
         env = os.environ
         env['TERM'] = 'linux'
+        env['COLUMNS'] = str(TERM_W)
+        env['LINES'] = str(TERM_H)
         sh = self.app.get_config(self).shell
         reactor.spawnProcess(
             self._proc, 
@@ -97,7 +103,7 @@ class PTYProtocol(protocol.ProcessProtocol):
         self.data = ''
         self.lock = threading.Lock()
         self.cond = threading.Condition()
-        self.term = pyte.DiffScreen(80,24)
+        self.term = pyte.DiffScreen(TERM_W,TERM_H)
         self.stream = pyte.Stream()
         self.stream.attach(self.term)
         
@@ -126,6 +132,7 @@ class PTYProtocol(protocol.ProcessProtocol):
         
     def format(self, full=False):
         l = {}
+        self.term.dirty.add(self.term.cursor.y)
         for k in self.term.dirty:
             l[k] = self.term[k]
         self.term.dirty.clear()

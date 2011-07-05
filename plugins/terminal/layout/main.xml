@@ -7,9 +7,7 @@
     </toolbar>
 
 <pad id="main">
-    <div id="term">
-        <table />
-    </div>
+    <div id="term" />
         
     <input id="capture" value="Click here to capture input" />
     

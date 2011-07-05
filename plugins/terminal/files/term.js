@@ -1,4 +1,4 @@
-var _cursor;
+var _cursor, _cursx, _cursy;
 
 function termSend(data) {
     $.ajax({
@@ -27,50 +27,56 @@ function termGet(arg) {
 function drawTerm(d) {
     var data = JSON.parse(JXG.decompress(d));
     
-    lns = $('#term tr');
+    $('#term pre.cursor').removeClass('cursor');
+    
+    _cursor = data._cursor;
+    if (data.cursor) {
+        _cursx = data.cx;
+        _cursy = data.cy;
+    } else 
+        _cursx = -1;
+    
+    lns = $('#term div');
     for (k in data.lines) {
         if (lns.length <= k)
-            $('#term table').append(__row(data.lines[k]));
+            $('#term').append(__row(data.lines[k], k));
         else {
             var ln = $(lns[k]);
-            ln.empty();
-            ln.append(__cells(data.lines[k]));
-        }
-    }
-    
-    if (data.cursor) {
-        if (_cursor)
-            $(_cursor).stop().css('opacity', 1);
-        if ($('#term tr').length > 0) {
-            cell = $('td', $('#term tr')[data.cy])[data.cx];
-            _cursor = cell;
-            blink(cell);
+            ln.html(__cells(data.lines[k], k));
         }
     }
 }
 
-function blink( el ) {
-    if (!el) {
-        el = this;
+function __cells(row, idx) {
+    var r = '<pre>', fg, bg, bold, it, und;
+    for (var i=0; i<row.length; i++) {
+        var cell = row[i];
+        if (bg != cell[2] || fg != cell[1] || (idx == _cursy && i == _cursx) || (idx == _cursy && i == _cursx+1)) {
+            var misc = '';
+            if (idx == _cursy && i == _cursx)
+                misc = ' class="cursor" ';
+            if (cell[3] || cell[4] || cell[5]) {
+                misc += ' style="';
+                if (cell[3]) misc += 'font-weight: bold;';
+                if (cell[4]) misc += 'font-style: italic;';
+                if (cell[5]) misc += 'text-decoration: underline;';
+                misc += '" ';
+            }
+            r += '</pre><pre' + misc + ' style="color:'+cell[1]+';background:'+cell[2]+';">';
+            fg = cell[1];
+            bg = cell[2];
+            bold = cell[3];
+            it = cell[4];
+            und = cell[5];
+        }
+        r +=  cell[0];
     }
-    $(el).animate( { opacity: 0 }, 800, function() {
-        $(this).animate( {opacity: 0.5 }, 800, blink );
-    } );
-}
-
-function __cell(chr) {
-    return '<td style="color:'+chr[1]+';background:'+chr[2]+';">' + chr[0] + '</td>';
-}
-
-function __cells(row) {
-    var r = '';
-    for (var i=0; i<row.length; i++)
-        r += __cell(row[i]);
+    r += '</pre>';
     return r;
 }
 
-function __row(row) {   
-    return '<tr>' + __cells(row) + '</tr>';
+function __row(row, idx) {   
+    return '<div>' + __cells(row, idx) + '</div>';
 }
 
 function termInit() {
@@ -94,23 +100,6 @@ function termInit() {
         var ch = __filter_key(event);
         termSend(Base64.encode(ch));
     });
-    
-    onkey = function() {
-        var vt = VT100.the_vt_;
- 
-        if (vt === undefined)
-            return;
- 
-        var ch = vt.key_buf_.shift();
-        if (ch === undefined)
-            return;
-
-        if (vt.echo_ && ch.length == 1)
-            vt.addch(ch);
-            
-        termSend(Base64.encode(ch));
-        _had_keypress = true;
-    }
 
     termGet('-history');
 }
@@ -130,15 +119,6 @@ function __filter_key(event)
 		}
 		    
 		if (ch) {
-			if (ch > 255)
-				return '';
-			if (event.ctrlKey && event.shiftKey) {
-				// Don't send the copy/paste commands.
-				var charStr = String.fromCharCode(ch);
-				if (charStr == 'C' || charStr == 'V') {
-					return '';
-				}
-			}
 			if (event.ctrlKey) {
 				ch = String.fromCharCode(ch - 96);
 			} else {
@@ -160,28 +140,24 @@ function __filter_key(event)
 				break;
 			    case 38:
 					ch = '\x1b[A';
-//					ch = '\x1bOA';
 				break;
 			    case 40:
 					ch = '\x1b[B';
-//					ch = '\x1bOB';
 				break;
 			    case 39:
 					ch = '\x1b[C';
-//					ch = '\x1bOC';
 				break;
 			    case 37:
 					ch = '\x1b[D';
-//					ch = '\x1bOD';
 				break;
 			    case 46:
 				ch = '\x1b[3~';
 				break; 
-			    case 36: //end
-				ch = '\x1b[H';
+			    case 35: //end
+				ch = '\x1b[F';
 				break;
-			    case 35: //home
-			    ch = '\x1b[F';
+			    case 36: //home
+			    ch = '\x1b[H';
 				break;
 			    case 34: //pgup
 			    ch = '\x1b[6~';

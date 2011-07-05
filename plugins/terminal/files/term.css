@@ -7,25 +7,20 @@
     -webkit-border-radius: 5px;
     background: black;
     margin: auto;
-    width: 640px;
+    width: 720px;
 }
 
-#term table {
-    background: white;
-}
-
-#term td {
+#term pre {
     font-family: monospace;
     color: white;
-    background: black;
-    width: 8px;
-    height: 16px;
-    font-size: 11px;
+    font-size: 10px;
+    padding-bottom: 1px;
+    display: inline-block;
 }
 
-#term td.cursor {
-    border: 1px solid black;
-    border-bottom: 2px solid white;
+#term pre.cursor {
+    padding-bottom: 0;
+    border-bottom: 1px solid white;
 }
 
 #capture {
