@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'IP tables'
 PLATFORMS = ['debian', 'arch', 'centos', 'fedora']
 DESCRIPTION = 'Netfilter rules control plugin'
-VERSION = '0:1.2'
+VERSION = '0:1.3'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

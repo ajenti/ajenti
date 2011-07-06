@@ -404,9 +404,12 @@ class IConfig(Interface):
 class IDebianConfig(Plugin):
     implements(IConfig)
     platform = ['Debian', 'Ubuntu']
-    apply_shell = '#!/bin/sh\ncat /etc/iptables.up.rules | iptables-restore'
     path = '/etc/network/if-up.d/iptables'
     
+    @property
+    def apply_shell(self):
+        return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
+        
     def has_autostart(self):
         return os.path.exists(self.path)
         
@@ -424,9 +427,12 @@ class IDebianConfig(Plugin):
 class ISuseConfig(Plugin):
     implements(IConfig)
     platform = ['openSUSE']
-    apply_shell = '#!/bin/sh\ncat /etc/iptables.up.rules | iptables-restore'
     path = '/etc/sysconfig/network/if-up.d/50-iptables'
     
+    @property
+    def apply_shell(self):
+        return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
+        
     def has_autostart(self):
         return os.path.exists(self.path)
         
@@ -444,9 +450,12 @@ class ISuseConfig(Plugin):
 class IArchConfig(Plugin):
     implements(IConfig)
     platform = ['Arch']
-    apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
     path = '/etc/network.d/hooks/iptables'
     
+    @property
+    def apply_shell(self):
+        return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
+        
     def has_autostart(self):
         return self.apply_shell in open('/etc/rc.local').read().splitlines()
 
