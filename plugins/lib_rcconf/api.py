@@ -34,8 +34,8 @@ class RCConf(API):
             f.close()        
 
 
-class RCConfRecovery(SimpleFileRecoveryProvider):
-    name = 'rc.conf'
-    id = 'rcconf'
-    path = '/etc/rc.conf'
-    
+#class RCConfRecovery(SimpleFileRecoveryProvider):
+#    name = 'rc.conf'
+#    id = 'rcconf'
+#    path = '/etc/rc.conf'
+
