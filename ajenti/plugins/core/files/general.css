@@ -4,15 +4,20 @@
     text-align: left;
     vertical-align: top;
     text-decoration: none;
-    font-family: Droid Sans, Tahoma, sans-serif;
+    font-family: Droid Sans, Verdana, sans-serif;
     outline: none;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 html, body {
     width: 100%;
     height: 100%;
     color: #555;
+    background: #eee;
+}
+
+html {
+    overflow-y: scroll;
 }
 
 div {

@@ -1,0 +1,58 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="add" text="Add host" icon="/dl/core/ui/stock/add.png" />
+            <toolbutton id="hostname" text="Change hostname" icon="/dl/core/ui/stock/server.png" />
+        </hcontainer>
+    </toolbar>
+    
+    <label text="Hosts" size="5" />
+    
+    <pad>
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell width="30%">
+                    <label text="IP address" />
+                </datatablecell>
+                <datatablecell width="30%">
+                    <label text="Hostname" />
+                </datatablecell>
+                <datatablecell width="30%">
+                    <label text="Aliases" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+    
+    <dialogbox id="dlgEdit">
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="IP address" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="ip" name="ip" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Hostname" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="name" name="name" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Aliases" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="aliases" name="aliases" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+    </dialogbox>
+    
+    <inputbox id="dlgSelf" text="Hostname" />
+</xml>    

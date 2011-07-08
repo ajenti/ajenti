@@ -1,19 +1,14 @@
 from ajenti.com import *
 from ajenti.utils import *
 from ajenti.ui import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
 from api import *
 from nctp_linux import *
 
 
-class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
+class DebianNetworkConfig(LinuxIfconfig):
     implements(INetworkConfig)
     platform = ['Debian', 'Ubuntu']
-    name = 'Network'
-    id = 'network'
-    files = [('/etc/network', '*')] 
-    run_after = ['/etc/init.d/networking restart']
     
     interfaces = None
 
@@ -24,7 +19,7 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
         self.interfaces = {}
 
         try:
-            f = self.open('/etc/network/interfaces')
+            f = open('/etc/network/interfaces')
             ss = f.read().splitlines()
             f.close()
         except IOError, e:
@@ -33,15 +28,15 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
         auto = []
 
         while len(ss)>0:
-            if (len(ss[0]) > 0 and not ss[0][0] == '#'):
-                a = ss[0].strip(' \t\n').split(' ')
+            line = ss[0].strip(' \t\n')
+            if (len(line) > 0 and not line[0] == '#'):
+                a = line.split(' ')
                 for s in a:
                     if s == '': a.remove(s)
                 if (a[0] == 'auto'):
                     auto.append(a[1])
                 elif (a[0] == 'allow-hotplug'):
                     pass
-#                    hotplug.append(a[1])
                 elif (a[0] == 'iface'):
                     tmp = NetworkInterface()
                     tmp.addressing = a[3]
@@ -58,7 +53,8 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
             else: ss = []
 
         for x in auto:
-            self.interfaces[x].auto = True
+            if x in self.interfaces:
+                self.interfaces[x].auto = True
 
 
     def get_iface(self, name, bits):
@@ -70,7 +66,7 @@ class DebianNetworkConfig(LinuxIfconfig, ClusteredConfig):
 
 
     def save(self):
-        f = self.open('/etc/network/interfaces', 'w')
+        f = open('/etc/network/interfaces', 'w')
         for i in self.interfaces:
             self.save_iface(self.interfaces[i], f)
         f.close()

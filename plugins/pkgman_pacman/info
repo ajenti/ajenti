@@ -1,6 +1,0 @@
-pkg packages-pacman
-desc Pacman backend for package management plugin
-dep pacman
-dep ajenti-plugin-packages
-prov ajenti-plugin-packages-backend
-only arch

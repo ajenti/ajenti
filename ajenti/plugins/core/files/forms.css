@@ -5,6 +5,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
+    z-index: 2;
 }
 
 .ui-el-dialog {
@@ -15,7 +16,6 @@
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
     border-radius: 5px 5px 5px 5px;
     border: 3px solid transparent;
-    
     text-align: left;
     vertical-align: top;
 }
@@ -23,24 +23,32 @@
 .ui-el-dialog-content {
     background: #ececee;
     padding: 10px 10px 10px 10px;
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 0px 0px;
+    -moz-border-radius: 3px 3px 0px 0px;
+    -webkit-border-radius: 3px 0px 0px 0px;
     overflow: hidden;
 }
 
 
 .ui-el-modal-wrapper {
     position: absolute;
+    z-index: 4 !important;
     left: 40%;
     top: 40%;
 }
 
 .ui-el-modal-buttons {
+    border-radius: 0px 0px 3px 3px;
+    -moz-border-radius: 0px 0px 3px 3px;
+    -webkit-border-radius: 0px 0px 3px 3px;
+    border-top: 1px solid #bbb;
+    background: #ccc;
+    background: -moz-linear-gradient(top,  #ddd,  #bbb);
+    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#bbb));
     overflow: hidden;
-    padding: 5px 10px 0px 10px;
+    padding: 5px 10px 6px 10px;
+    text-align: right;
 }
-
 
 
 .ui-el-error {

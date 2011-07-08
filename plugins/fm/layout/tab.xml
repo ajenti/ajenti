@@ -1,0 +1,34 @@
+<xml>
+    <div style="border: 1px solid #ccc;border-bottom: none">
+    <toolbar>
+        <hcontainer id="path">
+            <toolbutton id="paste" text="Paste here" icon="/dl/core/ui/stock/paste.png" />
+            <toolbutton id="newfld" text="New folder" icon="/dl/fm/newfolder.png" />
+            <toolbutton id="close" text="Close tab" icon="/dl/core/ui/stock/dialog-cancel.png" />
+            <spacer width="20" />
+            <toolseparator />
+        </hcontainer>
+    </toolbar>
+    </div>
+
+    <simpleform id="files">
+    <datatable id="list" width="100%">
+        <datatablerow header="True">
+            <datatablecell />
+            <datatablecell width="40%">
+                <label text="Name" />
+            </datatablecell>
+            <datatablecell width="12%">
+                <label text="Size" />
+            </datatablecell>
+            <datatablecell width="15%">
+                <label text="Owner" />
+            </datatablecell>
+            <datatablecell>
+                <label text="Access" />
+            </datatablecell>
+            <datatablecell />
+        </datatablerow>
+    </datatable>
+    </simpleform>
+</xml>

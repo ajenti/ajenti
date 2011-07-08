@@ -1,7 +1,5 @@
+from ajenti.api import *
 from ajenti.ui import *
-from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
 from ajenti.utils import *
 from ajenti import apis
 
@@ -10,7 +8,7 @@ import backend
 
 class SambaPlugin(apis.services.ServiceControlPlugin):
     text = 'Samba'
-    icon = '/dl/samba/icon_small.png'
+    icon = '/dl/samba/icon.png'
     folder = 'servers'
     service_name = 'smbd'
     
@@ -25,32 +23,10 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
         self._adding_user = False
 
     def get_main_ui(self):
-        panel = UI.ServicePluginPanel(title='Samba', icon='/dl/samba/icon.png', status=self.service_status, servicename=self.service_name)
+        ui = self.app.inflate('samba:main')
+        ui.find('tabs').set('active', self._tab)
 
-        if not backend.is_installed():
-            panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Samba is not installed')))
-        else:
-            panel.append(self.get_default_ui())
-
-        return panel
-
-    def get_default_ui(self):
-        tc = UI.TabControl(active=self._tab)
-        tc.add('Shares', self.get_ui_shares())
-        tc.add('Users', self.get_ui_users())
-        tc.add('General', self.get_ui_general())
-        return tc
-
-    def get_ui_shares(self):
-        th = UI.DataTable()
-        hr = UI.DataTableRow(
-                UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label(text='Path'), width='200px'),
-                UI.DataTableCell(UI.Label()),
-                header=True
-             )
-        th.append(hr)
-
+        # Shares
         for h in self._cfg.get_shares():
             r = UI.DataTableRow(
                     UI.DataTableCell(
@@ -66,28 +42,18 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
                         hidden=True
                     )
                 )
-            th.append(r)
-
-        th = UI.VContainer(th, UI.Button(text='Add new share', id='newshare'))
+            ui.append('shares', r)
 
         if not self._editing_share is None:
             if self._editing_share == '':
-                th.append(self.get_ui_edit_share())
+                ui.append('main', self.get_ui_edit_share())
             else:
-                th.append(self.get_ui_edit_share(
+                ui.append('main', self.get_ui_edit_share(
                             self._cfg.shares[self._editing_share]
                         ))
-        return th
 
-    def get_ui_users(self):
-        th = UI.DataTable()
-        hr = UI.DataTableRow(
-                UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                UI.DataTableCell(UI.Label()),
-                header=True
-             )
-        th.append(hr)
 
+        # Users
         for h in sorted(self._cfg.users.keys()):
             r = UI.DataTableRow(
                     UI.DataTableCell(
@@ -102,33 +68,36 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
                         hidden=True
                     )
                 )
-            th.append(r)
+            ui.append('users', r)
 
-        th = UI.VContainer(th, UI.Button(text='Add new user', id='newuser'))
 
         if not self._editing_user is None:
             if self._editing_user == '':
-                th.append(self.get_ui_edit_user())
+                ui.append('main', self.get_ui_edit_user())
             else:
-                th.append(self.get_ui_edit_user(
+                ui.append('main', self.get_ui_edit_user(
                             self._cfg.users[self._editing_user]
                         ))
 
         if not self._editing is None:
-            th.append(UI.InputBox(
+            ui.append('main', UI.InputBox(
                 title=self._editing,
                 value=self._cfg.users[self._editing_user][self._editing],
                 id='dlgEdit'
             ))
 
         if self._adding_user:
-            th.append(UI.InputBox(
+            ui.append('main', UI.InputBox(
                 title='New user',
                 text='Unix login:',
                 id='dlgAddUser'
             ))
 
-        return th
+    
+        # Config
+        ui.append('tab2', self.get_ui_general())
+        
+        return ui
 
 
     def get_ui_edit_share(self, s=None):
@@ -326,7 +295,3 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
                 self._cfg.load()
             self._editing = None
 
-
-class SambaContent(ModuleContent):
-    module = 'samba'
-    path = __file__

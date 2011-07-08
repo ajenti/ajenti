@@ -1,34 +1,40 @@
 .ui-el-table {
-    background: #ffffff;
-    border: 1px solid #bbb;
-    margin-bottom: 3px;
+    background: #f0f0f0;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
 }
 
 .ui-el-table-row .ui-el-table-cell {
 }
 
 .ui-el-table-row-header {
-    background: #eeeeee;
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
 }
 
 .ui-el-table-row-header td {
     border-bottom: 1px solid #cccccc;
     border-right: 1px solid #cccccc;
+    padding: 3px 4px !important;
+    font-weight: bold;
+    color: #888;
 }
 
 .ui-el-table-row:hover {
-    background: #eabf81;
-    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffdfa1), to(#facf91));
+    background: rgba(255,255,255,0.5);
 }
 
 .ui-el-table-row:hover .ui-el-table-cell{
 }
 
-.ui-el-table-cell, .ui-el-table-cell-hidden {
-    padding: 2px;
-    padding-left: 4px;
+.ui-el-table-cell, 
+.ui-el-table-cell-hidden,
+.ui-el-table-cell-empty {
+    padding: 4px;
     vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 .ui-el-table-cell-empty {
@@ -38,12 +44,12 @@
     color: #999;
 }
 
-.ui-el-table-cell-hidden {
+.ui-el-table-cell-hidden * {
     visibility: visible;
-    opacity: 0.2;
+    opacity: 0.8;
 }
 
-.ui-el-table-row:hover .ui-el-table-cell-hidden {
+.ui-el-table-row:hover .ui-el-table-cell-hidden * {
     visibility: visible;
     opacity: 1.0;
 }

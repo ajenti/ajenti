@@ -4,11 +4,12 @@ function ui_center_el(e) {
     e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
     e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
     if (sh < e.clientHeight)
-        e.style.top = '0px';
+        e.style.top = '10px';
 }
 
 function ui_fullscreen(el) {
-    e = document.getElementById(el)
+    ui_show(el);
+    e = document.getElementById(el);
     sw = document.documentElement.scrollWidth;
     sh = document.documentElement.scrollHeight;
     e.style.width = sw + 'px';
@@ -19,18 +20,28 @@ function ui_center(el) {
     ui_center_el(document.getElementById(el));
 }
 
-function ui_categoryfolder(id) {
-    ui_showhide(id+'-children');
-    x = document.getElementById(id);
-    if (x.className == 'ui-el-categoryfolder')
-        x.className = 'ui-el-categoryfolder-selected';
-    else
-        x.className = 'ui-el-categoryfolder';
+function ui_scroll_top() {
+    window.scrollTo(0,0);
 }
 
 function ui_select_category(id) {
-    document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
-    document.getElementById(id).className = 'ui-el-category-selected';
+    try {
+        document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
+    } catch (e) {}
+    try {
+        document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
+    } catch (e) {}
+    document.getElementById(id).className = 'ui-el-category ui-el-category-selected';
+}
+
+function ui_select_top_category(id) {
+    try {
+        document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
+    } catch (e) {}
+    try {
+        document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
+    } catch (e) {}
+    document.getElementById(id).className = 'ui-el-top-category ui-el-top-category-selected';
 }
 
 function ui_showhide(id) {
@@ -131,4 +142,21 @@ function ui_help_show(evt) {
 function ui_help_hide() {
     hint = document.getElementById('help-hint');
     hint.style.display = 'none';
+}
+
+function ui_editable_activate(id) {
+    $('#'+id+'-normal').hide();
+    $('#'+id+'-active').show();    
+    return false;
+}
+
+function ui_editable_save(id) {
+    ajaxForm(id, 'OK');
+    return ui_editable_cancel(id);
+}
+
+function ui_editable_cancel(id) {
+    $('#'+id+'-normal').show();
+    $('#'+id+'-active').hide();    
+    return false;
 }

@@ -1,5 +1,5 @@
 from ajenti.ui import *
-from ajenti.app.helpers import CategoryPlugin, ModuleContent, event
+from ajenti.api import *
 
 from api import *
 
@@ -16,24 +16,8 @@ class DNSPlugin(CategoryPlugin):
         self._editing_ns = None
 
     def get_ui(self):
-        l = len(self.config.nameservers)
-        panel = UI.PluginPanel(
-                    UI.Label(text='%i entries'%l), 
-                    title='DNS Nameservers', 
-                    icon='/dl/dns/icon.png'
-                )
-        panel.append(self.get_main_ui())
-        return panel
-        
-    def get_main_ui(self):
-        td = UI.DataTable()
-        hr = UI.DataTableRow(
-                UI.DataTableCell(UI.Label(text='Type'), width="100px"),
-                UI.DataTableCell(UI.Label(text='Address'), width="200px"),
-                UI.DataTableCell(UI.Label(text='')),
-                header=True
-             )
-        td.append(hr)
+        ui = self.app.inflate('dns:main')
+        td = ui.find('list')
 
         for x in range(0, len(self.config.nameservers)):
             i = self.config.nameservers[x]
@@ -49,36 +33,20 @@ class DNSPlugin(CategoryPlugin):
                             )
                            ))
 
-        c = UI.VContainer(
-                td,
-                UI.Button(text='Add option', id='addns'),
-            )
+        if self._editing_ns == None:
+            ui.remove('dlgEdit')
+        else:
+            ns = self.config.nameservers[self._editing_ns]
+            classes = ['nameserver', 'domain', 'search', 'sortlist', 'options']
+            for c in classes:
+                e = ui.find('cls-' + c)
+                e.set('value', c)
+                e.set('selected', ns.cls==c)
+            ui.find('value').set('value', ns.address)    
+        
+        return ui
 
-        if self._editing_ns != None:
-            c.append(self.get_ui_edit(self.config.nameservers[self._editing_ns]))
 
-        return c
-
-
-    def get_ui_edit(self, ns):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Type:'),
-                    UI.Select(
-                        UI.SelectOption(text='Nameserver', value='nameserver', selected=(ns.cls=='nameserver')),
-                        UI.SelectOption(text='Local domain', value='domain', selected=(ns.cls=='domain')),
-                        UI.SelectOption(text='Search list', value='search', selected=(ns.cls=='search')),
-                        UI.SelectOption(text='Sort list', value='sortlist', selected=(ns.cls=='sortlist')),
-                        UI.SelectOption(text='Options', value='options', selected=(ns.cls=='options')),
-                        name='cls'
-                    ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Value:'),
-                    UI.TextInput(name='address', value=ns.address),
-                    )
-                )
-            )
-        return UI.DialogBox(p, id='dlgEdit')
         
     @event('button/click')
     @event('minibutton/click')
@@ -106,8 +74,3 @@ class DNSPlugin(CategoryPlugin):
                 i.address = vars.getvalue('address', '127.0.0.1')
                 self.config.save()
             self._editing_ns = None
-
-
-class DNSContent(ModuleContent):
-    module = 'dns'
-    path = __file__

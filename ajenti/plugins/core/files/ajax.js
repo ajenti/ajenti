@@ -66,14 +66,14 @@ function ajaxForm(formId, action)
     form = document.getElementById(formId);
     if (form)
     {
-        params = "action=" + escape(action);
+        params = "action=" + encodeURIComponent(action);
 
         var inputs = form.getElementsByTagName("input");
         url = inputs[0].value;
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
-                if (inputs[i].type == "text") {
-                    params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
+                if (inputs[i].type == "text" || inputs[i].type == "password") {
+                    params += "&" + inputs[i].name + "=" + encodeURIComponent(inputs[i].value);
                 }
                 if (inputs[i].type == "checkbox") {
                     if (inputs[i].checked)
@@ -83,7 +83,7 @@ function ajaxForm(formId, action)
                 }
                 if (inputs[i].type == "radio") {
                     if (inputs[i].checked) {
-                        params += "&" + inputs[i].name + "=" + escape(inputs[i].value);
+                        params += "&" + inputs[i].name + "=" + encodeURIComponent(inputs[i].value);
                     }
                 }
             }
@@ -93,7 +93,7 @@ function ajaxForm(formId, action)
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 var sel = inputs[i];
-                params += "&" + sel.name + "=" + escape(sel.options[sel.selectedIndex].value);
+                params += "&" + sel.name + "=" + encodeURIComponent(sel.options[sel.selectedIndex].value);
             }
         }
 
@@ -101,7 +101,7 @@ function ajaxForm(formId, action)
         if (inputs) {
             for (i=0; i<inputs.length; i++) {
                 var ta = inputs[i];
-                params += "&" + ta.name + "=" + escape(ta.value);
+                params += "&" + ta.name + "=" + encodeURIComponent(ta.value);
             }
         }
 

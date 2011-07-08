@@ -1,5 +1,5 @@
 from ajenti.com import *
-from ajenti.app.api import *
+from ajenti.api import *
 
 
 class INetworkConfig(Interface):

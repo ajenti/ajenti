@@ -1,0 +1,23 @@
+<xml>
+    <label text="Network interfaces" size="5" />
+    
+    <pad id="main">
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell width="25%">
+                    <label text="Interface" />
+                </datatablecell>
+                <datatablecell width="25%">
+                    <label text="Class" />
+                </datatablecell>
+                <datatablecell width="25%">
+                    <label text="Address" />
+                </datatablecell>
+                <datatablecell width="25%">
+                    <label text="Status" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+</xml>

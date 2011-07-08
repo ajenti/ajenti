@@ -1,7 +1,6 @@
 from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import CategoryPlugin, ModuleContent, EventProcessor, event
+from ajenti.api import *
 from ajenti import apis
 
 from backend import *
@@ -13,8 +12,10 @@ class SquidPlugin(apis.services.ServiceControlPlugin):
     folder = 'servers'
     service_name = 'squid'
     
+    def get_config(self):
+        return self.app.get_config(self._cfg)
+        
     def on_session_start(self):
-        if not is_installed(): return
         self._tab = 0
         self._cfg = SquidConfig(self.app)
         self._cfg.load()
@@ -28,21 +29,10 @@ class SquidPlugin(apis.services.ServiceControlPlugin):
             idx += 1
 
     def get_main_ui(self):
-        panel = UI.ServicePluginPanel(title='Squid Proxy Server', icon='/dl/squid/icon.png', status=self.service_status, servicename=self.service_name)
-
-        if not is_installed():
-            panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='Squid is not installed')))
-        else:
-            panel.append(self.get_default_ui())
-
-        return panel
-
-
-    def get_default_ui(self):
         tc = UI.TabControl(active=self._tab)
         for p in self._parts:
             tc.add(p.title, p.get_ui())
-        return tc
+        return UI.Pad(tc)
 
     @event('button/click')
     @event('minibutton/click')
@@ -56,7 +46,3 @@ class SquidPlugin(apis.services.ServiceControlPlugin):
         for p in self._parts:
             p.on_submit(event, params, vars)
 
-
-class SquidContent(ModuleContent):
-    module = 'squid'
-    path = __file__

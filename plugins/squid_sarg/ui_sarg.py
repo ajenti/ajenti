@@ -3,7 +3,7 @@ import os
 from ajenti import apis
 from ajenti.com import *
 from ajenti.ui import *
-from ajenti.app.urlhandler import URLHandler, url
+from ajenti.api import *
 from ajenti.utils import wsgi_serve_file, shell
 
 

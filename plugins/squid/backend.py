@@ -1,24 +1,13 @@
 import os
 
 from ajenti.utils import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
+from ajenti.com import *
+from ajenti.api import *
 
-
-dir_squid = '/etc/squid/'
-
-def is_installed():
-    return os.path.exists(dir_squid)
-
-def is_running():
-    return shell_status('pgrep squid') == 0
-
-
-class SquidConfig(ClusteredConfig):
+class SquidConfig(Plugin):
+    implements(IConfigurable)
     name = 'Squid'
     id = 'squid'
-    files = [('/etc/squid', '*')] 
-    run_after = ['service squid restart']
-
     misc = []
     acls = []
     rules = []
@@ -49,7 +38,12 @@ class SquidConfig(ClusteredConfig):
         'log_access'
        ]
 
-
+    def __init__(self):
+        self.cfg_file = self.app.get_config(self).cfg_file
+        
+    def list_files(self):
+        return [self.cfg_file]
+        
     def load(self):
         self.misc = []
         self.acls = []
@@ -58,7 +52,7 @@ class SquidConfig(ClusteredConfig):
         self.https_port = []
         self.ref_pats = []
 
-        ss = self.open(dir_squid + 'squid.conf').read().split('\n')
+        ss = open(self.cfg_file).read().split('\n')
 
         for s in ss:
             if len(s) > 0 and s[0] != '#':
@@ -127,5 +121,5 @@ class SquidConfig(ClusteredConfig):
         for k,v in self.misc:
             s += '%s %s\n' % (k,v)
 
-        with self.open(dir_squid + 'squid.conf', 'w') as f:
+        with open(self.cfg_file, 'w') as f:
             f.write(s)

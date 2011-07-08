@@ -1,0 +1,27 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton text="Update plugin list" id="update" icon="/dl/pkgman/update-lists.png" />
+            <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+
+    <label size="5" text="Installed" />
+
+    <pad>
+        <datatable width="100%" id="list">
+        </datatable>
+    </pad>
+
+    <label size="5" text="Available" />
+
+    <pad>
+        <datatable width="100%" id="avail">
+        </datatable>
+        
+        <spacer height="10" />
+        <label size="2" text="Upload plugin package" />
+        <spacer height="5" />
+        <uploader url="/upload_plugin" text="Install" />
+    </pad>
+</xml>

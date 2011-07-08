@@ -1,17 +1,15 @@
 from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
+from ajenti.api import *
 from ajenti.utils import *
 
-import backend
+from backend import *
 
 
 class UsersPlugin(CategoryPlugin):
     text = 'Users'
-    icon = '/dl/users/icon_small.png'
+    icon = '/dl/users/icon.png'
     folder = 'system'
-    platform =['Ubuntu', 'Debian', 'Arch', 'openSUSE']
 
     params = {
             'login': 'Login',
@@ -22,10 +20,32 @@ class UsersPlugin(CategoryPlugin):
             'ggid': 'GID',
             'home': 'Home directory',
             'shell': 'Shell',
+            'groups': 'Groups',
             'adduser': 'New user login',
-            'addgrp': 'New group name'
+            'addgrp': 'New group name',
+            'addtogroup': 'Add to group',
+            'delfromgroup': 'Delete from group',
         }
 
+    gparams = {
+            'gname': 'Name',
+            'ggid': 'GID',
+        }
+
+    def on_init(self):
+        self.backend = UsersBackend(self.app)
+        self.users = self.backend.get_all_users()
+        self.groups = self.backend.get_all_groups()
+        self.backend.map_groups(self.users, self.groups)
+
+    def reload_data(self):
+        self.users = self.backend.get_all_users()
+        self.groups = self.backend.get_all_groups()
+        self.backend.map_groups(self.users, self.groups)
+    
+    def get_config(self):
+        return self.app.get_config(self.backend)
+        
     def on_session_start(self):
         self._tab = 0
         self._selected_user = ''
@@ -33,33 +53,21 @@ class UsersPlugin(CategoryPlugin):
         self._editing = ''
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(), title='User accounts', icon='/dl/users/icon.png')
-
-        panel.append(self.get_default_ui())
-
-        return panel
-
-    def get_default_ui(self):
-        self.users = backend.get_all_users()
-        self.groups = backend.get_all_groups()
-        backend.map_groups(self.users, self.groups)
-
-        tc = UI.TabControl(active=self._tab)
-        tc.add('Users', self.get_ui_users())
-        tc.add('Groups', self.get_ui_groups())
+        self.reload_data()
+        ui = self.app.inflate('users:main')
+        ui.find('tabs').set('active', self._tab)
 
         if self._editing != '':
-            tc = UI.VContainer(tc, UI.InputBox(text=self.params[self._editing], id='dlgEdit'))
-        return tc
+            if self._editing in self.params:
+                ui.find('dlgEdit').set('text', self.params[self._editing])
+            else:
+                ui.find('dlgEdit').set('text', self.gparams[self._editing])
+        else:
+            ui.remove('dlgEdit')
 
-    def get_ui_users(self):
-        t = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='Login'),
-                UI.Label(text='UID'),
-                UI.Label(text='Home'),
-                UI.Label(text='Shell'),
-                UI.Label(), header=True
-               ))
+        # Users
+        t = ui.find('userlist') 
+        
         for u in self.users:
             t.append(UI.DataTableRow(
                     UI.DataTableCell(
@@ -70,23 +78,29 @@ class UsersPlugin(CategoryPlugin):
                     UI.Label(text=u.home),
                     UI.Label(text=u.shell),
                     UI.DataTableCell(
-                        UI.MiniButton(id='edit/'+u.login, text='Select'),
+                        UI.MiniButton(id='edit/'+u.login, text='Edit'),
                         hidden=True
                     )
                 ))
 
-        t = UI.VContainer(t, UI.Button(text='Add user', id='adduser'))
         if self._selected_user != '':
-            t = UI.Container(t, self.get_ui_edit_user())
-        return t
+            u = self.backend.get_user(self._selected_user, self.users)
+            self.backend.map_groups([u], self.backend.get_all_groups())
 
-    def get_ui_groups(self):
-        t = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='Name'),
-                UI.Label(text='GID'),
-                UI.Label(text='Users'),
-                UI.Label(), header=True
-               ))
+            ui.find('lblulogin').set('text', 'Login: '+ u.login)
+            ui.find('deluser').set('msg', 'Delete user %s'%u.login)
+            ui.find('lbluuid').set('text', 'UID: '+ str(u.uid))
+            ui.find('lblugid').set('text', 'GID: '+ str(u.gid))
+            ui.find('lbluhome').set('text', 'Home: '+ u.home)
+            ui.find('lblushell').set('text', 'Shell: '+ u.shell)
+            ui.find('lblugroups').set('text', ', '.join(u.groups))
+        else:
+            ui.remove('dlgEditUser')
+            
+            
+        # Groups
+        t = ui.find('grouplist')
+
         for u in self.groups:
             t.append(UI.DataTableRow(
                     UI.DataTableCell(
@@ -96,100 +110,23 @@ class UsersPlugin(CategoryPlugin):
                     UI.Label(text=u.gid, bold=(u.gid>=1000)),
                     UI.Label(text=', '.join(u.users)),
                     UI.DataTableCell(
-                        UI.MiniButton(id='gedit/'+u.name, text='Select'),
+                        UI.MiniButton(id='gedit/'+u.name, text='Edit'),
                         hidden=True
                     )
                 ))
 
-        t = UI.VContainer(t, UI.Button(text='Add group', id='addgrp'))
         if self._selected_group != '':
-            t = UI.Container(t, self.get_ui_edit_group())
-        return t
+            u = self.backend.get_group(self._selected_group, self.groups)
+            g = ', '.join(u.users)
 
-    def get_ui_edit_user(self):
-        u = backend.get_user(self._selected_user, self.users)
-        backend.map_groups([u], backend.get_all_groups())
-        g = ', '.join(u.groups)
+            ui.find('lblgname').set('text', 'Name: '+ u.name)
+            ui.find('delgroup').set('msg', 'Delete group %s'%u.name)
+            ui.find('lblggid').set('text', 'GID: '+ str(u.gid))
+            ui.find('lblgusers').set('text', g)
+        else:
+            ui.remove('dlgEditGroup')
 
-        dlg = UI.DialogBox(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Login: '+ u.login, bold=True),
-                        UI.Button(text='Change', id='chlogin')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.Button(text='Change password', id='chpasswd')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.WarningButton(text='Delete user', id='deluser', msg='Delete user %s'%u.login)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='UID: '+ str(u.uid)),
-                        UI.Button(text='Change', id='chuid')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='GID: '+ str(u.gid)),
-                        UI.Button(text='Change', id='chgid')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Home directory: '+ u.home),
-                        UI.Button(text='Change', id='chhome')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Shell: '+ u.shell),
-                        UI.Button(text='Change', id='chshell')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Groups: '),
-                        UI.Button(text='Edit', id='chgroups')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.Label(text=g),
-                            colspan=2
-                        )
-                    )
-                ),
-                title='Edit user',
-                id='dlgEditUser'
-              )
-        return dlg
-
-    def get_ui_edit_group(self):
-        u = backend.get_group(self._selected_group, self.groups)
-        g = ', '.join(u.users)
-
-        dlg = UI.DialogBox(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Name: ' + u.name, bold=True),
-                        UI.Button(text='Change', id='gchname')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.WarningButton(text='Delete group', id='delgroup', msg='Delete group %s'%u.name)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='GID: ' + str(u.gid)),
-                        UI.Button(text='Change', id='gchgid')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Users: '),
-                        UI.Label()
-                    ),
-                    UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.Label(text=g),
-                            colspan=2
-                        )
-                    )
-                ),
-                title='Edit group',
-                id='dlgEditGroup'
-              )
-        return dlg
+        return ui
 
     @event('minibutton/click')
     @event('button/click')
@@ -200,30 +137,9 @@ class UsersPlugin(CategoryPlugin):
         if params[0] == 'gedit':
             self._tab = 1
             self._selected_group = params[1]
-        if params[0] == 'chlogin':
+        if params[0].startswith('ch'):
             self._tab = 0
-            self._editing = 'login'
-        if params[0] == 'chuid':
-            self._tab = 0
-            self._editing = 'uid'
-        if params[0] == 'chgid':
-            self._tab = 0
-            self._editing = 'gid'
-        if params[0] == 'chshell':
-            self._tab = 0
-            self._editing = 'shell'
-        if params[0] == 'chpasswd':
-            self._tab = 0
-            self._editing = 'password'
-        if params[0] == 'chhome':
-            self._tab = 0
-            self._editing = 'home'
-        if params[0] == 'gchname':
-            self._tab = 1
-            self._editing = 'name'
-        if params[0] == 'gchgid':
-            self._tab = 1
-            self._editing = 'ggid'
+            self._editing = params[0][2:]
         if params[0] == 'adduser':
             self._tab = 0
             self._editing = 'adduser'
@@ -232,11 +148,11 @@ class UsersPlugin(CategoryPlugin):
             self._editing = 'addgrp'
         if params[0] == 'deluser':
             self._tab = 0
-            backend.del_user(self._selected_user)
+            self.backend.del_user(self._selected_user)
             self._selected_user = ''
         if params[0] == 'delgroup':
             self._tab = 1
-            backend.del_group(self._selected_group)
+            self.backend.del_group(self._selected_group)
             self._selected_group = ''
 
     @event('dialog/submit')
@@ -245,36 +161,39 @@ class UsersPlugin(CategoryPlugin):
             v = vars.getvalue('value', '')
             if vars.getvalue('action', '') == 'OK':
                 if self._editing == 'adduser':
-                    backend.add_user(v)
-                    self._selected_user = v
-                if self._editing == 'addgrp':
-                    backend.add_group(v)
+                    self.reload_data()
+                    for u in self.users:
+                        if u.login == v:
+                            self.put_message('err', 'Duplicate name')
+                            self._editing = ''
+                            return
+                    self.backend.add_user(v)
+                    self._selected_user = v 
+                elif self._editing == 'addgrp':
+                    self.reload_data()
+                    for u in self.groups:
+                        if u.name == v:
+                            self.put_message('err', 'Duplicate name')
+                            self._editing = ''
+                            return
+                    self.backend.add_group(v)
                     self._selected_group = v
-                if self._editing == 'login':
-                    backend.change_user_login(self._selected_user, v)
+                elif self._editing == 'addtogroup':
+                    self.backend.add_to_group(self._selected_user, v)
+                elif self._editing == 'delfromgroup':
+                    self.backend.remove_from_group(self._selected_user, v)
+                elif self._editing == 'password':
+                    self.backend.change_user_password(self._selected_user, v)
+                elif self._editing == 'login':
+                    self.backend.change_user_param(self._selected_user, self._editing, v)
                     self._selected_user = v
-                if self._editing == 'uid':
-                    backend.change_user_uid(self._selected_user, v)
-                if self._editing == 'gid':
-                    backend.change_user_gid(self._selected_user, v)
-                if self._editing == 'shell':
-                    backend.change_user_shell(self._selected_user, v)
-                if self._editing == 'password':
-                    backend.change_user_password(self._selected_user, v)
-                if self._editing == 'home':
-                    backend.change_user_home(self._selected_user, v)
-                if self._editing == 'name':
-                    backend.change_group_name(self._selected_group, v)
-                    self._selected_group = v
-                if self._editing == 'ggid':
-                    backend.change_group_gid(self._selected_group, v)
+                elif self._editing in self.params:
+                    self.backend.change_user_param(self._selected_user, self._editing, v)
+                elif self._editing in self.gparams:
+                    self.backend.change_group_param(self._selected_group, self._editing, v)
             self._editing = ''
         if params[0] == 'dlgEditUser':
             self._selected_user = ''
         if params[0] == 'dlgEditGroup':
             self._selected_group = ''
 
-
-class UsersContent(ModuleContent):
-    module = 'users'
-    path = __file__

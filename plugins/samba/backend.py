@@ -1,7 +1,8 @@
 import os
 
+from ajenti.api import *
+from ajenti.com import *
 from ajenti.utils import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
 
 def is_installed():
@@ -12,11 +13,10 @@ def restart():
     shell('service samba restart') # older samba packages
 
 
-class SambaConfig(ClusteredConfig):
+class SambaConfig(Plugin):
+    implements(IConfigurable)
     name = 'Samba'
     id = 'samba'
-    files = [('/etc/samba', '*')] 
-    run_after = ['service smbd restart', 'service samba restart']
     shares = {}
     general = {}
     users = {}
@@ -54,9 +54,12 @@ class SambaConfig(ClusteredConfig):
 
     fields = []
 
+    def list_files(self):
+        return ['/etc/samba/*']
+        
     def load(self):
         self.shares = {}
-        ss = self.open('/etc/samba/smb.conf', 'r').read().split('\n')
+        ss = open('/etc/samba/smb.conf', 'r').read().split('\n')
         cs = ''
         for s in ss:
             s = s.strip()
@@ -90,7 +93,7 @@ class SambaConfig(ClusteredConfig):
 
 
     def save(self):
-        with self.open('/etc/samba/smb.conf', 'w') as f:
+        with open('/etc/samba/smb.conf', 'w') as f:
             f.write('[global]\n')
             for k in self.general:
                 if not k in self.general_defaults or \
@@ -139,3 +142,4 @@ class SambaConfig(ClusteredConfig):
         else:
             value = 'yes' if vars.getvalue(param, self.defaults[param]) == '1' else 'no'
         self.set_param(share, param, value)
+        

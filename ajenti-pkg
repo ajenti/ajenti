@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+
+from ajenti import plugmgr
+
+import os
+import sys
+import logging
+from ajenti.config import Config
+
+def main():
+    if os.path.isfile('/etc/ajenti/ajenti.conf'):
+        config_file = '/etc/ajenti/ajenti.conf'
+    elif os.path.isfile(os.path.join(sys.path[0], 'ajenti.conf')):
+        config_file = os.path.join(sys.path[0], 'ajenti.conf')
+    
+    print 'Loading plugins'
+
+    config = Config()
+    config.load(config_file)
+    plugmgr.load_plugins(config.get('ajenti', 'plugins'), None)
+    
+    mgr = plugmgr.PluginManager(config)
+    
+    if sys.argv[1] == 'list':
+        for i in mgr.installed:
+            print_one(i)
+    if sys.argv[1] == 'avail':
+        for i in mgr.available:
+            print_one(i)
+    if sys.argv[1] == 'remove':
+        for pkg in sys.argv[2:]:
+            print 'Removing', pkg
+            mgr.remove(pkg)
+        print 'Done'
+    if sys.argv[1] == 'get':
+        for pkg in sys.argv[2:]:
+            print 'Downloading', pkg
+            mgr.install(pkg)
+        print 'Done'
+    if sys.argv[1] == 'update':
+        print 'Downloading plugin list'
+        mgr.update_list()
+        print 'Done'
+    if sys.argv[1] == 'upgrade':
+        print 'Downloading plugin list'
+        mgr.update_list()
+        print 'Upgrading Ajenti plugins'
+        for pkg in mgr.available:
+            for p in mgr.installed:
+                if pkg.id == p.id and pkg.version != p.version:
+                    print 'Downloading', pkg.id
+                    mgr.install(pkg.id)
+        print 'Done'
+        
+def print_one(i):
+    st = 'i ' if i.installed else ' .'
+    if i.problem: 
+        st = ' X'
+    print ' %s\t%s\t%s' % (st, i.version, i.id)
+    if i.problem:
+        print '\t\t\t' + i.problem
+            
+main()

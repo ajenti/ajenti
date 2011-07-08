@@ -1,6 +1,0 @@
-pkg packages-zypper
-desc Zypper backend for package management plugin
-dep zypper
-dep ajenti-plugin-packages
-prov ajenti-plugin-packages-backend
-only suse

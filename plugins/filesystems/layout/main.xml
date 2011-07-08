@@ -1,0 +1,102 @@
+<xml>
+    <toolbar>
+        <toolbutton id="add" text="Add new mountpoint" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+    
+    <pad>
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="Source" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Mountpoint" />
+                </datatablecell>
+                <datatablecell width="60">
+                    <label text="FS type" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Options" />
+                </datatablecell>
+                <datatablecell />
+                <datatablecell />
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+    
+    <dialogbox id="dlgEdit">
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Source" />
+                </layouttablecell>
+                <layouttablecell id="sources" />
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell />
+                <layouttablecell>
+                    <textinput id="src" name="src" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Mount point" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="mp" name="mp" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Filesystem" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="fs" name="fs" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Options" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="opts" name="opts" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell />
+                <layouttablecell>
+                    <checkbox id="ro" name="ro" text="Read-only" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell />
+                <layouttablecell>
+                    <checkbox id="bind" name="bind" text="Bind" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell />
+                <layouttablecell>
+                    <checkbox id="loop" name="loop" text="Loop" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Dump order" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="dump_p" name="dump_p" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="fsck order" />
+                </layouttablecell>
+                <layouttablecell>
+                    <textinput id="fsck_p" name="fsck_p" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+    </dialogbox>
+</xml>    

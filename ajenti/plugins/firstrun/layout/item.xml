@@ -1,0 +1,22 @@
+<xml>
+    <datatablerow>
+        <datatablecell>
+            <checkbox id="check" />
+        </datatablecell>
+        <datatablecell>
+            <image id="icon" />
+        </datatablecell>
+        <datatablecell id="reqs">
+            <label id="name" />
+        </datatablecell>
+        <datatablecell>
+            <label id="desc" />
+        </datatablecell>
+        <datatablecell>
+            <label id="version" />
+        </datatablecell>
+        <datatablecell>
+            <outlinklabel id="author" />
+        </datatablecell>
+    </datatablerow>
+</xml>

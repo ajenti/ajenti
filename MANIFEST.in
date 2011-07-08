@@ -1,0 +1,6 @@
+recursive-include ajenti * *.*
+recursive-exclude ajenti *~ *.pyc
+recursive-exclude packaging * *.*
+include README
+include COPYRIGHT
+include LICENSE

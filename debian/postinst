@@ -1,0 +1,6 @@
+#!/bin/sh
+#DEBHELPER#
+update-rc.d ajenti defaults > /dev/null
+ajenti-pkg upgrade
+/etc/init.d/ajenti start
+

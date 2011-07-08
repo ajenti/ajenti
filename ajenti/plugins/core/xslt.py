@@ -1,8 +1,7 @@
-from lxml import etree
 import base64
 
 from ajenti.com import Plugin, implements
-from ajenti.ui.api import IXSLTFunctionProvider
+from ajenti.api import IXSLTFunctionProvider
 
 
 def attr(_, v, d):
@@ -15,7 +14,19 @@ def css(_, v, d):
     return v if '%' in v else '%spx'%v
 
 def iif(_, q, a, b):
-    return a if len(q)>0 and q[0].lower() == 'true' else b
+    return a if (q != False) and ((q == True) or (len(q)>0 and q[0].lower() == 'true')) else b
+
+def jsesc(_, s):
+    try:
+        return s.replace('\'', '\\')
+    except:
+        return s[0].replace('\'', '\\')
+
+def idesc(_, s):
+    try:
+        return s.replace('/', '_').replace('.', '_')
+    except:
+        return s[0].replace('/', '_').replace('.', '_')
     
 def b64(_, s):
     try:
@@ -23,13 +34,6 @@ def b64(_, s):
     except:
         return base64.b64encode(str(s))
 
-
-class Selector(etree.XSLTExtension):
-    def execute(self, context, self_node, input_node, output_parent):
-        child = input_node[int(self_node.get('index'))]
-        results = self.apply_templates(context, child)
-        output_parent.append(results[0])
-            
                     
 class CoreFunctions (Plugin):
     implements(IXSLTFunctionProvider)
@@ -39,6 +43,8 @@ class CoreFunctions (Plugin):
             'attr' : attr,
             'iif' : iif,
             'b64' : b64,
+            'jsesc' : jsesc,
+            'idesc' : idesc,
             'css' : css
         }
 

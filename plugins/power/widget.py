@@ -7,13 +7,20 @@ from main import *
 
 class PowerWidget(Plugin):
     implements(IDashboardWidget)
-
-    def get_ui(self):
-        w = UI.Widget(
-                UI.HContainer(
-                    UI.Image(file='/dl/power/widget.png'),
-                    UI.Label(text='Uptime:', bold=True),
-                    UI.Label(text=get_uptime())
-                )
-            )
-        return w
+    title = 'Uptime'
+    icon = '/dl/power/widget.png'
+    name = 'Uptime'
+    style = 'linear'
+    
+    def get_ui(self, cfg, id=None):
+        return UI.Label(text=get_uptime())
+        
+    def handle(self, event, params, cfg, vars=None):
+        pass
+    
+    def get_config_dialog(self):
+        return None
+        
+    def process_config(self, vars):
+        pass
+                

@@ -1,4 +1,0 @@
-pkg packages
-desc Package management plugin
-dep ajenti-plugin-packages-backend
-

@@ -1,5 +1,16 @@
-from ajenti.app.plugins import require
-require('webserver_common')
+MODULES = ['main', 'config']
 
-from main import *
-from recovery import *
+DEPS =  [
+    (['any'],
+     [
+        ('plugin', 'webserver_common'),
+        ('app', 'nginx', 'nginx')
+     ])
+]
+
+NAME = 'nginx'
+PLATFORMS = ['any']
+DESCRIPTION = 'nginx webserver control plugin'
+VERSION = '0:1.1'
+AUTHOR = 'Ajenti team'
+HOMEPAGE = 'http://ajenti.org'

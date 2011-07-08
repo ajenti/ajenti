@@ -1,12 +1,10 @@
-# encoding: utf-8
-#
 # Copyright (C) 2007-2010 Dmitry Zamaruev (dmitry.zamaruev@gmail.com)
 
 
 import inspect
 import traceback
 
-from PrioList import PrioList
+from ajenti.utils import PrioList
 
 
 class Interface (property):
@@ -93,7 +91,11 @@ class PluginManager (object):
 
     @staticmethod
     def plugin_register (iface, cls):
-        PluginManager.__plugins.setdefault(iface,PrioList()).append(cls)
+        lst = PluginManager.__plugins.setdefault(iface,PrioList())
+        for item in lst:
+            if str(item) == str(cls):
+                return
+        lst.append(cls)
 
     @staticmethod
     def plugin_get (iface):
@@ -156,10 +158,7 @@ class MetaPlugin (type):
                 if plugin_manager.instance_get(cls) is None:
                     # Plugin is just created
                     if init:
-                        try:
-                            init(self)
-                        except:
-                            raise
+                        init(self)
                     if not self.multi_instance:
                         plugin_manager.instance_set(cls, self)
             maybe_init._original = init
@@ -219,7 +218,8 @@ class Plugin (object):
     multi_instance = False
 
     platform = ['any']
-
+    
+    
     def __new__(cls, *args, **kwargs):
         """ Returns a class instance,
         If it already instantiated, return it
@@ -240,7 +240,9 @@ class Plugin (object):
         if self is None:
             self = super(Plugin, cls).__new__(cls)
             self.plugin_manager = plugin_manager
+            self.plugin_id = cls.__name__.lower()
             # Allow PluginManager implementation to update Plugin
             plugin_manager.plugin_activated(self)
 
         return self
+        

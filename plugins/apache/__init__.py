@@ -1,5 +1,21 @@
-from ajenti.app.plugins import require
-require('webserver_common')
+MODULES = ['main', 'main_single', 'config']
 
-from main import *
-from recovery import *
+DEPS =  [
+    (['centos'],
+     [
+        ('plugin', 'webserver_common'),
+        ('app', 'Apache 2', 'httpd'),
+     ]),
+    (['any'],
+     [
+        ('plugin', 'webserver_common'),
+        ('app', 'Apache 2', 'apache2'),
+     ])
+]
+
+NAME = 'Apache'
+PLATFORMS = ['any']
+DESCRIPTION = 'Apache webserver control plugin'
+VERSION = '0:2'
+AUTHOR = 'Ajenti team'
+HOMEPAGE = 'http://ajenti.org'

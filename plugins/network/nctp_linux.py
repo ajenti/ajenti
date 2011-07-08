@@ -36,7 +36,6 @@ class LinuxIfconfig(Plugin):
         
     def get_tx(self, iface):
         s = shell('ifconfig %s | grep \'TX bytes\''%iface.name)
-        print s
         try:
             s = s.split()[5].split(':')[1]
         except:
@@ -45,7 +44,6 @@ class LinuxIfconfig(Plugin):
     
     def get_rx(self, iface):
         s = shell('ifconfig %s | grep \'RX bytes\''%iface.name)
-        print s
         try:
             s = s.split()[1].split(':')[1]
         except:
@@ -79,7 +77,6 @@ class LinuxIfconfig(Plugin):
     def detect_iface_bits(self, iface):
         r = ['linux-basic']
         cls = self.detect_dev_class(iface)
-        print iface.type, iface.addressing
         if iface.type == 'inet' and iface.addressing == 'static':
             r.append('linux-ipv4')
         if iface.type == 'inet6' and iface.addressing == 'static':

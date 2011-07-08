@@ -1,4 +1,0 @@
-pkg webserver-common
-desc Common infrastructure for web server plugins
-dep ajenti-plugin-services
-

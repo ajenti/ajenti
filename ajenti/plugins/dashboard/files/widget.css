@@ -2,10 +2,110 @@
     background: #ececee;
     text-align: left;
     vertical-align: top;
-    padding: 2px 4px 1px 4px;
-    width: 300px;
+    width: 360px;
     border: 1px solid #ccc;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+}
+
+.ui-el-widget > table {
+    width: 100%;
+}
+
+.ui-el-widget-icon {
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    width: 16px;
+    padding: 3px 2px;
+    border-right: 1px solid #bbb;
+}
+
+.ui-el-widget-hdr {
+    width: 100%;
+    position: relative;
+}
+
+.ui-el-widget-title {
+    font-weight: bold;
+    line-height: 22px;
+    padding: 0 5px;
+    margin: 0 5px 0 0;
+    display: inline-block;
+    height: 22px;
+}
+
+.ui-el-widget-title-linear {
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    border-right: 1px solid #bbb;
+    width: 80px;
+}
+
+.ui-el-widget-content {
+    padding: 0 4px;
+}
+
+.ui-el-widget-hdr .controls {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    font-size: 10px;
+    padding: 0px 3px;
+    margin: 0 2px 0 0;
+    height: 22px;
+    color: #777;
+    border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    background: rgba(0,0,0,.5);
+}
+
+.ui-el-widget-hdr .controls a {
+    padding: 0 5px;
+    display: inline-block;
+    line-height: 20px;
+    color: white;
+}
+
+.ui-el-widget-hdr .controls a:hover {
+    background: rgba(0,0,0,.1);
+}
+
+.ui-el-widget-hdr:hover .controls,
+.ui-el-widget-hdr .controls:hover {
+    display: block;
+}
+
+.ui-dashboard-banner {
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    padding: 7px 10px;
+}
+
+.ui-dashboard-banner * {
+    color: #555;
+    text-shadow: 0 1px 0 #fff;
+    font-weight: bold;
+    display: block;
+}
+
+.ui-dashboard-banner img {
+    float: left;
+    margin-right: 10px;
+}
+
+.ui-dashboard-banner #host {
+    font-size: 24px;
+}
+
+.ui-dashboard-banner #distro {
+    font-size: 12px;
+    padding-left: 60px;
 }

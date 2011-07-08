@@ -1,3 +1,0 @@
-pkg loadavg
-desc System stats dashboard widget
-dep ajenti-plugin-loadavg-backend

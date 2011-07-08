@@ -1,15 +1,13 @@
 from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
-from ajenti.utils import shell, enquote
-from ajenti.misc import BackgroundProcess
+from ajenti.api import *
+from ajenti.utils import shell, enquote, BackgroundProcess
 from ajenti.plugins.core.api import *
 
 
 class ShellPlugin(CategoryPlugin):
     text = 'Shell'
-    icon = '/dl/shell/icon_small.png'
+    icon = '/dl/shell/icon.png'
     folder = 'tools'
 
     def on_session_start(self):
@@ -20,42 +18,15 @@ class ShellPlugin(CategoryPlugin):
         return shell('echo `logname`@`hostname`')
 
     def get_ui(self):
-        panel = UI.PluginPanel(
-                    UI.Label(text=self.get_status()),
-                    title='Command shell',
-                    icon='/dl/shell/icon.png'
-                )
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
+        ui = self.app.inflate('shell:main')
         recent = [UI.SelectOption(text=x[0:40] + '...' if len(x) > 40 else x,
                                   value=x) for x in self._recent]
         log = UI.CustomHTML(html=enquote(self._process.output + self._process.errors))
 
-        frm = UI.FormBox(
-                UI.TextInput(name='cmd', size=30, id='shell-command'),
-                id='frmRun', hideok=True, hidecancel=True
-              )
-        frmr = UI.FormBox(
-                UI.Select(*recent, name='cmd', id='shell-recent',
-                          onclick='shellRecentClick()'),
-                id='frmRecent', hideok=True, hidecancel=True
-              )
-
-        logc = UI.ScrollContainer(log, width=500, height=300)
-        lt = UI.VContainer(
-                UI.HContainer(
-                    frm, 
-                    UI.Button(text='Run', form='frmRun', onclick='form')), 
-                UI.HContainer(
-                    UI.Label(text='Repeat:'),
-                    frmr
-                )
-             )
-
-        t = UI.VContainer(lt, logc, spacing=10)
-        return t
+        ui.append('log', log)
+        ui.appendAll('shell-recent', *recent)
+        
+        return ui
 
     def go(self, cmd):
         if not self._process.is_running():
@@ -77,13 +48,16 @@ class ShellPlugin(CategoryPlugin):
 class ShellProgress(Plugin):
     implements(IProgressBoxProvider)
     title = 'Shell'
-    icon = '/dl/shell/icon_small.png'
+    icon = '/dl/shell/icon.png'
     can_abort = True
     
     def __init__(self):
         self.proc = self.app.session.get('ShellPlugin-_process')
 
     def has_progress(self):         
+        if self.proc is None:
+            self.proc = self.app.session.get('ShellPlugin-_process')
+            return False
         return self.proc.is_running()
         
     def get_progress(self):
@@ -91,10 +65,4 @@ class ShellProgress(Plugin):
     
     def abort(self):
         self.proc.kill()
-    
-    
-class ShellContent(ModuleContent):
-    module = 'shell'
-    path = __file__
-    js_files = ['recent.js']
-    
+   

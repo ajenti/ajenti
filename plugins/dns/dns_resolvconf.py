@@ -1,17 +1,15 @@
+from ajenti.api import *
 from ajenti.com import *
 from ajenti.utils import *
 
 from api import *
 
-from ajenti.plugins.uzuri_common import ClusteredConfig
 
-
-class ResolvConfDNSConfig(ClusteredConfig):
+class ResolvConfDNSConfig(Plugin):
     implements(IDNSConfig)
-    platform = ['Debian', 'Ubuntu', 'openSUSE', 'Arch', 'freebsd']
+    platform = ['debian', 'arch', 'freebsd', 'centos', 'fedora']
     name = 'DNS'
     id = 'dns'
-    files = [('/etc', 'resolv.conf')] 
     
     nameservers = None
 
@@ -19,9 +17,8 @@ class ResolvConfDNSConfig(ClusteredConfig):
         self.nameservers = []
 
         try:
-            f = self.open('/etc/resolv.conf')
-            ss = f.read().splitlines()
-            f.close()
+            ss = ConfManager.get().load('dns', '/etc/resolv.conf')
+            ss = ss.splitlines()
         except IOError, e:
             return
 
@@ -35,9 +32,18 @@ class ResolvConfDNSConfig(ClusteredConfig):
                     self.nameservers.append(ns)
 
     def save(self):
-        f = self.open('/etc/resolv.conf', 'w')
+        s = ''
         for i in self.nameservers:
-            f.write(i.cls + ' ' + i.address + '\n')
-        f.close()
-        return
+            s += i.cls + ' ' + i.address + '\n'
+        ConfManager.get().save('dns', '/etc/resolv.conf', s)
+        ConfManager.get().commit('dns')
+        
 
+class DNSConfig (Plugin):
+    implements(IConfigurable)
+    name = 'DNS'
+    id = 'dns'
+    
+    def list_files(self):
+        return ['/etc/resolv.conf']
+    

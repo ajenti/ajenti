@@ -1,12 +1,16 @@
-from ajenti.app.plugins import require
-require('services')
+MODULES = ['api', 'config', 'backend', 'main', 'ui_acls', 'ui_bindings', 'ui_http_access', 'ui_refresh_patterns']
 
-from api import *
+DEPS =  [
+    (['any'],
+     [
+        ('plugin', 'services'),
+        ('app', 'Squid', 'squid')
+     ])
+]
 
-from ui_bindings import *
-from ui_acls import *
-from ui_http_access import *
-from ui_refresh_patterns import *
-
-from main import *
-from recovery import *
+NAME = 'Squid'
+PLATFORMS = ['any']
+DESCRIPTION = 'Control Squid caching proxy server'
+VERSION = '0:1.1'
+AUTHOR = 'Ajenti team'
+HOMEPAGE = 'http://ajenti.org'

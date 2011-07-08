@@ -2,48 +2,70 @@ import time
 
 from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
+from ajenti.api import *
 from ajenti.plugins.core.api import *
 from ajenti import apis
 
 
 class PackageManagerPlugin(CategoryPlugin):
     text = 'Packages'
-    icon = '/dl/pkgman/icon_small.png'
+    icon = '/dl/pkgman/icon.png'
     folder = 'system'
 
     def on_init(self):
-        self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
+        self.mgr = ComponentManager.get().find('pkgman')
+        
         if self._in_progress and not self.mgr.is_busy():
             self._need_refresh = True
             self.mgr.mark_cancel_all(self._status)
             self._in_progress = False
+            
         if self._need_refresh:
+            self.mgr.refresh()
             self._need_refresh = False
-            self.mgr.refresh(self._status)
+            
+        self._status = self.mgr.get_status()
     
     def on_session_start(self):
-        self._status = apis.pkgman.Status()
+        self._status = None
         self._current = 'upgrades'
-        self._need_refresh = True
+        self._need_refresh = False
         self._confirm_apply = False
         self._in_progress = False
         self._search = {}
         self._search_query = ''
         self._info = None
-        
+    
+    def get_counter(self):
+        c = len(ComponentManager.get().find('pkgman').get_status().upgradeable)
+        if c > 0:
+            return str(c)
+            
+    def _get_icon(self, p):
+        r = '/dl/pkgman/package-'
+        if p in self._status.pending.keys():
+            if self._status.pending[p] == 'install':
+                r += 'upgrade'
+            else:
+                r += 'remove'
+        else:
+            if p in self._status.full.keys():
+                if self._status.full[p].state == 'broken':
+                    r += 'broken'
+                elif p in self._status.upgradeable.keys():
+                    r += 'outdated'
+                else:
+                    r += 'installed'
+            else:
+                r += 'available'
+        r += '.png'
+        return r
+            
     def get_ui(self):
-        ctl = UI.HContainer(
-                UI.Button(text='Refresh view', id='refresh'),
-                UI.Button(text='Get lists', id='getlists'),
-                UI.Button(text='Apply now', id='apply')
-              )
-        panel = UI.PluginPanel(ctl, title='Package Manager', icon='/dl/pkgman/icon.png')
-        pnl = UI.Container()
-        panel.append(pnl)
-        pnl.append(self.get_default_ui())
+        ui = self.app.inflate('pkgman:main')
 
+        pnl = ui.find('main')        
+        
         if self._confirm_apply:
             res = UI.DataTable(UI.DataTableRow(
                     UI.DataTableCell(width=20),
@@ -70,43 +92,8 @@ class PackageManagerPlugin(CategoryPlugin):
 
         if self._info is not None:
             pnl.append(self.get_ui_info())
-        return panel
 
-    def _get_icon(self, p):
-        r = '/dl/pkgman/package-'
-        if p in self._status.pending.keys():
-            if self._status.pending[p] == 'install':
-                r += 'upgrade'
-            else:
-                r += 'remove'
-        else:
-            if p in self._status.full.keys():
-                if self._status.full[p].state == 'broken':
-                    r += 'broken'
-                elif p in self._status.upgradeable.keys():
-                    r += 'outdated'
-                else:
-                    r += 'installed'
-            else:
-                r += 'available'
-        r += '.png'
-        return r
-            
-    def get_default_ui(self):
-        tbl_pkgs = UI.DataTable(
-            UI.DataTableRow(
-                UI.DataTableCell(
-                    width=20
-                ),
-                UI.Label(text='Name'),
-                UI.Label(text='Version'),
-                UI.Label(text='Description'),
-                UI.Label(),
-                header=True
-            ),
-            width='100%',
-            noborder=True
-        )
+        tbl_pkgs = ui.find('list')
         
         if self._current == 'upgrades':
             for p in sorted(self._status.upgradeable.keys()):
@@ -119,6 +106,8 @@ class PackageManagerPlugin(CategoryPlugin):
                         UI.DataTableCell(
                             UI.HContainer(
                                 UI.MiniButton(text='Info', id='info/'+p.name),
+                                UI.MiniButton(text='Deselect', id='cancel/'+p.name)
+                                    if p.name in self._status.pending else
                                 UI.MiniButton(text='Select', id='upgrade/'+p.name),
                                 spacing=0
                             ),
@@ -127,8 +116,6 @@ class PackageManagerPlugin(CategoryPlugin):
                     )
                 tbl_pkgs.append(r)
                 
-            ui_misc = UI.Button(text='Select all', id='upgradeall')
-
         if self._current == 'broken':
             for p in sorted(self._status.full.keys()):
                 p = self._status.full[p]
@@ -149,7 +136,6 @@ class PackageManagerPlugin(CategoryPlugin):
                         )
                     )
                 tbl_pkgs.append(r)
-            ui_misc = None
             
         if self._current == 'search':
             for p in self._search:
@@ -170,16 +156,6 @@ class PackageManagerPlugin(CategoryPlugin):
                 )
                 tbl_pkgs.append(r)
             
-            ui_misc = UI.FormBox(
-                        UI.VContainer(
-                            UI.TextInput(name='query', size=10, value=self._search_query),
-                            UI.Button(text='Search', onclick='form', form='frmSearch')
-                        ),
-                        id='frmSearch',
-                        hideok=True,
-                        hidecancel=True
-                    )
-        
         if self._current == 'pending':
             for p in sorted(self._status.pending.keys()):
                 r = UI.DataTableRow(
@@ -198,32 +174,12 @@ class PackageManagerPlugin(CategoryPlugin):
                     )
                 tbl_pkgs.append(r)
                 
-            ui_misc = \
-                UI.VContainer(
-                    UI.Button(text='Cancel all', id='cancelall'),
-                )        
-                
-        list_cats = UI.List(
+        list_cats = ui.find('cats')
+        list_cats.append_all(
             UI.ListItem(UI.Label(text='Upgradeable'), id='upgrades', active=self._current=='upgrades'),
             UI.ListItem(UI.Label(text='Broken'), id='broken', active=self._current=='broken'),
             UI.ListItem(UI.Label(text='Search'), id='search', active=self._current=='search'),
             UI.ListItem(UI.Label(text='Pending'), id='pending', active=self._current=='pending'),
-            width=100,
-            height=300
-        )
-        
-        ui = UI.LayoutTable(
-            UI.LayoutTableRow(
-                list_cats,
-                UI.ScrollContainer(
-                    tbl_pkgs,
-                    height=300,
-                    width=500
-                ),
-                ui_misc
-            ),
-            height=300,
-            width=700
         )
         
         return ui
@@ -282,7 +238,7 @@ class PackageManagerPlugin(CategoryPlugin):
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'refresh':
-            self.mgr.refresh(self._status)
+            self.mgr.refresh()
         if params[0] == 'getlists':
             self.mgr.get_lists()
             time.sleep(0.5)
@@ -319,6 +275,7 @@ class PackageManagerPlugin(CategoryPlugin):
             q = vars.getvalue('query','')
             if q != '':
                 self._search = self.mgr.search(q, self._status)
+            self._current = 'search'
         if params[0] == 'dlgInfo':
             self._info = None
             
@@ -326,22 +283,21 @@ class PackageManagerPlugin(CategoryPlugin):
 class PackageManagerProgress(Plugin):
     implements(IProgressBoxProvider)
     title = 'Packages'
-    icon = '/dl/pkgman/icon_small.png'
+    icon = '/dl/pkgman/icon.png'
     can_abort = True
     
     def __init__(self):
         self.mgr = self.app.get_backend(apis.pkgman.IPackageManager)
 
-    def has_progress(self):         
-        return self.mgr.is_busy()
+    def has_progress(self):  
+        try:       
+            return self.mgr.is_busy()
+        except:
+            return False
         
     def get_progress(self):
         return self.mgr.get_busy_status()
     
     def abort(self):
         self.mgr.abort()
-        
                 
-class PackageManagerContent(ModuleContent):
-    module = 'pkgman'
-    path = __file__        

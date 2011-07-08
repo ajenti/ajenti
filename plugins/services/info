@@ -1,4 +1,0 @@
-pkg services
-desc Services management plugin
-dep ajenti-plugin-services-backend
-

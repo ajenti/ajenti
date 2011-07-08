@@ -1,25 +1,29 @@
-from main import *
-from api import *
-from widget import *
-from recovery import *
+MODULES = [
+    'api', 
+    'main', 
+    'nc_arch', 
+    'nc_bsd', 
+    'nc_debian',
+    'nc_centos',
+    'ncs_bsd_basic', 
+    'ncs_bsd_ipv4', 
+    'ncs_linux_basic',
+    'ncs_linux_bootp',
+    'ncs_linux_dhcp',
+    'ncs_linux_ifupdown',
+    'ncs_linux_ipv4',
+    'ncs_linux_ppp',
+    'nctp_bsd',
+    'nctp_linux',
+    'recovery',
+    'widget'
+]
 
-# NetworkConfig templates
-from nctp_linux import *
-from nctp_bsd import *
+DEPS =  []
 
-# NetworkConfigs
-from nc_debian import *
-from nc_bsd import *
-from nc_suse import *
-from nc_arch import *
-
-# NetworkConfigBits
-from ncs_linux_basic import *
-from ncs_linux_ifupdown import *
-from ncs_linux_ipv4 import *
-from ncs_linux_dhcp import *
-from ncs_linux_bootp import *
-from ncs_linux_ppp import *
-
-from ncs_bsd_basic import *
-from ncs_bsd_ipv4 import *
+NAME = 'Network'
+PLATFORMS = ['arch', 'centos', 'debian', 'fedora', 'freebsd']
+DESCRIPTION = 'Network interfaces management'
+VERSION = '0:1.4'
+AUTHOR = 'Ajenti team'
+HOMEPAGE = 'http://ajenti.org'

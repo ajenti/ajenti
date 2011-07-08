@@ -1,8 +1,8 @@
 import re
 import os
 
+from ajenti.api import *
 from ajenti.utils import *
-from ajenti.plugins.uzuri_common import ClusteredConfig
 from ajenti.com import *
 from ajenti import apis
 
@@ -14,17 +14,17 @@ class Host:
         self.aliases = '';
 
 
-class Config(ClusteredConfig):
+class Config(Plugin):
+    implements(IConfigurable)
     name = 'Hosts'
+    icon = '/dl/hosts/icon.png'
     id = 'hosts'
-    files = [('/etc', 'hosts'), ('/etc', 'hostname'), ('/etc', 'rc.conf')] 
-    
-    @property
-    def run_after(self):
-        return ['hostname ' + self.gethostname()]
-    
+
+    def list_files(self):
+        return ['/etc/hosts']
+
     def read(self):
-        ss = self.open('/etc/hosts', 'r').read().split('\n')
+        ss = ConfManager.get().load('hosts', '/etc/hosts').split('\n')
         r = []
 
         for s in ss:
@@ -50,42 +50,68 @@ class Config(ClusteredConfig):
         d = ''
         for h in hh:
             d += '%s\t%s\t%s\n' % (h.ip, h.name, h.aliases)
-        with self.open('/etc/hosts', 'w') as f:
-            f.write(d)
-            
+        ConfManager.get().save('hosts', '/etc/hosts', d)
+        ConfManager.get().commit('hosts')
+
     def gethostname(self):
-        return self.app.get_backend(IHostnameManager).gethostname(self)
-        
+        return self.app.get_backend(IHostnameManager).gethostname()
+
     def sethostname(self, hn):
-        self.app.get_backend(IHostnameManager).sethostname(self, hn)
-            
+        self.app.get_backend(IHostnameManager).sethostname(hn)
+
 
 
 class IHostnameManager(Interface):
-    def gethostname(self, cc):
+    def gethostname(self):
         pass
-        
-    def sethostname(self, cc, hn):
+
+    def sethostname(self, hn):
         pass
-        
-        
-class LinuxHostnameManager(Plugin):
+
+
+class LinuxGenericHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['Ubuntu', 'Debian', 'Arch', 'openSUSE']
-    
-    def gethostname(self, cc):
-        return cc.open('/etc/hostname').read()
-        
-    def sethostname(self, cc, hn):
-        return cc.open('/etc/hostname', 'w').write(hn)
+    platform = ['debian']
+
+    def gethostname(self):
+        return open('/etc/hostname').read()
+
+    def sethostname(self, hn):
+        open('/etc/hostname', 'w').write(hn)
+
+
+class ArchHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['arch']
+
+    def gethostname(self):
+        return apis.rcconf.RCConf(self.app).get_param('HOSTNAME')
+
+    def sethostname(self, hn):
+        apis.rcconf.RCConf(self.app).set_param('HOSTNAME', hn, near='HOSTNAME')
 
 
 class BSDHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['FreeBSD']
-    
-    def gethostname(self, cc):
+    platform = ['freebsd']
+
+    def gethostname(self):
         return apis.rcconf.RCConf(self.app).get_param('hostname')
-        
-    def sethostname(self, cc, hn):
+
+    def sethostname(self, hn):
         apis.rcconf.RCConf(self.app).set_param('hostname', hn, near='hostname')
+
+
+class CentOSHostnameManager(Plugin):
+    implements(IHostnameManager)
+    platform = ['centos', 'fedora']
+
+    def gethostname(self):
+        rc = apis.rcconf.RCConf(self.app)
+        rc.file = '/etc/sysconfig/network'
+        return rc.get_param('HOSTNAME')
+
+    def sethostname(self, hn):
+        rc = apis.rcconf.RCConf(self.app)
+        rc.file = '/etc/sysconfig/network'
+        rc.set_param('HOSTNAME', hn, near='HOSTNAME')

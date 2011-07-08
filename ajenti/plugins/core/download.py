@@ -1,8 +1,9 @@
 import os.path
 
 from ajenti.com import *
-from ajenti.app.urlhandler import URLHandler, url
+from ajenti.api import URLHandler, url
 from ajenti.utils import wsgi_serve_file
+from ajenti import plugmgr
 
 
 class Downloader(URLHandler, Plugin):
@@ -12,13 +13,8 @@ class Downloader(URLHandler, Plugin):
         params = req['PATH_INFO'].split('/', 3)
         self.log.debug('Dispatching download: %s'%req['PATH_INFO'])
 
-        # Check if we have module in content path
-        if params[2] not in self.app.content:
-            start_response('404 Not Found', [])
-            return ''
-
-        path = self.app.content[params[2]]
-        file = os.path.join(path, params[3])
+        path = plugmgr.get_plugin_path(self.app, params[2])
+        file = os.path.join(path, params[2], 'files', params[3])
 
         return wsgi_serve_file(req, start_response, file)
 

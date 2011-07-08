@@ -1,7 +1,6 @@
 from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
+from ajenti.api import *
 from ajenti.utils import *
 
 import backend
@@ -9,31 +8,20 @@ import backend
 
 class FSPlugin(CategoryPlugin):
     text = 'Filesystems'
-    icon = '/dl/filesystems/icon_small.png'
+    icon = '/dl/filesystems/icon.png'
     folder = 'system'
 
     def on_init(self):
         self.fstab = backend.read()
 
     def on_session_start(self):
-        self._log = ''
         self._editing = -1
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=self._log), title='Mounted filesystems', icon='/dl/filesystems/icon.png')
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
-        t = UI.DataTable(UI.DataTableRow(
-                UI.Label(text='Source'),
-                UI.Label(text='Mountpoint'),
-                UI.Label(text='FS type'),
-                UI.Label(text='Options'),
-                UI.Label(),
-                UI.Label(),
-                UI.Label(), header=True
-               ))
+        ui = self.app.inflate('filesystems:main')
+        
+        t = ui.find('list')
+        
         for u in self.fstab:
             t.append(UI.DataTableRow(
                     UI.Label(text=u.src, bold=True),
@@ -51,7 +39,6 @@ class FSPlugin(CategoryPlugin):
                     )
                 ))
 
-        t = UI.VContainer(t, UI.Button(text='Add mount', id='add'))
         if self._editing != -1:
             try:
                 e = self.fstab[self._editing]
@@ -63,9 +50,12 @@ class FSPlugin(CategoryPlugin):
                 e.fs_type = 'none'
                 e.dump_p = 0
                 e.fsck_p = 0
-            t.append(self.get_ui_edit(e))
-
-        return t
+            self.setup_ui_edit(ui, e)
+            
+        else:
+            ui.remove('dlgEdit')
+            
+        return ui
 
     def get_ui_sources_list(self, e):
         lst = UI.Select(name='disk')
@@ -92,7 +82,7 @@ class FSPlugin(CategoryPlugin):
         lst.append(UI.SelectOption(text='Custom', value='custom', selected=cst))
         return lst, cst
 
-    def get_ui_edit(self, e):
+    def setup_ui_edit(self, ui, e):
         opts = e.options.split(',')
         bind = False
         ro = False
@@ -109,61 +99,16 @@ class FSPlugin(CategoryPlugin):
         opts = ','.join(opts)
 
         lst,cst = self.get_ui_sources_list(e)
-
-        t = UI.VContainer(
-              UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Source: '),
-                        lst
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(),
-                        UI.TextInput(name='src', value=e.src if cst else '')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Mount point: '),
-                        UI.TextInput(name='mp', value=e.dst)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Filesystem: '),
-                        UI.TextInput(name='fs', value=e.fs_type)
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Options: '),
-                        UI.TextInput(name='opts', value=opts)
-                    )
-              ),
-              UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Checkbox(name='ro', checked=ro),
-                        UI.Label(text='Read-only')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Checkbox(name='bind', checked=bind),
-                        UI.Label(text='Bind')
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Checkbox(name='loop', checked=loop),
-                        UI.Label(text='Loop')
-                    )
-              ),
-              UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Dump order: '),
-                        UI.TextInput(name='dump_p', value=str(e.dump_p))
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Label(text='Fsck option: '),
-                        UI.TextInput(name='fsck_p', value=str(e.fsck_p))
-                    )
-              )
-            )
-        dlg = UI.DialogBox(
-                t,
-                title='Edit mount',
-                id='dlgEdit'
-              )
-        return dlg
+        ui.append('sources', lst)
+        ui.find('src').set('value', e.src if cst else '')
+        ui.find('mp').set('value', e.dst)
+        ui.find('fs').set('value', e.fs_type)
+        ui.find('opts').set('value', e.options)
+        ui.find('ro').set('checked', ro)
+        ui.find('bind').set('checked', bind)
+        ui.find('loop').set('checked', loop)
+        ui.find('dump_p').set('value', e.dump_p)
+        ui.find('fsck_p').set('value', e.fsck_p)
 
     @event('minibutton/click')
     @event('button/click')
@@ -209,7 +154,3 @@ class FSPlugin(CategoryPlugin):
                 backend.save(self.fstab)
             self._editing = -1
 
-
-class FSContent(ModuleContent):
-    module = 'filesystems'
-    path = __file__

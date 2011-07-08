@@ -1,7 +1,6 @@
 from ajenti.ui import *
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import *
+from ajenti.api import *
 from ajenti.utils import *
 
 from backend import *
@@ -9,9 +8,9 @@ from backend import *
 
 class FirewallPlugin(CategoryPlugin):
     text = 'Firewall'
-    icon = '/dl/firewall/icon_small.png'
+    icon = '/dl/iptables/icon.png'
     folder = 'system'
-    platform =['Ubuntu', 'Debian', 'Arch', 'openSUSE']
+    platform = ['debian', 'arch', 'centos', 'fedora']
 
     defactions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'EXIT', 'MASQUERADE']
 
@@ -27,24 +26,22 @@ class FirewallPlugin(CategoryPlugin):
         self._editing_table = None
         self._editing_chain = None
         self._editing_rule = None
-        self._error = ''
+        self._error = None
         
     def get_ui(self):
-        st = UI.HContainer( 
-                UI.MiniButton(text='Apply', id='apply'),
-                UI.WarningMiniButton(text='Load current', id='loadruntime', msg='Dispose saved configuration and load current iptables status'),
-                UI.MiniButton(text='Autostart', id='autostart') 
-                    if not self.cfg.has_autostart() else
-                    UI.MiniButton(text='Disable autostart', id='noautostart'),
-                spacing=0
-             )
-             
-        panel = UI.PluginPanel(st, title='IPTables Firewall', icon='/dl/firewall/icon.png')
-        panel.append(self.get_default_ui())
-        return panel
-
-    def get_default_ui(self):
+        ui = self.app.inflate('iptables:main')
+        if self.cfg.has_autostart():
+            btn = ui.find('autostart')
+            btn.set('text', 'Disable autostart')
+            btn.set('id', 'noautostart')
+                
+                
         tc = UI.TabControl(active=self._tab)
+        ui.append('root', tc)
+
+        if len(self.cfg.tables) == 0:
+            self.cfg.load_runtime()
+            
         for t in self.cfg.tables:
             t = self.cfg.tables[t]
             vc = UI.VContainer(spacing=15)
@@ -56,29 +53,26 @@ class FirewallPlugin(CategoryPlugin):
                     uic.append(
                         UI.FWRule(
                             action=r.action, 
-                            desc=r.desc if r.action in self.defactions else r.action, 
+                            desc=('' if r.action in self.defactions else r.action + ' ') + r.desc, 
                             id='%s/%s/%i'%(t.name,ch.name,idx)
                         ))
                     idx += 1
                 vc.append(uic)
             vc.append(UI.Button(text='Add new chain to '+t.name, id='addchain/'+t.name))
             tc.add(t.name, vc)
+
+        if self._error is not None and len(self._error) > 0:            
+            self.put_message('warn', self._error)
+            self._error = None
             
-        ui = UI.VContainer()
-        if self._error != '':
-            ui.append(UI.ErrorBox(text=self._error, title='Can\'t apply config'))
-            
-        ui.append(UI.Label(size=3, text='Rule tables'))
-        ui.append(tc)
-             
         if self._shuffling != None:
-            ui.append(self.get_ui_shuffler())
+            ui.append('root', self.get_ui_shuffler())
       
         if self._adding_chain != None:
-            ui.append(UI.InputBox(id='dlgAddChain', text='Chain name:'))
+            ui.append('root', UI.InputBox(id='dlgAddChain', text='Chain name:'))
 
         if self._editing_rule != None:
-            ui.append(self.get_ui_edit_rule(
+            ui.append('root', self.get_ui_edit_rule(
                         rule=self.cfg.tables[self._editing_table].\
                                       chains[self._editing_chain].\
                                       rules[self._editing_rule]
@@ -234,9 +228,4 @@ class FirewallPlugin(CategoryPlugin):
             self._editing_chain = None
             self._editing_table = None
             self._editing_rule = None
-            
-class FirewallContent(ModuleContent):
-    module = 'firewall'
-    path = __file__
-    widget_files = ['fw.xslt']
-    css_files = ['fw.css']
+

@@ -1,6 +1,6 @@
 from ajenti.com import *
 from ajenti.apis import API
-from ajenti.app.helpers import CategoryPlugin, event
+from ajenti.api import CategoryPlugin, event
 from ajenti.ui import UI
 from ajenti import apis
 
@@ -25,8 +25,6 @@ class Webserver(API):
         
         ws_service = 'none'
         ws_title = 'none'
-        ws_icon = 'none'
-        ws_name = 'none'
         ws_backend = None
         ws_mods = False
         ws_vhosts = True
@@ -35,31 +33,24 @@ class Webserver(API):
             self.service_name = self.ws_service
             self.tab_hosts = 0
             self.tab_mods = 1 if self.ws_vhosts else 0
+            self._backend = self.ws_backend(self.app)
             
         def on_session_start(self):
             self._tab = 0
-            self._backend = self.ws_backend(self.app)
             self._creating_host = False
             self._editing_host = None
             self._editin_mod = None
             
+        def get_config(self):
+            return self.app.get_config(self._backend)
+            
         def get_main_ui(self):
-            panel = UI.ServicePluginPanel(title=self.ws_title, icon=self.ws_icon, status=self.service_status, servicename=self.service_name)
-
-            if not self._backend.is_installed():
-                panel.append(UI.VContainer(UI.ErrorBox(title='Error', text='%s is not installed'%self.ws_name)))
-            else:
-                panel.append(self.get_default_ui())
-
-            return panel
-
-        def get_default_ui(self):
             tc = UI.TabControl(active=self._tab)
             if self.ws_vhosts:
                 tc.add('Hosts', self.get_ui_hosts())
             if self.ws_mods:
                 tc.add('Modules', self.get_ui_mods())
-            return tc
+            return UI.Pad(tc)
             
         def get_ui_hosts(self):
             tbl = UI.DataTable(
@@ -110,7 +101,7 @@ class Webserver(API):
 
             if self._editing_host is not None:
                 ui.append(
-                    UI.AreaInputBox(
+                    UI.CodeInputBox(
                         text='Host config:', 
                         value=self._backend.get_hosts()[self._editing_host].config,
                         id='dlgEditHost'
@@ -152,7 +143,7 @@ class Webserver(API):
             ui = UI.Container(tbl)
             if self._editing_mod is not None:
                 ui.append(
-                    UI.AreaInputBox(
+                    UI.CodeInputBox(
                         text='Module config:', 
                         value=self._backend.get_mods()[self._editing_mod].config,
                         id='dlgEditMod'
@@ -197,8 +188,8 @@ class Webserver(API):
             if params[0] == 'dlgCreateHost':
                 if vars.getvalue('action', '') == 'OK':
                     h = apis.webserver.VirtualHost()
-                    h.config = self._backend.host_template 
                     h.name = vars.getvalue('value', '')
+                    h.config = self._backend.host_template % h.name
                     self._backend.save_host(h)
                 self._creating_host = False
             if params[0] == 'dlgEditHost':
@@ -213,5 +204,3 @@ class Webserver(API):
                     h.config = vars.getvalue('value', '')
                     self._backend.save_mod(h)
                 self._editing_mod = None
-
-                

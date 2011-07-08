@@ -1,0 +1,66 @@
+<xml>
+
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
+            <toolbutton id="btnAddDomain" text="Add domain" icon="/dl/core/ui/stock/add.png" />
+        </hcontainer>
+    </toolbar>
+    
+    <label size="5" text="DNS entries" />
+
+    <pad>
+        <datatable id="domains" width="100%">
+            <datatablerow header="True">
+                <datatablecell width="40%">
+                    <label text="Hostname" />
+                </datatablecell>
+                <datatablecell width="40%">
+                    <label text="Address" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+
+    <label size="5" text="Active leases" />
+
+    <pad id="main">
+        <datatable id="list" width="100%">
+            <datatablerow header="True">
+                <datatablecell width="30%">
+                    <label text="MAC" />
+                </datatablecell>
+                <datatablecell width="30%">
+                    <label text="IP" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Host" />
+                </datatablecell>
+            </datatablerow>
+        </datatable>
+    </pad>
+
+
+    <label size="5" text="DHCP hosts" />
+
+    <pad>
+        <datatable id="hosts" width="100%">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="MAC" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Identification" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="IP" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Action" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+</xml>

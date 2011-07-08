@@ -1,0 +1,39 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="refresh" text="Refresh" icon="/dl/core/ui/stock/refresh.png" />
+            <toolbutton id="getlists" text="Download lists" icon="/dl/pkgman/update-lists.png" />
+            <toolbutton id="apply" text="Apply changes" icon="/dl/core/ui/stock/dialog-ok.png" />
+            <toolbutton id="cancelall" text="Cancel" icon="/dl/core/ui/stock/dialog-cancel.png" />
+            <div style="padding: 4px">
+                <formbox id="frmSearch" hideok="True" hidecancel="True">
+                    <minibutton text="Search" onclick="form" form="frmSearch" />
+                    <textinput name="query" size="20" />
+                </formbox>
+            </div>
+        </hcontainer>
+    </toolbar>
+    
+    <pad id="main">
+        <hcontainer width="100%">
+        <list id="cats" width="100"/>
+        <scrollcontainer width="650" height="520" >
+        <datatable id="list" noborder="True" width="100%">
+            <datatablerow header="True">
+                <datatablecell width="20" />
+                <datatablecell>
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Version" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Description" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+        </scrollcontainer>
+        </hcontainer>
+    </pad>
+</xml>

@@ -1,0 +1,9 @@
+<xml>
+    <label size="5" text="Choose and download plugins" />
+    <pad>
+    <formbox id="frmPlugins" hidecancel="True">
+        <datatable id="list">
+        </datatable>
+    </formbox>
+    </pad>
+</xml>

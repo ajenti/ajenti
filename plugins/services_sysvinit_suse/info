@@ -1,4 +1,0 @@
-pkg services-sysvinit-suse
-desc SUSE SysVInit backend for services management plugin
-prov ajenti-plugin-services-backend
-only suse

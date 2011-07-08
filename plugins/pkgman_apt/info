@@ -1,7 +1,0 @@
-pkg packages-apt
-desc APT backend for package management plugin
-dep apt
-dep dpkg
-dep ajenti-plugin-packages
-prov ajenti-plugin-packages-backend
-only deb

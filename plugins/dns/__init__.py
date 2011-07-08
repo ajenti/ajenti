@@ -1,5 +1,10 @@
-from api import *
-from main import *
-from recovery import *
+MODULES = ['api', 'main', 'dns_resolvconf']
 
-from dns_resolvconf import *
+DEPS =  []
+
+NAME = 'DNS Servers'
+PLATFORMS = ['any']
+DESCRIPTION = 'Edit nameserver options'
+VERSION = '0:1.1'
+AUTHOR = 'Ajenti team'
+HOMEPAGE = 'http://ajenti.org'

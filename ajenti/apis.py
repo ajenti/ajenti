@@ -1,7 +1,5 @@
 import sys
 
-from ajenti.app.api import *
-
 
 class MetaAPI(type):
     def __new__ (cls, name, bases, d):

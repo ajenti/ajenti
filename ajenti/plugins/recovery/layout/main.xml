@@ -1,0 +1,26 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="btnBackup" icon="/dl/recovery/backup.png" />
+            <toolbutton id="backupall" icon="/dl/recovery/backup-all.png" text="Backup everything" />
+        </hcontainer>
+    </toolbar>
+    <pad>
+        <hcontainer>
+            <list id="provs" width="200" height="400" />
+            <scrollcontainer width="550" height="400">
+                <datatable id="backs" width="100%" noborder="True">
+                    <datatablerow header="True">
+                        <datatablecell>
+                            <label text="Revision" />
+                        </datatablecell>
+                        <datatablecell>
+                            <label text="Date" />
+                        </datatablecell>
+                        <datatablecell /> 
+                    </datatablerow>
+                </datatable>
+            </scrollcontainer>
+        </hcontainer>
+    </pad>
+</xml>

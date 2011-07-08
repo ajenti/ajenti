@@ -1,9 +1,7 @@
 from ajenti.ui import *
 from ajenti import version
 from ajenti.com import implements
-from ajenti.app.api import ICategoryProvider
-from ajenti.app.helpers import CategoryPlugin, ModuleContent, EventProcessor, event
-from ajenti.app.session import SessionProxy
+from ajenti.api import *
 from ajenti.utils import shell
 
 from backend import *
@@ -11,13 +9,17 @@ from backend import *
 
 class PowerPlugin(CategoryPlugin):
     text = 'Power'
-    icon = '/dl/power/icon_small.png'
+    icon = '/dl/power/icon.png'
     folder = 'hardware'
 
     def get_ui(self):
-        panel = UI.PluginPanel(UI.Label(text=('Uptime: ' + get_uptime())), title='Power Management', icon='/dl/power/icon.png')
+        ui = self.app.inflate('power:main')
+        
+        els = ui.find('list')
 
-        els = UI.VContainer()
+        if len(get_ac_adapters()) == 0:
+            els.append(UI.Label(text='No AC adapters found'))
+            
         for ac in get_ac_adapters():
             img = 'present' if ac.present else 'none'
             st = 'Active' if ac.present else 'Offline'
@@ -28,6 +30,9 @@ class PowerPlugin(CategoryPlugin):
                               UI.Label(text=st)
                           )
                       )))
+
+        if len(get_batteries()) == 0:
+            els.append(UI.Label(text='No batteries found'))
 
         for bat in get_batteries():
             if bat.present:
@@ -46,26 +51,13 @@ class PowerPlugin(CategoryPlugin):
                           )
                       )))
 
-        c = UI.VContainer(
-                UI.HContainer(
-                    UI.WarningButton(text='Shutdown', id='shutdown', msg='Shutdown machine'),
-                    UI.WarningButton(text='Reboot', id='reboot', msg='Reboot machine')
-                ),
-                els,
-                spacing=20
-            )
-        panel.append(c)
-        return panel
+        return ui
 
 
     @event('button/click')
     def on_aclick(self, event, params, vars=None):
         if params[0] == 'shutdown':
-            shell('shuwdown -p now')
+            shell('shutdown -P now')
         if params[0] == 'reboot':
             shell('reboot')
 
-
-class PowerContent(ModuleContent):
-    module = 'power'
-    path = __file__

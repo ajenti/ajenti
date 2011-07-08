@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# $Id: ajenti.init.d,v 1.4 2003/07/13 19:12:41 mdz Exp $
+#
+
+### BEGIN INIT INFO
+# Provides:          ajenti
+# Required-Start:    $network $syslog $local_fs
+# Required-Stop:     $network $syslog $local_fs
+# Should-Start:      $local_fs
+# Should-Stop:       $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Ajenti
+# Description:       Ajenti administration frontend
+### END INIT INFO
+
+NAME=ajenti
+DESC="Ajenti"
+PID=/var/run/ajenti.pid
+
+case "$1" in
+	start)
+		echo "Starting $DESC"
+		ajenti-panel --start
+    	;;
+	stop)
+		echo "Stopping $DESC"
+		ajenti-panel --stop
+		;;
+	restart)
+		$0 stop
+		sleep 1
+		$0 start
+		if [ "$?" != "0" ]; then
+			exit 1
+		fi
+		;;
+	force-reload)
+	    pkill -9 ajenti
+	    $0 start
+	    ;;
+	*)
+		echo "Usage: $0 {start|stop|restart|force-reload}"
+		exit 1 
+esac
+
+exit 0

@@ -1,0 +1,20 @@
+<xml>
+
+<div class="ui-dashboard-banner">
+    <img id="icon" />
+    <span id="host" />
+    <div id="distro" />
+</div>
+
+<toolbar>
+    <toolbutton id="btnAddWidget" text="Add widget" icon="/dl/core/ui/stock/add.png" />
+</toolbar>
+    
+<pad id="main">
+    <hcontainer spacing="15">
+        <vcontainer id="cleft" spacing="10" />
+        <vcontainer id="cright" spacing="10" />
+    </hcontainer>
+</pad>    
+
+</xml>

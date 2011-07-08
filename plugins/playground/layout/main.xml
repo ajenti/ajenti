@@ -1,0 +1,66 @@
+<xml>
+<pad>
+    <hcontainer>
+        <button id="msgInfo" text="Info" />
+        <button id="msgWarn" text="Warning" />
+        <button id="msgErr" text="Error" />
+        <button id="crash" text="Crash" />
+        <button id="progress" text="Start working" />
+        <button id="btnExit" text="Exit" />
+    </hcontainer>
+</pad>
+
+<label size="5" text="UI Elements" />
+<pad>
+    <div style="border: 1px solid #bbb">
+        <label size="1" text="Size one" />
+        <label size="2" text="Size two" />
+        <label size="3" text="Size three" />
+        <label size="4" text="Size four" />
+        <label size="5" text="Size five" />
+    </div>
+
+
+    <div style="border: 1px solid #bbb">
+        <helpicon text="Help" />
+        <image file="/dl/core/ui/stock/dialog-ok.png" />
+        <minibutton text="Mini button" />
+        <label size="1" text="Size one" />
+        <linklabel text="Link" />
+        <progressbar left="30" right="30" />
+        <editable value="Editable" id="1" />
+    </div>
+    <div style="border: 1px solid #bbb">
+        <label size="1" text="Size one" />
+        <textinput value="Text input" />
+        <checkbox text="Checkbox" />
+        <label size="1" text="Size one" />
+        <radio text="Radio" />
+        <select>
+            <selectoption text="Select" />
+        </select>
+        <selecttextinput>
+            <selectoption text="Select" />
+        </selecttextinput>
+    </div>
+    
+    <button text="Button" />
+    
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="add_task" text="Add task" icon="/dl/cron/add-task.png" />
+            <toolbutton id="add_oth" text="Add non-task string" icon="/dl/core/ui/stock/add.png" />
+            <div style="padding: 4px 5px 0">
+            <formbox id="frmUser" hideok="True" hidecancel="True">
+                <hcontainer spacing="5">
+                    <select id="users_select" name="users_select" />
+                    <minibutton id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
+                </hcontainer>
+            </formbox>
+            </div>
+            <toolseparator />
+        </hcontainer>
+    </toolbar>
+</pad>
+    
+</xml>

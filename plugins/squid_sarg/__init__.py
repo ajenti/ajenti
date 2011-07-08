@@ -1,5 +1,16 @@
-from ajenti.app.plugins import require
-require('squid')
+MODULES = ['ui_sarg']
 
-from ui_sarg import *
-from recovery import *
+DEPS =  [
+    (['any'],
+     [
+        ('plugin', 'squid'),
+        ('app', 'SARG', 'sarg')
+     ])
+]
+
+NAME = 'SARG'
+PLATFORMS = ['any']
+DESCRIPTION = 'Control Squid report generator'
+VERSION = '0:1.1'
+AUTHOR = 'Ajenti team'
+HOMEPAGE = 'http://ajenti.org'

@@ -1,1 +1,1 @@
-from main import *
+# Placeholder

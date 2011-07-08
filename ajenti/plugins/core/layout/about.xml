@@ -1,0 +1,30 @@
+<xml>
+    <dialogbox hidecancel="True" id="dlgAbout">
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell rowspan="3">
+                    <image file="/dl/core/ui/logo_big.png" />
+                </layouttablecell>
+                <layouttablecell spacing="0">
+                    <label text="Ajenti" size="4" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell spacing="0">
+                    <label text="Your personal server affairs agent" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label id="ver" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell colspan="2">
+                    <outlinklabel text="Home" url="http://ajenti.org" />
+                    <outlinklabel text="Bug tracker" url="https://launchpad.net/ajenti/+bugs" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+    </dialogbox>
+</xml>

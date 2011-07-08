@@ -1,0 +1,5 @@
+<xml>
+    <formbox height="100%" id="frmEdit" hideok="True" hidecancel="True">
+       <pad id="main" />
+    </formbox>
+</xml>
