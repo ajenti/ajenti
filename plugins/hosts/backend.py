@@ -17,11 +17,12 @@ class Host:
 class Config(Plugin):
     implements(IConfigurable)
     name = 'Hosts'
+    icon = '/dl/hosts/icon.png'
     id = 'hosts'
-    
+
     def list_files(self):
         return ['/etc/hosts']
-        
+
     def read(self):
         ss = ConfManager.get().load('hosts', '/etc/hosts').split('\n')
         r = []
@@ -51,30 +52,30 @@ class Config(Plugin):
             d += '%s\t%s\t%s\n' % (h.ip, h.name, h.aliases)
         ConfManager.get().save('hosts', '/etc/hosts', d)
         ConfManager.get().commit('hosts')
-            
+
     def gethostname(self):
         return self.app.get_backend(IHostnameManager).gethostname()
-        
+
     def sethostname(self, hn):
         self.app.get_backend(IHostnameManager).sethostname(hn)
-            
+
 
 
 class IHostnameManager(Interface):
     def gethostname(self):
         pass
-        
+
     def sethostname(self, hn):
         pass
-        
-        
+
+
 class LinuxGenericHostnameManager(Plugin):
     implements(IHostnameManager)
     platform = ['debian']
-    
+
     def gethostname(self):
         return open('/etc/hostname').read()
-        
+
     def sethostname(self, hn):
         open('/etc/hostname', 'w').write(hn)
 
@@ -82,21 +83,21 @@ class LinuxGenericHostnameManager(Plugin):
 class ArchHostnameManager(Plugin):
     implements(IHostnameManager)
     platform = ['arch']
-    
+
     def gethostname(self):
         return apis.rcconf.RCConf(self.app).get_param('HOSTNAME')
-        
+
     def sethostname(self, hn):
         apis.rcconf.RCConf(self.app).set_param('HOSTNAME', hn, near='HOSTNAME')
-        
-        
+
+
 class BSDHostnameManager(Plugin):
     implements(IHostnameManager)
     platform = ['freebsd']
-    
+
     def gethostname(self):
         return apis.rcconf.RCConf(self.app).get_param('hostname')
-        
+
     def sethostname(self, hn):
         apis.rcconf.RCConf(self.app).set_param('hostname', hn, near='hostname')
 
@@ -114,4 +115,3 @@ class CentOSHostnameManager(Plugin):
         rc = apis.rcconf.RCConf(self.app)
         rc.file = '/etc/sysconfig/network'
         rc.set_param('HOSTNAME', hn, near='HOSTNAME')
-

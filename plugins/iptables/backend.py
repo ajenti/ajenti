@@ -16,7 +16,7 @@ class Rule:
         self.raw = line
         opts = line.split()
         self.desc = ' '.join(opts[2:-2])
-     
+
         while len(opts) > 0:
             inv = False
             if opts[0] == '!':
@@ -66,8 +66,8 @@ class Rule:
             self.tryset('sport', inv, s, 'sports', 'source-ports') or \
             self.tryset('dport', inv, s, 'dports', 'destination-ports') or \
             self.add_option(inv, prefix, s)
-        
-        
+
+
     def get_ui_text(self, param, desc, help=''):
         v = getattr(self, param)
         return UI.LayoutTableRow(
@@ -96,7 +96,7 @@ class Rule:
     def get_ui_select(self, param, desc, opts, size=10):
         # opts == [['Desc', 'value'], ['Desc #2', 'value2']]
         v = getattr(self, param)
-        
+
         return UI.LayoutTableRow(
                     UI.Label(text=desc),
                     UI.Select(
@@ -113,10 +113,10 @@ class Rule:
                         size=size
                     )
                )
-               
+
     def get_ui_flags(self, desc):
         v = self.tcp_flags
-        
+
         return UI.LayoutTableRow(
                     UI.Label(text=desc),
                     UI.Select(
@@ -129,18 +129,18 @@ class Rule:
                         UI.LayoutTable(
                             UI.LayoutTableRow(
                                 UI.Label(text='Check:'),
-                                *[UI.Checkbox(text=x, name='tcpflags-vals[]', value=x, checked=x in v[2] if v[2] else False) 
+                                *[UI.Checkbox(text=x, name='tcpflags-vals[]', value=x, checked=x in v[2] if v[2] else False)
                                     for x in self.flags]
                             ),
                             UI.LayoutTableRow(
                                 UI.Label(text='Mask:'),
-                                *[UI.Checkbox(text=x, name='tcpflags-mask[]', value=x, checked=x in v[1] if v[1] else False) 
+                                *[UI.Checkbox(text=x, name='tcpflags-mask[]', value=x, checked=x in v[1] if v[1] else False)
                                     for x in self.flags]
                             )
                         ),
                         colspan=2
                     )
-               )    
+               )
 
     def get_ui_states(self, desc):
         v = self.state
@@ -155,42 +155,42 @@ class Rule:
                     UI.LayoutTableCell(
                         UI.LayoutTable(
                             UI.LayoutTableRow(
-                                *[UI.Checkbox(text=x, name='state[]', value=x, checked=v[1] and x in v[1]) 
+                                *[UI.Checkbox(text=x, name='state[]', value=x, checked=v[1] and x in v[1])
                                     for x in self.states]
                             )
                         ),
                         colspan=2
                     )
-               )    
-               
+               )
+
     def tryset(self, param, inv, args, *names):
         if args[0] in names:
             setattr(self, param, (inv, ' '.join(args[1:])))
         return args[0] in names
-            
+
     def add_option(self, inv, prefix, s):
         self.miscopts.append(('! ' if inv else '') + prefix + ' '.join(s))
-        
+
     def reset(self):
         self.action = 'ACCEPT'
         self.chain = 'INPUT'
         self.miscopts = []
         self.modules = []
         self.tcp_flags = (False, None, None)
-        
+
     def __getattr__(self, attr):
-        return (False, None) 
-        
+        return (False, None)
+
     def dump(self):
         return self.raw
- 
+
     def apply_vars(self, vars):
         line = '-A ' + self.chain
 
         self.modules = vars.getvalue('modules', '').split()
         for m in self.modules:
             line += ' -m ' + m
-            
+
         line += self._format_option('-p', 'protocol', vars)
         line += self._format_option('-s', 'source', vars)
         line += self._format_option('-d', 'destination', vars)
@@ -200,16 +200,16 @@ class Rule:
 
         line += self._format_option('--sports', 'sport', vars, module='multiport')
         line += self._format_option('--dports', 'dport', vars, module='multiport')
-        
+
         if vars.getvalue('fragmented-mode', '') == 'nrm':
             line += ' -f'
         if vars.getvalue('fragmented-mode', '') == 'inv':
             line += ' ! -f'
-        
+
         if vars.getvalue('tcpflags-mode', '') != 'ign':
             if vars.getvalue('tcpflags-mode', '') == 'inv':
                 line += ' !'
-            
+
             mask = []
             for i in range(0, len(self.flags)):
                 if vars.getvalue('tcpflags-mask[]')[i] == '1':
@@ -219,13 +219,13 @@ class Rule:
                 if vars.getvalue('tcpflags-vals[]')[i] == '1':
                     vals.append(self.flags[i])
 
-            if mask == []: 
+            if mask == []:
                 mask = ['NONE']
-            if vals == []: 
+            if vals == []:
                 vals = ['NONE']
 
             line += ' --tcp-flags ' + ','.join(mask) + ' '  + ','.join(vals)
-                       
+
         if vars.getvalue('state-mode', '') != 'ign':
             if not 'state' in self.modules:
                 line += ' -m state'
@@ -235,26 +235,26 @@ class Rule:
             for i in range(0, len(self.states)):
                 if vars.getvalue('state[]')[i] == '1':
                     st.append(self.states[i])
-            if st == []: 
+            if st == []:
                 st = ['NONE']
             line += ' --state ' + ','.join(st)
-            
+
         line += ' ' + ' '.join(self.miscopts)
-        
-        self.action = vars.getvalue('caction', 'ACCEPT')        
+
+        self.action = vars.getvalue('caction', 'ACCEPT')
         if self.action == 'RUN':
             self.action = vars.getvalue('runchain', 'ACCEPT')
-        
+
         line += ' -j ' + self.action
-         
+
         self.__init__(line)
-        
-                       
+
+
     def _format_option(self, name, key, vars, flt=lambda x: x, module=None):
         if vars.getvalue(key+'-mode') == 'ign':
             return ''
         s = ''
-        if module is not None:  
+        if module is not None:
             if not module in self.modules:
                 self.modules.append(module)
                 s = ' -m '+ module
@@ -264,30 +264,30 @@ class Rule:
             s += ' ! ' + name + ' ' + flt(vars.getvalue(key, ''))
         return s
 
-                               
+
 class Chain:
     rules = None
-    
+
     def __init__(self, name, default):
         self.rules = []
         self.name = name
         self.comment = None
         self.default = default
-        
+
     def dump(self):
         s = ''
         for r in self.rules:
             s += '%s\n' % r.dump()
         return s
-        
-        
+
+
 class Table:
     chains = None
-    
+
     def __init__(self, name):
         self.chains = {}
         self.name = name
-    
+
     def load(self, data):
         while len(data)>0:
             s = data[0]
@@ -301,7 +301,7 @@ class Table:
                 r = Rule(s)
                 self.chains[r.chain].rules.append(r)
             data = data[1:]
-                
+
     def dump(self):
         s = '*%s\n' % self.name
         for r in self.chains:
@@ -311,12 +311,13 @@ class Table:
             r = self.chains[r]
             s += '%s' % r.dump()
         s += 'COMMIT\n'
-        return s        
-        
-        
+        return s
+
+
 class Config(Plugin):
     implements(IConfigurable)
     name = 'iptables'
+    icon = '/dl/iptables/icon.png'
     id = 'iptables'
     tables = {}
     apply_shell = 'cat /etc/iptables.up.rules | iptables-restore'
@@ -330,20 +331,20 @@ class Config(Plugin):
             else:
                 self.rules_file = '/etc/iptables.up.rules' # webmin import
         self.apply_shell = 'cat %s | iptables-restore' % self.rules_file
-         
+
     def list_files(self):
         return [self.rules_file]
-        
+
     def load_runtime(self):
         shell('iptables -L -t filter')
         shell('iptables -L -t mangle')
         shell('iptables -L -t nat')
         print        shell('iptables-save > %s' % self.rules_file)
         self.load()
-    
+
     def apply_now(self):
         return shell(self.apply_shell)
-        
+
     def has_autostart(self):
         b = self.app.get_backend(IConfig)
         return b.has_autostart()
@@ -351,7 +352,7 @@ class Config(Plugin):
     def set_autostart(self, active):
         b = self.app.get_backend(IConfig)
         b.set_autostart(active)
-        
+
     def load(self, file=None):
         file = file or self.rules_file
         self.tables = {}
@@ -363,10 +364,10 @@ class Config(Plugin):
                 if s != '':
                     if s[0] == '*':
                         self.tables[s[1:]] = Table(s[1:])
-                        self.tables[s[1:]].load(data)        
+                        self.tables[s[1:]].load(data)
         except:
             pass
-           
+
     def get_devices(self):
         d = []
         for l in open('/proc/net/dev').read().splitlines():
@@ -374,45 +375,45 @@ class Config(Plugin):
                 dev = l.split(':')[0].strip()
                 d.append((dev,dev))
         return d
-        
+
     def dump(self):
         s = ''
         for r in self.tables:
             s += '%s\n' % self.tables[r].dump()
-        return s    
-        
+        return s
+
     def save(self, file=None):
         file = file or self.rules_file
         open(file, 'w').write(self.dump())
-            
+
     def table_index(self, name):
         i = 0
         for t in self.tables:
             if self.tables[t].name == name:
                 return i
             i += 1
-            
-            
+
+
 class IConfig(Interface):
     def has_autostart(self):
         pass
 
     def set_autostart(self, active):
         pass
-     
-        
+
+
 class IDebianConfig(Plugin):
     implements(IConfig)
     platform = ['Debian', 'Ubuntu']
     path = '/etc/network/if-up.d/iptables'
-    
+
     @property
     def apply_shell(self):
         return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
-        
+
     def has_autostart(self):
         return os.path.exists(self.path)
-        
+
     def set_autostart(self, active):
         if active:
             open(self.path, 'w').write(self.apply_shell)
@@ -422,20 +423,20 @@ class IDebianConfig(Plugin):
                 os.unlink(self.path)
             except:
                 pass
-            
-            
+
+
 class ISuseConfig(Plugin):
     implements(IConfig)
     platform = ['openSUSE']
     path = '/etc/sysconfig/network/if-up.d/50-iptables'
-    
+
     @property
     def apply_shell(self):
         return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
-        
+
     def has_autostart(self):
         return os.path.exists(self.path)
-        
+
     def set_autostart(self, active):
         if active:
             open(self.path, 'w').write(self.apply_shell)
@@ -451,11 +452,11 @@ class IArchConfig(Plugin):
     implements(IConfig)
     platform = ['Arch']
     path = '/etc/network.d/hooks/iptables'
-    
+
     @property
     def apply_shell(self):
         return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
-        
+
     def has_autostart(self):
         return self.apply_shell in open('/etc/rc.local').read().splitlines()
 
@@ -472,5 +473,3 @@ class IArchConfig(Plugin):
         if active and not saved:
             f.write(self.apply_shell + '\n')
         f.close()
-
-

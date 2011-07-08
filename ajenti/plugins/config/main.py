@@ -13,10 +13,10 @@ class ConfigPlugin(CategoryPlugin):
         self._tab = 0
         self._adding_user = False
         self._config = None
-        
+
     def get_ui(self):
         ui = self.app.inflate('config:main')
-        
+
         ui.find('tabs').set('active', self._tab)
 
         # General
@@ -24,7 +24,7 @@ class ConfigPlugin(CategoryPlugin):
         ui.find('bind_port').set('value', self.config.get('ajenti', 'bind_port'))
         ui.find('ssl').set('checked', self.config.get('ajenti', 'ssl')=='1')
         ui.find('cert_file').set('value', self.config.get('ajenti', 'cert_file'))
-        
+
         # Security
         ui.find('httpauth').set('checked', self.config.get('ajenti','auth_enabled')=='1')
         tbl = ui.find('accounts')
@@ -38,10 +38,10 @@ class ConfigPlugin(CategoryPlugin):
                         )
                     )
                 )
-        
+
         if not self._adding_user:
             ui.remove('dlgAddUser')
-        
+
         # Configs
         cfgs = sorted(self.app.grab_plugins(IModuleConfig))
         t = ui.find('configs')
@@ -54,13 +54,13 @@ class ConfigPlugin(CategoryPlugin):
                     UI.MiniButton(text='Edit', id='editconfig/'+c.target.__name__),
                     hidden=True
                 )
-            ))   
-            
+            ))
+
         if self._config:
             ui.append('main',
                 self.app.get_config_by_classname(self._config).get_ui_edit()
             )
-                  
+
         return ui
 
 
@@ -121,15 +121,15 @@ class ConfigPlugin(CategoryPlugin):
             if vars.getvalue('action','') == 'OK':
                 cfg = self.app.get_config_by_classname(self._config)
                 cfg.apply_vars(vars)
-                cfg.save()            
+                cfg.save()
             self._config = None
 
 
 class AjentiConfig (Plugin):
     implements (IConfigurable)
     name = 'Ajenti'
-    id = 'ajenti' 
-   
+    icon = '/dl/core/ui/favicon.png'
+    id = 'ajenti'
+
     def list_files(self):
         return ['/etc/ajenti/*']
-        

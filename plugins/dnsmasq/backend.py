@@ -7,19 +7,20 @@ import os
 class Backend(Plugin):
     implements (IConfigurable)
     name = 'dnsmasq'
+    icon = '/dl/dnsmasq/icon.png'
     id = 'dnsmasq'
-    
+
     def __init__(self):
         self.lease_file = '/var/lib/misc/dnsmasq.leases'
         self.config_file = '/etc/dnsmasq.conf'
 
     def list_files(self):
         return [self.config_file]
-        
+
     def get_leases(self):
         if not os.path.exists(self.lease_file):
             return []
-            
+
         r = []
         for l in open(self.lease_file, 'r'):
             l = l.split(' ')
@@ -32,7 +33,7 @@ class Backend(Plugin):
         return r
 
 
-    def get_config(self):   
+    def get_config(self):
         r = {
             'dhcp-hosts': [],
             'domains': [],
@@ -45,7 +46,7 @@ class Backend(Plugin):
                     k,v = l.split('=', 1)
                     k = k.strip()
                     v = v.strip()
-                    
+
                     if k == 'dhcp-host':
                         r['dhcp-hosts'].append(self.parse_host(v))
                     elif k == 'address':
@@ -55,11 +56,11 @@ class Backend(Plugin):
                 else:
                     k = l.strip()
                     r['opts'][k] = None
-        return r                    
-        
+        return r
+
     def save_config(self, cfg):
         s = ''
-        s += '# Hosts\n' 
+        s += '# Hosts\n'
         for x in cfg['dhcp-hosts']:
             v = []
             for y in x['id']:
@@ -75,20 +76,20 @@ class Backend(Plugin):
                 else:
                     v.append(y[1])
             s += 'dhcp-host=' + ','.join(v) + '\n'
-        
-        s += '\n\n# Domains\n' 
+
+        s += '\n\n# Domains\n'
         for x in cfg['domains']:
             s += 'address=/' + '/'.join(x) + '\n'
-         
+
         s += '\n\n# Other options\n'
         for x in cfg['opts']:
             if cfg['opts'][x]:
                 s += '%s=%s\n' % (x, cfg['opts'][x])
             else:
                 s += x + '\n'
-        
+
         open(self.config_file, 'w').write(s)
-        
+
     def parse_host(self, s):
         r = { 'id': [], 'act': [] }
         s = s.split(',')
@@ -113,19 +114,19 @@ class Backend(Plugin):
                 else:
                     r['act'].append(('name', x))
         return r
-        
+
     def find_mac(self, h):
         for x in h['id']:
             if x[0] == 'mac':
                 return x[1]
         return ''
-        
+
     def find_ip(self, h):
         for x in h['act']:
             if x[0] == 'ip':
                 return x[1]
         return ''
-               
+
     def str_ident(self, h):
         r = []
         for x in h:
@@ -134,7 +135,7 @@ class Backend(Plugin):
             if x[0] == 'name':
                 r.append('name is %s' % x[1])
         return ', '.join(r)
-                      
+
     def str_act(self, h):
         r = []
         for x in h:
@@ -147,4 +148,3 @@ class Backend(Plugin):
             if x[0] == 'time':
                 r.append('%s lease' % x[1])
         return ', '.join(r)
-                      
