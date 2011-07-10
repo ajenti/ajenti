@@ -13,7 +13,7 @@ html, body {
     width: 100%;
     height: 100%;
     color: #555;
-    background: #eee;
+    background: #fff;
 }
 
 html {
@@ -47,4 +47,3 @@ img {
 table {
     border-spacing: 0px;
 }
-

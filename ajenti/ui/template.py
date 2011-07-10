@@ -8,7 +8,7 @@ class Layout:
         parser = etree.XMLParser()
         parser.set_element_class_lookup(Lookup())
         self._dom = etree.parse(file, parser=parser)
-        
+
     def find(self, id):
         el = self._dom.find('//*[@id=\'%s\']'%id)
         return el
@@ -16,10 +16,10 @@ class Layout:
     def remove(self, id):
         el = self.find(id)
         el.getparent().remove(el)
-                
+
     def xpath(self, path):
         return self._dom.find(path)
-        
+
     def append(self, dest, child):
         el = self.find(dest)
         if el is not None:
@@ -32,20 +32,20 @@ class Layout:
     def appendAll(self, dest, *args):
         for a in args:
             self.append(dest, a)
-            
+
     def appendChildInto(self, dest, child):
         self.append(dest, child)
-        
+
     def insertText(self, dest, text):
         self.find(dest).text = text
-    
+
     def elements(self):
         return self._dom.getroot()
 
     def render(self):
-        return xslt.render(self._dom.getroot())        
+        return xslt.render(self._dom.getroot())
 
-    
+
 class BasicTemplate(Layout):
 
     def __init__(self, filename, search_path=[], styles=[], scripts=[]):
@@ -56,9 +56,9 @@ class BasicTemplate(Layout):
 
         # Fill in CSS and JS refs
         try:
-            for x in styles:
+            for x in sorted(styles):
                 self._dom.find('.//headstylesheets').append(etree.Element('headstylesheet', href=x))
-            for x in scripts:
+            for x in sorted(scripts):
                 self._dom.find('.//headscripts').append(etree.Element('headscript', href=x))
         except:
             pass
@@ -72,4 +72,3 @@ class Lookup(etree.CustomElementClassLookup):
         if name in ovs:
             return ovs[name]
         return Element
-        
