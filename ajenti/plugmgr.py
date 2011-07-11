@@ -18,8 +18,8 @@ platform = None
 
 class BaseRequirementError(Exception):
     pass
-    
-    
+
+
 class PlatformRequirementError(BaseRequirementError):
     def __init__(self, lst):
         self.lst = lst
@@ -40,7 +40,7 @@ class SoftwareRequirementError(BaseRequirementError):
     def __init__(self, name, bin):
         self.name = name
         self.bin = bin
-    
+
     def __str__(self):
         return 'requires application %s (%s)' % (self.name, self.bin)
 
@@ -53,6 +53,7 @@ class PluginManager:
         self.installed = []
         self.update_installed()
         self.update_available()
+        self.update_upgradable()
 
     def update_available(self):
         try:
@@ -68,16 +69,26 @@ class PluginManager:
                     break
             if inst:
                 continue
-                
+
             i = PluginInfo()
             for k,v in item.items():
                 setattr(i, k, v)
             i.installed = False
             i.problem = None
             self.available.append(i)
-               
+
     def update_installed(self):
         self.installed = sorted(plugin_info.values(), key=lambda x:x.name)
+
+    def update_upgradable(self):
+        for p in self.available:
+            u = False
+            for g in self.installed:
+                if g.id == p.id and g.version != p.version:
+                    u = True
+                    break
+            if u:
+                g.upgradable = p.upgradable = True
 
     def update_list(self):
         if not os.path.exists('/var/lib/ajenti'):
@@ -90,8 +101,9 @@ class PluginManager:
             pass
         self.update_installed()
         self.update_available()
-        
-    def remove(self, id):        
+        self.update_upgradable()
+
+    def remove(self, id):
         dir = self.config.get('ajenti', 'plugins')
         send_stats(self.server, delplugin=id)
         shell('rm -r %s/%s' % (dir, id))
@@ -99,24 +111,24 @@ class PluginManager:
         self.update_installed()
         self.update_available()
 
-    def install(self, id, load=True):        
+    def install(self, id, load=True):
         dir = self.config.get('ajenti', 'plugins')
         self.remove(id)
-                
-        download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id), 
+
+        download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id),
             file='%s/plugin.tar.gz'%dir, crit=True)
-        self.install_tar(load=load)            
-    
-    def install_stream(self, stream):        
+        self.install_tar(load=load)
+
+    def install_stream(self, stream):
         dir = self.config.get('ajenti', 'plugins')
         open('%s/plugin.tar.gz'%dir, 'w').write(stream)
-        self.install_tar()            
+        self.install_tar()
 
-    def install_tar(self, load=True):        
+    def install_tar(self, load=True):
         dir = self.config.get('ajenti', 'plugins')
-            
+
         id = shell('tar tzf %s/plugin.tar.gz'%dir).split('\n')[0].strip('/')
-            
+
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
 
@@ -129,37 +141,39 @@ class PluginManager:
 
         self.update_installed()
         self.update_available()
+        self.update_upgradable()
 
-        
+
 class PluginInfo:
-    pass    
-    
-            
+    def __init__(self):
+        self.upgradable = False
+
+
 def get_deps(platform, dep):
     for k in dep:
         if platform.lower() in k[0] or 'any' in k[0]:
             return k[1]
     return []
-        
+
 def verify_dep(dep):
     if dep[0] == 'app':
         return shell_status('which '+dep[2])==0
     if dep[0] == 'plugin':
         return dep[1] in loaded_plugins
-        
+
 def get_plugin_path(app, id):
     if id in loaded_plugins:
         return app.config.get('ajenti', 'plugins')
     else:
         return os.path.join(os.path.split(__file__)[0], 'plugins') # ./plugins
-        
+
 def load_plugin(path, plugin, log, platform):
     try:
         if log is not None:
             log.debug('Loading plugin %s' % plugin)
         mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
         loaded_mods[plugin] = mod
-            
+
         # Save info
         i = PluginInfo()
         i.id = plugin
@@ -178,11 +192,11 @@ def load_plugin(path, plugin, log, platform):
                         raise PluginRequirementError(req[1])
                     if req[0] == 'app':
                         raise SoftwareRequirementError(*req[1:])
-        
+
         if mod.PLATFORMS != ['any'] and not platform in mod.PLATFORMS:
             raise PlatformRequirementError(mod.PLATFORMS)
-            
-        
+
+
         # Load submodules
         if not hasattr(mod, 'MODULES'):
             if log is not None:
@@ -199,7 +213,7 @@ def load_plugin(path, plugin, log, platform):
                 print traceback.format_exc()
                 if log is not None:
                     log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
-                    
+
         loaded_plugins.append(plugin)
     except BaseRequirementError, e:
         plugin_info[plugin].problem = e
@@ -210,12 +224,12 @@ def load_plugin(path, plugin, log, platform):
         if log is not None:
             log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
         print traceback.format_exc()
-        raise e        
-        
+        raise e
+
 def load_plugins(path, log):
     global loaded_plugins
     global platform
-    
+
     plugs = [plug for plug in os.listdir(path) if not plug.startswith('.')]
     plugs = [plug[:-3] if plug.endswith('.py') else plug for plug in plugs]
     plugs = list(set(plugs)) # Leave just unique items
@@ -225,14 +239,14 @@ def load_plugins(path, log):
     platform = detect_platform()
     if log is not None:
         log.info('Detected platform: %s'%platform)
-    
+
     while len(queue) > 0:
         plugin = queue[-1]
         if not plugin in retries:
             retries[plugin] = 0
-            
+
         try:
-            load_plugin(path, plugin, log, platform) 
+            load_plugin(path, plugin, log, platform)
             queue.remove(plugin)
         except PluginRequirementError, e:
             retries[plugin] += 1
@@ -265,4 +279,3 @@ def load_plugins(path, log):
 
     if log is not None:
         log.info('Plugins loaded.')
-    

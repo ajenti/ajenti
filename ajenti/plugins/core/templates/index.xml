@@ -5,7 +5,7 @@
     <headscripts/>
     <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
 </head>
-<body id="main">
+<body id="main" style="background:#eee">
 
 <div id="page">
     <div id="topbar">

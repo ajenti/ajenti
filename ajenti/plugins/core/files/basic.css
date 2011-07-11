@@ -1,10 +1,30 @@
+.freetext a {
+    text-align: left;
+    font-size: 12px;
+    display: inline-block;
+
+    color: #888;
+    border-bottom: 1px dotted #888;
+}
+
+.freetext p {
+    padding: 0 5px;
+}
+
+.freetext img {
+    border: 1px solid #ccc;
+    padding: 3px;
+    margin: 5px;
+}
+
+
 .ui-el-button {
     min-width: 80px;
     height: 18px;
     line-height: 19px;
     display: inline-block;
     margin: 0 3px;
-    
+
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -165,7 +185,7 @@ input.ui-el-button {
     text-align: left;
     font-size: 12px;
     display: inline-block;
-    
+
     color: #888;
     border-bottom: 1px dotted #888;
     margin: 3px 2px;
@@ -264,7 +284,7 @@ select {
 .ui-el-progressbar-active div {
     height: 14px;
     background: url('/dl/core/ui/alert.png');
-}    
+}
 
 .ui-el-progressbar-wrapper {
     margin: 2px 2px;

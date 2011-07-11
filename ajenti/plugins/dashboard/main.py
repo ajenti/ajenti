@@ -4,6 +4,7 @@ from ajenti.com import Interface
 from ajenti.ui import *
 from ajenti.utils import detect_distro, detect_platform
 from ajenti.api import *
+from ajenti import plugmgr
 
 from api import *
 
@@ -23,19 +24,18 @@ class Dashboard(CategoryPlugin):
         self._left = []
         self._right = []
         self._widgets = {}
-        
-        if self.app.config.has_section('dashboard'):
-            try:
-                self._left = [int(x) for x in self.app.config.get('dashboard', 'left').split(',')]
-                self._right = [int(x) for x in self.app.config.get('dashboard', 'right').split(',')]
-            except:
-                pass
-            
-            for x in (self._left + self._right):
-                self._widgets[x] = (
-                    self.app.config.get('dashboard', '%i-class'%x),
-                    eval(b64decode(self.app.config.get('dashboard', '%i-cfg'%x)))
-                )
+
+        try:
+            self._left = [int(x) for x in self.app.config.get('dashboard', 'left').split(',')]
+            self._right = [int(x) for x in self.app.config.get('dashboard', 'right').split(',')]
+        except:
+            pass
+
+        for x in (self._left + self._right):
+            self._widgets[x] = (
+                self.app.config.get('dashboard', '%i-class'%x),
+                eval(b64decode(self.app.config.get('dashboard', '%i-cfg'%x)))
+            )
 
     def fill(self, side, lst, ui, tgt):
         for x in lst:
@@ -43,7 +43,7 @@ class Dashboard(CategoryPlugin):
                 w = self.get_widget(self._widgets[x][0])
                 if not w:
                     continue
-                ui.append(tgt, 
+                ui.append(tgt,
                     UI.Widget(
                         w.get_ui(self._widgets[x][1], id=str(x)),
                         pos=side,
@@ -55,7 +55,7 @@ class Dashboard(CategoryPlugin):
                 )
             except:
                 raise
-                    
+
     def get_ui(self):
         ui = self.app.inflate('dashboard:main')
 
@@ -65,7 +65,7 @@ class Dashboard(CategoryPlugin):
         ui.insertText('host', platform.node())
         ui.insertText('distro', detect_distro())
         ui.find('icon').set('src', '/dl/dashboard/distributor-logo-%s.png'%detect_platform(mapping=False))
-        
+
         if self._adding_widget == True:
             dlg = self.app.inflate('dashboard:add-widget')
             idx = 0
@@ -81,7 +81,15 @@ class Dashboard(CategoryPlugin):
             ui.append('main', self.get_widget(self._adding_widget).get_config_dialog())
         else:
             ui.append('main', UI.Refresh(time=5000))
-            
+
+        pm = plugmgr.PluginManager(self.app.config)
+        c = 0
+        for p in pm.available:
+            if p.upgradable:
+                c += 1
+        if c > 0:
+            self.put_message('info', 'Upgradable plugins: %i'%c)
+
         return ui
 
     def add_widget(self, id, cfg):
@@ -93,14 +101,14 @@ class Dashboard(CategoryPlugin):
         self._left.append(idx)
         self._adding_widget = None
         self.save_cfg()
-        
+
     def save_cfg(self):
         self.app.config.set('dashboard', 'left', ','.join(str(x) for x in self._left))
         self.app.config.set('dashboard', 'right', ','.join(str(x) for x in self._right))
         for x in self._widgets:
             self.app.config.set('dashboard', '%i-class'%x, self._widgets[x][0])
             self.app.config.set(
-                'dashboard', '%i-cfg'%x, 
+                'dashboard', '%i-cfg'%x,
                 b64encode(repr(self._widgets[x][1]))
             )
         self.app.config.save()
@@ -108,12 +116,12 @@ class Dashboard(CategoryPlugin):
     def get_widget(self, id):
         try:
             return self.app.grab_plugins(
-               IDashboardWidget, 
+               IDashboardWidget,
                lambda x:x.plugin_id==id,
             )[0]
         except:
             return None
-        
+
     @event('listitem/click')
     def on_list(self, event, params, vars):
         id = params[0]
@@ -123,7 +131,7 @@ class Dashboard(CategoryPlugin):
             self.add_widget(id, None)
         else:
             self._adding_widget = id
-        
+
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')
@@ -176,6 +184,5 @@ class Dashboard(CategoryPlugin):
             idx = a.index(id)
             if idx < len(a)-1:
                 a[idx], a[idx+1] = a[idx+1], a[idx]
-                
+
         self.save_cfg()
-        

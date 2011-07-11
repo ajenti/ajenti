@@ -1,0 +1,6 @@
+<xml>
+    <div class="freetext">
+        <vcontainer id="list" />
+    </div>
+    <outlinklabel text="All news" url="http://ajenti.org" />
+</xml>

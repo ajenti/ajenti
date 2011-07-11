@@ -31,7 +31,7 @@ class Application (PluginManager, Plugin):
         self.template_styles = []
         self.template_scripts = []
         self.layouts = {}
-        self.config = config
+        self.gconfig = config
         self.log = config.get('log_facility')
         self.platform = config.get('platform')
         includes = []
@@ -85,9 +85,12 @@ class Application (PluginManager, Plugin):
                 functions
             )
 
-
-        self.log.debug('Initialized')
-
+    @property
+    def config(self):
+        if hasattr(self, 'auth'):
+            return self.gconfig.get_proxy(self.auth.user)
+        else:
+            return self.gconfig.get_proxy(None)
 
     def start_response(self, status, headers=[]):
         self.status = status
@@ -138,7 +141,6 @@ class Application (PluginManager, Plugin):
 
     def plugin_activated(self, plugin):
         plugin.log = self.log
-        plugin.config = self.config
         plugin.app = self
 
     def grab_plugins(self, iface, flt=None):
