@@ -1,14 +1,10 @@
 import platform
 
 from ajenti.com import Interface
-from ajenti.ui import *
+from ajenti.ui import UI
 from ajenti.utils import detect_distro, detect_platform
 from ajenti.api import *
-from ajenti import plugmgr
-
-from api import *
-
-from base64 import b64encode, b64decode
+from ajenti import apis, plugmgr
 
 
 class Dashboard(CategoryPlugin):
@@ -16,36 +12,19 @@ class Dashboard(CategoryPlugin):
     icon = '/dl/dashboard/icon.png'
     folder = 'top'
 
-    widgets = Interface(IDashboardWidget)
-
     def on_session_start(self):
         self._adding_widget = None
-
-        self._left = []
-        self._right = []
-        self._widgets = {}
-
-        try:
-            self._left = [int(x) for x in self.app.config.get('dashboard', 'left').split(',')]
-            self._right = [int(x) for x in self.app.config.get('dashboard', 'right').split(',')]
-        except:
-            pass
-
-        for x in (self._left + self._right):
-            self._widgets[x] = (
-                self.app.config.get('dashboard', '%i-class'%x),
-                eval(b64decode(self.app.config.get('dashboard', '%i-cfg'%x)))
-            )
+        self._mgr = apis.dashboard.WidgetManager(self.app)
 
     def fill(self, side, lst, ui, tgt):
         for x in lst:
             try:
-                w = self.get_widget(self._widgets[x][0])
+                w = self._mgr.get_widget_object(x)
                 if not w:
                     continue
                 ui.append(tgt,
                     UI.Widget(
-                        w.get_ui(self._widgets[x][1], id=str(x)),
+                        w.get_ui(self._mgr.get_widget_config(x), id=str(x)),
                         pos=side,
                         icon=w.icon,
                         style=w.style,
@@ -58,9 +37,10 @@ class Dashboard(CategoryPlugin):
 
     def get_ui(self):
         ui = self.app.inflate('dashboard:main')
+        self._mgr.refresh()
 
-        self.fill('l', self._left, ui, 'cleft')
-        self.fill('r', self._right, ui, 'cright')
+        self.fill('l', self._mgr.list_left(), ui, 'cleft')
+        self.fill('r', self._mgr.list_right(), ui, 'cright')
 
         ui.insertText('host', platform.node())
         ui.insertText('distro', detect_distro())
@@ -70,6 +50,8 @@ class Dashboard(CategoryPlugin):
             dlg = self.app.inflate('dashboard:add-widget')
             idx = 0
             for prov in sorted(self.app.grab_plugins(IDashboardWidget)):
+                if hasattr(prov, 'hidden'):
+                    continue
                 dlg.append('list', UI.ListItem(
                     UI.Image(file=prov.icon),
                     UI.Label(text=prov.name),
@@ -77,8 +59,10 @@ class Dashboard(CategoryPlugin):
                 ))
                 idx += 1
             ui.append('main', dlg)
+
         elif self._adding_widget != None:
-            ui.append('main', self.get_widget(self._adding_widget).get_config_dialog())
+            ui.append('main', self._mgr.get_by_name(self._adding_widget).get_config_dialog())
+
         else:
             ui.append('main', UI.Refresh(time=5000))
 
@@ -92,43 +76,14 @@ class Dashboard(CategoryPlugin):
 
         return ui
 
-    def add_widget(self, id, cfg):
-        w = self.get_widget(id)
-        idx = 0
-        while idx in self._widgets:
-            idx += 1
-        self._widgets[idx] = (id, cfg)
-        self._left.append(idx)
-        self._adding_widget = None
-        self.save_cfg()
-
-    def save_cfg(self):
-        self.app.config.set('dashboard', 'left', ','.join(str(x) for x in self._left))
-        self.app.config.set('dashboard', 'right', ','.join(str(x) for x in self._right))
-        for x in self._widgets:
-            self.app.config.set('dashboard', '%i-class'%x, self._widgets[x][0])
-            self.app.config.set(
-                'dashboard', '%i-cfg'%x,
-                b64encode(repr(self._widgets[x][1]))
-            )
-        self.app.config.save()
-
-    def get_widget(self, id):
-        try:
-            return self.app.grab_plugins(
-               IDashboardWidget,
-               lambda x:x.plugin_id==id,
-            )[0]
-        except:
-            return None
-
     @event('listitem/click')
     def on_list(self, event, params, vars):
         id = params[0]
-        w = self.get_widget(id)
+        w = self._mgr.get_by_name(id)
         dlg = w.get_config_dialog()
         if dlg is None:
-            self.add_widget(id, None)
+            self._mgr.add_widget(id, None)
+            self._adding_widget = None
         else:
             self._adding_widget = id
 
@@ -141,8 +96,8 @@ class Dashboard(CategoryPlugin):
         try:
             wid = int(params[0])
             params = params[1:]
-            self.get_widget(self._widgets[wid][0]).\
-                handle(event, params, self._widgets[wid][1], vars)
+            self._mgr.get_widget_object(wid).\
+                handle(event, params, self._mgr.get_widget_config(wid), vars)
         except:
             pass
 
@@ -150,39 +105,15 @@ class Dashboard(CategoryPlugin):
     def on_dialog(self, event, params, vars):
         if vars.getvalue('action', None) == 'OK':
             id = self._adding_widget
-            w = self.get_widget(id)
+            w = self._mgr.get_by_name(id)
             cfg = w.process_config(vars)
-            self.add_widget(id, cfg)
-        else:
-            self._adding_widget = None
+            self._mgr.add_widget(id, cfg)
+        self._adding_widget = None
 
     @event('widget/move')
     def on_move(self, event, params, vars=None):
         id = int(params[0])
         if params[1] == 'delete':
-            if id in self._right:
-                self._right.remove(id)
-            else:
-                self._left.remove(id)
-            del self._widgets[id]
-            self.app.config.remove_option('dashboard', '%i-class'%id)
-            self.app.config.remove_option('dashboard', '%i-cfg'%id)
-            self.save_cfg()
-        if params[1] == 'left':
-            self._right.remove(id)
-            self._left.append(id)
-        if params[1] == 'right':
-            self._left.remove(id)
-            self._right.append(id)
-        if params[1] == 'up':
-            a = self._left if id in self._left else self._right
-            idx = a.index(id)
-            if idx > 0:
-                a[idx], a[idx-1] = a[idx-1], a[idx]
-        if params[1] == 'down':
-            a = self._left if id in self._left else self._right
-            idx = a.index(id)
-            if idx < len(a)-1:
-                a[idx], a[idx+1] = a[idx+1], a[idx]
-
-        self.save_cfg()
+            self._mgr.remove_widget(id)
+        else:
+            self._mgr.move_widget(id, params[1])

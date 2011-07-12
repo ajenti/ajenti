@@ -36,6 +36,14 @@ class PluginRequirementError(BaseRequirementError):
         return 'requires plugin %s' % self.name
 
 
+class ModuleRequirementError(BaseRequirementError):
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return 'requires Python module %s' % self.name
+
+
 class SoftwareRequirementError(BaseRequirementError):
     def __init__(self, name, bin):
         self.name = name
@@ -160,6 +168,12 @@ def verify_dep(dep):
         return shell_status('which '+dep[2])==0
     if dep[0] == 'plugin':
         return dep[1] in loaded_plugins
+    if dep[0] == 'module':
+        try:
+            exec('import %s'%dep[1])
+            return True
+        except:
+            return False
 
 def get_plugin_path(app, id):
     if id in loaded_plugins:
@@ -192,6 +206,8 @@ def load_plugin(path, plugin, log, platform):
                         raise PluginRequirementError(req[1])
                     if req[0] == 'app':
                         raise SoftwareRequirementError(*req[1:])
+                    if req[0] == 'module':
+                        raise ModuleRequirementError(*req[1:])
 
         if mod.PLATFORMS != ['any'] and not platform in mod.PLATFORMS:
             raise PlatformRequirementError(mod.PLATFORMS)
@@ -267,6 +283,11 @@ def load_plugins(path, log):
         except SoftwareRequirementError, e:
             if log is not None:
                 log.warn('Plugin %s requires application %s (%s), which is not available.' % (plugin,e.name,e.bin))
+            disabled_plugins[plugin] = e
+            queue.remove(plugin)
+        except ModuleRequirementError, e:
+            if log is not None:
+                log.warn('Plugin %s requires Python module \'%s\', which is not available.' % (plugin,e.name))
             disabled_plugins[plugin] = e
             queue.remove(plugin)
         except PlatformRequirementError, e:

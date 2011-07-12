@@ -6,7 +6,7 @@
 
 
 <xsl:template match="image">
-    <img class="ui-el-image" src="{@file}" />
+    <img class="ui-el-image" src="{@file}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};" />
 </xsl:template>
 
 
@@ -116,4 +116,3 @@
         <img src="/dl/core/ui/help.png"/>
     </div>
 </xsl:template>
-

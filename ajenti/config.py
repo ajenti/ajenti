@@ -97,3 +97,9 @@ class ConfigProxy:
         except:
             pass
         return r
+
+    def remove_option(self, section, val):
+        try:
+            self.cfg.remove_option(section, val)
+        except:
+            return False

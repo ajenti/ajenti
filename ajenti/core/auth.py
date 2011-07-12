@@ -65,14 +65,8 @@ class AuthManager(object):
             return ''
 
         self.user = session['auth.user'] if 'auth.user' in session else None
-        if self.user is not None:
+        if self.user is not None or environ['PATH_INFO'].startswith('/dl'):
             return self._dispatcher(environ, start_response)
-
-        if environ['PATH_INFO'] == '/':
-            templ = self.app.get_template('auth.xml')
-            templ.find('challenge').set('value', challenge)
-            start_response('200 OK', [])
-            return templ.render()
 
         if environ['PATH_INFO'] == '/auth':
             vars = get_environment_vars(environ)
@@ -90,30 +84,7 @@ class AuthManager(object):
             start_response('200 OK', [])
             return 'Login failed'
 
-
-        return self._dispatcher(environ, start_response)
-
-        """
-        if self._enabled:
-            authorized = False
-            # Check auth
-            if 'HTTP_AUTHORIZATION' in environ:
-                (scheme, hash) = environ.get('HTTP_AUTHORIZATION').split()
-                if scheme == 'Basic':
-                    (user, passw) = b64decode(hash).split(':',1)
-                    if self._config.has_option('users', user):
-                        hash_passw = self._config.get('users', user)
-                        if check_password(passw, hash_passw):
-                            authorized = True
-                else:
-                    self._log.debug('Wrong auth scheme "%s"'%scheme)
-            # Request auth
-            if not authorized:
-                start_response('401 Authorization Required',
-                               [('WWW-Authenticate','Basic realm="Ajenti"'),
-                                ('Content-type','text/html')])
-                return [unauthorized_page]
-            environ['HTTP_USER'] = user
-
-        # Dispatch request
-        """
+        templ = self.app.get_template('auth.xml')
+        templ.find('challenge').set('value', challenge)
+        start_response('200 OK', [])
+        return templ.render()
