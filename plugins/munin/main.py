@@ -22,6 +22,11 @@ class MuninPlugin(CategoryPlugin):
     def get_ui(self):
         ui = self.app.inflate('munin:main')
 
+        try:
+            x = self._client.domains
+        except Exception, e:
+            raise ConfigurationError('Cannot reach Munin: ' + str(e))
+
         root = UI.TreeContainer(id='/', text='Hosts')
 
         for d in self._client.domains:

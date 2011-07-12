@@ -5,6 +5,8 @@ from ajenti.com import Plugin
 
 
 class MuninClient (Plugin):
+    icon = '/dl/munin/icon.png'
+
     def __init__(self):
         self.reset()
 
