@@ -24,6 +24,7 @@ class ConfigPlugin(CategoryPlugin):
         ui.find('bind_port').set('value', self.app.gconfig.get('ajenti', 'bind_port'))
         ui.find('ssl').set('checked', self.app.gconfig.get('ajenti', 'ssl')=='1')
         ui.find('cert_file').set('value', self.app.gconfig.get('ajenti', 'cert_file'))
+        ui.find('cert_key').set('value', self.app.gconfig.get('ajenti', 'cert_key'))
 
         # Security
         ui.find('httpauth').set('checked', self.app.gconfig.get('ajenti','auth_enabled')=='1')
@@ -95,6 +96,7 @@ class ConfigPlugin(CategoryPlugin):
                 self.app.gconfig.set('ajenti', 'bind_port', vars.getvalue('bind_port', '8000'))
                 self.app.gconfig.set('ajenti', 'ssl', vars.getvalue('ssl', '0'))
                 self.app.gconfig.set('ajenti', 'cert_file', vars.getvalue('cert_file', ''))
+                self.app.gconfig.set('ajenti', 'cert_key', vars.getvalue('cert_key', ''))
                 self.app.gconfig.save()
         if params[0] == 'frmSecurity':
             self._tab = 1
