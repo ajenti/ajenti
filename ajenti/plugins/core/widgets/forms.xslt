@@ -59,9 +59,9 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
     </script>
 </div>
@@ -87,9 +87,9 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
         $('#<xsl:value-of select="@id"/> input[type!=hidden]')[0].focus();
     </script>
@@ -117,9 +117,9 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
         $('#<xsl:value-of select="@id"/> textarea[type!=hidden]')[0].focus();
     </script>
@@ -146,11 +146,10 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
     </script>
 </div>
 </xsl:template>
-

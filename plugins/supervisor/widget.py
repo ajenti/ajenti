@@ -1,14 +1,15 @@
 from ajenti.ui import *
-from ajenti.utils import *
 from ajenti.plugins.dashboard.api import *
 from ajenti.com import implements, Plugin
-from api import *
+from ajenti.api import *
+
+from client import SVClient
 
 
-class ServiceWidget(Plugin):
+class SVWidget(Plugin):
     implements(IDashboardWidget)
-    icon = '/dl/services/icon.png'
-    name = 'Service control'
+    icon = '/dl/supervisor/icon.png'
+    name = 'Supervisor process'
     title = None
     style = 'linear'
 
@@ -16,12 +17,17 @@ class ServiceWidget(Plugin):
         self.iface = None
 
     def get_ui(self, cfg, id=None):
-        mgr = self.app.get_backend(apis.services.IServiceManager)
-        running = mgr.get_status(cfg) == 'running'
+        mgr = SVClient(self.app)
+        running = False
+
+        for x in mgr.status():
+            if x['name'] == cfg and x['status'] == 'RUNNING':
+                running = True
+
         self.title = cfg
         self.icon = '/dl/core/ui/stock/service-' + ('run.png' if running else 'stop.png')
 
-        ui = self.app.inflate('services:widget')
+        ui = self.app.inflate('supervisor:widget')
         if running:
             ui.remove('start')
             ui.find('stop').set('id', id+'/stop')
@@ -33,7 +39,7 @@ class ServiceWidget(Plugin):
         return ui
 
     def handle(self, event, params, cfg, vars=None):
-        mgr = self.app.get_backend(apis.services.IServiceManager)
+        mgr = SVClient(self.app)
         if params[0] == 'start':
             mgr.start(cfg)
         if params[0] == 'stop':
@@ -42,12 +48,12 @@ class ServiceWidget(Plugin):
             mgr.restart(cfg)
 
     def get_config_dialog(self):
-        mgr = self.app.get_backend(apis.services.IServiceManager)
-        dlg = self.app.inflate('services:widget-config')
-        for s in sorted(mgr.list_all()):
+        mgr = SVClient(self.app)
+        dlg = self.app.inflate('supervisor:widget-config')
+        for s in mgr.status():
             dlg.append('list', UI.SelectOption(
-                value=s.name,
-                text=s.name,
+                value=s['name'],
+                text=s['name'],
             ))
         return dlg
 

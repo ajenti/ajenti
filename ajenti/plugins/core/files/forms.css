@@ -2,7 +2,7 @@
     background: url('/dl/core/ui/blackout.png');
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     z-index: 2;

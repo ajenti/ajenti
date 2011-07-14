@@ -49,7 +49,7 @@ class Dashboard(CategoryPlugin):
         if self._adding_widget == True:
             dlg = self.app.inflate('dashboard:add-widget')
             idx = 0
-            for prov in sorted(self.app.grab_plugins(IDashboardWidget)):
+            for prov in sorted(self.app.grab_plugins(apis.dashboard.IWidget)):
                 if hasattr(prov, 'hidden'):
                     continue
                 dlg.append('list', UI.ListItem(
