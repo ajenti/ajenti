@@ -7,7 +7,7 @@
             <tabheader pid="tabs" text="Configurations" id="2"/>
         </tabheadernode>
         <container id="main">
-        
+
             <tabbody pid="tabs" id="0">
                 <formbox id="frmGeneral">
                     <layouttable>
@@ -43,10 +43,18 @@
                                 <textinput name="cert_file" id="cert_file"/>
                             </layouttablecell>
                         </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="SSL certificate key:"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <textinput name="cert_key" id="cert_key"/>
+                            </layouttablecell>
+                        </layouttablerow>
                     </layouttable>
                 </formbox>
             </tabbody>
-            
+
             <tabbody pid="tabs" id="1">
                 <formbox id="frmSecurity">
                     <checkbox text="Enable HTTP authorization" id="httpauth" name="httpauth" />
@@ -62,7 +70,7 @@
                     <button text="Add account" id="adduser" />
                     <br/>
                 </formbox>
-                
+
                 <dialogbox id="dlgAddUser" title="New account">
                     <layouttable>
                         <layouttablerow>
@@ -84,7 +92,7 @@
                     </layouttable>
                 </dialogbox>
             </tabbody>
-            
+
             <tabbody pid="tabs" id="2">
                     <datatable width="300" id="configs">
                         <datatablerow header="True">
@@ -97,7 +105,7 @@
                         </datatablerow>
                     </datatable>
             </tabbody>
-            
+
         </container>
     </tabcontrol>
     </pad>
