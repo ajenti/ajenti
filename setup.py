@@ -5,7 +5,7 @@ from setuptools import find_packages
 
 setup(
     name='Ajenti',
-    version='0.5-9',
+    version='0.5-10',
     description='The server administration panel',
     author='Eugeny Pankov',
     author_email='e@ajenti.org',

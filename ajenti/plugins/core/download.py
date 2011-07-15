@@ -23,7 +23,7 @@ class Downloader(URLHandler, Plugin):
         params = req['PATH_INFO'].split('/', 2)
         self.log.debug('Dispatching htdocs: %s'%req['PATH_INFO'])
 
-        path = self.config.get('ajenti', 'htdocs')
+        path = self.app.config.get('ajenti', 'htdocs')
         file = os.path.join(path, params[2])
         file = os.path.normpath(os.path.realpath(file))
 

@@ -17,6 +17,9 @@ class Backend(Plugin):
     def list_files(self):
         return [self.config_file]
 
+    def test(self):
+        return os.path.exists(self.config_file)
+
     def get_leases(self):
         if not os.path.exists(self.lease_file):
             return []
@@ -34,6 +37,9 @@ class Backend(Plugin):
 
 
     def get_config(self):
+        if not self.test():
+            return None
+
         r = {
             'dhcp-hosts': [],
             'domains': [],

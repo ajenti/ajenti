@@ -14,16 +14,20 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
     service_name = 'dnsmasq'
 
     def on_init(self):
-        self.backend = Backend(self.app) 
+        self.backend = Backend(self.app)
         self.cfg = self.backend.get_config()
-        
+
     def on_session_start(self):
         self._editing_host = None
         self._editing_domain = None
-        
+
     def get_main_ui(self):
+        if not self.backend.test():
+            self.put_message('err', 'Dnsmasq config not found')
+            return None
+
         ui = self.app.inflate('dnsmasq:main')
-        
+
         for lease in self.backend.get_leases():
             row = UI.DataTableRow(
                 UI.Label(text=lease['mac']),
@@ -54,7 +58,7 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
                 )
             )
             ui.append('hosts', row)
-            
+
         for host in self.cfg['domains']:
             row = UI.DataTableRow(
                 UI.Label(text=host[0]),
@@ -85,13 +89,13 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
             dlg = self.app.inflate('dnsmasq:edit-domain')
             self.setup_domain_dialog(dlg)
             ui.append('main', dlg)
-            
+
         return ui
-   
+
     def setup_host_dialog(self, dlg):
         if self._editing_host == -1:
             return
-            
+
         h = self.cfg['dhcp-hosts'][self._editing_host]
         for x in h['id']:
             if x[0] == 'mac':
@@ -121,11 +125,11 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
     def setup_domain_dialog(self, dlg):
         if self._editing_domain == -1:
             return
-            
+
         x = self.cfg['domains'][self._editing_domain]
         dlg.find('hostname').set('value', x[0])
         dlg.find('addr').set('value', x[1])
-        
+
     @event('button/click')
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
@@ -164,12 +168,12 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
                     x['act'].append(('name', vars.getvalue('act_name_val', None)))
                 if vars.getvalue('time', '') != '':
                     x['act'].append(('time', vars.getvalue('time', None)))
-                
+
                 if self._editing_host != -1:
                     self.cfg['dhcp-hosts'][self._editing_host] = x
                 else:
                     self.cfg['dhcp-hosts'].append(x)
-                    
+
                 self.backend.save_config(self.cfg)
             self._editing_host = None
         if params[0] == 'dlgEditDomain':
@@ -182,7 +186,6 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
                         self.cfg['domains'][self._editing_domain] = x
                     else:
                         self.cfg['domains'].append(x)
-                    
+
                 self.backend.save_config(self.cfg)
             self._editing_domain = None
-            

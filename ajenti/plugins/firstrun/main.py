@@ -12,18 +12,18 @@ class FirstRun(CategoryPlugin, URLHandler):
 
     def on_session_start(self):
         self._step = 1
-        
+
     def get_ui(self):
         ui = self.app.inflate('firstrun:main')
         step = self.app.inflate('firstrun:step%i'%self._step)
         ui.append('content', step)
-        
+
         if self._step == 2:
-            self._mgr = ajenti.plugmgr.PluginManager(self.app.config)        
+            self._mgr = ajenti.plugmgr.PluginManager(self.app.config)
             self._mgr.update_list()
-            
+
             lst = self._mgr.available
-            
+
             for k in lst:
                 row = self.app.inflate('firstrun:item')
                 row.find('name').set('text', k.name)
@@ -32,12 +32,12 @@ class FirstRun(CategoryPlugin, URLHandler):
                 row.find('version').set('text', k.version)
                 row.find('author').set('text', k.author)
                 row.find('author').set('url', k.homepage)
-                    
+
                 reqd = ajenti.plugmgr.get_deps(self.app.platform, k.deps)
 
                 req = 'Requires: '
-                  
-                ready = True      
+
+                ready = True
                 for r in reqd:
                     if ajenti.plugmgr.verify_dep(r):
                         continue
@@ -45,14 +45,14 @@ class FirstRun(CategoryPlugin, URLHandler):
                         req += 'application %s (%s); '%r[1:]
                     if r[0] == 'plugin':
                         req += 'plugin %s; '%r[1]
-                    ready = False    
-                
+                    ready = False
+
                 row.find('check').set('name', 'install-'+k.id)
                 if not ready:
                     row.append('reqs', UI.HelpIcon(text=req))
 
                 ui.append('list', row)
-            
+
         return ui
 
     @event('button/click')
@@ -66,19 +66,19 @@ class FirstRun(CategoryPlugin, URLHandler):
             if login == '' or password == '':
                 self.put_message('err', 'Enter valid login and password')
             else:
-                self.config.remove_option('users', 'admin')
-                self.config.set('users', login, hashpw(password))
-                self.config.save()
+                self.app.config.remove_option('users', 'admin')
+                self.app.config.set('users', login, hashpw(password))
+                self.app.config.save()
                 self._step = 2
         if params[0] == 'frmPlugins':
             lst = self._mgr.available
-            
+
             for k in lst:
                 if vars.getvalue('install-'+k.id, '0') == '1':
                     self._mgr.install(k.id)
             ComponentManager.get().rescan()
-            
-            self.config.set('ajenti', 'firstrun', 'no')
-            self.config.save()
+
+            self.app.config.set('ajenti', 'firstrun', 'no')
+            self.app.config.save()
             self.put_message('info', 'Setup complete')
             self._step = 3

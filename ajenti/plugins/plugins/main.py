@@ -16,10 +16,10 @@ class PluginManager(CategoryPlugin, URLHandler):
         self._tab = 0
         self._mgr = ajenti.plugmgr.PluginManager(self.app.config)
         self._changes = False
-        
+
     def get_ui(self):
         ui = self.app.inflate('plugins:main')
-        
+
         inst = self._mgr.installed
 
         for k in inst:
@@ -32,25 +32,25 @@ class PluginManager(CategoryPlugin, URLHandler):
             row.find('author').set('text', k.author)
             row.find('author').set('url', k.homepage)
             row.append('buttons', UI.WarningMiniButton(
-                        text='Uninstall', 
+                        text='Uninstall',
                         id='remove/'+k.id,
                         msg='Completely remove plugin "%s"'%k.name
                     ))
-                    
+
             if k.problem:
                 row.find('status').set('file', '/dl/plugins/broken.png')
                 row.append('reqs', UI.HelpIcon(text=k.problem))
             else:
                 row.find('status').set('file', '/dl/plugins/good.png')
             ui.append('list', row)
-            
-                
+
+
         lst = self._mgr.available
-        
+
         btn = UI.Button(text='Check for updates', id='update')
         if len(lst) == 0:
             btn['text'] = 'Download plugin list'
-            
+
         for k in lst:
             row = self.app.inflate('plugins:item')
             row.find('name').set('text', k.name)
@@ -59,17 +59,17 @@ class PluginManager(CategoryPlugin, URLHandler):
             row.find('version').set('text', k.version)
             row.find('author').set('text', k.author)
             row.find('author').set('url', k.homepage)
-                    
+
             row.find('status').set('file', '/dl/plugins/none.png')
-            for p in inst: 
+            for p in inst:
                 if k.id == p.id and not p.problem:
                     row.find('status').set('file', '/dl/plugins/upgrade.png')
 
             reqd = ajenti.plugmgr.get_deps(self.app.platform, k.deps)
 
             req = 'Requires: '
-                  
-            ready = True      
+
+            ready = True
             for r in reqd:
                 if ajenti.plugmgr.verify_dep(r):
                     continue
@@ -77,8 +77,10 @@ class PluginManager(CategoryPlugin, URLHandler):
                     req += 'application %s (%s); '%r[1:]
                 if r[0] == 'plugin':
                     req += 'plugin %s; '%r[1]
-                ready = False    
-                    
+                if r[0] == 'module':
+                    req += 'Python module %s; '%r[1]
+                ready = False
+
             url = 'http://%s/view/plugins.php?id=%s' % (
                     self.app.config.get('ajenti', 'update_server'),
                     k.id
@@ -86,7 +88,7 @@ class PluginManager(CategoryPlugin, URLHandler):
 
             if ready:
                 row.append('buttons', UI.WarningMiniButton(
-                        text='Install', 
+                        text='Install',
                         id='install/'+k.id,
                         msg='Download and install plugin "%s"'%k.name
                     ))
@@ -102,7 +104,7 @@ class PluginManager(CategoryPlugin, URLHandler):
             url='/upload_plugin',
             text='Install'
         )
-    
+
     @url('^/upload_plugin$')
     def upload(self, req, sr):
         vars = get_environment_vars(req)
@@ -114,7 +116,7 @@ class PluginManager(CategoryPlugin, URLHandler):
         sr('301 Moved Permanently', [('Location', '/')])
         self._changes = True
         return ''
-        
+
     @event('button/click')
     @event('minibutton/click')
     @event('linklabel/click')
@@ -139,4 +141,3 @@ class PluginManager(CategoryPlugin, URLHandler):
             else:
                 self.put_message('info', 'Plugin installed. Restart Ajenti for changes to take effect.')
                 ComponentManager.get().rescan()
-
