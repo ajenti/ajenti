@@ -86,5 +86,5 @@ class AuthManager(object):
 
         templ = self.app.get_template('auth.xml')
         templ.find('challenge').set('value', challenge)
-        start_response('200 OK', [])
+        start_response('200 OK', [('Content-type','text/html')])
         return templ.render()
