@@ -85,7 +85,7 @@
 </xsl:template>
 
 <xsl:template match="linklabel">
-    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link">
+    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link" style="{x:iif(@bold, 'font-weight: bold;', '')}">
         <xsl:value-of select="@text" />
     </a>
 </xsl:template>

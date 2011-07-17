@@ -10,6 +10,23 @@
 
     <pad>
         <datatable width="100%" id="list">
+            <datatablerow header="True">
+                <datatablecell />
+                <datatablecell />
+                <datatablecell>
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Description" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Version" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Author" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
         </datatable>
     </pad>
 
@@ -17,8 +34,25 @@
 
     <pad>
         <datatable width="100%" id="avail">
+            <datatablerow header="True">
+                <datatablecell />
+                <datatablecell />
+                <datatablecell>
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Description" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Version" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Author" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
         </datatable>
-        
+
         <spacer height="10" />
         <label size="2" text="Upload plugin package" />
         <spacer height="5" />

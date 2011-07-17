@@ -99,7 +99,7 @@ input.ui-el-button {
 }
 
 .ui-el-minibutton {
-    min-width: 40px;
+    min-width: none;
     height: 18px;
     line-height: 18px;
     margin: 1px 3px;

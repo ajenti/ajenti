@@ -1,0 +1,66 @@
+<xml>
+    <dialogbox id="dlgInfo" hidecancel="True">
+        <layouttable>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Name" />
+                </layouttablecell>
+                <layouttablecell>
+                    <label id="name" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="Command" />
+                </layouttablecell>
+                <layouttablecell>
+                    <label id="cmd" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="UID" />
+                </layouttablecell>
+                <layouttablecell>
+                    <label id="uid" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="GID" />
+                </layouttablecell>
+                <layouttablecell>
+                    <label id="gid" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow>
+                <layouttablecell>
+                    <label text="CPU times" />
+                </layouttablecell>
+                <layouttablecell>
+                    <label id="times" />
+                </layouttablecell>
+            </layouttablerow>
+            <layouttablerow id="parentRow">
+                <layouttablecell>
+                    <label text="Parent" />
+                </layouttablecell>
+                <layouttablecell>
+                    <label id="parent" />
+                    <minibutton id="parentinfo" text="Info" />
+                </layouttablecell>
+            </layouttablerow>
+        </layouttable>
+
+        <hcontainer>
+            <minibutton text="Suspend" id="suspend" />
+            <minibutton text="Resume" id="resume" />
+
+            <simpleform id="frmKill">
+                <select id="sigs" name="signal" />
+                <minibutton onclick="form" form="frmKill" action="OK" text="Kill" />
+            </simpleform>
+        </hcontainer>
+
+    </dialogbox>
+</xml>

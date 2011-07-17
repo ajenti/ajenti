@@ -89,6 +89,7 @@ def run_server(log_level=logging.INFO, config_file=''):
     site = server.Site(resource)
     config.set('server', reactor)
 
+    log.info('Starting server')
     if config.getint('ajenti', 'ssl') == 1:
         ssl_context = ssl.DefaultOpenSSLContextFactory(
     	    config.get('ajenti','cert_key'),

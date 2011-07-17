@@ -1,0 +1,33 @@
+<xml>
+    <toolbar spacing="0">
+        <hcontainer id="toolbar">
+            <toolbutton id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+
+    <pad id="main">
+        <datatable id="list" width="100%">
+            <datatablerow header="True">
+                <datatablecell>
+                    <linklabel text="PID" id="sort/pid" />
+                </datatablecell>
+                <datatablecell>
+                    <linklabel text="Running" id="sort/is_running" />
+                </datatablecell>
+                <datatablecell>
+                    <linklabel text="CPU %" id="sort/get_cpu_percent" />
+                </datatablecell>
+                <datatablecell>
+                    <linklabel text="RAM %" id="sort/get_memory_percent" />
+                </datatablecell>
+                <datatablecell>
+                    <linklabel text="UID" id="sort/uid" />
+                </datatablecell>
+                <datatablecell>
+                    <linklabel text="Name" id="sort/name" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+</xml>

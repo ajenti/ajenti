@@ -1,6 +1,5 @@
 from ajenti.utils import *
 from ajenti import version
-from ajenti.plugmgr import loaded_plugins
 from ajenti.ui import UI
 from ajenti.ui.template import BasicTemplate
 
@@ -8,22 +7,22 @@ import platform
 import traceback
 
 
-    
+
 class BackendRequirementError(Exception):
     def __init__(self, interface):
         self.interface = interface
-                  
+
     def __str__(self):
         return 'Backend required: ' + str(self.interface)
 
 class ConfigurationError(Exception):
     def __init__(self, hint):
         self.hint = hint
-                  
+
     def __str__(self):
         return 'Plugin failed to configure: ' + self.hint
 
-               
+
 
 def format_exception(app, err):
     print '\n%s\n' % err
@@ -45,12 +44,13 @@ def format_error(app, ex):
         hint = ex.hint
     else:
         return format_exception(app, traceback.format_exc())
-        
+
     templ.appendChildInto('reason', UI.CustomHTML(html=reason))
     templ.appendChildInto('hint', UI.CustomHTML(html=hint))
     return templ.render()
 
 def make_report(app, err):
+    from ajenti.plugmgr import loaded_plugins
     pr = ''
     for p in sorted(loaded_plugins):
         pr += p + '\n'
@@ -76,4 +76,3 @@ def make_report(app, err):
                pr,
                app.log.blackbox.buffer,
               ))
-              

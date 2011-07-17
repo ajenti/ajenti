@@ -81,6 +81,7 @@
 .ui-el-mainwindow-bottom {
     width: 100%;
     height: 30px;
+    padding-top: 5px;
     position: absolute;
     bottom: 0;
 
@@ -119,14 +120,12 @@
 .ui-el-bottombar-l {
     float: left;
     height: 30px;
-    line-height: 28px;
     margin-left: 18px;
 }
 
 .ui-el-bottombar-r {
     float: right;
     height: 30px;
-    line-height: 28px;
     margin-right: 18px;
 }
 

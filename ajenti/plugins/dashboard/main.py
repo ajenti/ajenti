@@ -103,6 +103,8 @@ class Dashboard(CategoryPlugin):
 
     @event('dialog/submit')
     def on_dialog(self, event, params, vars):
+        if params[0] != 'dlgWidgetConfig':
+            return
         if vars.getvalue('action', None) == 'OK':
             id = self._adding_widget
             w = self._mgr.get_by_name(id)
