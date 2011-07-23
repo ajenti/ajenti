@@ -9,7 +9,7 @@ from twisted.web.wsgi import WSGIResource
 from ajenti.api import ComponentManager
 from ajenti.config import Config
 from ajenti.core import Application, AppDispatcher
-from ajenti.plugmgr import load_plugins
+from ajenti.plugmgr import PluginLoader
 from ajenti import version
 import ajenti.utils
 
@@ -68,12 +68,17 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     log.blackbox.start()
 
-    # Load external plugins
-    load_plugins(config.get('ajenti', 'plugins'), log)
+    platform = ajenti.utils.detect_platform()
+    log.info('Detected platform: %s'%platform)
 
+    # Load external plugins
+    PluginLoader.initialize(log, config.get('ajenti', 'plugins'), platform)
+    PluginLoader.load_plugins()
 
     # Start components
-    ComponentManager.create(Application(config))
+    app = Application(config)
+    PluginLoader.register_mgr(app) # Register permanent app
+    ComponentManager.create(app)
 
     # Start server
     host = config.get('ajenti','bind_host')

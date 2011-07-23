@@ -53,7 +53,178 @@ class SoftwareRequirementError(BaseRequirementError):
         return 'requires application %s (%s)' % (self.name, self.bin)
 
 
-class PluginManager:
+class PluginLoader:
+    __classes = {}
+    __plugins = {}
+    __submods = {}
+    __managers = []
+    platform = None
+    log = None
+    path = None
+
+    @staticmethod
+    def initialize(log, path, platform):
+        PluginLoader.log = log
+        PluginLoader.path = path
+        PluginLoader.platform = platform
+
+    @staticmethod
+    def list_plugins():
+        return PluginLoader.__plugins
+
+    @staticmethod
+    def register_mgr(mgr):
+        PluginLoader.__managers.append(mgr)
+
+    @staticmethod
+    def load_plugin(plugin):
+        log = PluginLoader.log
+        path = PluginLoader.path
+        platform = PluginLoader.platform
+
+        log.debug('Loading plugin %s' % plugin)
+        try:
+            mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
+        except:
+            log.warn(' *** Plugin not loadable: ' + plugin)
+            return
+
+        try:
+            # Save info
+            info = PluginInfo()
+            info.id = plugin
+            info.icon = '/dl/%s/icon.png'%plugin
+            info.name, info.desc, info.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
+            info.author, info.homepage = mod.AUTHOR, mod.HOMEPAGE
+            info.deps = []
+            info.problem = None
+            info.installed = True
+            info.descriptor = mod
+
+            PluginLoader.__plugins[plugin] = info
+
+            # Verify platform
+            if mod.PLATFORMS != ['any'] and not platform in mod.PLATFORMS:
+                raise PlatformRequirementError(mod.PLATFORMS)
+
+            # Verify dependencies
+            if hasattr(mod, 'DEPS'):
+                deps = []
+                for k in mod.DEPS:
+                    if platform.lower() in k[0] or 'any' in k[0]:
+                        deps = k[1]
+                info.deps = deps
+                for req in deps:
+                    PluginLoader.verify_dep(req)
+
+            PluginLoader.__classes[plugin] = []
+            PluginLoader.__submods[plugin] = {}
+
+            # Load submodules
+            for submod in mod.MODULES:
+                try:
+                    log.debug('  -> %s' % submod)
+                    PluginManager.start_tracking()
+                    m = imp.load_module(plugin + '.' + submod, *imp.find_module(submod, mod.__path__))
+                    classes = PluginManager.stop_tracking()
+                    # Record new Plugin subclasses
+                    PluginLoader.__classes[plugin] += classes
+                    # Store submodule
+                    PluginLoader.__submods[plugin][submod] = m
+                    setattr(mod, submod, m)
+                except Exception, e:
+                    del mod
+                    raise
+
+            # Store the whole plugin
+            setattr(ajenti.plugins, plugin, mod)
+        except BaseRequirementError, e:
+            info.problem = e
+            raise e
+        except Exception, e:
+            log.warn(' *** Plugin loading failed: %s' % str(e))
+            print traceback.format_exc()
+            PluginLoader.unload(plugin)
+            info.problem = e
+            raise e
+
+    @staticmethod
+    def load_plugins():
+        log = PluginLoader.log
+        path = PluginLoader.path
+
+        plugs = [plug for plug in os.listdir(path) if not plug.startswith('.')]
+        plugs = [plug[:-3] if plug.endswith('.py') else plug for plug in plugs]
+        plugs = list(set(plugs)) # Leave just unique items
+
+        queue = plugs
+        retries = {}
+
+        while len(queue) > 0:
+            plugin = queue[-1]
+            if not plugin in retries:
+                retries[plugin] = 0
+
+            try:
+                PluginLoader.load_plugin(plugin)
+                queue.remove(plugin)
+            except PluginRequirementError, e:
+                retries[plugin] += 1
+                if retries[plugin] > RETRY_LIMIT:
+                    log.error('Circular dependency between %s and %s. Aborting' % (plugin,e.name))
+                    sys.exit(1)
+                try:
+                    queue.remove(e.name)
+                    queue.append(e.name)
+                    if e.name in disabled_plugins:
+                        raise e
+                except:
+                    log.warn('Plugin %s requires plugin %s, which is not available.' % (plugin,e.name))
+                    disabled_plugins[plugin] = e
+                    queue.remove(plugin)
+            except BaseRequirementError, e:
+                log.warn('Plugin %s %s' % (plugin,str(e)))
+                queue.remove(plugin)
+            except Exception, e:
+                queue.remove(plugin)
+                raise
+        log.info('Plugins loaded.')
+
+    @staticmethod
+    def unload(plugin):
+        for cls in PluginLoader.__classes[plugin]:
+            for m in PluginLoader.__managers:
+                i = m.instance_get(cls)
+                if i is not None:
+                    i.unload()
+            PluginManager.class_unregister(cls)
+        del PluginLoader.__plugins[plugin]
+        del PluginLoader.__submods[plugin]
+        del PluginLoader.__classes[plugin]
+
+    @staticmethod
+    def verify_dep(dep):
+        if dep[0] == 'app':
+            if shell_status('which '+dep[2]) != 0:
+                raise SoftwareRequirementError(*dep[1:])
+        if dep[0] == 'plugin':
+            if not dep[1] in PluginLoader.list_plugins():
+                raise PluginRequirementError(*dep[1:])
+        if dep[0] == 'module':
+            try:
+                exec('import %s'%dep[1])
+            except:
+                raise ModuleRequirementError(*dep[1:])
+
+    @staticmethod
+    def get_plugin_path(app, id):
+        if id in PluginLoader.list_plugins():
+            return app.config.get('ajenti', 'plugins')
+        else:
+            return os.path.join(os.path.split(__file__)[0], 'plugins') # ./plugins
+
+
+class RepositoryManager:
     def __init__(self, cfg):
         self.config = cfg
         self.server = cfg.get('ajenti', 'update_server')
@@ -86,7 +257,7 @@ class PluginManager:
             self.available.append(i)
 
     def update_installed(self):
-        self.installed = sorted(plugin_info.values(), key=lambda x:x.name)
+        self.installed = sorted(PluginLoader.list_plugins().values(), key=lambda x:x.name)
 
     def update_upgradable(self):
         for p in self.available:
@@ -142,8 +313,10 @@ class PluginManager:
 
         send_stats(self.server, addplugin=id)
         try:
+            if id in PluginLoader.list_plugins():
+                PluginLoader.unload(id)
             if load:
-                load_plugin(self.config.get('ajenti', 'plugins'), id, None, detect_platform())
+                PluginLoad.load_plugin(id)
         except:
             pass
 
@@ -155,148 +328,3 @@ class PluginManager:
 class PluginInfo:
     def __init__(self):
         self.upgradable = False
-
-
-def get_deps(platform, dep):
-    for k in dep:
-        if platform.lower() in k[0] or 'any' in k[0]:
-            return k[1]
-    return []
-
-def verify_dep(dep):
-    if dep[0] == 'app':
-        return shell_status('which '+dep[2])==0
-    if dep[0] == 'plugin':
-        return dep[1] in loaded_plugins
-    if dep[0] == 'module':
-        try:
-            exec('import %s'%dep[1])
-            return True
-        except:
-            return False
-
-def get_plugin_path(app, id):
-    if id in loaded_plugins:
-        return app.config.get('ajenti', 'plugins')
-    else:
-        return os.path.join(os.path.split(__file__)[0], 'plugins') # ./plugins
-
-def load_plugin(path, plugin, log, platform):
-    try:
-        if log is not None:
-            log.debug('Loading plugin %s' % plugin)
-        mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
-        loaded_mods[plugin] = mod
-
-        # Save info
-        i = PluginInfo()
-        i.id = plugin
-        i.icon = '/dl/%s/icon.png'%plugin
-        i.name, i.desc, i.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
-        i.author, i.homepage = mod.AUTHOR, mod.HOMEPAGE
-        i.problem = None
-        i.installed = True
-        plugin_info[plugin] = i
-
-        # Verify dependencies
-        if hasattr(mod, 'DEPS'):
-            for req in get_deps(platform, mod.DEPS):
-                if not verify_dep(req):
-                    if req[0] == 'plugin':
-                        raise PluginRequirementError(req[1])
-                    if req[0] == 'app':
-                        raise SoftwareRequirementError(*req[1:])
-                    if req[0] == 'module':
-                        raise ModuleRequirementError(*req[1:])
-
-        if mod.PLATFORMS != ['any'] and not platform in mod.PLATFORMS:
-            raise PlatformRequirementError(mod.PLATFORMS)
-
-
-        # Load submodules
-        if not hasattr(mod, 'MODULES'):
-            if log is not None:
-                log.error('Plugin %s doesn\'t have correct metainfo. Aborting' % plugin)
-            sys.exit(1)
-        for submod in mod.MODULES:
-            description = imp.find_module(submod, mod.__path__)
-            try:
-                m = imp.load_module(plugin + '.' + submod, *description)
-                setattr(mod, submod, m) # store the submodule
-                if log is not None:
-                    log.debug('Loaded submodule %s.%s' % (plugin,submod))
-            except Exception, e:
-                print traceback.format_exc()
-                if log is not None:
-                    log.warn('Skipping submodule %s.%s (%s)'%(plugin,submod,str(e)))
-
-        loaded_plugins.append(plugin)
-    except BaseRequirementError, e:
-        plugin_info[plugin].problem = e
-        raise e
-    except Exception, e:
-        plugin_info[plugin].problem = e
-        disabled_plugins[plugin] = e
-        if log is not None:
-            log.warn('Plugin %s disabled (%s)' % (plugin, str(e)))
-        print traceback.format_exc()
-        raise e
-
-def load_plugins(path, log):
-    global loaded_plugins
-    global platform
-
-    plugs = [plug for plug in os.listdir(path) if not plug.startswith('.')]
-    plugs = [plug[:-3] if plug.endswith('.py') else plug for plug in plugs]
-    plugs = list(set(plugs)) # Leave just unique items
-
-    queue = plugs
-    retries = {}
-    platform = detect_platform()
-    if log is not None:
-        log.info('Detected platform: %s'%platform)
-
-    while len(queue) > 0:
-        plugin = queue[-1]
-        if not plugin in retries:
-            retries[plugin] = 0
-
-        try:
-            load_plugin(path, plugin, log, platform)
-            queue.remove(plugin)
-        except PluginRequirementError, e:
-            retries[plugin] += 1
-            if retries[plugin] > RETRY_LIMIT:
-                if log is not None:
-                    log.error('Circular dependency between %s and %s. Aborting' % (plugin,e.name))
-                sys.exit(1)
-            try:
-                queue.remove(e.name)
-                queue.append(e.name)
-                if e.name in disabled_plugins:
-                    raise e
-            except:
-                if log is not None:
-                    log.warn('Plugin %s requires plugin %s, which is not available.' % (plugin,e.name))
-                disabled_plugins[plugin] = e
-                queue.remove(plugin)
-        except SoftwareRequirementError, e:
-            if log is not None:
-                log.warn('Plugin %s requires application %s (%s), which is not available.' % (plugin,e.name,e.bin))
-            disabled_plugins[plugin] = e
-            queue.remove(plugin)
-        except ModuleRequirementError, e:
-            if log is not None:
-                log.warn('Plugin %s requires Python module \'%s\', which is not available.' % (plugin,e.name))
-            disabled_plugins[plugin] = e
-            queue.remove(plugin)
-        except PlatformRequirementError, e:
-            if log is not None:
-                log.warn('Plugin %s requires platforms %s, but %s was detected.' % (plugin,e.lst,platform))
-            disabled_plugins[plugin] = e
-            queue.remove(plugin)
-        except Exception, e:
-            queue.remove(plugin)
-
-    if log is not None:
-        log.info('Plugins loaded.')

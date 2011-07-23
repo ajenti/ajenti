@@ -3,8 +3,7 @@ from ajenti import version
 from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import *
-
-import ajenti.plugmgr
+from ajenti.plugmgr import PluginLoader, RepositoryManager
 
 
 class PluginManager(CategoryPlugin, URLHandler):
@@ -13,8 +12,7 @@ class PluginManager(CategoryPlugin, URLHandler):
     folder = 'bottom'
 
     def on_session_start(self):
-        self._tab = 0
-        self._mgr = ajenti.plugmgr.PluginManager(self.app.config)
+        self._mgr = RepositoryManager(self.app.config)
         self._changes = False
 
     def get_ui(self):
@@ -35,6 +33,10 @@ class PluginManager(CategoryPlugin, URLHandler):
                         text='Uninstall',
                         id='remove/'+k.id,
                         msg='Completely remove plugin "%s"'%k.name
+                    ))
+            row.append('buttons', UI.MiniButton(
+                        text='Reload',
+                        id='reload/'+k.id,
                     ))
 
             if k.problem:
@@ -65,21 +67,15 @@ class PluginManager(CategoryPlugin, URLHandler):
                 if k.id == p.id and not p.problem:
                     row.find('status').set('file', '/dl/plugins/upgrade.png')
 
-            reqd = ajenti.plugmgr.get_deps(self.app.platform, k.deps)
-
-            req = 'Requires: '
-
+            reqs = []
             ready = True
-            for r in reqd:
-                if ajenti.plugmgr.verify_dep(r):
-                    continue
-                if r[0] == 'app':
-                    req += 'application %s (%s); '%r[1:]
-                if r[0] == 'plugin':
-                    req += 'plugin %s; '%r[1]
-                if r[0] == 'module':
-                    req += 'Python module %s; '%r[1]
-                ready = False
+            for r in k.deps:
+                try:
+                    PluginLoader.verify_dep(r)
+                except Exception, e:
+                    reqs.append(str(e))
+                    ready = False
+            req = ', '.join(reqs)
 
             url = 'http://%s/view/plugins.php?id=%s' % (
                     self.app.config.get('ajenti', 'update_server'),
@@ -122,18 +118,18 @@ class PluginManager(CategoryPlugin, URLHandler):
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'update':
-            self._tab = 1
             self._mgr.update_list()
             self.put_message('info', 'Plugin list updated')
         if params[0] == 'remove':
-            self._tab = 0
             self._mgr.remove(params[1])
             self._changes = True
             self.put_message('warn', 'Plugin removed. Restart Ajenti for changes to take effect.')
+        if params[0] == 'reload':
+            PluginLoader.unload(params[1])
+            self._mgr.remove(params[1])
         if params[0] == 'restart':
             self.app.restart()
         if params[0] == 'install':
-            self._tab = 0
             upgr = params[1] in self._mgr.installed
             self._mgr.install(params[1], load=not upgr)
             if upgr:

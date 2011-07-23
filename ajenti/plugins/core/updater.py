@@ -1,5 +1,5 @@
 from ajenti.api import *
-from ajenti import plugmgr
+from ajenti.plugmgr import RepositoryManager
 
 import time
 import feedparser
@@ -17,11 +17,11 @@ class Updater (Component):
     def get_feed(self): return self.feed
 
     def run(self):
-        pm = plugmgr.PluginManager(self.app.config)
+        rm = RepositoryManager(self.app.config)
 
         while True:
             try:
-                pm.update_list()
+                rm.update_list()
                 self.feed = feedparser.parse(FEED_URL)
             except:
                 pass

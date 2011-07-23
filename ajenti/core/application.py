@@ -9,7 +9,7 @@ from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.utils import *
 from ajenti.ui import *
-from ajenti.plugmgr import loaded_plugins, get_plugin_path
+from ajenti.plugmgr import PluginLoader
 import ajenti.ui.xslt as xslt
 
 
@@ -42,11 +42,11 @@ class Application (PluginManager, Plugin):
 
         # Get path for static content and templates
         plugins = []
-        plugins.extend(loaded_plugins)
+        plugins.extend(PluginLoader.list_plugins().keys())
         plugins.extend(ajenti.plugins.plist)
 
         for c in plugins:
-            path = os.path.join(get_plugin_path(self, c), c)
+            path = os.path.join(PluginLoader.get_plugin_path(self, c), c)
 
             fp = os.path.join(path, 'files')
             if os.path.exists(fp):

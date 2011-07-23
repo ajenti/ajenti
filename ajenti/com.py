@@ -73,6 +73,7 @@ class PluginManager (object):
     # Class-wide properties
     __classes = []
     __plugins = {}
+    __tracking = False
 
     def __init__(self):
         self.__instances = {}
@@ -80,6 +81,15 @@ class PluginManager (object):
     @staticmethod
     def class_register (cls):
         PluginManager.__classes.append(cls)
+        if PluginManager.__tracking:
+            PluginManager.__tracker.append(cls)
+
+    @staticmethod
+    def class_unregister (cls):
+        PluginManager.__classes.remove(cls)
+        for lst in PluginManager.__plugins.values():
+            if cls in lst:
+                lst.remove(cls)
 
     @staticmethod
     def class_list ():
@@ -101,6 +111,16 @@ class PluginManager (object):
     def plugin_get (iface):
         return PluginManager.__plugins.get(iface, [])
 
+    @staticmethod
+    def start_tracking():
+        PluginManager.__tracking = True
+        PluginManager.__tracker = []
+
+    @staticmethod
+    def stop_tracking():
+        PluginManager.__tracking = False
+        return PluginManager.__tracker
+
     def instance_get(self, cls, instantiate=False):
         if not self.plugin_enabled(cls):
             return None
@@ -113,10 +133,11 @@ class PluginManager (object):
             except TypeError, e:
                 print traceback.format_exc()
                 raise Exception('Unable instantiate plugin %r (%s)'%(cls, e))
-                
+
         return inst
 
     def instance_set(self, cls, inst):
+        print 'inst_set', cls, inst
         self.__instances[cls] = inst
 
     def instance_list(self):
@@ -218,8 +239,8 @@ class Plugin (object):
     multi_instance = False
 
     platform = ['any']
-    
-    
+
+
     def __new__(cls, *args, **kwargs):
         """ Returns a class instance,
         If it already instantiated, return it
@@ -245,4 +266,6 @@ class Plugin (object):
             plugin_manager.plugin_activated(self)
 
         return self
-        
+
+    def unload(self):
+        pass
