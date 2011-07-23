@@ -13,7 +13,6 @@ class PluginManager(CategoryPlugin, URLHandler):
 
     def on_session_start(self):
         self._mgr = RepositoryManager(self.app.config)
-        self._changes = False
 
     def get_ui(self):
         ui = self.app.inflate('plugins:main')
@@ -67,22 +66,14 @@ class PluginManager(CategoryPlugin, URLHandler):
                 if k.id == p.id and not p.problem:
                     row.find('status').set('file', '/dl/plugins/upgrade.png')
 
-            reqs = []
-            ready = True
-            for r in k.deps:
-                try:
-                    PluginLoader.verify_dep(r)
-                except Exception, e:
-                    reqs.append(str(e))
-                    ready = False
-            req = ', '.join(reqs)
+            reqs = k.str_req()
 
             url = 'http://%s/view/plugins.php?id=%s' % (
                     self.app.config.get('ajenti', 'update_server'),
                     k.id
                    )
 
-            if ready:
+            if reqs == '':
                 row.append('buttons', UI.WarningMiniButton(
                         text='Install',
                         id='install/'+k.id,
@@ -110,7 +101,6 @@ class PluginManager(CategoryPlugin, URLHandler):
         except:
             pass
         sr('301 Moved Permanently', [('Location', '/')])
-        self._changes = True
         return ''
 
     @event('button/click')
@@ -122,18 +112,13 @@ class PluginManager(CategoryPlugin, URLHandler):
             self.put_message('info', 'Plugin list updated')
         if params[0] == 'remove':
             self._mgr.remove(params[1])
-            self._changes = True
-            self.put_message('warn', 'Plugin removed. Restart Ajenti for changes to take effect.')
+            self.put_message('info', 'Plugin removed. Refresh page for changes to take effect.')
         if params[0] == 'reload':
             PluginLoader.unload(params[1])
-            self._mgr.remove(params[1])
+            PluginLoader.load(params[1])
         if params[0] == 'restart':
             self.app.restart()
         if params[0] == 'install':
-            upgr = params[1] in self._mgr.installed
-            self._mgr.install(params[1], load=not upgr)
-            if upgr:
-                self.put_message('warn', 'Plugin upgraded. Restart Ajenti for changes to take effect.')
-            else:
-                self.put_message('info', 'Plugin installed. Restart Ajenti for changes to take effect.')
-                ComponentManager.get().rescan()
+            self._mgr.install(params[1], load=True)
+            self.put_message('info', 'Plugin installed. Refresh page for changes to take effect.')
+            ComponentManager.get().rescan()

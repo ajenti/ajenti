@@ -3,7 +3,7 @@ from ajenti import version
 from ajenti.com import *
 from ajenti.ui import *
 from ajenti.utils import *
-
+from ajenti.plugmgr import RepositoryManager
 
 class FirstRun(CategoryPlugin, URLHandler):
     text = 'First run wizard'
@@ -19,7 +19,7 @@ class FirstRun(CategoryPlugin, URLHandler):
         ui.append('content', step)
 
         if self._step == 2:
-            self._mgr = ajenti.plugmgr.PluginManager(self.app.config)
+            self._mgr = RepositoryManager(self.app.config)
             self._mgr.update_list()
 
             lst = self._mgr.available
@@ -33,22 +33,10 @@ class FirstRun(CategoryPlugin, URLHandler):
                 row.find('author').set('text', k.author)
                 row.find('author').set('url', k.homepage)
 
-                reqd = ajenti.plugmgr.get_deps(self.app.platform, k.deps)
-
-                req = 'Requires: '
-
-                ready = True
-                for r in reqd:
-                    if ajenti.plugmgr.verify_dep(r):
-                        continue
-                    if r[0] == 'app':
-                        req += 'application %s (%s); '%r[1:]
-                    if r[0] == 'plugin':
-                        req += 'plugin %s; '%r[1]
-                    ready = False
+                req = k.str_req()
 
                 row.find('check').set('name', 'install-'+k.id)
-                if not ready:
+                if req != '':
                     row.append('reqs', UI.HelpIcon(text=req))
 
                 ui.append('list', row)

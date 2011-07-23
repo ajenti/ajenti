@@ -9,11 +9,6 @@ from ajenti.feedback import *
 from ajenti import generation
 
 RETRY_LIMIT = 10
-loaded_plugins = []
-plugin_info = {}
-loaded_mods = {}
-disabled_plugins = {}
-platform = None
 
 
 class BaseRequirementError(Exception):
@@ -77,7 +72,7 @@ class PluginLoader:
         PluginLoader.__managers.append(mgr)
 
     @staticmethod
-    def load_plugin(plugin):
+    def load(plugin):
         log = PluginLoader.log
         path = PluginLoader.path
         platform = PluginLoader.platform
@@ -166,7 +161,7 @@ class PluginLoader:
                 retries[plugin] = 0
 
             try:
-                PluginLoader.load_plugin(plugin)
+                PluginLoader.load(plugin)
                 queue.remove(plugin)
             except PluginRequirementError, e:
                 retries[plugin] += 1
@@ -176,11 +171,10 @@ class PluginLoader:
                 try:
                     queue.remove(e.name)
                     queue.append(e.name)
-                    if e.name in disabled_plugins:
+                    if PluginLoader.__plugins[e.name].problem is not None:
                         raise e
                 except:
                     log.warn('Plugin %s requires plugin %s, which is not available.' % (plugin,e.name))
-                    disabled_plugins[plugin] = e
                     queue.remove(plugin)
             except BaseRequirementError, e:
                 log.warn('Plugin %s %s' % (plugin,str(e)))
@@ -272,7 +266,7 @@ class RepositoryManager:
     def update_list(self):
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
-        send_stats(self.server)
+        send_stats(self.server, PluginLoader.list_plugins().keys())
         data = download('http://%s/api/plugins?pl=%s&gen=%s' % (self.server,detect_platform(),generation))
         try:
             open('/var/lib/ajenti/plugins.list', 'w').write(data)
@@ -284,18 +278,22 @@ class RepositoryManager:
 
     def remove(self, id):
         dir = self.config.get('ajenti', 'plugins')
-        send_stats(self.server, delplugin=id)
+        send_stats(self.server, PluginLoader.list_plugins().keys(), delplugin=id)
         shell('rm -r %s/%s' % (dir, id))
-        # TODO: unload stuff
+
+        if id in PluginLoader.list_plugins():
+            PluginLoader.unload(id)
+
         self.update_installed()
         self.update_available()
 
     def install(self, id, load=True):
         dir = self.config.get('ajenti', 'plugins')
-        self.remove(id)
 
         download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id),
             file='%s/plugin.tar.gz'%dir, crit=True)
+
+        self.remove(id)
         self.install_tar(load=load)
 
     def install_stream(self, stream):
@@ -311,14 +309,10 @@ class RepositoryManager:
         shell('cd %s; tar -xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
 
-        send_stats(self.server, addplugin=id)
-        try:
-            if id in PluginLoader.list_plugins():
-                PluginLoader.unload(id)
-            if load:
-                PluginLoad.load_plugin(id)
-        except:
-            pass
+        send_stats(self.server, PluginLoader.list_plugins().keys(), addplugin=id)
+
+        if load:
+            PluginLoad.load(id)
 
         self.update_installed()
         self.update_available()
@@ -328,3 +322,14 @@ class RepositoryManager:
 class PluginInfo:
     def __init__(self):
         self.upgradable = False
+        self.problem = None
+        self.deps = []
+
+    def str_req(self):
+        reqs = []
+        for r in self.deps:
+            try:
+                PluginLoader.verify_dep(r)
+            except Exception, e:
+                reqs.append(str(e))
+        return ', '.join(reqs)

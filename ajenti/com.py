@@ -137,7 +137,6 @@ class PluginManager (object):
         return inst
 
     def instance_set(self, cls, inst):
-        print 'inst_set', cls, inst
         self.__instances[cls] = inst
 
     def instance_list(self):

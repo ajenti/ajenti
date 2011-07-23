@@ -50,9 +50,9 @@ def format_error(app, ex):
     return templ.render()
 
 def make_report(app, err):
-    from ajenti.plugmgr import loaded_plugins
+    from ajenti.plugmgr import PluginLoader
     pr = ''
-    for p in sorted(loaded_plugins):
+    for p in sorted(PluginLoader.list_plugins().keys()):
         pr += p + '\n'
 
     return (('Ajenti %s bug report\n' +

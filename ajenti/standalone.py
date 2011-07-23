@@ -30,24 +30,28 @@ class DebugHandler (logging.StreamHandler):
         if self.capturing:
             self.buffer += self.formatter.format(record) + '\n'
 
-
-def run_server(log_level=logging.INFO, config_file=''):
-    # Initialize logging subsystem
+def make_log(debug=False, log_level=logging.INFO):
     log = logging.getLogger('ajenti')
     log.setLevel(logging.DEBUG)
 
     stdout = logging.StreamHandler(sys.stdout)
     stdout.setLevel(log_level)
-    log.blackbox = DebugHandler()
-    log.blackbox.setLevel(logging.DEBUG)
 
     dformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
     sformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
     stdout.setFormatter(dformatter if log_level == logging.DEBUG else sformatter)
-    log.blackbox.setFormatter(dformatter)
-
-    log.addHandler(log.blackbox)
     log.addHandler(stdout)
+
+    if debug:
+        log.blackbox = DebugHandler()
+        log.blackbox.setLevel(logging.DEBUG)
+        log.blackbox.setFormatter(dformatter)
+        log.addHandler(log.blackbox)
+
+    return log
+
+def run_server(log_level=logging.INFO, config_file=''):
+    log = make_log(debug=True, log_level=log_level)
 
     # For the debugging purposes
     log.info('Ajenti %s' % version())

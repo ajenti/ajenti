@@ -8,7 +8,7 @@
 
     <label size="5" text="Installed" />
 
-    <pad>
+    <pad id="main">
         <datatable width="100%" id="list">
             <datatablerow header="True">
                 <datatablecell />

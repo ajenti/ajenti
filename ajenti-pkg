@@ -1,26 +1,34 @@
 #!/usr/bin/env python
 
-from ajenti import plugmgr
-
 import os
 import sys
 import logging
 from ajenti.config import Config
+from ajenti.standalone import make_log
+from ajenti.plugmgr import PluginLoader, RepositoryManager
+from ajenti.utils import detect_platform
 
 def main():
+    if len(sys.argv) < 2:
+        print 'Specify command'
+        sys.exit(1)
+
     if os.path.isfile('/etc/ajenti/ajenti.conf'):
         config_file = '/etc/ajenti/ajenti.conf'
     elif os.path.isfile(os.path.join(sys.path[0], 'ajenti.conf')):
         config_file = os.path.join(sys.path[0], 'ajenti.conf')
-    
+
+    log = make_log(debug=False)
+
     print 'Loading plugins'
 
     config = Config()
     config.load(config_file)
-    plugmgr.load_plugins(config.get('ajenti', 'plugins'), None)
-    
-    mgr = plugmgr.PluginManager(config)
-    
+    PluginLoader.initialize(log, config.get('ajenti', 'plugins'), detect_platform())
+    PluginLoader.load_plugins()
+
+    mgr = RepositoryManager(config)
+
     if sys.argv[1] == 'list':
         for i in mgr.installed:
             print_one(i)
@@ -51,13 +59,14 @@ def main():
                     print 'Downloading', pkg.id
                     mgr.install(pkg.id)
         print 'Done'
-        
+
 def print_one(i):
-    st = 'i ' if i.installed else ' .'
-    if i.problem: 
-        st = ' X'
+    st = 'i..' if i.installed else '...'
+    if i.problem:
+        st = '..X'
     print ' %s\t%s\t%s' % (st, i.version, i.id)
     if i.problem:
-        print '\t\t\t' + i.problem
-            
+        print '\t\t\t\t' + str(i.problem)
+
+
 main()
