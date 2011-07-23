@@ -39,10 +39,10 @@ class TaskManagerPlugin(CategoryPlugin):
         for x in l:
             try:
                 ui.append('list', UI.DataTableRow(
+                    UI.Image(file='/dl/core/ui/stock/service-%s.png'%('run' if x.is_running() else 'stop')),
                     UI.Label(text=str(x.pid)),
-                    UI.Label(text='Yes' if x.is_running() else 'No'),
-                    UI.Label(text=str(int(x.get_cpu_percent()*100))),
-                    UI.Label(text=str(int(x.get_memory_percent()*100))),
+                    UI.Label(text=str(int(x.get_cpu_percent()))),
+                    UI.Label(text=str(int(x.get_memory_percent()))),
                     UI.Label(text=pwd.getpwuid(x.uid)[0]),
                     UI.Label(text=x.name),
                     UI.MiniButton(
@@ -61,6 +61,7 @@ class TaskManagerPlugin(CategoryPlugin):
                 p = filter(lambda x:x.pid==self._info, l)[0]
                 iui = self.app.inflate('taskmgr:info')
                 iui.find('name').set('text', '%i / %s'%(p.pid,p.name))
+                iui.find('cmd').set('text', ' '.join("'%s'"%x for x in p.cmdline))
                 iui.find('uid').set('text', '%s (%s)'%(p.username,p.uid))
                 iui.find('gid').set('text', str(p.gid))
                 iui.find('times').set('text', ' / '.join(str(x) for x in p.get_cpu_times()))
@@ -69,10 +70,6 @@ class TaskManagerPlugin(CategoryPlugin):
                     iui.find('parentinfo').set('id', 'info/%i'%p.parent.pid)
                 else:
                     iui.remove('parentRow')
-                if p.is_running:
-                    iui.remove('resume')
-                else:
-                    iui.remove('suspend')
 
                 sigs = [
                     (x, getattr(signal, x))
@@ -86,7 +83,7 @@ class TaskManagerPlugin(CategoryPlugin):
                     ))
                 ui.append('main', iui)
             except:
-                raise
+                pass
 
         return ui
 
@@ -120,7 +117,8 @@ class TaskManagerPlugin(CategoryPlugin):
         if params[0] == 'frmKill':
             self._info = None
             try:
-                os.kill(self._info, int(vars.getvalue('signal', None)))
+                x = filter(lambda p:p.pid==self._info, psutil.get_process_list())[0]
+                x.kill(int(vars.getvalue('signal', None)))
                 self.put_message('info', 'Killed process')
             except:
                 self.put_message('err', 'Can\'t kill process')

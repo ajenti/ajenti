@@ -8,11 +8,9 @@
     <pad id="main">
         <datatable id="list" width="100%">
             <datatablerow header="True">
+                <datatablecell />
                 <datatablecell>
                     <linklabel text="PID" id="sort/pid" />
-                </datatablecell>
-                <datatablecell>
-                    <linklabel text="Running" id="sort/is_running" />
                 </datatablecell>
                 <datatablecell>
                     <linklabel text="CPU %" id="sort/get_cpu_percent" />
