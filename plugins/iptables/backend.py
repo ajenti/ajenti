@@ -357,7 +357,7 @@ class Config(Plugin):
         file = file or self.rules_file
         self.tables = {}
         try:
-            data = open(file).read().split('\n')
+            data = ConfManager.get().load('iptables', file).split('\n')
             while len(data)>0:
                 s = data[0]
                 data = data[1:]
@@ -384,7 +384,8 @@ class Config(Plugin):
 
     def save(self, file=None):
         file = file or self.rules_file
-        open(file, 'w').write(self.dump())
+        ConfManager.get().save('iptables', file, self.dump())
+        ConfManager.get().commit('iptables')
 
     def table_index(self, name):
         i = 0

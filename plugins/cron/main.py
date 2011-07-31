@@ -1,5 +1,5 @@
 from ajenti.ui import UI
-from ajenti.api import event, helpers
+from ajenti.api import event, helpers, ConfManager
 from ajenti.utils import shell
 
 import backend
@@ -299,6 +299,7 @@ class CronPlugin(helpers.CategoryPlugin):
                                         self._tasks)
         if self._error:
             self._tasks, self._others = backend.read_crontab()
+        ConfManager.get().commit('cron')
         return 0
 
     #noinspection PyUnusedLocal
@@ -318,5 +319,3 @@ class CronPlugin(helpers.CategoryPlugin):
             self._show_dialog = 0
             self._editing_other = -1
             self._tab = 1
-
-                

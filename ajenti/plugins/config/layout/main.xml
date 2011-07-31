@@ -1,15 +1,14 @@
 <xml>
-    <pad>
-    <tabcontrol id="tabs">
-        <tabheadernode id="tabs">
-            <tabheader pid="tabs" text="General" id="0"/>
-            <tabheader pid="tabs" text="Security" id="1"/>
-            <tabheader pid="tabs" text="Configurations" id="2"/>
-        </tabheadernode>
-        <container id="main">
+    <toolbar>
+        <hcontainer>
+            <toolbutton text="Add new user" id="adduser" icon="/dl/core/ui/stock/add.png" />
+            <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+    <label size="5" text="General" />
 
-            <tabbody pid="tabs" id="0">
-                <formbox id="frmGeneral">
+    <pad id="main">
+                <formbox id="frmGeneral" hidecancel="True">
                     <layouttable>
                         <layouttablerow>
                             <layouttablecell>
@@ -25,6 +24,14 @@
                             </layouttablecell>
                             <layouttablecell>
                                 <textinput name="bind_port" id="bind_port"/>
+                            </layouttablecell>
+                        </layouttablerow>
+                        <layouttablerow>
+                            <layouttablecell>
+                                <label text="Enable authorization"/>
+                            </layouttablecell>
+                            <layouttablecell>
+                                <checkbox id="httpauth" name="httpauth" />
                             </layouttablecell>
                         </layouttablerow>
                         <layouttablerow>
@@ -53,11 +60,12 @@
                         </layouttablerow>
                     </layouttable>
                 </formbox>
-            </tabbody>
 
-            <tabbody pid="tabs" id="1">
-                <formbox id="frmSecurity">
-                    <checkbox text="Enable HTTP authorization" id="httpauth" name="httpauth" />
+    </pad>
+
+    <label size="5" text="Users" />
+
+    <pad>
                     <datatable width="300" id="accounts">
                         <datatablerow header="True">
                             <datatablecell>
@@ -67,15 +75,12 @@
                             </datatablecell>
                         </datatablerow>
                     </datatable>
-                    <button text="Add account" id="adduser" />
-                    <br/>
-                </formbox>
 
                 <dialogbox id="dlgAddUser" title="New account">
                     <layouttable>
                         <layouttablerow>
                             <layouttablecell>
-                                <label text="Login:"/>
+                                <label text="Username"/>
                             </layouttablecell>
                             <layouttablecell>
                                 <textinput name="login" />
@@ -83,7 +88,7 @@
                         </layouttablerow>
                         <layouttablerow>
                             <layouttablecell>
-                                <label text="Password:"/>
+                                <label text="Password"/>
                             </layouttablecell>
                             <layouttablecell>
                                 <textinput name="password" password="True" />
@@ -91,9 +96,12 @@
                         </layouttablerow>
                     </layouttable>
                 </dialogbox>
-            </tabbody>
 
-            <tabbody pid="tabs" id="2">
+    </pad>
+
+    <label size="5" text="Plugin configuration" />
+
+    <pad>
                     <datatable width="300" id="configs">
                         <datatablerow header="True">
                             <datatablecell width="20" />
@@ -104,9 +112,6 @@
                             </datatablecell>
                         </datatablerow>
                     </datatable>
-            </tabbody>
 
-        </container>
-    </tabcontrol>
     </pad>
 </xml>

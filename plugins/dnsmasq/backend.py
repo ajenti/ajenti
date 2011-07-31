@@ -45,7 +45,7 @@ class Backend(Plugin):
             'domains': [],
             'opts': {},
         }
-        for l in open(self.config_file, 'r'):
+        for l in ConfManager.get().load('dnsmasq', self.config_file):
             l = l.strip()
             if len(l) > 0 and not l.startswith('#'):
                 if '=' in l:
@@ -94,7 +94,8 @@ class Backend(Plugin):
             else:
                 s += x + '\n'
 
-        open(self.config_file, 'w').write(s)
+        ConfManager.get().save('dnsmasq', self.config_file, s)
+        ConfManager.get().commit('dnsmasq')
 
     def parse_host(self, s):
         r = { 'id': [], 'act': [] }

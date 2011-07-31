@@ -2,7 +2,10 @@ from hashlib import sha1
 from base64 import b64decode, b64encode
 from binascii import hexlify
 from random import random
+
 from ajenti.api import get_environment_vars
+from ajenti import version
+
 
 def check_password(passw, hash):
     if hash.startswith('{SHA}'):
@@ -53,7 +56,6 @@ class AuthManager(object):
 
     def __call__(self, environ, start_response):
         session = environ['app.session']
-
         if 'auth.challenge' in session:
             challenge = session['auth.challenge']
         else:
@@ -65,7 +67,7 @@ class AuthManager(object):
             return ''
 
         self.user = session['auth.user'] if 'auth.user' in session else None
-        if self.user is not None or environ['PATH_INFO'].startswith('/dl'):
+        if self.user is not None or environ['PATH_INFO'].startswith('/dl') or not self._enabled:
             return self._dispatcher(environ, start_response)
 
         if environ['PATH_INFO'] == '/auth':
@@ -78,13 +80,24 @@ class AuthManager(object):
                 resp = vars.getvalue('response', '')
                 if sample == resp:
                     session['auth.user'] = user
-                    start_response('200 OK', [])
+                    start_response('200 OK', [
+                        ('Content-type','text/plain'),
+                        ('X-Ajenti-Auth', 'ok'),
+                    ])
                     return ''
 
-            start_response('200 OK', [])
+            start_response('200 OK', [
+                ('Content-type','text/plain'),
+                ('X-Ajenti-Auth', 'fail'),
+            ])
             return 'Login failed'
 
         templ = self.app.get_template('auth.xml')
         templ.find('challenge').set('value', challenge)
         start_response('200 OK', [('Content-type','text/html')])
+        start_response('200 OK', [
+            ('Content-type','text/html'),
+            ('X-Ajenti-Auth', 'start'),
+            ('X-Ajenti-Challenge', challenge),
+        ])
         return templ.render()
