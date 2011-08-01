@@ -51,7 +51,6 @@ class PrioList(UserList):
     # Prohibit following methods
     insert = None
     pop = None
-    remove = None
     index = None
     reverse = None
     sort = None

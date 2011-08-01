@@ -53,7 +53,7 @@ class FirewallPlugin(CategoryPlugin):
                     uic.append(
                         UI.FWRule(
                             action=r.action, 
-                            desc=r.desc if r.action in self.defactions else r.action, 
+                            desc=('' if r.action in self.defactions else r.action + ' ') + r.desc, 
                             id='%s/%s/%i'%(t.name,ch.name,idx)
                         ))
                     idx += 1

@@ -1,0 +1,5 @@
+<xml>
+    <dialogbox id="dlgAddWidget" hideok="True">
+        <list id="list" />
+    </dialogbox>
+</xml>

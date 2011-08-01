@@ -28,8 +28,9 @@ class DebianNetworkConfig(LinuxIfconfig):
         auto = []
 
         while len(ss)>0:
-            if (len(ss[0]) > 0 and not ss[0][0] == '#'):
-                a = ss[0].strip(' \t\n').split(' ')
+            line = ss[0].strip(' \t\n')
+            if (len(line) > 0 and not line[0] == '#'):
+                a = line.split(' ')
                 for s in a:
                     if s == '': a.remove(s)
                 if (a[0] == 'auto'):
@@ -52,7 +53,8 @@ class DebianNetworkConfig(LinuxIfconfig):
             else: ss = []
 
         for x in auto:
-            self.interfaces[x].auto = True
+            if x in self.interfaces:
+                self.interfaces[x].auto = True
 
 
     def get_iface(self, name, bits):

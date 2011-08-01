@@ -23,7 +23,7 @@
 </xsl:template>
 
 <xsl:template match="simpleform">
-        <div id="{@id}">
+        <div id="{@id}" style="display:inline-block">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
             <xsl:apply-templates />
         </div>
@@ -59,9 +59,9 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
     </script>
 </div>
@@ -87,10 +87,11 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
+        $('#<xsl:value-of select="@id"/> input[type!=hidden]')[0].focus();
     </script>
 </div>
 </xsl:template>
@@ -116,11 +117,39 @@
             </div>
         </div>
     </div>
-    <script> 
-        ui_fullscreen('blackout');
-        ui_center('<xsl:value-of select="@id"/>-wr'); 
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
         ui_scroll_top();
+        $('#<xsl:value-of select="@id"/> textarea[type!=hidden]')[0].focus();
     </script>
 </div>
 </xsl:template>
 
+
+<xsl:template match="codeinputbox">
+<div>
+    <div class="ui-el-modal-wrapper" id="{@id}-wr">
+        <div id="{@id}">
+            <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
+            <div class="ui-el-dialog">
+                <div class="ui-el-dialog-content">
+                    <table>
+                        <tr><td><label text="{@text}"/></td></tr>
+                        <tr><td><codeinputarea id="{@id}-inner" name="value" nodecode="True" value="{x:b64(@value)}" width="{x:attr(@width,600)}" height="{x:attr(@height,400)}"/></td></tr>
+                    </table>
+                </div>
+                <div class="ui-el-modal-buttons">
+                    <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                    <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#blackout').show();
+        ui_center('<xsl:value-of select="@id"/>-wr');
+        ui_scroll_top();
+    </script>
+</div>
+</xsl:template>

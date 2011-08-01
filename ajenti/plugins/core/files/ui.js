@@ -4,7 +4,7 @@ function ui_center_el(e) {
     e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
     e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
     if (sh < e.clientHeight)
-        e.clientTop = 0;
+        e.style.top = '10px';
 }
 
 function ui_fullscreen(el) {
@@ -142,4 +142,21 @@ function ui_help_show(evt) {
 function ui_help_hide() {
     hint = document.getElementById('help-hint');
     hint.style.display = 'none';
+}
+
+function ui_editable_activate(id) {
+    $('#'+id+'-normal').hide();
+    $('#'+id+'-active').show();    
+    return false;
+}
+
+function ui_editable_save(id) {
+    ajaxForm(id, 'OK');
+    return ui_editable_cancel(id);
+}
+
+function ui_editable_cancel(id) {
+    $('#'+id+'-normal').show();
+    $('#'+id+'-active').hide();    
+    return false;
 }

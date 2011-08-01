@@ -9,7 +9,7 @@
 
 <body id="main" style="background:#ccc">
 <div style="width: 100%; height: 100%; margin:auto;">
-    <div class="ui-el-dialog" style="width: 500px;margin:auto; margin-top:50px;">
+    <div class="ui-el-dialog" style="width: 500px;margin: 50px auto;">
     <div class="ui-el-dialog-content" style="width: 480px">
         <div class="ui-el-error-content">
             <table>
@@ -39,7 +39,7 @@
                </div>
                <div id="reportw" style="display:none">
                    <br/><br/>
-                       Please <outlinklabel url="https://bugs.launchpad.net/ajenti/+filebug" text="file this bug to Launchpad" /> and post the following data:
+                       <label text="Please "/><outlinklabel url="https://bugs.launchpad.net/ajenti/+filebug" text="file this bug to Launchpad" /><label text=" and post the following data:"/>
                        <br/><br/>
                        <div id="report"/>
                </div>

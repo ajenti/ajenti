@@ -1,24 +1,48 @@
 from ajenti.ui import *
+from ajenti.utils import *
 from ajenti.plugins.dashboard.api import *
 from ajenti.com import implements, Plugin
 from api import *
 
-
+        
 class NetworkWidget(Plugin):
     implements(IDashboardWidget)
-    title = 'Networking'
-    
-    def get_ui(self):
-        cfg = self.app.get_backend(INetworkConfig)
-        w = UI.LayoutTable()
+    icon = '/dl/network/down.png'
+    name = 'Network monitor'
+    title = None
+    style = 'normal'
+
+    def __init__(self):
+        self.iface = None
         
-        for x in cfg.interfaces:
-            i = cfg.interfaces[x]
-            w.append(UI.LayoutTableRow(
-                    UI.Image(file='/dl/network/%s.png'%('up' if i.up else 'down')),
-                    UI.Label(text=i.name),
-                    UI.Label(text=cfg.get_ip(i)),
-                    spacing=4
-                ))
+    def get_ui(self, cfg, id=None):
+        self.iface = cfg
+        self.title = 'Network interface: %s' % cfg
+        be = self.app.get_backend(INetworkConfig)
+        if not cfg in be.interfaces:
+            return UI.Label(text='Interface not found')
+        i = be.interfaces[cfg]
+        self.icon = '/dl/network/%s.png'%('up' if i.up else 'down')
+        
+        ui = self.app.inflate('network:widget')
+        ui.find('ip').set('text', be.get_ip(i))
+        ui.find('in').set('text', str_fsize(be.get_rx(i)))
+        ui.find('out').set('text', str_fsize(be.get_tx(i)))
+        return ui
                 
-        return w
+    def handle(self, event, params, cfg, vars=None):
+        pass
+    
+    def get_config_dialog(self):
+        be = self.app.get_backend(INetworkConfig)
+        dlg = self.app.inflate('network:widget-config')
+        for i in be.interfaces:
+            dlg.append('list', UI.Radio(
+                value=i,
+                text=i,
+                name='iface'
+            ))
+        return dlg
+        
+    def process_config(self, vars):
+        return vars.getvalue('iface', None)

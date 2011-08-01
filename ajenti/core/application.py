@@ -9,7 +9,7 @@ from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.utils import *
 from ajenti.ui import *
-from ajenti.plugmgr import loaded_plugins, get_plugin_path
+from ajenti.plugmgr import PluginLoader
 import ajenti.ui.xslt as xslt
 
 
@@ -31,50 +31,50 @@ class Application (PluginManager, Plugin):
         self.template_styles = []
         self.template_scripts = []
         self.layouts = {}
-        self.config = config
+        self.gconfig = config
         self.log = config.get('log_facility')
         self.platform = config.get('platform')
         includes = []
         functions = {}
-        
+
         for f in self.func_providers:
             functions.update(f.get_funcs())
 
         # Get path for static content and templates
         plugins = []
-        plugins.extend(loaded_plugins)
+        plugins.extend(PluginLoader.list_plugins().keys())
         plugins.extend(ajenti.plugins.plist)
-        
+
         for c in plugins:
-            path = os.path.join(get_plugin_path(self, c), c)
-            
+            path = os.path.join(PluginLoader.get_plugin_path(self, c), c)
+
             fp = os.path.join(path, 'files')
             if os.path.exists(fp):
                 self.template_styles.extend([
-                    '/dl/'+c+'/'+s 
-                    for s in os.listdir(fp) 
+                    '/dl/'+c+'/'+s
+                    for s in os.listdir(fp)
                     if s.endswith('.css')
                 ])
                 self.template_scripts.extend([
-                    '/dl/'+c+'/'+s 
-                    for s in os.listdir(fp) 
+                    '/dl/'+c+'/'+s
+                    for s in os.listdir(fp)
                     if s.endswith('.js')
                 ])
-                
+
             wp = os.path.join(path, 'widgets')
             if os.path.exists(wp):
                 includes.extend([
                     os.path.join(wp, s)
-                    for s in os.listdir(wp) 
+                    for s in os.listdir(wp)
                     if s.endswith('.xslt')
                 ])
-                
+
             lp = os.path.join(path, 'layout')
             if os.path.exists(lp):
                 for s in os.listdir(lp):
                     if s.endswith('.xml'):
                         self.layouts['%s:%s'%(c,s)] = os.path.join(lp, s)
-                
+
             tp = os.path.join(path, 'templates')
             if os.path.exists(tp):
                 self.template_path.append(tp)
@@ -84,10 +84,13 @@ class Application (PluginManager, Plugin):
                 includes,
                 functions
             )
-            
-            
-        self.log.debug('Initialized')
 
+    @property
+    def config(self):
+        if hasattr(self, 'auth'):
+            return self.gconfig.get_proxy(self.auth.user)
+        else:
+            return self.gconfig.get_proxy(None)
 
     def start_response(self, status, headers=[]):
         self.status = status
@@ -138,28 +141,28 @@ class Application (PluginManager, Plugin):
 
     def plugin_activated(self, plugin):
         plugin.log = self.log
-        plugin.config = self.config
         plugin.app = self
 
     def grab_plugins(self, iface, flt=None):
         plugins = self.plugin_get(iface)
+        plugins = list(set(filter(None, [self.instance_get(cls, True) for cls in plugins])))
         if flt:
             plugins = filter(flt, plugins)
-        return list(set(filter(None, [self.instance_get(cls, True) for cls in plugins])))
+        return plugins
 
     def get_backend(self, iface, flt=None):
         lst = self.grab_plugins(iface, flt)
         if len(lst) == 0:
-            raise BackendRequirementError(iface.__name__) 
+            raise BackendRequirementError(iface.__name__)
         return lst[0]
 
     def get_config(self, plugin):
         if plugin.__class__ != type:
-            plugin = plugin.__class__ 
+            plugin = plugin.__class__
         return self.get_config_by_classname(plugin.__name__)
 
     def get_config_by_classname(self, name):
-        cfg = self.get_backend(IModuleConfig,  
+        cfg = self.get_backend(IModuleConfig,
                 flt=lambda x: x.target.__name__==name)
         cfg.overlay_config()
         return cfg
@@ -175,31 +178,28 @@ class Application (PluginManager, Plugin):
     def inflate(self, layout):
         f = self.layouts[layout+'.xml']
         return Layout(f)
-    
+
     def stop(self):
         if os.path.exists('/var/run/ajenti.pid'):
             os.unlink('/var/run/ajenti.pid')
         self.config.get('server').stop()
-        
+
     def restart(self):
         self.config.get('server').restart_marker = True
         self.stop()
-        
-    
+
+
 class AppDispatcher(object):
     def __init__(self, config=None):
         self.config = config
         self.log = config.get('log_facility')
-        # TODO: add config parameter for session timeout
         self.sessions = SessionStore()
-        # Ugly hack :) for permanent middleware
-        self.dispatcher = AuthManager(self.config, self.dispatcher)
 
     def dispatcher(self, environ, start_response):
         self.log.debug('Dispatching %s'%environ['PATH_INFO'])
-        # Use unique instances for each request,
-        # so no plugin data will be interused between different clients
-        app = Application(self.config).dispatcher
-        app = SessionManager(self.sessions, app)
 
-        return app(environ, start_response)
+        app = Application(self.config)
+        auth = AuthManager(self.config, app, app.dispatcher)
+        sm = SessionManager(self.sessions, auth)
+
+        return sm(environ, start_response)

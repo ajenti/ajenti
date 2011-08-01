@@ -5,12 +5,54 @@
             <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
         </hcontainer>
     </toolbar>
-    <pad>
-        <label size="2" text="Plugin list" />
-        <spacer height="5" />
+
+    <label size="5" text="Installed" />
+
+    <pad id="main">
         <datatable width="100%" id="list">
+            <datatablerow header="True">
+                <datatablecell />
+                <datatablecell />
+                <datatablecell>
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Description" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Version" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Author" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
         </datatable>
-        
+    </pad>
+
+    <label size="5" text="Available" />
+
+    <pad>
+        <datatable width="100%" id="avail">
+            <datatablerow header="True">
+                <datatablecell />
+                <datatablecell />
+                <datatablecell>
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Description" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Version" />
+                </datatablecell>
+                <datatablecell>
+                    <label text="Author" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+
         <spacer height="10" />
         <label size="2" text="Upload plugin package" />
         <spacer height="5" />

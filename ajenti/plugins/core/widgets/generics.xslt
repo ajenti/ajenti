@@ -33,7 +33,7 @@
 </xsl:template>
 
 <xsl:template match="hcontainer">
-    <table cellspacing="0" cellpadding="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+    <table cellspacing="0" cellpadding="0" style="display: inline-block; width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
          <tr>
              <xsl:for-each select="*">
                 <td style="padding-right: {x:css(../@spacing, '0')}">
@@ -61,7 +61,7 @@
 
 
 <xsl:template match="scrollcontainer">
-    <div class="ui-el-scrollcontainer" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};">
+    <div class="ui-el-scrollcontainer" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')}; {x:iif(@noborder, 'border: none', '')}">
         <xsl:apply-templates />
     </div>
 </xsl:template>

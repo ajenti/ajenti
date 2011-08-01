@@ -10,16 +10,15 @@ class Daemons(Plugin):
 
     def list_all(self):
         r = []
-        if self.app.config.has_section('daemons'):
-            for n in self.app.config.options('daemons'):
-                l = self.app.config.get('daemons', n)
-                r.append(Daemon(n, l))
+        for n in self.app.config.options('daemons'):
+            l = self.app.config.get('daemons', n)
+            r.append(Daemon(n, l))
         return sorted(r, key=lambda x: x.name)
 
     def save(self, items):
         self.app.config.remove_section('daemons')
         self.app.config.add_section('daemons')
-        
+
         for i in items:
             x = []
             for k in i.opts.keys():
@@ -30,10 +29,10 @@ class Daemons(Plugin):
                 else:
                     x.append('%s="%s"'%(k,i.opts[k].strip(' "')))
             self.app.config.set('daemons', i.name, ','.join(x))
-            
+
         self.app.config.save()
 
-        
+
 class Daemon:
     def __init__(self, name, s):
         self.name = name
@@ -46,14 +45,14 @@ class Daemon:
             else:
                 k = x
             self.opts[k.strip()] = v
-         
+
     @property
     def running(self):
         u = ''
         if 'user' in self.opts:
             u = ' --user="%s"'%self.opts['user']
         return shell_status('daemon --running --name "%s"%s'%(self.name,u)) == 0
-        
+
     def start(self):
         cmd = ''
         for k in self.opts.keys():
@@ -73,7 +72,7 @@ class Daemon:
         shell('daemon --restart --name "%s"%s'%(self.name,u))
         self.running
         time.sleep(0.5)
-        
+
     def stop(self):
         u = ''
         if 'user' in self.opts:
@@ -81,7 +80,7 @@ class Daemon:
         shell('daemon --stop --name "%s"%s'%(self.name,u))
         self.running
         time.sleep(0.5)
-        
+
 options = [
     'command',
     'user',
@@ -94,4 +93,4 @@ options = [
     'output',
     'stdout',
     'stderr',
-]        
+]

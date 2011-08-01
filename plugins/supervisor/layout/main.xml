@@ -1,0 +1,24 @@
+<xml>
+    <toolbar spacing="0">
+        <hcontainer id="toolbar">
+            <toolbutton id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
+        </hcontainer>
+    </toolbar>
+
+    <pad id="main">
+        <datatable id="list" width="100%">
+            <datatablerow header="True">
+                <datatablecell width="33%">
+                    <label text="Name" />
+                </datatablecell>
+                <datatablecell width="33%">
+                    <label text="Status" />
+                </datatablecell>
+                <datatablecell width="33%">
+                    <label text="Info" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </pad>
+</xml>

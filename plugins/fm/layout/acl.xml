@@ -1,0 +1,43 @@
+<xml>
+    <dialogbox id="dlgAcl" hidecancel="True">
+        <label size="5" text="Current ACLs"/>
+        <pad>
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="Subject"/>
+                </datatablecell>
+                <datatablecell>
+                    <label text="Access"/>
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+        </pad>
+        <label size="5" text="Set new ACL"/>
+        <pad>
+            <formbox hidecancel="True" id="frmAddAcl">
+                <layouttable>
+                    <layouttablerow>
+                        <layouttablecell>
+                            <label text="Subject"/>
+                        </layouttablecell>
+                        <layouttablecell>
+                            <helpicon text="u:john, g:admins, default:u:jack, mask:, other:, u:, g:" />
+                            <textinput name="subject" />
+                        </layouttablecell>
+                    </layouttablerow>
+                    <layouttablerow>
+                        <layouttablecell>
+                            <label text="Permissions" />
+                        </layouttablecell>
+                        <layouttablecell>
+                            <helpicon text="r, w, x, rw, rwx, ..." />
+                            <textinput name="perm" />
+                        </layouttablecell>
+                    </layouttablerow>
+                </layouttable>
+            </formbox>
+        </pad>
+    </dialogbox>
+</xml>

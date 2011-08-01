@@ -6,7 +6,7 @@
 
 
 <xsl:template match="image">
-    <img class="ui-el-image" src="{@file}" />
+    <img class="ui-el-image" src="{@file}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};" />
 </xsl:template>
 
 
@@ -36,7 +36,7 @@
             </a>
         </xsl:when>
         <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-toolbutton">
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-toolbutton {x:iif(@small, 'ui-el-toolbutton-small', '')}">
                 <xsl:if test="@icon">
                     <img src="{@icon}" />
                 </xsl:if>
@@ -46,7 +46,7 @@
     </xsl:choose>
 </xsl:template>
 
-<xsl:template match="toolseparator"><a class="ui-el-toolbar-separator"></a></xsl:template>
+<xsl:template match="toolseparator"><a class="ui-el-toolbar-separator {x:iif(@small, 'ui-el-toolbar-separator-small', '')}"></a></xsl:template>
 
 <xsl:template match="warningbutton">
     <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button">
@@ -85,7 +85,7 @@
 </xsl:template>
 
 <xsl:template match="linklabel">
-    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link">
+    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link" style="{x:iif(@bold, 'font-weight: bold;', '')}">
         <xsl:value-of select="@text" />
     </a>
 </xsl:template>
@@ -97,12 +97,12 @@
 </xsl:template>
 
 <xsl:template match="progressbar">
-    <table cellspacing="0" cellpadding="0" class="ui-el-progressbar-wrapper">
-        <tr>
-            <td style="width:{@left}px" class="ui-el-progressbar-active"/>
-            <td style="width:{@right}px" class="ui-el-progressbar"/>
-        </tr>
-    </table>
+    <div class="ui-el-progressbar-wrapper">
+        <div style="width:{@left}px" class="ui-el-progressbar-active">
+            <div><div/></div>
+        </div>
+        <div style="width:{@right}px" class="ui-el-progressbar" />
+    </div>
 </xsl:template>
 
 <xsl:template match="elementbox">
@@ -116,4 +116,3 @@
         <img src="/dl/core/ui/help.png"/>
     </div>
 </xsl:template>
-

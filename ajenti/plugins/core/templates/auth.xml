@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ajenti</title>
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
+    <headscripts/>
+    <headstylesheets/>
+</head>
+
+<body id="main">
+    <div>
+        <br/>
+        <div class="ui-el-auth-dialog">
+            <div class="ui-el-auth-dialog-content">
+                <div class="ui-el-auth-dialog-header">
+                    Authentication
+                </div>
+                <div class="ui-el-auth-dialog-bar" />
+                <form id="form" action="/auth-redirect" method="POST">
+                <input type="hidden" id="challenge" />
+                <input type="text" id="username" name="username" placeholder="Username" />
+                <input type="password" id="password" name="password" placeholder="Password" />
+                <input type="submit" class="ui-el-button" id="login" value="Login" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+$('#username').focus()
+$('#form').submit(function (e) {
+    e.preventDefault();
+    var h = Sha1.hash($('#password').val());
+    var r = Sha1.hash($('#challenge').val() + h);
+    $.ajax({
+        url: '/auth',
+        type: 'POST',
+        data: {
+            username: $('#username').val(),
+            response: r
+        },
+        success: function () {
+            $('#form').unbind('submit');
+            $('#password').val('');
+            $('#login').click();
+        }
+    });
+});
+</script>
+
+</body>
+
+</html>

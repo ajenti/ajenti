@@ -1,17 +1,5 @@
 <xml>
-    <toolbar spacing="0">
-        <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form" action="save" /><toolbutton id="btnFav" form="frmEdit" onclick="form" />
-        <label id="file" />
-    </toolbar>
-    <pad>
-        <hcontainer>
-            <vcontainer>
-                <list id="favs" width="200" />
-                <list id="files" width="200" height="400" />
-            </vcontainer>
-            <formbox height="100%" id="frmEdit" hideok="True" hidecancel="True">
-                <textinputarea id="data" width="540" height="400" name="text" value="" />
-            </formbox>
-        </hcontainer>
-    </pad>
+    <formbox height="100%" id="frmEdit" hideok="True" hidecancel="True">
+       <pad id="main" />
+    </formbox>
 </xml>

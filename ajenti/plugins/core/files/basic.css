@@ -1,13 +1,33 @@
+.freetext a {
+    text-align: left;
+    font-size: 12px;
+    display: inline-block;
+
+    color: #888;
+    border-bottom: 1px dotted #888;
+}
+
+.freetext p {
+    padding: 0 5px;
+}
+
+.freetext img {
+    border: 1px solid #ccc;
+    padding: 3px;
+    margin: 5px;
+}
+
+
 .ui-el-button {
     min-width: 80px;
     height: 18px;
     line-height: 19px;
     display: inline-block;
     margin: 0 3px;
-    
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
+
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
     border: 1px solid #ccc;
     background: #ddd;
     background: -moz-linear-gradient(top,  #eee,  #ddd);
@@ -65,14 +85,25 @@ input.ui-el-button {
     height: 28px;
 }
 
+.ui-el-toolbar-separator-small {
+    height: 22px;
+}
 
+.ui-el-toolbutton-small {
+    height: 22px;
+    line-height: 22px;
+}
+
+.ui-el-toolbutton-small > img {
+    padding-top: 4px;
+}
 
 .ui-el-minibutton {
-    min-width: 40px;
+    min-width: none;
     height: 18px;
     line-height: 18px;
-    float: left;
-    margin: 0 3px;
+    margin: 1px 3px;
+    display: inline-block;
 
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
@@ -99,8 +130,8 @@ input.ui-el-button {
 }
 
 .ui-el-minibutton:active {
-    background: #eee;
-    background: -moz-linear-gradient(top,  #fff,  #eee);
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #ccc,  #ddd);
     background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
     color: #000;
 }
@@ -109,18 +140,20 @@ input.ui-el-button {
 
 
 .ui-el-label-1 {
-    display: inline;
     text-align: left;
     font-size: 12px;
     line-height: 20px;
+    display: inline-block;
+    padding: 1px 2px;
 }
 
 .ui-el-label-2 {
     font-weight: bold;
     text-shadow: 0 1px 0 #fff;
     font-size: 12px;
+    line-height: 20px;
     display: inline-block;
-    padding: 4px 0;
+    padding: 1px 2px;
 }
 
 .ui-el-label-3 {
@@ -149,11 +182,13 @@ input.ui-el-button {
 
 
 .ui-el-link {
-    color: #888;
+    text-align: left;
     font-size: 12px;
+    display: inline-block;
+
+    color: #888;
     border-bottom: 1px dotted #888;
-    margin-left: 3px;
-    margin-right: 3px;
+    margin: 3px 2px;
 }
 
 .ui-el-link:hover {
@@ -168,7 +203,7 @@ input.ui-el-button {
     background: #ffffff;
     border: 1px solid #aaaaaa;
     height: 18px;
-    margin: 0 3px;
+    margin: 1px 2px;
     font-size: 12px;
 }
 
@@ -177,22 +212,39 @@ input.ui-el-button {
 }
 
 .ui-el-radio {
-    margin: 2px 3px 0px 3px;
+    display: inline-block;
+    height: 18px;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 1px 2px;
+}
+
+.ui-el-radio input {
+    margin: 3px 2px 0;
 }
 
 .ui-el-checkbox {
-    margin: 2px 3px 0px 3px;
+    display: inline-block;
+    height: 18px;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 1px 2px;
+}
+
+.ui-el-checkbox input {
+    margin: 3px 2px 0;
 }
 
 select {
-    margin: 0 3px;
+    margin: 1px 3px;
     height: 20px;
     font-size: 10px;
 }
 
 
 .ui-el-image {
-    padding: 1px 3px 0px 2px;
+    margin: 3px 2px;
+    display: inline-block;
 }
 
 
@@ -207,24 +259,43 @@ select {
 
 
 .ui-el-progressbar {
-    height: 12px;
-    margin: 0 3px;
+    height: 15px;
     background: #ddd;
     background: -moz-linear-gradient(top,  #ddd,  #eee);
     background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));
     border: 1px solid #ccc;
+    border-top: none;
+    float: left;
 }
 
 .ui-el-progressbar-active {
-    height: 12px;
-    background: #ddb275;
-    background: -moz-linear-gradient(top,  #efcb9b,  #ddb275);
-    background: -webkit-gradient(linear, left top, left bottom, from(#efcb9b), to(#ddb275));
-    border: 1px solid #cda265;
+    height: 14px;
+    background: #79bd17;
+    background: -moz-linear-gradient(top,  #79bd17,  #558511);
+    background: -webkit-gradient(linear, left top, left bottom, from(#79bd17), to(#558511));
+    border-top: 1px solid #a0d05c;
+    border-bottom: 1px solid #3f620c;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 2px 0 0 2px;
+    -webkit-border-radius: 3px 0 0 3px;
+    float: left;
+}
+
+.ui-el-progressbar-active div {
+    height: 14px;
+    background: url('/dl/core/ui/alert.png');
 }
 
 .ui-el-progressbar-wrapper {
-    margin: 3px 0px 0px 0px;
+    margin: 2px 2px;
+    display: inline-block;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid white;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    overflow: hidden;
 }
 
 
@@ -247,10 +318,10 @@ select {
 
 
 .ui-el-helpicon {
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     float: right;
-    padding-left: 3px;
+    margin: 3px 2px;
 }
 
 .ui-el-helphint {

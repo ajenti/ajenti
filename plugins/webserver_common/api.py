@@ -101,7 +101,7 @@ class Webserver(API):
 
             if self._editing_host is not None:
                 ui.append(
-                    UI.AreaInputBox(
+                    UI.CodeInputBox(
                         text='Host config:', 
                         value=self._backend.get_hosts()[self._editing_host].config,
                         id='dlgEditHost'
@@ -143,7 +143,7 @@ class Webserver(API):
             ui = UI.Container(tbl)
             if self._editing_mod is not None:
                 ui.append(
-                    UI.AreaInputBox(
+                    UI.CodeInputBox(
                         text='Module config:', 
                         value=self._backend.get_mods()[self._editing_mod].config,
                         id='dlgEditMod'

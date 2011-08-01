@@ -5,7 +5,7 @@ from setuptools import find_packages
 
 setup(
     name='Ajenti',
-    version='0.5-6',
+    version='0.5-10',
     description='The server administration panel',
     author='Eugeny Pankov',
     author_email='e@ajenti.org',
@@ -15,6 +15,7 @@ setup(
     scripts=['ajenti-panel', 'ajenti-pkg'],
     data_files=[
         ('/etc/ajenti', ['packaging/files/ajenti.conf']),
+        ('/etc/ajenti/users', ['packaging/files/.placeholder']),
         ('/etc/init.d', ['packaging/files/ajenti']),
         ('/var/lib/ajenti/plugins', ['packaging/files/.placeholder']),
     ],

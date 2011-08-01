@@ -1,17 +1,23 @@
 <xml>
-    <label text="Command shell" size="5" />
-    <pad>
-        <vcontainer spacing="10">
-            <hcontainer spacing="10">
+    <toolbar>
+        <hcontainer>
+            <div style="padding: 4px 5px 0">
                 <label text="Command: " />
-                <formbox id="frmRun" hideok="True" hidecancel="True">
+                <simpleform id="frmRun">
                     <textinput name="cmd" size="30" id="shell-command" />
-                </formbox>
-                <minibutton form="frmRun" onclick="form" text="Run" />
+                </simpleform>
+            </div>
+            <toolseparator />
+            <toolbutton form="frmRun" onclick="form" text="Run" icon="/dl/core/ui/stock/service-run.png" />
+            <div style="padding: 4px 5px 0">
                 <label text="Recent: " />
-                <select id="shell-recent" onchange="shellRecentClick()" onmousedown="shellRecentClick()" />
-            </hcontainer>
-            <scrollcontainer id="log" width="550" height="500" />
-        </vcontainer>
+              <select id="shell-recent" onchange="shellRecentClick()" onmousedown="shellRecentClick()" />
+            </div>
+        </hcontainer>
+    </toolbar>
+
+    <pad>
+        <label text="Output" />
+        <scrollcontainer id="log" width="650" height="500" />
     </pad>
 </xml>

@@ -17,7 +17,7 @@ class Entry:
 
 
 def read():
-    ss = open('/etc/fstab', 'r').read().split('\n')
+    ss = ConfManager.get().load('filesystems', '/etc/fstab').split('\n')
     r = []
 
     for s in ss:
@@ -44,8 +44,8 @@ def save(ee):
     d = ''
     for e in ee:
         d += '%s\t%s\t%s\t%s\t%i\t%i\n' % (e.src, e.dst, e.fs_type, e.options, e.dump_p, e.fsck_p)
-    with open('/etc/fstab', 'w') as f:
-        f.write(d)
+    ConfManager.get().save('filesystems', '/etc/fstab', d)
+    ConfManager.get().commit('filesystems')
 
 def list_disks():
     r = []
@@ -69,13 +69,12 @@ def get_partition_uuid_by_name(p):
 
 def get_partition_name_by_uuid(u):
     return shell('blkid -U ' + u)
-    
-    
+
+
 class FSConfigurable (Plugin):
     implements(IConfigurable)
     name = 'Filesystems'
     id = 'filesystems'
-    
+
     def list_files(self):
         return ['/etc/fstab']
-        

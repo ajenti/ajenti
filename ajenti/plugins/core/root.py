@@ -12,7 +12,7 @@ from api import IProgressBoxProvider
 
 class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     categories = Interface(ICategoryProvider)
-    # Plugin folders. This dict is here forever^W until we make MUI support 
+    # Plugin folders. This dict is here forever^W until we make MUI support
     folders = {
         'cluster': 'CLUSTER',
         'system': 'SYSTEM',
@@ -22,7 +22,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         'tools': 'TOOLS',
         'other': 'OTHER',
     }
-    
+
     # Folder order
     folder_ids = ['cluster', 'system', 'apps', 'hardware', 'tools', 'servers', 'other']
 
@@ -33,7 +33,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
     def is_firstrun(self):
         return not self.app.config.has_option('ajenti', 'firstrun')
-                
+
     def main_ui(self):
         self.selected_category.on_init()
         templ = self.app.inflate('core:main')
@@ -44,7 +44,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         for p in self.app.grab_plugins(IProgressBoxProvider):
             if p.has_progress():
                 templ.append(
-                    'progressbox-placeholder', 
+                    'progressbox-placeholder',
                     UI.TopProgressBox(
                         text=p.get_progress(),
                         icon=p.icon,
@@ -53,13 +53,13 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     )
                 )
                 break
-                
+
         templ.append('main-content', self.selected_category.get_ui())
-    
+
         if self.app.session.has_key('messages'):
             for msg in self.app.session['messages']:
                 templ.append(
-                    'system-messages', 
+                    'system-messages',
                     UI.SystemMessage(
                         cls=msg[0],
                         text=msg[1],
@@ -72,7 +72,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         # end firstrun wizard
         if self._cat_selected == 'firstrun' and not self.is_firstrun():
             self._cat_selected = 'dashboard'
-            
+
         cat = None
         for c in self.categories:
             if c.plugin_id == self._cat_selected: # initialize current plugin
@@ -119,9 +119,9 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     if c == self.selected_category:
                         exp = True
                     cat_vc.append(UI.Category(
-                        icon=c.icon, 
-                        name=c.text, 
-                        id=c.plugin_id, 
+                        icon=c.icon,
+                        name=c.text,
+                        id=c.plugin_id,
                         counter=c.get_counter(),
                         selected=c == self.selected_category
                     ))
@@ -132,11 +132,11 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         for c in cats:
             if c.folder in ['top', 'bottom']:
                 templ.appendChildInto(
-                    'topplaceholder-'+c.folder, 
+                    'topplaceholder-'+c.folder,
                     UI.TopCategory(
-                        text=c.text, 
+                        text=c.text,
                         id=c.plugin_id,
-                        icon=c.icon, 
+                        icon=c.icon,
                         selected=c==self.selected_category
                     )
                 )
@@ -144,17 +144,24 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         templ.append('_head', UI.HeadTitle(text='Ajenti @ %s'%platform.node()))
         templ.append('leftplaceholder', v)
         templ.append('version', UI.Label(text='Ajenti '+version(), size=2))
+        templ.insertText('cat-username', self.app.auth.user)
         templ.append('links',
             UI.HContainer(
                 UI.LinkLabel(text='About', id='about'),
                 UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')
             ))
-            
+
         return templ.render()
 
     @url('^/session_reset$')
     def process_reset(self, req, start_response):
         self.app.session.clear()
+        start_response('301 Moved Permanently', [('Location', '/')])
+        return ''
+
+    @url('^/logout$')
+    def process_logout(self, req, start_response):
+        self.app.auth.deauth()
         start_response('301 Moved Permanently', [('Location', '/')])
         return ''
 
@@ -184,7 +191,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def handle_dlg(self, event, params, vars=None):
         if params[0] == 'dlgAbout':
             self._about_visible = False
-            
+
     @url('^/handle/.+')
     def handle_generic(self, req, start_response):
         # Iterate through the IEventDispatchers and find someone who will take care of the event
@@ -192,8 +199,8 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         path = req['PATH_INFO'].split('/')
         event = '/'.join(path[2:4])
         params = path[4:]
-        
-        
+
+
         try:
             self.do_init()
             self.selected_category.on_init()
@@ -221,4 +228,3 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         # We have no result or handler - return default page
         main = self.main_ui()
         return main.render()
-

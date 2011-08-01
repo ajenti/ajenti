@@ -1,12 +1,12 @@
 MODULES = [
-    'api', 
-    'main', 
-    'nc_arch', 
-    'nc_bsd', 
+    'api',
+    'main',
+    'nc_arch',
+    'nc_bsd',
     'nc_debian',
     'nc_centos',
-    'ncs_bsd_basic', 
-    'ncs_bsd_ipv4', 
+    'ncs_bsd_basic',
+    'ncs_bsd_ipv4',
     'ncs_linux_basic',
     'ncs_linux_bootp',
     'ncs_linux_dhcp',
@@ -24,6 +24,6 @@ DEPS =  []
 NAME = 'Network'
 PLATFORMS = ['arch', 'centos', 'debian', 'fedora', 'freebsd']
 DESCRIPTION = 'Network interfaces management'
-VERSION = '0:1.1'
+VERSION = '0:1.5'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

@@ -16,6 +16,10 @@ class PowerPlugin(CategoryPlugin):
         ui = self.app.inflate('power:main')
         
         els = ui.find('list')
+
+        if len(get_ac_adapters()) == 0:
+            els.append(UI.Label(text='No AC adapters found'))
+            
         for ac in get_ac_adapters():
             img = 'present' if ac.present else 'none'
             st = 'Active' if ac.present else 'Offline'
@@ -26,6 +30,9 @@ class PowerPlugin(CategoryPlugin):
                               UI.Label(text=st)
                           )
                       )))
+
+        if len(get_batteries()) == 0:
+            els.append(UI.Label(text='No batteries found'))
 
         for bat in get_batteries():
             if bat.present:
@@ -50,6 +57,7 @@ class PowerPlugin(CategoryPlugin):
     @event('button/click')
     def on_aclick(self, event, params, vars=None):
         if params[0] == 'shutdown':
-            shell('shuwdown -p now')
+            shell('shutdown -P now')
         if params[0] == 'reboot':
             shell('reboot')
+

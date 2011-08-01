@@ -9,28 +9,53 @@ from twisted.web.wsgi import WSGIResource
 from ajenti.api import ComponentManager
 from ajenti.config import Config
 from ajenti.core import Application, AppDispatcher
-from ajenti.plugmgr import load_plugins
+from ajenti.plugmgr import PluginLoader
 from ajenti import version
 import ajenti.utils
 
 
 
-def run_server(log_level=logging.INFO, config_file=''):
-    # Initialize logging subsystem
+class DebugHandler (logging.StreamHandler):
+    def __init__(self):
+        self.capturing = False
+        self.buffer = ''
+
+    def start(self):
+        self.capturing = True
+
+    def stop(self):
+        self.capturing = False
+
+    def handle(self, record):
+        if self.capturing:
+            self.buffer += self.formatter.format(record) + '\n'
+
+def make_log(debug=False, log_level=logging.INFO):
     log = logging.getLogger('ajenti')
-    log.setLevel(log_level)
-    stderr = logging.StreamHandler()
-    stderr.setLevel(log_level)
-    if log_level == logging.DEBUG:
-        formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
-    else:
-        formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
-    stderr.setFormatter(formatter)
-    log.addHandler(stderr)
+    log.setLevel(logging.DEBUG)
+
+    stdout = logging.StreamHandler(sys.stdout)
+    stdout.setLevel(log_level)
+
+    dformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
+    sformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
+    stdout.setFormatter(dformatter if log_level == logging.DEBUG else sformatter)
+    log.addHandler(stdout)
+
+    if debug:
+        log.blackbox = DebugHandler()
+        log.blackbox.setLevel(logging.DEBUG)
+        log.blackbox.setFormatter(dformatter)
+        log.addHandler(log.blackbox)
+
+    return log
+
+def run_server(log_level=logging.INFO, config_file=''):
+    log = make_log(debug=True, log_level=log_level)
 
     # For the debugging purposes
     log.info('Ajenti %s' % version())
-    
+
     # We need this early
     ajenti.utils.logger = log
 
@@ -44,31 +69,39 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
-    
-    # Load external plugins
-    load_plugins(config.get('ajenti', 'plugins'), log)
 
+    log.blackbox.start()
+
+    platform = ajenti.utils.detect_platform()
+    log.info('Detected platform: %s'%platform)
+
+    # Load external plugins
+    PluginLoader.initialize(log, config.get('ajenti', 'plugins'), platform)
+    PluginLoader.load_plugins()
 
     # Start components
-    ComponentManager.create(Application(config))    
+    app = Application(config)
+    PluginLoader.register_mgr(app) # Register permanent app
+    ComponentManager.create(app)
 
     # Start server
     host = config.get('ajenti','bind_host')
     port = config.getint('ajenti','bind_port')
     log.info('Listening on %s:%d'%(host, port))
-    
+
     resource = WSGIResource(
-            reactor, 
+            reactor,
             reactor.getThreadPool(),
             AppDispatcher(config).dispatcher
     )
-    
-    site = server.Site(resource)	
+
+    site = server.Site(resource)
     config.set('server', reactor)
 
+    log.info('Starting server')
     if config.getint('ajenti', 'ssl') == 1:
         ssl_context = ssl.DefaultOpenSSLContextFactory(
-    	    config.get('ajenti','cert_file'), 
+    	    config.get('ajenti','cert_key'),
     	    config.get('ajenti','cert_file')
         )
         reactor.listenSSL(
@@ -79,13 +112,16 @@ def run_server(log_level=logging.INFO, config_file=''):
     else:
         reactor.listenTCP(port, site)
 
+
+    log.blackbox.stop()
+
     reactor.run()
 
     ComponentManager.get().stop()
-    
+
     if hasattr(reactor, 'restart_marker'):
         log.info('Restarting by request')
-        
+
         fd = 20 # Close all descriptors. Creepy thing
         while fd > 2:
             try:
@@ -94,8 +130,7 @@ def run_server(log_level=logging.INFO, config_file=''):
             except:
                 pass
             fd -= 1
-            
+
         os.execv(sys.argv[0], sys.argv)
-    else: 
+    else:
         log.info('Stopped by request')
-        

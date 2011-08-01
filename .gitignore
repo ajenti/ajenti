@@ -1,5 +1,7 @@
 *.pyc
 packaging/meta
+ajenti.conf
+users/*.conf
 *.geany
 .anjuta/
 .anjuta_sym_db.db

@@ -32,7 +32,7 @@
     height: 100%;
 }
 
-#topbar div {
+#topbar > div {
     width: 960px;
     margin: auto;
     padding: 13px 0px 0px 0px;
@@ -54,7 +54,7 @@
     background: #222;
     background: -moz-linear-gradient(top,  #222,  #111);
     background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#111));
-    height: 25px;
+    height: 27px;
     border-top: 1px solid #303030;
 }
 
@@ -81,9 +81,10 @@
 .ui-el-mainwindow-bottom {
     width: 100%;
     height: 30px;
+    padding-top: 5px;
     position: absolute;
     bottom: 0;
-    
+
     color: #aaa !important;
     margin-top: 30px;
     background: #333;
@@ -119,14 +120,12 @@
 .ui-el-bottombar-l {
     float: left;
     height: 30px;
-    line-height: 28px;
     margin-left: 18px;
 }
 
 .ui-el-bottombar-r {
     float: right;
     height: 30px;
-    line-height: 28px;
     margin-right: 18px;
 }
 
@@ -135,13 +134,13 @@
 .ui-el-top-category {
     display: inline-block;
     font-size: 13px;
-    padding: 0px 10px 0px 10px;
+    padding: 2px 10px;
     height: 25px;
     line-height: 25px;
     color: #aaa;
     font-weight: bold;
     float: left;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 .ui-el-top-category img {
@@ -153,9 +152,8 @@
 .ui-el-top-category:hover {
     padding: 0px 8px 0px;
     margin: 0 2px;
+    border-top: 2px solid #888;
     background: #333;
-    background: -moz-linear-gradient(top,  #444,  #333);
-    background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#333));
     color: #eee;
 }
 
@@ -213,10 +211,10 @@
     color: #fff;
     text-shadow: 0 1px 0 #720000;
     font-weight: bold;
-    
+
     border-radius: 10px;
     -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;        
+    -webkit-border-radius: 10px;
     background: #922017;
     background: -moz-linear-gradient(top,  #d04909,  #922017);
     background: -webkit-gradient(linear, left top, left bottom, from(#d04909), to(#922017));
@@ -236,7 +234,7 @@
     line-height: 26px;
     color: #888;
     padding: 0 0 0 10px;
-    text-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     text-shadow: 0 1px 0 #ffffff;
 }
@@ -278,7 +276,7 @@
 }
 
 .ui-el-message-warn {
-    background-color: #c93;
+    background-color: #fa3;
     border-top: 1px solid #da4;
     border-bottom: 1px solid #a73;
 }
@@ -317,5 +315,3 @@
     overflow: hidden;
     white-space: nowrap;
 }
-
-
