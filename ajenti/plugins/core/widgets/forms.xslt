@@ -23,7 +23,7 @@
 </xsl:template>
 
 <xsl:template match="simpleform">
-        <div id="{@id}">
+        <div id="{@id}" style="display:inline-block">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
             <xsl:apply-templates />
         </div>

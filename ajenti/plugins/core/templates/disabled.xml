@@ -9,28 +9,24 @@
 
 <body id="main" style="background:#ccc">
 <div style="width: 100%; height: 100%; margin:auto;">
-    <div class="ui-el-dialog" style="width: 500px;margin:auto; margin-top:50px;">
+    <div class="ui-el-dialog" style="width: 500px; margin:50px auto;">
     <div class="ui-el-dialog-content" style="width: 480px">
         <div class="ui-el-error-content">
             <table>
                 <tr><td width="50">
                    <img src="/dl/core/ui/stock/nobackend.png" class="ui-el-error-icon" />
                 </td><td width="500">
-                
+
            <label size="3" text="Plugin disabled"/><br/>
            <div id="reason"/>
            <br/>
            <div id="hint"/>
            <br/>
            </td></tr></table>
-        </div>    
+        </div>
     </div>
     </div>
-</div>    
+</div>
 </body>
 
 </html>
-
-
-
-       
