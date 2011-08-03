@@ -3,7 +3,7 @@ MODULES = ['main']
 DEPS =  [
     (['any'],
      [
-        ('module', 'BeautifulSoup'),
+        ('module', 'psutil'),
      ])
 ]
 

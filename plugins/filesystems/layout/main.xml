@@ -2,9 +2,9 @@
     <toolbar>
         <toolbutton id="add" text="Add new mountpoint" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
-    
+
     <pad>
-        <datatable id="list">
+        <datatable id="list" width="100%">
             <datatablerow header="True">
                 <datatablecell>
                     <label text="Source" />
@@ -24,7 +24,7 @@
             </datatablerow>
         </datatable>
     </pad>
-    
+
     <dialogbox id="dlgEdit">
         <layouttable>
             <layouttablerow>
@@ -99,4 +99,4 @@
             </layouttablerow>
         </layouttable>
     </dialogbox>
-</xml>    
+</xml>

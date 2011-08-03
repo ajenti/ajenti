@@ -32,7 +32,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         self._module_config = None
 
     def is_firstrun(self):
-        return not self.app.config.has_option('ajenti', 'firstrun')
+        return not self.app.gconfig.has_option('ajenti', 'firstrun')
 
     def main_ui(self):
         self.selected_category.on_init()

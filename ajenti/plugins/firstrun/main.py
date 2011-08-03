@@ -54,9 +54,9 @@ class FirstRun(CategoryPlugin, URLHandler):
             if login == '' or password == '':
                 self.put_message('err', 'Enter valid login and password')
             else:
-                self.app.config.remove_option('users', 'admin')
-                self.app.config.set('users', login, hashpw(password))
-                self.app.config.save()
+                self.app.gconfig.remove_option('users', 'admin')
+                self.app.gconfig.set('users', login, hashpw(password))
+                self.app.gconfig.save()
                 self._step = 2
         if params[0] == 'frmPlugins':
             lst = self._mgr.available
@@ -66,7 +66,7 @@ class FirstRun(CategoryPlugin, URLHandler):
                     self._mgr.install(k.id)
             ComponentManager.get().rescan()
 
-            self.app.config.set('ajenti', 'firstrun', 'no')
-            self.app.config.save()
+            self.app.gconfig.set('ajenti', 'firstrun', 'no')
+            self.app.gconfig.save()
             self.put_message('info', 'Setup complete')
             self._step = 3
