@@ -32,9 +32,10 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         self._module_config = None
 
     def is_firstrun(self):
-        return not self.app.config.has_option('ajenti', 'firstrun')
+        return not self.app.gconfig.has_option('ajenti', 'firstrun')
 
     def main_ui(self):
+        self.selected_category.on_init()
         templ = self.app.inflate('core:main')
 
         if self._about_visible:
@@ -77,8 +78,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             if c.plugin_id == self._cat_selected: # initialize current plugin
                 cat = c
         self.selected_category = cat
-
-        cat.on_init()
 
     def get_ui_about(self):
         ui = self.app.inflate('core:about')
@@ -204,6 +203,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
         try:
             self.do_init()
+            self.selected_category.on_init()
         except ConfigurationError, e:
             # ignore problems if we are leaving the plugin anyway
             if params[0] == self._cat_selected or event != 'category/click':

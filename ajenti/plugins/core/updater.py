@@ -2,7 +2,11 @@ from ajenti.api import *
 from ajenti.plugmgr import RepositoryManager
 
 import time
-import feedparser
+
+try:
+    import feedparser
+except:
+    feedparser = None
 
 
 FEED_URL = 'http://ajenti.org/?cat=4&feed=atom'

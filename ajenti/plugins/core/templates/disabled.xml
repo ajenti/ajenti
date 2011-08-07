@@ -22,6 +22,15 @@
            <br/>
            <div id="hint"/>
            <br/>
+           
+               <a href="#" onclick="javascript:document.getElementById('tracew').style.display='block';">
+                   <div class="ui-el-button"> <span class="left"> Traceback </span> <span class="right" /></div>
+               </a>
+               <a href="#" onclick="javascript:document.location.href='/session_reset';">
+                   <div class="ui-el-button"> <span class="left"> New session </span> <span class="right" /></div>
+               </a>
+               
+                          
            </td></tr></table>
         </div>
     </div>

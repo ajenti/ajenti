@@ -56,6 +56,7 @@ class ConfigProxy:
     def __init__(self, cfg, user):
         self.base = cfg
         self.user = user
+        self.filename = None
         if user is None:
             return
         self.cfg = Config()

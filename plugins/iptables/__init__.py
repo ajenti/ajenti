@@ -8,7 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'IP tables'
-PLATFORMS = ['debian', 'arch', 'centos', 'fedora']
+PLATFORMS = ['debian', 'arch', 'centos', 'fedora', 'gentoo']
 DESCRIPTION = 'Netfilter rules control plugin'
 VERSION = '0:1.3'
 AUTHOR = 'Ajenti team'

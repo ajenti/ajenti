@@ -12,7 +12,7 @@
     </div>
 
     <simpleform id="files">
-    <datatable id="list" width="100%">
+    <datatable id="list" width="755">
         <datatablerow header="True">
             <datatablecell />
             <datatablecell width="40%">

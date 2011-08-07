@@ -56,10 +56,15 @@ class SambaConfig(Plugin):
 
     def list_files(self):
         return ['/etc/samba/*']
-        
+
     def load(self):
         self.shares = {}
-        ss = open('/etc/samba/smb.conf', 'r').read().split('\n')
+
+        if os.path.exists('/etc/samba/smb.conf'):
+            fn = '/etc/samba/smb.conf'
+        else:
+            fn = '/etc/samba/smb.conf.default'
+        ss = open(fn, 'r').read().split('\n')
         cs = ''
         for s in ss:
             s = s.strip()
@@ -142,4 +147,3 @@ class SambaConfig(Plugin):
         else:
             value = 'yes' if vars.getvalue(param, self.defaults[param]) == '1' else 'no'
         self.set_param(share, param, value)
-        
