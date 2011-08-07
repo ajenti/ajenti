@@ -28,7 +28,7 @@ function ajax(URL)
 
 function showAjaxLoader(s) {
     document.getElementById('ajax-loader').style.display = s ? 'block' : 'none';
-    document.documentElement.style.cursor = s ? 'wait' : '';    
+    document.documentElement.style.cursor = s ? 'wait' : '';
 }
 
 function ajaxPOST(URL, params)
@@ -71,8 +71,8 @@ function ajaxForm(formId, action)
         var inputs = form.getElementsByTagName("input");
         url = inputs[0].value;
         if (inputs) {
-            for (i=0; i<inputs.length; i++) {
-                if (inputs[i].type == "text" || inputs[i].type == "password") {
+            for (i=1; i<inputs.length; i++) {
+                if (inputs[i].type == "text" || inputs[i].type == "password" || inputs[i].type == "hidden") {
                     params += "&" + inputs[i].name + "=" + encodeURIComponent(inputs[i].value);
                 }
                 if (inputs[i].type == "checkbox") {
