@@ -1,0 +1,10 @@
+<xml>
+    <toolbar>
+        <hcontainer>
+            <toolbutton id="btnSettings" text="Configure" icon="/dl/core/ui/stock/settings.png" />
+        </hcontainer>
+    </toolbar>
+
+    <pad id="main">
+    </pad>
+</xml>

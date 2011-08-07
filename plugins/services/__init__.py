@@ -1,4 +1,4 @@
-MODULES = ['api', 'main', 'widget', 's_upstart', 's_arch', 's_bsd', 's_centos', 's_gentoo']
+MODULES = ['api', 'main', 'meter', 'widget', 's_upstart', 's_arch', 's_bsd', 's_centos', 's_gentoo']
 
 DEPS =  [
     (['centos', 'fedora'],
@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'Services'
 PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora', 'gentoo']
 DESCRIPTION = 'Control system services'
-VERSION = '0:1.2'
+VERSION = '0:1.3'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

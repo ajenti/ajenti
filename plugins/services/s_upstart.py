@@ -5,7 +5,7 @@ from ajenti.utils import *
 from ajenti import apis
 from ajenti.api import *
 
-    
+
 class UpstartServiceManager(Plugin):
     implements(apis.services.IServiceManager)
     platform = ['debian']
@@ -13,23 +13,7 @@ class UpstartServiceManager(Plugin):
     def list_all(self):
         r = []
         found = []
-                
-        if os.path.exists('/etc/init'):        
-            for s in os.listdir('/etc/init'):
-                if len(s) > 5:
-                    s = s[:-5]
-                    svc = apis.services.Service()
-                    svc.name = s
-                    res = shell('service %s status' % s)
-                    if 'running' in res:
-                        svc.status = 'running'
-                        r.append(svc)
-                        found.append(s)
-                    elif 'stop/waiting' in res:
-                        svc.status = 'stopped'
-                        r.append(svc)
-                        found.append(s)
-                    
+
         for s in shell('service --status-all').split('\n'):
             if len(s) > 3 and s[3] != '?':
                 name = s.split()[3]
@@ -39,7 +23,7 @@ class UpstartServiceManager(Plugin):
                     svc.name = name
                     svc.status = 'running' if s[3] == '+' else 'stopped'
                     r.append(svc)
-            
+
         return sorted(r, key=lambda s: s.name)
 
     def get_status(self, name):

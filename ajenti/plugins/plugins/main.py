@@ -114,8 +114,14 @@ class PluginManager(CategoryPlugin, URLHandler):
             self._mgr.remove(params[1])
             self.put_message('info', 'Plugin removed. Refresh page for changes to take effect.')
         if params[0] == 'reload':
-            PluginLoader.unload(params[1])
-            PluginLoader.load(params[1])
+            try:
+                PluginLoader.unload(params[1])
+            except:
+                pass
+            try:
+                PluginLoader.load(params[1])
+            except:
+                pass
         if params[0] == 'restart':
             self.app.restart()
         if params[0] == 'install':

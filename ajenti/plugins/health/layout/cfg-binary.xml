@@ -1,0 +1,9 @@
+<xml>
+    <dialogbox id="dlgConfigure">
+        <vcontainer>
+            <label text="If meter reports Yes/True/Running, it is a:" />
+            <radio id="r-true" name="r-true" text="Good state" />
+            <radio id="r-false" name="r-false" text="Bad state" />
+        </vcontainer>
+    </dialogbox>
+</xml>

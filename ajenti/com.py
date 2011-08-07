@@ -1,5 +1,6 @@
 # Copyright (C) 2007-2010 Dmitry Zamaruev (dmitry.zamaruev@gmail.com)
 
+__all__ = ['Interface', 'implements', 'Plugin', 'PluginManager']
 
 import inspect
 import traceback

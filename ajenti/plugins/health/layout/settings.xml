@@ -1,0 +1,12 @@
+<xml>
+    <dialogbox id="dlgSettings" hidecancel="True">
+        <datatable id="list">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="Meter" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
+    </dialogbox>
+</xml>
