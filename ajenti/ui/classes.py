@@ -1,5 +1,5 @@
 import random
-from lxml import etree 
+from lxml import etree
 from ajenti.utils import fix_unicode
 
 
@@ -14,12 +14,12 @@ class Element(etree.ElementBase):
             self.append(k)
         for k in kwargs:
             self[k] = kwargs[k]
-        
+
     def _init(self, *args, **kwargs):
         etree.ElementBase._init(self)
         if not hasattr(self, '_children'):
             self._children = []
-    
+
     def append(self, el):
         if el is not None:
             if hasattr(el, 'elements'):
@@ -32,17 +32,17 @@ class Element(etree.ElementBase):
         for el in els:
             self.append(el)
         return self
-        
+
     def __setitem__(self, idx, val):
         self.set(idx, val)
-        
+
     def set(self, idx, val):
         etree.ElementBase.set(self, idx, fix_unicode(str(val)))
-        
+
     def __getitem__(self, idx):
         return self.get(idx)
-    
-        
+
+
 class UI(object):
 
     """ Automatically generate XML tags by calling name
@@ -52,9 +52,9 @@ class UI(object):
     '<meta encoding="ru"/>'
     >>>
     """
-    
+
     __overrides_cache = None
-    
+
     class __metaclass__(type):
         def __getattr__(cls, name):
             return lambda *args, **kw: Element(name.lower(), *args, **kw)
@@ -66,7 +66,7 @@ class UI(object):
                 [(x.lower(),getattr(UI,x)) for x in UI.__dict__]
             )
         return UI.__overrides_cache
-    
+
     @staticmethod
     def gen(name, *args, **kwargs):
         """ Generate XML tags by name, if name will violate Pyhton syntax
@@ -92,7 +92,7 @@ class UI(object):
                     if e.tag == 'layouttablerow':
                         self.append(e)
                     else:
-                        c = UI.LayoutTableRow(e) 
+                        c = UI.LayoutTableRow(e)
                         c['spacing'] = self['spacing']
                         self.append(c)
 
@@ -125,7 +125,7 @@ class UI(object):
             Element.__init__(self, 'datatablerow', **kwargs)
             for e in args:
                 if isinstance(e, Element):
-                    if e.tag == 'datatablecell':
+                    if e.tag in ['datatablecell', 'statuscell']:
                         self.append(e)
                     else:
                         self.append(UI.DataTableCell(e))
@@ -178,7 +178,7 @@ class TreeManager(object):
             self.states.remove(id)
         else:
             self.states.append(id)
-        
+
     def apply(self, tree):
         try:
             tree['expanded'] = tree['id'] in self.states

@@ -4,6 +4,7 @@ from ajenti.api import *
 class SysloadMeter (DecimalMeter):
     name = 'System load'
     category = 'System'
+    transform = 'float'
 
     def get_variants(self):
         return ['1', '5', '15']
@@ -19,6 +20,7 @@ class SysloadMeter (DecimalMeter):
 class RAMMeter (LinearMeter):
     name = 'RAM'
     category = 'System'
+    transform = 'fsize_percent'
 
     def init(self):
         self.ram = self.app.get_backend(apis.sysstat.ISysStat).get_ram()
@@ -33,6 +35,7 @@ class RAMMeter (LinearMeter):
 class SwapMeter (LinearMeter):
     name = 'Swap'
     category = 'System'
+    transform = 'fsize_percent'
 
     def init(self):
         self.swap = self.app.get_backend(apis.sysstat.ISysStat).get_swap()

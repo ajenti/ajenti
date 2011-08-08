@@ -5,6 +5,7 @@ from ajenti import apis
 class ServiceMeter (BinaryMeter):
     name = 'Services'
     category = 'Software'
+    transform = 'running'
 
     def get_variants(self):
         return [x.name for x in self.app.get_backend(apis.services.IServiceManager).list_all()]

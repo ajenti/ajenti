@@ -201,11 +201,11 @@
 }
 
 .ui-el-category-counter {
-    font-size: 13px;
+    font-size: 12px;
     display: inline-block;
     float: right;
     line-height: 16px;
-    padding: 0px 5px;
+    padding: 0 5px 1px;
     margin: 1px 0 0;
 
     color: #fff;
@@ -218,6 +218,10 @@
     background: #922017;
     background: -moz-linear-gradient(top,  #d04909,  #922017);
     background: -webkit-gradient(linear, left top, left bottom, from(#d04909), to(#922017));
+}
+
+.ui-el-top-category .ui-el-category-counter {
+    margin: 4px 0 0 3px;
 }
 
 .ui-el-category-selected .ui-el-category-counter {

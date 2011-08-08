@@ -15,7 +15,7 @@
         <xsl:apply-templates />
     </td>
 </xsl:template>
-    
+
 
 <xsl:template match="datatable">
     <table cellspacing="0" cellpadding="0" class="ui-el-table" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; {x:iif(@noborder, 'border: none', '')}">
@@ -42,3 +42,8 @@
     </td>
 </xsl:template>
 
+<xsl:template match="statuscell">
+    <td class="ui-el-table-cell ui-el-status-cell ui-el-status-cell-{@status}" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+        <xsl:value-of select="@text" />
+    </td>
+</xsl:template>

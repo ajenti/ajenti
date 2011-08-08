@@ -4,7 +4,6 @@ from ajenti.com import Interface
 from ajenti.ui import UI
 from ajenti.utils import detect_distro, detect_platform
 from ajenti.api import *
-from ajenti.plugmgr import RepositoryManager
 from ajenti import apis
 
 
@@ -67,14 +66,6 @@ class Dashboard(CategoryPlugin):
 
         else:
             ui.append('main', UI.Refresh(time=5000))
-
-        rm = RepositoryManager(self.app.config)
-        c = 0
-        for p in rm.available:
-            if p.upgradable:
-                c += 1
-        if c > 0:
-            self.put_message('info', 'Upgradable plugins: %i'%c)
 
         return ui
 

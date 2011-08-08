@@ -2,6 +2,11 @@
     <a class="ui-el-top-category{x:iif(@selected, ' ui-el-top-category-selected', '')}" href="#" onclick="javascript:ui_select_top_category('{@id}');return ajax('/handle/category/click/{@id}');" id="{@id}">
         <img src="{@icon}" class="ui-el-category-icon" />
         <xsl:value-of select="@text"/>
+            <xsl:if test="@counter != 'None'">
+                <div class="ui-el-category-counter">
+                    <xsl:value-of select="@counter"/>
+                </div>
+            </xsl:if>
     </a>
 </xsl:template>
 
@@ -50,7 +55,7 @@
             <xsl:apply-templates />
         </div>
 </xsl:template>
-        
+
 <xsl:template match="topprogressbox">
         <div class="ui-progress-box">
                 <img class="ajax" src="/dl/core/ui/ajax-light.gif"/>
@@ -65,11 +70,10 @@
                 <refresh time="3000" />
         </div>
 </xsl:template>
-        
-        
+
+
 <xsl:template match="systemmessage">
     <div class="ui-el-message ui-el-message-{@cls}">
         <xsl:value-of select="@text" />
     </div>
 </xsl:template>
-        

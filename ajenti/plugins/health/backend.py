@@ -19,8 +19,7 @@ class Backend (Plugin):
 
     def list_variated(self, x):
         for v in x.get_variants():
-            x.prepare(v)
-            yield x
+            yield x.prepare(v)
 
     def _get_cfg(self):
         return json.loads(self.app.config.get('meters', 'config', '{}'))
@@ -38,6 +37,7 @@ class Backend (Plugin):
         return self.cfg[cls][var]
 
     def set_cfg(self, cls, var, cfg):
+        print cfg
         self.cfg.setdefault(cls, {})[var] = cfg
         self._save_cfg()
 

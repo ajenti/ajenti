@@ -137,6 +137,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                         text=c.text,
                         id=c.plugin_id,
                         icon=c.icon,
+                        counter=c.get_counter(),
                         selected=c==self.selected_category
                     )
                 )

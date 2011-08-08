@@ -14,6 +14,9 @@ class PluginManager(CategoryPlugin, URLHandler):
     def on_session_start(self):
         self._mgr = RepositoryManager(self.app.config)
 
+    def get_counter(self):
+        return len(self._mgr.upgradable)
+
     def get_ui(self):
         ui = self.app.inflate('plugins:main')
 

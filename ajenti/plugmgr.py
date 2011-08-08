@@ -254,6 +254,7 @@ class RepositoryManager:
         self.installed = sorted(PluginLoader.list_plugins().values(), key=lambda x:x.name)
 
     def update_upgradable(self):
+        upg = []
         for p in self.available:
             u = False
             for g in self.installed:
@@ -262,6 +263,8 @@ class RepositoryManager:
                     break
             if u:
                 g.upgradable = p.upgradable = True
+                upg += [g]
+        self.upgradable = upg
 
     def update_list(self):
         if not os.path.exists('/var/lib/ajenti'):

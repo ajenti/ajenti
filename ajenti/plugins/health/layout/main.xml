@@ -1,10 +1,26 @@
 <xml>
+    <div id="overall" style="padding: 5px 10px" />
     <toolbar>
         <hcontainer>
+            <toolbutton id="btnRefresh" text="Refresh" icon="/dl/core/ui/stock/refresh.png" />
             <toolbutton id="btnSettings" text="Configure" icon="/dl/core/ui/stock/settings.png" />
         </hcontainer>
     </toolbar>
 
     <pad id="main">
+        <datatable id="list" width="100%">
+            <datatablerow header="True">
+                <datatablecell>
+                    <label text="State" />
+                </datatablecell>
+                <datatablecell width="50%">
+                    <label text="Meter" />
+                </datatablecell>
+                <datatablecell width="50%">
+                    <label text="Value" />
+                </datatablecell>
+                <datatablecell />
+            </datatablerow>
+        </datatable>
     </pad>
 </xml>

@@ -43,7 +43,7 @@ class RamWidget(Plugin):
         ru, rt = stat.get_ram()
         return UI.HContainer(
             UI.ProgressBar(value=ru, max=rt, width=220),
-            UI.Label(text="%sM / %sM"%(ru,rt)),
+            UI.Label(text="%s / %s"%(str_fsize(ru),str_fsize(rt))),
         )
 
     def handle(self, event, params, cfg, vars=None):
@@ -68,7 +68,7 @@ class SwapWidget(Plugin):
         su, st = stat.get_swap()
         return UI.HContainer(
             UI.ProgressBar(value=su, max=int(st)+1, width=220),
-            UI.Label(text="%sM / %sM"%(su,st)),
+            UI.Label(text="%s / %s"%(str_fsize(su),str_fsize(st))),
         )
 
     def handle(self, event, params, cfg, vars=None):

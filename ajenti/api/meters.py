@@ -7,14 +7,17 @@ class IMeter (Interface):
 class BaseMeter (Plugin):
     implements(IMeter)
     abstract = True
+    multi_instance = True
 
     name = 'Unknown'
     text = ''
     category = ''
     rangeable = True
     type = None
+    transform = None
 
     def prepare(self, variant=None):
+        self = self.__class__(self.app)
         self.variant = variant
         self.init()
         return self
@@ -23,7 +26,7 @@ class BaseMeter (Plugin):
         pass
 
     def get_variants(self):
-        return [None]
+        return ['None']
 
     def format_value(self):
         return None
