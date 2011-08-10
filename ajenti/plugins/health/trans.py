@@ -10,6 +10,8 @@ def trans_fsize(x):
     return str_fsize(int(x['value']))
 
 def trans_percent(x):
+    if float(x['max']) == float(x['min']):
+        return '0%'
     return '%.2f%%'%((float(x['value'])-float(x['min']))/(float(x['max'])-float(x['min']))*100)
 
 def trans_fsize_percent(x):

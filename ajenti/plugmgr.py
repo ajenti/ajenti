@@ -315,7 +315,7 @@ class RepositoryManager:
         send_stats(self.server, PluginLoader.list_plugins().keys(), addplugin=id)
 
         if load:
-            PluginLoad.load(id)
+            PluginLoader.load(id)
 
         self.update_installed()
         self.update_available()

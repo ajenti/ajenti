@@ -1,4 +1,5 @@
 from ajenti.api import *
+from ajenti.com import *
 import threading
 import json
 
@@ -65,3 +66,28 @@ class HealthMonitor (Component):
         return 'susp'
 
     validate_linear = validate_decimal
+
+
+
+class HealthExporter (Plugin, URLHandler):
+
+    @url('^/api/health$')
+    def export(self, req, sr):
+        mon = ComponentManager.get().find('health-monitor')
+        data = json.loads(self.app.gconfig.get('meters', 'config', '{}'))
+        nd = {}
+        mon.refresh()
+        for i in mon.get():
+            nd.setdefault(i.category, {}).setdefault(i.plugin_id, {})[i.variant] = {
+                'value': i.format_value(),
+                'info': {
+                    'text': i.text,
+                    'name': i.name,
+                    'type': i.type,
+                    'variant': i.variant,
+                    'transform': i.transform,
+                },
+                'contraints': data[i.plugin_id][i.variant],
+                'state': mon.get()[i],
+            }
+        return json.dumps(nd)

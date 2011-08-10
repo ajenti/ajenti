@@ -14,14 +14,14 @@ class MetersExporter (Plugin, URLHandler):
             variants = cls.get_variants()
             for v in variants:
                 inst = cls.prepare(v)
-                r.setdefault(cls.category, {}).setdefault(cls.plugin_id, []). \
-                    append({
+                r.setdefault(cls.category, {}).setdefault(cls.plugin_id, {})[v] = \
+                    {
                         'name': inst.name,
-                        'type': inst.type,
+                        'mtype': inst.type,
                         'text': inst.text,
                         'variant': v,
                         'transform': inst.transform,
                         'data': inst.format_value(),
-                    })
+                    }
 
         return json.dumps(r)

@@ -15,7 +15,7 @@ class PluginManager(CategoryPlugin, URLHandler):
         self._mgr = RepositoryManager(self.app.config)
 
     def get_counter(self):
-        return len(self._mgr.upgradable)
+        return len(self._mgr.upgradable) or None
 
     def get_ui(self):
         ui = self.app.inflate('plugins:main')
