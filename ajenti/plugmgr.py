@@ -171,7 +171,7 @@ class PluginLoader:
                 try:
                     queue.remove(e.name)
                     queue.append(e.name)
-                    if PluginLoader.__plugins[e.name].problem is not None:
+                    if (e.name in PluginLoader.__plugins) and (PluginLoader.__plugins[e.name].problem is not None):
                         raise e
                 except:
                     log.warn('Plugin %s requires plugin %s, which is not available.' % (plugin,e.name))
