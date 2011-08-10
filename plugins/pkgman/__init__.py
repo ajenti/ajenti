@@ -22,6 +22,6 @@ DEPS =  [
 NAME = 'Package manager'
 PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora', 'gentoo']
 DESCRIPTION = 'Manage software packages'
-VERSION = '0:1.1'
+VERSION = '0:1.2'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

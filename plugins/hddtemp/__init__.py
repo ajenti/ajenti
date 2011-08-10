@@ -10,7 +10,7 @@ DEPS =  [
 
 NAME = 'hddtemp'
 PLATFORMS = ['any']
-DESCRIPTION = 'HDD temperature'
-VERSION = '0:2'
+DESCRIPTION = 'HDD temperature widget'
+VERSION = '0:1.0'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

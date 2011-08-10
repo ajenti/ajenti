@@ -6,7 +6,6 @@ from ajenti.utils import shell_status, shell
 
 class RCConf(API):
     class RCConf(Plugin):
-        platform = ['arch', 'freebsd', 'centos', 'gentoo']
         multi_instance = True
         file = '/etc/rc.conf'
 

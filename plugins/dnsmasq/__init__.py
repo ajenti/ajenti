@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'Dnsmasq'
 PLATFORMS = ['any']
 DESCRIPTION = 'dnsmasq configuration'
-VERSION = '0:1.1'
+VERSION = '0:1.2'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

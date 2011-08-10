@@ -5,6 +5,6 @@ DEPS =  []
 NAME = 'Users'
 PLATFORMS = ['any']
 DESCRIPTION = 'Manage user accounts'
-VERSION = '0:1.1'
+VERSION = '0:1.2'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
