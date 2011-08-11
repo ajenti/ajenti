@@ -9,7 +9,7 @@ from hashlib import sha1
 from base64 import b64encode
 
 
-import ajenti.utils 
+import ajenti.utils
 
 
 def enquote(s):
@@ -23,13 +23,14 @@ def fix_unicode(s):
 def detect_platform(mapping=True):
     base_mapping = {
         'gentoo base system': 'gentoo',
+        'centos linux': 'centos',
     }
 
     platform_mapping = {
         'ubuntu': 'debian',
         'linuxmint': 'debian',
     }
-    
+
     if platform.system() != 'Linux':
         return platform.system().lower()
 
@@ -70,13 +71,13 @@ def download(url, file=None, crit=False):
         # ajenti.utils.logger.debug('Download failed')
         if crit:
             raise
-        
+
 def shell(c):
     #ajenti.utils.logger.debug('Running %s' % c)
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
-    
+
     try:
         data = p.stdout.read() # Workaround; waiting first causes a deadlock
     except: # WTF OSError (interrupted request)
@@ -93,7 +94,7 @@ def shell_bg(c, output=None, deleteout=False):
     subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
-    
+
 def shell_status(c):
     #ajenti.utils.logger.debug('Running %s' % c)
     return subprocess.Popen('LC_ALL=C '+c, shell=True,
@@ -111,7 +112,7 @@ def shell_stdin(c, input):
 
 def hashpw(passw):
     return '{SHA}' + b64encode(sha1(passw).digest())
-        
+
 def str_fsize(sz):
     if sz < 1024:
         return '%i bytes' % sz

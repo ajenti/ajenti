@@ -83,7 +83,7 @@ class PluginManager(CategoryPlugin, URLHandler):
                         msg='Download and install plugin "%s"'%k.name
                     ))
             else:
-                row.append('reqs', UI.HelpIcon(text=req))
+                row.append('reqs', UI.HelpIcon(text=reqs))
 
             ui.append('avail', row)
 

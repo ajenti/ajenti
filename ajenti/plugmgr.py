@@ -127,6 +127,9 @@ class PluginLoader:
                     # Store submodule
                     PluginLoader.__submods[plugin][submod] = m
                     setattr(mod, submod, m)
+                except ImportError, e:
+                    del mod
+                    raise ModuleRequirementError(e.message.split()[-1])
                 except Exception, e:
                     del mod
                     raise
@@ -178,23 +181,28 @@ class PluginLoader:
                     queue.remove(plugin)
             except BaseRequirementError, e:
                 log.warn('Plugin %s %s' % (plugin,str(e)))
+                PluginLoader.unload(plugin)
                 queue.remove(plugin)
             except Exception, e:
+                PluginLoader.unload(plugin)
                 queue.remove(plugin)
                 raise
         log.info('Plugins loaded.')
 
     @staticmethod
     def unload(plugin):
-        for cls in PluginLoader.__classes[plugin]:
-            for m in PluginLoader.__managers:
-                i = m.instance_get(cls)
-                if i is not None:
-                    i.unload()
-            PluginManager.class_unregister(cls)
-        del PluginLoader.__plugins[plugin]
-        del PluginLoader.__submods[plugin]
-        del PluginLoader.__classes[plugin]
+        PluginLoader.log.info('Unloading plugin %s'%plugin)
+        if plugin in PluginLoader.__classes:
+            for cls in PluginLoader.__classes[plugin]:
+                for m in PluginLoader.__managers:
+                    i = m.instance_get(cls)
+                    if i is not None:
+                        i.unload()
+                PluginManager.class_unregister(cls)
+        if plugin in PluginLoader.__submods:
+            del PluginLoader.__submods[plugin]
+        if plugin in PluginLoader.__classes:
+            del PluginLoader.__classes[plugin]
 
     @staticmethod
     def verify_dep(dep):
@@ -202,7 +210,8 @@ class PluginLoader:
             if shell_status('which '+dep[2]) != 0:
                 raise SoftwareRequirementError(*dep[1:])
         if dep[0] == 'plugin':
-            if not dep[1] in PluginLoader.list_plugins():
+            if not dep[1] in PluginLoader.list_plugins() or \
+                    PluginLoader.__plugins[dep[1]].problem:
                 raise PluginRequirementError(*dep[1:])
         if dep[0] == 'module':
             try:
@@ -330,9 +339,11 @@ class PluginInfo:
 
     def str_req(self):
         reqs = []
-        for r in self.deps:
-            try:
-                PluginLoader.verify_dep(r)
-            except Exception, e:
-                reqs.append(str(e))
+        for p in self.deps:
+            if any(x in [PluginLoader.platform, 'any'] for x in p[0]):
+                for r in p[1]:
+                    try:
+                        PluginLoader.verify_dep(r)
+                    except Exception, e:
+                        reqs.append(str(e))
         return ', '.join(reqs)
