@@ -326,7 +326,10 @@ class Config(Plugin):
         if self.app.config.has_option('iptables', 'rules_file'):
             self.rules_file = self.app.config.get('iptables', 'rules_file')
         else:
-            if os.path.exists('/etc/iptables'):
+            cfg = self.app.get_backend(IConfig)
+            if hasattr(cfg, 'rules_file'):
+                self.rules_file = cfg.rules_file
+            elif os.path.exists('/etc/iptables'):
                 self.rules_file = '/etc/iptables/rules'
             else:
                 self.rules_file = '/etc/iptables.up.rules' # webmin import
@@ -339,7 +342,7 @@ class Config(Plugin):
         shell('iptables -L -t filter')
         shell('iptables -L -t mangle')
         shell('iptables -L -t nat')
-        print        shell('iptables-save > %s' % self.rules_file)
+        shell('iptables-save > %s' % self.rules_file)
         self.load()
 
     def apply_now(self):
@@ -405,31 +408,8 @@ class IConfig(Interface):
 
 class IDebianConfig(Plugin):
     implements(IConfig)
-    platform = ['Debian', 'Ubuntu']
+    platform = ['debian', 'ubuntu']
     path = '/etc/network/if-up.d/iptables'
-
-    @property
-    def apply_shell(self):
-        return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
-
-    def has_autostart(self):
-        return os.path.exists(self.path)
-
-    def set_autostart(self, active):
-        if active:
-            open(self.path, 'w').write(self.apply_shell)
-            shell('chmod 755 ' + self.path)
-        else:
-            try:
-                os.unlink(self.path)
-            except:
-                pass
-
-
-class ISuseConfig(Plugin):
-    implements(IConfig)
-    platform = ['openSUSE']
-    path = '/etc/sysconfig/network/if-up.d/50-iptables'
 
     @property
     def apply_shell(self):
@@ -451,7 +431,7 @@ class ISuseConfig(Plugin):
 
 class IArchConfig(Plugin):
     implements(IConfig)
-    platform = ['Arch']
+    platform = ['arch']
     path = '/etc/network.d/hooks/iptables'
 
     @property
@@ -474,3 +454,19 @@ class IArchConfig(Plugin):
         if active and not saved:
             f.write(self.apply_shell + '\n')
         f.close()
+
+
+class ICentOSConfig(Plugin):
+    implements(IConfig)
+    platform = ['centos']
+    rules_file = '/etc/sysconfig/iptables'
+
+    @property
+    def apply_shell(self):
+        return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
+
+    def has_autostart(self):
+        return True
+
+    def set_autostart(self, active):
+        pass
