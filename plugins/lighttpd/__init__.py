@@ -9,7 +9,7 @@ DEPS =  [
 ]
 
 NAME = 'lighttpd'
-PLATFORMS = ['debian']
+PLATFORMS = ['debian', 'centos']
 DESCRIPTION = 'lighttpd webserver control plugin'
 VERSION = '0:1.1'
 AUTHOR = 'Ajenti team'

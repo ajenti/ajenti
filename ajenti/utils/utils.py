@@ -72,7 +72,7 @@ def download(url, file=None, crit=False):
         if crit:
             raise
 
-def shell(c):
+def shell(c, stderr=False):
     #ajenti.utils.logger.debug('Running %s' % c)
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
@@ -83,7 +83,7 @@ def shell(c):
     except: # WTF OSError (interrupted request)
         data = ''
     p.wait()
-    return data + p.stdout.read() + p.stderr.read()
+    return data + p.stdout.read() + (p.stderr.read() if stderr else '')
 
 def shell_bg(c, output=None, deleteout=False):
     if output is not None:

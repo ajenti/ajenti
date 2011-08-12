@@ -13,7 +13,7 @@ class YumPackageManager(Plugin):
     _pending = {}
 
     def refresh(self, st):
-        p = self._parse_yum(utils.shell('yum -C -q check-update').splitlines())
+        p = self._parse_yum(utils.shell('yum -C -q -d0 -e0 check-update').splitlines())
         a = self._get_all()
         st.upgradeable = {}
 
@@ -41,7 +41,7 @@ class YumPackageManager(Plugin):
         utils.shell_bg('yum check-update', output='/tmp/ajenti-yum-output', deleteout=True)
 
     def search(self, q, st):
-        ss = utils.shell('yum -q -C search %s' % q).splitlines()
+        ss = utils.shell('yum -q -C -d0 -e0 search %s' % q).splitlines()
         a = st.full
         r = {}
         for s in ss:
@@ -72,7 +72,7 @@ class YumPackageManager(Plugin):
     def mark_cancel_all(self, st):
         st.pending = {}
         self._save_pending(st.pending)
-    
+
     def apply(self, st):
         cmd = 'yum -y install '
         for x in st.pending:
@@ -98,13 +98,13 @@ class YumPackageManager(Plugin):
 
     def get_info(self, pkg):
         i = apis.pkgman.PackageInfo()
-        ss = utils.shell('yum -C info '+pkg).split('\n')
-        
+        ss = utils.shell('yum -C -d0 -e0 info '+pkg).split('\n')
+
         section = ''
         dinst = {}
         davail = {}
         lk = None
-        
+
         for s in ss:
             if not ':' in s:
                 section = s
@@ -125,7 +125,7 @@ class YumPackageManager(Plugin):
                     else:
                         davail[k] = v
                 lk = k
-                    
+
         i.installed = dinst['Version']
         try:
             i.available = davail['Version']
@@ -133,11 +133,11 @@ class YumPackageManager(Plugin):
             i.available = None
 
         dinst.update(davail)
-        
+
         i.description = dinst['Description']
-        
+
         return i
-        	 
+
     def get_info_ui(self, pkg):
         return None
 
@@ -164,7 +164,7 @@ class YumPackageManager(Plugin):
 	return r
 
     def _get_all(self):
-        ss = utils.shell('yum -C list installed -q').splitlines()
+        ss = utils.shell('yum -C -d0 -e0 list installed -q').splitlines()
         r = {}
         for s in ss:
             s = s.split()
@@ -178,4 +178,3 @@ class YumPackageManager(Plugin):
                 pass
 
         return r
-
