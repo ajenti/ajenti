@@ -50,6 +50,8 @@ import os
 import time
 import Cookie
 import hashlib
+from ajenti.utils import ClassProxy
+
 
 def sha1(var):
     return hashlib.sha1(str(var)).hexdigest()
@@ -120,14 +122,18 @@ class Session(dict):
 
 class SessionStore(object):
     """ Manages multiple session objects
-    Could be made thread-safe
     """
     # TODO: add session deletion/invalidation
-    def __init__(self, timeout=24*60):
-        # Default timeout is 24 hours
+    def __init__(self, timeout=30):
+        # Default timeout is 30 minutes
         # Use internal timeout in seconds (for easier calculations)
         self._timeout = timeout*60
         self._store = {}
+
+    @staticmethod
+    def init_safe():
+        """ Create a thread-safe SessionStore """
+        return ClassProxy(SessionStore())
 
     def create(self):
         """ Create a new session,
@@ -229,6 +235,7 @@ class SessionManager(object):
 
     def __call__(self, environ, start_response):
         self.start_response_origin = start_response
+        self._session_store.vacuum()
         sess = self._get_session(environ)
         environ['app.session'] = sess
 

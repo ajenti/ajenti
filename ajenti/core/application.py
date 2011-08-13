@@ -193,7 +193,7 @@ class AppDispatcher(object):
     def __init__(self, config=None):
         self.config = config
         self.log = config.get('log_facility')
-        self.sessions = SessionStore()
+        self.sessions = SessionStore.init_safe()
 
     def dispatcher(self, environ, start_response):
         self.log.debug('Dispatching %s'%environ['PATH_INFO'])

@@ -4,6 +4,7 @@
     <formbox id="frmPlugins" hidecancel="True">
         <datatable id="list">
         </datatable>
+        <br/>
     </formbox>
     </pad>
 </xml>

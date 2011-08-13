@@ -24,7 +24,7 @@ class FirstRun(CategoryPlugin, URLHandler):
 
             lst = self._mgr.available
 
-            for k in lst:
+            for k in sorted(lst, key=lambda x:x.name):
                 row = self.app.inflate('firstrun:item')
                 row.find('name').set('text', k.name)
                 row.find('desc').set('text', k.description)
@@ -63,7 +63,10 @@ class FirstRun(CategoryPlugin, URLHandler):
 
             for k in lst:
                 if vars.getvalue('install-'+k.id, '0') == '1':
-                    self._mgr.install(k.id)
+                    try:
+                        self._mgr.install(k.id)
+                    except:
+                        pass
             ComponentManager.get().rescan()
 
             self.app.gconfig.set('ajenti', 'firstrun', 'no')
