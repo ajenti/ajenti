@@ -2,6 +2,7 @@ import os
 import imp
 import sys
 import traceback
+import weakref
 
 from ajenti.com import *
 from ajenti.utils import detect_platform, shell, shell_status, download
@@ -53,6 +54,7 @@ class PluginLoader:
     __plugins = {}
     __submods = {}
     __managers = []
+    __observers = []
     platform = None
     log = None
     path = None
@@ -70,6 +72,21 @@ class PluginLoader:
     @staticmethod
     def register_mgr(mgr):
         PluginLoader.__managers.append(mgr)
+
+    @staticmethod
+    def register_observer(mgr):
+        PluginLoader.__observers.append(weakref.ref(mgr, \
+            callback=PluginLoader.__unregister_observer))
+
+    @staticmethod
+    def __unregister_observer(ref):
+        PluginLoader.__observers.remove(ref)
+
+    @staticmethod
+    def notify_plugins_changed():
+        for o in PluginLoader.__observers:
+            if o():
+                o().plugins_changed()
 
     @staticmethod
     def load(plugin):
@@ -136,6 +153,7 @@ class PluginLoader:
 
             # Store the whole plugin
             setattr(ajenti.plugins, plugin, mod)
+            PluginLoader.notify_plugins_changed()
         except BaseRequirementError, e:
             info.problem = e
             raise e
@@ -203,6 +221,7 @@ class PluginLoader:
             del PluginLoader.__submods[plugin]
         if plugin in PluginLoader.__classes:
             del PluginLoader.__classes[plugin]
+        PluginLoader.notify_plugins_changed()
 
     @staticmethod
     def verify_dep(dep):
@@ -231,6 +250,9 @@ class RepositoryManager:
     def __init__(self, cfg):
         self.config = cfg
         self.server = cfg.get('ajenti', 'update_server')
+        self.refresh()
+
+    def refresh(self):
         self.available = []
         self.installed = []
         self.update_installed()

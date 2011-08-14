@@ -25,15 +25,20 @@ class Application (PluginManager, Plugin):
 
     def __init__(self, config=None):
         PluginManager.__init__(self)
+        self.gconfig = config
+        self.log = config.get('log_facility')
+        self.platform = config.get('platform')
+        PluginLoader.register_observer(self)
+        self.refresh_plugin_data()
 
-        # Init instance variables
+    def plugins_changed(self):
+        self.refresh_plugin_data()
+
+    def refresh_plugin_data(self):
         self.template_path = []
         self.template_styles = []
         self.template_scripts = []
         self.layouts = {}
-        self.gconfig = config
-        self.log = config.get('log_facility')
-        self.platform = config.get('platform')
         includes = []
         functions = {}
 

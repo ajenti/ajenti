@@ -14,6 +14,9 @@ class PluginManager(CategoryPlugin, URLHandler):
     def on_session_start(self):
         self._mgr = RepositoryManager(self.app.config)
 
+    def on_init(self):
+        self._mgr.refresh()
+
     def get_counter(self):
         return len(self._mgr.upgradable) or None
 
