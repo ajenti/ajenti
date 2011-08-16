@@ -4,12 +4,25 @@ BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
 VERSION=0.5.0
 
-all:
-		@echo "make source - Create source package"
-		@echo "make install - Install on local system"
-		@echo "make buildrpm - Generate a rpm package"
-		@echo "make builddeb - Generate a deb package"
-		@echo "make clean - Get rid of scratch and byte files"
+
+SPHINXOPTS    =
+SPHINXBUILD   = sphinx-build
+PAPER         =
+DOCBUILDDIR   = docs/build
+DOCSOURCEDIR   = docs/source
+ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(DOCSOURCEDIR)
+
+doc:
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCBUILDDIR)/html
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
+cdoc:
+	rm -rf $(DOCBUILDDIR)/*
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCBUILDDIR)/html
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
 
 source:
 		$(PYTHON) setup.py sdist $(COMPILE)
@@ -23,14 +36,14 @@ buildrpm:
 builddeb:
 		# build the source package in the parent directory
 		# then rename it to project_version.orig.tar.gz
-		$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../ 
+		$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
 		rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
 		# build the package
-		dpkg-buildpackage -i -I -rfakeroot	
+		dpkg-buildpackage -i -I -rfakeroot
 
 clean:
 		$(PYTHON) setup.py clean
+		rm -rf $(DOCBUILDDIR)/*
 		$(MAKE) -f $(CURDIR)/debian/rules clean
 		rm -rf build/ MANIFEST dist Ajenti.egg-info
 		find . -name '*.pyc' -delete
-

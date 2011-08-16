@@ -1,6 +1,11 @@
 import subprocess
 
 def version():
+    """ Returns version (including git revision
+    if ajenti runs inside a working tree
+    :returns: str
+    """
+
     release = '0.5-12'
     p = subprocess.Popen('git describe --tags 2> /dev/null',
             shell=True,

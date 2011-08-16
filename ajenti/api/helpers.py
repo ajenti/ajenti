@@ -44,7 +44,12 @@ def event(event_name):
 
 
 class EventProcessor(object):
+    """
+    A base class for plugins suitable for handling UI Events_.
+    You will need to decorate handler methods with :func:`event`.
+    """
     implements(IEventDispatcher)
+
 
     def _get_event_handler(self, event):
         """
@@ -87,6 +92,8 @@ class EventProcessor(object):
 
     def event(self, event, *params, **kwparams):
         """
+        Calls a handler method suitable for given event.
+
         >>> class Test(EventProcessor):
         ...     @event('test')
         ...     def test(self, *p, **kw):
@@ -109,6 +116,14 @@ class EventProcessor(object):
 
 
 class SessionPlugin(Plugin):
+    """
+    A base class for plugins attached to the current user's session.
+
+    Instance variables starting with '_' will be automatically [re]stored
+    from/into the session.
+
+    """
+
     session_proxy = None
 
     def __init__(self):
@@ -122,7 +137,6 @@ class SessionPlugin(Plugin):
             except Exception, e:
                 traceback.print_exc()
                 raise
-                 
 
     def __getattr__(self, name):
         # TODO: use regexps
@@ -140,10 +154,20 @@ class SessionPlugin(Plugin):
             self.__dict__[name] = value
 
     def on_session_start(self):
-        pass
+        """
+        Called when a session is estabilished for new user or a new plugin
+        is attached to the session for the first time.
+        """
 
 
 class CategoryPlugin(SessionPlugin, EventProcessor):
+    """
+    A base class for plugins providing sidebar entry
+
+    - ``text`` - `str`, sidebar entry text
+    - ``icon`` - `str`, sidebar icon URL
+    - ``folder`` - `str`, sidebar section name (lowercase)
+    """
     abstract = True
 
     implements(ICategoryProvider)
@@ -153,37 +177,68 @@ class CategoryPlugin(SessionPlugin, EventProcessor):
     folder = 'other'
 
     def on_init(self):
-        pass
+        """
+        Called when a web request has arrived and this plugin is active (visible).
+        """
 
     def get_counter(self):
-        pass
-        
+        """
+        May return short string to be displayed in 'bubble' right to the sidebar
+        entry.
+
+        :returns: None or str
+        """
+
     def get_config(self):
+        """
+        Returns a most preferred ModuleConfig for this class.
+
+        :returns:   :class:`ModuleConfig` or None
+        """
         try:
             return self.app.get_config(self)
         except:
             return None
-            
+
     def put_message(self, cls, msg):
+        """
+        Pushes a visual message to the message queue.
+        All messages will be displayed on the next webpage update user will
+        receive.
+
+        :param  cls:    one of 'info', 'warn', 'err'
+        :type   cls:    str
+        :params msg:    message text
+        """
         if not self.app.session.has_key('messages'):
             self.app.session['messages'] = []
         self.app.session['messages'].append((cls, msg))
-            
-            
+
+
 class ModuleConfig(Plugin):
+    """
+    Base class for simple "configs" for different platforms for the plugins.
+
+    - ``target`` - `type`, :class:`ajenti.com.Plugin` class for which this config
+      is targeted.
+    - ``labels`` - `dict(str:str)` - text labels for visual editing of each property.
+
+    All other properties are considered ModuleConfig parameters - they are shown
+    in the UI and saved to config files.
+    """
     abstract = True
     implements(IModuleConfig)
 
-    target = None    
+    target = None
     labels = {}
-    
+
     def overlay_config(self):
         section = 'cfg_' + self.target.__name__
         for k in self.__class__.__dict__:
             if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
                 if self.app.config.has_option(section, k):
                     setattr(self, k, eval(self.app.config.get(section, k)))
-            
+
     def save(self):
         section = 'cfg_' + self.target.__name__
         for k in self.__class__.__dict__:
@@ -193,13 +248,13 @@ class ModuleConfig(Plugin):
                 else:
                     self.app.config.remove_option(section, k)
         self.app.config.save()
-                
+
     def get_ui_edit(self):
         t = UI.LayoutTable()
         for k in self.__class__.__dict__:
             if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
                 val = getattr(self, k)
-                lbl = k 
+                lbl = k
                 if k in self.labels:
                     lbl = self.labels[k]
                 if type(val) is bool:
@@ -215,14 +270,13 @@ class ModuleConfig(Plugin):
                         UI.TextInput(name=k, value=val)
                     ))
         return UI.DialogBox(t, id='dlgEditModuleConfig')
-        
+
     def apply_vars(self, vars):
         for k in vars:
             if not k in ['action'] and not k.startswith('_'):
                 nval = vars.getvalue(k, None)
-                oval = getattr(self, k)        
+                oval = getattr(self, k)
                 if type(oval) is str:
                     setattr(self, k, nval)
                 if type(oval) is bool:
                     setattr(self, k, nval=='1')
-

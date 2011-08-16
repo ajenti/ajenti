@@ -29,14 +29,37 @@ def url(uri):
 
 
 class IURLHandler(Interface):
-    def match_url(self, req):
-        pass
+    """
+    Base interface for classes that can handle HTTP requests
+    """
 
-    def url_handler(self, req, start_response):
-        pass
+    def match_url(self, req):
+        """
+        Determines if the class can handle given request.
+
+        :param  req:    WSGI request environment
+        :type   req:    dict
+        :rtype:         bool
+        """
+
+    def url_handler(self, req, sr):
+        """
+        Should handle given request.
+
+        :param  req:    WSGI request environment
+        :type   req:    dict
+        :param  sr:     start_response callback for setting HTTP code and headers
+        :type   sr:     func(code, headers)
+        :returns:       raw response body
+        :rtype:         str
+        """
 
 
 class URLHandler(object):
+    """
+    Base class that handles HTTP requests based on its methods decorated with
+    :func:url
+    """
     implements(IURLHandler)
 
     def _get_url_handler(self, uri):
@@ -67,6 +90,11 @@ class URLHandler(object):
 
 
 def get_environment_vars(req):
+    """
+    Extracts POST data from WSGI environment
+
+    :rtype: :class:`cgi.FieldStorage`
+    """
     res = None
     req.setdefault('QUERY_STRING', '')
     if req['REQUEST_METHOD'].upper() == 'POST':

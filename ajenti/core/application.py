@@ -20,9 +20,6 @@ from auth import *
 # Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
 
-    uri_handlers = Interface(IURLHandler)
-    func_providers = Interface(IXSLTFunctionProvider)
-
     def __init__(self, config=None):
         PluginManager.__init__(self)
         self.gconfig = config
@@ -42,7 +39,7 @@ class Application (PluginManager, Plugin):
         includes = []
         functions = {}
 
-        for f in self.func_providers:
+        for f in self.grab_plugins(IXSLTFunctionProvider):
             functions.update(f.get_funcs())
 
         # Get path for static content and templates
@@ -118,7 +115,7 @@ class Application (PluginManager, Plugin):
         self.session = environ['app.session']
 
         content = 'Sorry, no content for you'
-        for handler in self.uri_handlers:
+        for handler in self.grab_plugins(IURLHandler):
             if handler.match_url(environ):
                 try:
                     self.log.debug('Calling handler for %s'%environ['PATH_INFO'])

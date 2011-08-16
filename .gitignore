@@ -1,5 +1,6 @@
 *.pyc
 packaging/meta
+docs/build/*
 ajenti.conf
 users/*.conf
 *.geany

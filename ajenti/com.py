@@ -1,4 +1,6 @@
-# Copyright (C) 2007-2010 Dmitry Zamaruev (dmitry.zamaruev@gmail.com)
+"""
+Base plugin-interface architecture for Ajenti
+"""
 
 __all__ = ['Interface', 'implements', 'Plugin', 'PluginManager']
 
@@ -8,30 +10,13 @@ import traceback
 from ajenti.utils import PrioList
 
 
-class Interface (property):
+class Interface:
     """ Base abstract class for all interfaces
 
-    Could be used as callable (decorator)
+    Can be used as callable (decorator)
     to check if Plugin implements all methods
     (internal use only)
     """
-    def __init__(self, interface=None, filter_func=None):
-        if interface is not None:
-            # Assume property invocation
-            property.__init__(self, self._plugins)
-            self.filter_func = filter_func
-            self.interface = interface
-            self.__doc__ = 'Plugins list for "%s"'%interface.__name__
-
-    def _plugins(self, plugin):
-        """ Returns a list of currently registered plugins
-            for requested interface
-        """
-        pm = plugin.plugin_manager
-        plugins = pm.plugin_get(self.interface)
-        if self.filter_func:
-            plugins = filter(self.filter_func, plugins)
-        return filter(None, [pm.instance_get(cls, True) for cls in plugins])
 
     def __call__(self, cls):
         # Check that target class supports all our interface methods
@@ -50,6 +35,20 @@ class Interface (property):
 
 
 def implements (*interfaces):
+    """
+    Used to note that a :class:`Plugin` implements an :class:`Interface`.
+    Example:
+
+        class IFoo (Interface):
+            pass
+
+        class IBaz (Interface):
+            pass
+
+        class FooBazImp (Plugin):
+            implements (IFoo, IBaz)
+    """
+
     # Get parent exection frame
     frame = inspect.stack()[1][0]
     # Get locals from it
@@ -81,12 +80,24 @@ class PluginManager (object):
 
     @staticmethod
     def class_register (cls):
+        """
+        Registers a new class
+
+        :param  cls:    class
+        :type   cls:    type
+        """
         PluginManager.__classes.append(cls)
         if PluginManager.__tracking:
             PluginManager.__tracker.append(cls)
 
     @staticmethod
     def class_unregister (cls):
+        """
+        Unregisters a class
+
+        :param  cls:    class
+        :type   cls:    type
+        """
         PluginManager.__classes.remove(cls)
         for lst in PluginManager.__plugins.values():
             if cls in lst:
@@ -94,6 +105,11 @@ class PluginManager (object):
 
     @staticmethod
     def class_list ():
+        """
+        Lists all registered classes
+
+        :returns:       list(:class:`type`)
+        """
         return PluginManager.__classes
 
     @staticmethod
@@ -102,6 +118,14 @@ class PluginManager (object):
 
     @staticmethod
     def plugin_register (iface, cls):
+        """
+        Registers a :class:`Plugin` for implementing an :class:`Interface`
+
+        :param  iface:  interface
+        :type   iface:  type
+        :param  cls:    plugin
+        :type   cls:    :class:`Plugin`
+        """
         lst = PluginManager.__plugins.setdefault(iface,PrioList())
         for item in lst:
             if str(item) == str(cls):
@@ -110,19 +134,38 @@ class PluginManager (object):
 
     @staticmethod
     def plugin_get (iface):
+        """
+        Returns plugins that implement given :class:`Interface`
+
+        :param  iface:  interface
+        :type   iface:  type
+        """
         return PluginManager.__plugins.get(iface, [])
 
     @staticmethod
     def start_tracking():
+        """
+        Starts internal registration tracker
+        """
         PluginManager.__tracking = True
         PluginManager.__tracker = []
 
     @staticmethod
     def stop_tracking():
+        """
+        Stops internal registration tracker and returns all classes
+        registered since calling ``start_tracking``
+        """
         PluginManager.__tracking = False
         return PluginManager.__tracker
 
     def instance_get(self, cls, instantiate=False):
+        """
+        Gets a saved instance for the :class:`Plugin` subclass
+
+        :param  instantiate:  instantiate plugin if it wasn't instantiate before
+        :type   instantiate:  bool
+        """
         if not self.plugin_enabled(cls):
             return None
         inst = self.__instances.get(cls)
@@ -144,14 +187,22 @@ class PluginManager (object):
         return self.__instances
 
     def plugin_enabled(self, cls):
+        """
+        Called to check if :class:`Plugin` is eligible for running on this system
+
+        :returns: bool
+        """
         return True
 
     def plugin_activated(self, plugin):
-        pass
+        """
+        Called when a :class:`Plugin` is successfully instantiated
+        """
 
 
 class MetaPlugin (type):
-    """ MetaClass for Plugin
+    """
+    Metaclass for Plugin
     """
 
     def __new__ (cls, name, bases, d):
@@ -232,7 +283,13 @@ class MetaPlugin (type):
 
 
 class Plugin (object):
-    """ Base class for all plugins """
+    """
+    Base class for all plugins
+
+    - ``multi_instance`` - `bool`, if True, plugin will be not treated as a singleton
+    - ``abstract`` - `bool`, abstract plugins are not registered in :class:`PluginManager`
+    - ``platform`` - `list(str)`, platforms where the Plugin can be run
+    """
 
     __metaclass__ = MetaPlugin
 
@@ -268,4 +325,7 @@ class Plugin (object):
         return self
 
     def unload(self):
-        pass
+        """
+        Called when plugin class is being unloaded by
+        :class:`ajenti.plugmgr.PluginLoader`
+        """

@@ -11,7 +11,6 @@ from api import IProgressBoxProvider
 
 
 class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
-    categories = Interface(ICategoryProvider)
     # Plugin folders. This dict is here forever^W until we make MUI support
     folders = {
         'cluster': 'CLUSTER',
@@ -74,7 +73,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             self._cat_selected = 'dashboard'
 
         cat = None
-        for c in self.categories:
+        for c in self.app.grab_plugins(ICategoryProvider):
             if c.plugin_id == self._cat_selected: # initialize current plugin
                 cat = c
         self.selected_category = cat
@@ -94,7 +93,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         v = UI.VContainer(spacing=0)
 
         # Sort plugins by name
-        cats = self.categories
+        cats = self.app.grab_plugins(ICategoryProvider)
         cats = sorted(cats, key=lambda p: p.text)
 
         for fld in self.folder_ids:
@@ -211,7 +210,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                 raise
 
         # Current module
-        cat = filter(lambda x: x.plugin_id == self._cat_selected, self.categories)[0]
+        cat = self.app.grab_plugins(ICategoryProvider, lambda x: x.plugin_id == self._cat_selected)[0]
 
         # Search self and current category for event handler
         vars = get_environment_vars(req)

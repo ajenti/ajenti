@@ -1,3 +1,18 @@
+"""
+Tools for manipulating plugins and repository
+"""
+
+__all__ = [
+    'BaseRequirementError',
+    'PlatformRequirementError',
+    'PluginRequirementError',
+    'ModuleRequirementError',
+    'SoftwareRequirementError',
+    'PluginLoader',
+    'RepositoryManager',
+    'PluginInfo',
+]
+
 import os
 import imp
 import sys
@@ -8,15 +23,24 @@ from ajenti.com import *
 from ajenti.utils import detect_platform, shell, shell_status, download
 from ajenti.feedback import *
 from ajenti import generation
+import ajenti
 
 RETRY_LIMIT = 10
 
 
 class BaseRequirementError(Exception):
-    pass
+    """
+    Basic exception that means a plugin wasn't loaded due to unmet
+    dependencies
+    """
 
 
 class PlatformRequirementError(BaseRequirementError):
+    """
+    Exception that means a plugin wasn't loaded due to
+    unsupported platform
+    """
+
     def __init__(self, lst):
         self.lst = lst
 
@@ -25,6 +49,11 @@ class PlatformRequirementError(BaseRequirementError):
 
 
 class PluginRequirementError(BaseRequirementError):
+    """
+    Exception that means a plugin wasn't loaded due to
+    required plugin being unavailable
+    """
+
     def __init__(self, name):
         self.name = name
 
@@ -33,6 +62,11 @@ class PluginRequirementError(BaseRequirementError):
 
 
 class ModuleRequirementError(BaseRequirementError):
+    """
+    Exception that means a plugin wasn't loaded due to
+    required Python module being unavailable
+    """
+
     def __init__(self, name):
         self.name = name
 
@@ -41,6 +75,11 @@ class ModuleRequirementError(BaseRequirementError):
 
 
 class SoftwareRequirementError(BaseRequirementError):
+    """
+    Exception that means a plugin wasn't loaded due to
+    required software being unavailable
+    """
+
     def __init__(self, name, bin):
         self.name = name
         self.bin = bin
@@ -50,6 +89,10 @@ class SoftwareRequirementError(BaseRequirementError):
 
 
 class PluginLoader:
+    """
+    Handles plugin loading and unloading
+    """
+
     __classes = {}
     __plugins = {}
     __submods = {}
@@ -61,20 +104,43 @@ class PluginLoader:
 
     @staticmethod
     def initialize(log, path, platform):
+        """
+        Initializes the PluginLoader
+
+        :param  log:        Logger
+        :type   log:        :class:`logging.Logger`
+        :param  path:       Path to the plugins
+        :type   path:       str
+        :param  platform:   System platform for plugin validation
+        :type   platform:   str
+        """
+
         PluginLoader.log = log
         PluginLoader.path = path
         PluginLoader.platform = platform
 
     @staticmethod
     def list_plugins():
+        """
+        Returns dict of :class:`PluginInfo` for all plugins
+        """
+
         return PluginLoader.__plugins
 
     @staticmethod
     def register_mgr(mgr):
+        """
+        Registers an :class:`ajenti.com.PluginManager` from which the unloaded
+        classes will be removed when a plugin is unloaded
+        """
         PluginLoader.__managers.append(mgr)
 
     @staticmethod
     def register_observer(mgr):
+        """
+        Registers an observer which will be notified when plugin set is changed.
+        Observer should have a callable ``plugins_changed`` method.
+        """
         PluginLoader.__observers.append(weakref.ref(mgr, \
             callback=PluginLoader.__unregister_observer))
 
@@ -84,12 +150,18 @@ class PluginLoader:
 
     @staticmethod
     def notify_plugins_changed():
+        """
+        Notifies all observers that plugin set has changed.
+        """
         for o in PluginLoader.__observers:
             if o():
                 o().plugins_changed()
 
     @staticmethod
     def load(plugin):
+        """
+        Loads given plugin
+        """
         log = PluginLoader.log
         path = PluginLoader.path
         platform = PluginLoader.platform
@@ -166,6 +238,9 @@ class PluginLoader:
 
     @staticmethod
     def load_plugins():
+        """
+        Loads all plugins from plugin path
+        """
         log = PluginLoader.log
         path = PluginLoader.path
 
@@ -209,6 +284,9 @@ class PluginLoader:
 
     @staticmethod
     def unload(plugin):
+        """
+        Unloads given plugin
+        """
         PluginLoader.log.info('Unloading plugin %s'%plugin)
         if plugin in PluginLoader.__classes:
             for cls in PluginLoader.__classes[plugin]:
@@ -225,6 +303,9 @@ class PluginLoader:
 
     @staticmethod
     def verify_dep(dep):
+        """
+        Verifies that given plugin dependency is satisfied. Returns bool
+        """
         if dep[0] == 'app':
             if shell_status('which '+dep[2]) != 0:
                 raise SoftwareRequirementError(*dep[1:])
@@ -240,6 +321,9 @@ class PluginLoader:
 
     @staticmethod
     def get_plugin_path(app, id):
+        """
+        Returns path for plugin's files. Parameters: :class:`ajenti.core.Application`, ``str``
+        """
         if id in PluginLoader.list_plugins():
             return app.config.get('ajenti', 'plugins')
         else:
@@ -247,12 +331,24 @@ class PluginLoader:
 
 
 class RepositoryManager:
+    """
+    Manages official Ajenti plugin repository. ``cfg`` is :class:`ajenti.config.Config`
+
+    - ``available`` - list(:class:`PluginInfo`), plugins available in the repository
+    - ``installed`` - list(:class:`PluginInfo`), plugins that are locally installed
+    - ``upgradable`` - list(:class:`PluginInfo`), plugins that are locally installed
+      and have other version in the repository
+    """
+
     def __init__(self, cfg):
         self.config = cfg
         self.server = cfg.get('ajenti', 'update_server')
         self.refresh()
 
     def refresh(self):
+        """
+        Re-reads saved repository information and rebuilds installed/available lists
+        """
         self.available = []
         self.installed = []
         self.update_installed()
@@ -260,6 +356,9 @@ class RepositoryManager:
         self.update_upgradable()
 
     def update_available(self):
+        """
+        Re-reads saved list of available plugins
+        """
         try:
             data = eval(open('/var/lib/ajenti/plugins.list').read())
         except:
@@ -282,9 +381,15 @@ class RepositoryManager:
             self.available.append(i)
 
     def update_installed(self):
+        """
+        Rebuilds list of installed plugins
+        """
         self.installed = sorted(PluginLoader.list_plugins().values(), key=lambda x:x.name)
 
     def update_upgradable(self):
+        """
+        Rebuilds list of upgradable plugins
+        """
         upg = []
         for p in self.available:
             u = False
@@ -298,6 +403,9 @@ class RepositoryManager:
         self.upgradable = upg
 
     def update_list(self):
+        """
+        Downloads fresh list of plugins and rebuilds installed/available lists
+        """
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
         send_stats(self.server, PluginLoader.list_plugins().keys())
@@ -311,6 +419,12 @@ class RepositoryManager:
         self.update_upgradable()
 
     def remove(self, id):
+        """
+        Uninstalls given plugin
+
+        :param  id:     Plugin id
+        :type   id:     str
+        """
         dir = self.config.get('ajenti', 'plugins')
         send_stats(self.server, PluginLoader.list_plugins().keys(), delplugin=id)
         shell('rm -r %s/%s' % (dir, id))
@@ -322,6 +436,14 @@ class RepositoryManager:
         self.update_available()
 
     def install(self, id, load=True):
+        """
+        Installs a plugin
+
+        :param  id:     Plugin id
+        :type   id:     str
+        :param  load:   True if you want Ajenti to load the plugin immediately
+        :type   load:   bool
+        """
         dir = self.config.get('ajenti', 'plugins')
 
         download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id),
@@ -331,11 +453,23 @@ class RepositoryManager:
         self.install_tar(load=load)
 
     def install_stream(self, stream):
+        """
+        Installs a plugin from a stream containing the package
+
+        :param  stream: Data stream
+        :type   stream: file
+        """
         dir = self.config.get('ajenti', 'plugins')
         open('%s/plugin.tar.gz'%dir, 'w').write(stream)
         self.install_tar()
 
     def install_tar(self, load=True):
+        """
+        Unpacks and installs a ``plugin.tar.gz`` file located in the plugins directory.
+
+        :param  load:   True if you want Ajenti to load the plugin immediately
+        :type   load:   bool
+        """
         dir = self.config.get('ajenti', 'plugins')
 
         id = shell('tar tzf %s/plugin.tar.gz'%dir).split('\n')[0].strip('/')
@@ -354,12 +488,26 @@ class RepositoryManager:
 
 
 class PluginInfo:
+    """
+    Container for the plugin description
+    - ``upgradable`` - `bool`, if the plugin can be upgraded
+    - ``problem``- :class:`Exception` which occured while loading plugin, else ``None``
+    - ``deps`` - list of dependency tuples
+    And other fields read by :class:`PluginLoader` from plugin's ``__init__.py``
+    """
+
     def __init__(self):
         self.upgradable = False
         self.problem = None
         self.deps = []
 
     def str_req(self):
+        """
+        Formats plugin's unmet requirements into human-readable string
+
+        :returns:    str
+        """
+
         reqs = []
         for p in self.deps:
             if any(x in [PluginLoader.platform, 'any'] for x in p[0]):
