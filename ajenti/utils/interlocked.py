@@ -2,6 +2,9 @@ import threading
 
 
 class ClassProxy (object):
+    """
+    Wraps class methods into :class:`MethodProxy`, thus making them thread-safe.
+    """
     inner = None
     locks = None
 
@@ -20,11 +23,17 @@ class ClassProxy (object):
 
 
 def nonblocking(fun):
+    """
+    Decorator, prevents a method from being wrapped in a MethodProxy.
+    """
     fun.nonblocking = True
     return fun
 
 
 class MethodProxy (object):
+    """
+    Prevents a method from being called by two threads simultaneously.
+    """
     def __init__(self, method, lock):
         self.lock = lock
         self.method = method

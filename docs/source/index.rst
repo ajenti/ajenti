@@ -15,8 +15,12 @@ Contents:
    ref/ajenti.api
    ref/ajenti.config
    ref/ajenti.com
+   ref/ajenti.core
    ref/ajenti.feedback
    ref/ajenti.plugmgr
+   ref/ajenti.ui
+   ref/ajenti.utils
+
 
 Indices and tables
 ==================

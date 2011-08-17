@@ -289,6 +289,7 @@ class Plugin (object):
     - ``multi_instance`` - `bool`, if True, plugin will be not treated as a singleton
     - ``abstract`` - `bool`, abstract plugins are not registered in :class:`PluginManager`
     - ``platform`` - `list(str)`, platforms where the Plugin can be run
+    - ``plugin_id`` - `str`, autoset to lowercase class name
     """
 
     __metaclass__ = MetaPlugin

@@ -1,6 +1,7 @@
 from subprocess import *
 
 from ajenti.api import *
+from ajenti.com import *
 from ajenti.utils import *
 
 
@@ -25,7 +26,7 @@ class UsersBackend(Plugin):
 
     def __init__(self):
         self.cfg = self.app.get_config(self)
-        
+
     def get_all_users(self):
         r = []
         for s in open('/etc/passwd', 'r').read().split('\n'):
@@ -41,7 +42,7 @@ class UsersBackend(Plugin):
                 r.append(u)
             except:
                 pass
-    
+
         sf = lambda x: -1 if x.uid==0 else (x.uid+1000 if x.uid<1000 else x.uid-1000)
         return sorted(r, key=sf)
 
@@ -57,40 +58,40 @@ class UsersBackend(Plugin):
                 r.append(g)
             except:
                 pass
-    
+
         return r
-    
+
     def map_groups(self, users, groups):
         for u in users:
             u.groups = []
             for g in groups:
                 if u.login in g.users:
                     u.groups.append(g.name)
-    
+
     def get_user(self, name, users):
         return filter(lambda x:x.login == name, users)[0]
-    
+
     def get_group(self, name, groups):
         return filter(lambda x:x.name == name, groups)[0]
-    
+
     def add_user(self, v):
         shell(self.cfg.cmd_add.format(v))
-    
+
     def add_group(self, v):
         shell(self.cfg.cmd_add_group.format(v))
-    
+
     def del_user(self, v):
         shell(self.cfg.cmd_del.format(v))
-    
+
     def del_group(self, v):
         shell(self.cfg.cmd_del_group.format(v))
 
     def add_to_group(self, u, v):
         shell(self.cfg.cmd_add_to_group.format(u,v))
-    
+
     def remove_from_group(self, u, v):
         shell(self.cfg.cmd_remove_from_group.format(u,v))
-    
+
     def change_user_param(self, u, p, l):
         shell(getattr(self.cfg, 'cmd_set_user_'+p).format(l,u))
 
@@ -99,12 +100,12 @@ class UsersBackend(Plugin):
 
     def change_group_param(self, u, p, l):
         shell(getattr(self.cfg, 'cmd_set_group_'+p).format(l,u))
-        
-        
+
+
 class LinuxConfig(ModuleConfig):
     target = UsersBackend
     platform = ['debian', 'arch', 'fedora', 'centos', 'gentoo']
-    
+
     cmd_add = 'useradd {0}'
     cmd_del = 'userdel {0}'
     cmd_add_group = 'groupadd {0}'
@@ -123,7 +124,7 @@ class LinuxConfig(ModuleConfig):
 class BSDConfig(ModuleConfig):
     target = UsersBackend
     platform = ['freebsd']
-    
+
     cmd_add = 'pw useradd {0}'
     cmd_del = 'pw userdel {0}'
     cmd_add_group = 'pw groupadd {0}'
@@ -137,4 +138,3 @@ class BSDConfig(ModuleConfig):
     cmd_set_group_ggid = 'pw groupmod {1} -g {0}'
     cmd_add_to_group = 'pw groupmod {1} -m {0}'
     cmd_remove_from_group = 'pw groupmod {1} -d {0}'
-

@@ -2,6 +2,7 @@ from ajenti.ui import *
 from ajenti.plugins.dashboard.api import *
 from ajenti.com import implements, Plugin
 from ajenti.api import *
+from ajenti.utils import *
 from ajenti import apis
 
 

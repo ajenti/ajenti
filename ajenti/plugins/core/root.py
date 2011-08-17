@@ -130,7 +130,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
 
         for c in cats:
             if c.folder in ['top', 'bottom']:
-                templ.appendChildInto(
+                templ.append(
                     'topplaceholder-'+c.folder,
                     UI.TopCategory(
                         text=c.text,

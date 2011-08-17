@@ -170,10 +170,9 @@ class SessionStore(object):
 
 
 class SessionManager(object):
-    """ Session middleware
-    Takes care of creation/checkout/commit of a session
-    Sets 'app.session' variable inside WSGI environment
-
+    """
+    Session middleware. Takes care of creation/checkout/commit of a session.
+    Sets 'app.session' variable inside WSGI environment.
     """
     # TODO: Add cookie expiration and force expiration
     # TODO: Add deletion of invalid session

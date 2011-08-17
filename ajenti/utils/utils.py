@@ -2,25 +2,36 @@ import subprocess
 import platform
 import os
 import mimetypes
-import time
 import urllib
 from datetime import datetime
 from hashlib import sha1
 from base64 import b64encode
 
 
-import ajenti.utils
-
-
 def enquote(s):
+    """
+    Inserts ``&lt;`` and ``&gt;`` entities and replaces newlines with ``<br/>``.
+    """
     s = s.replace('<', '&lt;').replace('>', '&gt;').replace('\n', '<br/>')
     return s
 
 def fix_unicode(s):
+    """
+    Tries to fix a broken Unicode string.
+
+    :rtype: str
+    """
     d = ''.join(max(i, ' ') if not i in ['\n', '\t', '\r'] else i for i in s)
     return unicode(d.encode('utf-8', 'xmlcharref'), errors='replace')
 
 def detect_platform(mapping=True):
+    """
+    Returns a text shortname of the current system platform.
+
+    :param  mapping:    if True, map Ubuntu to Debian and so on.
+    :type   mapping:    bool
+    :rtype:             str
+    """
     base_mapping = {
         'gentoo base system': 'gentoo',
         'centos linux': 'centos',
@@ -56,24 +67,34 @@ def detect_platform(mapping=True):
     return res
 
 def detect_distro():
+    """
+    Returns human-friendly OS name.
+    """
     if shell_status('lsb_release -sd') == 0:
         return shell('lsb_release -sd')
     return shell('uname -mrs')
 
 def download(url, file=None, crit=False):
+    """
+    Downloads data from an URL
+
+    :param  file:   file path to save data into. If None, returns data as string
+    :param  crit:   if False, exceptions will be swallowed
+    :rtype:         None or str
+    """
     try:
-        # ajenti.utils.logger.debug('Downloading %s' % url)
         if file:
             urllib.urlretrieve(url, file)
         else:
             return urllib.urlopen(url).read()
     except Exception, e:
-        # ajenti.utils.logger.debug('Download failed')
         if crit:
             raise
 
 def shell(c, stderr=False):
-    #ajenti.utils.logger.debug('Running %s' % c)
+    """
+    Runs commandline in the default shell and returns output. Blocking.
+    """
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
@@ -86,23 +107,36 @@ def shell(c, stderr=False):
     return data + p.stdout.read() + (p.stderr.read() if stderr else '')
 
 def shell_bg(c, output=None, deleteout=False):
+    """
+    Same, but runs in background. For controlled execution, see
+    :class:BackgroundProcess.
+
+    :param  output:     if not None, saves output in this file
+    :type   output:     str
+    :param  deleteout:  if True, will delete output file upon completion
+    :type   deleteout:  bool
+    """
     if output is not None:
         c = 'LC_ALL=C bash -c "%s" > %s 2>&1'%(c,output)
         if deleteout:
             c = 'touch %s; %s; rm -f %s'%(output,c,output)
-    #ajenti.utils.logger.debug('Running in background: %s' % c)
     subprocess.Popen(c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
 
 def shell_status(c):
-    #ajenti.utils.logger.debug('Running %s' % c)
+    """
+    Same, but returns the exitcode.
+    """
     return subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE).wait()
 
 def shell_stdin(c, input):
-    #ajenti.utils.logger.debug('Running %s' % c)
+    """
+    Same, but feeds input to process' stdin and returns its stdout
+    upon completion.
+    """
     p = subprocess.Popen('LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE,
@@ -111,21 +145,30 @@ def shell_stdin(c, input):
 
 
 def hashpw(passw):
+    """
+    Returns a Base64-encoded SHA1 digest of given password.
+    """
     return '{SHA}' + b64encode(sha1(passw).digest())
 
 def str_fsize(sz):
+    """
+    Formats file size as string (1.2 Mb)
+    """
     if sz < 1024:
-        return '%i bytes' % sz
-    sz /= 1024
+        return '%.1f bytes' % sz
+    sz /= 1024.0
     if sz < 1024:
-        return '%i Kb' % sz
-    sz /= 1024
+        return '%.1f Kb' % sz
+    sz /= 1024.0
     if sz < 1024:
-        return '%i Mb' % sz
-    sz /= 1024
-    return '%i Gb' % sz
+        return '%.1f Mb' % sz
+    sz /= 1024.0
+    return '%.1f Gb' % sz
 
 def wsgi_serve_file(req, start_response, file):
+    """
+    Serves a file as WSGI reponse.
+    """
     # Check for directory traversal
     if file.find('..') > -1:
         start_response('404 Not Found', [])

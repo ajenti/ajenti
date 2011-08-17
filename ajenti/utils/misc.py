@@ -4,37 +4,79 @@ import os
 import sys
 import trace
 
-from utils import shell
 
+class BackgroundWorker:
+    """
+    A stoppable background operation.
 
-class BackgroundProcess:
-    thread = None
-    process = None
-    cmdline = None
-    output = None
-    errors = None
-    exitcode = None
-    alive = False
-    _aborted = False
+    Instance vars:
 
-    def __init__(self, cmdline):
-        self.thread = threading.Thread(target=self._run, args=[cmdline])
-        self.output = ''
-        self.errors = ''
-        self.exitcode = None
-        self.cmdline = cmdline
+    - ``alive`` - `bool`, if the operation is running
+    """
+    def __init__(self, *args):
+        self.thread = KThread(target=self.__run, args=args)
+        self.thread.daemon = True
         self.alive = False
+        self.output = ''
         self._aborted = False
 
     def is_running(self):
-        return self.alive
+        """
+        Checks if background thread is running.
+        """
+        if self.alive:
+            return not self.thread.killed
+        return False
 
     def start(self):
+        """
+        Starts the operation
+        """
         if not self.is_running():
             self.thread.start()
         self.alive = True
 
-    def _run(self, c):
+    def run(self, *args):
+        """
+        Put the operation body here.
+        """
+
+    def __run(self, *args):
+        self.run(*args)
+        self.alive = False
+
+    def kill(self):
+        """
+        Aborts the operation thread.
+        """
+        self._aborted = True
+        if self.is_running():
+            self.thread.kill()
+
+
+class BackgroundProcess (BackgroundWorker):
+    """
+    A class wrapping a background subprocess.
+    See :class:`BackgroundWorker`.
+
+    Instance vars:
+
+    - ``output`` - `str`, process' stdout data
+    - ``errors`` - `str`, process' stderr data
+    - ``exitcode`` - `int`, process' exit code
+    - ``cmdline`` - `str`, process' commandline
+    """
+    def __init__(self, cmd):
+        BackgroundWorker.__init__(self, cmd)
+        self.output = ''
+        self.errors = ''
+        self.exitcode = None
+        self.cmdline = cmd
+
+    def run(self, c):
+        """
+        Runs the process in foreground
+        """
         self.process = subprocess.Popen(c, shell=True,
                                            stderr=subprocess.PIPE,
                                            stdout=subprocess.PIPE,
@@ -47,14 +89,18 @@ class BackgroundProcess:
         self.errors += self.process.stderr.read()
         self.output += self.process.stdout.read()
         self.exitcode = self.process.returncode
-        self.alive = False
 
     def feed_input(self, data):
+        """
+        Sends stdin to the process
+        """
         if self.is_running():
             self.process.stdin.write(data)
 
     def kill(self):
-        self._aborted = True
+        """
+        Interrupts the process
+        """
         if self.is_running():
             try:
                 self.process.terminate()
@@ -64,38 +110,14 @@ class BackgroundProcess:
                 self.process.kill()
             except:
                 pass
-
-
-class BackgroundWorker:
-    def __init__(self, *args):
-        self.thread = KThread(target=self.__run, args=args)
-        self.thread.daemon = True
-        self.alive = False
-        self.output = ''
-        self._aborted = False
-
-    def is_running(self):
-        if self.alive:
-            return not self.thread.killed
-        return False
-
-    def start(self):
-        if not self.is_running():
-            self.thread.start()
-        self.alive = True
-
-    def __run(self, *args):
-        self.run(*args)
-        self.alive = False
-
-    def kill(self):
-        self._aborted = True
-        if self.is_running():
-            self.thread.kill()
+            BackgroundWorker.kill(self)
 
 
 class KThread(threading.Thread):
-    # A killable Thread class
+    """
+    A killable Thread class, derived from :class:`threading.Thread`.
+    Instance var ``killed`` - `bool`, shows if the thread was killed.
+    """
 
     def __init__(self, *args, **keywords):
         threading.Thread.__init__(self, *args, **keywords)
@@ -124,4 +146,7 @@ class KThread(threading.Thread):
         return self.localtrace
 
     def kill(self):
+        """
+        Emits ``SystemExit`` inside the thread.
+        """
         self.killed = True

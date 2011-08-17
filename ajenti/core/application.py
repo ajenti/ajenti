@@ -11,14 +11,24 @@ from ajenti.utils import *
 from ajenti.ui import *
 from ajenti.plugmgr import PluginLoader
 import ajenti.ui.xslt as xslt
+import ajenti
 
 
 from session import *
 from auth import *
 
 
-# Base class for application/plugin infrastructure
 class Application (PluginManager, Plugin):
+    """
+    Class representing app state during a request.
+    Instance vars:
+
+    - ``config`` - :class:`ajenti.config.ConfigProxy` - config for the current user
+    - ``gconfig`` - :class:`ajenti.config.Config` - global app config
+    - ``auth`` - :class:`ajenti.core.AuthManager` - authentication system
+    - ``log`` - :class:`logging.Logger` - app log
+    - ``session`` - ``dict`` - full access to the session
+    """
 
     def __init__(self, config=None):
         PluginManager.__init__(self)
@@ -29,9 +39,15 @@ class Application (PluginManager, Plugin):
         self.refresh_plugin_data()
 
     def plugins_changed(self):
+        """
+        Implementing PluginLoader observer
+        """
         self.refresh_plugin_data()
 
     def refresh_plugin_data(self):
+        """
+        Rescans plugins for JS, CSS, XSLT widgets and XML templates.
+        """
         self.template_path = []
         self.template_styles = []
         self.template_scripts = []
@@ -108,6 +124,9 @@ class Application (PluginManager, Plugin):
             self.headers.append(('Content-Length',str(len(content))))
 
     def dispatcher(self, environ, start_response):
+        """
+        Dispatches WSGI requests
+        """
         self.log.debug('Dispatching %s'%environ['PATH_INFO'])
         self.environ = environ
         self.status = '200 OK'
@@ -146,6 +165,15 @@ class Application (PluginManager, Plugin):
         plugin.app = self
 
     def grab_plugins(self, iface, flt=None):
+        """
+        Returns list of available plugins for given interface, optionally filtered.
+
+        :param  iface:  interface to match plugins against
+        :type   iface:  :class:`ajenti.com.Interface`
+        :param  flt:    filter function
+        :type   flt:    func(Plugin)
+        :rtype:         list(:class:`ajenti.com.Plugin`)
+        """
         plugins = self.plugin_get(iface)
         plugins = list(set(filter(None, [self.instance_get(cls, True) for cls in plugins])))
         if flt:
@@ -153,17 +181,34 @@ class Application (PluginManager, Plugin):
         return plugins
 
     def get_backend(self, iface, flt=None):
+        """
+        Same as ``grab_plugins``, but returns the first plugin found and will
+        raise :class:`ajenti.util.BackendRequirementError` if no plugin was
+        found.
+
+        :param  iface:  interface to match plugins against
+        :type   iface:  :class:`ajenti.com.Interface`
+        :param  flt:    filter function
+        :type   flt:    func(Plugin)
+        :rtype:         :class:`ajenti.com.Plugin`
+        """
         lst = self.grab_plugins(iface, flt)
         if len(lst) == 0:
             raise BackendRequirementError(iface.__name__)
         return lst[0]
 
     def get_config(self, plugin):
+        """
+        Returns :class:`ajenti.api.ModuleConfig` for a given plugin.
+        """
         if plugin.__class__ != type:
             plugin = plugin.__class__
         return self.get_config_by_classname(plugin.__name__)
 
     def get_config_by_classname(self, name):
+        """
+        Returns :class:`ajenti.api.ModuleConfig` for a given plugin class name.
+        """
         cfg = self.get_backend(IModuleConfig,
                 flt=lambda x: x.target.__name__==name)
         cfg.overlay_config()
@@ -178,20 +223,38 @@ class Application (PluginManager, Plugin):
                )
 
     def inflate(self, layout):
+        """
+        Inflates an XML UI layout into DOM UI tree.
+
+        :param  layout: '<pluginid>:<layoutname>', ex: dashboard:main for
+                        /plugins/dashboard/layout/main.xml
+        :type   layout: str
+        :rtype:         :class:`ajenti.ui.Layout`
+        """
         f = self.layouts[layout+'.xml']
         return Layout(f)
 
     def stop(self):
+        """
+        Exits Ajenti
+        """
         if os.path.exists('/var/run/ajenti.pid'):
             os.unlink('/var/run/ajenti.pid')
         self.config.get('server').stop()
 
     def restart(self):
+        """
+        Restarts Ajenti process
+        """
         self.config.get('server').restart_marker = True
         self.stop()
 
 
 class AppDispatcher(object):
+    """
+    Main WSGI dispatcher which assembles session, auth and application
+    altogether
+    """
     def __init__(self, config=None):
         self.config = config
         self.log = config.get('log_facility')

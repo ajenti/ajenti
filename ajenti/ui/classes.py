@@ -4,6 +4,12 @@ from ajenti.utils import fix_unicode
 
 
 class Element(etree.ElementBase):
+    """
+    XML layout element - derived from lxml.ElementBase.
+    See http://lxml.de/api/lxml.etree.ElementBase-class.html
+
+    `args` should be child elements and `kwargs` - attributes.
+    """
     def __init__(self, tag, *args, **kwargs):
         etree.ElementBase.__init__(self)
         self.tag = tag
@@ -21,6 +27,9 @@ class Element(etree.ElementBase):
             self._children = []
 
     def append(self, el):
+        """
+        Appends an :class:`Element` or :class:`Layout` to current element.
+        """
         if el is not None:
             if hasattr(el, 'elements'):
                 el = el.elements()
@@ -29,6 +38,9 @@ class Element(etree.ElementBase):
         return self
 
     def append_all(self, *els):
+        """
+        Appends all :class:`Element` or :class:`Layout` instances to current element.
+        """
         for el in els:
             self.append(el)
         return self
@@ -36,8 +48,11 @@ class Element(etree.ElementBase):
     def __setitem__(self, idx, val):
         self.set(idx, val)
 
-    def set(self, idx, val):
-        etree.ElementBase.set(self, idx, fix_unicode(str(val)))
+    def set(self, attr, val):
+        """
+        Sets `attr` attribute to `val`, converting value to unicode string.
+        """
+        etree.ElementBase.set(self, attr, fix_unicode(str(val)))
 
     def __getitem__(self, idx):
         return self.get(idx)
@@ -45,12 +60,15 @@ class Element(etree.ElementBase):
 
 class UI(object):
 
-    """ Automatically generate XML tags by calling name
+    """
+    Automatically generate XML tags by calling name
 
     >>> m = UI.Meta(encoding="ru")
     >>> m.toxml()
     '<meta encoding="ru"/>'
     >>>
+
+    Some of tags have overriding classes here.
     """
 
     __overrides_cache = None
@@ -159,11 +177,11 @@ class UI(object):
 
 
 class TreeManager(object):
-    """ Processes treenode click events and stores the nodes'
-    collapsed/expanded states.
-    You should keep the TreeManager inside the session,
-    call node_click() on each 'click' event, and apply() to the tree
-    object before rendering it.
+    """
+    Processes treenode click events and stores the nodes' collapsed/expanded
+    states. You should keep the TreeManager inside the session, call
+    node_click() on each 'click' event, and apply() to the tree object before
+    rendering it.
     """
     states = None
 
@@ -171,15 +189,24 @@ class TreeManager(object):
         self.reset()
 
     def reset(self):
+        """
+        Removes all saved node states.
+        """
         self.states = []
 
     def node_click(self, id):
+        """
+        Toggles node state (collapsed/expanded)
+        """
         if id in self.states:
             self.states.remove(id)
         else:
             self.states.append(id)
 
     def apply(self, tree):
+        """
+        Applies saved node states to a TreeContainer element
+        """
         try:
             tree['expanded'] = tree['id'] in self.states
 

@@ -22,15 +22,15 @@ def check_password(passw, hash):
 
 
 class AuthManager(object):
-    """ Authentication middleware
-    Takes care of user authentication
     """
-    def __init__(self, config, app, dispatcher):
-        """ Initialize AuthManager
+    Authentication middleware which takes care of user authentication
 
-        @config - config instance (for auth/users/password)
-        @application - wsgi dispatcher callable
-        """
+    Instance vars:
+
+    - ``user`` - `str`, current user logged in or None
+    """
+
+    def __init__(self, config, app, dispatcher):
         self.user = None
 
         self.app = app
@@ -52,6 +52,9 @@ class AuthManager(object):
                     self._log.error('Authentication requested, but no [users] section')
 
     def deauth(self):
+        """
+        Deauthenticates current user.
+        """
         self.app.session['auth.user'] = None
 
     def __call__(self, environ, start_response):

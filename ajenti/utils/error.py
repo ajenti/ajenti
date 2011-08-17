@@ -9,13 +9,22 @@ import traceback
 
 
 class BackendRequirementError(Exception):
+    """
+    Raised by :func:`ajenti.core.Application.get_backend` if backend plugin
+    wasn't found.
+    """
     def __init__(self, interface):
         self.interface = interface
 
     def __str__(self):
         return 'Backend required: ' + str(self.interface)
 
+
 class ConfigurationError(Exception):
+    """
+    You should raise this exception if ModuleConfig or other configuration means
+    contain wrong or non-consitent parameters.
+    """
     def __init__(self, hint):
         self.hint = hint
 
@@ -23,15 +32,15 @@ class ConfigurationError(Exception):
         return 'Plugin failed to configure: ' + self.hint
 
 
-
 def format_exception(app, err):
     print '\n%s\n' % err
     templ = app.get_template('error.xml')
-    templ.appendChildInto('trace',
+    templ.append('trace',
             UI.TextInputArea(value=err, width=350))
-    templ.appendChildInto('report',
+    templ.append('report',
             UI.TextInputArea(value=make_report(app, err), width=350))
     return templ.render()
+
 
 def format_error(app, ex):
     templ = app.get_template('disabled.xml')
@@ -45,11 +54,15 @@ def format_error(app, ex):
     else:
         return format_exception(app, traceback.format_exc())
 
-    templ.appendChildInto('reason', UI.CustomHTML(html=reason))
-    templ.appendChildInto('hint', UI.CustomHTML(html=hint))
+    templ.append('reason', UI.CustomHTML(html=reason))
+    templ.append('hint', UI.CustomHTML(html=hint))
     return templ.render()
 
+
 def make_report(app, err):
+    """
+    Formats a bug report.
+    """
     from ajenti.plugmgr import PluginLoader
     pr = ''
     for p in sorted(PluginLoader.list_plugins().keys()):

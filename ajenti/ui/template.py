@@ -4,23 +4,39 @@ import os.path
 import xslt
 
 class Layout:
+    """
+    An XML user interface layout storage. Loads layout data from `file`.
+    """
+
     def __init__(self, file):
         parser = etree.XMLParser()
         parser.set_element_class_lookup(Lookup())
         self._dom = etree.parse(file, parser=parser)
 
     def find(self, id):
+        """
+        Finds a child element by `id` attribute.
+        """
         el = self._dom.find('//*[@id=\'%s\']'%id)
         return el
 
     def remove(self, id):
+        """
+        Removes a child element by `id` attribute.
+        """
         el = self.find(id)
         el.getparent().remove(el)
 
     def xpath(self, path):
+        """
+        Performs an XPath query on the tree.
+        """
         return self._dom.find(path)
 
     def append(self, dest, child):
+        """
+        Appends `child` to a tag with `id`=`dest`.
+        """
         el = self.find(dest)
         if el is not None:
             if isinstance(child, Layout):
@@ -30,19 +46,28 @@ class Layout:
             raise RuntimeError("Tag with id=%s not found"%dest)
 
     def appendAll(self, dest, *args):
+        """
+        Appends `*args` to a tag with `id`=`dest`.
+        """
         for a in args:
             self.append(dest, a)
 
-    def appendChildInto(self, dest, child):
-        self.append(dest, child)
-
     def insertText(self, dest, text):
+        """
+        Sets node's text.
+        """
         self.find(dest).text = text
 
     def elements(self):
+        """
+        Returns root element.
+        """
         return self._dom.getroot()
 
     def render(self):
+        """
+        Renders HTML into a string.
+        """
         return xslt.render(self._dom.getroot())
 
 
