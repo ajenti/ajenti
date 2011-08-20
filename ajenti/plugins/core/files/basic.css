@@ -1,3 +1,18 @@
+.ui-el-toolbar {
+    background: #ddd;
+    background: -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    border-bottom: 1px solid #aaa;
+    width: 100%;
+}
+
+.ui-el-pad {
+    padding: 20px;
+}
+
+
+
+
 .freetext a {
     text-align: left;
     font-size: 12px;

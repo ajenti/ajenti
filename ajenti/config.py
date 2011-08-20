@@ -205,3 +205,15 @@ class ConfigProxy:
             self.cfg.remove_option(section, val)
         except:
             return False
+
+    def remove_section(self, section):
+        """
+        Removes a section from the given section
+        :param  section:    Config file section
+        :type   section:    str
+        :returns:           False is there were no such parameter
+        """
+        try:
+            self.cfg.remove_section(section)
+        except:
+            return False
