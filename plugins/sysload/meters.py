@@ -1,4 +1,5 @@
 from ajenti.api import *
+from ajenti import apis
 
 
 class SysloadMeter (DecimalMeter):

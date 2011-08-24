@@ -35,6 +35,7 @@ __all__ = [
     'ConfMgrHook',
     'IConfigurable',
 
+    'IMeter',
     'BaseMeter',
     'BinaryMeter',
     'DecimalMeter',

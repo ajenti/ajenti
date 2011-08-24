@@ -1,3 +1,5 @@
+import os
+
 from ajenti.ui import *
 from ajenti.com import implements
 from ajenti.api import *

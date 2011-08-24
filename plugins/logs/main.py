@@ -1,5 +1,6 @@
 import gzip
 import bz2
+import os
 
 from ajenti.ui import *
 from ajenti.com import implements
