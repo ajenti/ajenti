@@ -9,7 +9,8 @@ import time
 class Daemons(Plugin):
 
     def list_all(self):
-        self.app.gconfig.add_section('daemons')
+        if not self.app.gconfig.has_section('daemons'):
+            self.app.gconfig.add_section('daemons')
 
         r = []
         for n in self.app.gconfig.options('daemons'):
@@ -18,7 +19,8 @@ class Daemons(Plugin):
         return sorted(r, key=lambda x: x.name)
 
     def save(self, items):
-        self.app.gconfig.remove_section('daemons')
+        if self.app.gconfig.has_section('daemons'):
+            self.app.gconfig.remove_section('daemons')
         self.app.gconfig.add_section('daemons')
 
         for i in items:

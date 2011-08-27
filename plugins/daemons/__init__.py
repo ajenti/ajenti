@@ -10,6 +10,6 @@ DEPS =  [
 NAME = 'Daemons'
 PLATFORMS = ['any']
 DESCRIPTION = 'Define and control background tasks'
-VERSION = '0:1.6'
+VERSION = '0:1.7'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
