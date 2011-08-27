@@ -197,6 +197,7 @@ class PluginLoader:
                 for k in mod.DEPS:
                     if platform.lower() in k[0] or 'any' in k[0]:
                         deps = k[1]
+                        break
                 info.deps = deps
                 for req in deps:
                     PluginLoader.verify_dep(req)

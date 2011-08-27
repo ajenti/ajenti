@@ -1,7 +1,7 @@
 MODULES = ['main', 'main_single', 'config']
 
 DEPS =  [
-    (['centos'],
+    (['centos', 'arch'],
      [
         ('plugin', 'webserver_common'),
         ('app', 'Apache 2', 'httpd'),
