@@ -62,7 +62,7 @@ class TaskManagerPlugin(CategoryPlugin):
                 iui = self.app.inflate('taskmgr:info')
                 iui.find('name').set('text', '%i / %s'%(p.pid,p.name))
                 iui.find('cmd').set('text', ' '.join("'%s'"%x for x in p.cmdline))
-                iui.find('uid').set('text', '%s (%s)'%(pwd.getpwuid(p.uid),p.uid))
+                iui.find('uid').set('text', '%s (%s)'%(pwd.getpwuid(p.uid)[0],p.uid))
                 iui.find('gid').set('text', str(p.gid))
                 iui.find('times').set('text', ' / '.join(str(x) for x in p.get_cpu_times()))
                 if p.parent:
