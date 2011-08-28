@@ -3,8 +3,6 @@
     padding: 5px;
     -moz-user-select: text;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     background: black;
     margin: auto;
     width: 720px;
@@ -25,8 +23,6 @@
 
 #capture {
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     display: block;
     margin: 10px auto;
     border: 1px solid #ccc;

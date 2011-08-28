@@ -35,8 +35,10 @@
     border-right: 1px solid #ccc;
 
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
 }
 
 .ui-el-tab-header-active {
@@ -47,8 +49,10 @@
     border-right: 1px solid #ccc;
 
     background: #ccc;
-    background: -moz-linear-gradient(top,  #ccc,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
+    background:      -o-linear-gradient(top,  #ccc,  #ddd);
+    background:     -ms-linear-gradient(top,  #ccc,  #ddd);
+    background:    -moz-linear-gradient(top,  #ccc,  #ddd);
+    background: -webkit-linear-gradient(top,  #ccc,  #ddd);
 }
 
 .ui-el-tab-header-box {
@@ -75,8 +79,10 @@
     padding: 2px;
     width: 100%;
     background: #eabf81;
-    background: -moz-linear-gradient(top,  #ffdfa1,  #facf91);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ffdfa1), to(#facf91));
+    background:      -o-linear-gradient(top,  #ffdfa1,  #facf91);
+    background:     -ms-linear-gradient(top,  #ffdfa1,  #facf91);
+    background:    -moz-linear-gradient(top,  #ffdfa1,  #facf91);
+    background: -webkit-linear-gradient(top,  #ffdfa1,  #facf91);
 }
 
 
@@ -94,8 +100,6 @@
     background: #eee;
     border: 1px solid #ddd;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 
 
@@ -140,18 +144,24 @@
     border-left: 1px solid #ccc;
     padding: 0 3px;
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
 }
 
 .ui-el-editable img:hover {
     background: #eee;
-    background: -moz-linear-gradient(top,  #fff,  #eee);
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background:      -o-linear-gradient(top,  #fff,  #eee);
+    background:     -ms-linear-gradient(top,  #fff,  #eee);
+    background:    -moz-linear-gradient(top,  #fff,  #eee);
+    background: -webkit-linear-gradient(top,  #fff,  #eee);
 }
 
 .ui-el-editable img:active {
     background: #eee;
-    background: -moz-linear-gradient(top,  #ccc,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
+    background:      -o-linear-gradient(top,  #ccc,  #ddd);
+    background:     -ms-linear-gradient(top,  #ccc,  #ddd);
+    background:    -moz-linear-gradient(top,  #ccc,  #ddd);
+    background: -webkit-linear-gradient(top,  #ccc,  #ddd);
 }

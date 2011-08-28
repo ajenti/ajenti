@@ -9,8 +9,10 @@
 
 .ui-el-table-row-header {
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
 }
 
 .ui-el-table-row-header td {
@@ -63,8 +65,11 @@
 
 .ui-el-status-cell-info {
     background: #8b4;
-    background: -moz-linear-gradient(top,  #8b4,  #7a3);
-    background: -webkit-gradient(linear, left top, left bottom, from(#8b4), to(#7a3));
+    background:      -o-linear-gradient(top,  #8b4,  #7a3);
+    background:     -ms-linear-gradient(top,  #8b4,  #7a3);
+    background:    -moz-linear-gradient(top,  #8b4,  #7a3);
+    background: -webkit-linear-gradient(top,  #8b4,  #7a3);
+
     border-top: 1px solid #9c5;
     border-bottom: 1px solid #692;
     text-shadow: 0 -1px 0 #581;
@@ -72,8 +77,11 @@
 
 .ui-el-status-cell-warn {
     background: #fa3;
-    background: -moz-linear-gradient(top,  #fa3,  #e92);
-    background: -webkit-gradient(linear, left top, left bottom, from(#fa3), to(#e92));
+    background:      -o-linear-gradient(top,  #fa3,  #e92);
+    background:     -ms-linear-gradient(top,  #fa3,  #e92);
+    background:    -moz-linear-gradient(top,  #fa3,  #e92);
+    background: -webkit-linear-gradient(top,  #fa3,  #e92);
+    
     border-top: 1px solid #fb4;
     border-bottom: 1px solid #d81;
     text-shadow: 0 -1px 0 #d81;
@@ -81,8 +89,11 @@
 
 .ui-el-status-cell-err {
     background: #c30;
-    background: -moz-linear-gradient(top,  #c30,  #b20);
-    background: -webkit-gradient(linear, left top, left bottom, from(#c30), to(#b20));
+    background:      -o-linear-gradient(top,  #c30,  #b20);
+    background:     -ms-linear-gradient(top,  #c30,  #b20);
+    background:    -moz-linear-gradient(top,  #c30,  #b20);
+    background: -webkit-linear-gradient(top,  #c30,  #b20);
+
     border-top: 1px solid #d40;
     border-bottom: 1px solid #a30;
     text-shadow: 0 -1px 0 #a30;

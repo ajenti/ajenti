@@ -5,7 +5,6 @@
     width: 360px;
     border: 1px solid #ccc;
     border-radius: 2px;
-    -moz-border-radius: 2px;
 }
 
 .ui-el-widget > table {
@@ -14,8 +13,11 @@
 
 .ui-el-widget-icon {
     background: #e0e0e0;
-    background: -moz-linear-gradient(top,  #eee,  #e0e0e0);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#e0e0e0));
+    background:      -o-linear-gradient(top,  #eee,  #e0e0e0);
+    background:     -ms-linear-gradient(top,  #eee,  #e0e0e0);
+    background:    -moz-linear-gradient(top,  #eee,  #e0e0e0);
+    background: -webkit-linear-gradient(top,  #eee,  #e0e0e0);
+
     width: 16px;
     padding: 3px 2px;
     border-right: 1px solid #bbb;
@@ -37,8 +39,11 @@
 
 .ui-el-widget-title-linear {
     background: #e0e0e0;
-    background: -moz-linear-gradient(top,  #eee,  #e0e0e0);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#e0e0e0));
+    background:      -o-linear-gradient(top,  #eee,  #e0e0e0);
+    background:     -ms-linear-gradient(top,  #eee,  #e0e0e0);
+    background:    -moz-linear-gradient(top,  #eee,  #e0e0e0);
+    background: -webkit-linear-gradient(top,  #eee,  #e0e0e0);
+
     border-right: 1px solid #bbb;
     width: 80px;
 }
@@ -58,8 +63,6 @@
     height: 22px;
     color: #777;
     border-radius: 3px 3px 0 0;
-    -moz-border-radius: 3px 3px 0 0;
-    -webkit-border-radius: 3px 3px 0 0;
     background: rgba(0,0,0,.5);
 }
 
@@ -81,8 +84,11 @@
 
 .ui-dashboard-banner {
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
+    
     border-bottom: 1px solid #ccc;
     overflow: hidden;
     padding: 7px 10px;

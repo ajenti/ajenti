@@ -2,16 +2,22 @@
     <layouttable width="90%">
         <layouttablerow>
             <layouttablecell width="50%" spacing="0">
-                <image file="/dl/network/ip.png" />
-                <label id="ip" />
+                <hcontainer>
+                    <image file="/dl/network/ip.png" />
+                    <label id="ip" />
+                </hcontainer>
             </layouttablecell>
             <layouttablecell width="25%" spacing="0">
-                <image file="/dl/network/in.png" />
-                <label id="in" />
+                <hcontainer>
+                    <image file="/dl/network/in.png" />
+                    <label id="in" />
+                </hcontainer>
             </layouttablecell>
             <layouttablecell width="25%" spacing="0">
-                <image file="/dl/network/out.png" />
-                <label id="out" />
+                <hcontainer>
+                    <image file="/dl/network/out.png" />
+                    <label id="out" />
+                </hcontainer>
             </layouttablecell>
         </layouttablerow>
     </layouttable>

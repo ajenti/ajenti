@@ -24,6 +24,6 @@ DEPS =  []
 NAME = 'Network'
 PLATFORMS = ['arch', 'centos', 'debian', 'fedora', 'freebsd']
 DESCRIPTION = 'Network interfaces management'
-VERSION = '0:1.5'
+VERSION = '0:1.6'
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'

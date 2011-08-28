@@ -1,7 +1,10 @@
 .ui-el-toolbar {
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
+    
     border-bottom: 1px solid #aaa;
     width: 100%;
 }
@@ -41,12 +44,13 @@
     margin: 0 3px;
 
     border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
     border: 1px solid #ccc;
+    
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
 
     font-size: 12px;
     color: #444;
@@ -63,15 +67,21 @@ input.ui-el-button {
 
 .ui-el-button:hover {
     background: #eee;
-    background: -moz-linear-gradient(top,  #fff,  #eee);
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background:      -o-linear-gradient(top,  #fff,  #eee);
+    background:     -ms-linear-gradient(top,  #fff,  #eee);
+    background:    -moz-linear-gradient(top,  #fff,  #eee);
+    background: -webkit-linear-gradient(top,  #fff,  #eee);
+    
     color: #222;
 }
 
 .ui-el-button:active {
     background: #eee;
-    background: -moz-linear-gradient(top,  #fff,  #eee);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
+    background:      -o-linear-gradient(top,  #fff,  #eee);
+    background:     -ms-linear-gradient(top,  #fff,  #eee);
+    background:    -moz-linear-gradient(top,  #fff,  #eee);
+    background: -webkit-linear-gradient(top,  #fff,  #eee);
+    
     color: #000;
 }
 
@@ -84,9 +94,6 @@ input.ui-el-button {
     line-height: 28px;
     border-left: none;
     padding: 0 10px 0 5px;
-    border-radius: 0px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
 }
 
 .ui-el-toolbutton > img {
@@ -120,13 +127,14 @@ input.ui-el-button {
     margin: 1px 3px;
     display: inline-block;
 
-    border-radius: 3px 3px 3px 3px;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px;
     border: 1px solid #ccc;
+    
     background: #ddd;
-    background: -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
 
     font-size: 11px;
     color: #444;
@@ -139,15 +147,21 @@ input.ui-el-button {
 
 .ui-el-minibutton:hover {
     background: #eee;
-    background: -moz-linear-gradient(top,  #fff,  #eee);
-    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background:      -o-linear-gradient(top,  #fff,  #eee);
+    background:     -ms-linear-gradient(top,  #fff,  #eee);
+    background:    -moz-linear-gradient(top,  #fff,  #eee);
+    background: -webkit-linear-gradient(top,  #fff,  #eee);
+    
     color: #222;
 }
 
 .ui-el-minibutton:active {
     background: #ddd;
-    background: -moz-linear-gradient(top,  #ccc,  #ddd);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
+    background:      -o-linear-gradient(top,  #ccc,  #ddd);
+    background:     -ms-linear-gradient(top,  #ccc,  #ddd);
+    background:    -moz-linear-gradient(top,  #ccc,  #ddd);
+    background: -webkit-linear-gradient(top,  #ccc,  #ddd);
+    
     color: #000;
 }
 
@@ -274,25 +288,29 @@ select {
 
 
 .ui-el-progressbar {
-    height: 15px;
     background: #ddd;
-    background: -moz-linear-gradient(top,  #ddd,  #eee);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ddd), to(#eee));
+    background:      -o-linear-gradient(top,  #ddd,  #eee);
+    background:     -ms-linear-gradient(top,  #ddd,  #eee);
+    background:    -moz-linear-gradient(top,  #ddd,  #eee);
+    background: -webkit-linear-gradient(top,  #ddd,  #eee);
+    
+    height: 15px;
     border: 1px solid #ccc;
     border-top: none;
     float: left;
 }
 
 .ui-el-progressbar-active {
-    height: 14px;
     background: #79bd17;
-    background: -moz-linear-gradient(top,  #79bd17,  #558511);
-    background: -webkit-gradient(linear, left top, left bottom, from(#79bd17), to(#558511));
+    background:      -o-linear-gradient(top,  #79bd17,  #558511);
+    background:     -ms-linear-gradient(top,  #79bd17,  #558511);
+    background:    -moz-linear-gradient(top,  #79bd17,  #558511);
+    background: -webkit-linear-gradient(top,  #79bd17,  #558511);
+
+    height: 14px;
     border-top: 1px solid #a0d05c;
     border-bottom: 1px solid #3f620c;
     border-radius: 3px 0 0 3px;
-    -moz-border-radius: 2px 0 0 2px;
-    -webkit-border-radius: 3px 0 0 3px;
     float: left;
 }
 
@@ -308,8 +326,6 @@ select {
     border-left: 1px solid #ccc;
     border-bottom: 1px solid white;
     border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
     overflow: hidden;
 }
 
@@ -324,8 +340,6 @@ select {
     margin: 5px;
     border: 1px solid #aaa;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 
     width: 100%;
     height: 100%;
@@ -351,7 +365,5 @@ select {
     padding: 3px;
     display: none;
 
-    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }

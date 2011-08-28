@@ -1,7 +1,5 @@
 .ui-el-auth-dialog {
-    -moz-border-radius: 5px 5px 5px 5px;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 5px;
     border: 1px solid #ddd;
     width: 300px;
     margin: 50px auto 0;
@@ -11,9 +9,7 @@
 
 
 .ui-el-auth-dialog-content {
-    -moz-border-radius: 5px 5px 5px 5px;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 5px;
     width: 300px;
     border-top: 1px solid white;
     background: #eee;
@@ -37,8 +33,6 @@
 
 .ui-el-auth-dialog-content input[type=text],
 .ui-el-auth-dialog-content input[type=password] {
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
     border-radius: 3px;
     background: #ffffff;
     border: 1px solid #ddd;
@@ -55,7 +49,6 @@
 }
 
 .ui-el-auth-dialog-content input:focus {
-    -moz-box-shadow: 0 0 2px #fa3;
     box-shadow: 0 0 2px #fa3;
     border-color: #fa3 !important;
 }
@@ -75,10 +68,7 @@
     margin: 10px 20px
 }
 
-
-
 .ui-el-authbox {
-    -moz-border-radius: 3px;
     border-radius: 3px;
     background: #444;
     width: 100px;
