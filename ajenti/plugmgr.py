@@ -58,7 +58,7 @@ class PluginRequirementError(BaseRequirementError):
         self.name = name
 
     def __str__(self):
-        return 'requires plugin %s' % self.name
+        return 'requires plugin "%s"' % self.name
 
 
 class ModuleRequirementError(BaseRequirementError):
@@ -71,7 +71,7 @@ class ModuleRequirementError(BaseRequirementError):
         self.name = name
 
     def __str__(self):
-        return 'requires Python module %s' % self.name
+        return 'requires Python module "%s"' % self.name
 
 
 class SoftwareRequirementError(BaseRequirementError):
@@ -85,7 +85,7 @@ class SoftwareRequirementError(BaseRequirementError):
         self.bin = bin
 
     def __str__(self):
-        return 'requires application %s (%s)' % (self.name, self.bin)
+        return 'requires application "%s" (executable: %s)' % (self.name, self.bin)
 
 
 class PluginLoader:
