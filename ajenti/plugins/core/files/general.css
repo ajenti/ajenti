@@ -7,6 +7,9 @@
     font-family: Droid Sans, Verdana, sans-serif;
     outline: none;
     font-size: 12px;
+    -moz-background-clip: padding; 
+    -webkit-background-clip: padding-box; 
+    background-clip: padding-box;    
 }
 
 html, body {

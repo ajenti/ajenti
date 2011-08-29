@@ -96,14 +96,15 @@ class Dashboard(CategoryPlugin):
 
     @event('dialog/submit')
     def on_dialog(self, event, params, vars):
-        if params[0] != 'dlgWidgetConfig':
-            return
-        if vars.getvalue('action', None) == 'OK':
-            id = self._adding_widget
-            w = self._mgr.get_by_name(id)
-            cfg = w.process_config(vars)
-            self._mgr.add_widget(id, cfg)
-        self._adding_widget = None
+        if params[0] == 'dlgAddWidget':
+            self._adding_widget = None
+        if params[0] == 'dlgWidgetConfig':
+            if vars.getvalue('action', None) == 'OK':
+                id = self._adding_widget
+                w = self._mgr.get_by_name(id)
+                cfg = w.process_config(vars)
+                self._mgr.add_widget(id, cfg)
+            self._adding_widget = None
 
     @event('widget/move')
     def on_move(self, event, params, vars=None):
