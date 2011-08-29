@@ -1,19 +1,19 @@
 <xml>
     <layouttable width="90%">
         <layouttablerow>
-            <layouttablecell width="50%" spacing="0">
+            <layouttablecell width="40%" spacing="0">
                 <hcontainer>
                     <image file="/dl/network/ip.png" />
                     <label id="ip" />
                 </hcontainer>
             </layouttablecell>
-            <layouttablecell width="25%" spacing="0">
+            <layouttablecell width="30%" spacing="0">
                 <hcontainer>
                     <image file="/dl/network/in.png" />
                     <label id="in" />
                 </hcontainer>
             </layouttablecell>
-            <layouttablecell width="25%" spacing="0">
+            <layouttablecell width="30%" spacing="0">
                 <hcontainer>
                     <image file="/dl/network/out.png" />
                     <label id="out" />

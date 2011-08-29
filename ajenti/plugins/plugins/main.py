@@ -128,6 +128,7 @@ class PluginManager(CategoryPlugin, URLHandler):
                 PluginLoader.load(params[1])
             except:
                 pass
+            self.put_message('info', 'Plugin reloaded. Refresh page for changes to take effect.')
         if params[0] == 'restart':
             self.app.restart()
         if params[0] == 'install':

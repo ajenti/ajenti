@@ -1,8 +1,10 @@
 <xml>
-    <label text="1 min:" />
-    <label id="1m" bold="True" />
-    <label text="5 min:" />
-    <label id="5m" bold="True" />
-    <label text="15 min:" />
-    <label id="15m" bold="True" />
+    <hcontainer>
+        <label text="1 min:" />
+        <label id="1m" bold="True" />
+        <label text="5 min:" />
+        <label id="5m" bold="True" />
+        <label text="15 min:" />
+        <label id="15m" bold="True" />
+    </hcontainer>
 </xml>
