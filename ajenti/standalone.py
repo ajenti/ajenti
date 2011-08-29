@@ -2,10 +2,6 @@ import sys
 import os
 import logging
 
-from twisted.web import server
-from twisted.internet import reactor, ssl
-from twisted.web.wsgi import WSGIResource
-
 from ajenti.api import ComponentManager
 from ajenti.config import Config
 from ajenti.core import Application, AppDispatcher
@@ -13,6 +9,8 @@ from ajenti.plugmgr import PluginLoader
 from ajenti import version
 import ajenti.utils
 
+import gevent.pywsgi
+import gevent.pool
 
 
 class DebugHandler (logging.StreamHandler):
@@ -70,6 +68,7 @@ def run_server(log_level=logging.INFO, config_file=''):
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
 
+    # Start recording log for the bug reports
     log.blackbox.start()
 
     platform = ajenti.utils.detect_platform()
@@ -89,37 +88,33 @@ def run_server(log_level=logging.INFO, config_file=''):
     port = config.getint('ajenti','bind_port')
     log.info('Listening on %s:%d'%(host, port))
 
-    resource = WSGIResource(
-            reactor,
-            reactor.getThreadPool(),
-            AppDispatcher(config).dispatcher
+    # SSL params
+    ssl = {}
+    if config.getint('ajenti', 'ssl') == 1:
+        ssl = {
+    	    'keyfile':  config.get('ajenti','cert_key'),
+    	    'certfile': config.get('ajenti','cert_file'),
+    	}
+    
+    server = gevent.pywsgi.WSGIServer(
+        (host, port),
+        application=AppDispatcher(config).dispatcher,
+        log=None,
+        **ssl
     )
-
-    site = server.Site(resource)
-    config.set('server', reactor)
+        
+    config.set('server', server)
 
     log.info('Starting server')
-    if config.getint('ajenti', 'ssl') == 1:
-        ssl_context = ssl.DefaultOpenSSLContextFactory(
-    	    config.get('ajenti','cert_key'),
-    	    config.get('ajenti','cert_file')
-        )
-        reactor.listenSSL(
-        	port,
-        	site,
-        	contextFactory = ssl_context,
-        )
-    else:
-        reactor.listenTCP(port, site)
 
-
+    # Finalize the reported log
     log.blackbox.stop()
 
-    reactor.run()
+    server.serve_forever()
 
     ComponentManager.get().stop()
 
-    if hasattr(reactor, 'restart_marker'):
+    if hasattr(server, 'restart_marker'):
         log.info('Restarting by request')
 
         fd = 20 # Close all descriptors. Creepy thing

@@ -6,6 +6,12 @@ from setuptools import find_packages
 setup(
     name='Ajenti',
     version='0.5-13.1',
+    install_requires=[
+        'pyOpenSSL',
+        'feedparser',
+        'gevent',
+        'lxml>=2.2.4',
+    ],
     description='The server administration panel',
     author='Eugeny Pankov',
     author_email='e@ajenti.org',
