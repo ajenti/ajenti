@@ -1,9 +1,9 @@
 <xsl:template match="topcategory">
     <a class="ui-el-top-category{x:iif(@selected, ' ui-el-top-category-selected', '')}" href="#" onclick="javascript:ui_select_top_category('{@id}');return ajax('/handle/category/click/{@id}');" id="{@id}">
-        <img src="{@icon}" class="ui-el-category-icon" />
+        <img src="{@icon}" class="icon" />
         <xsl:value-of select="@text"/>
             <xsl:if test="@counter != 'None'">
-                <div class="ui-el-category-counter">
+                <div class="counter">
                     <xsl:value-of select="@counter"/>
                 </div>
             </xsl:if>
@@ -13,12 +13,12 @@
 <xsl:template match="category">
     <a href="#" onclick="javascript:ui_select_category('{@id}');return ajax('/handle/category/click/{@id}');">
 	    <div id="{@id}" class="ui-el-category{x:iif(@selected, ' ui-el-category-selected', '')}">
-            <img src="{@icon}" class="ui-el-category-icon" />
-            <span class="ui-el-category-text">
+            <img src="{@icon}" class="icon" />
+            <span class="text">
                 <xsl:value-of select="@name"/>
             </span>
             <xsl:if test="@counter != 'None'">
-                <div class="ui-el-category-counter">
+                <div class="counter">
                     <xsl:value-of select="@counter"/>
                 </div>
             </xsl:if>

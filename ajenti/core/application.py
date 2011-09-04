@@ -46,9 +46,10 @@ class Application (PluginManager, Plugin):
 
     def refresh_plugin_data(self):
         """
-        Rescans plugins for JS, CSS, XSLT widgets and XML templates.
+        Rescans plugins for JS, CSS, LESS, XSLT widgets and XML templates.
         """
         self.template_path = []
+        self.less_styles = []
         self.template_styles = []
         self.template_scripts = []
         self.layouts = {}
@@ -72,6 +73,11 @@ class Application (PluginManager, Plugin):
                     '/dl/'+c+'/'+s
                     for s in os.listdir(fp)
                     if s.endswith('.css')
+                ])
+                self.less_styles.extend([
+                    '/dl/'+c+'/'+s
+                    for s in os.listdir(fp)
+                    if s.endswith('.less')
                 ])
                 self.template_scripts.extend([
                     '/dl/'+c+'/'+s

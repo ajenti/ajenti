@@ -185,6 +185,8 @@ def wsgi_serve_file(req, start_response, file):
     content_type = 'application/octet-stream'
     if file.endswith('.css'):
         content_type = 'text/css'
+    elif file.endswith('.less'):
+        content_type = 'text/css'
     elif file.endswith('.js'):
         content_type = 'application/javascript'
     elif file.endswith('.png'):
