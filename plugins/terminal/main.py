@@ -49,24 +49,24 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
 
     def start(self):
         env = {}
+        env.update(os.environ)
         env['TERM'] = 'linux'
         env['COLUMNS'] = str(TERM_W)
         env['LINES'] = str(TERM_H)
         env['LC_ALL'] = 'en_US.UTF8'
         sh = self.app.get_config(self).shell
 
-        master, slave = pty.openpty()
-        p = sp.Popen(
-            sh,
-            stdin=slave,
-            stdiout=slave,
-            stderr=slave,
-            shell=True,
-            close_fds=True,
-            universal_newlines=True,
-            env=env,
-        )
-        self._proc = PTYProtocol(p, master)
+        pid, master = pty.fork()
+        if pid == 0:
+            p = sp.Popen(
+                sh,
+                shell=True,
+                close_fds=True,
+                env=env,
+            )
+            p.wait()
+            sys.exit(0)
+        self._proc = PTYProtocol(pid, master)
 
     def restart(self):
         if self._proc is not None:
@@ -145,8 +145,6 @@ class PTYProtocol():
                 d = self.mstream.read()
                 self.data += d
                 if len(self.data) > 0:
-                    print repr(self.data)
-                    #u = unicode(self.data.encode('utf-8', 'xmlcharref'), errors='replace')
                     u = unicode(str(self.data))
                     self.stream.feed(u)
                     self.data = ''
@@ -183,4 +181,4 @@ class PTYProtocol():
         self.unblock()
 
     def kill(self):
-        self.proc.kill()
+        os.kill(self.proc, 9)

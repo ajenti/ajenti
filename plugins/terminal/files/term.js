@@ -48,7 +48,7 @@ function drawTerm(d) {
 }
 
 function __cells(row, idx) {
-    var r = '<pre>', fg, bg, bold, it, und;
+    var r = '<pre>', fg, bg, bold, it, und, ch;
     for (var i=0; i<row.length; i++) {
         var cell = row[i];
         if (bg != cell[2] || fg != cell[1] || (idx == _cursy && i == _cursx) || (idx == _cursy && i == _cursx+1)) {
@@ -69,7 +69,12 @@ function __cells(row, idx) {
             it = cell[4];
             und = cell[5];
         }
-        r +=  cell[0];
+        ch = cell[0];
+        if (ch == '<')
+            ch = '&lt';
+        if (ch == '>')
+            ch = '&gt';
+        r += cell[0];
     }
     r += '</pre>';
     return r;
@@ -92,11 +97,6 @@ function termInit() {
 
 
     $('#capture').keypress(function (event) {
-        var ch = __filter_key(event);
-        termSend(Base64.encode(ch));
-    });
-
-    $('#capture').keydown(function (event) {
         var ch = __filter_key(event);
         termSend(Base64.encode(ch));
     });

@@ -3,7 +3,7 @@ from ajenti import apis
 
 
 class ServiceMeter (BinaryMeter):
-    name = 'Services'
+    name = 'Service'
     category = 'Software'
     transform = 'running'
 
