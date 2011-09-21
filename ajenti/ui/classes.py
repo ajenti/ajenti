@@ -164,14 +164,14 @@ class UI(object):
         def __init__(self, *args, **kwargs):
             Element.__init__(self, 'tabcontrol', **kwargs)
             self.vnt = UI.TabHeaderNode(id=self['id'])
-            self.vnc = UI.Container()
+            self.vnc = UI.TabsBox()
             self.append(self.vnt)
             self.append(self.vnc)
             self.tc = 0
-
+            
         def add(self, name, content):
-            self.vnt.append(UI.TabHeader(text=name, pid=self['id'], id=str(self.tc)))
-            self.vnc.append(UI.TabBody(content, pid=self['id'], id=str(self.tc)))
+            self.vnt.append(UI.TabHeader(text=name, pid=self['id'], active=str(self.tc)==self['active']))
+            self.vnc.append(UI.TabBody(content, pid=self['id']))
             self.tc += 1
 
 

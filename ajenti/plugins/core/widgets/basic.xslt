@@ -13,7 +13,18 @@
 
 <!-- Button magic -->
 <xsl:template match="genericbutton">
-    <a href="{@href}" onclick="{@onclick}" class="ui-el-button">
+    <xsl:variable name="onclickjs">
+    <xsl:choose>
+        <xsl:when test="@onclick = 'form'">
+            return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@action" />');
+        </xsl:when>
+        <xsl:otherwise>
+            return ajax('/handle/<xsl:value-of select="x:attr(@class, 'button')" />/click/<xsl:value-of select="@id" />');
+        </xsl:otherwise>
+    </xsl:choose>
+    </xsl:variable>
+    
+    <a href="{@href}" onclick="{$onclickjs}" class="ui-el-button btn {@design}">
         <xsl:value-of select="@text" />
     </a>
 </xsl:template>

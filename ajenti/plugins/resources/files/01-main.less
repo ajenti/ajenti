@@ -132,7 +132,7 @@ a:hover { text-decoration: none; }
     display: inline-block;
     float: right;
     line-height: 16px;
-    padding: 1px 5px 1px;
+    padding: 0 5px 1px;
 
     color: #fff;
     text-shadow: 0 1px 0 #720000;
@@ -161,7 +161,7 @@ a:hover { text-decoration: none; }
         padding: 5px 5px 0;
     }
 
-    &-selected,
+    &.selected,
     &:hover {
         border-top: 2px solid #888;
         background: #333;
@@ -176,7 +176,7 @@ a:hover { text-decoration: none; }
     
     .counter {
         .ui-el-category-counter();
-        margin: 4px 0 0 3px;
+        margin: 3px 0 0 3px;
     }
 }
 
@@ -186,10 +186,17 @@ a:hover { text-decoration: none; }
     line-height: 26px;
     padding: 3px 3px 4px 5px;
     margin: 3px 0;
-
-    &-selected, 
+    .transition(none);
+    
+    * {
+        .transition(none);
+    }
+    
     &:hover {
-        background: #922017 * 8;
+        background: #eee;
+    }
+    
+    &.selected {
         .gradientBar(#d04909,  #922017);
         .border-radius(2px);
     }
@@ -202,12 +209,11 @@ a:hover { text-decoration: none; }
         padding: 0 0 2px;
     }
 
-    &-selected .text,
-    &:hover .text {
+    &.selected .text {
         color: white;
     }
 
-    &-selected .text {
+    &.selected .text {
         line-height: 16px;
         font-weight: bold;
     }
@@ -222,7 +228,6 @@ a:hover { text-decoration: none; }
 
     .counter {
         .ui-el-category-counter();
-        margin: 1px 0 0;
     }
 }
 

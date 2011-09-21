@@ -1,19 +1,25 @@
 <xsl:template match="tabheader">
-    <li id="tabheader-{@pid}-{@id}" class="ui-el-tab-header">
-        <a onclick="javascript:ui_tabswitch('{@pid}','{@id}')">
+    <li class="ui-el-tab-header {x:iif(@active, 'active', '')}">
+        <a href="#{@id}">
             <xsl:value-of select="@text" />
         </a>
     </li>
 </xsl:template>
 
 <xsl:template match="tabheadernode">
-        <ul id="{@id}" class="tabs">
+        <ul id="{@id}" class="tabs" data-tabs="tabs">
             <xsl:apply-templates />
         </ul>
 </xsl:template>
 
 <xsl:template match="tabbody">
-    <div id="tabbody-{@pid}-{@id}">
+    <div id="{@id}">
+        <xsl:apply-templates />
+    </div>
+</xsl:template>
+
+<xsl:template match="tabsbox">
+    <div class="tab-content">
         <xsl:apply-templates />
     </div>
 </xsl:template>
@@ -21,9 +27,6 @@
 <xsl:template match="tabcontrol">
     <div>
         <xsl:apply-templates />
-        <script>
-            ui_tabswitch('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:attr(@active, '0')"/>');
-        </script>
     </div>
 </xsl:template>
 

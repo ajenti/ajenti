@@ -118,6 +118,8 @@ function ajaxForm(formId, action)
 function ajaxHandler(data)
 {
 	main = document.getElementById("rightplaceholder")
+	$('.modal').remove();
+	$('.modal-backdrop').remove()
 	main.innerHTML = data
     var ob = main.getElementsByTagName("script");
     for(var i=0; i<ob.length; i++)

@@ -6,7 +6,7 @@
                                 <xsl:choose>
                                     <xsl:when test="@hideok = 'True'" />
                                     <xsl:otherwise>
-                                        <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                                        <button text="OK" onclick="form" action="OK" form="{@id}" design="primary"/>
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 <xsl:choose>
@@ -31,7 +31,6 @@
 
 <xsl:template match="dialogbox">
 <div>
-    <div id="{@id}-wr" class="modal-wrapper">
         <div id="{@id}" class="modal">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
                 <div class="modal-body">
@@ -42,7 +41,7 @@
                     <xsl:choose>
                         <xsl:when test="@hideok = 'True'" />
                         <xsl:otherwise>
-                            <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                            <button text="OK" onclick="form" action="OK" form="{@id}" design="primary" />
                         </xsl:otherwise>
                     </xsl:choose>
                     <xsl:choose>
@@ -56,11 +55,8 @@
                     </xsl:if>
                 </div>
         </div>
-    </div>
     <script>
-        $('#blackout').show();
-        ui_center('<xsl:value-of select="@id"/>-wr');
-        ui_scroll_top();
+        Ajenti.showAsModal('<xsl:value-of select="@id"/>');
     </script>
 </div>
 </xsl:template>
@@ -79,7 +75,7 @@
                     </table>
                 </div>
                 <div class="ui-el-modal-buttons">
-                    <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                    <button text="OK" onclick="form" action="OK" form="{@id}" design="primary"/>
                     <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
                 </div>
             </div>
@@ -109,7 +105,7 @@
                     </table>
                 </div>
                 <div class="ui-el-modal-buttons">
-                    <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                    <button text="OK" onclick="form" action="OK" form="{@id}" design="primary"/>
                     <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
                 </div>
             </div>
@@ -138,7 +134,7 @@
                     </table>
                 </div>
                 <div class="ui-el-modal-buttons">
-                    <button text="OK" onclick="form" action="OK" form="{@id}"/>
+                    <button text="OK" onclick="form" action="OK" form="{@id}" design="primary"/>
                     <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
                 </div>
             </div>

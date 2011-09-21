@@ -12,6 +12,7 @@
 
 <label size="5" text="UI Elements" />
 <pad>
+<genericbutton design="primary" text="123" />
     <div style="border: 1px solid #bbb">
         <label size="1" text="Size one" />
         <label size="2" text="Size two" />

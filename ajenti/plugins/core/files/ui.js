@@ -1,51 +1,28 @@
+var Ajenti;
+
 Ajenti = {
+    selectCategory: function (id) {
+        $('.ui-el-category').removeClass('selected');
+        $('.ui-el-top-category').removeClass('selected');
+        $('#'+id).addClass('selected');
+        ajax('/handle/category/click/' + id);
+        return false;
+    },
+    
+    showAsModal: function (id) {
+        $('#'+id).modal({show:true, backdrop:'static'}).center();
+    },
 };
 
-function ui_center_el(e) {
-    sw = window.innerWidth;
-    sh = window.innerHeight;
-    e.style.left = (sw / 2 - e.clientWidth / 2) + 'px';
-    e.style.top = (sh / 2 - e.clientHeight / 2) + 'px';
-    if (sh < e.clientHeight)
-        e.style.top = '10px';
+
+
+jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
+    this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
+    return this;
 }
 
-function ui_fullscreen(el) {
-    ui_show(el);
-    e = document.getElementById(el);
-    sw = document.documentElement.scrollWidth;
-    sh = document.documentElement.scrollHeight;
-    e.style.width = sw + 'px';
-    e.style.height = sh + 'px';
-}
-
-function ui_center(el) {
-    ui_center_el(document.getElementById(el));
-}
-
-function ui_scroll_top() {
-    window.scrollTo(0,0);
-}
-
-function ui_select_category(id) {
-    try {
-        document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
-    } catch (e) {}
-    try {
-        document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
-    } catch (e) {}
-    document.getElementById(id).className = 'ui-el-category ui-el-category-selected';
-}
-
-function ui_select_top_category(id) {
-    try {
-        document.getElementsByClassName('ui-el-category-selected')[0].className = 'ui-el-category';
-    } catch (e) {}
-    try {
-        document.getElementsByClassName('ui-el-top-category-selected')[0].className = 'ui-el-top-category';
-    } catch (e) {}
-    document.getElementById(id).className = 'ui-el-top-category ui-el-top-category-selected';
-}
 
 function ui_showhide(id) {
     x = document.getElementById(id);

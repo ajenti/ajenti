@@ -22,7 +22,7 @@
                 <tabheader pid="tabs" text="Tasks" id="0"/>
                 <tabheader pid="tabs" text="Non-task strings" id="1"/>
             </tabheadernode>
-            <container>
+            <tabsbox>
                 <tabbody pid="tabs" id="0">
                     <datatable id="table_task">
                         <datatablerow header="True">
@@ -60,7 +60,7 @@
                         </datatablerow>
                     </datatable>
                 </tabbody>
-            </container>
+            </tabsbox>
         </tabcontrol>
 
         <dialogbox id="dlgEditTask" hideok="True" hidecancel="True" title='Edit task'>
