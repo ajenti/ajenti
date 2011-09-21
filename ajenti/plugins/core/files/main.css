@@ -23,58 +23,5 @@
 
 
 
-.ui-el-message {
-    padding: 5px;
-    background-image: url('/dl/core/ui/alert.png');
-    color: #fff;
-    font-weight: bold;
-    font-size: 13px;
-    text-shadow: 1px 1px 0 #888;
-}
 
-.ui-el-message-info {
-    background-color: #8b4;
-    border-top: 1px solid #9c5;
-    border-bottom: 1px solid #7a3;
-}
 
-.ui-el-message-warn {
-    background-color: #fa3;
-    border-top: 1px solid #da4;
-    border-bottom: 1px solid #a73;
-}
-
-.ui-el-message-err {
-    background-color: #c30;
-    border-top: 1px solid #d40;
-    border-bottom: 1px solid #a30;
-}
-
-.ui-progress-box {
-    padding: 5px;
-    background-image: url('/dl/core/ui/alert.png');
-    background-color: #8b4;
-    border-top: 1px solid #9c5;
-    border-bottom: 1px solid #7a3;
-}
-
-.ui-progress-box .ui-el-label-1 {
-    color: #fff;
-    font-size: 13px;
-    text-shadow: 1px 1px 0 #888;
-    padding: 0 5px;
-}
-
-.ui-progress-box-wr {
-}
-
-.ui-progress-box img {
-    padding: 3px;
-}
-
-.ui-progress-box-text {
-    line-height: 30px;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-}

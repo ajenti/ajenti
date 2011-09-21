@@ -3,6 +3,11 @@
     -moz-transition: .2s linear color, .2s linear background-color, .2s linear background-image, .2s linear border-color;
     -webkit-transition: .2s linear color, .2s linear background-color, .2s linear background-image, .2s linear border-color;
     cursor: default;
+    outline: none !important;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: Helvetica, sans-serif;
 }
 
 @selectedColor: #d04909;
@@ -12,7 +17,7 @@
 body, html {
     padding: 0;
     margin: 0;
-    font-family: Ubuntu, Droid Sans, sans-serif;
+    font-family: OpenSans, Droid Sans, sans-serif;
 }
 
 table.layout,
@@ -22,6 +27,7 @@ table.layout > tbody > tr > td {
     padding: 0;
     margin: 0;
     border: 0;
+    vertical-align: top;
 }
 
 a:hover { text-decoration: none; }
@@ -176,15 +182,13 @@ a:hover { text-decoration: none; }
 
 
 .ui-el-category {
-    width: 120px;
+    width: 130px;
     line-height: 26px;
-    padding: 3px 10px 4px 5px;
+    padding: 3px 3px 4px 5px;
     margin: 3px 0;
-    border-left: 4px solid transparent;
 
     &-selected, 
     &:hover {
-        border-left: 4px solid #922017;
         background: #922017 * 8;
         .gradientBar(#d04909,  #922017);
         .border-radius(2px);
@@ -195,15 +199,19 @@ a:hover { text-decoration: none; }
         font-size: 13px;
         display: inline-block;
         line-height: 16px;
-        padding: 1px 0 1px;
+        padding: 0 0 2px;
+    }
+
+    &-selected .text,
+    &:hover .text {
+        color: white;
     }
 
     &-selected .text {
-        padding: 2px 0 0;
+        line-height: 16px;
         font-weight: bold;
-        color: white;
     }
-    
+        
     .icon {
         width: 16px;
         height: 16px;
@@ -216,4 +224,54 @@ a:hover { text-decoration: none; }
         .ui-el-category-counter();
         margin: 1px 0 0;
     }
+}
+
+
+
+
+
+.ui-el-message {
+    .alert-message();
+}
+
+.ui-el-message-info {
+    .alert-message.success();
+}
+
+.ui-el-message-warn {
+    background-color: #fa3;
+    background-image: url('/dl/core/ui/alert.png');
+}
+
+.ui-el-message-err {
+    .alert-message.error();
+    background-color: #e43;
+    background-image: url('/dl/core/ui/alert.png');
+}
+
+
+.ui-progress-box {
+    .alert-message();
+    .alert-message.success();
+    background-image: url('/dl/core/ui/alert.png');
+    padding: 0 5px;
+}
+
+.ui-progress-box .ui-el-label-1 {
+    color: #fff;
+    font-size: 13px;
+    text-shadow: 1px 1px 0 #888;
+    padding: 0 5px;
+}
+
+.ui-progress-box img {
+    padding: 6px 3px;
+    float: left;
+}
+
+.ui-progress-box-text {
+    line-height: 30px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
 }

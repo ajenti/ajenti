@@ -165,7 +165,7 @@ class UI(object):
             Element.__init__(self, 'tabcontrol', **kwargs)
             self.vnt = UI.TabHeaderNode(id=self['id'])
             self.vnc = UI.Container()
-            self.append(UI.VContainer(self.vnt, spacing=10))
+            self.append(self.vnt)
             self.append(self.vnc)
             self.tc = 0
 

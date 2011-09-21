@@ -87,7 +87,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     @url('^/core/styles.less$')
     def serve_styles(self, req, sr):
         r = ''
-        for s in self.app.less_styles:
+        for s in sorted(self.app.less_styles):
             r += '@import "%s";\n'%s
         return r
     

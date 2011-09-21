@@ -1,3 +1,6 @@
+Ajenti = {
+};
+
 function ui_center_el(e) {
     sw = window.innerWidth;
     sh = window.innerHeight;
@@ -79,7 +82,7 @@ function ui_tabswitch(pid, id) {
         try {
             document.getElementById('tabheader-' + pid + '-' + i).setAttribute('class', 'ui-el-tab-header');
         } catch (err) { }
-    h.setAttribute('class', 'ui-el-tab-header-active');
+    h.setAttribute('class', 'ui-el-tab-header active');
 
     for (i=0;i<tc;i++)
         try {

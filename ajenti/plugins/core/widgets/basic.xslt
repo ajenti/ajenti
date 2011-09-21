@@ -10,6 +10,17 @@
 </xsl:template>
 
 
+
+<!-- Button magic -->
+<xsl:template match="genericbutton">
+    <a href="{@href}" onclick="{@onclick}" class="ui-el-button">
+        <xsl:value-of select="@text" />
+    </a>
+</xsl:template>
+
+
+<!-- End of button magic -->
+
 <xsl:template match="button">
     <xsl:choose>
         <xsl:when test="@onclick = 'form'">
@@ -28,7 +39,7 @@
 <xsl:template match="toolbutton">
     <xsl:choose>
         <xsl:when test="@onclick = 'form'">
-            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-button ui-el-toolbutton">
+            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-toolbutton">
                 <xsl:if test="@icon">
                     <img src="{@icon}" />
                 </xsl:if>
@@ -36,7 +47,7 @@
             </a>
         </xsl:when>
         <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button ui-el-toolbutton {x:iif(@small, 'ui-el-toolbutton-small', '')}">
+            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-toolbutton {x:iif(@small, 'ui-el-toolbutton-small', '')}">
                 <xsl:if test="@icon">
                     <img src="{@icon}" />
                 </xsl:if>

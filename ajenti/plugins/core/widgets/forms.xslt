@@ -31,15 +31,14 @@
 
 <xsl:template match="dialogbox">
 <div>
-    <div class="ui-el-modal-wrapper" id="{@id}-wr">
-        <div id="{@id}">
+    <div id="{@id}-wr" class="modal-wrapper">
+        <div id="{@id}" class="modal">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
-            <div class="ui-el-dialog" width="{@width}" height="{@height}">
-                <div class="ui-el-dialog-content">
+                <div class="modal-body">
                     <xsl:apply-templates />
                 </div>
 
-                <div class="ui-el-modal-buttons">
+                <div class="modal-footer">
                     <xsl:choose>
                         <xsl:when test="@hideok = 'True'" />
                         <xsl:otherwise>
@@ -56,7 +55,6 @@
                         <button text="{@miscbtn}" id="{@miscbtnid}"/>
                     </xsl:if>
                 </div>
-            </div>
         </div>
     </div>
     <script>

@@ -72,7 +72,8 @@ class AuthManager(object):
         self.user = session['auth.user'] if 'auth.user' in session else None
         if not self._enabled:
             self.user = 'anonymous'
-        if self.user is not None or environ['PATH_INFO'].startswith('/dl'):
+        if self.user is not None or environ['PATH_INFO'].startswith('/dl') \
+            or environ['PATH_INFO'].startswith('/core'):
             return self._dispatcher(environ, start_response)
 
         if environ['PATH_INFO'] == '/auth':

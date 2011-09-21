@@ -26,41 +26,7 @@
 }
 
 
-
-.ui-el-tab-header {
-    padding: 4px 7px;
-    float: left;
-    font-size: 12px;
-    text-shadow: 0 1px 0 #fff;
-    border-right: 1px solid #ccc;
-
-    background: #ddd;
-    background:      -o-linear-gradient(top,  #eee,  #ddd);
-    background:     -ms-linear-gradient(top,  #eee,  #ddd);
-    background:    -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-linear-gradient(top,  #eee,  #ddd);
-}
-
-.ui-el-tab-header-active {
-    padding: 4px 7px;
-    float: left;
-    font-size: 12px;
-    text-shadow: 0 1px 0 #fff;
-    border-right: 1px solid #ccc;
-
-    background: #ccc;
-    background:      -o-linear-gradient(top,  #ccc,  #ddd);
-    background:     -ms-linear-gradient(top,  #ccc,  #ddd);
-    background:    -moz-linear-gradient(top,  #ccc,  #ddd);
-    background: -webkit-linear-gradient(top,  #ccc,  #ddd);
-}
-
 .ui-el-tab-header-box {
-    margin-bottom: 10px;
-    overflow: hidden;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-right: none;
 }
 
 

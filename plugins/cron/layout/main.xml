@@ -3,11 +3,11 @@
         <hcontainer>
             <toolbutton id="add_task" text="Add task" icon="/dl/cron/add-task.png" />
             <toolbutton id="add_oth" text="Add non-task string" icon="/dl/core/ui/stock/add.png" />
-            <div style="padding: 4px 5px 0">
+            <div style="padding: 0 5px">
             <formbox id="frmUser" hideok="True" hidecancel="True">
                 <hcontainer spacing="5">
                     <select id="users_select" name="users_select" />
-                    <minibutton id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
+                    <toolbutton id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
                 </hcontainer>
             </formbox>
             </div>

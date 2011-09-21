@@ -11,7 +11,6 @@
     <label text="Firewall tables" size="5" />
     
     <pad id="root">
-        <tabcontrol id="tabs" />
     </pad>
     
 </xml>    

@@ -1,34 +1,4 @@
-.ui-el-auth-dialog {
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    width: 300px;
-    margin: 50px auto 0;
-    background: #eee;
-    overflow: hidden;
-}
 
-
-.ui-el-auth-dialog-content {
-    border-radius: 5px;
-    width: 300px;
-    border-top: 1px solid white;
-    background: #eee;
-}
-
-.ui-el-auth-dialog-header {
-    padding: 5px 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 14px;
-    color: #666;
-    background: #f5f5f5;
-    font-weight: bold;
-}
-
-.ui-el-auth-dialog-bar {
-    background-image: url('/dl/core/ui/alert.png');
-    background-color: #fa3;
-    height: 10px;
-}
 
 
 .ui-el-auth-dialog-content input[type=text],

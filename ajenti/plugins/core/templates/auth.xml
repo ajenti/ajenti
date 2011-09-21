@@ -1,30 +1,46 @@
-<html>
+<html class="auth-html">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Ajenti</title>
     <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
-    <headscripts/>
     <headstylesheets/>
+    <link rel="stylesheet/less" href="/core/styles.less" />
+    <headscripts/>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
 </head>
 
-<body id="main">
+<body id="main" class="auth-body">
+<form id="form" action="/auth-redirect" method="POST">
     <div>
-        <br/>
-        <div class="ui-el-auth-dialog">
-            <div class="ui-el-auth-dialog-content">
-                <div class="ui-el-auth-dialog-header">
-                    Authentication
+        <div class="auth-dialog">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3>Authentication</h3>
                 </div>
-                <div class="ui-el-auth-dialog-bar" />
-                <form id="form" action="/auth-redirect" method="POST">
-                <input type="hidden" id="challenge" />
-                <input type="text" id="username" name="username" placeholder="Username" />
-                <input type="password" id="password" name="password" placeholder="Password" />
-                <input type="submit" class="ui-el-button" id="login" value="Login" />
-                </form>
+                <div class="modal-content">
+                    <br/>
+                    <input type="hidden" id="challenge" />
+                    <div class="clearfix">
+                        <hlabel for="username" text="Username" />
+                        <div class="input">
+                            <input type="text" id="username" name="username" placeholder="Username" />
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <hlabel for="password" text="Password" />
+                        <div class="input">
+                            <input type="password" id="password" name="password" placeholder="Password" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="ui-el-button" id="login" value="Login" />
+                </div>
             </div>
         </div>
     </div>
+</form>
 
 <script>
 $('#username').focus()
