@@ -88,6 +88,18 @@ class SoftwareRequirementError(BaseRequirementError):
         return 'requires application "%s" (executable: %s)' % (self.name, self.bin)
 
 
+class CrashedError(BaseRequirementError):
+    """
+    Exception that means a plugin crashed during load
+    """
+
+    def __init__(self, inner):
+        self.inner = inner
+
+    def __str__(self):
+        return 'crashed during load: %s' % self.inner
+
+
 class PluginLoader:
     """
     Handles plugin loading and unloading
@@ -234,8 +246,7 @@ class PluginLoader:
             log.warn(' *** Plugin loading failed: %s' % str(e))
             print traceback.format_exc()
             PluginLoader.unload(plugin)
-            info.problem = e
-            raise e
+            info.problem = CrashedError(e)
 
     @staticmethod
     def load_plugins():
