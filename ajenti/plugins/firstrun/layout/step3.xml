@@ -1,4 +1,5 @@
 <xml>
     <label size="5" text="Installation complete" />
+    <label size="1" text="You'll be redirected to dashboard in a second..." />
     <completerefresh />
 </xml>

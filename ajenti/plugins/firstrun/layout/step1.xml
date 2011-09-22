@@ -1,29 +1,16 @@
 <xml>
-    <label size="5" text="Welcome to Ajenti" />
-    <pad>
-    <label size="1" text="An internet connection is advisable to complete installation" />
+    <label size="4" text="Welcome to Ajenti" />
+    <label size="1" text="An internet connection is required to install plugins." />
     <pad>
     <formbox hidecancel="True" id="frmChangePassword">
-        <label size="2" text="Please change your login and password" />
-        <layouttable>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Login:" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput name="login" value="admin" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Password:" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput name="password" password="True" />
-                </layouttablecell>
-            </layouttablerow>
-        </layouttable>
+        <label size="3" text="Please change your login and password" />
+        <spacer height="20" />
+        <formline text="New login">
+            <textinput name="login" value="admin" />
+        </formline>
+        <formline text="Password">
+            <textinput name="password" password="True" />
+        </formline>
     </formbox>
-    </pad>
     </pad>
 </xml>

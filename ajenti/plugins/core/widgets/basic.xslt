@@ -32,44 +32,6 @@
     </xsl:variable>
 
     <a href="{@href}" onclick="{$onclickjs}" class="ui-el-button btn {@design}">
-        <xsl:value-of select="@text" />
-    </a>
-</xsl:template>
-
-
-<!-- End of button magic -->
-
-<xsl:template match="toolbutton">
-    <xsl:choose>
-        <xsl:when test="@onclick = 'form'">
-            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-toolbutton">
-                <xsl:if test="@icon">
-                    <img src="{@icon}" />
-                </xsl:if>
-                <xsl:value-of select="@text" />
-            </a>
-        </xsl:when>
-        <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-toolbutton {x:iif(@small, 'ui-el-toolbutton-small', '')}">
-                <xsl:if test="@icon">
-                    <img src="{@icon}" />
-                </xsl:if>
-                <xsl:value-of select="@text" />
-            </a>
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:template>
-
-<xsl:template match="toolseparator"><a class="ui-el-toolbar-separator {x:iif(@small, 'ui-el-toolbar-separator-small', '')}"></a></xsl:template>
-
-<xsl:template match="warningbutton">
-    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button">
-        <xsl:value-of select="@text" />
-    </a>
-</xsl:template>
-
-<xsl:template match="warningtoolbutton">
-    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-button ui-el-toolbutton">
         <xsl:if test="@icon">
             <img src="{@icon}" />
         </xsl:if>
@@ -77,26 +39,11 @@
     </a>
 </xsl:template>
 
-<xsl:template match="minibutton">
-    <xsl:choose>
-        <xsl:when test="@onclick = 'form'">
-            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-minibutton">
-                <xsl:value-of select="@text" />
-            </a>
-        </xsl:when>
-        <xsl:otherwise>
-            <a href="#" onclick="javascript:return ajax('/handle/{x:attr(@class, 'minibutton')}/click/{@id}');" class="ui-el-minibutton">
-                <xsl:value-of select="@text" />
-            </a>
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:template>
 
-<xsl:template match="warningminibutton">
-    <a href="#" onclick="ui_showwarning('{@msg}', '{@id}');" class="ui-el-minibutton">
-        <xsl:value-of select="@text" />
-    </a>
-</xsl:template>
+<!-- End of button magic -->
+
+<xsl:template match="toolseparator"><a class="separator"/></xsl:template>
+
 
 <xsl:template match="linklabel">
     <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link" style="{x:iif(@bold, 'font-weight: bold;', '')}">
@@ -125,8 +72,30 @@
     </div>
 </xsl:template>
 
-<xsl:template match="helpicon">
-    <div class="ui-el-helpicon" onmouseover="ui_help_setup('{x:jsesc(@text)}')" onmousemove="ui_help_show(event)" onmouseout="ui_help_hide(event)">
-        <img src="/dl/core/ui/help.png"/>
+
+
+
+
+<xsl:template match="tooltip">
+    <xsl:variable name="id" select="x:id(@id)" />
+    <div style="display:inline-block; {@styles}" id="{$id}">
+        <xsl:apply-templates />
     </div>
+    <script>
+        $('#<xsl:value-of select="$id" />').twipsy({
+            animate: true,
+            placement: '<xsl:value-of select="x:attr(@placement, 'right')" />',
+            html: true,
+            live: true,
+            delayIn: <xsl:value-of select="x:attr(@delay, '0')" />,
+            offset: <xsl:value-of select="x:attr(@offset, '0')" />,
+            title: '<xsl:value-of select="x:attr(@text, '')" />',
+            trigger: '<xsl:value-of select="x:attr(@trigger, 'hover')" />',
+        });
+    </script>
+</xsl:template>
+
+
+<xsl:template match="helpicon">
+    <tooltip styles="float:right" text="{@text}"><img src="/dl/core/ui/help.png"/></tooltip>
 </xsl:template>

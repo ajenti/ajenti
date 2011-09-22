@@ -1,117 +1,70 @@
 <xml>
     <toolbar>
         <hcontainer>
-            <toolbutton text="Add new user" id="adduser" icon="/dl/core/ui/stock/add.png" />
-            <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+            <button text="Add new user" id="adduser" icon="/dl/core/ui/stock/add.png" />
+            <button text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
         </hcontainer>
     </toolbar>
     <label size="5" text="General" />
 
     <pad id="main">
-                <formbox id="frmGeneral" hidecancel="True">
-                    <layouttable>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Bind to host:"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <textinput name="bind_host" id="bind_host"/>
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Bind to port:"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <textinput name="bind_port" id="bind_port"/>
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Enable authorization"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <checkbox id="httpauth" name="httpauth" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Enable SSL"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <checkbox name="ssl" id="ssl"/>
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="SSL certificate:"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <textinput name="cert_file" id="cert_file"/>
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="SSL certificate key:"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <textinput name="cert_key" id="cert_key"/>
-                            </layouttablecell>
-                        </layouttablerow>
-                    </layouttable>
-                </formbox>
-
+        <simpleform id="frmGeneral">
+            <formline text="Host">
+                <textinput name="bind_host" id="bind_host"/>
+            </formline>
+            <formline text="Port">
+                <textinput name="bind_port" id="bind_port"/>
+            </formline>
+            <formline text="Authorization" help="See below for authorized accounts">
+                <checkbox id="httpauth" name="httpauth" text="Enable" />
+            </formline>
+            <formline text="SSL" help="Changing SSL settings requires Ajenti restart">
+                <checkbox name="ssl" id="ssl" text="Enable" />
+            </formline>
+            <formline text="SSL certificate">
+                <textinput name="cert_file" id="cert_file" design="xlarge" />
+            </formline>
+            <formline text="SSL key">
+                <textinput name="cert_key" id="cert_key" design="xlarge" />
+            </formline>
+            <formline>
+                <button onclick="form" form="frmGeneral" design="primary" action="OK" text="Save" />
+            </formline>
+        </simpleform>
     </pad>
 
     <label size="5" text="Users" />
 
     <pad>
-                    <datatable width="300" id="accounts">
-                        <datatablerow header="True">
-                            <datatablecell>
-                                <label text="Account"/>
-                            </datatablecell>
-                            <datatablecell width="60">
-                            </datatablecell>
-                        </datatablerow>
-                    </datatable>
+        <dt width="300" id="accounts">
+            <dtr header="True">
+                <dth><label text="Account"/></dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
 
-                <dialogbox id="dlgAddUser" title="New account">
-                    <layouttable>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Username"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <textinput name="login" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Password"/>
-                            </layouttablecell>
-                            <layouttablecell>
-                                <textinput name="password" password="True" />
-                            </layouttablecell>
-                        </layouttablerow>
-                    </layouttable>
-                </dialogbox>
+        <dialogbox id="dlgAddUser" title="New account">
+            <formline text="Username">
+                <textinput name="login" />
+            </formline>
+            <formline text="Password">
+                <textinput name="password" password="True" />
+            </formline>
+        </dialogbox>
 
     </pad>
 
-    <label size="5" text="Plugin configuration" />
+    <label size="5" text="Plugin internal configuration" />
 
     <pad>
-                    <datatable width="300" id="configs">
-                        <datatablerow header="True">
-                            <datatablecell width="20" />
-                            <datatablecell>
-                                <label text="Name"/>
-                            </datatablecell>
-                            <datatablecell width="60">
-                            </datatablecell>
-                        </datatablerow>
-                    </datatable>
-
+        <dt width="300" id="configs">
+            <dtr header="True">
+                <dth width="20" />
+                <dth>
+                    <label text="Name"/>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
 </xml>

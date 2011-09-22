@@ -12,8 +12,8 @@ class Element(etree.ElementBase):
     """
     def __init__(self, tag, *args, **kwargs):
         etree.ElementBase.__init__(self)
-        self.tag = tag
-        self.set('id', str(random.randint(1,9000*9000)))
+        self.tag = tag.lower()
+        self['id'] = str(random.randint(1,9000*9000))
         self._init(*args, **kwargs)
         self._children = []
         for k in args:
@@ -126,27 +126,27 @@ class UI(object):
                         c['spacing'] = self['spacing']
                         self.append(c)
 
-    class DataTable(Element):
+    class DT(Element):
         def __init__(self, *args, **kwargs):
-            Element.__init__(self, 'datatable', **kwargs)
+            Element.__init__(self, 'dt', **kwargs)
             for e in args:
                 if isinstance(e, Element):
-                    if e.tag == 'datatablerow':
+                    if e.tag == 'dtr':
                         self.append(e)
                     else:
-                        self.append(UI.DataTableCell(e))
+                        self.append(UI.DTD(e))
             for e in args:
                 self.append(e)
 
-    class DataTableRow(Element):
+    class DTR(Element):
         def __init__(self, *args, **kwargs):
-            Element.__init__(self, 'datatablerow', **kwargs)
+            Element.__init__(self, 'dtr', **kwargs)
             for e in args:
                 if isinstance(e, Element):
-                    if e.tag in ['datatablecell', 'statuscell']:
+                    if e.tag in ['dtd', 'statuscell']:
                         self.append(e)
                     else:
-                        self.append(UI.DataTableCell(e))
+                        self.append(UI.DTD(e))
 
     class TreeContainer(Element):
         def __init__(self, *args, **kwargs):

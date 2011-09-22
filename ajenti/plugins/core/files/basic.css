@@ -28,9 +28,6 @@
 
 
 
-.ui-el-toolbar-separator-small {
-    height: 22px;
-}
 
 
 
@@ -38,67 +35,6 @@
 
 
 
-
-
-.ui-el-link {
-    text-align: left;
-    font-size: 12px;
-    display: inline-block;
-
-    color: #888;
-    border-bottom: 1px dotted #888;
-    margin: 3px 2px;
-}
-
-.ui-el-link:hover {
-    color: #aaa;
-    border-bottom: 1px dotted #aaa;
-}
-
-
-
-
-.ui-el-input {
-    background: #ffffff;
-    border: 1px solid #aaaaaa;
-    height: 18px;
-    margin: 1px 2px;
-    font-size: 12px;
-}
-
-.ui-el-input:focus {
-    border: 1px solid #e4b97a;
-}
-
-.ui-el-radio {
-    display: inline-block;
-    height: 18px;
-    font-size: 12px;
-    line-height: 20px;
-    padding: 1px 2px;
-}
-
-.ui-el-radio input {
-    margin: 3px 2px 0;
-}
-
-.ui-el-checkbox {
-    display: inline-block;
-    height: 18px;
-    font-size: 12px;
-    line-height: 20px;
-    padding: 1px 2px;
-}
-
-.ui-el-checkbox input {
-    margin: 3px 2px 0;
-}
-
-select {
-    margin: 1px 3px;
-    height: 20px;
-    font-size: 10px;
-}
 
 
 .ui-el-image {

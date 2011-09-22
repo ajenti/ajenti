@@ -1,4 +1,5 @@
 import base64
+import random
 
 from ajenti.com import Plugin, implements
 from ajenti.api import IXSLTFunctionProvider
@@ -34,6 +35,9 @@ def b64(_, s):
     except:
         return base64.b64encode(str(s))
 
+def id(_, s):
+    return s if s else str(random.randint(1, 9000*9000)) 
+                    
                     
 class CoreFunctions (Plugin):
     implements(IXSLTFunctionProvider)
@@ -45,6 +49,7 @@ class CoreFunctions (Plugin):
             'b64' : b64,
             'jsesc' : jsesc,
             'idesc' : idesc,
-            'css' : css
+            'css' : css,
+            'id' : id
         }
 

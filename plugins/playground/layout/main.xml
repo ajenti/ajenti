@@ -45,7 +45,7 @@
         </selecttextinput>
     </div>
     
-    <button text="Button" />
+    <tooltip text="Button lol"><button text="Button" /></tooltip>
     
     <toolbar>
         <hcontainer>

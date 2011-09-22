@@ -1,10 +1,13 @@
 <xml>
-    <label size="5" text="Choose and download plugins" />
+    <label size="5" text="Choose plugins to be downloaded" />
     <pad>
-    <formbox id="frmPlugins" hidecancel="True">
-        <datatable id="list">
-        </datatable>
+    <simpleform id="frmPlugins">
+        <dt id="list" width="100%" />
+        <tooltip text="Download and installation may take a few minutes">
+            <button form="frmPlugins" onclick="form" action="OK" text="Download and install" />
+        </tooltip>
         <br/>
-    </formbox>
+        <br/>
+    </simpleform>
     </pad>
 </xml>

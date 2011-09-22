@@ -1,12 +1,19 @@
 <xsl:template match="formline">
     <div class="clearfix">
         <hlabel for="{@iid}" text="{@text}" />
-        <div class="input"><xsl:apply-templates /></div>
+        <div class="input">
+            <xsl:apply-templates />
+            <xsl:if test="@help">
+                <span class="help-block">
+                    <xsl:value-of select="@help" />
+                </span>
+            </xsl:if>
+        </div>
     </div>
 </xsl:template>
 
 <xsl:template match="textinput">
-        <input name="{@name}" value="{@value}" id="{@id}" size="{@size}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};"/>
+        <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}" />
             <xsl:if test="@help and (@help != '')">
                 <helpicon text="{@help}"/>
             </xsl:if>

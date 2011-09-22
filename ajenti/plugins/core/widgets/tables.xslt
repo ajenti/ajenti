@@ -1,48 +1,59 @@
-<xsl:template match="layouttable">
+<xsl:template match="lt">
     <table cellspacing="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:apply-templates />
     </table>
 </xsl:template>
 
-<xsl:template match="layouttablerow">
+<xsl:template match="ltr">
     <tr style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:apply-templates />
     </tr>
 </xsl:template>
 
-<xsl:template match="layouttablecell">
+<xsl:template match="ltd">
     <td class="ui-el-layouttable-cell" colspan="{@colspan}" rowspan="{@rowspan}" style="float: {x:attr(@float, 'none')}; width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; padding-right: {x:css(@spacing, '7')}; padding-bottom: {x:css(@spacing, '7')};">
         <xsl:apply-templates />
     </td>
 </xsl:template>
 
 
-<xsl:template match="datatable">
-    <table cellspacing="0" cellpadding="0" class="ui-el-table" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; {x:iif(@noborder, 'border: none', '')}">
-        <xsl:apply-templates />
-        <xsl:if test="count(*) = 1">
-            <tr class="ui-el-table-row">
-                <td class="ui-el-table-cell-empty" colspan="1000">
-                    Empty
-                </td>
-            </tr>
-        </xsl:if>
+<xsl:template match="dt">
+    <table cellspacing="0" cellpadding="0" class="zebra-striped" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; {x:iif(@noborder, 'border: none', '')}">
+        <thead>
+            <xsl:apply-templates select="./dtr[@header]" />
+        </thead>
+        <tbody>
+            <xsl:apply-templates select="./dtr[not(@header)]" />
+            <xsl:if test="count(./dtr[not(@header)]) = 0">
+                <tr>
+                    <td style="text-align:center" colspan="1000">
+                        Empty
+                    </td>
+                </tr>
+            </xsl:if>
+        </tbody>
     </table>
 </xsl:template>
 
-<xsl:template match="datatablerow">
-    <tr class="ui-el-table-row{x:iif(@header, '-header', '')}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+<xsl:template match="dtr">
+    <tr style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:apply-templates />
     </tr>
 </xsl:template>
 
-<xsl:template match="datatablecell">
-    <td class="ui-el-table-cell{x:iif(@hidden, '-hidden', '')}" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; padding-right: {x:css(@spacing, '4')}; padding-bottom: {x:css(@spacing, '4')};">
+<xsl:template match="dth">
+    <th colspan="{@colspan}" rowspan="{@rowspan}" class="{@design}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+        <xsl:apply-templates />
+    </th>
+</xsl:template>
+
+<xsl:template match="dtd">
+    <td colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:apply-templates />
     </td>
 </xsl:template>
 
-<xsl:template match="statuscell">
+<xsl:template match="dtdstatus">
     <td class="ui-el-table-cell ui-el-status-cell ui-el-status-cell-{@status}" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:value-of select="@text" />
     </td>

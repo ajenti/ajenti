@@ -1,17 +1,11 @@
-.ui-el-toolbar {
-    border-bottom: 1px solid #ccc;
-    width: 100%;
-    padding: 5px 0;
+.custom-button-mixin {
+    margin-right: 3px;
+    cursor: default;
 }
-
 
 .ui-el-button {
     .btn();
-    margin-right: 3px;
-    cursor: default;
-
-    &:hover {
-    }
+    .custom-button-mixin();
 }
 
 .defbtn () {
@@ -35,26 +29,33 @@
     padding: 3px 5px;
 }
 
-.ui-el-toolbutton {
-    .ui-el-button();
-    .defbtn();
-    height: 25px;
-    padding: 0 8px;
-    margin: 0 2px;
-    line-height: 24px;
-    .border-radius(2px);
-}
 
-.ui-el-toolbutton > img {
-    float: left;
-    padding: 4px 6px 0 0;
-}
-
-.ui-el-toolbar-separator {
-    border-right: 1px solid #ccc;
-    display: inline-block;
-    width: 1px;
-    height: 28px;
+.ui-el-toolbar {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding: 5px 0;
+    
+    .btn {
+        .custom-button-mixin();
+        .defbtn();
+        height: 25px;
+        padding: 0 8px;
+        margin: 0 2px;
+        line-height: 24px;
+        .border-radius(2px);
+        
+        img {
+            float: left;
+            padding: 4px 6px 0 0;
+        }
+    }
+    
+    .separator {
+        border-right: 1px solid #ccc;
+        display: inline-block;
+        width: 1px;
+        height: 28px;
+    }
 }
 
 
@@ -86,7 +87,10 @@
 }
 
 .ui-el-label-4 {
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    display: block;
 }
 
 .ui-el-label-5 {
@@ -96,3 +100,23 @@
     margin: 10px 0 0 15px;
     display: block;
 }
+
+
+
+
+.ui-el-link {
+    text-align: left;
+    font-size: 12px;
+    display: inline-block;
+
+    color: #888;
+    border-bottom: 1px dotted #888;
+    margin: 3px 2px;
+    
+    &:hover {
+        color: #aaa;
+        border-bottom: 1px dotted #aaa;
+    }
+}
+
+

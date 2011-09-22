@@ -1,23 +1,21 @@
-<xml>
-    <datatablerow>
-        <datatablecell>
+    <dtr>
+        <dtd>
             <image id="status" />
-        </datatablecell>
-        <datatablecell>
+        </dtd>
+        <dtd>
             <image id="icon" />
-        </datatablecell>
-        <datatablecell id="reqs">
+        </dtd>
+        <dtd id="reqs">
             <label id="name" />
-        </datatablecell>
-        <datatablecell>
+        </dtd>
+        <dtd>
             <label id="desc" />
-        </datatablecell>
-        <datatablecell>
+        </dtd>
+        <dtd>
             <label id="version" />
-        </datatablecell>
-        <datatablecell>
+        </dtd>
+        <dtd>
             <outlinklabel id="author" />
-        </datatablecell>
-        <datatablecell id="buttons" hidden="True" />
-    </datatablerow>
-</xml>
+        </dtd>
+        <dtd id="buttons" hidden="True" />
+    </dtr>

@@ -39,9 +39,9 @@ class CronPlugin(helpers.CategoryPlugin):
         table_task = ui.find("table_task")
         #Fill non-task strings table
         for i, oth_str in enumerate(self._others):
-            table_other.append(UI.DataTableRow(
+            table_other.append(UI.DTR(
                     UI.Label(text=oth_str),
-                    UI.DataTableCell(
+                    UI.DTD(
                         UI.HContainer(
                             UI.MiniButton(id='edit_oth/' + str(i),
                                 text='Edit'),
@@ -53,11 +53,11 @@ class CronPlugin(helpers.CategoryPlugin):
         #Fill tasks table
         for i, t in enumerate(self._tasks):
             if t.special:
-                table_task.append(UI.DataTableRow(
+                table_task.append(UI.DTR(
                     UI.Label(text=t.special),
                     UI.Label(), UI.Label(), UI.Label(), UI.Label(),
                     UI.Label(text=t.command),
-                    UI.DataTableCell(
+                    UI.DTD(
                         UI.HContainer(
                             UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),
@@ -67,14 +67,14 @@ class CronPlugin(helpers.CategoryPlugin):
                         hidden=True)
                     ))
             else:
-                table_task.append(UI.DataTableRow(
+                table_task.append(UI.DTR(
                     UI.Label(text=t.m),
                     UI.Label(text=t.h),
                     UI.Label(text=t.dom),
                     UI.Label(text=t.mon),
                     UI.Label(text=t.dow),
                     UI.Label(text=t.command),
-                    UI.DataTableCell(
+                    UI.DTD(
                         UI.HContainer(
                             UI.MiniButton(id='edit_task/' + str(i),
                                 text='Edit'),

@@ -1,57 +1,57 @@
 <xml>
     <toolbar>
         <hcontainer>
-            <toolbutton text="Update plugin list" id="update" icon="/dl/pkgman/update-lists.png" />
-            <toolbutton text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
+            <button text="Update plugin list" id="update" icon="/dl/pkgman/update-lists.png" />
+            <button text="Restart Ajenti" id="restart" icon="/dl/core/ui/stock/refresh.png" />
         </hcontainer>
     </toolbar>
 
     <label size="5" text="Installed" />
 
     <pad id="main">
-        <datatable width="100%" id="list">
-            <datatablerow header="True">
-                <datatablecell />
-                <datatablecell />
-                <datatablecell>
+        <dt width="100%" id="list">
+            <dtr header="True">
+                <dth />
+                <dth />
+                <dth>
                     <label text="Name" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Description" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Version" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Author" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth />
+            </dtr>
+        </dt>
     </pad>
 
     <label size="5" text="Available" />
 
     <pad>
-        <datatable width="100%" id="avail">
-            <datatablerow header="True">
-                <datatablecell />
-                <datatablecell />
-                <datatablecell>
+        <dt width="100%" id="avail">
+            <dtr header="True">
+                <dth />
+                <dth />
+                <dth>
                     <label text="Name" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Description" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Version" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Author" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth />
+            </dtr>
+        </dt>
 
         <spacer height="10" />
         <label size="2" text="Upload plugin package" />

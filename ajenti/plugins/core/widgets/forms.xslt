@@ -2,7 +2,7 @@
         <div id="{@id}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; overflow: hidden">
             <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
             <xsl:apply-templates />
-            <div>
+            <formline>
                                 <xsl:choose>
                                     <xsl:when test="@hideok = 'True'" />
                                     <xsl:otherwise>
@@ -18,7 +18,7 @@
                                 <xsl:if test="@miscbtn">
                                      <button text="{@miscbtn}" id="{@miscbtnid}"/>
                                 </xsl:if>
-            </div>
+            </formline>
         </div>
 </xsl:template>
 

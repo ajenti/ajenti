@@ -29,12 +29,9 @@ class ConfigPlugin(CategoryPlugin):
         tbl = ui.find('accounts')
         for s in self.app.gconfig.options('users'):
             tbl.append(
-                    UI.DataTableRow(
+                    UI.DTR(
                         UI.Label(text=s),
-                        UI.DataTableCell(
-                            UI.MiniButton(text='Delete', id='deluser/'+s),
-                            hidden=True
-                        )
+                        UI.Button(text='Delete', design='mini', id='deluser/'+s),
                     )
                 )
 
@@ -46,13 +43,10 @@ class ConfigPlugin(CategoryPlugin):
         t = ui.find('configs')
         for c in cfgs:
             if c.target:
-                t.append(UI.DataTableRow(
+                t.append(UI.DTR(
                 UI.Image(file=(None if not hasattr(c.target, 'icon') else c.target.icon)),
                 UI.Label(text=(c.target.__name__ if not hasattr(c.target, 'text') else c.target.text)),
-                UI.DataTableCell(
-                    UI.MiniButton(text='Edit', id='editconfig/'+c.target.__name__),
-                    hidden=True
-                )
+                UI.Button(text='Edit', design='mini', id='editconfig/'+c.target.__name__),
             ))
 
         if self._config:

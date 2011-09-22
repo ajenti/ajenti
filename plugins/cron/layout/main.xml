@@ -1,13 +1,13 @@
 <xml>
     <toolbar>
         <hcontainer>
-            <toolbutton id="add_task" text="Add task" icon="/dl/cron/add-task.png" />
-            <toolbutton id="add_oth" text="Add non-task string" icon="/dl/core/ui/stock/add.png" />
+            <button id="add_task" text="Add task" icon="/dl/cron/add-task.png" />
+            <button id="add_oth" text="Add non-task string" icon="/dl/core/ui/stock/add.png" />
             <div style="padding: 0 5px">
             <formbox id="frmUser" hideok="True" hidecancel="True">
                 <hcontainer spacing="5">
                     <select id="users_select" name="users_select" />
-                    <toolbutton id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
+                    <button id="change_user" text="Change user" action="OK" form="frmUser" onclick="form"/>
                 </hcontainer>
             </formbox>
             </div>
@@ -21,41 +21,40 @@
                 <tabheader pid="tabs" text="Tasks" id="0" active="True" />
                 <tabheader pid="tabs" text="Non-task strings" id="1"/>
                 <tabbody pid="tabs" id="0" active="True">
-                    <datatable id="table_task">
-                        <datatablerow header="True">
-                            <datatablecell>
+                    <dt id="table_task" width="100%">
+                        <dtr header="True">
+                            <dth>
                                 <label text="Minutes" />
-                            </datatablecell>
-                            <datatablecell>
+                            </dth>
+                            <dth>
                                 <label text="Hours" />
-                            </datatablecell>
-                            <datatablecell>
+                            </dth>
+                            <dth>
                                 <label text="Days" />
-                            </datatablecell>
-                            <datatablecell>
+                            </dth>
+                            <dth>
                                 <label text="Months" />
-                            </datatablecell>
-                            <datatablecell>
+                            </dth>
+                            <dth>
                                 <label text="DoW" />
-                            </datatablecell>
-                            <datatablecell>
+                            </dth>
+                            <dth>
                                 <label text="Command" />
-                            </datatablecell>
-                            <datatablecell />
-                        </datatablerow>
-                    </datatable>
+                            </dth>
+                            <dth />
+                        </dtr>
+                    </dt>
                 </tabbody>
 
                 <tabbody pid="tabs" id="1">
-                    <datatable id="table_other">
-                        <datatablerow header="True">
-                            <datatablecell>
+                    <dt id="table_other" width="100%"> 
+                        <dtr header="True">
+                            <dth>
                                 <label text="String" />
-                            </datatablecell>
-
-                            <datatablecell />
-                        </datatablerow>
-                    </datatable>
+                            </dth>
+                            <dth />
+                        </dtr>
+                    </dt>
                 </tabbody>
         </tabcontrol>
 
