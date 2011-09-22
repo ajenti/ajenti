@@ -34,10 +34,11 @@ class PluginManager(CategoryPlugin, URLHandler):
             row.find('version').set('text', k.version)
             row.find('author').set('text', k.author)
             row.find('author').set('url', k.homepage)
-            row.append('buttons', UI.WarningMiniButton(
+            row.append('buttons', UI.Button(
                         text='Uninstall',
                         id='remove/'+k.id,
-                        msg='Completely remove plugin "%s"'%k.name
+                        warning='Completely remove plugin "%s"'%k.name,
+                        design='mini',
                     ))
             row.append('buttons', UI.MiniButton(
                         text='Reload',
@@ -80,10 +81,11 @@ class PluginManager(CategoryPlugin, URLHandler):
                    )
 
             if reqs == '':
-                row.append('buttons', UI.WarningMiniButton(
+                row.append('buttons', UI.Button(
                         text='Install',
                         id='install/'+k.id,
-                        msg='Download and install plugin "%s"'%k.name
+                        warning='Download and install plugin "%s"'%k.name,
+                        design='mini'
                     ))
             else:
                 row.append('reqs', UI.HelpIcon(text=reqs))

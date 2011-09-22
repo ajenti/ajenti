@@ -6,27 +6,20 @@
     </li>
 </xsl:template>
 
-<xsl:template match="tabheadernode">
-        <ul id="{@id}" class="tabs" data-tabs="tabs">
-            <xsl:apply-templates />
-        </ul>
-</xsl:template>
-
 <xsl:template match="tabbody">
-    <div id="{@id}">
-        <xsl:apply-templates />
-    </div>
-</xsl:template>
-
-<xsl:template match="tabsbox">
-    <div class="tab-content">
+    <div id="{@id}" class="{x:iif(@active, 'active', '')}">
         <xsl:apply-templates />
     </div>
 </xsl:template>
 
 <xsl:template match="tabcontrol">
     <div>
-        <xsl:apply-templates />
+        <ul id="{@id}" class="tabs" data-tabs="tabs">
+            <xsl:apply-templates select="./tabheader" />
+        </ul>
+        <div class="tab-content">
+            <xsl:apply-templates select="./tabbody" />
+        </div>
     </div>
 </xsl:template>
 
@@ -68,7 +61,7 @@
 
 <xsl:template match="listitem">
     <tr>
-        <td class="ui-el-list-item{x:iif(@active, '-active', '')}">  
+        <td class="ui-el-list-item{x:iif(@active, '-active', '')}">
             <a href="#" onclick="javascript:return ajax('/handle/listitem/click/{@id}');" style="width: 100%; display: block">
                 <xsl:apply-templates />
             </a>
@@ -80,10 +73,10 @@
 <xsl:template match="tiles">
      <div class="ui-el-tiles" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
          <xsl:for-each select="*">
-             <div style="float:left;padding: {x:css(../@spacing, '4')}">  
+             <div style="float:left;padding: {x:css(../@spacing, '4')}">
                  <xsl:apply-templates select="."/>
              </div>
-         </xsl:for-each>    
+         </xsl:for-each>
     </div>
 </xsl:template>
 
@@ -119,4 +112,3 @@
         </div>
     </div>
 </xsl:template>
-

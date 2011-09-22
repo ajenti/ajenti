@@ -36,20 +36,6 @@
 </xsl:template>
 
 
-<xsl:template match="pluginpanel">
-    <div class="ui-el-pluginpanel">
-        <div class="ui-el-pluginpanel-head">
-            <span><xsl:value-of select="@title" /></span>
-        </div>
-        <div>
-            <xsl:apply-templates select="*[1]" />
-        </div>
-        <div class="ui-el-pluginpanel-content">
-            <xsl:apply-templates select="*[2]" />
-        </div>
-    </div>
-</xsl:template>
-
 <xsl:template match="toolbar">
         <div class="ui-el-toolbar">
             <xsl:apply-templates />
@@ -64,7 +50,7 @@
                 <div class="ui-progress-box-text"><label text="{@text}"/></div>
                 <xsl:if test="@can_abort = 'True'">
                 <div style="float:right; display: inline-block">
-                    <warningminibutton  text="Abort" id="aborttask" msg="Abort the background task for {@title}"/>
+                    <button text="Abort" id="aborttask" warning="Abort the background task for {@title}"/>
                 </div>
                 </xsl:if>
                 <refresh time="3000" />

@@ -51,11 +51,8 @@
         ajax('/handle///nothing');
     </script>
 
-<div id="warningbox-all" style="display:none">
-    <div class="ui-el-modal-blackout" />
-    <div class="ui-el-modal-wrapper" id="warningbox-wr">
-        <div class="ui-el-dialog">
-            <div class="ui-el-dialog-content">
+    <div class="fade" id="warningbox" style="display:none">
+            <div class="modal-body">
                 <table>
                     <tr>
                         <td width="40">
@@ -72,16 +69,11 @@
                     </tr>
                 </table>
             </div>
-            <div class="ui-el-auth-dialog-bar" />
-            <div class="ui-el-modal-buttons">
-                <button text="OK" id="warning-button"/>
-                <a class="ui-el-button" href="#" id="{@id}" onclick="ui_hidewarning()">
-                    Cancel
-                </a>
+            <div class="modal-footer">
+                <button text="OK" id="warning-button" />
+                <a class="btn" id="warning-cancel-button" href="#">Cancel</a>
             </div>
-        </div>
     </div>
-</div>
 
 <div id="help-hint" class="ui-el-helphint"></div>
 

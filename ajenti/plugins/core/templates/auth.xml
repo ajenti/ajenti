@@ -11,10 +11,9 @@
 </head>
 
 <body id="main" class="auth-body">
-<form id="form" action="/auth-redirect" method="POST">
     <div>
-        <div class="auth-dialog">
-            <div class="modal">
+            <div class="modal fade" id="auth-dialog" style="display:none">
+<form id="form" action="/auth-redirect" method="POST">
                 <div class="modal-header">
                     <h3>Authentication</h3>
                 </div>
@@ -37,10 +36,10 @@
                 <div class="modal-footer">
                     <input type="submit" class="ui-el-button" id="login" value="Login" />
                 </div>
-            </div>
-        </div>
-    </div>
 </form>
+            </div>
+            <script>Ajenti.showAsModal('auth-dialog');</script>
+    </div>
 
 <script>
 $('#username').focus()
@@ -56,6 +55,7 @@ $('#form').submit(function (e) {
             response: r
         },
         success: function () {
+            Ajenti.hideModal('auth-dialog');
             $('#form').unbind('submit');
             $('#password').val('');
             $('#login').click();

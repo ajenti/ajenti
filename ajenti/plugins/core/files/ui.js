@@ -1,5 +1,8 @@
 var Ajenti;
 
+var warning_button_id
+
+
 Ajenti = {
     selectCategory: function (id) {
         $('.ui-el-category').removeClass('selected');
@@ -8,9 +11,34 @@ Ajenti = {
         ajax('/handle/category/click/' + id);
         return false;
     },
-    
+
     showAsModal: function (id) {
         $('#'+id).modal({show:true, backdrop:'static'}).center();
+    },
+
+    hideModal: function (id) {
+        $('#'+id).modal('hide');
+    },
+
+    showWarning: function (text, btnid) {
+        Ajenti.showAsModal('warningbox');
+        $('#warning-text').html(text);
+        $('#warningbox').addClass('modal');
+        warning_button_id = btnid;
+        $('#warning-button').click(Ajenti.acceptWarning);
+        $('#warning-cancel-button').click(Ajenti.cancelWarning);
+        return false;
+    },
+
+    cancelWarning: function () {
+        $('#warningbox').modal('hide');
+        return false;
+    },
+
+    acceptWarning: function () {
+        Ajenti.cancelWarning();
+        ajax('/handle/button/click/' + warning_button_id);
+        return false;
     },
 };
 
@@ -87,24 +115,7 @@ function ui_fill_custom_html(id, html) {
     document.getElementById(id).innerHTML = Base64.decode(html);
 }
 
-function ui_hidewarning() {
-    ui_hide('warningbox-all');
-}
 
-var warning_button_id
-
-function accept_warning() {
-    ui_hidewarning();
-    ajax('/handle/button/click/' + warning_button_id);
-}
-
-function ui_showwarning(text, btnid) {
-    ui_show('warningbox-all');
-    ui_center('warningbox-wr');
-    document.getElementById('warning-text').innerHTML = text;    
-    warning_button_id = btnid;
-    document.getElementById('warning-button').onclick = accept_warning;
-}
 
 
 function ui_help_setup(text) {
@@ -116,7 +127,7 @@ function ui_help_show(evt) {
     hint = document.getElementById('help-hint');
     hint.style.display = 'block';
     hint.style.left = (evt.clientX + window.pageXOffset + 10) + 'px';
-    hint.style.top = (evt.clientY + window.pageYOffset + 10) + 'px'; 
+    hint.style.top = (evt.clientY + window.pageYOffset + 10) + 'px';
 }
 
 function ui_help_hide() {
@@ -126,7 +137,7 @@ function ui_help_hide() {
 
 function ui_editable_activate(id) {
     $('#'+id+'-normal').hide();
-    $('#'+id+'-active').show();    
+    $('#'+id+'-active').show();
     return false;
 }
 
@@ -137,6 +148,6 @@ function ui_editable_save(id) {
 
 function ui_editable_cancel(id) {
     $('#'+id+'-normal').show();
-    $('#'+id+'-active').hide();    
+    $('#'+id+'-active').hide();
     return false;
 }

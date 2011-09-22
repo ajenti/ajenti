@@ -26,110 +26,16 @@
 }
 
 
-input.ui-el-button {
-    height: auto;
-}
 
 
 .ui-el-toolbar-separator-small {
     height: 22px;
 }
 
-.ui-el-toolbutton-small {
-    height: 22px;
-    line-height: 22px;
-}
-
-.ui-el-toolbutton-small > img {
-    padding-top: 4px;
-}
-
-.ui-el-minibutton {
-    min-width: none;
-    height: 18px;
-    line-height: 18px;
-    margin: 1px 3px;
-    display: inline-block;
-
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    
-    background: #ddd;
-    background:      -o-linear-gradient(top,  #eee,  #ddd);
-    background:     -ms-linear-gradient(top,  #eee,  #ddd);
-    background:    -moz-linear-gradient(top,  #eee,  #ddd);
-    background: -webkit-linear-gradient(top,  #eee,  #ddd);
-
-    font-size: 11px;
-    color: #444;
-
-    text-align: center;
-    vertical-align: middle;
-    padding: 0px 5px;
-    white-space: nowrap;
-}
-
-.ui-el-minibutton:hover {
-    background: #eee;
-    background:      -o-linear-gradient(top,  #fff,  #eee);
-    background:     -ms-linear-gradient(top,  #fff,  #eee);
-    background:    -moz-linear-gradient(top,  #fff,  #eee);
-    background: -webkit-linear-gradient(top,  #fff,  #eee);
-    
-    color: #222;
-}
-
-.ui-el-minibutton:active {
-    background: #ddd;
-    background:      -o-linear-gradient(top,  #ccc,  #ddd);
-    background:     -ms-linear-gradient(top,  #ccc,  #ddd);
-    background:    -moz-linear-gradient(top,  #ccc,  #ddd);
-    background: -webkit-linear-gradient(top,  #ccc,  #ddd);
-    
-    color: #000;
-}
 
 
 
 
-.ui-el-label-1 {
-    text-align: left;
-    font-size: 12px;
-    line-height: 20px;
-    display: inline-block;
-    padding: 1px 2px;
-}
-
-.ui-el-label-2 {
-    font-weight: bold;
-    text-shadow: 0 1px 0 #fff;
-    font-size: 12px;
-    line-height: 20px;
-    display: inline-block;
-    padding: 1px 2px;
-}
-
-.ui-el-label-3 {
-    font-size: 14px;
-    text-shadow: 0 1px 0 #fff;
-    font-weight: bold;
-    display: inline-block;
-    padding: 4px 0;
-}
-
-.ui-el-label-4 {
-    clear: left;
-    font-size: 20px;
-}
-
-.ui-el-label-5 {
-    font-size: 16px;
-    border-bottom: 3px solid #ddd;
-    font-weight: bold;
-    color: #888;
-    margin: 10px 0 0 15px;
-    display: block;
-}
 
 
 
@@ -217,7 +123,7 @@ select {
     background:     -ms-linear-gradient(top,  #ddd,  #eee);
     background:    -moz-linear-gradient(top,  #ddd,  #eee);
     background: -webkit-linear-gradient(top,  #ddd,  #eee);
-    
+
     height: 15px;
     border: 1px solid #ccc;
     border-top: none;

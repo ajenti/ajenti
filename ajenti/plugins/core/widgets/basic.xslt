@@ -12,18 +12,25 @@
 
 
 <!-- Button magic -->
-<xsl:template match="genericbutton">
+<xsl:template match="button">
     <xsl:variable name="onclickjs">
-    <xsl:choose>
-        <xsl:when test="@onclick = 'form'">
-            return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@action" />');
-        </xsl:when>
-        <xsl:otherwise>
-            return ajax('/handle/<xsl:value-of select="x:attr(@class, 'button')" />/click/<xsl:value-of select="@id" />');
-        </xsl:otherwise>
-    </xsl:choose>
+        <xsl:choose>
+            <xsl:when test="@warning != ''">
+                return Ajenti.showWarning('<xsl:value-of select="@msg"/>', '<xsl:value-of select="@id"/>');
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:choose>
+                    <xsl:when test="@onclick = 'form'">
+                        return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@action" />');
+                    </xsl:when>
+                    <xsl:otherwise>
+                        return ajax('/handle/<xsl:value-of select="x:attr(@class, 'button')" />/click/<xsl:value-of select="@id" />');
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:variable>
-    
+
     <a href="{@href}" onclick="{$onclickjs}" class="ui-el-button btn {@design}">
         <xsl:value-of select="@text" />
     </a>
@@ -31,21 +38,6 @@
 
 
 <!-- End of button magic -->
-
-<xsl:template match="button">
-    <xsl:choose>
-        <xsl:when test="@onclick = 'form'">
-            <a href="#" onclick="javascript:return ajaxForm('{@form}', '{@action}');" class="ui-el-button">
-                <xsl:value-of select="@text" />
-            </a>
-        </xsl:when>
-        <xsl:otherwise>
-            <a href="#" id="{@id}" onclick="javascript:return ajax('/handle/{x:attr(@class, 'button')}/click/{@id}');" class="ui-el-button">
-                <xsl:value-of select="@text" />
-            </a>
-        </xsl:otherwise>
-    </xsl:choose>
-</xsl:template>
 
 <xsl:template match="toolbutton">
     <xsl:choose>

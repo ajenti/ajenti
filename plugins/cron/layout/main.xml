@@ -15,15 +15,12 @@
     </toolbar>
 
     <label id="title" text="Scheduled tasks" size="5" />
-        
+
     <pad>
         <tabcontrol id="tabs">
-            <tabheadernode id="tabs">
-                <tabheader pid="tabs" text="Tasks" id="0"/>
+                <tabheader pid="tabs" text="Tasks" id="0" active="True" />
                 <tabheader pid="tabs" text="Non-task strings" id="1"/>
-            </tabheadernode>
-            <tabsbox>
-                <tabbody pid="tabs" id="0">
+                <tabbody pid="tabs" id="0" active="True">
                     <datatable id="table_task">
                         <datatablerow header="True">
                             <datatablecell>
@@ -60,28 +57,21 @@
                         </datatablerow>
                     </datatable>
                 </tabbody>
-            </tabsbox>
         </tabcontrol>
 
         <dialogbox id="dlgEditTask" hideok="True" hidecancel="True" title='Edit task'>
-            <tabcontrol id="tabsEdit">
-                <tabheadernode id="tabsEdit">
-                    <tabheader pid="tabsEdit" text="Regular" id="11"/>
+            <tabcontrol id="tabsEdit" active="0">
+                    <tabheader pid="tabsEdit" text="Regular" id="11" active="True" />
                     <tabheader pid="tabsEdit" text="Advanced" id="12"/>
                     <tabheader pid="tabsEdit" text="Special" id="13"/>
-                </tabheadernode>
-                <container>
-                    <tabbody pid="tabsEdit" id="11">
+                    <tabbody pid="tabsEdit" id="11" active="True">
                         <tabcontrol id="tabsRegular">
-                            <tabheadernode id="tabs">
-                                <tabheader pid="tabsRegular" text="Minutely" id="15"/>
+                                <tabheader pid="tabsRegular" text="Minutely" id="15" active="True" />
                                 <tabheader pid="tabsRegular" text="Hourly" id="16"/>
                                 <tabheader pid="tabsRegular" text="Daily" id="17"/>
                                 <tabheader pid="tabsRegular" text="Weekly" id="18"/>
                                 <tabheader pid="tabsRegular" text="Monthly" id="19"/>
-                            </tabheadernode>
-                            <container>
-                                <tabbody pid="tabsRegular" id="15">
+                                <tabbody pid="tabsRegular" id="15" active="True">
                                     <formbox id="frmTempMinutes">
                                         <vcontainer spacing="5">
                                             <hcontainer>
@@ -175,10 +165,9 @@
                                         </vcontainer>
                                     </formbox>
                                 </tabbody>
-                            </container>
                         </tabcontrol>
                     </tabbody>
-                    
+
                     <tabbody pid="tabsEdit" id="12">
                         <formbox id="frmAdvanced">
                             <layouttable>
@@ -272,12 +261,11 @@
                         </layouttable>
                        </formbox>
                     </tabbody>
-                </container>
             </tabcontrol>
 
         </dialogbox>
 
-      
+
         <dialogbox id="dlgEditOther" title='Edit non-task string'>
             <vcontainer>
                 <label text="Edit string"/>
