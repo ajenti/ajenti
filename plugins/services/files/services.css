@@ -1,9 +1,20 @@
-.ui-el-servicepluginpanel .ui-el-label-1 {
-    line-height: 26px;
-    display: inline-block;
-    padding-right: 10px;
+.ui-service-status-box {
+    float: left;
+    padding: 0 10px 0 0;
 }
 
-.ui-el-servicepluginpanel > img {
-    padding: 7px 5px 0 !important;
+.ui-service-status-box span {
+    line-height: 26px;
+    float: right;
+    font-weight: bold;
+}
+
+.ui-service-status-box img {
+    padding: 5px 0;
+}
+
+.ui-service-bar {
+    float: left;
+    width: auto !important;
+    border-bottom: none !important;
 }

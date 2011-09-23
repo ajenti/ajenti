@@ -31,7 +31,7 @@ class ConfigPlugin(CategoryPlugin):
             tbl.append(
                     UI.DTR(
                         UI.Label(text=s),
-                        UI.Button(text='Delete', design='mini', id='deluser/'+s),
+                        UI.TipIcon(text='Delete', icon='/dl/core/ui/stock/delete.png', id='deluser/'+s),
                     )
                 )
 
@@ -46,7 +46,7 @@ class ConfigPlugin(CategoryPlugin):
                 t.append(UI.DTR(
                 UI.Image(file=(None if not hasattr(c.target, 'icon') else c.target.icon)),
                 UI.Label(text=(c.target.__name__ if not hasattr(c.target, 'text') else c.target.text)),
-                UI.Button(text='Edit', design='mini', id='editconfig/'+c.target.__name__),
+                UI.TipIcon(text='Edit', icon='/dl/core/ui/stock/edit.png', id='editconfig/'+c.target.__name__),
             ))
 
         if self._config:

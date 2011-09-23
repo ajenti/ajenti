@@ -118,13 +118,16 @@ function ajaxForm(formId, action)
 function ajaxHandler(data)
 {
 	main = document.getElementById("rightplaceholder")
-	$('.modal').remove();
-	$('.modal-backdrop').remove()
+	$('.modal:not(#warningbox)').modal('hide').remove();
+	$('.modal-backdrop').fadeOut(1000);
+	$('.twipsy').remove();
 	main.innerHTML = data
     var ob = main.getElementsByTagName("script");
     for(var i=0; i<ob.length; i++)
         try {
-            if(ob[i].text!=null) eval(ob[i].text);
+            if(ob[i].text!=null) { eval(ob[i].text);
+                ob[i].text='';
+            }
         } catch (err) {}
 }
 

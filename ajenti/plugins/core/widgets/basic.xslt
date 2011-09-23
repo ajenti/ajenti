@@ -16,7 +16,7 @@
     <xsl:variable name="onclickjs">
         <xsl:choose>
             <xsl:when test="@warning != ''">
-                return Ajenti.showWarning('<xsl:value-of select="@msg"/>', '<xsl:value-of select="@id"/>');
+                return Ajenti.showWarning('<xsl:value-of select="@warning"/>', '<xsl:value-of select="@id"/>');
             </xsl:when>
             <xsl:otherwise>
                 <xsl:choose>
@@ -98,4 +98,8 @@
 
 <xsl:template match="helpicon">
     <tooltip styles="float:right" text="{@text}"><img src="/dl/core/ui/help.png"/></tooltip>
+</xsl:template>
+
+<xsl:template match="tipicon">
+    <tooltip placement="above" text="{@text}"><button id="{@id}" design="tipicon" onclick="{@onclick}" warning="{@warning}" icon="{@icon}"/></tooltip>
 </xsl:template>

@@ -166,8 +166,10 @@ class UI(object):
             self.tc = 0
 
         def add(self, name, content):
-            self.append(UI.TabHeader(text=name, pid=self['id'], active=(str(self.tc)==self.get('active'))))
-            self.append(UI.TabBody(content, pid=self['id']))
+            active = str(self.tc)==self.get('active')
+            tb = UI.TabBody(content, active=active)
+            self.append(UI.TabHeader(text=name, id=tb['id'], active=active))
+            self.append(tb)
             self.tc += 1
 
 

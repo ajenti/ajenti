@@ -43,46 +43,30 @@ class CronPlugin(helpers.CategoryPlugin):
                     UI.Label(text=oth_str),
                     UI.DTD(
                         UI.HContainer(
-                            UI.MiniButton(id='edit_oth/' + str(i),
+                            UI.TipIcon(icon='/dl/core/ui/stock/edit.png', id='edit_oth/' + str(i),
                                 text='Edit'),
-                            UI.WarningMiniButton(id='del_oth/' + str(i),
-                                text='Delete', msg='Delete a string')
+                            UI.TipIcon(icon='/dl/core/ui/stock/delete.png', id='del_oth/' + str(i),
+                                text='Delete', warning='Delete a string')
                         ),
                         hidden=True)
                     ))
         #Fill tasks table
         for i, t in enumerate(self._tasks):
-            if t.special:
-                table_task.append(UI.DTR(
-                    UI.Label(text=t.special),
-                    UI.Label(), UI.Label(), UI.Label(), UI.Label(),
+            table_task.append(UI.DTR(
+                    UI.Label(text=t.special if t.special else t.m),
+                    UI.Label(text=t.h   if not t.special else ''),
+                    UI.Label(text=t.dom if not t.special else ''),
+                    UI.Label(text=t.mon if not t.special else ''),
+                    UI.Label(text=t.dow if not t.special else ''),
                     UI.Label(text=t.command),
                     UI.DTD(
                         UI.HContainer(
-                            UI.MiniButton(id='edit_task/' + str(i),
+                            UI.TipIcon(icon='/dl/core/ui/stock/edit.png', id='edit_task/' + str(i),
                                 text='Edit'),
-                            UI.WarningMiniButton(id='del_task/' + str(i),
-                                text='Delete', msg='Delete a task')
+                            UI.TipIcon(icon='/dl/core/ui/stock/delete.png', id='del_task/' + str(i),
+                                text='Delete', warning='Delete a task')
                         ),
-                        hidden=True)
-                    ))
-            else:
-                table_task.append(UI.DTR(
-                    UI.Label(text=t.m),
-                    UI.Label(text=t.h),
-                    UI.Label(text=t.dom),
-                    UI.Label(text=t.mon),
-                    UI.Label(text=t.dow),
-                    UI.Label(text=t.command),
-                    UI.DTD(
-                        UI.HContainer(
-                            UI.MiniButton(id='edit_task/' + str(i),
-                                text='Edit'),
-                            UI.WarningMiniButton(id='del_task/' + str(i),
-                                text='Delete', msg='Delete a task')
-                        ),
-                        hidden=True)
-                    ))
+                    )))
         #if crontab return error
         part = self._error.partition(':')[2]
         self._error = 'Error:' + part if part else self._error

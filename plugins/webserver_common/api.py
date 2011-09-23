@@ -45,43 +45,44 @@ class Webserver(API):
             return self.app.get_config(self._backend)
             
         def get_main_ui(self):
+            ui = self.app.inflate('webserver_common:main')
             tc = UI.TabControl(active=self._tab)
             if self.ws_vhosts:
-                tc.add('Hosts', self.get_ui_hosts())
+                tc.add('Hosts', self.get_ui_hosts(ui))
+            else:
+                ui.remove('addhost')
             if self.ws_mods:
-                tc.add('Modules', self.get_ui_mods())
-            return UI.Pad(tc)
+                tc.add('Modules', self.get_ui_mods(ui))
+            ui.append('main', tc)
+            return ui
             
-        def get_ui_hosts(self):
-            tbl = UI.DataTable(
-                    UI.DataTableRow(
-                        UI.Label(),
-                        UI.Label(text='Name'),
-                        UI.Label(),
-                        header=True
-                    )
-                  )
+        def get_ui_hosts(self, gui):
+            ui = self.app.inflate('webserver_common:hosts')
+            tbl = ui.find('list') 
                
             hosts = self._backend.get_hosts()
             for x in sorted(hosts.keys()):
-                tbl.append(UI.DataTableRow(
+                tbl.append(UI.DTR(
                             UI.Image(file='/dl/core/ui/stock/status-%sabled.png'%(
                                 'en' if hosts[x].enabled else 'dis')),
                             UI.Label(text=x),
-                            UI.DataTableCell(
+                            UI.DTD(
                                 UI.HContainer(
-                                    UI.MiniButton(
+                                    UI.TipIcon(
+                                        icon='/dl/core/ui/stock/edit.png',
                                         id='edithost/'+x, 
                                         text='Edit'
                                     ),
-                                    UI.MiniButton(
+                                    UI.TipIcon(
+                                        icon='/dl/core/ui/stock/'+ ('dis' if hosts[x].enabled else 'en') + 'able.png',
                                         id='togglehost/'+x, 
                                         text='Disable' if hosts[x].enabled else 'Enable'
                                     ),
-                                    UI.WarningMiniButton(
+                                    UI.TipIcon(
+                                        icon='/dl/core/ui/stock/delete.png',
                                         id='deletehost/'+x, 
                                         text='Delete',
-                                        msg='Delete host %s'%x
+                                        warning='Delete host %s'%x
                                     ),
                                     spacing=0
                                 ),
@@ -89,20 +90,21 @@ class Webserver(API):
                             )
                           ))
                             
-            ui = UI.VContainer(tbl, UI.Button(text='Add host', id='addhost'))
-            
             if self._creating_host:
-                ui.append(
+                gui.append(
+                    'main',
                     UI.InputBox(
-                        text='Host config name:', 
+                        text='Host config name', 
                         id='dlgCreateHost'
                     )
                 )
 
             if self._editing_host is not None:
-                ui.append(
-                    UI.CodeInputBox(
-                        text='Host config:', 
+                gui.append(
+                    'main',
+                    UI.InputBox(
+                        extra='code',
+                        text='Host config', 
                         value=self._backend.get_hosts()[self._editing_host].config,
                         id='dlgEditHost'
                     )
@@ -110,27 +112,25 @@ class Webserver(API):
                 
             return ui
             
-        def get_ui_mods(self):
-            tbl = UI.DataTable(UI.DataTableRow(
-                    UI.DataTableCell(UI.Label(), width='20px'),
-                    UI.DataTableCell(UI.Label(text='Name'), width='200px'),
-                    UI.DataTableCell(UI.Label(text='')),
-                    header=True
-                 ))
+        def get_ui_mods(self, gui):
+            ui = self.app.inflate('webserver_common:mods')
+            tbl = ui.find('list') 
             
             mods = self._backend.get_mods()
             for x in sorted(mods.keys()):
-                tbl.append(UI.DataTableRow(
+                tbl.append(UI.DTR(
                             UI.Image(file='/dl/core/ui/stock/status-%sabled.png'%(
                                 'en' if mods[x].enabled else 'dis')),
                             UI.Label(text=x),
-                            UI.DataTableCell(
+                            UI.DTD(
                                 UI.HContainer(
-                                    UI.MiniButton(
+                                    UI.TipIcon(
+                                        icon='/dl/core/ui/stock/edit.png',
                                         id='editmod/'+x, 
                                         text='Edit'
                                     ) if mods[x].has_config else None,
-                                    UI.MiniButton(
+                                    UI.TipIcon(
+                                        icon='/dl/core/ui/stock/'+ ('dis' if mods[x].enabled else 'en') + 'able.png',
                                         id='togglemod/'+x, 
                                         text='Disable' if mods[x].enabled else 'Enable'
                                     ),
@@ -140,10 +140,11 @@ class Webserver(API):
                             )
                           ))
             
-            ui = UI.Container(tbl)
             if self._editing_mod is not None:
-                ui.append(
-                    UI.CodeInputBox(
+                gui.append(
+                    'main',
+                    UI.InputBox(
+                        extra='code',
                         text='Module config:', 
                         value=self._backend.get_mods()[self._editing_mod].config,
                         id='dlgEditMod'

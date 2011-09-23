@@ -15,8 +15,9 @@
 
 
 <xsl:template match="codeinputarea">
-    <table><tr>
-        <td>
+            <xsl:if test="@help and (@help != '')">
+                <helpicon text="{@help}"/>
+            </xsl:if>
             <textarea class="ui-el-textarea" name="{@name}" id="{@id}">
                 <xsl:if test="@disabled = 'True'">
                     <xsl:attribute name="disabled"/>
@@ -47,11 +48,4 @@
                 cms.style.width = '<xsl:value-of select="x:css(@width, '200')"/>';
                 cms.style.height = '<xsl:value-of select="x:css(@height, '200')"/>';
             </script>
-        </td>
-        <td>
-            <xsl:if test="@help and (@help != '')">
-                <helpicon text="{@help}"/>
-            </xsl:if>
-        </td></tr>
-    </table>
 </xsl:template>

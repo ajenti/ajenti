@@ -29,6 +29,11 @@
     padding: 3px 5px;
 }
 
+.btn.tipicon {
+    background: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
 
 .ui-el-toolbar {
     border-bottom: 1px solid #ccc;
@@ -62,9 +67,9 @@
 
 .ui-el-label-1 {
     font-size: 12px;
-    line-height: 20px;
+    line-height: 26px;
     display: inline-block;
-    padding: 1px 2px;
+    padding: 1px 6px 1px 2px;
 }
 
 .ui-el-label-2 {
@@ -120,3 +125,16 @@
 }
 
 
+
+
+.tipicon {
+    opacity: .5;
+    
+    &:hover {
+        opacity: .7;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}

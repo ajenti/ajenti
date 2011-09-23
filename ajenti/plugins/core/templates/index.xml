@@ -52,27 +52,17 @@
     </script>
 
     <div class="fade" id="warningbox" style="display:none">
-            <div class="modal-body">
-                <table>
-                    <tr>
-                        <td width="40">
-                            <img src="/dl/core/ui/stock/warning.png" />
-                        </td>
-                        <td>
-                            <div class="ui-el-error-title">
-                                <span class="ui-el-label-3">You are about to:</span>
-                            </div>
-                            <div class="ui-el-error-content" style="min-width:0px">
-                                <span id="warning-text" />
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button text="OK" id="warning-button" />
-                <a class="btn" id="warning-cancel-button" href="#">Cancel</a>
-            </div>
+        <div class="modal-header">
+            <h3>Dangerous action</h3>
+        </div>
+        <div class="modal-body">
+            You are about to:
+            <strong id="warning-text" />
+        </div>
+        <div class="modal-footer">
+            <button text="OK" id="warning-button" design="danger" />
+            <a class="btn" id="warning-cancel-button" href="#">Cancel</a>
+        </div>
     </div>
 
 <div id="help-hint" class="ui-el-helphint"></div>

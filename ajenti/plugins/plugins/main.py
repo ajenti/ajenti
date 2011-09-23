@@ -34,15 +34,11 @@ class PluginManager(CategoryPlugin, URLHandler):
             row.find('version').set('text', k.version)
             row.find('author').set('text', k.author)
             row.find('author').set('url', k.homepage)
-            row.append('buttons', UI.Button(
+            row.append('buttons', UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
                         text='Uninstall',
                         id='remove/'+k.id,
                         warning='Completely remove plugin "%s"'%k.name,
-                        design='mini',
-                    ))
-            row.append('buttons', UI.MiniButton(
-                        text='Reload',
-                        id='reload/'+k.id,
                     ))
 
             if k.problem:
@@ -81,11 +77,10 @@ class PluginManager(CategoryPlugin, URLHandler):
                    )
 
             if reqs == '':
-                row.append('buttons', UI.Button(
-                        text='Install',
+                row.append('buttons', UI.TipIcon(
+                        icon='/dl/core/ui/stock/download.png',
+                        text='Download and install',
                         id='install/'+k.id,
-                        warning='Download and install plugin "%s"'%k.name,
-                        design='mini'
                     ))
             else:
                 row.append('reqs', UI.HelpIcon(text=reqs))
