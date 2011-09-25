@@ -53,8 +53,8 @@
     </td>
 </xsl:template>
 
-<xsl:template match="dtdstatus">
-    <td class="ui-el-table-cell ui-el-status-cell ui-el-status-cell-{@status}" colspan="{@colspan}" rowspan="{@rowspan}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+<xsl:template match="statuscell">
+    <td class="status-cell-{@status}" colspan="{@colspan}" rowspan="{@rowspan}">
         <xsl:value-of select="@text" />
     </td>
 </xsl:template>

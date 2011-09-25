@@ -35,25 +35,26 @@ class HealthPlugin(CategoryPlugin):
                 ostat = st
             if st == 'dang':
                 ostat = st
-            ui.append('list', UI.DataTableRow(
+            ui.append('list', UI.DTR(
                 UI.StatusCell(status=stat[st], text=text[st]),
-                UI.DataTableCell(
+                UI.DTD(
                     UI.Label(text=m.name, bold=True),
                     UI.Label(text=m.text),
                 ),
                 UI.Label(
                     text=getattr(trans, 'trans_%s'%m.transform)(m.format_value())
                 ),
-                UI.DataTableCell(
-                    UI.MiniButton(
+                UI.DTD(
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/edit.png',
                         id='config/%s/%s'%(m.plugin_id,m.variant),
                         text='Configure',
                     ),
                 ),
             ))
 
-        ui.find('overall').text = 'STATUS: %s'%text[ostat]
-        ui.find('overall')['class'] = 'ui-el-status-cell ui-el-status-cell-%s'%stat[ostat]
+        #ui.find('overall').text = 'STATUS: %s'%text[ostat]
+        #ui.find('overall')['class'] = 'ui-el-status-cell ui-el-status-cell-%s'%stat[ostat]
 
         if self._settings:
             ui.append('main', self.get_ui_settings())
@@ -68,17 +69,19 @@ class HealthPlugin(CategoryPlugin):
 
         for m in self.backend.list_meters():
             for v in self.backend.list_variated(m):
-                ui.append('list', UI.DataTableRow(
-                    UI.DataTableCell(
+                ui.append('list', UI.DTR(
+                    UI.DTD(
                         UI.Label(text=v.name, bold=True),
                         UI.Label(text=v.text),
                     ),
-                    UI.DataTableCell(
-                        UI.MiniButton(
+                    UI.DTD(
+                        UI.TipIcon(
+                            icon='/dl/core/ui/stock/edit.png',
                             id='config/%s/%s'%(m.plugin_id,v.variant),
                             text='Configure',
                         ),
-                        UI.MiniButton(
+                        UI.TipIcon(
+                            icon='/dl/core/ui/stock/delete.png',
                             id='disable/%s/%s'%(m.plugin_id,v.variant),
                             text='Disable',
                         ) if self.backend.has_cfg(m.plugin_id,v.variant) else None,
@@ -87,7 +90,6 @@ class HealthPlugin(CategoryPlugin):
         return ui
 
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'btnRefresh':
             self.mon.refresh()

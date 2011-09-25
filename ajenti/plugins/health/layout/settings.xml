@@ -1,12 +1,14 @@
 <xml>
     <dialogbox id="dlgSettings" hidecancel="True">
-        <datatable id="list">
-            <datatablerow header="True">
-                <datatablecell>
+        <scrollcontainer height="400" width="400">
+        <dt id="list" width="100%">
+            <dtr header="True" noborder="True">
+                <dth>
                     <label text="Meter" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="50" />
+            </dtr>
+        </dt>
+        </scrollcontainer>
     </dialogbox>
 </xml>
