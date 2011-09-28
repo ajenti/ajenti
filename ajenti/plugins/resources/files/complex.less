@@ -1,3 +1,108 @@
 .ui-el-tab-header > a {
     .transition(none);
 }
+
+.ui-el-list {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin: 0;
+    list-style: none;
+
+    li {
+        padding: 2px;
+        width: 100%;
+        line-height: 16px;
+        color: #555;
+
+        &:hover {
+            background: #eee;
+        }
+    }
+
+    li.active {
+        .gradientBar(#d04909,  #922017);
+        color: white;
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+
+
+.ui-el-treecontainernode {
+}
+
+.ui-el-treecontainernode-button {
+    display: inline;
+    width: 12px;
+    padding-right: 4px;
+}
+
+.ui-el-treecontainernode-inner {
+    min-height: 16px;
+    padding-left: 14px;
+}
+
+.ui-el-treecontainernode-title {
+    font-size: 12px;
+    line-height: 14px;
+    border: 1px solid transparent;
+    border-right: none;
+}
+
+.ui-el-treecontainernode-title:hover {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-right: none;
+}
+
+
+
+
+
+.ui-el-editable {
+    border: 1px solid #ccc;
+    height: 16px;
+    margin: 2px 2px;
+    display: inline-block;
+}
+
+.ui-el-editable-inactive {
+    display: inline-block;
+}
+
+.ui-el-editable input {
+    border: none;
+    padding: 0 4px;
+    height: 16px;
+}
+
+.ui-el-editable img {
+    border-left: 1px solid #ccc;
+    padding: 0 3px;
+    background: #ddd;
+    background:      -o-linear-gradient(top,  #eee,  #ddd);
+    background:     -ms-linear-gradient(top,  #eee,  #ddd);
+    background:    -moz-linear-gradient(top,  #eee,  #ddd);
+    background: -webkit-linear-gradient(top,  #eee,  #ddd);
+}
+
+.ui-el-editable img:hover {
+    background: #eee;
+    background:      -o-linear-gradient(top,  #fff,  #eee);
+    background:     -ms-linear-gradient(top,  #fff,  #eee);
+    background:    -moz-linear-gradient(top,  #fff,  #eee);
+    background: -webkit-linear-gradient(top,  #fff,  #eee);
+}
+
+.ui-el-editable img:active {
+    background: #eee;
+    background:      -o-linear-gradient(top,  #ccc,  #ddd);
+    background:     -ms-linear-gradient(top,  #ccc,  #ddd);
+    background:    -moz-linear-gradient(top,  #ccc,  #ddd);
+    background: -webkit-linear-gradient(top,  #ccc,  #ddd);
+}

@@ -117,8 +117,8 @@
           backdrop.call(that)
         }
 
-        $.support.transition && this.$element.hasClass('fade') ?
-          this.$element.one(transitionEnd, removeElement) :
+//        $.support.transition && this.$element.hasClass('fade') ?
+  //        this.$element.one(transitionEnd, removeElement) :
           removeElement()
 
         return this
@@ -157,8 +157,10 @@
       this.$backdrop.removeClass('in')
 
       function removeElement() {
-        that.$backdrop.remove()
-        that.$backdrop = null
+        if (that.$backdrop != null) {
+          that.$backdrop.remove()
+          that.$backdrop = null
+        }
       }
 
       $.support.transition && this.$element.hasClass('fade')?

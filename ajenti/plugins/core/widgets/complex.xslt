@@ -52,21 +52,15 @@
 
 
 <xsl:template match="list">
-    <div class="ui-el-list" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
-        <table style="width: 100%">
-            <xsl:apply-templates />
-        </table>
-    </div>
+    <ul class="ui-el-list" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+        <xsl:apply-templates />
+    </ul>
 </xsl:template>
 
 <xsl:template match="listitem">
-    <tr>
-        <td class="ui-el-list-item{x:iif(@active, '-active', '')}">
-            <a href="#" onclick="javascript:return ajax('/handle/listitem/click/{@id}');" style="width: 100%; display: block">
-                <xsl:apply-templates />
-            </a>
-        </td>
-    </tr>
+    <li class="{x:iif(@active, 'active', '')}" onclick="javascript:return ajax('/handle/listitem/click/{@id}');">
+        <xsl:apply-templates />
+    </li>
 </xsl:template>
 
 

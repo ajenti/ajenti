@@ -1,6 +1,6 @@
 var Ajenti;
 
-var warning_button_id
+var warning_button_id;
 
 
 Ajenti = {
@@ -25,7 +25,7 @@ Ajenti = {
         $('#warning-text').html(text);
         $('#warningbox').addClass('modal');
         warning_button_id = btnid;
-        $('#warning-button').click(Ajenti.acceptWarning);
+        $('.warning-button').click(Ajenti.acceptWarning);
         $('#warning-cancel-button').click(Ajenti.cancelWarning);
         return false;
     },
@@ -47,7 +47,7 @@ Ajenti = {
 jQuery.fn.center = function () {
     this.css("top", (
         Math.max(
-            ($(window).height() - this.outerHeight()) / 2, 
+            ($(window).height() - this.outerHeight()) / 2,
             0
         ) + $(window).scrollTop()
     ) + "px");

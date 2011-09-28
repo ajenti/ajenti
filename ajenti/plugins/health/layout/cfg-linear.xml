@@ -1,6 +1,6 @@
 <xml>
     <dialogbox id="dlgConfigure">
-        <label text="Configure value boundaries:" size="2" />
+        <label text="Configure value tresholds:" size="2" />
         <br />
         <label id="max" />
         <br />

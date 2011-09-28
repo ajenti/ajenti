@@ -60,7 +60,7 @@
             <strong id="warning-text" />
         </div>
         <div class="modal-footer">
-            <button text="OK" id="warning-button" design="danger" />
+            <button text="OK" design="danger warning-button" onclick="none" />
             <a class="btn" id="warning-cancel-button" href="#">Cancel</a>
         </div>
     </div>

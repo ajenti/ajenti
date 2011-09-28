@@ -24,7 +24,9 @@
                         return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@action" />');
                     </xsl:when>
                     <xsl:otherwise>
-                        return ajax('/handle/<xsl:value-of select="x:attr(@class, 'button')" />/click/<xsl:value-of select="@id" />');
+                        <xsl:if test="not(@onclick = 'off')">
+                            return ajax('/handle/<xsl:value-of select="x:attr(@class, 'button')" />/click/<xsl:value-of select="@id" />');
+                        </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:otherwise>

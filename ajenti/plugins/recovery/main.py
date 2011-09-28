@@ -19,43 +19,45 @@ class RecoveryPlugin(CategoryPlugin):
         if not self._current:
             self._current = self.providers[0].id
             self._current_name = self.providers[0].name
-        
+
     def get_ui(self):
         ui = self.app.inflate('recovery:main')
-        
+
         provs = ui.find('provs')
-                
+
         for p in self.providers:
             provs.append(
                     UI.ListItem(
-                        UI.Label(text=p.name), 
+                        UI.Label(text=p.name),
                         id=p.id,
                         active=p.id==self._current
                     )
                   )
-            
+
         backs = ui.find('backs')
-                
+
         for rev in self.manager.list_backups(self._current):
             backs.append(
-                UI.DataTableRow(
+                UI.DTR(
                     UI.Label(text=rev.revision),
                     UI.Label(text=rev.date),
-                    UI.DataTableCell(
+                    UI.DTC(
                         UI.HContainer(
-                            UI.WarningMiniButton(
+                            UI.TipIcon(
                                 text='Recover',
+                                icon='/dl/recovery/rev-restore.png',
                                 id='restore/%s/%s'%(self._current,rev.revision),
-                                msg='Restore configuration of %s as of %s (rev %s)'%(
+                                warning='Restore configuration of %s as of %s (rev %s)'%(
                                         self._current,
                                         rev.date,
                                         rev.revision
                                     )
                             ),
-                            UI.WarningMiniButton(
+                            UI.TipIcon(
                                 text='Drop',
+                                icon='/dl/recovery/rev-delete.png',
                                 id='drop/%s/%s'%(self._current,rev.revision),
-                                msg='Delete backed up configuration of %s as of %s (rev %s)'%(
+                                warning='Delete backed up configuration of %s as of %s (rev %s)'%(
                                         self._current,
                                         rev.date,
                                         rev.revision
@@ -64,17 +66,15 @@ class RecoveryPlugin(CategoryPlugin):
                             spacing=0
                         ),
                         width=0,
-                        hidden=True
                     )
                 )
-            )       
-        
+            )
+
         ui.find('btnBackup').set('text', 'Backup %s'%self._current_name)
         ui.find('btnBackup').set('id', 'backup/%s'%self._current)
-        return ui                
-                
+        return ui
+
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'backup':
             p = self.manager.find_provider(params[1])
@@ -102,11 +102,10 @@ class RecoveryPlugin(CategoryPlugin):
                 self.put_message('info', 'Deleted backup rev %s for %s.' % (params[2], params[1]))
             except:
                 self.put_message('err', 'Failed to delete backup rev %s for %s.' % (params[2], params[1]))
-                        
+
     @event('listitem/click')
     def on_list_click(self, event, params, vars=None):
         for p in self.providers:
             if p.id == params[0]:
                 self._current = p.id
                 self._current_name = p.name
-                
