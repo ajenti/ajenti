@@ -1,19 +1,19 @@
 <xml>
     <toolbar>
-        <toolbutton text="Add new daemon" id="add" icon="/dl/core/ui/stock/add.png" />
+        <button text="Add new daemon" id="add" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
-    
+
     <label text="Daemons" size="5" />
-    
+
     <pad id="main">
-        <datatable id="list" width="100%">
-            <datatablerow header="True">
-                <datatablecell width="20" />
-                <datatablecell>
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth width="20" />
+                <dth>
                     <label text="Name" />
-                </datatablecell>
-                <datatablecell width="250" />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
 </xml>

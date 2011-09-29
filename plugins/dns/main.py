@@ -21,17 +21,14 @@ class DNSPlugin(CategoryPlugin):
 
         for x in range(0, len(self.config.nameservers)):
             i = self.config.nameservers[x]
-            td.append(UI.DataTableRow(
-                            UI.Label(text=i.cls),
-                            UI.Label(text=i.address),
-                            UI.DataTableCell(
-                                UI.HContainer(
-                                    UI.MiniButton(text='Edit', id='editns/' + str(x)),
-                                    UI.MiniButton(text='Remove', id='delns/' + str(x))
-                                ),
-                                hidden=True
-                            )
-                           ))
+            td.append(UI.DTR(
+                UI.Label(text=i.cls),
+                UI.Label(text=i.address),
+                UI.HContainer(
+                    UI.TipIcon(icon='/dl/core/ui/stock/edit.png', text='Edit', id='editns/' + str(x)),
+                    UI.TipIcon(icon='/dl/core/ui/stock/delete.png', text='Remove', id='delns/' + str(x))
+                ),
+            ))
 
         if self._editing_ns == None:
             ui.remove('dlgEdit')
@@ -42,12 +39,12 @@ class DNSPlugin(CategoryPlugin):
                 e = ui.find('cls-' + c)
                 e.set('value', c)
                 e.set('selected', ns.cls==c)
-            ui.find('value').set('value', ns.address)    
-        
+            ui.find('value').set('value', ns.address)
+
         return ui
 
 
-        
+
     @event('button/click')
     @event('minibutton/click')
     def on_ll_click(self, event, params, vars=None):

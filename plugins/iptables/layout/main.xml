@@ -1,17 +1,15 @@
 <xml>
-
     <toolbar>
         <hcontainer>
-            <toolbutton text="Apply" id="apply" icon="/dl/core/ui/stock/dialog-ok.png" />
-            <warningtoolbutton text="Load current" id="loadruntime" msg="Dispose saved configuration and load current iptables status" icon="/dl/core/ui/stock/load.png" />
-            <toolbutton text="Autostart" id="autostart" icon="/dl/iptables/autostart.png" />
+            <button text="Apply" id="apply" icon="/dl/core/ui/stock/dialog-ok.png" />
+            <button text="Load current" id="loadruntime" warning="Dispose saved configuration and load current iptables status" icon="/dl/core/ui/stock/load.png" />
+            <button text="Autostart" id="autostart" icon="/dl/iptables/autostart.png" />
         </hcontainer>
     </toolbar>
-    
+
     <label text="Firewall tables" size="5" />
-    
+
     <pad id="root">
     </pad>
-    
-</xml>    
-                        
+
+</xml>

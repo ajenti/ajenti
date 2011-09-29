@@ -19,24 +19,21 @@ class FSPlugin(CategoryPlugin):
 
     def get_ui(self):
         ui = self.app.inflate('filesystems:main')
-        
+
         t = ui.find('list')
-        
+
         for u in self.fstab:
-            t.append(UI.DataTableRow(
+            t.append(UI.DTR(
                     UI.Label(text=u.src, bold=True),
                     UI.Label(text=u.dst),
                     UI.Label(text=u.fs_type),
                     UI.Label(text=u.options),
                     UI.Label(text=str(u.dump_p)),
                     UI.Label(text=str(u.fsck_p)),
-                    UI.DataTableCell(
-                        UI.HContainer(
-                            UI.MiniButton(id='edit/'+str(self.fstab.index(u)), text='Edit'),
-                            UI.WarningMiniButton(id='del/'+str(self.fstab.index(u)), text='Delete', msg='Remove %s from fstab'%u.src)
-                        ),
-                        hidden=True
-                    )
+                    UI.HContainer(
+                        UI.TipIcon(icon='/dl/core/ui/stock/edit.png', id='edit/'+str(self.fstab.index(u)), text='Edit'),
+                        UI.TipIcon(icon='/dl/core/ui/stock/delete.png', id='del/'+str(self.fstab.index(u)), text='Delete', warning='Remove %s from fstab'%u.src)
+                    ),
                 ))
 
         if self._editing != -1:
@@ -51,10 +48,10 @@ class FSPlugin(CategoryPlugin):
                 e.dump_p = 0
                 e.fsck_p = 0
             self.setup_ui_edit(ui, e)
-            
+
         else:
             ui.remove('dlgEdit')
-            
+
         return ui
 
     def get_ui_sources_list(self, e):
@@ -153,4 +150,3 @@ class FSPlugin(CategoryPlugin):
                     self.fstab.append(e)
                 backend.save(self.fstab)
             self._editing = -1
-

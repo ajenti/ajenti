@@ -53,6 +53,7 @@ class Element(etree.ElementBase):
         Sets `attr` attribute to `val`, converting value to unicode string.
         """
         etree.ElementBase.set(self, attr, fix_unicode(str(val)))
+        return self
 
     def __getitem__(self, idx):
         return self.get(idx)
@@ -102,27 +103,27 @@ class UI(object):
             self['right'] = width - int(value*width/max)
             self['left'] = int(value*width/max)
 
-    class LayoutTable(Element):
+    class LT(Element):
         def __init__(self, *args, **kwargs):
-            Element.__init__(self, 'layouttable', **kwargs)
+            Element.__init__(self, 'lt', **kwargs)
             for e in args:
                 if isinstance(e, Element):
-                    if e.tag == 'layouttablerow':
+                    if e.tag == 'ltr':
                         self.append(e)
                     else:
-                        c = UI.LayoutTableRow(e)
+                        c = UI.LTR(e)
                         c['spacing'] = self['spacing']
                         self.append(c)
 
-    class LayoutTableRow(Element):
+    class LTR(Element):
         def __init__(self, *args, **kwargs):
-            Element.__init__(self, 'layouttablerow', **kwargs)
+            Element.__init__(self, 'ltr', **kwargs)
             for e in args:
                 if isinstance(e, Element):
-                    if e.tag == 'layouttablecell':
+                    if e.tag == 'ltd':
                         self.append(e)
                     else:
-                        c = UI.LayoutTableCell(e)
+                        c = UI.LTD(e)
                         c['spacing'] = self['spacing']
                         self.append(c)
 

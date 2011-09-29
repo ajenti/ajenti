@@ -19,7 +19,7 @@ class FMPlugin(CategoryPlugin):
 
     def on_init(self):
         self._has_acls = shell_status('which getfacl')==0
-        
+
     def on_session_start(self):
         self._root = self.app.get_config(self).dir
         self._tabs = []
@@ -39,15 +39,16 @@ class FMPlugin(CategoryPlugin):
         self._clipboard = sorted(self._clipboard)
         idx = 0
         for f in self._clipboard:
-            ui.append('clipboard', UI.DataTableRow(
-                UI.DataTableCell(
+            ui.append('clipboard', UI.DTR(
+                UI.HContainer(
                     UI.Image(file='/dl/fm/'+
                         ('folder' if os.path.isdir(f) else 'file')
                         +'.png'),
                     UI.Label(text=f),
                 ),
-                UI.MiniButton(
-                    text='Remove',
+                UI.TipIcon(
+                    icon='/dl/core/ui/stock/delete.png',
+                    text='Remove from clipboard',
                     id='rmClipboard/%i'%idx
                 ),
             ))
@@ -68,16 +69,17 @@ class FMPlugin(CategoryPlugin):
             acls = get_acls(self._editing_acl)
             idx = 0
             for acl in acls:
-                dlg.append('list', UI.DataTableRow(
+                dlg.append('list', UI.DTR(
                     UI.Editable(id='edAclSubject/%i'%idx, value=acl[0]),
                     UI.Editable(id='edAclPerm/%i'%idx, value=acl[1]),
-                    UI.MiniButton(
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
                         text='Delete',
                         id='delAcl/%i'%idx
                     )
                 ))
                 idx += 1
-            
+
         return ui
 
     def get_tab(self, tab):
@@ -97,7 +99,7 @@ class FMPlugin(CategoryPlugin):
 
         idx = 0
         for part in parts:
-            ui.append('path', UI.ToolButton(
+            ui.append('path', UI.Button(
                 text=part,
                 id='goto/%i/%s' % (
                     tidx,
@@ -143,18 +145,20 @@ class FMPlugin(CategoryPlugin):
                 group = grp.getgrgid(stat[ST_GID])[0]
             except:
                 group = str(stat[ST_GID])
-            
+
             name = f
             if islink:
                 name += ' → ' + os.path.realpath(np)
-                
-            row = UI.DataTableRow(
-                UI.Checkbox(name='%i/%s' % (
-                    tidx,
-                    self.enc_file(np)
-                )),
-                UI.DataTableCell(
+
+            row = UI.DTR(
+                UI.HContainer(
+                    UI.Checkbox(name='%i/%s' % (
+                        tidx,
+                        self.enc_file(np)
+                    )),
                     UI.Image(file='/dl/fm/%s.png'%icon),
+                ),
+                UI.HContainer(
                     UI.Label(text=name) if not isdir else
                     UI.LinkLabel(text=name, id='goto/%i/%s' % (
                         tidx,
@@ -170,23 +174,24 @@ class FMPlugin(CategoryPlugin):
                 UI.Label(text=str_fsize(size)),
                 UI.Label(text='%s:%s'%(user,group), monospace=True),
                 UI.Label(text=self.mode_string(mode), monospace=True),
-                UI.DataTableCell(
-                    UI.MiniButton(
+                UI.HContainer(
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/lock.png',
                         text='ACLs',
                         id='acls/%i/%s'%(
                             tidx,
                             self.enc_file(np)
                         ),
                     ) if self._has_acls else None,
-                    UI.WarningMiniButton(
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
                         text='Delete',
-                        msg='Delete %s'%np,
+                        warning='Delete %s'%np,
                         id='delete/%i/%s'%(
                             tidx,
                             self.enc_file(np)
                         ),
                     ),
-                    hidden=True
                 )
             )
 
@@ -263,7 +268,7 @@ class FMPlugin(CategoryPlugin):
         if params[0] == 'delAcl':
             idx = int(params[1])
             del_acl(self._editing_acl, get_acls(self._editing_acl)[idx][0])
-            
+
     @event('form/submit')
     @event('dialog/submit')
     def on_submit(self, event, params, vars=None):
@@ -298,7 +303,7 @@ class FMPlugin(CategoryPlugin):
             self._editing_acl = None
         if params[0] == 'frmAddAcl':
             if vars.getvalue('action', None) == 'OK':
-                set_acl(self._editing_acl, 
+                set_acl(self._editing_acl,
                     vars.getvalue('subject', None),
                     vars.getvalue('perm', None),
                     )
@@ -316,13 +321,13 @@ class FMPlugin(CategoryPlugin):
         self.app.session['fm_worker'] = w
         w.start()
 
-        
+
 class FMWorker(BackgroundWorker):
 
     def __init__(self, *args):
         self.action = ''
         BackgroundWorker.__init__(self, *args)
-    
+
     def run(self, cat, action, files, target):
         self.action = action
         try:

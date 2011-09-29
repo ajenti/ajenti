@@ -12,6 +12,7 @@
     </div>
 </xsl:template>
 
+
 <xsl:template match="textinput">
         <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}" />
             <xsl:if test="@help and (@help != '')">
@@ -30,7 +31,14 @@
         <xsl:if test="@help and (@help != '')">
             <helpicon text="{@help}"/>
         </xsl:if>
-    </div>            
+    </div>
+</xsl:template>
+
+
+<xsl:template match="selectinput">
+    <select name="{@name}" id="{@id}" class="{@design}">
+        <xsl:apply-templates />
+    </select>
 </xsl:template>
 
 <xsl:template match="selectoption">
@@ -53,7 +61,7 @@
         <xsl:if test="@help and (@help != '')">
             <helpicon text="{@help}"/>
         </xsl:if>
-    </div>        
+    </div>
 </xsl:template>
 
 <xsl:template match="textinputarea">
@@ -73,7 +81,7 @@
                         ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@value)"/>');
                     </xsl:otherwise>
                 </xsl:choose>
-            </script> 
+            </script>
         </td>
         <td>
             <xsl:if test="@help and (@help != '')">
@@ -84,11 +92,11 @@
 </xsl:template>
 
 <xsl:template match="selecttextinput">
-    <input class="ui-el-input" name="{@name}" value="{@value}" id="{@id}" size="{@size}" onkeypress="return noenter()" />
-    <select onchange="document.getElementById('{@id}').value = this.value" id='{@id}-hints'>
+    <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" />
+    <selectinput onchange="$('#{@id}').value(this.value)" id='{@id}-hints' design="{@design}">
         <option selected="">...</option>
         <xsl:apply-templates/>
-    </select>
+    </selectinput>
 </xsl:template>
 
 <xsl:template match="uploader">

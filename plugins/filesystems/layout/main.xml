@@ -1,43 +1,43 @@
 <xml>
     <toolbar>
-        <toolbutton id="add" text="Add new mountpoint" icon="/dl/core/ui/stock/add.png" />
+        <button id="add" text="Add new mountpoint" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
 
     <pad>
-        <datatable id="list" width="100%">
-            <datatablerow header="True">
-                <datatablecell>
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
                     <label text="Source" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Mountpoint" />
-                </datatablecell>
-                <datatablecell width="60">
+                </dth>
+                <dth width="60">
                     <label text="FS type" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Options" />
-                </datatablecell>
-                <datatablecell />
-                <datatablecell />
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth with="1" />
+                <dth with="1" />
+                <dth with="1" />
+            </dtr>
+        </dt>
     </pad>
 
     <dialogbox id="dlgEdit">
         <formline text="Source" id="sources" iid="source" />
         <formline iid="src">
-            <textinput id="src" name="src" />
+            <textinput id="src" name="src" design="xlarge" />
         </formline>
         <formline text="Mount point" iid="mp">
-            <textinput id="mp" name="mp" />
+            <textinput id="mp" name="mp" design="xlarge" />
         </formline>
         <formline text="Filesystem" iid="mp">
             <textinput id="fs" name="fs" />
         </formline>
         <formline text="Options" iid="opts">
-            <textinput id="opts" name="opts" />
+            <textinput id="opts" name="opts" design="xlarge" />
         </formline>
         <formline text="Read-only" iid="ro">
             <checkbox id="ro" name="ro" />
@@ -54,6 +54,5 @@
         <formline text="fsck order" iid="fsck_p">
             <textinput id="fsck_p" name="fsck_p" />
         </formline>
-
     </dialogbox>
 </xml>

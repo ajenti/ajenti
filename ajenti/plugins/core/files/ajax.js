@@ -120,7 +120,7 @@ function ajaxHandler(data)
 	main = document.getElementById("rightplaceholder")
 	$('.modal:not(#warningbox)').modal('hide').remove();
 	$('.modal#warningbox').modal('hide');
-	$('.modal-backdrop').fadeOut(1000);
+	$('.modal-backdrop').fadeOut(500);
 	$('.twipsy').remove();
 	main.innerHTML = data
     var ob = main.getElementsByTagName("script");

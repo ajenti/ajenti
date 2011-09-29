@@ -1,0 +1,98 @@
+.ui-el-fwrule {
+    border-bottom: 1px solid #ddd;
+    padding: 4px 0;
+    overflow: hidden;
+    display: block;
+
+    &:hover {
+        background: #eee;
+    }
+
+    .r {
+        height: 20px;
+        width: 580px;
+        overflow: hidden;
+        float: left;
+
+        line-height: 20px;
+        padding-left: 5px;
+
+        color: #444;
+    }
+
+    .l {
+        height: 20px;
+        width: 50px;
+        float: left;
+
+        line-height: 20px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+
+        &.misc {
+            .gradientBar(#ecc183,  #d3a158);
+            border: 1px solid #a77c3e;
+            text-shadow: 0 -1px 0 #a77c3e;
+        }
+
+        &.accept {
+            .gradientBar(#73da2f,  #468b0d);
+            border: 1px solid #367b0d;
+            text-shadow: 0 -1px 0 #569b3d;
+        }
+
+        &.drop {
+            .gradientBar(#ef2727,  #d00000);
+            border: 1px solid #a00000;
+            text-shadow: 0 -1px 0 #e00000;
+        }
+    }
+}
+
+
+.ui-el-fwchain {
+     > .tl {
+        .gradientBar(#eee, #ddd);
+
+        width: 600px;
+        float: left;
+
+        line-height: 20px;
+
+        border: 1px solid #ccc;
+        border-right: none;
+        padding-left: 10px;
+        color: #555;
+        text-shadow: 1px 0 0 white;
+        font-weight: bold;
+    }
+
+    > .tr {
+        border: 1px solid #777;
+        font-weight: bold;
+        height: 20px;
+        padding-left: 10px;
+        line-height: 20px;
+        width: 80px;
+        float: left;
+
+        &.accept {
+            .gradientBar(#73da2f,  #468b0d);
+            color: #fff;
+            text-shadow: 0 -1px 0 #777;
+        }
+
+        &.drop {
+            border: 1px solid #a00000;
+            color: #fff;
+            text-shadow: 0 -1px 0 #e00000;
+            .gradientBar(#ef2727,  #d00000);
+        }
+    }
+
+    > .c {
+        padding: 10px;
+        clear: both;
+    }
+}

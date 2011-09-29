@@ -33,7 +33,18 @@
         </xsl:choose>
     </xsl:variable>
 
-    <a href="{@href}" onclick="{$onclickjs}" class="ui-el-button btn {@design}">
+    <xsl:variable name="design">
+        <xsl:choose>
+            <xsl:when test="@design != ''">
+                <xsl:value-of select="@design" />
+            </xsl:when>
+            <xsl:otherwise>
+                default
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+
+    <a href="{@href}" onclick="{$onclickjs}" class="ui-el-button btn {$design}">
         <xsl:if test="@icon">
             <img src="{@icon}" />
         </xsl:if>
@@ -41,10 +52,8 @@
     </a>
 </xsl:template>
 
-
 <!-- End of button magic -->
 
-<xsl:template match="toolseparator"><a class="separator"/></xsl:template>
 
 
 <xsl:template match="linklabel">

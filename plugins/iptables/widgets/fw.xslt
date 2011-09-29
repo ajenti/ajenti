@@ -1,5 +1,5 @@
 <xsl:template match="fwrule">
-    <a href="#" class="ui-el-fwrule-wr">
+    <a href="#" class="ui-el-fwrule">
         <xsl:choose>
             <xsl:when test="@id = ''" />
             <xsl:otherwise>
@@ -10,35 +10,35 @@
         </xsl:choose>
         <xsl:choose>
             <xsl:when test="@action = 'ACCEPT'">
-                <div class="ui-el-fwrule-l-accept">ACC</div>
-            </xsl:when>    
-            
+                <div class="l accept">ACC</div>
+            </xsl:when>
+
             <xsl:when test="@action = 'REJECT'">
-                <div class="ui-el-fwrule-l-drop">REJ</div>
-            </xsl:when>    
+                <div class="l drop">REJ</div>
+            </xsl:when>
 
             <xsl:when test="@action = 'DROP'">
-                <div class="ui-el-fwrule-l-drop">DROP</div>
-            </xsl:when>    
+                <div class="l drop">DROP</div>
+            </xsl:when>
 
             <xsl:when test="@action = 'LOG'">
-                <div class="ui-el-fwrule-l-misc">LOG</div>
-            </xsl:when>    
+                <div class="l misc">LOG</div>
+            </xsl:when>
 
             <xsl:when test="@action = 'EXIT'">
-                <div class="ui-el-fwrule-l-misc">EXIT</div>
-            </xsl:when>    
+                <div class="l misc">EXIT</div>
+            </xsl:when>
 
             <xsl:when test="@action = 'MASQUERADE'">
-                <div class="ui-el-fwrule-l-accept">MASQ</div>
-            </xsl:when>    
+                <div class="l accept">MASQ</div>
+            </xsl:when>
 
             <xsl:otherwise>
-                <div class="ui-el-fwrule-l-misc">RUN</div>
-            </xsl:otherwise>    
+                <div class="l misc">RUN</div>
+            </xsl:otherwise>
         </xsl:choose>
-        
-        <div class="ui-el-fwrule-r-normal">
+
+        <div class="r">
             <xsl:value-of select="@desc"/>
         </div>
     </a>
@@ -46,51 +46,44 @@
 
 
 <xsl:template match="fwchain">
-    <table cellspacing="0" cellpadding="0">
-        <tr>
-            <td class="ui-el-fwchain-tl">
+        <div class="ui-el-fwchain">
+            <div class="tl">
                 <xsl:value-of select="@name"/>
-            </td>
+            </div>
             <xsl:choose>
                 <xsl:when test="@default = 'ACCEPT'">
-                   <td class="ui-el-fwchain-tr-accept">
+                   <div class="tr accept">
                        ACCEPT
-                   </td>
+                   </div>
                 </xsl:when>
                 <xsl:when test="@default = 'REJECT' or @default = 'DROP'">
-                   <td class="ui-el-fwchain-tr-drop">
+                   <div class="tr drop">
                        <xsl:value-of select="@default"/>
-                   </td>
+                   </div>
                 </xsl:when>
                 <xsl:when test="@default = '-'">
-                   <td class="ui-el-fwchain-tr-accept">
-                   </td>
+                   <div class="tr accept" />
                 </xsl:when>
             </xsl:choose>
-        </tr>
-        <tr>
-            <td class="ui-el-fwchain-c" colspan="3">
-                <vcontainer spacing="5">
-                    <xsl:apply-templates />
-                </vcontainer>
+            <div class="c" colspan="3">
+                <xsl:apply-templates />
+                <br/>
                     <hcontainer>
-                        <minibutton text="Add rule" id="addrule/{@tname}/{@name}"/>
-                        <minibutton text="Shuffle" id="shuffle/{@tname}/{@name}"/>
+                        <button text="Add rule" id="addrule/{@tname}/{@name}"/>
+                        <button text="Shuffle" id="shuffle/{@tname}/{@name}"/>
                         <xsl:choose>
                             <xsl:when test="@default = '-'">
-                                <warningminibutton text="Delete chain" id="deletechain/{@tname}/{@name}"
-                                    msg="Delete rule chain {@name}"/>
+                                <button text="Delete chain" id="deletechain/{@tname}/{@name}"
+                                    warning="Delete rule chain {@name}"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <label text="Set default:"/>
-                                <minibutton text="Accept" id="setdefault/{@tname}/{@name}/ACCEPT"/>
-                                <minibutton text="Drop" id="setdefault/{@tname}/{@name}/DROP"/>
-                                <minibutton text="Reject" id="setdefault/{@tname}/{@name}/REJECT"/>
+                                <button text="Accept" id="setdefault/{@tname}/{@name}/ACCEPT"/>
+                                <button text="Drop" id="setdefault/{@tname}/{@name}/DROP"/>
+                                <button text="Reject" id="setdefault/{@tname}/{@name}/REJECT"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </hcontainer>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
 </xsl:template>
-

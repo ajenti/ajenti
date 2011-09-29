@@ -10,11 +10,11 @@ class DaemonsPlugin(CategoryPlugin):
 
     def on_init(self):
         self.mgr = Daemons(self.app)
-        
+
     def on_session_start(self):
         self._editing = None
         self._items = []
-        
+
     def get_ui(self):
         ui = self.app.inflate('daemons:main')
         ts = ui.find('list')
@@ -24,23 +24,22 @@ class DaemonsPlugin(CategoryPlugin):
         for svc in lst:
             running = svc.running
             fn = '/dl/core/ui/stock/service-' + ('run.png' if svc.running else 'stop.png')
-            row = UI.DataTableRow(
+            row = UI.DTR(
                     UI.Image(file=fn),
                     UI.Label(text=svc.name),
-                    UI.DataTableCell(
-                        UI.MiniButton(text='Start', id='start/' + svc.name)
+                    UI.HContainer(
+                        UI.TipIcon(icon='/dl/core/ui/stock/service-run.png', text='Start', id='start/' + svc.name)
                             if not running else None,
-                        UI.MiniButton(text='Stop', id='stop/' + svc.name) 
+                        UI.TipIcon(icon='/dl/core/ui/stock/service-stop.png', text='Stop', id='stop/' + svc.name)
                             if running else None,
-                        UI.MiniButton(text='Restart', id='restart/' + svc.name)
+                        UI.TipIcon(icon='/dl/core/ui/stock/service-restart.png', text='Restart', id='restart/' + svc.name)
                             if running else None,
-                        UI.MiniButton(text='Edit', id='edit/' + svc.name),
-                        UI.WarningMiniButton(text='Delete', id='delete/' + svc.name, msg='Delete daemon %s'%svc.name),
-                        hidden=True
+                        UI.TipIcon(icon='/dl/core/ui/stock/edit.png', text='Edit', id='edit/' + svc.name),
+                        UI.TipIcon(icon='/dl/core/ui/stock/delete.png', text='Delete', id='delete/' + svc.name, warning='Delete daemon %s'%svc.name),
                     )
                   )
             ts.append(row)
-            
+
         if self._editing != None:
             dlg = self.app.inflate('daemons:edit')
             dmn = self.get_dmn(self._editing)
@@ -51,12 +50,12 @@ class DaemonsPlugin(CategoryPlugin):
             if 'respawn' in dmn.opts:
                 dlg.find('respawn').set('checked', True)
             ui.append('main', dlg)
-            
+
         return ui
 
     def get_dmn(self, name):
         return filter(lambda x:x.name==name, self._items)[0]
-                
+
     @event('button/click')
     @event('minibutton/click')
     def on_click(self, event, params, vars=None):
@@ -76,25 +75,25 @@ class DaemonsPlugin(CategoryPlugin):
         if params[0] == 'delete':
             self._items = filter(lambda x:x.name!=params[1], self._items)
             Daemons(self.app).save(self._items)
-            
+
     @event('dialog/submit')
     def on_submit(self, event, params, vars):
         if params[0] == 'dlgEdit':
             if vars.getvalue('action', None) == 'OK':
                 dmn = self.get_dmn(self._editing)
-                
+
                 #name
                 dmn.name = vars.getvalue('name', '')
                 if dmn.name == '':
                     return
-                    
+
                 # respawn checkbox
                 respawn = vars.getvalue('respawn', '') == '1'
                 if respawn and 'respawn' not in dmn.opts:
                     dmn.opts['respawn'] = None
                 if not respawn and 'respawn' in dmn.opts:
                     del dmn.opts['respawn']
-                    
+
                 # other opts
                 for o in options:
                     v = vars.getvalue(o, None)
@@ -103,7 +102,6 @@ class DaemonsPlugin(CategoryPlugin):
                             del dmn.opts[o]
                     else:
                         dmn.opts[o] = v
-                        
+
                 Daemons(self.app).save(self._items)
             self._editing = None
-            

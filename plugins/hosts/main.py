@@ -13,37 +13,36 @@ class HostsPlugin(CategoryPlugin):
         be = backend.Config(self.app)
         self.hosts = be.read()
         self.hostname = be.gethostname()
-         
+
     def on_session_start(self):
         self._log = ''
         self._editing = None
         self._editing_self = False
-        
+
     def get_ui(self):
         ui = self.app.inflate('hosts:main')
         t = ui.find('list')
-        
+
         for h in self.hosts:
-            t.append(UI.DataTableRow(
+            t.append(UI.DTR(
                 UI.Label(text=h.ip),
                 UI.Label(text=h.name),
                 UI.Label(text=h.aliases),
-                UI.DataTableCell(
-                    UI.HContainer(
-                        UI.MiniButton(
-                            id='edit/' + str(self.hosts.index(h)), 
-                            text='Edit'
-                        ),
-                        UI.WarningMiniButton(
-                            id='del/' + str(self.hosts.index(h)),
-                            text='Delete', 
-                            msg='Remove %s from hosts'%h.ip
-                        )
+                UI.HContainer(
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/edit.png',
+                        id='edit/' + str(self.hosts.index(h)),
+                        text='Edit'
                     ),
-                    hidden=True
-                )
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
+                        id='del/' + str(self.hosts.index(h)),
+                        text='Delete',
+                        msg='Remove %s from hosts'%h.ip
+                    )
+                ),
             ))
-            
+
         if self._editing is not None:
             try:
                 h = self.hosts[self._editing]
@@ -54,7 +53,7 @@ class HostsPlugin(CategoryPlugin):
             ui.find('aliases').set('value', h.aliases)
         else:
             ui.remove('dlgEdit')
-            
+
         if self._editing_self:
             ui.find('dlgSelf').set('value', self.hostname)
         else:

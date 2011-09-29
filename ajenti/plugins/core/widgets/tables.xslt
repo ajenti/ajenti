@@ -1,5 +1,5 @@
 <xsl:template match="lt">
-    <table cellspacing="0" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
+    <table class="layout" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
         <xsl:apply-templates />
     </table>
 </xsl:template>

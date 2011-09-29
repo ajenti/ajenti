@@ -27,21 +27,21 @@ class FirewallPlugin(CategoryPlugin):
         self._editing_chain = None
         self._editing_rule = None
         self._error = None
-        
+
     def get_ui(self):
         ui = self.app.inflate('iptables:main')
         if self.cfg.has_autostart():
             btn = ui.find('autostart')
             btn.set('text', 'Disable autostart')
             btn.set('id', 'noautostart')
-                
-                
+
+
         tc = UI.TabControl(active=self._tab)
         ui.append('root', tc)
 
         if len(self.cfg.tables) == 0:
             self.cfg.load_runtime()
-            
+
         for t in self.cfg.tables:
             t = self.cfg.tables[t]
             vc = UI.VContainer(spacing=15)
@@ -52,22 +52,22 @@ class FirewallPlugin(CategoryPlugin):
                 for r in ch.rules:
                     uic.append(
                         UI.FWRule(
-                            action=r.action, 
-                            desc=('' if r.action in self.defactions else r.action + ' ') + r.desc, 
+                            action=r.action,
+                            desc=('' if r.action in self.defactions else r.action + ' ') + r.desc,
                             id='%s/%s/%i'%(t.name,ch.name,idx)
                         ))
                     idx += 1
                 vc.append(uic)
-            vc.append(UI.Button(text='Add new chain to '+t.name, id='addchain/'+t.name))
+            vc.append(UI.Button(icon='/dl/core/ui/stock/add.png', text='Add new chain to '+t.name, id='addchain/'+t.name))
             tc.add(t.name, vc)
 
-        if self._error is not None and len(self._error) > 0:            
+        if self._error is not None and len(self._error) > 0:
             self.put_message('warn', self._error)
             self._error = None
-            
+
         if self._shuffling != None:
             ui.append('root', self.get_ui_shuffler())
-      
+
         if self._adding_chain != None:
             ui.append('root', UI.InputBox(id='dlgAddChain', text='Chain name:'))
 
@@ -82,72 +82,95 @@ class FirewallPlugin(CategoryPlugin):
 
     def get_ui_edit_rule(self, rule=Rule()):
         protocols = (('TCP','tcp'), ('UDP','udp'), ('ICMP','icmp'))
-        
-        tc = UI.TabControl()
+
+        tc = UI.TabControl(active=0)
         tc.add('Main',
-            UI.VContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
-                        UI.Label(text='Action:'),
-                        UI.Radio(text='Accept', name='caction', value='ACCEPT', checked=rule.action=="ACCEPT"),
-                        UI.Radio(text='Drop',   name='caction', value='DROP',   checked=rule.action=="DROP"),
-                        UI.Radio(text='Reject', name='caction', value='REJECT', checked=rule.action=="REJECT"),
-                        UI.Radio(text='Log',    name='caction', value='LOG',   checked=rule.action=="LOG"),
-                    ),
-                    UI.LayoutTableRow(
-                        UI.Container(),
-                        UI.Radio(text='Masq',   name='caction', value='MASQUERADE', checked=rule.action=="MASQUERADE"),
-                        UI.Radio(text='Exit',   name='caction', value='EXIT',       checked=rule.action=="EXIT"),
-                        UI.Radio(text='Run chain:', name='caction', value='RUN',    checked=rule.action not in self.defactions),
-                        UI.TextInput(name='runchain', size=10, value=rule.action)
-                    )
+            UI.Container(
+                UI.Formline(
+                    UI.Radio(text='Accept', name='caction', value='ACCEPT',     checked=rule.action=="ACCEPT"),
+                    UI.Radio(text='Drop',   name='caction', value='DROP',       checked=rule.action=="DROP"),
+                    UI.Radio(text='Reject', name='caction', value='REJECT',     checked=rule.action=="REJECT"),
+                    UI.Radio(text='Log',    name='caction', value='LOG',        checked=rule.action=="LOG"),
+                    UI.Radio(text='Masq',   name='caction', value='MASQUERADE', checked=rule.action=="MASQUERADE"),
+                    UI.Radio(text='Exit',   name='caction', value='EXIT',       checked=rule.action=="EXIT"),
+                    UI.Radio(text='Run chain:', name='caction', value='RUN',    checked=rule.action not in self.defactions),
+                    UI.TextInput(name='runchain', value=rule.action),
+                    text='Action'
                 ),
-                UI.LayoutTable(
-                    rule.get_ui_select('protocol', 'Protocol:', protocols, size=5),
-                    rule.get_ui_text('source', 'Source address:', help="You can specify IP mask like 192.168.0.0/24"),
-                    rule.get_ui_text('destination', 'Destination address:'),
-                    rule.get_ui_text('mac_source', 'Source MAC address:'),
-                    rule.get_ui_select('in_interface', 'Incoming interface:', self.cfg.get_devices(), size=7),
-                    rule.get_ui_select('out_interface', 'Outgoing interface:', self.cfg.get_devices(), size=7),
-                    rule.get_ui_bool('fragmented', 'Fragmentation:'),
-                    UI.LayoutTableRow(           
-                        UI.Label(text='Modules:'),
-                        UI.LayoutTableCell(
-                            UI.TextInput(name='modules', value=' '.join(rule.modules), help="Additional IPTables modules to load"),
-                            colspan=2
-                        )
-                    ),
-                    UI.LayoutTableRow(           
-                        UI.Label(text='More options:'),
-                        UI.LayoutTableCell(
-                            UI.TextInput(name='options', value=' '.join(rule.miscopts)),
-                            colspan=2
-                        )
-                    )
-                )
+                UI.Formline(
+                    rule.get_ui_select('protocol', protocols),
+                    text='Protocol'
+                ),
+                UI.Formline(
+                    rule.get_ui_text('source'),
+                    text='Source IP',
+                    help='You can specify IP mask like 192.168.0.0/24'
+                ),
+                UI.Formline(
+                    rule.get_ui_text('destination'),
+                    text='Destination IP',
+                ),
+                UI.Formline(
+                    rule.get_ui_text('mac_source'),
+                    text='Source MAC'
+                ),
+                UI.Formline(
+                    rule.get_ui_select('in_interface', self.cfg.get_devices()),
+                    text='Incoming interface'
+                ),
+                UI.Formline(
+                    rule.get_ui_select('out_interface', self.cfg.get_devices()),
+                    text='Outgoing interface'
+                ),
+                UI.Formline(
+                    rule.get_ui_bool('fragmented'),
+                    text='Fragmentation'
+                ),
+                UI.Formline(
+                    UI.TextInput(name='modules', value=' '.join(rule.modules)),
+                    text='Modules',
+                    help='Additional IPTables modules to load',
+                ),
+                UI.Formline(
+                    UI.TextInput(name='options', value=' '.join(rule.miscopts)),
+                    text='Additional options',
+                ),
             ))
-            
+
         tc.add('TCP/UDP',
-            UI.LayoutTable(
-                rule.get_ui_text('sport', 'Source port:', help='Can accept lists and ranges like 80:85,8000 up to 15 ports'),
-                rule.get_ui_text('dport', 'Destination port:'),
-                rule.get_ui_flags('TCP flags:'),
-                rule.get_ui_states('TCP states:'),
+            UI.Container(
+                UI.Formline(
+                    rule.get_ui_text('sport'),
+                    text='Source port',
+                    help='Can accept lists and ranges like 80:85,8000 up to 15 ports',
+                ),
+                UI.Formline(
+                    rule.get_ui_text('dport'),
+                    text='Destination port'
+                ),
+                UI.Formline(
+                    rule.get_ui_flags(),
+                    text='TCP flags',
+                ),
+                UI.Formline(
+                    rule.get_ui_states(),
+                    text='TCP states',
+                ),
             ))
-            
+
         return UI.DialogBox(tc, id='dlgEditRule', miscbtn='Delete', miscbtnid='deleterule')
-        
+
     def get_ui_shuffler(self):
         li = UI.SortList(id='list')
         for r in self.cfg.tables[self._shuffling_table].chains[self._shuffling].rules:
             li.append(
                 UI.SortListItem(
-                    UI.FWRule(action=r.action, desc=r.desc, id=''), 
+                    UI.FWRule(action=r.action, desc=r.desc, id=''),
                     id=r.raw
                 ))
-            
+
         return UI.DialogBox(li, id='dlgShuffler')
-               
+
     @event('minibutton/click')
     @event('button/click')
     def on_click(self, event, params, vars=None):
@@ -183,7 +206,7 @@ class FirewallPlugin(CategoryPlugin):
             self._editing_rule = len(ch.rules)
             ch.rules.append(Rule('-A %s -j ACCEPT'%params[2]))
             self.cfg.save()
-            
+
         if params[0] == 'deleterule':
             self.cfg.tables[self._editing_table].\
                      chains[self._editing_chain].\
@@ -199,7 +222,7 @@ class FirewallPlugin(CategoryPlugin):
         self._editing_table = params[0]
         self._editing_chain = params[1]
         self._editing_rule = int(params[2])
-          
+
     @event('dialog/submit')
     def on_submit(self, event, params, vars):
         if params[0] == 'dlgAddChain':
@@ -228,4 +251,3 @@ class FirewallPlugin(CategoryPlugin):
             self._editing_chain = None
             self._editing_table = None
             self._editing_rule = None
-

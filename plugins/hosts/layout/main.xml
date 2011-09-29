@@ -1,58 +1,39 @@
 <xml>
     <toolbar>
-        <hcontainer>
-            <toolbutton id="add" text="Add host" icon="/dl/core/ui/stock/add.png" />
-            <toolbutton id="hostname" text="Change hostname" icon="/dl/core/ui/stock/server.png" />
-        </hcontainer>
+        <button id="add" text="Add host" icon="/dl/core/ui/stock/add.png" />
+        <button id="hostname" text="Change hostname" icon="/dl/core/ui/stock/server.png" />
     </toolbar>
-    
+
     <label text="Hosts" size="5" />
-    
+
     <pad>
-        <datatable id="list">
-            <datatablerow header="True">
-                <datatablecell width="30%">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
                     <label text="IP address" />
-                </datatablecell>
-                <datatablecell width="30%">
+                </dth>
+                <dth>
                     <label text="Hostname" />
-                </datatablecell>
-                <datatablecell width="30%">
+                </dth>
+                <dth>
                     <label text="Aliases" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
-    
+
     <dialogbox id="dlgEdit">
-        <layouttable>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="IP address" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput id="ip" name="ip" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Hostname" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput id="name" name="name" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Aliases" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput id="aliases" name="aliases" />
-                </layouttablecell>
-            </layouttablerow>
-        </layouttable>
+        <formline text="IP address">
+            <textinput id="ip" name="ip" />
+        </formline>
+        <formline text="Hostname">
+            <textinput id="name" name="name" />
+        </formline>
+        <formline text="Aliases">
+            <textinput id="aliases" name="aliases" />
+        </formline>
     </dialogbox>
-    
+
     <inputbox id="dlgSelf" text="Hostname" />
-</xml>    
+</xml>

@@ -20,6 +20,16 @@
     }
 }
 
+
+.btn {
+    line-height: 25px;
+    padding: 0 10px;
+    img {
+        float: left;
+        padding: 4px 6px 0 0;
+    }
+}
+
 .btn.default {
     .defbtn();
 }
@@ -44,23 +54,8 @@
     .btn {
         .custom-button-mixin();
         .defbtn();
-        height: 25px;
-        padding: 0 8px;
         margin: 0 2px;
-        line-height: 24px;
         .border-radius(2px);
-
-        img {
-            float: left;
-            padding: 4px 6px 0 0;
-        }
-    }
-
-    .separator {
-        border-right: 1px solid #ccc;
-        display: inline-block;
-        width: 1px;
-        height: 28px;
     }
 }
 

@@ -68,41 +68,41 @@ class Rule:
             self.add_option(inv, prefix, s)
 
 
-    def get_ui_text(self, param, desc, help=''):
+    def get_ui_text(self, param, help=''):
         v = getattr(self, param)
-        return UI.LayoutTableRow(
-                    UI.Label(text=desc),
-                    UI.Select(
+        return UI.HContainer(
+                    UI.SelectInput(
                         UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
+                        design='mini',
                         name='%s-mode'%param
                     ),
                     UI.TextInput(name=param, value=v[1] or '', help=help)
                )
 
-    def get_ui_bool(self, param, desc):
+    def get_ui_bool(self, param):
         v = getattr(self, param)
-        return UI.LayoutTableRow(
-                    UI.Label(text=desc),
-                    UI.Select(
+        return UI.HContainer(
+                    UI.SelectInput(
                         UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Yes', value='nrm', selected=v[1]==True),
                         UI.SelectOption(text='No', value='inv', selected=v[1]==False),
+                        design='mini',
                         name='%s-mode'%param
                     )
                )
 
-    def get_ui_select(self, param, desc, opts, size=10):
+    def get_ui_select(self, param, opts):
         # opts == [['Desc', 'value'], ['Desc #2', 'value2']]
         v = getattr(self, param)
 
-        return UI.LayoutTableRow(
-                    UI.Label(text=desc),
-                    UI.Select(
+        return UI.HContainer(
+                    UI.SelectInput(
                         UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
+                        design='mini',
                         name='%s-mode'%param
                     ),
                     UI.SelectTextInput(
@@ -110,56 +110,48 @@ class Rule:
                             for x in opts],
                         name=param,
                         value=v[1] or '',
-                        size=size
+                        design='mini'
                     )
                )
 
-    def get_ui_flags(self, desc):
+    def get_ui_flags(self):
         v = self.tcp_flags
 
-        return UI.LayoutTableRow(
-                    UI.Label(text=desc),
-                    UI.Select(
+        return UI.HContainer(
+                    UI.SelectInput(
                         UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Are', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Are not', value='inv', selected=v[0] and v[1] is not None),
+                        design='mini',
                         name='tcpflags-mode'
                     ),
-                    UI.LayoutTableCell(
-                        UI.LayoutTable(
-                            UI.LayoutTableRow(
+                        UI.LT(
+                            UI.LTR(
                                 UI.Label(text='Check:'),
                                 *[UI.Checkbox(text=x, name='tcpflags-vals[]', value=x, checked=x in v[2] if v[2] else False)
                                     for x in self.flags]
                             ),
-                            UI.LayoutTableRow(
+                            UI.LTR(
                                 UI.Label(text='Mask:'),
                                 *[UI.Checkbox(text=x, name='tcpflags-mask[]', value=x, checked=x in v[1] if v[1] else False)
                                     for x in self.flags]
                             )
                         ),
-                        colspan=2
-                    )
                )
 
-    def get_ui_states(self, desc):
+    def get_ui_states(self):
         v = self.state
-        return UI.LayoutTableRow(
-                    UI.Label(text=desc),
-                    UI.Select(
+        return UI.HContainer(
+                    UI.SelectInput(
                         UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
-                        name='state-mode'
+                        design='mini',
+                        name='state-mode',
                     ),
-                    UI.LayoutTableCell(
-                        UI.LayoutTable(
-                            UI.LayoutTableRow(
-                                *[UI.Checkbox(text=x, name='state[]', value=x, checked=v[1] and x in v[1])
-                                    for x in self.states]
-                            )
-                        ),
-                        colspan=2
+                    UI.HContainer(
+                        *[UI.Checkbox(text=x, name='state[]', value=x, checked=v[1] and x in v[1])
+                            for x in self.states]
                     )
                )
 
