@@ -1,24 +1,24 @@
 import os
-from ajenti.utils import hash_pw, shell
+from ajenti.utils import hashpw, shell
 from ConfigParser import ConfigParser
 
 
 RCFG_FILE = '/root/ajenti-re.conf'
 
-def reconfigure(cfg): 
-    if not os.path.exists(RFCG_FILE):
+def reconfigure(cfg):
+    if not os.path.exists(RCFG_FILE):
         return
-        
+
     rcfg = ConfigParser()
     rcfg.load(RCFG_FILE)
-    
+
     if rcfg.has_option('ajenti', 'credentials'):
         u,p = rcfg.get('ajenti', 'credentials').split(':')
         cfg.remove_option('users', 'admin')
         if not p.startswith('{SHA}'):
-            p = hash_pw(p)
+            p = hashpw(p)
         cfg.set('users', u, p)
-        
+
     if rcfg.has_option('ajenti', 'plugins'):
         for x in rcfg.get('ajenti', 'plugins').split():
             shell('ajenti-pkg get ' + x)

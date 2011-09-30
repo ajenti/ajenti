@@ -13,7 +13,7 @@ class Element(etree.ElementBase):
     def __init__(self, tag, *args, **kwargs):
         etree.ElementBase.__init__(self)
         self.tag = tag.lower()
-        if not 'id' in kwargs.keys():
+        if not 'id' in kwargs.keys() or kwargs['id'] is None:
             self['id'] = str(random.randint(1,9000*9000))
         self._init(*args, **kwargs)
         self._children = []
@@ -171,7 +171,7 @@ class UI(object):
         def add(self, name, content, form=None, id=None):
             tb = UI.TabBody(content, id=id)
             self.append(UI.TabHeader(text=name, id=(id or tb['id']), live=(content is None), form=form))
-            if content:
+            if content is not None:
                 self.append(tb)
             self.tc += 1
 

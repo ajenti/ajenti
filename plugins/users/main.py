@@ -42,10 +42,10 @@ class UsersPlugin(CategoryPlugin):
         self.users = self.backend.get_all_users()
         self.groups = self.backend.get_all_groups()
         self.backend.map_groups(self.users, self.groups)
-    
+
     def get_config(self):
         return self.app.get_config(self.backend)
-        
+
     def on_session_start(self):
         self._tab = 0
         self._selected_user = ''
@@ -66,53 +66,43 @@ class UsersPlugin(CategoryPlugin):
             ui.remove('dlgEdit')
 
         # Users
-        t = ui.find('userlist') 
-        
+        t = ui.find('userlist')
+
         for u in self.users:
-            t.append(UI.DataTableRow(
-                    UI.DataTableCell(
-                        UI.Image(file='/dl/core/ui/stock/user.png'),
-                        UI.Label(text=u.login, bold=True)
-                    ),
+            t.append(UI.DTR(
+                    UI.Image(file='/dl/core/ui/stock/user.png'),
+                    UI.Label(text=u.login, bold=True),
                     UI.Label(text=u.uid, bold=(u.uid>=1000)),
                     UI.Label(text=u.home),
                     UI.Label(text=u.shell),
-                    UI.DataTableCell(
-                        UI.MiniButton(id='edit/'+u.login, text='Edit'),
-                        hidden=True
-                    )
+                    UI.TipIcon(icon='/dl/core/ui/stock/edit.png', id='edit/'+u.login, text='Edit'),
                 ))
 
         if self._selected_user != '':
             u = self.backend.get_user(self._selected_user, self.users)
             self.backend.map_groups([u], self.backend.get_all_groups())
 
-            ui.find('lblulogin').set('text', 'Login: '+ u.login)
-            ui.find('deluser').set('msg', 'Delete user %s'%u.login)
-            ui.find('lbluuid').set('text', 'UID: '+ str(u.uid))
-            ui.find('lblugid').set('text', 'GID: '+ str(u.gid))
-            ui.find('lbluhome').set('text', 'Home: '+ u.home)
-            ui.find('lblushell').set('text', 'Shell: '+ u.shell)
+            ui.find('elogin').set('value', u.login)
+            ui.find('deluser').set('warning', 'Delete user %s'%u.login)
+            ui.find('euid').set('value', str(u.uid))
+            ui.find('egid').set('value', str(u.gid))
+            ui.find('ehome').set('value', u.home)
+            ui.find('eshell').set('value', u.shell)
             ui.find('lblugroups').set('text', ', '.join(u.groups))
         else:
             ui.remove('dlgEditUser')
-            
-            
+
+
         # Groups
         t = ui.find('grouplist')
 
         for u in self.groups:
-            t.append(UI.DataTableRow(
-                    UI.DataTableCell(
-                        UI.Image(file='/dl/core/ui/stock/group.png'),
-                        UI.Label(text=u.name, bold=True)
-                    ),
+            t.append(UI.DTR(
+                    UI.Image(file='/dl/core/ui/stock/group.png'),
+                    UI.Label(text=u.name, bold=True),
                     UI.Label(text=u.gid, bold=(u.gid>=1000)),
                     UI.Label(text=', '.join(u.users)),
-                    UI.DataTableCell(
-                        UI.MiniButton(id='gedit/'+u.name, text='Edit'),
-                        hidden=True
-                    )
+                    UI.TipIcon(icon='/dl/core/ui/stock/edit.png', id='gedit/'+u.name, text='Edit'),
                 ))
 
         if self._selected_group != '':
@@ -156,6 +146,7 @@ class UsersPlugin(CategoryPlugin):
             self._selected_group = ''
 
     @event('dialog/submit')
+    @event('form/submit')
     def on_submit(self, event, params, vars=None):
         if params[0] == 'dlgEdit':
             v = vars.getvalue('value', '')
@@ -168,7 +159,7 @@ class UsersPlugin(CategoryPlugin):
                             self._editing = ''
                             return
                     self.backend.add_user(v)
-                    self._selected_user = v 
+                    self._selected_user = v
                 elif self._editing == 'addgrp':
                     self.reload_data()
                     for u in self.groups:
@@ -182,18 +173,20 @@ class UsersPlugin(CategoryPlugin):
                     self.backend.add_to_group(self._selected_user, v)
                 elif self._editing == 'delfromgroup':
                     self.backend.remove_from_group(self._selected_user, v)
-                elif self._editing == 'password':
-                    self.backend.change_user_password(self._selected_user, v)
-                elif self._editing == 'login':
-                    self.backend.change_user_param(self._selected_user, self._editing, v)
-                    self._selected_user = v
-                elif self._editing in self.params:
-                    self.backend.change_user_param(self._selected_user, self._editing, v)
-                elif self._editing in self.gparams:
-                    self.backend.change_group_param(self._selected_group, self._editing, v)
-            self._editing = ''
+        if params[0].startswith('e'):
+            editing = params[0][1:]
+            v = vars.getvalue('value', '')
+            print editing, v
+            if editing == 'password':
+                self.backend.change_user_password(self._selected_user, v)
+            elif editing == 'login':
+                self.backend.change_user_param(self._selected_user, editing, v)
+                self._selected_user = v
+            elif editing in self.params:
+                self.backend.change_user_param(self._selected_user, editing, v)
+            elif editing in self.gparams:
+                self.backend.change_group_param(self._selected_group, editing, v)
         if params[0] == 'dlgEditUser':
             self._selected_user = ''
         if params[0] == 'dlgEditGroup':
             self._selected_group = ''
-

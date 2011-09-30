@@ -16,19 +16,25 @@
     <xsl:variable name="onclickjs">
         <xsl:choose>
             <xsl:when test="@warning != ''">
-                return Ajenti.showWarning('<xsl:value-of select="@warning"/>', '<xsl:value-of select="@id"/>');
+                return Ajenti.showWarning('<xsl:value-of select="@warning"/>',
+                    '<xsl:value-of select="@id"/>');
             </xsl:when>
+
+            <xsl:when test="@onclick = 'form'">
+                return ajaxForm('<xsl:value-of select="@form" />',
+                    '<xsl:value-of select="@action" />');
+            </xsl:when>
+
+            <xsl:when test="@onclick = 'off'"></xsl:when>
+
+            <xsl:when test="not(@onclick)">
+                return ajax('/handle/<xsl:value-of
+                        select="x:attr(@class, 'button')" />/click/<xsl:value-of
+                        select="@id" />');
+            </xsl:when>
+
             <xsl:otherwise>
-                <xsl:choose>
-                    <xsl:when test="@onclick = 'form'">
-                        return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@action" />');
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:if test="not(@onclick = 'off')">
-                            return ajax('/handle/<xsl:value-of select="x:attr(@class, 'button')" />/click/<xsl:value-of select="@id" />');
-                        </xsl:if>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <xsl:value-of select="@onclick" />
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>

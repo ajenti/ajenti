@@ -1,20 +1,38 @@
 <xml>
 
 <div class="ui-dashboard-banner">
+    <div style="float:right">
+        <button id="btnAddWidget" text="Add widget" icon="/dl/core/ui/stock/add.png" />
+        <button text="Refresh" icon="/dl/core/ui/stock/refresh.png" />
+    </div>
     <img id="icon" />
     <span id="host" />
-    <div id="distro" />
+    <span id="distro" />
 </div>
 
-<toolbar>
-    <toolbutton id="btnAddWidget" text="Add widget" icon="/dl/core/ui/stock/add.png" />
-</toolbar>
-    
+    <div id="save-query" style="display:none">
+        <button onclick="return dashboardSave()" text="Save changes" design="primary" />
+        <button text="Revert" design="danger" />
+    </div>
+
 <pad id="main">
+
     <hcontainer spacing="15">
-        <vcontainer id="cleft" spacing="10" />
-        <vcontainer id="cright" spacing="10" />
+        <div id="cleft" class="dashboard" />
+        <div id="cright" class="dashboard" />
     </hcontainer>
-</pad>    
+
+    <div id="trash" class="ui-dashboard-trash dashboard" style="opacity:0">
+        Drop here to remove widget
+    </div>
+
+    <script>
+        $('.dashboard').sortable({
+            connectWith: '.dashboard',
+            handle: 'div.handle',
+            revert: true,
+        }).disableSelection();
+    </script>
+</pad>
 
 </xml>

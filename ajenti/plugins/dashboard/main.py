@@ -54,8 +54,10 @@ class Dashboard(CategoryPlugin):
                 if hasattr(prov, 'hidden'):
                     continue
                 dlg.append('list', UI.ListItem(
-                    UI.Image(file=prov.icon),
-                    UI.Label(text=prov.name),
+                    UI.HContainer(
+                        UI.Image(file=prov.icon),
+                        UI.Label(text=prov.name),
+                    ),
                     id=prov.plugin_id,
                 ))
                 idx += 1
@@ -63,9 +65,6 @@ class Dashboard(CategoryPlugin):
 
         elif self._adding_widget != None:
             ui.append('main', self._mgr.get_by_name(self._adding_widget).get_config_dialog())
-
-        else:
-            ui.append('main', UI.Refresh(time=5000))
 
         return ui
 
@@ -80,8 +79,15 @@ class Dashboard(CategoryPlugin):
         else:
             self._adding_widget = id
 
+    @event('dashboard/save')
+    def on_save(self, event, params, vars):
+        l = params[0]
+        r = params[1]
+        l = [int(x) for x in l.split(',') if x]
+        r = [int(x) for x in r.split(',') if x]
+        self._mgr.reorder(l,r)
+
     @event('button/click')
-    @event('minibutton/click')
     @event('linklabel/click')
     def on_event(self, event, params, vars):
         if params[0] == 'btnAddWidget':
@@ -105,11 +111,3 @@ class Dashboard(CategoryPlugin):
                 cfg = w.process_config(vars)
                 self._mgr.add_widget(id, cfg)
             self._adding_widget = None
-
-    @event('widget/move')
-    def on_move(self, event, params, vars=None):
-        id = int(params[0])
-        if params[1] == 'delete':
-            self._mgr.remove_widget(id)
-        else:
-            self._mgr.move_widget(id, params[1])

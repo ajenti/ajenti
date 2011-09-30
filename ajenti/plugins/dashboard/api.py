@@ -61,23 +61,9 @@ class Dashboard (API):
             self._left.append(idx)
             self.save_cfg()
 
-        def move_widget(self, id, dir):
-            if dir == 'left':
-                self._right.remove(id)
-                self._left.append(id)
-            if dir == 'right':
-                self._left.remove(id)
-                self._right.append(id)
-            if dir == 'up':
-                a = self._left if id in self._left else self._right
-                idx = a.index(id)
-                if idx > 0:
-                    a[idx], a[idx-1] = a[idx-1], a[idx]
-            if dir == 'down':
-                a = self._left if id in self._left else self._right
-                idx = a.index(id)
-                if idx < len(a)-1:
-                    a[idx], a[idx+1] = a[idx+1], a[idx]
+        def reorder(self, nl, nr):
+            self._left = nl
+            self._right = nr
             self.save_cfg()
 
         def remove_widget(self, id):

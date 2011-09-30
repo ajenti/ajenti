@@ -1,133 +1,88 @@
 <xml>
     <toolbar>
-        <hcontainer>
-            <toolbutton id="adduser" text="Add user" icon="/dl/core/ui/stock/add.png" />
-            <toolbutton id="addgrp" text="Add group" icon="/dl/core/ui/stock/add.png" />
-        </hcontainer>
+        <button id="adduser" text="Add user" icon="/dl/core/ui/stock/add.png" />
+        <button id="addgrp" text="Add group" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
-    
-    <pad>
-    <tabcontrol id="tabs">
-        <tabheadernode id="tabs">
-            <tabheader pid="tabs" text="Users" id="0"/>
-            <tabheader pid="tabs" text="Groups" id="1"/>
-        </tabheadernode>
 
-        <container>
+    <pad>
+    <tabcontrol id="tabs" active="0">
+        <tabheader pid="tabs" text="Users" id="0"/>
+        <tabheader pid="tabs" text="Groups" id="1"/>
+
             <tabbody pid="tabs" id="0">
-                <datatable id="userlist">
-                    <datatablerow header="True">
-                        <datatablecell width="25%">
+                <dt id="userlist" width="100%">
+                    <dtr header="True">
+                        <dth width="1" />
+                        <dth>
                             <label text="Login" />
-                        </datatablecell>
-                        <datatablecell width="25%">
+                        </dth>
+                        <dth>
                             <label text="UID" />
-                        </datatablecell>
-                        <datatablecell width="25%">
+                        </dth>
+                        <dth>
                             <label text="Home" />
-                        </datatablecell>
-                        <datatablecell width="25%">
+                        </dth>
+                        <dth>
                             <label text="Shell" />
-                        </datatablecell>
-                        <datatablecell />
-                    </datatablerow>
-                </datatable>
+                        </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
             </tabbody>
-            
+
             <tabbody pid="tabs" id="1">
-                <datatable id="grouplist">
-                    <datatablerow header="True">
-                        <datatablecell>
+                <dt id="grouplist">
+                    <dtr header="True" width="100%">
+                        <dth width="1" />
+                        <dth>
                             <label text="Name" />
-                        </datatablecell>
-                        <datatablecell>
+                        </dth>
+                        <dth>
                             <label text="GID" />
-                        </datatablecell>
-                        <datatablecell>
+                        </dth>
+                        <dth>
                             <label text="Users" />
-                        </datatablecell>
-                        <datatablecell />
-                    </datatablerow>
-                </datatable>
+                        </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
             </tabbody>
-        </container>
     </tabcontrol>
-        
-        <dialogbox id="dlgEditUser" hidecancel="True">
-                    <layouttable>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lblulogin" bold="True" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button text="Change" id="chlogin" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell />
-                            <layouttablecell>
-                                <button text="Change password" id="chpassword" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell />
-                            <layouttablecell>
-                                <warningbutton text="Delete user" id="deluser" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lbluuid" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button text="Change" id="chuid" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lblugid" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button text="Change" id="chgid" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lbluhome" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button text="Change" id="chhome" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lblushell" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button text="Change" id="chshell" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Groups:" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <minibutton text="Add" id="chaddtogroup" />
-                                <minibutton text="Remove" id="chdelfromgroup" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell colspan="2">
-                                <label id="lblugroups" />
-                            </layouttablecell>
-                        </layouttablerow>
-                    </layouttable>
-        </dialogbox>
+
+    <dialogbox id="dlgEditUser" hidecancel="True">
+        <formline text="Login">
+            <editable id="elogin" />
+        </formline>
+        <formline text="Password">
+            <editable id="epassword" value="Click to change" />
+        </formline>
+        <formline text="UID">
+            <editable id="euid" />
+        </formline>
+        <formline text="GID">
+            <editable id="egid" />
+        </formline>
+        <formline text="Home">
+            <editable id="ehome" />
+        </formline>
+        <formline text="Shell">
+            <editable id="eshell" />
+        </formline>
+        <formline text="Groups">
+            <label id="lblugroups" />
+            <br/>
+            <button text="Add" id="chaddtogroup" />
+            <button text="Remove" id="chdelfromgroup" />
+        </formline>
+        <formline>
+            <button id="deluser" design="danger" text="Delete user" />
+        </formline>
+    </dialogbox>
 
         <dialogbox id="dlgEditGroup">
                     <layouttable>
                         <layouttablerow>
-                            <layouttablecell>   
+                            <layouttablecell>
                                 <label id="lblgname" bold="True" />
                             </layouttablecell>
                             <layouttablecell>
@@ -141,7 +96,7 @@
                             </layouttablecell>
                         </layouttablerow>
                         <layouttablerow>
-                            <layouttablecell>   
+                            <layouttablecell>
                                 <label id="lblggid" />
                             </layouttablecell>
                             <layouttablecell>
@@ -161,7 +116,7 @@
                         </layouttablerow>
                   </layouttable>
         </dialogbox>
-        
+
         <inputbox id="dlgEdit" />
     </pad>
 </xml>

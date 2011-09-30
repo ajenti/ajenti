@@ -1,6 +1,5 @@
 <xml>
     <div>
-        <div id="blackout" class="ui-el-modal-blackout" style="display: none" />
         <div>
             <div id="system-messages" class="ui-el-messages"/>
             <div class="ui-progress-box-wr" id="progressbox-placeholder"/>

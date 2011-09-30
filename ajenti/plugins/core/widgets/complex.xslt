@@ -25,14 +25,16 @@
 <xsl:template match="tabcontrol">
     <div>
         <ul id="{@id}" class="tabs">
-            <xsl:if test="not(@live)">
-                <xsl:attribute name="data-tabs" value="tabs" />
-            </xsl:if>
             <xsl:apply-templates select="./tabheader" />
         </ul>
         <div class="tab-content">
             <xsl:apply-templates select="./tabbody" />
         </div>
+        <script>
+            <xsl:if test="not(@live)">
+                $('{@id}').tabs();
+            </xsl:if>
+        </script>
     </div>
 </xsl:template>
 
@@ -71,33 +73,6 @@
 </xsl:template>
 
 
-<xsl:template match="tiles">
-     <div class="ui-el-tiles" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')};">
-         <xsl:for-each select="*">
-             <div style="float:left;padding: {x:css(../@spacing, '4')}">
-                 <xsl:apply-templates select="."/>
-             </div>
-         </xsl:for-each>
-    </div>
-</xsl:template>
-
-
-
-<xsl:template match="plugininfo">
-    <div class="ui-el-plugin-info">
-        <img src="{@icon}"/>
-        <div>
-            <label size="3" text="{@name}"/><br/>
-            <outlinklabel url="{@url}" text="v{@version}, by {@author}"/>
-        </div>
-        <div class="description">
-            <xsl:value-of select="@desc"/>
-        </div>
-        <div class="description">
-            <xsl:apply-templates />
-        </div>
-    </div>
-</xsl:template>
 
 
 <xsl:template match="editable">
