@@ -18,7 +18,7 @@ class NotepadPlugin(CategoryPlugin):
         self._files = []
         self._data = []
         self.add_tab()
-        
+
         self._favs = []
 
         if self.app.config.has_option('notepad', 'favs'):
@@ -29,38 +29,42 @@ class NotepadPlugin(CategoryPlugin):
         self._roots.append(self.app.get_config(self).dir)
         self._files.append(None)
         self._data.append(None)
-        
+
     def get_ui(self):
         mui = self.app.inflate('notepad:main')
-        tabs = UI.TabControl(active=self._tab)
+        tabs = UI.TabControl(active=self._tab,test='test')
         mui.append('main', tabs)
 
-        idx = 0        
+        idx = 0
         for root in self._roots:
             file = self._files[idx]
             data = self._data[idx]
-            
+
             ui = self.app.inflate('notepad:tab')
-            tabs.add(file or root, ui)
-            
+            tabs.add(file or root, ui, id=str(idx))
+
             favs = ui.find('favs')
             files = ui.find('files')
-                
+
             for f in self._favs:
                 files.append(
                     UI.ListItem(
-                        UI.Image(file='/dl/core/ui/stock/bookmark.png'),
-                        UI.Label(text=f), 
+                        UI.HContainer(
+                            UI.Image(file='/dl/core/ui/stock/bookmark.png'),
+                            UI.Label(text=f),
+                        ),
                         id='*'+str(self._favs.index(f))+'/%i'%idx,
                         active=f==file
                     )
                   )
-            
+
             if root != '/':
                 files.append(
                     UI.ListItem(
-                        UI.Image(file='/dl/core/ui/stock/folder.png'),
-                        UI.Label(text='..'), 
+                        UI.HContainer(
+                            UI.Image(file='/dl/core/ui/stock/folder.png'),
+                            UI.Label(text='..'),
+                        ),
                         id='<back>/%i'%idx,
                         active=False,
                     )
@@ -71,29 +75,31 @@ class NotepadPlugin(CategoryPlugin):
                 if os.path.isdir(path):
                     files.append(
                         UI.ListItem(
-                            UI.Image(file='/dl/core/ui/stock/folder.png'),
-                            UI.Label(text=p), 
+                            UI.HContainer(
+                                UI.Image(file='/dl/core/ui/stock/folder.png'),
+                                UI.Label(text=p),
+                            ),
                             id=p+'/%i'%idx
                         )
                       )
-                  
+
             for p in sorted(os.listdir(root)):
                 path = os.path.join(root, p)
                 if not os.path.isdir(path):
                     files.append(
                         UI.ListItem(
                             UI.Image(file='/dl/core/ui/stock/file.png'),
-                            UI.Label(text=p), 
+                            UI.Label(text=p),
                             id=p+'/%i'%idx,
                             active=path==file
                         )
                       )
 
-            ui.find('data').set('name', 'data/%i'%idx) 
+            ui.find('data').set('name', 'data/%i'%idx)
             if file is not None:
-                ui.find('data').set('value', data) 
-            ui.find('data').set('id', 'data%i'%idx) 
-        
+                ui.find('data').set('value', data)
+            ui.find('data').set('id', 'data%i'%idx)
+
             fbtn = ui.find('btnFav')
             ui.find('btnSave').set('action', 'save/%i'%idx)
             ui.find('btnClose').set('action', 'close/%i'%idx)
@@ -114,8 +120,10 @@ class NotepadPlugin(CategoryPlugin):
 
             idx += 1
 
+
+        tabs.add("+", None, id='newtab', form='frmEdit')
         return mui
-   
+
     @event('listitem/click')
     def on_list_click(self, event, params, vars=None):
         self._tab = int(params[1])
@@ -123,13 +131,13 @@ class NotepadPlugin(CategoryPlugin):
             params[0] = '..'
         if params[0].startswith('*'):
             params[0] = self._favs[int(params[0][1:])]
-            
+
         p = os.path.abspath(os.path.join(self._roots[self._tab], params[0]))
         if os.path.isdir(p):
             self._roots[self._tab] = p
         else:
             try:
-                data = open(p).read()        
+                data = open(p).read()
                 self._files[self._tab] = p
                 self._data[self._tab] = data
             except:
@@ -139,16 +147,16 @@ class NotepadPlugin(CategoryPlugin):
     def on_button(self, event, params, vars=None):
         if params[0] == 'btnClose':
             self._file = None
-            
+
     @event('form/submit')
     def on_submit(self, event, params, vars=None):
         if vars.getvalue('action', None) == 'newtab':
             self.add_tab()
-            
+
         for idx in range(0,len(self._roots)):
             if idx >= len(self._roots): # closed
                 break
-                
+
             self._data[idx] = vars.getvalue('data/%i'%idx, None)
             if vars.getvalue('action', None) == 'save/%i'%idx:
                 self._tab = idx
@@ -164,11 +172,9 @@ class NotepadPlugin(CategoryPlugin):
             if vars.getvalue('action', '') == 'close/%i'%idx:
                 self._tab = 0
                 del self._roots[idx]
-                del self._files[idx]                
-                del self._data[idx]                
+                del self._files[idx]
+                del self._data[idx]
                 if len(self._roots) == 0:
                     self.add_tab()
             self.app.config.set('notepad', 'favs', '|'.join(self._favs))
             self.app.config.save()
-            
-            

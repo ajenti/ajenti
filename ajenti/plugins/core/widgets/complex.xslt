@@ -1,5 +1,15 @@
 <xsl:template match="tabheader">
-    <li class="ui-el-tab-header {x:iif(@active, 'active', '')}">
+    <li class="ui-el-tab-header {x:iif(@active or (../@active = @id), 'active', '')}">
+        <xsl:if test="../@live = 'True' or @live = 'True'">
+            <xsl:attribute name="onclick">
+                <xsl:if test="@form">
+                    return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@id" />');
+                </xsl:if>
+                <xsl:if test="not(@form)">
+                    return ajax('/handle/tab/click/<xsl:value-of select="@id" />');
+                </xsl:if>
+            </xsl:attribute>
+        </xsl:if>
         <a href="#{@id}">
             <xsl:value-of select="@text" />
         </a>
@@ -7,14 +17,17 @@
 </xsl:template>
 
 <xsl:template match="tabbody">
-    <div id="{@id}" class="{x:iif(@active, 'active', '')}">
+    <div id="{@id}" class="{x:iif(@active or (../@active = @id), 'active', '')}">
         <xsl:apply-templates />
     </div>
 </xsl:template>
 
 <xsl:template match="tabcontrol">
     <div>
-        <ul id="{@id}" class="tabs" data-tabs="tabs">
+        <ul id="{@id}" class="tabs">
+            <xsl:if test="not(@live)">
+                <xsl:attribute name="data-tabs" value="tabs" />
+            </xsl:if>
             <xsl:apply-templates select="./tabheader" />
         </ul>
         <div class="tab-content">
@@ -28,25 +41,19 @@
 
 <xsl:template match="treecontainer">
     <div class="ui-el-treecontainernode">
-        <a href="#">
-            <div class="ui-el-treecontainernode-title" onclick="javascript:ui_showhide('{@id}');ajaxNoUpdate('/handle/treecontainer/click/{@id}');ui_treeicon('{@id}-btn');return false">
-                <div class="ui-el-treecontainernode-button">
-                    <img id="{@id}-btn" src="/dl/core/ui/tree-{x:iif(@expanded, 'minus', 'plus')}.png" />
-                </div>
-                <xsl:value-of select="@text" />
-            </div>
+        <a href="#" onclick="return Ajenti.toggleTreeNode('{@id}');" class="text">
+            <img id="{@id}-btn" src="/dl/core/ui/tree-{x:iif(@expanded, 'minus', 'plus')}.png" />
+            <xsl:value-of select="@text" />
         </a>
-        <div class="ui-el-treecontainernode-inner" id="{@id}" style="{x:iif(@expanded, '', 'display:none;')}">
+        <div id="{@id}" style="{x:iif(@expanded, '', 'display:none;')}">
             <xsl:apply-templates />
         </div>
     </div>
 </xsl:template>
 
 <xsl:template match="treecontainernode">
-    <div class="ui-el-treecontainernode-title">
-        <div class="ui-el-treecontainernode-inner">
-            <xsl:apply-templates />
-        </div>
+    <div class="ui-el-treecontainernode {x:iif(@active, 'active', '')}">
+        <xsl:apply-templates />
     </div>
 </xsl:template>
 

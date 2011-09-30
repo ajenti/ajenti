@@ -10,7 +10,7 @@ def attr(_, v, d):
 
 def css(_, v, d):
     v = d if v == [] or v == ['None'] else v[0]
-    if v == 'auto': 
+    if v == 'auto':
             return v
     return v if '%' in v else '%spx'%v
 
@@ -28,7 +28,7 @@ def idesc(_, s):
         return s.replace('/', '_').replace('.', '_')
     except:
         return s[0].replace('/', '_').replace('.', '_')
-    
+
 def b64(_, s):
     try:
         return base64.b64encode(str(s[0]))
@@ -36,12 +36,12 @@ def b64(_, s):
         return base64.b64encode(str(s))
 
 def id(_, s):
-    return s if s else str(random.randint(1, 9000*9000)) 
-                    
-                    
+    return s if s else str(random.randint(1, 9000*9000))
+
+
 class CoreFunctions (Plugin):
     implements(IXSLTFunctionProvider)
-    
+
     def get_funcs(self):
         return {
             'attr' : attr,
@@ -52,4 +52,3 @@ class CoreFunctions (Plugin):
             'css' : css,
             'id' : id
         }
-

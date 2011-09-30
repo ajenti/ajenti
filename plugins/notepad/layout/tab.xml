@@ -1,17 +1,12 @@
 <xml>
-    <div style="border: 1px solid #ccc;border-bottom: none">
     <toolbar spacing="0">
-        <hcontainer>
-            <toolbutton text="New tab" form="frmEdit" onclick="form" action="newtab" icon="/dl/notepad/new-tab.png"/>
-            <toolbutton id="btnSave" text="Save" form="frmEdit" onclick="form"  icon="/dl/core/ui/stock/save.png"/>
-            <toolbutton id="btnFav" form="frmEdit" onclick="form" />
-            <toolbutton id="btnClose" text="Close" form="frmEdit" onclick="form" icon="/dl/core/ui/stock/dialog-cancel.png" />
-        </hcontainer>
+        <button id="btnSave" text="Save" form="frmEdit" onclick="form"  icon="/dl/core/ui/stock/save.png"/>
+        <button id="btnFav" form="frmEdit" onclick="form" />
+        <button id="btnClose" text="Close" form="frmEdit" onclick="form" icon="/dl/core/ui/stock/dialog-cancel.png" />
     </toolbar>
-    </div>
 
     <hcontainer>
         <list id="files" width="200" height="500" />
         <codeinputarea id="data" width="551" height="500" value="" />
     </hcontainer>
-</xml>        
+</xml>

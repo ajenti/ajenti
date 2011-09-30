@@ -1,22 +1,22 @@
 <xml>
     <pad>
-    <layouttable>
-        <layouttablerow>
-            <layouttablecell>
+    <lt>
+        <ltr>
+            <ltd>
                 <label text="Log files" />
-            </layouttablecell>
-            <layouttablecell float="right">
+            </ltd>
+            <ltd float="right">
                 <logfilter />
-            </layouttablecell>
-        </layouttablerow>
-        <layouttablerow>
-            <layouttablecell>
+            </ltd>
+        </ltr>
+        <ltr>
+            <ltd>
                 <scrollcontainer id="tree" height="500" />
-            </layouttablecell>
-            <layouttablecell>
+            </ltd>
+            <ltd>
                 <logviewer id="data" width="550" height="500" />
-            </layouttablecell>
-        </layouttablerow>
-    </layouttable>
+            </ltd>
+        </ltr>
+    </lt>
     </pad>
 </xml>

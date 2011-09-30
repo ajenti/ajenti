@@ -6,6 +6,8 @@
     background: #fff;
     border: 1px solid #ccc;
     margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
     list-style: none;
 
     li {
@@ -27,39 +29,40 @@
 }
 
 
-
-
-
-
-
-
 .ui-el-treecontainernode {
-}
+    padding: 0 0 0 15px;
 
-.ui-el-treecontainernode-button {
-    display: inline;
-    width: 12px;
-    padding-right: 4px;
-}
+    > a.text {
+        font-size: 12px;
+        line-height: 25px;
+        display:block;
+        margin: 0 0 0 -15px;
 
-.ui-el-treecontainernode-inner {
-    min-height: 16px;
-    padding-left: 14px;
-}
+        > img {
+            display: inline;
+            width: 12px;
+            float: left;
+            padding: 2px 4px 0 0;
+        }
 
-.ui-el-treecontainernode-title {
-    font-size: 12px;
-    line-height: 14px;
-    border: 1px solid transparent;
-    border-right: none;
-}
+        &:hover {
+            background: #eee;
+        }
+    }
 
-.ui-el-treecontainernode-title:hover {
-    background: #eee;
-    border: 1px solid #ccc;
-    border-right: none;
-}
+    &.active {
+        .gradientBar(#d04909,  #922017);
 
+        * {
+            color: white !important;
+            font-weight: bold !important;
+        }
+    }
+
+    > div {
+        min-height: 25px;
+    }
+}
 
 
 

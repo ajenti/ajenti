@@ -1,6 +1,5 @@
 <xml>
     <toolbar>
-        <button id="btnNewTab" text="New tab" icon="/dl/fm/new-tab.png" />
         <button text="Rename" form="files" onclick="form" action="rename" icon="/dl/fm/rename.png" />
         <button text="Cut" form="files" onclick="form" action="cut" icon="/dl/core/ui/stock/cut.png" />
         <button text="Copy" form="files" onclick="form" action="copy" icon="/dl/core/ui/stock/copy.png" />

@@ -33,8 +33,11 @@ class FMPlugin(CategoryPlugin):
         ui = self.app.inflate('fm:main')
         tc = UI.TabControl(active=self._tab)
 
+        idx = 0
         for tab in self._tabs:
-            tc.add(tab, self.get_tab(tab))
+            tc.add(tab, content=self.get_tab(tab, tidx=idx), id=str(idx))
+            idx += 1
+        tc.add('+', None)
 
         self._clipboard = sorted(self._clipboard)
         idx = 0
@@ -82,10 +85,9 @@ class FMPlugin(CategoryPlugin):
 
         return ui
 
-    def get_tab(self, tab):
+    def get_tab(self, tab, tidx):
         ui = self.app.inflate('fm:tab')
 
-        tidx = self._tabs.index(tab)
         ui.find('paste').set('id', 'paste/%i'%tidx)
         ui.find('newfld').set('id', 'newfld/%i'%tidx)
         ui.find('close').set('id', 'close/%i'%tidx)
@@ -219,12 +221,13 @@ class FMPlugin(CategoryPlugin):
            ('w' if mode & 2 else '-') + \
            ('x' if mode & 1 else '-')
 
+    @event('tab/click')
+    def on_tab_click(self, event, params, vars=None):
+        self.add_tab()
+
     @event('button/click')
     @event('linklabel/click')
-    @event('minibutton/click')
     def on_btn_click(self, event, params, vars=None):
-        if params[0] == 'btnNewTab':
-            self.add_tab()
         if params[0] == 'breadcrumb':
             self._tabs[int(params[1])] = self.dec_file(params[2])
         if params[0] == 'goto':

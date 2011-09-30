@@ -13,13 +13,15 @@ class Element(etree.ElementBase):
     def __init__(self, tag, *args, **kwargs):
         etree.ElementBase.__init__(self)
         self.tag = tag.lower()
-        self['id'] = str(random.randint(1,9000*9000))
+        if not 'id' in kwargs.keys():
+            self['id'] = str(random.randint(1,9000*9000))
         self._init(*args, **kwargs)
         self._children = []
         for k in args:
             self.append(k)
         for k in kwargs:
-            self[k] = kwargs[k]
+            if kwargs[k] is not None:
+                self[k] = kwargs[k]
 
     def _init(self, *args, **kwargs):
         etree.ElementBase._init(self)
@@ -144,7 +146,7 @@ class UI(object):
             Element.__init__(self, 'dtr', **kwargs)
             for e in args:
                 if isinstance(e, Element):
-                    if e.tag in ['dtd', 'statuscell']:
+                    if e.tag in ['dtd', 'dth', 'statuscell']:
                         self.append(e)
                     else:
                         self.append(UI.DTD(e))
@@ -166,11 +168,11 @@ class UI(object):
             Element.__init__(self, 'tabcontrol', **kwargs)
             self.tc = 0
 
-        def add(self, name, content):
-            active = str(self.tc)==self.get('active')
-            tb = UI.TabBody(content, active=active)
-            self.append(UI.TabHeader(text=name, id=tb['id'], active=active))
-            self.append(tb)
+        def add(self, name, content, form=None, id=None):
+            tb = UI.TabBody(content, id=id)
+            self.append(UI.TabHeader(text=name, id=(id or tb['id']), live=(content is None), form=form))
+            if content:
+                self.append(tb)
             self.tc += 1
 
 

@@ -33,12 +33,12 @@ class LogsPlugin(CategoryPlugin):
 
     def get_ui_tree(self):
         root = UI.TreeContainer(text='Logs', id='/')
-        
+
         try:
             self.scan_logs(self.app.get_config(self).dir, root, '/')
         except:
             raise ConfigurationError('Can\'t read log tree')
-            
+
         self._tree.apply(root)
         root['expanded'] = True
         return root
@@ -49,13 +49,15 @@ class LogsPlugin(CategoryPlugin):
 
         for x in dirs:
             try:
-                if os.path.isdir(os.path.join(path, x)):
+                fn = os.path.join(path, x)
+                if os.path.isdir(fn):
                     tn = UI.TreeContainer(text=x, id=nodepath+'/'+x)
                     node.append(tn)
                     self.scan_logs(os.path.join(path, x), tn, nodepath+'/'+x)
                 else:
-                    tn = UI.LinkLabel(text=fix_unicode(x), id='view/'+nodepath+'/'+fix_unicode(x))
-                    tn = UI.TreeContainerNode(tn)
+                    tn = UI.LinkLabel(text=fix_unicode(x),
+                        id='view/'+nodepath+'/'+fix_unicode(x))
+                    tn = UI.TreeContainerNode(tn, active=fn==self._log)
                     node.append(tn)
             except:
                 pass
