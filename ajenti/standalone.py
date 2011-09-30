@@ -7,6 +7,7 @@ from ajenti.config import Config
 from ajenti.core import Application, AppDispatcher
 from ajenti.plugmgr import PluginLoader
 from ajenti import version
+from ajenti import deployed
 import ajenti.utils
 
 import gevent.pywsgi
@@ -65,6 +66,9 @@ def run_server(log_level=logging.INFO, config_file=''):
     else:
         log.info('Using default settings')
 
+    # Handle first-launch reconfiguration
+    deployed.reconfigure(config)
+    
     # Add log handler to config, so all plugins could access it
     config.set('log_facility',log)
 
