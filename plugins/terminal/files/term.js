@@ -10,7 +10,7 @@ function termSend(data) {
 
 function termGet(arg) {
     if (!arg) arg = '';
-    
+
     $.ajax({
         url: '/term-get' + arg,
         type: 'GET',
@@ -21,21 +21,21 @@ function termGet(arg) {
             if ($('#terminalplugin').hasClass('ui-el-category-selected'))
                 setTimeout(function() {termGet()}, 1);
         }
-    });  
+    });
 }
 
 function drawTerm(d) {
     var data = JSON.parse(JXG.decompress(d));
-    
+
     $('#term pre.cursor').removeClass('cursor');
-    
+
     _cursor = data._cursor;
     if (data.cursor) {
         _cursx = data.cx;
         _cursy = data.cy;
-    } else 
+    } else
         _cursx = -1;
-    
+
     lns = $('#term div');
     for (k in data.lines) {
         if (lns.length <= k)
@@ -48,7 +48,7 @@ function drawTerm(d) {
 }
 
 function __cells(row, idx) {
-    var r = '<pre>', fg, bg, bold, it, und;
+    var r = '<pre>', fg, bg, bold, it, und, ch;
     for (var i=0; i<row.length; i++) {
         var cell = row[i];
         if (bg != cell[2] || fg != cell[1] || (idx == _cursy && i == _cursx) || (idx == _cursy && i == _cursx+1)) {
@@ -69,13 +69,18 @@ function __cells(row, idx) {
             it = cell[4];
             und = cell[5];
         }
-        r +=  cell[0];
+        ch = cell[0];
+        if (ch == '<')
+            ch = '&lt';
+        if (ch == '>')
+            ch = '&gt';
+        r += cell[0];
     }
     r += '</pre>';
     return r;
 }
 
-function __row(row, idx) {   
+function __row(row, idx) {
     return '<div>' + __cells(row, idx) + '</div>';
 }
 
@@ -87,21 +92,16 @@ function termInit() {
     $('#capture').blur(function() {
         $(this).val('Input released');
     });
-    
+
     _term = $('#term');
-       
-    
+
+
     $('#capture').keypress(function (event) {
         var ch = __filter_key(event);
         termSend(Base64.encode(ch));
     });
 
-    $('#capture').keydown(function (event) {
-        var ch = __filter_key(event);
-        termSend(Base64.encode(ch));
-    });
-
-    termGet('-history');
+    setTimeout("termGet('-history')", 1000);
 }
 
 
@@ -112,12 +112,12 @@ function __filter_key(event)
 			ch = String.fromCharCode(event.keyCode - 64);
 			return ch;
 		}
-		
+
 		if (!ch && event.keyCode >= 112 && event.keyCode <= 123) { // F1-F12
 		    ch = '\x1b' + (event.keyCode - 111);
 		    return ch;
 		}
-		    
+
 		if (ch) {
 			if (event.ctrlKey) {
 				ch = String.fromCharCode(ch - 96);
@@ -152,7 +152,7 @@ function __filter_key(event)
 				break;
 			    case 46:
 				ch = '\x1b[3~';
-				break; 
+				break;
 			    case 35: //end
 				ch = '\x1b[F';
 				break;

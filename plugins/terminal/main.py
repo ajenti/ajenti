@@ -3,16 +3,19 @@ from ajenti.utils import *
 from ajenti.ui import *
 
 import os
-import threading
-import shlex
+import sys
 import signal
 import json
 import gzip
 import StringIO
+import pty
+import subprocess as sp
+import fcntl
+import pty
 from base64 import b64decode, b64encode
 
-from twisted.internet import protocol
-from twisted.internet import reactor
+from gevent.event import Event
+import gevent
 
 import pyte
 
@@ -45,19 +48,25 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
         return ui
 
     def start(self):
-        self._proc = PTYProtocol()
-        env = os.environ
+        env = {}
+        env.update(os.environ)
         env['TERM'] = 'linux'
         env['COLUMNS'] = str(TERM_W)
         env['LINES'] = str(TERM_H)
+        env['LC_ALL'] = 'en_US.UTF8'
         sh = self.app.get_config(self).shell
-        reactor.spawnProcess(
-            self._proc,
-            shlex.split(sh)[0],
-            shlex.split(sh),
-            usePTY=True,
-            env=env
-        )
+
+        pid, master = pty.fork()
+        if pid == 0:
+            p = sp.Popen(
+                sh,
+                shell=True,
+                close_fds=True,
+                env=env,
+            )
+            p.wait()
+            sys.exit(0)
+        self._proc = PTYProtocol(pid, master)
 
     def restart(self):
         if self._proc is not None:
@@ -98,33 +107,54 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
         self._inputting = False
 
 
-class PTYProtocol(protocol.ProcessProtocol):
-    def __init__(self):
+class PTYProtocol():
+    def __init__(self, proc, stream):
         self.data = ''
-        self.lock = threading.Lock()
-        self.cond = threading.Condition()
+        self.proc = proc
+        self.master = stream
+
+        fd = self.master
+        fl = fcntl.fcntl(fd, fcntl.F_GETFL)
+        fcntl.fcntl(fd, fcntl.F_SETFL, fl | os.O_NONBLOCK)
+
+        self.mstream = os.fdopen(self.master, 'r+')
+        gevent.sleep(2)
         self.term = pyte.DiffScreen(TERM_W,TERM_H)
         self.stream = pyte.Stream()
         self.stream.attach(self.term)
+        self.data = ''
+        self.unblock()
 
-    def connectionMade(self):
-        pass
+    def unblock(self):
+        fd = self.master
+        fl = fcntl.fcntl(fd, fcntl.F_GETFL)
+        fcntl.fcntl(fd, fcntl.F_SETFL, fl | os.O_NONBLOCK)
 
-    def outReceived(self, data):
-        with self.cond:
-            with self.lock:
-                self.data += data
-            self.cond.notifyAll()
+    def block(self):
+        fd = self.master
+        fl = fcntl.fcntl(fd, fcntl.F_GETFL)
+        fcntl.fcntl(fd, fcntl.F_SETFL, fl - os.O_NONBLOCK)
 
     def read(self):
-        with self.cond:
-            if len(self.data) == 0:
-                self.cond.wait(15)
-            with self.lock:
-                data = self.data
-                self.data = ''
-                if len(data) > 0:
-                    self.stream.feed(unicode(str(data)))
+        cond = Event()
+        def reread():
+            cond.set()
+            cond.clear()
+        for i in range(0,45):
+            try:
+                d = self.mstream.read()
+                self.data += d
+                if len(self.data) > 0:
+                    u = unicode(str(self.data))
+                    self.stream.feed(u)
+                    self.data = ''
+                break
+            except IOError, e:
+                pass
+            except UnicodeDecodeError, e:
+                print 'UNICODE'
+            gevent.spawn_later(0.33, reread)
+            cond.wait(timeout=0.33)
         return self.format()
 
     def history(self):
@@ -145,8 +175,10 @@ class PTYProtocol(protocol.ProcessProtocol):
         return r
 
     def write(self, data):
-        self.transport.write(data)
+        self.block()
+        self.mstream.write(data)
+        self.mstream.flush()
+        self.unblock()
 
     def kill(self):
-        if self.transport.pid:
-            os.kill(self.transport.pid, signal.SIGKILL)
+        os.kill(self.proc, 9)

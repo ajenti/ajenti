@@ -99,14 +99,14 @@ def run_server(log_level=logging.INFO, config_file=''):
     	    'keyfile':  config.get('ajenti','cert_key'),
     	    'certfile': config.get('ajenti','cert_file'),
     	}
-    
+
     server = gevent.pywsgi.WSGIServer(
         (host, port),
         application=AppDispatcher(config).dispatcher,
         log=None,
         **ssl
     )
-        
+
     config.set('server', server)
 
     log.info('Starting server')
