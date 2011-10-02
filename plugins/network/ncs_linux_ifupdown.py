@@ -9,22 +9,22 @@ class LinuxIfUpDownNetworkConfigSet(NetworkConfigBit):
     autovars = ['up', 'down', 'post-up', 'post-down']
     
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Pre-up:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.TextInput(name='up', size=40, value=self.iface['up']),
+                    text='Pre-up',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Post-up:'),
+                UI.Formline(
                     UI.TextInput(name='post-up', size=40, value=self.iface['post-up']),
+                    text='Post-up',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Pre-down:'),
+                UI.Formline(
                     UI.TextInput(name='down', size=40, value=self.iface['down']),
+                    text='Pre-down',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Post-down:'),
+                UI.Formline(
                     UI.TextInput(name='post-down', size=40, value=self.iface['post-down']),
+                    text='Post-down',
                 )
             )
         return p

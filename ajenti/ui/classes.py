@@ -169,6 +169,8 @@ class UI(object):
             self.tc = 0
 
         def add(self, name, content, form=None, id=None):
+            if id is None:
+                id = str(self.tc)
             tb = UI.TabBody(content, id=id)
             self.append(UI.TabHeader(text=name, id=(id or tb['id']), live=(content is None), form=form))
             if content is not None:

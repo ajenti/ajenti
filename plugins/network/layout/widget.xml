@@ -1,24 +1,24 @@
 <xml>
-    <layouttable width="90%">
-        <layouttablerow>
-            <layouttablecell width="40%" spacing="0">
+    <lt width="90%">
+        <ltr>
+            <ltd width="40%" spacing="0">
                 <hcontainer>
                     <image file="/dl/network/ip.png" />
                     <label id="ip" />
                 </hcontainer>
-            </layouttablecell>
-            <layouttablecell width="30%" spacing="0">
+            </ltd>
+            <ltd width="30%" spacing="0">
                 <hcontainer>
                     <image file="/dl/network/in.png" />
                     <label id="in" />
                 </hcontainer>
-            </layouttablecell>
-            <layouttablecell width="30%" spacing="0">
+            </ltd>
+            <ltd width="30%" spacing="0">
                 <hcontainer>
                     <image file="/dl/network/out.png" />
                     <label id="out" />
                 </hcontainer>
-            </layouttablecell>
-        </layouttablerow>
-    </layouttable>
+            </ltd>
+        </ltr>
+    </lt>
 </xml>

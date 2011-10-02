@@ -79,44 +79,24 @@
         </formline>
     </dialogbox>
 
-        <dialogbox id="dlgEditGroup">
-                    <layouttable>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lblgname" bold="True" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button id="" text="Change" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell />
-                            <layouttablecell>
-                                <warningbutton text="Delete group" id="delgroup" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label id="lblggid" />
-                            </layouttablecell>
-                            <layouttablecell>
-                                <button id="chggid" text="Change" />
-                            </layouttablecell>
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell>
-                                <label text="Users:" />
-                            </layouttablecell>
-                            <layouttablecell />
-                        </layouttablerow>
-                        <layouttablerow>
-                            <layouttablecell colspan="2">
-                                <label id="lblgusers" />
-                            </layouttablecell>
-                        </layouttablerow>
-                  </layouttable>
-        </dialogbox>
+    <dialogbox id="dlgEditGroup">
+        <formline text="Name">
+            <editable id="ename" />
+        </formline>
+        <formline text="GID">
+            <editable id="eggid" />
+        </formline>
+        <formline text="Name">
+            <editable id="ename" />
+        </formline>
+        <formline>
+            <button id="delgroup" design="danger" text="Delete group" />
+        </formline>
+        <formline text="Users">
+            <label id="lblgusers" />
+        </formline>
+    </dialogbox>
 
-        <inputbox id="dlgEdit" />
+    <inputbox id="dlgEdit" />
     </pad>
 </xml>

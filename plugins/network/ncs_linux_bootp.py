@@ -9,18 +9,18 @@ class LinuxBootPNetworkConfigSet(NetworkConfigBit):
     autovars = ['bootfile', 'server', 'hwaddress']
     
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Boot file:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.TextInput(name='bootfile', value=self.iface['bootfile']),
+                    text='Boot file',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Server:'),
+                UI.Formline(
                     UI.TextInput(name='server', value=self.iface['server']),
+                    text='Server',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Hardware address:'),
+                UI.Formline(
                     UI.TextInput(name='hwaddress', value=self.iface['hwaddress']),
+                    text='Hardware address',
                 )
             )
         return p

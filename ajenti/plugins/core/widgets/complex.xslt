@@ -32,7 +32,7 @@
         </div>
         <script>
             <xsl:if test="not(@live)">
-                $('{@id}').tabs();
+                $('#<xsl:value-of select="@id"/>').pills();
             </xsl:if>
         </script>
     </div>
@@ -76,15 +76,14 @@
 
 
 <xsl:template match="editable">
-    <a href="#" onclick="return ui_editable_activate('{x:idesc(@id)}')" class="ui-el-link ui-el-editable-inactive" id="{x:idesc(@id)}-normal">
+    <a href="#" onclick="return Ajenti.editableActivate('{x:idesc(@id)}')" class="ui-el-editable-inactive" id="{x:idesc(@id)}-normal">
         <xsl:value-of select="@value" />
     </a>
-    <div class="ui-el-editable" style="display:none" id="{x:idesc(@id)}-active">
-        <div id="{x:idesc(@id)}">
-            <input id="{x:idesc(@id)}-active-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
-            <input type="text" name="value" value="{@value}" />
-            <img href="#" src="/dl/core/ui/stock/dialog-ok.png" onclick="return ui_editable_save('{x:idesc(@id)}')" />
-            <img href="#" src="/dl/core/ui/stock/dialog-cancel.png" onclick="return ui_editable_cancel('{x:idesc(@id)}')" />
-        </div>
+    <div id="{x:idesc(@id)}" class="ui-el-editable input-append" style="display:none">
+        <input id="{x:idesc(@id)}-active-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
+        <input type="text" name="value" value="{@value}" />
+        <hlabel class="add-on active">
+            <img href="#" src="/dl/core/ui/stock/dialog-ok.png" onclick="return ajaxForm('{x:idesc(@id)}', 'OK')" />
+        </hlabel>
     </div>
 </xsl:template>

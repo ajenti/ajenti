@@ -1,7 +1,6 @@
 dnsmasq
 hddtemp
 munin
-network
 power
 samba
 services
@@ -12,5 +11,4 @@ supervisor
 sysload
 taskmgr
 terminal
-users
 uzuri

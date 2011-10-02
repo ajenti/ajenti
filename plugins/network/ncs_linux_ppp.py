@@ -9,10 +9,10 @@ class LinuxBootPNetworkConfigSet(NetworkConfigBit):
     autovars = ['provider']
     
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Provider:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.TextInput(name='provider', value=self.iface['provider']),
+                    text='Provider',
                 )
             )
         return p

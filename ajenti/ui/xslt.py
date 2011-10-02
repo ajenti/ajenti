@@ -81,7 +81,7 @@ XSLT2 = """<?xml version="1.0" encoding="utf-8"?>
   </xsl:template>
 
   <xsl:template match="hlabel">
-     <label for="{@for}"><xsl:value-of select="@text" /></label>
+     <label for="{@for}" class="{@class}"><xsl:value-of select="@text" /><xsl:apply-templates /></label>
   </xsl:template>
 </xsl:stylesheet>  
 """

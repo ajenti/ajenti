@@ -8,14 +8,13 @@ class LinuxBasicNetworkConfigSet(NetworkConfigBit):
     title = 'Basic'
 
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Auto-enable:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.Checkbox(name='auto', checked=(self.iface.auto)),
+                    text='Auto-enable',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Addressing:'),
-                    UI.Select(
+                UI.Formline(
+                    UI.SelectInput(
                         UI.SelectOption(text='Loopback', value='loopback', selected=(self.iface.addressing=='loopback')),
                         UI.SelectOption(text='Static', value='static', selected=(self.iface.addressing=='static')),
                         UI.SelectOption(text='Manual', value='manual', selected=(self.iface.addressing=='manual')),
@@ -24,7 +23,8 @@ class LinuxBasicNetworkConfigSet(NetworkConfigBit):
                         UI.SelectOption(text='WVDial', value='wvdial', selected=(self.iface.addressing=='wvdial')),
                         UI.SelectOption(text='Zeroconf', value='ipv4ll', selected=(self.iface.addressing=='ipv4ll')),
                         name='addressing'
-                    )
+                    ),
+                    text='Addressing',
                 )
             )
         return p

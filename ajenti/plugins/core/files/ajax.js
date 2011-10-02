@@ -127,7 +127,6 @@ function ajaxHandler(data)
     for(var i=0; i<ob.length; i++)
         try {
             if(ob[i].text!=null) { eval(ob[i].text);
-                ob[i].text='';
             }
         } catch (err) {}
 }

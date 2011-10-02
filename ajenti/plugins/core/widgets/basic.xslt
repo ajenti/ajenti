@@ -25,9 +25,7 @@
                     '<xsl:value-of select="@action" />');
             </xsl:when>
 
-            <xsl:when test="@onclick = 'off'"></xsl:when>
-
-            <xsl:when test="not(@onclick)">
+            <xsl:when test="@onclick = '' or not (@onclick)">
                 return ajax('/handle/<xsl:value-of
                         select="x:attr(@class, 'button')" />/click/<xsl:value-of
                         select="@id" />');

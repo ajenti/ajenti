@@ -2,22 +2,22 @@
     <label text="Network interfaces" size="5" />
     
     <pad id="main">
-        <datatable id="list">
-            <datatablerow header="True">
-                <datatablecell width="25%">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
                     <label text="Interface" />
-                </datatablecell>
-                <datatablecell width="25%">
+                </dth>
+                <dth>
                     <label text="Class" />
-                </datatablecell>
-                <datatablecell width="25%">
+                </dth>
+                <dth>
                     <label text="Address" />
-                </datatablecell>
-                <datatablecell width="25%">
+                </dth>
+                <dth>
                     <label text="Status" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
 </xml>

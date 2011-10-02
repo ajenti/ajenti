@@ -22,7 +22,7 @@ class NetworkPlugin(CategoryPlugin):
         
         for x in self.net_config.interfaces:
             i = self.net_config.interfaces[x]
-            ti.append(UI.DataTableRow(
+            ti.append(UI.DTR(
                             UI.Label(text=i.name),
                             UI.Label(text=i.devclass),
                             UI.Label(text=self.net_config.get_ip(i)),
@@ -30,14 +30,17 @@ class NetworkPlugin(CategoryPlugin):
                                 UI.Image(file='/dl/network/%s.png'%('up' if i.up else 'down')),
                                 UI.Label(text=('Up' if i.up else 'Down')),
                             ),
-                            UI.DataTableCell(
-                                UI.HContainer(
-                                    UI.MiniButton(text='Info', id='info/' + i.name),
-                                    UI.MiniButton(text='Edit', id='editiface/' + i.name),
-                                    UI.WarningMiniButton(text=('Down' if i.up else 'Up'), id=('if' + ('down' if i.up else 'up') + '/' + i.name), msg='Bring %s interface %s' % (('Down' if i.up else 'Up'), i.name))
-                                ),
-                                hidden=True
-                            )
+                            UI.HContainer(
+                                UI.TipIcon(icon='/dl/core/ui/stock/info.png',
+                                    text='Info', id='info/' + i.name),
+                                UI.TipIcon(icon='/dl/core/ui/stock/edit.png',
+                                    text='Edit', id='editiface/' + i.name),
+                                UI.TipIcon(icon='/dl/core/ui/stock/service-%s.png'%('run' if not i.up else 'stop'), 
+                                    text=('Down' if i.up else 'Up'), 
+                                    id=('if' + ('down' if i.up else 'up') + '/' + i.name), 
+                                    warning='Bring %s interface %s' % (('Down' if i.up else 'Up'), i.name)
+                                )
+                            ),
                            ))
 
         c = ui.find('main')
@@ -51,7 +54,7 @@ class NetworkPlugin(CategoryPlugin):
                 ))
         
         if self._editing_iface != "":
-            cnt = UI.TabControl()
+            cnt = UI.TabControl(active=0)
             for x in self.net_config.interfaces[self._editing_iface].bits:
                 cnt.add(x.title, x.get_ui())
             dlg = UI.DialogBox(
@@ -63,7 +66,6 @@ class NetworkPlugin(CategoryPlugin):
         return ui
 
     @event('button/click')
-    @event('minibutton/click')
     @event('linklabel/click')
     def on_ll_click(self, event, params, vars=None):
         if params[0] == 'info':

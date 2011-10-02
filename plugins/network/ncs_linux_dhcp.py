@@ -9,30 +9,30 @@ class LinuxDHCPNetworkConfigSet(NetworkConfigBit):
     autovars = ['hostname', 'leasehours', 'leasetime', 'vendor', 'client', 'hwaddress']
     
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Hostname:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.TextInput(name='hostname', value=self.iface['hostname']),
+                    text='Hostname',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Lease hours:'),
+                UI.Formline(
                     UI.TextInput(name='leasehours', value=self.iface['leasehours']),
+                    text='Lease hours',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Lease time:'),
+                UI.Formline(
                     UI.TextInput(name='leasetime', value=self.iface['leasetime']),
+                    text='Lease time',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Vendor ID:'),
+                UI.Formline(
                     UI.TextInput(name='vendor', value=self.iface['vendor']),
+                    text='Vendor ID',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Client ID:'),
+                UI.Formline(
                     UI.TextInput(name='client', value=self.iface['client']),
+                    text='Client ID',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Hardware address:'),
+                UI.Formline(
                     UI.TextInput(name='hwaddress', value=self.iface['hwaddress']),
+                    text='Hardware address',
                 )
             )
         return p

@@ -9,42 +9,42 @@ class LinuxIPv4NetworkConfigSet(NetworkConfigBit):
     autovars = ['address', 'netmask', 'gateway', 'network', 'broadcast', 'metric', 'pointopoint', 'hwaddress', 'mtu']
     
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Address:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.TextInput(name='address', value=self.iface['address']),
+                    text='Address',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Network mask:'),
+                UI.Formline(
                     UI.TextInput(name='netmask', value=self.iface['netmask']),
+                    text='Network mask',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Gateway:'),
+                UI.Formline(
                     UI.TextInput(name='gateway', value=self.iface['gateway']),
+                    text='Gateway',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Network:'),
+                UI.Formline(
                     UI.TextInput(name='network', value=self.iface['network']),
+                    text='Network',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Broadcast:'),
+                UI.Formline(
                     UI.TextInput(name='broadcast', value=self.iface['broadcast']),
+                    text='Broadcast',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Routing metric:'),
+                UI.Formline(
                     UI.TextInput(name='metric', value=self.iface['metric']),
+                    text='Routing metric',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='PtP:'),
+                UI.Formline(
                     UI.TextInput(name='pointopoint', value=self.iface['pointopoint']),
+                    text='PtP',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Hardware address:'),
+                UI.Formline(
                     UI.TextInput(name='hwaddress', value=self.iface['hwaddress']),
+                    text='Hardware address',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='MTU:'),
+                UI.Formline(
                     UI.TextInput(name='mtu', value=self.iface['mtu']),
+                    text='MTU',
                 )
             )
         return p

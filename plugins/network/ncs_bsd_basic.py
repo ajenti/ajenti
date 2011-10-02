@@ -8,18 +8,18 @@ class BSDBasicNetworkConfigSet(NetworkConfigBit):
     title = 'Basic'
 
     def get_ui(self):
-        p = UI.LayoutTable(
-                UI.LayoutTableRow(
-                    UI.Label(text='Auto-enable:'),
+        p = UI.Container(
+                UI.Formline(
                     UI.Checkbox(name='auto', checked=(self.iface.auto)),
+                    text='Auto-enable:',
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(text='Addressing:'),
-                    UI.Select(
+                UI.Formline(
+                    UI.SelectInput(
                         UI.SelectOption(text='Static', value='static', selected=(self.iface.addressing=='static')),
                         UI.SelectOption(text='DHCP', value='dhcp', selected=(self.iface.addressing=='dhcp')),
                         name='addressing'
-                    )
+                    ),
+                    text='Addressing:',
                 )
             )
         return p

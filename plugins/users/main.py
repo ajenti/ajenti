@@ -17,7 +17,6 @@ class UsersPlugin(CategoryPlugin):
             'name': 'Name',
             'uid': 'UID',
             'gid': 'GID',
-            'ggid': 'GID',
             'home': 'Home directory',
             'shell': 'Shell',
             'groups': 'Groups',
@@ -109,9 +108,9 @@ class UsersPlugin(CategoryPlugin):
             u = self.backend.get_group(self._selected_group, self.groups)
             g = ', '.join(u.users)
 
-            ui.find('lblgname').set('text', 'Name: '+ u.name)
-            ui.find('delgroup').set('msg', 'Delete group %s'%u.name)
-            ui.find('lblggid').set('text', 'GID: '+ str(u.gid))
+            ui.find('ename').set('value', u.name)
+            ui.find('delgroup').set('warning', 'Delete group %s'%u.name)
+            ui.find('eggid').set('value', str(u.gid))
             ui.find('lblgusers').set('text', g)
         else:
             ui.remove('dlgEditGroup')
@@ -176,7 +175,6 @@ class UsersPlugin(CategoryPlugin):
         if params[0].startswith('e'):
             editing = params[0][1:]
             v = vars.getvalue('value', '')
-            print editing, v
             if editing == 'password':
                 self.backend.change_user_password(self._selected_user, v)
             elif editing == 'login':
