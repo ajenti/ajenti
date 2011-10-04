@@ -1,6 +1,6 @@
 <xml>
     <dialogbox id="dlgWidgetConfig">
         <label size="2" text="Select service" />
-        <select name="svc" id="list" />
+        <selectinput name="svc" id="list" />
     </dialogbox>
 </xml>

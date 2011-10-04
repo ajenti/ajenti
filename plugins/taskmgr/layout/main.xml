@@ -1,31 +1,29 @@
 <xml>
     <toolbar spacing="0">
-        <hcontainer id="toolbar">
-            <toolbutton id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
-        </hcontainer>
+        <toolbutton id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
     </toolbar>
 
     <pad id="main">
-        <datatable id="list" width="100%">
-            <datatablerow header="True">
-                <datatablecell />
-                <datatablecell>
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth width="1" />
+                <dth>
                     <linklabel text="PID" id="sort/pid" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <linklabel text="CPU %" id="sort/get_cpu_percent" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <linklabel text="RAM %" id="sort/get_memory_percent" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <linklabel text="UID" id="sort/uid" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <linklabel text="Name" id="sort/name" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
 </xml>

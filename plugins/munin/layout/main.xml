@@ -1,8 +1,6 @@
 <xml>
-    <toolbar spacing="0">
-        <hcontainer id="toolbar">
-            <toolbutton id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
-        </hcontainer>
+    <toolbar spacing="0" id="toolbar">
+        <button id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
     </toolbar>
 
     <pad>

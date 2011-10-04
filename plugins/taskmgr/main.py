@@ -38,14 +38,15 @@ class TaskManagerPlugin(CategoryPlugin):
 
         for x in l:
             try:
-                ui.append('list', UI.DataTableRow(
+                ui.append('list', UI.DTR(
                     UI.Image(file='/dl/core/ui/stock/service-%s.png'%('run' if x.is_running() else 'stop')),
                     UI.Label(text=str(x.pid)),
                     UI.Label(text=str(int(x.get_cpu_percent()))),
                     UI.Label(text=str(int(x.get_memory_percent()))),
                     UI.Label(text=pwd.getpwuid(x.uid)[0]),
                     UI.Label(text=x.name),
-                    UI.MiniButton(
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/info.png',
                         id='info/%i'%x.pid,
                         text='Info'
                     )

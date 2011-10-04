@@ -40,7 +40,7 @@ class MuninPlugin(CategoryPlugin):
                     text=h.name,
                     id='view/%s/%s'%(d.name,h.name),
                 )
-                t.append(UI.TreeContainerNode(ll))
+                t.append(UI.TreeContainerNode(ll, active=(h==self._host)))
             root.append(t)
 
         ui.append('tree', root)

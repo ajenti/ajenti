@@ -250,7 +250,7 @@ class ModuleConfig(Plugin):
         self.app.config.save()
 
     def get_ui_edit(self):
-        t = UI.LayoutTable()
+        t = UI.Container()
         for k in self.__class__.__dict__:
             if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
                 val = getattr(self, k)
@@ -258,16 +258,14 @@ class ModuleConfig(Plugin):
                 if k in self.labels:
                     lbl = self.labels[k]
                 if type(val) is bool:
-                    t.append(UI.LayoutTableRow(
-                        UI.LayoutTableCell(
-                            UI.CheckBox(text=lbl, name=k, checked=val),
-                            colspan=2
-                        )
+                    t.append(UI.Formline(
+                        UI.CheckBox(name=k, checked=val),
+                        text=lbl
                     ))
                 if type(val) is str:
-                    t.append(UI.LayoutTableRow(
-                        UI.Label(text=lbl),
-                        UI.TextInput(name=k, value=val)
+                    t.append(UI.Formline(
+                        UI.TextInput(name=k, value=val),
+                        text=lbl,
                     ))
         return UI.DialogBox(t, id='dlgEditModuleConfig')
 

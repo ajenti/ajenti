@@ -1,14 +1,14 @@
 <xml>
     <label text="System services" size="5" />
     <pad>
-        <datatable id="list">
-            <datatablerow header="True">
-                <datatablecell width="20" />
-                <datatablecell>
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth width="20" />
+                <dth>
                     <label text="Name" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1"/>
+            </dtr>
+        </dt>
     </pad>
 </xml>

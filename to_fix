@@ -1,14 +1,8 @@
 dnsmasq
-hddtemp
-munin
-power
 samba
-services
-shell
 squid
 squid_sarg
 supervisor
-sysload
 taskmgr
 terminal
 uzuri

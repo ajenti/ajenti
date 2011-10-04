@@ -23,18 +23,16 @@ class ServicesPlugin(CategoryPlugin):
         for svc in lst:
             if svc.status == 'running':
                 ctl = UI.HContainer(
-                          UI.MiniButton(text='Stop', id='stop/' + svc.name),
-                          UI.MiniButton(text='Restart', id='restart/' + svc.name)
+                          UI.TipIcon(text='Stop', icon='/dl/core/ui/stock/service-stop.png', id='stop/' + svc.name),
+                          UI.TipIcon(text='Restart', icon='/dl/core/ui/stock/service-restart.png', id='restart/' + svc.name)
                       )
             else:
-                ctl = UI.MiniButton(text='Start', id='start/' + svc.name)
+                ctl = UI.TipIcon(text='Start', icon='/dl/core/ui/stock/service-run.png', id='start/' + svc.name)
             fn = '/dl/core/ui/stock/service-' + ('run.png' if svc.status == 'running' else 'stop.png')
-            row = UI.DataTableRow(
+            row = UI.DTR(
                     UI.Image(file=fn),
                     UI.Label(text=svc.name),
-                    UI.DataTableCell(
-                        ctl, hidden=True
-                    )
+                    ctl
                   )
             ts.append(row)
         return ui
