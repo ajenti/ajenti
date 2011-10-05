@@ -35,6 +35,7 @@
 
 .terminal-body #statusbox span {
     color: #888;
+    font-family: sans-serif;
     font-weight: bold;
     padding: 2px 5px;
     font-size: 9px;
