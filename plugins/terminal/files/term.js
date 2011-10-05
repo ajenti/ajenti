@@ -197,3 +197,55 @@ function __filter_key(event) {
 	event.preventDefault();
 	return ch;
 }
+
+
+
+
+function termTV() {
+    $('.tv-noise').css('width', document.width*2 + 'px');
+    $('.tv-noise').css('height', document.height*2 + 'px');
+    $('.tv-line').css('width', document.width*2 + 'px');
+    termTVUpdate();
+    termTVUpdateLine(true);
+    termTVUpdateShake();
+    $('.tv-icon').fadeOut();
+}
+
+function termTVUpdate() {
+    $('.tv-noise').each(function (i,e) {
+        var dx = Math.floor(Math.random()*50-25), dy = Math.floor(Math.random()*50-25);
+        $(e).css('top', dx+'px');
+        $(e).css('left', dy+'px');
+    });
+
+    $('.tv-line').each(function (i,e) {
+        $(e).css('top', e.offsetTop + 3 + "px");
+    });
+    
+    $('#term').css('opacity', 0.9+Math.random()*0.1+"");
+    setTimeout("termTVUpdate()", 50);
+}
+
+function termTVUpdateLine(force) {
+    $('.tv-line').each(function (i,e) {
+        if (Math.random() > 0.25 && (force || e.offsetTop > $('#term')[0].offsetTop + $('#term')[0].clientHeight))
+            $(e).css('top', $('#term')[0].offsetTop-Math.random()*500);
+    });
+    setTimeout("termTVUpdateLine()", 3000+Math.random()*4000);
+}
+
+function termTVUpdateShake(reset) {
+    $('#term div').each(function (i,e) {
+        var dx = Math.floor(Math.random()*5);
+        if (reset) dx = 0;
+        $(e).css('padding-left', dx+'px');
+    });
+
+    if (reset)
+        setTimeout("termTVUpdateShake()", Math.random()*4000);
+    else
+        if (Math.random() < 0.20)
+            setTimeout("termTVUpdateShake(true)", 20);
+        else
+            setTimeout("termTVUpdateShake()", 20);
+}

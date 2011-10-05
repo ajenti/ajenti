@@ -9,7 +9,7 @@
 }
 
 #term pre {
-    font-family: Consolas, monospace;
+    font-family: monospace;
     color: white;
     font-size: 10px;
     padding: 0;
@@ -19,6 +19,10 @@
 
 #term pre.cursor {
     text-decoration: underline;
+}
+
+.terminal-body {
+    overflow: hidden;
 }
 
 .terminal-body #statusbox {
@@ -39,4 +43,24 @@
     font-weight: bold;
     padding: 2px 5px;
     font-size: 9px;
+}
+
+
+.terminal-body .tv-noise,
+.terminal-body .tv-line {
+    position: absolute;
+    opacity: .3;
+    top: 0;
+    left: 0;
+}
+
+.terminal-body .tv-line {
+    background-repeat: repeat-x !important;
+}
+
+.terminal-body .tv-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
 }

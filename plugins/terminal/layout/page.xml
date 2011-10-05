@@ -19,6 +19,16 @@
         <img src="/dl/terminal/offline.png" />
         <span />
     </div>
+
+    <div class="tv-noise" style="background: url('/dl/terminal/tv-noise.png')" />
+    <div class="tv-noise" style="background: url('/dl/terminal/tv-noise2.png')" />
+    <div class="tv-noise" style="background: url('/dl/terminal/tv-noise3.png')" />
+    <div class="tv-line" style="background: url('/dl/terminal/tv-line.png')" />
+    <div class="tv-line" style="background: url('/dl/terminal/tv-line.png')" />
+    <div class="tv-line" style="background: url('/dl/terminal/tv-line.png')" />
+    <div class="tv-line" style="background: url('/dl/terminal/tv-line.png')" />
+
+    <img src="/dl/terminal/tv.png" onclick="termTV()" class="tv-icon" />
 </body>
 
 </html>
