@@ -1,39 +1,41 @@
-#term {
-    margin: 0;
-    padding: 5px;
-    -moz-user-select: text;
-    border-radius: 5px;
+.terminal-body {
     background: black;
-    margin: auto;
-    width: 720px;
+}
+
+#term {
+    -moz-user-select: text;
+    background: black;
+    position: absolute;
 }
 
 #term pre {
-    font-family: monospace;
+    font-family: Consolas, monospace;
     color: white;
     font-size: 10px;
-    padding-bottom: 1px;
+    padding: 0;
+    margin: 0;
     display: inline-block;
 }
 
 #term pre.cursor {
-    padding-bottom: 0;
-    border-bottom: 1px solid white;
+    text-decoration: underline;
 }
 
-#capture {
-    border-radius: 5px;
-    display: block;
-    margin: 10px auto;
-    border: 1px solid #ccc;
-    width: 200px;
-    font-size: 14px;
-    color: #777;
-    padding: 4px;
-    text-align: center;
+.terminal-body #statusbox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    padding: 5px;
 }
 
-#capture:focus {
-    border: 3px solid #888;
-    margin: 8px auto;
+.terminal-body #statusbox img {
+    float: right;
+}
+
+.terminal-body #statusbox span {
+    color: #888;
+    font-weight: bold;
+    padding: 2px 5px;
+    font-size: 9px;
 }

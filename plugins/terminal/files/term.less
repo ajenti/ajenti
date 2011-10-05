@@ -1,0 +1,64 @@
+.terminal-thumbnail {
+	margin: 0 10px 20px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+	border: 1px solid #ccc;
+	background: white;
+	padding: 3px;
+	.border-radius(5px);
+  	.transition(.2s linear all);
+
+  	* {
+	  	.transition(.2s linear all);
+  	}
+    
+    img {
+		.border-radius(3px);
+		width: 160px;
+		height: 100px;
+		background: black;
+    }
+
+    &:hover {
+    	opacity: .75;
+    }
+
+    .overlay {
+    	position: absolute;
+    	left: 3px;
+    	top: 3px;
+    	opacity: .10;
+    	width: 100%;
+    	height: 100%;
+    	background: url('/dl/terminal/overlay.png');
+    }
+
+    .closebtn {
+    	opacity: 0;
+    	position: absolute;
+    	top: 6px;
+    	right: 7px;
+    	color: #fff;
+    	font-size: 18px;
+    	.border-radius(16px);
+    	background: #777;
+    	width: 20px;
+    	height: 20px;
+    	text-align: center;
+    	font-weight: bold;
+    	line-height: 20px;
+
+    	&:hover {
+    		opacity: 1 !important;
+    	}
+
+    	&:active {
+    		opacity: 0.7 !important;
+    	}
+    }
+
+    &:hover .closebtn {
+    	opacity: .5;
+    }
+}

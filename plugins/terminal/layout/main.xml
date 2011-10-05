@@ -1,18 +1,8 @@
 <xml>
     <toolbar>
-        <hcontainer>
-            <toolbutton id="restart" text="Restart shell" icon="/dl/core/ui/stock/refresh.png" />
-            <toolbutton id="input" text="Batch input" icon="/dl/core/ui/stock/file.png" />
-        </hcontainer>
+        <button id="add" text="New terminal" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
 
 <pad id="main">
-    <div id="term" />
-        
-    <input id="capture" value="Click here to capture input" />
-    
-    <script>
-        termInit();
-    </script>
 </pad>    
 </xml>

@@ -13,6 +13,7 @@ import subprocess as sp
 import fcntl
 import pty
 from base64 import b64decode, b64encode
+from PIL import Image, ImageDraw
 
 from gevent.event import Event
 import gevent
@@ -20,8 +21,8 @@ import gevent
 import pyte
 
 
-TERM_W = 120
-TERM_H = 30
+TERM_W = 160
+TERM_H = 40
 
 
 class TerminalPlugin(CategoryPlugin, URLHandler):
@@ -30,31 +31,112 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
     folder = 'tools'
 
     def on_session_start(self):
-        self._proc = None
-        self._inputting = False
-
-    def on_init(self):
-        if self._proc is None:
-            self.start();
-
+        self._terminals = {}
+        self._tid = 1
+        self._terminals[0] = Terminal()
+        
     def get_ui(self):
         ui = self.app.inflate('terminal:main')
-        if self._inputting:
-            ui.append('main', UI.CodeInputBox(
-                id='dlgBatch',
-                value='',
-                text='Batch input:',
+        for id in self._terminals:
+            ui.append('main', UI.TerminalThumbnail(
+                id=id
             ))
         return ui
 
-    def start(self):
+    @event('button/click')
+    def onclick(self, event, params, vars=None):
+        if params[0] == 'add':
+            self._terminals[self._tid] = Terminal()
+            self._tid += 1
+
+    @event('term/kill')
+    def onkill(self, event, params, vars=None):
+        id = int(params[0])
+        self._terminals[id].kill()
+        del self._terminals[id]
+    
+    @url('^/terminal/.*$')
+    def get(self, req, start_response):
+        params = req['PATH_INFO'].split('/')[1:] + ['']
+        id = int(params[1])
+
+        if self._terminals[id].dead():
+            self._terminals[id].start(self.app.get_config(self).shell)
+
+        if params[2] in ['history', 'get']:
+            if params[2] == 'history':
+                data = self._terminals[id]._proc.history()
+            else:
+                data = self._terminals[id]._proc.read()
+            sio = StringIO.StringIO()
+            gz = gzip.GzipFile(fileobj=sio, mode='w')
+            gz.write(json.dumps(data))
+            gz.close()
+            return b64encode(sio.getvalue())
+
+        if params[2] == 'post':
+            data = params[3]
+            self._terminals[id].write(b64decode(data))
+            return ''
+
+        if params[2] == 'kill':
+            self._terminals[id].restart()
+
+        page = self.app.inflate('terminal:page')
+        page.find('title').text = shell('echo `whoami`@`hostname`')
+        page.append('main', UI.JS(
+            code='termInit(\'%i\');'%id
+        ))
+        return page.render()
+
+
+    @url('^/terminal-thumb/.*$')
+    def get_thumb(self, req, start_response):
+        params = req['PATH_INFO'].split('/')[1:]
+        id = int(params[1])
+
+        if self._terminals[id].dead():
+            self._terminals[id].start(self.app.get_config(self).shell)
+
+        img = Image.new("RGB", (TERM_W, TERM_H*2+20))
+        draw = ImageDraw.Draw(img)
+        draw.rectangle([0,0,TERM_W,TERM_H], fill=(0,0,0))
+
+        colors = ['black', 'darkgrey', 'darkred', 'red', 'darkgreen',
+                  'green', 'brown', 'yellow', 'darkblue', 'blue',
+                  'darkmagenta', 'magenta', 'darkcyan', 'cyan',
+                  'lightgrey', 'white'] 
+
+        for y in range(0,TERM_H):
+            for x in range(0,TERM_W):
+                fc = self._terminals[id]._proc.term[y][x][1]
+                if fc == 'default': fc = 'lightgray'
+                fc = ImageDraw.ImageColor.getcolor(fc, 'RGB')
+                bc = self._terminals[id]._proc.term[y][x][2]
+                if bc == 'default': bc = 'black'
+                bc = ImageDraw.ImageColor.getcolor(bc, 'RGB')
+                ch = self._terminals[id]._proc.term[y][x][0]
+                draw.point((x,10+y*2+1),fill=(fc if ord(ch) > 32 else bc))
+                draw.point((x,10+y*2),fill=bc)
+
+        sio = StringIO.StringIO()
+        img.save(sio, 'PNG')
+        start_response(200, [('Content-type', 'image/png')])
+        return sio.getvalue()
+
+
+class Terminal:
+    def __init__(self):
+        self._proc = None
+
+    def start(self, app):
         env = {}
         env.update(os.environ)
         env['TERM'] = 'linux'
         env['COLUMNS'] = str(TERM_W)
         env['LINES'] = str(TERM_H)
         env['LC_ALL'] = 'en_US.UTF8'
-        sh = self.app.get_config(self).shell
+        sh = app 
 
         pid, master = pty.fork()
         if pid == 0:
@@ -73,38 +155,14 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
             self._proc.kill()
         self.start()
 
-    @url('^/term-get.*$')
-    def get(self, req, start_response):
-        if self._proc is None:
-            self.start();
-        if req['PATH_INFO'] == '/term-get-history':
-            data = self._proc.history()
-        else:
-            data = self._proc.read()
-        sio = StringIO.StringIO()
-        gz = gzip.GzipFile(fileobj=sio, mode='w')
-        gz.write(json.dumps(data))
-        gz.close()
-        return b64encode(sio.getvalue())
+    def dead(self):
+        return self._proc is None 
 
-    @url('^/term-post/.+')
-    def post(self, req, start_response):
-        data = req['PATH_INFO'].split('/')[2]
-        self._proc.write(b64decode(data))
-        return ''
+    def write(self, data):
+        self._proc.write(data)
 
-    @event('button/click')
-    def click(self, evt, params, vars):
-        if params[0] == 'restart':
-            self.restart()
-        if params[0] == 'input':
-            self._inputting = True
-
-    @event('dialog/submit')
-    def submit(self, evt, params, vars=None):
-        if vars.getvalue('action', None) == 'OK':
-            self._proc.write(vars.getvalue('value', ''))
-        self._inputting = False
+    def kill(self):
+        self._proc.kill()
 
 
 class PTYProtocol():

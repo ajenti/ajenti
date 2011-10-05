@@ -5,6 +5,12 @@
     </script> 
 </xsl:template>
 
+<xsl:template match="js">
+    <script>
+        <xsl:value-of select="@code"/>
+    </script> 
+</xsl:template>
+
 <xsl:template match="null">
 </xsl:template>
 
