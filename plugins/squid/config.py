@@ -4,7 +4,7 @@ from main import *
 
 class GeneralConfig(ModuleConfig):
     target = SquidConfig
-    platform = ['any']
+    platform = ['debian', 'centos', 'arch', 'gentoo']
     
     labels = {
         'cfg_file': 'Configuration file'
@@ -17,4 +17,4 @@ class BSDConfig(GeneralConfig):
     implements((IModuleConfig, -100))
     platform = ['freebsd']
     
-    cfg_dir = '/usr/local/etc/squid/squid.conf'
+    cfg_file = '/usr/local/etc/squid/squid.conf'

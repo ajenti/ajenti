@@ -292,7 +292,6 @@ class PluginLoader:
             except Exception, e:
                 PluginLoader.unload(plugin)
                 queue.remove(plugin)
-                raise
         log.info('Plugins loaded.')
 
     @staticmethod
@@ -487,7 +486,7 @@ class RepositoryManager:
 
         id = shell('tar tzf %s/plugin.tar.gz'%dir).split('\n')[0].strip('/')
 
-        shell('cd %s; tar -xf plugin.tar.gz' % dir)
+        shell('cd %s; tar xf plugin.tar.gz' % dir)
         shell('rm %s/plugin.tar.gz' % dir)
 
         send_stats(self.server, PluginLoader.list_plugins().keys(), addplugin=id)

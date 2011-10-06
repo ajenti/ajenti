@@ -3,6 +3,8 @@ from ajenti.api import *
 from ajenti.apis import API
 from ajenti import apis
 
+import traceback
+
 
 class ConfManager (Component):
     """
@@ -95,11 +97,14 @@ class ConfManager (Component):
         """
         self.configurables = {}
         self.hooks = []
-        for cfg in self.app.grab_plugins(IConfigurable):
-            self.log.debug('Registered configurable: ' + cfg.name + ' ' + str(cfg))
-            self.configurables[cfg.name] = cfg
+        try:
+            for cfg in self.app.grab_plugins(IConfigurable):
+                self.log.debug('Registered configurable: ' + cfg.id + ' ' + str(cfg))
+                self.configurables[cfg.id] = cfg
+        except Exception, e:
+            self.app.log.error('Configurables loading failed: ' + str(e) + traceback.format_exc())
         for h in self.app.grab_plugins(IConfMgrHook):
-            self.log.debug('Registered configuration hook: ' + str(h))
+            self.app.log.debug('Registered configuration hook: ' + str(h))
             self.hooks.append(h)
 
     def on_starting(self):

@@ -4,7 +4,7 @@ from main import *
 
 class GeneralConfig(ModuleConfig):
     target = NginxBackend
-    platform = ['any']
+    platform = ['debian', 'arch', 'centos', 'gentoo']
     
     labels = {
         'cfg_dir': 'Configuration directory'

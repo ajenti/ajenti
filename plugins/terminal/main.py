@@ -121,7 +121,7 @@ class TerminalPlugin(CategoryPlugin, URLHandler):
 
         sio = StringIO.StringIO()
         img.save(sio, 'PNG')
-        start_response(200, [('Content-type', 'image/png')])
+        start_response('200 OK', [('Content-type', 'image/png')])
         return sio.getvalue()
 
 

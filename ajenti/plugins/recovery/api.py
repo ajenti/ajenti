@@ -66,9 +66,13 @@ class Manager(Plugin):
         try:
             for f in provider.list_files():
                 for x in glob.glob(f):
-                    shell('cp --parents -r \'%s\' \'%s\'' % (x, dir))
+                    xdir = os.path.join(dir, os.path.split(x)[0][1:])
+                    shell('mkdir -p \'%s\'' % xdir)
+                    shell('cp -r \'%s\' \'%s\'' % (x, xdir))
 
-            if shell_status('cd %s; tar -cvpzf backup.tar.gz *'%dir) != 0:
+            print shell('cd %s;ls'%dir)
+            print dir
+            if shell_status('cd %s; tar czf backup.tar.gz *'%dir) != 0:
                 raise Exception()
             
             name = 0
@@ -92,7 +96,7 @@ class Manager(Plugin):
         for f in provider.list_files():
             for x in glob.glob(f):
                 os.unlink(x)
-        if shell_status('cd %s; tar -xf backup.tar.gz -C /'%dir) != 0:
+        if shell_status('cd %s; tar xf backup.tar.gz -C /'%dir) != 0:
             raise Exception()
         os.unlink('%s/backup.tar.gz'%dir)
         shutil.rmtree(dir)

@@ -3,7 +3,6 @@ from main import *
 
 
 class GeneralConfig(ModuleConfig):
-    platform = ['any']
     target = RecoveryPlugin
     
     labels = {

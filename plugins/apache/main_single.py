@@ -9,6 +9,7 @@ import glob
 
 
 class ApacheSingleConfigBackend(Plugin):
+    implements(IConfigurable)
     config_dir = ''
     name = 'Apache'
     id = 'apache'
@@ -27,7 +28,7 @@ class ApacheSingleConfigBackend(Plugin):
         r = {}
         text = self.read()
 
-        pat = re.compile('<VirtualHost (.+?:\d+)>',re.S)
+        pat = re.compile('<VirtualHost (.+?(?=:\d+)*)>',re.S)
         for m in pat.finditer(text):
             beg = m.start()
             while(text[beg] != '\n' and beg > 0):
@@ -175,7 +176,7 @@ class ApacheSingleConfigBackend(Plugin):
 """
                        
 class ApacheSCPlugin(apis.webserver.WebserverPlugin):
-    platform = ['centos']
+    platform = ['centos', 'freebsd']
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
     folder = 'servers'

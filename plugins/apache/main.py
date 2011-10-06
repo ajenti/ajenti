@@ -121,7 +121,7 @@ class ApacheBackend(Plugin):
 """
                        
 class ApachePlugin(apis.webserver.WebserverPlugin):
-    platform = ['debian', 'arch', 'freebsd']
+    platform = ['debian', 'arch']
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
     folder = 'servers'

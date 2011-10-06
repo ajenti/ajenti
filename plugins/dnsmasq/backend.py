@@ -12,7 +12,7 @@ class Backend(Plugin):
 
     def __init__(self):
         self.lease_file = '/var/lib/misc/dnsmasq.leases'
-        self.config_file = '/etc/dnsmasq.conf'
+        self.config_file = self.app.get_config(self).cfg_file
 
     def list_files(self):
         return [self.config_file]
@@ -154,3 +154,24 @@ class Backend(Plugin):
             if x[0] == 'time':
                 r.append('%s lease' % x[1])
         return ', '.join(r)
+
+
+
+
+class GeneralConfig(ModuleConfig):
+    target=Backend
+    platform = ['debian', 'centos', 'arch', 'gentoo']
+    
+    labels = {
+        'cfg_file': 'Configuration file'
+    }
+    
+    cfg_file = '/etc/dnsmasq.conf'
+   
+   
+class BSDConfig(GeneralConfig):
+    implements((IModuleConfig, -100))
+    platform = ['freebsd']
+    
+    cfg_file = '/usr/local/etc/dnsmasq.conf'
+

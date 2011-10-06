@@ -15,8 +15,7 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
     def on_session_start(self):
         self._tab = 0
         self._cfg = backend.SambaConfig(self.app)
-        if backend.is_installed():
-            self._cfg.load()
+        self._cfg.load()
         self._editing_share = None
         self._editing_user = None
         self._editing = None
@@ -211,7 +210,7 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
             self._editing_share = params[1]
             self._tab = 0
         if params[0] == 'delshare':
-            self._cfg.shares.pop(params[1])
+            del self._cfg.shares[params[1]]
             self._cfg.save()
             self._tab = 0
         if params[0] == 'newshare':

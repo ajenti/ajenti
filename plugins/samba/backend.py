@@ -5,14 +5,6 @@ from ajenti.com import *
 from ajenti.utils import *
 
 
-def is_installed():
-    return os.path.exists('/etc/samba/')
-
-def restart():
-    shell('service smbd restart')
-    shell('service samba restart') # older samba packages
-
-
 class SambaConfig(Plugin):
     implements(IConfigurable)
     name = 'Samba'
@@ -54,17 +46,20 @@ class SambaConfig(Plugin):
 
     fields = []
 
+    def __init__(self):
+        self.cfg_file = self.app.get_config(self).cfg_file
+
     def list_files(self):
-        return ['/etc/samba/*']
+        return [self.cfg_file]
 
     def load(self):
         self.shares = {}
 
-        if os.path.exists('/etc/samba/smb.conf'):
-            fn = '/etc/samba/smb.conf'
+        if os.path.exists(self.cfg_file):
+            fn = self.cfg_file
         else:
-            fn = '/etc/samba/smb.conf.default'
-        ss = open(fn, 'r').read().split('\n')
+            fn = self.cfg_file + '.default'
+        ss = ConfManager.get().load('samba', fn).split('\n')
         cs = ''
         for s in ss:
             s = s.strip()
@@ -98,17 +93,19 @@ class SambaConfig(Plugin):
 
 
     def save(self):
-        with open('/etc/samba/smb.conf', 'w') as f:
-            f.write('[global]\n')
-            for k in self.general:
-                if not k in self.general_defaults or \
-                    self.general[k] != self.general_defaults[k]:
-                    f.write('\t%s = %s\n' % (k,self.general[k]))
-            for s in self.shares:
-                f.write('\n[%s]\n' % s)
-                for k in self.shares[s]:
-                    if not k in self.defaults or self.shares[s][k] != self.defaults[k]:
-                        f.write('\t%s = %s\n' % (k,self.shares[s][k]))
+        ss = ''
+        ss += '[global]\n'
+        for k in self.general:
+            if not k in self.general_defaults or \
+                self.general[k] != self.general_defaults[k]:
+                ss += '\t%s = %s\n' % (k,self.general[k])
+        for s in self.shares:
+            ss += '\n[%s]\n' % s
+            for k in self.shares[s]:
+                if not k in self.defaults or self.shares[s][k] != self.defaults[k]:
+                    ss += '\t%s = %s\n' % (k,self.shares[s][k])
+        ConfManager.get().save('samba', self.cfg_file, ss)
+        ConfManager.get().commit('samba')
 
     def modify_user(self, u, p, v):
         shell('pdbedit -r -u %s %s "%s"' % (u,self.editable[p],v))
@@ -147,3 +144,22 @@ class SambaConfig(Plugin):
         else:
             value = 'yes' if vars.getvalue(param, self.defaults[param]) == '1' else 'no'
         self.set_param(share, param, value)
+
+
+class GeneralConfig(ModuleConfig):
+    target=SambaConfig
+    platform = ['debian', 'centos', 'arch', 'gentoo']
+    
+    labels = {
+        'cfg_file': 'Configuration file'
+    }
+    
+    cfg_file = '/etc/samba/smb.conf'
+   
+   
+class BSDConfig(GeneralConfig):
+    implements((IModuleConfig, -100))
+    platform = ['freebsd']
+    
+    cfg_file = '/usr/local/etc/samba/smb.conf'
+
