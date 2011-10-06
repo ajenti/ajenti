@@ -62,25 +62,27 @@ class SquidACLs(Plugin):
         parent._editing_acl = ''
 
     def get_ui(self):
-        t = UI.DataTable()
-        t.append(UI.DataTableRow(UI.Label(text='Name'), UI.Label(text='Type'), UI.Label(text='Value'), UI.Label(), header=True))
+        t = UI.DT()
+        t.append(UI.DTR(
+            UI.DTH(UI.Label(text='Name')), 
+            UI.DTH(UI.Label(text='Type')), 
+            UI.DTH(UI.Label(text='Value')),
+            UI.DTH(), 
+            header=True))
         for a in self.cfg.acls:
             try:
                 tp = filter(lambda x: x[1] == a[1], self.acl_types)[0][0]
             except:
                 tp = a[1]
             t.append(
-                UI.DataTableRow(
+                UI.DTR(
                     UI.Label(text=a[0]),
                     UI.Label(text=tp),
                     UI.Label(text=a[2]),
-                    UI.DataTableCell(
-                        UI.HContainer(
-                            UI.MiniButton(text='Edit', id='edit_acl/' + a[0]),
-                            UI.MiniButton(text='Delete', id='del_acl/' + a[0] + '/' + a[1] + '/' + a[2])
-                        ),
-                        hidden=True
-                   )
+                    UI.HContainer(
+                        UI.TipIcon(icon='/dl/core/ui/stock/edit.png', text='Edit', id='edit_acl/' + a[0]),
+                        UI.TipIcon(icon='/dl/core/ui/stock/delete.png', text='Delete', id='del_acl/' + a[0] + '/' + a[1] + '/' + a[2])
+                    ),
                 )
               )
         vc = UI.VContainer(t,
@@ -106,16 +108,16 @@ class SquidACLs(Plugin):
             li.append(UI.SelectOption(text=d, value=v))
 
         c = UI.HContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
+                UI.LT(
+                    UI.LTR(
                         UI.Label(text='Name:'),
                         UI.TextInput(name='name')
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Type:'),
                         li
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Parameter:'),
                         UI.TextInput(name='value')
                     )
@@ -129,16 +131,16 @@ class SquidACLs(Plugin):
             li.append(UI.SelectOption(text=d, value=v, selected=(v==t)))
 
         c = UI.HContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
+                UI.LT(
+                    UI.LTR(
                         UI.Label(text='Name:'),
                         UI.TextInput(name='name', value=n)
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Type:'),
                         li
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Parameter:'),
                         UI.TextInput(name='value', value=p)
                     )

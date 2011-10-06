@@ -21,24 +21,30 @@ class SquidBindings(Plugin):
         parent._adding_https_binding = False
 
     def get_ui(self):
-        t1 = UI.DataTable()
-        t1.append(UI.DataTableRow(UI.Label(text='Host'), UI.Label(text='Port'), UI.Label(), header=True))
+        t1 = UI.DT()
+        t1.append(UI.DTR(UI.DTH(UI.Label(text='Host')), UI.DTH(UI.Label(text='Port')), UI.DTH(), header=True))
         for a in self.cfg.http_port:
             t1.append(
-                UI.DataTableRow(
+                UI.DTR(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
-                    UI.DataTableCell(UI.MiniButton(text='Delete', id='del_http_binding/' + a[0] + '/' + a[1]), hidden=True)
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
+                        text='Delete', id='del_http_binding/' + a[0] + '/' + a[1]
+                    )
                 )
               )
-        t2 = UI.DataTable()
-        t2.append(UI.DataTableRow(UI.Label(text='Host'), UI.Label(text='Port'), UI.Label(), header=True))
+        t2 = UI.DT()
+        t2.append(UI.DTR(UI.DTH(UI.Label(text='Host')), UI.DTH(UI.Label(text='Port')), UI.DTH(), header=True))
         for a in self.cfg.https_port:
             t2.append(
-                UI.DataTableRow(
+                UI.DTR(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
-                    UI.DataTableCell(UI.MiniButton(text='Delete', id='del_https_binding/' + a[0] + '/' + a[1]), hidden=True)
+                    UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
+                        text='Delete', id='del_https_binding/' + a[0] + '/' + a[1]
+                    )
                 )
               )
 
@@ -54,12 +60,12 @@ class SquidBindings(Plugin):
 
     def get_ui_add(self):
         c = UI.HContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
+                UI.LT(
+                    UI.LTR(
                         UI.Label(text='Host:'),
                         UI.TextInput(name='host')
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Port:'),
                         UI.TextInput(name='port')
                     )

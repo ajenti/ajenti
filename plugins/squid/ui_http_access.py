@@ -21,17 +21,20 @@ class SquidRules(Plugin):
         parent._adding_rules = False
 
     def get_ui(self):
-        t = UI.DataTable()
-        t.append(UI.DataTableRow(UI.Label(text='List'), UI.Label(text='Access'), UI.Label(text='ACL'), UI.Label(), header=True))
+        t = UI.DT()
+        t.append(UI.DTR(UI.Label(text='List'), UI.Label(text='Access'), UI.Label(text='ACL'), UI.Label(), header=True))
         for a in self.cfg.rules:
             t.append(
-                UI.DataTableRow(
+                UI.DTR(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
                     UI.Label(text=a[2]),
-                    UI.DataTableCell(UI.MiniButton(text='Delete', id='del_rules/' + a[0] + '/' + a[1] + '/' + a[2]), hidden=True)
+                    UI.DTD(UI.TipIcon(
+                        icon='/dl/core/ui/stock/delete.png',
+                        text='Delete', id='del_rules/' + a[0] + '/' + a[1] + '/' + a[2]
+                    )
                 )
-              )
+              ))
         vc = UI.VContainer(t,
                 UI.HContainer(
                     UI.Button(text='Add', id='add_rules'),
@@ -47,20 +50,20 @@ class SquidRules(Plugin):
         return vc
 
     def get_ui_add(self):
-        li = UI.Select(name='list')
+        li = UI.SelectInput(name='list')
         for a in self.cfg.access_lists:
             li.append(UI.SelectOption(text=a, value=a))
 
-        c = UI.LayoutTable(
-                UI.LayoutTableRow(
+        c = UI.LT(
+                UI.LTR(
                     UI.Label(text='Access list:'),
                     li
                 ),
-                UI.LayoutTableRow(
+                UI.LTR(
                     UI.Radio(value='allow', text='Allow', name='type', checked=True),
                     UI.Radio(value='deny', text='Deny', name='type')
                 ),
-                UI.LayoutTableRow(
+                UI.LTR(
                     UI.Label(text='ACLs'),
                     UI.TextInput(name='acl')
                 )

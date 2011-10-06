@@ -3,7 +3,7 @@
         <xsl:apply-templates />
     </div>
     <script>
-        ui_initSortList('<xsl:value-of select="@id"/>');
+        $('#<xsl:value-of select="@id"/>').sortable();
     </script>
 </xsl:template>
 

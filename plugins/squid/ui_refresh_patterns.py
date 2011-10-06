@@ -22,8 +22,8 @@ class SquidRefPats(Plugin):
         parent._editing_ref_pat = -1
 
     def get_ui(self):
-        t = UI.DataTable()
-        t.append(UI.DataTableRow(
+        t = UI.DT()
+        t.append(UI.DTR(
                 UI.Label(text='Regex'),
                 UI.Label(text='Min'),
                 UI.Label(text='%'),
@@ -36,19 +36,16 @@ class SquidRefPats(Plugin):
         i = 0
         for a in self.cfg.ref_pats:
             t.append(
-                UI.DataTableRow(
+                UI.DTR(
                     UI.Label(text=a[0]),
                     UI.Label(text=a[1]),
                     UI.Label(text=a[2]),
                     UI.Label(text=a[3]),
                     UI.Label(text=a[4]),
-                    UI.DataTableCell(
-                        UI.HContainer(
-                            UI.MiniButton(text='Edit', id='edit_ref_pat/' + str(i)),
-                            UI.MiniButton(text='Delete', id='del_ref_pat/' + str(i))
-                        ),
-                        hidden=True
-                   )
+                    UI.HContainer(
+                        UI.TipIcon(icon='/dl/core/ui/stock/edit.png', text='Edit', id='edit_ref_pat/' + str(i)),
+                        UI.TipIcon(icon='/dl/core/ui/stock/delete.png', text='Delete', id='del_ref_pat/' + str(i))
+                    ),
                 )
               )
             i += 1
@@ -68,24 +65,24 @@ class SquidRefPats(Plugin):
 
     def get_ui_add(self):
         c = UI.HContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
+                UI.LT(
+                    UI.LTR(
                         UI.Label(text='Regex:'),
                         UI.TextInput(name='regex')
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Min:'),
                         UI.TextInput(name='min')
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Percents:'),
                         UI.TextInput(name='perc')
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Max:'),
                         UI.TextInput(name='max')
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Options:'),
                         UI.TextInput(name='opts')
                     )
@@ -95,24 +92,24 @@ class SquidRefPats(Plugin):
 
     def get_ui_edit(self, a):
         c = UI.HContainer(
-                UI.LayoutTable(
-                    UI.LayoutTableRow(
+                UI.LT(
+                    UI.LTR(
                         UI.Label(text='Regex:'),
                         UI.TextInput(name='regex', value=a[0])
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Min:'),
                         UI.TextInput(name='min', value=a[1])
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Percents:'),
                         UI.TextInput(name='perc', value=a[2])
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Max:'),
                         UI.TextInput(name='max', value=a[3])
                     ),
-                    UI.LayoutTableRow(
+                    UI.LTR(
                         UI.Label(text='Options:'),
                         UI.TextInput(name='opts', value=a[4])
                     )

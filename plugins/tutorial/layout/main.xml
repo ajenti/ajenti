@@ -1,8 +1,0 @@
-<xml>
-    <pad>
-        <hcontainer>
-            <button id="btnOne" text="First" />
-            <button id="btnTwo" text="Second" />
-        </hcontainer>
-    </pad>    
-</xml>
