@@ -46,7 +46,6 @@ class DNSPlugin(CategoryPlugin):
 
 
     @event('button/click')
-    @event('minibutton/click')
     def on_ll_click(self, event, params, vars=None):
         if params[0] == 'editns':
             self._editing_ns = int(params[1])

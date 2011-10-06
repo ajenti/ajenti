@@ -129,7 +129,6 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
         dlg.find('addr').set('value', x[1])
 
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'btnAddHost':
             self._editing_host = -1

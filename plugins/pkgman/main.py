@@ -217,7 +217,6 @@ class PackageManagerPlugin(CategoryPlugin):
         self._current = params[0]
 
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'refresh':
             self.mgr.refresh()

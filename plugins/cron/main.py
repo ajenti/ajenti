@@ -161,7 +161,6 @@ class CronPlugin(helpers.CategoryPlugin):
         return ui
 
     #noinspection PyUnusedLocal
-    @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):

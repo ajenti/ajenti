@@ -43,9 +43,6 @@ class FirstRun(CategoryPlugin, URLHandler):
 
         return ui
 
-    @event('button/click')
-    @event('minibutton/click')
-    @event('linklabel/click')
     @event('form/submit')
     def on_event(self, event, params, vars=None):
         if params[0] == 'frmChangePassword':

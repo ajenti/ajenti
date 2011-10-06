@@ -88,7 +88,7 @@ class TaskManagerPlugin(CategoryPlugin):
 
         return ui
 
-    @event('minibutton/click')
+    @event('button/click')
     def on_button(self, event, params, vars=None):
         if params[0] == 'info':
             self._info = int(params[1])

@@ -154,7 +154,6 @@ class Webserver(API):
             return ui
                 
         @event('button/click')
-        @event('minibutton/click')
         def on_click(self, event, params, vars=None):
             if params[0] == 'togglehost':
                 self._tab = self.tab_hosts

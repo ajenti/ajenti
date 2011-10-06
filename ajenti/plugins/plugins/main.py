@@ -107,8 +107,6 @@ class PluginManager(CategoryPlugin, URLHandler):
         return ''
 
     @event('button/click')
-    @event('minibutton/click')
-    @event('linklabel/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'update':
             self._mgr.update_list()

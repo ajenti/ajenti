@@ -57,7 +57,6 @@ class DaemonsPlugin(CategoryPlugin):
         return filter(lambda x:x.name==name, self._items)[0]
 
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'add':
             d = Daemon('new', '')

@@ -107,7 +107,6 @@ class FSPlugin(CategoryPlugin):
         ui.find('dump_p').set('value', e.dump_p)
         ui.find('fsck_p').set('value', e.fsck_p)
 
-    @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):

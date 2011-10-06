@@ -61,7 +61,6 @@ class HostsPlugin(CategoryPlugin):
 
         return ui
 
-    @event('minibutton/click')
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars = None):

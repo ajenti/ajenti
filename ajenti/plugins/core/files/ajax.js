@@ -28,7 +28,7 @@ function ajax(URL)
 
 function showAjaxLoader(s) {
     document.getElementById('ajax-loader').style.display = s ? 'block' : 'none';
-    document.documentElement.style.cursor = s ? 'wait' : '';
+    document.documentElement.style.cursor = s ? 'wait !important' : '';
 }
 
 function ajaxPOST(URL, params)

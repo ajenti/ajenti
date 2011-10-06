@@ -203,7 +203,6 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
               )
         return dlg
 
-    @event('minibutton/click')
     @event('button/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'restart':

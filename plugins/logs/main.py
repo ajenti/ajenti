@@ -69,8 +69,6 @@ class LogsPlugin(CategoryPlugin):
         d += '</span>'
         return UI.CustomHTML(html=d)
 
-    @event('minibutton/click')
-    @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'view':

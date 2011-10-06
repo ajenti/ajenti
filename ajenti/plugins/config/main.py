@@ -60,7 +60,6 @@ class ConfigPlugin(CategoryPlugin):
         return ui
 
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'adduser':
             self._adding_user = True

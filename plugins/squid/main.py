@@ -35,7 +35,6 @@ class SquidPlugin(apis.services.ServiceControlPlugin):
         return UI.Pad(tc)
 
     @event('button/click')
-    @event('minibutton/click')
     def on_click(self, event, params, vars=None):
         for p in self._parts:
             p.on_click(event, params, vars)

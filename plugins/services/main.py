@@ -37,7 +37,7 @@ class ServicesPlugin(CategoryPlugin):
             ts.append(row)
         return ui
 
-    @event('minibutton/click')
+    @event('button/click')
     def on_click(self, event, params, vars=None):
         if params[0] == 'start':
             self.svc_mgr.start(params[1])

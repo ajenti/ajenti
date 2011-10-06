@@ -1,64 +1,32 @@
 <xml>
     <dialogbox id="dlgInfo" hidecancel="True">
-        <layouttable>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Name" />
-                </layouttablecell>
-                <layouttablecell>
-                    <label id="name" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Command" />
-                </layouttablecell>
-                <layouttablecell>
-                    <label id="cmd" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="UID" />
-                </layouttablecell>
-                <layouttablecell>
-                    <label id="uid" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="GID" />
-                </layouttablecell>
-                <layouttablecell>
-                    <label id="gid" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="CPU times" />
-                </layouttablecell>
-                <layouttablecell>
-                    <label id="times" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow id="parentRow">
-                <layouttablecell>
-                    <label text="Parent" />
-                </layouttablecell>
-                <layouttablecell>
-                    <label id="parent" />
-                    <minibutton id="parentinfo" text="Info" />
-                </layouttablecell>
-            </layouttablerow>
-        </layouttable>
+        <formline text="Name">
+            <label id="name" />
+        </formline>
+        <formline text="Command">
+            <label id="cmd" />
+        </formline>
+        <formline text="UID">
+            <label id="uid" />
+        </formline>
+        <formline text="GID">
+            <label id="gid" />
+        </formline>
+        <formline text="CPU times">
+            <label id="times" />
+        </formline>
+        <formline id="parentRow" text="Parent">
+            <label id="parent" />
+            <button id="parentinfo" text="Info" />
+        </formline>
 
         <hcontainer>
-            <minibutton text="Suspend" id="suspend" />
-            <minibutton text="Resume" id="resume" />
+            <button text="Suspend" id="suspend" />
+            <button text="Resume" id="resume" />
 
             <simpleform id="frmKill">
                 <select id="sigs" name="signal" />
-                <minibutton onclick="form" form="frmKill" action="OK" text="Kill" />
+                <button onclick="form" form="frmKill" action="OK" text="Kill" />
             </simpleform>
         </hcontainer>
 
