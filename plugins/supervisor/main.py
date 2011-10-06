@@ -7,56 +7,62 @@ from ajenti import apis
 from client import SVClient
 
 
-class SVPlugin(CategoryPlugin):
+class SVPlugin(apis.services.ServiceControlPlugin):
     text = 'Supervisor'
     icon = '/dl/supervisor/icon.png'
     folder = 'apps'
+    service_name = 'supervisor'
 
     def on_session_start(self):
         self._client = SVClient(self.app)
         self._tail = None
 
-    def get_ui(self):
+    def get_main_ui(self):
         ui = self.app.inflate('supervisor:main')
 
         if not self._client.test():
             raise ConfigurationError('Please check supervisorctl configuration')
 
         for x in self._client.status():
-            ui.append('list', UI.DataTableRow(
+            ui.append('list', UI.DTR(
                 UI.Label(text=x['name']),
                 UI.Label(text=x['status']),
                 UI.Label(text=x['info']),
                 UI.HContainer(
-                    UI.MiniButton(
+                    UI.TipIcon(
                         id='start/'+x['name'],
                         text='Start',
+                        icon='/dl/core/ui/stock/service-start.png',
                     ) if x['status'] != 'RUNNING' else None,
-                    UI.MiniButton(
+                    UI.TipIcon(
                         id='restart/'+x['name'],
                         text='Restart',
+                        icon='/dl/core/ui/stock/service-restart.png',
                     ) if x['status'] == 'RUNNING' else None,
-                    UI.MiniButton(
+                    UI.TipIcon(
                         id='stop/'+x['name'],
                         text='Stop',
+                        icon='/dl/core/ui/stock/service-stop.png',
                     ) if x['status'] == 'RUNNING' else None,
-                    UI.MiniButton(
+                    UI.TipIcon(
                         id='tail/'+x['name'],
                         text='Log tail',
+                        icon='/dl/core/ui/stock/paste.png',
                     )
                 ),
             ))
 
         if self._tail is not None:
-            ui.append('main', UI.CodeInputBox(
+            ui.append('main', UI.InputBox(
                 value=self._client.tail(self._tail),
                 hidecancel=True,
+                extra='code',
             ))
 
 
         return ui
 
-    @event('minibutton/click')
+    @event('button/click')
     def on_button(self, event, params, vars=None):
         if params[0] == 'start':
             self._client.start(params[1])

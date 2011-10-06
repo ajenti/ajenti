@@ -1,51 +1,46 @@
 <xml>
     <toolbar>
-        <hcontainer>
-            <toolbutton id="newshare" text="Add share" icon="/dl/samba/newshare.png" />
-            <toolbutton id="newuser" text="Add user" icon="/dl/core/ui/stock/add.png" />
-        </hcontainer>
+        <button id="newshare" text="Add share" icon="/dl/samba/newshare.png" />
+        <button id="newuser" text="Add user" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
     
     <pad id="main">
-    <tabcontrol id="tabs">
-        <tabheadernode id="tabs">
-            <tabheader pid="tabs" text="Share" id="0"/>
-            <tabheader pid="tabs" text="Users" id="1"/>
-            <tabheader pid="tabs" text="General" id="2"/>
-        </tabheadernode>
+        <tabcontrol id="tabs" active="0">
+            <tabheader text="Share" id="0"/>
+            <tabheader text="Users" id="1"/>
+            <tabheader text="General" id="2"/>
 
-        <container>
-        
-            <tabbody pid="tabs" id="0">
-                <datatable id="shares" width="100%">
-                    <datatablerow header="True">
-                        <datatablecell>
+            <tabbody id="0">
+                <dt id="shares" width="100%">
+                    <dtr header="True">
+                        <dth width="1" />
+                        <dth>
                             <label text="Name" />
-                        </datatablecell>
-                        <datatablecell>
+                        </dth>
+                        <dth>
                             <label text="Path" />
-                        </datatablecell>
-                        <datatablecell width="140"/>
-                    </datatablerow>
-                </datatable>
+                        </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
             </tabbody>
             
-            <tabbody pid="tabs" id="1">
-                <datatable id="users" width="100%">
-                    <datatablerow header="True">
-                        <datatablecell>
+            <tabbody id="1">
+                <dt id="users" width="100%">
+                    <dtr header="True">
+                        <dth width="1" />
+                        <dth>
                             <label text="Name" />
-                        </datatablecell>
-                        <datatablecell width="140"/>
-                    </datatablerow>
-                </datatable>
+                        </dth>
+                        <dth width="1" />
+                    </dtr>
+                </dt>
             </tabbody>
             
-            <tabbody pid="tabs" id="2">
+            <tabbody id="2">
                <container id="tab2" />
             </tabbody>
             
-        </container>
-    </tabcontrol>
+        </tabcontrol>
     </pad>
 </xml>

@@ -29,7 +29,7 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
         ui = self.app.inflate('dnsmasq:main')
 
         for lease in self.backend.get_leases():
-            row = UI.DataTableRow(
+            row = UI.DTR(
                 UI.Label(text=lease['mac']),
                 UI.Label(text=lease['ip']),
                 UI.Label(text=lease['host']),
@@ -37,46 +37,44 @@ class DnsMasqPlugin(apis.services.ServiceControlPlugin):
             ui.append('list', row)
 
         for host in self.cfg['dhcp-hosts']:
-            row = UI.DataTableRow(
+            row = UI.DTR(
                 UI.Label(text=self.backend.find_mac(host).upper()),
                 UI.Label(text=self.backend.str_ident(host['id'])),
                 UI.Label(text=self.backend.find_ip(host)),
                 UI.Label(text=self.backend.str_act(host['act'])),
-                UI.DataTableCell(
-                    UI.HContainer(
-                        UI.MiniButton(
-                            id='editHost/%i' % self.cfg['dhcp-hosts'].index(host),
-                            text='Edit',
-                        ),
-                        UI.WarningMiniButton(
-                            id='deleteHost/%i' % self.cfg['dhcp-hosts'].index(host),
-                            msg='Delete host rule',
-                            text='Delete',
-                        ),
+                UI.HContainer(
+                    UI.TipIcon(
+                        id='editHost/%i' % self.cfg['dhcp-hosts'].index(host),
+                        text='Edit',
+                        icon='/dl/core/ui/stock/edit.png'
                     ),
-                    hidden=True
-                )
+                    UI.TipIcon(
+                        id='deleteHost/%i' % self.cfg['dhcp-hosts'].index(host),
+                        warning='Delete host rule',
+                        text='Delete',
+                        icon='/dl/core/ui/stock/delete.png'
+                    ),
+                ),
             )
             ui.append('hosts', row)
 
         for host in self.cfg['domains']:
-            row = UI.DataTableRow(
+            row = UI.DTR(
                 UI.Label(text=host[0]),
                 UI.Label(text=host[1]),
-                UI.DataTableCell(
-                    UI.HContainer(
-                        UI.MiniButton(
-                            id='editDomain/%i' % self.cfg['domains'].index(host),
-                            text='Edit',
-                        ),
-                        UI.WarningMiniButton(
-                            id='deleteDomain/%i' % self.cfg['domains'].index(host),
-                            msg='Delete DNS entry',
-                            text='Delete',
-                        ),
+                UI.HContainer(
+                    UI.TipIcon(
+                        id='editDomain/%i' % self.cfg['domains'].index(host),
+                        text='Edit',
+                        icon='/dl/core/ui/stock/edit.png'
                     ),
-                    hidden=True
-                )
+                    UI.TipIcon(
+                        id='deleteDomain/%i' % self.cfg['domains'].index(host),
+                        warning='Delete DNS entry',
+                        text='Delete',
+                        icon='/dl/core/ui/stock/delete.png'
+                    ),
+                ),
             )
             ui.append('domains', row)
 

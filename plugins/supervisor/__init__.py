@@ -4,6 +4,7 @@ DEPS =  [
     (['any'],
      [
         ('app', 'Supervisor console', 'supervisorctl'),
+   		('plugin', 'services'),
      ])
 ]
 

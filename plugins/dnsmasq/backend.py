@@ -45,14 +45,13 @@ class Backend(Plugin):
             'domains': [],
             'opts': {},
         }
-        for l in ConfManager.get().load('dnsmasq', self.config_file):
+        for l in ConfManager.get().load('dnsmasq', self.config_file).split('\n'):
             l = l.strip()
             if len(l) > 0 and not l.startswith('#'):
                 if '=' in l:
                     k,v = l.split('=', 1)
                     k = k.strip()
                     v = v.strip()
-
                     if k == 'dhcp-host':
                         r['dhcp-hosts'].append(self.parse_host(v))
                     elif k == 'address':

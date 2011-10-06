@@ -126,7 +126,9 @@ function ajaxHandler(data)
     var ob = main.getElementsByTagName("script");
     for(var i=0; i<ob.length; i++)
         try {
-            if(ob[i].text!=null) { eval(ob[i].text);
+            if(ob[i].text!=null) { 
+                eval(ob[i].text);
+                ob[i].text = '';
             }
         } catch (err) {}
 }

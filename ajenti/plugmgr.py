@@ -181,6 +181,7 @@ class PluginLoader:
         log.debug('Loading plugin %s' % plugin)
         try:
             mod = imp.load_module(plugin, *imp.find_module(plugin, [path]))
+            log.debug('  -- version ' + mod.VERSION)
         except:
             log.warn(' *** Plugin not loadable: ' + plugin)
             return

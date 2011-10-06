@@ -1,22 +1,10 @@
 <xml>
     <dialogbox id="dlgEditDomain">
-        <layouttable>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Hostname" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput id="hostname" name="hostname" />
-                </layouttablecell>
-            </layouttablerow>
-            <layouttablerow>
-                <layouttablecell>
-                    <label text="Address" />
-                </layouttablecell>
-                <layouttablecell>
-                    <textinput id="addr" name="addr" />
-                </layouttablecell>
-            </layouttablerow>
-        </layouttable>
+        <formline text="Hostname">
+            <textinput id="hostname" name="hostname" />
+        </formline>
+        <formline text="Address">
+            <textinput id="addr" name="addr" />
+        </formline>
     </dialogbox>
 </xml>

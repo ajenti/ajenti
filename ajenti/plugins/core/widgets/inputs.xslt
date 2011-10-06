@@ -15,9 +15,15 @@
 
 <xsl:template match="textinput">
         <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}" />
-            <xsl:if test="@help and (@help != '')">
-                <helpicon text="{@help}"/>
-            </xsl:if>
+</xsl:template>
+
+<xsl:template match="attachtextinput">
+    <div class="input-prepend">
+        <hlabel class="add-on {@attachmentDesign}">
+            <xsl:apply-templates />
+        </hlabel>
+        <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" type="{x:iif(@password, 'password', 'text')}" />
+    </div>
 </xsl:template>
 
 <xsl:template match="checkbox">
@@ -28,9 +34,6 @@
             </xsl:if>
         </input>
         <xsl:value-of select="@text" />
-        <xsl:if test="@help and (@help != '')">
-            <helpicon text="{@help}"/>
-        </xsl:if>
     </div>
 </xsl:template>
 
@@ -58,37 +61,26 @@
             </xsl:if>
         </input>
         <xsl:value-of select="@text" />
-        <xsl:if test="@help and (@help != '')">
-            <helpicon text="{@help}"/>
-        </xsl:if>
     </div>
 </xsl:template>
 
 <xsl:template match="textinputarea">
-    <table><tr>
-        <td>
-            <textarea class="ui-el-textarea" name="{@name}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};" id="{@id}">
-                <xsl:if test="@disabled = 'True'">
-                    <xsl:attribute name="disabled"/>
-                </xsl:if>
-            </textarea>
-            <script>
-                <xsl:choose>
-                    <xsl:when test="@nodecode = 'True'">
-                        ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@value"/>');
-                    </xsl:when>
-                    <xsl:otherwise>
-                        ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@value)"/>');
-                    </xsl:otherwise>
-                </xsl:choose>
-            </script>
-        </td>
-        <td>
-            <xsl:if test="@help and (@help != '')">
-                <helpicon text="{@help}"/>
-            </xsl:if>
-        </td></tr>
-    </table>
+    <textarea class="ui-el-textarea" name="{@name}" style="width: {x:css(@width, '200')}; height: {x:css(@height, '200')};" 
+        id="{@id}">
+        <xsl:if test="@disabled = 'True'">
+            <xsl:attribute name="disabled"/>
+        </xsl:if>
+    </textarea>
+    <script>
+        <xsl:choose>
+            <xsl:when test="@nodecode = 'True'">
+                ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="@value"/>');
+            </xsl:when>
+            <xsl:otherwise>
+                ui_fill_custom_html('<xsl:value-of select="@id"/>', '<xsl:value-of select="x:b64(@value)"/>');
+            </xsl:otherwise>
+        </xsl:choose>
+    </script>
 </xsl:template>
 
 <xsl:template match="selecttextinput">

@@ -1,66 +1,62 @@
 <xml>
-
     <toolbar>
-        <hcontainer>
-            <toolbutton id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
-            <toolbutton id="btnAddDomain" text="Add domain" icon="/dl/core/ui/stock/add.png" />
-        </hcontainer>
+        <button id="btnAddHost" text="Add DHCP host" icon="/dl/core/ui/stock/add.png" />
+        <button id="btnAddDomain" text="Add domain" icon="/dl/core/ui/stock/add.png" />
     </toolbar>
     
     <label size="5" text="DNS entries" />
 
     <pad>
-        <datatable id="domains" width="100%">
-            <datatablerow header="True">
-                <datatablecell width="40%">
+        <dt id="domains" width="100%">
+            <dtr header="True">
+                <dth>
                     <label text="Hostname" />
-                </datatablecell>
-                <datatablecell width="40%">
+                </dth>
+                <dth>
                     <label text="Address" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
-
-    <label size="5" text="Active leases" />
-
-    <pad id="main">
-        <datatable id="list" width="100%">
-            <datatablerow header="True">
-                <datatablecell width="30%">
-                    <label text="MAC" />
-                </datatablecell>
-                <datatablecell width="30%">
-                    <label text="IP" />
-                </datatablecell>
-                <datatablecell>
-                    <label text="Host" />
-                </datatablecell>
-            </datatablerow>
-        </datatable>
-    </pad>
-
 
     <label size="5" text="DHCP hosts" />
 
     <pad>
-        <datatable id="hosts" width="100%">
-            <datatablerow header="True">
-                <datatablecell>
+        <dt id="hosts" width="100%">
+            <dtr header="True">
+                <dth>
                     <label text="MAC" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Identification" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="IP" />
-                </datatablecell>
-                <datatablecell>
+                </dth>
+                <dth>
                     <label text="Action" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+    
+    <label size="5" text="Active leases" />
+
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="MAC" />
+                </dth>
+                <dth>
+                    <label text="IP" />
+                </dth>
+                <dth>
+                    <label text="Host" />
+                </dth>
+            </dtr>
+        </dt>
     </pad>
 </xml>

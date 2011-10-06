@@ -28,19 +28,17 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
 
         # Shares
         for h in self._cfg.get_shares():
-            r = UI.DataTableRow(
-                    UI.DataTableCell(
-                        UI.Image(file='/dl/core/ui/stock/folder.png'),
-                        UI.Label(text=h)
-                    ),
+            r = UI.DTR(
+                    UI.Image(file='/dl/core/ui/stock/folder.png'),
+                    UI.Label(text=h),
                     UI.Label(text=self._cfg.shares[h]['path']),
-                    UI.DataTableCell(
-                        UI.HContainer(
-                            UI.MiniButton(text='Edit', id='editshare/' + h),
-                            UI.WarningMiniButton(text='Delete', id='delshare/' + h, msg='Delete share %s'%h)
-                        ),
-                        hidden=True
-                    )
+                    UI.HContainer(
+                        UI.TipIcon(icon='/dl/core/ui/stock/edit.png',
+                            text='Edit', id='editshare/' + h),
+                        UI.TipIcon(
+                            icon='/dl/core/ui/stock/delete.png',
+                            text='Delete', id='delshare/' + h, warning='Delete share %s'%h)
+                    ),
                 )
             ui.append('shares', r)
 
@@ -55,18 +53,16 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
 
         # Users
         for h in sorted(self._cfg.users.keys()):
-            r = UI.DataTableRow(
-                    UI.DataTableCell(
-                        UI.Image(file='/dl/core/ui/stock/user.png'),
-                        UI.Label(text=h)
+            r = UI.DTR(
+                    UI.Image(file='/dl/core/ui/stock/user.png'),
+                    UI.Label(text=h),
+                    UI.HContainer(
+                        UI.TipIcon(icon='/dl/core/ui/stock/edit.png',
+                            text='Edit', id='edituser/' + h),
+                        UI.TipIcon(
+                            icon='/dl/core/ui/stock/delete.png',
+                            text='Delete', id='deluser/' + h, warning='Delete user %s'%h)
                     ),
-                    UI.DataTableCell(
-                        UI.HContainer(
-                            UI.MiniButton(text='Edit', id='edituser/' + h),
-                            UI.WarningMiniButton(text='Delete', id='deluser/' + h, msg='Delete user %s'%h)
-                        ),
-                        hidden=True
-                    )
                 )
             ui.append('users', r)
 
@@ -105,48 +101,38 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
             s = self._cfg.new_share()
 
         dlg = UI.DialogBox(
-                  UI.LayoutTable(
-                      UI.LayoutTableRow(
-                          UI.Label(text='Name:'),
-                          UI.TextInput(name='name', value='new')
+                  UI.Container(
+                      UI.Formline(
+                          UI.TextInput(name='name', value='new'),
+                          text='Name',
                       ) if self._editing_share == '' else None,
-                      UI.LayoutTableRow(
-                          UI.Label(text='Path:'),
-                          UI.TextInput(name='path', value=s['path'])
+                      UI.Formline(
+                          UI.TextInput(name='path', value=s['path']),
+                          text='Path',
                       ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Valid users:'),
-                          UI.TextInput(name='valid users', value=s['valid users'])
+                      UI.Formline(
+                          UI.TextInput(name='valid users', value=s['valid users']),
+                          text='Valid users',
                       ),
-                      UI.LayoutTableRow(
-                          UI.LayoutTableCell(
-                              UI.Checkbox(text='Available', name='available', checked=s['available']=='yes'),
-                              colspan=2
-                          )
+                      UI.Formline(
+                          UI.Checkbox( name='available', checked=s['available']=='yes'),
+                          text='Available',
                       ),
-                      UI.LayoutTableRow(
-                          UI.LayoutTableCell(
-                              UI.Checkbox(text='Browseable', name='browseable', checked=s['browseable']=='yes'),
-                              colspan=2
-                          )
+                      UI.Formline(
+                          UI.Checkbox(name='browseable', checked=s['browseable']=='yes'),
+                          text='Browseable', 
                       ),
-                      UI.LayoutTableRow(
-                          UI.LayoutTableCell(
-                              UI.Checkbox(text='Read only', name='read only', checked=s['read only']=='yes'),
-                              colspan=2
-                          )
+                      UI.Formline(
+                          UI.Checkbox(name='read only', checked=s['read only']=='yes'),
+                          text='Read only',
                       ),
-                      UI.LayoutTableRow(
-                          UI.LayoutTableCell(
-                              UI.Checkbox(text='Guest access', name='guest ok', checked=s['guest ok']=='yes'),
-                              colspan=2
-                          )
+                      UI.Formline(
+                          UI.Checkbox(name='guest ok', checked=s['guest ok']=='yes'),
+                          text='Guest access'
                       ),
-                      UI.LayoutTableRow(
-                          UI.LayoutTableCell(
-                              UI.Checkbox(text='Force guest', name='guest only', checked=s['guest only']=='yes'),
-                              colspan=2
-                          )
+                      UI.Formline(
+                          UI.Checkbox(name='guest only', checked=s['guest only']=='yes'),
+                          text='Force guest',
                       )
                   ),
                   id='dlgEditShare',
@@ -155,15 +141,17 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
         return dlg
 
     def get_ui_edit_user(self, u=None):
-        t = UI.LayoutTable()
+        t = UI.Container()
         for k in self._cfg.fields:
-            t.append(
-                UI.LayoutTableRow(
-                    UI.Label(text=k+':'),
-                    UI.Label(text=u[k]),
-                    UI.Button(text='Change', id='chuser/'+k) if k in self._cfg.editable else None
+            if k in u.keys():
+              t.append(
+                    UI.Formline(
+                        UI.Label(text=u[k]),
+                        UI.Button(design='mini',
+                          text='Change', id='chuser/'+k) if k in self._cfg.editable else None,
+                        text=k
+                    )
                 )
-            )
 
         dlg = UI.DialogBox(
                 t,
@@ -175,43 +163,41 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
 
     def get_ui_general(self):
         dlg = UI.FormBox(
-                  UI.LayoutTable(
-                      UI.LayoutTableRow(
-                          UI.Label(text='Machine description:'),
-                          UI.TextInput(name='server string', value=self._cfg.general['server string'])
+                  UI.Formline(
+                      UI.TextInput(name='server string', value=self._cfg.general['server string']),
+                      text='Machine description',
+                  ),
+                  UI.Formline(
+                      UI.TextInput(name='workgroup', value=self._cfg.general['workgroup']),
+                      text='Workgroup',
+                  ),
+                  UI.Formline(
+                      UI.TextInput(name='interfaces', value=self._cfg.general['interfaces']),
+                      text='Listen on interfaces',
+                  ),
+                  UI.Formline(
+                      UI.TextInput(name='socket options', value=self._cfg.general['socket options']),
+                      text='Socket options',
+                  ),
+                  UI.Formline(
+                      UI.SelectInput(
+                          UI.SelectOption(text='Share', value='share',
+                                selected=self._cfg.general['security']=='share'),
+                          UI.SelectOption(text='User', value='user',
+                                selected=self._cfg.general['security']=='user'),
+                          UI.SelectOption(text='Password', value='password',
+                                selected=self._cfg.general['security']=='password'),
+                          UI.SelectOption(text='Other server', value='server',
+                                selected=self._cfg.general['security']=='server'),
+                          UI.SelectOption(text='Active Directory', value='ads',
+                                selected=self._cfg.general['security']=='ads'),
+                          name='security'
                       ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Workgroup:'),
-                          UI.TextInput(name='workgroup', value=self._cfg.general['workgroup'])
-                      ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Listen on interfaces:'),
-                          UI.TextInput(name='interfaces', value=self._cfg.general['interfaces'])
-                      ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Socket options:'),
-                          UI.TextInput(name='socket options', value=self._cfg.general['socket options'])
-                      ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Security:'),
-                          UI.Select(
-                              UI.SelectOption(text='Share', value='share',
-                                    selected=self._cfg.general['security']=='share'),
-                              UI.SelectOption(text='User', value='user',
-                                    selected=self._cfg.general['security']=='user'),
-                              UI.SelectOption(text='Password', value='password',
-                                    selected=self._cfg.general['security']=='password'),
-                              UI.SelectOption(text='Other server', value='server',
-                                    selected=self._cfg.general['security']=='server'),
-                              UI.SelectOption(text='Active Directory', value='ads',
-                                    selected=self._cfg.general['security']=='ads'),
-                              name='security'
-                          )
-                      ),
-                      UI.LayoutTableRow(
-                          UI.Label(text='Password server:'),
-                          UI.TextInput(name='password server', value=self._cfg.general['password server'])
-                      )
+                      text='Security',
+                  ),
+                  UI.Formline(
+                      UI.TextInput(name='password server', value=self._cfg.general['password server']),
+                      text='Password server',
                   ),
                   id='frmGeneral'
               )
@@ -294,4 +280,3 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
                 self._cfg.modify_user(self._editing_user, self._editing, vars.getvalue('value', ''))
                 self._cfg.load()
             self._editing = None
-

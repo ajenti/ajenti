@@ -69,8 +69,12 @@
             </xsl:if>
         </div>
         <div class="modal-footer">
-            <button text="OK" onclick="form" action="OK" form="{@id}" design="primary"/>
-            <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
+            <xsl:if test="not(@hideok = 'True')">
+                <button text="OK" onclick="form" action="OK" form="{@id}" design="primary" />
+            </xsl:if>
+            <xsl:if test="not(@hidecancel = 'True')">
+                <button text="Cancel" onclick="form" action="Cancel" form="{@id}"/>
+            </xsl:if>
         </div>
     </div>
     <script>

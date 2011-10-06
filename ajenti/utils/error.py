@@ -68,6 +68,9 @@ def make_report(app, err):
     for p in sorted(PluginLoader.list_plugins().keys()):
         pr += p + '\n'
 
+    # Finalize the reported log
+    app.log.blackbox.stop()
+
     return (('Ajenti %s bug report\n' +
            '--------------------\n\n' +
            'System: %s\n' +
@@ -77,7 +80,7 @@ def make_report(app, err):
            'Config path: %s\n\n' +
            '%s\n\n'
            'Loaded plugins:\n%s\n\n' +
-           'Startup log:\n%s\n'
+           'Log:\n%s\n'
            )
             % (version(),
                shell('uname -a'),

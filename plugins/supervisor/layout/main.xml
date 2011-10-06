@@ -1,24 +1,22 @@
 <xml>
-    <toolbar spacing="0">
-        <hcontainer id="toolbar">
-            <toolbutton id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
-        </hcontainer>
+    <toolbar id="toolbar">
+        <button id="btnRefresh" text="Reload" icon="/dl/core/ui/stock/refresh.png" />
     </toolbar>
 
     <pad id="main">
-        <datatable id="list" width="100%">
-            <datatablerow header="True">
-                <datatablecell width="33%">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
                     <label text="Name" />
-                </datatablecell>
-                <datatablecell width="33%">
+                </dth>
+                <dth>
                     <label text="Status" />
-                </datatablecell>
-                <datatablecell width="33%">
+                </dth>
+                <dth>
                     <label text="Info" />
-                </datatablecell>
-                <datatablecell />
-            </datatablerow>
-        </datatable>
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
     </pad>
 </xml>

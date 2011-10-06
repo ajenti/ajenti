@@ -111,9 +111,6 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     log.info('Starting server')
 
-    # Finalize the reported log
-    log.blackbox.stop()
-
     server.serve_forever()
 
     ComponentManager.get().stop()

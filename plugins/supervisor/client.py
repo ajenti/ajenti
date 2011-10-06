@@ -19,8 +19,8 @@ class SVClient (Plugin):
             l = l.split(None, 2)
             r.append({
                 'name': l[0],
-                'status': l[1],
-                'info': l[2]
+                'status': '' if len(l)<2 else l[1],
+                'info': '' if len(l)<3 else l[2],
             })
         return r
 

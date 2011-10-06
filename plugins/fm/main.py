@@ -111,7 +111,10 @@ class FMPlugin(CategoryPlugin):
             idx += 1
 
         # File listing
-        templist = os.listdir(path)
+        try:
+            templist = os.listdir(path)
+        except:
+            templist = []
         lst = []
 
         for x in sorted(templist):
