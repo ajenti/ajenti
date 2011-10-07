@@ -38,10 +38,10 @@
                 </div>
 </form>
             </div>
-            <script>Ajenti.showAsModal('auth-dialog');</script>
     </div>
 
 <script>
+Ajenti.UI.showAsModal('auth-dialog');
 $('#username').focus()
 $('#form').submit(function (e) {
     e.preventDefault();
@@ -55,7 +55,7 @@ $('#form').submit(function (e) {
             response: r
         },
         success: function () {
-            Ajenti.hideModal('auth-dialog');
+            Ajenti.UI.hideModal('auth-dialog');
             $('#form').unbind('submit');
             $('#password').val('');
             $('#login').click();

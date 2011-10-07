@@ -4,7 +4,7 @@
             <xsl:when test="@id = ''" />
             <xsl:otherwise>
                 <xsl:attribute name="onclick">
-                    ajax('/handle/fwrule/click/<xsl:value-of select="@id"/>')
+                    Ajenti.query('/handle/fwrule/click/<xsl:value-of select="@id"/>')
                 </xsl:attribute>
             </xsl:otherwise>
         </xsl:choose>

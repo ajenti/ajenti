@@ -4,24 +4,94 @@ var warning_button_id;
 
 
 Ajenti = {
+    query: function (uri, data, noupdate) {
+        $.ajax({
+            url: uri,
+            cache: false,   
+            data: data,
+            success: noupdate?undefined:Ajenti.Core.processResponse,
+            error: Ajenti.Core.processOffline,
+            method: data?'POST':'GET',
+        });
+        if (!noupdate)
+            Ajenti.UI.showLoader(true);
+        return false;
+    },
+
+    submit: function (fid, action) {
+        form = $('#'+fid);
+        if (form) {
+            params = 'action=' + encodeURIComponent(action);
+            url = $('input[type=hidden]', form)[0].value;
+
+            $('input[type=text], input[type=password], input[type=hidden]', form).each(function (i,e)) {
+                params += '&' + e.name + '=' + encodeURIComponent(e.value);
+            });
+
+            $('input[type=checkbox]', form).each(function (i,e)) {
+                params += '&' + e.name + '=' + (e.checked?1:0);
+            });
+
+            $('input[type=radio]', form).each(function (i,e)) {
+                if (e.checked)
+                    params += '&' + e.name + '=' + e.value;
+            });
+
+            $('select', form).each(function (i,e)) {
+                params += "&" + e.name + "=" + encodeURIComponent(e.options[e.selectedIndex].value);
+            });
+
+            $('textarea', form).each(function (i,e)) {
+                params += '&' + e.name + '=' + e.value;
+            });
+
+            $('.ui-el-sortlist', form).each(function (i,e)) {
+                var r = '';
+                $('>*', $(e)).each(function(i,e) {
+                    r += '|' + e.id;
+                });
+                params += '&' + e.id + '=' + e.value;
+            });
+
+
+        ajaxPOST(url, params);
+    }
+    return false;
+    },
+
+    Core: {
+        processResponse: function (data) {
+            $('.modal:not(#warningbox)').modal('hide').remove();
+            $('.modal#warningbox').modal('hide');
+            $('.modal-backdrop').fadeOut(500);
+            $('.twipsy').remove();
+
+            $('#rightplaceholder').html(data);
+            $('#rightplaceholder script').each(function (i,e) {
+                try {
+                    eval($(e).text);
+                } catch (err) { }
+                $(e).text('');
+            });
+            Ajenti.UI.showLoader(false);
+        },
+
+        processOffline: function (data) {
+            window.location.href = '/';
+            Ajenti.UI.showLoader(false);
+        }
+    },
+
     selectCategory: function (id) {
         $('.ui-el-category').removeClass('selected');
         $('.ui-el-top-category').removeClass('selected');
         $('#'+id).addClass('selected');
-        ajax('/handle/category/click/' + id);
+        Ajenti.query('/handle/category/click/' + id);
         return false;
     },
 
-    showAsModal: function (id) {
-        $('#'+id).modal({show:true, backdrop:'static'}).center();
-    },
-
-    hideModal: function (id) {
-        $('#'+id).modal('hide');
-    },
-
     showWarning: function (text, btnid) {
-        Ajenti.showAsModal('warningbox');
+        Ajenti.UI.showAsModal('warningbox');
         $('#warning-text').html(text);
         $('#warningbox').addClass('modal');
         warning_button_id = btnid;
@@ -37,27 +107,48 @@ Ajenti = {
 
     acceptWarning: function () {
         Ajenti.cancelWarning();
-        ajax('/handle/button/click/' + warning_button_id);
+        Ajenti.query('/handle/button/click/' + warning_button_id);
         return false;
     },
 
-    toggleTreeNode: function (id) {
-        $('*[id=\''+id+'\']').toggle();
-        ajaxNoUpdate('/handle/treecontainer/click/'+id);
+    UI: {
+        showAsModal: function (id) {
+            $('#'+id).modal({show:true, backdrop:'static'}).center();
+        },
 
-        x = $('*[id=\''+id+'-btn\']');
-        if (x.attr('src').indexOf('/dl/core/ui/tree-minus.png') < 0)
-            x.attr('src', '/dl/core/ui/tree-minus.png');
-        else
-            x.attr('src', '/dl/core/ui/tree-plus.png');
+        hideModal: function (id) {
+            $('#'+id).modal('hide');
+        },
 
-        return false;
-    },
+        showLoader: function (visible) {
+            if (visible) {
+                $('#ajax-loader').show();
+                $('body').css('cursor', 'wait !important');
+            }
+            else {
+                $('#ajax-loader').hide();
+                $('body').css('cursor', '');
+            }
+        },
 
-    editableActivate: function (id) {
-        $('#'+id+'-normal').hide();
-        $('#'+id).fadeIn(600);
-        return false;
+        toggleTreeNode: function (id) {
+            $('*[id=\''+id+'\']').toggle();
+            Ajenti.query('/handle/treecontainer/click/'+id, null, true);
+
+            x = $('*[id=\''+id+'-btn\']');
+            if (x.attr('src').indexOf('/dl/core/ui/tree-minus.png') < 0)
+                x.attr('src', '/dl/core/ui/tree-minus.png');
+            else
+                x.attr('src', '/dl/core/ui/tree-plus.png');
+
+            return false;
+        },
+
+        editableActivate: function (id) {
+            $('#'+id+'-normal').hide();
+            $('#'+id).fadeIn(600);
+            return false;
+        }
     }
 };
 
@@ -75,24 +166,6 @@ jQuery.fn.center = function () {
     return this;
 }
 
-
-function ui_showhide(id) {
-    x = document.getElementById(id);
-    if (x.style.display != 'none')
-        x.style.display = 'none';
-    else
-        x.style.display = '';
-}
-
-function ui_show(id) {
-    x = document.getElementById(id);
-    x.style.display = '';
-}
-
-function ui_hide(id) {
-    x = document.getElementById(id);
-    x.style.display = 'none';
-}
 
 function noenter() {
     return !(window.event && window.event.keyCode == 13);

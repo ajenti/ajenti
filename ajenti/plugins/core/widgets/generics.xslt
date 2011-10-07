@@ -14,10 +14,6 @@
 <xsl:template match="null">
 </xsl:template>
 
-<xsl:template match="refresh">
-    <script>scheduleRefresh(<xsl:value-of select="@time"/>)</script>
-</xsl:template>
-
 <xsl:template match="headtitle">
     <title><xsl:value-of select="@text"/></title>
 </xsl:template>

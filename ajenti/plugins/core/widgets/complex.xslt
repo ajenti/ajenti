@@ -3,10 +3,10 @@
         <xsl:if test="../@live = 'True' or @live = 'True'">
             <xsl:attribute name="onclick">
                 <xsl:if test="@form">
-                    return ajaxForm('<xsl:value-of select="@form" />', '<xsl:value-of select="@id" />');
+                    return Ajenti.submit('<xsl:value-of select="@form" />', '<xsl:value-of select="@id" />');
                 </xsl:if>
                 <xsl:if test="not(@form)">
-                    return ajax('/handle/tab/click/<xsl:value-of select="@id" />');
+                    return Ajenti.query('/handle/tab/click/<xsl:value-of select="@id" />');
                 </xsl:if>
             </xsl:attribute>
         </xsl:if>
@@ -43,7 +43,7 @@
 
 <xsl:template match="treecontainer">
     <div class="ui-el-treecontainernode">
-        <a href="#" onclick="return Ajenti.toggleTreeNode('{@id}');" class="text">
+        <a href="#" onclick="return Ajenti.UI.toggleTreeNode('{@id}');" class="text">
             <img id="{@id}-btn" src="/dl/core/ui/tree-{x:iif(@expanded, 'minus', 'plus')}.png" />
             <xsl:value-of select="@text" />
         </a>
@@ -67,7 +67,7 @@
 </xsl:template>
 
 <xsl:template match="listitem">
-    <li class="{x:iif(@active, 'active', '')}" onclick="javascript:return ajax('/handle/listitem/click/{@id}');">
+    <li class="{x:iif(@active, 'active', '')}" onclick="return Ajenti.query('/handle/listitem/click/{@id}');">
         <xsl:apply-templates />
     </li>
 </xsl:template>
@@ -76,14 +76,31 @@
 
 
 <xsl:template match="editable">
-    <a href="#" onclick="return Ajenti.editableActivate('{x:idesc(@id)}')" class="ui-el-editable-inactive" id="{x:idesc(@id)}-normal">
+    <a href="#" onclick="return Ajenti.UI.editableActivate('{x:idesc(@id)}')" class="ui-el-editable-inactive" id="{x:idesc(@id)}-normal">
         <xsl:value-of select="@value" />
     </a>
     <div id="{x:idesc(@id)}" class="ui-el-editable input-append" style="display:none">
         <input id="{x:idesc(@id)}-active-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
         <input type="text" name="value" value="{@value}" />
         <hlabel class="add-on active">
-            <img href="#" src="/dl/core/ui/stock/dialog-ok.png" onclick="return ajaxForm('{x:idesc(@id)}', 'OK')" />
+            <img href="#" src="/dl/core/ui/stock/dialog-ok.png" onclick="return Ajenti.submit('{x:idesc(@id)}', 'OK')" />
         </hlabel>
     </div>
 </xsl:template>
+
+
+<xsl:template match="sortlist">
+    <div id="{@id}" class="ui-el-sortlist">
+        <xsl:apply-templates />
+    </div>
+    <script>
+        $('#<xsl:value-of select="@id"/>').sortable();
+    </script>
+</xsl:template>
+
+<xsl:template match="sortlistitem">
+    <div class="ui-el-sortlist-item{x:iif(@fixed, '-fixed', '')}" id="{@id}">
+        <xsl:apply-templates />
+    </div>
+</xsl:template>
+

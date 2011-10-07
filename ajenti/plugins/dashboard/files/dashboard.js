@@ -19,6 +19,6 @@ function dashboardSave() {
         r += $(e).attr('id') + ',';
     });
 
-    ajax('/handle/dashboard/save/'+l+'/'+r);
+    Ajenti.query('/handle/dashboard/save/'+l+'/'+r);
     return false;
 }

@@ -33,11 +33,7 @@
 
     <div class="main-container">
         <div class="sidebar" id="leftplaceholder" />
-   	    <div class="content" id="rightplaceholder">
-	        <script>
-	            ajax('/handle///nothing');
-	        </script>
-	    </div>
+   	    <div class="content" id="rightplaceholder" />
     </div>
 
     <div class="footer">
@@ -48,7 +44,7 @@
     </div>
 
     <script>
-        ajax('/handle///nothing');
+        Ajenti.query('/handle///nothing');
     </script>
 
     <div class="fade" id="warningbox" style="display:none">

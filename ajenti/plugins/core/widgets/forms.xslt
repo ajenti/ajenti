@@ -44,7 +44,7 @@
         </div>
     </div>
     <script>
-        Ajenti.showAsModal('<xsl:value-of select="@id"/>');
+        Ajenti.UI.showAsModal('<xsl:value-of select="@id"/>');
     </script>
 </div>
 </xsl:template>
@@ -78,7 +78,7 @@
         </div>
     </div>
     <script>
-        Ajenti.showAsModal('<xsl:value-of select="@id"/>');
+        Ajenti.UI.showAsModal('<xsl:value-of select="@id"/>');
         <xsl:if test="not(@extra)">
             $('#<xsl:value-of select="@id"/> input[type!=hidden]')[0].focus();
         </xsl:if>

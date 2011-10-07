@@ -21,12 +21,12 @@
             </xsl:when>
 
             <xsl:when test="@onclick = 'form'">
-                return ajaxForm('<xsl:value-of select="@form" />',
+                return Ajenti.submit('<xsl:value-of select="@form" />',
                     '<xsl:value-of select="@action" />');
             </xsl:when>
 
             <xsl:when test="@onclick = '' or not (@onclick)">
-                return ajax('/handle/<xsl:value-of
+                return Ajenti.query('/handle/<xsl:value-of
                         select="x:attr(@class, 'button')" />/click/<xsl:value-of
                         select="@id" />');
             </xsl:when>
@@ -61,7 +61,7 @@
 
 
 <xsl:template match="linklabel">
-    <a href="#" onclick="javascript:return ajax('/handle/linklabel/click/{@id}');" class="ui-el-link" style="{x:iif(@bold, 'font-weight: bold;', '')}">
+    <a href="#" onclick="javascript:return Ajenti.query('/handle/linklabel/click/{@id}');" class="ui-el-link" style="{x:iif(@bold, 'font-weight: bold;', '')}">
         <xsl:value-of select="@text" />
     </a>
 </xsl:template>
@@ -110,10 +110,6 @@
     </script>
 </xsl:template>
 
-
-<xsl:template match="helpicon">
-    <tooltip styles="float:right" text="{@text}"><img src="/dl/core/ui/help.png"/></tooltip>
-</xsl:template>
 
 <xsl:template match="tipicon">
     <tooltip placement="above" text="{@text}"><button id="{@id}" design="tipicon" onclick="{@onclick}" warning="{@warning}" icon="{@icon}"/></tooltip>

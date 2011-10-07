@@ -1,18 +1,3 @@
-<xsl:template match="sortlist">
-    <div id="{@id}" class="ui-el-sortlist">
-        <xsl:apply-templates />
-    </div>
-    <script>
-        $('#<xsl:value-of select="@id"/>').sortable();
-    </script>
-</xsl:template>
-
-<xsl:template match="sortlistitem">
-    <div class="ui-el-sortlist-item{x:iif(@fixed, '-fixed', '')}" id="{@id}">
-        <xsl:apply-templates />
-    </div>
-</xsl:template>
-
 
 <xsl:template match="codeinputarea">
             <xsl:if test="@help and (@help != '')">
