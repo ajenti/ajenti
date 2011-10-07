@@ -1,55 +1,32 @@
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Ajenti</title>
-    <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
-    <headscripts/>
-    <headstylesheets/>
-</head>
-
-<body id="main" style="background:#ccc">
-<div style="width: 100%; height: 100%; margin:auto;">
-    <div class="ui-el-dialog" style="width: 500px;margin: 50px auto;">
-    <div class="ui-el-dialog-content" style="width: 480px">
-        <div class="ui-el-error-content">
-            <table>
-                <tr><td width="40">
-                   <img src="/dl/core/ui/stock/warning.png" class="ui-el-error-icon" />
-                </td><td width="500">
-                
-           <label size="3" text="  Oops"/><br/>
-                A nasty bug has occured.
-           <br/><br/>
-           <div>
-               <a href="#" onclick="javascript:document.location.reload();">
-                   <div class="ui-el-button"> <span class="left"> Refresh </span> <span class="right" /></div>
-               </a>
-               <a href="#" onclick="javascript:document.getElementById('tracew').style.display='block';">
-                   <div class="ui-el-button"> <span class="left"> Traceback </span> <span class="right" /></div>
-               </a>
-               <a href="#" onclick="javascript:document.getElementById('reportw').style.display='block';">
-                   <div class="ui-el-button"> <span class="left"> Report bug </span> <span class="right" /></div>
-               </a>
-               <a href="#" onclick="javascript:document.location.href='/session_reset';">
-                   <div class="ui-el-button"> <span class="left"> New session </span> <span class="right" /></div>
-               </a>
-               <div id="tracew" style="display:none">
-                    <br/><br/>
-                    <div id="trace"/>
-               </div>
-               <div id="reportw" style="display:none">
-                   <br/><br/>
-                       <label text="Please "/><outlinklabel url="https://bugs.launchpad.net/ajenti/+filebug" text="file this bug to Launchpad" /><label text=" and post the following data:"/>
-                       <br/><br/>
-                       <div id="report"/>
-               </div>
-               <br/>
-           </div>
-           </td></tr></table>
-        </div>    
+<xml>
+  <pad>
+    <img style="float:left;display:inline-block;padding:0 20px;" src="/dl/core/bug.png" />
+    <div style="float:left;display:inline-block;width: 400px;">
+        <label size="4" text="Boom"/>
+        <label size="1" text="Ajenti has crashed"/><br/>
+        <br/>
+        <label size="3" text="So what do I do now?" /><br/>
+        <ul>
+            <li>
+                <label size="1" text="You may want to " />
+                <button onclick="document.location.reload();" text="Refresh page" />
+                <label size="1" text=" or " />
+                <button onclick="document.location.href='/session_reset'" text="Start new session" />
+                <br/>
+            </li>
+            <li>
+                Or if you believe you did nothing wrong and this is a bug, please let us know about the problem by
+                <outlinklabel url="https://bugs.launchpad.net/ajenti/+filebug" text="filing this bug to Launchpad" />
+                and attaching the crash report.<br/>
+                <button onclick="$('#report').fadeIn();$(this).hide();return false;" text="Show me the report" />
+                <div id="report" style="display:none"/><br/><br/>
+            </li>
+            <li>
+                One may try to solve the problem by looking at the stacktrace.<br/>
+                <button onclick="$('#trace').fadeIn();$(this).hide();return false;" text="Yup, that's me" />
+                <div id="trace" style="display:none"/><br/>
+            </li>
+        </ul>              
     </div>
-    </div>
-</div>    
-</body>
-
-</html>
+</pad>
+</xml>

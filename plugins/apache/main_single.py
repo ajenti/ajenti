@@ -10,6 +10,7 @@ import glob
 
 class ApacheSingleConfigBackend(Plugin):
     implements(IConfigurable)
+    platform = ['centos', 'freebsd']
     config_dir = ''
     name = 'Apache'
     id = 'apache'

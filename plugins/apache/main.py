@@ -8,6 +8,7 @@ from ajenti import apis
 
 class ApacheBackend(Plugin):
     implements(IConfigurable)
+    platform = ['debian', 'arch']
     config_dir = ''
     name = 'Apache'
     id = 'apache'

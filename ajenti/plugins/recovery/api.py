@@ -70,8 +70,6 @@ class Manager(Plugin):
                     shell('mkdir -p \'%s\'' % xdir)
                     shell('cp -r \'%s\' \'%s\'' % (x, xdir))
 
-            print shell('cd %s;ls'%dir)
-            print dir
             if shell_status('cd %s; tar czf backup.tar.gz *'%dir) != 0:
                 raise Exception()
             

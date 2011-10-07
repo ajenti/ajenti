@@ -26,9 +26,8 @@ class BSDServiceManager(Plugin):
             return '/etc/rc.d/' + name
         return '/usr/local/etc/rc.d/' + name
 
-    def get_status(self, name):
-        s = shell(self.get_path(name) + ' status')
-        return 'running' if 'running' in s else 'stopped'
+    def get_status(self, s):
+        return 'running' if os.path.exists('/var/run/%s.pid'%s) else 'stopped'
 
     def start(self, name):
         shell(self.get_path(name) + ' start')

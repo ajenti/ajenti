@@ -36,9 +36,9 @@ def format_exception(app, err):
     print '\n%s\n' % err
     templ = app.get_template('error.xml')
     templ.append('trace',
-            UI.TextInputArea(value=err, width=350))
+            UI.TextInputArea(value=err, width=550))
     templ.append('report',
-            UI.TextInputArea(value=make_report(app, err), width=350))
+            UI.TextInputArea(value=make_report(app, err), width=550))
     return templ.render()
 
 
