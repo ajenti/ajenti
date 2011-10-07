@@ -24,39 +24,38 @@ Ajenti = {
             params = 'action=' + encodeURIComponent(action);
             url = $('input[type=hidden]', form)[0].value;
 
-            $('input[type=text], input[type=password], input[type=hidden]', form).each(function (i,e)) {
+            $('input[type=text], input[type=password], input[type=hidden]', form).each(function (i,e) {
                 params += '&' + e.name + '=' + encodeURIComponent(e.value);
             });
 
-            $('input[type=checkbox]', form).each(function (i,e)) {
+            $('input[type=checkbox]', form).each(function (i,e) {
                 params += '&' + e.name + '=' + (e.checked?1:0);
             });
 
-            $('input[type=radio]', form).each(function (i,e)) {
+            $('input[type=radio]', form).each(function (i,e) {
                 if (e.checked)
                     params += '&' + e.name + '=' + e.value;
             });
 
-            $('select', form).each(function (i,e)) {
+            $('select', form).each(function (i,e) {
                 params += "&" + e.name + "=" + encodeURIComponent(e.options[e.selectedIndex].value);
             });
 
-            $('textarea', form).each(function (i,e)) {
+            $('textarea', form).each(function (i,e) {
                 params += '&' + e.name + '=' + e.value;
             });
 
-            $('.ui-el-sortlist', form).each(function (i,e)) {
+            $('.ui-el-sortlist', form).each(function (i,e) {
                 var r = '';
                 $('>*', $(e)).each(function(i,e) {
                     r += '|' + e.id;
                 });
-                params += '&' + e.id + '=' + e.value;
+                params += '&' + e.id + '=' + r;
             });
 
-
-        ajaxPOST(url, params);
-    }
-    return false;
+            Ajenti.query(url, params);
+        }
+        return false;
     },
 
     Core: {
