@@ -36,28 +36,6 @@
 </xsl:template>
 
 
-<xsl:template match="toolbar">
-        <div class="ui-el-toolbar">
-            <xsl:apply-templates />
-        </div>
-</xsl:template>
-
-<xsl:template match="topprogressbox">
-        <div class="ui-progress-box">
-                <img class="ajax" src="/dl/core/ui/ajax-light.gif"/>
-                <img src="{@icon}"/>
-                <label text="{@title}" bold="True"/>
-                <div class="ui-progress-box-text"><label text="{@text}"/></div>
-                <xsl:if test="@can_abort = 'True'">
-                <div style="float:right; display: inline-block">
-                    <button text="Abort" id="aborttask" warning="Abort the background task for {@title}"/>
-                </div>
-                </xsl:if>
-                <refresh time="3000" />
-        </div>
-</xsl:template>
-
-
 <xsl:template match="systemmessage">
     <div class="ui-el-message ui-el-message-{@cls}">
         <xsl:value-of select="@text" />

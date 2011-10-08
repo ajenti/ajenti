@@ -43,7 +43,7 @@ class PluginManager(CategoryPlugin, URLHandler):
 
             if k.problem:
                 row.find('status').set('file', '/dl/plugins/broken.png')
-                row.append('reqs', UI.HelpIcon(text=k.problem))
+                row.append('reqs', UI.Icon(icon='/dl/core/ui/stock/warning.png', text=k.problem))
             else:
                 row.find('status').set('file', '/dl/plugins/good.png')
             ui.append('list', row)
@@ -83,7 +83,7 @@ class PluginManager(CategoryPlugin, URLHandler):
                         id='install/'+k.id,
                     ))
             else:
-                row.append('reqs', UI.HelpIcon(text=reqs))
+                row.append('reqs', UI.Icon(icon='/dl/core/ui/stock/warning.png', text=reqs))
 
             ui.append('avail', row)
 

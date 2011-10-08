@@ -1,6 +1,6 @@
 <xml>
   <pad>
-    <img style="float:left;display:inline-block;padding:0 20px;" src="/dl/core/bug.png" />
+    <img style="float:left;display:inline-block;padding:0 20px;" src="/dl/core/ui/bug.png" />
     <div style="float:left;display:inline-block;width: 400px;">
         <label size="4" text="Boom"/>
         <label size="1" text="Ajenti has crashed"/><br/>

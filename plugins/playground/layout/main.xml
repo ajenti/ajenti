@@ -6,6 +6,7 @@
         <button id="msgErr" text="Error" />
         <button id="crash" text="Crash" />
         <button id="progress" text="Start working" />
+        <button id="progress2" text="Start working 2" />
         <button id="btnExit" text="Exit" />
     </hcontainer>
 </pad>
@@ -13,14 +14,12 @@
 <label size="5" text="UI Elements" />
 <pad>
 <genericbutton design="primary" text="123" />
-    <div style="border: 1px solid #bbb">
         <label size="1" text="Size one" />
         <label size="2" text="Size two" />
         <label size="3" text="Size three" />
         <label size="4" text="Size four" />
         <label size="5" text="Size five" />
-    </div>
-
+<br/><br/>
 
     <div style="border: 1px solid #bbb">
         <helpicon text="Help" />

@@ -10,6 +10,11 @@
 </xsl:template>
 
 
+<xsl:template match="toolbar">
+    <div class="ui-el-toolbar">
+        <xsl:apply-templates />
+    </div>
+</xsl:template>
 
 <!-- Button magic -->
 <xsl:template match="button">
@@ -110,6 +115,10 @@
     </script>
 </xsl:template>
 
+
+<xsl:template match="icon">
+    <tooltip placement="above" text="{@text}"><image id="{@id}" file="{@icon}"/></tooltip>
+</xsl:template>
 
 <xsl:template match="tipicon">
     <tooltip placement="above" text="{@text}"><button id="{@id}" design="tipicon" onclick="{@onclick}" warning="{@warning}" icon="{@icon}"/></tooltip>

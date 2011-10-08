@@ -1,5 +1,6 @@
 import re
 import platform
+import json
 
 from ajenti.ui import UI
 from ajenti.com import *
@@ -40,19 +41,6 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         if self._about_visible:
             templ.append('main-content', self.get_ui_about())
 
-        for p in self.app.grab_plugins(IProgressBoxProvider):
-            if p.has_progress():
-                templ.append(
-                    'progressbox-placeholder',
-                    UI.TopProgressBox(
-                        text=p.get_progress(),
-                        icon=p.icon,
-                        title=p.title,
-                        can_abort=p.can_abort
-                    )
-                )
-                break
-
         templ.append('main-content', self.selected_category.get_ui())
 
         if self.app.session.has_key('messages'):
@@ -83,6 +71,18 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         ui.find('ver').set('text', version())
         return ui
 
+    @url('^/core/progress$')
+    def serve_progress(self, req, sr):
+        r = []
+        for p in sorted(self.app.grab_plugins(IProgressBoxProvider)):
+            if p.has_progress():
+                r.append({
+                    'id': p.plugin_id,
+                    'owner': p.title,
+                    'status': p.get_progress(),
+                    'can_abort': p.can_abort
+                });
+        return json.dumps(r)
 
     @url('^/core/styles.less$')
     def serve_styles(self, req, sr):
@@ -192,7 +192,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
     def handle_btns(self, event, params, vars=None):
         if params[0] == 'aborttask':
             for p in self.app.grab_plugins(IProgressBoxProvider):
-                if p.has_progress():
+                if p.plugin_id == params[1] and p.has_progress():
                     p.abort()
 
     @event('dialog/submit')

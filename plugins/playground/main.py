@@ -29,6 +29,8 @@ class PlaygroundPlugin(CategoryPlugin):
             a = 1/0
         if params[0] == 'progress':
             PlaygroundProgress(self.app).start()
+        if params[0] == 'progress2':
+            PlaygroundProgress2(self.app).start()
         if params[0] == 'btnExit':
             self.app.stop()
             
@@ -36,6 +38,27 @@ class PlaygroundPlugin(CategoryPlugin):
 class PlaygroundProgress(SessionPlugin):
     implements(IProgressBoxProvider)
     title = 'Playground'
+    icon = '/dl/playground/icon.png'
+    can_abort = True
+    
+    def on_session_start(self):
+        self._w = False
+        
+    def start(self): self._w = True
+
+    def has_progress(self):  
+        return self._w
+        
+    def get_progress(self):
+        return 'Working'
+    
+    def abort(self):
+        self._w = False
+                          
+                            
+class PlaygroundProgress2(SessionPlugin):
+    implements(IProgressBoxProvider)
+    title = 'Playground 2'
     icon = '/dl/playground/icon.png'
     can_abort = True
     

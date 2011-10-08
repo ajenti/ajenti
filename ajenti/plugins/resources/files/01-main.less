@@ -271,28 +271,19 @@ a:hover { text-decoration: none; }
 }
 
 
-.ui-progress-box {
+.progress-box-wr {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 20px 10px;
+}
+
+.progress-box {
     .alert-message();
-    .alert-message.success();
+    .alert-message.info();
     background-image: url('/dl/core/ui/alert.png');
-    padding: 0 5px;
-}
-
-.ui-progress-box .ui-el-label-1 {
-    color: #fff;
-    font-size: 13px;
-    text-shadow: 1px 1px 0 #888;
-    padding: 0 5px;
-}
-
-.ui-progress-box img {
-    padding: 6px 3px;
-    float: left;
-}
-
-.ui-progress-box-text {
-    line-height: 30px;
-    display: inline-block;
+    padding: 5px 10px;
+    width: 500px;
     overflow: hidden;
-    white-space: nowrap;
+    margin: 0 0 5px;
 }

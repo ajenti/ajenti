@@ -58,6 +58,12 @@ Ajenti = {
         return false;
     },
 
+    init: function () {
+        Ajenti.query('/handle/nothing');
+        Ajenti.Core.requestProgress();
+        Ajenti.UI.animateProgress();
+    },
+
     Core: {
         processResponse: function (data) {
             $('.modal:not(#warningbox)').modal('hide').remove();
@@ -65,6 +71,7 @@ Ajenti = {
             $('.modal-backdrop').fadeOut(500);
             $('.twipsy').remove();
 
+            $('#rightplaceholder').empty();
             $('#rightplaceholder').html(data);
             $('#rightplaceholder script').each(function (i,e) {
                 try {
@@ -78,7 +85,33 @@ Ajenti = {
         processOffline: function (data) {
             window.location.href = '/';
             Ajenti.UI.showLoader(false);
-        }
+        },
+
+        requestProgress: function () {
+            $.ajax({
+                url: '/core/progress',
+                success: function (j) {
+                    j = JSON.parse(j);
+                    $('#progress-box').empty();
+                    clearTimeout(Ajenti.UI._animateProgressTimeout);
+                    for (prg in j) {
+                        Ajenti.Core.addProgress(j[prg]);
+                    }
+                    Ajenti.UI.animateProgress();
+                },
+                complete: function () {
+                    setTimeout('Ajenti.Core.requestProgress()', 3000);
+                }
+            });
+        },
+
+        addProgress: function (desc) {
+            var html = '<div class="progress-box"><a class="close" onclick="return Ajenti.showWarning(\'';
+            html += 'Cancel background task for ' + desc.owner + '?\', \'aborttask/' + desc.id + '\');">×</a>';
+            html += '<p><strong>' + desc.owner + '</strong> ' + desc.status + '</p></div>';
+            $('#progress-box').append(html);
+        },
+
     },
 
     selectCategory: function (id) {
@@ -147,6 +180,22 @@ Ajenti = {
             $('#'+id+'-normal').hide();
             $('#'+id).fadeIn(600);
             return false;
+        },
+
+        _animateProgressTimeout: null, 
+
+        animateProgress: function () {
+            var x = $('.progress-box').css('background-position-x');
+            if (!x || x.length < 3) x = '0px';
+            x = x.substr(0, x.length - 2);
+            x = parseInt(x);
+            $('.progress-box').css('background-position-x', x);
+            $('.progress-box').stop().animate(
+                {'background-position-x': x + 100}, 
+                1000, 
+                'linear'
+            );
+            Ajenti.UI._animateProgressTimeout = setTimeout('Ajenti.UI.animateProgress()', 1000);
         }
     }
 };
@@ -173,6 +222,3 @@ function noenter() {
 function ui_fill_custom_html(id, html) {
     document.getElementById(id).innerHTML = Base64.decode(html);
 }
-
-
-

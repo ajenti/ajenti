@@ -43,10 +43,6 @@
         </div>
     </div>
 
-    <script>
-        Ajenti.query('/handle///nothing');
-    </script>
-
     <div class="fade" id="warningbox" style="display:none">
         <div class="modal-header">
             <h3>Dangerous action</h3>
@@ -61,8 +57,11 @@
         </div>
     </div>
 
-<div id="help-hint" class="ui-el-helphint"></div>
+    <div class="progress-box-wr" id="progress-box" />
 
+    <script>
+        Ajenti.init();
+    </script>
 </div>
 
 </body>
