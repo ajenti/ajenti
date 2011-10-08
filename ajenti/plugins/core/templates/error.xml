@@ -9,9 +9,9 @@
         <ul>
             <li>
                 <label size="1" text="You may want to " />
-                <button onclick="document.location.reload();" text="Refresh page" />
+                <button onclick="document.location.reload();return false" text="Refresh page" />
                 <label size="1" text=" or " />
-                <button onclick="document.location.href='/session_reset'" text="Start new session" />
+                <button onclick="document.location.href='/session_reset';return false" text="Start new session" />
                 <br/>
             </li>
             <li>

@@ -21,6 +21,13 @@
         <label size="5" text="Size five" />
 <br/><br/>
 
+    <button text="None" />
+    <button text="Info" design="info" />
+    <button text="Danger" design="danger" />
+    <button text="Primary" design="primary" />
+    <button text="Success" design="success" />
+<br/>
+<br/>
     <div style="border: 1px solid #bbb">
         <helpicon text="Help" />
         <image file="/dl/core/ui/stock/dialog-ok.png" />
