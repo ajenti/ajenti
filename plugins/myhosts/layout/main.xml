@@ -1,0 +1,24 @@
+<xml>
+    <toolbar>
+        <button id="add" text="Add host" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <label text="Hosts" size="5" />
+
+    <pad id="main">
+        <dt id="list" width="100%">
+            <dtr header="True">
+                <dth>
+                    <label text="IP address" />
+                </dth>
+                <dth>
+                    <label text="Hostname" />
+                </dth>
+                <dth>
+                    <label text="Aliases" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+</xml>

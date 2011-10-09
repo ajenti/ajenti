@@ -1,25 +1,21 @@
-from ajenti.ui import *
 from ajenti.api import *
-
+from ajenti.ui import *
 import backend
 
-
-class HostsPlugin(CategoryPlugin):
-    text = 'Hosts'
+class MyHostsPlugin(CategoryPlugin):
+    text = 'My Hosts'
     icon = '/dl/hosts/icon.png'
     folder = 'system'
 
     def on_init(self):
         be = backend.Config(self.app)
         self.hosts = be.read()
-        self.hostname = be.gethostname()
 
     def on_session_start(self):
         self._editing = None
-        self._editing_self = False
 
     def get_ui(self):
-        ui = self.app.inflate('hosts:main')
+        ui = self.app.inflate('myhosts:main')
         t = ui.find('list')
 
         for h in self.hosts:
@@ -37,7 +33,7 @@ class HostsPlugin(CategoryPlugin):
                         icon='/dl/core/ui/stock/delete.png',
                         id='del/' + str(self.hosts.index(h)),
                         text='Delete',
-                        warning='Remove %s from hosts'%h.ip
+                        msg='Remove %s from hosts'%h.ip
                     )
                 ),
             ))
@@ -47,16 +43,11 @@ class HostsPlugin(CategoryPlugin):
                 h = self.hosts[self._editing]
             except:
                 h = backend.Host()
-            ui.find('ip').set('value', h.ip)
-            ui.find('name').set('value', h.name)
-            ui.find('aliases').set('value', h.aliases)
-        else:
-            ui.remove('dlgEdit')
-
-        if self._editing_self:
-            ui.find('dlgSelf').set('value', self.hostname)
-        else:
-            ui.remove('dlgSelf')
+            d = self.app.inflate('myhosts:edit')
+            d.find('ip').set('value', h.ip)
+            d.find('name').set('value', h.name)
+            d.find('aliases').set('value', h.aliases)
+            ui.append('main', d)
 
         return ui
 
@@ -69,8 +60,7 @@ class HostsPlugin(CategoryPlugin):
         if params[0] == 'del':
             self.hosts.pop(int(params[1]))
             backend.Config(self.app).save(self.hosts)
-        if params[0] == 'hostname':
-            self._editing_self = True
+
 
     @event('dialog/submit')
     def on_submit(self, event, params, vars = None):
@@ -87,8 +77,3 @@ class HostsPlugin(CategoryPlugin):
                     self.hosts.append(h)
                 backend.Config(self.app).save(self.hosts)
             self._editing = None
-        if params[0] == 'dlgSelf':
-            v = vars.getvalue('value', '')
-            if vars.getvalue('action', '') == 'OK':
-                backend.Config(self.app).sethostname(v)
-            self._editing_self = None
