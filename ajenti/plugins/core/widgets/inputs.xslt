@@ -85,10 +85,10 @@
 
 <xsl:template match="selecttextinput">
     <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" />
-    <selectinput onchange="$('#{@id}').value(this.value)" id='{@id}-hints' design="{@design}">
+    <select onchange="$('#{@id}').val(this.value)" id='{@id}-hints' class="{@design}">
         <option selected="">...</option>
         <xsl:apply-templates/>
-    </selectinput>
+    </select>
 </xsl:template>
 
 <xsl:template match="uploader">

@@ -83,7 +83,7 @@ class FirewallPlugin(CategoryPlugin):
     def get_ui_edit_rule(self, rule=Rule()):
         protocols = (('TCP','tcp'), ('UDP','udp'), ('ICMP','icmp'))
 
-        tc = UI.TabControl(active=0)
+        tc = UI.TabControl(active='r0')
         tc.add('Main',
             UI.Container(
                 UI.Formline(
@@ -135,7 +135,7 @@ class FirewallPlugin(CategoryPlugin):
                     UI.TextInput(name='options', value=' '.join(rule.miscopts)),
                     text='Additional options',
                 ),
-            ))
+            ), id='r0')
 
         tc.add('TCP/UDP',
             UI.Container(
@@ -156,7 +156,7 @@ class FirewallPlugin(CategoryPlugin):
                     rule.get_ui_states(),
                     text='TCP states',
                 ),
-            ))
+            ), id='r1')
 
         return UI.DialogBox(tc, id='dlgEditRule', miscbtn='Delete', miscbtnid='deleterule')
 

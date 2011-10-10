@@ -34,7 +34,7 @@ Ajenti = {
 
             $('input[type=radio]', form).each(function (i,e) {
                 if (e.checked)
-                    params += '&' + e.name + '=' + e.value;
+                    params += '&' + e.name + '=' + encodeURIComponent(e.value);
             });
 
             $('select', form).each(function (i,e) {
@@ -42,7 +42,7 @@ Ajenti = {
             });
 
             $('textarea', form).each(function (i,e) {
-                params += '&' + e.name + '=' + e.value;
+                params += '&' + e.name + '=' + encodeURIComponent(e.value);
             });
 
             $('.ui-el-sortlist', form).each(function (i,e) {
@@ -50,7 +50,7 @@ Ajenti = {
                 $('>*', $(e)).each(function(i,e) {
                     r += '|' + e.id;
                 });
-                params += '&' + e.id + '=' + r;
+                params += '&' + e.id + '=' + encodeURIComponent(r);
             });
 
             Ajenti.query(url, params);

@@ -24,7 +24,7 @@ class NginxBackend(Plugin):
     def get_hosts(self):
         r = {}
         for h in os.listdir(os.path.join(self.config_dir, 'sites-available')):
-            data = open(os.path.join(self.config_dir, 'sites-available', h)).read()
+            data = ConfManager.get().load('nginx', os.path.join(self.config_dir, 'sites-available', h))
             host = apis.webserver.VirtualHost()
             host.config = data
             host.name = h
@@ -51,7 +51,7 @@ class NginxBackend(Plugin):
         
     def save_host(self, host):
         path = os.path.join(self.config_dir, 'sites-available', host.name)  
-        open(path, 'w').write(host.config)
+        ConfManager.get().save('nginx', path, host.config)
           
     host_template = """
 server {
