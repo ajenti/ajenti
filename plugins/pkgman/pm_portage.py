@@ -18,7 +18,7 @@ class PortagePackageManager(Plugin):
         st.pending = self._pending
 
     def get_lists(self):
-        utils.shell_bg('emerge --sync', output='/tmp/ajenti-portage-output', deleteout=True)
+        shell_bg('emerge --sync', output='/tmp/ajenti-portage-output', deleteout=True)
 
     def search(self, q, st):
         return self.eix_parse(shell('eix --xml \'%s\''%q))
@@ -36,14 +36,14 @@ class PortagePackageManager(Plugin):
         st.pending = {}
 
     def apply(self, st):
-        cmd = 'portupgrade -R'
-        cmd2 = 'pkg_deinstall -r'
+        cmd = 'emerge '
+        cmd2 = 'emerge --unmerge'
         for x in st.pending:
             if st.pending[x] == 'install':
                 cmd += ' ' + x
             else:
                 cmd2 += ' ' + x
-        utils.shell_bg('%s; %s'%(cmd,cmd2), output='/tmp/ajenti-ports-output', deleteout=True)
+        shell_bg('%s; %s'%(cmd,cmd2), output='/tmp/ajenti-portage-output', deleteout=True)
 
     def is_busy(self):
         return os.path.exists('/tmp/ajenti-portage-output')
@@ -55,30 +55,11 @@ class PortagePackageManager(Plugin):
             return ''
 
     def get_expected_result(self, st):
-        cmd = 'portupgrade -Rn'
-        cmd2 = 'pkg_deinstall -nr'
-        for x in st.pending:
-            if st.pending[x] == 'install':
-                cmd += ' ' + x
-            else:
-                cmd2 += ' ' + x
-
-        r = utils.shell('%s; %s | grep \'[+-] \''%(cmd,cmd2)).splitlines()
-        res = {}
-        for x in r:
-            s = x.split()
-            if not s[0] in ['+', '-']:
-                continue
-            name = '-'.join(s[-1].split('-')[:-1])[1:]
-            if s[0] == '+':
-                res[name] = 'install'
-            else:
-                res[name] = 'remove'
-        return res
+        return st.pending
 
     def abort(self):
-        utils.shell('pkill emerge')
-        utils.shell('rm /tmp/ajenti-portage-output')
+        shell('pkill emerge')
+        shell('rm /tmp/ajenti-portage-output')
 
     def get_info(self, pkg):
         return self.eix_parse(shell('eix \'-I*\' --xml'))[pkg]

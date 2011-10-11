@@ -13,9 +13,13 @@ DEPS =  [
      [
         ('app', 'yum', 'yum')
     ]),
+    (['freebsd'],
+     [
+        ('app', 'pkg-tools', 'portupgrade')
+    ]),
     (['gentoo'],
      [
-        ('app', 'eix', 'eix')
+        ('app', 'eix', 'eix'),
      ]),
 ]
 

@@ -448,10 +448,10 @@ class IArchConfig(Plugin):
         f.close()
 
 
-class ICentOSConfig(Plugin):
+class IGentooConfig(Plugin):
     implements(IConfig)
-    platform = ['centos']
-    rules_file = '/etc/sysconfig/iptables'
+    platform = ['gentoo']
+    rules_file = '/var/lib/iptables/rules-save'
 
     @property
     def apply_shell(self):
