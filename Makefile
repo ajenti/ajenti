@@ -31,7 +31,7 @@ install:
 		$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE)
 
 buildrpm:
-		$(PYTHON) setup.py bdist_rpm --post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
+		$(PYTHON) setup.py bdist_rpm --spec-file dist/ajenti.spec #--post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
 
 builddeb:
 		# build the source package in the parent directory

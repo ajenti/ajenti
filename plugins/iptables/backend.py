@@ -398,7 +398,7 @@ class IConfig(Interface):
         pass
 
 
-class IDebianConfig(Plugin):
+class DebianConfig(Plugin):
     implements(IConfig)
     platform = ['debian', 'ubuntu']
     path = '/etc/network/if-up.d/iptables'
@@ -421,7 +421,7 @@ class IDebianConfig(Plugin):
                 pass
 
 
-class IArchConfig(Plugin):
+class ArchConfig(Plugin):
     implements(IConfig)
     platform = ['arch']
     path = '/etc/network.d/hooks/iptables'
@@ -448,10 +448,26 @@ class IArchConfig(Plugin):
         f.close()
 
 
-class IGentooConfig(Plugin):
+class GentooConfig(Plugin):
     implements(IConfig)
     platform = ['gentoo']
     rules_file = '/var/lib/iptables/rules-save'
+
+    @property
+    def apply_shell(self):
+        return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
+
+    def has_autostart(self):
+        return True
+
+    def set_autostart(self, active):
+        pass
+
+
+class CentosConfig(Plugin):
+    implements(IConfig)
+    platform = ['centos']
+    rules_file = '/etc/sysconfig/iptables'
 
     @property
     def apply_shell(self):

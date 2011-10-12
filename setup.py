@@ -4,7 +4,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 setup(
-    name='Ajenti',
+    name='ajenti',
     version='0.5-13.1',
     install_requires=[
         'pyOpenSSL',
