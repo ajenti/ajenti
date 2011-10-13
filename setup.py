@@ -5,7 +5,7 @@ from setuptools import find_packages
 
 setup(
     name='ajenti',
-    version='0.5.99',
+    version='0.5.100',
     install_requires=[
         'pyOpenSSL',
         'feedparser',
