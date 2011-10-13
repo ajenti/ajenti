@@ -2,7 +2,7 @@ PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
-VERSION=0.5.0
+VERSION=0.5.99
 
 
 SPHINXOPTS    =
@@ -23,27 +23,33 @@ cdoc:
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
-
-source:
-		$(PYTHON) setup.py sdist $(COMPILE)
-
 install:
-		$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE)
+	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE)
 
-buildrpm:
-		$(PYTHON) setup.py bdist_rpm --spec-file dist/ajenti.spec #--post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
+rpm:
+	rm -rf dist/*.rpm
+	$(PYTHON) setup.py bdist_rpm --spec-file dist/ajenti.spec #--post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
 
-builddeb:
-		# build the source package in the parent directory
-		# then rename it to project_version.orig.tar.gz
-		$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
-		rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
-		# build the package
-		dpkg-buildpackage -i -I -rfakeroot
+deb:
+	rm -rf dist/*.deb
+	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
+	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
+	dpkg-buildpackage -b -rfakeroot
+	rm ../$(PROJECT)*.orig.tar.gz
+	mv ../$(PROJECT)*.deb dist/
 
+tgz:
+	rm -rf dist/*.tar.gz
+	$(PYTHON) setup.py sdist 
+	tar xvf dist/*.tar.gz -C dist
+	rm dist/*.tar.gz
+	mv dist/ajenti* dist/pkg-tmp
+	tar czf dist/ajenti-$(VERSION).tar.gz  -C dist/pkg-tmp `ls dist/pkg-tmp`
+	rm -r dist/pkg-tmp
+	
 clean:
-		$(PYTHON) setup.py clean
-		rm -rf $(DOCBUILDDIR)/*
-		$(MAKE) -f $(CURDIR)/debian/rules clean
-		rm -rf build/ MANIFEST dist Ajenti.egg-info
-		find . -name '*.pyc' -delete
+	$(PYTHON) setup.py clean
+	rm -rf $(DOCBUILDDIR)/*
+	$(MAKE) -f $(CURDIR)/debian/rules clean
+	rm -rf build/ MANIFEST ajenti.egg-info
+	find . -name '*.pyc' -delete

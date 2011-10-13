@@ -12,6 +12,7 @@ ajenti.anjuta
 
 debian/ajenti*
 dist/*.rpm
+dist/*.deb
 dist/*.gz
 *.egg*
 build/*
