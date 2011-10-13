@@ -152,6 +152,7 @@ class PacmanPackageManager(Plugin):
                 while ss[0][0] in ['\t', ' '] and len(ss)>0:
                     r[s[0]].description += ss[0]
                     ss.pop(0)
+                if len(r.keys()) > 250: break
             except:
                 pass
         return r
@@ -167,6 +168,7 @@ class PacmanPackageManager(Plugin):
                 r[s[0]] = v
                 while ss[0][0] in ['\t', ' '] and len(ss)>0:
                     ss.pop(0)
+                if len(r.keys()) > 250: break
             except:
                 pass
         return r
@@ -182,6 +184,7 @@ class PacmanPackageManager(Plugin):
                 r[s[0]].name = s[0]
                 r[s[0]].version = s[1]
                 r[s[0]].state = 'installed'
+                if len(r.keys()) > 250: break
             except:
                 pass
         return r

@@ -9,8 +9,13 @@
         <select id="shell-recent" onchange="shellRecentClick()" onmousedown="shellRecentClick()" />
     </toolbar> 
 
-    <pad>
+    <pad id="main">
         <label text="Output" />
+        <div id="status" />
         <scrollcontainer id="log" width="650" height="500" />
+
+        <script>
+            $('#logdata')[0].parentNode.scrollTop = 90000000;  
+        </script>
     </pad>
 </xml>

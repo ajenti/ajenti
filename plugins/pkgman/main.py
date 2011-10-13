@@ -134,7 +134,7 @@ class PackageManagerPlugin(CategoryPlugin):
                 tbl_pkgs.append(r)
 
         if self._current == 'search':
-            for p in self._search:
+            for p in self._search.keys()[:50]:
                 r = UI.DTR(
                         UI.Image(file=self._get_icon(p)),
                         UI.Label(text=p),
@@ -148,6 +148,13 @@ class PackageManagerPlugin(CategoryPlugin):
                             ),
                 )
                 tbl_pkgs.append(r)
+            if len(self._search.keys()) > 50:
+                tbl_pkgs.append(UI.DTR(
+                    UI.DTD(
+                        UI.Label(text='Too much packages. Try to use more precise search query'),
+                        colspan=5
+                    )
+                ))
 
         if self._current == 'pending':
             for p in sorted(self._status.pending.keys()):

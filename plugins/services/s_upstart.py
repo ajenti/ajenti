@@ -27,10 +27,10 @@ class UpstartServiceManager(Plugin):
         return sorted(r, key=lambda s: s.name)
 
     def get_status(self, name):
-        s = shell('service ' + name + ' status')
-        if 'running' in s:
-            return 'running'
-        return 'running' if 'is running' in s else 'stopped'
+        l = [x.status for x in self.list_all() if x.name == name]
+        if len(l) == 0:
+            return 'stopped'
+        return l[0]
 
     def start(self, name):
         shell('service ' + name + ' start')

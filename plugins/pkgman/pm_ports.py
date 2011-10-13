@@ -152,6 +152,7 @@ class PortsPackageManager(Plugin):
                 p.description = ' '.join(s[1:])
                 p.state = 'installed'
                 r[p.name] = p
+                if len(r.keys()) > 250: break
             except:
                 pass
 

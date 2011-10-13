@@ -4,6 +4,7 @@ from ajenti.api import *
 from ajenti.utils import shell, enquote, BackgroundProcess
 from ajenti.plugins.core.api import *
 
+import time
 
 class ShellPlugin(CategoryPlugin):
     text = 'Shell'
@@ -14,18 +15,25 @@ class ShellPlugin(CategoryPlugin):
         self._recent = []
         self._process = BackgroundProcess('')
 
-    def get_status(self):
-        return shell('echo `logname`@`hostname`')
-
     def get_ui(self):
         ui = self.app.inflate('shell:main')
         recent = [UI.SelectOption(text=x[0:40] + '...' if len(x) > 40 else x,
                                   value=x) for x in self._recent]
-        log = UI.CustomHTML(html=enquote(self._process.output + self._process.errors))
+        
+        if self._process is not None and self._process.is_running():
+            time.sleep(1)
+        
+        if self._process is not None and self._process.is_running():
+            ui.append('status', UI.Label(
+                text='Process is running. Refresh on will'
+            ))
+        
+        log = UI.CustomHTML(id='logdata', html=enquote(self._process.output + self._process.errors))
 
         ui.append('log', log)
         ui.appendAll('shell-recent', *recent)
         
+
         return ui
 
     def go(self, cmd):

@@ -6,7 +6,7 @@ def version():
     :returns: str
     """
 
-    release = '0.5-13.1'
+    release = '0.5-99'
     p = subprocess.Popen('git describe --tags 2> /dev/null',
             shell=True,
             stdout=subprocess.PIPE)
@@ -15,4 +15,4 @@ def version():
     return p.stdout.read().strip('\n ')
 
 # Generation declares which plugin version range to use
-generation = '0'
+generation = 1

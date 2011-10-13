@@ -83,6 +83,7 @@ class PortagePackageManager(Plugin):
                     p.version = p.installed
                 p.description = pkg.find('description').text
                 r[p.name] = p
+                if len(r.keys()) > 250: break
             except:
                 pass
 

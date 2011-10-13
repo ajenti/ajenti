@@ -48,6 +48,19 @@ class PlatformRequirementError(BaseRequirementError):
         return 'requires platforms %s' % self.lst
 
 
+class AjentiVersionRequirementError(BaseRequirementError):
+    """
+    Exception that means a plugin wasn't loaded due to
+    unsupported Ajenti version
+    """
+
+    def __init__(self, lst):
+        self.lst = lst
+
+    def __str__(self):
+        return 'requires %s' % self.lst
+
+
 class PluginRequirementError(BaseRequirementError):
     """
     Exception that means a plugin wasn't loaded due to
@@ -203,6 +216,10 @@ class PluginLoader:
             # Verify platform
             if mod.PLATFORMS != ['any'] and not platform in mod.PLATFORMS:
                 raise PlatformRequirementError(mod.PLATFORMS)
+
+            # Verify version
+            if not 'GENERATION' in mod.__dict__ or mod.GENERATION != generation:
+                raise AjentiVersionRequirementError('other Ajenti platform generation')
 
             # Verify dependencies
             if hasattr(mod, 'DEPS'):
@@ -421,7 +438,8 @@ class RepositoryManager:
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
         send_stats(self.server, PluginLoader.list_plugins().keys())
-        data = download('http://%s/api/plugins?pl=%s&gen=%s' % (self.server,detect_platform(),generation))
+        data = download('http://%s/api/plugins?pl=%s&gen=%i' % (self.server,detect_platform(),generation))
+        print 'http://%s/api/plugins?pl=%s&gen=%i' % (self.server,detect_platform(),generation)
         try:
             open('/var/lib/ajenti/plugins.list', 'w').write(data)
         except:
@@ -458,7 +476,7 @@ class RepositoryManager:
         """
         dir = self.config.get('ajenti', 'plugins')
 
-        download('http://%s/plugins/%s/%s/plugin.tar.gz' % (self.server, generation, id),
+        download('http://%s/plugins/%i/%s/plugin.tar.gz' % (self.server, generation, id),
             file='%s/plugin.tar.gz'%dir, crit=True)
 
         self.remove(id)

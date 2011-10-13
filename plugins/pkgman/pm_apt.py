@@ -141,6 +141,7 @@ class APTPackageManager(Plugin):
                     r[s[1]].name = s[1]
                     r[s[1]].version = s[2].strip('[]')
                     r[s[1]].state = 'removed'
+                if len(r.keys()) > 250: break
             except:
                 pass
         return r

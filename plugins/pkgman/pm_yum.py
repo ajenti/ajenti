@@ -20,7 +20,7 @@ class YumPackageManager(Plugin):
         for s in p:
             s = p[s]
             if s.state == 'installed':
-            	if a.has_key(s.name) and a[s.name].state == 'installed':
+                if a.has_key(s.name) and a[s.name].state == 'installed':
                     st.upgradeable[s.name] = a[s.name]
 
         st.pending = {}
@@ -46,19 +46,19 @@ class YumPackageManager(Plugin):
         r = {}
         for s in ss:
             s = s.split()
-	    if s[0].startswith('===='):
-	        continue
-	    else:
-	        r[s[0]] = apis.pkgman.Package()
-	        r[s[0]].name = s[0]
-	        r[s[0]].description = ' '.join(s[2:])
-	        r[s[0]].state = 'removed'
-            if a.has_key(s[0]) and a[s[0]].state == 'installed':
-                r[s[0]].state = 'installed'
+            if s[0].startswith('===='):
+                continue
+            else:
+                r[s[0]] = apis.pkgman.Package()
+                r[s[0]].name = s[0]
+                r[s[0]].description = ' '.join(s[2:])
+                r[s[0]].state = 'removed'
+                if a.has_key(s[0]) and a[s[0]].state == 'installed':
+                    r[s[0]].state = 'installed'
         return r
 
     def mark_install(self, st, name):
-    	st.pending[name] = 'install'
+        st.pending[name] = 'install'
         self._save_pending(st.pending)
 
     def mark_remove(self, st, name):
@@ -155,13 +155,14 @@ class YumPackageManager(Plugin):
                 if s[0] == '':
                     continue
                 else:
-		    r[s[0]] = apis.pkgman.Package()
+                    r[s[0]] = apis.pkgman.Package()
                     r[s[0]].name = s[0]
                     r[s[0]].version = s[1]
                     r[s[0]].state = 'installed'
+                if len(r.keys()) > 250: break
             except:
                 pass
-	return r
+        return r
 
     def _get_all(self):
         ss = utils.shell('yum -C -d0 -e0 list installed -q').splitlines()
@@ -174,6 +175,7 @@ class YumPackageManager(Plugin):
                 p.version = s[1]
                 p.state = 'installed'
                 r[p.name] = p
+                if len(r.keys()) > 250: break
             except:
                 pass
 
