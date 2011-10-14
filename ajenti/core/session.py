@@ -185,6 +185,7 @@ class SessionManager(object):
         self._session_store = store
         self._application = application
         self._session = None
+        self._start_response_args = ('200 OK', [])
 
     def add_cookie(self, headers):
         if self._session is None:
@@ -199,7 +200,7 @@ class SessionManager(object):
 
     def start_response(self, status, headers):
         self.add_cookie(headers)
-        return self.start_response_origin(status, headers)
+        self._start_response_args = (status, headers)
 
     def _load_session_cookie(self, environ):
         C = Cookie.SimpleCookie(environ.get('HTTP_COOKIE'))
@@ -244,4 +245,5 @@ class SessionManager(object):
         finally:
             self._session_store.commit(self._session)
 
+        self.start_response_origin(*self._start_response_args)
         return result

@@ -2,7 +2,7 @@ PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
-VERSION=0.5.100
+VERSION=0.5.101
 
 
 SPHINXOPTS    =
