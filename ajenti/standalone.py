@@ -10,7 +10,7 @@ from ajenti import version
 from ajenti import deployed
 import ajenti.utils
 
-import gevent.wsgi
+import gevent.pywsgi
 import gevent.pool
 
 
@@ -100,7 +100,7 @@ def run_server(log_level=logging.INFO, config_file=''):
     	    'certfile': config.get('ajenti','cert_file'),
     	}
 
-    server = gevent.wsgi.WSGIServer(
+    server = gevent.pywsgi.WSGIServer(
         (host, port),
         application=AppDispatcher(config).dispatcher,
         **ssl

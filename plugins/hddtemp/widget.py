@@ -1,6 +1,5 @@
 #coding: utf-8
 from ajenti.ui import *
-from ajenti.plugins.dashboard.api import *
 from ajenti.com import implements, Plugin
 from ajenti.api import *
 from ajenti import apis
@@ -8,7 +7,7 @@ from meters import HDDTempMeter
 
 
 class HDDTempWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'HDD Temperature'
     icon = '/dl/hddtemp/icon.png'
     name = 'HDD Temperature'

@@ -1,11 +1,11 @@
 from ajenti.ui import *
-from ajenti.plugins.dashboard.api import *
+from ajenti import apis
 from ajenti.com import implements, Plugin
 from ajenti.api import *
 
 
 class HealthWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'Health'
     icon = '/dl/health/icon.png'
     name = 'Health monitor'

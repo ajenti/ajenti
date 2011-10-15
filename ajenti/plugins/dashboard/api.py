@@ -1,31 +1,28 @@
 from ajenti.com import Plugin, Interface, implements
 from ajenti.api import Component
 from ajenti.apis import API
+from ajenti import apis
 from base64 import b64encode, b64decode
 
 
-class IDashboardWidget(Interface): # TODO: remove in favor of ajenti.apis
-    title = ''
-    name = ''
-    icon = ''
-    style = 'normal'
-
-    def get_ui(self, cfg, id=None):
-        pass
-
-    def handle(self, event, params, cfg, vars=None):
-        pass
-
-    def get_config_dialog(self):
-        pass
-
-    def process_config(self, vars):
-        pass
-
-
 class Dashboard (API):
-    IWidget = IDashboardWidget
+    class IWidget(Interface):
+        title = ''
+        name = ''
+        icon = ''
+        style = 'normal'
 
+        def get_ui(self, cfg, id=None):
+            pass
+
+        def handle(self, event, params, cfg, vars=None):
+            pass
+
+        def get_config_dialog(self):
+            pass
+
+        def process_config(self, vars):
+            pass
 
     class WidgetManager (Plugin):
         def __init__(self):
@@ -96,7 +93,7 @@ class Dashboard (API):
         def get_by_name(self, id):
             try:
                 return self.app.grab_plugins(
-                   IDashboardWidget,
+                   apis.dashboard.IWidget,
                    lambda x:x.plugin_id==id,
                 )[0]
             except:

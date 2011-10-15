@@ -1,12 +1,14 @@
 from ajenti.ui import *
-from ajenti.plugins.dashboard.api import *
 from ajenti.com import implements, Plugin
 from ajenti.api import *
+from ajenti import apis
 from updater import Updater
 
+# We want apis.dashboard already!
+import ajenti.plugins.dashboard.api
 
 class NewsWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'Project news'
     icon = '/dl/core/ui/stock/news.png'
     name = 'Project news'
