@@ -6,23 +6,52 @@ from base64 import b64encode, b64decode
 
 
 class Dashboard (API):
+    """
+    Dashboard API
+    """
     class IWidget(Interface):
+        """
+        Interface for a dashboard widget
+
+        - ``icon`` - `str`, icon URI
+        - ``title`` - `str`, short title text
+        - ``name`` - `str`, name shown in 'choose widget' dialog
+        - ``style`` - `str`, 'normal' and 'linear' now supported
+        """
         title = ''
         name = ''
         icon = ''
         style = 'normal'
 
         def get_ui(self, cfg, id=None):
-            pass
+            """
+            Returns plugin UI (Layout or Element)
+
+            :param  id:     plugin ID
+            :type   id:     str
+            :param  cfg:    saved plugin configuration
+            :type   cfg:    str
+            """
 
         def handle(self, event, params, cfg, vars=None):
-            pass
+            """
+            Handles UI event of a plugin
+
+            :param  cfg:    saved plugin configuration
+            :type   cfg:    str
+            """
 
         def get_config_dialog(self):
-            pass
+            """
+            Returns configuration dialog UI (Layout or Element), or None
+            """
 
         def process_config(self, vars):
-            pass
+            """
+            Saves configuration from the configuration dialog (get_config_dialog)
+
+            :rtype   cfg:    str
+            """
 
     class WidgetManager (Plugin):
         def __init__(self):
