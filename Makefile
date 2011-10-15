@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
 VERSION=0.5.101
-
+PREFIX=/usr
 
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
@@ -11,6 +11,8 @@ PAPER         =
 DOCBUILDDIR   = docs/build
 DOCSOURCEDIR   = docs/source
 ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(DOCSOURCEDIR)
+
+all:
 
 doc:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCBUILDDIR)/html
@@ -24,7 +26,7 @@ cdoc:
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 install:
-	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE)
+	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE) --prefix $(PREFIX)
 
 rpm:
 	rm -rf dist/*.rpm
@@ -42,7 +44,7 @@ deb:
 	rm ../$(PROJECT)*.changes
 	mv ../$(PROJECT)*.deb dist/
 
-tgz:
+gentoo-tgz:
 	rm -rf dist/*.tar.gz
 	$(PYTHON) setup.py sdist 
 	tar xvf dist/*.tar.gz -C dist
@@ -50,7 +52,11 @@ tgz:
 	mv dist/ajenti-$(VERSION) dist/pkg-tmp
 	tar czf dist/ajenti-$(VERSION).tar.gz  -C dist/pkg-tmp `ls dist/pkg-tmp`
 	rm -r dist/pkg-tmp
-	
+
+bsd-tgz:
+	rm dist/*.tar.gz
+	$(PYTHON) setup.py sdist 
+
 clean:
 	$(PYTHON) setup.py clean
 	rm -rf $(DOCBUILDDIR)/*

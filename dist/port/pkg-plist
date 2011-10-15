@@ -1,0 +1,3 @@
+bin/ajenti-panel
+bin/ajenti-pkg
+@unexec rm -r /usr/local/lib/python2.6/site-packages/ajenti*
