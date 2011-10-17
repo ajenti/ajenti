@@ -12,6 +12,7 @@ import ajenti.utils
 
 import gevent.pywsgi
 import gevent.pool
+from datetime import datetime
 
 
 class DebugHandler (logging.StreamHandler):
@@ -29,28 +30,55 @@ class DebugHandler (logging.StreamHandler):
         if self.capturing:
             self.buffer += self.formatter.format(record) + '\n'
 
+class ConsoleHandler (logging.StreamHandler):
+    def __init__(self, stream, debug):
+        self.debug = debug
+        logging.StreamHandler.__init__(self, stream)
+
+    def handle(self, record):
+        if not self.stream.isatty():
+            return logging.StreamHandler.handle(self, record)
+
+        s = ''
+        d = datetime.fromtimestamp(record.created)
+        s += d.strftime("\033[37m%d.%m.%Y %H:%M \033[0m")
+        if self.debug:
+            s += ('%s:%s'%(record.filename,record.lineno)).ljust(30)
+        l = ''
+        if record.levelname == 'DEBUG':
+            l = '\033[37mDEBUG\033[0m '
+        if record.levelname == 'INFO':
+            l = '\033[32mINFO\033[0m  '
+        if record.levelname == 'WARNING':
+            l = '\033[33mWARN\033[0m  '
+        if record.levelname == 'ERROR':
+            l = '\033[31mERROR\033[0m '
+        s += l.ljust(9)
+        s += record.msg
+        s += '\n'
+        self.stream.write(s)
+
+
 def make_log(debug=False, log_level=logging.INFO):
     log = logging.getLogger('ajenti')
     log.setLevel(logging.DEBUG)
 
-    stdout = logging.StreamHandler(sys.stdout)
+    stdout = ConsoleHandler(sys.stdout, debug)
     stdout.setLevel(log_level)
 
+    log.blackbox = DebugHandler()
+    log.blackbox.setLevel(logging.DEBUG)
     dformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
-    sformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
-    stdout.setFormatter(dformatter if log_level == logging.DEBUG else sformatter)
-    log.addHandler(stdout)
+    log.blackbox.setFormatter(dformatter)
+    stdout.setFormatter(dformatter)
+    log.addHandler(log.blackbox)
 
-    if debug:
-        log.blackbox = DebugHandler()
-        log.blackbox.setLevel(logging.DEBUG)
-        log.blackbox.setFormatter(dformatter)
-        log.addHandler(log.blackbox)
+    log.addHandler(stdout)
 
     return log
 
 def run_server(log_level=logging.INFO, config_file=''):
-    log = make_log(debug=True, log_level=log_level)
+    log = make_log(debug=log_level==logging.DEBUG, log_level=log_level)
 
     # For the debugging purposes
     log.info('Ajenti %s' % version())
