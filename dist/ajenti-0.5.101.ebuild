@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 PYTHON_DEPEND=2
 SUPPORT_PYTHON_ABIS=1
 
@@ -12,7 +12,7 @@ DESCRIPTION="Web toolset for administrating servers"
 HOMEPAGE="http://ajenti.org/"
 SRC_URI="http://repo.ajenti.org/src/${P}.tar.gz"
 
-LICENSE="as-is LGPL-3"
+LICENSE="LGPL-3"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE=""
