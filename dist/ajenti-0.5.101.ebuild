@@ -17,7 +17,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE=""
 
-DEPEND=""
 RDEPEND="dev-python/gevent
 	dev-python/lxml
 	dev-python/pyopenssl
