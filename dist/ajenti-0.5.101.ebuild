@@ -17,9 +17,9 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE=""
 
-RDEPEND="dev-python/gevent
+RDEPEND="dev-python/feedparser
+	dev-python/gevent
 	dev-python/lxml
-	dev-python/pyopenssl
-	dev-python/feedparser"
+	dev-python/pyopenssl"
 
 RESTRICT_PYTHON_ABIS="3.*"
