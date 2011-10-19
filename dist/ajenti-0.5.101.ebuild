@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=4
-PYTHON_DEPEND=2
+PYTHON_DEPEND="2:2.6"
 SUPPORT_PYTHON_ABIS=1
 
 inherit distutils
@@ -22,4 +22,4 @@ RDEPEND="dev-python/feedparser
 	dev-python/lxml
 	dev-python/pyopenssl"
 
-RESTRICT_PYTHON_ABIS="3.*"
+RESTRICT_PYTHON_ABIS="2.4 2.5 3.*"
