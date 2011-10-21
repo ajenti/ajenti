@@ -205,30 +205,20 @@
 
 
 .ui-el-progressbar {
-    background: #ddd;
-    background:      -o-linear-gradient(top,  #ddd,  #eee);
-    background:     -ms-linear-gradient(top,  #ddd,  #eee);
-    background:    -moz-linear-gradient(top,  #ddd,  #eee);
-    background: -webkit-linear-gradient(top,  #ddd,  #eee);
-
     height: 15px;
-    border: 1px solid #ccc;
-    border-top: none;
     float: left;
 }
 
 .ui-el-progressbar-active {
-    background: #79bd17;
-    background:      -o-linear-gradient(top,  #79bd17,  #558511);
-    background:     -ms-linear-gradient(top,  #79bd17,  #558511);
-    background:    -moz-linear-gradient(top,  #79bd17,  #558511);
-    background: -webkit-linear-gradient(top,  #79bd17,  #558511);
+    .gradientBar(#79bd17,  #558511);
 
-    height: 14px;
+    height: 16px;
+    margin: 0 0 -1px;
     border-top: 1px solid #a0d05c;
-    border-bottom: 1px solid #3f620c;
-    border-radius: 3px 0 0 3px;
     float: left;
+
+    .border-radius(3px 0 0 3px);
+    .box-shadow(0 -1px 0 #3f620c inset);
 }
 
 .ui-el-progressbar-active div {
@@ -237,12 +227,13 @@
 }
 
 .ui-el-progressbar-wrapper {
+    .gradientBar(#ddd,  #eee);
+    border: 1px solid #ccc;
+    border-top: none;
+    .border-radius(3px);
+    overflow: hidden;
     margin: 2px 2px;
     display: inline-block;
-    border-top: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    border-bottom: 1px solid white;
-    border-radius: 3px;
     overflow: hidden;
 }
 

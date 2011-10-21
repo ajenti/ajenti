@@ -25,7 +25,7 @@ class HealthWidget(Plugin):
 
         ui = self.app.inflate('health:widget')
         ui.find('overall').text = text[ostat]
-        ui.find('overall')['class'] = 'ui-el-status-cell ui-el-status-cell-%s'%stat[ostat]
+        ui.find('overall')['class'] = 'status-cell-%s'%stat[ostat]
         return ui
 
     def handle(self, event, params, cfg, vars=None):
