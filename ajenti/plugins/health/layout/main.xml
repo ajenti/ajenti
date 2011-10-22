@@ -1,8 +1,8 @@
 <xml>
-    <!--div id="overall" style="padding: 5px 10px" /- -->
     <toolbar>
         <button id="btnRefresh" text="Refresh" icon="/dl/core/ui/stock/refresh.png" />
         <button id="btnSettings" text="Configure" icon="/dl/core/ui/stock/settings.png" />
+        <button text="Help" icon="/dl/core/ui/stock/info.png" onclick="window.open('http://wiki.ajenti.org/users:health');return false" />
     </toolbar>
 
     <pad id="main">
