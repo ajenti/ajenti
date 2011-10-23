@@ -1,3 +1,9 @@
+ajenti (0.6.0) UNRELEASED; urgency=low
+
+  * Minor fixes
+
+ -- Eugeny Pankov <e@ajenti.org>  Thu, 14 Oct 2011 23:16:00 +0300
+
 ajenti (0.5.101) UNRELEASED; urgency=low
 
   * Hotfix for gevent crash on Debian Squeeze.
