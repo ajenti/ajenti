@@ -44,17 +44,8 @@ deb:
 	rm ../$(PROJECT)*.changes
 	mv ../$(PROJECT)*.deb dist/
 
-gentoo-tgz:
-	rm -rf dist/*.tar.gz
-	$(PYTHON) setup.py sdist 
-	tar xvf dist/*.tar.gz -C dist
-	rm dist/*.tar.gz
-	mv dist/ajenti-$(VERSION) dist/pkg-tmp
-	tar czf dist/ajenti-$(VERSION).tar.gz  -C dist/pkg-tmp `ls dist/pkg-tmp`
-	rm -r dist/pkg-tmp
-
-bsd-tgz:
-	rm dist/*.tar.gz
+tgz:
+	rm dist/*.tar.gz || true
 	$(PYTHON) setup.py sdist 
 
 clean:

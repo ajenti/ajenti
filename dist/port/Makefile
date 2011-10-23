@@ -20,6 +20,9 @@ RUN_DEPENDS= \
 	${NONEXISTENT}:${PORTSDIR}/textproc/py-feedparser \
 	${NONEXISTENT}:${PORTSDIR}/devel/py-lxml
 
-USE_PYTHON=    yes
+USE_PYTHON=     yes
+USE_PYDISTUTILS=yes
 
 .include <bsd.port.mk>
+
+
