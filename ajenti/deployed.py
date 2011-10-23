@@ -37,4 +37,4 @@ def reconfigure(cfg):
 
     cfg.set('ajenti', 'firstrun', 'no')
     cfg.save()
-    #os.unlink(RCFG_FILE)
+    os.unlink(RCFG_FILE)
