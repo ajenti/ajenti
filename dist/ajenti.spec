@@ -16,7 +16,7 @@ BuildArch: noarch
 Vendor: Eugeny Pankov <e@ajenti.org>
 Url: http://ajenti.org/
 
-requires: gevent, python-lxml, python-pyOpenSSL, python-feedparser
+requires: gevent, python-lxml, pyOpenSSL, python-feedparser
 
 %description
 Web admin panel
@@ -28,10 +28,13 @@ Web admin panel
 python setup.py build
 
 %install
-python setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+python setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES --prefix=/usr
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
+
+%post
+service ajenti start
