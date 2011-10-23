@@ -26,3 +26,5 @@ debian/*stamp*
 .~lock.*
 
 plugins/uzuri
+plugins/uzuri/*
+plugins/uzuri/*/*
