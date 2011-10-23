@@ -1,12 +1,12 @@
 from ajenti.ui import *
-from ajenti.plugins.dashboard.api import *
+from ajenti import apis
 from ajenti.com import implements, Plugin
 
 from main import *
 
 
 class PowerWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'Uptime'
     icon = '/dl/power/widget.png'
     name = 'Uptime'

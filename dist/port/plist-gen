@@ -1,0 +1,1 @@
+PYTHONPATH=/var/tmp/ajenti/lib/python2.6/site-packages/ FORCE_PKG_REGISTER=y genplist create /var/tmp

@@ -4,16 +4,15 @@ var warning_button_id;
 
 
 Ajenti = {
-    query: function (uri, data, noupdate) {
+    query: function (_uri, _data, _noupdate) {
         $.ajax({
-            url: uri,
-            cache: false,   
-            data: data,
-            success: noupdate?undefined:Ajenti.Core.processResponse,
+            url: _uri,
+            data: _data,
+            success: _noupdate?undefined:Ajenti.Core.processResponse,
             error: Ajenti.Core.processOffline,
-            method: data?'POST':'GET',
+            method: _data?'POST':'GET',
         });
-        if (!noupdate)
+        if (!_noupdate)
             Ajenti.UI.showLoader(true);
         return false;
     },

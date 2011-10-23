@@ -12,8 +12,8 @@
 
 <body id="main" class="auth-body">
     <div>
-            <div class="modal fade" id="auth-dialog" style="display:none">
-<form id="form" action="/auth-redirect" method="POST">
+        <div class="modal fade" id="auth-dialog" style="display:none">
+            <form id="form" action="/auth-redirect" method="POST">
                 <div class="modal-header">
                     <h3>Authentication</h3>
                 </div>
@@ -33,11 +33,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="background: #eee url('/dl/core/ui/alert.png') repeat-x">
                     <input type="submit" class="ui-el-button" id="login" value="Login" />
                 </div>
-</form>
-            </div>
+            </form>
+        </div>
     </div>
 
 <script>

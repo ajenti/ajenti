@@ -4,6 +4,7 @@ recursive-exclude packaging * *.*
 include README
 include COPYRIGHT
 include LICENSE
+include Makefile
 include packaging/files/ajenti.conf
 include packaging/files/admin.conf
 include packaging/files/ajenti

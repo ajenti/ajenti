@@ -1,5 +1,5 @@
 from ajenti.ui import *
-from ajenti.plugins.dashboard.api import *
+from ajenti import apis
 from ajenti.com import implements, Plugin
 from ajenti.api import *
 from ajenti.utils import *
@@ -7,7 +7,7 @@ from ajenti import apis
 
 
 class LoadWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'System load'
     icon = '/dl/sysload/widget.png'
     name = 'System load'
@@ -33,7 +33,7 @@ class LoadWidget(Plugin):
 
 
 class RamWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'RAM'
     icon = '/dl/sysload/widget_mem.png'
     name = 'Memory'
@@ -58,7 +58,7 @@ class RamWidget(Plugin):
 
 
 class SwapWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     title = 'Swap'
     icon = '/dl/sysload/widget_swap.png'
     name = 'Swap'

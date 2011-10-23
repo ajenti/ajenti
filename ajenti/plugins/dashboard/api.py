@@ -1,31 +1,57 @@
 from ajenti.com import Plugin, Interface, implements
 from ajenti.api import Component
 from ajenti.apis import API
+from ajenti import apis
 from base64 import b64encode, b64decode
 
 
-class IDashboardWidget(Interface): # TODO: remove in favor of ajenti.apis
-    title = ''
-    name = ''
-    icon = ''
-    style = 'normal'
-
-    def get_ui(self, cfg, id=None):
-        pass
-
-    def handle(self, event, params, cfg, vars=None):
-        pass
-
-    def get_config_dialog(self):
-        pass
-
-    def process_config(self, vars):
-        pass
-
-
 class Dashboard (API):
-    IWidget = IDashboardWidget
+    """
+    Dashboard API
+    """
+    class IWidget(Interface):
+        """
+        Interface for a dashboard widget
 
+        - ``icon`` - `str`, icon URI
+        - ``title`` - `str`, short title text
+        - ``name`` - `str`, name shown in 'choose widget' dialog
+        - ``style`` - `str`, 'normal' and 'linear' now supported
+        """
+        title = ''
+        name = ''
+        icon = ''
+        style = 'normal'
+
+        def get_ui(self, cfg, id=None):
+            """
+            Returns plugin UI (Layout or Element)
+
+            :param  id:     plugin ID
+            :type   id:     str
+            :param  cfg:    saved plugin configuration
+            :type   cfg:    str
+            """
+
+        def handle(self, event, params, cfg, vars=None):
+            """
+            Handles UI event of a plugin
+
+            :param  cfg:    saved plugin configuration
+            :type   cfg:    str
+            """
+
+        def get_config_dialog(self):
+            """
+            Returns configuration dialog UI (Layout or Element), or None
+            """
+
+        def process_config(self, vars):
+            """
+            Saves configuration from the configuration dialog (get_config_dialog)
+
+            :rtype   cfg:    str
+            """
 
     class WidgetManager (Plugin):
         def __init__(self):
@@ -96,7 +122,7 @@ class Dashboard (API):
         def get_by_name(self, id):
             try:
                 return self.app.grab_plugins(
-                   IDashboardWidget,
+                   apis.dashboard.IWidget,
                    lambda x:x.plugin_id==id,
                 )[0]
             except:

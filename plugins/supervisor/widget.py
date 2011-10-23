@@ -1,5 +1,5 @@
 from ajenti.ui import *
-from ajenti.plugins.dashboard.api import *
+from ajenti import apis
 from ajenti.com import implements, Plugin
 from ajenti.api import *
 
@@ -7,7 +7,7 @@ from client import SVClient
 
 
 class SVWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     icon = '/dl/supervisor/icon.png'
     name = 'Supervisor process'
     title = None

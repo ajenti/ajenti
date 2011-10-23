@@ -21,6 +21,8 @@ Contents:
    ref/ajenti.ui
    ref/ajenti.utils
 
+   ref/ajenti.plugins.core
+   ref/ajenti.plugins.dashboard
 
 Indices and tables
 ==================

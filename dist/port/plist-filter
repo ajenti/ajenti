@@ -1,0 +1,1 @@
+grep -v OpenSSL pkg-plist.new |grep -v lxml|grep -v gevent |grep -v feedparser|grep -v greenlet|grep -v py-openssl

@@ -1,12 +1,12 @@
 from ajenti.ui import *
 from ajenti.utils import *
-from ajenti.plugins.dashboard.api import *
+from ajenti import apis
 from ajenti.com import implements, Plugin
 from api import *
 
 
 class ServiceWidget(Plugin):
-    implements(IDashboardWidget)
+    implements(apis.dashboard.IWidget)
     icon = '/dl/services/icon.png'
     name = 'Service control'
     title = None
