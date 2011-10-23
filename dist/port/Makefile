@@ -5,24 +5,31 @@
 # $FreeBSD$
 #
 
-PORTNAME=      ajenti
-PORTVERSION=   0.6.0
-CATEGORIES=    sysutils
-MASTER_SITES=  http://repo.ajenti.org/bsd/
+PORTNAME=	ajenti
+PORTVERSION=	0.6.0
+CATEGORIES=	sysutils
+MASTER_SITES=	http://repo.ajenti.org/src/
 
-MAINTAINER=    e@ajenti.org
-COMMENT=       Web toolset for server administration
+MAINTAINER=	e@ajenti.org
+COMMENT=	Web toolset for server administration
 
-RUN_DEPENDS= \
-	${NONEXISTENT}:${PORTSDIR}/devel/py-gevent \
-	${NONEXISTENT}:${PORTSDIR}/devel/py-greenlet \
-	${NONEXISTENT}:${PORTSDIR}/security/py-openssl \
-	${NONEXISTENT}:${PORTSDIR}/textproc/py-feedparser \
-	${NONEXISTENT}:${PORTSDIR}/devel/py-lxml
+LICENSE=	GPLv3
 
-USE_PYTHON=     yes
-USE_PYDISTUTILS=yes
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}gevent>=0.13.6:${PORTSDIR}/devel/py-gevent \
+		${PYTHON_PKGNAMEPREFIX}openssl>=0.13:${PORTSDIR}/security/py-openssl \
+		${PYTHON_PKGNAMEPREFIX}feedparser>=5.0.1:${PORTSDIR}/textproc/py-feedparser \
+		${PYTHON_PKGNAMEPREFIX}lxml>=2.3.1:${PORTSDIR}/devel/py-lxml
 
-.include <bsd.port.mk>
+USE_PYTHON=		yes
+USE_PYDISTUTILS=	easy_install
+PYDISTUTILS_PKGNAME=	${PORTNAME}
 
+.include <bsd.port.pre.mk>
 
+post-patch:
+	${REINPLACE_CMD} -e 's|/etc/ajenti|${ETCDIR}|g;25d;s|/var/lib/ajenti|${DATADIR}|g' \
+		${WRKSRC}/setup.py ${WRKSRC}/${PORTNAME}-panel \
+		${WRKSRC}/packaging/files/${PORTNAME}.conf ${WRKSRC}/${PORTNAME}/plugmgr.py \
+		${WRKSRC}/${PORTNAME}/feedback.py
+
+.include <bsd.port.post.mk>
