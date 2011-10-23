@@ -6,7 +6,7 @@ def version():
     :returns: str
     """
 
-    release = '0.5.101'
+    release = '0.6.0'
     p = subprocess.Popen('git describe --tags 2> /dev/null',
             shell=True,
             stdout=subprocess.PIPE)

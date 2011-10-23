@@ -6,7 +6,7 @@
 #
 
 PORTNAME=      ajenti
-PORTVERSION=   0.5.101
+PORTVERSION=   0.6.0
 CATEGORIES=    sysutils
 MASTER_SITES=  http://repo.ajenti.org/bsd/
 
