@@ -1,11 +1,3 @@
-import time
-import Cookie
-import os
-import hashlib
-import traceback
-
-from ajenti.api import *
-from ajenti.com import *
 from ajenti.plugins import *
 from ajenti.utils import *
 from ajenti.ui import *

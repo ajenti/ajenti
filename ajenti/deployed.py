@@ -10,7 +10,7 @@ def reconfigure(cfg):
         return
 
     rcfg = ConfigParser()
-    rcfg.load(RCFG_FILE)
+    rcfg.read(RCFG_FILE)
 
     if rcfg.has_option('ajenti', 'credentials'):
         u,p = rcfg.get('ajenti', 'credentials').split(':')

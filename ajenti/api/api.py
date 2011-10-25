@@ -6,7 +6,7 @@ class ICategoryProvider (Interface):
 
     See :class:`ajenti.api.CategoryPlugin`
     """
-    def get_ui():
+    def get_ui(self):
         """
         Should return :class:`ajenti.ui.Layout` or :class:`ajenti.ui.Element`
         representing plugin's UI state

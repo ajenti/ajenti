@@ -1,5 +1,4 @@
 from ajenti.com import Plugin, Interface, implements
-from ajenti.api import Component
 from ajenti.apis import API
 from ajenti import apis
 from base64 import b64encode, b64decode

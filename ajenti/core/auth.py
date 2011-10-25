@@ -4,7 +4,6 @@ from binascii import hexlify
 from random import random
 
 from ajenti.api import get_environment_vars
-from ajenti import version
 
 
 def check_password(passw, hash):

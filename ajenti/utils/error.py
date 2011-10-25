@@ -14,6 +14,7 @@ class BackendRequirementError(Exception):
     wasn't found.
     """
     def __init__(self, interface):
+        Exception.__init__(self)
         self.interface = interface
 
     def __str__(self):
@@ -26,6 +27,7 @@ class ConfigurationError(Exception):
     contain wrong or non-consitent parameters.
     """
     def __init__(self, hint):
+        Exception.__init__(self)
         self.hint = hint
 
     def __str__(self):

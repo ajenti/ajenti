@@ -1,4 +1,3 @@
-import re
 import platform
 import json
 
@@ -81,7 +80,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     'owner': p.title,
                     'status': p.get_progress(),
                     'can_abort': p.can_abort
-                });
+                })
         return json.dumps(r)
 
     @url('^/core/styles.less$')
@@ -121,7 +120,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             exp = False
             empty = True
             for c in cats:
-                if (c.folder == fld): # Put corresponding plugins in this folder
+                if c.folder == fld: # Put corresponding plugins in this folder
                     empty = False
                     if c == self.selected_category:
                         exp = True
