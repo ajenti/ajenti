@@ -19,7 +19,7 @@ class ApacheSingleConfigBackend(Plugin):
     def __init__(self):
         self.config_path = self.app.get_config(self).cfg_file
         self.config_dir = self.app.get_config(self).cfg_dir
-        if not os.path.exists(self.config_path):
+	    if not os.path.exists(self.config_path):
             raise ConfigurationError('Can\'t find config file') 
 
     def list_files(self):
@@ -176,7 +176,7 @@ class ApacheSingleConfigBackend(Plugin):
 </VirtualHost>
 """
                        
-class ApacheSCPlugin(apis.webserver.WebserverPlugin):
+class ApacheSCPlugin(apis.webserver.WebserverPlugin): 
     platform = ['centos', 'freebsd']
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
