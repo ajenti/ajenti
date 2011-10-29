@@ -24,7 +24,8 @@ Ajenti = {
             url = $('input[type=hidden]', form)[0].value;
 
             $('input[type=text], input[type=password], input[type=hidden]', form).each(function (i,e) {
-                params += '&' + e.name + '=' + encodeURIComponent(e.value);
+                if (e.name != '__url')
+                    params += '&' + e.name + '=' + encodeURIComponent(e.value);
             });
 
             $('input[type=checkbox]', form).each(function (i,e) {
