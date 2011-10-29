@@ -67,6 +67,7 @@ server {
  
                   
 class NginxPlugin(apis.webserver.WebserverPlugin):
+    platform = ['arch']
     text = 'nginx'
     icon = '/dl/nginx/icon.png'
     folder = 'servers'
