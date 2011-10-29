@@ -19,12 +19,15 @@ MODULES = [
     'widget'
 ]
 
-DEPS =  []
+DEPS =  [(['freebsd'],
+     [
+        ('plugin', 'lib_rcconf'),
+     ])]
 
 NAME = 'Network'
 PLATFORMS = ['arch', 'centos', 'debian', 'fedora', 'freebsd']
 DESCRIPTION = 'Network interfaces management'
-VERSION = '1'
+VERSION = '2'
 GENERATION = 1
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
