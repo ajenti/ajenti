@@ -1,4 +1,4 @@
-MODULES = ['main_single', 'config']
+MODULES = ['main', 'main_single', 'config']
 
 DEPS =  [
     (['any'],
@@ -9,7 +9,7 @@ DEPS =  [
 ]
 
 NAME = 'nginx'
-PLATFORMS = ['debian', 'arch']
+PLATFORMS = ['debian', 'arch', 'freebsd']
 DESCRIPTION = 'nginx webserver control plugin'
 VERSION = '0'
 GENERATION = 1

@@ -16,13 +16,12 @@ class NginxSingleConfigBackend(Plugin):
     
     
     def __init__(self):
-        self.config_file = '/home/ozerich/nginxconfig'
-        self.config_path = '/home/ozerich/'
-  #      if not os.path.exists(self.config_file):
- #           raise ConfigurationError('Can\'t find config file')
+        self.config_file = self.app.get_config(self).cfg_file
+        if not os.path.exists(self.config_file):
+            raise ConfigurationError('Can\'t find config file')
     
     def list_files(self):
-        return []
+        return [self.config_file]
     
     def read(self):
         return ConfManager.get().load('nginx', self.config_file)
@@ -138,8 +137,8 @@ class NginxSingleConfigBackend(Plugin):
         self.save(text)
     host_template = """
 server {
-listen %s;
-server_name localhost;
+listen 80;
+server_name %s;
 access_log /var/log/nginx/localhost.access_log main;
 error_log /var/log/nginx/localhost.error_log info;
 root /var/www/localhost/htdocs;
@@ -147,7 +146,7 @@ root /var/www/localhost/htdocs;
 """
 
 class NginxSCPPlugin(apis.webserver.WebserverPlugin):
-    platform = ['debian']
+    platform = ['freebsd', 'arch', 'gentoo', 'centos']
     text = 'nginx'
     icon = '/dl/nginx/icon.png'
     folder = 'servers'
@@ -156,3 +155,14 @@ class NginxSCPPlugin(apis.webserver.WebserverPlugin):
     ws_icon = '/dl/nginx/icon.png'
     ws_title = 'nginx'
     ws_backend = NginxSingleConfigBackend
+
+
+class BSDConfig(ModuleConfig):
+    target = NginxSingleConfigBackend
+    platform = ['freebsd']
+    
+    labels = {
+        'cfg_file': 'Configuration file'
+    }
+    
+    cfg_file = '/usr/local/etc/nginx/nginx.conf'

@@ -19,7 +19,7 @@ class ApacheSingleConfigBackend(Plugin):
     def __init__(self):
         self.config_path = self.app.get_config(self).cfg_file
         self.config_dir = self.app.get_config(self).cfg_dir
-	    if not os.path.exists(self.config_path):
+        if not os.path.exists(self.config_path):
             raise ConfigurationError('Can\'t find config file') 
 
     def list_files(self):
@@ -156,23 +156,23 @@ class ApacheSingleConfigBackend(Plugin):
         
     host_template = """
 <VirtualHost %s>
-	ServerAdmin webmaster@localhost
+    ServerAdmin webmaster@localhost
 
-	DocumentRoot /dev/null
-	<Directory />
-		Options FollowSymLinks
-		AllowOverride None
-	</Directory>
-	<Directory /dev/null>
-		Options Indexes FollowSymLinks MultiViews
-		AllowOverride None
-		Order allow,deny
-		allow from all
-	</Directory>
+    DocumentRoot /dev/null
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+    <Directory /dev/null>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
 
-	ErrorLog ${APACHE_LOG_DIR}/error.log
-	LogLevel warn
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 """
                        
