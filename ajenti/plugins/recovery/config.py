@@ -1,5 +1,5 @@
 from ajenti.api import ModuleConfig
-from main import *
+from main import RecoveryPlugin
 
 
 class GeneralConfig(ModuleConfig):

@@ -1,8 +1,5 @@
 from ajenti.api import *
-from ajenti import version
-from ajenti.com import *
 from ajenti.ui import *
-from ajenti.utils import *
 from ajenti.plugmgr import PluginLoader, RepositoryManager
 
 

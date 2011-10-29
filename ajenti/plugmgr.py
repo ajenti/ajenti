@@ -42,6 +42,7 @@ class PlatformRequirementError(BaseRequirementError):
     """
 
     def __init__(self, lst):
+        BaseRequirementError.__init__(self)
         self.lst = lst
 
     def __str__(self):
@@ -55,6 +56,7 @@ class AjentiVersionRequirementError(BaseRequirementError):
     """
 
     def __init__(self, lst):
+        BaseRequirementError.__init__(self)
         self.lst = lst
 
     def __str__(self):
@@ -68,6 +70,7 @@ class PluginRequirementError(BaseRequirementError):
     """
 
     def __init__(self, name):
+        BaseRequirementError.__init__(self)
         self.name = name
 
     def __str__(self):
@@ -81,6 +84,7 @@ class ModuleRequirementError(BaseRequirementError):
     """
 
     def __init__(self, name):
+        BaseRequirementError.__init__(self)
         self.name = name
 
     def __str__(self):
@@ -94,6 +98,7 @@ class SoftwareRequirementError(BaseRequirementError):
     """
 
     def __init__(self, name, bin):
+        BaseRequirementError.__init__(self)
         self.name = name
         self.bin = bin
 
@@ -107,6 +112,7 @@ class CrashedError(BaseRequirementError):
     """
 
     def __init__(self, inner):
+        BaseRequirementError.__init__(self)
         self.inner = inner
 
     def __str__(self):
@@ -166,7 +172,7 @@ class PluginLoader:
         Registers an observer which will be notified when plugin set is changed.
         Observer should have a callable ``plugins_changed`` method.
         """
-        PluginLoader.__observers.append(weakref.ref(mgr, \
+        PluginLoader.__observers.append(weakref.ref(mgr,
             callback=PluginLoader.__unregister_observer))
 
     @staticmethod
@@ -199,9 +205,9 @@ class PluginLoader:
             log.warn(' *** Plugin not loadable: ' + plugin)
             return
 
+        info = PluginInfo()
         try:
             # Save info
-            info = PluginInfo()
             info.id = plugin
             info.icon = '/dl/%s/icon.png'%plugin
             info.name, info.desc, info.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
@@ -250,7 +256,7 @@ class PluginLoader:
                 except ImportError, e:
                     del mod
                     raise ModuleRequirementError(e.message.split()[-1])
-                except Exception, e:
+                except Exception:
                     del mod
                     raise
 
@@ -306,7 +312,7 @@ class PluginLoader:
                 log.warn('Plugin %s %s' % (plugin,str(e)))
                 PluginLoader.unload(plugin)
                 queue.remove(plugin)
-            except Exception, e:
+            except Exception:
                 PluginLoader.unload(plugin)
                 queue.remove(plugin)
         log.info('Plugins loaded.')
@@ -422,6 +428,7 @@ class RepositoryManager:
         upg = []
         for p in self.available:
             u = False
+            g = None
             for g in self.installed:
                 if g.id == p.id and g.version != p.version:
                     u = True

@@ -40,8 +40,8 @@ class Config(ConfigParser):
 
     def get_proxy(self, user):
         """
-        :param  fn: User
-        :type   fn: str
+        :param  user: User
+        :type   user: str
         :returns:   :class:`ConfigProxy` for the specified :param:user
         """
         if not user in self.proxies:
@@ -86,17 +86,17 @@ class Config(ConfigParser):
                 self.add_section(section)
             ConfigParser.set(self, section, val, value)
 
-    def has_option(self, sec, name):
+    def has_option(self, section, name):
         """
         Checks if an parameter is present in the given section
         :param  section:    Config file section
         :type   section:    str
-        :param  val:        Value name
-        :type   val:        str
+        :param  name:        Value name
+        :type   name:        str
         :returns:           bool
         """
         try:
-            return ConfigParser.has_option(self, sec, name)
+            return ConfigParser.has_option(self, section, name)
         except:
             return False
 
@@ -158,8 +158,8 @@ class ConfigProxy:
         Checks if a parameter is present in the given section
         :param  section:    Config file section
         :type   section:    str
-        :param  val:        Value name
-        :type   val:        str
+        :param  name:        Value name
+        :type   name:        str
         :returns:           bool
         """
         if self.base.has_option(section, name):

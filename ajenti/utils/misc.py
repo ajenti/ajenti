@@ -1,8 +1,6 @@
 import subprocess
 import threading
-import os
 import sys
-import trace
 
 
 class BackgroundWorker:

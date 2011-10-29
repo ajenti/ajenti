@@ -74,6 +74,7 @@ class PluginManager (object):
     __classes = []
     __plugins = {}
     __tracking = False
+    __tracker = None
 
     def __init__(self):
         self.__instances = {}
