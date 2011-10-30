@@ -48,7 +48,7 @@ class MuninPlugin(CategoryPlugin):
         root['expanded'] = True
 
         if self._hist is not None:
-            ui.append('toolbar', UI.ToolButton(
+            ui.append('toolbar', UI.Button(
                 text='Close history',
                 id='btnClose',
                 icon='/dl/core/ui/stock/dialog-cancel.png',

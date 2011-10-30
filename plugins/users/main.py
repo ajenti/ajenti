@@ -171,6 +171,7 @@ class UsersPlugin(CategoryPlugin):
                     self.backend.add_to_group(self._selected_user, v)
                 elif self._editing == 'delfromgroup':
                     self.backend.remove_from_group(self._selected_user, v)
+            self._editing = ''
         if params[0].startswith('e'):
             editing = params[0][1:]
             v = vars.getvalue('value', '')
@@ -183,6 +184,7 @@ class UsersPlugin(CategoryPlugin):
                 self.backend.change_user_param(self._selected_user, editing, v)
             elif editing in self.gparams:
                 self.backend.change_group_param(self._selected_group, editing, v)
+            self._editing = None
         if params[0] == 'dlgEditUser':
             self._selected_user = ''
         if params[0] == 'dlgEditGroup':
