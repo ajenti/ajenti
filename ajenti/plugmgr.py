@@ -22,7 +22,6 @@ import weakref
 from ajenti.com import *
 from ajenti.utils import detect_platform, shell, shell_status, download
 from ajenti.feedback import *
-from ajenti import generation
 import ajenti
 
 RETRY_LIMIT = 10
@@ -196,6 +195,7 @@ class PluginLoader:
         log = PluginLoader.log
         path = PluginLoader.path
         platform = PluginLoader.platform
+        from ajenti import generation, version
 
         log.debug('Loading plugin %s' % plugin)
         try:
@@ -442,6 +442,7 @@ class RepositoryManager:
         """
         Downloads fresh list of plugins and rebuilds installed/available lists
         """
+        from ajenti import generation, version
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
         send_stats(self.server, PluginLoader.list_plugins().keys())
@@ -480,6 +481,7 @@ class RepositoryManager:
         :param  load:   True if you want Ajenti to load the plugin immediately
         :type   load:   bool
         """
+        from ajenti import generation, version
         dir = self.config.get('ajenti', 'plugins')
 
         download('http://%s/plugins/%i/%s/plugin.tar.gz' % (self.server, generation, id),
