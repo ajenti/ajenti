@@ -214,7 +214,8 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
             self._editing_share = params[1]
             self._tab = 0
         if params[0] == 'delshare':
-            del self._cfg.shares[params[1]]
+            if params[1] in self._cfg.shares.keys():
+                del self._cfg.shares[params[1]]
             self._cfg.save()
             self._tab = 0
         if params[0] == 'newshare':
