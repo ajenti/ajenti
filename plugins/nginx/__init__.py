@@ -9,7 +9,7 @@ DEPS =  [
 ]
 
 NAME = 'nginx'
-PLATFORMS = ['debian', 'arch', 'freebsd']
+PLATFORMS = ['debian', 'arch', 'freebsd', 'gentoo', 'centos']
 DESCRIPTION = 'nginx webserver control plugin'
 VERSION = '0'
 GENERATION = 1

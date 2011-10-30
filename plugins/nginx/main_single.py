@@ -10,6 +10,7 @@ import sys
 
 class NginxSingleConfigBackend(Plugin):
     implements(IConfigurable)
+    platform = ['freebsd', 'nginx', 'arch']
     config_file = ''
     name = 'nginx'
     id = 'nginx'
@@ -92,7 +93,7 @@ class NginxSingleConfigBackend(Plugin):
             pat_name = re.compile('server_name\s*(.+?);', re.S)
             servername = pat_name.search(item.config)
             if(not name or not servername):
-                continue;
+                continue
             item.name = name.group(1) + " " + servername.group(1)
             item.enabled = enabled
             res[item.name] = item
@@ -103,7 +104,7 @@ class NginxSingleConfigBackend(Plugin):
         try:
             host = self.get_hosts()[id]
         except KeyError:
-            return;
+            return
         text = text[:host.start] + text[host.end:]
         self.save(text)
 
@@ -113,7 +114,7 @@ class NginxSingleConfigBackend(Plugin):
             oldhost = self.get_hosts()[host.name]
             text = text[:oldhost.start] + "\n" + host.config + text[oldhost.end:]
         except KeyError:
-            text = text + "\n" + host.config;
+            text = text + "\n" + host.config
         self.save(text)
     
     def disable_host(self, id):
@@ -121,7 +122,7 @@ class NginxSingleConfigBackend(Plugin):
         try:
             host = self.get_hosts()[id]
         except KeyError:
-            return;
+            return
         if not host.enabled:
             return
         config = text[host.start:host.end].replace('\n', '\n#')
@@ -133,12 +134,13 @@ class NginxSingleConfigBackend(Plugin):
         try:
             host = self.get_hosts()[id]
         except KeyError:
-            return;
+            return
         if host.enabled:
             return
-        config = text[host.start:host.end].replace('\n#', '\n');
-        text = text[:host.start] + config[1:] + text[host.end:];
+        config = text[host.start:host.end].replace('\n#', '\n')
+        text = text[:host.start] + config[1:] + text[host.end:]
         self.save(text)
+
     host_template = """
 server {
 listen 80;
@@ -160,13 +162,3 @@ class NginxSCPPlugin(apis.webserver.WebserverPlugin):
     ws_title = 'nginx'
     ws_backend = NginxSingleConfigBackend
 
-
-class BSDConfig(ModuleConfig):
-    target = NginxSingleConfigBackend
-    platform = ['debian']
-    
-    labels = {
-        'cfg_file': 'Configuration file'
-    }
-    
-    cfg_file = '/usr/local/etc/nginx/nginx.conf'
