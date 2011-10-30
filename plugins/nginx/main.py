@@ -67,7 +67,7 @@ server {
  
                   
 class NginxPlugin(apis.webserver.WebserverPlugin):
-    platform = ['debian']
+    platform = []
     text = 'nginx'
     icon = '/dl/nginx/icon.png'
     folder = 'servers'

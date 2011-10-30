@@ -44,11 +44,11 @@ class NginxSingleConfigBackend(Plugin):
                t = t - 1         
             enabled = text[t] != '#'
             item.start = t
-            beg = m.end()
+            beg = m.start()
             open = 1;  
             if enabled:
                 pat_brack = re.compile('[\{\}]', re.S)
-                for bracket in pat_brack.finditer(text, beg + 1):
+                for bracket in pat_brack.finditer(text, m.end() + 1):
                     if bracket.group() == '{':
                         open = open + 1
                     else:
@@ -59,11 +59,12 @@ class NginxSingleConfigBackend(Plugin):
                 if open != 0:
                     continue
                 item.end = last + 2
-                item.config = text[beg:last - 1]
+                item.config = text[beg:last + 1]
             else:
-                pat_brack = re.compile('\s*#\s*([\{\}])', re.S)
+                pat_brack = re.compile('\s*#([\{\}])', re.S)
                 _last = 0;
-                for bracket in pat_brack.finditer(text, beg + 1):
+                for bracket in pat_brack.finditer(text, m.end() + 1):
+                    print bracket.group(1)
                     if bracket.group(1) == '{':
                         open = open + 1
                     else:
@@ -73,7 +74,7 @@ class NginxSingleConfigBackend(Plugin):
                         break
                 if open != 0:
                     continue;
-                config = text[beg:_last - 1]
+                config = text[m.end():_last - 1]
                 lines = config.split('\n');
                 bad = False
                 for line in lines:
@@ -83,13 +84,16 @@ class NginxSingleConfigBackend(Plugin):
                         break
                 if bad:
                     continue
+                config = text[beg:_last]
                 last = item.end = _last + 1
                 item.config = re.sub('\ *#\s*', '', config)
             pat_name = re.compile('listen\s*(.+?);', re.S)
             name = pat_name.search(item.config)
-            if(not name):
+            pat_name = re.compile('server_name\s*(.+?);', re.S)
+            servername = pat_name.search(item.config)
+            if(not name or not servername):
                 continue;
-            item.name = name.group(1)
+            item.name = name.group(1) + " " + servername.group(1)
             item.enabled = enabled
             res[item.name] = item
         return res
@@ -107,7 +111,7 @@ class NginxSingleConfigBackend(Plugin):
         text = self.read()
         try:
             oldhost = self.get_hosts()[host.name]
-            text = text[:oldhost.start] + "\nserver {\n" + host.config + "\n}" + text[oldhost.end:]
+            text = text[:oldhost.start] + "\n" + host.config + text[oldhost.end:]
         except KeyError:
             text = text + "\n" + host.config;
         self.save(text)
@@ -159,7 +163,7 @@ class NginxSCPPlugin(apis.webserver.WebserverPlugin):
 
 class BSDConfig(ModuleConfig):
     target = NginxSingleConfigBackend
-    platform = ['freebsd']
+    platform = ['debian']
     
     labels = {
         'cfg_file': 'Configuration file'
