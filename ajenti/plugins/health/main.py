@@ -104,7 +104,10 @@ class HealthPlugin(CategoryPlugin):
             self._settings = False
         if params[0] == 'dlgConfigure':
             if vars.getvalue('action', None) == 'OK':
-                getattr(self, 'apply_cfg_%s'%(self._configuring.type))(self._configuring, vars)
+                try:
+                    getattr(self, 'apply_cfg_%s'%(self._configuring.type))(self._configuring, vars)
+                except:
+                    self.app.log.error('Invalid meter configuration')
                 self.mon.refresh()
             self._configuring = None
 
