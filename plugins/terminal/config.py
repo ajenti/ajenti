@@ -11,4 +11,3 @@ class GeneralConfig(ModuleConfig):
     }
     
     shell = 'su'
-   

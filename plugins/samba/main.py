@@ -70,9 +70,13 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
             if self._editing_user == '':
                 ui.append('main', self.get_ui_edit_user())
             else:
-                ui.append('main', self.get_ui_edit_user(
-                            self._cfg.users[self._editing_user]
-                        ))
+                if not self._editing_user in self._cfg.users.keys():
+                    self.put_message('err', 'User not found')
+                    self._editing_user = None
+                else:
+                  ui.append('main', self.get_ui_edit_user(
+                              self._cfg.users[self._editing_user]
+                          ))
 
         if not self._editing is None:
             ui.append('main', UI.InputBox(
