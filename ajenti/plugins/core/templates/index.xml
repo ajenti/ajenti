@@ -14,7 +14,6 @@
         <div class="container">
             <img class="logo" src="/dl/core/ui/logo.png" />
             Ajenti
-            <img class="ajax-loader" src="/dl/core/ui/ajax.gif" id="ajax-loader" style="display:none"/>
         </div>
     </div>
 
@@ -31,6 +30,9 @@
         </div>
     </div>
 
+    <div id="whiteout" style="display:none;opacity:0" />
+    <img id="ajax-loader" src="/dl/core/ui/ajax.gif" style="display:none;opacity:0" />
+    
     <div class="main-container">
         <div class="sidebar" id="leftplaceholder" />
    	    <div class="content" id="rightplaceholder" />
@@ -58,6 +60,7 @@
     </div>
 
     <div class="progress-box-wr" id="progress-box" />
+
 
     <script>
         Ajenti.init();

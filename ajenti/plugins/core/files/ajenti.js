@@ -154,11 +154,13 @@ Ajenti = {
 
         showLoader: function (visible) {
             if (visible) {
-                $('#ajax-loader').show();
+                $('#whiteout').show().fadeTo(3000, 1);
+                $('#ajax-loader').show().fadeTo(500, 1);
                 $('body').css('cursor', 'wait !important');
             }
             else {
-                $('#ajax-loader').hide();
+                $('#whiteout').stop().fadeTo(250, 0, function () { $(this).hide() });
+                $('#ajax-loader').stop().fadeTo(250, 0, function () { $(this).hide() });
                 $('body').css('cursor', '');
             }
         },
