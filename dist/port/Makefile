@@ -17,7 +17,6 @@ LICENSE=	GPLv3
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}gevent>=0.13.6:${PORTSDIR}/devel/py-gevent \
 		${PYTHON_PKGNAMEPREFIX}openssl>=0.13:${PORTSDIR}/security/py-openssl \
-		${PYTHON_PKGNAMEPREFIX}feedparser>=5.0.1:${PORTSDIR}/textproc/py-feedparser \
 		${PYTHON_PKGNAMEPREFIX}lxml>=2.3.1:${PORTSDIR}/devel/py-lxml
 
 USE_PYTHON=		yes

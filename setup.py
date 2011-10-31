@@ -8,7 +8,6 @@ setup(
     version='0.6.0',
     install_requires=[
         'pyOpenSSL',
-        'feedparser',
         'gevent',
         'lxml>=2.2.4',
     ],
