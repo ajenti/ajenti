@@ -1,3 +1,9 @@
+ajenti (0.6.1) UNRELEASED; urgency=low
+
+  * Bugfix release
+
+ -- Eugeny Pankov <e@ajenti.org>  Thu, 31 Oct 2011 15:48:00 +0300
+
 ajenti (0.6.0) UNRELEASED; urgency=low
 
   * Minor fixes
