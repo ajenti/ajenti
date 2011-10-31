@@ -109,7 +109,7 @@
             live: true,
             delayIn: <xsl:value-of select="x:attr(@delay, '0')" />,
             offset: <xsl:value-of select="x:attr(@offset, '0')" />,
-            title: '<xsl:value-of select="x:attr(@text, '')" />',
+            title: '<xsl:value-of select="x:jsesc(x:attr(@text, ''))" />',
             trigger: '<xsl:value-of select="x:attr(@trigger, 'hover')" />',
         });
     </script>

@@ -53,9 +53,6 @@ class HealthPlugin(CategoryPlugin):
                 ),
             ))
 
-        #ui.find('overall').text = 'STATUS: %s'%text[ostat]
-        #ui.find('overall')['class'] = 'ui-el-status-cell ui-el-status-cell-%s'%stat[ostat]
-
         if self._settings:
             ui.append('main', self.get_ui_settings())
 
@@ -107,7 +104,10 @@ class HealthPlugin(CategoryPlugin):
             self._settings = False
         if params[0] == 'dlgConfigure':
             if vars.getvalue('action', None) == 'OK':
-                getattr(self, 'apply_cfg_%s'%(self._configuring.type))(self._configuring, vars)
+                try:
+                    getattr(self, 'apply_cfg_%s'%(self._configuring.type))(self._configuring, vars)
+                except:
+                    self.app.log.error('Invalid meter configuration')
                 self.mon.refresh()
             self._configuring = None
 
@@ -140,6 +140,6 @@ class HealthPlugin(CategoryPlugin):
         self.backend.set_cfg(cls.plugin_id, cls.variant, {
             'limit_susp': float(vars.getvalue('lim_susp', True)),
             'limit_dang': float(vars.getvalue('lim_dang', True)),
-        });
+        })
 
     apply_cfg_linear = apply_cfg_decimal

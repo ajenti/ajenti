@@ -1,5 +1,3 @@
-import re
-import os.path
 import inspect
 import traceback
 
@@ -134,7 +132,7 @@ class SessionPlugin(Plugin):
             self.session_proxy['sp_estabilished'] = 'yes'
             try:
                 self.on_session_start()
-            except Exception, e:
+            except Exception:
                 traceback.print_exc()
                 raise
 

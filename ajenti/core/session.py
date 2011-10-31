@@ -146,7 +146,7 @@ class SessionStore(object):
         """ Checkout session for use,
         you should commit session to save it for future
         """
-        sess = self._store.get(id, None)
+        sess = self._store.get(id)
 
         if sess is not None:
             sess.touch()
@@ -204,7 +204,7 @@ class SessionManager(object):
 
     def _load_session_cookie(self, environ):
         C = Cookie.SimpleCookie(environ.get('HTTP_COOKIE'))
-        cookie = C.get('sess', None)
+        cookie = C.get('sess')
         if cookie is not None:
             self._session = self._session_store.checkout(cookie.value)
 

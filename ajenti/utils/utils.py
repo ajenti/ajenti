@@ -204,7 +204,6 @@ def wsgi_serve_file(req, start_response, file):
     rtime = req.get('HTTP_IF_MODIFIED_SINCE', None)
     if rtime is not None:
         try:
-            self.log.debug('Asked for If-Modified-Since: %s'%rtime)
             rtime = datetime.strptime(rtime, '%a, %b %d %Y %H:%M:%S GMT')
             if mtime <= rtime:
                 start_response('304 Not Modified',[])

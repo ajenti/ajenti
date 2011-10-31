@@ -8,6 +8,7 @@ from ajenti import apis
 
 class NginxBackend(Plugin):
     implements(IConfigurable)
+    platform = ['debian']
     config_dir = ''
     name = 'nginx'
     id = 'nginx'
@@ -67,6 +68,7 @@ server {
  
                   
 class NginxPlugin(apis.webserver.WebserverPlugin):
+    platform = ['debian', 'arch']
     text = 'nginx'
     icon = '/dl/nginx/icon.png'
     folder = 'servers'

@@ -107,6 +107,8 @@ bin/ajenti-pkg
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/logo.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/logo_big.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/add.png
+%%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/bug.png
+%%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/book.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/bookmark-add.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/bookmark-remove.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/bookmark.png
@@ -122,6 +124,7 @@ bin/ajenti-pkg
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/file.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/folder.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/group.png
+%%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/home.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/info.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/load.png
 %%PYTHON_SITELIBDIR%%/%%PYEASYINSTALL_EGG%%/ajenti/plugins/core/files/ui/stock/lock.png

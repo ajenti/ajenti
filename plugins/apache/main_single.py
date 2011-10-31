@@ -156,27 +156,27 @@ class ApacheSingleConfigBackend(Plugin):
         
     host_template = """
 <VirtualHost %s>
-	ServerAdmin webmaster@localhost
+    ServerAdmin webmaster@localhost
 
-	DocumentRoot /dev/null
-	<Directory />
-		Options FollowSymLinks
-		AllowOverride None
-	</Directory>
-	<Directory /dev/null>
-		Options Indexes FollowSymLinks MultiViews
-		AllowOverride None
-		Order allow,deny
-		allow from all
-	</Directory>
+    DocumentRoot /dev/null
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+    <Directory /dev/null>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    </Directory>
 
-	ErrorLog ${APACHE_LOG_DIR}/error.log
-	LogLevel warn
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    LogLevel warn
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 """
                        
-class ApacheSCPlugin(apis.webserver.WebserverPlugin):
+class ApacheSCPlugin(apis.webserver.WebserverPlugin): 
     platform = ['centos', 'freebsd']
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'

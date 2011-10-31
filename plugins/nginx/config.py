@@ -1,10 +1,11 @@
 from ajenti.api import *
 from main import *
+from main_single import *
 
 
 class GeneralConfig(ModuleConfig):
     target = NginxBackend
-    platform = ['debian', 'arch', 'centos', 'gentoo']
+    platform = ['debian', 'arch']
     
     labels = {
         'cfg_dir': 'Configuration directory'
@@ -13,8 +14,26 @@ class GeneralConfig(ModuleConfig):
     cfg_dir = '/etc/nginx/'
    
    
-class BSDConfig(GeneralConfig):
+class BSDConfig(ModuleConfig):
+    target = NginxSingleConfigBackend
     platform = ['freebsd']
     
-    cfg_dir = '/usr/local/etc/nginx'
+    labels = {
+        'cfg_file': 'Configuration file'
+    }
+    
+    cfg_file = '/usr/local/etc/nginx/nginx.conf'
    
+
+class GeneralSCConfig(BSDConfig):
+    target = NginxSingleConfigBackend
+    platform = ['gentoo', 'centos']
+    
+    cfg_file = '/etc/nginx/nginx.conf'
+
+
+class ArchConfig(BSDConfig):
+    target = NginxSingleConfigBackend
+    platform = ['arch']
+    
+    cfg_file = '/etc/nginx/conf/nginx.conf'

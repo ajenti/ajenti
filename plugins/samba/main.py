@@ -70,9 +70,13 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
             if self._editing_user == '':
                 ui.append('main', self.get_ui_edit_user())
             else:
-                ui.append('main', self.get_ui_edit_user(
-                            self._cfg.users[self._editing_user]
-                        ))
+                if not self._editing_user in self._cfg.users.keys():
+                    self.put_message('err', 'User not found')
+                    self._editing_user = None
+                else:
+                  ui.append('main', self.get_ui_edit_user(
+                              self._cfg.users[self._editing_user]
+                          ))
 
         if not self._editing is None:
             ui.append('main', UI.InputBox(
@@ -210,7 +214,8 @@ class SambaPlugin(apis.services.ServiceControlPlugin):
             self._editing_share = params[1]
             self._tab = 0
         if params[0] == 'delshare':
-            del self._cfg.shares[params[1]]
+            if params[1] in self._cfg.shares.keys():
+                del self._cfg.shares[params[1]]
             self._cfg.save()
             self._tab = 0
         if params[0] == 'newshare':

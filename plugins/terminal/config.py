@@ -10,5 +10,4 @@ class GeneralConfig(ModuleConfig):
         'shell': 'Shell'
     }
     
-    shell = '/bin/sh -c $SHELL'
-   
+    shell = 'su'

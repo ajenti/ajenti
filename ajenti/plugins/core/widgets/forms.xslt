@@ -1,6 +1,6 @@
 <xsl:template match="formbox">
         <div id="{@id}" style="width: {x:css(@width, 'auto')}; height: {x:css(@height, 'auto')}; overflow: hidden">
-            <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
+            <input id="{@id}-url" type="hidden" name="__url" value="/handle/form/submit/{@id}"/>
             <xsl:apply-templates />
             <formline>
                 <xsl:if test="not(@hideok = 'True')">
@@ -18,7 +18,7 @@
 
 <xsl:template match="simpleform">
     <div id="{@id}" style="display:inline-block">
-        <input id="{@id}-url" type="hidden" name="url" value="/handle/form/submit/{@id}"/>
+        <input id="{@id}-url" type="hidden" name="__url" value="/handle/form/submit/{@id}"/>
         <xsl:apply-templates />
     </div>
 </xsl:template>
@@ -26,7 +26,7 @@
 <xsl:template match="dialogbox">
 <div>
     <div id="{@id}" class="modal fade">
-        <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
+        <input id="{@id}-url" type="hidden" name="__url" value="/handle/dialog/submit/{@id}"/>
         <div class="modal-body">
             <xsl:apply-templates />
         </div>
@@ -53,7 +53,7 @@
 <xsl:template match="inputbox">
 <div>
     <div id="{@id}" class="modal fade">
-        <input id="{@id}-url" type="hidden" name="url" value="/handle/dialog/submit/{@id}"/>
+        <input id="{@id}-url" type="hidden" name="__url" value="/handle/dialog/submit/{@id}"/>
         <div class="modal-header">
             <h3><xsl:value-of select="@text" /></h3>
         </div>

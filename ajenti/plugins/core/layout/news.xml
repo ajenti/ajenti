@@ -1,6 +1,6 @@
 <xml>
     <div class="freetext">
-        <vcontainer id="list" />
+        <ul id="list" />
     </div>
-    <outlinklabel text="All news" url="http://ajenti.org" />
+    <outlinklabel text="All news" url="http://twitter.com/ajenti" />
 </xml>

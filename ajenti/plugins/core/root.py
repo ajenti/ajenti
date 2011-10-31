@@ -1,4 +1,3 @@
-import re
 import platform
 import json
 
@@ -81,7 +80,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
                     'owner': p.title,
                     'status': p.get_progress(),
                     'can_abort': p.can_abort
-                });
+                })
         return json.dumps(r)
 
     @url('^/core/styles.less$')
@@ -121,7 +120,7 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
             exp = False
             empty = True
             for c in cats:
-                if (c.folder == fld): # Put corresponding plugins in this folder
+                if c.folder == fld: # Put corresponding plugins in this folder
                     empty = False
                     if c == self.selected_category:
                         exp = True
@@ -153,11 +152,10 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         templ.append('leftplaceholder', v)
         templ.append('version', UI.Label(text='Ajenti '+version(), size=2))
         templ.insertText('cat-username', self.app.auth.user)
-        templ.append('links',
-            UI.HContainer(
+        templ.appendAll('links', 
                 UI.LinkLabel(text='About', id='about'),
                 UI.OutLinkLabel(text='License', url='http://www.gnu.org/licenses/lgpl.html')
-            ))
+            )
 
         return templ.render()
 

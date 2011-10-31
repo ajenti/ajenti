@@ -7,7 +7,6 @@ from ajenti.api import *
 from ajenti import apis
 
 
-
 class Dashboard(CategoryPlugin):
     text = 'Dashboard'
     icon = '/dl/dashboard/icon.png'

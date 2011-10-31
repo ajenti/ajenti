@@ -22,7 +22,6 @@ import weakref
 from ajenti.com import *
 from ajenti.utils import detect_platform, shell, shell_status, download
 from ajenti.feedback import *
-from ajenti import generation
 import ajenti
 
 RETRY_LIMIT = 10
@@ -42,6 +41,7 @@ class PlatformRequirementError(BaseRequirementError):
     """
 
     def __init__(self, lst):
+        BaseRequirementError.__init__(self)
         self.lst = lst
 
     def __str__(self):
@@ -55,6 +55,7 @@ class AjentiVersionRequirementError(BaseRequirementError):
     """
 
     def __init__(self, lst):
+        BaseRequirementError.__init__(self)
         self.lst = lst
 
     def __str__(self):
@@ -68,6 +69,7 @@ class PluginRequirementError(BaseRequirementError):
     """
 
     def __init__(self, name):
+        BaseRequirementError.__init__(self)
         self.name = name
 
     def __str__(self):
@@ -81,6 +83,7 @@ class ModuleRequirementError(BaseRequirementError):
     """
 
     def __init__(self, name):
+        BaseRequirementError.__init__(self)
         self.name = name
 
     def __str__(self):
@@ -94,6 +97,7 @@ class SoftwareRequirementError(BaseRequirementError):
     """
 
     def __init__(self, name, bin):
+        BaseRequirementError.__init__(self)
         self.name = name
         self.bin = bin
 
@@ -107,6 +111,7 @@ class CrashedError(BaseRequirementError):
     """
 
     def __init__(self, inner):
+        BaseRequirementError.__init__(self)
         self.inner = inner
 
     def __str__(self):
@@ -166,7 +171,7 @@ class PluginLoader:
         Registers an observer which will be notified when plugin set is changed.
         Observer should have a callable ``plugins_changed`` method.
         """
-        PluginLoader.__observers.append(weakref.ref(mgr, \
+        PluginLoader.__observers.append(weakref.ref(mgr,
             callback=PluginLoader.__unregister_observer))
 
     @staticmethod
@@ -190,6 +195,7 @@ class PluginLoader:
         log = PluginLoader.log
         path = PluginLoader.path
         platform = PluginLoader.platform
+        from ajenti import generation, version
 
         log.debug('Loading plugin %s' % plugin)
         try:
@@ -199,9 +205,9 @@ class PluginLoader:
             log.warn(' *** Plugin not loadable: ' + plugin)
             return
 
+        info = PluginInfo()
         try:
             # Save info
-            info = PluginInfo()
             info.id = plugin
             info.icon = '/dl/%s/icon.png'%plugin
             info.name, info.desc, info.version = mod.NAME, mod.DESCRIPTION, mod.VERSION
@@ -250,7 +256,7 @@ class PluginLoader:
                 except ImportError, e:
                     del mod
                     raise ModuleRequirementError(e.message.split()[-1])
-                except Exception, e:
+                except Exception:
                     del mod
                     raise
 
@@ -306,7 +312,7 @@ class PluginLoader:
                 log.warn('Plugin %s %s' % (plugin,str(e)))
                 PluginLoader.unload(plugin)
                 queue.remove(plugin)
-            except Exception, e:
+            except Exception:
                 PluginLoader.unload(plugin)
                 queue.remove(plugin)
         log.info('Plugins loaded.')
@@ -422,6 +428,7 @@ class RepositoryManager:
         upg = []
         for p in self.available:
             u = False
+            g = None
             for g in self.installed:
                 if g.id == p.id and g.version != p.version:
                     u = True
@@ -435,6 +442,7 @@ class RepositoryManager:
         """
         Downloads fresh list of plugins and rebuilds installed/available lists
         """
+        from ajenti import generation, version
         if not os.path.exists('/var/lib/ajenti'):
             os.mkdir('/var/lib/ajenti')
         send_stats(self.server, PluginLoader.list_plugins().keys())
@@ -473,6 +481,7 @@ class RepositoryManager:
         :param  load:   True if you want Ajenti to load the plugin immediately
         :type   load:   bool
         """
+        from ajenti import generation, version
         dir = self.config.get('ajenti', 'plugins')
 
         download('http://%s/plugins/%i/%s/plugin.tar.gz' % (self.server, generation, id),
