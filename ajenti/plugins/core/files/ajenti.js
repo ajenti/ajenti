@@ -2,6 +2,12 @@ var Ajenti;
 
 var warning_button_id;
 
+var _ues = {
+            host:'ajenti.userecho.com',
+            forum:'8996',
+            lang:'en',
+            tab_show:false,
+        };
 
 Ajenti = {
     query: function (_uri, _data, _noupdate) {
@@ -62,6 +68,14 @@ Ajenti = {
         Ajenti.query('/handle/nothing');
         Ajenti.Core.requestProgress();
         Ajenti.UI.animateProgress();
+
+        (function() {
+            var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
+            _ue.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
+          })();
+
+        setTimeout(1000, "UE.Popin.preload()");
     },
 
     Core: {
@@ -198,6 +212,11 @@ Ajenti = {
                 'linear'
             );
             Ajenti.UI._animateProgressTimeout = setTimeout('Ajenti.UI.animateProgress()', 1000);
+        },
+
+        showFeedback: function () {
+            UE.Popin.show();
+            return false;
         }
     }
 };

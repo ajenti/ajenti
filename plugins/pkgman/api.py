@@ -65,6 +65,6 @@ class PkgMan(API):
     
     class Status(object):
         upgradeable = {}
-        pending = {}}
-        full = {}}
+        pending = {}
+        full = {}
         

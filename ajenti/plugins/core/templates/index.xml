@@ -41,7 +41,9 @@
     <div class="footer">
         <div class="container">
             <div id="version" />
-            <div id="links" />
+            <div id="links">
+                <a href="#" id="feedback-link" onclick="return Ajenti.UI.showFeedback()">Feedback</a>
+            </div>
         </div>
     </div>
 
@@ -60,7 +62,6 @@
     </div>
 
     <div class="progress-box-wr" id="progress-box" />
-
 
     <script>
         Ajenti.init();
