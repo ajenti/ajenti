@@ -120,20 +120,22 @@ a:hover { text-decoration: none; }
 
 
 .footer {
-    #gradient > .vertical(#333,  #222);
-    height: 30px;
-    padding-top: 5px;
+    #gradient > .vertical(#222,  #111);
     position: absolute;
     bottom: 0;
+    height: 35px;
     width: 100%;
     color: #aaa !important;
     border-top: 1px solid #181818;
+    overflow: hidden;
 
     #version {
         float: left;
         height: 30px;
-
+    
         * {
+        line-height: 35px;
+        display: block;
             padding: 0 !important;
             text-shadow: none;
         }
@@ -141,7 +143,29 @@ a:hover { text-decoration: none; }
 
     #links {
         float: right;
-        height: 30px;
+
+        a {
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 0 10px;
+            line-height: 35px;
+            height: 35px;
+            border-right: 1px solid rgba(0,0,0,0.1);
+            color: #aaa;
+
+            &:first-child {
+                border-left: 1px solid rgba(0,0,0,0.1);
+            }
+
+            &:hover {
+                .gradientBar(rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            }
+
+            &:active {
+                .gradientBar(rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+            }
+        }
     }
 }
 
