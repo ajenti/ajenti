@@ -152,7 +152,7 @@ root /var/www/localhost/htdocs;
 """
 
 class NginxSCPPlugin(apis.webserver.WebserverPlugin):
-    platform = ['freebsd', 'arch', 'gentoo', 'centos']
+    platform = ['freebsd', 'arch', 'gentoo', 'centos', 'mandriva']
     text = 'nginx'
     icon = '/dl/nginx/icon.png'
     folder = 'servers'

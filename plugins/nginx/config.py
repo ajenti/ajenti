@@ -27,7 +27,7 @@ class BSDConfig(ModuleConfig):
 
 class GeneralSCConfig(BSDConfig):
     target = NginxSingleConfigBackend
-    platform = ['gentoo', 'centos']
+    platform = ['gentoo', 'centos', 'mandriva']
     
     cfg_file = '/etc/nginx/nginx.conf'
 
