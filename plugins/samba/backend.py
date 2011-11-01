@@ -148,7 +148,7 @@ class SambaConfig(Plugin):
 
 class GeneralConfig(ModuleConfig):
     target=SambaConfig
-    platform = ['debian', 'centos', 'arch', 'gentoo']
+    platform = ['debian', 'centos', 'arch', 'gentoo', 'mandriva']
     
     labels = {
         'cfg_file': 'Configuration file'
