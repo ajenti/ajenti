@@ -104,7 +104,7 @@ class BSDHostnameManager(Plugin):
 
 class CentOSHostnameManager(Plugin):
     implements(IHostnameManager)
-    platform = ['centos', 'fedora']
+    platform = ['centos', 'fedora', 'mandriva']
 
     def gethostname(self):
         rc = apis.rcconf.RCConf(self.app)
