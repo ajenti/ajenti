@@ -23,7 +23,7 @@ class BSDConfig(GeneralConfig):
    
 class SingleConfigGeneral(ModuleConfig):
     target = ApacheSingleConfigBackend
-    platform = ['centos']
+    platform = ['centos', 'mandriva']
     
     labels = {
         'cfg_file': 'Configuration file',
