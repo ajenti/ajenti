@@ -1,6 +1,6 @@
 MODULES = ['main', 'backend']
 
-DEPS =  [(['freebsd'],
+DEPS =  [(['freebsd', 'centos', 'arch', 'gentoo'],
      [
 		('plugin', 'lib_rcconf'),
      ])]
@@ -8,7 +8,7 @@ DEPS =  [(['freebsd'],
 NAME = 'Hosts'
 PLATFORMS = ['any']
 DESCRIPTION = 'Edit hosts file'
-VERSION = '1'
+VERSION = '3'
 GENERATION = 1
 AUTHOR = 'Ajenti team'
 HOMEPAGE = 'http://ajenti.org'
