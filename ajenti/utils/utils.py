@@ -35,6 +35,7 @@ def detect_platform(mapping=True):
     base_mapping = {
         'gentoo base system': 'gentoo',
         'centos linux': 'centos',
+        'mandriva linux': 'mandriva',
     }
 
     platform_mapping = {
