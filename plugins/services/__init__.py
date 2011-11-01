@@ -8,7 +8,7 @@ DEPS =  [
 ]
 
 NAME = 'Services'
-PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora', 'gentoo']
+PLATFORMS = ['debian', 'arch', 'freebsd', 'centos', 'fedora', 'gentoo', 'mandriva']
 DESCRIPTION = 'Control system services'
 VERSION = '1'
 GENERATION = 1

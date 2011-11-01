@@ -7,7 +7,7 @@ from ajenti import apis
 
 class CentOSServiceManager(Plugin):
     implements(apis.services.IServiceManager)
-    platform = ['centos', 'fedora']
+    platform = ['centos', 'fedora', 'mandriva']
 
     def list_all(self):
         r = []
