@@ -7,6 +7,7 @@ from updater import Updater
 # We want apis.dashboard already!
 import ajenti.plugins.dashboard.api
 
+
 class NewsWidget(Plugin):
     implements(apis.dashboard.IWidget)
     title = 'Project news'
@@ -18,9 +19,8 @@ class NewsWidget(Plugin):
         ui = self.app.inflate('core:news')
         feed = Updater.get().get_feed()
         if feed is not None:
-            for i in feed.entries[:1]:
-                self.title = i.title
-                ui.append('list', UI.CustomHTML(html=i.content[0].value))
+            for i in feed[:3]:
+                ui.append('list', UI.CustomHTML(html='<li>%s</li>'%i['text']))
         return ui
 
     def handle(self, event, params, cfg, vars=None):

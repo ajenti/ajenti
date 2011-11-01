@@ -1,30 +1,19 @@
 <xml>
     <dialogbox hidecancel="True" id="dlgAbout">
-        <lt>
-            <ltr>
-                <ltd rowspan="3">
-                    <image file="/dl/core/ui/logo_big.png" />
-                </ltd>
-                <ltd spacing="0">
-                    <label text="Ajenti" size="4" />
-                </ltd>
-            </ltr>
-            <ltr>
-                <ltd spacing="0">
-                    <label text="Your personal server affairs agent" />
-                </ltd>
-            </ltr>
-            <ltr>
-                <ltd>
-                    <label id="ver" />
-                </ltd>
-            </ltr>
-            <ltr>
-                <ltd colspan="2">
-                    <outlinklabel text="Home" url="http://ajenti.org" />
-                    <outlinklabel text="Bug tracker" url="https://launchpad.net/ajenti/+bugs" />
-                </ltd>
-            </ltr>
-        </lt>
+        <div style="float:left">
+            <image file="/dl/core/ui/logo_big.png" />
+        </div>
+        <div style="float:left;padding: 5px 0 0 10px">
+            <tooltip id="ver">
+                <label text="Ajenti" size="4" />
+            </tooltip>
+            <br/>
+            <label text="Web administration toolset" />
+        </div>
+        <div style="clear:both" />
+        <br/>
+        <button text="Home" onclick="window.open('http://ajenti.org')" icon="/dl/core/ui/stock/home.png" />
+        <button text="Bug tracker" url="window.open('https://launchpad.net/ajenti/+bugs')" icon="/dl/core/ui/stock/bug.png" />
+        <button text="Wiki" onclick="window.open('http://wiki.ajenti.org')" icon="/dl/core/ui/stock/book.png" />
     </dialogbox>
 </xml>
