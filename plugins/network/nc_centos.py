@@ -18,7 +18,7 @@ optionmap = {
 
 class CentosNetworkConfig(LinuxIfconfig):
     implements(INetworkConfig)
-    platform = ['centos']
+    platform = ['centos', 'mandriva']
 
     interfaces = None
 
