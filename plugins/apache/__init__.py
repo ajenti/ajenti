@@ -1,7 +1,7 @@
 MODULES = ['main', 'main_single', 'config']
 
 DEPS =  [
-    (['centos', 'arch', 'freebsd'],
+    (['centos', 'arch', 'freebsd', 'mandriva'],
      [
         ('plugin', 'webserver_common'),
         ('app', 'Apache 2', 'httpd'),
@@ -14,7 +14,7 @@ DEPS =  [
 ]
 
 NAME = 'Apache'
-PLATFORMS = ['centos', 'arch', 'freebsd', 'debian']
+PLATFORMS = ['centos', 'arch', 'freebsd', 'debian', 'mandriva']
 DESCRIPTION = 'Apache webserver control plugin'
 VERSION = '0'
 GENERATION = 1

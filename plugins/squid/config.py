@@ -4,7 +4,7 @@ from main import *
 
 class GeneralConfig(ModuleConfig):
     target = SquidConfig
-    platform = ['debian', 'centos', 'arch', 'gentoo']
+    platform = ['debian', 'centos', 'arch', 'gentoo', 'mandriva']
     
     labels = {
         'cfg_file': 'Configuration file'
