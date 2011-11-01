@@ -160,7 +160,7 @@ class Backend(Plugin):
 
 class GeneralConfig(ModuleConfig):
     target=Backend
-    platform = ['debian', 'centos', 'arch', 'gentoo']
+    platform = ['debian', 'centos', 'arch', 'gentoo', 'mandriva']
     
     labels = {
         'cfg_file': 'Configuration file'

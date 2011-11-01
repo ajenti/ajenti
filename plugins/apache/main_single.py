@@ -10,7 +10,7 @@ import glob
 
 class ApacheSingleConfigBackend(Plugin):
     implements(IConfigurable)
-    platform = ['centos', 'freebsd']
+    platform = ['centos', 'freebsd', 'mandriva']
     config_dir = ''
     name = 'Apache'
     id = 'apache'
@@ -177,7 +177,7 @@ class ApacheSingleConfigBackend(Plugin):
 """
                        
 class ApacheSCPlugin(apis.webserver.WebserverPlugin): 
-    platform = ['centos', 'freebsd']
+    platform = ['centos', 'freebsd', 'mandriva']
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
     folder = 'servers'
