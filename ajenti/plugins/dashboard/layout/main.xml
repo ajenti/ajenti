@@ -11,7 +11,7 @@
 </div>
 
     <div id="save-query" style="display:none">
-        <button onclick="return dashboardSave()" text="Save changes" design="primary" />
+        <button onclick="return dashboardSave()" text="Save changes" design="" />
         <button text="Revert" design="danger" />
     </div>
 
@@ -31,6 +31,8 @@
             connectWith: '.dashboard',
             handle: 'div.handle',
             revert: true,
+            placeholder: 'dashboard-placeholder',
+            tolerance: 'pointer'
         }).disableSelection();
     </script>
 </pad>

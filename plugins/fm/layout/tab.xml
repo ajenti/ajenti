@@ -10,14 +10,14 @@
     <simpleform id="files">
     <dt id="list" width="765">
         <dtr header="True">
-            <dth />
-            <dth width="40%">
+            <dth width="1" />
+            <dth>
                 <label text="Name" />
             </dth>
-            <dth width="12%">
+            <dth>
                 <label text="Size" />
             </dth>
-            <dth width="15%">
+            <dth>
                 <label text="Owner" />
             </dth>
             <dth>
