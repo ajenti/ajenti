@@ -26,7 +26,11 @@ class NotepadPlugin(CategoryPlugin):
 
     def add_tab(self):
         self._tab = len(self._roots)
-        self._roots.append(self.app.get_config(self).dir)
+        chroot = self.app.get_config(self)._chroot
+        dir = self.app.get_config(self).dir
+        if chroot is not None and not dir.startswith(chroot):
+            dir = chroot
+        self._roots.append(dir)
         self._files.append(None)
         self._data.append(None)
 
@@ -36,7 +40,12 @@ class NotepadPlugin(CategoryPlugin):
         mui.append('main', tabs)
 
         idx = 0
+        chroot = self.app.get_config(self)._chroot
+
         for root in self._roots:
+            if chroot is not None and not root.startswith(chroot):
+                root = chroot
+
             file = self._files[idx]
             data = self._data[idx]
 
@@ -58,7 +67,7 @@ class NotepadPlugin(CategoryPlugin):
                     )
                   )
 
-            if root != '/':
+            if root != '/' and (chroot is None or root != chroot):
                 files.append(
                     UI.ListItem(
                         UI.HContainer(
