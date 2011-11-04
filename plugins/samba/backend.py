@@ -114,8 +114,7 @@ class SambaConfig(Plugin):
         shell('pdbedit -x -u ' + u)
 
     def add_user(self, u):
-        with open('/tmp/pdbeditnn', 'w') as f:
-            f.write('\n\n\n')
+        open('/tmp/pdbeditnn', 'w').write('\n\n\n')
         shell('pdbedit -a -t -u ' + u + ' < /tmp/pdbeditnn')
         os.unlink('/tmp/pdbeditnn')
 

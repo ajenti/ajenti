@@ -33,8 +33,7 @@ class ConfManager (Component):
         for c in self.hooks:
             c.pre_load(cfg, path)
 
-        with open(path, 'r') as f:
-            data = f.read()
+        data = open(path, 'r').read()
 
         for c in self.hooks:
             data = c.post_load(cfg, path, data)
@@ -59,8 +58,7 @@ class ConfManager (Component):
             if data is None:
                 return
 
-        with open(path, 'w') as f:
-            f.write(data)
+        open(path, 'w').write(data)
 
         for c in self.hooks:
             c.post_save(cfg, path)
