@@ -20,14 +20,17 @@ class LogsPlugin(CategoryPlugin):
     def get_ui(self):
         ui = self.app.inflate('logs:main')
         data = None
-        if self._log != '':
-            if self._log.endswith('.gz'):
-                data = self.format_log(gzip.open(self._log).read())
-            elif self._log.endswith('.bz2'):
-                data = self.format_log(bz2.BZ2File(self._log, 'r').read())
-            else:
-                data = self.format_log(open(self._log).read())
-        ui.append('data', data)
+        try:
+            if self._log != '':
+                if self._log.endswith('.gz'):
+                    data = self.format_log(gzip.open(self._log).read())
+                elif self._log.endswith('.bz2'):
+                    data = self.format_log(bz2.BZ2File(self._log, 'r').read())
+                else:
+                    data = self.format_log(open(self._log).read())
+            ui.append('data', data)
+        except:
+            self.put_message('err', 'Failed to open log file')
         ui.append('tree', self.get_ui_tree())
         return ui
 
