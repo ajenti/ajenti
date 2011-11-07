@@ -15,15 +15,12 @@ class HealthMonitor (Component):
         self._state = {}
 
     def refresh(self):
-        self._lock_refresh.acquire()
-        self._cond_refresh.acquire()
-        self._cond_refresh.notify()
-        self._cond_refresh.release()
-        self._lock_refresh.release()
-        self._cond_refreshed.acquire()
-        self._cond_refreshed.wait()
-        self._cond_refreshed.release()
-        
+        with self._lock_refresh:
+            with self._cond_refresh:
+                self._cond_refresh.notify()
+        with self._cond_refreshed:
+            self._cond_refreshed.wait()
+
     def iterate(self):
         cfg = json.loads(self.app.gconfig.get('meters', 'config'))
         res = {}
@@ -43,19 +40,15 @@ class HealthMonitor (Component):
 
     def run(self):
         while True:
-            self._cond_refresh.acquire()
-            try:
-                self.iterate()
-            except:
-                pass
-            self._cond_refresh.release()
-
-            self._cond_refreshed.acquire()
-            self._cond_refreshed.notify()
-            self._cond_refreshed.release()
-            self._cond_refresh.acquire()
-            self._cond_refresh.wait(1000*60*5)
-            self._cond_refresh.release()
+            with self._lock_refresh:
+                try:
+                    self.iterate()
+                except:
+                    pass
+            with self._cond_refreshed:
+                self._cond_refreshed.notify()
+            with self._cond_refresh:
+                self._cond_refresh.wait(1000*60*5)
 
     def validate_binary(self, val, cfg):
         return 'good' if val['value'] == cfg['good_state'] else 'dang'

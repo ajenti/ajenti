@@ -121,4 +121,5 @@ class SquidConfig(Plugin):
         for k,v in self.misc:
             s += '%s %s\n' % (k,v)
 
-        open(self.cfg_file, 'w').write(s)
+        with open(self.cfg_file, 'w') as f:
+            f.write(s)

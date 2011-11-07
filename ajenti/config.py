@@ -35,7 +35,8 @@ class Config(ConfigParser):
         """
         Saves data to the last loaded file
         """
-        self.write(pen(self.filename, 'w'))
+        with open(self.filename, 'w') as f:
+            self.write(f)
 
     def get_proxy(self, user):
         """
