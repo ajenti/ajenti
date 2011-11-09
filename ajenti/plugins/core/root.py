@@ -37,6 +37,9 @@ class RootDispatcher(URLHandler, SessionPlugin, EventProcessor, Plugin):
         self.selected_category.on_init()
         templ = self.app.inflate('core:main')
 
+        if self.app.config.get('ajenti', 'nofx', '') != '1':
+            templ.remove('fx-disable')
+
         if self._about_visible:
             templ.append('main-content', self.get_ui_about())
 

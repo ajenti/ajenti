@@ -5,7 +5,8 @@
         <dtd>
             <image id="icon" />
         </dtd>
-        <dtd id="reqs">
+        <dtd>
+            <span id="reqs" style="float:left" />
             <label id="name" />
         </dtd>
         <dtd>
