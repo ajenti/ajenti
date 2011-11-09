@@ -54,8 +54,17 @@
     left: 0;
 }
 
+
+.terminal-body .tv-noise {
+    width: 200%;
+    height: 200%;    
+    display: none;
+}
+
 .terminal-body .tv-line {
     background-repeat: repeat-x !important;
+    width: 200%;
+    height: 50px;
 }
 
 .terminal-body .tv-icon {
