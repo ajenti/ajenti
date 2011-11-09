@@ -10,8 +10,12 @@ from ajenti import version
 from ajenti import deployed
 import ajenti.utils
 
-import gevent.pywsgi
-import gevent.pool
+try:
+    from gevent.pywsgi import WSGIServer
+    import gevent.pool
+except ImportError:
+    from wsgiref.simple_server import make_server
+    WSGIServer = lambda adr,app,**kw : make_server(adr[0], adr[1], app)
 from datetime import datetime
 
 
@@ -128,7 +132,7 @@ def run_server(log_level=logging.INFO, config_file=''):
     	    'certfile': config.get('ajenti','cert_file'),
     	}
 
-    server = gevent.pywsgi.WSGIServer(
+    server = WSGIServer(
         (host, port),
         application=AppDispatcher(config).dispatcher,
         **ssl
