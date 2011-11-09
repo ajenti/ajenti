@@ -13,9 +13,12 @@ import ajenti.utils
 try:
     from gevent.pywsgi import WSGIServer
     import gevent.pool
+    http_server = 'gevent'
 except ImportError:
     from wsgiref.simple_server import make_server
     WSGIServer = lambda adr,app,**kw : make_server(adr[0], adr[1], app)
+    http_server = 'wsgiref'
+
 from datetime import datetime
 
 
@@ -131,6 +134,8 @@ def run_server(log_level=logging.INFO, config_file=''):
     	    'keyfile':  config.get('ajenti','cert_key'),
     	    'certfile': config.get('ajenti','cert_file'),
     	}
+
+    log.info('Using HTTP server: %s'%http_server)
 
     server = WSGIServer(
         (host, port),
