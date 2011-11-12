@@ -1,6 +1,7 @@
 import sys
 import os
 import logging
+import syslog
 
 from ajenti.api import ComponentManager
 from ajenti.config import Config
@@ -84,6 +85,7 @@ def make_log(debug=False, log_level=logging.INFO):
 
     return log
 
+
 def run_server(log_level=logging.INFO, config_file=''):
     log = make_log(debug=log_level==logging.DEBUG, log_level=log_level)
 
@@ -144,6 +146,11 @@ def run_server(log_level=logging.INFO, config_file=''):
     )
 
     config.set('server', server)
+
+    syslog.openlog(
+        ident='ajenti',
+        facility=syslog.LOG_AUTH,
+    )
 
     log.info('Starting server')
 
