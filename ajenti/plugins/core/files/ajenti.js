@@ -80,9 +80,11 @@ Ajenti = {
 
     Core: {
         processResponse: function (data) {
-            $('.modal:not(#warningbox)').modal('hide').remove();
-            $('.modal#warningbox').modal('hide');
-            $('.modal-backdrop').fadeOut(500);
+            $('.modal:not(#warningbox)').each( function (i, e) {
+                Ajenti.UI.hideModal(e.id, true);
+            });
+
+            Ajenti.UI.hideModal('warningbox');
             $('.twipsy').remove();
 
             $('#rightplaceholder').empty();
@@ -147,7 +149,7 @@ Ajenti = {
     },
 
     cancelWarning: function () {
-        $('#warningbox').modal('hide');
+        Ajenti.UI.hideModal('warningbox');
         return false;
     },
 
@@ -159,11 +161,26 @@ Ajenti = {
 
     UI: {
         showAsModal: function (id) {
-            $('#'+id).modal({show:true, backdrop:'static'}).center();
+            var backdrop = $('<div class="modal-backdrop" />')
+                .css('opacity', 0)
+                .appendTo(document.body)
+                .fadeTo(500, 0.5)
+                .attr('id', id+'-backdrop');
+            $('#'+id)
+                .css('opacity', 0)
+                .appendTo(document.body)
+                .show()
+                .fadeTo(500, 1)
+                .center();
         },
 
-        hideModal: function (id) {
-            $('#'+id).modal('hide');
+        hideModal: function (id, remove) {
+            $('#'+id).fadeTo(500, 0, function () {
+                if (remove) $(this).remove(); else $(this).hide();
+            });
+            $('#'+id+'-backdrop').fadeOut(500, function () {
+                if (remove) $(this).remove(); else $(this).hide();
+            });
         },
 
         showLoader: function (visible) {
