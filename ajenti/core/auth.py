@@ -96,6 +96,7 @@ class AuthManager(object):
 
             syslog.syslog('login failed for user %s from %s' % (user, environ['REMOTE_ADDR']))
             time.sleep(4)
+
             start_response('200 OK', [
                 ('Content-type','text/plain'),
                 ('X-Ajenti-Auth', 'fail'),
