@@ -32,12 +32,28 @@ class ServicesPlugin(CategoryPlugin):
             gui.find('edit').set('id', 'edit/'+g)
             gui.find('delete').set('id', 'delete/'+g)
             gui.find('name').set('text', g)
+            show_run = False
+            show_stop = False
             for s in self.groupmgr.groups[g]:
                 try:
                     svc = filter(lambda x:x.name==s, lst)[0]
+                    if svc.status == 'running':
+                        show_stop = True
+                    else:
+                        show_run = True
                     gui.append('list', self.get_row(svc))
                 except:
                     pass
+            if show_stop:
+                gui.appendAll('btns',
+                    UI.TipIcon(text='Stop all', icon='/dl/core/ui/stock/service-stop.png', id='gstop/' + g),
+                    UI.TipIcon(text='Restart all', icon='/dl/core/ui/stock/service-restart.png', id='grestart/' + g)
+                  )
+            if show_run:
+                gui.append('btns',
+                    UI.TipIcon(text='Start all', icon='/dl/core/ui/stock/service-run.png', id='gstart/' + g)
+                )
+        
             ui.append('groups', gui)
 
         if self._editing is not None:
@@ -78,6 +94,15 @@ class ServicesPlugin(CategoryPlugin):
             self.svc_mgr.restart(params[1])
         if params[0] == 'stop':
             self.svc_mgr.stop(params[1])
+        if params[0] == 'gstart':
+            for s in self.groupmgr.groups[params[1]]:
+                self.svc_mgr.start(s)
+        if params[0] == 'grestart':
+            for s in self.groupmgr.groups[params[1]]:
+                self.svc_mgr.restart(s)
+        if params[0] == 'gstop':
+            for s in self.groupmgr.groups[params[1]]:
+                self.svc_mgr.stop(s)
         if params[0] == 'addGroup':
             self._editing = ''
         if params[0] == 'delete':
