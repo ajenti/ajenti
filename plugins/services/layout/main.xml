@@ -1,14 +1,20 @@
 <xml>
-    <label text="System services" size="5" />
-    <pad>
-        <dt id="list" width="100%">
-            <dtr header="True">
-                <dth width="20" />
-                <dth>
-                    <label text="Name" />
-                </dth>
-                <dth width="1"/>
-            </dtr>
-        </dt>
+    <toolbar>
+        <button text="Add new group" id="addGroup" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <pad id="main">
+        <hcontainer spacing="20">
+            <dt id="list" width="300">
+                <dtr header="True">
+                    <dth width="20" />
+                    <dth>
+                        <label text="Name" />
+                    </dth>
+                    <dth width="1"/>
+                </dtr>
+            </dt>
+            <div id="groups" />
+        </hcontainer>
     </pad>
 </xml>

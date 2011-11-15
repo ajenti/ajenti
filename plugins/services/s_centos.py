@@ -15,7 +15,7 @@ class CentOSServiceManager(Plugin):
             s = ' '.join(s.split()[:-7])
             svc = apis.services.Service()
             svc.name = s
-            svc.status = 'running' if 'running' in shell('/etc/init.d/%s status'%s) else 'stopped'
+            svc.mgr = self
             if s != '':
                 r.append(svc)
 

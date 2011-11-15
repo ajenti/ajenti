@@ -1,0 +1,16 @@
+<xml>
+    <dt id="list" width="300">
+        <dtr header="True">
+            <dth width="20" />
+            <dth>
+                <label id="name" />
+            </dth>
+            <dth width="1">
+                <hcontainer>
+                    <tipicon text="Edit" id="edit" icon="/dl/core/ui/stock/edit.png" />
+                    <tipicon text="Delete" warning="Delete group" id="delete" icon="/dl/core/ui/stock/delete.png" />
+                </hcontainer>
+            </dth>
+        </dtr>
+    </dt>
+</xml>

@@ -25,7 +25,10 @@ class Services(API):
 
     class Service:
         name = ''
-        status = ''
+
+        @property
+        def status(self):
+            return self.mgr.get_status(self.name)
 
         def __cmp__(self, b):
             return 1 if self.name > b.name else -1

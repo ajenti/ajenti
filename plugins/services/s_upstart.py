@@ -21,16 +21,14 @@ class UpstartServiceManager(Plugin):
                     found.append(name)
                     svc = apis.services.Service()
                     svc.name = name
-                    svc.status = 'running' if s[3] == '+' else 'stopped'
+                    svc.mgr = self
                     r.append(svc)
 
         return sorted(r, key=lambda s: s.name)
 
     def get_status(self, name):
-        l = [x.status for x in self.list_all() if x.name == name]
-        if len(l) == 0:
-            return 'stopped'
-        return l[0]
+        s = shell('service ' + name + ' status')
+        return 'running' if 'running' in s else 'stopped'
 
     def start(self, name):
         shell('service ' + name + ' start')

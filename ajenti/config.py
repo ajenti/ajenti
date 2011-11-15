@@ -123,6 +123,12 @@ class ConfigProxy:
         self.filename = path
         self.cfg.load(path)
 
+        # Proxy methods
+        self.save = self.cfg.save
+        self.add_section = self.cfg.add_section
+        self.has_section = self.cfg.has_section
+        self.remove_section = self.cfg.remove_section
+
     def get(self, section, val=None, default=None):
         """
         Gets a configuration parameter
@@ -167,12 +173,6 @@ class ConfigProxy:
         if self.user is None:
             return False
         return self.cfg.has_option(section, name)
-
-    def save(self):
-        """
-        Saves the config
-        """
-        self.cfg.save()
 
     def options(self, section):
         """
