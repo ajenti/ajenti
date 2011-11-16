@@ -42,7 +42,7 @@
         <div class="container">
             <div id="version" />
             <div id="links">
-                <a href="#" id="feedback-link" onclick="return Ajenti.UI.showFeedback()">Feedback</a>
+                <a href="http://ajenti.userecho.com/" id="feedback-link" target="_blank">Feedback</a>
             </div>
         </div>
     </div>
