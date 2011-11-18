@@ -17,7 +17,7 @@ try:
     http_server = 'gevent'
 except ImportError:
     from wsgiref.simple_server import make_server
-    WSGIServer = lambda adr,app,**kw : make_server(adr[0], adr[1], app)
+    WSGIServer = lambda adr,**kw : make_server(adr[0], adr[1], kw['application'])
     http_server = 'wsgiref'
 
 from datetime import datetime
