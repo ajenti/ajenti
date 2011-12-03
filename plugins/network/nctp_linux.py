@@ -9,55 +9,60 @@ class LinuxIfconfig(Plugin):
     platform = ['Debian', 'Ubuntu', 'Arch', 'openSUSE']
     
     def get_info(self, iface):
-        ui = UI.LayoutTable(
-                UI.LayoutTableRow(
+        ui = UI.Container( 
+            UI.Formline(
+                UI.HContainer(
                     UI.Image(file='/dl/network/%s.png'%('up' if iface.up else 'down')),
-                    UI.Label(text='Interface:', bold=True),
                     UI.Label(text=iface.name, bold=True)
                 ),
-                UI.LayoutTableRow(
-                    UI.Label(),
-                    UI.Label(text='Address:'),
-                    UI.Label(text=self.get_ip(iface))
-                ),
-                UI.LayoutTableRow(
-                    UI.Label(),
-                    UI.Label(text='Sent:'),
-                    UI.Label(text=str_fsize(self.get_tx(iface)))
-                ),
-                UI.LayoutTableRow(
-                    UI.Label(),
-                    UI.Label(text='Received:'),
-                    UI.Label(text=str_fsize(self.get_rx(iface)))
-                )
-            )
-           
+                text='Interface',
+            ),
+            UI.Formline(
+                UI.Label(text=self.get_ip(iface)),
+                text='Address',
+            ),
+            UI.Formline(
+                UI.Label(text='Up %s, down %s' % (
+                    str_fsize(self.get_tx(iface)),
+                    str_fsize(self.get_rx(iface)),
+                )),
+                text='Traffic',
+            ),
+        )
         return ui
         
     def get_tx(self, iface):
-        s = shell('ifconfig %s | grep \'TX bytes\''%iface.name)
         try:
-            s = s.split()[5].split(':')[1]
-        except:
-            s = '0'
-        return int(s)
+            return int(shell('ifconfig %s | grep \'TX bytes\''%iface.name).split()[5].split(':')[1])
+        except: pass
+        
+        try:
+            return int(shell('ifconfig %s | grep -E \'TX .+ bytes\''%iface.name).split()[4])
+        except: pass
+        
+        return 0
     
     def get_rx(self, iface):
-        s = shell('ifconfig %s | grep \'RX bytes\''%iface.name)
         try:
-            s = s.split()[1].split(':')[1]
-        except:
-            s = '0'
-        return int(s)
+            return int(shell('ifconfig %s | grep \'RX bytes\''%iface.name).split()[1].split(':')[1])
+        except: pass
+        
+        try:
+            return int(shell('ifconfig %s | grep -E \'RX .+ bytes\''%iface.name).split()[4])
+        except: pass
+        
+        return 0
         
     def get_ip(self, iface):
-        s = shell('ifconfig %s | grep \'inet addr\''%iface.name)
         try:
-            s = s.split()[1].split(':')[1]
-        except:
-            s = '0.0.0.0'
-        return s    
+            return shell('ifconfig %s | grep \'inet addr\''%iface.name).split()[1].split(':')[1]
+        except: pass
+
+        try:
+            return shell('ifconfig %s | grep \'inet\''%iface.name).split()[1]
+        except: pass
         
+        return '0.0.0.0'
 
     def detect_dev_class(self, iface):
         if iface.name[:-1] in ['ppp', 'wvdial']:
