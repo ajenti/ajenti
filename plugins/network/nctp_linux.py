@@ -9,26 +9,29 @@ class LinuxIfconfig(Plugin):
     platform = ['Debian', 'Ubuntu', 'Arch', 'openSUSE']
     
     def get_info(self, iface):
-        ui = UI.Container( 
-            UI.Formline(
-                UI.HContainer(
+        ui = UI.LayoutTable(
+                UI.LayoutTableRow(
                     UI.Image(file='/dl/network/%s.png'%('up' if iface.up else 'down')),
+                    UI.Label(text='Interface:', bold=True),
                     UI.Label(text=iface.name, bold=True)
                 ),
-                text='Interface',
-            ),
-            UI.Formline(
-                UI.Label(text=self.get_ip(iface)),
-                text='Address',
-            ),
-            UI.Formline(
-                UI.Label(text='Up %s, down %s' % (
-                    str_fsize(self.get_tx(iface)),
-                    str_fsize(self.get_rx(iface)),
-                )),
-                text='Traffic',
-            ),
-        )
+                UI.LayoutTableRow(
+                    UI.Label(),
+                    UI.Label(text='Address:'),
+                    UI.Label(text=self.get_ip(iface))
+                ),
+                UI.LayoutTableRow(
+                    UI.Label(),
+                    UI.Label(text='Sent:'),
+                    UI.Label(text=str_fsize(self.get_tx(iface)))
+                ),
+                UI.LayoutTableRow(
+                    UI.Label(),
+                    UI.Label(text='Received:'),
+                    UI.Label(text=str_fsize(self.get_rx(iface)))
+                )
+            )
+           
         return ui
         
     def get_tx(self, iface):
