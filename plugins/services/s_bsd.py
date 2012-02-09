@@ -14,9 +14,7 @@ class BSDServiceManager(Plugin):
         for s in os.listdir('/etc/rc.d') + os.listdir('/usr/local/etc/rc.d'):
             svc = apis.services.Service()
             svc.name = s
-            svc.status = 'running' \
-                    if os.path.exists('/var/run/%s.pid'%s)\
-                    else 'stopped'
+            svc.mgr = self
             r.append(svc)
 
         return sorted(r, key=lambda s: s.name)

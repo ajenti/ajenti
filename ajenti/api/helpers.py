@@ -233,7 +233,7 @@ class ModuleConfig(Plugin):
     def overlay_config(self):
         section = 'cfg_' + self.target.__name__
         for k in self.__class__.__dict__:
-            if not k in ['platform', 'plugin', 'labels'] and not k.startswith('_'):
+            if not k in ['platform', 'plugin', 'labels']:
                 if self.app.config.has_option(section, k):
                     setattr(self, k, eval(self.app.config.get(section, k)))
 

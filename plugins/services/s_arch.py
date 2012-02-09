@@ -15,7 +15,7 @@ class ArchServiceManager(Plugin):
         for s in os.listdir('/etc/rc.d'):
             svc = apis.services.Service()
             svc.name = s
-            svc.status = 'running' if s in running else 'stopped'
+            svc.mgr = self
             r.append(svc)
 
         return sorted(r, key=lambda s: s.name)

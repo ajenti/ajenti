@@ -251,6 +251,7 @@ class PackageManagerPlugin(CategoryPlugin):
         if params[0] == 'cancelall':
             self.mgr.mark_cancel_all(self._status)
 
+
     @event('dialog/submit')
     @event('form/submit')
     def on_dialog(self, event, params, vars=None):

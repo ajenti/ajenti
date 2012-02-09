@@ -5,5 +5,18 @@
             <div class="ui-progress-box-wr" id="progressbox-placeholder"/>
         </div>
         <div id="main-content"/>
+
+		<div id="fx-disable">
+			<script>
+				$('.fade').removeClass('fade');
+			</script>
+			<style>
+				* {
+					transition: none !important;
+			    	-moz-transition: none !important;
+					-webkit-transition: none !important; 
+				}
+			</style>
+		</div>
     </div>
 </xml>

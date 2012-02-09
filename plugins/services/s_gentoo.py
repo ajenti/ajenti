@@ -19,7 +19,7 @@ class GentooServiceManager(Plugin):
                 s = s.split()[0]
                 svc = apis.services.Service()
                 svc.name = s
-                svc.status = 'running' if 'started' in shell('/etc/init.d/%s status'%s) else 'stopped'
+                svc.mgr = self
                 r.append(svc)
             except:
                 pass

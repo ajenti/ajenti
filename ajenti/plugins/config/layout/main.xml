@@ -26,6 +26,9 @@
             <formline text="SSL key">
                 <textinput name="cert_key" id="cert_key" design="xlarge" />
             </formline>
+            <formline text="Visual effects" help="Smooth transitions and others">
+                <checkbox id="nofx" name="nofx" text="Disable" />
+            </formline>
             <formline>
                 <button onclick="form" form="frmGeneral" design="primary" action="OK" text="Save" />
             </formline>

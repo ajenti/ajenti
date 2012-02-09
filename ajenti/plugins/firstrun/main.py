@@ -63,6 +63,7 @@ class FirstRun(CategoryPlugin, URLHandler):
                     except:
                         pass
             ComponentManager.get().rescan()
+            ConfManager.get().rescan();
 
             self.app.gconfig.set('ajenti', 'firstrun', 'no')
             self.app.gconfig.save()

@@ -1,8 +1,9 @@
 <xml>
     <toolbar>
         <button id="refresh" text="Refresh" icon="/dl/core/ui/stock/refresh.png" />
-        <button id="getlists" text="Download lists" icon="/dl/pkgman/update-lists.png" />
-        <button id="apply" text="Apply changes" icon="/dl/core/ui/stock/dialog-ok.png" />
+        <button id="getlists" text="Fetch lists" icon="/dl/pkgman/update-lists.png" />
+        <button id="upgradeall" text="Upgrade" icon="/dl/pkgman/package-upgrade.png" />
+        <button id="apply" text="Apply" icon="/dl/core/ui/stock/dialog-ok.png" />
         <button id="cancelall" text="Cancel" icon="/dl/core/ui/stock/dialog-cancel.png" />
             <simpleform id="frmSearch">
                 <textinput name="query" size="20" />
