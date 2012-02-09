@@ -33,9 +33,9 @@ class NetworkPlugin(CategoryPlugin):
                             UI.HContainer(
                                 UI.TipIcon(icon='/dl/core/ui/stock/info.png',
                                     text='Info', id='info/' + i.name),
-				UI.TipIcon(icon='/dl/core/ui/stock/edit.png',
-				    text='Edit', id='editiface/' + i.name),
-				UI.TipIcon(icon='/dl/core/ui/stock/service-%s.png'%('run' if not i.up else 'stop'), 
+                                    UI.TipIcon(icon='/dl/core/ui/stock/edit.png',
+                                    text='Edit', id='editiface/' + i.name),
+                                    UI.TipIcon(icon='/dl/core/ui/stock/service-%s.png'%('run' if not i.up else 'stop'), 
                                     text=('Down' if i.up else 'Up'), 
                                     id=('if' + ('down' if i.up else 'up') + '/' + i.name), 
                                     warning='Bring %s interface %s' % (('Down' if i.up else 'Up'), i.name)

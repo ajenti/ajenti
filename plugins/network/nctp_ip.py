@@ -33,7 +33,7 @@ class LinuxIp(Plugin):
         
     def get_tx(self, iface):
         s = shell('ip -s link ls %s' % iface.name)
-	s = s.split('\n')[5]
+        s = s.split('\n')[5]
         try:
             s = s.split()[0]
         except:
@@ -42,7 +42,7 @@ class LinuxIp(Plugin):
     
     def get_rx(self, iface):
         s = shell('ip -s link ls %s' % iface.name)
-	s = s.split('\n')[3]
+        s = s.split('\n')[3]
         try:
             s = s.split()[0]
         except:

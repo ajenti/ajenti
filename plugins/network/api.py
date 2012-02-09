@@ -74,7 +74,7 @@ class NetworkInterface(object):
         self.bits = []
         self.params = {'address': '0.0.0.0'}
         self.type = ''
-	self.editable = True
+        self.editable = True
         
     def __getitem__(self, idx):
         if self.params.has_key(idx):
