@@ -14,7 +14,7 @@ class DiskUsageWidget(Plugin):
     style = 'normal'
 
     def get_ui(self, cfg, id=None):
-        m = UsageMeter(self.app).prepare(cfg)
+        m = DiskUsageMeter(self.app).prepare(cfg)
         return UI.HContainer(
             UI.ProgressBar(value=m.get_value(), max=m.get_max(), width=220),
             UI.Label(text=str(m.get_value())+'%'),
