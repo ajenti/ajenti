@@ -8,7 +8,6 @@ class DiskUsageMeter(LinearMeter):
    
     def get_usage(self, dev):
         u = shell('df --total | grep -w %s' % dev)
-	print "************** %s " % u
         if dev == 'total':
             u = int(u.split().pop().strip('%'))
         else:
