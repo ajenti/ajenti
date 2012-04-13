@@ -43,7 +43,7 @@ Ajenti = {
                     params += '&' + e.name + '=' + encodeURIComponent(e.value);
             });
 
-            $('select', form).each(function (i,e) {
+            $('select:not([id$="-hints"])', form).each(function (i,e) {
                 params += "&" + e.name + "=" + encodeURIComponent(e.options[e.selectedIndex].value);
             });
 
