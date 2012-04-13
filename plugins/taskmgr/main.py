@@ -5,7 +5,6 @@ from ajenti.api import *
 from ajenti.utils import *
 from ajenti import apis
 
-import pwd
 import psutil
 import signal
 import os
@@ -43,7 +42,7 @@ class TaskManagerPlugin(CategoryPlugin):
                     UI.Label(text=str(x.pid)),
                     UI.Label(text=str(int(x.get_cpu_percent()))),
                     UI.Label(text=str(int(x.get_memory_percent()))),
-                    UI.Label(text=pwd.getpwuid(x.uid)[0]),
+                    UI.Label(text=x.username),
                     UI.Label(text=x.name),
                     UI.TipIcon(
                         icon='/dl/core/ui/stock/info.png',
@@ -63,8 +62,8 @@ class TaskManagerPlugin(CategoryPlugin):
                 iui = self.app.inflate('taskmgr:info')
                 iui.find('name').set('text', '%i / %s'%(p.pid,p.name))
                 iui.find('cmd').set('text', ' '.join("'%s'"%x for x in p.cmdline))
-                iui.find('uid').set('text', '%s (%s)'%(pwd.getpwuid(p.uid)[0],p.uid))
-                iui.find('gid').set('text', str(p.gid))
+                iui.find('uid').set('text', '%s (%s)'%(p.username,p.uids.real))
+                iui.find('gid').set('text', str(p.gids.real))
                 iui.find('times').set('text', ' / '.join(str(x) for x in p.get_cpu_times()))
                 if p.parent:
                     iui.find('parent').set('text', p.parent.name)
