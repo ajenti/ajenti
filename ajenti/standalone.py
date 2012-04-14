@@ -147,10 +147,13 @@ def run_server(log_level=logging.INFO, config_file=''):
 
     config.set('server', server)
 
-    syslog.openlog(
-        ident='ajenti',
-        facility=syslog.LOG_AUTH,
-    )
+    try:
+        syslog.openlog(
+            ident='ajenti',
+            facility=syslog.LOG_AUTH,
+        )
+    except:
+        syslog.openlog('ajenti')
 
     log.info('Starting server')
 
