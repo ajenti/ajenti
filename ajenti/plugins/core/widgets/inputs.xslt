@@ -84,7 +84,7 @@
 </xsl:template>
 
 <xsl:template match="selecttextinput">
-    <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" />
+    <input name="{@name}" value="{@value}" id="{@id}" class="{@design}" onkeypress="return noenter()" type="text"/>
     <select onchange="$('#{@id}').val(this.value)" id='{@id}-hints' class="{@design}">
         <option selected="">...</option>
         <xsl:apply-templates/>
