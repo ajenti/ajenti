@@ -6,7 +6,7 @@
 #
 
 PORTNAME=	ajenti
-PORTVERSION=	0.6.1
+PORTVERSION=	0.6.2
 CATEGORIES=	sysutils
 MASTER_SITES=	http://repo.ajenti.org/src/
 

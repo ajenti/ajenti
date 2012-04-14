@@ -5,7 +5,7 @@ from setuptools import find_packages
 
 setup(
     name='ajenti',
-    version='0.6.1',
+    version='0.6.2',
     install_requires=[
         'pyOpenSSL',
         'gevent',
