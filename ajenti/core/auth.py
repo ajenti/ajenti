@@ -2,6 +2,8 @@ from hashlib import sha1
 from base64 import b64decode, b64encode
 from binascii import hexlify
 from random import random
+import syslog
+import time
 
 from ajenti.api import get_environment_vars
 
@@ -84,12 +86,16 @@ class AuthManager(object):
                 sample = hexlify(sha1(challenge + pwd).digest())
                 resp = vars.getvalue('response', '')
                 if sample == resp:
+                    syslog.syslog('session opened for user %s from %s' % (user, environ['REMOTE_ADDR']))
                     session['auth.user'] = user
                     start_response('200 OK', [
                         ('Content-type','text/plain'),
                         ('X-Ajenti-Auth', 'ok'),
                     ])
                     return ''
+
+            syslog.syslog('login failed for user %s from %s' % (user, environ['REMOTE_ADDR']))
+            time.sleep(4)
 
             start_response('200 OK', [
                 ('Content-type','text/plain'),

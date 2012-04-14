@@ -23,6 +23,7 @@ class ConfigPlugin(CategoryPlugin):
         ui.find('ssl').set('checked', self.app.gconfig.get('ajenti', 'ssl', '')=='1')
         ui.find('cert_file').set('value', self.app.gconfig.get('ajenti', 'cert_file', ''))
         ui.find('cert_key').set('value', self.app.gconfig.get('ajenti', 'cert_key', ''))
+        ui.find('nofx').set('checked', self.app.gconfig.get('ajenti', 'nofx', '')=='1')
 
         # Security
         ui.find('httpauth').set('checked', self.app.gconfig.get('ajenti','auth_enabled')=='1')
@@ -93,6 +94,7 @@ class ConfigPlugin(CategoryPlugin):
                 self.app.gconfig.set('ajenti', 'cert_file', vars.getvalue('cert_file', ''))
                 self.app.gconfig.set('ajenti', 'cert_key', vars.getvalue('cert_key', ''))
                 self.app.gconfig.set('ajenti', 'auth_enabled', vars.getvalue('httpauth', '0'))
+                self.app.gconfig.set('ajenti', 'nofx', vars.getvalue('nofx', '0'))
                 self.app.gconfig.save()
                 self.put_message('info', 'Saved')
         if params[0] == 'dlgEditModuleConfig':

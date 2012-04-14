@@ -36,6 +36,8 @@ def b64(_, s):
         return base64.b64encode(str(s))
 
 def id(_, s):
+    if s.__class__ == list and len(s) > 0:
+        s = s[0]
     return s if s else str(random.randint(1, 9000*9000))
 
 

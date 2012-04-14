@@ -72,25 +72,27 @@ class Rule:
         v = getattr(self, param)
         return UI.HContainer(
                     UI.SelectInput(
-                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Ign.', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
                         design='mini',
                         name='%s-mode'%param
                     ),
-                    UI.TextInput(name=param, value=v[1] or '', help=help)
+                    UI.TextInput(name=param, value=v[1] or '', help=help),
+                    spacing=5
                )
 
     def get_ui_bool(self, param):
         v = getattr(self, param)
         return UI.HContainer(
                     UI.SelectInput(
-                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Ign.', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Yes', value='nrm', selected=v[1]==True),
                         UI.SelectOption(text='No', value='inv', selected=v[1]==False),
                         design='mini',
                         name='%s-mode'%param
-                    )
+                    ),
+                    spacing=5
                )
 
     def get_ui_select(self, param, opts):
@@ -99,7 +101,7 @@ class Rule:
 
         return UI.HContainer(
                     UI.SelectInput(
-                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Ign.', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
                         design='mini',
@@ -111,7 +113,8 @@ class Rule:
                         name=param,
                         value=v[1] or '',
                         design='mini'
-                    )
+                    ),
+                    spacing=5
                )
 
     def get_ui_flags(self):
@@ -119,7 +122,7 @@ class Rule:
 
         return UI.HContainer(
                     UI.SelectInput(
-                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Ign.', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Are', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Are not', value='inv', selected=v[0] and v[1] is not None),
                         design='mini',
@@ -143,7 +146,7 @@ class Rule:
         v = self.state
         return UI.HContainer(
                     UI.SelectInput(
-                        UI.SelectOption(text='Ignore', value='ign', selected=v[1] is None),
+                        UI.SelectOption(text='Ign.', value='ign', selected=v[1] is None),
                         UI.SelectOption(text='Is', value='nrm', selected=not v[0] and v[1] is not None),
                         UI.SelectOption(text='Isn\'t', value='inv', selected=v[0] and v[1] is not None),
                         design='mini',

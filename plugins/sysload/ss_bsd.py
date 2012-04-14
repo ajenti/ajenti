@@ -11,7 +11,7 @@ class BSDSysStat(Plugin):
         return shell('sysctl vm.loadavg').split()[2:5]
 
     def get_ram(self):
-        s = shell("top -b | grep Mem | sed 's/[^0-9]/ /g' | awk '{print $1+$2+$3+$4+$5+$6, $1+$2+$3, $4+$5+$6}'").split()
+        s = shell("top -b | grep Mem | sed 's/[^0-9]/ /g' | awk '{print $1+$2+$3+$4+$5+$6, $1+$2, $3+$4+$5+$6}'").split()
         t = int(s[0]) * 1024*1024
         u = int(s[1]) * 1024*1024
         f = int(s[2]) * 1024*1024

@@ -25,7 +25,12 @@ class Services(API):
 
     class Service:
         name = ''
-        status = ''
+
+        @property
+        def status(self):
+            if not hasattr(self, '_status'):
+                self._status = self.mgr.get_status(self.name)
+            return self._status
 
         def __cmp__(self, b):
             return 1 if self.name > b.name else -1

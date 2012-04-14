@@ -68,21 +68,16 @@ Ajenti = {
         Ajenti.query('/handle/nothing');
         Ajenti.Core.requestProgress();
         Ajenti.UI.animateProgress();
-
-        (function() {
-            var _ue = document.createElement('script'); _ue.type = 'text/javascript'; _ue.async = true;
-            _ue.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/' : 'http://') + 'cdn.userecho.com/js/widget-1.4.gz.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(_ue, s);
-          })();
-
-        setTimeout(1000, "UE.Popin.preload()");
     },
 
     Core: {
         processResponse: function (data) {
-            $('.modal:not(#warningbox)').modal('hide').remove();
-            $('.modal#warningbox').modal('hide');
-            $('.modal-backdrop').fadeOut(500);
+            $('.modal:not(#warningbox)').each( function (i, e) {
+                Ajenti.UI.hideModal(e.id, true);
+            });
+
+            Ajenti.UI.hideModal('warningbox');
+
             $('.twipsy').remove();
 
             $('#rightplaceholder').empty();
@@ -147,7 +142,7 @@ Ajenti = {
     },
 
     cancelWarning: function () {
-        $('#warningbox').modal('hide');
+        Ajenti.UI.hideModal('warningbox');
         return false;
     },
 
@@ -159,11 +154,27 @@ Ajenti = {
 
     UI: {
         showAsModal: function (id) {
-            $('#'+id).modal({show:true, backdrop:'static'}).center();
+            var backdrop = $('<div class="modal-backdrop" />')
+                .css('opacity', 0)
+                .appendTo(document.body)
+                .fadeTo(500, 0.5)
+                .attr('id', id+'-backdrop');
+            $('#'+id)
+                .css('opacity', 0)
+                .appendTo(document.body)
+                .show()
+                .fadeTo(500, 1)
+                .center();
         },
 
-        hideModal: function (id) {
-            $('#'+id).modal('hide');
+        hideModal: function (id, remove) {
+            if ($('#'+id).css('opacity') > 0)
+                $('#'+id).fadeTo(500, 0, function () {
+                    if (remove) $(this).remove(); else $(this).hide();
+                });
+            $('#'+id+'-backdrop').fadeTo(500, 0, function () {
+                if (remove) $(this).remove(); else $(this).hide();
+            });
         },
 
         showLoader: function (visible) {
@@ -213,11 +224,6 @@ Ajenti = {
             );
             Ajenti.UI._animateProgressTimeout = setTimeout('Ajenti.UI.animateProgress()', 1000);
         },
-
-        showFeedback: function () {
-            UE.Popin.show();
-            return false;
-        }
     }
 };
 

@@ -1,6 +1,7 @@
 import sys
 import os
 import logging
+import syslog
 
 from ajenti.api import ComponentManager
 from ajenti.config import Config
@@ -10,8 +11,15 @@ from ajenti import version
 from ajenti import deployed
 import ajenti.utils
 
-import gevent.pywsgi
-import gevent.pool
+try:
+    from gevent.pywsgi import WSGIServer
+    import gevent.pool
+    http_server = 'gevent'
+except ImportError:
+    from wsgiref.simple_server import make_server
+    WSGIServer = lambda adr,**kw : make_server(adr[0], adr[1], kw['application'])
+    http_server = 'wsgiref'
+
 from datetime import datetime
 
 
@@ -77,6 +85,7 @@ def make_log(debug=False, log_level=logging.INFO):
 
     return log
 
+
 def run_server(log_level=logging.INFO, config_file=''):
     log = make_log(debug=log_level==logging.DEBUG, log_level=log_level)
 
@@ -128,13 +137,20 @@ def run_server(log_level=logging.INFO, config_file=''):
     	    'certfile': config.get('ajenti','cert_file'),
     	}
 
-    server = gevent.pywsgi.WSGIServer(
+    log.info('Using HTTP server: %s'%http_server)
+
+    server = WSGIServer(
         (host, port),
         application=AppDispatcher(config).dispatcher,
         **ssl
     )
 
     config.set('server', server)
+
+    syslog.openlog(
+        ident='ajenti',
+        facility=syslog.LOG_AUTH,
+    )
 
     log.info('Starting server')
 

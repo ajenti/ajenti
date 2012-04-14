@@ -112,7 +112,7 @@ function termInit(tid) {
     _term = $('#term');
 
     $(document).keypress(function (event) {
-        var ch = __filter_key(event);
+        var ch = __filter_key(event, $.browser.mozilla);
         if (event.which != 13)
             termSend(Base64.encode(ch));
         event.preventDefault();
@@ -128,7 +128,7 @@ function termInit(tid) {
 }
 
 
-function __filter_key(event) {
+function __filter_key(event, ign_arrows) {
 	ch = event.charCode;
 	if (event.ctrlKey) {
 		ch = String.fromCharCode(event.keyCode - 64);
@@ -154,23 +154,28 @@ function __filter_key(event) {
 			ch = '\b';
 			break;
 		    case 9:
-			ch = '\t';
+            if (!ign_arrows)
+    			ch = '\t';
 			break;
 		    case 13:
 		    case 10:
 			ch = '\r';
 			break;
 		    case 38:
-				ch = '\x1b[A';
+                if (!ign_arrows)
+				    ch = '\x1b[A';
 			break;
 		    case 40:
-				ch = '\x1b[B';
+                if (!ign_arrows)
+    				ch = '\x1b[B';
 			break;
 		    case 39:
-				ch = '\x1b[C';
+                if (!ign_arrows)
+    				ch = '\x1b[C';
 			break;
 		    case 37:
-				ch = '\x1b[D';
+                if (!ign_arrows)
+    				ch = '\x1b[D';
 			break;
 		    case 46:
 			ch = '\x1b[3~';
@@ -205,6 +210,8 @@ function termTV() {
     $('.tv-noise').css('width', document.width*2 + 'px');
     $('.tv-noise').css('height', document.height*2 + 'px');
     $('.tv-line').css('width', document.width*2 + 'px');
+    $('.tv-noise').show();
+    $('.tv-line').show();
     termTVUpdate();
     termTVUpdateLine(true);
     termTVUpdateShake();

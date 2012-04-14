@@ -1,0 +1,10 @@
+<xml>
+	<dialogbox id="dlgEdit">
+		<formline text="Group name">
+			<textinput id="name" name="name" />
+		</formline>
+		<formline text="Services">
+			<vcontainer id="services" />
+		</formline>
+	</dialogbox>
+</xml>
