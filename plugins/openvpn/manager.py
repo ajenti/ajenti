@@ -235,7 +235,8 @@ class manager(object):
         """
         return self.execute("kill", cn)[0]
 
-    def _pgenresp(self, response):
+    @staticmethod
+    def _pgenresp(response):
         """
         Parses generically formatted response (param1=value1,param2=value2,param3=value3)
         @type response: str
