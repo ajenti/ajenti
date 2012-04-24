@@ -130,7 +130,7 @@ class manager(object):
         # UNIX Socket
         if self._path:
             self._s = lsocket(socket.AF_UNIX)
-            self._s.settimeout(5)
+            self._s.settimeout(self._timeout)
             self._s.connect(self._path)
         # IPv4 or IPv6 Socket
         else:
