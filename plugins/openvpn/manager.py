@@ -64,11 +64,11 @@ class lsocket(socket.socket):
             if count > len(self._b):
                 self._b += self.recv(count - len(self._b))
             else:
-                bytes = self._b[:count]
+                bytez = self._b[:count]
                 if not peek:
                     self._b = self._b[count:]
-                #print "{0} {1}".format("?" if peek else ">", bytes)
-                return bytes
+                #print "{0} {1}".format("?" if peek else ">", bytez)
+                return bytez
 
     def peekb(self, count):
         """Same as peekb(count, peek = True)
