@@ -64,11 +64,11 @@ class lsocket(socket.socket):
             if count > len(self._b):
                 self._b += self.recv(count - len(self._b))
             else:
-                bytes = self._b[:count]
+                bytez = self._b[:count]
                 if not peek:
                     self._b = self._b[count:]
-                #print "{0} {1}".format("?" if peek else ">", bytes)
-                return bytes
+                #print "{0} {1}".format("?" if peek else ">", bytez)
+                return bytez
 
     def peekb(self, count):
         """Same as peekb(count, peek = True)
@@ -130,7 +130,7 @@ class manager(object):
         # UNIX Socket
         if self._path:
             self._s = lsocket(socket.AF_UNIX)
-            self._s.settimeout(5)
+            self._s.settimeout(self._timeout)
             self._s.connect(self._path)
         # IPv4 or IPv6 Socket
         else:
@@ -235,7 +235,8 @@ class manager(object):
         """
         return self.execute("kill", cn)[0]
 
-    def _pgenresp(self, response):
+    @staticmethod
+    def _pgenresp(response):
         """
         Parses generically formatted response (param1=value1,param2=value2,param3=value3)
         @type response: str
