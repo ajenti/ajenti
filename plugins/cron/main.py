@@ -160,7 +160,7 @@ class CronPlugin(helpers.CategoryPlugin):
             ui.remove('dlgEditOther')
         return ui
 
-    #noinspection PyUnusedLocal
+
     @event('button/click')
     @event('linklabel/click')
     def on_click(self, event, params, vars=None):
@@ -174,8 +174,8 @@ class CronPlugin(helpers.CategoryPlugin):
             self._show_dialog = 1
         if params[0] == 'del_task':
             self._tasks.pop(int(params[1]))
-            self._error = backend.write_crontab(self._others +\
-                                                self._tasks)
+            self._error = backend.write_crontab(self._others + self._tasks,
+                                                self._user)
         if params[0] == 'add_oth':
             self._editing_other = len(self._others)
             self._show_dialog = 1
@@ -184,13 +184,11 @@ class CronPlugin(helpers.CategoryPlugin):
             self._show_dialog = 1
         if params[0] == 'del_oth':
             self._others.pop(int(params[1]))
-            self._error = backend.write_crontab(self._others +\
-                                                self._tasks)
+            self._error = backend.write_crontab(self._others + self._tasks,
+                                                self._user)
             self._tab = 1
 
-#            self._show_dialog_user = 1
 
-    #noinspection PyUnusedLocal
     @event('form/submit')
     def on_submit_form(self, event, params, vars=None):
         "For user select or Regular and advanced Task"
@@ -278,14 +276,14 @@ class CronPlugin(helpers.CategoryPlugin):
             self._tasks[self._editing_task] = new_task
         else:
             self._tasks.append(new_task)
-        self._error = backend.write_crontab(self._others +\
-                                        self._tasks)
+        self._error = backend.write_crontab(self._others + self._tasks,
+                                            self._user)
         if self._error:
             self._tasks, self._others = backend.read_crontab()
         ConfManager.get().commit('cron')
         return 0
 
-    #noinspection PyUnusedLocal
+
     @event('dialog/submit')
     def on_submit_dlg(self, event, params, vars=None):
         " for submit non-task string. It is use dialog"
@@ -295,8 +293,8 @@ class CronPlugin(helpers.CategoryPlugin):
                     self._others[self._editing_other] = vars.getvalue('other_str')
                 else:
                     self._others.append(vars.getvalue('other_str'))
-                self._error = backend.write_crontab(self._others +\
-                                            self._tasks)
+                self._error = backend.write_crontab(self._others + self._tasks,
+                                                    self._user)
                 if self._error:
                     self._tasks, self._others = backend.read_crontab()
             self._show_dialog = 0
