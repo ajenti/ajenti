@@ -53,6 +53,8 @@
             </dtr>
         </dt>
 
+        <spacer height="5" />
+        <label size="1" text="If any required Python modules are missing, Ajenti restart is required to rediscover them after being installed." />
         <spacer height="10" />
         <label size="2" text="Upload plugin package" />
         <spacer height="5" />
