@@ -5,14 +5,14 @@ import getopt
 import os.path
 import logging
 
-from ajenti.standalone import run_server
 from ajenti.daemon import Daemon
 from ajenti.feedback import check_uid
 
 
 class AjentiDaemon(Daemon):
-	def run(self):
-		run_server(self.log_level, self.config_file)
+    def run(self):
+        from ajenti.standalone import run_server # fixes gevent kevent loop
+        run_server(self.log_level, self.config_file)
 
 
 def usage():
@@ -73,7 +73,8 @@ if __name__ == '__main__':
     check_uid()
     
     if action == 'run':
-       run_server(log_level, config_file)
+        from ajenti.standalone import run_server
+        run_server(log_level, config_file)
     else:
         ajentid = AjentiDaemon('/var/run/ajenti.pid',stdout='/var/log/ajenti.log',stderr='/var/log/ajenti.err.log')
         ajentid.log_level = log_level

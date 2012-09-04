@@ -4,7 +4,7 @@
     <headstylesheets/>
     <link rel="stylesheet/less" href="/core/styles.less" />
     <headscripts/>
-    <link href='http://fonts.googleapis.com/css?family=OpenSans:400,700' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
     <link rel="shortcut icon" href="/dl/core/ui/favicon.png" />
 </head>
 <body id="main" style="background:#eee">
