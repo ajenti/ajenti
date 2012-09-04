@@ -13,9 +13,8 @@ def main():
         print 'Specify command'
         sys.exit(1)
 
-    if os.path.isfile('/etc/ajenti/ajenti.conf'):
-        config_file = '/etc/ajenti/ajenti.conf'
-    elif os.path.isfile(os.path.join(sys.path[0], 'ajenti.conf')):
+    config_file = '/etc/ajenti/ajenti.conf'
+    if os.path.isfile(os.path.join(sys.path[0], 'ajenti.conf')):
         config_file = os.path.join(sys.path[0], 'ajenti.conf')
 
     log = make_log(debug=False)

@@ -3,11 +3,6 @@ packaging/meta
 docs/build/*
 ajenti.conf
 users/*.conf
-*.geany
-.anjuta/
-.anjuta_sym_db.db
-TODO.tasks
-ajenti.anjuta
 *~
 
 debian/ajenti*
@@ -18,10 +13,10 @@ dist/*.gz
 build/*
 debian/files
 debian/*stamp*
-.idea/
 
-.project
+.idea/
 .pydevproject
+*.sublime-workspace
 
 .~lock.*
 
