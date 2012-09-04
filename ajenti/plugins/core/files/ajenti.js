@@ -16,7 +16,7 @@ Ajenti = {
             data: _data,
             success: _noupdate?undefined:Ajenti.Core.processResponse,
             error: Ajenti.Core.processOffline,
-            method: _data?'POST':'GET',
+            type: _data?'POST':'GET',
         });
         if (!_noupdate)
             Ajenti.UI.showLoader(true);
