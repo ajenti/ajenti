@@ -76,6 +76,7 @@ class ApacheSingleConfigBackend(Plugin):
         id = id.replace('*','\*')
         id = id.replace('.','\.')
         text = self.read()
+        repl_pat = re.compile('(?:#\s*)*<VirtualHost ' + id + '>(.+?)</VirtualHost>', re.S)
         text = repl_pat.sub('', text)
         self.save(text)
 
