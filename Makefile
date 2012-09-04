@@ -2,7 +2,7 @@ PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
-VERSION=0.6.2
+VERSION=0.6.3
 PREFIX=/usr
 
 SPHINXOPTS    =
@@ -51,6 +51,5 @@ tgz:
 clean:
 	$(PYTHON) setup.py clean
 	rm -rf $(DOCBUILDDIR)/*
-	$(MAKE) -f $(CURDIR)/debian/rules clean
-	rm -rf build/ MANIFEST ajenti.egg-info
+	rm -rf build/ debian/$(PROJECT)* debian/*stamp* debian/files MANIFEST *.egg-info
 	find . -name '*.pyc' -delete

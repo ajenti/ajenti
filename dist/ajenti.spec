@@ -1,6 +1,6 @@
 %define name ajenti
-%define version 0.6.2
-%define unmangled_version 0.6.2
+%define version 0.6.3
+%define unmangled_version 0.6.3
 %define release 1
 
 Summary: The server administration panel
