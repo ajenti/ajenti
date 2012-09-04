@@ -84,10 +84,11 @@ def download(url, file=None, crit=False):
     :rtype:         None or str
     """
     try:
+        data = urllib.urlopen(url).read()
         if file:
-            urllib.urlretrieve(url, file)
+            open(file, 'w').write(data)
         else:
-            return urllib.urlopen(url).read()
+            return data
     except Exception, e:
         if crit:
             raise
