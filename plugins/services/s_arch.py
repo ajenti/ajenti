@@ -11,7 +11,6 @@ class ArchServiceManager(Plugin):
 
     def list_all(self):
         r = []
-        running = os.listdir('/var/run/daemons')
         for s in os.listdir('/etc/rc.d'):
             svc = apis.services.Service()
             svc.name = s
@@ -21,8 +20,8 @@ class ArchServiceManager(Plugin):
         return sorted(r, key=lambda s: s.name)
 
     def get_status(self, name):
-        s = shell('/etc/rc.d/' + name + ' status')
-        return 'running' if 'running' in s else 'stopped'
+        running = os.listdir('/var/run/daemons')
+        return 'running' if name in running else 'stopped'
 
     def start(self, name):
         shell('/etc/rc.d/' + name + ' start')
