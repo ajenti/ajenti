@@ -14,31 +14,28 @@ class DiskUsageWidget(Plugin):
     style = 'normal'
 
     def get_ui(self, cfg, id=None):
+        self.title = '%s Disk Usage' % cfg
         if cfg == None:
             cfg = "total"
         m = DiskUsageMeter(self.app).prepare(cfg)
         return UI.HContainer(
-            UI.ProgressBar(value=m.get_value(cfg), max=m.get_max(), width=220),
-            UI.Label(text=str('%s : %d %%' % (cfg,  m.get_value(cfg)))),
+            UI.ProgressBar(value=m.get_value(), max=m.get_max(), width=220),
+            UI.Label(text=str('%d%%' % m.get_value())),
         )
 
     def handle(self, event, params, cfg, vars=None):
         pass
 
     def get_config_dialog(self):
-        mgr = self.app.get_backend(apis.services.IServiceManager)
-        dlg = self.app.inflate('hddstat:widget-config')
-        u = shell('df --total').split('\n')[1:-2];
-        u.append ('total')
-        for y in u:
-            s = y.split()
-            s = s.pop()
-            dlg.append('list', UI.SelectOption(
-                value=s,
-                text=s,
+        usageMeter = DiskUsageMeter(self.app)
+        dialog = self.app.inflate('hddstat:widget-config')
+        for option in usageMeter.get_variants():
+            dialog.append('list', UI.SelectOption(
+                value=option,
+                text=option,
             ))
-        return dlg
-   
- 
+        return dialog
+
+
     def process_config(self, vars):
-        return vars.getvalue('svc', None)
+        return vars.getvalue('disk', None)
