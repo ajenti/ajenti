@@ -6,6 +6,7 @@ import urllib
 from datetime import datetime
 from hashlib import sha1
 from base64 import b64encode
+from passlib.hash import sha512_crypt
 
 
 def enquote(s):
@@ -146,11 +147,16 @@ def shell_stdin(c, input):
     return p.communicate(input)
 
 
-def hashpw(passw):
+def hashpw(passw, scheme = 'sha512_crypt'):
     """
-    Returns a Base64-encoded SHA1 digest of given password.
+    Returns a hashed form of given password. Default scheme is
+    sha512_crypt.
     """
-    return '{SHA}' + b64encode(sha1(passw).digest())
+    if scheme == 'sha512_crypt':
+        return sha512_crypt.encrypt(passw)
+    elif scheme == 'sha':
+        return '{SHA}' + b64encode(sha1(passw).digest())
+    return sha512_crypt.encrypt(passw)
 
 def str_fsize(sz):
     """

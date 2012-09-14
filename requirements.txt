@@ -1,0 +1,9 @@
+greenlet
+gevent
+lxml
+passlib
+#feedparser [NEWS]
+#psutil [TASKS]
+#beautifulsoup [MUNIN]
+#setuptools [BUILD]
+#sphinx [DOCS]

@@ -1,7 +1,6 @@
 from hashlib import sha1
-from base64 import b64decode, b64encode
-from binascii import hexlify
-from random import random
+from base64 import b64encode
+from passlib.hash import sha512_crypt
 import syslog
 import time
 
@@ -11,16 +10,15 @@ from ajenti.api import get_environment_vars
 def check_password(passw, hash):
     if hash.startswith('{SHA}'):
         try:
-            hash = hash[5:]
-            hash = b64decode(hash)
-            passw_hash = sha1(passw).digest()
+            passw_hash = '{SHA}' + b64encode(sha1(passw).digest())
             if passw_hash == hash:
                 return True
         except:
             import traceback
             traceback.print_exc()
+    elif sha512_crypt.identify(hash):
+        return sha512_crypt.verify(passw, hash)
     return False
-
 
 class AuthManager(object):
     """
@@ -60,11 +58,6 @@ class AuthManager(object):
 
     def __call__(self, environ, start_response):
         session = environ['app.session']
-        if 'auth.challenge' in session:
-            challenge = session['auth.challenge']
-        else:
-            challenge = b64encode(sha1(str(random())).digest())
-            session['auth.challenge'] = challenge
 
         if environ['PATH_INFO'] == '/auth-redirect':
             start_response('301 Moved Permanently', [('Location', '/')])
@@ -81,11 +74,9 @@ class AuthManager(object):
             vars = get_environment_vars(environ)
             user = vars.getvalue('username', '')
             if self._config.has_option('users', user):
-                pwd = self._config.get('users', user)[5:]
-                pwd = hexlify(b64decode(pwd))
-                sample = hexlify(sha1(challenge + pwd).digest())
+                pwd = self._config.get('users', user)
                 resp = vars.getvalue('response', '')
-                if sample == resp:
+                if check_password(resp, pwd):
                     syslog.syslog('session opened for user %s from %s' % (user, environ['REMOTE_ADDR']))
                     session['auth.user'] = user
                     start_response('200 OK', [
@@ -104,11 +95,9 @@ class AuthManager(object):
             return 'Login failed'
 
         templ = self.app.get_template('auth.xml')
-        templ.find('challenge').set('value', challenge)
         start_response('200 OK', [('Content-type','text/html')])
         start_response('200 OK', [
             ('Content-type','text/html'),
             ('X-Ajenti-Auth', 'start'),
-            ('X-Ajenti-Challenge', challenge),
         ])
         return templ.render()
