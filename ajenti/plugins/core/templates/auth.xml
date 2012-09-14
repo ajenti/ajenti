@@ -19,7 +19,6 @@
                 </div>
                 <div class="modal-content">
                     <br/>
-                    <input type="hidden" id="challenge" />
                     <div class="clearfix">
                         <hlabel for="username" text="Username" />
                         <div class="input">
@@ -45,14 +44,12 @@ Ajenti.UI.showAsModal('auth-dialog');
 $('#username').focus()
 $('#form').submit(function (e) {
     e.preventDefault();
-    var h = Sha1.hash($('#password').val());
-    var r = Sha1.hash($('#challenge').val() + h);
     $.ajax({
         url: '/auth',
         type: 'POST',
         data: {
             username: $('#username').val(),
-            response: r
+            response: $('#password').val()
         },
         success: function () {
             Ajenti.UI.hideModal('auth-dialog');
