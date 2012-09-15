@@ -15,6 +15,8 @@ class Dashboard(CategoryPlugin):
     def on_session_start(self):
         self._adding_widget = None
         self._mgr = apis.dashboard.WidgetManager(self.app)
+        if self.app.gconfig.get('ajenti', 'ssl') == '0':
+            self.put_message('warn', 'Please enable SSL to ensure secure communication with the server')
 
     def fill(self, side, lst, ui, tgt):
         for x in lst:

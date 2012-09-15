@@ -16,7 +16,7 @@ BuildArch: noarch
 Vendor: Eugeny Pankov <e@ajenti.org>
 Url: http://ajenti.org/
 
-requires: python-gevent, python-greenlet, python-lxml, pyOpenSSL
+requires: python-gevent, python-greenlet, python-lxml, pyOpenSSL, python-passlib
 
 %description
 Web admin panel
