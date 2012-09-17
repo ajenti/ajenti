@@ -1,6 +1,7 @@
 import hashlib
 import time
 import Cookie
+import random
 
 from ajenti.http import HttpHandler
 
@@ -40,7 +41,7 @@ class SessionMiddleware (HttpHandler):
         else:
             session_id = self.generate_session_id(context)
             self.sessions[session_id] = Session()
-        context.session = self.sesions[session_id]
+        context.session = self.sessions[session_id]
 
 
 class AuthenticationMiddleware (HttpHandler):

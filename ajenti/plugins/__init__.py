@@ -5,32 +5,32 @@ import traceback
 
 
 class PluginLoadError (Exception):
-	pass
+    pass
 
 class PluginCrashed (PluginLoadError):
-	def __init__(self, e):
-		self.e = e
+    def __init__(self, e):
+        self.e = e
 
-	def __str__(self):
-		return 'crashed: %s' % self.e
+    def __str__(self):
+        return 'crashed: %s' % self.e
 
 
 class Dependency:
     class Unsatisfied (PluginLoadError):
-    	def __init__(self):
-    		self.dependency = None
+        def __init__(self):
+            self.dependency = None
 
-    	def reason(self):
-    		pass
+        def reason(self):
+            pass
 
         def __str__(self):
-        	return '%s (%s)' % (self.dependency.__class__, self.reason())
+            return '%s (%s)' % (self.dependency.__class__, self.reason())
 
     def satisfied(self):
         return False
 
     def build_exception(self):
-    	exception = self.Unsatisfied()
+        exception = self.Unsatisfied()
         exception.dependency = self
         return exception
             
@@ -43,10 +43,10 @@ class Dependency:
 class PluginDependency (Dependency):
     class Unsatisfied (Dependency.Unsatisfied):
         def reason(self):
-        	return '%s' % self.dependency.plugin_name
+            return '%s' % self.dependency.plugin_name
 
     def __init__(self, plugin_name):
-    	self.plugin_name = plugin_name
+        self.plugin_name = plugin_name
 
     def satisfied(self):
         pass
@@ -59,13 +59,26 @@ class PluginManager:
 
     __classes = {}
     __plugins = {}
+    __instances = {}
 
 
     def register_interface(self, iface):
-        pass
+        setattr(iface, '__ajenti_interface', True)
 
     def register_implementation(self, impl):
-        pass
+        for cls in impl.mro():
+            if hasattr(cls, '__ajenti_interface'):
+                self.__classes.setdefault(cls, []).append(impl)
+
+    def get_implementations(self, iface):
+        return self.__classes.setdefault(iface, [])
+
+    def get_instance(self, cls):
+        if not cls in self.__instances:
+            self.__instances[cls] = cls()
+        return self.__instances[cls]
+
+    # Plugin loader
 
     def load_all(self):
         path = os.path.split(__file__)[0]

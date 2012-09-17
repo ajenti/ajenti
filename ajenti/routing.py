@@ -1,26 +1,8 @@
 import re
 
 from ajenti.http import HttpHandler
+from ajenti.api.http import HttpPlugin
 
-
-class Dispatcher (HttpHandler):
-	def __init__(self):
-		self.routes = []
-
-	def handle(self, context):
-		for route in self.routes:
-			match = route[0].match(env['PATH_INFO'])
-			if match:
-				print match.groups()
-				return route[1].handle(context)
-
-	def route(self, url, handler):
-		self.routes += [(re.compile(url), handler)]
-
-
-# ---------------
-# Implementations
-# ---------------
 
 class InvalidRouteHandler (HttpHandler):
 	def handle(self, context):
@@ -28,8 +10,14 @@ class InvalidRouteHandler (HttpHandler):
 		return 'Invalid URL'
 
 
-class CentralDispatcher	(Dispatcher):
+class CentralDispatcher	(HttpHandler):
 	def __init__(self):
-		Dispatcher.__init__(self)
-		self.route(r'/(?P<path>.+)/(?P<pathb>.+)', InvalidRouteHandler())
-		self.route(r'.+', InvalidRouteHandler())
+		self.invalid = InvalidRouteHandler()
+
+	def handle(self, context):
+		for instance in HttpPlugin.get_all():
+			output = instance.handle(context)
+			if context.response_ready:
+				return output
+		return context.fallthrough(self.invalid)
+		

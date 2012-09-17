@@ -8,6 +8,7 @@ import signal
 import json
 
 import ajenti
+import ajenti.log
 
 
 def usage():
@@ -61,6 +62,7 @@ if __name__ == '__main__':
 
     ajenti.config = json.loads(open(config_file).read())
     ajenti.init()
+    ajenti.log.init()
 
     ###check_uid()
     
@@ -74,7 +76,7 @@ if __name__ == '__main__':
             from ajenti import core
             core.run()
     else:
-        logging.info('ajenti starting')
+        logging.info('Ajenti starting in foreground')
         try:
             from ajenti import core
             core.run()

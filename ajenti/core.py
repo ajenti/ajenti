@@ -45,7 +45,7 @@ def run():
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     server = WSGIServer(
         (host, port),
-        application=HttpRoot(stack),
+        application=HttpRoot(stack).dispatch,
         **ssl
     )
 
