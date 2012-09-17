@@ -1,9 +1,0 @@
-<xml>
-    <toolbar>
-        <button id="shutdown" text="Shutdown" warning="Shutdown machine" icon="/dl/core/ui/stock/service-stop.png"/>
-        <button id="reboot" text="Reboot" warning="Reboot machine" icon="/dl/core/ui/stock/refresh.png"/>
-    </toolbar>
-    <pad>
-        <vcontainer id="list" width="150" />
-    </pad>
-</xml>

@@ -1,5 +1,0 @@
-    <div style="float:right; padding: 6px 0">
-	    <tipicon id="start" text="Start" icon="/dl/core/ui/stock/service-run.png" />
-	    <tipicon id="stop" text="Stop" icon="/dl/core/ui/stock/service-stop.png" />
-	    <tipicon id="restart" text="Restart" icon="/dl/core/ui/stock/service-restart.png" />
-    </div>

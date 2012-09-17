@@ -1,8 +1,0 @@
-<xml>
-    <toolbar>
-        <button id="add" text="New terminal" icon="/dl/core/ui/stock/add.png" />
-    </toolbar>
-
-<pad id="main">
-</pad>    
-</xml>

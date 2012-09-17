@@ -1,6 +1,0 @@
-<xml>
-    <dialogbox id="dlgWidgetConfig">
-        <label size="2" text="Select interface" />
-        <vcontainer id="list" />
-    </dialogbox>
-</xml>

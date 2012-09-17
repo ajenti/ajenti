@@ -1,18 +1,13 @@
 #!/usr/bin/env python
-
-import sys
 import getopt
-import os.path
+import sys
+import os
 import logging
+import daemon
+import signal
+import json
 
-from ajenti.daemon import Daemon
-from ajenti.feedback import check_uid
-
-
-class AjentiDaemon(Daemon):
-    def run(self):
-        from ajenti.standalone import run_server # fixes gevent kevent loop
-        run_server(self.log_level, self.config_file)
+import ajenti
 
 
 def usage():
@@ -21,9 +16,7 @@ Usage: %s [options]
 Options:
     -c, --config <file> - Use given config file instead of default
     -v                  - Debug/verbose logging
-    -d, --start         - Run in background (daemon mode)
-    -r, --restart       - Restart daemon
-    -s, --stop          - Stop daemon
+    -d, --daemon        - Run in background (daemon mode)
     -h, --help          - This help
     """
 
@@ -37,13 +30,13 @@ if __name__ == '__main__':
     config_file = ''
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hc:drsv', ['help', 'config=', 'start', 'stop', 'restart'])
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon'])
     except getopt.GetoptError, e:
         print str(e)
         usage()
         sys.exit(2)
 
-    action = 'run'
+    daemon = False
 
     for o, a in opts:
         if o in ('-h', '--help'):
@@ -55,39 +48,35 @@ if __name__ == '__main__':
             if os.path.isfile(a):
                 config_file = a
         elif o in ('-d', '--start'):
-            action = 'start'
-        elif o in ('-r', '--restart'):
-            action = 'restart'
-        elif o in ('-s', '--stop'):
-            action = 'stop'
+            daemon = True
 
     # Find default config file
     if not config_file:
         # Check for config file in /etc/ajenti/ajenti.conf
-        if os.path.isfile('/etc/ajenti/ajenti.conf'):
-            config_file = '/etc/ajenti/ajenti.conf'
-        elif os.path.isfile(os.path.join(sys.path[0], 'ajenti.conf')):
+        if os.path.isfile('/etc/ajenti/config.json'):
+            config_file = '/etc/ajenti/config.json'
+        elif os.path.isfile(os.path.join(sys.path[0], 'config.json')):
             # Try local config file
-            config_file = os.path.join(sys.path[0], 'ajenti.conf')
+            config_file = os.path.join(sys.path[0], 'config.json')
 
-    check_uid()
+    ajenti.config = json.loads(open(config_file).read())
+    ajenti.init()
+
+    ###check_uid()
     
-    if action == 'run':
-        from ajenti.standalone import run_server
-        run_server(log_level, config_file)
+    logging.basicConfig(level=log_level)
+
+    if daemon:
+        context = daemon.DaemonContext(
+            pidfile=pidfile.PidFile('/var/run/ajenti.pid'),
+        )
+        with context:
+            from ajenti import core
+            core.run()
     else:
-        ajentid = AjentiDaemon('/var/run/ajenti.pid',stdout='/var/log/ajenti.log',stderr='/var/log/ajenti.err.log')
-        ajentid.log_level = log_level
-        ajentid.config_file = config_file
-
-        if 'start' == action:
-            ajentid.start()
-        elif 'stop' == action:
-            ajentid.stop()
-        elif 'restart' == action:
-            ajentid.restart()
-        else:
-            usage()
-            sys.exit(2)
-
-    sys.exit(0)
+        logging.info('ajenti starting')
+        try:
+            from ajenti import core
+            core.run()
+        except KeyboardInterrupt:
+            pass

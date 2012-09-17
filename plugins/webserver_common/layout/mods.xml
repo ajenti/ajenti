@@ -1,9 +1,0 @@
-<xml>
-<dt id="list" width="100%">
-    <dtr header="True"> 
-        <dth width="1" />
-        <dth><label text="Name" /></dth>
-        <dth width="1" />
-    </dtr>
-</dt>
-</xml>
