@@ -86,8 +86,11 @@ class PluginManager:
             if not '.' in item:
                 self.load(item)
 
+    def get_plugins_root(self):
+        return os.path.split(__file__)[0]
+
     def resolve_path(self, name):
-        path = os.path.join(os.path.split(__file__)[0], name)
+        path = os.path.join(self.get_plugins_root(), name)
         if os.path.exists(path):
             return path
         return None
@@ -109,7 +112,7 @@ class PluginManager:
         """
         logging.debug('Loading plugin %s' % name)
         try:
-            mod = imp.load_source('ajenti.plugins.%s' % name, os.path.join(self.resolve_path(name), '__init__.py'))
+            mod = imp.load_module('ajenti.plugins.%s' % name, *imp.find_module(name, [self.get_plugins_root()]))
             logging.debug('  == %s ' % mod.info.title)
         except Exception, e:
             logging.warn(' *** Plugin not loadable: %s' % e)
@@ -119,12 +122,19 @@ class PluginManager:
         info = mod.info
         info.module = mod
         info.active = False
+        if hasattr(mod, 'init'):
+            info.init = mod.init
         self.__plugins[name] = info
 
         try:
             for dependency in info.dependencies:
                 dependency.check()
             info.active = True
+
+            try:
+                info.init()
+            except Exception, e:
+                raise PluginCrashed(e)
         except PluginDependency:
             raise
         except PluginLoadError, e:

@@ -10,19 +10,10 @@ info = PluginInfo(
 	],
 )
 
-@interface
-class TestIface (object):
-	def test():
-		pass
-
-
 @plugin
-class TestPlugin (TestIface, HttpPlugin):
-	def test(self):
-		print 'test'
-
-	@url('/.+')
-	def handle(self, context):
+class TestPlugin (HttpPlugin):
+	@url('/test')
+	def handle_test(self, context):
 		context.respond_ok()
 		return 'lol %s' % context
 

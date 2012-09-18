@@ -6,6 +6,12 @@ class PluginInfo:
         self.author = ''
         self.homepage = ''
         self.dependencies = []
+
+        def init(): 
+            pass
+
+        self.init = init
+        
         for k in kwargs:
             setattr(self, k, kwargs[k])
 

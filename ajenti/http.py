@@ -1,4 +1,6 @@
 import re
+import os
+from datetime import datetime
 
 
 class HttpRoot:
@@ -45,6 +47,46 @@ class HttpContext:
 
     def respond_not_found(self):
         self.respond('404 Not Found')
+
+    def file(self, path, content=None):
+        if '..' in path:
+            self.respond_forbidden()
+            return ''
+
+        if not os.path.isfile(path):
+            self.respond_not_found()
+            return ''
+
+        content_types = {
+            '.css': 'text/css',
+            '.js': 'application/javascript',
+            '.png': 'image/png',
+            '.jpg': 'image/jpeg',
+        }
+        
+        ext = os.path.splitext(path)[1]
+        if ext in content_types:
+            self.add_header('Content-Type', content_types[ext])
+        else:
+            self.add_header('Content-Type', 'application/octet-stream')
+
+        size = os.path.getsize(path)
+        mtime = datetime.utcfromtimestamp(os.path.getmtime(path))
+
+        rtime = self.env.get('HTTP_IF_MODIFIED_SINCE', None)
+        if rtime is not None:
+            try:
+                rtime = datetime.strptime(rtime, '%a, %b %d %Y %H:%M:%S GMT')
+                if mtime <= rtime:
+                    self.respond('304 Not Modified')
+                    return ''
+            except:
+                pass
+
+        self.add_header('Content-length', str(size))
+        self.add_header('Last-modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
+        self.respond_ok()
+        return content or open(path).read()
 
 
 class HttpHandler:
