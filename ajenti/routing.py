@@ -2,12 +2,14 @@ import re
 import socketio
 
 from ajenti.http import HttpHandler
-from ajenti.api.http import HttpPlugin
+from ajenti.api.http import HttpPlugin, SocketPlugin
 
 
 class SocketIORouteHandler (HttpHandler):
 	def __init__(self):
 		self.namespaces = {}
+		for cls in SocketPlugin.get_classes():
+			self.namespaces[cls.name] = cls
 
 	def handle(self, context):
 		return socketio.socketio_manage(context.env, self.namespaces, context)

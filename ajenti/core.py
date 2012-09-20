@@ -10,11 +10,15 @@ import ajenti.plugins
 
 
 import gevent
+from gevent import monkey; monkey.patch_all()
 from socketio.server import SocketIOServer
 
 
 def run():
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
+
+    # Load plugins
+    ajenti.plugins.manager.load_all()
 
     # Setup webserver
     if 'bind' in ajenti.config:
@@ -34,7 +38,7 @@ def run():
             }
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
-    server = SocketIOServer(
+    ajenti.server = SocketIOServer(
         (host, port),
         application=HttpRoot(stack).dispatch,
         **ssl
@@ -50,12 +54,9 @@ def run():
         syslog.openlog('ajenti')
 
 
-    # Load plugins
-    ajenti.plugins.manager.load_all()
-
     try:
         gevent.signal(signal.SIGTERM, lambda: sys.exit(0))
     except:
         pass
     
-    server.serve_forever()
+    ajenti.server.serve_forever()

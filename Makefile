@@ -2,7 +2,7 @@ PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
-VERSION=0.6.3
+VERSION=0.7.0
 PREFIX=/usr
 
 SPHINXOPTS    =
@@ -14,6 +14,13 @@ ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) 
 
 all:
 
+build:
+	echo version = \"$(VERSION)\" > ajenti/build.py
+	./compile_resources.py
+	
+run: build
+	./ajenti-panel -v -c ./config.json
+
 doc:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCBUILDDIR)/html
 	@echo
@@ -21,21 +28,19 @@ doc:
 
 cdoc:
 	rm -rf $(DOCBUILDDIR)/*
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(DOCBUILDDIR)/html
-	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+	make doc
 
-install:
+install: build
 	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE) --prefix $(PREFIX)
 
-rpm:
+rpm: build
 	rm -rf dist/*.rpm
 	$(PYTHON) setup.py sdist 
 	#$(PYTHON) setup.py bdist_rpm --spec-file dist/ajenti.spec #--post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
 	rpmbuild -bb dist/ajenti.spec
 	mv ~/rpmbuild/RPMS/noarch/$(PROJECT)*.rpm dist
 
-deb:
+deb: build
 	rm -rf dist/*.deb
 	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
 	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
@@ -44,7 +49,7 @@ deb:
 	rm ../$(PROJECT)*.changes
 	mv ../$(PROJECT)*.deb dist/
 
-tgz:
+tgz: build
 	rm dist/*.tar.gz || true
 	$(PYTHON) setup.py sdist 
 

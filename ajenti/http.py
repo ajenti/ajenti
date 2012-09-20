@@ -110,6 +110,6 @@ class HttpContext:
         content |= open(path).read()
 
 
-class HttpHandler:
+class HttpHandler (object):
     def handle(self, context):
         pass

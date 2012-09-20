@@ -9,8 +9,13 @@ from ajenti.plugins import manager
 @plugin
 class ContentServer (HttpPlugin):
 	@url('/static/resources.(?P<type>.+)')
-	def handle_compressed(self, context, type):
+	def handle_resources(self, context, type):
 		content = ContentCompressor.get().compressed[type]
+		types = {
+            'css': 'text/css',
+            'js': 'application/javascript',
+		}
+		context.add_header('Content-Type', types[type])
 		return context.gzip(content)
 
 	@url('/static/(?P<plugin>\w+)/(?P<path>.+)')
@@ -33,8 +38,8 @@ class ContentCompressor (object):
 			'css': self.process_css
 		}
 		self.patterns = {
-			'js': r'.+\.js$',
-			'css': r'.+\.css$'
+			'js': r'.+\.[cm]\.js$',
+			'css': r'.+\.[cm]\.css$'
 		}
 		self.scan()
 		self.compress()
@@ -50,12 +55,11 @@ class ContentCompressor (object):
 						self.files.setdefault(key, []).append(os.path.join(path, name))
 
 	def compress(self):
-		print self.files
 		for key in self.patterns:
 			self.compressed[key] = self.compressors[key](self.files.setdefault(key, []))
 
 	def process_js(self, files):
-		return '\n'.join([open(x).read() for x in files])
+		return '\n'.join([open(x).read() for x in sorted(files)])
 	
 	def process_css(self, files):
 		return '\n'.join([open(x).read() for x in files])

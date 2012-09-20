@@ -5,13 +5,17 @@ import glob
 import os
 import re
 
-def compile_coffeescript(path):
-	subprocess.check_output('coffee -o compiler-output -c "%s"' % path, shell=True)
-	shutil.move(glob.glob('./compiler-output/*.js')[0], '%s.js' % path)
+def compile_coffeescript(inpath):
+	outpath = '%s.js' % inpath
+	print ' - Coffee:\t%s -> %s' % (inpath, outpath)
+
+	subprocess.check_output('coffee -o compiler-output -c "%s"' % inpath, shell=True)
+	shutil.move(glob.glob('./compiler-output/*.js')[0], outpath)
 	shutil.rmtree('compiler-output')
 
-def compile_less(path):
-	pass
+def compile_less(inpath):
+	outpath = '%s.css' % inpath
+	print ' - LESS:\t%s -> %s' % (inpath, outpath)
 
 compilers = {
 	r'.+\.coffee$': compile_coffeescript,
@@ -19,13 +23,15 @@ compilers = {
 }
 
 
-def compress_js(path):
-	outpath = os.path.splitext(path)[0] + '.c.js'
-	subprocess.check_output('yui-compressor --nomunge --disable-optimizations -o "%s" "%s"' % (outpath, path), shell=True)
+def compress_js(inpath):
+	outpath = os.path.splitext(inpath)[0] + '.c.js'
+	print ' - YUI JS:\t%s -> %s' % (inpath, outpath)
+	subprocess.check_output('yui-compressor --nomunge --disable-optimizations -o "%s" "%s"' % (outpath, inpath), shell=True)
 
-def compress_css(path):
-	outpath = os.path.splitext(path)[0] + '.c.css'
-	subprocess.check_output('yui-compressor -o "%s" "%s"' % (outpath, path), shell=True)
+def compress_css(inpath):
+	outpath = os.path.splitext(inpath)[0] + '.c.css'
+	print ' - YUI CSS:\t%s -> %s' % (inpath, outpath)
+	subprocess.check_output('yui-compressor -o "%s" "%s"' % (outpath, inpath), shell=True)
 
 compressors = {
 	r'.+[^\.][^mc]\.js$': compress_js,

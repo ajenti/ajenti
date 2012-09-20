@@ -15,7 +15,10 @@ platform_string = None
 """ Unique installation ID """
 installation_uid = None
 
-__all__ = [platform, platform_string, platform_unmapped, installation_uid, version, 'init']
+""" Web server """
+server = None
+
+__all__ = [platform, platform_string, platform_unmapped, installation_uid, version, server, 'init']
 
 
 import build
