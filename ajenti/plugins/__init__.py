@@ -79,6 +79,8 @@ class PluginManager:
         return self.__instances[cls]
 
     # Plugin loader
+    def get_all(self):
+        return self.__plugins
 
     def load_all(self):
         path = os.path.split(__file__)[0]
@@ -122,6 +124,7 @@ class PluginManager:
         info = mod.info
         info.module = mod
         info.active = False
+        info.name = name
         if hasattr(mod, 'init'):
             info.init = mod.init
         self.__plugins[name] = info

@@ -1,5 +1,7 @@
 import re
 import os
+import gzip
+from StringIO import StringIO
 from datetime import datetime
 
 
@@ -29,6 +31,11 @@ class HttpContext:
     def add_header(self, key, value):
         self.headers += [(key, value)]
 
+    def remove_header(self, key):
+        for k in self.headers:
+            if k == key:
+                del self.headers[key]
+
     def fallthrough(self, handler):
         return handler.handle(self)
 
@@ -48,7 +55,20 @@ class HttpContext:
     def respond_not_found(self):
         self.respond('404 Not Found')
 
-    def file(self, path, content=None):
+    def gzip(self, content):
+        io = StringIO()
+        gz = gzip.GzipFile('', 'wb', 9, io)
+        gz.write(content)
+        gz.close()
+        compressed = io.getvalue()
+
+        self.add_header('Content-Length', str(len(compressed)))
+        self.add_header('Content-Encoding', 'gzip')
+        self.respond_ok()
+        
+        return compressed
+
+    def file(self, path):
         if '..' in path:
             self.respond_forbidden()
             return ''
@@ -83,10 +103,11 @@ class HttpContext:
             except:
                 pass
 
-        self.add_header('Content-length', str(size))
-        self.add_header('Last-modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
+        #self.add_header('Content-Length', str(size))
+        self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
+        return self.gzip(open(path).read())
         self.respond_ok()
-        return content or open(path).read()
+        content |= open(path).read()
 
 
 class HttpHandler:

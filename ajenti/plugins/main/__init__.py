@@ -10,10 +10,5 @@ info = PluginInfo(
 	],
 )
 
-@plugin
-class TestPlugin (HttpPlugin):
-	@url('/test')
-	def handle_test(self, context):
-		context.respond_ok()
-		return 'lol %s' % context
-
+def init():
+	import main
