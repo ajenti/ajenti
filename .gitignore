@@ -1,8 +1,5 @@
 *.pyc
-packaging/meta
 docs/build/*
-ajenti.conf
-users/*.conf
 *~
 
 debian/ajenti*
@@ -15,13 +12,14 @@ debian/files
 debian/*stamp*
 
 .idea/
-.pydevproject
 *.sublime-workspace
 
 .~lock.*
 
-plugins/uzuri
-plugins/uzuri/*
-plugins/uzuri/*/*
+# Compiled
+*.coffee.js
+*.less.css
 
-repo
+# Compressed
+*.c.js
+*.c.css
