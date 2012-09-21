@@ -27,6 +27,11 @@ def plugin(cls):
     def get(cls):
         return manager.get_instance(cls)
     cls.get = get.__get__(cls)
+
+    def new(cls, *args, **kwargs):
+        return manager.instantiate(cls, *args, **kwargs)
+    cls.new = new.__get__(cls)
+
     return cls
 
 
@@ -38,17 +43,26 @@ def _check_plugin(cls):
 def interface(cls):
     def get(cls):
         return manager.get_instance(manager.get_implementations(cls)[0])
+    cls.get = get.__get__(cls)
+    
     def get_all(cls):
         return [manager.get_instance(x) for x in manager.get_implementations(cls)]
+    cls.get_all = get_all.__get__(cls)
+    
     def get_class(cls):
         return manager.get_implementations(cls)[0]
+    cls.get_class = get_class.__get__(cls)
+    
     def get_classes(cls):
         return manager.get_implementations(cls)
-    manager.register_interface(cls)
-    cls.get = get.__get__(cls)
-    cls.get_all = get_all.__get__(cls)
-    cls.get_class = get_class.__get__(cls)
     cls.get_classes = get_classes.__get__(cls)
+    
+    def get_instances(cls):
+        return manager.get_instances(cls)
+    cls.get_instances = get_instances.__get__(cls)
+    
+    manager.register_interface(cls)
+    
     return cls
 
 

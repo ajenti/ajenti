@@ -10,6 +10,7 @@ class PluginLoadError (Exception):
 class PluginCrashed (PluginLoadError):
     def __init__(self, e):
         self.e = e
+        self.traceback = traceback.format_exc()
 
     def __str__(self):
         return 'crashed: %s' % self.e
@@ -49,7 +50,7 @@ class PluginDependency (Dependency):
         self.plugin_name = plugin_name
 
     def satisfied(self):
-        pass
+        return self.plugin_name in manager.get_all().keys()
 
 
 class PluginManager:
@@ -66,17 +67,29 @@ class PluginManager:
         setattr(iface, '__ajenti_interface', True)
 
     def register_implementation(self, impl):
+        impl._implements = []
         for cls in impl.mro():
             if hasattr(cls, '__ajenti_interface'):
                 self.__classes.setdefault(cls, []).append(impl)
+                impl._implements.append(cls)
 
     def get_implementations(self, iface):
         return self.__classes.setdefault(iface, [])
 
+    def get_instances(self, cls):
+        return self.__instances.setdefault(cls, [])
+
     def get_instance(self, cls):
         if not cls in self.__instances:
-            self.__instances[cls] = cls()
-        return self.__instances[cls]
+            return self.instantiate(cls)
+        return self.__instances[cls][0]
+
+    def instantiate(self, cls, *args, **kwargs):
+        instance = cls(*args, **kwargs)
+        for iface in cls._implements + [cls]:
+            self.__instances.setdefault(iface, []).append(instance)
+        return instance
+
 
     # Plugin loader
     def get_all(self):
@@ -86,7 +99,7 @@ class PluginManager:
         path = os.path.split(__file__)[0]
         for item in os.listdir(path):
             if not '.' in item:
-                self.load(item)
+                self.load_recursive(item)
 
     def get_plugins_root(self):
         return os.path.split(__file__)[0]
@@ -98,15 +111,16 @@ class PluginManager:
         return None
 
     def load_recursive(self, name):
-        path = self.resolve_path(name)
         while True:
             try:
-                self.load(name, path)
+                self.load(name)
+                return 
             except PluginDependency.Unsatisfied, e:
                 try:
-                    self.load_recursive(e.plugin_name)
+                    logging.debug('Preloading plugin dependency: %s' % e.dependency.plugin_name)
+                    self.load_recursive(e.dependency.plugin_name)
                 except:
-                    raise e
+                    raise
 
     def load(self, name):
         """
@@ -138,10 +152,11 @@ class PluginManager:
                 info.init()
             except Exception, e:
                 raise PluginCrashed(e)
-        except PluginDependency:
+        except PluginDependency.Unsatisfied, e:
             raise
         except PluginLoadError, e:
             logging.warn(' *** Plugin crashed: %s' % e)
+            print e.traceback
             info.crash = e
 
 

@@ -4,7 +4,9 @@ import json
 from ajenti.api import *
 from ajenti.api.http import *
 from ajenti.plugins import manager
-from ajenti.ui import UI, UIElement
+from ajenti.ui import *
+
+from api import SectionPlugin
 
 
 @plugin
@@ -21,9 +23,12 @@ class MainSocket (BasePlugin, SocketPlugin):
 	name = '/stream'
 
 	def on_connect(self, session):
-		ui = UI()
-		session.data['ui'] = ui
-		ui.root = ui.create('main.page')
+		if not 'ui' in session.data:
+			ui = UI()
+			session.data['ui'] = ui
+			ui.root = MainPage()
+			ui.root.append(SectionsRoot())
+
 		self.send_ui(session)
 
 	def on_message(self, session, message):
@@ -35,5 +40,16 @@ class MainSocket (BasePlugin, SocketPlugin):
 
 
 @plugin
-class MainPageElement (UIElement):
-	id = 'main.page'
+class MainPage (UIElement):
+	id = 'main:page'
+
+
+@plugin
+class SectionsRoot (UIElement):
+	id = 'main:sections_root'
+
+	def init(self):
+		for cls in SectionPlugin.get_classes():
+			cat = cls.new()
+			self.append(cat)
+

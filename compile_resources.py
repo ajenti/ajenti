@@ -4,6 +4,8 @@ import shutil
 import glob
 import os
 import re
+import sys
+
 
 def compile_coffeescript(inpath):
 	outpath = '%s.js' % inpath
@@ -25,11 +27,15 @@ compilers = {
 
 def compress_js(inpath):
 	outpath = os.path.splitext(inpath)[0] + '.c.js'
+	if not do_compress:
+		return shutil.copy(inpath, outpath)
 	print ' - YUI JS:\t%s -> %s' % (inpath, outpath)
 	subprocess.check_output('yui-compressor --nomunge --disable-optimizations -o "%s" "%s"' % (outpath, inpath), shell=True)
 
 def compress_css(inpath):
 	outpath = os.path.splitext(inpath)[0] + '.c.css'
+	if not do_compress:
+		return shutil.copy(inpath, outpath)
 	print ' - YUI CSS:\t%s -> %s' % (inpath, outpath)
 	subprocess.check_output('yui-compressor -o "%s" "%s"' % (outpath, inpath), shell=True)
 
@@ -58,6 +64,10 @@ def compress(file_path):
 		if re.match(pattern, file_path):
 			compressors[pattern](file_path)
 
+
+do_compress = True
+if len(sys.argv) > 1 and sys.argv[1] == 'nocompress':
+	do_compress = False
 
 
 traverse(compile)

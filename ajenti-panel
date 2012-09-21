@@ -62,7 +62,7 @@ if __name__ == '__main__':
 
     ajenti.config = json.loads(open(config_file).read())
     ajenti.init()
-    ajenti.log.init()
+    ajenti.log.init(log_level)
 
     ###check_uid()
     

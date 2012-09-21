@@ -3,9 +3,8 @@ import time
 import Cookie
 import random
 
-from ajenti.api import plugin
+from ajenti.api import *
 from ajenti.http import HttpHandler
-
 
 
 class Session:
