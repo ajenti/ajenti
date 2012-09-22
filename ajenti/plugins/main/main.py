@@ -1,5 +1,6 @@
 import os
 import json
+import gevent
 
 from ajenti.api import *
 from ajenti.api.http import *
@@ -22,29 +23,33 @@ class MainServer (BasePlugin, HttpPlugin):
 class MainSocket (BasePlugin, SocketPlugin):
 	name = '/stream'
 
-	def on_connect(self, session):
-		if not 'ui' in session.data:
+	def on_connect(self):
+		if not 'ui' in self.socket.session.data:
 			ui = UI()
-			session.data['ui'] = ui
+			self.socket.session.data['ui'] = ui
 			ui.root = MainPage(ui)
 			ui.root.append(SectionsRoot(ui))
 
-			def __publish():
-				self.send_ui(ui)
-			ui.on_new_updates = __publish
+		self.ui = self.socket.session.data['ui']
+		self.send_ui()
+		self.spawn(self.ui_watcher)
 
-		self.send_ui(session.data['ui'])
-
-	def on_message(self, session, message):
-		ui = session.data['ui']
+	def on_message(self, message):
 		if message['type'] == 'ui_update':
 			for update in message['content']:
 				if update['type'] == 'event':
-					ui.dispatch_event(update['_'], update['event'], update['params'])
+					self.ui.dispatch_event(update['id'], update['event'], update['params'])
 
-	def send_ui(self, ui):
-		data = json.dumps(ui.render())
+	def send_ui(self):
+		data = json.dumps(self.ui.render())
 		self.emit('ui', data)
+
+	def ui_watcher(self):
+		while True:
+			updates = self.ui.get_updates()
+			if len(updates) > 0:
+				self.send_ui()
+			gevent.sleep(0.2)
 
 
 @plugin

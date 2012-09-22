@@ -11,22 +11,16 @@ from ajenti.plugins.main.api import SectionPlugin
 @plugin
 class Dash (SectionPlugin): 
 	def init(self):
-		self.counter = 0
-
 		self.title = 'Dashboard'
-		self.l = Label(self.ui, text = '0')
-		self.append(self.l)
 
-		self.b = Button(self.ui, text='test')
-		self.b.on('click', self.on_button)
-		self.append(self.b)
-
-		self.append(Button(self.ui, text="Normal", style='normal'))
-		self.append(Button(self.ui, text="Orange", style='orange'))
-		self.append(Button(self.ui, text="Green", style='green'))
+		self.append(self.ui.inflate('dashboard:dash'))
+		self.label = self.find('label')
+		self.button = self.find('button')
+		self.counter = 0
+		self.button.on('click', self.on_button)
 
 	def on_button(self):
 		self.counter += 1
-		self.l.text = str(self.counter)
-		self.l.publish()
+		self.label.text = str(self.counter)
+		self.label.publish()
 

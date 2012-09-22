@@ -37,22 +37,22 @@ class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
 
     def recv_connect(self):
         self.socket.session = self.request.session
-        self.on_connect(self.socket.session)
+        self.on_connect()
 
     def recv_disconnect(self):
-        self.on_disconnect(self.socket.session)
+        self.on_disconnect()
         self.disconnect(silent=True)
 
     def recv_message(self, message):
         self.socket.session.touch()
-        self.on_message(self.socket.session, json.loads(message))
+        self.on_message(json.loads(message))
 
-    def on_connect(self, session):
+    def on_connect(self):
         pass
 
-    def on_disconnect(self, session):
+    def on_disconnect(self):
         pass
 
-    def on_message(self, session, message):
+    def on_message(self, message):
         pass
 

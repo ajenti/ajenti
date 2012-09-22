@@ -1,7 +1,12 @@
-<xml>
-	<button id="increment" text="Increment" />
-	
-	<button text="Normal" />
-	<button text="Orange" style="orange" />
-	<button text="Green" style="green" />
-</xml>
+<vc>
+	<hc>
+		<label id="label" text="0" />
+		<button id="button" text="Increment" />
+	</hc>
+
+	<hc>
+		<button text="Normal" />
+		<button text="Orange" style="orange" />
+		<button text="Green" style="green" />
+	</hc>
+</vc>

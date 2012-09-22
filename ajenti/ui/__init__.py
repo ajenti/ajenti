@@ -3,147 +3,40 @@ import gevent
 
 from ajenti.api import *
 
-
-class UIProperty (object):
-	def __init__(self, name, value):
-		self.dirty = False
-		self.name = name
-		self.value = value
-
-	def clone(self):
-		return UIProperty(self.name, self.value)
-
-	def get(self):
-		return self.value
-
-	def set(self, value):
-		self.dirty = self.value != value
-		self.value = value
-
-
-@interface
-class UIElement (object):
-	typeid = None
-	__last_id = 0
-
-	@classmethod
-	def __generate_id(cls):
-		cls.__last_id += 1
-		return cls.__last_id
-
-	def __init__(self, ui, typeid=None, **kwargs):
-		self.ui = ui
-
-		if typeid is not None:
-			self.typeid = typeid
-		
-		self.id = UIElement.__generate_id()
-
-		if not hasattr(self, '_properties'):
-			self._properties = []
-		
-		self.children = []
-		
-		self.properties = {}
-		for prop in self._properties:
-			self.properties[prop.name] = prop.clone()
-		for key in kwargs:
-			self.properties[key].set(kwargs[key])
-		
-		self.events = {}
-		self.init()
-
-	def init(self):
-		pass
-
-	def find(self, id):
-		if self.id == id:
-			return self
-		for child in self.children:
-			found = child.find(id)
-			if found:
-				return found
-
-	def render(self):
-		result = {
-			'id': self.id,
-			'typeid': self.typeid,
-			'events': self.events.keys(),
-			'children': [c.render() for c in self.children],
-		}
-		for prop in self.properties.values():
-			result[prop.name] = prop.value
-		return result
-
-	def on(self, event, handler):
-		self.events[event] = handler
-
-	def publish(self):
-		self.ui.queue_update()
-
-	def event(self, event, params=None):
-		if event in self.events:
-			self.events[event](**(params or {}))
-
-	def append(self, child):
-		self.children.append(child)
-
-	def remove(self, child):
-		self.children.remove(child)
+from inflater import Inflater
+from element import p, UIElement, UIProperty
 
 
 class UI (object):
-	def __init__(self):
-		self.pending_updates = 0
-		self.on_new_updates = lambda x: None
+    def __init__(self):
+        self.pending_updates = 0
+        self.inflater = Inflater(self)
 
-	@staticmethod
-	def create(id, *args, **kwargs):
-		for cls in UIElement.get_classes():
-			if cls.id == id:
-				return cls(*args, **kwargs)
-		return UIElement(id=id, *args, **kwargs)
+    def create(self, typeid, *args, **kwargs):
+        for cls in UIElement.get_classes():
+            if cls.typeid == typeid:
+                return cls(self, *args, **kwargs)
+        return UIElement(self, typeid=typeid, *args, **kwargs)
 
-	def render(self):
-		return self.root.render()
+    def inflate(self, layout):
+        return self.inflater.inflate(layout)
 
-	def find(self, id):
-		return self.root.find(id)
+    def render(self):
+        return self.root.render()
 
-	def dispatch_event(self, id, event, params=None):
-		self.find(id).event(event, params)
+    def find(self, id):
+        return self.root.find(id)
 
-	def queue_update(self):
-		self.pending_updates += 1
-		gevent.spawn(self.__worker)
+    def dispatch_event(self, id, event, params=None):
+        self.find(id).event(event, params)
 
-	def send_updates(self):
-		self.on_new_updates()
-		self.pending_updates = 0
+    def queue_update(self):
+        self.pending_updates += 1
 
-	def __worker(self):
-		update_count = self.pending_updates
-		gevent.sleep(0.2)
-		if update_count == self.pending_updates: # No new updates
-			self.send_updates()
-
-
-def p(prop, default=None):
-	def decorator(cls):
-		prop_obj = UIProperty(prop, value=default)
-		if not hasattr(cls, '_properties'):
-			cls._properties = []
-		cls._properties.append(prop_obj)
-
-		def get(self):
-			return self.properties[prop].get()
-
-		def set(self, value):
-			return self.properties[prop].set(value)
-
-		setattr(cls, prop, property(get, set))
-		return cls
-	return decorator
+    def get_updates(self):
+        updates = [1] * self.pending_updates # TODO! 
+        self.pending_updates = 0
+        return updates
 
 
 __all__ = ['UI', 'UIElement', 'p']

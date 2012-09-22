@@ -66,8 +66,9 @@ window.Controls = { }
 
 class window.Control
     constructor: (@ui, @properties, @children) ->
-        @_ = @properties._
+        @id = @properties.id
         @childContainer = null
+        @childWrappers = {}
         @dom = null
         @createDom()
         for child in @children
@@ -77,8 +78,13 @@ class window.Control
     createDom: () ->
         ""
 
+    wrapChild: (child) ->
+        return child.dom
+
     append: (child) ->
-        @childContainer.append(child.dom)
+        wrapper = @wrapChild(child)
+        @childWrappers[child.id] = wrapper
+        @childContainer.append(wrapper)
 
     remove: (child) ->
         child.remove()
