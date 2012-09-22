@@ -26,10 +26,14 @@ class MainSocket (BasePlugin, SocketPlugin):
 		if not 'ui' in session.data:
 			ui = UI()
 			session.data['ui'] = ui
-			ui.root = MainPage()
-			ui.root.append(SectionsRoot())
+			ui.root = MainPage(ui)
+			ui.root.append(SectionsRoot(ui))
 
-		self.send_ui(session)
+			def __publish():
+				self.send_ui(ui)
+			ui.on_new_updates = __publish
+
+		self.send_ui(session.data['ui'])
 
 	def on_message(self, session, message):
 		ui = session.data['ui']
@@ -38,8 +42,8 @@ class MainSocket (BasePlugin, SocketPlugin):
 				if update['type'] == 'event':
 					ui.dispatch_event(update['_'], update['event'], update['params'])
 
-	def send_ui(self, session):
-		data = json.dumps(session.data['ui'].render())
+	def send_ui(self, ui):
+		data = json.dumps(ui.render())
 		self.emit('ui', data)
 
 
@@ -54,6 +58,6 @@ class SectionsRoot (UIElement):
 
 	def init(self):
 		for cls in SectionPlugin.get_classes():
-			cat = cls.new()
+			cat = cls.new(self.ui)
 			self.append(cat)
 

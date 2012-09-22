@@ -1,4 +1,5 @@
 import random
+import gevent
 
 from ajenti.api import *
 
@@ -13,8 +14,8 @@ class UIProperty (object):
 		return self.value
 
 	def set(self, value):
+		self.dirty = self.value != value
 		self.value = value
-		self.dirty = True
 
 
 @interface
@@ -27,18 +28,26 @@ class UIElement (object):
 		cls.__last_id += 1
 		return cls.__last_id
 
-	def __init__(self, id=None, **kwargs):
+	def __init__(self, ui, id=None, **kwargs):
+		self.ui = ui
+
 		if id is not None:
 			self.id = id
+		
 		self._ = UIElement.__generate_id()
+
 		if not hasattr(self, '_properties'):
 			self._properties = []
+		
 		self.children = []
+		
 		self.properties = {}
 		for prop in self._properties:
 			self.properties[prop.name] = prop
 		for key in kwargs:
 			self.properties[key].set(kwargs[key])
+		
+		self.events = {}
 		self.init()
 
 	def init(self):
@@ -56,14 +65,22 @@ class UIElement (object):
 		result = {
 			'_': self._,
 			'id': self.id,
+			'events': self.events.keys(),
 			'children': [c.render() for c in self.children],
 		}
 		for prop in self.properties.values():
 			result[prop.name] = prop.value
 		return result
 
+	def on(self, event, handler):
+		self.events[event] = handler
+
+	def publish(self):
+		self.ui.queue_update()
+
 	def event(self, event, params=None):
-		print self, event, params
+		if event in self.events:
+			self.events[event](**(params or {}))
 
 	def append(self, child):
 		self.children.append(child)
@@ -74,7 +91,8 @@ class UIElement (object):
 
 class UI (object):
 	def __init__(self):
-		pass
+		self.pending_updates = 0
+		self.on_new_updates = lambda x: None
 
 	@staticmethod
 	def create(id, *args, **kwargs):
@@ -91,6 +109,20 @@ class UI (object):
 
 	def dispatch_event(self, _, event, params=None):
 		self.find(_).event(event, params)
+
+	def queue_update(self):
+		self.pending_updates += 1
+		gevent.spawn(self.__worker)
+
+	def send_updates(self):
+		self.on_new_updates()
+		self.pending_updates = 0
+
+	def __worker(self):
+		update_count = self.pending_updates
+		gevent.sleep(0.2)
+		if update_count == self.pending_updates: # No new updates
+			self.send_updates()
 
 
 def p(prop, default=None):
