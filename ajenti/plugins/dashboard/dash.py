@@ -14,3 +14,5 @@ class Dash (SectionPlugin):
 		self.title = 'Dashboard'
 		l = Label(text = '123')
 		self.append(l)
+
+		self.append(Button(text='test'))

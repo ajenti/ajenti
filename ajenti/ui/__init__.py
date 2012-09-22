@@ -1,3 +1,5 @@
+import random
+
 from ajenti.api import *
 
 
@@ -18,10 +20,17 @@ class UIProperty (object):
 @interface
 class UIElement (object):
 	id = None
+	__last_id = 0
+
+	@classmethod
+	def __generate_id(cls):
+		cls.__last_id += 1
+		return cls.__last_id
 
 	def __init__(self, id=None, **kwargs):
 		if id is not None:
 			self.id = id
+		self._ = UIElement.__generate_id()
 		if not hasattr(self, '_properties'):
 			self._properties = []
 		self.children = []
@@ -35,14 +44,26 @@ class UIElement (object):
 	def init(self):
 		pass
 
+	def find(self, _):
+		if self._ == _:
+			return self
+		for child in self.children:
+			found = child.find(_)
+			if found:
+				return found
+
 	def render(self):
 		result = {
+			'_': self._,
 			'id': self.id,
 			'children': [c.render() for c in self.children],
 		}
 		for prop in self.properties.values():
 			result[prop.name] = prop.value
 		return result
+
+	def event(self, event, params=None):
+		print self, event, params
 
 	def append(self, child):
 		self.children.append(child)
@@ -64,6 +85,12 @@ class UI (object):
 
 	def render(self):
 		return self.root.render()
+
+	def find(self, _):
+		return self.root.find(_)
+
+	def dispatch_event(self, _, event, params=None):
+		self.find(_).event(event, params)
 
 
 def p(prop, default=None):

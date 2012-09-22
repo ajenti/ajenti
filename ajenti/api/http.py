@@ -1,4 +1,5 @@
 import re
+import json
 from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 
@@ -44,7 +45,7 @@ class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
 
     def recv_message(self, message):
         self.socket.session.touch()
-        self.on_message(self.socket.session, message)
+        self.on_message(self.socket.session, json.loads(message))
 
     def on_connect(self, session):
         pass

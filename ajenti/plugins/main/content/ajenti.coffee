@@ -2,60 +2,86 @@ window.WEB_SOCKET_SWF_LOCATION = '/static/main/WebSocketMain.swf'
 
 
 class Stream 
-	constructor: () ->
+    constructor: () ->
 
-	start: () ->
-		@socket = io.connect('/stream')
-		@socket.on 'ui', (ui) ->
-			ui = JSON.parse(ui)
-			console.log ui
-			UI.replace(UI.inflate(ui))
+    start: () ->
+        @socket = io.connect('/stream')
+        @socket.on 'ui', (ui) ->
+            ui = JSON.parse(ui)
+            console.log ui
+            UI.replace(UI.inflate(ui))
+
+    send: (message) ->
+        @socket.send JSON.stringify(message)
+    
+    emit_ui_update: (updates) ->
+        @send(type: 'ui_update', content: updates)
 
 
 class UIManager
-	constructor: () ->
-		@ui = null
+    constructor: (@stream) ->
+        @ui = null
+        @pendingUpdates = []
 
-	inflate: (json) ->
-		children = []
-		for child in json.children
-			do (child) =>
-				children.push @inflate(child)
-		id = json.id.replace(':', '__')
-		cls = Controls[id]
-		return new cls(json, children)
+    inflate: (json) ->
+        children = []
+        for child in json.children
+            do (child) =>
+                children.push @inflate(child)
+        id = json.id.replace(':', '__')
+        cls = Controls[id]
+        return new cls(this, json, children)
 
-	replace: (ui) ->
-		@ui = ui
-		$('body').empty().append(@ui.dom)
+    replace: (ui) ->
+        @ui = ui
+        $('body').empty().append(@ui.dom)
+
+    queueUpdate: (update) ->
+        @pendingUpdates.push update
+
+    sendUpdates: () ->
+        @stream.emit_ui_update @pendingUpdates
+        @pendingUpdates = []
+
+    event: (control, event, params) ->
+        update = 
+            type: 'event'
+            _: control._,
+            event: event,
+            params: params ? null
+
+        @queueUpdate update
+        @sendUpdates()
 
 
 window.Stream = new Stream()
 window.Stream.start()
 
-window.UI = new UIManager()
+window.UI = new UIManager(window.Stream)
 
 
 window.Controls = { }
 
 
 class window.Control
-	constructor: (@properties, @children) ->
-		@childContainer = null
-		@dom = null
-		console.log @properties, @children
-		@createDom()
-		for child in @children
-			do (child) =>
-				@append(child)
-		console.log this
+    constructor: (@ui, @properties, @children) ->
+        @_ = @properties._
+        @childContainer = null
+        @dom = null
+        @createDom()
+        for child in @children
+            do (child) =>
+                @append(child)
 
-	createDom: () ->
-		""
+    createDom: () ->
+        ""
 
-	append: (child) ->
-		@childContainer.append(child.dom)
+    append: (child) ->
+        @childContainer.append(child.dom)
 
-	remove: (child) ->
-		child.remove()
+    remove: (child) ->
+        child.remove()
+
+    event: (event, params) ->
+        @ui.event(this, event, params)
 

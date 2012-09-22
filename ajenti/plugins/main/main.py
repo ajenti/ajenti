@@ -32,7 +32,11 @@ class MainSocket (BasePlugin, SocketPlugin):
 		self.send_ui(session)
 
 	def on_message(self, session, message):
-		pass
+		ui = session.data['ui']
+		if message['type'] == 'ui_update':
+			for update in message['content']:
+				if update['type'] == 'event':
+					ui.dispatch_event(update['_'], update['event'], update['params'])
 
 	def send_ui(self, session):
 		data = json.dumps(session.data['ui'].render())

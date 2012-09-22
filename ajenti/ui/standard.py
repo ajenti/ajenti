@@ -6,3 +6,9 @@ from ajenti.ui import p, UIElement
 @plugin
 class Label (UIElement):
 	id = 'label'
+
+
+@p('text', default='')
+@plugin
+class Button (UIElement):
+	id = 'button'	
