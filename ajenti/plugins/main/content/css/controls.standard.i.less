@@ -1,0 +1,67 @@
+.control {
+	display: block;
+	overflow: hidden;
+
+	&.hc {
+		&> div {
+			float: left;
+			padding: 5px;
+		}
+	}
+
+	&.label {
+		font-size: @fontSize;
+		text-decoration: none;
+		color: @controlText;
+		line-height: @controlHeight;
+		.size(@controlHeight, auto);
+		display: inline-block;
+	}
+
+	&.button {
+		.size(@controlHeight - 2px, @controlWidth);
+		line-height: @controlHeight;
+		padding: 1px 0 1px;
+		
+		font-size: @fontSize;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		color: @controlText;
+		text-shadow: @controlTextShadowInset;
+
+		.border-radius(3px);
+		.box-shadow(@controlShadowHighlight);
+
+		position: relative;
+		top: -1px;
+
+		&.style-normal {
+			.button-style(@controlGradient1, @controlGradient2);
+		}
+
+		&.style-orange {
+			.button-style(@controlGradientOrange1, @controlGradientOrange2);
+		}
+
+		&.style-green {
+			.button-style(@controlGradientGreen1, @controlGradientGreen2);
+		}
+
+		&:active {
+			padding: 2px 0 0;
+			.box-shadow(@controlShadowHighlightPressed);
+		}
+	}
+
+	&.textbox {
+		font-size: @fontSize;
+		color: @controlText;
+		
+		border: 1px solid #ccc;
+		padding: 0 4px;
+		.border-radius(3px);
+		.size(@controlHeight - 2px, @controlWidth - 10px);
+		.box-shadow(@controlInputShadowHighlight);
+	}
+}

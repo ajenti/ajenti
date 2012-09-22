@@ -1,7 +1,15 @@
 class window.Controls.main__page extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div><div class="--child-container"></div></div>
+			<div class="control main-page"> 
+				<div class="header">
+				</div>
+				<div class="content">
+					<div class="--child-container"></div>
+				</div>
+				<div class="footer">
+				</div>
+			</div>
 		""")
 		@childContainer = @dom.find('.--child-container')
 
@@ -9,10 +17,13 @@ class window.Controls.main__page extends window.Control
 class window.Controls.main__sections_root extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div>
-				<h1>Sections!</h2>
-				<div class="--tabs-container"></div>
-				<div class="--child-container"></div>
+			<div class="control main-sections-root">
+				<div class="sidebar">
+					<div class="--tabs-container"></div>
+				</div>
+				<div class="main">
+					<div class="--child-container"></div>
+				</div>
 			</div>
 		""")
 		@tabsContainer = @dom.find('.--tabs-container')

@@ -14,19 +14,8 @@ body {
     padding: 0;
     margin: 0;
 
-    > #page {
-	    height: auto !important;
-	    margin: auto;
-	    min-height: 100%;
-	    overflow: hidden;
-	    position: relative;
-
-	    > .container {
-	    	margin: auto;
-	    	width: 960px;
-	    	background: white;
-	    	overflow: hidden;
-	    }
+    > .page {
+	    height: 100%;
 	}
 }
 
@@ -44,56 +33,7 @@ body {
 	}
 }
 
-.control {
-	display: block;
-	overflow: hidden;
 
-	&.hc {
-		&> div {
-			float: left;
-			padding: 5px;
-		}
-	}
 
-	&.label {
-		font-size: @fontSize;
-		text-decoration: none;
-		color: @controlText;
-		line-height: @controlHeight;
-		.size(@controlHeight, auto);
-		display: inline-block;
-	}
-
-	&.button {
-		.size(@controlHeight - 2px, @controlWidth);
-		line-height: @controlHeight;
-		padding: 1px 0 1px;
-		
-		font-size: @fontSize;
-		font-weight: bold;
-		text-align: center;
-		text-decoration: none;
-		color: @controlText;
-		text-shadow: @controlTextShadowInset;
-
-		.border-radius(3px);
-		.box-shadow(@controlShadowHighlight);
-
-		&.style-normal {
-			.button-style(@controlGradient1, @controlGradient2);
-		}
-
-		&.style-orange {
-			.button-style(@controlGradientOrange1, @controlGradientOrange2);
-		}
-
-		&.style-green {
-			.button-style(@controlGradientGreen1, @controlGradientGreen2);
-		}
-
-		&:active {
-			padding: 2px 0 0;
-			.box-shadow(@controlShadowHighlightPressed);
-		}
-	}
-}
+@import "controls.index.i.less";
+@import "controls.standard.i.less";

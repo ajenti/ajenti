@@ -1,0 +1,53 @@
+.control {
+	&.main-page {
+		min-height: 100%;
+		position: relative;
+
+		&>.header {
+			#gradient > .vertical(@headerGradient1, @headerGradient2);
+			height: 50px;
+		}
+
+		&>.content {
+		    min-height: 100%;
+		    height: auto !important;
+		    overflow: hidden;
+		    position: relative;
+
+			margin: 0 auto 70px;
+
+			padding: 10px 0;
+	    	width: 960px;
+		}
+
+		&>.footer {
+			background: @footerBackground;
+			border-top: 1px solid darken(@footerBackground, 10%);
+			height: 60px;
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+		}
+	}
+
+	&.main-sections-root {
+		padding: 0 0 2px;
+
+		&>* {
+			background: white;
+			.border-radius(5px);
+			.box-shadow(@mainPaneShadow);
+		}
+
+		&>.sidebar {
+			float: left;
+			width: 250px;
+		}
+
+		&>.main {
+			margin: 0 0 0 10px;
+			float: left;
+			width: 700px;
+		}
+	}
+}
