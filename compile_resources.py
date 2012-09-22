@@ -18,10 +18,12 @@ def compile_coffeescript(inpath):
 def compile_less(inpath):
 	outpath = '%s.css' % inpath
 	print ' - LESS:\t%s -> %s' % (inpath, outpath)
+	print subprocess.check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
+	#print subprocess.check_output('recess --compile "%s" > "%s"' % (inpath, outpath), shell=True)
 
 compilers = {
 	r'.+\.coffee$': compile_coffeescript,
-	r'.+\.less$': compile_less,
+	r'.+[^i]\.less$': compile_less,
 }
 
 
@@ -40,8 +42,8 @@ def compress_css(inpath):
 	subprocess.check_output('yui-compressor -o "%s" "%s"' % (outpath, inpath), shell=True)
 
 compressors = {
-	r'.+[^\.][^mc]\.js$': compress_js,
-	r'.+[^\.][^mc]\.css$': compress_css,
+	r'.+[^\.][^mci]\.js$': compress_js,
+	r'.+[^\.][^mci]\.css$': compress_css,
 }
 
 
@@ -50,9 +52,10 @@ def traverse(fx):
 	for plugin in os.listdir(plugins_path):
 		path = os.path.join(plugins_path, plugin, 'content')
 		if os.path.exists(path):
-			for name in os.listdir(path):
-				file_path = os.path.join(path, name)
-				fx(file_path)
+			for (dp,dn,fn) in os.walk(path):
+				for name in fn:
+					file_path = os.path.join(dp, name)
+					fx(file_path)
 				
 def compile(file_path):
 	for pattern in compilers:

@@ -16,9 +16,9 @@ all:
 
 build:
 	echo version = \"$(VERSION)\" > ajenti/build.py
-	./compile_resources.py nocompress
+	./compile_resources.py 
 	
-run: build
+run: 
 	./ajenti-panel -v -c ./config.json
 
 doc:

@@ -10,6 +10,9 @@ class UIProperty (object):
 		self.name = name
 		self.value = value
 
+	def clone(self):
+		return UIProperty(self.name, self.value)
+
 	def get(self):
 		return self.value
 
@@ -20,7 +23,7 @@ class UIProperty (object):
 
 @interface
 class UIElement (object):
-	id = None
+	typeid = None
 	__last_id = 0
 
 	@classmethod
@@ -28,13 +31,13 @@ class UIElement (object):
 		cls.__last_id += 1
 		return cls.__last_id
 
-	def __init__(self, ui, id=None, **kwargs):
+	def __init__(self, ui, typeid=None, **kwargs):
 		self.ui = ui
 
-		if id is not None:
-			self.id = id
+		if typeid is not None:
+			self.typeid = typeid
 		
-		self._ = UIElement.__generate_id()
+		self.id = UIElement.__generate_id()
 
 		if not hasattr(self, '_properties'):
 			self._properties = []
@@ -43,7 +46,7 @@ class UIElement (object):
 		
 		self.properties = {}
 		for prop in self._properties:
-			self.properties[prop.name] = prop
+			self.properties[prop.name] = prop.clone()
 		for key in kwargs:
 			self.properties[key].set(kwargs[key])
 		
@@ -53,18 +56,18 @@ class UIElement (object):
 	def init(self):
 		pass
 
-	def find(self, _):
-		if self._ == _:
+	def find(self, id):
+		if self.id == id:
 			return self
 		for child in self.children:
-			found = child.find(_)
+			found = child.find(id)
 			if found:
 				return found
 
 	def render(self):
 		result = {
-			'_': self._,
 			'id': self.id,
+			'typeid': self.typeid,
 			'events': self.events.keys(),
 			'children': [c.render() for c in self.children],
 		}
@@ -104,11 +107,11 @@ class UI (object):
 	def render(self):
 		return self.root.render()
 
-	def find(self, _):
-		return self.root.find(_)
+	def find(self, id):
+		return self.root.find(id)
 
-	def dispatch_event(self, _, event, params=None):
-		self.find(_).event(event, params)
+	def dispatch_event(self, id, event, params=None):
+		self.find(id).event(event, params)
 
 	def queue_update(self):
 		self.pending_updates += 1

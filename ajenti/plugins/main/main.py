@@ -49,12 +49,12 @@ class MainSocket (BasePlugin, SocketPlugin):
 
 @plugin
 class MainPage (UIElement):
-	id = 'main:page'
+	typeid = 'main:page'
 
 
 @plugin
 class SectionsRoot (UIElement):
-	id = 'main:sections_root'
+	typeid = 'main:sections_root'
 
 	def init(self):
 		for cls in SectionPlugin.get_classes():

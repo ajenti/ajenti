@@ -1,0 +1,91 @@
+@import "reset.i.less";
+@import "mixins.i.less";
+@import "vars.i.less";
+
+html {
+    height: 100%;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    height: 100%;
+    background: #f0f0f0;
+    padding: 0;
+    margin: 0;
+
+    > #page {
+	    height: auto !important;
+	    margin: auto;
+	    min-height: 100%;
+	    overflow: hidden;
+	    position: relative;
+
+	    > .container {
+	    	margin: auto;
+	    	width: 960px;
+	    	background: white;
+	    	overflow: hidden;
+	    }
+	}
+}
+
+
+.button-style(@g1, @g2) {
+	#gradient > .vertical(@g1, @g2);
+	color: darken(@g2, 30%);
+
+	&:hover {
+		#gradient > .vertical(lighten(@g1, 2%), lighten(@g2, 2%));
+	}
+
+	&:active {
+		#gradient > .vertical(darken(@g1, 5%), darken(@g2, 5%));	
+	}
+}
+
+.control {
+	display: block;
+
+	&.label {
+		font-size: @fontSize;
+		text-decoration: none;
+		color: @controlText;
+		.size(@controlHeight, @controlWidth);
+		display: inline-block;
+	}
+
+	&.button {
+		.size(@controlHeight - 2px, @controlWidth);
+		line-height: @controlHeight;
+		padding: 1px 0 1px;
+		margin: 5px;
+		
+		font-size: @fontSize;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+		color: @controlText;
+		text-shadow: @controlTextShadowInset;
+
+		.border-radius(3px);
+		.box-shadow(@controlShadowHighlight);
+
+		&.style-normal {
+			.button-style(@controlGradient1, @controlGradient2);
+		}
+
+		&.style-orange {
+			.button-style(@controlGradientOrange1, @controlGradientOrange2);
+		}
+
+		&.style-green {
+			.button-style(@controlGradientGreen1, @controlGradientGreen2);
+		}
+
+		&:active {
+			padding: 2px 0 0;
+			.box-shadow(@controlShadowHighlightPressed);
+		}
+	}
+}

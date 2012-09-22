@@ -18,7 +18,11 @@ installation_uid = None
 """ Web server """
 server = None
 
-__all__ = [platform, platform_string, platform_unmapped, installation_uid, version, server, 'init']
+""" Debug mode """
+debug = False
+
+
+__all__ = [platform, platform_string, platform_unmapped, installation_uid, version, server, debug, 'init']
 
 
 import build

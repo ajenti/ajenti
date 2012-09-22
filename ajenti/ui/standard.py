@@ -5,10 +5,11 @@ from ajenti.ui import p, UIElement
 @p('text', default='')
 @plugin
 class Label (UIElement):
-	id = 'label'
+	typeid = 'label'
 
 
 @p('text', default='')
+@p('style', default='normal')
 @plugin
 class Button (UIElement):
-	id = 'button'	
+	typeid = 'button'	

@@ -1,6 +1,9 @@
 import os
 import re
+import time
+import subprocess
 
+import ajenti
 from ajenti.api import *
 from ajenti.api.http import *
 from ajenti.plugins import manager
@@ -8,8 +11,15 @@ from ajenti.plugins import manager
 
 @plugin
 class ContentServer (HttpPlugin):
+	last_query = 0
+
 	@url('/static/resources.(?P<type>.+)')
 	def handle_resources(self, context, type):
+		if ajenti.debug:
+			if time.time() - self.last_query > 5:
+				print subprocess.check_output('./compile_resources.py nocompress', shell=True)
+				ContentCompressor.get().compress()
+			self.last_query = time.time()
 		content = ContentCompressor.get().compressed[type]
 		types = {
             'css': 'text/css',
@@ -49,10 +59,11 @@ class ContentCompressor (object):
 			path = os.path.join(manager.resolve_path(plugin), 'content')
 			if not os.path.exists(path):
 				continue
-			for name in os.listdir(path):
-				for key in self.patterns:
-					if re.match(self.patterns[key], name):
-						self.files.setdefault(key, []).append(os.path.join(path, name))
+			for (dp, dn, fn) in os.walk(path):
+				for name in fn:
+					for key in self.patterns:
+						if re.match(self.patterns[key], name):
+							self.files.setdefault(key, []).append(os.path.join(dp, name))
 
 	def compress(self):
 		for key in self.patterns:

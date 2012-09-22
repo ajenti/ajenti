@@ -45,6 +45,7 @@ if __name__ == '__main__':
             sys.exit(0)
         elif o in ('-v',):
             log_level = logging.DEBUG
+            ajenti.debug = True
         elif o in ('-c', '--config'):
             if os.path.isfile(a):
                 config_file = a

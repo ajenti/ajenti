@@ -8,10 +8,11 @@ class Stream
         @socket = io.connect('/stream')
         @socket.on 'ui', (ui) ->
             ui = JSON.parse(ui)
-            console.log ui
+            console.log '<< ui', ui
             UI.replace(UI.inflate(ui))
 
     send: (message) ->
+        console.log '>>', message
         @socket.send JSON.stringify(message)
     
     emit_ui_update: (updates) ->
@@ -28,13 +29,13 @@ class UIManager
         for child in json.children
             do (child) =>
                 children.push @inflate(child)
-        id = json.id.replace(':', '__')
-        cls = Controls[id]
+        typeid = json.typeid.replace(':', '__')
+        cls = Controls[typeid]
         return new cls(this, json, children)
 
     replace: (ui) ->
         @ui = ui
-        $('body').empty().append(@ui.dom)
+        $('.root').empty().append(@ui.dom)
 
     queueUpdate: (update) ->
         @pendingUpdates.push update
@@ -46,7 +47,7 @@ class UIManager
     event: (control, event, params) ->
         update = 
             type: 'event'
-            _: control._,
+            id: control.id,
             event: event,
             params: params ? null
 

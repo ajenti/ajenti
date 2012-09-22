@@ -21,6 +21,10 @@ class Dash (SectionPlugin):
 		self.b.on('click', self.on_button)
 		self.append(self.b)
 
+		self.append(Button(self.ui, text="Normal", style='normal'))
+		self.append(Button(self.ui, text="Orange", style='orange'))
+		self.append(Button(self.ui, text="Green", style='green'))
+
 	def on_button(self):
 		self.counter += 1
 		self.l.text = str(self.counter)
