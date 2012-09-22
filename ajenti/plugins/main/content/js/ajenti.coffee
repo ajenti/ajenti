@@ -37,6 +37,21 @@ class UIManager
         @ui = ui
         $('.root').empty().append(@ui.dom)
 
+    extractUpdates: (control, target) ->
+        updates = control.extractUpdates()
+        if updates != null
+            target.push updates
+        for child in control.children
+            do (child) =>
+                @extractUpdates(child, target)
+
+    checkForUpdates: () ->
+        updates = []
+        @extractUpdates(@ui, updates)
+        for update in updates
+            do (update) =>
+                @queueUpdate(update)
+
     queueUpdate: (update) ->
         @pendingUpdates.push update
 
@@ -45,6 +60,8 @@ class UIManager
         @pendingUpdates = []
 
     event: (control, event, params) ->
+        @checkForUpdates()
+        
         update = 
             type: 'event'
             id: control.id,
@@ -66,7 +83,7 @@ window.Controls = { }
 
 class window.Control
     constructor: (@ui, @properties, @children) ->
-        @id = @properties.id
+        @id = @properties.id    
         @childContainer = null
         @childWrappers = {}
         @dom = null
@@ -78,9 +95,21 @@ class window.Control
     createDom: () ->
         ""
 
+    detectUpdates: () ->
+        return {}
+
     wrapChild: (child) ->
         return child.dom
 
+    extractUpdates: () ->
+        updates = @detectUpdates()
+        if $.isEmptyObject(updates)
+            return null
+        for k of updates
+            do (k) =>
+                @properties[k] = updates[k]
+        return type: 'update', id: @id, properties: updates
+        
     append: (child) ->
         wrapper = @wrapChild(child)
         @childWrappers[child.id] = wrapper

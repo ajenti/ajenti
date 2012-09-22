@@ -39,6 +39,11 @@ class MainSocket (BasePlugin, SocketPlugin):
 			for update in message['content']:
 				if update['type'] == 'event':
 					self.ui.dispatch_event(update['id'], update['event'], update['params'])
+				if update['type'] == 'update':
+					el = self.ui.find(update['id'])
+					for k, v in update['properties'].iteritems():
+						el.properties[k].set(v)
+						el.properties[k].dirty = False
 
 	def send_ui(self):
 		data = json.dumps(self.ui.render())

@@ -4,6 +4,18 @@
 		<button id="button" text="Increment" />
 	</hc>
 
+	<form id="form">
+		<hc>
+			<textbox id="text" />
+			<button id="submit" text="Submit" />
+		</hc>
+	</form>
+
+	<hc>
+		<label text="Form value: " />
+		<label id="flabel" text="---" />
+	</hc>
+
 	<hc>
 		<button text="Normal" />
 		<button text="Orange" style="orange" />
