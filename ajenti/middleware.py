@@ -3,8 +3,10 @@ import time
 import Cookie
 import random
 
+import ajenti
 from ajenti.api import *
 from ajenti.http import HttpHandler
+from ajenti.users import UserManager
 
 
 class Session:
@@ -60,6 +62,20 @@ class SessionMiddleware (HttpHandler):
         context.session.touch()
 
 
+@plugin
 class AuthenticationMiddleware (HttpHandler):
     def handle(self, context):
-        pass
+        if not hasattr(context.session, 'identity'):
+            if ajenti.config['authentication']:
+                context.session.identity = None
+            else:
+                context.session.identity = ajenti.config['users'].keys()[0]
+
+    def try_login(self, context, username, password):
+        if UserManager.get().check_password(username, password):
+            context.session.identity = username
+            return True
+        return False
+
+    def logout(self, context):
+        context.session.identity = None

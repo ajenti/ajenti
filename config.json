@@ -7,5 +7,11 @@
 		"enable": false,
 		"certificate_path": "",
 		"key_path": ""
+	},
+	"authentication": false,
+	"users": {
+		"root": {
+			"password": "123"
+		}
 	}
 }

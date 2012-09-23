@@ -30,14 +30,23 @@ class window.Controls.main__sections_root extends window.Control
 		@childContainer = @dom.find('.--child-container')
 
 	append: (child) ->
-		@tabsContainer.append("""<span>#{child.properties.title}</span>""")
+		tab = $("""
+			<a href="#" class="tab #{if child.properties.active then 'active' else ''}">
+				#{child.properties.title}
+			</a>
+		""")
+		tab.click (e) =>
+			@event('switch', id:child.id)
+			e.preventDefault()
+
+		@tabsContainer.append(tab)
 		super(child)
 
 
 class window.Controls.main__section extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="section">
+			<div class="section #{if @properties.active then 'active' else ''}">
 				<div class="--child-container"></div>
 			</div>
 		""")

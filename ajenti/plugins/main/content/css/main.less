@@ -20,9 +20,36 @@ body {
 }
 
 
+.page.auth {
+	.content {
+		background: white;
+		.border-radius(5px);
+		.box-shadow(@mainPaneShadow);
+		overflow: hidden;
+		margin: 50px auto;
+		width: 260px;
+		padding: 10px 20px;
+
+		.textbox {
+			width: 150px;
+		}
+
+		.button {
+			display: block;
+			float: right;
+			margin: 5px;
+		}
+
+		.l {
+			width: 80px;
+		}
+	}
+}
+
 .button-style(@g1, @g2) {
 	#gradient > .vertical(@g1, @g2);
 	color: darken(@g2, 30%);
+	border: none;
 
 	&:hover {
 		#gradient > .vertical(lighten(@g1, 2%), lighten(@g2, 2%));

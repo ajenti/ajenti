@@ -1,6 +1,7 @@
 import re
 import os
 import gzip
+import cgi
 from StringIO import StringIO
 from datetime import datetime
 
@@ -28,6 +29,18 @@ class HttpContext:
         self.headers = []
         self.response_ready = False
 
+        self.env.setdefault('QUERY_STRING', '')
+        if self.env['REQUEST_METHOD'].upper() == 'POST':
+            ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
+            if ctype.startswith('application/x-www-form-urlencoded') \
+               or ctype.startswith('multipart/form-data'):
+                self.query = cgi.FieldStorage(fp=self.env['wsgi.input'],
+                                       environ=self.env,
+                                       keep_blank_values=1)
+        else:
+            self.query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
+
+
     def add_header(self, key, value):
         self.headers += [(key, value)]
 
@@ -48,12 +61,20 @@ class HttpContext:
 
     def respond_server_error(self):
         self.respond('500 Server Error')
+        return 'Server Error'
 
     def respond_forbidden(self):
         self.respond('403 Forbidden')
+        return 'Forbidden'
 
     def respond_not_found(self):
         self.respond('404 Not Found')
+        return 'Not Found'
+
+    def redirect(self, url):
+        self.add_header('Location', url)
+        self.respond('302 Found')
+        return ''
 
     def gzip(self, content):
         io = StringIO()

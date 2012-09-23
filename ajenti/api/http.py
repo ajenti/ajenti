@@ -36,14 +36,23 @@ class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
         BaseNamespace.__init__(self, *args, **kwargs)
 
     def recv_connect(self):
+        if self.request.session.identity is None:
+            return 
+            
         self.socket.session = self.request.session
         self.on_connect()
 
     def recv_disconnect(self):
+        if self.request.session.identity is None:
+            return 
+            
         self.on_disconnect()
         self.disconnect(silent=True)
 
     def recv_message(self, message):
+        if self.request.session.identity is None:
+            return 
+            
         self.socket.session.touch()
         self.on_message(json.loads(message))
 

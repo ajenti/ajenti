@@ -1,24 +1,24 @@
 <vc>
-	<hc>
-		<label id="label" text="0" />
-		<button id="button" text="Increment" />
-	</hc>
+    <hc>
+        <label id="label" text="0" />
+        <button id="button" text="Increment" />
+    </hc>
 
-	<form id="form">
-		<hc>
-			<textbox id="text" />
-			<button id="submit" text="Submit" />
-		</hc>
-	</form>
+    <form id="form">
+        <hc>
+            <textbox id="text" />
+            <button id="submit" text="Submit" />
+        </hc>
+    </form>
 
-	<hc>
-		<label text="Form value: " />
-		<label id="flabel" text="---" />
-	</hc>
+    <hc>
+        <label text="Form value: " />
+        <label id="flabel" text="---" />
+    </hc>
 
-	<hc>
-		<button text="Normal" />
-		<button text="Orange" style="orange" />
-		<button text="Green" style="green" />
-	</hc>
+    <hc>
+        <button text="Normal" />
+        <button text="Orange" style="orange" />
+        <button text="Green" style="green" />
+    </hc>
 </vc>

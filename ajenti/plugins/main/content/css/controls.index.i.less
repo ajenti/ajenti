@@ -9,6 +9,7 @@
 		}
 
 		&>.content {
+			border-top: 1px solid white;
 		    min-height: 100%;
 		    height: auto !important;
 		    overflow: hidden;
@@ -33,21 +34,50 @@
 	&.main-sections-root {
 		padding: 0 0 2px;
 
-		&>* {
-			background: white;
-			.border-radius(5px);
-			.box-shadow(@mainPaneShadow);
-		}
-
 		&>.sidebar {
 			float: left;
-			width: 250px;
+			width: 150px;
+			font-size: @fontSize;
+			line-height: @fontSize + 10px;
+			font-weight: bold;
+			
+			.tab {
+				display: block;
+				text-decoration: none;
+				color: @controlText;
+				padding: 0 10px;
+				margin: 3px 0;
+				.border-radius(3px);
+
+				&:hover {
+					background: rgba(0,0,0,0.05);
+				}
+
+				&.active {
+					#gradient > .vertical(@sectionTabGradient1, @sectionTabGradient2);
+					color: white;
+					.box-shadow(@controlShadowHighlight);
+				}
+			}
 		}
 
 		&>.main {
+			background: white;
+			.border-radius(5px);
+			.box-shadow(@mainPaneShadow);
+			overflow: hidden;
+
 			margin: 0 0 0 10px;
 			float: left;
-			width: 700px;
+			width: 800px;
+
+			.section {
+				display: none;
+
+				&.active {
+					display: block;
+				}
+			}
 		}
 	}
 }
