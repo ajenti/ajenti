@@ -10,6 +10,9 @@ import json
 import ajenti
 import ajenti.log
 
+import reconfigure as rcfg
+from reconfigure.config import Reconfig
+
 
 def usage():
     print """
@@ -61,7 +64,12 @@ if __name__ == '__main__':
             # Try local config file
             config_file = os.path.join(sys.path[0], 'config.json')
 
-    ajenti.config = json.loads(open(config_file).read())
+    ajenti.config = Reconfig(
+        parser=rcfg.parsers.JsonParser(), 
+        builder=rcfg.ext.ajenti.Builder(), 
+        path=config_file
+    )
+    ajenti.config.load()
     ajenti.init()
     ajenti.log.init(log_level)
 

@@ -6,10 +6,10 @@ from passlib.hash import sha512_crypt
 @plugin
 class UserManager (object):
     def check_password(self, username, password):
-        if not username in ajenti.config['users']:
+        if not username in ajenti.config.tree.users:
             return False
         type = 'plain'
-        saved = ajenti.config['users'][username]['password']
+        saved = ajenti.config.tree.users[username].password
         if '|' in saved:
             type, saved = saved.split('|')
 

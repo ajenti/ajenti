@@ -20,26 +20,17 @@ def run():
     # Load plugins
     ajenti.plugins.manager.load_all()
 
-    # Setup webserver
-    if 'bind' in ajenti.config:
-        host = ajenti.config['bind']['host']
-        port = ajenti.config['bind']['port']
-    else:
-        host = port = None
-
-    logging.info('Listening on %s:%d' % (host, port))
-
     ssl = {}
-    if 'ssl' in ajenti.config:
-        if ajenti.config['ssl']['enable']:
-            ssl = {
-                'keyfile':  ajenti.config['ssl']['certificate_path'],
-                'certfile': ajenti.config['ssl']['key_path'],
-            }
+    if ajenti.config.tree.ssl.enable:
+        ssl = {
+            'keyfile':  ajenti.config.tree.ssl.certificate_path,
+            'certfile': ajenti.config.tree.ssl.key_path,
+        }
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     ajenti.server = SocketIOServer(
-        (host, port),
+        (ajenti.config.tree.http_binding.host, 
+         ajenti.config.tree.http_binding.port),
         application=HttpRoot(stack).dispatch,
         **ssl
     )

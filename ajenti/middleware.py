@@ -66,10 +66,10 @@ class SessionMiddleware (HttpHandler):
 class AuthenticationMiddleware (HttpHandler):
     def handle(self, context):
         if not hasattr(context.session, 'identity'):
-            if ajenti.config['authentication']:
+            if ajenti.config.tree.authentication:
                 context.session.identity = None
             else:
-                context.session.identity = ajenti.config['users'].keys()[0]
+                context.session.identity = ajenti.config.tree.users.keys()[0]
 
     def try_login(self, context, username, password):
         if UserManager.get().check_password(username, password):

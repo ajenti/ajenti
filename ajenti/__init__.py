@@ -29,6 +29,7 @@ import build
 import subprocess
 import os
 import platform
+import random
 
 
 def detect_version():
