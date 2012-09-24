@@ -1,0 +1,4 @@
+lxml
+python-daemon
+passlib
+gevent-socketio
