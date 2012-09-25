@@ -1,5 +1,5 @@
 <pad>
-    <vc>
+    <vc id="ajenti-config">
         <formgroup text="HTTP Server" id="http_binding">
             <vc>
                 <formline text="Host">

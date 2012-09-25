@@ -3,6 +3,7 @@ import gevent
 
 from ajenti.api import *
 
+import binder
 from inflater import Inflater
 from element import p, UIElement, UIProperty
 
@@ -39,4 +40,4 @@ class UI (object):
         return updates
 
 
-__all__ = ['UI', 'UIElement', 'p']
+__all__ = ['UI', 'UIElement', 'p', 'binder']
