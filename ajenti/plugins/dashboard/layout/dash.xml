@@ -4,12 +4,10 @@
         <button id="button" text="Increment" />
     </hc>
 
-    <form id="form">
-        <hc>
-            <textbox id="text" />
-            <button id="submit" text="Submit" />
-        </hc>
-    </form>
+    <hc>
+        <textbox id="text" />
+        <button id="submit" text="Submit" />
+    </hc>
 
     <hc>
         <label text="Form value: " />

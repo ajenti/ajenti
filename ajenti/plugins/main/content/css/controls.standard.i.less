@@ -1,6 +1,21 @@
+.control-inset {
+	.size(@controlHeight - 2px, @controlWidth2 - 10px);
+	.border-radius(3px);
+	.box-shadow(@controlInputShadowHighlight);
+	background: white;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: 1px solid white;
+}
+
 .control {
 	display: block;
 	overflow: hidden;
+
+	&.pad {
+		padding: 10px;
+	}
 
 	&.hc {
 		&> div {
@@ -9,8 +24,13 @@
 		}
 	}
 
+	&.vc {
+		&> div {
+			padding: 5px;
+		}
+	}
+
 	&.label {
-		font-size: @fontSize;
 		text-decoration: none;
 		color: @controlText;
 		line-height: @controlHeight;
@@ -23,12 +43,13 @@
 		line-height: @controlHeight;
 		padding: 1px 0 1px;
 		
-		font-size: @fontSize;
+		font-size: @fontSizeSmaller;
 		font-weight: bold;
 		text-align: center;
 		text-decoration: none;
 		color: @controlText;
 		text-shadow: @controlTextShadowInset;
+		text-transform: uppercase;
 
 		.border-radius(3px);
 		.box-shadow(@controlShadowHighlight);
@@ -55,13 +76,51 @@
 	}
 
 	&.textbox {
-		font-size: @fontSize;
 		color: @controlText;
 		
-		border: 1px solid #ccc;
+		//border: 1px solid #ccc;
 		padding: 0 4px;
-		.border-radius(3px);
-		.size(@controlHeight - 2px, @controlWidth - 10px);
-		.box-shadow(@controlInputShadowHighlight);
+		.control-inset();
+
+		&:focus, &:hover {
+			border: 1px solid #eee;
+		}
+	}
+
+	&.checkbox {
+		>.label {
+			float: left;
+		}
+
+		>input {
+			float: left;
+			.square(@controlHeight);
+		}
+	}
+
+	&.formline {
+		>div:first-child {
+			width: @controlWidth;
+			text-align: right;
+			padding-right: 20px;
+		}
+
+		>div {
+			float: left;
+			padding: 1px;
+		}
+	}
+
+	&.formgroup {
+		>div:first-child {
+			color: @controlTextLighter;
+			text-transform: uppercase;
+			font-weight: bold;
+			border-bottom: 1px solid @controlTextLighter;
+		}
+
+		>div:last-child {
+			padding: 10px 0;
+		}
 	}
 }

@@ -1,0 +1,34 @@
+<pad>
+    <vc>
+        <formgroup text="HTTP Server" id="http_binding">
+            <vc>
+                <formline text="Host">
+                    <textbox id="host" />
+                </formline>
+                <formline text="Port">
+                    <textbox id="port" />
+                </formline>
+            </vc>
+        </formgroup>
+        <formgroup text="SSL" id="ssl">
+            <vc>
+                <formline text="Path to certificate">
+                    <textbox id="certificate_path" />
+                </formline>
+                <formline text="Path to key">
+                    <textbox id="key_path" />
+                </formline>
+            </vc>
+        </formgroup>
+        <formgroup text="Users">
+            <vc>
+                <formline text="Authentication">
+                    <checkbox text="Enable" id="authentication" />
+                </formline>
+                <formline>
+                    <button text="Save" style="green" />
+                </formline>
+            </vc>
+        </formgroup>
+    </vc>
+</pad>

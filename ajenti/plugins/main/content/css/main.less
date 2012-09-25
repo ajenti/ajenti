@@ -2,14 +2,31 @@
 @import "mixins.i.less";
 @import "vars.i.less";
 
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url('main/SSP.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('main/SSP-Bold.woff') format('woff');
+}
+
+
 html {
     height: 100%;
     padding: 0;
 }
 
 body {
-    font-family: sans-serif;
-    height: 100%;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: @fontSize;
+		
+	height: 100%;
     background: #f0f0f0;
     padding: 0;
     margin: 0;
@@ -48,7 +65,7 @@ body {
 
 .button-style(@g1, @g2) {
 	#gradient > .vertical(@g1, @g2);
-	color: darken(@g2, 30%);
+	color: darken(@g1, 45%);
 	border: none;
 
 	&:hover {

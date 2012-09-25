@@ -1,3 +1,12 @@
+class window.Controls.pad extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control pad">
+			</div>
+		""")
+		@childContainer = @dom
+
+
 class window.Controls.hc extends window.Control
 	createDom: () ->
 		@dom = $("""
@@ -33,10 +42,26 @@ class window.Controls.button extends window.Control
 			e.preventDefault()
 
 
-class window.Controls.form extends window.Control
+class window.Controls.formline extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div><div class="--child-container"></div></div>
+			<div class="control formline">
+				<div class="control label">#{@properties.text}</div>
+				<div class="--child-container">
+				</div>
+			</div>
+		""")
+		@childContainer = @dom.find('.--child-container')
+
+
+class window.Controls.formgroup extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control formgroup">
+				<div>#{@properties.text}</div>
+				<div class="--child-container">
+				</div>
+			</div>
 		""")
 		@childContainer = @dom.find('.--child-container')
 
@@ -53,3 +78,25 @@ class window.Controls.textbox extends window.Control
 		if @input.val() != @properties.value
 			r.value = @input.val()
 		return r
+
+
+class window.Controls.checkbox extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control checkbox">
+				<input 
+					type="checkbox" 
+					#{if @properties.value then 'checked="checked"' else ''} 
+				/>
+				<div class="control label">#{@properties.text}</div>
+			</div>
+		""")
+		@input = @dom.find('input')
+
+	detectUpdates: () ->
+		r = {}
+		checked = @input.is(':checked')
+		if checked != @properties.value
+			r.value = checked
+		return r
+

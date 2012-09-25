@@ -103,6 +103,7 @@ class HttpContext:
             '.js': 'application/javascript',
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
+            '.woff': 'application/x-font-woff',
         }
         
         ext = os.path.splitext(path)[1]
