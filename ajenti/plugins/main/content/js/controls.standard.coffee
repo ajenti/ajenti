@@ -75,8 +75,11 @@ class window.Controls.textbox extends window.Control
 
 	detectUpdates: () ->
 		r = {}
-		if @input.val() != @properties.value
-			r.value = @input.val()
+		value = @input.val()
+		if @properties.type == 'integer'
+			value = parseInt(value)
+		if value != @properties.value
+			r.value = value
 		return r
 
 

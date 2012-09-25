@@ -17,4 +17,10 @@ class Configurator (SectionPlugin):
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
         self.binder.autodiscover()
         self.binder.populate()
+
+        self.find('save-button').on('click', self.save)
+
+    def save(self):
+    	self.binder.update()
+    	ajenti.config.save()
     

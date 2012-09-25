@@ -6,12 +6,15 @@
                     <textbox id="host" />
                 </formline>
                 <formline text="Port">
-                    <textbox id="port" />
+                    <textbox id="port" type="integer" />
                 </formline>
             </vc>
         </formgroup>
         <formgroup text="SSL" id="ssl">
             <vc>
+                <formline text="Use SSL">
+                    <checkbox id="enable" />
+                </formline>
                 <formline text="Path to certificate">
                     <textbox id="certificate_path" />
                 </formline>
@@ -26,7 +29,7 @@
                     <checkbox text="Enable" id="authentication" />
                 </formline>
                 <formline>
-                    <button text="Save" style="green" />
+                    <button text="Save" style="green" id="save-button" />
                 </formline>
             </vc>
         </formgroup>

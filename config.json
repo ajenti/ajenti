@@ -1,17 +1,17 @@
 {
-	"bind": {
-		"host": "0.0.0.0",
-		"port": 8000
-	},
-	"ssl": {
-		"enable": false,
-		"certificate_path": "",
-		"key_path": ""
-	},
-	"authentication": false,
-	"users": {
-		"root": {
-			"password": "123"
-		}
-	}
+    "bind": {
+        "host": "0.0.0.0", 
+        "port": 8000
+    }, 
+    "authentication": false, 
+    "users": {
+        "root": {
+            "password": "123"
+        }
+    }, 
+    "ssl": {
+        "enable": true, 
+        "certificate_path": "", 
+        "key_path": ""
+    }
 }

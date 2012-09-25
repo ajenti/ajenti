@@ -16,6 +16,7 @@ class Button (UIElement):
 
 
 @p('value', default='')
+@p('type', default='text')
 @plugin
 class TextBox (UIElement):
 	typeid = 'textbox'	
