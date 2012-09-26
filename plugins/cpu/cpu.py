@@ -8,7 +8,7 @@ class Cpu(LinearMeter):
     
     def get_usage(self):
          u = shell('ps h -eo pcpu').split()
-	 b=0.0
+         b=0.0
          for a in u:  
             b += float(a)
          return b
