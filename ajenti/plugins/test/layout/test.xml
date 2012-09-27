@@ -1,8 +1,0 @@
-<vc>
-
-	<hc>
-		<button text="Normal" />
-		<button text="Orange" style="orange" />
-		<button text="Green" style="green" />
-	</hc>
-</vc>

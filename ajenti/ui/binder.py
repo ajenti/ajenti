@@ -18,15 +18,50 @@ class Binding (object):
 
 
 class PropertyBinding (Binding):
-	def __init__(self, object, field, ui, property='value'):
+	def __init__(self, object, field, ui, property=None):
 		Binding.__init__(self, object, field, ui)
-		self.property = property
+		if property is None:
+			for prop in ui.properties.values():
+				print type(self.get()), prop.bindtypes
+				if type(self.get()) in prop.bindtypes:
+					self.property = prop.name
+		else:
+			self.property = property
 
 	def populate(self):
 		self.ui.properties[self.property].value = self.get()
 
 	def update(self):
 		self.set(self.ui.properties[self.property].value)
+
+
+class CollectionAutoBinding (Binding):
+	def __init__(self, object, field, ui, info):
+		Binding.__init__(self, object, field, ui)
+		self.info = info
+		self.binders = {}
+
+	def populate(self):
+		self.values = self.info.values(getattr(self.object, self.field))
+		self.ui.empty()
+		for value in self.values:
+			template = self.info.template(value)
+			self.ui.append(template)
+			binder = Binder(value, template)
+			binder.autodiscover()
+			binder.populate()
+			self.binders[value] = binder
+
+	def update(self):
+		for value in self.values:
+			self.binders[value].update()
+		
+
+class CollectionBindInfo (object):
+	def __init__(self, binding=CollectionAutoBinding, template=lambda x:None, values=lambda x:x):
+		self.template = template
+		self.values = values
+		self.binding = binding
 
 
 class Binder (object):
@@ -44,6 +79,11 @@ class Binder (object):
 					self.add(PropertyBinding(object, k, child))
 				elif type(v) not in [dict, list, tuple]:
 					self.autodiscover(v, child)
+				else:
+					if not hasattr(object, k + '__bind'):
+						raise Exception('Collection lacks binding info (%s__bind)' % k)
+					info = getattr(object, k + '__bind')
+					self.add(info.binding(object, k, child, info))
 
 	def add(self, binding):
 		self.bindings.append(binding)

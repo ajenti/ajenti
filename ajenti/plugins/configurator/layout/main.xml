@@ -28,6 +28,9 @@
                 <formline text="Authentication">
                     <checkbox text="Enable" id="authentication" />
                 </formline>
+                <formline text="Accounts">
+                    <vc id="users" />
+                </formline>
                 <formline>
                     <button text="Save" style="green" id="save-button" />
                 </formline>

@@ -2,13 +2,14 @@ from ajenti.api import *
 
 
 class UIProperty (object):
-	def __init__(self, name, value):
+	def __init__(self, name, value=None, bindtypes=[]):
 		self.dirty = False
 		self.name = name
 		self.value = value
+		self.bindtypes = bindtypes
 
 	def clone(self):
-		return UIProperty(self.name, self.value)
+		return UIProperty(self.name, self.value, self.bindtypes)
 
 	def get(self):
 		return self.value
@@ -82,6 +83,9 @@ class UIElement (object):
 		if event in self.events:
 			self.events[event](**(params or {}))
 
+	def empty(self):
+		self.children = []
+
 	def append(self, child):
 		self.children.append(child)
 
@@ -89,9 +93,9 @@ class UIElement (object):
 		self.children.remove(child)
 
 
-def p(prop, default=None):
+def p(prop, default=None, bindtypes=[]):
 	def decorator(cls):
-		prop_obj = UIProperty(prop, value=default)
+		prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes)
 		if not hasattr(cls, '_properties'):
 			cls._properties = []
 		cls._properties.append(prop_obj)

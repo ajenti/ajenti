@@ -10,7 +10,7 @@
         }
     }, 
     "ssl": {
-        "enable": true, 
+        "enable": false, 
         "certificate_path": "", 
         "key_path": ""
     }
