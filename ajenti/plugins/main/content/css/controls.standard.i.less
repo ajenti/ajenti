@@ -6,6 +6,19 @@
 	border-bottom: 1px solid white;
 }
 
+.actionlink {
+	color: @controlText;
+	height: @controlHeight - 2px;
+	padding-top: 1px;
+	border-bottom: 1px dashed @controlText;
+	cursor: pointer;
+	width: auto;
+	
+	&:hover {
+		color: lighten(@controlText, 10%);
+	}
+}
+
 .control {
 	display: block;
 	overflow: hidden;
@@ -35,24 +48,18 @@
 		display: inline-block;
 	}
 
+	&.icon {
+		line-height: @controlHeight + 4px;
+		.size(@controlHeight, auto);
+		display: inline-block;
+	}
+
 	&.button {
 		.size(@controlHeight - 2px, @controlWidth);
 		line-height: @controlHeight;
 		padding: 1px 0 1px;
-		
-		font-size: @fontSizeSmaller;
-		font-weight: bold;
-		text-align: center;
 		text-decoration: none;
 		color: @controlText;
-		text-shadow: @controlTextShadowInset;
-		text-transform: uppercase;
-
-		.border-radius(3px);
-		.box-shadow(@controlShadowHighlight);
-
-		position: relative;
-		top: -1px;
 
 		&.style-normal {
 			.button-style(@controlGradient1, @controlGradient2);
@@ -66,14 +73,16 @@
 			.button-style(@controlGradientGreen1, @controlGradientGreen2);
 		}
 
-		&:active {
-			padding: 2px 0 0;
-			.box-shadow(@controlShadowHighlightPressed);
+		&.style-link {
+			.actionlink();
+			.box-shadow(none);
 		}
+
 	}
 
 	&.textbox {
 		color: @controlText;
+		font-size: @fontSize;
 		
 		//border: 1px solid #ccc;
 		padding: 0 4px;
@@ -82,6 +91,12 @@
 
 		&:focus, &:hover {
 			border: 1px solid #eee;
+		}
+	}
+
+	&.editable {
+		>.label {
+			.actionlink();
 		}
 	}
 

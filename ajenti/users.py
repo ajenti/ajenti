@@ -15,7 +15,12 @@ class UserManager (object):
 
         if type == 'plain':
             hash = password
-        if type == 'sha512':
-            hash = sha512_crypt.encrypt(passw)
+        else:
+            hash = self.hash_password(password)
 
         return hash == saved
+
+    def hash_password(self, password):
+        if not password.startswith('sha512|'):
+            password = 'sha512|%s' % sha512_crypt.encrypt(password)
+        return password

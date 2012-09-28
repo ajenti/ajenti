@@ -29,10 +29,13 @@
                     <checkbox text="Enable" id="authentication" />
                 </formline>
                 <formline text="Accounts">
-                    <vc id="users" />
+                    <vc id="users">
+                        <vc id="__items" />
+                        <button id="__add" icon="plus" text="Create" />
+                    </vc>
                 </formline>
                 <formline>
-                    <button text="Save" style="green" id="save-button" />
+                    <button text="Save" style="green" id="save-button" icon="ok" />
                 </formline>
             </vc>
         </formgroup>

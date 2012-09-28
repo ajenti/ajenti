@@ -2,13 +2,27 @@ from ajenti.api import *
 from ajenti.ui import p, UIElement
 
 
+@p('width', default=None)
+@p('height', default=None)
+@plugin
+class Box (UIElement):
+	typeid = 'box'
+
+
 @p('text', default='', bindtypes=[str, unicode, int])
 @plugin
 class Label (UIElement):
 	typeid = 'label'
 
 
+@p('icon', default=None)
+@plugin
+class Icon (UIElement):
+	typeid = 'icon'	
+
+
 @p('text', default='', bindtypes=[str, unicode])
+@p('icon', default=None)
 @p('style', default='normal')
 @plugin
 class Button (UIElement):
@@ -22,8 +36,16 @@ class TextBox (UIElement):
 	typeid = 'textbox'	
 
 
-@p('text', default='', bindtypes=[bool])
-@p('value', default=False)
+@p('value', default='', bindtypes=[str, unicode])
+@p('icon', default=None)
+@p('placeholder', default=None)
+@plugin
+class Editable (UIElement):
+	typeid = 'editable'	
+
+
+@p('text', default='')
+@p('value', default=False, bindtypes=[bool])
 @plugin
 class CheckBox (UIElement):
 	typeid = 'checkbox'	

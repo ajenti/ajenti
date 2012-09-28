@@ -1,6 +1,8 @@
 @import "reset.i.less";
 @import "mixins.i.less";
 @import "vars.i.less";
+@import "icons.i.less";
+
 
 @font-face {
   font-family: 'Source Sans Pro';
@@ -74,7 +76,21 @@ body {
 
 	&:active {
 		#gradient > .vertical(darken(@g1, 5%), darken(@g2, 5%));	
+		padding: 2px 0 0;
+		.box-shadow(@controlShadowHighlightPressed);
 	}
+
+	font-size: @fontSizeSmaller;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: @controlTextShadowInset;
+	text-transform: uppercase;
+
+	.border-radius(3px);
+	.box-shadow(@controlShadowHighlight);
+
+	position: relative;
+	top: -1px;
 }
 
 

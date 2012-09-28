@@ -1,4 +1,8 @@
 <hc>
-	<label id="name" />
-	<label id="password" />
+	<icon icon="user" />
+	<box width="100">
+		<editable id="name" />
+	</box>
+	<editable id="password" placeholder="Change password" icon="lock" />
+	<button id="__delete" icon="remove" text="Delete" style="link" />
 </hc>

@@ -49,6 +49,7 @@ class UIElement (object):
 			self.properties[key].set(kwargs[key])
 		
 		self.events = {}
+		self.event_args = {}
 		self.init()
 
 	def init(self):
@@ -73,15 +74,16 @@ class UIElement (object):
 			result[prop.name] = prop.value
 		return result
 
-	def on(self, event, handler):
+	def on(self, event, handler, *args):
 		self.events[event] = handler
+		self.event_args[event] = args
 
 	def publish(self):
 		self.ui.queue_update()
 
 	def event(self, event, params=None):
 		if event in self.events:
-			self.events[event](**(params or {}))
+			self.events[event](*self.event_args[event], **(params or {}))
 
 	def empty(self):
 		self.children = []

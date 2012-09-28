@@ -22,7 +22,6 @@ class PropertyBinding (Binding):
 		Binding.__init__(self, object, field, ui)
 		if property is None:
 			for prop in ui.properties.values():
-				print type(self.get()), prop.bindtypes
 				if type(self.get()) in prop.bindtypes:
 					self.property = prop.name
 		else:
@@ -43,14 +42,36 @@ class CollectionAutoBinding (Binding):
 
 	def populate(self):
 		self.values = self.info.values(getattr(self.object, self.field))
-		self.ui.empty()
+		self.items_ui = self.ui.find('__items') or self.ui
+		self.items_ui.empty()
 		for value in self.values:
 			template = self.info.template(value)
-			self.ui.append(template)
+			self.items_ui.append(template)
 			binder = Binder(value, template)
 			binder.autodiscover()
 			binder.populate()
 			self.binders[value] = binder
+
+			del_button = template.find('__delete')
+			if del_button:
+				del_button.on('click', self.on_delete, value)
+
+
+		add_button = self.ui.find('__add')
+		if add_button is not None:
+			add_button.on('click', self.on_add)
+
+	def on_add(self):
+		self.update()
+		self.info.add_item(self.info.new_item())
+		self.populate()
+		self.ui.publish()
+
+	def on_delete(self, item):
+		self.update()
+		self.info.delete_item(item)
+		self.populate()
+		self.ui.publish()
 
 	def update(self):
 		for value in self.values:
@@ -58,10 +79,20 @@ class CollectionAutoBinding (Binding):
 		
 
 class CollectionBindInfo (object):
-	def __init__(self, binding=CollectionAutoBinding, template=lambda x:None, values=lambda x:x):
+	def __init__(self, 
+				binding=CollectionAutoBinding, 
+				template=lambda x : None, 
+				values=lambda x : x,
+				new_item=lambda : None,
+				add_item=lambda x : None,
+				delete_item=lambda x : None,
+				):	
 		self.template = template
 		self.values = values
 		self.binding = binding
+		self.add_item = add_item
+		self.delete_item = delete_item
+		self.new_item = new_item
 
 
 class Binder (object):
