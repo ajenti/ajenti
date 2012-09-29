@@ -23,6 +23,7 @@ class PropertyBinding (Binding):
 		if property is None:
 			for prop in ui.properties.values():
 				if type(self.get()) in prop.bindtypes:
+					print self.object, self.field, type(self.get()) , prop.bindtypes
 					self.property = prop.name
 		else:
 			self.property = property
@@ -106,7 +107,7 @@ class Binder (object):
 		for k,v in object.__dict__.iteritems():
 			child = (ui or self.ui).find(k)
 			if child:
-				if type(v) in [str, unicode, int, float, bool]:
+				if type(v) in [str, unicode, int, float, bool, property]:
 					self.add(PropertyBinding(object, k, child))
 				elif type(v) not in [dict, list, tuple]:
 					self.autodiscover(v, child)

@@ -1,0 +1,8 @@
+<pad>
+    <vc id="nginx-config">
+        <box id="http">
+            <vc id="servers">
+            </vc>
+        </box>
+    </vc>
+</pad> 
