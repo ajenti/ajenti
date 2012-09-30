@@ -39,7 +39,8 @@ class UIElement (object):
 		if typeid is not None:
 			self.typeid = typeid
 		
-		self.id = UIElement.__generate_id()
+		self.id = None
+		self.uid = UIElement.__generate_id()
 
 		if not hasattr(self, '_properties'):
 			self._properties = []
@@ -56,8 +57,18 @@ class UIElement (object):
 		self.event_args = {}
 		self.init()
 
+	def getstate(self):
+		return (self.typeid, self.id, self.properties, self.events, self.event_args)
+
+	def setstate(self, s):
+		self.typeid, self.id, self.properties, self.events, self.event_args = s
+
 	def clone(self):
-		return copy.deepcopy(self)
+		o = copy.copy(self)
+		o.uid = UIElement.__generate_id()
+		o.setstate(copy.deepcopy(self.getstate()))
+		o.children = [c.clone() for c in self.children]
+		return o
 		
 	def init(self):
 		pass
@@ -67,6 +78,14 @@ class UIElement (object):
 			return self
 		for child in self.children:
 			found = child.find(id)
+			if found:
+				return found
+
+	def find_uid(self, uid):
+		if self.uid == uid:
+			return self
+		for child in self.children:
+			found = child.find_uid(uid)
 			if found:
 				return found
 
@@ -81,6 +100,7 @@ class UIElement (object):
 	def render(self):
 		result = {
 			'id': self.id,
+			'uid': self.uid,
 			'typeid': self.typeid,
 			'events': self.events.keys(),
 			'children': [c.render() for c in self.children],

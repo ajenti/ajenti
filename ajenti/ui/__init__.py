@@ -28,8 +28,11 @@ class UI (object):
     def find(self, id):
         return self.root.find(id)
 
-    def dispatch_event(self, id, event, params=None):
-        self.find(id).event(event, params)
+    def find_uid(self, uid):
+        return self.root.find_uid(uid)
+
+    def dispatch_event(self, uid, event, params=None):
+        self.find_uid(uid).event(event, params)
 
     def queue_update(self):
         self.pending_updates += 1

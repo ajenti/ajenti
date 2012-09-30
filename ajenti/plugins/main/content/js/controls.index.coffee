@@ -36,7 +36,7 @@ class window.Controls.main__sections_root extends window.Control
 			</a>
 		""")
 		tab.click (e) =>
-			@event('switch', id:child.id)
+			@event('switch', uid:child.uid)
 			e.preventDefault()
 
 		@tabsContainer.append(tab)

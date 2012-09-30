@@ -66,7 +66,7 @@ class UIManager
         
         update = 
             type: 'event'
-            id: control.id,
+            uid: control.uid,
             event: event,
             params: params ? null
 
@@ -85,7 +85,7 @@ window.Controls = { }
 
 class window.Control
     constructor: (@ui, @properties, @children) ->
-        @id = @properties.id    
+        @uid = @properties.uid    
         @childContainer = null
         @childWrappers = {}
         @dom = null
@@ -110,11 +110,11 @@ class window.Control
         for k of updates
             do (k) =>
                 @properties[k] = updates[k]
-        return type: 'update', id: @id, properties: updates
+        return type: 'update', uid: @uid, properties: updates
         
     append: (child) ->
         wrapper = @wrapChild(child)
-        @childWrappers[child.id] = wrapper
+        @childWrappers[child.uid] = wrapper
         @childContainer.append(wrapper)
 
     remove: (child) ->

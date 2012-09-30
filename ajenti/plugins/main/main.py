@@ -50,9 +50,9 @@ class MainSocket (BasePlugin, SocketPlugin):
         if message['type'] == 'ui_update':
             for update in message['content']:
                 if update['type'] == 'event':
-                    self.ui.dispatch_event(update['id'], update['event'], update['params'])
+                    self.ui.dispatch_event(update['uid'], update['event'], update['params'])
                 if update['type'] == 'update':
-                    el = self.ui.find(update['id'])
+                    el = self.ui.find_uid(update['uid'])
                     for k, v in update['properties'].iteritems():
                         el.properties[k].set(v)
                         el.properties[k].dirty = False
@@ -85,8 +85,8 @@ class SectionsRoot (UIElement):
         self.children[0].active = True
         self.on('switch', self.on_switch)
 
-    def on_switch(self, id):
+    def on_switch(self, uid):
         for child in self.children:
-            child.active = child.id == id
+            child.active = child.uid == uid
         self.publish()
 

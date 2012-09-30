@@ -1,16 +1,35 @@
 <pad xmlns:bind="bind">
     <vc id="nginx-config">
         <box id="http">
+
             <bind:collection id="servers">
             	<vc id="__items" />
             	<bind:template>
-            		<hc>
-						<icon icon="user" />
-						<label id="simple_name" />
-						<button id="__delete" icon="remove" text="Delete" style="link" />
-					</hc>	
+            		<vc>
+	            		<hc>
+							<icon icon="th-large" />
+							<label id="simple_name" />
+							<button id="__delete" icon="remove" text="Delete" style="link" />
+						</hc>	
+
+						<bind:collection id="locations">
+							<pad>
+								<vc id="__items" />
+							</pad>
+			            	<bind:template>
+			            		<vc>
+				            		<hc>
+										<icon icon="map-marker" />
+										<label id="pattern" />
+										<button id="__delete" icon="remove" text="Delete" style="link" />
+									</hc>	
+								</vc>
+							</bind:template>
+						</bind:collection>
+					</vc>
             	</bind:template>
             </bind:collection>
+
         </box>
     </vc>
 </pad> 
