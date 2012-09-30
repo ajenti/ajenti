@@ -8,14 +8,17 @@
 
 .actionlink {
 	color: @controlText;
-	height: @controlHeight - 2px;
-	padding-top: 1px;
+	height: auto;
+	line-height: normal;
+	padding: 4px 0 0px;
 	border-bottom: 1px dashed @controlText;
+	margin: 0 0 4px;
 	cursor: pointer;
 	width: auto;
 	
 	&:hover {
 		color: lighten(@controlText, 10%);
+		border-bottom: 1px dashed lighten(@controlText, 10%);
 	}
 }
 
@@ -49,9 +52,13 @@
 	}
 
 	&.icon {
-		line-height: @controlHeight + 4px;
 		.size(@controlHeight, auto);
 		display: inline-block;
+
+		i {
+			display: block;
+			margin: 4px 0 5px;
+		}
 	}
 
 	&.button {

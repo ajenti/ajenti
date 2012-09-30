@@ -56,6 +56,12 @@ class UIElement (object):
 		self.event_args = {}
 		self.init()
 
+	def __getstate__(self):
+		return (self.typeid, self.id, self.properties, self.events, self.event_args, self.children)
+
+	def __setstate__(self, s):
+		self.typeid, self.id, self.properties, self.events, self.event_args, self.children = s
+
 	def clone(self):
 		return copy.deepcopy(self)
 		

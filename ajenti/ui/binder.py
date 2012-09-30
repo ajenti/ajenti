@@ -41,10 +41,8 @@ class PropertyBinding (Binding):
 class CollectionAutoBinding (Binding):
 	def __init__(self, object, field, ui):
 		Binding.__init__(self, object, field, ui)
-		self.binders = {}
 		self.template = ui.find_type('bind:template')
 		self.items_ui = self.ui.find('__items') or self.ui
-
 
 	def populate(self):
 		self.collection = getattr(self.object, self.field)
@@ -52,6 +50,7 @@ class CollectionAutoBinding (Binding):
 		if self.template in self.ui.children:
 			self.ui.remove(self.template)
 		self.items_ui.empty()
+		self.binders = {}
 		for value in self.values:
 			template = self.template.clone()
 			self.items_ui.append(template)
@@ -71,9 +70,7 @@ class CollectionAutoBinding (Binding):
 
 	def on_add(self):
 		self.update()
-		print self.collection
 		self.ui.add_item(self.ui.new_item(self.collection), self.collection)
-		print self.collection
 		self.populate()
 		self.ui.publish()
 
