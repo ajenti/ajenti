@@ -1,15 +1,19 @@
+import copy
+
 from ajenti.api import *
 
 
 class UIProperty (object):
-	def __init__(self, name, value=None, bindtypes=[]):
+	def __init__(self, name, value=None, bindtypes=[], type=unicode, public=True):
 		self.dirty = False
 		self.name = name
 		self.value = value
 		self.bindtypes = bindtypes
+		self.type = type
+		self.public = public
 
 	def clone(self):
-		return UIProperty(self.name, self.value, self.bindtypes)
+		return copy.deepcopy(self)
 
 	def get(self):
 		return self.value
@@ -52,6 +56,9 @@ class UIElement (object):
 		self.event_args = {}
 		self.init()
 
+	def clone(self):
+		return copy.deepcopy(self)
+		
 	def init(self):
 		pass
 
@@ -63,6 +70,14 @@ class UIElement (object):
 			if found:
 				return found
 
+	def find_type(self, typeid):
+		if self.typeid == typeid:
+			return self
+		for child in self.children:
+			found = child.find_type(typeid)
+			if found:
+				return found
+				
 	def render(self):
 		result = {
 			'id': self.id,
@@ -71,7 +86,8 @@ class UIElement (object):
 			'children': [c.render() for c in self.children],
 		}
 		for prop in self.properties.values():
-			result[prop.name] = prop.value
+			if prop.public:
+				result[prop.name] = prop.value
 		return result
 
 	def on(self, event, handler, *args):
@@ -95,9 +111,9 @@ class UIElement (object):
 		self.children.remove(child)
 
 
-def p(prop, default=None, bindtypes=[]):
+def p(prop, default=None, bindtypes=[], type=unicode, public=True):
 	def decorator(cls):
-		prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes)
+		prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes, type=type, public=public)
 		if not hasattr(cls, '_properties'):
 			cls._properties = []
 		cls._properties.append(prop_obj)

@@ -1,5 +1,0 @@
-<hc>
-	<icon icon="user" />
-	<label id="simple_name" />
-	<button id="__delete" icon="remove" text="Delete" style="link" />
-</hc>

@@ -1,3 +1,7 @@
+from ajenti.api import *
+from ajenti.ui.element import p, UIElement
+
+
 class Binding (object):
 	def __init__(self, object, field, ui):
 		self.object = object
@@ -23,7 +27,6 @@ class PropertyBinding (Binding):
 		if property is None:
 			for prop in ui.properties.values():
 				if type(self.get()) in prop.bindtypes:
-					print self.object, self.field, type(self.get()) , prop.bindtypes
 					self.property = prop.name
 		else:
 			self.property = property
@@ -36,17 +39,21 @@ class PropertyBinding (Binding):
 
 
 class CollectionAutoBinding (Binding):
-	def __init__(self, object, field, ui, info):
+	def __init__(self, object, field, ui):
 		Binding.__init__(self, object, field, ui)
-		self.info = info
 		self.binders = {}
+		self.template = ui.find_type('bind:template')
+		self.items_ui = self.ui.find('__items') or self.ui
+
 
 	def populate(self):
-		self.values = self.info.values(getattr(self.object, self.field))
-		self.items_ui = self.ui.find('__items') or self.ui
+		self.collection = getattr(self.object, self.field)
+		self.values = self.ui.values(self.collection)
+		if self.template in self.ui.children:
+			self.ui.remove(self.template)
 		self.items_ui.empty()
 		for value in self.values:
-			template = self.info.template(value)
+			template = self.template.clone()
 			self.items_ui.append(template)
 			binder = Binder(value, template)
 			binder.autodiscover()
@@ -64,13 +71,15 @@ class CollectionAutoBinding (Binding):
 
 	def on_add(self):
 		self.update()
-		self.info.add_item(self.info.new_item())
+		print self.collection
+		self.ui.add_item(self.ui.new_item(self.collection), self.collection)
+		print self.collection
 		self.populate()
 		self.ui.publish()
 
 	def on_delete(self, item):
 		self.update()
-		self.info.delete_item(item)
+		self.ui.delete_item(item, self.collection)
 		self.populate()
 		self.ui.publish()
 
@@ -78,23 +87,6 @@ class CollectionAutoBinding (Binding):
 		for value in self.values:
 			self.binders[value].update()
 		
-
-class CollectionBindInfo (object):
-	def __init__(self, 
-				binding=CollectionAutoBinding, 
-				template=lambda x : None, 
-				values=lambda x : x,
-				new_item=lambda : None,
-				add_item=lambda x : None,
-				delete_item=lambda x : None,
-				):	
-		self.template = template
-		self.values = values
-		self.binding = binding
-		self.add_item = add_item
-		self.delete_item = delete_item
-		self.new_item = new_item
-
 
 class Binder (object):
 	def __init__(self, object, ui):
@@ -112,10 +104,9 @@ class Binder (object):
 				elif type(v) not in [dict, list, tuple]:
 					self.autodiscover(v, child)
 				else:
-					if not hasattr(object, k + '__bind'):
-						raise Exception('Collection lacks binding info (%s__bind)' % k)
-					info = getattr(object, k + '__bind')
-					self.add(info.binding(object, k, child, info))
+					if not child.typeid.startswith('bind:collection'):
+						raise Exception('Collection only binds to <bind:collection />')
+					self.add(child.binding()(object, k, child))
 
 	def add(self, binding):
 		self.bindings.append(binding)
@@ -128,3 +119,13 @@ class Binder (object):
 		for binding in self.bindings:
 			binding.update()
 
+
+# Helper elements
+@p('add_item', default = lambda i, c: c.append(i), type=eval, public=False)
+@p('new_item', default = lambda c: None, type=eval, public=False)
+@p('delete_item', default = lambda i, c: c.remove(i), type=eval, public=False)
+@p('binding', default = lambda: CollectionAutoBinding, type=eval, public=False)
+@p('values', default = lambda c: c, type=eval, public=False)
+@plugin
+class CollectionElement (UIElement):
+	typeid = 'bind:collection'

@@ -2,6 +2,16 @@ _make_icon = (icon) ->
 	if icon then """<i class="icon-#{icon}"></i>&nbsp;""" else ""
 
 
+
+class window.Controls.default extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div>
+			</div>
+		""")
+		@childContainer = @dom
+
+
 class window.Controls.pad extends window.Control
 	createDom: () ->
 		@dom = $("""

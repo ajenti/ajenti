@@ -19,13 +19,17 @@ class Inflater:
 		return self.inflate_rec(self.cache[layout].getroot())
 
 	def inflate_rec(self, node):
-		element = self.ui.create(node.tag)
+		tag = node.tag.replace('{', '').replace('}', ':')
+		element = self.ui.create(tag)
 		for key in node.attrib:
 			value = node.attrib[key]
 			if key == 'id':
 				element.id = value
 			else:
-				element.properties[key].set(value)
+				prop = element.properties[key]
+				if prop.type in [int, float, unicode, eval]:
+					value = prop.type(value)
+				prop.set(value) 
 		for child in node:
 			element.append(self.inflate_rec(child))
 		return element

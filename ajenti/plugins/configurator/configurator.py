@@ -4,7 +4,7 @@ import re
 import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
-from ajenti.ui.binder import Binder, CollectionBindInfo
+from ajenti.ui.binder import Binder
 from ajenti.users import UserManager
 from reconfigure.ext.ajenti.items import User
 
@@ -17,13 +17,7 @@ class Configurator (SectionPlugin):
         self.append(self.ui.inflate('configurator:main'))
 
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
-        ajenti.config.tree.users__bind = CollectionBindInfo(
-            template = lambda x: self.ui.inflate('configurator:user'),
-            values = lambda x: x.values(),
-            new_item = lambda: User('Unnamed', ''),
-            add_item = lambda x: ajenti.config.tree.users.update({x.name: x}),
-            delete_item = lambda x: ajenti.config.tree.users.pop(x.name),
-        )
+        self.find('users').new_item = lambda c: User('Unnamed', '')
         self.binder.autodiscover()
         self.binder.populate()
 

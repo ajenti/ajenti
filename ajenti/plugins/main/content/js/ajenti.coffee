@@ -31,6 +31,8 @@ class UIManager
                 children.push @inflate(child)
         typeid = json.typeid.replace(':', '__')
         cls = Controls[typeid]
+        if not cls
+            cls = Controls.default
         return new cls(this, json, children)
 
     replace: (ui) ->
