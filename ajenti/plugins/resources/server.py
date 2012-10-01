@@ -55,7 +55,8 @@ class ContentCompressor (object):
 		self.compress()
 
 	def scan(self):
-		for plugin in manager.get_all():
+		for plugin in manager.get_order():
+			pfiles = {}
 			path = os.path.join(manager.resolve_path(plugin), 'content')
 			if not os.path.exists(path):
 				continue
@@ -63,14 +64,17 @@ class ContentCompressor (object):
 				for name in fn:
 					for key in self.patterns:
 						if re.match(self.patterns[key], name):
-							self.files.setdefault(key, []).append(os.path.join(dp, name))
+							pfiles.setdefault(key, []).append(os.path.join(dp, name))
+			for key in self.patterns:
+				self.files.setdefault(key, []).extend(sorted(pfiles.setdefault(key, [])))
+			
 
 	def compress(self):
 		for key in self.patterns:
 			self.compressed[key] = self.compressors[key](self.files.setdefault(key, []))
 
 	def process_js(self, files):
-		return '\n'.join([open(x).read() for x in sorted(files)])
+		return '\n'.join([open(x).read() for x in files])
 	
 	def process_css(self, files):
 		return '\n'.join([open(x).read() for x in files])

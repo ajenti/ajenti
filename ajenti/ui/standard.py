@@ -4,6 +4,7 @@ from ajenti.ui import p, UIElement
 
 @p('width', default=None)
 @p('height', default=None)
+@p('scroll', default=False, type=bool)
 @plugin
 class Box (UIElement):
 	typeid = 'box'
@@ -61,3 +62,5 @@ class FormLine (UIElement):
 @plugin
 class FormGroup (UIElement):
 	typeid = 'formgroup'
+
+

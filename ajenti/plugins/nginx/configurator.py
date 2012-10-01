@@ -30,7 +30,7 @@ class Configurator (SectionPlugin):
         self.binder.autodiscover()
         self.binder.populate()
 
-        #self.find('save-button').on('click', self.save)
+        self.find('save').on('click', self.save)
 
     def save(self):
     	self.binder.update()

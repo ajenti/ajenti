@@ -33,13 +33,21 @@
 	&.hc {
 		&> div {
 			float: left;
-			padding: 5px;
+			padding-right: 5px;
+
+			&:last-child {
+				padding-right: 0;
+			}
 		}
 	}
 
 	&.vc {
 		&> div {
-			padding: 5px;
+			padding-bottom: 5px;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
 		}
 	}
 
@@ -123,10 +131,10 @@
 			width: @controlWidth;
 			text-align: right;
 			padding-right: 20px;
+			float: left;
 		}
 
 		>div {
-			float: left;
 			padding: 1px;
 		}
 	}
@@ -141,6 +149,21 @@
 
 		>div:last-child {
 			padding: 10px 0;
+		}
+	}
+
+	&.collapse {
+		.border-radius(5px);
+		.box-shadow(@mainPaneShadow);
+
+		>.header {
+			cursor: pointer;
+			height: @controlHeight;
+
+			#gradient > .vertical(@toolbarGradient1, @toolbarGradient2);
+			padding: 0 5px;
+			border-top: 1px solid lighten(@toolbarGradient1, 3%);
+			border-bottom: 1px solid darken(@toolbarGradient2, 10%);
 		}
 	}
 }

@@ -85,14 +85,16 @@ window.Controls = { }
 
 class window.Control
     constructor: (@ui, @properties, @children) ->
-        @uid = @properties.uid    
+        if @properties
+            @uid = @properties.uid    
         @childContainer = null
         @childWrappers = {}
         @dom = null
         @createDom()
-        for child in @children
-            do (child) =>
-                @append(child)
+        if @children
+            for child in @children
+                do (child) =>
+                    @append(child)
 
     createDom: () ->
         ""
@@ -123,3 +125,7 @@ class window.Control
     event: (event, params) ->
         @ui.event(this, event, params)
 
+    _int_to_px: (i) ->
+        if i == null or i == 'auto'
+            return 'auto'
+        return i + 'px'

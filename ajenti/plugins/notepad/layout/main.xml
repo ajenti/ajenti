@@ -1,0 +1,7 @@
+<pad xmlns:bind="bind">
+	<vc>
+		<hc><button id="open" text="Open" /></hc>
+    	<codearea mode="python" value="def asd(): pass"  width="300" height="500" />
+    	<openfiledialog id="opendialog" />
+	</vc>
+</pad> 

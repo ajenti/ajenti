@@ -19,6 +19,7 @@ class MainServer (BasePlugin, HttpPlugin):
         if context.session.identity is None:
             context.respond_ok()
             return self.open_content('static/auth.html').read()
+        context.add_header('Content-Type', 'text/html')
         context.respond_ok()
         return self.open_content('static/index.html').read()
         

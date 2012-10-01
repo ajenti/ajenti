@@ -2,34 +2,41 @@
     <vc id="nginx-config">
         <box id="http">
 
-            <bind:collection id="servers">
-            	<vc id="__items" />
-            	<bind:template>
-            		<vc>
-	            		<hc>
-							<icon icon="th-large" />
-							<label id="simple_name" />
-							<button id="__delete" icon="remove" text="Delete" style="link" />
-						</hc>	
+			<formline text="Servers">
+	            <bind:collection id="servers">
+	            	<vc id="__items" />
+	            	<bind:template>
+	            		<collapse>
+		            		<hc>
+								<icon icon="th-large" />
+								<label id="simple_name" />
+								<button id="__delete" icon="remove" text="Delete" style="link" />
+							</hc>	
+		            		
+		            		<vc>
+								<bind:collection id="locations">
+									<formline text="Locations">
+										<vc id="__items" />
+									</formline>
+					            	<bind:template>
+					            		<vc>
+						            		<hc>
+												<icon icon="map-marker" />
+												<label id="pattern" />
+												<button id="__delete" icon="remove" text="Delete" style="link" />
+											</hc>	
+										</vc>
+									</bind:template>
+								</bind:collection>
+							</vc>
+						</collapse>
+	            	</bind:template>
+	            </bind:collection>
+			</formline>
 
-						<bind:collection id="locations">
-							<pad>
-								<vc id="__items" />
-							</pad>
-			            	<bind:template>
-			            		<vc>
-				            		<hc>
-										<icon icon="map-marker" />
-										<label id="pattern" />
-										<button id="__delete" icon="remove" text="Delete" style="link" />
-									</hc>	
-								</vc>
-							</bind:template>
-						</bind:collection>
-					</vc>
-            	</bind:template>
-            </bind:collection>
-
+			<formline>
+				<button id="save" text="Save" style="green" />
+			</formline>
         </box>
     </vc>
 </pad> 

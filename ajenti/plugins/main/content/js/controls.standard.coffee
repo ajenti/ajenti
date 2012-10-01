@@ -26,7 +26,8 @@ class window.Controls.box extends window.Control
 		w = if @properties.width  then (@properties.width  + 'px') else 'auto'
 		h = if @properties.height then (@properties.height + 'px') else 'auto'
 		@dom = $("""
-			<div class="control box" style="width: #{w}; height: #{h}">
+			<div class="control box" style="width: #{w}; height: #{h}; 
+				overflow: #{if @properties.scroll then 'auto' else 'hidden'}">
 			</div>
 		""")
 		@childContainer = @dom
@@ -172,3 +173,30 @@ class window.Controls.checkbox extends window.Control
 		if checked != @properties.value
 			r.value = checked
 		return r
+
+
+class window.Controls.collapse extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control collapse">
+				<div class="header"></div>
+				<div class="children"></div>
+			</div>
+		""")
+		@container = @dom.find('>.children')
+		@header = @dom.find('>.header')
+		@hasHeader = false
+		@visible = false
+		@container.hide()
+
+		@header.click () =>
+			@container.toggle('blind')
+
+
+
+	append: (child) ->
+		if @hasHeader
+			@container.append(child.dom)
+		else
+			@header.append(child.dom)
+			@hasHeader = true

@@ -60,6 +60,7 @@ class PluginManager:
 
     __classes = {}
     __plugins = {}
+    __order = []
     __instances = {}
 
 
@@ -94,6 +95,9 @@ class PluginManager:
     # Plugin loader
     def get_all(self):
         return self.__plugins
+    
+    def get_order(self):
+        return self.__order
 
     def load_all(self):
         path = os.path.split(__file__)[0]
@@ -152,6 +156,10 @@ class PluginManager:
                 info.init()
             except Exception, e:
                 raise PluginCrashed(e)
+
+            if name in self.__order:
+                self.__order.remove(name)
+            self.__order.append(name)
         except PluginDependency.Unsatisfied, e:
             raise
         except PluginLoadError, e:
