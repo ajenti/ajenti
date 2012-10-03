@@ -28,6 +28,9 @@ class PropertyBinding (Binding):
 			for prop in ui.properties.values():
 				if type(self.get()) in prop.bindtypes:
 					self.property = prop.name
+					break
+			else:
+				raise Exception('Cannot bind %s.%s' % (object, field))
 		else:
 			self.property = property
 

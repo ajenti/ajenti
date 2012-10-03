@@ -1,7 +1,7 @@
 class window.Controls.main__page extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control main-page"> 
+			<div class="control container main-page"> 
 				<div class="header">
 				</div>
 				<div class="content">
@@ -17,7 +17,7 @@ class window.Controls.main__page extends window.Control
 class window.Controls.main__sections_root extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control main-sections-root">
+			<div class="control container main-sections-root">
 				<div class="sidebar">
 					<div class="--tabs-container"></div>
 				</div>
@@ -46,7 +46,7 @@ class window.Controls.main__sections_root extends window.Control
 class window.Controls.main__section extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="section #{if @properties.active then 'active' else ''}">
+			<div class="control section container #{if @properties.active then 'active' else ''}">
 				<div class="--child-container"></div>
 			</div>
 		""")

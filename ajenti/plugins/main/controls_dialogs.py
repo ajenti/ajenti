@@ -24,7 +24,7 @@ class OpenFileDialog (UIElement):
 			self.refresh()
 			self.publish()
 		else:
-			self.event('selected', path)
+			self.event('select', {'path':path})
 
 	def refresh(self):
 		self._dirs = []

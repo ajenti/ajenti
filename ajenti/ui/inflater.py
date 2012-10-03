@@ -29,6 +29,8 @@ class Inflater:
 				prop = element.properties[key]
 				if prop.type in [int, float, unicode, eval]:
 					value = prop.type(value)
+				elif prop.type == bool:
+					value = value == 'True'
 				prop.set(value) 
 		for child in node:
 			element.append(self.inflate_rec(child))

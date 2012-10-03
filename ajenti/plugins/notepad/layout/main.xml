@@ -1,7 +1,17 @@
-<pad xmlns:bind="bind">
-	<vc>
-		<hc><button id="open" text="Open" /></hc>
-    	<codearea mode="python" value="def asd(): pass"  width="300" height="500" />
-    	<openfiledialog id="opendialog" />
-	</vc>
-</pad> 
+<vc xmlns:bind="bind">
+	<toolbar>
+		<hc>
+			<button id="new-button" text="New" icon="file" />
+			<button id="open-button" text="Open" icon="folder-open" />
+		</hc>
+	</toolbar>
+	<pad >
+		<hc>
+			<box width="220" scroll="true">
+				<list id="list" />
+			</box>
+	    	<codearea id="editor" mode="python" value="def asd(): pass" width="540" height="500" />
+	    	<openfiledialog id="opendialog" visible="False" />
+		</hc>
+	</pad> 
+</vc>

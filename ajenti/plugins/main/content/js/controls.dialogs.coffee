@@ -1,27 +1,64 @@
-class window.Controls.openfiledialog extends window.Control
+class window.Controls.dialog extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control dialog openfiledialog"> 
+			<div class="control container dialog">
+				<div class="backdrop">
+					<div class="content">
+						<div class="children">
+						</div>
+					</div>
+				</div>
 			</div>
 		""")
-		@container = new Controls.vc(@ui) 
-		@dom.append new Controls.box(@ui, { width: 300, height: 300, scroll: true}, [@container]).dom
+		@childContainer = @dom.find('.children')
+		if @properties.buttons
+			@buttons = $("""<div class="buttons"></div>""")
+			@dom.find('.content').append(@buttons)
+			container = new Controls.hc(@ui)
+			@buttons.append container.dom
+			for button in @properties.buttons
+				do (button) =>
+					b = new Controls.button(@ui, {
+							text: button.text
+							icon: button.icon
+							style: 'normal'
+						})
+					b.on_click = () =>
+						@event('button', button: button.id)
+					container.append(b)
+
+		
+
+class window.Controls.openfiledialog extends Controls.dialog
+	createDom: () ->
+		@properties.buttons = [
+			{
+				text: 'Cancel'
+				id: 'cancel'
+			},
+		]
+		super()
+
+		@container = new Controls.list(@ui) 
+		@append new Controls.pad(@ui, {}, [
+					new Controls.box(@ui, { width: 'auto', height: 300, scroll: true}, [@container])
+				])
 
 		for dir in @properties._dirs
 			do (dir) =>
-				item = new Controls.hc(@ui, null, [
+				item = new Controls.hc(@ui, {}, [
 					new Controls.icon(@ui, { icon: 'folder-open' }),
 					new Controls.label(@ui, { text: dir })
 				])
 				item.dom.click () =>
 					@event('item-click', item: dir)
-				@container.append item
+				@container.append new Controls.listitem(@ui, {}, [item])
 		for file in @properties._files
 			do (file) =>
-				item = new Controls.hc(@ui, null, [
+				item = new Controls.hc(@ui, {}, [
 					new Controls.icon(@ui, { icon: 'file' }),
 					new Controls.label(@ui, { text: file })
 				])
 				item.dom.click () =>
 					@event('item-click', item: file)
-				@container.append item
+				@container.append new Controls.listitem(@ui, {}, [item])

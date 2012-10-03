@@ -64,3 +64,9 @@ class FormGroup (UIElement):
 	typeid = 'formgroup'
 
 
+@p('buttons')
+@plugin
+class Dialog (UIElement):
+	typeid = 'dialog'
+
+

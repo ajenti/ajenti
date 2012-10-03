@@ -3,6 +3,24 @@ import copy
 from ajenti.api import *
 
 
+def p(prop, default=None, bindtypes=[], type=unicode, public=True):
+	def decorator(cls):
+		prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes, type=type, public=public)
+		if not hasattr(cls, '_properties'):
+			cls._properties = []
+		cls._properties = cls._properties + [prop_obj]
+
+		def get(self):
+			return self.properties[prop].get()
+
+		def set(self, value):
+			return self.properties[prop].set(value)
+
+		setattr(cls, prop, property(get, set))
+		return cls
+	return decorator
+
+
 class UIProperty (object):
 	def __init__(self, name, value=None, bindtypes=[], type=unicode, public=True):
 		self.dirty = False
@@ -23,6 +41,7 @@ class UIProperty (object):
 		self.value = value
 
 
+@p('visible', default=True, type=bool)
 @interface
 class UIElement (object):
 	typeid = None
@@ -130,20 +149,3 @@ class UIElement (object):
 	def remove(self, child):
 		self.children.remove(child)
 
-
-def p(prop, default=None, bindtypes=[], type=unicode, public=True):
-	def decorator(cls):
-		prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes, type=type, public=public)
-		if not hasattr(cls, '_properties'):
-			cls._properties = []
-		cls._properties.append(prop_obj)
-
-		def get(self):
-			return self.properties[prop].get()
-
-		def set(self, value):
-			return self.properties[prop].set(value)
-
-		setattr(cls, prop, property(get, set))
-		return cls
-	return decorator

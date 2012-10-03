@@ -85,8 +85,8 @@ window.Controls = { }
 
 class window.Control
     constructor: (@ui, @properties, @children) ->
-        if @properties
-            @uid = @properties.uid    
+        @properties ?= {}
+        @uid = @properties.uid    
         @childContainer = null
         @childWrappers = {}
         @dom = null
@@ -95,6 +95,8 @@ class window.Control
             for child in @children
                 do (child) =>
                     @append(child)
+        if @properties.visible == false
+            @dom.hide()
 
     createDom: () ->
         ""
@@ -123,7 +125,13 @@ class window.Control
         child.remove()
 
     event: (event, params) ->
-        @ui.event(this, event, params)
+        if not @uid
+            return
+        localHandler = this['on_' + event]
+        if localHandler
+            localHandler(params)
+        else
+            @ui.event(this, event, params)
 
     _int_to_px: (i) ->
         if i == null or i == 'auto'

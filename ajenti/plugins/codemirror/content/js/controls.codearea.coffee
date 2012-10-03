@@ -11,6 +11,8 @@ class window.Controls.codearea extends window.Control
 			matchBrackets: true
 		@dom.find('>*').css(
 			width:  @_int_to_px(@properties.width)
+		)
+		@dom.find('.CodeMirror-scroll').css(
 			height: @_int_to_px(@properties.height)
 		)
 		setTimeout @cm.refresh, 1

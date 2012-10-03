@@ -15,7 +15,7 @@ class window.Controls.default extends window.Control
 class window.Controls.pad extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control pad">
+			<div class="control container pad">
 			</div>
 		""")
 		@childContainer = @dom
@@ -26,7 +26,7 @@ class window.Controls.box extends window.Control
 		w = if @properties.width  then (@properties.width  + 'px') else 'auto'
 		h = if @properties.height then (@properties.height + 'px') else 'auto'
 		@dom = $("""
-			<div class="control box" style="width: #{w}; height: #{h}; 
+			<div class="control container box" style="width: #{w}; height: #{h}; 
 				overflow: #{if @properties.scroll then 'auto' else 'hidden'}">
 			</div>
 		""")
@@ -36,7 +36,7 @@ class window.Controls.box extends window.Control
 class window.Controls.hc extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control hc"></div>
+			<div class="control container hc"></div>
 		""")
 		@childContainer = @dom
 
@@ -47,7 +47,7 @@ class window.Controls.hc extends window.Control
 class window.Controls.vc extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control vc"></div>
+			<div class="control container vc"></div>
 		""")
 		@childContainer = @dom
 
@@ -192,11 +192,40 @@ class window.Controls.collapse extends window.Control
 		@header.click () =>
 			@container.toggle('blind')
 
-
-
 	append: (child) ->
 		if @hasHeader
 			@container.append(child.dom)
 		else
 			@header.append(child.dom)
 			@hasHeader = true
+
+
+
+class window.Controls.list extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control list">
+			</div>
+		""")
+		@childContainer = @dom
+
+
+class window.Controls.listitem extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control listitem">
+			</div>
+		""")
+		@childContainer = @dom
+		@dom.click (e) =>
+			@event 'click'
+			e.preventDefault()
+
+
+class window.Controls.toolbar extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control container toolbar">
+			</div>
+		""")
+		@childContainer = @dom
