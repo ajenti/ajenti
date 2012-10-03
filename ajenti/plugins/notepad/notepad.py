@@ -22,11 +22,16 @@ class Notepad (SectionPlugin):
         self.opendialog = self.find('opendialog')
         self.opendialog.on('button', self.on_open_dialog)
         self.opendialog.on('select', self.on_file_select)
-
+        self.savedialog = self.find('savedialog')
+        self.savedialog.on('button', self.on_save_dialog)
+        self.savedialog.on('select', self.on_save_select)
+        
         self.controller = Controller()
 
         self.find('new-button').on('click', self.on_new)
         self.find('open-button').on('click', self.on_open)
+        self.find('save-button').on('click', self.on_save)
+        self.find('save-as-button').on('click', self.on_save_as)
 
         self.selected = None
         self.on_new()
@@ -51,6 +56,18 @@ class Notepad (SectionPlugin):
     def on_open(self):
         self.opendialog.visible = True
         self.publish()
+    
+    def on_save(self):
+        path = self.controller.files[self.selected]['path']
+        if not path:
+            self.on_save_as()
+        else:
+            self.on_save_select(None)
+        self.publish()
+    
+    def on_save_as(self):
+        self.savedialog.visible = True
+        self.publish()
 
     def on_file_select(self, path):
         self.opendialog.visible = False
@@ -58,6 +75,16 @@ class Notepad (SectionPlugin):
 
     def on_open_dialog(self, button):
         self.opendialog.visible = False        
+        self.publish()
+
+    def on_save_select(self, path):
+        self.select(self.selected)
+        self.savedialog.visible = False
+        self.controller.save(self.selected, path)
+        self.select(self.selected)
+
+    def on_save_dialog(self, button):
+        self.savedialog.visible = False        
         self.publish()
 
 
@@ -83,3 +110,8 @@ class Controller (object):
         self.files[id]['content'] = open(path).read()
         self.files[id]['mime'] = mimetypes.guess_type(path, strict=False)[0]
         return id
+
+    def save(self, id, path=None):
+        path = path or self.files[id]['path']
+        self.files[id]['path'] = path
+        open(path, 'w').write(self.files[id]['content'])

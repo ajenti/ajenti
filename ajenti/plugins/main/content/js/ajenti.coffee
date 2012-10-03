@@ -41,7 +41,7 @@ class UIManager
 
     extractUpdates: (control, target) ->
         updates = control.extractUpdates()
-        if updates != null
+        if updates
             target.push updates
         for child in control.children
             do (child) =>
@@ -84,15 +84,16 @@ window.Controls = { }
 
 
 class window.Control
-    constructor: (@ui, @properties, @children) ->
+    constructor: (@ui, @properties, children) ->
         @properties ?= {}
         @uid = @properties.uid    
         @childContainer = null
         @childWrappers = {}
         @dom = null
+        @children = []
         @createDom()
-        if @children
-            for child in @children
+        if children
+            for child in children
                 do (child) =>
                     @append(child)
         if @properties.visible == false
@@ -109,7 +110,7 @@ class window.Control
 
     extractUpdates: () ->
         updates = @detectUpdates()
-        if $.isEmptyObject(updates)
+        if not @uid or $.isEmptyObject(updates)
             return null
         for k of updates
             do (k) =>
@@ -117,6 +118,7 @@ class window.Control
         return type: 'update', uid: @uid, properties: updates
         
     append: (child) ->
+        @children.push child
         wrapper = @wrapChild(child)
         @childWrappers[child.uid] = wrapper
         @childContainer.append(wrapper)
@@ -125,13 +127,14 @@ class window.Control
         child.remove()
 
     event: (event, params) ->
-        if not @uid
-            return
+        @ui.checkForUpdates()
         localHandler = this['on_' + event]
         if localHandler
-            localHandler(params)
-        else
-            @ui.event(this, event, params)
+            if not localHandler(params)
+                return
+        if not @uid
+            return
+        @ui.event(this, event, params)
 
     _int_to_px: (i) ->
         if i == null or i == 'auto'

@@ -62,3 +62,48 @@ class window.Controls.openfiledialog extends Controls.dialog
 				item.dom.click () =>
 					@event('item-click', item: file)
 				@container.append new Controls.listitem(@ui, {}, [item])
+
+
+
+class window.Controls.savefiledialog extends Controls.dialog
+	createDom: () ->
+		@properties.buttons = [
+			{
+				text: 'Cancel'
+				id: 'cancel'
+			},
+			{
+				text: 'Save'
+				id: 'ok'
+			},
+		]
+		super()
+
+		@input = new Controls.textbox(@ui, { value: '' })
+		@container = new Controls.list(@ui) 
+		@append new Controls.pad(@ui, {}, [
+					new Controls.vc(@ui, {}, [
+						new Controls.box(@ui, { width: 'auto', height: 300, scroll: true}, [@container]),
+						new Controls.hc(@ui, {}, [
+							new Controls.label(@ui, {text: 'Name: '}),
+							@input
+						])
+					])
+				])
+
+		for dir in @properties._dirs
+			do (dir) =>
+				item = new Controls.hc(@ui, {}, [
+					new Controls.icon(@ui, { icon: 'folder-open' }),
+					new Controls.label(@ui, { text: dir })
+				])
+				item.dom.click () =>
+					@event('item-click', item: dir)
+				@container.append new Controls.listitem(@ui, {}, [item])
+
+	on_button: (params) =>
+		console.log params.button, params.button != 'ok'
+		if params.button != 'ok'
+			return true
+		if @input.properties.value.length > 0
+			@event('select', path: @properties.path + '/' + @input.properties.value)

@@ -3,6 +3,8 @@
 		<hc>
 			<button id="new-button" text="New" icon="file" />
 			<button id="open-button" text="Open" icon="folder-open" />
+			<button id="save-button" text="Save" icon="hdd" />
+			<button id="save-as-button" text="Save As" icon="hdd" />
 		</hc>
 	</toolbar>
 	<pad >
@@ -12,6 +14,7 @@
 			</box>
 	    	<codearea id="editor" mode="python" value="def asd(): pass" width="540" height="500" />
 	    	<openfiledialog id="opendialog" visible="False" />
+	    	<savefiledialog id="savedialog" visible="False" />
 		</hc>
 	</pad> 
 </vc>
