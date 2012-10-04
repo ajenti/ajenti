@@ -62,7 +62,8 @@ class UIManager
         if @updaterTimeout
             clearTimeout(@updaterTimeout)
         @updaterTimeout = setTimeout () =>
-            @stream.emit_ui_update @pendingUpdates
+            if @pendingUpdates.length > 0
+                @stream.emit_ui_update @pendingUpdates
             @pendingUpdates = []
             @updaterTimeout = null
         , 50
@@ -133,6 +134,10 @@ class window.Control
     remove: (child) ->
         child.remove()
 
+    publish: () ->
+        @ui.checkForUpdates()
+        @ui.sendUpdates()
+    
     event: (event, params) ->
         @ui.checkForUpdates()
         localHandler = this['on_' + event]

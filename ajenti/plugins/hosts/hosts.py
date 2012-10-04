@@ -30,5 +30,5 @@ class Hosts (SectionPlugin):
 
     def save(self):
         self.binder.update()
-        self.config.save() 
+        print self.config.save() 
         self.publish()

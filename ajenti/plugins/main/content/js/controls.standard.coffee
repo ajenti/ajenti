@@ -198,12 +198,22 @@ class window.Controls.collapse extends window.Control
         @container = @dom.find('>.children')
         @header = @dom.find('>.header')
         @hasHeader = false
-        @visible = false
-        @container.hide()
+        @expanded = @properties.expanded
+        if not @properties.expanded
+            @container.hide()
 
         @header.click (e) =>
+            @expanded = not @expanded
+            @publish()
             @container.toggle('blind')
             @cancel(e)
+
+    detectUpdates: () ->
+        r = {}
+        if @expanded != @properties.expanded
+            r.expanded = @expanded
+        @properties.expanded = @expanded
+        return r
 
     append: (child) ->
         if @hasHeader
@@ -211,6 +221,7 @@ class window.Controls.collapse extends window.Control
         else
             @header.append(child.dom)
             @hasHeader = true
+        @children.push child
 
 
 

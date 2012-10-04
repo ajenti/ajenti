@@ -65,6 +65,12 @@ class FormGroup (UIElement):
 	typeid = 'formgroup'
 
 
+@p('expanded', default=False, type=bool, bindtypes=[bool])
+@plugin
+class Collapse (UIElement):
+	typeid = 'collapse'
+
+
 @p('buttons')
 @plugin
 class Dialog (UIElement):

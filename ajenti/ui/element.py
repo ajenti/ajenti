@@ -92,30 +92,28 @@ class UIElement (object):
 	def init(self):
 		pass
 
+	def nearest(self, predicate):
+		r = []
+		q = [self]
+		while len(q) > 0:
+			e = q.pop(0)
+			if predicate(e):
+				r.append(e)
+			q.extend(e.children)
+		return r
+
 	def find(self, id):
-		if self.id == id:
-			return self
-		for child in self.children:
-			found = child.find(id)
-			if found:
-				return found
+		r = self.nearest(lambda x: x.id == id)
+		return r[0] if len(r) > 0 else None
 
 	def find_uid(self, uid):
-		if self.uid == uid:
-			return self
-		for child in self.children:
-			found = child.find_uid(uid)
-			if found:
-				return found
+		r = self.nearest(lambda x: x.uid == uid)
+		return r[0] if len(r) > 0 else None
 
 	def find_type(self, typeid):
-		if self.typeid == typeid:
-			return self
-		for child in self.children:
-			found = child.find_type(typeid)
-			if found:
-				return found
-				
+		r = self.nearest(lambda x: x.typeid == typeid)
+		return r[0] if len(r) > 0 else None
+
 	def render(self):
 		result = {
 			'id': self.id,

@@ -35,10 +35,13 @@ class PropertyBinding (Binding):
 			self.property = property
 
 	def populate(self):
+		self.old_value = self.get()
 		self.ui.properties[self.property].value = self.get()
 
 	def update(self):
-		self.set(self.ui.properties[self.property].value)
+		new_value = self.ui.properties[self.property].value
+		if new_value != self.old_value:
+			self.set(new_value)
 
 
 class CollectionAutoBinding (Binding):
@@ -67,12 +70,10 @@ class CollectionAutoBinding (Binding):
 				del_button.on('click', self.on_delete, value)
 
 		add_button = self.ui.find('__add')
-		print self.collection, add_button
 		if add_button is not None:
 			add_button.on('click', self.on_add)
 
 	def on_add(self):
-		print self
 		self.update()
 		self.ui.add_item(self.ui.new_item(self.collection), self.collection)
 		self.populate()
@@ -97,10 +98,9 @@ class Binder (object):
 
 	def autodiscover(self, object=None, ui=None):
 		object = object or self.object
-		print ui
 		for k,v in object.__dict__.iteritems():
-			child = (ui or self.ui).find(k)
-			if child:
+			children = (ui or self.ui).nearest(lambda x:x.id==k)
+			for child in children:
 				if child == ui:
 					raise Exception('Circular UI reference for %s!' % k)
 				if type(v) in [str, unicode, int, float, bool, property] or v is None:
