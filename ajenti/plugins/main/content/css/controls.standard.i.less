@@ -12,7 +12,7 @@
 	line-height: normal;
 	padding: 4px 0 0px;
 	border-bottom: 1px dashed @controlText;
-	margin: 0 0 4px;
+	margin: 1px 0 3px;
 	cursor: pointer;
 	width: auto;
 	
@@ -196,12 +196,12 @@
 
 		>.header {
 			cursor: pointer;
-			height: @controlHeight;
+			height: @controlHeight + 2px;
 
-			#gradient > .vertical(@toolbarGradient1, @toolbarGradient2);
+			background: #eee;
 			padding: 0 5px;
-			border-top: 1px solid lighten(@toolbarGradient1, 3%);
-			border-bottom: 1px solid darken(@toolbarGradient2, 10%);
+
+			&:hover { background: #f5f5f5; }
 		}
 	}
 

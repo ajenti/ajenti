@@ -67,10 +67,12 @@ class CollectionAutoBinding (Binding):
 				del_button.on('click', self.on_delete, value)
 
 		add_button = self.ui.find('__add')
+		print self.collection, add_button
 		if add_button is not None:
 			add_button.on('click', self.on_add)
 
 	def on_add(self):
+		print self
 		self.update()
 		self.ui.add_item(self.ui.new_item(self.collection), self.collection)
 		self.populate()
@@ -78,7 +80,6 @@ class CollectionAutoBinding (Binding):
 
 	def on_delete(self, item):
 		self.update()
-		print '< ', item
 		self.ui.delete_item(item, self.collection)
 		self.populate()
 		self.ui.publish()
@@ -96,10 +97,13 @@ class Binder (object):
 
 	def autodiscover(self, object=None, ui=None):
 		object = object or self.object
+		print ui
 		for k,v in object.__dict__.iteritems():
 			child = (ui or self.ui).find(k)
 			if child:
-				if type(v) in [str, unicode, int, float, bool, property]:
+				if child == ui:
+					raise Exception('Circular UI reference for %s!' % k)
+				if type(v) in [str, unicode, int, float, bool, property] or v is None:
 					self.add(PropertyBinding(object, k, child))
 				elif type(v) not in [dict, list, tuple]:
 					self.autodiscover(v, child)

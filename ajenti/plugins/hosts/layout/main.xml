@@ -1,0 +1,55 @@
+<pad xmlns:bind="bind">
+    <vc id="hosts-config">
+        <bind:collection id="hosts">
+        	<vc id="__items" />
+        	<bind:template>
+        		<collapse>
+        			<box>
+						<right>
+							<button id="__delete" icon="remove" style="circle" />
+						</right>
+	            		<hc>
+							<icon icon="globe" />
+							<label id="name" />
+						</hc>	
+					</box>
+            		
+            		<vc>
+						<formline text="Name">
+							<textbox id="name" />
+						</formline>
+						<formline text="Address">
+							<textbox id="address" />
+						</formline>
+			            <bind:collection id="aliases">
+							<formline text="Aliases">
+								<vc>
+									<vc id="__items" />
+                        			<button id="__add" icon="plus" text="Create" />
+                        		</vc>
+							</formline>
+			            	<bind:template>
+			            		<vc>
+			            			<box>
+										<right>
+											<button id="__delete" icon="remove" style="circle" />
+										</right>
+					            		<hc>
+											<icon icon="tags" />
+											<label id="name" />
+										</hc>	
+									</box>
+								</vc>
+							</bind:template>
+						</bind:collection>
+					</vc>
+				</collapse>
+        	</bind:template>
+			<button id="__add" icon="plus" text="Create" />
+        </bind:collection>
+		
+		<formline>
+			<button id="save" text="Save" style="green" />
+		</formline>
+    </vc>
+</pad> 

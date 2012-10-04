@@ -3,13 +3,12 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-	title = 'Notepad',
+	title = 'Hosts',
 	dependencies = [
-		PluginDependency('main'),
-		PluginDependency('codemirror'),
+		PluginDependency('main')
 	],
 )
 
 def init():
-	import notepad
+	import hosts
 
