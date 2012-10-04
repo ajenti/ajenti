@@ -17,6 +17,7 @@ class Label (UIElement):
 
 
 @p('icon', default=None)
+@p('style', default='normal')
 @plugin
 class Icon (UIElement):
 	typeid = 'icon'	

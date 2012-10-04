@@ -33,6 +33,15 @@ class window.Controls.box extends window.Control
         @childContainer = @dom
 
 
+class window.Controls.right extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control container right">
+            </div>
+        """)
+        @childContainer = @dom
+
+
 class window.Controls.hc extends window.Control
     createDom: () ->
         @dom = $("""
@@ -63,7 +72,7 @@ class window.Controls.label extends window.Control
 class window.Controls.icon extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $("""<div class="control icon">#{icon}</div>""")
+        @dom = $("""<div class="control icon style-#{@properties.style}">#{icon}</div>""")
 
 
 class window.Controls.button extends window.Control
@@ -72,7 +81,7 @@ class window.Controls.button extends window.Control
         @dom = $("""<a href="#" class="control button style-#{@properties.style}">#{icon}#{@properties.text}</a>""")
         @dom.click (e) =>
             @event 'click'
-            e.preventDefault()
+            @cancel(e)
 
 
 class window.Controls.formline extends window.Control
@@ -134,6 +143,7 @@ class window.Controls.editable extends window.Control
         @input.keyup (e) =>
             if e.which == 13
                 @goViewMode()
+            @cancel(e)
 
     goViewMode: () =>
         @label.html(@properties.placeholder ? @input.val())
@@ -191,8 +201,9 @@ class window.Controls.collapse extends window.Control
         @visible = false
         @container.hide()
 
-        @header.click () =>
+        @header.click (e) =>
             @container.toggle('blind')
+            @cancel(e)
 
     append: (child) ->
         if @hasHeader
@@ -221,7 +232,7 @@ class window.Controls.listitem extends window.Control
         @childContainer = @dom
         @dom.click (e) =>
             @event 'click'
-            e.preventDefault()
+            @cancel(e)
 
 
 class window.Controls.toolbar extends window.Control

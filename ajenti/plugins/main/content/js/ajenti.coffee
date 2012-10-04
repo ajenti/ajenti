@@ -23,6 +23,7 @@ class UIManager
     constructor: (@stream) ->
         @ui = null
         @pendingUpdates = []
+        @updaterTimeout = null
 
     inflate: (json) ->
         children = []
@@ -58,8 +59,13 @@ class UIManager
         @pendingUpdates.push update
 
     sendUpdates: () ->
-        @stream.emit_ui_update @pendingUpdates
-        @pendingUpdates = []
+        if @updaterTimeout
+            clearTimeout(@updaterTimeout)
+        @updaterTimeout = setTimeout () =>
+            @stream.emit_ui_update @pendingUpdates
+            @pendingUpdates = []
+            @updaterTimeout = null
+        , 50
 
     event: (control, event, params) ->
         @checkForUpdates()
@@ -72,6 +78,7 @@ class UIManager
 
         @queueUpdate update
         @sendUpdates()
+
 
 
 window.Stream = new Stream()
@@ -140,3 +147,7 @@ class window.Control
         if i == null or i == 'auto'
             return 'auto'
         return i + 'px'
+
+    cancel: (event) ->
+        event.preventDefault()
+        event.stopPropagation()

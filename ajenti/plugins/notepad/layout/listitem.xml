@@ -1,4 +1,7 @@
 <listitem>
+	<right>
+		<button style="circle" id="close" icon="remove" />
+	</right>
 	<hc>
 		<icon icon="file" />
 		<label id="name" />

@@ -46,6 +46,9 @@ class Notepad (SectionPlugin):
         for id, file in self.controller.files.iteritems():
             item = self.ui.inflate('notepad:listitem')
             item.find('name').text = file['path'] or 'Untitled %i' % id
+
+            item.find('close').on('click', self.on_close, id)
+            item.find('close').visible = len(self.controller.files.keys()) > 1
             item.on('click', self.select, id)
             self.list.append(item)
         self.publish()
@@ -87,6 +90,10 @@ class Notepad (SectionPlugin):
         self.savedialog.visible = False        
         self.publish()
 
+    def on_close(self, id):
+        self.controller.close(id)
+        self.select(self.controller.files.keys()[0])
+
 
 class Controller (object):
     def __init__(self):
@@ -115,3 +122,6 @@ class Controller (object):
         path = path or self.files[id]['path']
         self.files[id]['path'] = path
         open(path, 'w').write(self.files[id]['content'])
+
+    def close(self, id):
+        del self.files[id]
