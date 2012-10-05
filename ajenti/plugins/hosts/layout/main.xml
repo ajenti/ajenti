@@ -3,58 +3,58 @@
         <box width="400">
             <vc id="hosts-config">
                 <bind:collection id="hosts">
-                    <vc id="__items" />
-                    <bind:template>
-                        <collapse>
-                            <box>
-                                <right>
-                                    <button id="__delete" icon="remove" style="circle" />
-                                </right>
-                                <hc>
-                                    <icon icon="globe" />
-                                    <label id="name" />
-                                </hc>   
-                            </box>
-                            
-                            <pad>
-                                <vc>
-                                    <formline text="Name">
-                                        <textbox id="name" />
-                                    </formline>
-                                    <formline text="Address">
-                                        <textbox id="address" />
-                                    </formline>
-                                    <bind:collection id="aliases">
-                                        <formline text="Aliases">
-                                            <vc>
-                                                <vc id="__items" />
-                                                <button id="__add" icon="plus" text="Create" />
-                                            </vc>
+                    <vc>
+                        <vc id="__items" />
+                        <bind:template>
+                            <collapse>
+                                <box>
+                                    <right>
+                                        <button id="__delete" icon="remove" style="circle" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="globe" />
+                                        <label id="name" />
+                                    </hc>   
+                                </box>
+                                
+                                <pad>
+                                    <vc>
+                                        <formline text="Name">
+                                            <textbox id="name" />
                                         </formline>
-                                        <bind:template>
-                                            <vc>
-                                                <box>
-                                                    <right>
-                                                        <button id="__delete" icon="remove" style="circle" />
-                                                    </right>
-                                                    <hc>
-                                                        <icon icon="tags" />
-                                                        <textbox id="name" />
-                                                    </hc>   
-                                                </box>
-                                            </vc>
-                                        </bind:template>
-                                    </bind:collection>
-                                </vc>
-                            </pad>
-                        </collapse>
-                    </bind:template>
-                    <button id="__add" icon="plus" text="Create" />
+                                        <formline text="Address">
+                                            <textbox id="address" />
+                                        </formline>
+                                        <bind:collection id="aliases">
+                                            <formline text="Aliases">
+                                                <vc>
+                                                    <vc id="__items" />
+                                                    <button id="__add" icon="plus" text="Create" />
+                                                </vc>
+                                            </formline>
+                                            <bind:template>
+                                                <vc>
+                                                    <box>
+                                                        <right>
+                                                            <button id="__delete" icon="remove" style="circle" />
+                                                        </right>
+                                                        <hc>
+                                                            <icon icon="tags" />
+                                                            <textbox id="name" />
+                                                        </hc>   
+                                                    </box>
+                                                </vc>
+                                            </bind:template>
+                                        </bind:collection>
+                                    </vc>
+                                </pad>
+                            </collapse>
+                        </bind:template>
+                        <button id="__add" icon="plus" text="Create" />
+                    </vc>
                 </bind:collection>
                 
-                <formline>
-                    <button id="save" text="Save" style="green" />
-                </formline>
+                <button id="save" text="Save" style="green" />
             </vc>
         </box>
     </formline>

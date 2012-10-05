@@ -114,6 +114,9 @@ class UIElement (object):
 		r = self.nearest(lambda x: x.typeid == typeid)
 		return r[0] if len(r) > 0 else None
 
+	def contains(self, element):
+		return len(self.nearest(lambda x: x == element)) > 0
+		
 	def render(self):
 		result = {
 			'id': self.id,

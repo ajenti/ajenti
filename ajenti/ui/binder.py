@@ -48,17 +48,17 @@ class CollectionAutoBinding (Binding):
 	def __init__(self, object, field, ui):
 		Binding.__init__(self, object, field, ui)
 		self.template = ui.find_type('bind:template')
+		self.template.visible = False
 		self.items_ui = self.ui.find('__items') or self.ui
 
 	def populate(self):
 		self.collection = getattr(self.object, self.field)
 		self.values = self.ui.values(self.collection)
-		if self.template in self.ui.children:
-			self.ui.remove(self.template)
 		self.items_ui.empty()
 		self.binders = {}
 		for value in self.values:
 			template = self.template.clone()
+			template.visible = True
 			self.items_ui.append(template)
 			binder = Binder(value, template)
 			binder.autodiscover()
