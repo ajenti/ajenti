@@ -151,6 +151,8 @@ class window.Control
     _int_to_px: (i) ->
         if i == null or i == 'auto'
             return 'auto'
+        if parseInt(i) == NaN
+            return i + ''
         return i + 'px'
 
     cancel: (event) ->

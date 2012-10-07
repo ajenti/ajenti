@@ -111,6 +111,7 @@
 			border: 1px solid #ccc;
 			#gradient > .vertical(#eee, #ddd);
 			margin: 5px 0 4px;
+			opacity: .5;
 
 			i {
 				display: block;
@@ -120,6 +121,7 @@
 
 			&:hover {
 				background: #eee;
+				opacity: .75;
 
 				i {
 					opacity: 0.75;
@@ -127,6 +129,7 @@
 			}
 
 			&:active {
+				opacity: 1;
 				background: #eee;
 				.box-shadow(~"0 1px 1px #888 inset, 0 1px 1px white");
 				padding: 2px 1px 0px;
@@ -205,6 +208,20 @@
 		}
 	}
 
+	&.collapserow {
+		padding: 0 !important;
+		
+		>.header {
+			padding: 5px;
+			cursor: pointer;
+			&:hover { background: #fff; }
+		}
+
+		>.children, >*>.children {
+			background: white !important;
+			padding: 5px;
+		}
+	}
 
 	&.list {
 		border-top: 1px solid #eee;
@@ -230,10 +247,23 @@
 	}
 
 	&.table {
+		display: table;
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: collapse;
+		border: 1px solid @tableBorder;
+
 		&>tbody {
+			margin: 0;
+
 			&>tr {
+				margin: 0;
+				
 				&>td {
-					border: 1px solid #ccc;
+					margin: -1px 0 0 -1px;
+					background: @tableCell;
+					border: 1px solid @tableBorder;
+					padding: 5px;
 				}
 			}
 		}

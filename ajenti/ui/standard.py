@@ -7,20 +7,20 @@ from ajenti.ui import p, UIElement
 @p('scroll', default=False, type=bool)
 @plugin
 class Box (UIElement):
-	typeid = 'box'
+    typeid = 'box'
 
 
 @p('text', default='', bindtypes=[str, unicode, int])
 @plugin
 class Label (UIElement):
-	typeid = 'label'
+    typeid = 'label'
 
 
 @p('icon', default=None)
 @p('style', default='normal')
 @plugin
 class Icon (UIElement):
-	typeid = 'icon'	
+    typeid = 'icon'
 
 
 @p('text', default='', bindtypes=[str, unicode])
@@ -28,14 +28,14 @@ class Icon (UIElement):
 @p('style', default='normal')
 @plugin
 class Button (UIElement):
-	typeid = 'button'	
+    typeid = 'button'
 
 
 @p('value', default='', bindtypes=[str, unicode, int])
 @p('type', default='text')
 @plugin
 class TextBox (UIElement):
-	typeid = 'textbox'	
+    typeid = 'textbox'
 
 
 @p('value', default='', bindtypes=[str, unicode])
@@ -43,43 +43,47 @@ class TextBox (UIElement):
 @p('placeholder', default=None)
 @plugin
 class Editable (UIElement):
-	typeid = 'editable'	
+    typeid = 'editable'
 
 
 @p('text', default='')
 @p('value', default=False, bindtypes=[bool])
 @plugin
 class CheckBox (UIElement):
-	typeid = 'checkbox'	
+    typeid = 'checkbox'
 
 
 @p('text', default='', bindtypes=[str, unicode])
 @plugin
 class FormLine (UIElement):
-	typeid = 'formline'	
+    typeid = 'formline'
 
 
 @p('text', default='', bindtypes=[str, unicode])
 @plugin
 class FormGroup (UIElement):
-	typeid = 'formgroup'
+    typeid = 'formgroup'
 
 
 @p('expanded', default=False, type=bool, bindtypes=[bool])
 @plugin
 class Collapse (UIElement):
-	typeid = 'collapse'
+    typeid = 'collapse'
 
 
 @p('expanded', default=False, type=bool, bindtypes=[bool])
 @plugin
 class CollapseRow (UIElement):
-	typeid = 'collapse'
+    typeid = 'collapserow'
 
 
 @p('buttons')
 @plugin
 class Dialog (UIElement):
-	typeid = 'dialog'
+    typeid = 'dialog'
 
 
+@p('width', default=None)
+@plugin
+class Table (UIElement):
+    typeid = 'dt'

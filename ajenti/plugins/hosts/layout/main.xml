@@ -4,10 +4,8 @@
             <vc id="hosts-config">
                 <bind:collection id="hosts">
                     <vc>
-                        <dt id="__items" />
+                        <dt id="__items" width="100%" />
                         <bind:template>
-                            <dtr>
-                                <dtd>
                                     <collapserow>
                                         <box>
                                             <right>
@@ -51,8 +49,6 @@
                                             </vc>
                                         </pad>
                                     </collapserow>
-                                </dtd>
-                            </dtr>
                         </bind:template>
                         <button id="__add" icon="plus" text="Create" />
                     </vc>

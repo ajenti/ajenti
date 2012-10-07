@@ -257,8 +257,8 @@ class window.Controls.toolbar extends window.Control
 
 class window.Controls.dt extends window.Control
     createDom: () ->
-        @dom = $("""<table class="control table"><tbody></tbody></table>""")
-        @childContainer = @dom.find('>tbody')
+        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table"></table>""")
+        @childContainer = @dom#.find('>tbody')
 
     wrapChild: (child) ->
         return child.dom
@@ -281,3 +281,42 @@ class window.Controls.dtd extends window.Control
     wrapChild: (child) ->
         return child.dom
 
+
+
+class window.Controls.collapserow extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <tr>
+                <td colspan="999" class="control collapserow">
+                    <div class="header"></div>
+                    <div class="children"></div>
+                </td>
+            </tr>
+        """)
+        @container = @dom.find('.children')
+        @header = @dom.find('.header')
+        @hasHeader = false
+        @expanded = @properties.expanded
+        if not @properties.expanded
+            @container.hide()
+
+        @header.click (e) =>
+            @expanded = not @expanded
+            @publish()
+            @container.toggle('blind')
+            @cancel(e)
+
+    detectUpdates: () ->
+        r = {}
+        if @expanded != @properties.expanded
+            r.expanded = @expanded
+        @properties.expanded = @expanded
+        return r
+
+    append: (child) ->
+        if @hasHeader
+            @container.append(child.dom)
+        else
+            @header.append(child.dom)
+            @hasHeader = true
+        @children.push child
