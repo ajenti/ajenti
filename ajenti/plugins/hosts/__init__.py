@@ -3,12 +3,12 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-	title = 'Hosts',
-	dependencies = [
-		PluginDependency('main')
-	],
+    title='Hosts',
+    dependencies=[
+        PluginDependency('main')
+    ],
 )
 
-def init():
-	import hosts
 
+def init():
+    import hosts

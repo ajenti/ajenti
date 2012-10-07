@@ -32,7 +32,7 @@ class ConsoleHandler (logging.StreamHandler):
         d = datetime.fromtimestamp(record.created)
         s += d.strftime("\033[37m%d.%m.%Y %H:%M \033[0m")
         if self.debug:
-            s += ('%s:%s'%(record.filename,record.lineno)).ljust(30)
+            s += ('%s:%s' % (record.filename, record.lineno)).ljust(30)
         l = ''
         if record.levelname == 'DEBUG':
             l = '\033[37mDEBUG\033[0m '
@@ -68,5 +68,5 @@ def make_log(debug=False, log_level=logging.INFO):
 
 
 def init(level=logging.INFO):
-    make_log(debug=level==logging.DEBUG, log_level=level)
+    make_log(debug=level == logging.DEBUG, log_level=level)
     logging.blackbox.start()

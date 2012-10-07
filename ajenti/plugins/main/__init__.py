@@ -4,13 +4,14 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-	title = 'Test Plugin',
-	dependencies = [
-		#PluginDependency('ads')
-	],
+    title='Test Plugin',
+    dependencies=[
+        #PluginDependency('ads')
+    ],
 )
 
+
 def init():
-	import main
-	import api
-	import controls_dialogs
+    import main
+    import api
+    import controls_dialogs

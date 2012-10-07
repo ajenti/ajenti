@@ -6,4 +6,4 @@ from ajenti.ui import *
 @p('active', default=False)
 @interface
 class SectionPlugin (UIElement):
-	typeid = 'main:section'
+    typeid = 'main:section'

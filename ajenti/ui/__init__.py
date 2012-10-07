@@ -1,11 +1,8 @@
-import random
-import gevent
-
 from ajenti.api import *
 
 import binder
 from inflater import Inflater
-from element import p, UIElement, UIProperty
+from element import p, UIElement
 
 
 class UI (object):
@@ -38,7 +35,7 @@ class UI (object):
         self.pending_updates += 1
 
     def get_updates(self):
-        updates = [1] * self.pending_updates # TODO! 
+        updates = [1] * self.pending_updates  # TODO!
         self.pending_updates = 0
         return updates
 

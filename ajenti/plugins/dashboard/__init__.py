@@ -3,12 +3,12 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-	title = 'Dashboard',
-	dependencies = [
-		PluginDependency('main')
-	],
+    title='Dashboard',
+    dependencies=[
+        PluginDependency('main')
+    ],
 )
 
-def init():
-	import dash
 
+def init():
+    import dash

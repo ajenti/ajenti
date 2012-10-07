@@ -46,7 +46,7 @@ class SaveFileDialog (UIElement):
     def init(self):
         self.on('item-click', self.on_item_click)
         self.refresh()
-            
+
     def on_item_click(self, item):
         path = os.path.abspath(os.path.join(self.path, item))
         if os.path.isdir(path):
@@ -54,7 +54,7 @@ class SaveFileDialog (UIElement):
             self.refresh()
             self.publish()
         else:
-            self.event('select', {'path':path})
+            self.event('select', {'path': path})
 
     def refresh(self):
         self._dirs = []

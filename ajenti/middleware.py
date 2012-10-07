@@ -44,7 +44,7 @@ class SessionMiddleware (HttpHandler):
     def vacuum(self):
         for session in [x for x in self.sessions.values() if x.is_dead()]:
             del self.sessions[session.id]
-            
+
     def open_session(self, context):
         session_id = self.generate_session_id(context)
         session = Session(session_id)

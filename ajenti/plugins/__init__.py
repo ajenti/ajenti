@@ -7,6 +7,7 @@ import traceback
 class PluginLoadError (Exception):
     pass
 
+
 class PluginCrashed (PluginLoadError):
     def __init__(self, e):
         self.e = e
@@ -34,7 +35,7 @@ class Dependency:
         exception = self.Unsatisfied()
         exception.dependency = self
         return exception
-            
+
     def check(self):
         if not self.satisfied():
             exception = self.build_exception()
@@ -63,7 +64,6 @@ class PluginManager:
     __order = []
     __instances = {}
 
-
     def register_interface(self, iface):
         setattr(iface, '__ajenti_interface', True)
 
@@ -91,11 +91,10 @@ class PluginManager:
             self.__instances.setdefault(iface, []).append(instance)
         return instance
 
-
     # Plugin loader
     def get_all(self):
         return self.__plugins
-    
+
     def get_order(self):
         return self.__order
 
@@ -118,7 +117,7 @@ class PluginManager:
         while True:
             try:
                 self.load(name)
-                return 
+                return
             except PluginDependency.Unsatisfied, e:
                 try:
                     logging.debug('Preloading plugin dependency: %s' % e.dependency.plugin_name)
@@ -171,4 +170,3 @@ class PluginManager:
 manager = PluginManager()
 
 __all__ = ['manager', 'PluginLoadError', 'PluginCrashed', 'PluginDependency']
-

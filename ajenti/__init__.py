@@ -72,7 +72,7 @@ def detect_platform():
     res = dist.strip().lower()
     if res in base_mapping:
         res = base_mapping[res]
-    
+
     res_mapped = res
     if res in platform_mapping:
         res_mapped = platform_mapping[res]
@@ -89,7 +89,7 @@ def detect_platform_string():
 def check_uid():
     file = '/var/lib/ajenti/installation-uid'
     if not os.path.exists(file):
-        uid = str(random.randint(1, 9000*9000))
+        uid = str(random.randint(1, 9000 * 9000))
         try:
             open(file, 'w').write(uid)
         except:
@@ -102,6 +102,6 @@ def check_uid():
 def init():
     import ajenti
     ajenti.version = detect_version()
-    ajenti.platform_unmapped, ajenti.platform = detect_platform() 
+    ajenti.platform_unmapped, ajenti.platform = detect_platform()
     ajenti.platform_string = detect_platform_string()
-    ajenti.installation_uid = check_uid()  
+    ajenti.installation_uid = check_uid()

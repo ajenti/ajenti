@@ -1,7 +1,7 @@
 import os
 import inspect
 
-from ajenti.plugins import manager 
+from ajenti.plugins import manager
 
 
 class PluginInfo:
@@ -10,11 +10,11 @@ class PluginInfo:
         self.homepage = ''
         self.dependencies = []
 
-        def init(): 
+        def init():
             pass
 
         self.init = init
-        
+
         for k in kwargs:
             setattr(self, k, kwargs[k])
 
@@ -23,7 +23,7 @@ def plugin(cls):
     manager.register_implementation(cls)
     cls._plugin = True
     cls._path = inspect.getfile(cls)
-    
+
     def get(cls):
         return manager.get_instance(cls)
     cls.get = get.__get__(cls)
@@ -44,25 +44,25 @@ def interface(cls):
     def get(cls):
         return manager.get_instance(manager.get_implementations(cls)[0])
     cls.get = get.__get__(cls)
-    
+
     def get_all(cls):
         return [manager.get_instance(x) for x in manager.get_implementations(cls)]
     cls.get_all = get_all.__get__(cls)
-    
+
     def get_class(cls):
         return manager.get_implementations(cls)[0]
     cls.get_class = get_class.__get__(cls)
-    
+
     def get_classes(cls):
         return manager.get_implementations(cls)
     cls.get_classes = get_classes.__get__(cls)
-    
+
     def get_instances(cls):
         return manager.get_instances(cls)
     cls.get_instances = get_instances.__get__(cls)
-    
+
     manager.register_interface(cls)
-    
+
     return cls
 
 
@@ -77,11 +77,10 @@ class BasePlugin (object):
             raise Exception('content directory not found')
         return open(os.path.join(root, 'content', path), mode)
 
-    
+
 __all__ = [
-    'PluginInfo', 
+    'PluginInfo',
     'BasePlugin',
-    'plugin', 
+    'plugin',
     'interface',
 ]
-

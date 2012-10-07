@@ -3,11 +3,11 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-	title = 'Resources Manager',
-	dependencies = [
-	],
+    title='Resources Manager',
+    dependencies=[
+    ],
 )
 
-def init():
-	import server
 
+def init():
+    import server

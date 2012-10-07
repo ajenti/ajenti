@@ -1,6 +1,3 @@
-import os
-import re
-
 import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
@@ -10,7 +7,7 @@ from reconfigure.items.ajenti import User
 
 
 @plugin
-class Configurator (SectionPlugin): 
+class Configurator (SectionPlugin):
     def init(self):
         self.title = 'Configure'
 
@@ -24,10 +21,9 @@ class Configurator (SectionPlugin):
         self.find('save-button').on('click', self.save)
 
     def save(self):
-    	self.binder.update()
+        self.binder.update()
         for user in ajenti.config.tree.users.values():
             user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
         ajenti.config.save()
         self.publish()
-    

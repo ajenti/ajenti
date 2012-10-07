@@ -1,19 +1,13 @@
-import os
-import re
-import mimetypes
-
-import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
-from ajenti.users import UserManager
 
 from reconfigure.configs import HostsConfig
 from reconfigure.items.hosts import Alias, Host
 
 
 @plugin
-class Hosts (SectionPlugin): 
+class Hosts (SectionPlugin):
     def init(self):
         self.title = 'Hosts'
         self.append(self.ui.inflate('hosts:main'))
@@ -30,5 +24,5 @@ class Hosts (SectionPlugin):
 
     def save(self):
         self.binder.update()
-        self.config.save() 
+        self.config.save()
         self.publish()

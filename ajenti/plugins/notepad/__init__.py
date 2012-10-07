@@ -3,13 +3,13 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-	title = 'Notepad',
-	dependencies = [
-		PluginDependency('main'),
-		PluginDependency('codemirror'),
-	],
+    title='Notepad',
+    dependencies=[
+        PluginDependency('main'),
+        PluginDependency('codemirror'),
+    ],
 )
 
-def init():
-	import notepad
 
+def init():
+    import notepad

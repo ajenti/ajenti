@@ -1,4 +1,3 @@
-import re
 import os
 import gzip
 import cgi
@@ -39,7 +38,6 @@ class HttpContext:
                                        keep_blank_values=1)
         else:
             self.query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
-
 
     def add_header(self, key, value):
         self.headers += [(key, value)]
@@ -86,7 +84,7 @@ class HttpContext:
         self.add_header('Content-Length', str(len(compressed)))
         self.add_header('Content-Encoding', 'gzip')
         self.respond_ok()
-        
+
         return compressed
 
     def file(self, path):
@@ -105,14 +103,13 @@ class HttpContext:
             '.jpg': 'image/jpeg',
             '.woff': 'application/x-font-woff',
         }
-        
+
         ext = os.path.splitext(path)[1]
         if ext in content_types:
             self.add_header('Content-Type', content_types[ext])
         else:
             self.add_header('Content-Type', 'application/octet-stream')
 
-        size = os.path.getsize(path)
         mtime = datetime.utcfromtimestamp(os.path.getmtime(path))
 
         rtime = self.env.get('HTTP_IF_MODIFIED_SINCE', None)
@@ -128,8 +125,6 @@ class HttpContext:
         #self.add_header('Content-Length', str(size))
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         return self.gzip(open(path).read())
-        self.respond_ok()
-        content |= open(path).read()
 
 
 class HttpHandler (object):

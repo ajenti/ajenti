@@ -3,7 +3,6 @@ import json
 from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 
-import ajenti
 from ajenti.api import interface
 
 
@@ -37,22 +36,22 @@ class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
 
     def recv_connect(self):
         if self.request.session.identity is None:
-            return 
-            
+            return
+
         self.socket.session = self.request.session
         self.on_connect()
 
     def recv_disconnect(self):
         if self.request.session.identity is None:
-            return 
-            
+            return
+
         self.on_disconnect()
         self.disconnect(silent=True)
 
     def recv_message(self, message):
         if self.request.session.identity is None:
-            return 
-            
+            return
+
         self.socket.session.touch()
         self.on_message(json.loads(message))
 
@@ -64,4 +63,3 @@ class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
 
     def on_message(self, message):
         pass
-

@@ -1,16 +1,11 @@
-import os
-import re
 import mimetypes
 
-import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
-from ajenti.ui.binder import Binder
-from ajenti.users import UserManager
 
 
 @plugin
-class Notepad (SectionPlugin): 
+class Notepad (SectionPlugin):
     def init(self):
         self.title = 'Notepad'
         self.append(self.ui.inflate('notepad:main'))
@@ -23,7 +18,7 @@ class Notepad (SectionPlugin):
         self.savedialog = self.find('savedialog')
         self.savedialog.on('button', self.on_save_dialog)
         self.savedialog.on('select', self.on_save_select)
-        
+
         self.controller = Controller()
 
         self.find('new-button').on('click', self.on_new)
@@ -57,7 +52,7 @@ class Notepad (SectionPlugin):
     def on_open(self):
         self.opendialog.visible = True
         self.publish()
-    
+
     def on_save(self):
         path = self.controller.files[self.selected]['path']
         if not path:
@@ -65,7 +60,7 @@ class Notepad (SectionPlugin):
         else:
             self.on_save_select(None)
         self.publish()
-    
+
     def on_save_as(self):
         self.savedialog.visible = True
         self.publish()
@@ -75,7 +70,7 @@ class Notepad (SectionPlugin):
         self.select(self.controller.open(path))
 
     def on_open_dialog(self, button):
-        self.opendialog.visible = False        
+        self.opendialog.visible = False
         self.publish()
 
     def on_save_select(self, path):
@@ -85,7 +80,7 @@ class Notepad (SectionPlugin):
         self.select(self.selected)
 
     def on_save_dialog(self, button):
-        self.savedialog.visible = False        
+        self.savedialog.visible = False
         self.publish()
 
     def on_close(self, id):

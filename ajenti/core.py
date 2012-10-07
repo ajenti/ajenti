@@ -1,8 +1,9 @@
 import logging
 import signal
 import syslog
+import sys
 
-import ajenti   
+import ajenti
 from ajenti.http import HttpRoot
 from ajenti.routing import CentralDispatcher
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
@@ -10,7 +11,8 @@ import ajenti.plugins
 
 
 import gevent
-from gevent import monkey; monkey.patch_all()
+from gevent import monkey
+monkey.patch_all()
 from socketio.server import SocketIOServer
 
 
@@ -29,7 +31,7 @@ def run():
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     ajenti.server = SocketIOServer(
-        (ajenti.config.tree.http_binding.host, 
+        (ajenti.config.tree.http_binding.host,
          ajenti.config.tree.http_binding.port),
         application=HttpRoot(stack).dispatch,
         **ssl
@@ -44,10 +46,9 @@ def run():
     except:
         syslog.openlog('ajenti')
 
-
     try:
         gevent.signal(signal.SIGTERM, lambda: sys.exit(0))
     except:
         pass
-    
+
     ajenti.server.serve_forever()
