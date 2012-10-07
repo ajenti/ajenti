@@ -29,13 +29,12 @@
                     <checkbox text="Enable" id="authentication" />
                 </formline>
                 <formline text="Accounts">
-                    <vc>
-                        <bind:collection 
-                                id="users" 
-                                values="lambda c: c.values()"
-                                add_item="lambda i,c: c.update({i.name: i})"
-                                delete_item="lambda i,c: c.pop(i.name)"
-                            >
+                    <bind:collection 
+                            id="users" 
+                            values="lambda c: c.values()"
+                            add_item="lambda i,c: c.update({i.name: i})"
+                            delete_item="lambda i,c: c.pop(i.name)">
+                        <vc>
                             <vc id="__items" />
                             <bind:template>
                                 <hc>
@@ -47,9 +46,9 @@
                                     <button id="__delete" icon="remove" text="Delete" style="link" />
                                 </hc>
                             </bind:template>
-                        </bind:collection>
-                        <button id="__add" icon="plus" text="Create" />
-                    </vc>
+                            <button id="__add" icon="plus" text="Create" />
+                        </vc>
+                    </bind:collection>
                 </formline>
                 <formline>
                     <button text="Save" style="green" id="save-button" icon="ok" />

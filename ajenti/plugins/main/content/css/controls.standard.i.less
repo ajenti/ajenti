@@ -75,7 +75,7 @@
 
 		i {
 			display: block;
-			margin: 4px 0 5px;
+			margin: 6px 0 0;
 		}
 	}
 
@@ -227,5 +227,15 @@
 		border-top: 1px solid @toolbarGradient2;
 		.box-shadow(0 1px 0 lighten(@toolbarGradient1, 5%) inset);
 		#gradient > .vertical(@toolbarGradient1, @toolbarGradient2);
+	}
+
+	&.table {
+		&>tbody {
+			&>tr {
+				&>td {
+					border: 1px solid #ccc;
+				}
+			}
+		}
 	}
 }

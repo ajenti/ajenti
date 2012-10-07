@@ -1,10 +1,8 @@
-import os
 import json
 import gevent
 
 from ajenti.api import *
 from ajenti.api.http import *
-from ajenti.plugins import manager
 from ajenti.ui import *
 from ajenti.middleware import AuthenticationMiddleware
 
@@ -22,7 +20,7 @@ class MainServer (BasePlugin, HttpPlugin):
         context.add_header('Content-Type', 'text/html')
         context.respond_ok()
         return self.open_content('static/index.html').read()
-        
+
     @url('/auth')
     def handle_auth(self, context):
         username = context.query.getvalue('username', '')
@@ -90,4 +88,3 @@ class SectionsRoot (UIElement):
         for child in self.children:
             child.active = child.uid == uid
         self.publish()
-

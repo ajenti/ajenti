@@ -8,8 +8,8 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
 from ajenti.users import UserManager
 
-from reconfigure.ext.hosts import HostsConfig
-from reconfigure.ext.hosts.items import Alias, Host
+from reconfigure.configs import HostsConfig
+from reconfigure.items.hosts import Alias, Host
 
 
 @plugin

@@ -6,7 +6,7 @@ from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
 from ajenti.users import UserManager
-from reconfigure.ext.ajenti.items import User
+from reconfigure.items.ajenti import User
 
 
 @plugin

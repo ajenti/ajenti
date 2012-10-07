@@ -10,7 +10,7 @@ import json
 import ajenti
 import ajenti.log
 
-from reconfigure.ext.ajenti import AjentiConfig
+from reconfigure.configs import AjentiConfig
 
 
 def usage():

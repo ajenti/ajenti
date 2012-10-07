@@ -131,7 +131,7 @@ class window.Controls.editable extends window.Control
         icon = _make_icon(@properties.icon)
         @dom = $("""
             <div class="control editable">
-                <div class="control label">#{icon} #{@properties.placeholder ? @properties.value}</div>
+                <div class="control label">#{icon} <span>#{@properties.placeholder ? @properties.value}</span></div>
                 <input class="control textbox" type="text" value="#{@properties.value}" />
             </div>
         """)
@@ -146,7 +146,7 @@ class window.Controls.editable extends window.Control
             @cancel(e)
 
     goViewMode: () =>
-        @label.html(@properties.placeholder ? @input.val())
+        @label.find('>span').html(@properties.placeholder ? @input.val())
         @input.hide()
         @label.show()
 
@@ -253,3 +253,31 @@ class window.Controls.toolbar extends window.Control
             </div>
         """)
         @childContainer = @dom
+
+
+class window.Controls.dt extends window.Control
+    createDom: () ->
+        @dom = $("""<table class="control table"><tbody></tbody></table>""")
+        @childContainer = @dom.find('>tbody')
+
+    wrapChild: (child) ->
+        return child.dom
+
+
+class window.Controls.dtr extends window.Control
+    createDom: () ->
+        @dom = $("""<tr></tr>""")
+        @childContainer = @dom
+
+    wrapChild: (child) ->
+        return child.dom
+
+
+class window.Controls.dtd extends window.Control
+    createDom: () ->
+        @dom = $("""<td></td>""")
+        @childContainer = @dom
+
+    wrapChild: (child) ->
+        return child.dom
+

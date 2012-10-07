@@ -8,8 +8,6 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
 from ajenti.users import UserManager
 
-from reconfigure.ext.nginx import NginxConfig
-
 
 @plugin
 class Notepad (SectionPlugin): 

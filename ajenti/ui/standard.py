@@ -71,6 +71,12 @@ class Collapse (UIElement):
 	typeid = 'collapse'
 
 
+@p('expanded', default=False, type=bool, bindtypes=[bool])
+@plugin
+class CollapseRow (UIElement):
+	typeid = 'collapse'
+
+
 @p('buttons')
 @plugin
 class Dialog (UIElement):
