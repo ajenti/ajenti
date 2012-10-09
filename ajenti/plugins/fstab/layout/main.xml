@@ -1,0 +1,56 @@
+<pad xmlns:bind="bind">
+    <box width="750">
+        <vc id="fstab-config">
+            <bind:collection bind="filesystems" id="filesystems">
+                <vc>
+                    <dt bind="__items" width="100%" />
+                    <bind:template>
+                        <collapserow>
+                            <box>
+                                <right>
+                                    <button bind="__delete" icon="remove" style="circle" />
+                                </right>
+                                <hc>
+                                    <icon icon="hdd" />
+                                    <label bind="device" />
+                                    <label text=" → " />
+                                    <label bind="mountpoint" />
+                                </hc>   
+                            </box>
+                            
+                            <pad>
+                                <hc>
+                                    <vc>
+                                        <formline text="Device">
+                                            <combobox id="device" bind="device" />
+                                        </formline>
+                                        <formline text="Mountpoint">
+                                            <textbox bind="mountpoint" />
+                                        </formline>
+                                        <formline text="FS type">
+                                            <textbox bind="type" />
+                                        </formline>
+                                    </vc>
+                                    <vc>
+                                        <formline text="Options">
+                                            <textbox bind="options" />
+                                        </formline>
+                                        <formline text="Scan frequency">
+                                            <textbox bind="freq" />
+                                        </formline>
+                                        <formline text="Scan pass">
+                                            <textbox bind="passno" />
+                                        </formline>
+                                    </vc>
+                                </hc>
+                            </pad>
+                        </collapserow>
+                    </bind:template>
+                    <button bind="__add" icon="plus" text="Create" />
+                </vc>
+            </bind:collection>
+            
+            <button id="save" text="Save" style="green" />
+        </vc>
+    </box>
+</pad> 

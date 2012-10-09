@@ -49,7 +49,7 @@ class CollectionAutoBinding (Binding):
         Binding.__init__(self, object, field, ui)
         self.template = ui.find_type('bind:template')
         self.template.visible = False
-        self.items_ui = self.ui.find('__items') or self.ui
+        self.items_ui = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
 
     def populate(self):
         self.collection = getattr(self.object, self.field)
@@ -65,11 +65,11 @@ class CollectionAutoBinding (Binding):
             binder.populate()
             self.binders[value] = binder
 
-            del_button = template.find('__delete')
+            del_button = template.nearest(lambda x: x.bind == '__delete')[0]
             if del_button:
                 del_button.on('click', self.on_delete, value)
 
-        add_button = self.ui.find('__add')
+        add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
         if add_button is not None:
             add_button.on('click', self.on_add)
 
@@ -99,7 +99,7 @@ class Binder (object):
     def autodiscover(self, object=None, ui=None):
         object = object or self.object
         for k, v in object.__dict__.iteritems():
-            children = (ui or self.ui).nearest(lambda x: x.id == k)
+            children = (ui or self.ui).nearest(lambda x: x.bind == k)
             for child in children:
                 if child == ui:
                     raise Exception('Circular UI reference for %s!' % k)

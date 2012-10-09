@@ -1,52 +1,53 @@
 <pad xmlns:bind="bind">
     <vc id="ajenti-config">
-        <formgroup text="HTTP Server" id="http_binding">
+        <formgroup text="HTTP Server" bind="http_binding">
             <vc>
                 <formline text="Host">
-                    <textbox id="host" />
+                    <textbox bind="host" />
                 </formline>
                 <formline text="Port">
-                    <textbox id="port" type="integer" />
+                    <textbox bind="port" type="integer" />
                 </formline>
             </vc>
         </formgroup>
-        <formgroup text="SSL" id="ssl">
+        <formgroup text="SSL" bind="ssl">
             <vc>
                 <formline text="Use SSL">
-                    <checkbox id="enable" />
+                    <checkbox bind="enable" />
                 </formline>
                 <formline text="Path to certificate">
-                    <textbox id="certificate_path" />
+                    <textbox bind="certificate_path" />
                 </formline>
                 <formline text="Path to key">
-                    <textbox id="key_path" />
+                    <textbox bind="key_path" />
                 </formline>
             </vc>
         </formgroup>
         <formgroup text="Users">
             <vc>
                 <formline text="Authentication">
-                    <checkbox text="Enable" id="authentication" />
+                    <checkbox text="Enable" bind="authentication" />
                 </formline>
                 <formline text="Accounts">
                     <bind:collection 
-                            id="users" 
+                            id="users"
+                            bind="users" 
                             values="lambda c: c.values()"
                             add_item="lambda i,c: c.update({i.name: i})"
                             delete_item="lambda i,c: c.pop(i.name)">
                         <vc>
-                            <vc id="__items" />
+                            <vc bind="__items" />
                             <bind:template>
                                 <hc>
                                     <icon icon="user" />
                                     <box width="100">
-                                        <editable id="name" />
+                                        <editable bind="name" />
                                     </box>
-                                    <editable id="password" placeholder="Change password" icon="lock" />
-                                    <button id="__delete" icon="remove" text="Delete" style="link" />
+                                    <editable bind="password" placeholder="Change password" icon="lock" />
+                                    <button bind="__delete" icon="remove" text="Delete" style="link" />
                                 </hc>
                             </bind:template>
-                            <button id="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="Create" />
                         </vc>
                     </bind:collection>
                 </formline>

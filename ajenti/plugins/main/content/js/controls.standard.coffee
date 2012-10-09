@@ -187,6 +187,29 @@ class window.Controls.checkbox extends window.Control
         return r
 
 
+class window.Controls.combobox extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div><input class="control combobox" type="text" value="#{@properties.value}" /></div>
+        """)
+        @input = @dom.find('input')
+        @data = []
+        for i in [0..@properties.items.length]
+            do (i) =>
+                @data.push {label: @properties.items[i], value: @properties.values[i]}
+        @input.autocomplete source: @data
+
+    detectUpdates: () ->
+        r = {}
+        value = @input.val()
+        if @properties.type == 'integer'
+            value = parseInt(value)
+        if value != @properties.value
+            r.value = value
+        @properties.value = value
+        return r
+
+
 class window.Controls.collapse extends window.Control
     createDom: () ->
         @dom = $("""

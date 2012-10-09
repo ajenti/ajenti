@@ -163,7 +163,8 @@
 
 		>input {
 			float: left;
-			.square(@controlHeight);
+			margin: 6px;
+			.square(@controlHeight - 8px);
 		}
 	}
 
@@ -172,6 +173,10 @@
 			width: @controlWidth;
 			text-align: right;
 			padding-right: 20px;
+			float: left;
+		}
+
+		>div:last-child {
 			float: left;
 		}
 

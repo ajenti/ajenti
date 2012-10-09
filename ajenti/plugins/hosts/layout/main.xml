@@ -2,45 +2,45 @@
     <formline text="Hosts">
         <box width="400">
             <vc id="hosts-config">
-                <bind:collection id="hosts">
+                <bind:collection bind="hosts" id="hosts">
                     <vc>
-                        <dt id="__items" width="100%" />
+                        <dt bind="__items" width="100%" />
                         <bind:template>
                                     <collapserow>
                                         <box>
                                             <right>
-                                                <button id="__delete" icon="remove" style="circle" />
+                                                <button bind="__delete" icon="remove" style="circle" />
                                             </right>
                                             <hc>
                                                 <icon icon="globe" />
-                                                <label id="name" />
+                                                <label bind="name" />
                                             </hc>   
                                         </box>
                                         
                                         <pad>
                                             <vc>
                                                 <formline text="Name">
-                                                    <textbox id="name" />
+                                                    <textbox bind="name" />
                                                 </formline>
                                                 <formline text="Address">
-                                                    <textbox id="address" />
+                                                    <textbox bind="address" />
                                                 </formline>
-                                                <bind:collection id="aliases">
+                                                <bind:collection id="aliases" bind="aliases">
                                                     <formline text="Aliases">
                                                         <vc>
-                                                            <vc id="__items" />
-                                                            <button id="__add" icon="plus" text="Create" />
+                                                            <vc bind="__items" />
+                                                            <button bind="__add" icon="plus" text="Create" />
                                                         </vc>
                                                     </formline>
                                                     <bind:template>
                                                         <vc>
                                                             <box>
                                                                 <right>
-                                                                    <button id="__delete" icon="remove" style="circle" />
+                                                                    <button bind="__delete" icon="remove" style="circle" />
                                                                 </right>
                                                                 <hc>
                                                                     <icon icon="tags" />
-                                                                    <textbox id="name" />
+                                                                    <textbox bind="name" />
                                                                 </hc>   
                                                             </box>
                                                         </vc>
@@ -50,7 +50,7 @@
                                         </pad>
                                     </collapserow>
                         </bind:template>
-                        <button id="__add" icon="plus" text="Create" />
+                        <button bind="__add" icon="plus" text="Create" />
                     </vc>
                 </bind:collection>
                 

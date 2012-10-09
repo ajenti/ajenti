@@ -42,6 +42,7 @@ class UIProperty (object):
 
 
 @p('visible', default=True, type=bool)
+@p('bind', default=None, type=str)
 @interface
 class UIElement (object):
     typeid = None
