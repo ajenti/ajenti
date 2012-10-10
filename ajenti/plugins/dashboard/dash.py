@@ -9,6 +9,8 @@ from ajenti.plugins.main.api import SectionPlugin
 class Dash (SectionPlugin):
     def init(self):
         self.title = 'Dashboard'
+        self.category = 'Ajenti'
+        self.order = 0
 
         self.append(self.ui.inflate('dashboard:dash'))
         self.label = self.find('label')

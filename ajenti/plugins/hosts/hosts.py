@@ -10,6 +10,8 @@ from reconfigure.items.hosts import Alias, Host
 class Hosts (SectionPlugin):
     def init(self):
         self.title = 'Hosts'
+        self.category = 'System'
+        
         self.append(self.ui.inflate('hosts:main'))
 
         self.config = HostsConfig(path='/etc/hosts')

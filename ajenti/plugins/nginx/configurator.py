@@ -9,6 +9,8 @@ from reconfigure.configs import NginxConfig
 class Configurator (SectionPlugin):
     def init(self):
         self.title = 'nginx'
+        self.category = 'Software'
+        
         self.append(self.ui.inflate('nginx:main'))
 
         self.config = NginxConfig(path='/etc/nginx/nginx.conf')

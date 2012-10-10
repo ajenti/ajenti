@@ -8,6 +8,8 @@ from ajenti.plugins.main.api import SectionPlugin
 class Notepad (SectionPlugin):
     def init(self):
         self.title = 'Notepad'
+        self.category = 'Tools'
+        
         self.append(self.ui.inflate('notepad:main'))
 
         self.editor = self.find('editor')

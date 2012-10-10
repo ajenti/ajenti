@@ -14,6 +14,28 @@ class window.Controls.main__page extends window.Control
 		@childContainer = @dom.find('.--child-container')
 
 
+class window.Controls.main__sections_tab extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<a href="#" class="tab #{if @properties.active then 'active' else ''}">
+				#{@properties.title}
+			</a>
+		""")
+
+
+class window.Controls.main__sections_category extends window.Control
+	createDom: () ->
+		@dom = $("""
+			<div class="control container main-sections-category"> 
+				<div>#{@properties.name}</div>
+				<div class="content">
+					<div class="--child-container"></div>
+				</div>
+			</div>
+		""")
+		@childContainer = @dom.find('.--child-container')
+
+
 class window.Controls.main__sections_root extends window.Control
 	createDom: () ->
 		@dom = $("""
@@ -28,18 +50,20 @@ class window.Controls.main__sections_root extends window.Control
 		""")
 		@tabsContainer = @dom.find('.--tabs-container')
 		@childContainer = @dom.find('.--child-container')
+		@categories = {}
 
 	append: (child) ->
-		tab = $("""
-			<a href="#" class="tab #{if child.properties.active then 'active' else ''}">
-				#{child.properties.title}
-			</a>
-		""")
-		tab.click (e) =>
+		if not @categories[child.properties.category]
+			cat = new Controls.main__sections_category(@ui, { name: child.properties.category })
+			@categories[child.properties.category] = cat
+			@tabsContainer.append(cat.dom)
+
+		tab = new Controls.main__sections_tab(@ui, child.properties)
+		tab.dom.click (e) =>
 			@event('switch', uid:child.uid)
 			e.preventDefault()
 
-		@tabsContainer.append(tab)
+		@categories[child.properties.category].append(tab)
 		super(child)
 
 

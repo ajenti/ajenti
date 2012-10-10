@@ -73,14 +73,29 @@ class MainPage (UIElement):
     typeid = 'main:page'
 
 
+@p('name')
+@plugin
+class SectionsCategory (UIElement):
+    typeid = 'main:sections_category'
+
+
 @plugin
 class SectionsRoot (UIElement):
     typeid = 'main:sections_root'
+    category_order = {
+        'Ajenti': 0,
+        'System': 50,
+        'Tools': 60,
+        'Software': 80,
+        'Other': 99
+    }
 
     def init(self):
+        self.categories = {}
         for cls in SectionPlugin.get_classes():
             cat = cls.new(self.ui)
             self.append(cat)
+        self.children = sorted(self.children, key=lambda x: (self.category_order[x.category], x.order, x.title))
         self.children[0].active = True
         self.on('switch', self.on_switch)
 
