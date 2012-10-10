@@ -28,7 +28,7 @@
                                             <textbox bind="mountpoint" />
                                         </formline>
                                         <formline text="FS type">
-                                            <textbox bind="type" />
+                                            <combobox id="type" bind="type" />
                                         </formline>
                                     </vc>
                                     <vc>

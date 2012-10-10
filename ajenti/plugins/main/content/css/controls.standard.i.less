@@ -139,7 +139,8 @@
 
 	&.textbox {
 		color: @controlText;
-		font-size: @fontSize;
+		font-family: @fontFamily; 
+    	font-size: @fontSize;
 		
 		padding: 0 4px;
 		border: 1px solid transparent;
@@ -166,6 +167,10 @@
 			margin: 6px;
 			.square(@controlHeight - 8px);
 		}
+	}
+
+	&.combobox {
+		.control.textbox();
 	}
 
 	&.formline {
