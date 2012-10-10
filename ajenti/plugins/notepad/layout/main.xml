@@ -5,6 +5,7 @@
 			<button id="open-button" text="Open" icon="folder-open" />
 			<button id="save-button" text="Save" icon="hdd" />
 			<button id="save-as-button" text="Save As" icon="hdd" />
+			<button id="bookmark-button" text="Bookmark" icon="tag" />
 		</hc>
 	</toolbar>
 	<pad >
@@ -12,7 +13,7 @@
 			<box width="220" scroll="true">
 				<list id="list" />
 			</box>
-	    	<codearea id="editor" mode="python" value="def asd(): pass" width="540" height="500" />
+	    	<codearea id="editor" width="540" height="500" />
 	    	<openfiledialog id="opendialog" visible="False" />
 	    	<savefiledialog id="savedialog" visible="False" />
 		</hc>

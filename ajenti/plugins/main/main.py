@@ -31,15 +31,16 @@ class MainServer (BasePlugin, HttpPlugin):
 
 
 @plugin
-class MainSocket (BasePlugin, SocketPlugin):
+class MainSocket (SocketPlugin):
     name = '/stream'
 
     def on_connect(self):
         if not 'ui' in self.socket.session.data:
             ui = UI()
             self.socket.session.data['ui'] = ui
-            ui.root = MainPage(ui)
-            ui.root.append(SectionsRoot(ui))
+            ui.root = MainPage.new(ui)
+            root = SectionsRoot.new(ui)
+            ui.root.append(root)
 
         self.ui = self.socket.session.data['ui']
         self.send_ui()

@@ -13,7 +13,7 @@ class UI (object):
     def create(self, typeid, *args, **kwargs):
         for cls in UIElement.get_classes():
             if cls.typeid == typeid:
-                return cls(self, *args, **kwargs)
+                return cls.new(self, *args, **kwargs)
         return UIElement(self, typeid=typeid, *args, **kwargs)
 
     def inflate(self, layout):

@@ -1,6 +1,8 @@
 import os
 import inspect
+import copy
 
+import ajenti
 from ajenti.plugins import manager
 
 
@@ -67,6 +69,22 @@ def interface(cls):
 
 
 class BasePlugin (object):
+    default_classconfig = None
+
+    def init(self):
+        self.context = None
+        for frame in inspect.stack():
+            self_argument = frame[0].f_code.co_varnames[0]  # This *should* be 'self'
+            instance = frame[0].f_locals[self_argument]
+            if isinstance(instance, BasePlugin):
+                if instance.context is not None:
+                    self.context = instance.context
+                    break
+
+        if self.context:
+            self.__classname = self.__class__.__module__ + '.' + self.__class__.__name__
+            self.classconfig = self.context.user.configs.setdefault(self.__classname, copy.deepcopy(self.default_classconfig))
+
     def open_content(self, path, mode='r'):
         _check_plugin(self.__class__)
 
@@ -77,10 +95,20 @@ class BasePlugin (object):
             raise Exception('content directory not found')
         return open(os.path.join(root, 'content', path), mode)
 
+    def save_classconfig(self):
+        self.context.user.configs[self.__classname] = self.classconfig
+        ajenti.config.save()
+
+
+class AppContext (object):
+    def __init__(self, context):
+        self.user = ajenti.config.tree.users[context.session.identity]
+
 
 __all__ = [
     'PluginInfo',
     'BasePlugin',
+    'AppContext',
     'plugin',
     'interface',
 ]

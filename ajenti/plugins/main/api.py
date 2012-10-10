@@ -7,5 +7,5 @@ from ajenti.ui import *
 @p('category', default='Other')
 @p('active', default=False)
 @interface
-class SectionPlugin (UIElement):
+class SectionPlugin (BasePlugin, UIElement):
     typeid = 'main:section'

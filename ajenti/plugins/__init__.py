@@ -87,8 +87,13 @@ class PluginManager:
 
     def instantiate(self, cls, *args, **kwargs):
         instance = cls(*args, **kwargs)
+        for base in reversed(cls.mro()):
+            if hasattr(base, 'init'):
+                getattr(base, 'init')(instance)
+
         for iface in cls._implements + [cls]:
             self.__instances.setdefault(iface, []).append(instance)
+
         return instance
 
     # Plugin loader

@@ -70,10 +70,12 @@ class AuthenticationMiddleware (HttpHandler):
                 context.session.identity = None
             else:
                 context.session.identity = ajenti.config.tree.users.keys()[0]
+                context.session.appcontext = AppContext(context)
 
     def try_login(self, context, username, password):
         if UserManager.get().check_password(username, password):
             context.session.identity = username
+            context.session.appcontext = AppContext(context)
             return True
         return False
 

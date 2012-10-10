@@ -4,6 +4,8 @@
 	</right>
 	<hc>
 		<icon icon="file" />
-		<label id="name" />
+        <box width="160">
+    		<label id="name" />
+        </box>
 	</hc>
 </listitem>

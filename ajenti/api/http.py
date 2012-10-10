@@ -3,7 +3,7 @@ import json
 from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 
-from ajenti.api import interface
+from ajenti.api import BasePlugin, interface
 
 
 def url(pattern):
@@ -26,7 +26,7 @@ class HttpPlugin (object):
 
 
 @interface
-class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
+class SocketPlugin (BasePlugin, BaseNamespace, RoomsMixin, BroadcastMixin):
     name = None
 
     def __init__(self, *args, **kwargs):
@@ -38,6 +38,7 @@ class SocketPlugin (BaseNamespace, RoomsMixin, BroadcastMixin):
         if self.request.session.identity is None:
             return
 
+        self.context = self.request.session.appcontext
         self.socket.session = self.request.session
         self.on_connect()
 

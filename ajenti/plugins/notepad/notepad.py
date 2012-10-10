@@ -6,10 +6,14 @@ from ajenti.plugins.main.api import SectionPlugin
 
 @plugin
 class Notepad (SectionPlugin):
+    default_classconfig = {
+        'bookmarks': []
+    }
+
     def init(self):
         self.title = 'Notepad'
         self.category = 'Tools'
-        
+
         self.append(self.ui.inflate('notepad:main'))
 
         self.editor = self.find('editor')
@@ -27,9 +31,15 @@ class Notepad (SectionPlugin):
         self.find('open-button').on('click', self.on_open)
         self.find('save-button').on('click', self.on_save)
         self.find('save-as-button').on('click', self.on_save_as)
+        self.find('bookmark-button').on('click', self.on_bookmark)
 
         self.selected = None
-        self.on_new()
+        if self.classconfig['bookmarks']:
+            for path in self.classconfig['bookmarks']:
+                id = self.controller.open(path)
+            self.select(id)
+        else:
+            self.on_new()
 
     def select(self, id):
         if self.selected in self.controller.files:
@@ -86,8 +96,15 @@ class Notepad (SectionPlugin):
         self.publish()
 
     def on_close(self, id):
+        for self.controller.files[id]['path'] in self.classconfig['bookmarks']:
+            self.classconfig['bookmarks'].remove(self.controller.files[id]['path'])
+            self.save_classconfig()
         self.controller.close(id)
         self.select(self.controller.files.keys()[0])
+
+    def on_bookmark(self):
+        self.classconfig['bookmarks'].append(self.controller.files[self.selected]['path'])
+        self.save_classconfig()
 
 
 class Controller (object):

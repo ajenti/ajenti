@@ -75,7 +75,6 @@ class UIElement (object):
 
         self.events = {}
         self.event_args = {}
-        self.init()
 
     def getstate(self):
         return (self.typeid, self.id, self.properties, self.events, self.event_args)
