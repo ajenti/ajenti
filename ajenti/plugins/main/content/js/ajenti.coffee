@@ -7,6 +7,7 @@ class Stream
     start: () ->
         @socket = io.connect('/stream')
         @socket.on 'ui', (ui) ->
+            ui = JXG.decompress(ui)
             ui = JSON.parse(ui)
             console.log '<< ui', ui
             UI.replace(UI.inflate(ui))
@@ -94,6 +95,8 @@ window.Controls = { }
 class window.Control
     constructor: (@ui, @properties, children) ->
         @properties ?= {}
+        @properties.visible ?= true
+        
         @uid = @properties.uid    
         @childContainer = null
         @childWrappers = {}
@@ -104,7 +107,8 @@ class window.Control
             for child in children
                 do (child) =>
                     @append(child)
-        if @properties.visible == false
+        
+        if @properties.visible != true
             @dom.hide()
 
     createDom: () ->

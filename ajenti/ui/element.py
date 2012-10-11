@@ -7,6 +7,7 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True):
     def decorator(cls):
         prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes, type=type, public=public)
         if not hasattr(cls, '_properties'):
+            print cls
             cls._properties = []
         cls._properties = cls._properties + [prop_obj]
 

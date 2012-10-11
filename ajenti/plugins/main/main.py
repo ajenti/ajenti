@@ -1,5 +1,8 @@
 import json
 import gevent
+from base64 import b64encode
+import StringIO
+import gzip
 
 from ajenti.api import *
 from ajenti.api.http import *
@@ -59,6 +62,11 @@ class MainSocket (SocketPlugin):
 
     def send_ui(self):
         data = json.dumps(self.ui.render())
+        sio = StringIO.StringIO()
+        gz = gzip.GzipFile(fileobj=sio, mode='w')
+        gz.write(data)
+        gz.close()
+        data = b64encode(sio.getvalue())
         self.emit('ui', data)
 
     def ui_watcher(self):
@@ -66,7 +74,7 @@ class MainSocket (SocketPlugin):
             updates = self.ui.get_updates()
             if len(updates) > 0:
                 self.send_ui()
-            gevent.sleep(0.2)
+            gevent.sleep(0.1)
 
 
 @plugin

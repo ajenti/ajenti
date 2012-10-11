@@ -1,0 +1,24 @@
+<pad xmlns:bind="bind">
+    <box id="filemanager">
+        <bind:collection bind="tabs">
+            <tabs id="tabs" bind="__items" />
+            <bind:template>
+                <tab bind="shortpath">
+                    <bind:collection id="items" bind="items">
+                		<dt bind="__items" width="100%" />
+                        <bind:template>
+                        	<dtr>
+                                <dtd>
+                                    <hc>
+                                        <icon bind="icon" />
+                        			    <button style="link" bind="name" id="name" />
+                                    </hc>
+                        		</dtd>
+                        	</dtr>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </bind:template>
+        </bind:collection>
+    </box>
+</pad> 

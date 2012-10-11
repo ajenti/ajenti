@@ -65,13 +65,23 @@ class CollectionAutoBinding (Binding):
             binder.populate()
             self.binders[value] = binder
 
-            del_button = template.nearest(lambda x: x.bind == '__delete')[0]
-            if del_button:
-                del_button.on('click', self.on_delete, value)
+            try:
+                del_button = template.nearest(lambda x: x.bind == '__delete')[0]
+                if del_button:
+                    del_button.on('click', self.on_delete, value)
+            except:
+                pass
 
-        add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
-        if add_button is not None:
-            add_button.on('click', self.on_add)
+            self.ui.post_item_bind(self.object, self.collection, value, template)
+
+        try:
+            add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
+            if add_button is not None:
+                add_button.on('click', self.on_add)
+        except:
+            pass
+
+        self.ui.post_bind(self.object, self.collection, self.ui)
 
     def on_add(self):
         self.update()
@@ -128,6 +138,8 @@ class Binder (object):
 @p('add_item', default=lambda i, c: c.append(i), type=eval, public=False)
 @p('new_item', default=lambda c: None, type=eval, public=False)
 @p('delete_item', default=lambda i, c: c.remove(i), type=eval, public=False)
+@p('post_bind', default=lambda o, c, u: None, type=eval, public=False)
+@p('post_item_bind', default=lambda o, c, i, u: None, type=eval, public=False)
 @p('binding', default=lambda: CollectionAutoBinding, type=eval, public=False)
 @p('values', default=lambda c: c, type=eval, public=False)
 @plugin

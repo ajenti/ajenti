@@ -23,8 +23,8 @@ class window.Controls.pad extends window.Control
 
 class window.Controls.box extends window.Control
     createDom: () ->
-        w = if @properties.width  then (@properties.width  + 'px') else 'auto'
-        h = if @properties.height then (@properties.height + 'px') else 'auto'
+        w = @_int_to_px(@properties.width)
+        h = @_int_to_px(@properties.height)
         @dom = $("""
             <div class="control container box" style="width: #{w}; height: #{h}; 
                 overflow: #{if @properties.scroll then 'auto' else 'hidden'}">
@@ -280,7 +280,8 @@ class window.Controls.toolbar extends window.Control
 
 class window.Controls.dt extends window.Control
     createDom: () ->
-        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table"></table>""")
+        w = @_int_to_px(@properties.width)
+        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table" style="width: #{w}"></table>""")
         @childContainer = @dom#.find('>tbody')
 
     wrapChild: (child) ->
@@ -298,7 +299,8 @@ class window.Controls.dtr extends window.Control
 
 class window.Controls.dtd extends window.Control
     createDom: () ->
-        @dom = $("""<td></td>""")
+        w = @_int_to_px(@properties.width)
+        @dom = $("""<td style="width: #{w}"></td>""")
         @childContainer = @dom
 
     wrapChild: (child) ->
@@ -343,3 +345,41 @@ class window.Controls.collapserow extends window.Control
             @header.append(child.dom)
             @hasHeader = true
         @children.push child
+
+
+
+
+class window.Controls.tabs extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control tabs">
+                <ul></ul>
+            </div>
+        """)
+        @childContainer = @dom
+        @active = @properties.active
+        @headers = @dom.find('ul')
+        @dom.tabs()
+
+    detectUpdates: () ->
+        r = {}
+        if @active != @properties.active
+            r.active = @active
+        @properties.active = @active
+        return r
+
+    append: (child) ->
+        super(child)
+        header = $("""<li><a href="##{child.uid}">#{child.properties.title}</a></li>""")
+        @headers.append(header)
+        @dom.tabs('destroy')
+        @dom.tabs({
+            beforeActivate: (e, ui) =>
+                @active = parseInt $(ui.newPanel).attr('data-index')
+                @event('switch', {})
+                e.preventDefault()
+            selected: @active
+        })
+
+    wrapChild: (child) ->
+        return $("""<div data-index="#{@children.length-1}" id="#{child.uid}"></div>""").append(child.dom)

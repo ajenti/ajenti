@@ -16,7 +16,7 @@ class Label (UIElement):
     typeid = 'label'
 
 
-@p('icon', default=None)
+@p('icon', default=None, bindtypes=[str, unicode])
 @p('style', default='normal')
 @plugin
 class Icon (UIElement):
@@ -103,3 +103,21 @@ class Dialog (UIElement):
 @plugin
 class Table (UIElement):
     typeid = 'dt'
+
+
+@p('width', default=None)
+@plugin
+class TableCell (UIElement):
+    typeid = 'dtd'
+
+
+@p('title', default='', bindtypes=[str, unicode])
+@plugin
+class Tab (UIElement):
+    typeid = 'tab'
+
+
+@p('active', default=0)
+@plugin
+class Tabs (UIElement):
+    typeid = 'tabs'

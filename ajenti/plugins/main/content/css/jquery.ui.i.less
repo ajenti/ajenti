@@ -419,6 +419,9 @@ button.ui-button::-moz-focus-inner {
     margin: 0;
     display: block;
     outline: none;
+    background: #fff;
+    .border-radius(3px);
+    .box-shadow(@controlShadowHighlight);
 }
 .ui-menu .ui-menu {
     margin-top: -3px;
@@ -672,7 +675,10 @@ span.ui-spinner {
 .ui-tabs {
     position: relative;
     padding: .2em;
-    
+
+    &-hide {
+        display: none !important;
+    }    
 } 
 .ui-tabs .ui-tabs-nav {
     margin: 0;
@@ -748,14 +754,11 @@ body .ui-tooltip {
     color: @controlText;
 }
 .ui-widget-content {
-    background: #fff;
-    .border-radius(3px);
-    .box-shadow(@controlShadowHighlight);
 }
 .ui-widget-content a {
 }
 .ui-widget-header {
-    border: 1px solid #aaaaaa; font-weight: bold;
+    font-weight: bold;
 }
 .ui-widget-header a {
 }
