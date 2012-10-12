@@ -1,3 +1,5 @@
+import copy
+
 from ajenti.api import *
 from ajenti.ui.element import p, UIElement
 
@@ -50,11 +52,12 @@ class CollectionAutoBinding (Binding):
         self.template = ui.find_type('bind:template')
         self.template.visible = False
         self.items_ui = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
+        self.old_items = copy.copy(self.items_ui.children)
 
     def populate(self):
         self.collection = getattr(self.object, self.field)
         self.values = self.ui.values(self.collection)
-        self.items_ui.empty()
+        self.items_ui.children = copy.copy(self.old_items)
         self.binders = {}
         for value in self.values:
             template = self.template.clone()

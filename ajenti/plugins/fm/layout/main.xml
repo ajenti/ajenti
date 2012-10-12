@@ -5,7 +5,12 @@
             <bind:template>
                 <tab bind="shortpath">
                     <bind:collection id="items" bind="items">
-                		<dt bind="__items" width="100%" />
+                		<dt bind="__items" width="100%">
+                            <dtr>
+                                <dth text="Name" />
+                                <dth text="Size" width="100" />
+                            </dtr>
+                        </dt>
                         <bind:template>
                         	<dtr>
                                 <dtd>
@@ -14,6 +19,9 @@
                         			    <button style="link" bind="name" id="name" />
                                     </hc>
                         		</dtd>
+                                <dtd>
+                                    <label bind="sizestr" />
+                                </dtd>
                         	</dtr>
                         </bind:template>
                     </bind:collection>

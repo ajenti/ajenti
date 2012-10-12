@@ -3,6 +3,7 @@ import os
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
+from ajenti.util import str_fsize
 
 
 @plugin
@@ -71,3 +72,4 @@ class Item (object):
         self.path, self.name = os.path.split(path)
         self.isdir = os.path.isdir(path)
         self.icon = 'folder-close' if self.isdir else 'file'
+        self.sizestr = '' if self.isdir else str_fsize(os.path.getsize(path))

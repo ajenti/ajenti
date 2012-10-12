@@ -307,6 +307,15 @@ class window.Controls.dtd extends window.Control
         return child.dom
 
 
+class window.Controls.dth extends window.Control
+    createDom: () ->
+        w = @_int_to_px(@properties.width)
+        @dom = $("""<th style="width: #{w}">#{@properties.text}</th>""")
+        @childContainer = @dom
+
+    wrapChild: (child) ->
+        return child.dom
+
 
 class window.Controls.collapserow extends window.Control
     createDom: () ->
@@ -345,8 +354,6 @@ class window.Controls.collapserow extends window.Control
             @header.append(child.dom)
             @hasHeader = true
         @children.push child
-
-
 
 
 class window.Controls.tabs extends window.Control

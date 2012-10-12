@@ -12,14 +12,14 @@
 	height: auto;
 	line-height: normal;
 	padding: 4px 0 0px;
-	border-bottom: 1px dashed @controlText;
+	border-bottom: 1px dotted lighten(@controlText, 10%);
 	margin: 1px 0 3px;
 	cursor: pointer;
 	width: auto;
 	
 	&:hover {
 		color: lighten(@controlText, 10%);
-		border-bottom: 1px dashed lighten(@controlText, 10%);
+		border-bottom: 1px dotted lighten(@controlText, 25%);
 	}
 }
 
@@ -261,9 +261,10 @@
 		display: table;
 		width: 100%;
 		border-spacing: 0;
-		border-collapse: collapse;
-		border: 1px solid @tableBorder;
-
+		border-right: 1px solid @tableBorder;
+		.border-radius(0 0 5px 5px);
+		.box-shadow(@mainPaneShadow);
+			
 		&>tbody {
 			margin: 0;
 
@@ -271,10 +272,29 @@
 				margin: 0;
 				
 				&>td {
-					margin: -1px 0 0 -1px;
 					background: @tableCell;
 					border: 1px solid @tableBorder;
+					border-width: 1px 0 0 1px;
 					padding: 5px;
+				}
+
+				&>td:first-child {
+					border-left: none;
+				}
+
+				&>th {
+					background: @tableCell;
+					padding: 10px 7px; 	
+					border: 1px solid darken(@tableBorder, 5%);
+					border-width: 1px 0 1px 1px;
+					#gradient > .vertical(#f8f8f8,#f0f0f0);
+					font-weight: bold;
+					text-shadow: 0 1px 0 white;
+					text-align: left;
+
+					&:last-child {
+						border-right-width: 0px;
+					}
 				}
 			}
 		}

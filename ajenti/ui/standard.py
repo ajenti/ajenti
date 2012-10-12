@@ -111,6 +111,13 @@ class TableCell (UIElement):
     typeid = 'dtd'
 
 
+@p('text', default='', bindtypes=[str, unicode])
+@p('width', default=None)
+@plugin
+class TableHeader (UIElement):
+    typeid = 'dth'
+
+
 @p('title', default='', bindtypes=[str, unicode])
 @plugin
 class Tab (UIElement):

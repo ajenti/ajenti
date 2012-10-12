@@ -672,6 +672,8 @@ span.ui-spinner {
     
     background-position: -65px -16px;
 }
+
+// TABS
 .ui-tabs {
     position: relative;
     padding: .2em;
@@ -679,45 +681,53 @@ span.ui-spinner {
     &-hide {
         display: none !important;
     }    
+
+    .ui-tabs-nav {
+        margin: 0;
+        padding: .2em .2em 0;
+
+        li {
+            list-style: none;
+            float: left;
+            position: relative;
+            top: 0;
+            margin: 1px .2em 0 0;
+            border: 1px solid transparent;
+            .border-radius(15px);
+            white-space: nowrap;
+
+            &:hover {
+                background: rgba(0,0,0,0.1);
+            }
+
+            a {
+                float: left;
+                font-weight: bold;
+                padding: 4px 10px;
+                color: @controlText;
+                text-decoration: none;
+            }
+
+            &.ui-tabs-active {
+                #gradient > .vertical(@sectionTabGradient1, @sectionTabGradient2);
+                .box-shadow(0 2px 2px rgba(0,0,0,0.125) inset);
+
+                >a {
+                    color: white;
+                    text-shadow: 0 1px 0 rgba(0,0,0,0.125);
+                }
+            }
+        }
+    }
+
+    .ui-tabs-panel {
+        display: block;
+        border-width: 0;
+        padding: 1em 1.4em;
+        background: none;
+    }
 } 
-.ui-tabs .ui-tabs-nav {
-    margin: 0;
-    padding: .2em .2em 0;
-}
-.ui-tabs .ui-tabs-nav li {
-    list-style: none;
-    float: left;
-    position: relative;
-    top: 0;
-    margin: 1px .2em 0 0;
-    border-bottom: 0;
-    padding: 0;
-    white-space: nowrap;
-}
-.ui-tabs .ui-tabs-nav li a {
-    float: left;
-    padding: .5em 1em;
-    text-decoration: none;
-}
-.ui-tabs .ui-tabs-nav li.ui-tabs-active {
-    margin-bottom: -1px;
-    padding-bottom: 1px;
-}
-.ui-tabs .ui-tabs-nav li.ui-tabs-active a,
-.ui-tabs .ui-tabs-nav li.ui-state-disabled a,
-.ui-tabs .ui-tabs-nav li.ui-tabs-loading a {
-    cursor: text
-}
-.ui-tabs .ui-tabs-nav li a,
-.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active a {
-    cursor: pointer
-} 
-.ui-tabs .ui-tabs-panel {
-    display: block;
-    border-width: 0;
-    padding: 1em 1.4em;
-    background: none;
-}
+
 .ui-tooltip {
     padding: 8px;
     position: absolute;
