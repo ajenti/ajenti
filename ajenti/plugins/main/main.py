@@ -3,11 +3,13 @@ import gevent
 from base64 import b64encode
 import StringIO
 import gzip
+import traceback
 
 from ajenti.api import *
 from ajenti.api.http import *
 from ajenti.ui import *
 from ajenti.middleware import AuthenticationMiddleware
+from ajenti.util import make_report
 
 from api import SectionPlugin
 
@@ -50,15 +52,18 @@ class MainSocket (SocketPlugin):
         self.spawn(self.ui_watcher)
 
     def on_message(self, message):
-        if message['type'] == 'ui_update':
-            for update in message['content']:
-                if update['type'] == 'event':
-                    self.ui.dispatch_event(update['uid'], update['event'], update['params'])
-                if update['type'] == 'update':
-                    el = self.ui.find_uid(update['uid'])
-                    for k, v in update['properties'].iteritems():
-                        el.properties[k].set(v)
-                        el.properties[k].dirty = False
+        try:
+            if message['type'] == 'ui_update':
+                for update in message['content']:
+                    if update['type'] == 'event':
+                        self.ui.dispatch_event(update['uid'], update['event'], update['params'])
+                    if update['type'] == 'update':
+                        el = self.ui.find_uid(update['uid'])
+                        for k, v in update['properties'].iteritems():
+                            el.properties[k].set(v)
+                            el.properties[k].dirty = False
+        except Exception, e:
+            self.send_crash(e)
 
     def send_ui(self):
         data = json.dumps(self.ui.render())
@@ -68,6 +73,15 @@ class MainSocket (SocketPlugin):
         gz.close()
         data = b64encode(sio.getvalue())
         self.emit('ui', data)
+
+    def send_crash(self, exc):
+        data = {
+            'message': str(exc),
+            'traceback': traceback.format_exc(exc),
+            'report': make_report()
+        }
+        data = json.dumps(data)
+        self.emit('crash', data)
 
     def ui_watcher(self):
         while True:

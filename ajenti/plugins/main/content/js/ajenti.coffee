@@ -11,6 +11,10 @@ class Stream
             ui = JSON.parse(ui)
             console.log '<< ui', ui
             UI.replace(UI.inflate(ui))
+        @socket.on 'crash', (data) ->
+            data = JSON.parse(data)
+            console.log 'CRASH:', data
+            ajentiCrash(data)
 
     send: (message) ->
         console.log '>>', message
@@ -162,3 +166,21 @@ class window.Control
     cancel: (event) ->
         event.preventDefault()
         event.stopPropagation()
+
+
+
+# Crash handler
+window.ajentiCrash = (info) ->
+    $('#crash').fadeIn()
+    $('#crash-traceback').html(info.message + "\n" + info.traceback)
+    $('#crash-report textarea').val(info.report)
+
+window.ajentiCrashResume = (info) ->
+    $('#crash').fadeOut()
+
+window.ajentiCrashShowReport = () ->
+    $('#crash-traceback').toggle('blind')
+    $('#crash-report').toggle('blind')
+    setTimeout () =>
+        $('#crash-report textarea').focus()[0].select()
+    , 1000

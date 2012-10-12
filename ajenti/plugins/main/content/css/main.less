@@ -100,6 +100,56 @@ body {
     clear: both;
 }
 
+
+.full-overlay {
+    position: fixed;
+    .square(100%);
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    display: none;
+
+    background: rgba(0,0,0,.75);
+
+    >.content {
+        margin: 60px auto;
+        width: 600px;
+        padding: 20px;
+        background: rgba(0,0,0,.125);
+        border-left:    1px solid rgba(0,0,0,0.25);
+        border-top:     1px solid rgba(0,0,0,0.25);
+        border-right:   1px solid rgba(255,255,255,0.125);
+        border-bottom:  1px solid rgba(255,255,255,0.125);
+        .border-radius(15px);
+
+        >.inner {
+            background: #f0f0f0;
+            padding: 20px;
+            overflow: hidden;
+            .border-radius(15px);
+            .box-shadow(@mainPaneShadow);
+
+            h1  {
+                color: @controlText;
+                font-size: 18px;
+                margin: 0;
+            }
+
+            pre, textarea {
+                max-height: 300px;
+                color: @controlText;
+                font-size: 11px;
+                overflow: auto;
+            }
+
+            textarea {
+                width: 550px;
+                height: 200px;
+            }
+        }
+    }
+}
+
 @import "controls.index.i.less";
 @import "controls.standard.i.less";
 @import "controls.dialogs.i.less";
