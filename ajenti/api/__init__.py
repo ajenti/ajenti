@@ -70,6 +70,7 @@ def interface(cls):
 
 class BasePlugin (object):
     default_classconfig = None
+    context = None
 
     def init(self):
         self.context = None
@@ -102,6 +103,7 @@ class BasePlugin (object):
 
 class AppContext (object):
     def __init__(self, context):
+        self.session = context.session
         self.user = ajenti.config.tree.users[context.session.identity]
 
 

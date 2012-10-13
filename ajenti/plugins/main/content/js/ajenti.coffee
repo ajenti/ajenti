@@ -1,7 +1,7 @@
 window.WEB_SOCKET_SWF_LOCATION = '/static/main/WebSocketMain.swf'
 
 
-class Stream 
+class window.Stream 
     constructor: () ->
 
     start: () ->
@@ -26,7 +26,7 @@ class Stream
         @send(type: 'ui_update', content: updates)
 
 
-class UIManager
+class window.UIManager
     constructor: (@stream) ->
         @ui = null
         @pendingUpdates = []
@@ -88,11 +88,6 @@ class UIManager
         @sendUpdates()
 
 
-
-window.Stream = new Stream()
-window.Stream.start()
-
-window.UI = new UIManager(window.Stream)
 
 
 window.Controls = { }

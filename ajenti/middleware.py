@@ -21,7 +21,7 @@ class Session:
     def is_dead(self):
         return (time.time() - self.timestamp) > 3600
 
-    def start(self, context):
+    def set_cookie(self, context):
         C = Cookie.SimpleCookie()
         C['session'] = self.id
         C['session']['path'] = '/'
@@ -48,7 +48,6 @@ class SessionMiddleware (HttpHandler):
     def open_session(self, context):
         session_id = self.generate_session_id(context)
         session = Session(session_id)
-        session.start(context)
         self.sessions[session_id] = session
         return session
 
@@ -59,6 +58,7 @@ class SessionMiddleware (HttpHandler):
             context.session = self.sessions[cookie.value]
         else:
             context.session = self.open_session(context)
+        context.session.set_cookie(context)
         context.session.touch()
 
 

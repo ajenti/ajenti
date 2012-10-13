@@ -1,6 +1,7 @@
 import socketio
 
 from ajenti.http import HttpHandler
+from ajenti.api import BasePlugin
 from ajenti.api.http import HttpPlugin, SocketPlugin
 
 
@@ -20,12 +21,15 @@ class InvalidRouteHandler (HttpHandler):
         return 'Invalid URL'
 
 
-class CentralDispatcher (HttpHandler):
+class CentralDispatcher (BasePlugin, HttpHandler):
     def __init__(self):
         self.invalid = InvalidRouteHandler()
         self.io = SocketIORouteHandler()
 
     def handle(self, context):
+        if hasattr(context.session, 'appcontext'):
+            self.context = context.session.appcontext
+
         if context.path.startswith('/socket.io'):
             return context.fallthrough(self.io)
 

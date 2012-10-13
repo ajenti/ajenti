@@ -39,7 +39,6 @@ class SocketPlugin (BasePlugin, BaseNamespace, RoomsMixin, BroadcastMixin):
             return
 
         self.context = self.request.session.appcontext
-        self.socket.session = self.request.session
         self.on_connect()
 
     def recv_disconnect(self):
@@ -53,7 +52,7 @@ class SocketPlugin (BasePlugin, BaseNamespace, RoomsMixin, BroadcastMixin):
         if self.request.session.identity is None:
             return
 
-        self.socket.session.touch()
+        self.request.session.touch()
         self.on_message(json.loads(message))
 
     def on_connect(self):

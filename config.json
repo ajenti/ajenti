@@ -7,12 +7,13 @@
     "users": {
         "root": {
             "configs": {
-                "ajenti.plugins.configurator.configurator.Configurator": "null", 
-                "ajenti.plugins.nginx.configurator.Configurator": "null", 
-                "ajenti.plugins.fstab.fstab.Filesystems": "null", 
                 "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
                 "ajenti.plugins.dashboard.dash.Dash": "null", 
-                "ajenti.plugins.hosts.hosts.Hosts": "null"
+                "ajenti.plugins.nginx.configurator.Configurator": "null", 
+                "ajenti.plugins.fstab.fstab.Filesystems": "null", 
+                "ajenti.plugins.fm.fm.FileManager": "null", 
+                "ajenti.plugins.hosts.hosts.Hosts": "null", 
+                "ajenti.plugins.configurator.configurator.Configurator": "null"
             }, 
             "password": "sha512|$6$rounds=40000$eGOjh5J3WqdZju5N$tZ/0dbYqLI66283vrgxEK4Sff4G8h7tuYVnO88Rwo2L4VQREE.03K7ql3MnXUI/xnNpptfEb5ST3TeezHJEqJ0"
         }

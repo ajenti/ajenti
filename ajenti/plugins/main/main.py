@@ -16,7 +16,6 @@ from api import SectionPlugin
 
 @plugin
 class MainServer (BasePlugin, HttpPlugin):
-
     @url('/')
     def handle_index(self, context):
         if context.session.identity is None:
@@ -40,14 +39,14 @@ class MainSocket (SocketPlugin):
     name = '/stream'
 
     def on_connect(self):
-        if not 'ui' in self.socket.session.data:
+        if not 'ui' in self.request.session.data:
             ui = UI()
-            self.socket.session.data['ui'] = ui
+            self.request.session.data['ui'] = ui
             ui.root = MainPage.new(ui)
             root = SectionsRoot.new(ui)
             ui.root.append(root)
 
-        self.ui = self.socket.session.data['ui']
+        self.ui = self.request.session.data['ui']
         self.send_ui()
         self.spawn(self.ui_watcher)
         self.context.notify = self.send_notify

@@ -29,3 +29,4 @@ class Configurator (SectionPlugin):
         self.binder.populate()
         ajenti.config.save()
         self.publish()
+        self.context.notify('Saved')
