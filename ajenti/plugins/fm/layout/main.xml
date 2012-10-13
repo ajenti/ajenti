@@ -4,27 +4,39 @@
             <tabs id="tabs" bind="__items" />
             <bind:template>
                 <tab bind="shortpath">
-                    <bind:collection id="items" bind="items">
-                		<dt bind="__items" width="100%">
-                            <dtr>
-                                <dth text="Name" />
-                                <dth text="Size" width="100" />
-                            </dtr>
-                        </dt>
-                        <bind:template>
-                        	<dtr>
-                                <dtd>
-                                    <hc>
-                                        <icon bind="icon" />
-                        			    <button style="link" bind="name" id="name" />
-                                    </hc>
-                        		</dtd>
-                                <dtd>
-                                    <label bind="sizestr" />
-                                </dtd>
-                        	</dtr>
-                        </bind:template>
-                    </bind:collection>
+                    <vc>
+                        <bind:collection id="breadcrumbs" bind="breadcrumbs">
+                            <hc bind="__items">
+                            </hc>
+                            <bind:template>
+                                <hc>
+                                    <button id="name" style="link" bind="name" />
+                                    <icon icon="chevron-right" />
+                                </hc>
+                            </bind:template>
+                        </bind:collection>
+                        <bind:collection id="items" bind="items">
+                    		<dt bind="__items" width="100%">
+                                <dtr>
+                                    <dth text="Name" />
+                                    <dth text="Size" width="100" />
+                                </dtr>
+                            </dt>
+                            <bind:template>
+                            	<dtr>
+                                    <dtd>
+                                        <hc>
+                                            <icon bind="icon" />
+                            			    <button style="link" bind="name" id="name" />
+                                        </hc>
+                            		</dtd>
+                                    <dtd>
+                                        <label bind="sizestr" />
+                                    </dtd>
+                            	</dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </vc>
                 </tab>
             </bind:template>
         </bind:collection>

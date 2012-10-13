@@ -17,6 +17,6 @@
     <hc>
         <button text="Normal" />
         <button id="crash" text="CRASH" style="orange" />
-        <button text="Green" style="green" />
+        <button text="Notify" id="notify" style="green" />
     </hc>
 </vc>

@@ -22,6 +22,7 @@ class Dash (SectionPlugin):
         self.button.on('click', self.on_button)
         self.submit.on('click', self.on_submit)
         self.find('crash').on('click', lambda: 1 / 0)
+        self.find('notify').on('click', lambda: self.context.notify('Notification!'))
 
     def on_button(self):
         self.counter += 1

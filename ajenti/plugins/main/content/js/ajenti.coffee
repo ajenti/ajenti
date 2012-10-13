@@ -15,6 +15,8 @@ class Stream
             data = JSON.parse(data)
             console.log 'CRASH:', data
             ajentiCrash(data)
+        @socket.on 'notify', (data) ->
+            Notificator.notify(data)
 
     send: (message) ->
         console.log '>>', message

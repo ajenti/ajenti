@@ -50,6 +50,7 @@ class MainSocket (SocketPlugin):
         self.ui = self.socket.session.data['ui']
         self.send_ui()
         self.spawn(self.ui_watcher)
+        self.context.notify = self.send_notify
 
     def on_message(self, message):
         try:
@@ -82,6 +83,9 @@ class MainSocket (SocketPlugin):
         }
         data = json.dumps(data)
         self.emit('crash', data)
+
+    def send_notify(self, text):
+        self.emit('notify', text)
 
     def ui_watcher(self):
         while True:

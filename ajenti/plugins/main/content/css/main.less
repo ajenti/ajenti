@@ -27,6 +27,7 @@ html {
 body {
     font-family: @fontFamily;
     font-size: @fontSize;
+    overflow-x: hidden;
     overflow-y: scroll;
 		
 	height: 100%;
@@ -98,6 +99,25 @@ body {
 .clear {
     display: block;
     clear: both;
+}
+
+
+#notifications {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 40px;
+
+    .notification {
+        width: 100px;
+        height: 20px;
+        .button-style(@controlGradientGreen1, @controlGradientGreen2);
+        text-transform: none;
+        text-align: left;
+        position: absolute;
+        padding: 10px;    
+    }
 }
 
 

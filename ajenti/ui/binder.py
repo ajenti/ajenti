@@ -38,7 +38,7 @@ class PropertyBinding (Binding):
 
     def populate(self):
         self.old_value = self.get()
-        self.ui.properties[self.property].value = self.get()
+        self.ui.properties[self.property].value = self.ui.bindtransform(self.get())
 
     def update(self):
         new_value = self.ui.properties[self.property].value

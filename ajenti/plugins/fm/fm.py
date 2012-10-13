@@ -18,8 +18,12 @@ class FileManager (SectionPlugin):
 
         def post_item_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_item_click, object, item)
-
         self.find('items').post_item_bind = post_item_bind
+
+        def post_bc_bind(object, collection, item, ui):
+            ui.find('name').on('click', self.on_bc_click, object, item)
+        self.find('breadcrumbs').post_item_bind = post_bc_bind
+
         self.binder = Binder(self.controller, self.find('filemanager'))
         self.binder.autodiscover()
         self.binder.populate()
@@ -36,9 +40,14 @@ class FileManager (SectionPlugin):
         tab.navigate(os.path.join(tab.path, item.name))
         self.refresh()
 
+    def on_bc_click(self, tab, item):
+        tab.navigate(item.path)
+        self.refresh()
+
     def refresh(self):
         self.binder.populate()
         self.publish()
+
 
 class Controller (object):
     def __init__(self):
@@ -59,12 +68,20 @@ class Tab (object):
             self.shortpath = '+'
 
     def navigate(self, path):
+        if not os.path.isdir(path):
+            return
         self.path = path
         self.shortpath = os.path.split(path)[1] or '/'
         self.items = []
         for item in os.listdir(self.path):
             self.items.append(Item(os.path.join(self.path, item)))
         self.items = sorted(self.items, key=lambda x: (not x.isdir, x.name))
+
+        self.breadcrumbs = []
+        p = path
+        while len(p) > 1:
+            p = os.path.split(p)[0]
+            self.breadcrumbs.insert(0, Breadcrumb(p))
 
 
 class Item (object):
@@ -73,3 +90,11 @@ class Item (object):
         self.isdir = os.path.isdir(path)
         self.icon = 'folder-close' if self.isdir else 'file'
         self.sizestr = '' if self.isdir else str_fsize(os.path.getsize(path))
+
+
+class Breadcrumb (object):
+    def __init__(self, path):
+        self.name = os.path.split(path)[1]
+        self.path = path
+        if self.path == '/':
+            self.name = '/'

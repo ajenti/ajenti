@@ -44,6 +44,7 @@ class UIProperty (object):
 
 @p('visible', default=True, type=bool)
 @p('bind', default=None, type=str)
+@p('bindtransform', default=lambda x: x, type=eval, public=False)
 @interface
 class UIElement (object):
     typeid = None
