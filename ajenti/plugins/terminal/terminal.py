@@ -46,7 +46,7 @@ class Terminal (object):
         self.protocol.write(data)
 
     def kill(self):
-        self._proc.kill()
+        self.protocol.kill()
 
 
 class PTYProtocol():

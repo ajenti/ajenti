@@ -3,8 +3,14 @@ class window.Controls.terminal__thumbnail extends window.Control
         @dom = $("""
             <div class="control terminal-thumbnail">
                 <img src="/terminal/#{@properties.tid}/thumbnail" />
+                <a class="close">&#x2715;</a>
             </div>
         """)
+        @dom.click () =>
+            window.open "/terminal/#{@properties.tid}"
+        @dom.find('a').click (e) =>
+            @event('close')
+            e.stopPropagation()
 
 
 class window.Terminal

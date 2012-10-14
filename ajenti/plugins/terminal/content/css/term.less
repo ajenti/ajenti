@@ -33,3 +33,40 @@ body.terminal {
         }
     }
 }
+
+
+.control.terminal-thumbnail {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    padding: 5px;
+
+    img {
+        border-radius: 5px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.75), 0 1px 1px rgba(255,255,255,.5) inset;
+        &:hover {
+            opacity: .75;
+        }
+    }
+
+    a {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        width: 14px;
+        height: 14px;
+        text-align: center;
+        padding: 3px;
+        color: black;
+
+        &:hover {
+            background: rgba(255,255,255,0.75);
+        }
+
+        &:active {
+            background: rgba(255,255,255,0.25);
+        }
+    }
+}

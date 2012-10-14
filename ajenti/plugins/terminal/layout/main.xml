@@ -1,3 +1,10 @@
-<pad>
-    <box id="list" />
-</pad>
+<vc>
+    <toolbar>
+        <hc>
+            <button id="new-button" text="New" icon="plus" />
+        </hc>
+    </toolbar>
+    <pad>
+        <box id="list" />
+    </pad>
+</vc>

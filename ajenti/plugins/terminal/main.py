@@ -1,8 +1,8 @@
+from base64 import b64decode, b64encode
+import gzip
+import json
 from PIL import Image, ImageDraw
 import StringIO
-import json
-import gzip
-from base64 import b64decode, b64encode
 
 from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
@@ -19,9 +19,9 @@ class Terminals (SectionPlugin):
         self.category = 'Tools'
 
         self.append(self.ui.inflate('terminal:main'))
+        self.find('new-button').on('click', self.on_new)
 
-        self.terminals = {0: Terminal()}
-        print self.context.session.__dict__
+        self.terminals = {}
         self.context.session.terminals = self.terminals
         self.refresh()
 
@@ -31,7 +31,23 @@ class Terminals (SectionPlugin):
         for k in sorted(self.terminals.keys()):
             thumb = TerminalThumbnail(self.ui)
             thumb.tid = k
+            thumb.on('close', self.on_close, k)
             list.append(thumb)
+
+    def on_new(self):
+        if self.terminals:
+            key = sorted(self.terminals.keys())[-1] + 1
+        else:
+            key = 0
+        self.terminals[key] = Terminal()
+        self.refresh()
+        self.publish()
+
+    def on_close(self, k):
+        self.terminals[k].kill()
+        self.terminals.pop(k)
+        self.refresh()
+        self.publish()
 
 
 @plugin
@@ -84,11 +100,7 @@ class TerminalThumbnail (UIElement):
 class TerminalSocket (SocketPlugin):
     name = '/terminal'
 
-    def on_connect(self):
-        pass
-
     def on_message(self, message):
-        print message
         if message['type'] == 'select':
             self.id = message['tid']
             self.terminal = self.context.session.terminals[int(message['tid'])]
@@ -108,105 +120,3 @@ class TerminalSocket (SocketPlugin):
         gz.write(json.dumps(data))
         gz.close()
         self.emit('set', b64encode(sio.getvalue()))
-
-"""
-class TerminalPlugin(CategoryPlugin, URLHandler):
-    text = 'Terminal'
-    icon = '/dl/terminal/icon.png'
-    folder = 'tools'
-
-    def on_session_start(self):
-        self._terminals = {}
-        self._tid = 1
-        self._terminals[0] = Terminal()
-        
-    def get_ui(self):
-        ui = self.app.inflate('terminal:main')
-        for id in self._terminals:
-            ui.append('main', UI.TerminalThumbnail(
-                id=id
-            ))
-        return ui
-
-    @event('button/click')
-    def onclick(self, event, params, vars=None):
-        if params[0] == 'add':
-            self._terminals[self._tid] = Terminal()
-            self._tid += 1
-
-    @event('term/kill')
-    def onkill(self, event, params, vars=None):
-        id = int(params[0])
-        self._terminals[id].kill()
-        del self._terminals[id]
-    
-    @url('^/terminal/.*$')
-    def get(self, req, start_response):
-        params = req['PATH_INFO'].split('/')[1:] + ['']
-        id = int(params[1])
-
-        if self._terminals[id].dead():
-            self._terminals[id].start(self.app.get_config(self).shell)
-
-        if params[2] in ['history', 'get']:
-            if params[2] == 'history':
-                data = self._terminals[id]._proc.history()
-            else:
-                data = self._terminals[id]._proc.read()
-            sio = StringIO.StringIO()
-            gz = gzip.GzipFile(fileobj=sio, mode='w')
-            gz.write(json.dumps(data))
-            gz.close()
-            return b64encode(sio.getvalue())
-
-        if params[2] == 'post':
-            data = params[3]
-            self._terminals[id].write(b64decode(data))
-            return ''
-
-        if params[2] == 'kill':
-            self._terminals[id].restart()
-
-        page = self.app.inflate('terminal:page')
-        page.find('title').text = shell('echo `whoami`@`hostname`')
-        page.append('main', UI.JS(
-            code='termInit(\'%i\');'%id
-        ))
-        return page.render()
-
-
-    @url('^/terminal-thumb/.*$')
-    def get_thumb(self, req, start_response):
-        params = req['PATH_INFO'].split('/')[1:]
-        id = int(params[1])
-
-        if self._terminals[id].dead():
-            self._terminals[id].start(self.app.get_config(self).shell)
-
-        img = Image.new("RGB", (TERM_W, TERM_H*2+20))
-        draw = ImageDraw.Draw(img)
-        draw.rectangle([0,0,TERM_W,TERM_H], fill=(0,0,0))
-
-        colors = ['black', 'darkgrey', 'darkred', 'red', 'darkgreen',
-                  'green', 'brown', 'yellow', 'darkblue', 'blue',
-                  'darkmagenta', 'magenta', 'darkcyan', 'cyan',
-                  'lightgrey', 'white'] 
-
-        for y in range(0,TERM_H):
-            for x in range(0,TERM_W):
-                fc = self._terminals[id]._proc.term[y][x][1]
-                if fc == 'default': fc = 'lightgray'
-                fc = ImageDraw.ImageColor.getcolor(fc, 'RGB')
-                bc = self._terminals[id]._proc.term[y][x][2]
-                if bc == 'default': bc = 'black'
-                bc = ImageDraw.ImageColor.getcolor(bc, 'RGB')
-                ch = self._terminals[id]._proc.term[y][x][0]
-                draw.point((x,10+y*2+1),fill=(fc if ord(ch) > 32 else bc))
-                draw.point((x,10+y*2),fill=bc)
-
-        sio = StringIO.StringIO()
-        img.save(sio, 'PNG')
-        start_response('200 OK', [('Content-type', 'image/png')])
-        return sio.getvalue()
-
-"""
