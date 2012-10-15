@@ -7,6 +7,35 @@
 			#gradient > .vertical(@headerGradient1, @headerGradient2);
 			height: 50px;
 		    .box-shadow(0 0 15px rgba(0,0,0,0.5));
+
+		    &>.container {
+				margin: 0 auto 70px;
+		    	width: 960px;
+	    		overflow: hidden;
+
+		    	&>.userbox {
+		    		float: right;
+		    		width: 200px;
+		    		padding: 27px 0 0;
+		    		overflow: hidden;
+
+		    		>* {
+		    			float: right;
+		    			padding: 1px 0 0;
+		    		}
+
+		    		.username {
+		    			color: @controlText;
+		    			font-size: @fontSize;
+		    			font-weight: bold;
+		    			padding: 0 10px 0 5px;
+		    		}
+
+		    		a:hover * {
+		    			opacity: 1;
+		    		}
+		    	}
+		    }
 		}
 
 		&>.content {

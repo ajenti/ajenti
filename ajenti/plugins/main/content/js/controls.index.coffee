@@ -3,6 +3,19 @@ class window.Controls.main__page extends window.Control
 		@dom = $("""
 			<div class="control container main-page"> 
 				<div class="header">
+					<div class="container">
+						<div class="userbox">
+							<div class="logout">
+								<a href="/logout"><i class="icon-off icon-white"></i></a>
+							</div>
+							<div class="username">
+								#{@properties.username}
+							</div>
+							<div>
+								<i class="icon-user icon-white"></i>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="content">
 					<div class="--child-container"></div>

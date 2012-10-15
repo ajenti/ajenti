@@ -33,6 +33,11 @@ class MainServer (BasePlugin, HttpPlugin):
             gevent.sleep(3)
         return context.redirect('/')
 
+    @url('/logout')
+    def handle_logout(self, context):
+        AuthenticationMiddleware.get().logout(context)
+        return context.redirect('/')
+
 
 @plugin
 class MainSocket (SocketPlugin):
@@ -43,8 +48,8 @@ class MainSocket (SocketPlugin):
             ui = UI()
             self.request.session.data['ui'] = ui
             ui.root = MainPage.new(ui)
-            root = SectionsRoot.new(ui)
-            ui.root.append(root)
+            ui.root.username = self.request.session.identity
+            ui.root.append(SectionsRoot.new(ui))
 
         self.ui = self.request.session.data['ui']
         self.send_ui()
@@ -94,6 +99,7 @@ class MainSocket (SocketPlugin):
             gevent.sleep(0.1)
 
 
+@p('username')
 @plugin
 class MainPage (UIElement):
     typeid = 'main:page'
