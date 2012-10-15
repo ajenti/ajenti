@@ -1,0 +1,39 @@
+<pad xmlns:bind="bind">
+        <formline text="Configuration">
+            <vc id="resolv-config">
+                <bind:collection bind="items" id="items">
+                    <vc>
+                        <dt bind="__items" width="400" />
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <button bind="__delete" icon="remove" style="circle" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="globe" />
+                                        <label bind="name" />
+                                        <label bind="value" />
+                                    </hc>   
+                                </box>
+                                
+                                <pad>
+                                    <vc>
+                                        <formline text="Type">
+                                            <combobox id="name-box" bind="name" />
+                                        </formline>
+                                        <formline text="Value">
+                                            <textbox bind="value" />
+                                        </formline>
+                                    </vc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                        <button bind="__add" icon="plus" text="Create" />
+                    </vc>
+                </bind:collection>
+                
+                <button id="save" text="Save" style="green" />
+            </vc>
+        </formline>
+</pad> 
