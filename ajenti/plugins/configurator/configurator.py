@@ -25,7 +25,8 @@ class Configurator (SectionPlugin):
     def save(self):
         self.binder.update()
         for user in ajenti.config.tree.users.values():
-            user.password = UserManager.get().hash_password(user.password)
+            if not '|' in user.password:
+                user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
         ajenti.config.save()
         self.publish()

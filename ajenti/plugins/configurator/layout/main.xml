@@ -44,7 +44,7 @@
                                         <editable bind="name" />
                                     </box>
                                     <editable bind="password" placeholder="Change password" icon="lock" />
-                                    <button bind="__delete" icon="remove" text="Delete" style="link" />
+                                    <button bind="__delete" icon="remove" text="Delete" style="circle" />
                                 </hc>
                             </bind:template>
                             <button bind="__add" icon="plus" text="Create" />

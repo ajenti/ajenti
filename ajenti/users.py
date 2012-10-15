@@ -15,10 +15,9 @@ class UserManager (object):
 
         if type == 'plain':
             hash = password
-        else:
-            hash = self.hash_password(password)
-
-        return hash == saved
+            return hash == saved
+        elif sha512_crypt.identify(saved):
+            return sha512_crypt.verify(password, saved)
 
     def hash_password(self, password):
         if not password.startswith('sha512|'):
