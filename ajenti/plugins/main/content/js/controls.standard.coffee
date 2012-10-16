@@ -150,10 +150,12 @@ class window.Controls.editable extends window.Control
         @input.hide()
         @label.show()
 
-    goEditMode: () =>
+    goEditMode: (e) =>
         @label.hide()
         @input.show()
         @input.focus()
+        e.stopPropagation()
+        e.preventDefault()
 
     detectUpdates: () ->
         r = {}

@@ -3,6 +3,22 @@ from ajenti.api import *
 from passlib.hash import sha512_crypt
 
 
+def restrict(permission):
+    def decorator(fx):
+        def wrapper(*args, **kwargs):
+            UserManager.get().require_permission(permission)
+            return fx(*args, **kwargs)
+    return decorator
+
+
+class SecurityError (Exception):
+    def __init__(self, permission):
+        self.permission = permission
+
+    def __str__(self):
+        return 'Permission "%s" required' % self.permission
+
+
 @plugin
 class UserManager (object):
     def check_password(self, username, password):
@@ -23,3 +39,20 @@ class UserManager (object):
         if not password.startswith('sha512|'):
             password = 'sha512|%s' % sha512_crypt.encrypt(password)
         return password
+
+    def require_permission(self, permission):
+        context = extract_context()
+        if context.user.name == 'root':
+            return
+        if not permission in context.user.permissions:
+            print context.user.name, permission
+            raise SecurityError(permission)
+
+
+@interface
+class PermissionProvider (object):
+    def get_permissions(self):
+        return []
+
+    def get_name(self):
+        return ''

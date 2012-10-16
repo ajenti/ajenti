@@ -44,6 +44,7 @@ class UIProperty (object):
 @p('visible', default=True, type=bool)
 @p('bind', default=None, type=str)
 @p('bindtransform', default=lambda x: x, type=eval, public=False)
+@p('id', default=None, type=str)
 @interface
 class UIElement (object):
     typeid = None
@@ -60,7 +61,6 @@ class UIElement (object):
         if typeid is not None:
             self.typeid = typeid
 
-        self.id = None
         self.uid = UIElement.__generate_id()
 
         if not hasattr(self, '_properties'):

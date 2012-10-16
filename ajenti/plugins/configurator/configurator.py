@@ -2,7 +2,7 @@ import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
-from ajenti.users import UserManager
+from ajenti.users import UserManager, PermissionProvider
 from reconfigure.items.ajenti import User
 
 
@@ -17,6 +17,28 @@ class Configurator (SectionPlugin):
 
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
         self.find('users').new_item = lambda c: User('Unnamed', '')
+
+        def post_user_bind(object, collection, item, ui):
+            box = ui.find('permissions')
+            for prov in PermissionProvider.get_all():
+                line = self.ui.create('formline', text=prov.get_name())
+                box.append(line)
+                for perm in prov.get_permissions():
+                    line.append(self.ui.create('checkbox', id=perm[0], text=perm[1], \
+                        value=(perm[0] in item.permissions)))
+        self.find('users').post_item_bind = post_user_bind
+
+        def post_user_update(object, collection, item, ui):
+            box = ui.find('permissions')
+            for prov in PermissionProvider.get_all():
+                for perm in prov.get_permissions():
+                    has = box.find(perm[0]).value
+                    if has and not perm[0] in item.permissions:
+                        item.permissions.append(perm[0])
+                    if not has and perm[0] in item.permissions:
+                        item.permissions.remove(perm[0])
+        self.find('users').post_item_update = post_user_update
+
         self.binder.autodiscover()
         self.binder.populate()
 

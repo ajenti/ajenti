@@ -101,6 +101,7 @@ class CollectionAutoBinding (Binding):
     def update(self):
         for value in self.values:
             self.binders[value].update()
+            self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
 
 
 class Binder (object):
@@ -143,6 +144,7 @@ class Binder (object):
 @p('delete_item', default=lambda i, c: c.remove(i), type=eval, public=False)
 @p('post_bind', default=lambda o, c, u: None, type=eval, public=False)
 @p('post_item_bind', default=lambda o, c, i, u: None, type=eval, public=False)
+@p('post_item_update', default=lambda o, c, i, u: None, type=eval, public=False)
 @p('binding', default=lambda: CollectionAutoBinding, type=eval, public=False)
 @p('values', default=lambda c: c, type=eval, public=False)
 @plugin

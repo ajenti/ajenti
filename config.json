@@ -5,6 +5,15 @@
     }, 
     "authentication": false, 
     "users": {
+        "test": {
+            "configs": {}, 
+            "password": "sha512|$6$rounds=40000$.OODrnmHwgP3heqa$KHgtBnzDnIPrrIdjEmWifaR38G84kUBq7CeiERssLzF4xnOrqhqe42TV8WrepV/YJjdSlclMZeh9JjiP0tDyB1", 
+            "permissions": [
+                "section:Filesystems", 
+                "section:Notepad", 
+                "section:Dash"
+            ]
+        }, 
         "root": {
             "configs": {
                 "ajenti.plugins.fm.fm.FileManager": "null", 
@@ -15,10 +24,13 @@
                 "ajenti.plugins.fstab.fstab.Filesystems": "null", 
                 "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
                 "ajenti.plugins.terminal.main.Terminals": "null", 
+                "ajenti.plugins.resolv.resolv.Resolv": "null", 
                 "ajenti.plugins.hosts.hosts.Hosts": "null", 
-                "ajenti.plugins.configurator.configurator.Configurator": "null"
+                "ajenti.plugins.configurator.configurator.Configurator": "null", 
+                "ajenti.users.UserManager": "null"
             }, 
-            "password": "sha512|$6$rounds=40000$XAlmdP.m6NeQ3N/l$6dBlXwV9E9rEIyi9STBVQPxx/gzf7OfmRuaJrbEqmAfna0ip1QQyNelGF16IxSppToRvPtvfI7i2R.HON83D3/"
+            "password": "sha512|$6$rounds=40000$XAlmdP.m6NeQ3N/l$6dBlXwV9E9rEIyi9STBVQPxx/gzf7OfmRuaJrbEqmAfna0ip1QQyNelGF16IxSppToRvPtvfI7i2R.HON83D3/", 
+            "permissions": []
         }
     }, 
     "ssl": {

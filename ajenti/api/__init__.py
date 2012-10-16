@@ -68,19 +68,21 @@ def interface(cls):
     return cls
 
 
+def extract_context():
+    for frame in inspect.stack():
+        self_argument = frame[0].f_code.co_varnames[0]  # This *should* be 'self'
+        instance = frame[0].f_locals[self_argument]
+        if isinstance(instance, BasePlugin):
+            if instance.context is not None:
+                return instance.context
+
+
 class BasePlugin (object):
     default_classconfig = None
     context = None
 
     def init(self):
-        self.context = None
-        for frame in inspect.stack():
-            self_argument = frame[0].f_code.co_varnames[0]  # This *should* be 'self'
-            instance = frame[0].f_locals[self_argument]
-            if isinstance(instance, BasePlugin):
-                if instance.context is not None:
-                    self.context = instance.context
-                    break
+        self.context = extract_context()
 
         if self.context:
             self.__classname = self.__class__.__module__ + '.' + self.__class__.__name__
@@ -112,5 +114,6 @@ __all__ = [
     'BasePlugin',
     'AppContext',
     'plugin',
+    'extract_context',
     'interface',
 ]

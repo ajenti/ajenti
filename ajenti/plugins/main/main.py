@@ -7,8 +7,9 @@ import traceback
 
 from ajenti.api import *
 from ajenti.api.http import *
-from ajenti.ui import *
 from ajenti.middleware import AuthenticationMiddleware
+from ajenti.users import PermissionProvider, UserManager, SecurityError
+from ajenti.ui import *
 from ajenti.util import make_report
 
 from api import SectionPlugin
@@ -99,6 +100,18 @@ class MainSocket (SocketPlugin):
             gevent.sleep(0.1)
 
 
+@plugin
+class SectionPermissions (PermissionProvider):
+    def get_name(self):
+        return 'Section access'
+
+    def get_permissions(self):
+        return [
+            ('section:%s' % x.__name__, x.__name__)
+            for x in SectionPlugin.get_classes()
+        ]
+
+
 @p('username')
 @plugin
 class MainPage (UIElement):
@@ -125,10 +138,15 @@ class SectionsRoot (UIElement):
     def init(self):
         self.categories = {}
         for cls in SectionPlugin.get_classes():
-            cat = cls.new(self.ui)
-            self.append(cat)
+            try:
+                UserManager.get().require_permission('section:%s' % cls.__name__)
+                cat = cls.new(self.ui)
+                self.append(cat)
+            except SecurityError:
+                pass
         self.children = sorted(self.children, key=lambda x: (self.category_order[x.category], x.order, x.title))
-        self.children[0].active = True
+        if len(self.children) > 0:
+            self.children[0].active = True
         self.on('switch', self.on_switch)
 
     def on_switch(self, uid):

@@ -69,7 +69,7 @@ class AuthenticationMiddleware (HttpHandler):
             if ajenti.config.tree.authentication:
                 context.session.identity = None
             else:
-                context.session.identity = ajenti.config.tree.users.keys()[0]
+                context.session.identity = 'root'
                 context.session.appcontext = AppContext(context)
 
     def try_login(self, context, username, password):

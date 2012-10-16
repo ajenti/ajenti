@@ -34,18 +34,26 @@
                             bind="users" 
                             values="lambda c: c.values()"
                             add_item="lambda i,c: c.update({i.name: i})"
-                            delete_item="lambda i,c: c.pop(i.name)">
+                            delete_item="lambda i,c: c.pop(i.name) if i.name != 'root' else None">
                         <vc>
-                            <vc bind="__items" />
+                            <dt bind="__items" width="400" />
                             <bind:template>
-                                <hc>
-                                    <icon icon="user" />
-                                    <box width="100">
-                                        <editable bind="name" />
+                                <collapserow>
+                                    <box>
+                                        <right>
+                                            <button bind="__delete" icon="remove" text="Delete" style="circle" />
+                                        </right>
+                                        <hc>
+                                            <icon icon="user" />
+                                            <box width="100">
+                                                <editable bind="name" />
+                                            </box>
+                                            <editable bind="password" placeholder="Change password" icon="lock" />
+                                        </hc>
                                     </box>
-                                    <editable bind="password" placeholder="Change password" icon="lock" />
-                                    <button bind="__delete" icon="remove" text="Delete" style="circle" />
-                                </hc>
+                                    <vc id="permissions">
+                                    </vc>
+                                </collapserow>
                             </bind:template>
                             <button bind="__add" icon="plus" text="Create" />
                         </vc>
