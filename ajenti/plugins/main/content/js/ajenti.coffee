@@ -15,6 +15,9 @@ class window.Stream
             data = JSON.parse(data)
             console.log 'CRASH:', data
             ajentiCrash(data)
+        @socket.on 'security-error', () ->
+            console.log 'SECURITY ERROR'
+            ajentiSecurityError()
         @socket.on 'notify', (data) ->
             Notificator.notify(data)
 
@@ -149,7 +152,7 @@ class window.Control
         if localHandler
             if not localHandler(params)
                 return
-        if not @uid
+        if not @uid or @properties.client
             return
         @ui.event(this, event, params)
 
@@ -181,3 +184,9 @@ window.ajentiCrashShowReport = () ->
     setTimeout () =>
         $('#crash-report textarea').focus()[0].select()
     , 1000
+
+window.ajentiSecurityError = () ->
+    $('#security-error').fadeIn()
+
+window.ajentiSecurityResume = (info) ->
+    $('#security-error').fadeOut()

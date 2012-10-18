@@ -8,6 +8,7 @@ def restrict(permission):
         def wrapper(*args, **kwargs):
             UserManager.get().require_permission(permission)
             return fx(*args, **kwargs)
+        return wrapper
     return decorator
 
 
@@ -45,7 +46,6 @@ class UserManager (object):
         if context.user.name == 'root':
             return
         if not permission in context.user.permissions:
-            print context.user.name, permission
             raise SecurityError(permission)
 
 

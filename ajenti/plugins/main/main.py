@@ -37,6 +37,7 @@ class MainServer (BasePlugin, HttpPlugin):
     @url('/logout')
     def handle_logout(self, context):
         AuthenticationMiddleware.get().logout(context)
+        context.session.destroy()
         return context.redirect('/')
 
 
@@ -68,6 +69,8 @@ class MainSocket (SocketPlugin):
                         for k, v in update['properties'].iteritems():
                             el.properties[k].set(v)
                             el.properties[k].dirty = False
+        except SecurityError, e:
+            self.send_security_error()
         except Exception, e:
             self.send_crash(e)
 
@@ -79,6 +82,9 @@ class MainSocket (SocketPlugin):
         gz.close()
         data = b64encode(sio.getvalue())
         self.emit('ui', data)
+
+    def send_security_error(self):
+        self.emit('security-error', '')
 
     def send_crash(self, exc):
         data = {

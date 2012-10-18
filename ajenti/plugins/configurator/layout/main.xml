@@ -51,8 +51,8 @@
                                             <editable bind="password" placeholder="Change password" icon="lock" />
                                         </hc>
                                     </box>
-                                    <vc id="permissions">
-                                    </vc>
+                                    <tabs id="permissions" client="True">
+                                    </tabs>
                                 </collapserow>
                             </bind:template>
                             <button bind="__add" icon="plus" text="Create" />

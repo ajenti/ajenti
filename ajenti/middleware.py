@@ -14,12 +14,16 @@ class Session:
         self.touch()
         self.id = id
         self.data = {}
+        self.active = True
+
+    def destroy(self):
+        self.active = False
 
     def touch(self):
         self.timestamp = time.time()
 
     def is_dead(self):
-        return (time.time() - self.timestamp) > 3600
+        return not self.active or (time.time() - self.timestamp) > 3600
 
     def set_cookie(self, context):
         C = Cookie.SimpleCookie()
@@ -54,9 +58,12 @@ class SessionMiddleware (HttpHandler):
     def handle(self, context):
         self.vacuum()
         cookie = Cookie.SimpleCookie(context.env.get('HTTP_COOKIE')).get('session')
+        context.session = None
         if cookie is not None and cookie.value in self.sessions:
             context.session = self.sessions[cookie.value]
-        else:
+            if context.session.is_dead():
+                context.session = None
+        if context.session is None:
             context.session = self.open_session(context)
         context.session.set_cookie(context)
         context.session.touch()

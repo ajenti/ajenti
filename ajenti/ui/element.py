@@ -43,6 +43,7 @@ class UIProperty (object):
 
 @p('visible', default=True, type=bool)
 @p('bind', default=None, type=str)
+@p('client', default=False, type=True)
 @p('bindtransform', default=lambda x: x, type=eval, public=False)
 @p('id', default=None, type=str)
 @interface

@@ -3,7 +3,7 @@
         "host": "0.0.0.0", 
         "port": 8000
     }, 
-    "authentication": false, 
+    "authentication": true, 
     "users": {
         "test": {
             "configs": {}, 
@@ -11,18 +11,19 @@
             "permissions": [
                 "section:Filesystems", 
                 "section:Notepad", 
-                "section:Dash"
+                "section:Dash", 
+                "section:Configurator"
             ]
         }, 
         "root": {
             "configs": {
-                "ajenti.plugins.fm.fm.FileManager": "null", 
+                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
                 "ajenti.plugins.terminal.main.TerminalHttp": "null", 
                 "ajenti.plugins.main.main.MainServer": "null", 
                 "ajenti.plugins.dashboard.dash.Dash": "null", 
                 "ajenti.plugins.nginx.configurator.Configurator": "null", 
                 "ajenti.plugins.fstab.fstab.Filesystems": "null", 
-                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
+                "ajenti.plugins.fm.fm.FileManager": "null", 
                 "ajenti.plugins.terminal.main.Terminals": "null", 
                 "ajenti.plugins.resolv.resolv.Resolv": "null", 
                 "ajenti.plugins.hosts.hosts.Hosts": "null", 

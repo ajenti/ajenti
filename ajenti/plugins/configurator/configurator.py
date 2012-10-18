@@ -2,7 +2,7 @@ import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui.binder import Binder
-from ajenti.users import UserManager, PermissionProvider
+from ajenti.users import UserManager, PermissionProvider, restrict
 from reconfigure.items.ajenti import User
 
 
@@ -21,7 +21,7 @@ class Configurator (SectionPlugin):
         def post_user_bind(object, collection, item, ui):
             box = ui.find('permissions')
             for prov in PermissionProvider.get_all():
-                line = self.ui.create('formline', text=prov.get_name())
+                line = self.ui.create('tab', title=prov.get_name())
                 box.append(line)
                 for perm in prov.get_permissions():
                     line.append(self.ui.create('checkbox', id=perm[0], text=perm[1], \
@@ -44,6 +44,7 @@ class Configurator (SectionPlugin):
 
         self.find('save-button').on('click', self.save)
 
+    @restrict('configurator:configure')
     def save(self):
         self.binder.update()
         for user in ajenti.config.tree.users.values():
@@ -53,3 +54,12 @@ class Configurator (SectionPlugin):
         ajenti.config.save()
         self.publish()
         self.context.notify('Saved')
+
+
+@plugin
+class ConfigurationPermissionsProvider (PermissionProvider):
+    def get_name(self):
+        return 'Configuration'
+
+    def get_permissions(self):
+        return [('configurator:configure', 'Change configuration')]

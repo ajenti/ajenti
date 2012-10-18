@@ -386,7 +386,8 @@ class window.Controls.tabs extends window.Control
             beforeActivate: (e, ui) =>
                 @active = parseInt $(ui.newPanel).attr('data-index')
                 @event('switch', {})
-                e.preventDefault()
+                if not @properties.client
+                    e.preventDefault()
             selected: @active
         })
 

@@ -41,6 +41,24 @@
             </div>
         </div>
 
+        <div id="security-error" class="full-overlay">
+            <div class="content">
+                <div class="inner">
+                    <h1>Access denied</h1>
+                    
+                    <br class="clear" />
+                    <div class="control hc" style="float:right">
+                        <div>
+                            <a onclick="document.location='/'" href="#" class="control button style-green"><i class="icon-repeat"></i> Reload page</a>
+                        </div>
+                        <div>
+                            <a onclick="ajentiSecurityResume()" href="#" class="control button style-green"><i class="icon-chevron-right"></i> Continue</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>
             Stream = new Stream();
             Stream.start();
