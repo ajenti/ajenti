@@ -56,6 +56,7 @@ class ContentCompressor (object):
 
     def scan(self):
         for plugin in manager.get_order():
+            print plugin
             pfiles = {}
             path = os.path.join(manager.resolve_path(plugin), 'content')
             if not os.path.exists(path):

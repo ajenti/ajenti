@@ -6,6 +6,20 @@
 	border-bottom: 1px solid white;
 }
 
+.control-textinput {
+	color: @controlText;
+	font-family: @fontFamily; 
+	font-size: @fontSize;
+	
+	padding: 0 4px;
+	border: 1px solid transparent;
+	.control-inset();
+
+	&:focus, &:hover {
+		border: 1px solid #eee;
+	}
+}
+
 .actionlink {
 	display: inline-block;
 	color: @controlText;
@@ -143,17 +157,7 @@
 	}
 
 	&.textbox {
-		color: @controlText;
-		font-family: @fontFamily; 
-    	font-size: @fontSize;
-		
-		padding: 0 4px;
-		border: 1px solid transparent;
-		.control-inset();
-
-		&:focus, &:hover {
-			border: 1px solid #eee;
-		}
+		.control-textinput();
 	}
 
 	&.editable {
@@ -175,7 +179,7 @@
 	}
 
 	&.combobox {
-		.control.textbox();
+		.control-textinput();
 	}
 
 	&.formline {

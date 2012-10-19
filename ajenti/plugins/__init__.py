@@ -107,7 +107,8 @@ class PluginManager:
         path = os.path.split(__file__)[0]
         for item in os.listdir(path):
             if not '.' in item:
-                self.load_recursive(item)
+                if not item in self.__plugins:
+                    self.load_recursive(item)
 
     def get_plugins_root(self):
         return os.path.split(__file__)[0]
