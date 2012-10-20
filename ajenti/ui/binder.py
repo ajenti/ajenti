@@ -55,7 +55,10 @@ class CollectionAutoBinding (Binding):
         self.old_items = copy.copy(self.items_ui.children)
 
     def populate(self):
-        self.collection = getattr(self.object, self.field)
+        if self.field:
+            self.collection = getattr(self.object, self.field)
+        else:
+            self.collection = self.object
         self.values = self.ui.values(self.collection)
         self.items_ui.children = copy.copy(self.old_items)
         self.binders = {}
@@ -125,6 +128,7 @@ class Binder (object):
                     if not child.typeid.startswith('bind:collection'):
                         raise Exception('Collection only binds to <bind:collection />')
                     self.add(child.binding()(object, k, child))
+        return self
 
     def add(self, binding):
         self.bindings.append(binding)

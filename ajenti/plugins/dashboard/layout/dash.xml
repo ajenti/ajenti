@@ -1,22 +1,22 @@
-<vc>
-    <hc>
-        <label id="label" text="0" />
-        <button id="button" text="Increment" />
-    </hc>
-
-    <hc>
-        <textbox id="text" />
-        <button id="submit" text="Submit" />
-    </hc>
-
-    <hc>
-        <label text="Form value: " />
-        <label id="flabel" text="---" />
-    </hc>
-
-    <hc>
-        <button text="Normal" />
-        <button id="crash" text="CRASH" style="orange" />
-        <button text="Notify" id="notify" style="green" />
-    </hc>
+<vc xmlns:dashboard="dashboard" xmlns:bind="bind">
+    <pad>
+        <hc>
+            <button style="green" text="Add widget" icon="plus" id="add-button" />
+        </hc>
+    </pad>
+    <dashboard:dash id="dash" />
+    <dialog id="add-dialog" buttons="[{'text': 'Cancel', 'id': 'cancel'}]" visible="False">
+        <bind:collection id="add-widgets">
+            <pad>
+                <list bind="__items" />
+            </pad>
+            <bind:template>
+                <listitem id="listitem">
+                    <hc>
+                        <label bind="name" id="button" />
+                    </hc>
+                </listitem>
+            </bind:template>
+        </bind:collection>
+    </dialog>
 </vc>

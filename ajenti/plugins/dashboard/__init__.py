@@ -12,3 +12,4 @@ info = PluginInfo(
 
 def init():
     import dash
+    import api

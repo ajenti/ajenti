@@ -3,6 +3,7 @@ from ajenti.api import *
 import binder
 from inflater import Inflater
 from element import p, UIElement
+from standard import *
 
 
 class UI (object):

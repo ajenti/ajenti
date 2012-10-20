@@ -3,7 +3,7 @@
         "host": "0.0.0.0", 
         "port": 8000
     }, 
-    "authentication": true, 
+    "authentication": false, 
     "users": {
         "test": {
             "configs": {}, 
@@ -17,13 +17,14 @@
         }, 
         "root": {
             "configs": {
-                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
+                "ajenti.plugins.fm.fm.FileManager": "null", 
                 "ajenti.plugins.terminal.main.TerminalHttp": "null", 
                 "ajenti.plugins.main.main.MainServer": "null", 
-                "ajenti.plugins.dashboard.dash.Dash": "null", 
+                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.dash.TestWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.dash.TestWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.dash.TestWidget\"}]}", 
                 "ajenti.plugins.nginx.configurator.Configurator": "null", 
                 "ajenti.plugins.fstab.fstab.Filesystems": "null", 
-                "ajenti.plugins.fm.fm.FileManager": "null", 
+                "ajenti.plugins.dashboard.dash.TestWidget": "null", 
+                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
                 "ajenti.plugins.terminal.main.Terminals": "null", 
                 "ajenti.plugins.resolv.resolv.Resolv": "null", 
                 "ajenti.plugins.hosts.hosts.Hosts": "null", 

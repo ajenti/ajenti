@@ -90,13 +90,7 @@ class Collapse (UIElement):
 @p('expanded', default=False, type=bool, bindtypes=[bool])
 @plugin
 class CollapseRow (UIElement):
-    typeid = 'collapserow'
-
-
-@p('buttons')
-@plugin
-class Dialog (UIElement):
-    typeid = 'dialog'
+    typeid = 'collapser'
 
 
 @p('width', default=None)

@@ -4,7 +4,7 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-    title='Test Plugin',
+    title='Core',
     dependencies=[
         #PluginDependency('ads')
     ],

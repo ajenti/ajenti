@@ -1,0 +1,55 @@
+.control {
+    .dashboard-dash {
+        >.container {
+            float: left;
+            width: 350px;
+            padding: 15px 25px;
+            min-height: 200px;
+
+            >.placeholder {
+                border: 1px dashed #68a;
+                background: #bdf;
+                width: 100%;
+                height: 40px;
+                margin: 15px 0;
+                border-radius: 5px;
+            }
+
+            &.trash {
+                display: none;
+                border: 1px dashed #a86;
+                background: #fdb;
+                width: 50%;
+                min-height: 80px;
+                margin: 15px auto;
+                padding: 15px 25px 0;
+                border-radius: 5px;
+                color: #a86;
+                text-align: center;
+                float: none;
+                clear: both;
+            }
+        }
+    }
+
+    .dashboard-widget {
+        margin: 5px 0;
+        width: 345px;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.25);
+        padding: 5px;
+
+        >.handle {
+            width: 6px;
+            height: 20px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH2wkeCyEzNuGfhQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXYzh9+vR/BnyAeAXUMwoAFlwUQUDbs/QAAAAASUVORK5CYII=') repeat;
+            float: left;
+            margin: 0 5px 0 0;
+        }
+
+        >.content {
+            float: left;
+        }
+    }
+}

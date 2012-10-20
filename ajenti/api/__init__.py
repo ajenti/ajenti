@@ -25,6 +25,7 @@ def plugin(cls):
     manager.register_implementation(cls)
     cls._plugin = True
     cls._path = inspect.getfile(cls)
+    cls.classname = cls.__module__ + '.' + cls.__name__
 
     def get(cls):
         return manager.get_instance(cls)
@@ -85,8 +86,7 @@ class BasePlugin (object):
         self.context = extract_context()
 
         if self.context:
-            self.__classname = self.__class__.__module__ + '.' + self.__class__.__name__
-            self.classconfig = self.context.user.configs.setdefault(self.__classname, copy.deepcopy(self.default_classconfig))
+            self.classconfig = self.context.user.configs.setdefault(self.classname, copy.deepcopy(self.default_classconfig))
 
     def open_content(self, path, mode='r'):
         _check_plugin(self.__class__)
@@ -99,7 +99,7 @@ class BasePlugin (object):
         return open(os.path.join(root, 'content', path), mode)
 
     def save_classconfig(self):
-        self.context.user.configs[self.__classname] = self.classconfig
+        self.context.user.configs[self.classname] = self.classconfig
         ajenti.config.save()
 
 

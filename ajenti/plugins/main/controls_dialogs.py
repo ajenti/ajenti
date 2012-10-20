@@ -5,6 +5,12 @@ from ajenti.plugins import *
 from ajenti.ui import *
 
 
+@p('buttons', default=[], type=eval)
+@plugin
+class Dialog (UIElement):
+    typeid = 'dialog'
+
+
 @p('_files', default=[], type=list)
 @p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)

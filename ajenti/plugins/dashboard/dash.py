@@ -1,34 +1,97 @@
 from ajenti.api import *
 
+from ajenti.ui.binder import CollectionAutoBinding
 from ajenti.ui import *
-from ajenti.ui.standard import *
 from ajenti.plugins.main.api import SectionPlugin
+
+from api import DashboardWidget
 
 
 @plugin
 class Dash (SectionPlugin):
+    default_classconfig = {'widgets': []}
+
     def init(self):
         self.title = 'Dashboard'
         self.category = 'Ajenti'
         self.order = 0
 
         self.append(self.ui.inflate('dashboard:dash'))
-        self.label = self.find('label')
-        self.button = self.find('button')
-        self.submit = self.find('submit')
-        self.flabel = self.find('flabel')
+        self.dash = self.find('dash')
+        self.dash.on('reorder', self.on_reorder)
 
-        self.counter = 0
-        self.button.on('click', self.on_button)
-        self.submit.on('click', self.on_submit)
-        self.find('crash').on('click', lambda: 1 / 0)
-        self.find('notify').on('click', lambda: self.context.notify('Notification!'))
+        def post_widget_bind(o, c, i, u):
+            u.find('listitem').on('click', self.on_add_widget_click, i)
 
-    def on_button(self):
-        self.counter += 1
-        self.label.text = str(self.counter)
-        self.label.publish()
+        self.find('add-widgets').post_item_bind = post_widget_bind
+        CollectionAutoBinding(DashboardWidget.get_classes(), None, self.find('add-widgets')).populate()
 
-    def on_submit(self):
-        self.flabel.text = self.find('text').value
+        self.find('add-dialog').on('button', self.on_dialog_close)
+        self.find('add-button').on('click', self.on_dialog_open)
+
+        self.refresh()
+
+    def on_dialog_open(self):
+        self.find('add-dialog').visible = True
         self.publish()
+
+    def on_dialog_close(self, button):
+        self.find('add-dialog').visible = False
+        self.publish()
+
+    def on_add_widget_click(self, cls):
+        self.find('add-dialog').visible = False
+        # TODO: widget configs
+        self.classconfig['widgets'].append({
+            'class': cls.classname,
+            'container': 0,
+            'index': 0,
+            'config': None,
+        })
+        self.save_classconfig()
+        self.refresh()
+        self.publish()
+
+    def refresh(self):
+        self.dash.empty()
+        for widget in self.classconfig['widgets']:
+            for cls in DashboardWidget.get_classes():
+                if cls.classname == widget['class']:
+                    instance = cls.new(self.ui)
+                    instance.container = widget['container']
+                    instance.index = widget['index']
+                    instance.config = widget['config']
+                    self.dash.append(instance)
+
+    def on_reorder(self, indexes):
+        cfg = {'widgets': []}
+        for container, items in indexes.iteritems():
+            idx = 0
+            for item in items:
+                item = self.dash.find_uid(item)
+                item.container = container
+                item.index = idx
+                idx += 1
+                cfg['widgets'].append({
+                    'class': item.classname,
+                    'container': item.container,
+                    'index': item.index,
+                    'config': item.config,
+                })
+        self.classconfig = cfg
+        self.save_classconfig()
+        self.refresh()
+        self.publish()
+
+
+@plugin
+class DashboardDash (UIElement):
+    typeid = 'dashboard:dash'
+
+
+@plugin
+class TestWidget (DashboardWidget):
+    name = 'Test'
+
+    def init(self):
+        self.append(self.ui.create('button', style='green', text='test'))
