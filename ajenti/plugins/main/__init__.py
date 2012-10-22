@@ -14,4 +14,7 @@ info = PluginInfo(
 def init():
     import main
     import api
+    import controls_containers
+    import controls_simple
+    import controls_inputs
     import controls_dialogs

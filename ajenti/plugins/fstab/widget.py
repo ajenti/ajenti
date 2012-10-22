@@ -14,7 +14,9 @@ class DiskSpaceWidget (ConfigurableWidget):
 
     def on_start(self):
         self.find('device').text = self.config['device']
-        self.find('usage').text = '%i%%' % self.meter.get_usage(self.config['device'])
+        value = self.meter.get_usage(self.config['device'])
+        self.find('percent').text = '%i%%' % value
+        self.find('usage').value = float(value) / 100
 
     def create_config(self):
         return {'device': ''}

@@ -393,3 +393,15 @@ class window.Controls.tabs extends window.Control
 
     wrapChild: (child) ->
         return $("""<div data-index="#{@children.length-1}" id="#{child.uid}"></div>""").append(child.dom)
+
+
+class window.Controls.progressbar extends window.Control
+    createDom: () ->
+        w = @_int_to_px(@properties.width)
+        pw = @_int_to_px(@properties.width * @properties.value)
+        @dom = $("""
+            <div class="control progressbar" style="width: #{w}">
+                <div class="fill" style="width: #{pw}"></div>
+            </div>
+        """)
+        @childContainer = @dom

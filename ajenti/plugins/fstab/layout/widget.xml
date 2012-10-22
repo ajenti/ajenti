@@ -1,6 +1,12 @@
 <hc>
-    <label id="device" text="---" />
-    <label id="usage" text="---" />
+    <icon icon="hdd" />
+    <box width="65">
+        <label id="device" text="---" />
+    </box>
+    <box width="25">
+        <label id="percent" text="---" />
+    </box>
+    <progressbar id="usage" width="200" value="0.4" />
 
     <dialog id="config-dialog" visible="False">
         <pad>
