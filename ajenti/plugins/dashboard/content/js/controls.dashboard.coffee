@@ -33,6 +33,7 @@ class window.Controls.dashboard__dash extends window.Control
 
     append: (child) ->
         @dom.find(".container-#{child.properties.container}").append(child.dom)
+        @children.push child
 
 
 class window.Controls.dashboard__widget extends window.Control

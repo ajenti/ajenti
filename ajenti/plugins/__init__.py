@@ -87,9 +87,13 @@ class PluginManager:
 
     def instantiate(self, cls, *args, **kwargs):
         instance = cls(*args, **kwargs)
+        last_init = None
         for base in reversed(cls.mro()):
             if hasattr(base, 'init'):
-                getattr(base, 'init')(instance)
+                init = getattr(base, 'init')
+                if init != last_init:
+                    init(instance)
+                    last_init = init
 
         for iface in cls._implements + [cls]:
             self.__instances.setdefault(iface, []).append(instance)

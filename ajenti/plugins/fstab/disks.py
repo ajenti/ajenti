@@ -1,5 +1,6 @@
 import os
 import re
+import subprocess
 
 
 def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
@@ -24,3 +25,32 @@ def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
         add_dir('/dev/disk/by-id', lambda s, r: '%s: %s' % (r, s))
 
     return sorted(result, key=lambda x: x[0])
+
+
+class DiskUsageMeter(object):
+    _partstatformat = re.compile('(/dev/)?(?P<dev>\w+)\s+\d+\s+\d+\s+\d+\s+' +
+                                       '(?P<usage>\d+)%\s+(?P<mountpoint>\S+)$')
+    _totalformat = re.compile('(?P<dev>total)\s+\d+\s+\d+\s+\d+\s+(?P<usage>\d+)%$')
+
+    def _get_stats(self, predicate=(lambda m: True)):
+        if hasattr(self, 'variant') and self.variant == 'total':
+            matcher = self._totalformat
+        else:
+            matcher = self._partstatformat
+
+        stats = subprocess.check_output(['df', '--total'])
+        matches = []
+        for stat in stats.splitlines():
+            match = matcher.match(stat)
+            if match and predicate(match):
+                matches.append(match)
+        return matches
+
+    def get_devices(self):
+        return sorted(set([m.group('dev') for m in self._get_stats()])) + ['total']
+
+    def get_usage(self, device):
+        devmatches = self._get_stats(lambda m: m.group('dev').endswith(device))
+        if not devmatches:
+            return 0
+        return int(devmatches[0].group('usage'))

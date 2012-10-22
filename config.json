@@ -20,7 +20,7 @@
                 "ajenti.plugins.fm.fm.FileManager": "null", 
                 "ajenti.plugins.terminal.main.TerminalHttp": "null", 
                 "ajenti.plugins.main.main.MainServer": "null", 
-                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.dash.TestWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.dash.TestWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.dash.TestWidget\"}]}", 
+                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": {\"device\": \"UUID=83810b56-ef4b-44de-85c8-58dc589aef48\"}, \"container\": \"1\", \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}, {\"index\": 0, \"config\": {\"device\": \"sda1\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}, {\"index\": 1, \"config\": {\"device\": \"sda4\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}]}", 
                 "ajenti.plugins.nginx.configurator.Configurator": "null", 
                 "ajenti.plugins.fstab.fstab.Filesystems": "null", 
                 "ajenti.plugins.dashboard.dash.TestWidget": "null", 
@@ -29,6 +29,7 @@
                 "ajenti.plugins.resolv.resolv.Resolv": "null", 
                 "ajenti.plugins.hosts.hosts.Hosts": "null", 
                 "ajenti.plugins.configurator.configurator.Configurator": "null", 
+                "ajenti.plugins.fstab.widget.DiskSpaceWidget": "null", 
                 "ajenti.users.UserManager": "null"
             }, 
             "password": "sha512|$6$rounds=40000$XAlmdP.m6NeQ3N/l$6dBlXwV9E9rEIyi9STBVQPxx/gzf7OfmRuaJrbEqmAfna0ip1QQyNelGF16IxSppToRvPtvfI7i2R.HON83D3/", 

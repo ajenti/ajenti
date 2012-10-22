@@ -1,0 +1,12 @@
+<hc>
+    <label id="device" text="---" />
+    <label id="usage" text="---" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="Device">
+                <combobox id="device" bind="device" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>

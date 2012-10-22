@@ -41,7 +41,6 @@ class Dash (SectionPlugin):
 
     def on_add_widget_click(self, cls):
         self.find('add-dialog').visible = False
-        # TODO: widget configs
         self.classconfig['widgets'].append({
             'class': cls.classname,
             'container': 0,
@@ -57,11 +56,20 @@ class Dash (SectionPlugin):
         for widget in self.classconfig['widgets']:
             for cls in DashboardWidget.get_classes():
                 if cls.classname == widget['class']:
-                    instance = cls.new(self.ui)
-                    instance.container = widget['container']
-                    instance.index = widget['index']
-                    instance.config = widget['config']
+                    instance = cls.new(
+                        self.ui,
+                        container=widget['container'],
+                        index=widget['index'],
+                        config=widget['config']
+                    )
+                    instance.on('save-config', self.on_widget_config, widget, instance)
                     self.dash.append(instance)
+
+    def on_widget_config(self, config, instance):
+        config['config'] = instance.config
+        self.save_classconfig()
+        self.refresh()
+        self.publish()
 
     def on_reorder(self, indexes):
         cfg = {'widgets': []}
@@ -88,10 +96,3 @@ class Dash (SectionPlugin):
 class DashboardDash (UIElement):
     typeid = 'dashboard:dash'
 
-
-@plugin
-class TestWidget (DashboardWidget):
-    name = 'Test'
-
-    def init(self):
-        self.append(self.ui.create('button', style='green', text='test'))
