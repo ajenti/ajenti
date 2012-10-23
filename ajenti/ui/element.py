@@ -46,6 +46,7 @@ class UIProperty (object):
 @p('client', default=False, type=True)
 @p('bindtransform', default=lambda x: x, type=eval, public=False)
 @p('id', default=None, type=str)
+@plugin
 @interface
 class UIElement (object):
     typeid = None
@@ -56,7 +57,7 @@ class UIElement (object):
         cls.__last_id += 1
         return cls.__last_id
 
-    def __init__(self, ui, typeid=None, **kwargs):
+    def __init__(self, ui, typeid=None, children=[], **kwargs):
         self.ui = ui
 
         if typeid is not None:
@@ -68,6 +69,7 @@ class UIElement (object):
             self._properties = []
 
         self.children = []
+        self.children.extend(children)
 
         self.properties = {}
         for prop in self._properties:

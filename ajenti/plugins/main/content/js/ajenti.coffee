@@ -37,9 +37,10 @@ class window.UIManager
 
     inflate: (json) ->
         children = []
-        for child in json.children
-            do (child) =>
-                children.push @inflate(child)
+        if json.visible == true
+            for child in json.children
+                do (child) =>
+                    children.push @inflate(child)
         typeid = json.typeid.replace(':', '__')
         cls = Controls[typeid]
         if not cls
@@ -112,7 +113,7 @@ class window.Control
                 do (child) =>
                     @append(child)
         
-        if @properties.visible != true
+        if @properties.visible != true and @dom
             @dom.hide()
 
     createDom: () ->

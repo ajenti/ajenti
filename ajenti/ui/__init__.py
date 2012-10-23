@@ -11,10 +11,17 @@ class UI (object):
         self.inflater = Inflater(self)
 
     def create(self, typeid, *args, **kwargs):
+        cls = self.get_class(typeid)
+        inst = cls.new(self, *args, **kwargs)
+        inst.typeid = typeid
+        return inst
+
+    def get_class(self, typeid):
         for cls in UIElement.get_classes():
             if cls.typeid == typeid:
-                return cls.new(self, *args, **kwargs)
-        return UIElement(self, typeid=typeid, *args, **kwargs)
+                return cls
+        else:
+            return UIElement
 
     def inflate(self, layout):
         return self.inflater.inflate(layout)

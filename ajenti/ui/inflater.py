@@ -18,18 +18,22 @@ class Inflater:
 
     def inflate_rec(self, node):
         tag = node.tag.replace('{', '').replace('}', ':')
-        element = self.ui.create(tag)
+        cls = self.ui.get_class(tag)
+        props = {}
+
         for key in node.attrib:
             value = node.attrib[key]
-            if key == 'id':
-                element.id = value
+            for prop in cls._properties:
+                if prop.name == key:
+                    if prop.type in [int, float, unicode, eval]:
+                        value = prop.type(value)
+                    elif prop.type == bool:
+                        value = value == 'True'
+                    props[key] = value
+                    break
             else:
-                prop = element.properties[key]
-                if prop.type in [int, float, unicode, eval]:
-                    value = prop.type(value)
-                elif prop.type == bool:
-                    value = value == 'True'
-                prop.set(value)
-        for child in node:
-            element.append(self.inflate_rec(child))
+                raise Exception('Invalid property: %s' % key)
+
+        children = list(self.inflate_rec(child) for child in node)
+        element = self.ui.create(tag, children=children, **props)
         return element

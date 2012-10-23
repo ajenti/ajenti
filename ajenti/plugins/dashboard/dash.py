@@ -95,4 +95,3 @@ class Dash (SectionPlugin):
 @plugin
 class DashboardDash (UIElement):
     typeid = 'dashboard:dash'
-

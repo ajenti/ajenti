@@ -158,4 +158,5 @@ class SectionsRoot (UIElement):
     def on_switch(self, uid):
         for child in self.children:
             child.active = child.uid == uid
+            child.visible = child.active
         self.publish()

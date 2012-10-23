@@ -71,7 +71,7 @@ class window.Controls.main__sections_root extends window.Control
 			@categories[child.properties.category] = cat
 			@tabsContainer.append(cat.dom)
 
-		tab = new Controls.main__sections_tab(@ui, child.properties)
+		tab = new Controls.main__sections_tab(@ui, $.extend(child.properties, { visible: true }))
 		tab.dom.click (e) =>
 			@event('switch', uid:child.uid)
 			e.preventDefault()
