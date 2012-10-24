@@ -52,7 +52,6 @@ class Configurator (SectionPlugin):
                 user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
         ajenti.config.save()
-        self.publish()
         self.context.notify('Saved')
 
 

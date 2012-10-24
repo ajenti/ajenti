@@ -69,6 +69,9 @@ class MainSocket (SocketPlugin):
                         for k, v in update['properties'].iteritems():
                             el.properties[k].set(v)
                             el.properties[k].dirty = False
+                if self.ui.has_updates():
+                    self.ui.clear_updates()
+                    self.send_ui()
         except SecurityError, e:
             self.send_security_error()
         except Exception, e:
@@ -82,6 +85,9 @@ class MainSocket (SocketPlugin):
         gz.close()
         data = b64encode(sio.getvalue())
         self.emit('ui', data)
+
+    def send_update_request(self):
+        self.emit('update-request')
 
     def send_security_error(self):
         self.emit('security-error', '')
@@ -100,10 +106,10 @@ class MainSocket (SocketPlugin):
 
     def ui_watcher(self):
         while True:
-            updates = self.ui.get_updates()
-            if len(updates) > 0:
-                self.send_ui()
-            gevent.sleep(0.1)
+            if self.ui.has_updates():
+                self.send_update_request()
+                gevent.sleep(0.5)
+            gevent.sleep(0.2)
 
 
 @plugin

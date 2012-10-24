@@ -56,14 +56,12 @@ class Notepad (SectionPlugin):
             item.find('close').visible = len(self.controller.files.keys()) > 1
             item.on('click', self.select, id)
             self.list.append(item)
-        self.publish()
 
     def on_new(self):
         self.select(self.controller.new())
 
     def on_open(self):
         self.opendialog.visible = True
-        self.publish()
 
     def on_save(self):
         path = self.controller.files[self.selected]['path']
@@ -71,11 +69,9 @@ class Notepad (SectionPlugin):
             self.on_save_as()
         else:
             self.on_save_select(None)
-        self.publish()
 
     def on_save_as(self):
         self.savedialog.visible = True
-        self.publish()
 
     def on_file_select(self, path):
         self.opendialog.visible = False
@@ -83,7 +79,6 @@ class Notepad (SectionPlugin):
 
     def on_open_dialog(self, button):
         self.opendialog.visible = False
-        self.publish()
 
     def on_save_select(self, path):
         self.select(self.selected)
@@ -94,7 +89,6 @@ class Notepad (SectionPlugin):
 
     def on_save_dialog(self, button):
         self.savedialog.visible = False
-        self.publish()
 
     def on_close(self, id):
         for self.controller.files[id]['path'] in self.classconfig['bookmarks']:

@@ -46,7 +46,6 @@ class FileManager (SectionPlugin):
 
     def refresh(self):
         self.binder.populate()
-        self.publish()
 
 
 class Controller (object):

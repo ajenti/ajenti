@@ -10,7 +10,7 @@ class Configurator (SectionPlugin):
     def init(self):
         self.title = 'nginx'
         self.category = 'Software'
-        
+
         self.append(self.ui.inflate('nginx:main'))
 
         self.config = NginxConfig(path='/etc/nginx/nginx.conf')
@@ -25,4 +25,3 @@ class Configurator (SectionPlugin):
     def save(self):
         self.binder.update()
         self.config.save()
-        self.publish()

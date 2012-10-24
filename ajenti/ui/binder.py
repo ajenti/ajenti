@@ -93,13 +93,11 @@ class CollectionAutoBinding (Binding):
         self.update()
         self.ui.add_item(self.ui.new_item(self.collection), self.collection)
         self.populate()
-        self.ui.publish()
 
     def on_delete(self, item):
         self.update()
         self.ui.delete_item(item, self.collection)
         self.populate()
-        self.ui.publish()
 
     def update(self):
         for value in self.values:

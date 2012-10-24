@@ -21,11 +21,9 @@ class Logs (SectionPlugin):
 
     def on_open(self):
         self.opendialog.visible = True
-        self.publish()
 
     def on_open_dialog(self, button):
         self.opendialog.visible = False
-        self.publish()
 
     def on_file_select(self, path):
         self.opendialog.visible = False
@@ -33,7 +31,6 @@ class Logs (SectionPlugin):
 
     def select(self, path):
         self.log.path = path
-        self.publish()
 
 
 @p('path', type=unicode)

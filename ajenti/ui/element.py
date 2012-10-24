@@ -70,6 +70,7 @@ class UIElement (object):
 
         self.children = []
         self.children.extend(children)
+        self.children_changed = False
 
         self.properties = {}
         for prop in self._properties:
@@ -138,8 +139,26 @@ class UIElement (object):
         self.events[event] = handler
         self.event_args[event] = args
 
-    def publish(self):
-        self.ui.queue_update()
+    def has_updates(self):
+        if self.children_changed:
+            return True
+        for property in self.properties.values():
+            if property.dirty:
+                return True
+        for child in self.children:
+            if child.visible:
+                if child.has_updates():
+                    return True
+        return False
+
+    def clear_updates(self):
+        self.children_changed = False
+        for property in self.properties.values():
+            property.dirty = False
+        for child in self.children:
+            if child.visible:
+                if child.has_updates():
+                    child.clear_updates()
 
     def event(self, event, params=None):
         if event in self.events:
@@ -147,9 +166,12 @@ class UIElement (object):
 
     def empty(self):
         self.children = []
+        self.children_changed = True
 
     def append(self, child):
         self.children.append(child)
+        self.children_changed = True
 
     def remove(self, child):
         self.children.remove(child)
+        self.children_changed = True

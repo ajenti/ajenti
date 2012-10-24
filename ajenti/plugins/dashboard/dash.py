@@ -33,11 +33,9 @@ class Dash (SectionPlugin):
 
     def on_dialog_open(self):
         self.find('add-dialog').visible = True
-        self.publish()
 
     def on_dialog_close(self, button):
         self.find('add-dialog').visible = False
-        self.publish()
 
     def on_add_widget_click(self, cls):
         self.find('add-dialog').visible = False
@@ -49,7 +47,6 @@ class Dash (SectionPlugin):
         })
         self.save_classconfig()
         self.refresh()
-        self.publish()
 
     def refresh(self):
         self.dash.empty()
@@ -69,7 +66,6 @@ class Dash (SectionPlugin):
         config['config'] = instance.config
         self.save_classconfig()
         self.refresh()
-        self.publish()
 
     def on_reorder(self, indexes):
         cfg = {'widgets': []}
@@ -89,7 +85,6 @@ class Dash (SectionPlugin):
         self.classconfig = cfg
         self.save_classconfig()
         self.refresh()
-        self.publish()
 
 
 @plugin

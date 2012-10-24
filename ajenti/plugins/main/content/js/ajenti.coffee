@@ -11,6 +11,9 @@ class window.Stream
             ui = JSON.parse(ui)
             console.log '<< ui', ui
             UI.replace(UI.inflate(ui))
+        @socket.on 'update-request', () ->
+            UI.checkForUpdates()
+            UI.sendUpdates(true)
         @socket.on 'crash', (data) ->
             data = JSON.parse(data)
             console.log 'CRASH:', data
@@ -69,11 +72,12 @@ class window.UIManager
     queueUpdate: (update) ->
         @pendingUpdates.push update
 
-    sendUpdates: () ->
+    sendUpdates: (force) ->
+        force ?= false
         if @updaterTimeout
             clearTimeout(@updaterTimeout)
         @updaterTimeout = setTimeout () =>
-            if @pendingUpdates.length > 0
+            if force or @pendingUpdates.length > 0
                 @stream.emit_ui_update @pendingUpdates
             @pendingUpdates = []
             @updaterTimeout = null

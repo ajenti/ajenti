@@ -36,4 +36,3 @@ class Filesystems (SectionPlugin):
     def save(self):
         self.binder.update()
         self.config.save()
-        self.publish()

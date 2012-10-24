@@ -28,4 +28,3 @@ class Resolv (SectionPlugin):
     def save(self):
         self.binder.update()
         self.config.save()
-        self.publish()

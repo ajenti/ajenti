@@ -41,13 +41,11 @@ class Terminals (SectionPlugin):
             key = 0
         self.terminals[key] = Terminal()
         self.refresh()
-        self.publish()
 
     def on_close(self, k):
         self.terminals[k].kill()
         self.terminals.pop(k)
         self.refresh()
-        self.publish()
 
 
 @plugin

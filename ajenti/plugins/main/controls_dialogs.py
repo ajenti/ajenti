@@ -27,7 +27,6 @@ class OpenFileDialog (UIElement):
         if os.path.isdir(path):
             self.path = path
             self.refresh()
-            self.publish()
         else:
             self.event('select', {'path': path})
 
@@ -58,7 +57,6 @@ class SaveFileDialog (UIElement):
         if os.path.isdir(path):
             self.path = path
             self.refresh()
-            self.publish()
         else:
             self.event('select', {'path': path})
 

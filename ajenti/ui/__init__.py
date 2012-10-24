@@ -7,7 +7,6 @@ from element import p, UIElement
 
 class UI (object):
     def __init__(self):
-        self.pending_updates = 0
         self.inflater = Inflater(self)
 
     def create(self, typeid, *args, **kwargs):
@@ -38,13 +37,11 @@ class UI (object):
     def dispatch_event(self, uid, event, params=None):
         self.find_uid(uid).event(event, params)
 
-    def queue_update(self):
-        self.pending_updates += 1
+    def has_updates(self):
+        return self.root.has_updates()
 
-    def get_updates(self):
-        updates = [1] * self.pending_updates  # TODO!
-        self.pending_updates = 0
-        return updates
+    def clear_updates(self):
+        return self.root.clear_updates()
 
 
 __all__ = ['UI', 'UIElement', 'p', 'binder']
