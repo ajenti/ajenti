@@ -34,7 +34,7 @@ class CollapseRow (UIElement):
     typeid = 'collapserow'
 
 
-@p('width', default=None)
+@p('width', default='99%')
 @plugin
 class Table (UIElement):
     typeid = 'dt'

@@ -323,7 +323,7 @@ class window.Controls.collapserow extends window.Control
     createDom: () ->
         @dom = $("""
             <tr>
-                <td colspan="999" class="control collapserow">
+                <td colspan="999" class="control container collapserow">
                     <div class="header"></div>
                     <div class="children"></div>
                 </td>

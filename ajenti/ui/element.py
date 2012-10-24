@@ -145,8 +145,8 @@ class UIElement (object):
         for property in self.properties.values():
             if property.dirty:
                 return True
-        for child in self.children:
-            if child.visible:
+        if self.visible:
+            for child in self.children:
                 if child.has_updates():
                     return True
         return False
@@ -155,8 +155,8 @@ class UIElement (object):
         self.children_changed = False
         for property in self.properties.values():
             property.dirty = False
-        for child in self.children:
-            if child.visible:
+        if self.visible:
+            for child in self.children:
                 if child.has_updates():
                     child.clear_updates()
 

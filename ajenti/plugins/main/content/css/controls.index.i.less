@@ -63,8 +63,8 @@
 	&.main-sections-category {
 		>div:first-child {
 			font-weight: bold;
-			color: #bbb;
-			text-shadow: 0 1px 0 white;
+			color: #333;
+			text-shadow: 0 1px 0 #777;
 		}
 	}
 
@@ -80,7 +80,8 @@
 			.tab {
 				display: block;
 				text-decoration: none;
-				color: @controlText;
+				color: #888;
+				text-shadow: 0 1px 1px #333;
 				padding: 0 10px;
 				margin: 3px 0;
 				.border-radius(3px);
@@ -90,8 +91,8 @@
 				}
 
 				&.active {
-					#gradient > .vertical(@controlGradientGreen1, @controlGradientGreen2);
-					color: darken(@controlGradientGreen2, 20%);
+					#gradient > .vertical(lighten(@orange, 15%), @orange);
+					color: darken(@orange, 20%);
 					//color: white;
 					.box-shadow(@controlShadowHighlight);
 					text-shadow: 0 1px 0px rgba(255,255,255,.60);
@@ -100,7 +101,7 @@
 		}
 
 		&>.main {
-			background: #fbfbfb;
+			.content-gradient();
 			.border-radius(5px);
 			.box-shadow(@mainPaneShadow);
 			overflow: hidden;

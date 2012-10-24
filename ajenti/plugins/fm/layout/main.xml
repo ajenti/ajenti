@@ -16,7 +16,7 @@
                             </bind:template>
                         </bind:collection>
                         <bind:collection id="items" bind="items">
-                    		<dt bind="__items" width="100%">
+                    		<dt bind="__items">
                                 <dtr>
                                     <dth text="Name" />
                                     <dth text="Size" width="100" />

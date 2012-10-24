@@ -709,12 +709,12 @@ span.ui-spinner {
             }
 
             &.ui-tabs-active {
-                #gradient > .vertical(@sectionTabGradient1, @sectionTabGradient2);
+                #gradient > .vertical(@orange, lighten(@orange, 15%));
                 .box-shadow(0 2px 2px rgba(0,0,0,0.125) inset);
 
                 >a {
                     color: white;
-                    text-shadow: 0 1px 0 rgba(0,0,0,0.125);
+                    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
                 }
             }
         }

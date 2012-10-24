@@ -106,15 +106,15 @@
 		color: @controlText;
 
 		&.style-normal {
-			.button-style(@controlGradient1, @controlGradient2);
+			.button-style(#ddd);
 		}
 
 		&.style-orange {
-			.button-style(@controlGradientOrange1, @controlGradientOrange2);
+			.button-style(@controlGradientOrange2);
 		}
 
 		&.style-green {
-			.button-style(@controlGradientGreen1, @controlGradientGreen2);
+			.button-style(@controlGradientGreen2);
 		}
 
 		&.style-link {
@@ -122,25 +122,28 @@
 			.box-shadow(none);
 		}
 
+		i {
+			top: 0;
+		}
+
 		&.style-circle {
 			.border-radius(10px);
-			.box-shadow(~"0 1px 1px #888, 0 1px 1px white inset");
+			.box-shadow(~"0 1px 1px #aaa, 0 1px 1px white inset");
 			.square(14px);
-			padding: 1px;
+			padding: 2px;
 			border: 1px solid #ccc;
-			#gradient > .vertical(#eee, #ddd);
+			#gradient > .vertical(#fff, #eee);
 			margin: 5px 0 4px;
-			opacity: .5;
 
 			i {
+				opacity: .5;
 				display: block;
 				line-height: normal;
 				position: initial;
 			}
 
 			&:hover {
-				background: #eee;
-				opacity: .75;
+				#gradient > .vertical(#fff, #f0f0f0);
 
 				i {
 					opacity: 0.75;
@@ -148,10 +151,9 @@
 			}
 
 			&:active {
-				opacity: 1;
 				background: #eee;
 				.box-shadow(~"0 1px 1px #888 inset, 0 1px 1px white");
-				padding: 2px 1px 0px;
+				padding: 3px 2px 1px;
 			}
 		}
 	}
@@ -267,10 +269,9 @@
 
 	&.table {
 		display: table;
-		width: 100%;
+		margin: 1px;
+		width: 99%;
 		border-spacing: 0;
-		border-right: 1px solid @tableBorder;
-		.border-radius(0 0 5px 5px);
 		.box-shadow(@mainPaneShadow);
 			
 		&>tbody {
@@ -286,8 +287,12 @@
 					padding: 5px;
 				}
 
-				&>td:first-child {
-					border-left: none;
+				&:first-child td {
+					border-top: none;
+				}
+
+				&>*:first-child {
+					border-left: none !important;
 				}
 
 				&>th {
@@ -311,18 +316,21 @@
 	&.progressbar {
 		margin: 6px 1px;
 		height: @controlHeight - 10px;
-		border: 1px solid #ddd;
-		background: white;
+		border-top: 1px solid #999;
+		border-left: 1px solid #c8c8c8;
+		border-right: 1px solid #c8c8c8;
+		border-bottom: 1px solid #fff;
 		.border-radius(@controlHeight / 2 - 5px);
-		.box-shadow(0 1px 1px rgba(0,0,0,.125) inset);
+		.box-shadow(0 -1px 0 #ccc inset);
+		#gradient > .vertical(#bbb, #ddd);
 
 		div {
-			height: @controlHeight - 14px;
-			.border-radius(@controlHeight / 2 - 7px);
-			border: 1px solid rgba(0,0,0,.25);
-			.box-shadow(0 1px 1px rgba(255,255,255,.25) inset);
-			#gradient > .vertical(@controlGradientGreen1, @controlGradientGreen2);
-			margin: 1px;
+			height: @controlHeight - 11px;
+			.border-radius(@controlHeight / 2 - 6px);
+			.box-shadow(~"0 0 1px rgba(0,0,0,.5), 0 0 5px rgba(255,255,255,.75) inset");
+			//border-top: 1px solid rgba(255,255,255,.5);
+			//border: 1px solid rgba(0,0,0,.5);
+			#gradient > .vertical(lighten(@orange, 25%), @orange);
 		}
 	}
 }

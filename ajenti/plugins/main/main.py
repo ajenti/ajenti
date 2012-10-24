@@ -165,4 +165,3 @@ class SectionsRoot (UIElement):
         for child in self.children:
             child.active = child.uid == uid
             child.visible = child.active
-        self.publish()

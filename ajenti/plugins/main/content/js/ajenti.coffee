@@ -162,11 +162,11 @@ class window.Control
         @ui.event(this, event, params)
 
     _int_to_px: (i) ->
+        if /^[0-9]+$/.test(i)
+            return i + 'px'
         if i == null or i == 'auto'
             return 'auto'
-        if parseInt(i) == NaN
-            return i + ''
-        return i + 'px'
+        return i + ''
 
     cancel: (event) ->
         event.preventDefault()

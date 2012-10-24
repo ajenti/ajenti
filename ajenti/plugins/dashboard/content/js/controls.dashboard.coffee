@@ -39,7 +39,7 @@ class window.Controls.dashboard__dash extends window.Control
 class window.Controls.dashboard__widget extends window.Control
     createDom: () ->
         @dom = $("""
-            <div data-uid="#{@properties.uid}" class="control dashboard-widget">
+            <div data-uid="#{@properties.uid}" class="control dashboard-widget content-gradient">
                 <div class="handle"></div>
                 <div class="content"></div>
             </div>
