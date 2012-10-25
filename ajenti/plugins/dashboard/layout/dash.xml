@@ -2,7 +2,7 @@
     <pad>
         <right>
             <hc>
-                <button style="green" text="Add widget" icon="plus" id="add-button" />
+                <button text="Add widget" icon="plus" id="add-button" />
             </hc>
         </right>
     </pad>

@@ -51,8 +51,7 @@
                                             <editable bind="password" placeholder="Change password" icon="lock" />
                                         </hc>
                                     </box>
-                                    <tabs id="permissions" client="True">
-                                    </tabs>
+                                    <tabs id="permissions" client="True" />
                                 </collapserow>
                             </bind:template>
                             <button bind="__add" icon="plus" text="Create" />
@@ -60,7 +59,7 @@
                     </bind:collection>
                 </formline>
                 <formline>
-                    <button text="Save" style="green" id="save-button" icon="ok" />
+                    <button text="Save" id="save-button" icon="ok" />
                 </formline>
             </vc>
         </formgroup>

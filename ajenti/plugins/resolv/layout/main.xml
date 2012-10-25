@@ -33,7 +33,7 @@
                     </vc>
                 </bind:collection>
                 
-                <button id="save" text="Save" style="green" />
+                <button id="save" text="Save" />
             </vc>
         </formline>
 </pad> 

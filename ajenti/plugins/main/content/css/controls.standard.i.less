@@ -121,6 +121,10 @@
 			.button-style(@green);
 		}
 
+		&.style-blue {
+			.button-style(@blue);
+		}
+
 		&.style-link {
 			.actionlink();
 			.box-shadow(none);
@@ -184,7 +188,7 @@
 
 		>input+label {
 			float: left;
-			margin: 7px 8px 9px 0;
+			margin: 7px 7px 9px 1px;
 			.square(@controlHeight - 12px);
 			padding: 1px;
 			.button-style(#eee);
@@ -293,6 +297,7 @@
 		width: 99%;
 		border-spacing: 0;
 		.box-shadow(@mainPaneShadow);
+		.border-radius(3px);
 			
 		&>tbody {
 			margin: 0;

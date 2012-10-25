@@ -35,7 +35,7 @@
 			</formline>
 
 			<formline>
-				<button id="save" text="Save" style="green" />
+				<button id="save" text="Save" style="blue" />
 			</formline>
         </box>
     </vc>
