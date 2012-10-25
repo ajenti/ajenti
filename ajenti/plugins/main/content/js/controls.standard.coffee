@@ -172,9 +172,13 @@ class window.Controls.checkbox extends window.Control
         @dom = $("""
             <div class="control checkbox">
                 <input 
+                    id="#{@properties.uid}"
                     type="checkbox" 
                     #{if @properties.value then 'checked="checked"' else ''} 
                 />
+                <label for="#{@properties.uid}">
+                    <div class="tick"></div>
+                </label>
                 <div class="control label">#{@properties.text}</div>
             </div>
         """)

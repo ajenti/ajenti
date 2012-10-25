@@ -73,7 +73,7 @@ body {
 
 .button-style(@g1) {
 	#gradient > .vertical(lighten(@g1, 15%), @g1);
-	color: darken(@g1, 45%);
+	color: rgba(0,0,0,.5);
 	border: none;
 
 	&:hover {
@@ -116,7 +116,7 @@ body {
     .notification {
         width: 100px;
         height: 20px;
-        .button-style(@controlGradientGreen2);
+        .button-style(@green);
         text-transform: none;
         text-align: left;
         position: absolute;

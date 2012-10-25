@@ -15,9 +15,13 @@
 	border: 1px solid transparent;
 	.control-inset();
 
-	&:focus, &:hover {
+	&:hover {
 		border: 1px solid #eee;
 	}
+
+	&:focus {
+		border: 1px solid @orange;
+	} 
 }
 
 .actionlink {
@@ -110,11 +114,11 @@
 		}
 
 		&.style-orange {
-			.button-style(@controlGradientOrange2);
+			.button-style(@orange);
 		}
 
 		&.style-green {
-			.button-style(@controlGradientGreen2);
+			.button-style(@green);
 		}
 
 		&.style-link {
@@ -175,8 +179,24 @@
 
 		>input {
 			float: left;
-			margin: 6px;
-			.square(@controlHeight - 8px);
+			display: none;
+		}
+
+		>input+label {
+			float: left;
+			margin: 7px 8px 9px 0;
+			.square(@controlHeight - 12px);
+			padding: 1px;
+			.button-style(#eee);
+
+			&:active {
+				padding: 2px 1px 0;
+			}
+		}
+
+		>input:checked+label {
+			#gradient > .vertical(lighten(@orange, 25%), @orange);
+			.box-shadow(@controlShadowHighlightPressed);
 		}
 	}
 

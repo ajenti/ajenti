@@ -1,8 +1,10 @@
 <vc xmlns:dashboard="dashboard" xmlns:bind="bind">
     <pad>
-        <hc>
-            <button style="green" text="Add widget" icon="plus" id="add-button" />
-        </hc>
+        <right>
+            <hc>
+                <button style="green" text="Add widget" icon="plus" id="add-button" />
+            </hc>
+        </right>
     </pad>
     <dashboard:dash id="dash" />
     <dialog id="add-dialog" buttons="[{'text': 'Cancel', 'id': 'cancel'}]" visible="False">

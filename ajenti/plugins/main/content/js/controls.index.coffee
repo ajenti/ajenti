@@ -17,10 +17,30 @@ class window.Controls.main__page extends window.Control
 						</div>
 					</div>
 				</div>
-				<div class="content">
-					<div class="--child-container"></div>
+				<div class="content-wr">
+					<div class="content">
+						<div class="--child-container"></div>
+					</div>
 				</div>
 				<div class="footer">
+					<div class="container">
+						<div class="name">
+							Ajenti
+							<div class="url"><a href="http://ajenti.org" target="_blank">ajenti.org</a></div>
+						</div>
+
+						<div class="link">
+							<a href="" target="_blank">Homepage</a>
+						</div>
+
+						<div class="link">
+							<a href="" target="_blank">Wiki</a>
+						</div>
+
+						<div class="link">
+							<a href="" target="_blank">Bugtracker</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		""")

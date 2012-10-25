@@ -4,7 +4,7 @@
             <vc id="hosts-config">
                 <bind:collection bind="hosts" id="hosts">
                     <vc>
-                        <dt bind="__items" width="100%" />
+                        <dt bind="__items" />
                         <bind:template>
                                     <collapserow>
                                         <box>
