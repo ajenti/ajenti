@@ -11,11 +11,11 @@ class DyndnsPlugin(CategoryPlugin):
     def on_init(self):
         self.conf = dyndnsconfig.Config(self.app)
         self.dyn = self.conf.read()
-	
+
     def get_ui(self):
         ui = self.app.inflate('dyndns:main')
         td = ui.find('list')
-	
+
         for entry in self.dyn:
             td.append(UI.DTR(
                 UI.Label(text=entry.field),
@@ -25,7 +25,7 @@ class DyndnsPlugin(CategoryPlugin):
                     UI.TipIcon(icon='/dl/core/ui/stock/delete.png', text='Remove', id='del/'+str(self.dyn.index(entry)))
                     ),
                 ))    
-	    
+
         if self._edit != None:
             ed = self.dyn[self._edit]    
             field = ui.find(ed.field)
