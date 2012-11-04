@@ -1,5 +1,6 @@
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 from reconfigure.configs import FSTabConfig
@@ -26,13 +27,12 @@ class Filesystems (SectionPlugin):
         self.binder.autodiscover()
         self.binder.populate()
 
-        self.find('save').on('click', self.save)
-
     def reload_disks(self):
         lst = disks.list_devices(by_uuid=True, by_id=True, by_label=True)
         self.find('device').items = [x[0] for x in lst]
         self.find('device').values = [x[1] for x in lst]
 
+    @on('save', 'click')
     def save(self):
         self.binder.update()
         self.config.save()

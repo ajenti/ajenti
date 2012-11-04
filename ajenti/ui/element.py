@@ -21,6 +21,14 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True):
     return decorator
 
 
+def on(id, event):
+    def decorator(fx):
+        fx._event_id = id
+        fx._event_name = event
+        return fx
+    return decorator
+
+
 class UIProperty (object):
     def __init__(self, name, value=None, bindtypes=[], type=unicode, public=True):
         self.dirty = False
@@ -160,9 +168,25 @@ class UIElement (object):
                 if child.has_updates():
                     child.clear_updates()
 
+    def dispatch_event(self, uid, event, params=None):
+        if self.uid == uid:
+            self.event(event, params)
+            return True
+        else:
+            for child in self.children:
+                if child.dispatch_event(uid, event, params):
+                    for v in self.__class__.__dict__.values():
+                        if hasattr(v, '_event_id'):
+                            if self.find(v._event_id).uid == uid and v._event_name == event:
+                                getattr(self, v.__name__)(**(params or {}))
+                    return True
+
     def event(self, event, params=None):
         if event in self.events:
             self.events[event](*self.event_args[event], **(params or {}))
+
+    def reverse_event(self, event, params=None):
+        self.ui.dispatch_event(self.uid, event, params)
 
     def empty(self):
         self.children = []

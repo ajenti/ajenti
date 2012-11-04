@@ -7,7 +7,7 @@ import StringIO
 from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
 from ajenti.plugins.main.api import SectionPlugin
-from ajenti.ui import UIElement, p
+from ajenti.ui import UIElement, p, on
 
 from terminal import Terminal
 
@@ -19,7 +19,6 @@ class Terminals (SectionPlugin):
         self.category = 'Tools'
 
         self.append(self.ui.inflate('terminal:main'))
-        self.find('new-button').on('click', self.on_new)
 
         self.terminals = {}
         self.context.session.terminals = self.terminals
@@ -34,6 +33,7 @@ class Terminals (SectionPlugin):
             thumb.on('close', self.on_close, k)
             list.append(thumb)
 
+    @on('new-button', 'click')
     def on_new(self):
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1

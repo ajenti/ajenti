@@ -3,7 +3,7 @@ import gevent
 from ajenti.api import *
 from ajenti.api.http import SocketPlugin
 from ajenti.plugins.main.api import SectionPlugin
-from ajenti.ui import UIElement, p
+from ajenti.ui import UIElement, p, on
 
 
 @plugin
@@ -13,18 +13,18 @@ class Logs (SectionPlugin):
         self.category = 'System'
 
         self.append(self.ui.inflate('logs:main'))
-        self.find('open-button').on('click', self.on_open)
         self.opendialog = self.find('opendialog')
-        self.opendialog.on('button', self.on_open_dialog)
-        self.opendialog.on('select', self.on_file_select)
         self.log = self.find('log')
 
+    @on('open-button', 'click')
     def on_open(self):
         self.opendialog.visible = True
 
+    @on('opendialog', 'button')
     def on_open_dialog(self, button):
         self.opendialog.visible = False
 
+    @on('opendialog', 'select')
     def on_file_select(self, path):
         self.opendialog.visible = False
         self.select(path)

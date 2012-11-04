@@ -2,7 +2,7 @@ from ajenti.api import *
 
 import binder
 from inflater import Inflater
-from element import p, UIElement
+from element import p, on, UIElement
 
 
 class UI (object):
@@ -35,7 +35,7 @@ class UI (object):
         return self.root.find_uid(uid)
 
     def dispatch_event(self, uid, event, params=None):
-        self.find_uid(uid).event(event, params)
+        self.root.dispatch_event(uid, event, params)
 
     def has_updates(self):
         return self.root.has_updates()
@@ -44,4 +44,4 @@ class UI (object):
         return self.root.clear_updates()
 
 
-__all__ = ['UI', 'UIElement', 'p', 'binder']
+__all__ = ['UI', 'UIElement', 'p', 'on', 'binder']

@@ -1,5 +1,6 @@
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 from reconfigure.configs import HostsConfig
@@ -11,7 +12,7 @@ class Hosts (SectionPlugin):
     def init(self):
         self.title = 'Hosts'
         self.category = 'System'
-        
+
         self.append(self.ui.inflate('hosts:main'))
 
         self.config = HostsConfig(path='/etc/hosts')
@@ -22,8 +23,7 @@ class Hosts (SectionPlugin):
         self.binder.autodiscover()
         self.binder.populate()
 
-        self.find('save').on('click', self.save)
-
+    @on('save', 'click')
     def save(self):
         self.binder.update()
         self.config.save()

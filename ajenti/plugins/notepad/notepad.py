@@ -2,6 +2,7 @@ import mimetypes
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 
 
 @plugin
@@ -19,19 +20,9 @@ class Notepad (SectionPlugin):
         self.editor = self.find('editor')
         self.list = self.find('list')
         self.opendialog = self.find('opendialog')
-        self.opendialog.on('button', self.on_open_dialog)
-        self.opendialog.on('select', self.on_file_select)
         self.savedialog = self.find('savedialog')
-        self.savedialog.on('button', self.on_save_dialog)
-        self.savedialog.on('select', self.on_save_select)
 
         self.controller = Controller()
-
-        self.find('new-button').on('click', self.on_new)
-        self.find('open-button').on('click', self.on_open)
-        self.find('save-button').on('click', self.on_save)
-        self.find('save-as-button').on('click', self.on_save_as)
-        self.find('bookmark-button').on('click', self.on_bookmark)
 
         self.selected = None
         if self.classconfig['bookmarks']:
@@ -57,12 +48,15 @@ class Notepad (SectionPlugin):
             item.on('click', self.select, id)
             self.list.append(item)
 
+    @on('new-button', 'click')
     def on_new(self):
         self.select(self.controller.new())
 
+    @on('open-button', 'click')
     def on_open(self):
         self.opendialog.visible = True
 
+    @on('save-button', 'click')
     def on_save(self):
         path = self.controller.files[self.selected]['path']
         if not path:
@@ -70,24 +64,30 @@ class Notepad (SectionPlugin):
         else:
             self.on_save_select(None)
 
+    @on('save-as-button', 'click')
     def on_save_as(self):
         self.savedialog.visible = True
 
-    def on_file_select(self, path):
+    @on('opendialog', 'select')
+    def on_open_dialog_select(self, path):
         self.opendialog.visible = False
         self.select(self.controller.open(path))
 
-    def on_open_dialog(self, button):
+    @on('opendialog', 'button')
+    def on_open_dialog_button(self, button):
         self.opendialog.visible = False
 
-    def on_save_select(self, path):
+    @on('savedialog', 'select')
+    def on_save_dialog_select(self, path):
+        print path
         self.select(self.selected)
         self.savedialog.visible = False
         self.controller.save(self.selected, path)
         self.select(self.selected)
         self.context.notify('Saved')
 
-    def on_save_dialog(self, button):
+    @on('savedialog', 'button')
+    def on_save_dialog_button(self, button):
         self.savedialog.visible = False
 
     def on_close(self, id):
@@ -97,6 +97,7 @@ class Notepad (SectionPlugin):
         self.controller.close(id)
         self.select(self.controller.files.keys()[0])
 
+    @on('bookmark-button', 'click')
     def on_bookmark(self):
         self.classconfig['bookmarks'].append(self.controller.files[self.selected]['path'])
         self.save_classconfig()

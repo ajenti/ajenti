@@ -28,7 +28,7 @@ class OpenFileDialog (UIElement):
             self.path = path
             self.refresh()
         else:
-            self.event('select', {'path': path})
+            self.reverse_event('select', {'path': path})
 
     def refresh(self):
         self._dirs = []
@@ -58,7 +58,7 @@ class SaveFileDialog (UIElement):
             self.path = path
             self.refresh()
         else:
-            self.event('select', {'path': path})
+            self.reverse_event('select', {'path': path})
 
     def refresh(self):
         self._dirs = []

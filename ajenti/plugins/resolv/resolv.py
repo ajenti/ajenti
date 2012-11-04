@@ -1,5 +1,6 @@
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 from reconfigure.configs import ResolvConfig
@@ -23,8 +24,7 @@ class Resolv (SectionPlugin):
         self.binder.autodiscover()
         self.binder.populate()
 
-        self.find('save').on('click', self.save)
-
+    @on('save', 'click')
     def save(self):
         self.binder.update()
         self.config.save()

@@ -1,7 +1,7 @@
 from ajenti.api import *
 
 from ajenti.ui.binder import CollectionAutoBinding
-from ajenti.ui import *
+from ajenti.ui import on, UIElement
 from ajenti.plugins.main.api import SectionPlugin
 
 from api import DashboardWidget
@@ -26,14 +26,13 @@ class Dash (SectionPlugin):
         self.find('add-widgets').post_item_bind = post_widget_bind
         CollectionAutoBinding(DashboardWidget.get_classes(), None, self.find('add-widgets')).populate()
 
-        self.find('add-dialog').on('button', self.on_dialog_close)
-        self.find('add-button').on('click', self.on_dialog_open)
-
         self.refresh()
 
+    @on('add-button', 'click')
     def on_dialog_open(self):
         self.find('add-dialog').visible = True
 
+    @on('add-dialog', 'button')
     def on_dialog_close(self, button):
         self.find('add-dialog').visible = False
 

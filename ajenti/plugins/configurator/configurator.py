@@ -1,6 +1,7 @@
 import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 from ajenti.ui.binder import Binder
 from ajenti.users import UserManager, PermissionProvider, restrict
 from reconfigure.items.ajenti import User
@@ -42,9 +43,8 @@ class Configurator (SectionPlugin):
         self.binder.autodiscover()
         self.binder.populate()
 
-        self.find('save-button').on('click', self.save)
-
     @restrict('configurator:configure')
+    @on('save-button', 'click')
     def save(self):
         self.binder.update()
         for user in ajenti.config.tree.users.values():

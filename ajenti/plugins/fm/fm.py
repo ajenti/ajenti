@@ -2,6 +2,7 @@ import os
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 from ajenti.ui.binder import Binder
 from ajenti.util import str_fsize
 
@@ -29,8 +30,8 @@ class FileManager (SectionPlugin):
         self.binder.populate()
 
         self.tabs = self.find('tabs')
-        self.tabs.on('switch', self.on_tab_switch)
 
+    @on('tabs', 'switch')
     def on_tab_switch(self):
         if self.tabs.active == (len(self.controller.tabs) - 1):
             self.controller.new_tab()
