@@ -3,6 +3,7 @@ from ajenti.ui import p, UIElement
 
 
 @p('text', default='', bindtypes=[str, unicode, int])
+@p('style', default='')
 @plugin
 class Label (UIElement):
     typeid = 'label'

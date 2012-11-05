@@ -50,7 +50,7 @@ class window.Controls.hc extends window.Control
         @childContainer = @dom
 
     wrapChild: (child) ->
-        return $('<div></div>').append(child.dom)
+        return $('<div></div>').append(child.dom)[0]
 
 
 class window.Controls.vc extends window.Control
@@ -61,12 +61,12 @@ class window.Controls.vc extends window.Control
         @childContainer = @dom
 
     wrapChild: (child) ->
-        return $('<div></div>').append(child.dom)
+        return $('<div></div>').append(child.dom)[0]
 
 
 class window.Controls.label extends window.Control
     createDom: () ->
-        @dom = $("""<span class="control label">#{@properties.text}</span>""")
+        @dom = $("""<span class="control label #{@properties.style}">#{@properties.text}</span>""")
 
 
 class window.Controls.icon extends window.Control
@@ -333,17 +333,17 @@ class window.Controls.collapserow extends window.Control
                 </td>
             </tr>
         """)
-        @container = @dom.find('.children')
-        @header = @dom.find('.header')
+        @container = @dom.find('.children')[0]
+        @header = @dom.find('.header')[0]
         @hasHeader = false
         @expanded = @properties.expanded
         if not @properties.expanded
-            @container.hide()
+            $(@container).hide()
 
-        @header.click (e) =>
+        $(@header).click (e) =>
             @expanded = not @expanded
             @publish()
-            @container.toggle('blind')
+            $(@container).toggle('blind')
             @cancel(e)
 
     detectUpdates: () ->
@@ -355,9 +355,9 @@ class window.Controls.collapserow extends window.Control
 
     append: (child) ->
         if @hasHeader
-            @container.append(child.dom)
+            $(@container).append(child.dom)
         else
-            @header.append(child.dom)
+            $(@header).append(child.dom)
             @hasHeader = true
         @children.push child
 
@@ -396,13 +396,13 @@ class window.Controls.tabs extends window.Control
         })
 
     wrapChild: (child) ->
-        return $("""<div data-index="#{@children.length-1}" id="#{child.uid}"></div>""").append(child.dom)
+        return $("""<div data-index="#{@children.length-1}" id="#{child.uid}"></div>""").append(child.dom)[0]
 
 
 class window.Controls.progressbar extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        pw = @_int_to_px(@properties.width * @properties.value)
+        pw = @_int_to_px(Math.round(@properties.width * @properties.value))
         @dom = $("""
             <div class="control progressbar" style="width: #{w}">
                 <div class="fill" style="width: #{pw}"></div>

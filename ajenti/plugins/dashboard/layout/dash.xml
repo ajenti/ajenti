@@ -1,11 +1,13 @@
 <vc xmlns:dashboard="dashboard" xmlns:bind="bind">
-    <pad>
+    <toolbar>
         <right>
             <hc>
+                <button text="Refresh" icon="refresh" id="refresh-button" />
                 <button text="Add widget" icon="plus" id="add-button" />
             </hc>
         </right>
-    </pad>
+        <label id="hostname" style="dashboard-host" />
+    </toolbar>
     <dashboard:dash id="dash" />
     <dialog id="add-dialog" buttons="[{'text': 'Cancel', 'id': 'cancel'}]" visible="False">
         <bind:collection id="add-widgets">

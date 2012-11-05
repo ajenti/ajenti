@@ -1,7 +1,6 @@
 from ajenti.api import plugin
+from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import ConfigurableWidget
-
-import disks
 
 
 @plugin
@@ -9,12 +8,12 @@ class DiskSpaceWidget (ConfigurableWidget):
     name = 'Disk space'
 
     def on_prepare(self):
-        self.meter = disks.DiskUsageMeter()
+        self.sensor = Sensor.find('disk-usage')
         self.append(self.ui.inflate('fstab:widget'))
 
     def on_start(self):
         self.find('device').text = self.config['device']
-        value = self.meter.get_usage(self.config['device'])
+        value = self.sensor.value(self.config['device'])
         self.find('percent').text = '%i%%' % value
         self.find('usage').value = float(value) / 100
 
@@ -23,7 +22,7 @@ class DiskSpaceWidget (ConfigurableWidget):
 
     def on_config_start(self):
         device_list = self.dialog.find('device')
-        lst = self.meter.get_devices()
+        lst = self.sensor.get_variants()
         device_list.items = lst
         device_list.values = lst
         device_list.value = self.config['device']

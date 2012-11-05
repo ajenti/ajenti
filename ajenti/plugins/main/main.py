@@ -1,8 +1,7 @@
 import json
 import gevent
 from base64 import b64encode
-import StringIO
-import gzip
+import zlib
 import traceback
 
 from ajenti.api import *
@@ -79,11 +78,7 @@ class MainSocket (SocketPlugin):
 
     def send_ui(self):
         data = json.dumps(self.ui.render())
-        sio = StringIO.StringIO()
-        gz = gzip.GzipFile(fileobj=sio, mode='w')
-        gz.write(data)
-        gz.close()
-        data = b64encode(sio.getvalue())
+        data = b64encode(zlib.compress(data)[2:-4])
         self.emit('ui', data)
 
     def send_update_request(self):

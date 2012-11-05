@@ -2,6 +2,9 @@ import os
 import re
 import subprocess
 
+from ajenti.api import *
+from ajenti.api.sensors import Sensor
+
 
 def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
     result = []
@@ -27,7 +30,11 @@ def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
     return sorted(result, key=lambda x: x[0])
 
 
-class DiskUsageMeter(object):
+@plugin
+class DiskUsageSensor (Sensor):
+    id = 'disk-usage'
+    timeout = 30
+
     _partstatformat = re.compile('(/dev/)?(?P<dev>\w+)\s+\d+\s+\d+\s+\d+\s+' +
                                        '(?P<usage>\d+)%\s+(?P<mountpoint>\S+)$')
     _totalformat = re.compile('(?P<dev>total)\s+\d+\s+\d+\s+\d+\s+(?P<usage>\d+)%$')
@@ -46,10 +53,10 @@ class DiskUsageMeter(object):
                 matches.append(match)
         return matches
 
-    def get_devices(self):
+    def get_variants(self):
         return sorted(set([m.group('dev') for m in self._get_stats()])) + ['total']
 
-    def get_usage(self, device):
+    def measure(self, device):
         devmatches = self._get_stats(lambda m: m.group('dev').endswith(device))
         if not devmatches:
             return 0

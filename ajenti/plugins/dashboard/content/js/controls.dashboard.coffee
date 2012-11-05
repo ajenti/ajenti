@@ -18,12 +18,12 @@ class window.Controls.dashboard__dash extends window.Control
             placeholder: 'placeholder'
             tolerance: 'pointer'
             start: () =>
-                @dom.find('.trash').show()
+                $(@dom).find('.trash').show()
             stop: () =>
                 r = {}
-                @dom.find('.trash').hide()
-                @dom.find('.trash .control').remove()
-                @dom.find('>.widget-container').each (i, c) =>
+                $(@dom).find('.trash').hide()
+                $(@dom).find('.trash .control').remove()
+                $(@dom).find('>.widget-container').each (i, c) =>
                     index = parseInt($(c).attr('data-index'))
                     r[index] = []
                     $(c).find('>*').each (i, e) =>

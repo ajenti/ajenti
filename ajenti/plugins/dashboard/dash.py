@@ -1,5 +1,7 @@
-from ajenti.api import *
+import gevent
 
+from ajenti.api import *
+from ajenti.api.sensors import Sensor
 from ajenti.ui.binder import CollectionAutoBinding
 from ajenti.ui import on, UIElement
 from ajenti.plugins.main.api import SectionPlugin
@@ -28,6 +30,10 @@ class Dash (SectionPlugin):
 
         self.refresh()
 
+    @on('refresh-button', 'click')
+    def on_refresh(self):
+        self.refresh()
+
     @on('add-button', 'click')
     def on_dialog_open(self):
         self.find('add-dialog').visible = True
@@ -48,6 +54,8 @@ class Dash (SectionPlugin):
         self.refresh()
 
     def refresh(self):
+        self.find('hostname').text = Sensor.find('hostname').value()
+
         self.dash.empty()
         for widget in self.classconfig['widgets']:
             for cls in DashboardWidget.get_classes():

@@ -90,6 +90,10 @@
 		.size(@controlHeight, auto);
 		display: inline-block;
 		word-wrap: break-word;
+
+		&.bold {
+			font-weight: bold;
+		}
 	}
 
 	&.icon {
@@ -352,10 +356,8 @@
 		div {
 			height: @controlHeight - 11px;
 			.border-radius(@controlHeight / 2 - 6px);
-			.box-shadow(~"0 0 1px rgba(0,0,0,.5), 0 0 5px rgba(255,255,255,.75) inset");
-			//border-top: 1px solid rgba(255,255,255,.5);
-			//border: 1px solid rgba(0,0,0,.5);
-			#gradient > .vertical(lighten(@orange, 25%), @orange);
+			#gradient > .vertical(lighten(@orange, 15%), @orange);
+			.box-shadow(@controlShadowHighlight);
 		}
 	}
 }

@@ -1,9 +1,6224 @@
-/* jQuery UI - v1.9.0 - 2012-10-05
+/*! jQuery UI - v1.9.1 - 2012-11-05
 * http://jqueryui.com
-* Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.draggable.js, jquery.ui.droppable.js, jquery.ui.resizable.js, jquery.ui.selectable.js, jquery.ui.sortable.js, jquery.ui.effect.js, jquery.ui.accordion.js, jquery.ui.autocomplete.js, jquery.ui.button.js, jquery.ui.datepicker.js, jquery.ui.dialog.js, jquery.ui.effect-blind.js, jquery.ui.effect-bounce.js, jquery.ui.effect-clip.js, jquery.ui.effect-drop.js, jquery.ui.effect-explode.js, jquery.ui.effect-fade.js, jquery.ui.effect-fold.js, jquery.ui.effect-highlight.js, jquery.ui.effect-pulsate.js, jquery.ui.effect-scale.js, jquery.ui.effect-shake.js, jquery.ui.effect-slide.js, jquery.ui.effect-transfer.js, jquery.ui.menu.js, jquery.ui.position.js, jquery.ui.progressbar.js, jquery.ui.slider.js, jquery.ui.spinner.js, jquery.ui.tabs.js, jquery.ui.tooltip.js
-* Copyright 2012 jQuery Foundation and other contributors; Licensed MIT */
-(function(b,f){var a=0,e=/^ui-id-\d+$/;b.ui=b.ui||{};if(b.ui.version){return}b.extend(b.ui,{version:"1.9.0",keyCode:{BACKSPACE:8,COMMA:188,DELETE:46,DOWN:40,END:35,ENTER:13,ESCAPE:27,HOME:36,LEFT:37,NUMPAD_ADD:107,NUMPAD_DECIMAL:110,NUMPAD_DIVIDE:111,NUMPAD_ENTER:108,NUMPAD_MULTIPLY:106,NUMPAD_SUBTRACT:109,PAGE_DOWN:34,PAGE_UP:33,PERIOD:190,RIGHT:39,SPACE:32,TAB:9,UP:38}});b.fn.extend({_focus:b.fn.focus,focus:function(g,h){return typeof g==="number"?this.each(function(){var i=this;setTimeout(function(){b(i).focus();if(h){h.call(i)}},g)}):this._focus.apply(this,arguments)},scrollParent:function(){var g;if((b.browser.msie&&(/(static|relative)/).test(this.css("position")))||(/absolute/).test(this.css("position"))){g=this.parents().filter(function(){return(/(relative|absolute|fixed)/).test(b.css(this,"position"))&&(/(auto|scroll)/).test(b.css(this,"overflow")+b.css(this,"overflow-y")+b.css(this,"overflow-x"))}).eq(0)}else{g=this.parents().filter(function(){return(/(auto|scroll)/).test(b.css(this,"overflow")+b.css(this,"overflow-y")+b.css(this,"overflow-x"))}).eq(0)}return(/fixed/).test(this.css("position"))||!g.length?b(document):g},zIndex:function(j){if(j!==f){return this.css("zIndex",j)}if(this.length){var h=b(this[0]),g,i;while(h.length&&h[0]!==document){g=h.css("position");if(g==="absolute"||g==="relative"||g==="fixed"){i=parseInt(h.css("zIndex"),10);if(!isNaN(i)&&i!==0){return i}}h=h.parent()}}return 0},uniqueId:function(){return this.each(function(){if(!this.id){this.id="ui-id-"+(++a)}})},removeUniqueId:function(){return this.each(function(){if(e.test(this.id)){b(this).removeAttr("id")}})}});if(!b("<a>").outerWidth(1).jquery){b.each(["Width","Height"],function(j,g){var h=g==="Width"?["Left","Right"]:["Top","Bottom"],k=g.toLowerCase(),m={innerWidth:b.fn.innerWidth,innerHeight:b.fn.innerHeight,outerWidth:b.fn.outerWidth,outerHeight:b.fn.outerHeight};function l(o,n,i,p){b.each(h,function(){n-=parseFloat(b.css(o,"padding"+this))||0;if(i){n-=parseFloat(b.css(o,"border"+this+"Width"))||0}if(p){n-=parseFloat(b.css(o,"margin"+this))||0}});return n}b.fn["inner"+g]=function(i){if(i===f){return m["inner"+g].call(this)}return this.each(function(){b(this).css(k,l(this,i)+"px")})};b.fn["outer"+g]=function(i,n){if(typeof i!=="number"){return m["outer"+g].call(this,i)}return this.each(function(){b(this).css(k,l(this,i,true,n)+"px")})}})}function d(i,g){var k,j,h,l=i.nodeName.toLowerCase();if("area"===l){k=i.parentNode;j=k.name;if(!i.href||!j||k.nodeName.toLowerCase()!=="map"){return false}h=b("img[usemap=#"+j+"]")[0];return !!h&&c(h)}return(/input|select|textarea|button|object/.test(l)?!i.disabled:"a"===l?i.href||g:g)&&c(i)}function c(g){return !b(g).parents().andSelf().filter(function(){return b.css(this,"visibility")==="hidden"||b.expr.filters.hidden(this)}).length}b.extend(b.expr[":"],{data:b.expr.createPseudo?b.expr.createPseudo(function(g){return function(h){return !!b.data(h,g)}}):function(j,h,g){return !!b.data(j,g[3])},focusable:function(g){return d(g,!isNaN(b.attr(g,"tabindex")))},tabbable:function(i){var g=b.attr(i,"tabindex"),h=isNaN(g);return(h||g>=0)&&d(i,!h)}});b(function(){var g=document.body,h=g.appendChild(h=document.createElement("div"));h.offsetHeight;b.extend(h.style,{minHeight:"100px",height:"auto",padding:0,borderWidth:0});b.support.minHeight=h.offsetHeight===100;b.support.selectstart="onselectstart" in h;g.removeChild(h).style.display="none"});b.fn.extend({disableSelection:function(){return this.bind((b.support.selectstart?"selectstart":"mousedown")+".ui-disableSelection",function(g){g.preventDefault()})},enableSelection:function(){return this.unbind(".ui-disableSelection")}});b.extend(b.ui,{plugin:{add:function(h,j,l){var g,k=b.ui[h].prototype;for(g in l){k.plugins[g]=k.plugins[g]||[];k.plugins[g].push([j,l[g]])}},call:function(g,j,h){var k,l=g.plugins[j];if(!l||!g.element[0].parentNode||g.element[0].parentNode.nodeType===11){return}for(k=0;k<l.length;k++){if(g.options[l[k][0]]){l[k][1].apply(g.element,h)}}}},contains:b.contains,hasScroll:function(j,h){if(b(j).css("overflow")==="hidden"){return false}var g=(h&&h==="left")?"scrollLeft":"scrollTop",i=false;if(j[g]>0){return true}j[g]=1;i=(j[g]>0);j[g]=0;return i},isOverAxis:function(h,g,i){return(h>g)&&(h<(g+i))},isOver:function(l,h,k,j,g,i){return b.ui.isOverAxis(l,k,g)&&b.ui.isOverAxis(h,j,i)}})})(jQuery);(function(b,e){var a=0,d=Array.prototype.slice,c=b.cleanData;b.cleanData=function(f){for(var g=0,h;(h=f[g])!=null;g++){try{b(h).triggerHandler("remove")}catch(j){}}c(f)};b.widget=function(g,j,f){var m,l,i,k,h=g.split(".")[0];g=g.split(".")[1];m=h+"-"+g;if(!f){f=j;j=b.Widget}b.expr[":"][m.toLowerCase()]=function(n){return !!b.data(n,m)};b[h]=b[h]||{};l=b[h][g];i=b[h][g]=function(n,o){if(!this._createWidget){return new i(n,o)}if(arguments.length){this._createWidget(n,o)}};b.extend(i,l,{version:f.version,_proto:b.extend({},f),_childConstructors:[]});k=new j();k.options=b.widget.extend({},k.options);b.each(f,function(o,n){if(b.isFunction(n)){f[o]=(function(){var p=function(){return j.prototype[o].apply(this,arguments)},q=function(r){return j.prototype[o].apply(this,r)};return function(){var t=this._super,r=this._superApply,s;this._super=p;this._superApply=q;s=n.apply(this,arguments);this._super=t;this._superApply=r;return s}})()}});i.prototype=b.widget.extend(k,{widgetEventPrefix:g},f,{constructor:i,namespace:h,widgetName:g,widgetBaseClass:m,widgetFullName:m});if(l){b.each(l._childConstructors,function(o,p){var n=p.prototype;b.widget(n.namespace+"."+n.widgetName,i,p._proto)});delete l._childConstructors}else{j._childConstructors.push(i)}b.widget.bridge(g,i)};b.widget.extend=function(k){var g=d.call(arguments,1),j=0,f=g.length,h,i;for(;j<f;j++){for(h in g[j]){i=g[j][h];if(g[j].hasOwnProperty(h)&&i!==e){k[h]=b.isPlainObject(i)?b.widget.extend({},k[h],i):i}}}return k};b.widget.bridge=function(g,f){var h=f.prototype.widgetFullName;b.fn[g]=function(k){var i=typeof k==="string",j=d.call(arguments,1),l=this;k=!i&&j.length?b.widget.extend.apply(null,[k].concat(j)):k;if(i){this.each(function(){var n,m=b.data(this,h);if(!m){return b.error("cannot call methods on "+g+" prior to initialization; attempted to call method '"+k+"'")}if(!b.isFunction(m[k])||k.charAt(0)==="_"){return b.error("no such method '"+k+"' for "+g+" widget instance")}n=m[k].apply(m,j);if(n!==m&&n!==e){l=n&&n.jquery?l.pushStack(n.get()):n;return false}})}else{this.each(function(){var m=b.data(this,h);if(m){m.option(k||{})._init()}else{new f(k,this)}})}return l}};b.Widget=function(f,g){};b.Widget._childConstructors=[];b.Widget.prototype={widgetName:"widget",widgetEventPrefix:"",defaultElement:"<div>",options:{disabled:false,create:null},_createWidget:function(f,g){g=b(g||this.defaultElement||this)[0];this.element=b(g);this.uuid=a++;this.eventNamespace="."+this.widgetName+this.uuid;this.options=b.widget.extend({},this.options,this._getCreateOptions(),f);this.bindings=b();this.hoverable=b();this.focusable=b();if(g!==this){b.data(g,this.widgetName,this);b.data(g,this.widgetFullName,this);this._on({remove:"destroy"});this.document=b(g.style?g.ownerDocument:g.document||g);this.window=b(this.document[0].defaultView||this.document[0].parentWindow)}this._create();this._trigger("create",null,this._getCreateEventData());this._init()},_getCreateOptions:b.noop,_getCreateEventData:b.noop,_create:b.noop,_init:b.noop,destroy:function(){this._destroy();this.element.unbind(this.eventNamespace).removeData(this.widgetName).removeData(this.widgetFullName).removeData(b.camelCase(this.widgetFullName));this.widget().unbind(this.eventNamespace).removeAttr("aria-disabled").removeClass(this.widgetFullName+"-disabled ui-state-disabled");this.bindings.unbind(this.eventNamespace);this.hoverable.removeClass("ui-state-hover");this.focusable.removeClass("ui-state-focus")},_destroy:b.noop,widget:function(){return this.element},option:function(j,k){var f=j,l,h,g;if(arguments.length===0){return b.widget.extend({},this.options)}if(typeof j==="string"){f={};l=j.split(".");j=l.shift();if(l.length){h=f[j]=b.widget.extend({},this.options[j]);for(g=0;g<l.length-1;g++){h[l[g]]=h[l[g]]||{};h=h[l[g]]}j=l.pop();if(k===e){return h[j]===e?null:h[j]}h[j]=k}else{if(k===e){return this.options[j]===e?null:this.options[j]}f[j]=k}}this._setOptions(f);return this},_setOptions:function(f){var g;for(g in f){this._setOption(g,f[g])}return this},_setOption:function(f,g){this.options[f]=g;if(f==="disabled"){this.widget().toggleClass(this.widgetFullName+"-disabled ui-state-disabled",!!g).attr("aria-disabled",g);this.hoverable.removeClass("ui-state-hover");this.focusable.removeClass("ui-state-focus")}return this},enable:function(){return this._setOption("disabled",false)},disable:function(){return this._setOption("disabled",true)},_on:function(h,g){if(!g){g=h;h=this.element}else{h=b(h);this.bindings=this.bindings.add(h)}var f=this;b.each(g,function(n,m){function k(){if(f.options.disabled===true||b(this).hasClass("ui-state-disabled")){return}return(typeof m==="string"?f[m]:m).apply(f,arguments)}if(typeof m!=="string"){k.guid=m.guid=m.guid||k.guid||b.guid++}var l=n.match(/^(\w+)\s*(.*)$/),j=l[1]+f.eventNamespace,i=l[2];if(i){f.widget().delegate(i,j,k)}else{h.bind(j,k)}})},_off:function(g,f){f=(f||"").split(" ").join(this.eventNamespace+" ")+this.eventNamespace;g.unbind(f).undelegate(f)},_delay:function(i,h){function g(){return(typeof i==="string"?f[i]:i).apply(f,arguments)}var f=this;return setTimeout(g,h||0)},_hoverable:function(f){this.hoverable=this.hoverable.add(f);this._on(f,{mouseenter:function(g){b(g.currentTarget).addClass("ui-state-hover")},mouseleave:function(g){b(g.currentTarget).removeClass("ui-state-hover")}})},_focusable:function(f){this.focusable=this.focusable.add(f);this._on(f,{focusin:function(g){b(g.currentTarget).addClass("ui-state-focus")},focusout:function(g){b(g.currentTarget).removeClass("ui-state-focus")}})},_trigger:function(f,g,h){var k,j,i=this.options[f];h=h||{};g=b.Event(g);g.type=(f===this.widgetEventPrefix?f:this.widgetEventPrefix+f).toLowerCase();g.target=this.element[0];j=g.originalEvent;if(j){for(k in j){if(!(k in g)){g[k]=j[k]}}}this.element.trigger(g,h);return !(b.isFunction(i)&&i.apply(this.element[0],[g].concat(h))===false||g.isDefaultPrevented())}};b.each({show:"fadeIn",hide:"fadeOut"},function(g,f){b.Widget.prototype["_"+g]=function(j,i,l){if(typeof i==="string"){i={effect:i}}var k,h=!i?g:i===true||typeof i==="number"?f:i.effect||f;i=i||{};if(typeof i==="number"){i={duration:i}}k=!b.isEmptyObject(i);i.complete=l;if(i.delay){j.delay(i.delay)}if(k&&b.effects&&(b.effects.effect[h]||b.uiBackCompat!==false&&b.effects[h])){j[g](i)}else{if(h!==g&&j[h]){j[h](i.duration,i.easing,l)}else{j.queue(function(m){b(this)[g]();if(l){l.call(j[0])}m()})}}}});if(b.uiBackCompat!==false){b.Widget.prototype._getCreateOptions=function(){return b.metadata&&b.metadata.get(this.element[0])[this.widgetName]}}})(jQuery);(function(b,c){var a=false;b(document).mouseup(function(d){a=false});b.widget("ui.mouse",{version:"1.9.0",options:{cancel:"input,textarea,button,select,option",distance:1,delay:0},_mouseInit:function(){var d=this;this.element.bind("mousedown."+this.widgetName,function(e){return d._mouseDown(e)}).bind("click."+this.widgetName,function(e){if(true===b.data(e.target,d.widgetName+".preventClickEvent")){b.removeData(e.target,d.widgetName+".preventClickEvent");e.stopImmediatePropagation();return false}});this.started=false},_mouseDestroy:function(){this.element.unbind("."+this.widgetName);if(this._mouseMoveDelegate){b(document).unbind("mousemove."+this.widgetName,this._mouseMoveDelegate).unbind("mouseup."+this.widgetName,this._mouseUpDelegate)}},_mouseDown:function(f){if(a){return}(this._mouseStarted&&this._mouseUp(f));this._mouseDownEvent=f;var e=this,g=(f.which===1),d=(typeof this.options.cancel==="string"&&f.target.nodeName?b(f.target).closest(this.options.cancel).length:false);if(!g||d||!this._mouseCapture(f)){return true}this.mouseDelayMet=!this.options.delay;if(!this.mouseDelayMet){this._mouseDelayTimer=setTimeout(function(){e.mouseDelayMet=true},this.options.delay)}if(this._mouseDistanceMet(f)&&this._mouseDelayMet(f)){this._mouseStarted=(this._mouseStart(f)!==false);if(!this._mouseStarted){f.preventDefault();return true}}if(true===b.data(f.target,this.widgetName+".preventClickEvent")){b.removeData(f.target,this.widgetName+".preventClickEvent")}this._mouseMoveDelegate=function(h){return e._mouseMove(h)};this._mouseUpDelegate=function(h){return e._mouseUp(h)};b(document).bind("mousemove."+this.widgetName,this._mouseMoveDelegate).bind("mouseup."+this.widgetName,this._mouseUpDelegate);f.preventDefault();a=true;return true},_mouseMove:function(d){if(b.browser.msie&&!(document.documentMode>=9)&&!d.button){return this._mouseUp(d)}if(this._mouseStarted){this._mouseDrag(d);return d.preventDefault()}if(this._mouseDistanceMet(d)&&this._mouseDelayMet(d)){this._mouseStarted=(this._mouseStart(this._mouseDownEvent,d)!==false);(this._mouseStarted?this._mouseDrag(d):this._mouseUp(d))}return !this._mouseStarted},_mouseUp:function(d){b(document).unbind("mousemove."+this.widgetName,this._mouseMoveDelegate).unbind("mouseup."+this.widgetName,this._mouseUpDelegate);if(this._mouseStarted){this._mouseStarted=false;if(d.target===this._mouseDownEvent.target){b.data(d.target,this.widgetName+".preventClickEvent",true)}this._mouseStop(d)}return false},_mouseDistanceMet:function(d){return(Math.max(Math.abs(this._mouseDownEvent.pageX-d.pageX),Math.abs(this._mouseDownEvent.pageY-d.pageY))>=this.options.distance)},_mouseDelayMet:function(d){return this.mouseDelayMet},_mouseStart:function(d){},_mouseDrag:function(d){},_mouseStop:function(d){},_mouseCapture:function(d){return true}})})(jQuery);(function(a,b){a.widget("ui.draggable",a.ui.mouse,{version:"1.9.0",widgetEventPrefix:"drag",options:{addClasses:true,appendTo:"parent",axis:false,connectToSortable:false,containment:false,cursor:"auto",cursorAt:false,grid:false,handle:false,helper:"original",iframeFix:false,opacity:false,refreshPositions:false,revert:false,revertDuration:500,scope:"default",scroll:true,scrollSensitivity:20,scrollSpeed:20,snap:false,snapMode:"both",snapTolerance:20,stack:false,zIndex:false},_create:function(){if(this.options.helper=="original"&&!(/^(?:r|a|f)/).test(this.element.css("position"))){this.element[0].style.position="relative"}(this.options.addClasses&&this.element.addClass("ui-draggable"));(this.options.disabled&&this.element.addClass("ui-draggable-disabled"));this._mouseInit()},_destroy:function(){this.element.removeClass("ui-draggable ui-draggable-dragging ui-draggable-disabled");this._mouseDestroy()},_mouseCapture:function(c){var d=this.options;if(this.helper||d.disabled||a(c.target).is(".ui-resizable-handle")){return false}this.handle=this._getHandle(c);if(!this.handle){return false}a(d.iframeFix===true?"iframe":d.iframeFix).each(function(){a('<div class="ui-draggable-iframeFix" style="background: #fff;"></div>').css({width:this.offsetWidth+"px",height:this.offsetHeight+"px",position:"absolute",opacity:"0.001",zIndex:1000}).css(a(this).offset()).appendTo("body")});return true},_mouseStart:function(c){var d=this.options;this.helper=this._createHelper(c);this.helper.addClass("ui-draggable-dragging");this._cacheHelperProportions();if(a.ui.ddmanager){a.ui.ddmanager.current=this}this._cacheMargins();this.cssPosition=this.helper.css("position");this.scrollParent=this.helper.scrollParent();this.offset=this.positionAbs=this.element.offset();this.offset={top:this.offset.top-this.margins.top,left:this.offset.left-this.margins.left};a.extend(this.offset,{click:{left:c.pageX-this.offset.left,top:c.pageY-this.offset.top},parent:this._getParentOffset(),relative:this._getRelativeOffset()});this.originalPosition=this.position=this._generatePosition(c);this.originalPageX=c.pageX;this.originalPageY=c.pageY;(d.cursorAt&&this._adjustOffsetFromHelper(d.cursorAt));if(d.containment){this._setContainment()}if(this._trigger("start",c)===false){this._clear();return false}this._cacheHelperProportions();if(a.ui.ddmanager&&!d.dropBehaviour){a.ui.ddmanager.prepareOffsets(this,c)}this._mouseDrag(c,true);if(a.ui.ddmanager){a.ui.ddmanager.dragStart(this,c)}return true},_mouseDrag:function(c,e){this.position=this._generatePosition(c);this.positionAbs=this._convertPositionTo("absolute");if(!e){var d=this._uiHash();if(this._trigger("drag",c,d)===false){this._mouseUp({});return false}this.position=d.position}if(!this.options.axis||this.options.axis!="y"){this.helper[0].style.left=this.position.left+"px"}if(!this.options.axis||this.options.axis!="x"){this.helper[0].style.top=this.position.top+"px"}if(a.ui.ddmanager){a.ui.ddmanager.drag(this,c)}return false},_mouseStop:function(e){var g=false;if(a.ui.ddmanager&&!this.options.dropBehaviour){g=a.ui.ddmanager.drop(this,e)}if(this.dropped){g=this.dropped;this.dropped=false}var c=this.element[0],f=false;while(c&&(c=c.parentNode)){if(c==document){f=true}}if(!f&&this.options.helper==="original"){return false}if((this.options.revert=="invalid"&&!g)||(this.options.revert=="valid"&&g)||this.options.revert===true||(a.isFunction(this.options.revert)&&this.options.revert.call(this.element,g))){var d=this;a(this.helper).animate(this.originalPosition,parseInt(this.options.revertDuration,10),function(){if(d._trigger("stop",e)!==false){d._clear()}})}else{if(this._trigger("stop",e)!==false){this._clear()}}return false},_mouseUp:function(c){a("div.ui-draggable-iframeFix").each(function(){this.parentNode.removeChild(this)});if(a.ui.ddmanager){a.ui.ddmanager.dragStop(this,c)}return a.ui.mouse.prototype._mouseUp.call(this,c)},cancel:function(){if(this.helper.is(".ui-draggable-dragging")){this._mouseUp({})}else{this._clear()}return this},_getHandle:function(c){var d=!this.options.handle||!a(this.options.handle,this.element).length?true:false;a(this.options.handle,this.element).find("*").andSelf().each(function(){if(this==c.target){d=true}});return d},_createHelper:function(d){var e=this.options;var c=a.isFunction(e.helper)?a(e.helper.apply(this.element[0],[d])):(e.helper=="clone"?this.element.clone().removeAttr("id"):this.element);if(!c.parents("body").length){c.appendTo((e.appendTo=="parent"?this.element[0].parentNode:e.appendTo))}if(c[0]!=this.element[0]&&!(/(fixed|absolute)/).test(c.css("position"))){c.css("position","absolute")}return c},_adjustOffsetFromHelper:function(c){if(typeof c=="string"){c=c.split(" ")}if(a.isArray(c)){c={left:+c[0],top:+c[1]||0}}if("left" in c){this.offset.click.left=c.left+this.margins.left}if("right" in c){this.offset.click.left=this.helperProportions.width-c.right+this.margins.left}if("top" in c){this.offset.click.top=c.top+this.margins.top}if("bottom" in c){this.offset.click.top=this.helperProportions.height-c.bottom+this.margins.top}},_getParentOffset:function(){this.offsetParent=this.helper.offsetParent();var c=this.offsetParent.offset();if(this.cssPosition=="absolute"&&this.scrollParent[0]!=document&&a.contains(this.scrollParent[0],this.offsetParent[0])){c.left+=this.scrollParent.scrollLeft();c.top+=this.scrollParent.scrollTop()}if((this.offsetParent[0]==document.body)||(this.offsetParent[0].tagName&&this.offsetParent[0].tagName.toLowerCase()=="html"&&a.browser.msie)){c={top:0,left:0}}return{top:c.top+(parseInt(this.offsetParent.css("borderTopWidth"),10)||0),left:c.left+(parseInt(this.offsetParent.css("borderLeftWidth"),10)||0)}},_getRelativeOffset:function(){if(this.cssPosition=="relative"){var c=this.element.position();return{top:c.top-(parseInt(this.helper.css("top"),10)||0)+this.scrollParent.scrollTop(),left:c.left-(parseInt(this.helper.css("left"),10)||0)+this.scrollParent.scrollLeft()}}else{return{top:0,left:0}}},_cacheMargins:function(){this.margins={left:(parseInt(this.element.css("marginLeft"),10)||0),top:(parseInt(this.element.css("marginTop"),10)||0),right:(parseInt(this.element.css("marginRight"),10)||0),bottom:(parseInt(this.element.css("marginBottom"),10)||0)}},_cacheHelperProportions:function(){this.helperProportions={width:this.helper.outerWidth(),height:this.helper.outerHeight()}},_setContainment:function(){var g=this.options;if(g.containment=="parent"){g.containment=this.helper[0].parentNode}if(g.containment=="document"||g.containment=="window"){this.containment=[g.containment=="document"?0:a(window).scrollLeft()-this.offset.relative.left-this.offset.parent.left,g.containment=="document"?0:a(window).scrollTop()-this.offset.relative.top-this.offset.parent.top,(g.containment=="document"?0:a(window).scrollLeft())+a(g.containment=="document"?document:window).width()-this.helperProportions.width-this.margins.left,(g.containment=="document"?0:a(window).scrollTop())+(a(g.containment=="document"?document:window).height()||document.body.parentNode.scrollHeight)-this.helperProportions.height-this.margins.top]}if(!(/^(document|window|parent)$/).test(g.containment)&&g.containment.constructor!=Array){var h=a(g.containment);var e=h[0];if(!e){return}var f=h.offset();var d=(a(e).css("overflow")!="hidden");this.containment=[(parseInt(a(e).css("borderLeftWidth"),10)||0)+(parseInt(a(e).css("paddingLeft"),10)||0),(parseInt(a(e).css("borderTopWidth"),10)||0)+(parseInt(a(e).css("paddingTop"),10)||0),(d?Math.max(e.scrollWidth,e.offsetWidth):e.offsetWidth)-(parseInt(a(e).css("borderLeftWidth"),10)||0)-(parseInt(a(e).css("paddingRight"),10)||0)-this.helperProportions.width-this.margins.left-this.margins.right,(d?Math.max(e.scrollHeight,e.offsetHeight):e.offsetHeight)-(parseInt(a(e).css("borderTopWidth"),10)||0)-(parseInt(a(e).css("paddingBottom"),10)||0)-this.helperProportions.height-this.margins.top-this.margins.bottom];this.relative_container=h}else{if(g.containment.constructor==Array){this.containment=g.containment}}},_convertPositionTo:function(g,i){if(!i){i=this.position}var e=g=="absolute"?1:-1;var f=this.options,c=this.cssPosition=="absolute"&&!(this.scrollParent[0]!=document&&a.contains(this.scrollParent[0],this.offsetParent[0]))?this.offsetParent:this.scrollParent,h=(/(html|body)/i).test(c[0].tagName);return{top:(i.top+this.offset.relative.top*e+this.offset.parent.top*e-((this.cssPosition=="fixed"?-this.scrollParent.scrollTop():(h?0:c.scrollTop()))*e)),left:(i.left+this.offset.relative.left*e+this.offset.parent.left*e-((this.cssPosition=="fixed"?-this.scrollParent.scrollLeft():h?0:c.scrollLeft())*e))}},_generatePosition:function(d){var e=this.options,l=this.cssPosition=="absolute"&&!(this.scrollParent[0]!=document&&a.contains(this.scrollParent[0],this.offsetParent[0]))?this.offsetParent:this.scrollParent,i=(/(html|body)/i).test(l[0].tagName);var h=d.pageX;var g=d.pageY;if(this.originalPosition){var c;if(this.containment){if(this.relative_container){var k=this.relative_container.offset();c=[this.containment[0]+k.left,this.containment[1]+k.top,this.containment[2]+k.left,this.containment[3]+k.top]}else{c=this.containment}if(d.pageX-this.offset.click.left<c[0]){h=c[0]+this.offset.click.left}if(d.pageY-this.offset.click.top<c[1]){g=c[1]+this.offset.click.top}if(d.pageX-this.offset.click.left>c[2]){h=c[2]+this.offset.click.left}if(d.pageY-this.offset.click.top>c[3]){g=c[3]+this.offset.click.top}}if(e.grid){var j=e.grid[1]?this.originalPageY+Math.round((g-this.originalPageY)/e.grid[1])*e.grid[1]:this.originalPageY;g=c?(!(j-this.offset.click.top<c[1]||j-this.offset.click.top>c[3])?j:(!(j-this.offset.click.top<c[1])?j-e.grid[1]:j+e.grid[1])):j;var f=e.grid[0]?this.originalPageX+Math.round((h-this.originalPageX)/e.grid[0])*e.grid[0]:this.originalPageX;h=c?(!(f-this.offset.click.left<c[0]||f-this.offset.click.left>c[2])?f:(!(f-this.offset.click.left<c[0])?f-e.grid[0]:f+e.grid[0])):f}}return{top:(g-this.offset.click.top-this.offset.relative.top-this.offset.parent.top+((this.cssPosition=="fixed"?-this.scrollParent.scrollTop():(i?0:l.scrollTop())))),left:(h-this.offset.click.left-this.offset.relative.left-this.offset.parent.left+((this.cssPosition=="fixed"?-this.scrollParent.scrollLeft():i?0:l.scrollLeft())))}},_clear:function(){this.helper.removeClass("ui-draggable-dragging");if(this.helper[0]!=this.element[0]&&!this.cancelHelperRemoval){this.helper.remove()}this.helper=null;this.cancelHelperRemoval=false},_trigger:function(c,d,e){e=e||this._uiHash();a.ui.plugin.call(this,c,[d,e]);if(c=="drag"){this.positionAbs=this._convertPositionTo("absolute")}return a.Widget.prototype._trigger.call(this,c,d,e)},plugins:{},_uiHash:function(c){return{helper:this.helper,position:this.position,originalPosition:this.originalPosition,offset:this.positionAbs}}});a.ui.plugin.add("draggable","connectToSortable",{start:function(d,f){var e=a(this).data("draggable"),g=e.options,c=a.extend({},f,{item:e.element});e.sortables=[];a(g.connectToSortable).each(function(){var h=a.data(this,"sortable");if(h&&!h.options.disabled){e.sortables.push({instance:h,shouldRevert:h.options.revert});h.refreshPositions();h._trigger("activate",d,c)}})},stop:function(d,f){var e=a(this).data("draggable"),c=a.extend({},f,{item:e.element});a.each(e.sortables,function(){if(this.instance.isOver){this.instance.isOver=0;e.cancelHelperRemoval=true;this.instance.cancelHelperRemoval=false;if(this.shouldRevert){this.instance.options.revert=true}this.instance._mouseStop(d);this.instance.options.helper=this.instance.options._helper;if(e.options.helper=="original"){this.instance.currentItem.css({top:"auto",left:"auto"})}}else{this.instance.cancelHelperRemoval=false;this.instance._trigger("deactivate",d,c)}})},drag:function(d,g){var f=a(this).data("draggable"),c=this;var e=function(j){var p=this.offset.click.top,n=this.offset.click.left;var h=this.positionAbs.top,l=this.positionAbs.left;var k=j.height,m=j.width;var q=j.top,i=j.left;return a.ui.isOver(h+p,l+n,q,i,k,m)};a.each(f.sortables,function(h){this.instance.positionAbs=f.positionAbs;this.instance.helperProportions=f.helperProportions;this.instance.offset.click=f.offset.click;if(this.instance._intersectsWith(this.instance.containerCache)){if(!this.instance.isOver){this.instance.isOver=1;this.instance.currentItem=a(c).clone().removeAttr("id").appendTo(this.instance.element).data("sortable-item",true);this.instance.options._helper=this.instance.options.helper;this.instance.options.helper=function(){return g.helper[0]};d.target=this.instance.currentItem[0];this.instance._mouseCapture(d,true);this.instance._mouseStart(d,true,true);this.instance.offset.click.top=f.offset.click.top;this.instance.offset.click.left=f.offset.click.left;this.instance.offset.parent.left-=f.offset.parent.left-this.instance.offset.parent.left;this.instance.offset.parent.top-=f.offset.parent.top-this.instance.offset.parent.top;f._trigger("toSortable",d);f.dropped=this.instance.element;f.currentItem=f.element;this.instance.fromOutside=f}if(this.instance.currentItem){this.instance._mouseDrag(d)}}else{if(this.instance.isOver){this.instance.isOver=0;this.instance.cancelHelperRemoval=true;this.instance.options.revert=false;this.instance._trigger("out",d,this.instance._uiHash(this.instance));this.instance._mouseStop(d,true);this.instance.options.helper=this.instance.options._helper;this.instance.currentItem.remove();if(this.instance.placeholder){this.instance.placeholder.remove()}f._trigger("fromSortable",d);f.dropped=false}}})}});a.ui.plugin.add("draggable","cursor",{start:function(d,e){var c=a("body"),f=a(this).data("draggable").options;if(c.css("cursor")){f._cursor=c.css("cursor")}c.css("cursor",f.cursor)},stop:function(c,d){var e=a(this).data("draggable").options;if(e._cursor){a("body").css("cursor",e._cursor)}}});a.ui.plugin.add("draggable","opacity",{start:function(d,e){var c=a(e.helper),f=a(this).data("draggable").options;if(c.css("opacity")){f._opacity=c.css("opacity")}c.css("opacity",f.opacity)},stop:function(c,d){var e=a(this).data("draggable").options;if(e._opacity){a(d.helper).css("opacity",e._opacity)}}});a.ui.plugin.add("draggable","scroll",{start:function(d,e){var c=a(this).data("draggable");if(c.scrollParent[0]!=document&&c.scrollParent[0].tagName!="HTML"){c.overflowOffset=c.scrollParent.offset()}},drag:function(e,f){var d=a(this).data("draggable"),g=d.options,c=false;if(d.scrollParent[0]!=document&&d.scrollParent[0].tagName!="HTML"){if(!g.axis||g.axis!="x"){if((d.overflowOffset.top+d.scrollParent[0].offsetHeight)-e.pageY<g.scrollSensitivity){d.scrollParent[0].scrollTop=c=d.scrollParent[0].scrollTop+g.scrollSpeed}else{if(e.pageY-d.overflowOffset.top<g.scrollSensitivity){d.scrollParent[0].scrollTop=c=d.scrollParent[0].scrollTop-g.scrollSpeed}}}if(!g.axis||g.axis!="y"){if((d.overflowOffset.left+d.scrollParent[0].offsetWidth)-e.pageX<g.scrollSensitivity){d.scrollParent[0].scrollLeft=c=d.scrollParent[0].scrollLeft+g.scrollSpeed}else{if(e.pageX-d.overflowOffset.left<g.scrollSensitivity){d.scrollParent[0].scrollLeft=c=d.scrollParent[0].scrollLeft-g.scrollSpeed}}}}else{if(!g.axis||g.axis!="x"){if(e.pageY-a(document).scrollTop()<g.scrollSensitivity){c=a(document).scrollTop(a(document).scrollTop()-g.scrollSpeed)}else{if(a(window).height()-(e.pageY-a(document).scrollTop())<g.scrollSensitivity){c=a(document).scrollTop(a(document).scrollTop()+g.scrollSpeed)}}}if(!g.axis||g.axis!="y"){if(e.pageX-a(document).scrollLeft()<g.scrollSensitivity){c=a(document).scrollLeft(a(document).scrollLeft()-g.scrollSpeed)}else{if(a(window).width()-(e.pageX-a(document).scrollLeft())<g.scrollSensitivity){c=a(document).scrollLeft(a(document).scrollLeft()+g.scrollSpeed)}}}}if(c!==false&&a.ui.ddmanager&&!g.dropBehaviour){a.ui.ddmanager.prepareOffsets(d,e)}}});a.ui.plugin.add("draggable","snap",{start:function(d,e){var c=a(this).data("draggable"),f=c.options;c.snapElements=[];a(f.snap.constructor!=String?(f.snap.items||":data(draggable)"):f.snap).each(function(){var h=a(this);var g=h.offset();if(this!=c.element[0]){c.snapElements.push({item:this,width:h.outerWidth(),height:h.outerHeight(),top:g.top,left:g.left})}})},drag:function(u,p){var g=a(this).data("draggable"),q=g.options;var y=q.snapTolerance;var x=p.offset.left,w=x+g.helperProportions.width,f=p.offset.top,e=f+g.helperProportions.height;for(var v=g.snapElements.length-1;v>=0;v--){var s=g.snapElements[v].left,n=s+g.snapElements[v].width,m=g.snapElements[v].top,A=m+g.snapElements[v].height;if(!((s-y<x&&x<n+y&&m-y<f&&f<A+y)||(s-y<x&&x<n+y&&m-y<e&&e<A+y)||(s-y<w&&w<n+y&&m-y<f&&f<A+y)||(s-y<w&&w<n+y&&m-y<e&&e<A+y))){if(g.snapElements[v].snapping){(g.options.snap.release&&g.options.snap.release.call(g.element,u,a.extend(g._uiHash(),{snapItem:g.snapElements[v].item})))}g.snapElements[v].snapping=false;continue}if(q.snapMode!="inner"){var c=Math.abs(m-e)<=y;var z=Math.abs(A-f)<=y;var j=Math.abs(s-w)<=y;var k=Math.abs(n-x)<=y;if(c){p.position.top=g._convertPositionTo("relative",{top:m-g.helperProportions.height,left:0}).top-g.margins.top}if(z){p.position.top=g._convertPositionTo("relative",{top:A,left:0}).top-g.margins.top}if(j){p.position.left=g._convertPositionTo("relative",{top:0,left:s-g.helperProportions.width}).left-g.margins.left}if(k){p.position.left=g._convertPositionTo("relative",{top:0,left:n}).left-g.margins.left}}var h=(c||z||j||k);if(q.snapMode!="outer"){var c=Math.abs(m-f)<=y;var z=Math.abs(A-e)<=y;var j=Math.abs(s-x)<=y;var k=Math.abs(n-w)<=y;if(c){p.position.top=g._convertPositionTo("relative",{top:m,left:0}).top-g.margins.top}if(z){p.position.top=g._convertPositionTo("relative",{top:A-g.helperProportions.height,left:0}).top-g.margins.top}if(j){p.position.left=g._convertPositionTo("relative",{top:0,left:s}).left-g.margins.left}if(k){p.position.left=g._convertPositionTo("relative",{top:0,left:n-g.helperProportions.width}).left-g.margins.left}}if(!g.snapElements[v].snapping&&(c||z||j||k||h)){(g.options.snap.snap&&g.options.snap.snap.call(g.element,u,a.extend(g._uiHash(),{snapItem:g.snapElements[v].item})))}g.snapElements[v].snapping=(c||z||j||k||h)}}});a.ui.plugin.add("draggable","stack",{start:function(d,e){var g=a(this).data("draggable").options;var f=a.makeArray(a(g.stack)).sort(function(i,h){return(parseInt(a(i).css("zIndex"),10)||0)-(parseInt(a(h).css("zIndex"),10)||0)});if(!f.length){return}var c=parseInt(f[0].style.zIndex)||0;a(f).each(function(h){this.style.zIndex=c+h});this[0].style.zIndex=c+f.length}});a.ui.plugin.add("draggable","zIndex",{start:function(d,e){var c=a(e.helper),f=a(this).data("draggable").options;if(c.css("zIndex")){f._zIndex=c.css("zIndex")}c.css("zIndex",f.zIndex)},stop:function(c,d){var e=a(this).data("draggable").options;if(e._zIndex){a(d.helper).css("zIndex",e._zIndex)}}})})(jQuery);(function(a,b){a.widget("ui.droppable",{version:"1.9.0",widgetEventPrefix:"drop",options:{accept:"*",activeClass:false,addClasses:true,greedy:false,hoverClass:false,scope:"default",tolerance:"intersect"},_create:function(){var d=this.options,c=d.accept;this.isover=0;this.isout=1;this.accept=a.isFunction(c)?c:function(e){return e.is(c)};this.proportions={width:this.element[0].offsetWidth,height:this.element[0].offsetHeight};a.ui.ddmanager.droppables[d.scope]=a.ui.ddmanager.droppables[d.scope]||[];a.ui.ddmanager.droppables[d.scope].push(this);(d.addClasses&&this.element.addClass("ui-droppable"))},_destroy:function(){var c=a.ui.ddmanager.droppables[this.options.scope];for(var d=0;d<c.length;d++){if(c[d]==this){c.splice(d,1)}}this.element.removeClass("ui-droppable ui-droppable-disabled")},_setOption:function(c,d){if(c=="accept"){this.accept=a.isFunction(d)?d:function(e){return e.is(d)}}a.Widget.prototype._setOption.apply(this,arguments)},_activate:function(d){var c=a.ui.ddmanager.current;if(this.options.activeClass){this.element.addClass(this.options.activeClass)}(c&&this._trigger("activate",d,this.ui(c)))},_deactivate:function(d){var c=a.ui.ddmanager.current;if(this.options.activeClass){this.element.removeClass(this.options.activeClass)}(c&&this._trigger("deactivate",d,this.ui(c)))},_over:function(d){var c=a.ui.ddmanager.current;if(!c||(c.currentItem||c.element)[0]==this.element[0]){return}if(this.accept.call(this.element[0],(c.currentItem||c.element))){if(this.options.hoverClass){this.element.addClass(this.options.hoverClass)}this._trigger("over",d,this.ui(c))}},_out:function(d){var c=a.ui.ddmanager.current;if(!c||(c.currentItem||c.element)[0]==this.element[0]){return}if(this.accept.call(this.element[0],(c.currentItem||c.element))){if(this.options.hoverClass){this.element.removeClass(this.options.hoverClass)}this._trigger("out",d,this.ui(c))}},_drop:function(d,e){var c=e||a.ui.ddmanager.current;if(!c||(c.currentItem||c.element)[0]==this.element[0]){return false}var f=false;this.element.find(":data(droppable)").not(".ui-draggable-dragging").each(function(){var g=a.data(this,"droppable");if(g.options.greedy&&!g.options.disabled&&g.options.scope==c.options.scope&&g.accept.call(g.element[0],(c.currentItem||c.element))&&a.ui.intersect(c,a.extend(g,{offset:g.element.offset()}),g.options.tolerance)){f=true;return false}});if(f){return false}if(this.accept.call(this.element[0],(c.currentItem||c.element))){if(this.options.activeClass){this.element.removeClass(this.options.activeClass)}if(this.options.hoverClass){this.element.removeClass(this.options.hoverClass)}this._trigger("drop",d,this.ui(c));return this.element}return false},ui:function(d){return{draggable:(d.currentItem||d.element),helper:d.helper,position:d.position,offset:d.positionAbs}}});a.ui.intersect=function(q,j,o){if(!j.offset){return false}var e=(q.positionAbs||q.position.absolute).left,d=e+q.helperProportions.width,n=(q.positionAbs||q.position.absolute).top,m=n+q.helperProportions.height;var g=j.offset.left,c=g+j.proportions.width,p=j.offset.top,k=p+j.proportions.height;switch(o){case"fit":return(g<=e&&d<=c&&p<=n&&m<=k);break;case"intersect":return(g<e+(q.helperProportions.width/2)&&d-(q.helperProportions.width/2)<c&&p<n+(q.helperProportions.height/2)&&m-(q.helperProportions.height/2)<k);break;case"pointer":var h=((q.positionAbs||q.position.absolute).left+(q.clickOffset||q.offset.click).left),i=((q.positionAbs||q.position.absolute).top+(q.clickOffset||q.offset.click).top),f=a.ui.isOver(i,h,p,g,j.proportions.height,j.proportions.width);return f;break;case"touch":return((n>=p&&n<=k)||(m>=p&&m<=k)||(n<p&&m>k))&&((e>=g&&e<=c)||(d>=g&&d<=c)||(e<g&&d>c));break;default:return false;break}};a.ui.ddmanager={current:null,droppables:{"default":[]},prepareOffsets:function(f,h){var c=a.ui.ddmanager.droppables[f.options.scope]||[];var g=h?h.type:null;var k=(f.currentItem||f.element).find(":data(droppable)").andSelf();droppablesLoop:for(var e=0;e<c.length;e++){if(c[e].options.disabled||(f&&!c[e].accept.call(c[e].element[0],(f.currentItem||f.element)))){continue}for(var d=0;d<k.length;d++){if(k[d]==c[e].element[0]){c[e].proportions.height=0;continue droppablesLoop}}c[e].visible=c[e].element.css("display")!="none";if(!c[e].visible){continue}if(g=="mousedown"){c[e]._activate.call(c[e],h)}c[e].offset=c[e].element.offset();c[e].proportions={width:c[e].element[0].offsetWidth,height:c[e].element[0].offsetHeight}}},drop:function(c,d){var e=false;a.each(a.ui.ddmanager.droppables[c.options.scope]||[],function(){if(!this.options){return}if(!this.options.disabled&&this.visible&&a.ui.intersect(c,this,this.options.tolerance)){e=this._drop.call(this,d)||e}if(!this.options.disabled&&this.visible&&this.accept.call(this.element[0],(c.currentItem||c.element))){this.isout=1;this.isover=0;this._deactivate.call(this,d)}});return e},dragStart:function(c,d){c.element.parentsUntil("body").bind("scroll.droppable",function(){if(!c.options.refreshPositions){a.ui.ddmanager.prepareOffsets(c,d)}})},drag:function(c,d){if(c.options.refreshPositions){a.ui.ddmanager.prepareOffsets(c,d)}a.each(a.ui.ddmanager.droppables[c.options.scope]||[],function(){if(this.options.disabled||this.greedyChild||!this.visible){return}var g=a.ui.intersect(c,this,this.options.tolerance);var i=!g&&this.isover==1?"isout":(g&&this.isover==0?"isover":null);if(!i){return}var h;if(this.options.greedy){var f=this.options.scope;var e=this.element.parents(":data(droppable)").filter(function(){return a.data(this,"droppable").options.scope===f});if(e.length){h=a.data(e[0],"droppable");h.greedyChild=(i=="isover"?1:0)}}if(h&&i=="isover"){h.isover=0;h.isout=1;h._out.call(h,d)}this[i]=1;this[i=="isout"?"isover":"isout"]=0;this[i=="isover"?"_over":"_out"].call(this,d);if(h&&i=="isout"){h.isout=0;h.isover=1;h._over.call(h,d)}})},dragStop:function(c,d){c.element.parentsUntil("body").unbind("scroll.droppable");if(!c.options.refreshPositions){a.ui.ddmanager.prepareOffsets(c,d)}}}})(jQuery);(function(c,d){c.widget("ui.resizable",c.ui.mouse,{version:"1.9.0",widgetEventPrefix:"resize",options:{alsoResize:false,animate:false,animateDuration:"slow",animateEasing:"swing",aspectRatio:false,autoHide:false,containment:false,ghost:false,grid:false,handles:"e,s,se",helper:false,maxHeight:null,maxWidth:null,minHeight:10,minWidth:10,zIndex:1000},_create:function(){var h=this,k=this.options;this.element.addClass("ui-resizable");c.extend(this,{_aspectRatio:!!(k.aspectRatio),aspectRatio:k.aspectRatio,originalElement:this.element,_proportionallyResizeElements:[],_helper:k.helper||k.ghost||k.animate?k.helper||"ui-resizable-helper":null});if(this.element[0].nodeName.match(/canvas|textarea|input|select|button|img/i)){this.element.wrap(c('<div class="ui-wrapper" style="overflow: hidden;"></div>').css({position:this.element.css("position"),width:this.element.outerWidth(),height:this.element.outerHeight(),top:this.element.css("top"),left:this.element.css("left")}));this.element=this.element.parent().data("resizable",this.element.data("resizable"));this.elementIsWrapper=true;this.element.css({marginLeft:this.originalElement.css("marginLeft"),marginTop:this.originalElement.css("marginTop"),marginRight:this.originalElement.css("marginRight"),marginBottom:this.originalElement.css("marginBottom")});this.originalElement.css({marginLeft:0,marginTop:0,marginRight:0,marginBottom:0});this.originalResizeStyle=this.originalElement.css("resize");this.originalElement.css("resize","none");this._proportionallyResizeElements.push(this.originalElement.css({position:"static",zoom:1,display:"block"}));this.originalElement.css({margin:this.originalElement.css("margin")});this._proportionallyResize()}this.handles=k.handles||(!c(".ui-resizable-handle",this.element).length?"e,s,se":{n:".ui-resizable-n",e:".ui-resizable-e",s:".ui-resizable-s",w:".ui-resizable-w",se:".ui-resizable-se",sw:".ui-resizable-sw",ne:".ui-resizable-ne",nw:".ui-resizable-nw"});if(this.handles.constructor==String){if(this.handles=="all"){this.handles="n,e,s,w,se,sw,ne,nw"}var l=this.handles.split(",");this.handles={};for(var f=0;f<l.length;f++){var j=c.trim(l[f]),e="ui-resizable-"+j;var g=c('<div class="ui-resizable-handle '+e+'"></div>');g.css({zIndex:k.zIndex});if("se"==j){g.addClass("ui-icon ui-icon-gripsmall-diagonal-se")}this.handles[j]=".ui-resizable-"+j;this.element.append(g)}}this._renderAxis=function(q){q=q||this.element;for(var n in this.handles){if(this.handles[n].constructor==String){this.handles[n]=c(this.handles[n],this.element).show()}if(this.elementIsWrapper&&this.originalElement[0].nodeName.match(/textarea|input|select|button/i)){var o=c(this.handles[n],this.element),p=0;p=/sw|ne|nw|se|n|s/.test(n)?o.outerHeight():o.outerWidth();var m=["padding",/ne|nw|n/.test(n)?"Top":/se|sw|s/.test(n)?"Bottom":/^e$/.test(n)?"Right":"Left"].join("");q.css(m,p);this._proportionallyResize()}if(!c(this.handles[n]).length){continue}}};this._renderAxis(this.element);this._handles=c(".ui-resizable-handle",this.element).disableSelection();this._handles.mouseover(function(){if(!h.resizing){if(this.className){var i=this.className.match(/ui-resizable-(se|sw|ne|nw|n|e|s|w)/i)}h.axis=i&&i[1]?i[1]:"se"}});if(k.autoHide){this._handles.hide();c(this.element).addClass("ui-resizable-autohide").mouseenter(function(){if(k.disabled){return}c(this).removeClass("ui-resizable-autohide");h._handles.show()}).mouseleave(function(){if(k.disabled){return}if(!h.resizing){c(this).addClass("ui-resizable-autohide");h._handles.hide()}})}this._mouseInit()},_destroy:function(){this._mouseDestroy();var e=function(g){c(g).removeClass("ui-resizable ui-resizable-disabled ui-resizable-resizing").removeData("resizable").removeData("ui-resizable").unbind(".resizable").find(".ui-resizable-handle").remove()};if(this.elementIsWrapper){e(this.element);var f=this.element;f.after(this.originalElement.css({position:f.css("position"),width:f.outerWidth(),height:f.outerHeight(),top:f.css("top"),left:f.css("left")})).remove()}this.originalElement.css("resize",this.originalResizeStyle);e(this.originalElement);return this},_mouseCapture:function(f){var g=false;for(var e in this.handles){if(c(this.handles[e])[0]==f.target){g=true}}return !this.options.disabled&&g},_mouseStart:function(g){var j=this.options,f=this.element.position(),e=this.element;this.resizing=true;this.documentScroll={top:c(document).scrollTop(),left:c(document).scrollLeft()};if(e.is(".ui-draggable")||(/absolute/).test(e.css("position"))){e.css({position:"absolute",top:f.top,left:f.left})}this._renderProxy();var k=b(this.helper.css("left")),h=b(this.helper.css("top"));if(j.containment){k+=c(j.containment).scrollLeft()||0;h+=c(j.containment).scrollTop()||0}this.offset=this.helper.offset();this.position={left:k,top:h};this.size=this._helper?{width:e.outerWidth(),height:e.outerHeight()}:{width:e.width(),height:e.height()};this.originalSize=this._helper?{width:e.outerWidth(),height:e.outerHeight()}:{width:e.width(),height:e.height()};this.originalPosition={left:k,top:h};this.sizeDiff={width:e.outerWidth()-e.width(),height:e.outerHeight()-e.height()};this.originalMousePosition={left:g.pageX,top:g.pageY};this.aspectRatio=(typeof j.aspectRatio=="number")?j.aspectRatio:((this.originalSize.width/this.originalSize.height)||1);var i=c(".ui-resizable-"+this.axis).css("cursor");c("body").css("cursor",i=="auto"?this.axis+"-resize":i);e.addClass("ui-resizable-resizing");this._propagate("start",g);return true},_mouseDrag:function(e){var g=this.helper,f=this.options,l={},k=this,i=this.originalMousePosition,m=this.axis;var p=(e.pageX-i.left)||0,n=(e.pageY-i.top)||0;var h=this._change[m];if(!h){return false}var j=h.apply(this,[e,p,n]);this._updateVirtualBoundaries(e.shiftKey);if(this._aspectRatio||e.shiftKey){j=this._updateRatio(j,e)}j=this._respectSize(j,e);this._propagate("resize",e);g.css({top:this.position.top+"px",left:this.position.left+"px",width:this.size.width+"px",height:this.size.height+"px"});if(!this._helper&&this._proportionallyResizeElements.length){this._proportionallyResize()}this._updateCache(j);this._trigger("resize",e,this.ui());return false},_mouseStop:function(h){this.resizing=false;var i=this.options,l=this;if(this._helper){var g=this._proportionallyResizeElements,e=g.length&&(/textarea/i).test(g[0].nodeName),f=e&&c.ui.hasScroll(g[0],"left")?0:l.sizeDiff.height,k=e?0:l.sizeDiff.width;var n={width:(l.helper.width()-k),height:(l.helper.height()-f)},j=(parseInt(l.element.css("left"),10)+(l.position.left-l.originalPosition.left))||null,m=(parseInt(l.element.css("top"),10)+(l.position.top-l.originalPosition.top))||null;if(!i.animate){this.element.css(c.extend(n,{top:m,left:j}))}l.helper.height(l.size.height);l.helper.width(l.size.width);if(this._helper&&!i.animate){this._proportionallyResize()}}c("body").css("cursor","auto");this.element.removeClass("ui-resizable-resizing");this._propagate("stop",h);if(this._helper){this.helper.remove()}return false},_updateVirtualBoundaries:function(g){var j=this.options,i,h,f,k,e;e={minWidth:a(j.minWidth)?j.minWidth:0,maxWidth:a(j.maxWidth)?j.maxWidth:Infinity,minHeight:a(j.minHeight)?j.minHeight:0,maxHeight:a(j.maxHeight)?j.maxHeight:Infinity};if(this._aspectRatio||g){i=e.minHeight*this.aspectRatio;f=e.minWidth/this.aspectRatio;h=e.maxHeight*this.aspectRatio;k=e.maxWidth/this.aspectRatio;if(i>e.minWidth){e.minWidth=i}if(f>e.minHeight){e.minHeight=f}if(h<e.maxWidth){e.maxWidth=h}if(k<e.maxHeight){e.maxHeight=k}}this._vBoundaries=e},_updateCache:function(e){var f=this.options;this.offset=this.helper.offset();if(a(e.left)){this.position.left=e.left}if(a(e.top)){this.position.top=e.top}if(a(e.height)){this.size.height=e.height}if(a(e.width)){this.size.width=e.width}},_updateRatio:function(h,g){var i=this.options,j=this.position,f=this.size,e=this.axis;if(a(h.height)){h.width=(h.height*this.aspectRatio)}else{if(a(h.width)){h.height=(h.width/this.aspectRatio)}}if(e=="sw"){h.left=j.left+(f.width-h.width);h.top=null}if(e=="nw"){h.top=j.top+(f.height-h.height);h.left=j.left+(f.width-h.width)}return h},_respectSize:function(l,g){var j=this.helper,i=this._vBoundaries,r=this._aspectRatio||g.shiftKey,q=this.axis,t=a(l.width)&&i.maxWidth&&(i.maxWidth<l.width),m=a(l.height)&&i.maxHeight&&(i.maxHeight<l.height),h=a(l.width)&&i.minWidth&&(i.minWidth>l.width),s=a(l.height)&&i.minHeight&&(i.minHeight>l.height);if(h){l.width=i.minWidth}if(s){l.height=i.minHeight}if(t){l.width=i.maxWidth}if(m){l.height=i.maxHeight}var f=this.originalPosition.left+this.originalSize.width,p=this.position.top+this.size.height;var k=/sw|nw|w/.test(q),e=/nw|ne|n/.test(q);if(h&&k){l.left=f-i.minWidth}if(t&&k){l.left=f-i.maxWidth}if(s&&e){l.top=p-i.minHeight}if(m&&e){l.top=p-i.maxHeight}var n=!l.width&&!l.height;if(n&&!l.left&&l.top){l.top=null}else{if(n&&!l.top&&l.left){l.left=null}}return l},_proportionallyResize:function(){var k=this.options;if(!this._proportionallyResizeElements.length){return}var g=this.helper||this.element;for(var f=0;f<this._proportionallyResizeElements.length;f++){var h=this._proportionallyResizeElements[f];if(!this.borderDif){var e=[h.css("borderTopWidth"),h.css("borderRightWidth"),h.css("borderBottomWidth"),h.css("borderLeftWidth")],j=[h.css("paddingTop"),h.css("paddingRight"),h.css("paddingBottom"),h.css("paddingLeft")];this.borderDif=c.map(e,function(l,n){var m=parseInt(l,10)||0,o=parseInt(j[n],10)||0;return m+o})}h.css({height:(g.height()-this.borderDif[0]-this.borderDif[2])||0,width:(g.width()-this.borderDif[1]-this.borderDif[3])||0})}},_renderProxy:function(){var f=this.element,i=this.options;this.elementOffset=f.offset();if(this._helper){this.helper=this.helper||c('<div style="overflow:hidden;"></div>');var e=c.browser.msie&&c.browser.version<7,g=(e?1:0),h=(e?2:-1);this.helper.addClass(this._helper).css({width:this.element.outerWidth()+h,height:this.element.outerHeight()+h,position:"absolute",left:this.elementOffset.left-g+"px",top:this.elementOffset.top-g+"px",zIndex:++i.zIndex});this.helper.appendTo("body").disableSelection()}else{this.helper=this.element}},_change:{e:function(g,f,e){return{width:this.originalSize.width+f}},w:function(h,f,e){var j=this.options,g=this.originalSize,i=this.originalPosition;return{left:i.left+f,width:g.width-f}},n:function(h,f,e){var j=this.options,g=this.originalSize,i=this.originalPosition;return{top:i.top+e,height:g.height-e}},s:function(g,f,e){return{height:this.originalSize.height+e}},se:function(g,f,e){return c.extend(this._change.s.apply(this,arguments),this._change.e.apply(this,[g,f,e]))},sw:function(g,f,e){return c.extend(this._change.s.apply(this,arguments),this._change.w.apply(this,[g,f,e]))},ne:function(g,f,e){return c.extend(this._change.n.apply(this,arguments),this._change.e.apply(this,[g,f,e]))},nw:function(g,f,e){return c.extend(this._change.n.apply(this,arguments),this._change.w.apply(this,[g,f,e]))}},_propagate:function(f,e){c.ui.plugin.call(this,f,[e,this.ui()]);(f!="resize"&&this._trigger(f,e,this.ui()))},plugins:{},ui:function(){return{originalElement:this.originalElement,element:this.element,helper:this.helper,position:this.position,size:this.size,originalSize:this.originalSize,originalPosition:this.originalPosition}}});c.ui.plugin.add("resizable","alsoResize",{start:function(f,g){var e=c(this).data("resizable"),i=e.options;var h=function(j){c(j).each(function(){var k=c(this);k.data("resizable-alsoresize",{width:parseInt(k.width(),10),height:parseInt(k.height(),10),left:parseInt(k.css("left"),10),top:parseInt(k.css("top"),10)})})};if(typeof(i.alsoResize)=="object"&&!i.alsoResize.parentNode){if(i.alsoResize.length){i.alsoResize=i.alsoResize[0];h(i.alsoResize)}else{c.each(i.alsoResize,function(j){h(j)})}}else{h(i.alsoResize)}},resize:function(g,i){var f=c(this).data("resizable"),j=f.options,h=f.originalSize,l=f.originalPosition;var k={height:(f.size.height-h.height)||0,width:(f.size.width-h.width)||0,top:(f.position.top-l.top)||0,left:(f.position.left-l.left)||0},e=function(m,n){c(m).each(function(){var q=c(this),r=c(this).data("resizable-alsoresize"),p={},o=n&&n.length?n:q.parents(i.originalElement[0]).length?["width","height"]:["width","height","top","left"];c.each(o,function(s,u){var t=(r[u]||0)+(k[u]||0);if(t&&t>=0){p[u]=t||null}});q.css(p)})};if(typeof(j.alsoResize)=="object"&&!j.alsoResize.nodeType){c.each(j.alsoResize,function(m,n){e(m,n)})}else{e(j.alsoResize)}},stop:function(e,f){c(this).removeData("resizable-alsoresize")}});c.ui.plugin.add("resizable","animate",{stop:function(i,p){var m=c(this).data("resizable"),j=m.options;var h=m._proportionallyResizeElements,e=h.length&&(/textarea/i).test(h[0].nodeName),f=e&&c.ui.hasScroll(h[0],"left")?0:m.sizeDiff.height,l=e?0:m.sizeDiff.width;var g={width:(m.size.width-l),height:(m.size.height-f)},k=(parseInt(m.element.css("left"),10)+(m.position.left-m.originalPosition.left))||null,n=(parseInt(m.element.css("top"),10)+(m.position.top-m.originalPosition.top))||null;m.element.animate(c.extend(g,n&&k?{top:n,left:k}:{}),{duration:j.animateDuration,easing:j.animateEasing,step:function(){var o={width:parseInt(m.element.css("width"),10),height:parseInt(m.element.css("height"),10),top:parseInt(m.element.css("top"),10),left:parseInt(m.element.css("left"),10)};if(h&&h.length){c(h[0]).css({width:o.width,height:o.height})}m._updateCache(o);m._propagate("resize",i)}})}});c.ui.plugin.add("resizable","containment",{start:function(f,s){var q=c(this).data("resizable"),j=q.options,l=q.element;var g=j.containment,k=(g instanceof c)?g.get(0):(/parent/.test(g))?l.parent().get(0):g;if(!k){return}q.containerElement=c(k);if(/document/.test(g)||g==document){q.containerOffset={left:0,top:0};q.containerPosition={left:0,top:0};q.parentData={element:c(document),left:0,top:0,width:c(document).width(),height:c(document).height()||document.body.parentNode.scrollHeight}}else{var n=c(k),i=[];c(["Top","Right","Left","Bottom"]).each(function(p,o){i[p]=b(n.css("padding"+o))});q.containerOffset=n.offset();q.containerPosition=n.position();q.containerSize={height:(n.innerHeight()-i[3]),width:(n.innerWidth()-i[1])};var r=q.containerOffset,e=q.containerSize.height,m=q.containerSize.width,h=(c.ui.hasScroll(k,"left")?k.scrollWidth:m),t=(c.ui.hasScroll(k)?k.scrollHeight:e);q.parentData={element:k,left:r.left,top:r.top,width:h,height:t}}},resize:function(g,r){var m=c(this).data("resizable"),i=m.options,f=m.containerSize,q=m.containerOffset,n=m.size,p=m.position,s=m._aspectRatio||g.shiftKey,e={top:0,left:0},h=m.containerElement;if(h[0]!=document&&(/static/).test(h.css("position"))){e=q}if(p.left<(m._helper?q.left:0)){m.size.width=m.size.width+(m._helper?(m.position.left-q.left):(m.position.left-e.left));if(s){m.size.height=m.size.width/m.aspectRatio}m.position.left=i.helper?q.left:0}if(p.top<(m._helper?q.top:0)){m.size.height=m.size.height+(m._helper?(m.position.top-q.top):m.position.top);if(s){m.size.width=m.size.height*m.aspectRatio}m.position.top=m._helper?q.top:0}m.offset.left=m.parentData.left+m.position.left;m.offset.top=m.parentData.top+m.position.top;var l=Math.abs((m._helper?m.offset.left-e.left:(m.offset.left-e.left))+m.sizeDiff.width),t=Math.abs((m._helper?m.offset.top-e.top:(m.offset.top-q.top))+m.sizeDiff.height);var k=m.containerElement.get(0)==m.element.parent().get(0),j=/relative|absolute/.test(m.containerElement.css("position"));if(k&&j){l-=m.parentData.left}if(l+m.size.width>=m.parentData.width){m.size.width=m.parentData.width-l;if(s){m.size.height=m.size.width/m.aspectRatio}}if(t+m.size.height>=m.parentData.height){m.size.height=m.parentData.height-t;if(s){m.size.width=m.size.height*m.aspectRatio}}},stop:function(f,p){var l=c(this).data("resizable"),g=l.options,m=l.position,n=l.containerOffset,e=l.containerPosition,i=l.containerElement;var j=c(l.helper),r=j.offset(),q=j.outerWidth()-l.sizeDiff.width,k=j.outerHeight()-l.sizeDiff.height;if(l._helper&&!g.animate&&(/relative/).test(i.css("position"))){c(this).css({left:r.left-e.left-n.left,width:q,height:k})}if(l._helper&&!g.animate&&(/static/).test(i.css("position"))){c(this).css({left:r.left-e.left-n.left,width:q,height:k})}}});c.ui.plugin.add("resizable","ghost",{start:function(g,h){var f=c(this).data("resizable"),i=f.options,e=f.size;f.ghost=f.originalElement.clone();f.ghost.css({opacity:0.25,display:"block",position:"relative",height:e.height,width:e.width,margin:0,left:0,top:0}).addClass("ui-resizable-ghost").addClass(typeof i.ghost=="string"?i.ghost:"");f.ghost.appendTo(f.helper)},resize:function(f,g){var e=c(this).data("resizable"),h=e.options;if(e.ghost){e.ghost.css({position:"relative",height:e.size.height,width:e.size.width})}},stop:function(f,g){var e=c(this).data("resizable"),h=e.options;if(e.ghost&&e.helper){e.helper.get(0).removeChild(e.ghost.get(0))}}});c.ui.plugin.add("resizable","grid",{resize:function(e,n){var k=c(this).data("resizable"),h=k.options,l=k.size,i=k.originalSize,j=k.originalPosition,p=k.axis,m=h._aspectRatio||e.shiftKey;h.grid=typeof h.grid=="number"?[h.grid,h.grid]:h.grid;var g=Math.round((l.width-i.width)/(h.grid[0]||1))*(h.grid[0]||1),f=Math.round((l.height-i.height)/(h.grid[1]||1))*(h.grid[1]||1);if(/^(se|s|e)$/.test(p)){k.size.width=i.width+g;k.size.height=i.height+f}else{if(/^(ne)$/.test(p)){k.size.width=i.width+g;k.size.height=i.height+f;k.position.top=j.top-f}else{if(/^(sw)$/.test(p)){k.size.width=i.width+g;k.size.height=i.height+f;k.position.left=j.left-g}else{k.size.width=i.width+g;k.size.height=i.height+f;k.position.top=j.top-f;k.position.left=j.left-g}}}}});var b=function(e){return parseInt(e,10)||0};var a=function(e){return !isNaN(parseInt(e,10))}})(jQuery);(function(a,b){a.widget("ui.selectable",a.ui.mouse,{version:"1.9.0",options:{appendTo:"body",autoRefresh:true,distance:0,filter:"*",tolerance:"touch"},_create:function(){var c=this;this.element.addClass("ui-selectable");this.dragged=false;var d;this.refresh=function(){d=a(c.options.filter,c.element[0]);d.addClass("ui-selectee");d.each(function(){var e=a(this);var f=e.offset();a.data(this,"selectable-item",{element:this,$element:e,left:f.left,top:f.top,right:f.left+e.outerWidth(),bottom:f.top+e.outerHeight(),startselected:false,selected:e.hasClass("ui-selected"),selecting:e.hasClass("ui-selecting"),unselecting:e.hasClass("ui-unselecting")})})};this.refresh();this.selectees=d.addClass("ui-selectee");this._mouseInit();this.helper=a("<div class='ui-selectable-helper'></div>")},_destroy:function(){this.selectees.removeClass("ui-selectee").removeData("selectable-item");this.element.removeClass("ui-selectable ui-selectable-disabled");this._mouseDestroy()},_mouseStart:function(e){var d=this;this.opos=[e.pageX,e.pageY];if(this.options.disabled){return}var c=this.options;this.selectees=a(c.filter,this.element[0]);this._trigger("start",e);a(c.appendTo).append(this.helper);this.helper.css({left:e.clientX,top:e.clientY,width:0,height:0});if(c.autoRefresh){this.refresh()}this.selectees.filter(".ui-selected").each(function(){var f=a.data(this,"selectable-item");f.startselected=true;if(!e.metaKey&&!e.ctrlKey){f.$element.removeClass("ui-selected");f.selected=false;f.$element.addClass("ui-unselecting");f.unselecting=true;d._trigger("unselecting",e,{unselecting:f.element})}});a(e.target).parents().andSelf().each(function(){var g=a.data(this,"selectable-item");if(g){var f=(!e.metaKey&&!e.ctrlKey)||!g.$element.hasClass("ui-selected");g.$element.removeClass(f?"ui-unselecting":"ui-selected").addClass(f?"ui-selecting":"ui-unselecting");g.unselecting=!f;g.selecting=f;g.selected=f;if(f){d._trigger("selecting",e,{selecting:g.element})}else{d._trigger("unselecting",e,{unselecting:g.element})}return false}})},_mouseDrag:function(j){var i=this;this.dragged=true;if(this.options.disabled){return}var e=this.options;var d=this.opos[0],h=this.opos[1],c=j.pageX,g=j.pageY;if(d>c){var f=c;c=d;d=f}if(h>g){var f=g;g=h;h=f}this.helper.css({left:d,top:h,width:c-d,height:g-h});this.selectees.each(function(){var k=a.data(this,"selectable-item");if(!k||k.element==i.element[0]){return}var l=false;if(e.tolerance=="touch"){l=(!(k.left>c||k.right<d||k.top>g||k.bottom<h))}else{if(e.tolerance=="fit"){l=(k.left>d&&k.right<c&&k.top>h&&k.bottom<g)}}if(l){if(k.selected){k.$element.removeClass("ui-selected");k.selected=false}if(k.unselecting){k.$element.removeClass("ui-unselecting");k.unselecting=false}if(!k.selecting){k.$element.addClass("ui-selecting");k.selecting=true;i._trigger("selecting",j,{selecting:k.element})}}else{if(k.selecting){if((j.metaKey||j.ctrlKey)&&k.startselected){k.$element.removeClass("ui-selecting");k.selecting=false;k.$element.addClass("ui-selected");k.selected=true}else{k.$element.removeClass("ui-selecting");k.selecting=false;if(k.startselected){k.$element.addClass("ui-unselecting");k.unselecting=true}i._trigger("unselecting",j,{unselecting:k.element})}}if(k.selected){if(!j.metaKey&&!j.ctrlKey&&!k.startselected){k.$element.removeClass("ui-selected");k.selected=false;k.$element.addClass("ui-unselecting");k.unselecting=true;i._trigger("unselecting",j,{unselecting:k.element})}}}});return false},_mouseStop:function(e){var d=this;this.dragged=false;var c=this.options;a(".ui-unselecting",this.element[0]).each(function(){var f=a.data(this,"selectable-item");f.$element.removeClass("ui-unselecting");f.unselecting=false;f.startselected=false;d._trigger("unselected",e,{unselected:f.element})});a(".ui-selecting",this.element[0]).each(function(){var f=a.data(this,"selectable-item");f.$element.removeClass("ui-selecting").addClass("ui-selected");f.selecting=false;f.selected=true;f.startselected=true;d._trigger("selected",e,{selected:f.element})});this._trigger("stop",e);this.helper.remove();return false}})})(jQuery);(function(a,b){a.widget("ui.sortable",a.ui.mouse,{version:"1.9.0",widgetEventPrefix:"sort",ready:false,options:{appendTo:"parent",axis:false,connectWith:false,containment:false,cursor:"auto",cursorAt:false,dropOnEmpty:true,forcePlaceholderSize:false,forceHelperSize:false,grid:false,handle:false,helper:"original",items:"> *",opacity:false,placeholder:false,revert:false,scroll:true,scrollSensitivity:20,scrollSpeed:20,scope:"default",tolerance:"intersect",zIndex:1000},_create:function(){var c=this.options;this.containerCache={};this.element.addClass("ui-sortable");this.refresh();this.floating=this.items.length?c.axis==="x"||(/left|right/).test(this.items[0].item.css("float"))||(/inline|table-cell/).test(this.items[0].item.css("display")):false;this.offset=this.element.offset();this._mouseInit();this.ready=true},_destroy:function(){this.element.removeClass("ui-sortable ui-sortable-disabled");this._mouseDestroy();for(var c=this.items.length-1;c>=0;c--){this.items[c].item.removeData(this.widgetName+"-item")}return this},_setOption:function(c,d){if(c==="disabled"){this.options[c]=d;this.widget().toggleClass("ui-sortable-disabled",!!d)}else{a.Widget.prototype._setOption.apply(this,arguments)}},_mouseCapture:function(f,g){var e=this;if(this.reverting){return false}if(this.options.disabled||this.options.type=="static"){return false}this._refreshItems(f);var d=null,c=a(f.target).parents().each(function(){if(a.data(this,e.widgetName+"-item")==e){d=a(this);return false}});if(a.data(f.target,e.widgetName+"-item")==e){d=a(f.target)}if(!d){return false}if(this.options.handle&&!g){var h=false;a(this.options.handle,d).find("*").andSelf().each(function(){if(this==f.target){h=true}});if(!h){return false}}this.currentItem=d;this._removeCurrentsFromItems();return true},_mouseStart:function(e,f,c){var g=this.options;this.currentContainer=this;this.refreshPositions();this.helper=this._createHelper(e);this._cacheHelperProportions();this._cacheMargins();this.scrollParent=this.helper.scrollParent();this.offset=this.currentItem.offset();this.offset={top:this.offset.top-this.margins.top,left:this.offset.left-this.margins.left};a.extend(this.offset,{click:{left:e.pageX-this.offset.left,top:e.pageY-this.offset.top},parent:this._getParentOffset(),relative:this._getRelativeOffset()});this.helper.css("position","absolute");this.cssPosition=this.helper.css("position");this.originalPosition=this._generatePosition(e);this.originalPageX=e.pageX;this.originalPageY=e.pageY;(g.cursorAt&&this._adjustOffsetFromHelper(g.cursorAt));this.domPosition={prev:this.currentItem.prev()[0],parent:this.currentItem.parent()[0]};if(this.helper[0]!=this.currentItem[0]){this.currentItem.hide()}this._createPlaceholder();if(g.containment){this._setContainment()}if(g.cursor){if(a("body").css("cursor")){this._storedCursor=a("body").css("cursor")}a("body").css("cursor",g.cursor)}if(g.opacity){if(this.helper.css("opacity")){this._storedOpacity=this.helper.css("opacity")}this.helper.css("opacity",g.opacity)}if(g.zIndex){if(this.helper.css("zIndex")){this._storedZIndex=this.helper.css("zIndex")}this.helper.css("zIndex",g.zIndex)}if(this.scrollParent[0]!=document&&this.scrollParent[0].tagName!="HTML"){this.overflowOffset=this.scrollParent.offset()}this._trigger("start",e,this._uiHash());if(!this._preserveHelperProportions){this._cacheHelperProportions()}if(!c){for(var d=this.containers.length-1;d>=0;d--){this.containers[d]._trigger("activate",e,this._uiHash(this))}}if(a.ui.ddmanager){a.ui.ddmanager.current=this}if(a.ui.ddmanager&&!g.dropBehaviour){a.ui.ddmanager.prepareOffsets(this,e)}this.dragging=true;this.helper.addClass("ui-sortable-helper");this._mouseDrag(e);return true},_mouseDrag:function(g){this.position=this._generatePosition(g);this.positionAbs=this._convertPositionTo("absolute");if(!this.lastPositionAbs){this.lastPositionAbs=this.positionAbs}if(this.options.scroll){var h=this.options,c=false;if(this.scrollParent[0]!=document&&this.scrollParent[0].tagName!="HTML"){if((this.overflowOffset.top+this.scrollParent[0].offsetHeight)-g.pageY<h.scrollSensitivity){this.scrollParent[0].scrollTop=c=this.scrollParent[0].scrollTop+h.scrollSpeed}else{if(g.pageY-this.overflowOffset.top<h.scrollSensitivity){this.scrollParent[0].scrollTop=c=this.scrollParent[0].scrollTop-h.scrollSpeed}}if((this.overflowOffset.left+this.scrollParent[0].offsetWidth)-g.pageX<h.scrollSensitivity){this.scrollParent[0].scrollLeft=c=this.scrollParent[0].scrollLeft+h.scrollSpeed}else{if(g.pageX-this.overflowOffset.left<h.scrollSensitivity){this.scrollParent[0].scrollLeft=c=this.scrollParent[0].scrollLeft-h.scrollSpeed}}}else{if(g.pageY-a(document).scrollTop()<h.scrollSensitivity){c=a(document).scrollTop(a(document).scrollTop()-h.scrollSpeed)}else{if(a(window).height()-(g.pageY-a(document).scrollTop())<h.scrollSensitivity){c=a(document).scrollTop(a(document).scrollTop()+h.scrollSpeed)}}if(g.pageX-a(document).scrollLeft()<h.scrollSensitivity){c=a(document).scrollLeft(a(document).scrollLeft()-h.scrollSpeed)}else{if(a(window).width()-(g.pageX-a(document).scrollLeft())<h.scrollSensitivity){c=a(document).scrollLeft(a(document).scrollLeft()+h.scrollSpeed)}}}if(c!==false&&a.ui.ddmanager&&!h.dropBehaviour){a.ui.ddmanager.prepareOffsets(this,g)}}this.positionAbs=this._convertPositionTo("absolute");if(!this.options.axis||this.options.axis!="y"){this.helper[0].style.left=this.position.left+"px"}if(!this.options.axis||this.options.axis!="x"){this.helper[0].style.top=this.position.top+"px"}for(var e=this.items.length-1;e>=0;e--){var f=this.items[e],d=f.item[0],j=this._intersectsWithPointer(f);if(!j){continue}if(f.instance!==this.currentContainer){continue}if(d!=this.currentItem[0]&&this.placeholder[j==1?"next":"prev"]()[0]!=d&&!a.contains(this.placeholder[0],d)&&(this.options.type=="semi-dynamic"?!a.contains(this.element[0],d):true)){this.direction=j==1?"down":"up";if(this.options.tolerance=="pointer"||this._intersectsWithSides(f)){this._rearrange(g,f)}else{break}this._trigger("change",g,this._uiHash());break}}this._contactContainers(g);if(a.ui.ddmanager){a.ui.ddmanager.drag(this,g)}this._trigger("sort",g,this._uiHash());this.lastPositionAbs=this.positionAbs;return false},_mouseStop:function(d,e){if(!d){return}if(a.ui.ddmanager&&!this.options.dropBehaviour){a.ui.ddmanager.drop(this,d)}if(this.options.revert){var c=this;var f=this.placeholder.offset();this.reverting=true;a(this.helper).animate({left:f.left-this.offset.parent.left-this.margins.left+(this.offsetParent[0]==document.body?0:this.offsetParent[0].scrollLeft),top:f.top-this.offset.parent.top-this.margins.top+(this.offsetParent[0]==document.body?0:this.offsetParent[0].scrollTop)},parseInt(this.options.revert,10)||500,function(){c._clear(d)})}else{this._clear(d,e)}return false},cancel:function(){if(this.dragging){this._mouseUp({target:null});if(this.options.helper=="original"){this.currentItem.css(this._storedCSS).removeClass("ui-sortable-helper")}else{this.currentItem.show()}for(var c=this.containers.length-1;c>=0;c--){this.containers[c]._trigger("deactivate",null,this._uiHash(this));if(this.containers[c].containerCache.over){this.containers[c]._trigger("out",null,this._uiHash(this));this.containers[c].containerCache.over=0}}}if(this.placeholder){if(this.placeholder[0].parentNode){this.placeholder[0].parentNode.removeChild(this.placeholder[0])}if(this.options.helper!="original"&&this.helper&&this.helper[0].parentNode){this.helper.remove()}a.extend(this,{helper:null,dragging:false,reverting:false,_noFinalSort:null});if(this.domPosition.prev){a(this.domPosition.prev).after(this.currentItem)}else{a(this.domPosition.parent).prepend(this.currentItem)}}return this},serialize:function(e){var c=this._getItemsAsjQuery(e&&e.connected);var d=[];e=e||{};a(c).each(function(){var f=(a(e.item||this).attr(e.attribute||"id")||"").match(e.expression||(/(.+)[-=_](.+)/));if(f){d.push((e.key||f[1]+"[]")+"="+(e.key&&e.expression?f[1]:f[2]))}});if(!d.length&&e.key){d.push(e.key+"=")}return d.join("&")},toArray:function(e){var c=this._getItemsAsjQuery(e&&e.connected);var d=[];e=e||{};c.each(function(){d.push(a(e.item||this).attr(e.attribute||"id")||"")});return d},_intersectsWith:function(m){var e=this.positionAbs.left,d=e+this.helperProportions.width,k=this.positionAbs.top,j=k+this.helperProportions.height;var f=m.left,c=f+m.width,n=m.top,i=n+m.height;var o=this.offset.click.top,h=this.offset.click.left;var g=(k+o)>n&&(k+o)<i&&(e+h)>f&&(e+h)<c;if(this.options.tolerance=="pointer"||this.options.forcePointerForContainers||(this.options.tolerance!="pointer"&&this.helperProportions[this.floating?"width":"height"]>m[this.floating?"width":"height"])){return g}else{return(f<e+(this.helperProportions.width/2)&&d-(this.helperProportions.width/2)<c&&n<k+(this.helperProportions.height/2)&&j-(this.helperProportions.height/2)<i)}},_intersectsWithPointer:function(e){var f=(this.options.axis==="x")||a.ui.isOverAxis(this.positionAbs.top+this.offset.click.top,e.top,e.height),d=(this.options.axis==="y")||a.ui.isOverAxis(this.positionAbs.left+this.offset.click.left,e.left,e.width),h=f&&d,c=this._getDragVerticalDirection(),g=this._getDragHorizontalDirection();if(!h){return false}return this.floating?(((g&&g=="right")||c=="down")?2:1):(c&&(c=="down"?2:1))},_intersectsWithSides:function(f){var d=a.ui.isOverAxis(this.positionAbs.top+this.offset.click.top,f.top+(f.height/2),f.height),e=a.ui.isOverAxis(this.positionAbs.left+this.offset.click.left,f.left+(f.width/2),f.width),c=this._getDragVerticalDirection(),g=this._getDragHorizontalDirection();if(this.floating&&g){return((g=="right"&&e)||(g=="left"&&!e))}else{return c&&((c=="down"&&d)||(c=="up"&&!d))}},_getDragVerticalDirection:function(){var c=this.positionAbs.top-this.lastPositionAbs.top;return c!=0&&(c>0?"down":"up")},_getDragHorizontalDirection:function(){var c=this.positionAbs.left-this.lastPositionAbs.left;return c!=0&&(c>0?"right":"left")},refresh:function(c){this._refreshItems(c);this.refreshPositions();return this},_connectWith:function(){var c=this.options;return c.connectWith.constructor==String?[c.connectWith]:c.connectWith},_getItemsAsjQuery:function(h){var c=[];var e=[];var g=this._connectWith();if(g&&h){for(var f=g.length-1;f>=0;f--){var l=a(g[f]);for(var d=l.length-1;d>=0;d--){var k=a.data(l[d],this.widgetName);if(k&&k!=this&&!k.options.disabled){e.push([a.isFunction(k.options.items)?k.options.items.call(k.element):a(k.options.items,k.element).not(".ui-sortable-helper").not(".ui-sortable-placeholder"),k])}}}}e.push([a.isFunction(this.options.items)?this.options.items.call(this.element,null,{options:this.options,item:this.currentItem}):a(this.options.items,this.element).not(".ui-sortable-helper").not(".ui-sortable-placeholder"),this]);for(var f=e.length-1;f>=0;f--){e[f][0].each(function(){c.push(this)})}return a(c)},_removeCurrentsFromItems:function(){var e=this.currentItem.find(":data("+this.widgetName+"-item)");for(var d=0;d<this.items.length;d++){for(var c=0;c<e.length;c++){if(e[c]==this.items[d].item[0]){this.items.splice(d,1)}}}},_refreshItems:function(c){this.items=[];this.containers=[this];var k=this.items;var g=[[a.isFunction(this.options.items)?this.options.items.call(this.element[0],c,{item:this.currentItem}):a(this.options.items,this.element),this]];var m=this._connectWith();if(m&&this.ready){for(var f=m.length-1;f>=0;f--){var n=a(m[f]);for(var e=n.length-1;e>=0;e--){var h=a.data(n[e],this.widgetName);if(h&&h!=this&&!h.options.disabled){g.push([a.isFunction(h.options.items)?h.options.items.call(h.element[0],c,{item:this.currentItem}):a(h.options.items,h.element),h]);this.containers.push(h)}}}}for(var f=g.length-1;f>=0;f--){var l=g[f][1];var d=g[f][0];for(var e=0,o=d.length;e<o;e++){var p=a(d[e]);p.data(this.widgetName+"-item",l);k.push({item:p,instance:l,width:0,height:0,left:0,top:0})}}},refreshPositions:function(c){if(this.offsetParent&&this.helper){this.offset.parent=this._getParentOffset()}for(var e=this.items.length-1;e>=0;e--){var f=this.items[e];if(f.instance!=this.currentContainer&&this.currentContainer&&f.item[0]!=this.currentItem[0]){continue}var d=this.options.toleranceElement?a(this.options.toleranceElement,f.item):f.item;if(!c){f.width=d.outerWidth();f.height=d.outerHeight()}var g=d.offset();f.left=g.left;f.top=g.top}if(this.options.custom&&this.options.custom.refreshContainers){this.options.custom.refreshContainers.call(this)}else{for(var e=this.containers.length-1;e>=0;e--){var g=this.containers[e].element.offset();this.containers[e].containerCache.left=g.left;this.containers[e].containerCache.top=g.top;this.containers[e].containerCache.width=this.containers[e].element.outerWidth();this.containers[e].containerCache.height=this.containers[e].element.outerHeight()}}return this},_createPlaceholder:function(d){d=d||this;var e=d.options;if(!e.placeholder||e.placeholder.constructor==String){var c=e.placeholder;e.placeholder={element:function(){var f=a(document.createElement(d.currentItem[0].nodeName)).addClass(c||d.currentItem[0].className+" ui-sortable-placeholder").removeClass("ui-sortable-helper")[0];if(!c){f.style.visibility="hidden"}return f},update:function(f,g){if(c&&!e.forcePlaceholderSize){return}if(!g.height()){g.height(d.currentItem.innerHeight()-parseInt(d.currentItem.css("paddingTop")||0,10)-parseInt(d.currentItem.css("paddingBottom")||0,10))}if(!g.width()){g.width(d.currentItem.innerWidth()-parseInt(d.currentItem.css("paddingLeft")||0,10)-parseInt(d.currentItem.css("paddingRight")||0,10))}}}}d.placeholder=a(e.placeholder.element.call(d.element,d.currentItem));d.currentItem.after(d.placeholder);e.placeholder.update(d,d.placeholder)},_contactContainers:function(c){var e=null,l=null;for(var g=this.containers.length-1;g>=0;g--){if(a.contains(this.currentItem[0],this.containers[g].element[0])){continue}if(this._intersectsWith(this.containers[g].containerCache)){if(e&&a.contains(this.containers[g].element[0],e.element[0])){continue}e=this.containers[g];l=g}else{if(this.containers[g].containerCache.over){this.containers[g]._trigger("out",c,this._uiHash(this));this.containers[g].containerCache.over=0}}}if(!e){return}if(this.containers.length===1){this.containers[l]._trigger("over",c,this._uiHash(this));this.containers[l].containerCache.over=1}else{if(this.currentContainer!=this.containers[l]){var k=10000;var h=null;var d=this.positionAbs[this.containers[l].floating?"left":"top"];for(var f=this.items.length-1;f>=0;f--){if(!a.contains(this.containers[l].element[0],this.items[f].item[0])){continue}var m=this.containers[l].floating?this.items[f].item.offset().left:this.items[f].item.offset().top;if(Math.abs(m-d)<k){k=Math.abs(m-d);h=this.items[f];this.direction=(m-d>0)?"down":"up"}}if(!h&&!this.options.dropOnEmpty){return}this.currentContainer=this.containers[l];h?this._rearrange(c,h,null,true):this._rearrange(c,null,this.containers[l].element,true);this._trigger("change",c,this._uiHash());this.containers[l]._trigger("change",c,this._uiHash(this));this.options.placeholder.update(this.currentContainer,this.placeholder);this.containers[l]._trigger("over",c,this._uiHash(this));this.containers[l].containerCache.over=1}}},_createHelper:function(d){var e=this.options;var c=a.isFunction(e.helper)?a(e.helper.apply(this.element[0],[d,this.currentItem])):(e.helper=="clone"?this.currentItem.clone():this.currentItem);if(!c.parents("body").length){a(e.appendTo!="parent"?e.appendTo:this.currentItem[0].parentNode)[0].appendChild(c[0])}if(c[0]==this.currentItem[0]){this._storedCSS={width:this.currentItem[0].style.width,height:this.currentItem[0].style.height,position:this.currentItem.css("position"),top:this.currentItem.css("top"),left:this.currentItem.css("left")}}if(c[0].style.width==""||e.forceHelperSize){c.width(this.currentItem.width())}if(c[0].style.height==""||e.forceHelperSize){c.height(this.currentItem.height())}return c},_adjustOffsetFromHelper:function(c){if(typeof c=="string"){c=c.split(" ")}if(a.isArray(c)){c={left:+c[0],top:+c[1]||0}}if("left" in c){this.offset.click.left=c.left+this.margins.left}if("right" in c){this.offset.click.left=this.helperProportions.width-c.right+this.margins.left}if("top" in c){this.offset.click.top=c.top+this.margins.top}if("bottom" in c){this.offset.click.top=this.helperProportions.height-c.bottom+this.margins.top}},_getParentOffset:function(){this.offsetParent=this.helper.offsetParent();var c=this.offsetParent.offset();if(this.cssPosition=="absolute"&&this.scrollParent[0]!=document&&a.contains(this.scrollParent[0],this.offsetParent[0])){c.left+=this.scrollParent.scrollLeft();c.top+=this.scrollParent.scrollTop()}if((this.offsetParent[0]==document.body)||(this.offsetParent[0].tagName&&this.offsetParent[0].tagName.toLowerCase()=="html"&&a.browser.msie)){c={top:0,left:0}}return{top:c.top+(parseInt(this.offsetParent.css("borderTopWidth"),10)||0),left:c.left+(parseInt(this.offsetParent.css("borderLeftWidth"),10)||0)}},_getRelativeOffset:function(){if(this.cssPosition=="relative"){var c=this.currentItem.position();return{top:c.top-(parseInt(this.helper.css("top"),10)||0)+this.scrollParent.scrollTop(),left:c.left-(parseInt(this.helper.css("left"),10)||0)+this.scrollParent.scrollLeft()}}else{return{top:0,left:0}}},_cacheMargins:function(){this.margins={left:(parseInt(this.currentItem.css("marginLeft"),10)||0),top:(parseInt(this.currentItem.css("marginTop"),10)||0)}},_cacheHelperProportions:function(){this.helperProportions={width:this.helper.outerWidth(),height:this.helper.outerHeight()}},_setContainment:function(){var f=this.options;if(f.containment=="parent"){f.containment=this.helper[0].parentNode}if(f.containment=="document"||f.containment=="window"){this.containment=[0-this.offset.relative.left-this.offset.parent.left,0-this.offset.relative.top-this.offset.parent.top,a(f.containment=="document"?document:window).width()-this.helperProportions.width-this.margins.left,(a(f.containment=="document"?document:window).height()||document.body.parentNode.scrollHeight)-this.helperProportions.height-this.margins.top]}if(!(/^(document|window|parent)$/).test(f.containment)){var d=a(f.containment)[0];var e=a(f.containment).offset();var c=(a(d).css("overflow")!="hidden");this.containment=[e.left+(parseInt(a(d).css("borderLeftWidth"),10)||0)+(parseInt(a(d).css("paddingLeft"),10)||0)-this.margins.left,e.top+(parseInt(a(d).css("borderTopWidth"),10)||0)+(parseInt(a(d).css("paddingTop"),10)||0)-this.margins.top,e.left+(c?Math.max(d.scrollWidth,d.offsetWidth):d.offsetWidth)-(parseInt(a(d).css("borderLeftWidth"),10)||0)-(parseInt(a(d).css("paddingRight"),10)||0)-this.helperProportions.width-this.margins.left,e.top+(c?Math.max(d.scrollHeight,d.offsetHeight):d.offsetHeight)-(parseInt(a(d).css("borderTopWidth"),10)||0)-(parseInt(a(d).css("paddingBottom"),10)||0)-this.helperProportions.height-this.margins.top]}},_convertPositionTo:function(g,i){if(!i){i=this.position}var e=g=="absolute"?1:-1;var f=this.options,c=this.cssPosition=="absolute"&&!(this.scrollParent[0]!=document&&a.contains(this.scrollParent[0],this.offsetParent[0]))?this.offsetParent:this.scrollParent,h=(/(html|body)/i).test(c[0].tagName);return{top:(i.top+this.offset.relative.top*e+this.offset.parent.top*e-((this.cssPosition=="fixed"?-this.scrollParent.scrollTop():(h?0:c.scrollTop()))*e)),left:(i.left+this.offset.relative.left*e+this.offset.parent.left*e-((this.cssPosition=="fixed"?-this.scrollParent.scrollLeft():h?0:c.scrollLeft())*e))}},_generatePosition:function(f){var i=this.options,c=this.cssPosition=="absolute"&&!(this.scrollParent[0]!=document&&a.contains(this.scrollParent[0],this.offsetParent[0]))?this.offsetParent:this.scrollParent,j=(/(html|body)/i).test(c[0].tagName);if(this.cssPosition=="relative"&&!(this.scrollParent[0]!=document&&this.scrollParent[0]!=this.offsetParent[0])){this.offset.relative=this._getRelativeOffset()}var e=f.pageX;var d=f.pageY;if(this.originalPosition){if(this.containment){if(f.pageX-this.offset.click.left<this.containment[0]){e=this.containment[0]+this.offset.click.left}if(f.pageY-this.offset.click.top<this.containment[1]){d=this.containment[1]+this.offset.click.top}if(f.pageX-this.offset.click.left>this.containment[2]){e=this.containment[2]+this.offset.click.left}if(f.pageY-this.offset.click.top>this.containment[3]){d=this.containment[3]+this.offset.click.top}}if(i.grid){var h=this.originalPageY+Math.round((d-this.originalPageY)/i.grid[1])*i.grid[1];d=this.containment?(!(h-this.offset.click.top<this.containment[1]||h-this.offset.click.top>this.containment[3])?h:(!(h-this.offset.click.top<this.containment[1])?h-i.grid[1]:h+i.grid[1])):h;var g=this.originalPageX+Math.round((e-this.originalPageX)/i.grid[0])*i.grid[0];e=this.containment?(!(g-this.offset.click.left<this.containment[0]||g-this.offset.click.left>this.containment[2])?g:(!(g-this.offset.click.left<this.containment[0])?g-i.grid[0]:g+i.grid[0])):g}}return{top:(d-this.offset.click.top-this.offset.relative.top-this.offset.parent.top+((this.cssPosition=="fixed"?-this.scrollParent.scrollTop():(j?0:c.scrollTop())))),left:(e-this.offset.click.left-this.offset.relative.left-this.offset.parent.left+((this.cssPosition=="fixed"?-this.scrollParent.scrollLeft():j?0:c.scrollLeft())))}},_rearrange:function(g,f,d,e){d?d[0].appendChild(this.placeholder[0]):f.item[0].parentNode.insertBefore(this.placeholder[0],(this.direction=="down"?f.item[0]:f.item[0].nextSibling));this.counter=this.counter?++this.counter:1;var c=this.counter;this._delay(function(){if(c==this.counter){this.refreshPositions(!e)}})},_clear:function(d,e){this.reverting=false;var f=[];if(!this._noFinalSort&&this.currentItem.parent().length){this.placeholder.before(this.currentItem)}this._noFinalSort=null;if(this.helper[0]==this.currentItem[0]){for(var c in this._storedCSS){if(this._storedCSS[c]=="auto"||this._storedCSS[c]=="static"){this._storedCSS[c]=""}}this.currentItem.css(this._storedCSS).removeClass("ui-sortable-helper")}else{this.currentItem.show()}if(this.fromOutside&&!e){f.push(function(g){this._trigger("receive",g,this._uiHash(this.fromOutside))})}if((this.fromOutside||this.domPosition.prev!=this.currentItem.prev().not(".ui-sortable-helper")[0]||this.domPosition.parent!=this.currentItem.parent()[0])&&!e){f.push(function(g){this._trigger("update",g,this._uiHash())})}if(this!==this.currentContainer){if(!e){f.push(function(g){this._trigger("remove",g,this._uiHash())});f.push((function(g){return function(h){g._trigger("receive",h,this._uiHash(this))}}).call(this,this.currentContainer));f.push((function(g){return function(h){g._trigger("update",h,this._uiHash(this))}}).call(this,this.currentContainer))}}for(var c=this.containers.length-1;c>=0;c--){if(!e){f.push((function(g){return function(h){g._trigger("deactivate",h,this._uiHash(this))}}).call(this,this.containers[c]))}if(this.containers[c].containerCache.over){f.push((function(g){return function(h){g._trigger("out",h,this._uiHash(this))}}).call(this,this.containers[c]));this.containers[c].containerCache.over=0}}if(this._storedCursor){a("body").css("cursor",this._storedCursor)}if(this._storedOpacity){this.helper.css("opacity",this._storedOpacity)}if(this._storedZIndex){this.helper.css("zIndex",this._storedZIndex=="auto"?"":this._storedZIndex)}this.dragging=false;if(this.cancelHelperRemoval){if(!e){this._trigger("beforeStop",d,this._uiHash());for(var c=0;c<f.length;c++){f[c].call(this,d)}this._trigger("stop",d,this._uiHash())}this.fromOutside=false;return false}if(!e){this._trigger("beforeStop",d,this._uiHash())}this.placeholder[0].parentNode.removeChild(this.placeholder[0]);if(this.helper[0]!=this.currentItem[0]){this.helper.remove()}this.helper=null;if(!e){for(var c=0;c<f.length;c++){f[c].call(this,d)}this._trigger("stop",d,this._uiHash())}this.fromOutside=false;return true},_trigger:function(){if(a.Widget.prototype._trigger.apply(this,arguments)===false){this.cancel()}},_uiHash:function(c){var d=c||this;return{helper:d.helper,placeholder:d.placeholder||a([]),position:d.position,originalPosition:d.originalPosition,offset:d.positionAbs,item:d.currentItem,sender:c?c.element:null}}})})(jQuery);(jQuery.effects||(function(b,d){var a=b.uiBackCompat!==false,c="ui-effects-";b.effects={effect:{}};
+* Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.position.js, jquery.ui.draggable.js, jquery.ui.droppable.js, jquery.ui.sortable.js, jquery.ui.autocomplete.js, jquery.ui.menu.js, jquery.ui.tabs.js, jquery.ui.effect.js, jquery.ui.effect-blind.js, jquery.ui.effect-fade.js, jquery.ui.effect-fold.js, jquery.ui.effect-pulsate.js, jquery.ui.effect-scale.js, jquery.ui.effect-slide.js
+* Copyright (c) 2012 jQuery Foundation and other contributors Licensed MIT */
+
+(function( $, undefined ) {
+
+var uuid = 0,
+    runiqueId = /^ui-id-\d+$/;
+
+// prevent duplicate loading
+// this is only a problem because we proxy existing functions
+// and we don't want to double proxy them
+$.ui = $.ui || {};
+if ( $.ui.version ) {
+    return;
+}
+
+$.extend( $.ui, {
+    version: "1.9.1",
+
+    keyCode: {
+        BACKSPACE: 8,
+        COMMA: 188,
+        DELETE: 46,
+        DOWN: 40,
+        END: 35,
+        ENTER: 13,
+        ESCAPE: 27,
+        HOME: 36,
+        LEFT: 37,
+        NUMPAD_ADD: 107,
+        NUMPAD_DECIMAL: 110,
+        NUMPAD_DIVIDE: 111,
+        NUMPAD_ENTER: 108,
+        NUMPAD_MULTIPLY: 106,
+        NUMPAD_SUBTRACT: 109,
+        PAGE_DOWN: 34,
+        PAGE_UP: 33,
+        PERIOD: 190,
+        RIGHT: 39,
+        SPACE: 32,
+        TAB: 9,
+        UP: 38
+    }
+});
+
+// plugins
+$.fn.extend({
+    _focus: $.fn.focus,
+    focus: function( delay, fn ) {
+        return typeof delay === "number" ?
+            this.each(function() {
+                var elem = this;
+                setTimeout(function() {
+                    $( elem ).focus();
+                    if ( fn ) {
+                        fn.call( elem );
+                    }
+                }, delay );
+            }) :
+            this._focus.apply( this, arguments );
+    },
+
+    scrollParent: function() {
+        var scrollParent;
+        if (($.ui.ie && (/(static|relative)/).test(this.css('position'))) || (/absolute/).test(this.css('position'))) {
+            scrollParent = this.parents().filter(function() {
+                return (/(relative|absolute|fixed)/).test($.css(this,'position')) && (/(auto|scroll)/).test($.css(this,'overflow')+$.css(this,'overflow-y')+$.css(this,'overflow-x'));
+            }).eq(0);
+        } else {
+            scrollParent = this.parents().filter(function() {
+                return (/(auto|scroll)/).test($.css(this,'overflow')+$.css(this,'overflow-y')+$.css(this,'overflow-x'));
+            }).eq(0);
+        }
+
+        return (/fixed/).test(this.css('position')) || !scrollParent.length ? $(document) : scrollParent;
+    },
+
+    zIndex: function( zIndex ) {
+        if ( zIndex !== undefined ) {
+            return this.css( "zIndex", zIndex );
+        }
+
+        if ( this.length ) {
+            var elem = $( this[ 0 ] ), position, value;
+            while ( elem.length && elem[ 0 ] !== document ) {
+                // Ignore z-index if position is set to a value where z-index is ignored by the browser
+                // This makes behavior of this function consistent across browsers
+                // WebKit always returns auto if the element is positioned
+                position = elem.css( "position" );
+                if ( position === "absolute" || position === "relative" || position === "fixed" ) {
+                    // IE returns 0 when zIndex is not specified
+                    // other browsers return a string
+                    // we ignore the case of nested elements with an explicit value of 0
+                    // <div style="z-index: -10;"><div style="z-index: 0;"></div></div>
+                    value = parseInt( elem.css( "zIndex" ), 10 );
+                    if ( !isNaN( value ) && value !== 0 ) {
+                        return value;
+                    }
+                }
+                elem = elem.parent();
+            }
+        }
+
+        return 0;
+    },
+
+    uniqueId: function() {
+        return this.each(function() {
+            if ( !this.id ) {
+                this.id = "ui-id-" + (++uuid);
+            }
+        });
+    },
+
+    removeUniqueId: function() {
+        return this.each(function() {
+            if ( runiqueId.test( this.id ) ) {
+                $( this ).removeAttr( "id" );
+            }
+        });
+    }
+});
+
+// support: jQuery <1.8
+if ( !$( "<a>" ).outerWidth( 1 ).jquery ) {
+    $.each( [ "Width", "Height" ], function( i, name ) {
+        var side = name === "Width" ? [ "Left", "Right" ] : [ "Top", "Bottom" ],
+            type = name.toLowerCase(),
+            orig = {
+                innerWidth: $.fn.innerWidth,
+                innerHeight: $.fn.innerHeight,
+                outerWidth: $.fn.outerWidth,
+                outerHeight: $.fn.outerHeight
+            };
+
+        function reduce( elem, size, border, margin ) {
+            $.each( side, function() {
+                size -= parseFloat( $.css( elem, "padding" + this ) ) || 0;
+                if ( border ) {
+                    size -= parseFloat( $.css( elem, "border" + this + "Width" ) ) || 0;
+                }
+                if ( margin ) {
+                    size -= parseFloat( $.css( elem, "margin" + this ) ) || 0;
+                }
+            });
+            return size;
+        }
+
+        $.fn[ "inner" + name ] = function( size ) {
+            if ( size === undefined ) {
+                return orig[ "inner" + name ].call( this );
+            }
+
+            return this.each(function() {
+                $( this ).css( type, reduce( this, size ) + "px" );
+            });
+        };
+
+        $.fn[ "outer" + name] = function( size, margin ) {
+            if ( typeof size !== "number" ) {
+                return orig[ "outer" + name ].call( this, size );
+            }
+
+            return this.each(function() {
+                $( this).css( type, reduce( this, size, true, margin ) + "px" );
+            });
+        };
+    });
+}
+
+// selectors
+function focusable( element, isTabIndexNotNaN ) {
+    var map, mapName, img,
+        nodeName = element.nodeName.toLowerCase();
+    if ( "area" === nodeName ) {
+        map = element.parentNode;
+        mapName = map.name;
+        if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+            return false;
+        }
+        img = $( "img[usemap=#" + mapName + "]" )[0];
+        return !!img && visible( img );
+    }
+    return ( /input|select|textarea|button|object/.test( nodeName ) ?
+        !element.disabled :
+        "a" === nodeName ?
+            element.href || isTabIndexNotNaN :
+            isTabIndexNotNaN) &&
+        // the element and all of its ancestors must be visible
+        visible( element );
+}
+
+function visible( element ) {
+    return $.expr.filters.visible( element ) &&
+        !$( element ).parents().andSelf().filter(function() {
+            return $.css( this, "visibility" ) === "hidden";
+        }).length;
+}
+
+$.extend( $.expr[ ":" ], {
+    data: $.expr.createPseudo ?
+        $.expr.createPseudo(function( dataName ) {
+            return function( elem ) {
+                return !!$.data( elem, dataName );
+            };
+        }) :
+        // support: jQuery <1.8
+        function( elem, i, match ) {
+            return !!$.data( elem, match[ 3 ] );
+        },
+
+    focusable: function( element ) {
+        return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+    },
+
+    tabbable: function( element ) {
+        var tabIndex = $.attr( element, "tabindex" ),
+            isTabIndexNaN = isNaN( tabIndex );
+        return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !isTabIndexNaN );
+    }
+});
+
+// support
+$(function() {
+    var body = document.body,
+        div = body.appendChild( div = document.createElement( "div" ) );
+
+    // access offsetHeight before setting the style to prevent a layout bug
+    // in IE 9 which causes the element to continue to take up space even
+    // after it is removed from the DOM (#8026)
+    div.offsetHeight;
+
+    $.extend( div.style, {
+        minHeight: "100px",
+        height: "auto",
+        padding: 0,
+        borderWidth: 0
+    });
+
+    $.support.minHeight = div.offsetHeight === 100;
+    $.support.selectstart = "onselectstart" in div;
+
+    // set display to none to avoid a layout bug in IE
+    // http://dev.jquery.com/ticket/4014
+    body.removeChild( div ).style.display = "none";
+});
+
+
+
+
+
+// deprecated
+
+(function() {
+    var uaMatch = /msie ([\w.]+)/.exec( navigator.userAgent.toLowerCase() ) || [];
+    $.ui.ie = uaMatch.length ? true : false;
+    $.ui.ie6 = parseFloat( uaMatch[ 1 ], 10 ) === 6;
+})();
+
+$.fn.extend({
+    disableSelection: function() {
+        return this.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
+            ".ui-disableSelection", function( event ) {
+                event.preventDefault();
+            });
+    },
+
+    enableSelection: function() {
+        return this.unbind( ".ui-disableSelection" );
+    }
+});
+
+$.extend( $.ui, {
+    // $.ui.plugin is deprecated.  Use the proxy pattern instead.
+    plugin: {
+        add: function( module, option, set ) {
+            var i,
+                proto = $.ui[ module ].prototype;
+            for ( i in set ) {
+                proto.plugins[ i ] = proto.plugins[ i ] || [];
+                proto.plugins[ i ].push( [ option, set[ i ] ] );
+            }
+        },
+        call: function( instance, name, args ) {
+            var i,
+                set = instance.plugins[ name ];
+            if ( !set || !instance.element[ 0 ].parentNode || instance.element[ 0 ].parentNode.nodeType === 11 ) {
+                return;
+            }
+
+            for ( i = 0; i < set.length; i++ ) {
+                if ( instance.options[ set[ i ][ 0 ] ] ) {
+                    set[ i ][ 1 ].apply( instance.element, args );
+                }
+            }
+        }
+    },
+
+    contains: $.contains,
+
+    // only used by resizable
+    hasScroll: function( el, a ) {
+
+        //If overflow is hidden, the element might have extra content, but the user wants to hide it
+        if ( $( el ).css( "overflow" ) === "hidden") {
+            return false;
+        }
+
+        var scroll = ( a && a === "left" ) ? "scrollLeft" : "scrollTop",
+            has = false;
+
+        if ( el[ scroll ] > 0 ) {
+            return true;
+        }
+
+        // TODO: determine which cases actually cause this to happen
+        // if the element doesn't have the scroll set, see if it's possible to
+        // set the scroll
+        el[ scroll ] = 1;
+        has = ( el[ scroll ] > 0 );
+        el[ scroll ] = 0;
+        return has;
+    },
+
+    // these are odd functions, fix the API or move into individual plugins
+    isOverAxis: function( x, reference, size ) {
+        //Determines when x coordinate is over "b" element axis
+        return ( x > reference ) && ( x < ( reference + size ) );
+    },
+    isOver: function( y, x, top, left, height, width ) {
+        //Determines when x, y coordinates is over "b" element
+        return $.ui.isOverAxis( y, top, height ) && $.ui.isOverAxis( x, left, width );
+    }
+});
+
+})( jQuery );
+(function( $, undefined ) {
+
+var uuid = 0,
+    slice = Array.prototype.slice,
+    _cleanData = $.cleanData;
+$.cleanData = function( elems ) {
+    for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
+        try {
+            $( elem ).triggerHandler( "remove" );
+        // http://bugs.jquery.com/ticket/8235
+        } catch( e ) {}
+    }
+    _cleanData( elems );
+};
+
+$.widget = function( name, base, prototype ) {
+    var fullName, existingConstructor, constructor, basePrototype,
+        namespace = name.split( "." )[ 0 ];
+
+    name = name.split( "." )[ 1 ];
+    fullName = namespace + "-" + name;
+
+    if ( !prototype ) {
+        prototype = base;
+        base = $.Widget;
+    }
+
+    // create selector for plugin
+    $.expr[ ":" ][ fullName.toLowerCase() ] = function( elem ) {
+        return !!$.data( elem, fullName );
+    };
+
+    $[ namespace ] = $[ namespace ] || {};
+    existingConstructor = $[ namespace ][ name ];
+    constructor = $[ namespace ][ name ] = function( options, element ) {
+        // allow instantiation without "new" keyword
+        if ( !this._createWidget ) {
+            return new constructor( options, element );
+        }
+
+        // allow instantiation without initializing for simple inheritance
+        // must use "new" keyword (the code above always passes args)
+        if ( arguments.length ) {
+            this._createWidget( options, element );
+        }
+    };
+    // extend with the existing constructor to carry over any static properties
+    $.extend( constructor, existingConstructor, {
+        version: prototype.version,
+        // copy the object used to create the prototype in case we need to
+        // redefine the widget later
+        _proto: $.extend( {}, prototype ),
+        // track widgets that inherit from this widget in case this widget is
+        // redefined after a widget inherits from it
+        _childConstructors: []
+    });
+
+    basePrototype = new base();
+    // we need to make the options hash a property directly on the new instance
+    // otherwise we'll modify the options hash on the prototype that we're
+    // inheriting from
+    basePrototype.options = $.widget.extend( {}, basePrototype.options );
+    $.each( prototype, function( prop, value ) {
+        if ( $.isFunction( value ) ) {
+            prototype[ prop ] = (function() {
+                var _super = function() {
+                        return base.prototype[ prop ].apply( this, arguments );
+                    },
+                    _superApply = function( args ) {
+                        return base.prototype[ prop ].apply( this, args );
+                    };
+                return function() {
+                    var __super = this._super,
+                        __superApply = this._superApply,
+                        returnValue;
+
+                    this._super = _super;
+                    this._superApply = _superApply;
+
+                    returnValue = value.apply( this, arguments );
+
+                    this._super = __super;
+                    this._superApply = __superApply;
+
+                    return returnValue;
+                };
+            })();
+        }
+    });
+    constructor.prototype = $.widget.extend( basePrototype, {
+        // TODO: remove support for widgetEventPrefix
+        // always use the name + a colon as the prefix, e.g., draggable:start
+        // don't prefix for widgets that aren't DOM-based
+        widgetEventPrefix: basePrototype.widgetEventPrefix || name
+    }, prototype, {
+        constructor: constructor,
+        namespace: namespace,
+        widgetName: name,
+        // TODO remove widgetBaseClass, see #8155
+        widgetBaseClass: fullName,
+        widgetFullName: fullName
+    });
+
+    // If this widget is being redefined then we need to find all widgets that
+    // are inheriting from it and redefine all of them so that they inherit from
+    // the new version of this widget. We're essentially trying to replace one
+    // level in the prototype chain.
+    if ( existingConstructor ) {
+        $.each( existingConstructor._childConstructors, function( i, child ) {
+            var childPrototype = child.prototype;
+
+            // redefine the child widget using the same prototype that was
+            // originally used, but inherit from the new version of the base
+            $.widget( childPrototype.namespace + "." + childPrototype.widgetName, constructor, child._proto );
+        });
+        // remove the list of existing child constructors from the old constructor
+        // so the old child constructors can be garbage collected
+        delete existingConstructor._childConstructors;
+    } else {
+        base._childConstructors.push( constructor );
+    }
+
+    $.widget.bridge( name, constructor );
+};
+
+$.widget.extend = function( target ) {
+    var input = slice.call( arguments, 1 ),
+        inputIndex = 0,
+        inputLength = input.length,
+        key,
+        value;
+    for ( ; inputIndex < inputLength; inputIndex++ ) {
+        for ( key in input[ inputIndex ] ) {
+            value = input[ inputIndex ][ key ];
+            if ( input[ inputIndex ].hasOwnProperty( key ) && value !== undefined ) {
+                // Clone objects
+                if ( $.isPlainObject( value ) ) {
+                    target[ key ] = $.isPlainObject( target[ key ] ) ?
+                        $.widget.extend( {}, target[ key ], value ) :
+                        // Don't extend strings, arrays, etc. with objects
+                        $.widget.extend( {}, value );
+                // Copy everything else by reference
+                } else {
+                    target[ key ] = value;
+                }
+            }
+        }
+    }
+    return target;
+};
+
+$.widget.bridge = function( name, object ) {
+    var fullName = object.prototype.widgetFullName;
+    $.fn[ name ] = function( options ) {
+        var isMethodCall = typeof options === "string",
+            args = slice.call( arguments, 1 ),
+            returnValue = this;
+
+        // allow multiple hashes to be passed on init
+        options = !isMethodCall && args.length ?
+            $.widget.extend.apply( null, [ options ].concat(args) ) :
+            options;
+
+        if ( isMethodCall ) {
+            this.each(function() {
+                var methodValue,
+                    instance = $.data( this, fullName );
+                if ( !instance ) {
+                    return $.error( "cannot call methods on " + name + " prior to initialization; " +
+                        "attempted to call method '" + options + "'" );
+                }
+                if ( !$.isFunction( instance[options] ) || options.charAt( 0 ) === "_" ) {
+                    return $.error( "no such method '" + options + "' for " + name + " widget instance" );
+                }
+                methodValue = instance[ options ].apply( instance, args );
+                if ( methodValue !== instance && methodValue !== undefined ) {
+                    returnValue = methodValue && methodValue.jquery ?
+                        returnValue.pushStack( methodValue.get() ) :
+                        methodValue;
+                    return false;
+                }
+            });
+        } else {
+            this.each(function() {
+                var instance = $.data( this, fullName );
+                if ( instance ) {
+                    instance.option( options || {} )._init();
+                } else {
+                    new object( options, this );
+                }
+            });
+        }
+
+        return returnValue;
+    };
+};
+
+$.Widget = function( /* options, element */ ) {};
+$.Widget._childConstructors = [];
+
+$.Widget.prototype = {
+    widgetName: "widget",
+    widgetEventPrefix: "",
+    defaultElement: "<div>",
+    options: {
+        disabled: false,
+
+        // callbacks
+        create: null
+    },
+    _createWidget: function( options, element ) {
+        element = $( element || this.defaultElement || this )[ 0 ];
+        this.element = $( element );
+        this.uuid = uuid++;
+        this.eventNamespace = "." + this.widgetName + this.uuid;
+        this.options = $.widget.extend( {},
+            this.options,
+            this._getCreateOptions(),
+            options );
+
+        this.bindings = $();
+        this.hoverable = $();
+        this.focusable = $();
+
+        if ( element !== this ) {
+            // 1.9 BC for #7810
+            // TODO remove dual storage
+            $.data( element, this.widgetName, this );
+            $.data( element, this.widgetFullName, this );
+            this._on( this.element, {
+                remove: function( event ) {
+                    if ( event.target === element ) {
+                        this.destroy();
+                    }
+                }
+            });
+            this.document = $( element.style ?
+                // element within the document
+                element.ownerDocument :
+                // element is window or document
+                element.document || element );
+            this.window = $( this.document[0].defaultView || this.document[0].parentWindow );
+        }
+
+        this._create();
+        this._trigger( "create", null, this._getCreateEventData() );
+        this._init();
+    },
+    _getCreateOptions: $.noop,
+    _getCreateEventData: $.noop,
+    _create: $.noop,
+    _init: $.noop,
+
+    destroy: function() {
+        this._destroy();
+        // we can probably remove the unbind calls in 2.0
+        // all event bindings should go through this._on()
+        this.element
+            .unbind( this.eventNamespace )
+            // 1.9 BC for #7810
+            // TODO remove dual storage
+            .removeData( this.widgetName )
+            .removeData( this.widgetFullName )
+            // support: jquery <1.6.3
+            // http://bugs.jquery.com/ticket/9413
+            .removeData( $.camelCase( this.widgetFullName ) );
+        this.widget()
+            .unbind( this.eventNamespace )
+            .removeAttr( "aria-disabled" )
+            .removeClass(
+                this.widgetFullName + "-disabled " +
+                "ui-state-disabled" );
+
+        // clean up events and states
+        this.bindings.unbind( this.eventNamespace );
+        this.hoverable.removeClass( "ui-state-hover" );
+        this.focusable.removeClass( "ui-state-focus" );
+    },
+    _destroy: $.noop,
+
+    widget: function() {
+        return this.element;
+    },
+
+    option: function( key, value ) {
+        var options = key,
+            parts,
+            curOption,
+            i;
+
+        if ( arguments.length === 0 ) {
+            // don't return a reference to the internal hash
+            return $.widget.extend( {}, this.options );
+        }
+
+        if ( typeof key === "string" ) {
+            // handle nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
+            options = {};
+            parts = key.split( "." );
+            key = parts.shift();
+            if ( parts.length ) {
+                curOption = options[ key ] = $.widget.extend( {}, this.options[ key ] );
+                for ( i = 0; i < parts.length - 1; i++ ) {
+                    curOption[ parts[ i ] ] = curOption[ parts[ i ] ] || {};
+                    curOption = curOption[ parts[ i ] ];
+                }
+                key = parts.pop();
+                if ( value === undefined ) {
+                    return curOption[ key ] === undefined ? null : curOption[ key ];
+                }
+                curOption[ key ] = value;
+            } else {
+                if ( value === undefined ) {
+                    return this.options[ key ] === undefined ? null : this.options[ key ];
+                }
+                options[ key ] = value;
+            }
+        }
+
+        this._setOptions( options );
+
+        return this;
+    },
+    _setOptions: function( options ) {
+        var key;
+
+        for ( key in options ) {
+            this._setOption( key, options[ key ] );
+        }
+
+        return this;
+    },
+    _setOption: function( key, value ) {
+        this.options[ key ] = value;
+
+        if ( key === "disabled" ) {
+            this.widget()
+                .toggleClass( this.widgetFullName + "-disabled ui-state-disabled", !!value )
+                .attr( "aria-disabled", value );
+            this.hoverable.removeClass( "ui-state-hover" );
+            this.focusable.removeClass( "ui-state-focus" );
+        }
+
+        return this;
+    },
+
+    enable: function() {
+        return this._setOption( "disabled", false );
+    },
+    disable: function() {
+        return this._setOption( "disabled", true );
+    },
+
+    _on: function( element, handlers ) {
+        var delegateElement,
+            instance = this;
+        // no element argument, shuffle and use this.element
+        if ( !handlers ) {
+            handlers = element;
+            element = this.element;
+            delegateElement = this.widget();
+        } else {
+            // accept selectors, DOM elements
+            element = delegateElement = $( element );
+            this.bindings = this.bindings.add( element );
+        }
+
+        $.each( handlers, function( event, handler ) {
+            function handlerProxy() {
+                // allow widgets to customize the disabled handling
+                // - disabled as an array instead of boolean
+                // - disabled class as method for disabling individual parts
+                if ( instance.options.disabled === true ||
+                        $( this ).hasClass( "ui-state-disabled" ) ) {
+                    return;
+                }
+                return ( typeof handler === "string" ? instance[ handler ] : handler )
+                    .apply( instance, arguments );
+            }
+
+            // copy the guid so direct unbinding works
+            if ( typeof handler !== "string" ) {
+                handlerProxy.guid = handler.guid =
+                    handler.guid || handlerProxy.guid || $.guid++;
+            }
+
+            var match = event.match( /^(\w+)\s*(.*)$/ ),
+                eventName = match[1] + instance.eventNamespace,
+                selector = match[2];
+            if ( selector ) {
+                delegateElement.delegate( selector, eventName, handlerProxy );
+            } else {
+                element.bind( eventName, handlerProxy );
+            }
+        });
+    },
+
+    _off: function( element, eventName ) {
+        eventName = (eventName || "").split( " " ).join( this.eventNamespace + " " ) + this.eventNamespace;
+        element.unbind( eventName ).undelegate( eventName );
+    },
+
+    _delay: function( handler, delay ) {
+        function handlerProxy() {
+            return ( typeof handler === "string" ? instance[ handler ] : handler )
+                .apply( instance, arguments );
+        }
+        var instance = this;
+        return setTimeout( handlerProxy, delay || 0 );
+    },
+
+    _hoverable: function( element ) {
+        this.hoverable = this.hoverable.add( element );
+        this._on( element, {
+            mouseenter: function( event ) {
+                $( event.currentTarget ).addClass( "ui-state-hover" );
+            },
+            mouseleave: function( event ) {
+                $( event.currentTarget ).removeClass( "ui-state-hover" );
+            }
+        });
+    },
+
+    _focusable: function( element ) {
+        this.focusable = this.focusable.add( element );
+        this._on( element, {
+            focusin: function( event ) {
+                $( event.currentTarget ).addClass( "ui-state-focus" );
+            },
+            focusout: function( event ) {
+                $( event.currentTarget ).removeClass( "ui-state-focus" );
+            }
+        });
+    },
+
+    _trigger: function( type, event, data ) {
+        var prop, orig,
+            callback = this.options[ type ];
+
+        data = data || {};
+        event = $.Event( event );
+        event.type = ( type === this.widgetEventPrefix ?
+            type :
+            this.widgetEventPrefix + type ).toLowerCase();
+        // the original event may come from any element
+        // so we need to reset the target on the new event
+        event.target = this.element[ 0 ];
+
+        // copy original event properties over to the new event
+        orig = event.originalEvent;
+        if ( orig ) {
+            for ( prop in orig ) {
+                if ( !( prop in event ) ) {
+                    event[ prop ] = orig[ prop ];
+                }
+            }
+        }
+
+        this.element.trigger( event, data );
+        return !( $.isFunction( callback ) &&
+            callback.apply( this.element[0], [ event ].concat( data ) ) === false ||
+            event.isDefaultPrevented() );
+    }
+};
+
+$.each( { show: "fadeIn", hide: "fadeOut" }, function( method, defaultEffect ) {
+    $.Widget.prototype[ "_" + method ] = function( element, options, callback ) {
+        if ( typeof options === "string" ) {
+            options = { effect: options };
+        }
+        var hasOptions,
+            effectName = !options ?
+                method :
+                options === true || typeof options === "number" ?
+                    defaultEffect :
+                    options.effect || defaultEffect;
+        options = options || {};
+        if ( typeof options === "number" ) {
+            options = { duration: options };
+        }
+        hasOptions = !$.isEmptyObject( options );
+        options.complete = callback;
+        if ( options.delay ) {
+            element.delay( options.delay );
+        }
+        if ( hasOptions && $.effects && ( $.effects.effect[ effectName ] || $.uiBackCompat !== false && $.effects[ effectName ] ) ) {
+            element[ method ]( options );
+        } else if ( effectName !== method && element[ effectName ] ) {
+            element[ effectName ]( options.duration, options.easing, callback );
+        } else {
+            element.queue(function( next ) {
+                $( this )[ method ]();
+                if ( callback ) {
+                    callback.call( element[ 0 ] );
+                }
+                next();
+            });
+        }
+    };
+});
+
+// DEPRECATED
+if ( $.uiBackCompat !== false ) {
+    $.Widget.prototype._getCreateOptions = function() {
+        return $.metadata && $.metadata.get( this.element[0] )[ this.widgetName ];
+    };
+}
+
+})( jQuery );
+(function( $, undefined ) {
+
+var mouseHandled = false;
+$( document ).mouseup( function( e ) {
+    mouseHandled = false;
+});
+
+$.widget("ui.mouse", {
+    version: "1.9.1",
+    options: {
+        cancel: 'input,textarea,button,select,option',
+        distance: 1,
+        delay: 0
+    },
+    _mouseInit: function() {
+        var that = this;
+
+        this.element
+            .bind('mousedown.'+this.widgetName, function(event) {
+                return that._mouseDown(event);
+            })
+            .bind('click.'+this.widgetName, function(event) {
+                if (true === $.data(event.target, that.widgetName + '.preventClickEvent')) {
+                    $.removeData(event.target, that.widgetName + '.preventClickEvent');
+                    event.stopImmediatePropagation();
+                    return false;
+                }
+            });
+
+        this.started = false;
+    },
+
+    // TODO: make sure destroying one instance of mouse doesn't mess with
+    // other instances of mouse
+    _mouseDestroy: function() {
+        this.element.unbind('.'+this.widgetName);
+        if ( this._mouseMoveDelegate ) {
+            $(document)
+                .unbind('mousemove.'+this.widgetName, this._mouseMoveDelegate)
+                .unbind('mouseup.'+this.widgetName, this._mouseUpDelegate);
+        }
+    },
+
+    _mouseDown: function(event) {
+        // don't let more than one widget handle mouseStart
+        if( mouseHandled ) { return; }
+
+        // we may have missed mouseup (out of window)
+        (this._mouseStarted && this._mouseUp(event));
+
+        this._mouseDownEvent = event;
+
+        var that = this,
+            btnIsLeft = (event.which === 1),
+            // event.target.nodeName works around a bug in IE 8 with
+            // disabled inputs (#7620)
+            elIsCancel = (typeof this.options.cancel === "string" && event.target.nodeName ? $(event.target).closest(this.options.cancel).length : false);
+        if (!btnIsLeft || elIsCancel || !this._mouseCapture(event)) {
+            return true;
+        }
+
+        this.mouseDelayMet = !this.options.delay;
+        if (!this.mouseDelayMet) {
+            this._mouseDelayTimer = setTimeout(function() {
+                that.mouseDelayMet = true;
+            }, this.options.delay);
+        }
+
+        if (this._mouseDistanceMet(event) && this._mouseDelayMet(event)) {
+            this._mouseStarted = (this._mouseStart(event) !== false);
+            if (!this._mouseStarted) {
+                event.preventDefault();
+                return true;
+            }
+        }
+
+        // Click event may never have fired (Gecko & Opera)
+        if (true === $.data(event.target, this.widgetName + '.preventClickEvent')) {
+            $.removeData(event.target, this.widgetName + '.preventClickEvent');
+        }
+
+        // these delegates are required to keep context
+        this._mouseMoveDelegate = function(event) {
+            return that._mouseMove(event);
+        };
+        this._mouseUpDelegate = function(event) {
+            return that._mouseUp(event);
+        };
+        $(document)
+            .bind('mousemove.'+this.widgetName, this._mouseMoveDelegate)
+            .bind('mouseup.'+this.widgetName, this._mouseUpDelegate);
+
+        event.preventDefault();
+
+        mouseHandled = true;
+        return true;
+    },
+
+    _mouseMove: function(event) {
+        // IE mouseup check - mouseup happened when mouse was out of window
+        if ($.ui.ie && !(document.documentMode >= 9) && !event.button) {
+            return this._mouseUp(event);
+        }
+
+        if (this._mouseStarted) {
+            this._mouseDrag(event);
+            return event.preventDefault();
+        }
+
+        if (this._mouseDistanceMet(event) && this._mouseDelayMet(event)) {
+            this._mouseStarted =
+                (this._mouseStart(this._mouseDownEvent, event) !== false);
+            (this._mouseStarted ? this._mouseDrag(event) : this._mouseUp(event));
+        }
+
+        return !this._mouseStarted;
+    },
+
+    _mouseUp: function(event) {
+        $(document)
+            .unbind('mousemove.'+this.widgetName, this._mouseMoveDelegate)
+            .unbind('mouseup.'+this.widgetName, this._mouseUpDelegate);
+
+        if (this._mouseStarted) {
+            this._mouseStarted = false;
+
+            if (event.target === this._mouseDownEvent.target) {
+                $.data(event.target, this.widgetName + '.preventClickEvent', true);
+            }
+
+            this._mouseStop(event);
+        }
+
+        return false;
+    },
+
+    _mouseDistanceMet: function(event) {
+        return (Math.max(
+                Math.abs(this._mouseDownEvent.pageX - event.pageX),
+                Math.abs(this._mouseDownEvent.pageY - event.pageY)
+            ) >= this.options.distance
+        );
+    },
+
+    _mouseDelayMet: function(event) {
+        return this.mouseDelayMet;
+    },
+
+    // These are placeholder methods, to be overriden by extending plugin
+    _mouseStart: function(event) {},
+    _mouseDrag: function(event) {},
+    _mouseStop: function(event) {},
+    _mouseCapture: function(event) { return true; }
+});
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.ui = $.ui || {};
+
+var cachedScrollbarWidth,
+    max = Math.max,
+    abs = Math.abs,
+    round = Math.round,
+    rhorizontal = /left|center|right/,
+    rvertical = /top|center|bottom/,
+    roffset = /[\+\-]\d+%?/,
+    rposition = /^\w+/,
+    rpercent = /%$/,
+    _position = $.fn.position;
+
+function getOffsets( offsets, width, height ) {
+    return [
+        parseInt( offsets[ 0 ], 10 ) * ( rpercent.test( offsets[ 0 ] ) ? width / 100 : 1 ),
+        parseInt( offsets[ 1 ], 10 ) * ( rpercent.test( offsets[ 1 ] ) ? height / 100 : 1 )
+    ];
+}
+function parseCss( element, property ) {
+    return parseInt( $.css( element, property ), 10 ) || 0;
+}
+
+$.position = {
+    scrollbarWidth: function() {
+        if ( cachedScrollbarWidth !== undefined ) {
+            return cachedScrollbarWidth;
+        }
+        var w1, w2,
+            div = $( "<div style='display:block;width:50px;height:50px;overflow:hidden;'><div style='height:100px;width:auto;'></div></div>" ),
+            innerDiv = div.children()[0];
+
+        $( "body" ).append( div );
+        w1 = innerDiv.offsetWidth;
+        div.css( "overflow", "scroll" );
+
+        w2 = innerDiv.offsetWidth;
+
+        if ( w1 === w2 ) {
+            w2 = div[0].clientWidth;
+        }
+
+        div.remove();
+
+        return (cachedScrollbarWidth = w1 - w2);
+    },
+    getScrollInfo: function( within ) {
+        var overflowX = within.isWindow ? "" : within.element.css( "overflow-x" ),
+            overflowY = within.isWindow ? "" : within.element.css( "overflow-y" ),
+            hasOverflowX = overflowX === "scroll" ||
+                ( overflowX === "auto" && within.width < within.element[0].scrollWidth ),
+            hasOverflowY = overflowY === "scroll" ||
+                ( overflowY === "auto" && within.height < within.element[0].scrollHeight );
+        return {
+            width: hasOverflowX ? $.position.scrollbarWidth() : 0,
+            height: hasOverflowY ? $.position.scrollbarWidth() : 0
+        };
+    },
+    getWithinInfo: function( element ) {
+        var withinElement = $( element || window ),
+            isWindow = $.isWindow( withinElement[0] );
+        return {
+            element: withinElement,
+            isWindow: isWindow,
+            offset: withinElement.offset() || { left: 0, top: 0 },
+            scrollLeft: withinElement.scrollLeft(),
+            scrollTop: withinElement.scrollTop(),
+            width: isWindow ? withinElement.width() : withinElement.outerWidth(),
+            height: isWindow ? withinElement.height() : withinElement.outerHeight()
+        };
+    }
+};
+
+$.fn.position = function( options ) {
+    if ( !options || !options.of ) {
+        return _position.apply( this, arguments );
+    }
+
+    // make a copy, we don't want to modify arguments
+    options = $.extend( {}, options );
+
+    var atOffset, targetWidth, targetHeight, targetOffset, basePosition,
+        target = $( options.of ),
+        within = $.position.getWithinInfo( options.within ),
+        scrollInfo = $.position.getScrollInfo( within ),
+        targetElem = target[0],
+        collision = ( options.collision || "flip" ).split( " " ),
+        offsets = {};
+
+    if ( targetElem.nodeType === 9 ) {
+        targetWidth = target.width();
+        targetHeight = target.height();
+        targetOffset = { top: 0, left: 0 };
+    } else if ( $.isWindow( targetElem ) ) {
+        targetWidth = target.width();
+        targetHeight = target.height();
+        targetOffset = { top: target.scrollTop(), left: target.scrollLeft() };
+    } else if ( targetElem.preventDefault ) {
+        // force left top to allow flipping
+        options.at = "left top";
+        targetWidth = targetHeight = 0;
+        targetOffset = { top: targetElem.pageY, left: targetElem.pageX };
+    } else {
+        targetWidth = target.outerWidth();
+        targetHeight = target.outerHeight();
+        targetOffset = target.offset();
+    }
+    // clone to reuse original targetOffset later
+    basePosition = $.extend( {}, targetOffset );
+
+    // force my and at to have valid horizontal and vertical positions
+    // if a value is missing or invalid, it will be converted to center
+    $.each( [ "my", "at" ], function() {
+        var pos = ( options[ this ] || "" ).split( " " ),
+            horizontalOffset,
+            verticalOffset;
+
+        if ( pos.length === 1) {
+            pos = rhorizontal.test( pos[ 0 ] ) ?
+                pos.concat( [ "center" ] ) :
+                rvertical.test( pos[ 0 ] ) ?
+                    [ "center" ].concat( pos ) :
+                    [ "center", "center" ];
+        }
+        pos[ 0 ] = rhorizontal.test( pos[ 0 ] ) ? pos[ 0 ] : "center";
+        pos[ 1 ] = rvertical.test( pos[ 1 ] ) ? pos[ 1 ] : "center";
+
+        // calculate offsets
+        horizontalOffset = roffset.exec( pos[ 0 ] );
+        verticalOffset = roffset.exec( pos[ 1 ] );
+        offsets[ this ] = [
+            horizontalOffset ? horizontalOffset[ 0 ] : 0,
+            verticalOffset ? verticalOffset[ 0 ] : 0
+        ];
+
+        // reduce to just the positions without the offsets
+        options[ this ] = [
+            rposition.exec( pos[ 0 ] )[ 0 ],
+            rposition.exec( pos[ 1 ] )[ 0 ]
+        ];
+    });
+
+    // normalize collision option
+    if ( collision.length === 1 ) {
+        collision[ 1 ] = collision[ 0 ];
+    }
+
+    if ( options.at[ 0 ] === "right" ) {
+        basePosition.left += targetWidth;
+    } else if ( options.at[ 0 ] === "center" ) {
+        basePosition.left += targetWidth / 2;
+    }
+
+    if ( options.at[ 1 ] === "bottom" ) {
+        basePosition.top += targetHeight;
+    } else if ( options.at[ 1 ] === "center" ) {
+        basePosition.top += targetHeight / 2;
+    }
+
+    atOffset = getOffsets( offsets.at, targetWidth, targetHeight );
+    basePosition.left += atOffset[ 0 ];
+    basePosition.top += atOffset[ 1 ];
+
+    return this.each(function() {
+        var collisionPosition, using,
+            elem = $( this ),
+            elemWidth = elem.outerWidth(),
+            elemHeight = elem.outerHeight(),
+            marginLeft = parseCss( this, "marginLeft" ),
+            marginTop = parseCss( this, "marginTop" ),
+            collisionWidth = elemWidth + marginLeft + parseCss( this, "marginRight" ) + scrollInfo.width,
+            collisionHeight = elemHeight + marginTop + parseCss( this, "marginBottom" ) + scrollInfo.height,
+            position = $.extend( {}, basePosition ),
+            myOffset = getOffsets( offsets.my, elem.outerWidth(), elem.outerHeight() );
+
+        if ( options.my[ 0 ] === "right" ) {
+            position.left -= elemWidth;
+        } else if ( options.my[ 0 ] === "center" ) {
+            position.left -= elemWidth / 2;
+        }
+
+        if ( options.my[ 1 ] === "bottom" ) {
+            position.top -= elemHeight;
+        } else if ( options.my[ 1 ] === "center" ) {
+            position.top -= elemHeight / 2;
+        }
+
+        position.left += myOffset[ 0 ];
+        position.top += myOffset[ 1 ];
+
+        // if the browser doesn't support fractions, then round for consistent results
+        if ( !$.support.offsetFractions ) {
+            position.left = round( position.left );
+            position.top = round( position.top );
+        }
+
+        collisionPosition = {
+            marginLeft: marginLeft,
+            marginTop: marginTop
+        };
+
+        $.each( [ "left", "top" ], function( i, dir ) {
+            if ( $.ui.position[ collision[ i ] ] ) {
+                $.ui.position[ collision[ i ] ][ dir ]( position, {
+                    targetWidth: targetWidth,
+                    targetHeight: targetHeight,
+                    elemWidth: elemWidth,
+                    elemHeight: elemHeight,
+                    collisionPosition: collisionPosition,
+                    collisionWidth: collisionWidth,
+                    collisionHeight: collisionHeight,
+                    offset: [ atOffset[ 0 ] + myOffset[ 0 ], atOffset [ 1 ] + myOffset[ 1 ] ],
+                    my: options.my,
+                    at: options.at,
+                    within: within,
+                    elem : elem
+                });
+            }
+        });
+
+        if ( $.fn.bgiframe ) {
+            elem.bgiframe();
+        }
+
+        if ( options.using ) {
+            // adds feedback as second argument to using callback, if present
+            using = function( props ) {
+                var left = targetOffset.left - position.left,
+                    right = left + targetWidth - elemWidth,
+                    top = targetOffset.top - position.top,
+                    bottom = top + targetHeight - elemHeight,
+                    feedback = {
+                        target: {
+                            element: target,
+                            left: targetOffset.left,
+                            top: targetOffset.top,
+                            width: targetWidth,
+                            height: targetHeight
+                        },
+                        element: {
+                            element: elem,
+                            left: position.left,
+                            top: position.top,
+                            width: elemWidth,
+                            height: elemHeight
+                        },
+                        horizontal: right < 0 ? "left" : left > 0 ? "right" : "center",
+                        vertical: bottom < 0 ? "top" : top > 0 ? "bottom" : "middle"
+                    };
+                if ( targetWidth < elemWidth && abs( left + right ) < targetWidth ) {
+                    feedback.horizontal = "center";
+                }
+                if ( targetHeight < elemHeight && abs( top + bottom ) < targetHeight ) {
+                    feedback.vertical = "middle";
+                }
+                if ( max( abs( left ), abs( right ) ) > max( abs( top ), abs( bottom ) ) ) {
+                    feedback.important = "horizontal";
+                } else {
+                    feedback.important = "vertical";
+                }
+                options.using.call( this, props, feedback );
+            };
+        }
+
+        elem.offset( $.extend( position, { using: using } ) );
+    });
+};
+
+$.ui.position = {
+    fit: {
+        left: function( position, data ) {
+            var within = data.within,
+                withinOffset = within.isWindow ? within.scrollLeft : within.offset.left,
+                outerWidth = within.width,
+                collisionPosLeft = position.left - data.collisionPosition.marginLeft,
+                overLeft = withinOffset - collisionPosLeft,
+                overRight = collisionPosLeft + data.collisionWidth - outerWidth - withinOffset,
+                newOverRight;
+
+            // element is wider than within
+            if ( data.collisionWidth > outerWidth ) {
+                // element is initially over the left side of within
+                if ( overLeft > 0 && overRight <= 0 ) {
+                    newOverRight = position.left + overLeft + data.collisionWidth - outerWidth - withinOffset;
+                    position.left += overLeft - newOverRight;
+                // element is initially over right side of within
+                } else if ( overRight > 0 && overLeft <= 0 ) {
+                    position.left = withinOffset;
+                // element is initially over both left and right sides of within
+                } else {
+                    if ( overLeft > overRight ) {
+                        position.left = withinOffset + outerWidth - data.collisionWidth;
+                    } else {
+                        position.left = withinOffset;
+                    }
+                }
+            // too far left -> align with left edge
+            } else if ( overLeft > 0 ) {
+                position.left += overLeft;
+            // too far right -> align with right edge
+            } else if ( overRight > 0 ) {
+                position.left -= overRight;
+            // adjust based on position and margin
+            } else {
+                position.left = max( position.left - collisionPosLeft, position.left );
+            }
+        },
+        top: function( position, data ) {
+            var within = data.within,
+                withinOffset = within.isWindow ? within.scrollTop : within.offset.top,
+                outerHeight = data.within.height,
+                collisionPosTop = position.top - data.collisionPosition.marginTop,
+                overTop = withinOffset - collisionPosTop,
+                overBottom = collisionPosTop + data.collisionHeight - outerHeight - withinOffset,
+                newOverBottom;
+
+            // element is taller than within
+            if ( data.collisionHeight > outerHeight ) {
+                // element is initially over the top of within
+                if ( overTop > 0 && overBottom <= 0 ) {
+                    newOverBottom = position.top + overTop + data.collisionHeight - outerHeight - withinOffset;
+                    position.top += overTop - newOverBottom;
+                // element is initially over bottom of within
+                } else if ( overBottom > 0 && overTop <= 0 ) {
+                    position.top = withinOffset;
+                // element is initially over both top and bottom of within
+                } else {
+                    if ( overTop > overBottom ) {
+                        position.top = withinOffset + outerHeight - data.collisionHeight;
+                    } else {
+                        position.top = withinOffset;
+                    }
+                }
+            // too far up -> align with top
+            } else if ( overTop > 0 ) {
+                position.top += overTop;
+            // too far down -> align with bottom edge
+            } else if ( overBottom > 0 ) {
+                position.top -= overBottom;
+            // adjust based on position and margin
+            } else {
+                position.top = max( position.top - collisionPosTop, position.top );
+            }
+        }
+    },
+    flip: {
+        left: function( position, data ) {
+            var within = data.within,
+                withinOffset = within.offset.left + within.scrollLeft,
+                outerWidth = within.width,
+                offsetLeft = within.isWindow ? within.scrollLeft : within.offset.left,
+                collisionPosLeft = position.left - data.collisionPosition.marginLeft,
+                overLeft = collisionPosLeft - offsetLeft,
+                overRight = collisionPosLeft + data.collisionWidth - outerWidth - offsetLeft,
+                myOffset = data.my[ 0 ] === "left" ?
+                    -data.elemWidth :
+                    data.my[ 0 ] === "right" ?
+                        data.elemWidth :
+                        0,
+                atOffset = data.at[ 0 ] === "left" ?
+                    data.targetWidth :
+                    data.at[ 0 ] === "right" ?
+                        -data.targetWidth :
+                        0,
+                offset = -2 * data.offset[ 0 ],
+                newOverRight,
+                newOverLeft;
+
+            if ( overLeft < 0 ) {
+                newOverRight = position.left + myOffset + atOffset + offset + data.collisionWidth - outerWidth - withinOffset;
+                if ( newOverRight < 0 || newOverRight < abs( overLeft ) ) {
+                    position.left += myOffset + atOffset + offset;
+                }
+            }
+            else if ( overRight > 0 ) {
+                newOverLeft = position.left - data.collisionPosition.marginLeft + myOffset + atOffset + offset - offsetLeft;
+                if ( newOverLeft > 0 || abs( newOverLeft ) < overRight ) {
+                    position.left += myOffset + atOffset + offset;
+                }
+            }
+        },
+        top: function( position, data ) {
+            var within = data.within,
+                withinOffset = within.offset.top + within.scrollTop,
+                outerHeight = within.height,
+                offsetTop = within.isWindow ? within.scrollTop : within.offset.top,
+                collisionPosTop = position.top - data.collisionPosition.marginTop,
+                overTop = collisionPosTop - offsetTop,
+                overBottom = collisionPosTop + data.collisionHeight - outerHeight - offsetTop,
+                top = data.my[ 1 ] === "top",
+                myOffset = top ?
+                    -data.elemHeight :
+                    data.my[ 1 ] === "bottom" ?
+                        data.elemHeight :
+                        0,
+                atOffset = data.at[ 1 ] === "top" ?
+                    data.targetHeight :
+                    data.at[ 1 ] === "bottom" ?
+                        -data.targetHeight :
+                        0,
+                offset = -2 * data.offset[ 1 ],
+                newOverTop,
+                newOverBottom;
+            if ( overTop < 0 ) {
+                newOverBottom = position.top + myOffset + atOffset + offset + data.collisionHeight - outerHeight - withinOffset;
+                if ( ( position.top + myOffset + atOffset + offset) > overTop && ( newOverBottom < 0 || newOverBottom < abs( overTop ) ) ) {
+                    position.top += myOffset + atOffset + offset;
+                }
+            }
+            else if ( overBottom > 0 ) {
+                newOverTop = position.top -  data.collisionPosition.marginTop + myOffset + atOffset + offset - offsetTop;
+                if ( ( position.top + myOffset + atOffset + offset) > overBottom && ( newOverTop > 0 || abs( newOverTop ) < overBottom ) ) {
+                    position.top += myOffset + atOffset + offset;
+                }
+            }
+        }
+    },
+    flipfit: {
+        left: function() {
+            $.ui.position.flip.left.apply( this, arguments );
+            $.ui.position.fit.left.apply( this, arguments );
+        },
+        top: function() {
+            $.ui.position.flip.top.apply( this, arguments );
+            $.ui.position.fit.top.apply( this, arguments );
+        }
+    }
+};
+
+// fraction support test
+(function () {
+    var testElement, testElementParent, testElementStyle, offsetLeft, i,
+        body = document.getElementsByTagName( "body" )[ 0 ],
+        div = document.createElement( "div" );
+
+    //Create a "fake body" for testing based on method used in jQuery.support
+    testElement = document.createElement( body ? "div" : "body" );
+    testElementStyle = {
+        visibility: "hidden",
+        width: 0,
+        height: 0,
+        border: 0,
+        margin: 0,
+        background: "none"
+    };
+    if ( body ) {
+        $.extend( testElementStyle, {
+            position: "absolute",
+            left: "-1000px",
+            top: "-1000px"
+        });
+    }
+    for ( i in testElementStyle ) {
+        testElement.style[ i ] = testElementStyle[ i ];
+    }
+    testElement.appendChild( div );
+    testElementParent = body || document.documentElement;
+    testElementParent.insertBefore( testElement, testElementParent.firstChild );
+
+    div.style.cssText = "position: absolute; left: 10.7432222px;";
+
+    offsetLeft = $( div ).offset().left;
+    $.support.offsetFractions = offsetLeft > 10 && offsetLeft < 11;
+
+    testElement.innerHTML = "";
+    testElementParent.removeChild( testElement );
+})();
+
+// DEPRECATED
+if ( $.uiBackCompat !== false ) {
+    // offset option
+    (function( $ ) {
+        var _position = $.fn.position;
+        $.fn.position = function( options ) {
+            if ( !options || !options.offset ) {
+                return _position.call( this, options );
+            }
+            var offset = options.offset.split( " " ),
+                at = options.at.split( " " );
+            if ( offset.length === 1 ) {
+                offset[ 1 ] = offset[ 0 ];
+            }
+            if ( /^\d/.test( offset[ 0 ] ) ) {
+                offset[ 0 ] = "+" + offset[ 0 ];
+            }
+            if ( /^\d/.test( offset[ 1 ] ) ) {
+                offset[ 1 ] = "+" + offset[ 1 ];
+            }
+            if ( at.length === 1 ) {
+                if ( /left|center|right/.test( at[ 0 ] ) ) {
+                    at[ 1 ] = "center";
+                } else {
+                    at[ 1 ] = at[ 0 ];
+                    at[ 0 ] = "center";
+                }
+            }
+            return _position.call( this, $.extend( options, {
+                at: at[ 0 ] + offset[ 0 ] + " " + at[ 1 ] + offset[ 1 ],
+                offset: undefined
+            } ) );
+        };
+    }( jQuery ) );
+}
+
+}( jQuery ) );
+(function( $, undefined ) {
+
+$.widget("ui.draggable", $.ui.mouse, {
+    version: "1.9.1",
+    widgetEventPrefix: "drag",
+    options: {
+        addClasses: true,
+        appendTo: "parent",
+        axis: false,
+        connectToSortable: false,
+        containment: false,
+        cursor: "auto",
+        cursorAt: false,
+        grid: false,
+        handle: false,
+        helper: "original",
+        iframeFix: false,
+        opacity: false,
+        refreshPositions: false,
+        revert: false,
+        revertDuration: 500,
+        scope: "default",
+        scroll: true,
+        scrollSensitivity: 20,
+        scrollSpeed: 20,
+        snap: false,
+        snapMode: "both",
+        snapTolerance: 20,
+        stack: false,
+        zIndex: false
+    },
+    _create: function() {
+
+        if (this.options.helper == 'original' && !(/^(?:r|a|f)/).test(this.element.css("position")))
+            this.element[0].style.position = 'relative';
+
+        (this.options.addClasses && this.element.addClass("ui-draggable"));
+        (this.options.disabled && this.element.addClass("ui-draggable-disabled"));
+
+        this._mouseInit();
+
+    },
+
+    _destroy: function() {
+        this.element.removeClass( "ui-draggable ui-draggable-dragging ui-draggable-disabled" );
+        this._mouseDestroy();
+    },
+
+    _mouseCapture: function(event) {
+
+        var o = this.options;
+
+        // among others, prevent a drag on a resizable-handle
+        if (this.helper || o.disabled || $(event.target).is('.ui-resizable-handle'))
+            return false;
+
+        //Quit if we're not on a valid handle
+        this.handle = this._getHandle(event);
+        if (!this.handle)
+            return false;
+
+        $(o.iframeFix === true ? "iframe" : o.iframeFix).each(function() {
+            $('<div class="ui-draggable-iframeFix" style="background: #fff;"></div>')
+            .css({
+                width: this.offsetWidth+"px", height: this.offsetHeight+"px",
+                position: "absolute", opacity: "0.001", zIndex: 1000
+            })
+            .css($(this).offset())
+            .appendTo("body");
+        });
+
+        return true;
+
+    },
+
+    _mouseStart: function(event) {
+
+        var o = this.options;
+
+        //Create and append the visible helper
+        this.helper = this._createHelper(event);
+
+        this.helper.addClass("ui-draggable-dragging");
+
+        //Cache the helper size
+        this._cacheHelperProportions();
+
+        //If ddmanager is used for droppables, set the global draggable
+        if($.ui.ddmanager)
+            $.ui.ddmanager.current = this;
+
+        /*
+         * - Position generation -
+         * This block generates everything position related - it's the core of draggables.
+         */
+
+        //Cache the margins of the original element
+        this._cacheMargins();
+
+        //Store the helper's css position
+        this.cssPosition = this.helper.css("position");
+        this.scrollParent = this.helper.scrollParent();
+
+        //The element's absolute position on the page minus margins
+        this.offset = this.positionAbs = this.element.offset();
+        this.offset = {
+            top: this.offset.top - this.margins.top,
+            left: this.offset.left - this.margins.left
+        };
+
+        $.extend(this.offset, {
+            click: { //Where the click happened, relative to the element
+                left: event.pageX - this.offset.left,
+                top: event.pageY - this.offset.top
+            },
+            parent: this._getParentOffset(),
+            relative: this._getRelativeOffset() //This is a relative to absolute position minus the actual position calculation - only used for relative positioned helper
+        });
+
+        //Generate the original position
+        this.originalPosition = this.position = this._generatePosition(event);
+        this.originalPageX = event.pageX;
+        this.originalPageY = event.pageY;
+
+        //Adjust the mouse offset relative to the helper if 'cursorAt' is supplied
+        (o.cursorAt && this._adjustOffsetFromHelper(o.cursorAt));
+
+        //Set a containment if given in the options
+        if(o.containment)
+            this._setContainment();
+
+        //Trigger event + callbacks
+        if(this._trigger("start", event) === false) {
+            this._clear();
+            return false;
+        }
+
+        //Recache the helper size
+        this._cacheHelperProportions();
+
+        //Prepare the droppable offsets
+        if ($.ui.ddmanager && !o.dropBehaviour)
+            $.ui.ddmanager.prepareOffsets(this, event);
+
+
+        this._mouseDrag(event, true); //Execute the drag once - this causes the helper not to be visible before getting its correct position
+
+        //If the ddmanager is used for droppables, inform the manager that dragging has started (see #5003)
+        if ( $.ui.ddmanager ) $.ui.ddmanager.dragStart(this, event);
+
+        return true;
+    },
+
+    _mouseDrag: function(event, noPropagation) {
+
+        //Compute the helpers position
+        this.position = this._generatePosition(event);
+        this.positionAbs = this._convertPositionTo("absolute");
+
+        //Call plugins and callbacks and use the resulting position if something is returned
+        if (!noPropagation) {
+            var ui = this._uiHash();
+            if(this._trigger('drag', event, ui) === false) {
+                this._mouseUp({});
+                return false;
+            }
+            this.position = ui.position;
+        }
+
+        if(!this.options.axis || this.options.axis != "y") this.helper[0].style.left = this.position.left+'px';
+        if(!this.options.axis || this.options.axis != "x") this.helper[0].style.top = this.position.top+'px';
+        if($.ui.ddmanager) $.ui.ddmanager.drag(this, event);
+
+        return false;
+    },
+
+    _mouseStop: function(event) {
+
+        //If we are using droppables, inform the manager about the drop
+        var dropped = false;
+        if ($.ui.ddmanager && !this.options.dropBehaviour)
+            dropped = $.ui.ddmanager.drop(this, event);
+
+        //if a drop comes from outside (a sortable)
+        if(this.dropped) {
+            dropped = this.dropped;
+            this.dropped = false;
+        }
+
+        //if the original element is no longer in the DOM don't bother to continue (see #8269)
+        var element = this.element[0], elementInDom = false;
+        while ( element && (element = element.parentNode) ) {
+            if (element == document ) {
+                elementInDom = true;
+            }
+        }
+        if ( !elementInDom && this.options.helper === "original" )
+            return false;
+
+        if((this.options.revert == "invalid" && !dropped) || (this.options.revert == "valid" && dropped) || this.options.revert === true || ($.isFunction(this.options.revert) && this.options.revert.call(this.element, dropped))) {
+            var that = this;
+            $(this.helper).animate(this.originalPosition, parseInt(this.options.revertDuration, 10), function() {
+                if(that._trigger("stop", event) !== false) {
+                    that._clear();
+                }
+            });
+        } else {
+            if(this._trigger("stop", event) !== false) {
+                this._clear();
+            }
+        }
+
+        return false;
+    },
+
+    _mouseUp: function(event) {
+        //Remove frame helpers
+        $("div.ui-draggable-iframeFix").each(function() {
+            this.parentNode.removeChild(this);
+        });
+
+        //If the ddmanager is used for droppables, inform the manager that dragging has stopped (see #5003)
+        if( $.ui.ddmanager ) $.ui.ddmanager.dragStop(this, event);
+
+        return $.ui.mouse.prototype._mouseUp.call(this, event);
+    },
+
+    cancel: function() {
+
+        if(this.helper.is(".ui-draggable-dragging")) {
+            this._mouseUp({});
+        } else {
+            this._clear();
+        }
+
+        return this;
+
+    },
+
+    _getHandle: function(event) {
+
+        var handle = !this.options.handle || !$(this.options.handle, this.element).length ? true : false;
+        $(this.options.handle, this.element)
+            .find("*")
+            .andSelf()
+            .each(function() {
+                if(this == event.target) handle = true;
+            });
+
+        return handle;
+
+    },
+
+    _createHelper: function(event) {
+
+        var o = this.options;
+        var helper = $.isFunction(o.helper) ? $(o.helper.apply(this.element[0], [event])) : (o.helper == 'clone' ? this.element.clone().removeAttr('id') : this.element);
+
+        if(!helper.parents('body').length)
+            helper.appendTo((o.appendTo == 'parent' ? this.element[0].parentNode : o.appendTo));
+
+        if(helper[0] != this.element[0] && !(/(fixed|absolute)/).test(helper.css("position")))
+            helper.css("position", "absolute");
+
+        return helper;
+
+    },
+
+    _adjustOffsetFromHelper: function(obj) {
+        if (typeof obj == 'string') {
+            obj = obj.split(' ');
+        }
+        if ($.isArray(obj)) {
+            obj = {left: +obj[0], top: +obj[1] || 0};
+        }
+        if ('left' in obj) {
+            this.offset.click.left = obj.left + this.margins.left;
+        }
+        if ('right' in obj) {
+            this.offset.click.left = this.helperProportions.width - obj.right + this.margins.left;
+        }
+        if ('top' in obj) {
+            this.offset.click.top = obj.top + this.margins.top;
+        }
+        if ('bottom' in obj) {
+            this.offset.click.top = this.helperProportions.height - obj.bottom + this.margins.top;
+        }
+    },
+
+    _getParentOffset: function() {
+
+        //Get the offsetParent and cache its position
+        this.offsetParent = this.helper.offsetParent();
+        var po = this.offsetParent.offset();
+
+        // This is a special case where we need to modify a offset calculated on start, since the following happened:
+        // 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
+        // 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
+        //    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
+        if(this.cssPosition == 'absolute' && this.scrollParent[0] != document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
+            po.left += this.scrollParent.scrollLeft();
+            po.top += this.scrollParent.scrollTop();
+        }
+
+        if((this.offsetParent[0] == document.body) //This needs to be actually done for all browsers, since pageX/pageY includes this information
+        || (this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() == 'html' && $.ui.ie)) //Ugly IE fix
+            po = { top: 0, left: 0 };
+
+        return {
+            top: po.top + (parseInt(this.offsetParent.css("borderTopWidth"),10) || 0),
+            left: po.left + (parseInt(this.offsetParent.css("borderLeftWidth"),10) || 0)
+        };
+
+    },
+
+    _getRelativeOffset: function() {
+
+        if(this.cssPosition == "relative") {
+            var p = this.element.position();
+            return {
+                top: p.top - (parseInt(this.helper.css("top"),10) || 0) + this.scrollParent.scrollTop(),
+                left: p.left - (parseInt(this.helper.css("left"),10) || 0) + this.scrollParent.scrollLeft()
+            };
+        } else {
+            return { top: 0, left: 0 };
+        }
+
+    },
+
+    _cacheMargins: function() {
+        this.margins = {
+            left: (parseInt(this.element.css("marginLeft"),10) || 0),
+            top: (parseInt(this.element.css("marginTop"),10) || 0),
+            right: (parseInt(this.element.css("marginRight"),10) || 0),
+            bottom: (parseInt(this.element.css("marginBottom"),10) || 0)
+        };
+    },
+
+    _cacheHelperProportions: function() {
+        this.helperProportions = {
+            width: this.helper.outerWidth(),
+            height: this.helper.outerHeight()
+        };
+    },
+
+    _setContainment: function() {
+
+        var o = this.options;
+        if(o.containment == 'parent') o.containment = this.helper[0].parentNode;
+        if(o.containment == 'document' || o.containment == 'window') this.containment = [
+            o.containment == 'document' ? 0 : $(window).scrollLeft() - this.offset.relative.left - this.offset.parent.left,
+            o.containment == 'document' ? 0 : $(window).scrollTop() - this.offset.relative.top - this.offset.parent.top,
+            (o.containment == 'document' ? 0 : $(window).scrollLeft()) + $(o.containment == 'document' ? document : window).width() - this.helperProportions.width - this.margins.left,
+            (o.containment == 'document' ? 0 : $(window).scrollTop()) + ($(o.containment == 'document' ? document : window).height() || document.body.parentNode.scrollHeight) - this.helperProportions.height - this.margins.top
+        ];
+
+        if(!(/^(document|window|parent)$/).test(o.containment) && o.containment.constructor != Array) {
+            var c = $(o.containment);
+            var ce = c[0]; if(!ce) return;
+            var co = c.offset();
+            var over = ($(ce).css("overflow") != 'hidden');
+
+            this.containment = [
+                (parseInt($(ce).css("borderLeftWidth"),10) || 0) + (parseInt($(ce).css("paddingLeft"),10) || 0),
+                (parseInt($(ce).css("borderTopWidth"),10) || 0) + (parseInt($(ce).css("paddingTop"),10) || 0),
+                (over ? Math.max(ce.scrollWidth,ce.offsetWidth) : ce.offsetWidth) - (parseInt($(ce).css("borderLeftWidth"),10) || 0) - (parseInt($(ce).css("paddingRight"),10) || 0) - this.helperProportions.width - this.margins.left - this.margins.right,
+                (over ? Math.max(ce.scrollHeight,ce.offsetHeight) : ce.offsetHeight) - (parseInt($(ce).css("borderTopWidth"),10) || 0) - (parseInt($(ce).css("paddingBottom"),10) || 0) - this.helperProportions.height - this.margins.top  - this.margins.bottom
+            ];
+            this.relative_container = c;
+
+        } else if(o.containment.constructor == Array) {
+            this.containment = o.containment;
+        }
+
+    },
+
+    _convertPositionTo: function(d, pos) {
+
+        if(!pos) pos = this.position;
+        var mod = d == "absolute" ? 1 : -1;
+        var o = this.options, scroll = this.cssPosition == 'absolute' && !(this.scrollParent[0] != document && $.contains(this.scrollParent[0], this.offsetParent[0])) ? this.offsetParent : this.scrollParent, scrollIsRootNode = (/(html|body)/i).test(scroll[0].tagName);
+
+        return {
+            top: (
+                pos.top                                                                 // The absolute mouse position
+                + this.offset.relative.top * mod                                        // Only for relative positioned nodes: Relative offset from element to offset parent
+                + this.offset.parent.top * mod                                          // The offsetParent's offset without borders (offset + border)
+                - ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ) * mod)
+            ),
+            left: (
+                pos.left                                                                // The absolute mouse position
+                + this.offset.relative.left * mod                                       // Only for relative positioned nodes: Relative offset from element to offset parent
+                + this.offset.parent.left * mod                                         // The offsetParent's offset without borders (offset + border)
+                - ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ) * mod)
+            )
+        };
+
+    },
+
+    _generatePosition: function(event) {
+
+        var o = this.options, scroll = this.cssPosition == 'absolute' && !(this.scrollParent[0] != document && $.contains(this.scrollParent[0], this.offsetParent[0])) ? this.offsetParent : this.scrollParent, scrollIsRootNode = (/(html|body)/i).test(scroll[0].tagName);
+        var pageX = event.pageX;
+        var pageY = event.pageY;
+
+        /*
+         * - Position constraining -
+         * Constrain the position to a mix of grid, containment.
+         */
+
+        if(this.originalPosition) { //If we are not dragging yet, we won't check for options
+            var containment;
+            if(this.containment) {
+            if (this.relative_container){
+                var co = this.relative_container.offset();
+                containment = [ this.containment[0] + co.left,
+                    this.containment[1] + co.top,
+                    this.containment[2] + co.left,
+                    this.containment[3] + co.top ];
+            }
+            else {
+                containment = this.containment;
+            }
+
+                if(event.pageX - this.offset.click.left < containment[0]) pageX = containment[0] + this.offset.click.left;
+                if(event.pageY - this.offset.click.top < containment[1]) pageY = containment[1] + this.offset.click.top;
+                if(event.pageX - this.offset.click.left > containment[2]) pageX = containment[2] + this.offset.click.left;
+                if(event.pageY - this.offset.click.top > containment[3]) pageY = containment[3] + this.offset.click.top;
+            }
+
+            if(o.grid) {
+                //Check for grid elements set to 0 to prevent divide by 0 error causing invalid argument errors in IE (see ticket #6950)
+                var top = o.grid[1] ? this.originalPageY + Math.round((pageY - this.originalPageY) / o.grid[1]) * o.grid[1] : this.originalPageY;
+                pageY = containment ? (!(top - this.offset.click.top < containment[1] || top - this.offset.click.top > containment[3]) ? top : (!(top - this.offset.click.top < containment[1]) ? top - o.grid[1] : top + o.grid[1])) : top;
+
+                var left = o.grid[0] ? this.originalPageX + Math.round((pageX - this.originalPageX) / o.grid[0]) * o.grid[0] : this.originalPageX;
+                pageX = containment ? (!(left - this.offset.click.left < containment[0] || left - this.offset.click.left > containment[2]) ? left : (!(left - this.offset.click.left < containment[0]) ? left - o.grid[0] : left + o.grid[0])) : left;
+            }
+
+        }
+
+        return {
+            top: (
+                pageY                                                               // The absolute mouse position
+                - this.offset.click.top                                                 // Click offset (relative to the element)
+                - this.offset.relative.top                                              // Only for relative positioned nodes: Relative offset from element to offset parent
+                - this.offset.parent.top                                                // The offsetParent's offset without borders (offset + border)
+                + ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ))
+            ),
+            left: (
+                pageX                                                               // The absolute mouse position
+                - this.offset.click.left                                                // Click offset (relative to the element)
+                - this.offset.relative.left                                             // Only for relative positioned nodes: Relative offset from element to offset parent
+                - this.offset.parent.left                                               // The offsetParent's offset without borders (offset + border)
+                + ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ))
+            )
+        };
+
+    },
+
+    _clear: function() {
+        this.helper.removeClass("ui-draggable-dragging");
+        if(this.helper[0] != this.element[0] && !this.cancelHelperRemoval) this.helper.remove();
+        //if($.ui.ddmanager) $.ui.ddmanager.current = null;
+        this.helper = null;
+        this.cancelHelperRemoval = false;
+    },
+
+    // From now on bulk stuff - mainly helpers
+
+    _trigger: function(type, event, ui) {
+        ui = ui || this._uiHash();
+        $.ui.plugin.call(this, type, [event, ui]);
+        if(type == "drag") this.positionAbs = this._convertPositionTo("absolute"); //The absolute position has to be recalculated after plugins
+        return $.Widget.prototype._trigger.call(this, type, event, ui);
+    },
+
+    plugins: {},
+
+    _uiHash: function(event) {
+        return {
+            helper: this.helper,
+            position: this.position,
+            originalPosition: this.originalPosition,
+            offset: this.positionAbs
+        };
+    }
+
+});
+
+$.ui.plugin.add("draggable", "connectToSortable", {
+    start: function(event, ui) {
+
+        var inst = $(this).data("draggable"), o = inst.options,
+            uiSortable = $.extend({}, ui, { item: inst.element });
+        inst.sortables = [];
+        $(o.connectToSortable).each(function() {
+            var sortable = $.data(this, 'sortable');
+            if (sortable && !sortable.options.disabled) {
+                inst.sortables.push({
+                    instance: sortable,
+                    shouldRevert: sortable.options.revert
+                });
+                sortable.refreshPositions();    // Call the sortable's refreshPositions at drag start to refresh the containerCache since the sortable container cache is used in drag and needs to be up to date (this will ensure it's initialised as well as being kept in step with any changes that might have happened on the page).
+                sortable._trigger("activate", event, uiSortable);
+            }
+        });
+
+    },
+    stop: function(event, ui) {
+
+        //If we are still over the sortable, we fake the stop event of the sortable, but also remove helper
+        var inst = $(this).data("draggable"),
+            uiSortable = $.extend({}, ui, { item: inst.element });
+
+        $.each(inst.sortables, function() {
+            if(this.instance.isOver) {
+
+                this.instance.isOver = 0;
+
+                inst.cancelHelperRemoval = true; //Don't remove the helper in the draggable instance
+                this.instance.cancelHelperRemoval = false; //Remove it in the sortable instance (so sortable plugins like revert still work)
+
+                //The sortable revert is supported, and we have to set a temporary dropped variable on the draggable to support revert: 'valid/invalid'
+                if(this.shouldRevert) this.instance.options.revert = true;
+
+                //Trigger the stop of the sortable
+                this.instance._mouseStop(event);
+
+                this.instance.options.helper = this.instance.options._helper;
+
+                //If the helper has been the original item, restore properties in the sortable
+                if(inst.options.helper == 'original')
+                    this.instance.currentItem.css({ top: 'auto', left: 'auto' });
+
+            } else {
+                this.instance.cancelHelperRemoval = false; //Remove the helper in the sortable instance
+                this.instance._trigger("deactivate", event, uiSortable);
+            }
+
+        });
+
+    },
+    drag: function(event, ui) {
+
+        var inst = $(this).data("draggable"), that = this;
+
+        var checkPos = function(o) {
+            var dyClick = this.offset.click.top, dxClick = this.offset.click.left;
+            var helperTop = this.positionAbs.top, helperLeft = this.positionAbs.left;
+            var itemHeight = o.height, itemWidth = o.width;
+            var itemTop = o.top, itemLeft = o.left;
+
+            return $.ui.isOver(helperTop + dyClick, helperLeft + dxClick, itemTop, itemLeft, itemHeight, itemWidth);
+        };
+
+        $.each(inst.sortables, function(i) {
+
+            var innermostIntersecting = false;
+            var thisSortable = this;
+            //Copy over some variables to allow calling the sortable's native _intersectsWith
+            this.instance.positionAbs = inst.positionAbs;
+            this.instance.helperProportions = inst.helperProportions;
+            this.instance.offset.click = inst.offset.click;
+
+            if(this.instance._intersectsWith(this.instance.containerCache)) {
+                innermostIntersecting = true;
+                $.each(inst.sortables, function () {
+                    this.instance.positionAbs = inst.positionAbs;
+                    this.instance.helperProportions = inst.helperProportions;
+                    this.instance.offset.click = inst.offset.click;
+                    if  (this != thisSortable
+                        && this.instance._intersectsWith(this.instance.containerCache)
+                        && $.ui.contains(thisSortable.instance.element[0], this.instance.element[0]))
+                        innermostIntersecting = false;
+                        return innermostIntersecting;
+                });
+            }
+
+
+            if(innermostIntersecting) {
+                //If it intersects, we use a little isOver variable and set it once, so our move-in stuff gets fired only once
+                if(!this.instance.isOver) {
+
+                    this.instance.isOver = 1;
+                    //Now we fake the start of dragging for the sortable instance,
+                    //by cloning the list group item, appending it to the sortable and using it as inst.currentItem
+                    //We can then fire the start event of the sortable with our passed browser event, and our own helper (so it doesn't create a new one)
+                    this.instance.currentItem = $(that).clone().removeAttr('id').appendTo(this.instance.element).data("sortable-item", true);
+                    this.instance.options._helper = this.instance.options.helper; //Store helper option to later restore it
+                    this.instance.options.helper = function() { return ui.helper[0]; };
+
+                    event.target = this.instance.currentItem[0];
+                    this.instance._mouseCapture(event, true);
+                    this.instance._mouseStart(event, true, true);
+
+                    //Because the browser event is way off the new appended portlet, we modify a couple of variables to reflect the changes
+                    this.instance.offset.click.top = inst.offset.click.top;
+                    this.instance.offset.click.left = inst.offset.click.left;
+                    this.instance.offset.parent.left -= inst.offset.parent.left - this.instance.offset.parent.left;
+                    this.instance.offset.parent.top -= inst.offset.parent.top - this.instance.offset.parent.top;
+
+                    inst._trigger("toSortable", event);
+                    inst.dropped = this.instance.element; //draggable revert needs that
+                    //hack so receive/update callbacks work (mostly)
+                    inst.currentItem = inst.element;
+                    this.instance.fromOutside = inst;
+
+                }
+
+                //Provided we did all the previous steps, we can fire the drag event of the sortable on every draggable drag, when it intersects with the sortable
+                if(this.instance.currentItem) this.instance._mouseDrag(event);
+
+            } else {
+
+                //If it doesn't intersect with the sortable, and it intersected before,
+                //we fake the drag stop of the sortable, but make sure it doesn't remove the helper by using cancelHelperRemoval
+                if(this.instance.isOver) {
+
+                    this.instance.isOver = 0;
+                    this.instance.cancelHelperRemoval = true;
+
+                    //Prevent reverting on this forced stop
+                    this.instance.options.revert = false;
+
+                    // The out event needs to be triggered independently
+                    this.instance._trigger('out', event, this.instance._uiHash(this.instance));
+
+                    this.instance._mouseStop(event, true);
+                    this.instance.options.helper = this.instance.options._helper;
+
+                    //Now we remove our currentItem, the list group clone again, and the placeholder, and animate the helper back to it's original size
+                    this.instance.currentItem.remove();
+                    if(this.instance.placeholder) this.instance.placeholder.remove();
+
+                    inst._trigger("fromSortable", event);
+                    inst.dropped = false; //draggable revert needs that
+                }
+
+            };
+
+        });
+
+    }
+});
+
+$.ui.plugin.add("draggable", "cursor", {
+    start: function(event, ui) {
+        var t = $('body'), o = $(this).data('draggable').options;
+        if (t.css("cursor")) o._cursor = t.css("cursor");
+        t.css("cursor", o.cursor);
+    },
+    stop: function(event, ui) {
+        var o = $(this).data('draggable').options;
+        if (o._cursor) $('body').css("cursor", o._cursor);
+    }
+});
+
+$.ui.plugin.add("draggable", "opacity", {
+    start: function(event, ui) {
+        var t = $(ui.helper), o = $(this).data('draggable').options;
+        if(t.css("opacity")) o._opacity = t.css("opacity");
+        t.css('opacity', o.opacity);
+    },
+    stop: function(event, ui) {
+        var o = $(this).data('draggable').options;
+        if(o._opacity) $(ui.helper).css('opacity', o._opacity);
+    }
+});
+
+$.ui.plugin.add("draggable", "scroll", {
+    start: function(event, ui) {
+        var i = $(this).data("draggable");
+        if(i.scrollParent[0] != document && i.scrollParent[0].tagName != 'HTML') i.overflowOffset = i.scrollParent.offset();
+    },
+    drag: function(event, ui) {
+
+        var i = $(this).data("draggable"), o = i.options, scrolled = false;
+
+        if(i.scrollParent[0] != document && i.scrollParent[0].tagName != 'HTML') {
+
+            if(!o.axis || o.axis != 'x') {
+                if((i.overflowOffset.top + i.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity)
+                    i.scrollParent[0].scrollTop = scrolled = i.scrollParent[0].scrollTop + o.scrollSpeed;
+                else if(event.pageY - i.overflowOffset.top < o.scrollSensitivity)
+                    i.scrollParent[0].scrollTop = scrolled = i.scrollParent[0].scrollTop - o.scrollSpeed;
+            }
+
+            if(!o.axis || o.axis != 'y') {
+                if((i.overflowOffset.left + i.scrollParent[0].offsetWidth) - event.pageX < o.scrollSensitivity)
+                    i.scrollParent[0].scrollLeft = scrolled = i.scrollParent[0].scrollLeft + o.scrollSpeed;
+                else if(event.pageX - i.overflowOffset.left < o.scrollSensitivity)
+                    i.scrollParent[0].scrollLeft = scrolled = i.scrollParent[0].scrollLeft - o.scrollSpeed;
+            }
+
+        } else {
+
+            if(!o.axis || o.axis != 'x') {
+                if(event.pageY - $(document).scrollTop() < o.scrollSensitivity)
+                    scrolled = $(document).scrollTop($(document).scrollTop() - o.scrollSpeed);
+                else if($(window).height() - (event.pageY - $(document).scrollTop()) < o.scrollSensitivity)
+                    scrolled = $(document).scrollTop($(document).scrollTop() + o.scrollSpeed);
+            }
+
+            if(!o.axis || o.axis != 'y') {
+                if(event.pageX - $(document).scrollLeft() < o.scrollSensitivity)
+                    scrolled = $(document).scrollLeft($(document).scrollLeft() - o.scrollSpeed);
+                else if($(window).width() - (event.pageX - $(document).scrollLeft()) < o.scrollSensitivity)
+                    scrolled = $(document).scrollLeft($(document).scrollLeft() + o.scrollSpeed);
+            }
+
+        }
+
+        if(scrolled !== false && $.ui.ddmanager && !o.dropBehaviour)
+            $.ui.ddmanager.prepareOffsets(i, event);
+
+    }
+});
+
+$.ui.plugin.add("draggable", "snap", {
+    start: function(event, ui) {
+
+        var i = $(this).data("draggable"), o = i.options;
+        i.snapElements = [];
+
+        $(o.snap.constructor != String ? ( o.snap.items || ':data(draggable)' ) : o.snap).each(function() {
+            var $t = $(this); var $o = $t.offset();
+            if(this != i.element[0]) i.snapElements.push({
+                item: this,
+                width: $t.outerWidth(), height: $t.outerHeight(),
+                top: $o.top, left: $o.left
+            });
+        });
+
+    },
+    drag: function(event, ui) {
+
+        var inst = $(this).data("draggable"), o = inst.options;
+        var d = o.snapTolerance;
+
+        var x1 = ui.offset.left, x2 = x1 + inst.helperProportions.width,
+            y1 = ui.offset.top, y2 = y1 + inst.helperProportions.height;
+
+        for (var i = inst.snapElements.length - 1; i >= 0; i--){
+
+            var l = inst.snapElements[i].left, r = l + inst.snapElements[i].width,
+                t = inst.snapElements[i].top, b = t + inst.snapElements[i].height;
+
+            //Yes, I know, this is insane ;)
+            if(!((l-d < x1 && x1 < r+d && t-d < y1 && y1 < b+d) || (l-d < x1 && x1 < r+d && t-d < y2 && y2 < b+d) || (l-d < x2 && x2 < r+d && t-d < y1 && y1 < b+d) || (l-d < x2 && x2 < r+d && t-d < y2 && y2 < b+d))) {
+                if(inst.snapElements[i].snapping) (inst.options.snap.release && inst.options.snap.release.call(inst.element, event, $.extend(inst._uiHash(), { snapItem: inst.snapElements[i].item })));
+                inst.snapElements[i].snapping = false;
+                continue;
+            }
+
+            if(o.snapMode != 'inner') {
+                var ts = Math.abs(t - y2) <= d;
+                var bs = Math.abs(b - y1) <= d;
+                var ls = Math.abs(l - x2) <= d;
+                var rs = Math.abs(r - x1) <= d;
+                if(ts) ui.position.top = inst._convertPositionTo("relative", { top: t - inst.helperProportions.height, left: 0 }).top - inst.margins.top;
+                if(bs) ui.position.top = inst._convertPositionTo("relative", { top: b, left: 0 }).top - inst.margins.top;
+                if(ls) ui.position.left = inst._convertPositionTo("relative", { top: 0, left: l - inst.helperProportions.width }).left - inst.margins.left;
+                if(rs) ui.position.left = inst._convertPositionTo("relative", { top: 0, left: r }).left - inst.margins.left;
+            }
+
+            var first = (ts || bs || ls || rs);
+
+            if(o.snapMode != 'outer') {
+                var ts = Math.abs(t - y1) <= d;
+                var bs = Math.abs(b - y2) <= d;
+                var ls = Math.abs(l - x1) <= d;
+                var rs = Math.abs(r - x2) <= d;
+                if(ts) ui.position.top = inst._convertPositionTo("relative", { top: t, left: 0 }).top - inst.margins.top;
+                if(bs) ui.position.top = inst._convertPositionTo("relative", { top: b - inst.helperProportions.height, left: 0 }).top - inst.margins.top;
+                if(ls) ui.position.left = inst._convertPositionTo("relative", { top: 0, left: l }).left - inst.margins.left;
+                if(rs) ui.position.left = inst._convertPositionTo("relative", { top: 0, left: r - inst.helperProportions.width }).left - inst.margins.left;
+            }
+
+            if(!inst.snapElements[i].snapping && (ts || bs || ls || rs || first))
+                (inst.options.snap.snap && inst.options.snap.snap.call(inst.element, event, $.extend(inst._uiHash(), { snapItem: inst.snapElements[i].item })));
+            inst.snapElements[i].snapping = (ts || bs || ls || rs || first);
+
+        };
+
+    }
+});
+
+$.ui.plugin.add("draggable", "stack", {
+    start: function(event, ui) {
+
+        var o = $(this).data("draggable").options;
+
+        var group = $.makeArray($(o.stack)).sort(function(a,b) {
+            return (parseInt($(a).css("zIndex"),10) || 0) - (parseInt($(b).css("zIndex"),10) || 0);
+        });
+        if (!group.length) { return; }
+
+        var min = parseInt(group[0].style.zIndex) || 0;
+        $(group).each(function(i) {
+            this.style.zIndex = min + i;
+        });
+
+        this[0].style.zIndex = min + group.length;
+
+    }
+});
+
+$.ui.plugin.add("draggable", "zIndex", {
+    start: function(event, ui) {
+        var t = $(ui.helper), o = $(this).data("draggable").options;
+        if(t.css("zIndex")) o._zIndex = t.css("zIndex");
+        t.css('zIndex', o.zIndex);
+    },
+    stop: function(event, ui) {
+        var o = $(this).data("draggable").options;
+        if(o._zIndex) $(ui.helper).css('zIndex', o._zIndex);
+    }
+});
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.widget("ui.droppable", {
+    version: "1.9.1",
+    widgetEventPrefix: "drop",
+    options: {
+        accept: '*',
+        activeClass: false,
+        addClasses: true,
+        greedy: false,
+        hoverClass: false,
+        scope: 'default',
+        tolerance: 'intersect'
+    },
+    _create: function() {
+
+        var o = this.options, accept = o.accept;
+        this.isover = 0; this.isout = 1;
+
+        this.accept = $.isFunction(accept) ? accept : function(d) {
+            return d.is(accept);
+        };
+
+        //Store the droppable's proportions
+        this.proportions = { width: this.element[0].offsetWidth, height: this.element[0].offsetHeight };
+
+        // Add the reference and positions to the manager
+        $.ui.ddmanager.droppables[o.scope] = $.ui.ddmanager.droppables[o.scope] || [];
+        $.ui.ddmanager.droppables[o.scope].push(this);
+
+        (o.addClasses && this.element.addClass("ui-droppable"));
+
+    },
+
+    _destroy: function() {
+        var drop = $.ui.ddmanager.droppables[this.options.scope];
+        for ( var i = 0; i < drop.length; i++ )
+            if ( drop[i] == this )
+                drop.splice(i, 1);
+
+        this.element.removeClass("ui-droppable ui-droppable-disabled");
+    },
+
+    _setOption: function(key, value) {
+
+        if(key == 'accept') {
+            this.accept = $.isFunction(value) ? value : function(d) {
+                return d.is(value);
+            };
+        }
+        $.Widget.prototype._setOption.apply(this, arguments);
+    },
+
+    _activate: function(event) {
+        var draggable = $.ui.ddmanager.current;
+        if(this.options.activeClass) this.element.addClass(this.options.activeClass);
+        (draggable && this._trigger('activate', event, this.ui(draggable)));
+    },
+
+    _deactivate: function(event) {
+        var draggable = $.ui.ddmanager.current;
+        if(this.options.activeClass) this.element.removeClass(this.options.activeClass);
+        (draggable && this._trigger('deactivate', event, this.ui(draggable)));
+    },
+
+    _over: function(event) {
+
+        var draggable = $.ui.ddmanager.current;
+        if (!draggable || (draggable.currentItem || draggable.element)[0] == this.element[0]) return; // Bail if draggable and droppable are same element
+
+        if (this.accept.call(this.element[0],(draggable.currentItem || draggable.element))) {
+            if(this.options.hoverClass) this.element.addClass(this.options.hoverClass);
+            this._trigger('over', event, this.ui(draggable));
+        }
+
+    },
+
+    _out: function(event) {
+
+        var draggable = $.ui.ddmanager.current;
+        if (!draggable || (draggable.currentItem || draggable.element)[0] == this.element[0]) return; // Bail if draggable and droppable are same element
+
+        if (this.accept.call(this.element[0],(draggable.currentItem || draggable.element))) {
+            if(this.options.hoverClass) this.element.removeClass(this.options.hoverClass);
+            this._trigger('out', event, this.ui(draggable));
+        }
+
+    },
+
+    _drop: function(event,custom) {
+
+        var draggable = custom || $.ui.ddmanager.current;
+        if (!draggable || (draggable.currentItem || draggable.element)[0] == this.element[0]) return false; // Bail if draggable and droppable are same element
+
+        var childrenIntersection = false;
+        this.element.find(":data(droppable)").not(".ui-draggable-dragging").each(function() {
+            var inst = $.data(this, 'droppable');
+            if(
+                inst.options.greedy
+                && !inst.options.disabled
+                && inst.options.scope == draggable.options.scope
+                && inst.accept.call(inst.element[0], (draggable.currentItem || draggable.element))
+                && $.ui.intersect(draggable, $.extend(inst, { offset: inst.element.offset() }), inst.options.tolerance)
+            ) { childrenIntersection = true; return false; }
+        });
+        if(childrenIntersection) return false;
+
+        if(this.accept.call(this.element[0],(draggable.currentItem || draggable.element))) {
+            if(this.options.activeClass) this.element.removeClass(this.options.activeClass);
+            if(this.options.hoverClass) this.element.removeClass(this.options.hoverClass);
+            this._trigger('drop', event, this.ui(draggable));
+            return this.element;
+        }
+
+        return false;
+
+    },
+
+    ui: function(c) {
+        return {
+            draggable: (c.currentItem || c.element),
+            helper: c.helper,
+            position: c.position,
+            offset: c.positionAbs
+        };
+    }
+
+});
+
+$.ui.intersect = function(draggable, droppable, toleranceMode) {
+
+    if (!droppable.offset) return false;
+
+    var x1 = (draggable.positionAbs || draggable.position.absolute).left, x2 = x1 + draggable.helperProportions.width,
+        y1 = (draggable.positionAbs || draggable.position.absolute).top, y2 = y1 + draggable.helperProportions.height;
+    var l = droppable.offset.left, r = l + droppable.proportions.width,
+        t = droppable.offset.top, b = t + droppable.proportions.height;
+
+    switch (toleranceMode) {
+        case 'fit':
+            return (l <= x1 && x2 <= r
+                && t <= y1 && y2 <= b);
+            break;
+        case 'intersect':
+            return (l < x1 + (draggable.helperProportions.width / 2) // Right Half
+                && x2 - (draggable.helperProportions.width / 2) < r // Left Half
+                && t < y1 + (draggable.helperProportions.height / 2) // Bottom Half
+                && y2 - (draggable.helperProportions.height / 2) < b ); // Top Half
+            break;
+        case 'pointer':
+            var draggableLeft = ((draggable.positionAbs || draggable.position.absolute).left + (draggable.clickOffset || draggable.offset.click).left),
+                draggableTop = ((draggable.positionAbs || draggable.position.absolute).top + (draggable.clickOffset || draggable.offset.click).top),
+                isOver = $.ui.isOver(draggableTop, draggableLeft, t, l, droppable.proportions.height, droppable.proportions.width);
+            return isOver;
+            break;
+        case 'touch':
+            return (
+                    (y1 >= t && y1 <= b) || // Top edge touching
+                    (y2 >= t && y2 <= b) || // Bottom edge touching
+                    (y1 < t && y2 > b)      // Surrounded vertically
+                ) && (
+                    (x1 >= l && x1 <= r) || // Left edge touching
+                    (x2 >= l && x2 <= r) || // Right edge touching
+                    (x1 < l && x2 > r)      // Surrounded horizontally
+                );
+            break;
+        default:
+            return false;
+            break;
+        }
+
+};
+
 /*
+    This manager tracks offsets of draggables and droppables
+*/
+$.ui.ddmanager = {
+    current: null,
+    droppables: { 'default': [] },
+    prepareOffsets: function(t, event) {
+
+        var m = $.ui.ddmanager.droppables[t.options.scope] || [];
+        var type = event ? event.type : null; // workaround for #2317
+        var list = (t.currentItem || t.element).find(":data(droppable)").andSelf();
+
+        droppablesLoop: for (var i = 0; i < m.length; i++) {
+
+            if(m[i].options.disabled || (t && !m[i].accept.call(m[i].element[0],(t.currentItem || t.element)))) continue;   //No disabled and non-accepted
+            for (var j=0; j < list.length; j++) { if(list[j] == m[i].element[0]) { m[i].proportions.height = 0; continue droppablesLoop; } }; //Filter out elements in the current dragged item
+            m[i].visible = m[i].element.css("display") != "none"; if(!m[i].visible) continue;                                   //If the element is not visible, continue
+
+            if(type == "mousedown") m[i]._activate.call(m[i], event); //Activate the droppable if used directly from draggables
+
+            m[i].offset = m[i].element.offset();
+            m[i].proportions = { width: m[i].element[0].offsetWidth, height: m[i].element[0].offsetHeight };
+
+        }
+
+    },
+    drop: function(draggable, event) {
+
+        var dropped = false;
+        $.each($.ui.ddmanager.droppables[draggable.options.scope] || [], function() {
+
+            if(!this.options) return;
+            if (!this.options.disabled && this.visible && $.ui.intersect(draggable, this, this.options.tolerance))
+                dropped = this._drop.call(this, event) || dropped;
+
+            if (!this.options.disabled && this.visible && this.accept.call(this.element[0],(draggable.currentItem || draggable.element))) {
+                this.isout = 1; this.isover = 0;
+                this._deactivate.call(this, event);
+            }
+
+        });
+        return dropped;
+
+    },
+    dragStart: function( draggable, event ) {
+        //Listen for scrolling so that if the dragging causes scrolling the position of the droppables can be recalculated (see #5003)
+        draggable.element.parentsUntil( "body" ).bind( "scroll.droppable", function() {
+            if( !draggable.options.refreshPositions ) $.ui.ddmanager.prepareOffsets( draggable, event );
+        });
+    },
+    drag: function(draggable, event) {
+
+        //If you have a highly dynamic page, you might try this option. It renders positions every time you move the mouse.
+        if(draggable.options.refreshPositions) $.ui.ddmanager.prepareOffsets(draggable, event);
+
+        //Run through all droppables and check their positions based on specific tolerance options
+        $.each($.ui.ddmanager.droppables[draggable.options.scope] || [], function() {
+
+            if(this.options.disabled || this.greedyChild || !this.visible) return;
+            var intersects = $.ui.intersect(draggable, this, this.options.tolerance);
+
+            var c = !intersects && this.isover == 1 ? 'isout' : (intersects && this.isover == 0 ? 'isover' : null);
+            if(!c) return;
+
+            var parentInstance;
+            if (this.options.greedy) {
+                // find droppable parents with same scope
+                var scope = this.options.scope;
+                var parent = this.element.parents(':data(droppable)').filter(function () {
+                    return $.data(this, 'droppable').options.scope === scope;
+                });
+
+                if (parent.length) {
+                    parentInstance = $.data(parent[0], 'droppable');
+                    parentInstance.greedyChild = (c == 'isover' ? 1 : 0);
+                }
+            }
+
+            // we just moved into a greedy child
+            if (parentInstance && c == 'isover') {
+                parentInstance['isover'] = 0;
+                parentInstance['isout'] = 1;
+                parentInstance._out.call(parentInstance, event);
+            }
+
+            this[c] = 1; this[c == 'isout' ? 'isover' : 'isout'] = 0;
+            this[c == "isover" ? "_over" : "_out"].call(this, event);
+
+            // we just moved out of a greedy child
+            if (parentInstance && c == 'isout') {
+                parentInstance['isout'] = 0;
+                parentInstance['isover'] = 1;
+                parentInstance._over.call(parentInstance, event);
+            }
+        });
+
+    },
+    dragStop: function( draggable, event ) {
+        draggable.element.parentsUntil( "body" ).unbind( "scroll.droppable" );
+        //Call prepareOffsets one final time since IE does not fire return scroll events when overflow was caused by drag (see #5003)
+        if( !draggable.options.refreshPositions ) $.ui.ddmanager.prepareOffsets( draggable, event );
+    }
+};
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.widget("ui.sortable", $.ui.mouse, {
+    version: "1.9.1",
+    widgetEventPrefix: "sort",
+    ready: false,
+    options: {
+        appendTo: "parent",
+        axis: false,
+        connectWith: false,
+        containment: false,
+        cursor: 'auto',
+        cursorAt: false,
+        dropOnEmpty: true,
+        forcePlaceholderSize: false,
+        forceHelperSize: false,
+        grid: false,
+        handle: false,
+        helper: "original",
+        items: '> *',
+        opacity: false,
+        placeholder: false,
+        revert: false,
+        scroll: true,
+        scrollSensitivity: 20,
+        scrollSpeed: 20,
+        scope: "default",
+        tolerance: "intersect",
+        zIndex: 1000
+    },
+    _create: function() {
+
+        var o = this.options;
+        this.containerCache = {};
+        this.element.addClass("ui-sortable");
+
+        //Get the items
+        this.refresh();
+
+        //Let's determine if the items are being displayed horizontally
+        this.floating = this.items.length ? o.axis === 'x' || (/left|right/).test(this.items[0].item.css('float')) || (/inline|table-cell/).test(this.items[0].item.css('display')) : false;
+
+        //Let's determine the parent's offset
+        this.offset = this.element.offset();
+
+        //Initialize mouse events for interaction
+        this._mouseInit();
+
+        //We're ready to go
+        this.ready = true
+
+    },
+
+    _destroy: function() {
+        this.element
+            .removeClass("ui-sortable ui-sortable-disabled");
+        this._mouseDestroy();
+
+        for ( var i = this.items.length - 1; i >= 0; i-- )
+            this.items[i].item.removeData(this.widgetName + "-item");
+
+        return this;
+    },
+
+    _setOption: function(key, value){
+        if ( key === "disabled" ) {
+            this.options[ key ] = value;
+
+            this.widget().toggleClass( "ui-sortable-disabled", !!value );
+        } else {
+            // Don't call widget base _setOption for disable as it adds ui-state-disabled class
+            $.Widget.prototype._setOption.apply(this, arguments);
+        }
+    },
+
+    _mouseCapture: function(event, overrideHandle) {
+        var that = this;
+
+        if (this.reverting) {
+            return false;
+        }
+
+        if(this.options.disabled || this.options.type == 'static') return false;
+
+        //We have to refresh the items data once first
+        this._refreshItems(event);
+
+        //Find out if the clicked node (or one of its parents) is a actual item in this.items
+        var currentItem = null, nodes = $(event.target).parents().each(function() {
+            if($.data(this, that.widgetName + '-item') == that) {
+                currentItem = $(this);
+                return false;
+            }
+        });
+        if($.data(event.target, that.widgetName + '-item') == that) currentItem = $(event.target);
+
+        if(!currentItem) return false;
+        if(this.options.handle && !overrideHandle) {
+            var validHandle = false;
+
+            $(this.options.handle, currentItem).find("*").andSelf().each(function() { if(this == event.target) validHandle = true; });
+            if(!validHandle) return false;
+        }
+
+        this.currentItem = currentItem;
+        this._removeCurrentsFromItems();
+        return true;
+
+    },
+
+    _mouseStart: function(event, overrideHandle, noActivation) {
+
+        var o = this.options;
+        this.currentContainer = this;
+
+        //We only need to call refreshPositions, because the refreshItems call has been moved to mouseCapture
+        this.refreshPositions();
+
+        //Create and append the visible helper
+        this.helper = this._createHelper(event);
+
+        //Cache the helper size
+        this._cacheHelperProportions();
+
+        /*
+         * - Position generation -
+         * This block generates everything position related - it's the core of draggables.
+         */
+
+        //Cache the margins of the original element
+        this._cacheMargins();
+
+        //Get the next scrolling parent
+        this.scrollParent = this.helper.scrollParent();
+
+        //The element's absolute position on the page minus margins
+        this.offset = this.currentItem.offset();
+        this.offset = {
+            top: this.offset.top - this.margins.top,
+            left: this.offset.left - this.margins.left
+        };
+
+        $.extend(this.offset, {
+            click: { //Where the click happened, relative to the element
+                left: event.pageX - this.offset.left,
+                top: event.pageY - this.offset.top
+            },
+            parent: this._getParentOffset(),
+            relative: this._getRelativeOffset() //This is a relative to absolute position minus the actual position calculation - only used for relative positioned helper
+        });
+
+        // Only after we got the offset, we can change the helper's position to absolute
+        // TODO: Still need to figure out a way to make relative sorting possible
+        this.helper.css("position", "absolute");
+        this.cssPosition = this.helper.css("position");
+
+        //Generate the original position
+        this.originalPosition = this._generatePosition(event);
+        this.originalPageX = event.pageX;
+        this.originalPageY = event.pageY;
+
+        //Adjust the mouse offset relative to the helper if 'cursorAt' is supplied
+        (o.cursorAt && this._adjustOffsetFromHelper(o.cursorAt));
+
+        //Cache the former DOM position
+        this.domPosition = { prev: this.currentItem.prev()[0], parent: this.currentItem.parent()[0] };
+
+        //If the helper is not the original, hide the original so it's not playing any role during the drag, won't cause anything bad this way
+        if(this.helper[0] != this.currentItem[0]) {
+            this.currentItem.hide();
+        }
+
+        //Create the placeholder
+        this._createPlaceholder();
+
+        //Set a containment if given in the options
+        if(o.containment)
+            this._setContainment();
+
+        if(o.cursor) { // cursor option
+            if ($('body').css("cursor")) this._storedCursor = $('body').css("cursor");
+            $('body').css("cursor", o.cursor);
+        }
+
+        if(o.opacity) { // opacity option
+            if (this.helper.css("opacity")) this._storedOpacity = this.helper.css("opacity");
+            this.helper.css("opacity", o.opacity);
+        }
+
+        if(o.zIndex) { // zIndex option
+            if (this.helper.css("zIndex")) this._storedZIndex = this.helper.css("zIndex");
+            this.helper.css("zIndex", o.zIndex);
+        }
+
+        //Prepare scrolling
+        if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTML')
+            this.overflowOffset = this.scrollParent.offset();
+
+        //Call callbacks
+        this._trigger("start", event, this._uiHash());
+
+        //Recache the helper size
+        if(!this._preserveHelperProportions)
+            this._cacheHelperProportions();
+
+
+        //Post 'activate' events to possible containers
+        if(!noActivation) {
+             for (var i = this.containers.length - 1; i >= 0; i--) { this.containers[i]._trigger("activate", event, this._uiHash(this)); }
+        }
+
+        //Prepare possible droppables
+        if($.ui.ddmanager)
+            $.ui.ddmanager.current = this;
+
+        if ($.ui.ddmanager && !o.dropBehaviour)
+            $.ui.ddmanager.prepareOffsets(this, event);
+
+        this.dragging = true;
+
+        this.helper.addClass("ui-sortable-helper");
+        this._mouseDrag(event); //Execute the drag once - this causes the helper not to be visible before getting its correct position
+        return true;
+
+    },
+
+    _mouseDrag: function(event) {
+
+        //Compute the helpers position
+        this.position = this._generatePosition(event);
+        this.positionAbs = this._convertPositionTo("absolute");
+
+        if (!this.lastPositionAbs) {
+            this.lastPositionAbs = this.positionAbs;
+        }
+
+        //Do scrolling
+        if(this.options.scroll) {
+            var o = this.options, scrolled = false;
+            if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTML') {
+
+                if((this.overflowOffset.top + this.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity)
+                    this.scrollParent[0].scrollTop = scrolled = this.scrollParent[0].scrollTop + o.scrollSpeed;
+                else if(event.pageY - this.overflowOffset.top < o.scrollSensitivity)
+                    this.scrollParent[0].scrollTop = scrolled = this.scrollParent[0].scrollTop - o.scrollSpeed;
+
+                if((this.overflowOffset.left + this.scrollParent[0].offsetWidth) - event.pageX < o.scrollSensitivity)
+                    this.scrollParent[0].scrollLeft = scrolled = this.scrollParent[0].scrollLeft + o.scrollSpeed;
+                else if(event.pageX - this.overflowOffset.left < o.scrollSensitivity)
+                    this.scrollParent[0].scrollLeft = scrolled = this.scrollParent[0].scrollLeft - o.scrollSpeed;
+
+            } else {
+
+                if(event.pageY - $(document).scrollTop() < o.scrollSensitivity)
+                    scrolled = $(document).scrollTop($(document).scrollTop() - o.scrollSpeed);
+                else if($(window).height() - (event.pageY - $(document).scrollTop()) < o.scrollSensitivity)
+                    scrolled = $(document).scrollTop($(document).scrollTop() + o.scrollSpeed);
+
+                if(event.pageX - $(document).scrollLeft() < o.scrollSensitivity)
+                    scrolled = $(document).scrollLeft($(document).scrollLeft() - o.scrollSpeed);
+                else if($(window).width() - (event.pageX - $(document).scrollLeft()) < o.scrollSensitivity)
+                    scrolled = $(document).scrollLeft($(document).scrollLeft() + o.scrollSpeed);
+
+            }
+
+            if(scrolled !== false && $.ui.ddmanager && !o.dropBehaviour)
+                $.ui.ddmanager.prepareOffsets(this, event);
+        }
+
+        //Regenerate the absolute position used for position checks
+        this.positionAbs = this._convertPositionTo("absolute");
+
+        //Set the helper position
+        if(!this.options.axis || this.options.axis != "y") this.helper[0].style.left = this.position.left+'px';
+        if(!this.options.axis || this.options.axis != "x") this.helper[0].style.top = this.position.top+'px';
+
+        //Rearrange
+        for (var i = this.items.length - 1; i >= 0; i--) {
+
+            //Cache variables and intersection, continue if no intersection
+            var item = this.items[i], itemElement = item.item[0], intersection = this._intersectsWithPointer(item);
+            if (!intersection) continue;
+
+            // Only put the placeholder inside the current Container, skip all
+            // items form other containers. This works because when moving
+            // an item from one container to another the
+            // currentContainer is switched before the placeholder is moved.
+            //
+            // Without this moving items in "sub-sortables" can cause the placeholder to jitter
+            // beetween the outer and inner container.
+            if (item.instance !== this.currentContainer) continue;
+
+            if (itemElement != this.currentItem[0] //cannot intersect with itself
+                &&  this.placeholder[intersection == 1 ? "next" : "prev"]()[0] != itemElement //no useless actions that have been done before
+                &&  !$.contains(this.placeholder[0], itemElement) //no action if the item moved is the parent of the item checked
+                && (this.options.type == 'semi-dynamic' ? !$.contains(this.element[0], itemElement) : true)
+                //&& itemElement.parentNode == this.placeholder[0].parentNode // only rearrange items within the same container
+            ) {
+
+                this.direction = intersection == 1 ? "down" : "up";
+
+                if (this.options.tolerance == "pointer" || this._intersectsWithSides(item)) {
+                    this._rearrange(event, item);
+                } else {
+                    break;
+                }
+
+                this._trigger("change", event, this._uiHash());
+                break;
+            }
+        }
+
+        //Post events to containers
+        this._contactContainers(event);
+
+        //Interconnect with droppables
+        if($.ui.ddmanager) $.ui.ddmanager.drag(this, event);
+
+        //Call callbacks
+        this._trigger('sort', event, this._uiHash());
+
+        this.lastPositionAbs = this.positionAbs;
+        return false;
+
+    },
+
+    _mouseStop: function(event, noPropagation) {
+
+        if(!event) return;
+
+        //If we are using droppables, inform the manager about the drop
+        if ($.ui.ddmanager && !this.options.dropBehaviour)
+            $.ui.ddmanager.drop(this, event);
+
+        if(this.options.revert) {
+            var that = this;
+            var cur = this.placeholder.offset();
+
+            this.reverting = true;
+
+            $(this.helper).animate({
+                left: cur.left - this.offset.parent.left - this.margins.left + (this.offsetParent[0] == document.body ? 0 : this.offsetParent[0].scrollLeft),
+                top: cur.top - this.offset.parent.top - this.margins.top + (this.offsetParent[0] == document.body ? 0 : this.offsetParent[0].scrollTop)
+            }, parseInt(this.options.revert, 10) || 500, function() {
+                that._clear(event);
+            });
+        } else {
+            this._clear(event, noPropagation);
+        }
+
+        return false;
+
+    },
+
+    cancel: function() {
+
+        if(this.dragging) {
+
+            this._mouseUp({ target: null });
+
+            if(this.options.helper == "original")
+                this.currentItem.css(this._storedCSS).removeClass("ui-sortable-helper");
+            else
+                this.currentItem.show();
+
+            //Post deactivating events to containers
+            for (var i = this.containers.length - 1; i >= 0; i--){
+                this.containers[i]._trigger("deactivate", null, this._uiHash(this));
+                if(this.containers[i].containerCache.over) {
+                    this.containers[i]._trigger("out", null, this._uiHash(this));
+                    this.containers[i].containerCache.over = 0;
+                }
+            }
+
+        }
+
+        if (this.placeholder) {
+            //$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL events from the original node!
+            if(this.placeholder[0].parentNode) this.placeholder[0].parentNode.removeChild(this.placeholder[0]);
+            if(this.options.helper != "original" && this.helper && this.helper[0].parentNode) this.helper.remove();
+
+            $.extend(this, {
+                helper: null,
+                dragging: false,
+                reverting: false,
+                _noFinalSort: null
+            });
+
+            if(this.domPosition.prev) {
+                $(this.domPosition.prev).after(this.currentItem);
+            } else {
+                $(this.domPosition.parent).prepend(this.currentItem);
+            }
+        }
+
+        return this;
+
+    },
+
+    serialize: function(o) {
+
+        var items = this._getItemsAsjQuery(o && o.connected);
+        var str = []; o = o || {};
+
+        $(items).each(function() {
+            var res = ($(o.item || this).attr(o.attribute || 'id') || '').match(o.expression || (/(.+)[-=_](.+)/));
+            if(res) str.push((o.key || res[1]+'[]')+'='+(o.key && o.expression ? res[1] : res[2]));
+        });
+
+        if(!str.length && o.key) {
+            str.push(o.key + '=');
+        }
+
+        return str.join('&');
+
+    },
+
+    toArray: function(o) {
+
+        var items = this._getItemsAsjQuery(o && o.connected);
+        var ret = []; o = o || {};
+
+        items.each(function() { ret.push($(o.item || this).attr(o.attribute || 'id') || ''); });
+        return ret;
+
+    },
+
+    /* Be careful with the following core functions */
+    _intersectsWith: function(item) {
+
+        var x1 = this.positionAbs.left,
+            x2 = x1 + this.helperProportions.width,
+            y1 = this.positionAbs.top,
+            y2 = y1 + this.helperProportions.height;
+
+        var l = item.left,
+            r = l + item.width,
+            t = item.top,
+            b = t + item.height;
+
+        var dyClick = this.offset.click.top,
+            dxClick = this.offset.click.left;
+
+        var isOverElement = (y1 + dyClick) > t && (y1 + dyClick) < b && (x1 + dxClick) > l && (x1 + dxClick) < r;
+
+        if(    this.options.tolerance == "pointer"
+            || this.options.forcePointerForContainers
+            || (this.options.tolerance != "pointer" && this.helperProportions[this.floating ? 'width' : 'height'] > item[this.floating ? 'width' : 'height'])
+        ) {
+            return isOverElement;
+        } else {
+
+            return (l < x1 + (this.helperProportions.width / 2) // Right Half
+                && x2 - (this.helperProportions.width / 2) < r // Left Half
+                && t < y1 + (this.helperProportions.height / 2) // Bottom Half
+                && y2 - (this.helperProportions.height / 2) < b ); // Top Half
+
+        }
+    },
+
+    _intersectsWithPointer: function(item) {
+
+        var isOverElementHeight = (this.options.axis === 'x') || $.ui.isOverAxis(this.positionAbs.top + this.offset.click.top, item.top, item.height),
+            isOverElementWidth = (this.options.axis === 'y') || $.ui.isOverAxis(this.positionAbs.left + this.offset.click.left, item.left, item.width),
+            isOverElement = isOverElementHeight && isOverElementWidth,
+            verticalDirection = this._getDragVerticalDirection(),
+            horizontalDirection = this._getDragHorizontalDirection();
+
+        if (!isOverElement)
+            return false;
+
+        return this.floating ?
+            ( ((horizontalDirection && horizontalDirection == "right") || verticalDirection == "down") ? 2 : 1 )
+            : ( verticalDirection && (verticalDirection == "down" ? 2 : 1) );
+
+    },
+
+    _intersectsWithSides: function(item) {
+
+        var isOverBottomHalf = $.ui.isOverAxis(this.positionAbs.top + this.offset.click.top, item.top + (item.height/2), item.height),
+            isOverRightHalf = $.ui.isOverAxis(this.positionAbs.left + this.offset.click.left, item.left + (item.width/2), item.width),
+            verticalDirection = this._getDragVerticalDirection(),
+            horizontalDirection = this._getDragHorizontalDirection();
+
+        if (this.floating && horizontalDirection) {
+            return ((horizontalDirection == "right" && isOverRightHalf) || (horizontalDirection == "left" && !isOverRightHalf));
+        } else {
+            return verticalDirection && ((verticalDirection == "down" && isOverBottomHalf) || (verticalDirection == "up" && !isOverBottomHalf));
+        }
+
+    },
+
+    _getDragVerticalDirection: function() {
+        var delta = this.positionAbs.top - this.lastPositionAbs.top;
+        return delta != 0 && (delta > 0 ? "down" : "up");
+    },
+
+    _getDragHorizontalDirection: function() {
+        var delta = this.positionAbs.left - this.lastPositionAbs.left;
+        return delta != 0 && (delta > 0 ? "right" : "left");
+    },
+
+    refresh: function(event) {
+        this._refreshItems(event);
+        this.refreshPositions();
+        return this;
+    },
+
+    _connectWith: function() {
+        var options = this.options;
+        return options.connectWith.constructor == String
+            ? [options.connectWith]
+            : options.connectWith;
+    },
+
+    _getItemsAsjQuery: function(connected) {
+
+        var items = [];
+        var queries = [];
+        var connectWith = this._connectWith();
+
+        if(connectWith && connected) {
+            for (var i = connectWith.length - 1; i >= 0; i--){
+                var cur = $(connectWith[i]);
+                for (var j = cur.length - 1; j >= 0; j--){
+                    var inst = $.data(cur[j], this.widgetName);
+                    if(inst && inst != this && !inst.options.disabled) {
+                        queries.push([$.isFunction(inst.options.items) ? inst.options.items.call(inst.element) : $(inst.options.items, inst.element).not(".ui-sortable-helper").not('.ui-sortable-placeholder'), inst]);
+                    }
+                };
+            };
+        }
+
+        queries.push([$.isFunction(this.options.items) ? this.options.items.call(this.element, null, { options: this.options, item: this.currentItem }) : $(this.options.items, this.element).not(".ui-sortable-helper").not('.ui-sortable-placeholder'), this]);
+
+        for (var i = queries.length - 1; i >= 0; i--){
+            queries[i][0].each(function() {
+                items.push(this);
+            });
+        };
+
+        return $(items);
+
+    },
+
+    _removeCurrentsFromItems: function() {
+
+        var list = this.currentItem.find(":data(" + this.widgetName + "-item)");
+
+        this.items = $.grep(this.items, function (item) {
+            for (var j=0; j < list.length; j++) {
+                if(list[j] == item.item[0])
+                    return false;
+            };
+            return true;
+        });
+
+    },
+
+    _refreshItems: function(event) {
+
+        this.items = [];
+        this.containers = [this];
+        var items = this.items;
+        var queries = [[$.isFunction(this.options.items) ? this.options.items.call(this.element[0], event, { item: this.currentItem }) : $(this.options.items, this.element), this]];
+        var connectWith = this._connectWith();
+
+        if(connectWith && this.ready) { //Shouldn't be run the first time through due to massive slow-down
+            for (var i = connectWith.length - 1; i >= 0; i--){
+                var cur = $(connectWith[i]);
+                for (var j = cur.length - 1; j >= 0; j--){
+                    var inst = $.data(cur[j], this.widgetName);
+                    if(inst && inst != this && !inst.options.disabled) {
+                        queries.push([$.isFunction(inst.options.items) ? inst.options.items.call(inst.element[0], event, { item: this.currentItem }) : $(inst.options.items, inst.element), inst]);
+                        this.containers.push(inst);
+                    }
+                };
+            };
+        }
+
+        for (var i = queries.length - 1; i >= 0; i--) {
+            var targetData = queries[i][1];
+            var _queries = queries[i][0];
+
+            for (var j=0, queriesLength = _queries.length; j < queriesLength; j++) {
+                var item = $(_queries[j]);
+
+                item.data(this.widgetName + '-item', targetData); // Data for target checking (mouse manager)
+
+                items.push({
+                    item: item,
+                    instance: targetData,
+                    width: 0, height: 0,
+                    left: 0, top: 0
+                });
+            };
+        };
+
+    },
+
+    refreshPositions: function(fast) {
+
+        //This has to be redone because due to the item being moved out/into the offsetParent, the offsetParent's position will change
+        if(this.offsetParent && this.helper) {
+            this.offset.parent = this._getParentOffset();
+        }
+
+        for (var i = this.items.length - 1; i >= 0; i--){
+            var item = this.items[i];
+
+            //We ignore calculating positions of all connected containers when we're not over them
+            if(item.instance != this.currentContainer && this.currentContainer && item.item[0] != this.currentItem[0])
+                continue;
+
+            var t = this.options.toleranceElement ? $(this.options.toleranceElement, item.item) : item.item;
+
+            if (!fast) {
+                item.width = t.outerWidth();
+                item.height = t.outerHeight();
+            }
+
+            var p = t.offset();
+            item.left = p.left;
+            item.top = p.top;
+        };
+
+        if(this.options.custom && this.options.custom.refreshContainers) {
+            this.options.custom.refreshContainers.call(this);
+        } else {
+            for (var i = this.containers.length - 1; i >= 0; i--){
+                var p = this.containers[i].element.offset();
+                this.containers[i].containerCache.left = p.left;
+                this.containers[i].containerCache.top = p.top;
+                this.containers[i].containerCache.width = this.containers[i].element.outerWidth();
+                this.containers[i].containerCache.height = this.containers[i].element.outerHeight();
+            };
+        }
+
+        return this;
+    },
+
+    _createPlaceholder: function(that) {
+        that = that || this;
+        var o = that.options;
+
+        if(!o.placeholder || o.placeholder.constructor == String) {
+            var className = o.placeholder;
+            o.placeholder = {
+                element: function() {
+
+                    var el = $(document.createElement(that.currentItem[0].nodeName))
+                        .addClass(className || that.currentItem[0].className+" ui-sortable-placeholder")
+                        .removeClass("ui-sortable-helper")[0];
+
+                    if(!className)
+                        el.style.visibility = "hidden";
+
+                    return el;
+                },
+                update: function(container, p) {
+
+                    // 1. If a className is set as 'placeholder option, we don't force sizes - the class is responsible for that
+                    // 2. The option 'forcePlaceholderSize can be enabled to force it even if a class name is specified
+                    if(className && !o.forcePlaceholderSize) return;
+
+                    //If the element doesn't have a actual height by itself (without styles coming from a stylesheet), it receives the inline height from the dragged item
+                    if(!p.height()) { p.height(that.currentItem.innerHeight() - parseInt(that.currentItem.css('paddingTop')||0, 10) - parseInt(that.currentItem.css('paddingBottom')||0, 10)); };
+                    if(!p.width()) { p.width(that.currentItem.innerWidth() - parseInt(that.currentItem.css('paddingLeft')||0, 10) - parseInt(that.currentItem.css('paddingRight')||0, 10)); };
+                }
+            };
+        }
+
+        //Create the placeholder
+        that.placeholder = $(o.placeholder.element.call(that.element, that.currentItem));
+
+        //Append it after the actual current item
+        that.currentItem.after(that.placeholder);
+
+        //Update the size of the placeholder (TODO: Logic to fuzzy, see line 316/317)
+        o.placeholder.update(that, that.placeholder);
+
+    },
+
+    _contactContainers: function(event) {
+
+        // get innermost container that intersects with item
+        var innermostContainer = null, innermostIndex = null;
+
+
+        for (var i = this.containers.length - 1; i >= 0; i--){
+
+            // never consider a container that's located within the item itself
+            if($.contains(this.currentItem[0], this.containers[i].element[0]))
+                continue;
+
+            if(this._intersectsWith(this.containers[i].containerCache)) {
+
+                // if we've already found a container and it's more "inner" than this, then continue
+                if(innermostContainer && $.contains(this.containers[i].element[0], innermostContainer.element[0]))
+                    continue;
+
+                innermostContainer = this.containers[i];
+                innermostIndex = i;
+
+            } else {
+                // container doesn't intersect. trigger "out" event if necessary
+                if(this.containers[i].containerCache.over) {
+                    this.containers[i]._trigger("out", event, this._uiHash(this));
+                    this.containers[i].containerCache.over = 0;
+                }
+            }
+
+        }
+
+        // if no intersecting containers found, return
+        if(!innermostContainer) return;
+
+        // move the item into the container if it's not there already
+        if(this.containers.length === 1) {
+            this.containers[innermostIndex]._trigger("over", event, this._uiHash(this));
+            this.containers[innermostIndex].containerCache.over = 1;
+        } else {
+
+            //When entering a new container, we will find the item with the least distance and append our item near it
+            var dist = 10000; var itemWithLeastDistance = null;
+            var posProperty = this.containers[innermostIndex].floating ? 'left' : 'top';
+            var sizeProperty = this.containers[innermostIndex].floating ? 'width' : 'height';
+            var base = this.positionAbs[posProperty] + this.offset.click[posProperty];
+            for (var j = this.items.length - 1; j >= 0; j--) {
+                if(!$.contains(this.containers[innermostIndex].element[0], this.items[j].item[0])) continue;
+                if(this.items[j].item[0] == this.currentItem[0]) continue;
+                var cur = this.items[j].item.offset()[posProperty];
+                var nearBottom = false;
+                if(Math.abs(cur - base) > Math.abs(cur + this.items[j][sizeProperty] - base)){
+                    nearBottom = true;
+                    cur += this.items[j][sizeProperty];
+                }
+
+                if(Math.abs(cur - base) < dist) {
+                    dist = Math.abs(cur - base); itemWithLeastDistance = this.items[j];
+                    this.direction = nearBottom ? "up": "down";
+                }
+            }
+
+            if(!itemWithLeastDistance && !this.options.dropOnEmpty) //Check if dropOnEmpty is enabled
+                return;
+
+            this.currentContainer = this.containers[innermostIndex];
+            itemWithLeastDistance ? this._rearrange(event, itemWithLeastDistance, null, true) : this._rearrange(event, null, this.containers[innermostIndex].element, true);
+            this._trigger("change", event, this._uiHash());
+            this.containers[innermostIndex]._trigger("change", event, this._uiHash(this));
+
+            //Update the placeholder
+            this.options.placeholder.update(this.currentContainer, this.placeholder);
+
+            this.containers[innermostIndex]._trigger("over", event, this._uiHash(this));
+            this.containers[innermostIndex].containerCache.over = 1;
+        }
+
+
+    },
+
+    _createHelper: function(event) {
+
+        var o = this.options;
+        var helper = $.isFunction(o.helper) ? $(o.helper.apply(this.element[0], [event, this.currentItem])) : (o.helper == 'clone' ? this.currentItem.clone() : this.currentItem);
+
+        if(!helper.parents('body').length) //Add the helper to the DOM if that didn't happen already
+            $(o.appendTo != 'parent' ? o.appendTo : this.currentItem[0].parentNode)[0].appendChild(helper[0]);
+
+        if(helper[0] == this.currentItem[0])
+            this._storedCSS = { width: this.currentItem[0].style.width, height: this.currentItem[0].style.height, position: this.currentItem.css("position"), top: this.currentItem.css("top"), left: this.currentItem.css("left") };
+
+        if(helper[0].style.width == '' || o.forceHelperSize) helper.width(this.currentItem.width());
+        if(helper[0].style.height == '' || o.forceHelperSize) helper.height(this.currentItem.height());
+
+        return helper;
+
+    },
+
+    _adjustOffsetFromHelper: function(obj) {
+        if (typeof obj == 'string') {
+            obj = obj.split(' ');
+        }
+        if ($.isArray(obj)) {
+            obj = {left: +obj[0], top: +obj[1] || 0};
+        }
+        if ('left' in obj) {
+            this.offset.click.left = obj.left + this.margins.left;
+        }
+        if ('right' in obj) {
+            this.offset.click.left = this.helperProportions.width - obj.right + this.margins.left;
+        }
+        if ('top' in obj) {
+            this.offset.click.top = obj.top + this.margins.top;
+        }
+        if ('bottom' in obj) {
+            this.offset.click.top = this.helperProportions.height - obj.bottom + this.margins.top;
+        }
+    },
+
+    _getParentOffset: function() {
+
+
+        //Get the offsetParent and cache its position
+        this.offsetParent = this.helper.offsetParent();
+        var po = this.offsetParent.offset();
+
+        // This is a special case where we need to modify a offset calculated on start, since the following happened:
+        // 1. The position of the helper is absolute, so it's position is calculated based on the next positioned parent
+        // 2. The actual offset parent is a child of the scroll parent, and the scroll parent isn't the document, which means that
+        //    the scroll is included in the initial calculation of the offset of the parent, and never recalculated upon drag
+        if(this.cssPosition == 'absolute' && this.scrollParent[0] != document && $.contains(this.scrollParent[0], this.offsetParent[0])) {
+            po.left += this.scrollParent.scrollLeft();
+            po.top += this.scrollParent.scrollTop();
+        }
+
+        if((this.offsetParent[0] == document.body) //This needs to be actually done for all browsers, since pageX/pageY includes this information
+        || (this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() == 'html' && $.ui.ie)) //Ugly IE fix
+            po = { top: 0, left: 0 };
+
+        return {
+            top: po.top + (parseInt(this.offsetParent.css("borderTopWidth"),10) || 0),
+            left: po.left + (parseInt(this.offsetParent.css("borderLeftWidth"),10) || 0)
+        };
+
+    },
+
+    _getRelativeOffset: function() {
+
+        if(this.cssPosition == "relative") {
+            var p = this.currentItem.position();
+            return {
+                top: p.top - (parseInt(this.helper.css("top"),10) || 0) + this.scrollParent.scrollTop(),
+                left: p.left - (parseInt(this.helper.css("left"),10) || 0) + this.scrollParent.scrollLeft()
+            };
+        } else {
+            return { top: 0, left: 0 };
+        }
+
+    },
+
+    _cacheMargins: function() {
+        this.margins = {
+            left: (parseInt(this.currentItem.css("marginLeft"),10) || 0),
+            top: (parseInt(this.currentItem.css("marginTop"),10) || 0)
+        };
+    },
+
+    _cacheHelperProportions: function() {
+        this.helperProportions = {
+            width: this.helper.outerWidth(),
+            height: this.helper.outerHeight()
+        };
+    },
+
+    _setContainment: function() {
+
+        var o = this.options;
+        if(o.containment == 'parent') o.containment = this.helper[0].parentNode;
+        if(o.containment == 'document' || o.containment == 'window') this.containment = [
+            0 - this.offset.relative.left - this.offset.parent.left,
+            0 - this.offset.relative.top - this.offset.parent.top,
+            $(o.containment == 'document' ? document : window).width() - this.helperProportions.width - this.margins.left,
+            ($(o.containment == 'document' ? document : window).height() || document.body.parentNode.scrollHeight) - this.helperProportions.height - this.margins.top
+        ];
+
+        if(!(/^(document|window|parent)$/).test(o.containment)) {
+            var ce = $(o.containment)[0];
+            var co = $(o.containment).offset();
+            var over = ($(ce).css("overflow") != 'hidden');
+
+            this.containment = [
+                co.left + (parseInt($(ce).css("borderLeftWidth"),10) || 0) + (parseInt($(ce).css("paddingLeft"),10) || 0) - this.margins.left,
+                co.top + (parseInt($(ce).css("borderTopWidth"),10) || 0) + (parseInt($(ce).css("paddingTop"),10) || 0) - this.margins.top,
+                co.left+(over ? Math.max(ce.scrollWidth,ce.offsetWidth) : ce.offsetWidth) - (parseInt($(ce).css("borderLeftWidth"),10) || 0) - (parseInt($(ce).css("paddingRight"),10) || 0) - this.helperProportions.width - this.margins.left,
+                co.top+(over ? Math.max(ce.scrollHeight,ce.offsetHeight) : ce.offsetHeight) - (parseInt($(ce).css("borderTopWidth"),10) || 0) - (parseInt($(ce).css("paddingBottom"),10) || 0) - this.helperProportions.height - this.margins.top
+            ];
+        }
+
+    },
+
+    _convertPositionTo: function(d, pos) {
+
+        if(!pos) pos = this.position;
+        var mod = d == "absolute" ? 1 : -1;
+        var o = this.options, scroll = this.cssPosition == 'absolute' && !(this.scrollParent[0] != document && $.contains(this.scrollParent[0], this.offsetParent[0])) ? this.offsetParent : this.scrollParent, scrollIsRootNode = (/(html|body)/i).test(scroll[0].tagName);
+
+        return {
+            top: (
+                pos.top                                                                 // The absolute mouse position
+                + this.offset.relative.top * mod                                        // Only for relative positioned nodes: Relative offset from element to offset parent
+                + this.offset.parent.top * mod                                          // The offsetParent's offset without borders (offset + border)
+                - ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ) * mod)
+            ),
+            left: (
+                pos.left                                                                // The absolute mouse position
+                + this.offset.relative.left * mod                                       // Only for relative positioned nodes: Relative offset from element to offset parent
+                + this.offset.parent.left * mod                                         // The offsetParent's offset without borders (offset + border)
+                - ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ) * mod)
+            )
+        };
+
+    },
+
+    _generatePosition: function(event) {
+
+        var o = this.options, scroll = this.cssPosition == 'absolute' && !(this.scrollParent[0] != document && $.contains(this.scrollParent[0], this.offsetParent[0])) ? this.offsetParent : this.scrollParent, scrollIsRootNode = (/(html|body)/i).test(scroll[0].tagName);
+
+        // This is another very weird special case that only happens for relative elements:
+        // 1. If the css position is relative
+        // 2. and the scroll parent is the document or similar to the offset parent
+        // we have to refresh the relative offset during the scroll so there are no jumps
+        if(this.cssPosition == 'relative' && !(this.scrollParent[0] != document && this.scrollParent[0] != this.offsetParent[0])) {
+            this.offset.relative = this._getRelativeOffset();
+        }
+
+        var pageX = event.pageX;
+        var pageY = event.pageY;
+
+        /*
+         * - Position constraining -
+         * Constrain the position to a mix of grid, containment.
+         */
+
+        if(this.originalPosition) { //If we are not dragging yet, we won't check for options
+
+            if(this.containment) {
+                if(event.pageX - this.offset.click.left < this.containment[0]) pageX = this.containment[0] + this.offset.click.left;
+                if(event.pageY - this.offset.click.top < this.containment[1]) pageY = this.containment[1] + this.offset.click.top;
+                if(event.pageX - this.offset.click.left > this.containment[2]) pageX = this.containment[2] + this.offset.click.left;
+                if(event.pageY - this.offset.click.top > this.containment[3]) pageY = this.containment[3] + this.offset.click.top;
+            }
+
+            if(o.grid) {
+                var top = this.originalPageY + Math.round((pageY - this.originalPageY) / o.grid[1]) * o.grid[1];
+                pageY = this.containment ? (!(top - this.offset.click.top < this.containment[1] || top - this.offset.click.top > this.containment[3]) ? top : (!(top - this.offset.click.top < this.containment[1]) ? top - o.grid[1] : top + o.grid[1])) : top;
+
+                var left = this.originalPageX + Math.round((pageX - this.originalPageX) / o.grid[0]) * o.grid[0];
+                pageX = this.containment ? (!(left - this.offset.click.left < this.containment[0] || left - this.offset.click.left > this.containment[2]) ? left : (!(left - this.offset.click.left < this.containment[0]) ? left - o.grid[0] : left + o.grid[0])) : left;
+            }
+
+        }
+
+        return {
+            top: (
+                pageY                                                               // The absolute mouse position
+                - this.offset.click.top                                                 // Click offset (relative to the element)
+                - this.offset.relative.top                                              // Only for relative positioned nodes: Relative offset from element to offset parent
+                - this.offset.parent.top                                                // The offsetParent's offset without borders (offset + border)
+                + ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollTop() : ( scrollIsRootNode ? 0 : scroll.scrollTop() ) ))
+            ),
+            left: (
+                pageX                                                               // The absolute mouse position
+                - this.offset.click.left                                                // Click offset (relative to the element)
+                - this.offset.relative.left                                             // Only for relative positioned nodes: Relative offset from element to offset parent
+                - this.offset.parent.left                                               // The offsetParent's offset without borders (offset + border)
+                + ( ( this.cssPosition == 'fixed' ? -this.scrollParent.scrollLeft() : scrollIsRootNode ? 0 : scroll.scrollLeft() ))
+            )
+        };
+
+    },
+
+    _rearrange: function(event, i, a, hardRefresh) {
+
+        a ? a[0].appendChild(this.placeholder[0]) : i.item[0].parentNode.insertBefore(this.placeholder[0], (this.direction == 'down' ? i.item[0] : i.item[0].nextSibling));
+
+        //Various things done here to improve the performance:
+        // 1. we create a setTimeout, that calls refreshPositions
+        // 2. on the instance, we have a counter variable, that get's higher after every append
+        // 3. on the local scope, we copy the counter variable, and check in the timeout, if it's still the same
+        // 4. this lets only the last addition to the timeout stack through
+        this.counter = this.counter ? ++this.counter : 1;
+        var counter = this.counter;
+
+        this._delay(function() {
+            if(counter == this.counter) this.refreshPositions(!hardRefresh); //Precompute after each DOM insertion, NOT on mousemove
+        });
+
+    },
+
+    _clear: function(event, noPropagation) {
+
+        this.reverting = false;
+        // We delay all events that have to be triggered to after the point where the placeholder has been removed and
+        // everything else normalized again
+        var delayedTriggers = [];
+
+        // We first have to update the dom position of the actual currentItem
+        // Note: don't do it if the current item is already removed (by a user), or it gets reappended (see #4088)
+        if(!this._noFinalSort && this.currentItem.parent().length) this.placeholder.before(this.currentItem);
+        this._noFinalSort = null;
+
+        if(this.helper[0] == this.currentItem[0]) {
+            for(var i in this._storedCSS) {
+                if(this._storedCSS[i] == 'auto' || this._storedCSS[i] == 'static') this._storedCSS[i] = '';
+            }
+            this.currentItem.css(this._storedCSS).removeClass("ui-sortable-helper");
+        } else {
+            this.currentItem.show();
+        }
+
+        if(this.fromOutside && !noPropagation) delayedTriggers.push(function(event) { this._trigger("receive", event, this._uiHash(this.fromOutside)); });
+        if((this.fromOutside || this.domPosition.prev != this.currentItem.prev().not(".ui-sortable-helper")[0] || this.domPosition.parent != this.currentItem.parent()[0]) && !noPropagation) delayedTriggers.push(function(event) { this._trigger("update", event, this._uiHash()); }); //Trigger update callback if the DOM position has changed
+
+        // Check if the items Container has Changed and trigger appropriate
+        // events.
+        if (this !== this.currentContainer) {
+            if(!noPropagation) {
+                delayedTriggers.push(function(event) { this._trigger("remove", event, this._uiHash()); });
+                delayedTriggers.push((function(c) { return function(event) { c._trigger("receive", event, this._uiHash(this)); };  }).call(this, this.currentContainer));
+                delayedTriggers.push((function(c) { return function(event) { c._trigger("update", event, this._uiHash(this));  }; }).call(this, this.currentContainer));
+            }
+        }
+
+
+        //Post events to containers
+        for (var i = this.containers.length - 1; i >= 0; i--){
+            if(!noPropagation) delayedTriggers.push((function(c) { return function(event) { c._trigger("deactivate", event, this._uiHash(this)); };  }).call(this, this.containers[i]));
+            if(this.containers[i].containerCache.over) {
+                delayedTriggers.push((function(c) { return function(event) { c._trigger("out", event, this._uiHash(this)); };  }).call(this, this.containers[i]));
+                this.containers[i].containerCache.over = 0;
+            }
+        }
+
+        //Do what was originally in plugins
+        if(this._storedCursor) $('body').css("cursor", this._storedCursor); //Reset cursor
+        if(this._storedOpacity) this.helper.css("opacity", this._storedOpacity); //Reset opacity
+        if(this._storedZIndex) this.helper.css("zIndex", this._storedZIndex == 'auto' ? '' : this._storedZIndex); //Reset z-index
+
+        this.dragging = false;
+        if(this.cancelHelperRemoval) {
+            if(!noPropagation) {
+                this._trigger("beforeStop", event, this._uiHash());
+                for (var i=0; i < delayedTriggers.length; i++) { delayedTriggers[i].call(this, event); }; //Trigger all delayed events
+                this._trigger("stop", event, this._uiHash());
+            }
+
+            this.fromOutside = false;
+            return false;
+        }
+
+        if(!noPropagation) this._trigger("beforeStop", event, this._uiHash());
+
+        //$(this.placeholder[0]).remove(); would have been the jQuery way - unfortunately, it unbinds ALL events from the original node!
+        this.placeholder[0].parentNode.removeChild(this.placeholder[0]);
+
+        if(this.helper[0] != this.currentItem[0]) this.helper.remove(); this.helper = null;
+
+        if(!noPropagation) {
+            for (var i=0; i < delayedTriggers.length; i++) { delayedTriggers[i].call(this, event); }; //Trigger all delayed events
+            this._trigger("stop", event, this._uiHash());
+        }
+
+        this.fromOutside = false;
+        return true;
+
+    },
+
+    _trigger: function() {
+        if ($.Widget.prototype._trigger.apply(this, arguments) === false) {
+            this.cancel();
+        }
+    },
+
+    _uiHash: function(_inst) {
+        var inst = _inst || this;
+        return {
+            helper: inst.helper,
+            placeholder: inst.placeholder || $([]),
+            position: inst.position,
+            originalPosition: inst.originalPosition,
+            offset: inst.positionAbs,
+            item: inst.currentItem,
+            sender: _inst ? _inst.element : null
+        };
+    }
+
+});
+
+})(jQuery);
+(function( $, undefined ) {
+
+// used to prevent race conditions with remote data sources
+var requestIndex = 0;
+
+$.widget( "ui.autocomplete", {
+    version: "1.9.1",
+    defaultElement: "<input>",
+    options: {
+        appendTo: "body",
+        autoFocus: false,
+        delay: 300,
+        minLength: 1,
+        position: {
+            my: "left top",
+            at: "left bottom",
+            collision: "none"
+        },
+        source: null,
+
+        // callbacks
+        change: null,
+        close: null,
+        focus: null,
+        open: null,
+        response: null,
+        search: null,
+        select: null
+    },
+
+    pending: 0,
+
+    _create: function() {
+        // Some browsers only repeat keydown events, not keypress events,
+        // so we use the suppressKeyPress flag to determine if we've already
+        // handled the keydown event. #7269
+        // Unfortunately the code for & in keypress is the same as the up arrow,
+        // so we use the suppressKeyPressRepeat flag to avoid handling keypress
+        // events when we know the keydown event was used to modify the
+        // search term. #7799
+        var suppressKeyPress, suppressKeyPressRepeat, suppressInput;
+
+        this.isMultiLine = this._isMultiLine();
+        this.valueMethod = this.element[ this.element.is( "input,textarea" ) ? "val" : "text" ];
+        this.isNewMenu = true;
+
+        this.element
+            .addClass( "ui-autocomplete-input" )
+            .attr( "autocomplete", "off" );
+
+        this._on( this.element, {
+            keydown: function( event ) {
+                if ( this.element.prop( "readOnly" ) ) {
+                    suppressKeyPress = true;
+                    suppressInput = true;
+                    suppressKeyPressRepeat = true;
+                    return;
+                }
+
+                suppressKeyPress = false;
+                suppressInput = false;
+                suppressKeyPressRepeat = false;
+                var keyCode = $.ui.keyCode;
+                switch( event.keyCode ) {
+                case keyCode.PAGE_UP:
+                    suppressKeyPress = true;
+                    this._move( "previousPage", event );
+                    break;
+                case keyCode.PAGE_DOWN:
+                    suppressKeyPress = true;
+                    this._move( "nextPage", event );
+                    break;
+                case keyCode.UP:
+                    suppressKeyPress = true;
+                    this._keyEvent( "previous", event );
+                    break;
+                case keyCode.DOWN:
+                    suppressKeyPress = true;
+                    this._keyEvent( "next", event );
+                    break;
+                case keyCode.ENTER:
+                case keyCode.NUMPAD_ENTER:
+                    // when menu is open and has focus
+                    if ( this.menu.active ) {
+                        // #6055 - Opera still allows the keypress to occur
+                        // which causes forms to submit
+                        suppressKeyPress = true;
+                        event.preventDefault();
+                        this.menu.select( event );
+                    }
+                    break;
+                case keyCode.TAB:
+                    if ( this.menu.active ) {
+                        this.menu.select( event );
+                    }
+                    break;
+                case keyCode.ESCAPE:
+                    if ( this.menu.element.is( ":visible" ) ) {
+                        this._value( this.term );
+                        this.close( event );
+                        // Different browsers have different default behavior for escape
+                        // Single press can mean undo or clear
+                        // Double press in IE means clear the whole form
+                        event.preventDefault();
+                    }
+                    break;
+                default:
+                    suppressKeyPressRepeat = true;
+                    // search timeout should be triggered before the input value is changed
+                    this._searchTimeout( event );
+                    break;
+                }
+            },
+            keypress: function( event ) {
+                if ( suppressKeyPress ) {
+                    suppressKeyPress = false;
+                    event.preventDefault();
+                    return;
+                }
+                if ( suppressKeyPressRepeat ) {
+                    return;
+                }
+
+                // replicate some key handlers to allow them to repeat in Firefox and Opera
+                var keyCode = $.ui.keyCode;
+                switch( event.keyCode ) {
+                case keyCode.PAGE_UP:
+                    this._move( "previousPage", event );
+                    break;
+                case keyCode.PAGE_DOWN:
+                    this._move( "nextPage", event );
+                    break;
+                case keyCode.UP:
+                    this._keyEvent( "previous", event );
+                    break;
+                case keyCode.DOWN:
+                    this._keyEvent( "next", event );
+                    break;
+                }
+            },
+            input: function( event ) {
+                if ( suppressInput ) {
+                    suppressInput = false;
+                    event.preventDefault();
+                    return;
+                }
+                this._searchTimeout( event );
+            },
+            focus: function() {
+                this.selectedItem = null;
+                this.previous = this._value();
+            },
+            blur: function( event ) {
+                if ( this.cancelBlur ) {
+                    delete this.cancelBlur;
+                    return;
+                }
+
+                clearTimeout( this.searching );
+                this.close( event );
+                this._change( event );
+            }
+        });
+
+        this._initSource();
+        this.menu = $( "<ul>" )
+            .addClass( "ui-autocomplete" )
+            .appendTo( this.document.find( this.options.appendTo || "body" )[ 0 ] )
+            .menu({
+                // custom key handling for now
+                input: $(),
+                // disable ARIA support, the live region takes care of that
+                role: null
+            })
+            .zIndex( this.element.zIndex() + 1 )
+            .hide()
+            .data( "menu" );
+
+        this._on( this.menu.element, {
+            mousedown: function( event ) {
+                // prevent moving focus out of the text field
+                event.preventDefault();
+
+                // IE doesn't prevent moving focus even with event.preventDefault()
+                // so we set a flag to know when we should ignore the blur event
+                this.cancelBlur = true;
+                this._delay(function() {
+                    delete this.cancelBlur;
+                });
+
+                // clicking on the scrollbar causes focus to shift to the body
+                // but we can't detect a mouseup or a click immediately afterward
+                // so we have to track the next mousedown and close the menu if
+                // the user clicks somewhere outside of the autocomplete
+                var menuElement = this.menu.element[ 0 ];
+                if ( !$( event.target ).closest( ".ui-menu-item" ).length ) {
+                    this._delay(function() {
+                        var that = this;
+                        this.document.one( "mousedown", function( event ) {
+                            if ( event.target !== that.element[ 0 ] &&
+                                    event.target !== menuElement &&
+                                    !$.contains( menuElement, event.target ) ) {
+                                that.close();
+                            }
+                        });
+                    });
+                }
+            },
+            menufocus: function( event, ui ) {
+                // #7024 - Prevent accidental activation of menu items in Firefox
+                if ( this.isNewMenu ) {
+                    this.isNewMenu = false;
+                    if ( event.originalEvent && /^mouse/.test( event.originalEvent.type ) ) {
+                        this.menu.blur();
+
+                        this.document.one( "mousemove", function() {
+                            $( event.target ).trigger( event.originalEvent );
+                        });
+
+                        return;
+                    }
+                }
+
+                // back compat for _renderItem using item.autocomplete, via #7810
+                // TODO remove the fallback, see #8156
+                var item = ui.item.data( "ui-autocomplete-item" ) || ui.item.data( "item.autocomplete" );
+                if ( false !== this._trigger( "focus", event, { item: item } ) ) {
+                    // use value to match what will end up in the input, if it was a key event
+                    if ( event.originalEvent && /^key/.test( event.originalEvent.type ) ) {
+                        this._value( item.value );
+                    }
+                } else {
+                    // Normally the input is populated with the item's value as the
+                    // menu is navigated, causing screen readers to notice a change and
+                    // announce the item. Since the focus event was canceled, this doesn't
+                    // happen, so we update the live region so that screen readers can
+                    // still notice the change and announce it.
+                    this.liveRegion.text( item.value );
+                }
+            },
+            menuselect: function( event, ui ) {
+                // back compat for _renderItem using item.autocomplete, via #7810
+                // TODO remove the fallback, see #8156
+                var item = ui.item.data( "ui-autocomplete-item" ) || ui.item.data( "item.autocomplete" ),
+                    previous = this.previous;
+
+                // only trigger when focus was lost (click on menu)
+                if ( this.element[0] !== this.document[0].activeElement ) {
+                    this.element.focus();
+                    this.previous = previous;
+                    // #6109 - IE triggers two focus events and the second
+                    // is asynchronous, so we need to reset the previous
+                    // term synchronously and asynchronously :-(
+                    this._delay(function() {
+                        this.previous = previous;
+                        this.selectedItem = item;
+                    });
+                }
+
+                if ( false !== this._trigger( "select", event, { item: item } ) ) {
+                    this._value( item.value );
+                }
+                // reset the term after the select event
+                // this allows custom select handling to work properly
+                this.term = this._value();
+
+                this.close( event );
+                this.selectedItem = item;
+            }
+        });
+
+        this.liveRegion = $( "<span>", {
+                role: "status",
+                "aria-live": "polite"
+            })
+            .addClass( "ui-helper-hidden-accessible" )
+            .insertAfter( this.element );
+
+        if ( $.fn.bgiframe ) {
+            this.menu.element.bgiframe();
+        }
+
+        // turning off autocomplete prevents the browser from remembering the
+        // value when navigating through history, so we re-enable autocomplete
+        // if the page is unloaded before the widget is destroyed. #7790
+        this._on( this.window, {
+            beforeunload: function() {
+                this.element.removeAttr( "autocomplete" );
+            }
+        });
+    },
+
+    _destroy: function() {
+        clearTimeout( this.searching );
+        this.element
+            .removeClass( "ui-autocomplete-input" )
+            .removeAttr( "autocomplete" );
+        this.menu.element.remove();
+        this.liveRegion.remove();
+    },
+
+    _setOption: function( key, value ) {
+        this._super( key, value );
+        if ( key === "source" ) {
+            this._initSource();
+        }
+        if ( key === "appendTo" ) {
+            this.menu.element.appendTo( this.document.find( value || "body" )[0] );
+        }
+        if ( key === "disabled" && value && this.xhr ) {
+            this.xhr.abort();
+        }
+    },
+
+    _isMultiLine: function() {
+        // Textareas are always multi-line
+        if ( this.element.is( "textarea" ) ) {
+            return true;
+        }
+        // Inputs are always single-line, even if inside a contentEditable element
+        // IE also treats inputs as contentEditable
+        if ( this.element.is( "input" ) ) {
+            return false;
+        }
+        // All other element types are determined by whether or not they're contentEditable
+        return this.element.prop( "isContentEditable" );
+    },
+
+    _initSource: function() {
+        var array, url,
+            that = this;
+        if ( $.isArray(this.options.source) ) {
+            array = this.options.source;
+            this.source = function( request, response ) {
+                response( $.ui.autocomplete.filter( array, request.term ) );
+            };
+        } else if ( typeof this.options.source === "string" ) {
+            url = this.options.source;
+            this.source = function( request, response ) {
+                if ( that.xhr ) {
+                    that.xhr.abort();
+                }
+                that.xhr = $.ajax({
+                    url: url,
+                    data: request,
+                    dataType: "json",
+                    success: function( data ) {
+                        response( data );
+                    },
+                    error: function() {
+                        response( [] );
+                    }
+                });
+            };
+        } else {
+            this.source = this.options.source;
+        }
+    },
+
+    _searchTimeout: function( event ) {
+        clearTimeout( this.searching );
+        this.searching = this._delay(function() {
+            // only search if the value has changed
+            if ( this.term !== this._value() ) {
+                this.selectedItem = null;
+                this.search( null, event );
+            }
+        }, this.options.delay );
+    },
+
+    search: function( value, event ) {
+        value = value != null ? value : this._value();
+
+        // always save the actual value, not the one passed as an argument
+        this.term = this._value();
+
+        if ( value.length < this.options.minLength ) {
+            return this.close( event );
+        }
+
+        if ( this._trigger( "search", event ) === false ) {
+            return;
+        }
+
+        return this._search( value );
+    },
+
+    _search: function( value ) {
+        this.pending++;
+        this.element.addClass( "ui-autocomplete-loading" );
+        this.cancelSearch = false;
+
+        this.source( { term: value }, this._response() );
+    },
+
+    _response: function() {
+        var that = this,
+            index = ++requestIndex;
+
+        return function( content ) {
+            if ( index === requestIndex ) {
+                that.__response( content );
+            }
+
+            that.pending--;
+            if ( !that.pending ) {
+                that.element.removeClass( "ui-autocomplete-loading" );
+            }
+        };
+    },
+
+    __response: function( content ) {
+        if ( content ) {
+            content = this._normalize( content );
+        }
+        this._trigger( "response", null, { content: content } );
+        if ( !this.options.disabled && content && content.length && !this.cancelSearch ) {
+            this._suggest( content );
+            this._trigger( "open" );
+        } else {
+            // use ._close() instead of .close() so we don't cancel future searches
+            this._close();
+        }
+    },
+
+    close: function( event ) {
+        this.cancelSearch = true;
+        this._close( event );
+    },
+
+    _close: function( event ) {
+        if ( this.menu.element.is( ":visible" ) ) {
+            this.menu.element.hide();
+            this.menu.blur();
+            this.isNewMenu = true;
+            this._trigger( "close", event );
+        }
+    },
+
+    _change: function( event ) {
+        if ( this.previous !== this._value() ) {
+            this._trigger( "change", event, { item: this.selectedItem } );
+        }
+    },
+
+    _normalize: function( items ) {
+        // assume all items have the right format when the first item is complete
+        if ( items.length && items[0].label && items[0].value ) {
+            return items;
+        }
+        return $.map( items, function( item ) {
+            if ( typeof item === "string" ) {
+                return {
+                    label: item,
+                    value: item
+                };
+            }
+            return $.extend({
+                label: item.label || item.value,
+                value: item.value || item.label
+            }, item );
+        });
+    },
+
+    _suggest: function( items ) {
+        var ul = this.menu.element
+            .empty()
+            .zIndex( this.element.zIndex() + 1 );
+        this._renderMenu( ul, items );
+        this.menu.refresh();
+
+        // size and position menu
+        ul.show();
+        this._resizeMenu();
+        ul.position( $.extend({
+            of: this.element
+        }, this.options.position ));
+
+        if ( this.options.autoFocus ) {
+            this.menu.next();
+        }
+    },
+
+    _resizeMenu: function() {
+        var ul = this.menu.element;
+        ul.outerWidth( Math.max(
+            // Firefox wraps long text (possibly a rounding bug)
+            // so we add 1px to avoid the wrapping (#7513)
+            ul.width( "" ).outerWidth() + 1,
+            this.element.outerWidth()
+        ) );
+    },
+
+    _renderMenu: function( ul, items ) {
+        var that = this;
+        $.each( items, function( index, item ) {
+            that._renderItemData( ul, item );
+        });
+    },
+
+    _renderItemData: function( ul, item ) {
+        return this._renderItem( ul, item ).data( "ui-autocomplete-item", item );
+    },
+
+    _renderItem: function( ul, item ) {
+        return $( "<li>" )
+            .append( $( "<a>" ).text( item.label ) )
+            .appendTo( ul );
+    },
+
+    _move: function( direction, event ) {
+        if ( !this.menu.element.is( ":visible" ) ) {
+            this.search( null, event );
+            return;
+        }
+        if ( this.menu.isFirstItem() && /^previous/.test( direction ) ||
+                this.menu.isLastItem() && /^next/.test( direction ) ) {
+            this._value( this.term );
+            this.menu.blur();
+            return;
+        }
+        this.menu[ direction ]( event );
+    },
+
+    widget: function() {
+        return this.menu.element;
+    },
+
+    _value: function() {
+        return this.valueMethod.apply( this.element, arguments );
+    },
+
+    _keyEvent: function( keyEvent, event ) {
+        if ( !this.isMultiLine || this.menu.element.is( ":visible" ) ) {
+            this._move( keyEvent, event );
+
+            // prevents moving cursor to beginning/end of the text field in some browsers
+            event.preventDefault();
+        }
+    }
+});
+
+$.extend( $.ui.autocomplete, {
+    escapeRegex: function( value ) {
+        return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
+    },
+    filter: function(array, term) {
+        var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
+        return $.grep( array, function(value) {
+            return matcher.test( value.label || value.value || value );
+        });
+    }
+});
+
+
+// live region extension, adding a `messages` option
+// NOTE: This is an experimental API. We are still investigating
+// a full solution for string manipulation and internationalization.
+$.widget( "ui.autocomplete", $.ui.autocomplete, {
+    options: {
+        messages: {
+            noResults: "No search results.",
+            results: function( amount ) {
+                return amount + ( amount > 1 ? " results are" : " result is" ) +
+                    " available, use up and down arrow keys to navigate.";
+            }
+        }
+    },
+
+    __response: function( content ) {
+        var message;
+        this._superApply( arguments );
+        if ( this.options.disabled || this.cancelSearch ) {
+            return;
+        }
+        if ( content && content.length ) {
+            message = this.options.messages.results( content.length );
+        } else {
+            message = this.options.messages.noResults;
+        }
+        this.liveRegion.text( message );
+    }
+});
+
+
+}( jQuery ));
+(function( $, undefined ) {
+
+var mouseHandled = false;
+
+$.widget( "ui.menu", {
+    version: "1.9.1",
+    defaultElement: "<ul>",
+    delay: 300,
+    options: {
+        icons: {
+            submenu: "ui-icon-carat-1-e"
+        },
+        menus: "ul",
+        position: {
+            my: "left top",
+            at: "right top"
+        },
+        role: "menu",
+
+        // callbacks
+        blur: null,
+        focus: null,
+        select: null
+    },
+
+    _create: function() {
+        this.activeMenu = this.element;
+        this.element
+            .uniqueId()
+            .addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
+            .toggleClass( "ui-menu-icons", !!this.element.find( ".ui-icon" ).length )
+            .attr({
+                role: this.options.role,
+                tabIndex: 0
+            })
+            // need to catch all clicks on disabled menu
+            // not possible through _on
+            .bind( "click" + this.eventNamespace, $.proxy(function( event ) {
+                if ( this.options.disabled ) {
+                    event.preventDefault();
+                }
+            }, this ));
+
+        if ( this.options.disabled ) {
+            this.element
+                .addClass( "ui-state-disabled" )
+                .attr( "aria-disabled", "true" );
+        }
+
+        this._on({
+            // Prevent focus from sticking to links inside menu after clicking
+            // them (focus should always stay on UL during navigation).
+            "mousedown .ui-menu-item > a": function( event ) {
+                event.preventDefault();
+            },
+            "click .ui-state-disabled > a": function( event ) {
+                event.preventDefault();
+            },
+            "click .ui-menu-item:has(a)": function( event ) {
+                var target = $( event.target ).closest( ".ui-menu-item" );
+                if ( !mouseHandled && target.not( ".ui-state-disabled" ).length ) {
+                    mouseHandled = true;
+
+                    this.select( event );
+                    // Open submenu on click
+                    if ( target.has( ".ui-menu" ).length ) {
+                        this.expand( event );
+                    } else if ( !this.element.is( ":focus" ) ) {
+                        // Redirect focus to the menu
+                        this.element.trigger( "focus", [ true ] );
+
+                        // If the active item is on the top level, let it stay active.
+                        // Otherwise, blur the active item since it is no longer visible.
+                        if ( this.active && this.active.parents( ".ui-menu" ).length === 1 ) {
+                            clearTimeout( this.timer );
+                        }
+                    }
+                }
+            },
+            "mouseenter .ui-menu-item": function( event ) {
+                var target = $( event.currentTarget );
+                // Remove ui-state-active class from siblings of the newly focused menu item
+                // to avoid a jump caused by adjacent elements both having a class with a border
+                target.siblings().children( ".ui-state-active" ).removeClass( "ui-state-active" );
+                this.focus( event, target );
+            },
+            mouseleave: "collapseAll",
+            "mouseleave .ui-menu": "collapseAll",
+            focus: function( event, keepActiveItem ) {
+                // If there's already an active item, keep it active
+                // If not, activate the first item
+                var item = this.active || this.element.children( ".ui-menu-item" ).eq( 0 );
+
+                if ( !keepActiveItem ) {
+                    this.focus( event, item );
+                }
+            },
+            blur: function( event ) {
+                this._delay(function() {
+                    if ( !$.contains( this.element[0], this.document[0].activeElement ) ) {
+                        this.collapseAll( event );
+                    }
+                });
+            },
+            keydown: "_keydown"
+        });
+
+        this.refresh();
+
+        // Clicks outside of a menu collapse any open menus
+        this._on( this.document, {
+            click: function( event ) {
+                if ( !$( event.target ).closest( ".ui-menu" ).length ) {
+                    this.collapseAll( event );
+                }
+
+                // Reset the mouseHandled flag
+                mouseHandled = false;
+            }
+        });
+    },
+
+    _destroy: function() {
+        // Destroy (sub)menus
+        this.element
+            .removeAttr( "aria-activedescendant" )
+            .find( ".ui-menu" ).andSelf()
+                .removeClass( "ui-menu ui-widget ui-widget-content ui-corner-all ui-menu-icons" )
+                .removeAttr( "role" )
+                .removeAttr( "tabIndex" )
+                .removeAttr( "aria-labelledby" )
+                .removeAttr( "aria-expanded" )
+                .removeAttr( "aria-hidden" )
+                .removeAttr( "aria-disabled" )
+                .removeUniqueId()
+                .show();
+
+        // Destroy menu items
+        this.element.find( ".ui-menu-item" )
+            .removeClass( "ui-menu-item" )
+            .removeAttr( "role" )
+            .removeAttr( "aria-disabled" )
+            .children( "a" )
+                .removeUniqueId()
+                .removeClass( "ui-corner-all ui-state-hover" )
+                .removeAttr( "tabIndex" )
+                .removeAttr( "role" )
+                .removeAttr( "aria-haspopup" )
+                .children().each( function() {
+                    var elem = $( this );
+                    if ( elem.data( "ui-menu-submenu-carat" ) ) {
+                        elem.remove();
+                    }
+                });
+
+        // Destroy menu dividers
+        this.element.find( ".ui-menu-divider" ).removeClass( "ui-menu-divider ui-widget-content" );
+    },
+
+    _keydown: function( event ) {
+        var match, prev, character, skip, regex,
+            preventDefault = true;
+
+        function escape( value ) {
+            return value.replace( /[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&" );
+        }
+
+        switch ( event.keyCode ) {
+        case $.ui.keyCode.PAGE_UP:
+            this.previousPage( event );
+            break;
+        case $.ui.keyCode.PAGE_DOWN:
+            this.nextPage( event );
+            break;
+        case $.ui.keyCode.HOME:
+            this._move( "first", "first", event );
+            break;
+        case $.ui.keyCode.END:
+            this._move( "last", "last", event );
+            break;
+        case $.ui.keyCode.UP:
+            this.previous( event );
+            break;
+        case $.ui.keyCode.DOWN:
+            this.next( event );
+            break;
+        case $.ui.keyCode.LEFT:
+            this.collapse( event );
+            break;
+        case $.ui.keyCode.RIGHT:
+            if ( this.active && !this.active.is( ".ui-state-disabled" ) ) {
+                this.expand( event );
+            }
+            break;
+        case $.ui.keyCode.ENTER:
+        case $.ui.keyCode.SPACE:
+            this._activate( event );
+            break;
+        case $.ui.keyCode.ESCAPE:
+            this.collapse( event );
+            break;
+        default:
+            preventDefault = false;
+            prev = this.previousFilter || "";
+            character = String.fromCharCode( event.keyCode );
+            skip = false;
+
+            clearTimeout( this.filterTimer );
+
+            if ( character === prev ) {
+                skip = true;
+            } else {
+                character = prev + character;
+            }
+
+            regex = new RegExp( "^" + escape( character ), "i" );
+            match = this.activeMenu.children( ".ui-menu-item" ).filter(function() {
+                return regex.test( $( this ).children( "a" ).text() );
+            });
+            match = skip && match.index( this.active.next() ) !== -1 ?
+                this.active.nextAll( ".ui-menu-item" ) :
+                match;
+
+            // If no matches on the current filter, reset to the last character pressed
+            // to move down the menu to the first item that starts with that character
+            if ( !match.length ) {
+                character = String.fromCharCode( event.keyCode );
+                regex = new RegExp( "^" + escape( character ), "i" );
+                match = this.activeMenu.children( ".ui-menu-item" ).filter(function() {
+                    return regex.test( $( this ).children( "a" ).text() );
+                });
+            }
+
+            if ( match.length ) {
+                this.focus( event, match );
+                if ( match.length > 1 ) {
+                    this.previousFilter = character;
+                    this.filterTimer = this._delay(function() {
+                        delete this.previousFilter;
+                    }, 1000 );
+                } else {
+                    delete this.previousFilter;
+                }
+            } else {
+                delete this.previousFilter;
+            }
+        }
+
+        if ( preventDefault ) {
+            event.preventDefault();
+        }
+    },
+
+    _activate: function( event ) {
+        if ( !this.active.is( ".ui-state-disabled" ) ) {
+            if ( this.active.children( "a[aria-haspopup='true']" ).length ) {
+                this.expand( event );
+            } else {
+                this.select( event );
+            }
+        }
+    },
+
+    refresh: function() {
+        // Initialize nested menus
+        var menus,
+            icon = this.options.icons.submenu,
+            submenus = this.element.find( this.options.menus + ":not(.ui-menu)" )
+                .addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
+                .hide()
+                .attr({
+                    role: this.options.role,
+                    "aria-hidden": "true",
+                    "aria-expanded": "false"
+                });
+
+        // Don't refresh list items that are already adapted
+        menus = submenus.add( this.element );
+
+        menus.children( ":not(.ui-menu-item):has(a)" )
+            .addClass( "ui-menu-item" )
+            .attr( "role", "presentation" )
+            .children( "a" )
+                .uniqueId()
+                .addClass( "ui-corner-all" )
+                .attr({
+                    tabIndex: -1,
+                    role: this._itemRole()
+                });
+
+        // Initialize unlinked menu-items containing spaces and/or dashes only as dividers
+        menus.children( ":not(.ui-menu-item)" ).each(function() {
+            var item = $( this );
+            // hyphen, em dash, en dash
+            if ( !/[^\-—–\s]/.test( item.text() ) ) {
+                item.addClass( "ui-widget-content ui-menu-divider" );
+            }
+        });
+
+        // Add aria-disabled attribute to any disabled menu item
+        menus.children( ".ui-state-disabled" ).attr( "aria-disabled", "true" );
+
+        submenus.each(function() {
+            var menu = $( this ),
+                item = menu.prev( "a" ),
+                submenuCarat = $( "<span>" )
+                    .addClass( "ui-menu-icon ui-icon " + icon )
+                    .data( "ui-menu-submenu-carat", true );
+
+            item
+                .attr( "aria-haspopup", "true" )
+                .prepend( submenuCarat );
+            menu.attr( "aria-labelledby", item.attr( "id" ) );
+        });
+
+        // If the active item has been removed, blur the menu
+        if ( this.active && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
+            this.blur();
+        }
+    },
+
+    _itemRole: function() {
+        return {
+            menu: "menuitem",
+            listbox: "option"
+        }[ this.options.role ];
+    },
+
+    focus: function( event, item ) {
+        var nested, focused;
+        this.blur( event, event && event.type === "focus" );
+
+        this._scrollIntoView( item );
+
+        this.active = item.first();
+        focused = this.active.children( "a" ).addClass( "ui-state-focus" );
+        // Only update aria-activedescendant if there's a role
+        // otherwise we assume focus is managed elsewhere
+        if ( this.options.role ) {
+            this.element.attr( "aria-activedescendant", focused.attr( "id" ) );
+        }
+
+        // Highlight active parent menu item, if any
+        this.active
+            .parent()
+            .closest( ".ui-menu-item" )
+            .children( "a:first" )
+            .addClass( "ui-state-active" );
+
+        if ( event && event.type === "keydown" ) {
+            this._close();
+        } else {
+            this.timer = this._delay(function() {
+                this._close();
+            }, this.delay );
+        }
+
+        nested = item.children( ".ui-menu" );
+        if ( nested.length && ( /^mouse/.test( event.type ) ) ) {
+            this._startOpening(nested);
+        }
+        this.activeMenu = item.parent();
+
+        this._trigger( "focus", event, { item: item } );
+    },
+
+    _scrollIntoView: function( item ) {
+        var borderTop, paddingTop, offset, scroll, elementHeight, itemHeight;
+        if ( this._hasScroll() ) {
+            borderTop = parseFloat( $.css( this.activeMenu[0], "borderTopWidth" ) ) || 0;
+            paddingTop = parseFloat( $.css( this.activeMenu[0], "paddingTop" ) ) || 0;
+            offset = item.offset().top - this.activeMenu.offset().top - borderTop - paddingTop;
+            scroll = this.activeMenu.scrollTop();
+            elementHeight = this.activeMenu.height();
+            itemHeight = item.height();
+
+            if ( offset < 0 ) {
+                this.activeMenu.scrollTop( scroll + offset );
+            } else if ( offset + itemHeight > elementHeight ) {
+                this.activeMenu.scrollTop( scroll + offset - elementHeight + itemHeight );
+            }
+        }
+    },
+
+    blur: function( event, fromFocus ) {
+        if ( !fromFocus ) {
+            clearTimeout( this.timer );
+        }
+
+        if ( !this.active ) {
+            return;
+        }
+
+        this.active.children( "a" ).removeClass( "ui-state-focus" );
+        this.active = null;
+
+        this._trigger( "blur", event, { item: this.active } );
+    },
+
+    _startOpening: function( submenu ) {
+        clearTimeout( this.timer );
+
+        // Don't open if already open fixes a Firefox bug that caused a .5 pixel
+        // shift in the submenu position when mousing over the carat icon
+        if ( submenu.attr( "aria-hidden" ) !== "true" ) {
+            return;
+        }
+
+        this.timer = this._delay(function() {
+            this._close();
+            this._open( submenu );
+        }, this.delay );
+    },
+
+    _open: function( submenu ) {
+        var position = $.extend({
+            of: this.active
+        }, this.options.position );
+
+        clearTimeout( this.timer );
+        this.element.find( ".ui-menu" ).not( submenu.parents( ".ui-menu" ) )
+            .hide()
+            .attr( "aria-hidden", "true" );
+
+        submenu
+            .show()
+            .removeAttr( "aria-hidden" )
+            .attr( "aria-expanded", "true" )
+            .position( position );
+    },
+
+    collapseAll: function( event, all ) {
+        clearTimeout( this.timer );
+        this.timer = this._delay(function() {
+            // If we were passed an event, look for the submenu that contains the event
+            var currentMenu = all ? this.element :
+                $( event && event.target ).closest( this.element.find( ".ui-menu" ) );
+
+            // If we found no valid submenu ancestor, use the main menu to close all sub menus anyway
+            if ( !currentMenu.length ) {
+                currentMenu = this.element;
+            }
+
+            this._close( currentMenu );
+
+            this.blur( event );
+            this.activeMenu = currentMenu;
+        }, this.delay );
+    },
+
+    // With no arguments, closes the currently active menu - if nothing is active
+    // it closes all menus.  If passed an argument, it will search for menus BELOW
+    _close: function( startMenu ) {
+        if ( !startMenu ) {
+            startMenu = this.active ? this.active.parent() : this.element;
+        }
+
+        startMenu
+            .find( ".ui-menu" )
+                .hide()
+                .attr( "aria-hidden", "true" )
+                .attr( "aria-expanded", "false" )
+            .end()
+            .find( "a.ui-state-active" )
+                .removeClass( "ui-state-active" );
+    },
+
+    collapse: function( event ) {
+        var newItem = this.active &&
+            this.active.parent().closest( ".ui-menu-item", this.element );
+        if ( newItem && newItem.length ) {
+            this._close();
+            this.focus( event, newItem );
+        }
+    },
+
+    expand: function( event ) {
+        var newItem = this.active &&
+            this.active
+                .children( ".ui-menu " )
+                .children( ".ui-menu-item" )
+                .first();
+
+        if ( newItem && newItem.length ) {
+            this._open( newItem.parent() );
+
+            // Delay so Firefox will not hide activedescendant change in expanding submenu from AT
+            this._delay(function() {
+                this.focus( event, newItem );
+            });
+        }
+    },
+
+    next: function( event ) {
+        this._move( "next", "first", event );
+    },
+
+    previous: function( event ) {
+        this._move( "prev", "last", event );
+    },
+
+    isFirstItem: function() {
+        return this.active && !this.active.prevAll( ".ui-menu-item" ).length;
+    },
+
+    isLastItem: function() {
+        return this.active && !this.active.nextAll( ".ui-menu-item" ).length;
+    },
+
+    _move: function( direction, filter, event ) {
+        var next;
+        if ( this.active ) {
+            if ( direction === "first" || direction === "last" ) {
+                next = this.active
+                    [ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menu-item" )
+                    .eq( -1 );
+            } else {
+                next = this.active
+                    [ direction + "All" ]( ".ui-menu-item" )
+                    .eq( 0 );
+            }
+        }
+        if ( !next || !next.length || !this.active ) {
+            next = this.activeMenu.children( ".ui-menu-item" )[ filter ]();
+        }
+
+        this.focus( event, next );
+    },
+
+    nextPage: function( event ) {
+        var item, base, height;
+
+        if ( !this.active ) {
+            this.next( event );
+            return;
+        }
+        if ( this.isLastItem() ) {
+            return;
+        }
+        if ( this._hasScroll() ) {
+            base = this.active.offset().top;
+            height = this.element.height();
+            this.active.nextAll( ".ui-menu-item" ).each(function() {
+                item = $( this );
+                return item.offset().top - base - height < 0;
+            });
+
+            this.focus( event, item );
+        } else {
+            this.focus( event, this.activeMenu.children( ".ui-menu-item" )
+                [ !this.active ? "first" : "last" ]() );
+        }
+    },
+
+    previousPage: function( event ) {
+        var item, base, height;
+        if ( !this.active ) {
+            this.next( event );
+            return;
+        }
+        if ( this.isFirstItem() ) {
+            return;
+        }
+        if ( this._hasScroll() ) {
+            base = this.active.offset().top;
+            height = this.element.height();
+            this.active.prevAll( ".ui-menu-item" ).each(function() {
+                item = $( this );
+                return item.offset().top - base + height > 0;
+            });
+
+            this.focus( event, item );
+        } else {
+            this.focus( event, this.activeMenu.children( ".ui-menu-item" ).first() );
+        }
+    },
+
+    _hasScroll: function() {
+        return this.element.outerHeight() < this.element.prop( "scrollHeight" );
+    },
+
+    select: function( event ) {
+        // TODO: It should never be possible to not have an active item at this
+        // point, but the tests don't trigger mouseenter before click.
+        this.active = this.active || $( event.target ).closest( ".ui-menu-item" );
+        var ui = { item: this.active };
+        if ( !this.active.has( ".ui-menu" ).length ) {
+            this.collapseAll( event, true );
+        }
+        this._trigger( "select", event, ui );
+    }
+});
+
+}( jQuery ));
+(function( $, undefined ) {
+
+var tabId = 0,
+    rhash = /#.*$/;
+
+function getNextTabId() {
+    return ++tabId;
+}
+
+function isLocal( anchor ) {
+    return anchor.hash.length > 1 &&
+        anchor.href.replace( rhash, "" ) === location.href.replace( rhash, "" );
+}
+
+$.widget( "ui.tabs", {
+    version: "1.9.1",
+    delay: 300,
+    options: {
+        active: null,
+        collapsible: false,
+        event: "click",
+        heightStyle: "content",
+        hide: null,
+        show: null,
+
+        // callbacks
+        activate: null,
+        beforeActivate: null,
+        beforeLoad: null,
+        load: null
+    },
+
+    _create: function() {
+        var that = this,
+            options = this.options,
+            active = options.active,
+            locationHash = location.hash.substring( 1 );
+
+        this.running = false;
+
+        this.element
+            .addClass( "ui-tabs ui-widget ui-widget-content ui-corner-all" )
+            .toggleClass( "ui-tabs-collapsible", options.collapsible )
+            // Prevent users from focusing disabled tabs via click
+            .delegate( ".ui-tabs-nav > li", "mousedown" + this.eventNamespace, function( event ) {
+                if ( $( this ).is( ".ui-state-disabled" ) ) {
+                    event.preventDefault();
+                }
+            })
+            // support: IE <9
+            // Preventing the default action in mousedown doesn't prevent IE
+            // from focusing the element, so if the anchor gets focused, blur.
+            // We don't have to worry about focusing the previously focused
+            // element since clicking on a non-focusable element should focus
+            // the body anyway.
+            .delegate( ".ui-tabs-anchor", "focus" + this.eventNamespace, function() {
+                if ( $( this ).closest( "li" ).is( ".ui-state-disabled" ) ) {
+                    this.blur();
+                }
+            });
+
+        this._processTabs();
+
+        if ( active === null ) {
+            // check the fragment identifier in the URL
+            if ( locationHash ) {
+                this.tabs.each(function( i, tab ) {
+                    if ( $( tab ).attr( "aria-controls" ) === locationHash ) {
+                        active = i;
+                        return false;
+                    }
+                });
+            }
+
+            // check for a tab marked active via a class
+            if ( active === null ) {
+                active = this.tabs.index( this.tabs.filter( ".ui-tabs-active" ) );
+            }
+
+            // no active tab, set to false
+            if ( active === null || active === -1 ) {
+                active = this.tabs.length ? 0 : false;
+            }
+        }
+
+        // handle numbers: negative, out of range
+        if ( active !== false ) {
+            active = this.tabs.index( this.tabs.eq( active ) );
+            if ( active === -1 ) {
+                active = options.collapsible ? false : 0;
+            }
+        }
+        options.active = active;
+
+        // don't allow collapsible: false and active: false
+        if ( !options.collapsible && options.active === false && this.anchors.length ) {
+            options.active = 0;
+        }
+
+        // Take disabling tabs via class attribute from HTML
+        // into account and update option properly.
+        if ( $.isArray( options.disabled ) ) {
+            options.disabled = $.unique( options.disabled.concat(
+                $.map( this.tabs.filter( ".ui-state-disabled" ), function( li ) {
+                    return that.tabs.index( li );
+                })
+            ) ).sort();
+        }
+
+        // check for length avoids error when initializing empty list
+        if ( this.options.active !== false && this.anchors.length ) {
+            this.active = this._findActive( this.options.active );
+        } else {
+            this.active = $();
+        }
+
+        this._refresh();
+
+        if ( this.active.length ) {
+            this.load( options.active );
+        }
+    },
+
+    _getCreateEventData: function() {
+        return {
+            tab: this.active,
+            panel: !this.active.length ? $() : this._getPanelForTab( this.active )
+        };
+    },
+
+    _tabKeydown: function( event ) {
+        var focusedTab = $( this.document[0].activeElement ).closest( "li" ),
+            selectedIndex = this.tabs.index( focusedTab ),
+            goingForward = true;
+
+        if ( this._handlePageNav( event ) ) {
+            return;
+        }
+
+        switch ( event.keyCode ) {
+            case $.ui.keyCode.RIGHT:
+            case $.ui.keyCode.DOWN:
+                selectedIndex++;
+                break;
+            case $.ui.keyCode.UP:
+            case $.ui.keyCode.LEFT:
+                goingForward = false;
+                selectedIndex--;
+                break;
+            case $.ui.keyCode.END:
+                selectedIndex = this.anchors.length - 1;
+                break;
+            case $.ui.keyCode.HOME:
+                selectedIndex = 0;
+                break;
+            case $.ui.keyCode.SPACE:
+                // Activate only, no collapsing
+                event.preventDefault();
+                clearTimeout( this.activating );
+                this._activate( selectedIndex );
+                return;
+            case $.ui.keyCode.ENTER:
+                // Toggle (cancel delayed activation, allow collapsing)
+                event.preventDefault();
+                clearTimeout( this.activating );
+                // Determine if we should collapse or activate
+                this._activate( selectedIndex === this.options.active ? false : selectedIndex );
+                return;
+            default:
+                return;
+        }
+
+        // Focus the appropriate tab, based on which key was pressed
+        event.preventDefault();
+        clearTimeout( this.activating );
+        selectedIndex = this._focusNextTab( selectedIndex, goingForward );
+
+        // Navigating with control key will prevent automatic activation
+        if ( !event.ctrlKey ) {
+            // Update aria-selected immediately so that AT think the tab is already selected.
+            // Otherwise AT may confuse the user by stating that they need to activate the tab,
+            // but the tab will already be activated by the time the announcement finishes.
+            focusedTab.attr( "aria-selected", "false" );
+            this.tabs.eq( selectedIndex ).attr( "aria-selected", "true" );
+
+            this.activating = this._delay(function() {
+                this.option( "active", selectedIndex );
+            }, this.delay );
+        }
+    },
+
+    _panelKeydown: function( event ) {
+        if ( this._handlePageNav( event ) ) {
+            return;
+        }
+
+        // Ctrl+up moves focus to the current tab
+        if ( event.ctrlKey && event.keyCode === $.ui.keyCode.UP ) {
+            event.preventDefault();
+            this.active.focus();
+        }
+    },
+
+    // Alt+page up/down moves focus to the previous/next tab (and activates)
+    _handlePageNav: function( event ) {
+        if ( event.altKey && event.keyCode === $.ui.keyCode.PAGE_UP ) {
+            this._activate( this._focusNextTab( this.options.active - 1, false ) );
+            return true;
+        }
+        if ( event.altKey && event.keyCode === $.ui.keyCode.PAGE_DOWN ) {
+            this._activate( this._focusNextTab( this.options.active + 1, true ) );
+            return true;
+        }
+    },
+
+    _findNextTab: function( index, goingForward ) {
+        var lastTabIndex = this.tabs.length - 1;
+
+        function constrain() {
+            if ( index > lastTabIndex ) {
+                index = 0;
+            }
+            if ( index < 0 ) {
+                index = lastTabIndex;
+            }
+            return index;
+        }
+
+        while ( $.inArray( constrain(), this.options.disabled ) !== -1 ) {
+            index = goingForward ? index + 1 : index - 1;
+        }
+
+        return index;
+    },
+
+    _focusNextTab: function( index, goingForward ) {
+        index = this._findNextTab( index, goingForward );
+        this.tabs.eq( index ).focus();
+        return index;
+    },
+
+    _setOption: function( key, value ) {
+        if ( key === "active" ) {
+            // _activate() will handle invalid values and update this.options
+            this._activate( value );
+            return;
+        }
+
+        if ( key === "disabled" ) {
+            // don't use the widget factory's disabled handling
+            this._setupDisabled( value );
+            return;
+        }
+
+        this._super( key, value);
+
+        if ( key === "collapsible" ) {
+            this.element.toggleClass( "ui-tabs-collapsible", value );
+            // Setting collapsible: false while collapsed; open first panel
+            if ( !value && this.options.active === false ) {
+                this._activate( 0 );
+            }
+        }
+
+        if ( key === "event" ) {
+            this._setupEvents( value );
+        }
+
+        if ( key === "heightStyle" ) {
+            this._setupHeightStyle( value );
+        }
+    },
+
+    _tabId: function( tab ) {
+        return tab.attr( "aria-controls" ) || "ui-tabs-" + getNextTabId();
+    },
+
+    _sanitizeSelector: function( hash ) {
+        return hash ? hash.replace( /[!"$%&'()*+,.\/:;<=>?@\[\]\^`{|}~]/g, "\\$&" ) : "";
+    },
+
+    refresh: function() {
+        var options = this.options,
+            lis = this.tablist.children( ":has(a[href])" );
+
+        // get disabled tabs from class attribute from HTML
+        // this will get converted to a boolean if needed in _refresh()
+        options.disabled = $.map( lis.filter( ".ui-state-disabled" ), function( tab ) {
+            return lis.index( tab );
+        });
+
+        this._processTabs();
+
+        // was collapsed or no tabs
+        if ( options.active === false || !this.anchors.length ) {
+            options.active = false;
+            this.active = $();
+        // was active, but active tab is gone
+        } else if ( this.active.length && !$.contains( this.tablist[ 0 ], this.active[ 0 ] ) ) {
+            // all remaining tabs are disabled
+            if ( this.tabs.length === options.disabled.length ) {
+                options.active = false;
+                this.active = $();
+            // activate previous tab
+            } else {
+                this._activate( this._findNextTab( Math.max( 0, options.active - 1 ), false ) );
+            }
+        // was active, active tab still exists
+        } else {
+            // make sure active index is correct
+            options.active = this.tabs.index( this.active );
+        }
+
+        this._refresh();
+    },
+
+    _refresh: function() {
+        this._setupDisabled( this.options.disabled );
+        this._setupEvents( this.options.event );
+        this._setupHeightStyle( this.options.heightStyle );
+
+        this.tabs.not( this.active ).attr({
+            "aria-selected": "false",
+            tabIndex: -1
+        });
+        this.panels.not( this._getPanelForTab( this.active ) )
+            .hide()
+            .attr({
+                "aria-expanded": "false",
+                "aria-hidden": "true"
+            });
+
+        // Make sure one tab is in the tab order
+        if ( !this.active.length ) {
+            this.tabs.eq( 0 ).attr( "tabIndex", 0 );
+        } else {
+            this.active
+                .addClass( "ui-tabs-active ui-state-active" )
+                .attr({
+                    "aria-selected": "true",
+                    tabIndex: 0
+                });
+            this._getPanelForTab( this.active )
+                .show()
+                .attr({
+                    "aria-expanded": "true",
+                    "aria-hidden": "false"
+                });
+        }
+    },
+
+    _processTabs: function() {
+        var that = this;
+
+        this.tablist = this._getList()
+            .addClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" )
+            .attr( "role", "tablist" );
+
+        this.tabs = this.tablist.find( "> li:has(a[href])" )
+            .addClass( "ui-state-default ui-corner-top" )
+            .attr({
+                role: "tab",
+                tabIndex: -1
+            });
+
+        this.anchors = this.tabs.map(function() {
+                return $( "a", this )[ 0 ];
+            })
+            .addClass( "ui-tabs-anchor" )
+            .attr({
+                role: "presentation",
+                tabIndex: -1
+            });
+
+        this.panels = $();
+
+        this.anchors.each(function( i, anchor ) {
+            var selector, panel, panelId,
+                anchorId = $( anchor ).uniqueId().attr( "id" ),
+                tab = $( anchor ).closest( "li" ),
+                originalAriaControls = tab.attr( "aria-controls" );
+
+            // inline tab
+            if ( isLocal( anchor ) ) {
+                selector = anchor.hash;
+                panel = that.element.find( that._sanitizeSelector( selector ) );
+            // remote tab
+            } else {
+                panelId = that._tabId( tab );
+                selector = "#" + panelId;
+                panel = that.element.find( selector );
+                if ( !panel.length ) {
+                    panel = that._createPanel( panelId );
+                    panel.insertAfter( that.panels[ i - 1 ] || that.tablist );
+                }
+                panel.attr( "aria-live", "polite" );
+            }
+
+            if ( panel.length) {
+                that.panels = that.panels.add( panel );
+            }
+            if ( originalAriaControls ) {
+                tab.data( "ui-tabs-aria-controls", originalAriaControls );
+            }
+            tab.attr({
+                "aria-controls": selector.substring( 1 ),
+                "aria-labelledby": anchorId
+            });
+            panel.attr( "aria-labelledby", anchorId );
+        });
+
+        this.panels
+            .addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" )
+            .attr( "role", "tabpanel" );
+    },
+
+    // allow overriding how to find the list for rare usage scenarios (#7715)
+    _getList: function() {
+        return this.element.find( "ol,ul" ).eq( 0 );
+    },
+
+    _createPanel: function( id ) {
+        return $( "<div>" )
+            .attr( "id", id )
+            .addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" )
+            .data( "ui-tabs-destroy", true );
+    },
+
+    _setupDisabled: function( disabled ) {
+        if ( $.isArray( disabled ) ) {
+            if ( !disabled.length ) {
+                disabled = false;
+            } else if ( disabled.length === this.anchors.length ) {
+                disabled = true;
+            }
+        }
+
+        // disable tabs
+        for ( var i = 0, li; ( li = this.tabs[ i ] ); i++ ) {
+            if ( disabled === true || $.inArray( i, disabled ) !== -1 ) {
+                $( li )
+                    .addClass( "ui-state-disabled" )
+                    .attr( "aria-disabled", "true" );
+            } else {
+                $( li )
+                    .removeClass( "ui-state-disabled" )
+                    .removeAttr( "aria-disabled" );
+            }
+        }
+
+        this.options.disabled = disabled;
+    },
+
+    _setupEvents: function( event ) {
+        var events = {
+            click: function( event ) {
+                event.preventDefault();
+            }
+        };
+        if ( event ) {
+            $.each( event.split(" "), function( index, eventName ) {
+                events[ eventName ] = "_eventHandler";
+            });
+        }
+
+        this._off( this.anchors.add( this.tabs ).add( this.panels ) );
+        this._on( this.anchors, events );
+        this._on( this.tabs, { keydown: "_tabKeydown" } );
+        this._on( this.panels, { keydown: "_panelKeydown" } );
+
+        this._focusable( this.tabs );
+        this._hoverable( this.tabs );
+    },
+
+    _setupHeightStyle: function( heightStyle ) {
+        var maxHeight, overflow,
+            parent = this.element.parent();
+
+        if ( heightStyle === "fill" ) {
+            // IE 6 treats height like minHeight, so we need to turn off overflow
+            // in order to get a reliable height
+            // we use the minHeight support test because we assume that only
+            // browsers that don't support minHeight will treat height as minHeight
+            if ( !$.support.minHeight ) {
+                overflow = parent.css( "overflow" );
+                parent.css( "overflow", "hidden");
+            }
+            maxHeight = parent.height();
+            this.element.siblings( ":visible" ).each(function() {
+                var elem = $( this ),
+                    position = elem.css( "position" );
+
+                if ( position === "absolute" || position === "fixed" ) {
+                    return;
+                }
+                maxHeight -= elem.outerHeight( true );
+            });
+            if ( overflow ) {
+                parent.css( "overflow", overflow );
+            }
+
+            this.element.children().not( this.panels ).each(function() {
+                maxHeight -= $( this ).outerHeight( true );
+            });
+
+            this.panels.each(function() {
+                $( this ).height( Math.max( 0, maxHeight -
+                    $( this ).innerHeight() + $( this ).height() ) );
+            })
+            .css( "overflow", "auto" );
+        } else if ( heightStyle === "auto" ) {
+            maxHeight = 0;
+            this.panels.each(function() {
+                maxHeight = Math.max( maxHeight, $( this ).height( "" ).height() );
+            }).height( maxHeight );
+        }
+    },
+
+    _eventHandler: function( event ) {
+        var options = this.options,
+            active = this.active,
+            anchor = $( event.currentTarget ),
+            tab = anchor.closest( "li" ),
+            clickedIsActive = tab[ 0 ] === active[ 0 ],
+            collapsing = clickedIsActive && options.collapsible,
+            toShow = collapsing ? $() : this._getPanelForTab( tab ),
+            toHide = !active.length ? $() : this._getPanelForTab( active ),
+            eventData = {
+                oldTab: active,
+                oldPanel: toHide,
+                newTab: collapsing ? $() : tab,
+                newPanel: toShow
+            };
+
+        event.preventDefault();
+
+        if ( tab.hasClass( "ui-state-disabled" ) ||
+                // tab is already loading
+                tab.hasClass( "ui-tabs-loading" ) ||
+                // can't switch durning an animation
+                this.running ||
+                // click on active header, but not collapsible
+                ( clickedIsActive && !options.collapsible ) ||
+                // allow canceling activation
+                ( this._trigger( "beforeActivate", event, eventData ) === false ) ) {
+            return;
+        }
+
+        options.active = collapsing ? false : this.tabs.index( tab );
+
+        this.active = clickedIsActive ? $() : tab;
+        if ( this.xhr ) {
+            this.xhr.abort();
+        }
+
+        if ( !toHide.length && !toShow.length ) {
+            $.error( "jQuery UI Tabs: Mismatching fragment identifier." );
+        }
+
+        if ( toShow.length ) {
+            this.load( this.tabs.index( tab ), event );
+        }
+        this._toggle( event, eventData );
+    },
+
+    // handles show/hide for selecting tabs
+    _toggle: function( event, eventData ) {
+        var that = this,
+            toShow = eventData.newPanel,
+            toHide = eventData.oldPanel;
+
+        this.running = true;
+
+        function complete() {
+            that.running = false;
+            that._trigger( "activate", event, eventData );
+        }
+
+        function show() {
+            eventData.newTab.closest( "li" ).addClass( "ui-tabs-active ui-state-active" );
+
+            if ( toShow.length && that.options.show ) {
+                that._show( toShow, that.options.show, complete );
+            } else {
+                toShow.show();
+                complete();
+            }
+        }
+
+        // start out by hiding, then showing, then completing
+        if ( toHide.length && this.options.hide ) {
+            this._hide( toHide, this.options.hide, function() {
+                eventData.oldTab.closest( "li" ).removeClass( "ui-tabs-active ui-state-active" );
+                show();
+            });
+        } else {
+            eventData.oldTab.closest( "li" ).removeClass( "ui-tabs-active ui-state-active" );
+            toHide.hide();
+            show();
+        }
+
+        toHide.attr({
+            "aria-expanded": "false",
+            "aria-hidden": "true"
+        });
+        eventData.oldTab.attr( "aria-selected", "false" );
+        // If we're switching tabs, remove the old tab from the tab order.
+        // If we're opening from collapsed state, remove the previous tab from the tab order.
+        // If we're collapsing, then keep the collapsing tab in the tab order.
+        if ( toShow.length && toHide.length ) {
+            eventData.oldTab.attr( "tabIndex", -1 );
+        } else if ( toShow.length ) {
+            this.tabs.filter(function() {
+                return $( this ).attr( "tabIndex" ) === 0;
+            })
+            .attr( "tabIndex", -1 );
+        }
+
+        toShow.attr({
+            "aria-expanded": "true",
+            "aria-hidden": "false"
+        });
+        eventData.newTab.attr({
+            "aria-selected": "true",
+            tabIndex: 0
+        });
+    },
+
+    _activate: function( index ) {
+        var anchor,
+            active = this._findActive( index );
+
+        // trying to activate the already active panel
+        if ( active[ 0 ] === this.active[ 0 ] ) {
+            return;
+        }
+
+        // trying to collapse, simulate a click on the current active header
+        if ( !active.length ) {
+            active = this.active;
+        }
+
+        anchor = active.find( ".ui-tabs-anchor" )[ 0 ];
+        this._eventHandler({
+            target: anchor,
+            currentTarget: anchor,
+            preventDefault: $.noop
+        });
+    },
+
+    _findActive: function( index ) {
+        return index === false ? $() : this.tabs.eq( index );
+    },
+
+    _getIndex: function( index ) {
+        // meta-function to give users option to provide a href string instead of a numerical index.
+        if ( typeof index === "string" ) {
+            index = this.anchors.index( this.anchors.filter( "[href$='" + index + "']" ) );
+        }
+
+        return index;
+    },
+
+    _destroy: function() {
+        if ( this.xhr ) {
+            this.xhr.abort();
+        }
+
+        this.element.removeClass( "ui-tabs ui-widget ui-widget-content ui-corner-all ui-tabs-collapsible" );
+
+        this.tablist
+            .removeClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" )
+            .removeAttr( "role" );
+
+        this.anchors
+            .removeClass( "ui-tabs-anchor" )
+            .removeAttr( "role" )
+            .removeAttr( "tabIndex" )
+            .removeData( "href.tabs" )
+            .removeData( "load.tabs" )
+            .removeUniqueId();
+
+        this.tabs.add( this.panels ).each(function() {
+            if ( $.data( this, "ui-tabs-destroy" ) ) {
+                $( this ).remove();
+            } else {
+                $( this )
+                    .removeClass( "ui-state-default ui-state-active ui-state-disabled " +
+                        "ui-corner-top ui-corner-bottom ui-widget-content ui-tabs-active ui-tabs-panel" )
+                    .removeAttr( "tabIndex" )
+                    .removeAttr( "aria-live" )
+                    .removeAttr( "aria-busy" )
+                    .removeAttr( "aria-selected" )
+                    .removeAttr( "aria-labelledby" )
+                    .removeAttr( "aria-hidden" )
+                    .removeAttr( "aria-expanded" )
+                    .removeAttr( "role" );
+            }
+        });
+
+        this.tabs.each(function() {
+            var li = $( this ),
+                prev = li.data( "ui-tabs-aria-controls" );
+            if ( prev ) {
+                li.attr( "aria-controls", prev );
+            } else {
+                li.removeAttr( "aria-controls" );
+            }
+        });
+
+        if ( this.options.heightStyle !== "content" ) {
+            this.panels.css( "height", "" );
+        }
+    },
+
+    enable: function( index ) {
+        var disabled = this.options.disabled;
+        if ( disabled === false ) {
+            return;
+        }
+
+        if ( index === undefined ) {
+            disabled = false;
+        } else {
+            index = this._getIndex( index );
+            if ( $.isArray( disabled ) ) {
+                disabled = $.map( disabled, function( num ) {
+                    return num !== index ? num : null;
+                });
+            } else {
+                disabled = $.map( this.tabs, function( li, num ) {
+                    return num !== index ? num : null;
+                });
+            }
+        }
+        this._setupDisabled( disabled );
+    },
+
+    disable: function( index ) {
+        var disabled = this.options.disabled;
+        if ( disabled === true ) {
+            return;
+        }
+
+        if ( index === undefined ) {
+            disabled = true;
+        } else {
+            index = this._getIndex( index );
+            if ( $.inArray( index, disabled ) !== -1 ) {
+                return;
+            }
+            if ( $.isArray( disabled ) ) {
+                disabled = $.merge( [ index ], disabled ).sort();
+            } else {
+                disabled = [ index ];
+            }
+        }
+        this._setupDisabled( disabled );
+    },
+
+    load: function( index, event ) {
+        index = this._getIndex( index );
+        var that = this,
+            tab = this.tabs.eq( index ),
+            anchor = tab.find( ".ui-tabs-anchor" ),
+            panel = this._getPanelForTab( tab ),
+            eventData = {
+                tab: tab,
+                panel: panel
+            };
+
+        // not remote
+        if ( isLocal( anchor[ 0 ] ) ) {
+            return;
+        }
+
+        this.xhr = $.ajax( this._ajaxSettings( anchor, event, eventData ) );
+
+        // support: jQuery <1.8
+        // jQuery <1.8 returns false if the request is canceled in beforeSend,
+        // but as of 1.8, $.ajax() always returns a jqXHR object.
+        if ( this.xhr && this.xhr.statusText !== "canceled" ) {
+            tab.addClass( "ui-tabs-loading" );
+            panel.attr( "aria-busy", "true" );
+
+            this.xhr
+                .success(function( response ) {
+                    // support: jQuery <1.8
+                    // http://bugs.jquery.com/ticket/11778
+                    setTimeout(function() {
+                        panel.html( response );
+                        that._trigger( "load", event, eventData );
+                    }, 1 );
+                })
+                .complete(function( jqXHR, status ) {
+                    // support: jQuery <1.8
+                    // http://bugs.jquery.com/ticket/11778
+                    setTimeout(function() {
+                        if ( status === "abort" ) {
+                            that.panels.stop( false, true );
+                        }
+
+                        tab.removeClass( "ui-tabs-loading" );
+                        panel.removeAttr( "aria-busy" );
+
+                        if ( jqXHR === that.xhr ) {
+                            delete that.xhr;
+                        }
+                    }, 1 );
+                });
+        }
+    },
+
+    // TODO: Remove this function in 1.10 when ajaxOptions is removed
+    _ajaxSettings: function( anchor, event, eventData ) {
+        var that = this;
+        return {
+            url: anchor.attr( "href" ),
+            beforeSend: function( jqXHR, settings ) {
+                return that._trigger( "beforeLoad", event,
+                    $.extend( { jqXHR : jqXHR, ajaxSettings: settings }, eventData ) );
+            }
+        };
+    },
+
+    _getPanelForTab: function( tab ) {
+        var id = $( tab ).attr( "aria-controls" );
+        return this.element.find( this._sanitizeSelector( "#" + id ) );
+    }
+});
+
+// DEPRECATED
+if ( $.uiBackCompat !== false ) {
+
+    // helper method for a lot of the back compat extensions
+    $.ui.tabs.prototype._ui = function( tab, panel ) {
+        return {
+            tab: tab,
+            panel: panel,
+            index: this.anchors.index( tab )
+        };
+    };
+
+    // url method
+    $.widget( "ui.tabs", $.ui.tabs, {
+        url: function( index, url ) {
+            this.anchors.eq( index ).attr( "href", url );
+        }
+    });
+
+    // TODO: Remove _ajaxSettings() method when removing this extension
+    // ajaxOptions and cache options
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            ajaxOptions: null,
+            cache: false
+        },
+
+        _create: function() {
+            this._super();
+
+            var that = this;
+
+            this._on({ tabsbeforeload: function( event, ui ) {
+                // tab is already cached
+                if ( $.data( ui.tab[ 0 ], "cache.tabs" ) ) {
+                    event.preventDefault();
+                    return;
+                }
+
+                ui.jqXHR.success(function() {
+                    if ( that.options.cache ) {
+                        $.data( ui.tab[ 0 ], "cache.tabs", true );
+                    }
+                });
+            }});
+        },
+
+        _ajaxSettings: function( anchor, event, ui ) {
+            var ajaxOptions = this.options.ajaxOptions;
+            return $.extend( {}, ajaxOptions, {
+                error: function( xhr, status ) {
+                    try {
+                        // Passing index avoid a race condition when this method is
+                        // called after the user has selected another tab.
+                        // Pass the anchor that initiated this request allows
+                        // loadError to manipulate the tab content panel via $(a.hash)
+                        ajaxOptions.error(
+                            xhr, status, ui.tab.closest( "li" ).index(), ui.tab[ 0 ] );
+                    }
+                    catch ( error ) {}
+                }
+            }, this._superApply( arguments ) );
+        },
+
+        _setOption: function( key, value ) {
+            // reset cache if switching from cached to not cached
+            if ( key === "cache" && value === false ) {
+                this.anchors.removeData( "cache.tabs" );
+            }
+            this._super( key, value );
+        },
+
+        _destroy: function() {
+            this.anchors.removeData( "cache.tabs" );
+            this._super();
+        },
+
+        url: function( index ){
+            this.anchors.eq( index ).removeData( "cache.tabs" );
+            this._superApply( arguments );
+        }
+    });
+
+    // abort method
+    $.widget( "ui.tabs", $.ui.tabs, {
+        abort: function() {
+            if ( this.xhr ) {
+                this.xhr.abort();
+            }
+        }
+    });
+
+    // spinner
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            spinner: "<em>Loading&#8230;</em>"
+        },
+        _create: function() {
+            this._super();
+            this._on({
+                tabsbeforeload: function( event, ui ) {
+                    // Don't react to nested tabs or tabs that don't use a spinner
+                    if ( event.target !== this.element[ 0 ] ||
+                            !this.options.spinner ) {
+                        return;
+                    }
+
+                    var span = ui.tab.find( "span" ),
+                        html = span.html();
+                    span.html( this.options.spinner );
+                    ui.jqXHR.complete(function() {
+                        span.html( html );
+                    });
+                }
+            });
+        }
+    });
+
+    // enable/disable events
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            enable: null,
+            disable: null
+        },
+
+        enable: function( index ) {
+            var options = this.options,
+                trigger;
+
+            if ( index && options.disabled === true ||
+                    ( $.isArray( options.disabled ) && $.inArray( index, options.disabled ) !== -1 ) ) {
+                trigger = true;
+            }
+
+            this._superApply( arguments );
+
+            if ( trigger ) {
+                this._trigger( "enable", null, this._ui( this.anchors[ index ], this.panels[ index ] ) );
+            }
+        },
+
+        disable: function( index ) {
+            var options = this.options,
+                trigger;
+
+            if ( index && options.disabled === false ||
+                    ( $.isArray( options.disabled ) && $.inArray( index, options.disabled ) === -1 ) ) {
+                trigger = true;
+            }
+
+            this._superApply( arguments );
+
+            if ( trigger ) {
+                this._trigger( "disable", null, this._ui( this.anchors[ index ], this.panels[ index ] ) );
+            }
+        }
+    });
+
+    // add/remove methods and events
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            add: null,
+            remove: null,
+            tabTemplate: "<li><a href='#{href}'><span>#{label}</span></a></li>"
+        },
+
+        add: function( url, label, index ) {
+            if ( index === undefined ) {
+                index = this.anchors.length;
+            }
+
+            var doInsertAfter, panel,
+                options = this.options,
+                li = $( options.tabTemplate
+                    .replace( /#\{href\}/g, url )
+                    .replace( /#\{label\}/g, label ) ),
+                id = !url.indexOf( "#" ) ?
+                    url.replace( "#", "" ) :
+                    this._tabId( li );
+
+            li.addClass( "ui-state-default ui-corner-top" ).data( "ui-tabs-destroy", true );
+            li.attr( "aria-controls", id );
+
+            doInsertAfter = index >= this.tabs.length;
+
+            // try to find an existing element before creating a new one
+            panel = this.element.find( "#" + id );
+            if ( !panel.length ) {
+                panel = this._createPanel( id );
+                if ( doInsertAfter ) {
+                    if ( index > 0 ) {
+                        panel.insertAfter( this.panels.eq( -1 ) );
+                    } else {
+                        panel.appendTo( this.element );
+                    }
+                } else {
+                    panel.insertBefore( this.panels[ index ] );
+                }
+            }
+            panel.addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" ).hide();
+
+            if ( doInsertAfter ) {
+                li.appendTo( this.tablist );
+            } else {
+                li.insertBefore( this.tabs[ index ] );
+            }
+
+            options.disabled = $.map( options.disabled, function( n ) {
+                return n >= index ? ++n : n;
+            });
+
+            this.refresh();
+            if ( this.tabs.length === 1 && options.active === false ) {
+                this.option( "active", 0 );
+            }
+
+            this._trigger( "add", null, this._ui( this.anchors[ index ], this.panels[ index ] ) );
+            return this;
+        },
+
+        remove: function( index ) {
+            index = this._getIndex( index );
+            var options = this.options,
+                tab = this.tabs.eq( index ).remove(),
+                panel = this._getPanelForTab( tab ).remove();
+
+            // If selected tab was removed focus tab to the right or
+            // in case the last tab was removed the tab to the left.
+            // We check for more than 2 tabs, because if there are only 2,
+            // then when we remove this tab, there will only be one tab left
+            // so we don't need to detect which tab to activate.
+            if ( tab.hasClass( "ui-tabs-active" ) && this.anchors.length > 2 ) {
+                this._activate( index + ( index + 1 < this.anchors.length ? 1 : -1 ) );
+            }
+
+            options.disabled = $.map(
+                $.grep( options.disabled, function( n ) {
+                    return n !== index;
+                }),
+                function( n ) {
+                    return n >= index ? --n : n;
+                });
+
+            this.refresh();
+
+            this._trigger( "remove", null, this._ui( tab.find( "a" )[ 0 ], panel[ 0 ] ) );
+            return this;
+        }
+    });
+
+    // length method
+    $.widget( "ui.tabs", $.ui.tabs, {
+        length: function() {
+            return this.anchors.length;
+        }
+    });
+
+    // panel ids (idPrefix option + title attribute)
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            idPrefix: "ui-tabs-"
+        },
+
+        _tabId: function( tab ) {
+            var a = tab.is( "li" ) ? tab.find( "a[href]" ) : tab;
+            a = a[0];
+            return $( a ).closest( "li" ).attr( "aria-controls" ) ||
+                a.title && a.title.replace( /\s/g, "_" ).replace( /[^\w\u00c0-\uFFFF\-]/g, "" ) ||
+                this.options.idPrefix + getNextTabId();
+        }
+    });
+
+    // _createPanel method
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            panelTemplate: "<div></div>"
+        },
+
+        _createPanel: function( id ) {
+            return $( this.options.panelTemplate )
+                .attr( "id", id )
+                .addClass( "ui-tabs-panel ui-widget-content ui-corner-bottom" )
+                .data( "ui-tabs-destroy", true );
+        }
+    });
+
+    // selected option
+    $.widget( "ui.tabs", $.ui.tabs, {
+        _create: function() {
+            var options = this.options;
+            if ( options.active === null && options.selected !== undefined ) {
+                options.active = options.selected === -1 ? false : options.selected;
+            }
+            this._super();
+            options.selected = options.active;
+            if ( options.selected === false ) {
+                options.selected = -1;
+            }
+        },
+
+        _setOption: function( key, value ) {
+            if ( key !== "selected" ) {
+                return this._super( key, value );
+            }
+
+            var options = this.options;
+            this._super( "active", value === -1 ? false : value );
+            options.selected = options.active;
+            if ( options.selected === false ) {
+                options.selected = -1;
+            }
+        },
+
+        _eventHandler: function() {
+            this._superApply( arguments );
+            this.options.selected = this.options.active;
+            if ( this.options.selected === false ) {
+                this.options.selected = -1;
+            }
+        }
+    });
+
+    // show and select event
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            show: null,
+            select: null
+        },
+        _create: function() {
+            this._super();
+            if ( this.options.active !== false ) {
+                this._trigger( "show", null, this._ui(
+                    this.active.find( ".ui-tabs-anchor" )[ 0 ],
+                    this._getPanelForTab( this.active )[ 0 ] ) );
+            }
+        },
+        _trigger: function( type, event, data ) {
+            var ret = this._superApply( arguments );
+            if ( !ret ) {
+                return false;
+            }
+            if ( type === "beforeActivate" && data.newTab.length ) {
+                ret = this._super( "select", event, {
+                    tab: data.newTab.find( ".ui-tabs-anchor" )[ 0],
+                    panel: data.newPanel[ 0 ],
+                    index: data.newTab.closest( "li" ).index()
+                });
+            } else if ( type === "activate" && data.newTab.length ) {
+                ret = this._super( "show", event, {
+                    tab: data.newTab.find( ".ui-tabs-anchor" )[ 0 ],
+                    panel: data.newPanel[ 0 ],
+                    index: data.newTab.closest( "li" ).index()
+                });
+            }
+            return ret;
+        }
+    });
+
+    // select method
+    $.widget( "ui.tabs", $.ui.tabs, {
+        select: function( index ) {
+            index = this._getIndex( index );
+            if ( index === -1 ) {
+                if ( this.options.collapsible && this.options.selected !== -1 ) {
+                    index = this.options.selected;
+                } else {
+                    return;
+                }
+            }
+            this.anchors.eq( index ).trigger( this.options.event + this.eventNamespace );
+        }
+    });
+
+    // cookie option
+    (function() {
+
+    var listId = 0;
+
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            cookie: null // e.g. { expires: 7, path: '/', domain: 'jquery.com', secure: true }
+        },
+        _create: function() {
+            var options = this.options,
+                active;
+            if ( options.active == null && options.cookie ) {
+                active = parseInt( this._cookie(), 10 );
+                if ( active === -1 ) {
+                    active = false;
+                }
+                options.active = active;
+            }
+            this._super();
+        },
+        _cookie: function( active ) {
+            var cookie = [ this.cookie ||
+                ( this.cookie = this.options.cookie.name || "ui-tabs-" + (++listId) ) ];
+            if ( arguments.length ) {
+                cookie.push( active === false ? -1 : active );
+                cookie.push( this.options.cookie );
+            }
+            return $.cookie.apply( null, cookie );
+        },
+        _refresh: function() {
+            this._super();
+            if ( this.options.cookie ) {
+                this._cookie( this.options.active, this.options.cookie );
+            }
+        },
+        _eventHandler: function() {
+            this._superApply( arguments );
+            if ( this.options.cookie ) {
+                this._cookie( this.options.active, this.options.cookie );
+            }
+        },
+        _destroy: function() {
+            this._super();
+            if ( this.options.cookie ) {
+                this._cookie( null, this.options.cookie );
+            }
+        }
+    });
+
+    })();
+
+    // load event
+    $.widget( "ui.tabs", $.ui.tabs, {
+        _trigger: function( type, event, data ) {
+            var _data = $.extend( {}, data );
+            if ( type === "load" ) {
+                _data.panel = _data.panel[ 0 ];
+                _data.tab = _data.tab.find( ".ui-tabs-anchor" )[ 0 ];
+            }
+            return this._super( type, event, _data );
+        }
+    });
+
+    // fx option
+    // The new animation options (show, hide) conflict with the old show callback.
+    // The old fx option wins over show/hide anyway (always favor back-compat).
+    // If a user wants to use the new animation API, they must give up the old API.
+    $.widget( "ui.tabs", $.ui.tabs, {
+        options: {
+            fx: null // e.g. { height: "toggle", opacity: "toggle", duration: 200 }
+        },
+
+        _getFx: function() {
+            var hide, show,
+                fx = this.options.fx;
+
+            if ( fx ) {
+                if ( $.isArray( fx ) ) {
+                    hide = fx[ 0 ];
+                    show = fx[ 1 ];
+                } else {
+                    hide = show = fx;
+                }
+            }
+
+            return fx ? { show: show, hide: hide } : null;
+        },
+
+        _toggle: function( event, eventData ) {
+            var that = this,
+                toShow = eventData.newPanel,
+                toHide = eventData.oldPanel,
+                fx = this._getFx();
+
+            if ( !fx ) {
+                return this._super( event, eventData );
+            }
+
+            that.running = true;
+
+            function complete() {
+                that.running = false;
+                that._trigger( "activate", event, eventData );
+            }
+
+            function show() {
+                eventData.newTab.closest( "li" ).addClass( "ui-tabs-active ui-state-active" );
+
+                if ( toShow.length && fx.show ) {
+                    toShow
+                        .animate( fx.show, fx.show.duration, function() {
+                            complete();
+                        });
+                } else {
+                    toShow.show();
+                    complete();
+                }
+            }
+
+            // start out by hiding, then showing, then completing
+            if ( toHide.length && fx.hide ) {
+                toHide.animate( fx.hide, fx.hide.duration, function() {
+                    eventData.oldTab.closest( "li" ).removeClass( "ui-tabs-active ui-state-active" );
+                    show();
+                });
+            } else {
+                eventData.oldTab.closest( "li" ).removeClass( "ui-tabs-active ui-state-active" );
+                toHide.hide();
+                show();
+            }
+        }
+    });
+}
+
+})( jQuery );
+;(jQuery.effects || (function($, undefined) {
+
+var backCompat = $.uiBackCompat !== false,
+    // prefix used for storing data on .data()
+    dataSpace = "ui-effects-";
+
+$.effects = {
+    effect: {}
+};
+
+/*!
  * jQuery Color Animations v2.0.0
  * http://jquery.com/
  *
@@ -13,4 +6228,1787 @@
  *
  * Date: Mon Aug 13 13:41:02 2012 -0500
  */
-(function(s,h){var o="backgroundColor borderBottomColor borderLeftColor borderRightColor borderTopColor color columnRuleColor outlineColor textDecorationColor textEmphasisColor".split(" "),l=/^([\-+])=\s*(\d+\.?\d*)/,k=[{re:/rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,parse:function(t){return[t[1],t[2],t[3],t[4]]}},{re:/rgba?\(\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,parse:function(t){return[t[1]*2.55,t[2]*2.55,t[3]*2.55,t[4]]}},{re:/#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})/,parse:function(t){return[parseInt(t[1],16),parseInt(t[2],16),parseInt(t[3],16)]}},{re:/#([a-f0-9])([a-f0-9])([a-f0-9])/,parse:function(t){return[parseInt(t[1]+t[1],16),parseInt(t[2]+t[2],16),parseInt(t[3]+t[3],16)]}},{re:/hsla?\(\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,space:"hsla",parse:function(t){return[t[1],t[2]/100,t[3]/100,t[4]]}}],i=s.Color=function(u,v,t,w){return new s.Color.fn.parse(u,v,t,w)},n={rgba:{props:{red:{idx:0,type:"byte"},green:{idx:1,type:"byte"},blue:{idx:2,type:"byte"}}},hsla:{props:{hue:{idx:0,type:"degrees"},saturation:{idx:1,type:"percent"},lightness:{idx:2,type:"percent"}}}},r={"byte":{floor:true,max:255},percent:{max:1},degrees:{mod:360,floor:true}},q=i.support={},f=s("<p>")[0],e,p=s.each;f.style.cssText="background-color:rgba(1,1,1,.5)";q.rgba=f.style.backgroundColor.indexOf("rgba")>-1;p(n,function(t,u){u.cache="_"+t;u.props.alpha={idx:3,type:"percent",def:1}});function m(u,w,v){var t=r[w.type]||{};if(u==null){return(v||!w.def)?null:w.def}u=t.floor?~~u:parseFloat(u);if(isNaN(u)){return w.def}if(t.mod){return(u+t.mod)%t.mod}return 0>u?0:t.max<u?t.max:u}function j(t){var v=i(),u=v._rgba=[];t=t.toLowerCase();p(k,function(A,B){var y,z=B.re.exec(t),x=z&&B.parse(z),w=B.space||"rgba";if(x){y=v[w](x);v[n[w].cache]=y[n[w].cache];u=v._rgba=y._rgba;return false}});if(u.length){if(u.join()==="0,0,0,0"){s.extend(u,e.transparent)}return v}return e[t]}i.fn=s.extend(i.prototype,{parse:function(A,y,t,z){if(A===h){this._rgba=[null,null,null,null];return this}if(A.jquery||A.nodeType){A=s(A).css(y);y=h}var x=this,v=s.type(A),u=this._rgba=[],w;if(y!==h){A=[A,y,t,z];v="array"}if(v==="string"){return this.parse(j(A)||e._default)}if(v==="array"){p(n.rgba.props,function(B,C){u[C.idx]=m(A[C.idx],C)});return this}if(v==="object"){if(A instanceof i){p(n,function(B,C){if(A[C.cache]){x[C.cache]=A[C.cache].slice()}})}else{p(n,function(C,D){var B=D.cache;p(D.props,function(E,F){if(!x[B]&&D.to){if(E==="alpha"||A[E]==null){return}x[B]=D.to(x._rgba)}x[B][F.idx]=m(A[E],F,true)});if(x[B]&&b.inArray(null,x[B].slice(0,3))<0){x[B][3]=1;if(D.from){x._rgba=D.from(x[B])}}})}return this}},is:function(v){var t=i(v),w=true,u=this;p(n,function(x,z){var A,y=t[z.cache];if(y){A=u[z.cache]||z.to&&z.to(u._rgba)||[];p(z.props,function(B,C){if(y[C.idx]!=null){w=(y[C.idx]===A[C.idx]);return w}})}return w});return w},_space:function(){var t=[],u=this;p(n,function(v,w){if(u[w.cache]){t.push(v)}});return t.pop()},transition:function(u,A){var v=i(u),w=v._space(),x=n[w],y=this.alpha()===0?i("transparent"):this,z=y[x.cache]||x.to(y._rgba),t=z.slice();v=v[x.cache];p(x.props,function(E,G){var D=G.idx,C=z[D],B=v[D],F=r[G.type]||{};if(B===null){return}if(C===null){t[D]=B}else{if(F.mod){if(B-C>F.mod/2){C+=F.mod}else{if(C-B>F.mod/2){C-=F.mod}}}t[D]=m((B-C)*A+C,G)}});return this[w](t)},blend:function(w){if(this._rgba[3]===1){return this}var v=this._rgba.slice(),u=v.pop(),t=i(w)._rgba;return i(s.map(v,function(x,y){return(1-u)*t[y]+u*x}))},toRgbaString:function(){var u="rgba(",t=s.map(this._rgba,function(w,x){return w==null?(x>2?1:0):w});if(t[3]===1){t.pop();u="rgb("}return u+t.join()+")"},toHslaString:function(){var u="hsla(",t=s.map(this.hsla(),function(w,x){if(w==null){w=x>2?1:0}if(x&&x<3){w=Math.round(w*100)+"%"}return w});if(t[3]===1){t.pop();u="hsl("}return u+t.join()+")"},toHexString:function(t){var u=this._rgba.slice(),v=u.pop();if(t){u.push(~~(v*255))}return"#"+s.map(u,function(w,x){w=(w||0).toString(16);return w.length===1?"0"+w:w}).join("")},toString:function(){return this._rgba[3]===0?"transparent":this.toRgbaString()}});i.fn.parse.prototype=i.fn;function g(v,u,t){t=(t+1)%1;if(t*6<1){return v+(u-v)*t*6}if(t*2<1){return u}if(t*3<2){return v+(u-v)*((2/3)-t)*6}return v}n.hsla.to=function(v){if(v[0]==null||v[1]==null||v[2]==null){return[null,null,null,v[3]]}var t=v[0]/255,y=v[1]/255,z=v[2]/255,B=v[3],A=Math.max(t,y,z),w=Math.min(t,y,z),C=A-w,D=A+w,u=D*0.5,x,E;if(w===A){x=0}else{if(t===A){x=(60*(y-z)/C)+360}else{if(y===A){x=(60*(z-t)/C)+120}else{x=(60*(t-y)/C)+240}}}if(u===0||u===1){E=u}else{if(u<=0.5){E=C/D}else{E=C/(2-D)}}return[Math.round(x)%360,E,u,B==null?1:B]};n.hsla.from=function(v){if(v[0]==null||v[1]==null||v[2]==null){return[null,null,null,v[3]]}var y=v[0]/360,C=v[1],x=v[2],B=v[3],u=x<=0.5?x*(1+C):x+C-x*C,w=2*x-u,t,z,A;return[Math.round(g(w,u,y+(1/3))*255),Math.round(g(w,u,y)*255),Math.round(g(w,u,y-(1/3))*255),B]};p(n,function(u,w){var v=w.props,t=w.cache,y=w.to,x=w.from;i.fn[u]=function(D){if(y&&!this[t]){this[t]=y(this._rgba)}if(D===h){return this[t].slice()}var A,C=s.type(D),z=(C==="array"||C==="object")?D:arguments,B=this[t].slice();p(v,function(E,G){var F=z[C==="object"?E:G.idx];if(F==null){F=B[G.idx]}B[G.idx]=m(F,G)});if(x){A=i(x(B));A[t]=B;return A}else{return i(B)}};p(v,function(z,A){if(i.fn[z]){return}i.fn[z]=function(E){var G=s.type(E),D=(z==="alpha"?(this._hsla?"hsla":"rgba"):u),C=this[D](),F=C[A.idx],B;if(G==="undefined"){return F}if(G==="function"){E=E.call(this,F);G=s.type(E)}if(E==null&&A.empty){return this}if(G==="string"){B=l.exec(E);if(B){E=F+parseFloat(B[2])*(B[1]==="+"?1:-1)}}C[A.idx]=E;return this[D](C)}})});p(o,function(t,u){s.cssHooks[u]={set:function(y,z){var w,x,v="";if(s.type(z)!=="string"||(w=j(z))){z=i(w||z);if(!q.rgba&&z._rgba[3]!==1){x=u==="backgroundColor"?y.parentNode:y;while((v===""||v==="transparent")&&x&&x.style){try{v=s.css(x,"backgroundColor");x=x.parentNode}catch(A){}}z=z.blend(v&&v!=="transparent"?v:"_default")}z=z.toRgbaString()}try{y.style[u]=z}catch(z){}}};s.fx.step[u]=function(v){if(!v.colorInit){v.start=i(v.elem,u);v.end=i(v.end);v.colorInit=true}s.cssHooks[u].set(v.elem,v.start.transition(v.end,v.pos))}});s.cssHooks.borderColor={expand:function(u){var t={};p(["Top","Right","Bottom","Left"],function(w,v){t["border"+v+"Color"]=u});return t}};e=s.Color.names={aqua:"#00ffff",black:"#000000",blue:"#0000ff",fuchsia:"#ff00ff",gray:"#808080",green:"#008000",lime:"#00ff00",maroon:"#800000",navy:"#000080",olive:"#808000",purple:"#800080",red:"#ff0000",silver:"#c0c0c0",teal:"#008080",white:"#ffffff",yellow:"#ffff00",transparent:[null,null,null,0],_default:"#ffffff"}})(jQuery);(function(){var f=["add","remove","toggle"],g={border:1,borderBottom:1,borderColor:1,borderLeft:1,borderRight:1,borderTop:1,borderWidth:1,margin:1,padding:1};b.each(["borderLeftStyle","borderRightStyle","borderBottomStyle","borderTopStyle"],function(i,j){b.fx.step[j]=function(k){if(k.end!=="none"&&!k.setAttr||k.pos===1&&!k.setAttr){jQuery.style(k.elem,j,k.end);k.setAttr=true}}});function h(){var l=this.ownerDocument.defaultView?this.ownerDocument.defaultView.getComputedStyle(this,null):this.currentStyle,m={},j,k,i;if(l&&l.length&&l[0]&&l[l[0]]){i=l.length;while(i--){j=l[i];if(typeof l[j]==="string"){m[b.camelCase(j)]=l[j]}}}else{for(j in l){if(typeof l[j]==="string"){m[j]=l[j]}}}return m}function e(i,k){var m={},j,l;for(j in k){l=k[j];if(i[j]!==l){if(!g[j]){if(b.fx.step[j]||!isNaN(parseFloat(l))){m[j]=l}}}}return m}b.effects.animateClass=function(i,j,m,l){var k=b.speed(j,m,l);return this.queue(function(){var p=b(this),n=p.attr("class")||"",o,q=k.children?p.find("*").andSelf():p;q=q.map(function(){var r=b(this);return{el:r,start:h.call(this)}});o=function(){b.each(f,function(r,s){if(i[s]){p[s+"Class"](i[s])}})};o();q=q.map(function(){this.end=h.call(this.el[0]);this.diff=e(this.start,this.end);return this});p.attr("class",n);q=q.map(function(){var t=this,r=b.Deferred(),s=jQuery.extend({},k,{queue:false,complete:function(){r.resolve(t)}});this.el.animate(this.diff,s);return r.promise()});b.when.apply(b,q.get()).done(function(){o();b.each(arguments,function(){var r=this.el;b.each(this.diff,function(s){r.css(s,"")})});k.complete.call(p[0])})})};b.fn.extend({_addClass:b.fn.addClass,addClass:function(j,i,l,k){return i?b.effects.animateClass.call(this,{add:j},i,l,k):this._addClass(j)},_removeClass:b.fn.removeClass,removeClass:function(j,i,l,k){return i?b.effects.animateClass.call(this,{remove:j},i,l,k):this._removeClass(j)},_toggleClass:b.fn.toggleClass,toggleClass:function(k,j,i,m,l){if(typeof j==="boolean"||j===d){if(!i){return this._toggleClass(k,j)}else{return b.effects.animateClass.call(this,(j?{add:k}:{remove:k}),i,m,l)}}else{return b.effects.animateClass.call(this,{toggle:k},j,i,m)}},switchClass:function(i,k,j,m,l){return b.effects.animateClass.call(this,{add:k,remove:i},j,m,l)}})})();(function(){b.extend(b.effects,{version:"1.9.0",save:function(h,j){for(var g=0;g<j.length;g++){if(j[g]!==null){h.data(c+j[g],h[0].style[j[g]])}}},restore:function(h,k){var j,g;for(g=0;g<k.length;g++){if(k[g]!==null){j=h.data(c+k[g]);if(j===d){j=""}h.css(k[g],j)}}},setMode:function(g,h){if(h==="toggle"){h=g.is(":hidden")?"show":"hide"}return h},getBaseline:function(h,i){var j,g;switch(h[0]){case"top":j=0;break;case"middle":j=0.5;break;case"bottom":j=1;break;default:j=h[0]/i.height}switch(h[1]){case"left":g=0;break;case"center":g=0.5;break;case"right":g=1;break;default:g=h[1]/i.width}return{x:g,y:j}},createWrapper:function(h){if(h.parent().is(".ui-effects-wrapper")){return h.parent()}var i={width:h.outerWidth(true),height:h.outerHeight(true),"float":h.css("float")},l=b("<div></div>").addClass("ui-effects-wrapper").css({fontSize:"100%",background:"transparent",border:"none",margin:0,padding:0}),g={width:h.width(),height:h.height()},k=document.activeElement;try{k.id}catch(j){k=document.body}h.wrap(l);if(h[0]===k||b.contains(h[0],k)){b(k).focus()}l=h.parent();if(h.css("position")==="static"){l.css({position:"relative"});h.css({position:"relative"})}else{b.extend(i,{position:h.css("position"),zIndex:h.css("z-index")});b.each(["top","left","bottom","right"],function(m,n){i[n]=h.css(n);if(isNaN(parseInt(i[n],10))){i[n]="auto"}});h.css({position:"relative",top:0,left:0,right:"auto",bottom:"auto"})}h.css(g);return l.css(i).show()},removeWrapper:function(g){var h=document.activeElement;if(g.parent().is(".ui-effects-wrapper")){g.parent().replaceWith(g);if(g[0]===h||b.contains(g[0],h)){b(h).focus()}}return g},setTransition:function(h,j,g,i){i=i||{};b.each(j,function(l,k){var m=h.cssUnit(k);if(m[0]>0){i[k]=m[0]*g+m[1]}});return i}});function e(h,g,i,j){if(b.isPlainObject(h)){g=h;h=h.effect}h={effect:h};if(g===d){g={}}if(b.isFunction(g)){j=g;i=null;g={}}if(typeof g==="number"||b.fx.speeds[g]){j=i;i=g;g={}}if(b.isFunction(i)){j=i;i=null}if(g){b.extend(h,g)}i=i||g.duration;h.duration=b.fx.off?0:typeof i==="number"?i:i in b.fx.speeds?b.fx.speeds[i]:b.fx.speeds._default;h.complete=j||g.complete;return h}function f(g){if(!g||typeof g==="number"||b.fx.speeds[g]){return true}if(typeof g==="string"&&!b.effects.effect[g]){if(a&&b.effects[g]){return false}return true}return false}b.fn.extend({effect:function(o,p,h,n){var m=e.apply(this,arguments),j=m.mode,k=m.queue,l=b.effects.effect[m.effect],g=!l&&a&&b.effects[m.effect];if(b.fx.off||!(l||g)){if(j){return this[j](m.duration,m.complete)}else{return this.each(function(){if(m.complete){m.complete.call(this)}})}}function i(s){var t=b(this),r=m.complete,u=m.mode;function q(){if(b.isFunction(r)){r.call(t[0])}if(b.isFunction(s)){s()}}if(t.is(":hidden")?u==="hide":u==="show"){q()}else{l.call(t[0],m,q)}}if(l){return k===false?this.each(i):this.queue(k||"fx",i)}else{return g.call(this,{options:m,duration:m.duration,callback:m.complete,mode:m.mode})}},_show:b.fn.show,show:function(h){if(f(h)){return this._show.apply(this,arguments)}else{var g=e.apply(this,arguments);g.mode="show";return this.effect.call(this,g)}},_hide:b.fn.hide,hide:function(h){if(f(h)){return this._hide.apply(this,arguments)}else{var g=e.apply(this,arguments);g.mode="hide";return this.effect.call(this,g)}},__toggle:b.fn.toggle,toggle:function(h){if(f(h)||typeof h==="boolean"||b.isFunction(h)){return this.__toggle.apply(this,arguments)}else{var g=e.apply(this,arguments);g.mode="toggle";return this.effect.call(this,g)}},cssUnit:function(g){var h=this.css(g),i=[];b.each(["em","px","%","pt"],function(j,k){if(h.indexOf(k)>0){i=[parseFloat(h),k]}});return i}})})();(function(){var e={};b.each(["Quad","Cubic","Quart","Quint","Expo"],function(g,f){e[f]=function(h){return Math.pow(h,g+2)}});b.extend(e,{Sine:function(f){return 1-Math.cos(f*Math.PI/2)},Circ:function(f){return 1-Math.sqrt(1-f*f)},Elastic:function(f){return f===0||f===1?f:-Math.pow(2,8*(f-1))*Math.sin(((f-1)*80-7.5)*Math.PI/15)},Back:function(f){return f*f*(3*f-2)},Bounce:function(h){var f,g=4;while(h<((f=Math.pow(2,--g))-1)/11){}return 1/Math.pow(4,3-g)-7.5625*Math.pow((f*3-2)/22-h,2)}});b.each(e,function(g,f){b.easing["easeIn"+g]=f;b.easing["easeOut"+g]=function(h){return 1-f(1-h)};b.easing["easeInOut"+g]=function(h){return h<0.5?f(h*2)/2:1-f(h*-2+2)/2}})})()})(jQuery));(function(d,e){var b=0,c={},a={};c.height=c.paddingTop=c.paddingBottom=c.borderTopWidth=c.borderBottomWidth="hide";a.height=a.paddingTop=a.paddingBottom=a.borderTopWidth=a.borderBottomWidth="show";d.widget("ui.accordion",{version:"1.9.0",options:{active:0,animate:{},collapsible:false,event:"click",header:"> li > :first-child,> :not(li):even",heightStyle:"auto",icons:{activeHeader:"ui-icon-triangle-1-s",header:"ui-icon-triangle-1-e"},activate:null,beforeActivate:null},_create:function(){var g=this.accordionId="ui-accordion-"+(this.element.attr("id")||++b),f=this.options;this.prevShow=this.prevHide=d();this.element.addClass("ui-accordion ui-widget ui-helper-reset");this.headers=this.element.find(f.header).addClass("ui-accordion-header ui-helper-reset ui-state-default ui-corner-all");this._hoverable(this.headers);this._focusable(this.headers);this.headers.next().addClass("ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom").hide();if(!f.collapsible&&f.active===false){f.active=0}if(f.active<0){f.active+=this.headers.length}this.active=this._findActive(f.active).addClass("ui-accordion-header-active ui-state-active").toggleClass("ui-corner-all ui-corner-top");this.active.next().addClass("ui-accordion-content-active").show();this._createIcons();this.originalHeight=this.element[0].style.height;this.refresh();this.element.attr("role","tablist");this.headers.attr("role","tab").each(function(l){var m=d(this),k=m.attr("id"),h=m.next(),j=h.attr("id");if(!k){k=g+"-header-"+l;m.attr("id",k)}if(!j){j=g+"-panel-"+l;h.attr("id",j)}m.attr("aria-controls",j);h.attr("aria-labelledby",k)}).next().attr("role","tabpanel");this.headers.not(this.active).attr({"aria-selected":"false",tabIndex:-1}).next().attr({"aria-expanded":"false","aria-hidden":"true"}).hide();if(!this.active.length){this.headers.eq(0).attr("tabIndex",0)}else{this.active.attr({"aria-selected":"true",tabIndex:0}).next().attr({"aria-expanded":"true","aria-hidden":"false"})}this._on(this.headers,{keydown:"_keydown"});this._on(this.headers.next(),{keydown:"_panelKeyDown"});this._setupEvents(f.event)},_getCreateEventData:function(){return{header:this.active,content:!this.active.length?d():this.active.next()}},_createIcons:function(){var f=this.options.icons;if(f){d("<span>").addClass("ui-accordion-header-icon ui-icon "+f.header).prependTo(this.headers);this.active.children(".ui-accordion-header-icon").removeClass(f.header).addClass(f.activeHeader);this.headers.addClass("ui-accordion-icons")}},_destroyIcons:function(){this.headers.removeClass("ui-accordion-icons").children(".ui-accordion-header-icon").remove()},_destroy:function(){var f;this.element.removeClass("ui-accordion ui-widget ui-helper-reset").removeAttr("role");this.headers.removeClass("ui-accordion-header ui-accordion-header-active ui-helper-reset ui-state-default ui-corner-all ui-state-active ui-state-disabled ui-corner-top").removeAttr("role").removeAttr("aria-selected").removeAttr("aria-controls").removeAttr("tabIndex").each(function(){if(/^ui-accordion/.test(this.id)){this.removeAttribute("id")}});this._destroyIcons();f=this.headers.next().css("display","").removeAttr("role").removeAttr("aria-expanded").removeAttr("aria-hidden").removeAttr("aria-labelledby").removeClass("ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content ui-accordion-content-active ui-state-disabled").each(function(){if(/^ui-accordion/.test(this.id)){this.removeAttribute("id")}});if(this.options.heightStyle!=="content"){this.element.css("height",this.originalHeight);f.css("height","")}},_setOption:function(f,g){if(f==="active"){this._activate(g);return}if(f==="event"){if(this.options.event){this._off(this.headers,this.options.event)}this._setupEvents(g)}this._super(f,g);if(f==="collapsible"&&!g&&this.options.active===false){this._activate(0)}if(f==="icons"){this._destroyIcons();if(g){this._createIcons()}}if(f==="disabled"){this.headers.add(this.headers.next()).toggleClass("ui-state-disabled",!!g)}},_keydown:function(i){if(i.altKey||i.ctrlKey){return}var j=d.ui.keyCode,h=this.headers.length,f=this.headers.index(i.target),g=false;switch(i.keyCode){case j.RIGHT:case j.DOWN:g=this.headers[(f+1)%h];break;case j.LEFT:case j.UP:g=this.headers[(f-1+h)%h];break;case j.SPACE:case j.ENTER:this._eventHandler(i);break;case j.HOME:g=this.headers[0];break;case j.END:g=this.headers[h-1];break}if(g){d(i.target).attr("tabIndex",-1);d(g).attr("tabIndex",0);g.focus();i.preventDefault()}},_panelKeyDown:function(f){if(f.keyCode===d.ui.keyCode.UP&&f.ctrlKey){d(f.currentTarget).prev().focus()}},refresh:function(){var h,i,f=this.options.heightStyle,g=this.element.parent();this.element.css("height",this.originalHeight);if(f==="fill"){if(!d.support.minHeight){i=g.css("overflow");g.css("overflow","hidden")}h=g.height();this.element.siblings(":visible").each(function(){var k=d(this),j=k.css("position");if(j==="absolute"||j==="fixed"){return}h-=k.outerHeight(true)});if(i){g.css("overflow",i)}this.headers.each(function(){h-=d(this).outerHeight(true)});this.headers.next().each(function(){d(this).height(Math.max(0,h-d(this).innerHeight()+d(this).height()))}).css("overflow","auto")}else{if(f==="auto"){h=0;this.headers.next().each(function(){h=Math.max(h,d(this).height("").height())}).height(h)}}if(f!=="content"){this.element.height(this.element.height())}},_activate:function(f){var g=this._findActive(f)[0];if(g===this.active[0]){return}g=g||this.active[0];this._eventHandler({target:g,currentTarget:g,preventDefault:d.noop})},_findActive:function(f){return typeof f==="number"?this.headers.eq(f):d()},_setupEvents:function(g){var f={};if(!g){return}d.each(g.split(" "),function(i,h){f[h]="_eventHandler"});this._on(this.headers,f)},_eventHandler:function(f){var n=this.options,i=this.active,j=d(f.currentTarget),l=j[0]===i[0],g=l&&n.collapsible,h=g?d():j.next(),k=i.next(),m={oldHeader:i,oldPanel:k,newHeader:g?d():j,newPanel:h};f.preventDefault();if((l&&!n.collapsible)||(this._trigger("beforeActivate",f,m)===false)){return}n.active=g?false:this.headers.index(j);this.active=l?d():j;this._toggle(m);i.removeClass("ui-accordion-header-active ui-state-active");if(n.icons){i.children(".ui-accordion-header-icon").removeClass(n.icons.activeHeader).addClass(n.icons.header)}if(!l){j.removeClass("ui-corner-all").addClass("ui-accordion-header-active ui-state-active ui-corner-top");if(n.icons){j.children(".ui-accordion-header-icon").removeClass(n.icons.header).addClass(n.icons.activeHeader)}j.next().addClass("ui-accordion-content-active")}},_toggle:function(h){var f=h.newPanel,g=this.prevShow.length?this.prevShow:h.oldPanel;this.prevShow.add(this.prevHide).stop(true,true);this.prevShow=f;this.prevHide=g;if(this.options.animate){this._animate(f,g,h)}else{g.hide();f.show();this._toggleComplete(h)}g.attr({"aria-expanded":"false","aria-hidden":"true"});g.prev().attr("aria-selected","false");if(f.length&&g.length){g.prev().attr("tabIndex",-1)}else{if(f.length){this.headers.filter(function(){return d(this).attr("tabIndex")===0}).attr("tabIndex",-1)}}f.attr({"aria-expanded":"true","aria-hidden":"false"}).prev().attr({"aria-selected":"true",tabIndex:0})},_animate:function(f,n,j){var m,l,i,k=this,o=0,p=f.length&&(!n.length||(f.index()<n.index())),h=this.options.animate||{},q=p&&h.down||h,g=function(){k._toggleComplete(j)};if(typeof q==="number"){i=q}if(typeof q==="string"){l=q}l=l||q.easing||h.easing;i=i||q.duration||h.duration;if(!n.length){return f.animate(a,i,l,g)}if(!f.length){return n.animate(c,i,l,g)}m=f.show().outerHeight();n.animate(c,{duration:i,easing:l,step:function(r,s){s.now=Math.round(r)}});f.hide().animate(a,{duration:i,easing:l,complete:g,step:function(r,s){s.now=Math.round(r);if(s.prop!=="height"){o+=s.now}else{if(k.options.heightStyle!=="content"){s.now=Math.round(m-n.outerHeight()-o);o=0}}}})},_toggleComplete:function(g){var f=g.oldPanel;f.removeClass("ui-accordion-content-active").prev().removeClass("ui-corner-top").addClass("ui-corner-all");if(f.length){f.parent()[0].className=f.parent()[0].className}this._trigger("activate",null,g)}});if(d.uiBackCompat!==false){(function(g,f){g.extend(f.options,{navigation:false,navigationFilter:function(){return this.href.toLowerCase()===location.href.toLowerCase()}});var h=f._create;f._create=function(){if(this.options.navigation){var j=this,l=this.element.find(this.options.header),i=l.next(),k=l.add(i).find("a").filter(this.options.navigationFilter)[0];if(k){l.add(i).each(function(m){if(g.contains(this,k)){j.options.active=Math.floor(m/2);return false}})}}h.call(this)}}(jQuery,jQuery.ui.accordion.prototype));(function(h,f){h.extend(f.options,{heightStyle:null,autoHeight:true,clearStyle:false,fillSpace:false});var i=f._create,g=f._setOption;h.extend(f,{_create:function(){this.options.heightStyle=this.options.heightStyle||this._mergeHeightStyle();i.call(this)},_setOption:function(j,k){if(j==="autoHeight"||j==="clearStyle"||j==="fillSpace"){this.options.heightStyle=this._mergeHeightStyle()}g.apply(this,arguments)},_mergeHeightStyle:function(){var j=this.options;if(j.fillSpace){return"fill"}if(j.clearStyle){return"content"}if(j.autoHeight){return"auto"}}})}(jQuery,jQuery.ui.accordion.prototype));(function(h,g){h.extend(g.options.icons,{activeHeader:null,headerSelected:"ui-icon-triangle-1-s"});var f=g._createIcons;g._createIcons=function(){if(this.options.icons){this.options.icons.activeHeader=this.options.icons.activeHeader||this.options.icons.headerSelected}f.call(this)}}(jQuery,jQuery.ui.accordion.prototype));(function(h,g){g.activate=g._activate;var f=g._findActive;g._findActive=function(i){if(i===-1){i=false}if(i&&typeof i!=="number"){i=this.headers.index(this.headers.filter(i));if(i===-1){i=false}}return f.call(this,i)}}(jQuery,jQuery.ui.accordion.prototype));jQuery.ui.accordion.prototype.resize=jQuery.ui.accordion.prototype.refresh;(function(h,g){h.extend(g.options,{change:null,changestart:null});var f=g._trigger;g._trigger=function(j,k,l){var i=f.apply(this,arguments);if(!i){return false}if(j==="beforeActivate"){i=f.call(this,"changestart",k,{oldHeader:l.oldHeader,oldContent:l.oldPanel,newHeader:l.newHeader,newContent:l.newPanel})}else{if(j==="activate"){i=f.call(this,"change",k,{oldHeader:l.oldHeader,oldContent:l.oldPanel,newHeader:l.newHeader,newContent:l.newPanel})}}return i}}(jQuery,jQuery.ui.accordion.prototype));(function(g,f){g.extend(f.options,{animate:null,animated:"slide"});var h=f._create;f._create=function(){var i=this.options;if(i.animate===null){if(!i.animated){i.animate=false}else{if(i.animated==="slide"){i.animate=300}else{if(i.animated==="bounceslide"){i.animate={duration:200,down:{easing:"easeOutBounce",duration:1000}}}else{i.animate=i.animated}}}}h.call(this)}}(jQuery,jQuery.ui.accordion.prototype))}})(jQuery);(function(a,b){var c=0;a.widget("ui.autocomplete",{version:"1.9.0",defaultElement:"<input>",options:{appendTo:"body",autoFocus:false,delay:300,minLength:1,position:{my:"left top",at:"left bottom",collision:"none"},source:null,change:null,close:null,focus:null,open:null,response:null,search:null,select:null},pending:0,_create:function(){var e,d,f;this.isMultiLine=this._isMultiLine();this.valueMethod=this.element[this.element.is("input,textarea")?"val":"text"];this.isNewMenu=true;this.element.addClass("ui-autocomplete-input").attr("autocomplete","off");this._on({keydown:function(g){if(this.element.prop("readOnly")){e=true;f=true;d=true;return}e=false;f=false;d=false;var h=a.ui.keyCode;switch(g.keyCode){case h.PAGE_UP:e=true;this._move("previousPage",g);break;case h.PAGE_DOWN:e=true;this._move("nextPage",g);break;case h.UP:e=true;this._keyEvent("previous",g);break;case h.DOWN:e=true;this._keyEvent("next",g);break;case h.ENTER:case h.NUMPAD_ENTER:if(this.menu.active){e=true;g.preventDefault();this.menu.select(g)}break;case h.TAB:if(this.menu.active){this.menu.select(g)}break;case h.ESCAPE:if(this.menu.element.is(":visible")){this._value(this.term);this.close(g);g.preventDefault()}break;default:d=true;this._searchTimeout(g);break}},keypress:function(g){if(e){e=false;g.preventDefault();return}if(d){return}var h=a.ui.keyCode;switch(g.keyCode){case h.PAGE_UP:this._move("previousPage",g);break;case h.PAGE_DOWN:this._move("nextPage",g);break;case h.UP:this._keyEvent("previous",g);break;case h.DOWN:this._keyEvent("next",g);break}},input:function(g){if(f){f=false;g.preventDefault();return}this._searchTimeout(g)},focus:function(){this.selectedItem=null;this.previous=this._value()},blur:function(g){if(this.cancelBlur){delete this.cancelBlur;return}clearTimeout(this.searching);this.close(g);this._change(g)}});this._initSource();this.menu=a("<ul>").addClass("ui-autocomplete").appendTo(this.document.find(this.options.appendTo||"body")[0]).menu({input:a(),role:null}).zIndex(this.element.zIndex()+1).hide().data("menu");this._on(this.menu.element,{mousedown:function(g){g.preventDefault();this.cancelBlur=true;this._delay(function(){delete this.cancelBlur});var h=this.menu.element[0];if(!a(g.target).closest(".ui-menu-item").length){this._delay(function(){var i=this;this.document.one("mousedown",function(j){if(j.target!==i.element[0]&&j.target!==h&&!a.contains(h,j.target)){i.close()}})})}},menufocus:function(h,i){if(this.isNewMenu){this.isNewMenu=false;if(h.originalEvent&&/^mouse/.test(h.originalEvent.type)){this.menu.blur();this.document.one("mousemove",function(){a(h.target).trigger(h.originalEvent)});return}}var g=i.item.data("ui-autocomplete-item")||i.item.data("item.autocomplete");if(false!==this._trigger("focus",h,{item:g})){if(h.originalEvent&&/^key/.test(h.originalEvent.type)){this._value(g.value)}}else{this.liveRegion.text(g.value)}},menuselect:function(i,j){var h=j.item.data("ui-autocomplete-item")||j.item.data("item.autocomplete"),g=this.previous;if(this.element[0]!==this.document[0].activeElement){this.element.focus();this.previous=g;this._delay(function(){this.previous=g;this.selectedItem=h})}if(false!==this._trigger("select",i,{item:h})){this._value(h.value)}this.term=this._value();this.close(i);this.selectedItem=h}});this.liveRegion=a("<span>",{role:"status","aria-live":"polite"}).addClass("ui-helper-hidden-accessible").insertAfter(this.element);if(a.fn.bgiframe){this.menu.element.bgiframe()}this._on(this.window,{beforeunload:function(){this.element.removeAttr("autocomplete")}})},_destroy:function(){clearTimeout(this.searching);this.element.removeClass("ui-autocomplete-input").removeAttr("autocomplete");this.menu.element.remove();this.liveRegion.remove()},_setOption:function(d,e){this._super(d,e);if(d==="source"){this._initSource()}if(d==="appendTo"){this.menu.element.appendTo(this.document.find(e||"body")[0])}if(d==="disabled"&&e&&this.xhr){this.xhr.abort()}},_isMultiLine:function(){if(this.element.is("textarea")){return true}if(this.element.is("input")){return false}return this.element.prop("isContentEditable")},_initSource:function(){var f,d,e=this;if(a.isArray(this.options.source)){f=this.options.source;this.source=function(h,g){g(a.ui.autocomplete.filter(f,h.term))}}else{if(typeof this.options.source==="string"){d=this.options.source;this.source=function(h,g){if(e.xhr){e.xhr.abort()}e.xhr=a.ajax({url:d,data:h,dataType:"json",success:function(j,i){g(j)},error:function(){g([])}})}}else{this.source=this.options.source}}},_searchTimeout:function(d){clearTimeout(this.searching);this.searching=this._delay(function(){if(this.term!==this._value()){this.selectedItem=null;this.search(null,d)}},this.options.delay)},search:function(e,d){e=e!=null?e:this._value();this.term=this._value();if(e.length<this.options.minLength){return this.close(d)}if(this._trigger("search",d)===false){return}return this._search(e)},_search:function(d){this.pending++;this.element.addClass("ui-autocomplete-loading");this.cancelSearch=false;this.source({term:d},this._response())},_response:function(){var e=this,d=++c;return function(f){if(d===c){e.__response(f)}e.pending--;if(!e.pending){e.element.removeClass("ui-autocomplete-loading")}}},__response:function(d){if(d){d=this._normalize(d)}this._trigger("response",null,{content:d});if(!this.options.disabled&&d&&d.length&&!this.cancelSearch){this._suggest(d);this._trigger("open")}else{this._close()}},close:function(d){this.cancelSearch=true;this._close(d)},_close:function(d){if(this.menu.element.is(":visible")){this.menu.element.hide();this.menu.blur();this.isNewMenu=true;this._trigger("close",d)}},_change:function(d){if(this.previous!==this._value()){this._trigger("change",d,{item:this.selectedItem})}},_normalize:function(d){if(d.length&&d[0].label&&d[0].value){return d}return a.map(d,function(e){if(typeof e==="string"){return{label:e,value:e}}return a.extend({label:e.label||e.value,value:e.value||e.label},e)})},_suggest:function(d){var e=this.menu.element.empty().zIndex(this.element.zIndex()+1);this._renderMenu(e,d);this.menu.refresh();e.show();this._resizeMenu();e.position(a.extend({of:this.element},this.options.position));if(this.options.autoFocus){this.menu.next()}},_resizeMenu:function(){var d=this.menu.element;d.outerWidth(Math.max(d.width("").outerWidth()+1,this.element.outerWidth()))},_renderMenu:function(e,d){var f=this;a.each(d,function(g,h){f._renderItemData(e,h)})},_renderItemData:function(d,e){return this._renderItem(d,e).data("ui-autocomplete-item",e)},_renderItem:function(d,e){return a("<li>").append(a("<a>").text(e.label)).appendTo(d)},_move:function(e,d){if(!this.menu.element.is(":visible")){this.search(null,d);return}if(this.menu.isFirstItem()&&/^previous/.test(e)||this.menu.isLastItem()&&/^next/.test(e)){this._value(this.term);this.menu.blur();return}this.menu[e](d)},widget:function(){return this.menu.element},_value:function(d){return this.valueMethod.apply(this.element,arguments)},_keyEvent:function(e,d){if(!this.isMultiLine||this.menu.element.is(":visible")){this._move(e,d);d.preventDefault()}}});a.extend(a.ui.autocomplete,{escapeRegex:function(d){return d.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&")},filter:function(f,d){var e=new RegExp(a.ui.autocomplete.escapeRegex(d),"i");return a.grep(f,function(g){return e.test(g.label||g.value||g)})}});a.widget("ui.autocomplete",a.ui.autocomplete,{options:{messages:{noResults:"No search results.",results:function(d){return d+(d>1?" results are":" result is")+" available, use up and down arrow keys to navigate."}}},__response:function(e){var d;this._superApply(arguments);if(this.options.disabled||this.cancelSearch){return}if(e&&e.length){d=this.options.messages.results(e.length)}else{d=this.options.messages.noResults}this.liveRegion.text(d)}})}(jQuery));(function(f,b){var k,e,a,h,i="ui-button ui-widget ui-state-default ui-corner-all",c="ui-state-hover ui-state-active ",g="ui-button-icons-only ui-button-icon-only ui-button-text-icons ui-button-text-icon-primary ui-button-text-icon-secondary ui-button-text-only",j=function(){var l=f(this).find(":ui-button");setTimeout(function(){l.button("refresh")},1)},d=function(m){var l=m.name,n=m.form,o=f([]);if(l){if(n){o=f(n).find("[name='"+l+"']")}else{o=f("[name='"+l+"']",m.ownerDocument).filter(function(){return !this.form})}}return o};f.widget("ui.button",{version:"1.9.0",defaultElement:"<button>",options:{disabled:null,text:true,label:null,icons:{primary:null,secondary:null}},_create:function(){this.element.closest("form").unbind("reset"+this.eventNamespace).bind("reset"+this.eventNamespace,j);if(typeof this.options.disabled!=="boolean"){this.options.disabled=!!this.element.prop("disabled")}else{this.element.prop("disabled",this.options.disabled)}this._determineButtonType();this.hasTitle=!!this.buttonElement.attr("title");var n=this,m=this.options,o=this.type==="checkbox"||this.type==="radio",p="ui-state-hover"+(!o?" ui-state-active":""),l="ui-state-focus";if(m.label===null){m.label=(this.type==="input"?this.buttonElement.val():this.buttonElement.html())}this.buttonElement.addClass(i).attr("role","button").bind("mouseenter"+this.eventNamespace,function(){if(m.disabled){return}f(this).addClass("ui-state-hover");if(this===k){f(this).addClass("ui-state-active")}}).bind("mouseleave"+this.eventNamespace,function(){if(m.disabled){return}f(this).removeClass(p)}).bind("click"+this.eventNamespace,function(q){if(m.disabled){q.preventDefault();q.stopImmediatePropagation()}});this.element.bind("focus"+this.eventNamespace,function(){n.buttonElement.addClass(l)}).bind("blur"+this.eventNamespace,function(){n.buttonElement.removeClass(l)});if(o){this.element.bind("change"+this.eventNamespace,function(){if(h){return}n.refresh()});this.buttonElement.bind("mousedown"+this.eventNamespace,function(q){if(m.disabled){return}h=false;e=q.pageX;a=q.pageY}).bind("mouseup"+this.eventNamespace,function(q){if(m.disabled){return}if(e!==q.pageX||a!==q.pageY){h=true}})}if(this.type==="checkbox"){this.buttonElement.bind("click"+this.eventNamespace,function(){if(m.disabled||h){return false}f(this).toggleClass("ui-state-active");n.buttonElement.attr("aria-pressed",n.element[0].checked)})}else{if(this.type==="radio"){this.buttonElement.bind("click"+this.eventNamespace,function(){if(m.disabled||h){return false}f(this).addClass("ui-state-active");n.buttonElement.attr("aria-pressed","true");var q=n.element[0];d(q).not(q).map(function(){return f(this).button("widget")[0]}).removeClass("ui-state-active").attr("aria-pressed","false")})}else{this.buttonElement.bind("mousedown"+this.eventNamespace,function(){if(m.disabled){return false}f(this).addClass("ui-state-active");k=this;n.document.one("mouseup",function(){k=null})}).bind("mouseup"+this.eventNamespace,function(){if(m.disabled){return false}f(this).removeClass("ui-state-active")}).bind("keydown"+this.eventNamespace,function(q){if(m.disabled){return false}if(q.keyCode===f.ui.keyCode.SPACE||q.keyCode===f.ui.keyCode.ENTER){f(this).addClass("ui-state-active")}}).bind("keyup"+this.eventNamespace,function(){f(this).removeClass("ui-state-active")});if(this.buttonElement.is("a")){this.buttonElement.keyup(function(q){if(q.keyCode===f.ui.keyCode.SPACE){f(this).click()}})}}}this._setOption("disabled",m.disabled);this._resetButton()},_determineButtonType:function(){var l,n,m;if(this.element.is("[type=checkbox]")){this.type="checkbox"}else{if(this.element.is("[type=radio]")){this.type="radio"}else{if(this.element.is("input")){this.type="input"}else{this.type="button"}}}if(this.type==="checkbox"||this.type==="radio"){l=this.element.parents().last();n="label[for='"+this.element.attr("id")+"']";this.buttonElement=l.find(n);if(!this.buttonElement.length){l=l.length?l.siblings():this.element.siblings();this.buttonElement=l.filter(n);if(!this.buttonElement.length){this.buttonElement=l.find(n)}}this.element.addClass("ui-helper-hidden-accessible");m=this.element.is(":checked");if(m){this.buttonElement.addClass("ui-state-active")}this.buttonElement.prop("aria-pressed",m)}else{this.buttonElement=this.element}},widget:function(){return this.buttonElement},_destroy:function(){this.element.removeClass("ui-helper-hidden-accessible");this.buttonElement.removeClass(i+" "+c+" "+g).removeAttr("role").removeAttr("aria-pressed").html(this.buttonElement.find(".ui-button-text").html());if(!this.hasTitle){this.buttonElement.removeAttr("title")}},_setOption:function(l,m){this._super(l,m);if(l==="disabled"){if(m){this.element.prop("disabled",true)}else{this.element.prop("disabled",false)}return}this._resetButton()},refresh:function(){var l=this.element.is(":disabled");if(l!==this.options.disabled){this._setOption("disabled",l)}if(this.type==="radio"){d(this.element[0]).each(function(){if(f(this).is(":checked")){f(this).button("widget").addClass("ui-state-active").attr("aria-pressed","true")}else{f(this).button("widget").removeClass("ui-state-active").attr("aria-pressed","false")}})}else{if(this.type==="checkbox"){if(this.element.is(":checked")){this.buttonElement.addClass("ui-state-active").attr("aria-pressed","true")}else{this.buttonElement.removeClass("ui-state-active").attr("aria-pressed","false")}}}},_resetButton:function(){if(this.type==="input"){if(this.options.label){this.element.val(this.options.label)}return}var p=this.buttonElement.removeClass(g),n=f("<span></span>",this.document[0]).addClass("ui-button-text").html(this.options.label).appendTo(p.empty()).text(),m=this.options.icons,l=m.primary&&m.secondary,o=[];if(m.primary||m.secondary){if(this.options.text){o.push("ui-button-text-icon"+(l?"s":(m.primary?"-primary":"-secondary")))}if(m.primary){p.prepend("<span class='ui-button-icon-primary ui-icon "+m.primary+"'></span>")}if(m.secondary){p.append("<span class='ui-button-icon-secondary ui-icon "+m.secondary+"'></span>")}if(!this.options.text){o.push(l?"ui-button-icons-only":"ui-button-icon-only");if(!this.hasTitle){p.attr("title",f.trim(n))}}}else{o.push("ui-button-text-only")}p.addClass(o.join(" "))}});f.widget("ui.buttonset",{version:"1.9.0",options:{items:"button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(button)"},_create:function(){this.element.addClass("ui-buttonset")},_init:function(){this.refresh()},_setOption:function(l,m){if(l==="disabled"){this.buttons.button("option",l,m)}this._super(l,m)},refresh:function(){var l=this.element.css("direction")==="rtl";this.buttons=this.element.find(this.options.items).filter(":ui-button").button("refresh").end().not(":ui-button").button().end().map(function(){return f(this).button("widget")[0]}).removeClass("ui-corner-all ui-corner-left ui-corner-right").filter(":first").addClass(l?"ui-corner-right":"ui-corner-left").end().filter(":last").addClass(l?"ui-corner-left":"ui-corner-right").end().end()},_destroy:function(){this.element.removeClass("ui-buttonset");this.buttons.map(function(){return f(this).button("widget")[0]}).removeClass("ui-corner-left ui-corner-right").end().button("destroy")}})}(jQuery));(function($,undefined){$.extend($.ui,{datepicker:{version:"1.9.0"}});var PROP_NAME="datepicker";var dpuuid=new Date().getTime();var instActive;function Datepicker(){this.debug=false;this._curInst=null;this._keyEvent=false;this._disabledInputs=[];this._datepickerShowing=false;this._inDialog=false;this._mainDivId="ui-datepicker-div";this._inlineClass="ui-datepicker-inline";this._appendClass="ui-datepicker-append";this._triggerClass="ui-datepicker-trigger";this._dialogClass="ui-datepicker-dialog";this._disableClass="ui-datepicker-disabled";this._unselectableClass="ui-datepicker-unselectable";this._currentClass="ui-datepicker-current-day";this._dayOverClass="ui-datepicker-days-cell-over";this.regional=[];this.regional[""]={closeText:"Done",prevText:"Prev",nextText:"Next",currentText:"Today",monthNames:["January","February","March","April","May","June","July","August","September","October","November","December"],monthNamesShort:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],dayNames:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],dayNamesShort:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],dayNamesMin:["Su","Mo","Tu","We","Th","Fr","Sa"],weekHeader:"Wk",dateFormat:"mm/dd/yy",firstDay:0,isRTL:false,showMonthAfterYear:false,yearSuffix:""};this._defaults={showOn:"focus",showAnim:"fadeIn",showOptions:{},defaultDate:null,appendText:"",buttonText:"...",buttonImage:"",buttonImageOnly:false,hideIfNoPrevNext:false,navigationAsDateFormat:false,gotoCurrent:false,changeMonth:false,changeYear:false,yearRange:"c-10:c+10",showOtherMonths:false,selectOtherMonths:false,showWeek:false,calculateWeek:this.iso8601Week,shortYearCutoff:"+10",minDate:null,maxDate:null,duration:"fast",beforeShowDay:null,beforeShow:null,onSelect:null,onChangeMonthYear:null,onClose:null,numberOfMonths:1,showCurrentAtPos:0,stepMonths:1,stepBigMonths:12,altField:"",altFormat:"",constrainInput:true,showButtonPanel:false,autoSize:false,disabled:false};$.extend(this._defaults,this.regional[""]);this.dpDiv=bindHover($('<div id="'+this._mainDivId+'" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>'))}$.extend(Datepicker.prototype,{markerClassName:"hasDatepicker",maxRows:4,log:function(){if(this.debug){console.log.apply("",arguments)}},_widgetDatepicker:function(){return this.dpDiv},setDefaults:function(settings){extendRemove(this._defaults,settings||{});return this},_attachDatepicker:function(target,settings){var inlineSettings=null;for(var attrName in this._defaults){var attrValue=target.getAttribute("date:"+attrName);if(attrValue){inlineSettings=inlineSettings||{};try{inlineSettings[attrName]=eval(attrValue)}catch(err){inlineSettings[attrName]=attrValue}}}var nodeName=target.nodeName.toLowerCase();var inline=(nodeName=="div"||nodeName=="span");if(!target.id){this.uuid+=1;target.id="dp"+this.uuid}var inst=this._newInst($(target),inline);inst.settings=$.extend({},settings||{},inlineSettings||{});if(nodeName=="input"){this._connectDatepicker(target,inst)}else{if(inline){this._inlineDatepicker(target,inst)}}},_newInst:function(target,inline){var id=target[0].id.replace(/([^A-Za-z0-9_-])/g,"\\\\$1");return{id:id,input:target,selectedDay:0,selectedMonth:0,selectedYear:0,drawMonth:0,drawYear:0,inline:inline,dpDiv:(!inline?this.dpDiv:bindHover($('<div class="'+this._inlineClass+' ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>')))}},_connectDatepicker:function(target,inst){var input=$(target);inst.append=$([]);inst.trigger=$([]);if(input.hasClass(this.markerClassName)){return}this._attachments(input,inst);input.addClass(this.markerClassName).keydown(this._doKeyDown).keypress(this._doKeyPress).keyup(this._doKeyUp).bind("setData.datepicker",function(event,key,value){inst.settings[key]=value}).bind("getData.datepicker",function(event,key){return this._get(inst,key)});this._autoSize(inst);$.data(target,PROP_NAME,inst);if(inst.settings.disabled){this._disableDatepicker(target)}},_attachments:function(input,inst){var appendText=this._get(inst,"appendText");var isRTL=this._get(inst,"isRTL");if(inst.append){inst.append.remove()}if(appendText){inst.append=$('<span class="'+this._appendClass+'">'+appendText+"</span>");input[isRTL?"before":"after"](inst.append)}input.unbind("focus",this._showDatepicker);if(inst.trigger){inst.trigger.remove()}var showOn=this._get(inst,"showOn");if(showOn=="focus"||showOn=="both"){input.focus(this._showDatepicker)}if(showOn=="button"||showOn=="both"){var buttonText=this._get(inst,"buttonText");var buttonImage=this._get(inst,"buttonImage");inst.trigger=$(this._get(inst,"buttonImageOnly")?$("<img/>").addClass(this._triggerClass).attr({src:buttonImage,alt:buttonText,title:buttonText}):$('<button type="button"></button>').addClass(this._triggerClass).html(buttonImage==""?buttonText:$("<img/>").attr({src:buttonImage,alt:buttonText,title:buttonText})));input[isRTL?"before":"after"](inst.trigger);inst.trigger.click(function(){if($.datepicker._datepickerShowing&&$.datepicker._lastInput==input[0]){$.datepicker._hideDatepicker()}else{if($.datepicker._datepickerShowing&&$.datepicker._lastInput!=input[0]){$.datepicker._hideDatepicker();$.datepicker._showDatepicker(input[0])}else{$.datepicker._showDatepicker(input[0])}}return false})}},_autoSize:function(inst){if(this._get(inst,"autoSize")&&!inst.inline){var date=new Date(2009,12-1,20);var dateFormat=this._get(inst,"dateFormat");if(dateFormat.match(/[DM]/)){var findMax=function(names){var max=0;var maxI=0;for(var i=0;i<names.length;i++){if(names[i].length>max){max=names[i].length;maxI=i}}return maxI};date.setMonth(findMax(this._get(inst,(dateFormat.match(/MM/)?"monthNames":"monthNamesShort"))));date.setDate(findMax(this._get(inst,(dateFormat.match(/DD/)?"dayNames":"dayNamesShort")))+20-date.getDay())}inst.input.attr("size",this._formatDate(inst,date).length)}},_inlineDatepicker:function(target,inst){var divSpan=$(target);if(divSpan.hasClass(this.markerClassName)){return}divSpan.addClass(this.markerClassName).append(inst.dpDiv).bind("setData.datepicker",function(event,key,value){inst.settings[key]=value}).bind("getData.datepicker",function(event,key){return this._get(inst,key)});$.data(target,PROP_NAME,inst);this._setDate(inst,this._getDefaultDate(inst),true);this._updateDatepicker(inst);this._updateAlternate(inst);if(inst.settings.disabled){this._disableDatepicker(target)}inst.dpDiv.css("display","block")},_dialogDatepicker:function(input,date,onSelect,settings,pos){var inst=this._dialogInst;if(!inst){this.uuid+=1;var id="dp"+this.uuid;this._dialogInput=$('<input type="text" id="'+id+'" style="position: absolute; top: -100px; width: 0px;"/>');this._dialogInput.keydown(this._doKeyDown);$("body").append(this._dialogInput);inst=this._dialogInst=this._newInst(this._dialogInput,false);inst.settings={};$.data(this._dialogInput[0],PROP_NAME,inst)}extendRemove(inst.settings,settings||{});date=(date&&date.constructor==Date?this._formatDate(inst,date):date);this._dialogInput.val(date);this._pos=(pos?(pos.length?pos:[pos.pageX,pos.pageY]):null);if(!this._pos){var browserWidth=document.documentElement.clientWidth;var browserHeight=document.documentElement.clientHeight;var scrollX=document.documentElement.scrollLeft||document.body.scrollLeft;var scrollY=document.documentElement.scrollTop||document.body.scrollTop;this._pos=[(browserWidth/2)-100+scrollX,(browserHeight/2)-150+scrollY]}this._dialogInput.css("left",(this._pos[0]+20)+"px").css("top",this._pos[1]+"px");inst.settings.onSelect=onSelect;this._inDialog=true;this.dpDiv.addClass(this._dialogClass);this._showDatepicker(this._dialogInput[0]);if($.blockUI){$.blockUI(this.dpDiv)}$.data(this._dialogInput[0],PROP_NAME,inst);return this},_destroyDatepicker:function(target){var $target=$(target);var inst=$.data(target,PROP_NAME);if(!$target.hasClass(this.markerClassName)){return}var nodeName=target.nodeName.toLowerCase();$.removeData(target,PROP_NAME);if(nodeName=="input"){inst.append.remove();inst.trigger.remove();$target.removeClass(this.markerClassName).unbind("focus",this._showDatepicker).unbind("keydown",this._doKeyDown).unbind("keypress",this._doKeyPress).unbind("keyup",this._doKeyUp)}else{if(nodeName=="div"||nodeName=="span"){$target.removeClass(this.markerClassName).empty()}}},_enableDatepicker:function(target){var $target=$(target);var inst=$.data(target,PROP_NAME);if(!$target.hasClass(this.markerClassName)){return}var nodeName=target.nodeName.toLowerCase();if(nodeName=="input"){target.disabled=false;inst.trigger.filter("button").each(function(){this.disabled=false}).end().filter("img").css({opacity:"1.0",cursor:""})}else{if(nodeName=="div"||nodeName=="span"){var inline=$target.children("."+this._inlineClass);inline.children().removeClass("ui-state-disabled");inline.find("select.ui-datepicker-month, select.ui-datepicker-year").prop("disabled",false)}}this._disabledInputs=$.map(this._disabledInputs,function(value){return(value==target?null:value)})},_disableDatepicker:function(target){var $target=$(target);var inst=$.data(target,PROP_NAME);if(!$target.hasClass(this.markerClassName)){return}var nodeName=target.nodeName.toLowerCase();if(nodeName=="input"){target.disabled=true;inst.trigger.filter("button").each(function(){this.disabled=true}).end().filter("img").css({opacity:"0.5",cursor:"default"})}else{if(nodeName=="div"||nodeName=="span"){var inline=$target.children("."+this._inlineClass);inline.children().addClass("ui-state-disabled");inline.find("select.ui-datepicker-month, select.ui-datepicker-year").prop("disabled",true)}}this._disabledInputs=$.map(this._disabledInputs,function(value){return(value==target?null:value)});this._disabledInputs[this._disabledInputs.length]=target},_isDisabledDatepicker:function(target){if(!target){return false}for(var i=0;i<this._disabledInputs.length;i++){if(this._disabledInputs[i]==target){return true}}return false},_getInst:function(target){try{return $.data(target,PROP_NAME)}catch(err){throw"Missing instance data for this datepicker"}},_optionDatepicker:function(target,name,value){var inst=this._getInst(target);if(arguments.length==2&&typeof name=="string"){return(name=="defaults"?$.extend({},$.datepicker._defaults):(inst?(name=="all"?$.extend({},inst.settings):this._get(inst,name)):null))}var settings=name||{};if(typeof name=="string"){settings={};settings[name]=value}if(inst){if(this._curInst==inst){this._hideDatepicker()}var date=this._getDateDatepicker(target,true);var minDate=this._getMinMaxDate(inst,"min");var maxDate=this._getMinMaxDate(inst,"max");extendRemove(inst.settings,settings);if(minDate!==null&&settings.dateFormat!==undefined&&settings.minDate===undefined){inst.settings.minDate=this._formatDate(inst,minDate)}if(maxDate!==null&&settings.dateFormat!==undefined&&settings.maxDate===undefined){inst.settings.maxDate=this._formatDate(inst,maxDate)}this._attachments($(target),inst);this._autoSize(inst);this._setDate(inst,date);this._updateAlternate(inst);this._updateDatepicker(inst)}},_changeDatepicker:function(target,name,value){this._optionDatepicker(target,name,value)},_refreshDatepicker:function(target){var inst=this._getInst(target);if(inst){this._updateDatepicker(inst)}},_setDateDatepicker:function(target,date){var inst=this._getInst(target);if(inst){this._setDate(inst,date);this._updateDatepicker(inst);this._updateAlternate(inst)}},_getDateDatepicker:function(target,noDefault){var inst=this._getInst(target);if(inst&&!inst.inline){this._setDateFromField(inst,noDefault)}return(inst?this._getDate(inst):null)},_doKeyDown:function(event){var inst=$.datepicker._getInst(event.target);var handled=true;var isRTL=inst.dpDiv.is(".ui-datepicker-rtl");inst._keyEvent=true;if($.datepicker._datepickerShowing){switch(event.keyCode){case 9:$.datepicker._hideDatepicker();handled=false;break;case 13:var sel=$("td."+$.datepicker._dayOverClass+":not(."+$.datepicker._currentClass+")",inst.dpDiv);if(sel[0]){$.datepicker._selectDay(event.target,inst.selectedMonth,inst.selectedYear,sel[0])}var onSelect=$.datepicker._get(inst,"onSelect");if(onSelect){var dateStr=$.datepicker._formatDate(inst);onSelect.apply((inst.input?inst.input[0]:null),[dateStr,inst])}else{$.datepicker._hideDatepicker()}return false;break;case 27:$.datepicker._hideDatepicker();break;case 33:$.datepicker._adjustDate(event.target,(event.ctrlKey?-$.datepicker._get(inst,"stepBigMonths"):-$.datepicker._get(inst,"stepMonths")),"M");break;case 34:$.datepicker._adjustDate(event.target,(event.ctrlKey?+$.datepicker._get(inst,"stepBigMonths"):+$.datepicker._get(inst,"stepMonths")),"M");break;case 35:if(event.ctrlKey||event.metaKey){$.datepicker._clearDate(event.target)}handled=event.ctrlKey||event.metaKey;break;case 36:if(event.ctrlKey||event.metaKey){$.datepicker._gotoToday(event.target)}handled=event.ctrlKey||event.metaKey;break;case 37:if(event.ctrlKey||event.metaKey){$.datepicker._adjustDate(event.target,(isRTL?+1:-1),"D")}handled=event.ctrlKey||event.metaKey;if(event.originalEvent.altKey){$.datepicker._adjustDate(event.target,(event.ctrlKey?-$.datepicker._get(inst,"stepBigMonths"):-$.datepicker._get(inst,"stepMonths")),"M")}break;case 38:if(event.ctrlKey||event.metaKey){$.datepicker._adjustDate(event.target,-7,"D")}handled=event.ctrlKey||event.metaKey;break;case 39:if(event.ctrlKey||event.metaKey){$.datepicker._adjustDate(event.target,(isRTL?-1:+1),"D")}handled=event.ctrlKey||event.metaKey;if(event.originalEvent.altKey){$.datepicker._adjustDate(event.target,(event.ctrlKey?+$.datepicker._get(inst,"stepBigMonths"):+$.datepicker._get(inst,"stepMonths")),"M")}break;case 40:if(event.ctrlKey||event.metaKey){$.datepicker._adjustDate(event.target,+7,"D")}handled=event.ctrlKey||event.metaKey;break;default:handled=false}}else{if(event.keyCode==36&&event.ctrlKey){$.datepicker._showDatepicker(this)}else{handled=false}}if(handled){event.preventDefault();event.stopPropagation()}},_doKeyPress:function(event){var inst=$.datepicker._getInst(event.target);if($.datepicker._get(inst,"constrainInput")){var chars=$.datepicker._possibleChars($.datepicker._get(inst,"dateFormat"));var chr=String.fromCharCode(event.charCode==undefined?event.keyCode:event.charCode);return event.ctrlKey||event.metaKey||(chr<" "||!chars||chars.indexOf(chr)>-1)}},_doKeyUp:function(event){var inst=$.datepicker._getInst(event.target);if(inst.input.val()!=inst.lastVal){try{var date=$.datepicker.parseDate($.datepicker._get(inst,"dateFormat"),(inst.input?inst.input.val():null),$.datepicker._getFormatConfig(inst));if(date){$.datepicker._setDateFromField(inst);$.datepicker._updateAlternate(inst);$.datepicker._updateDatepicker(inst)}}catch(err){$.datepicker.log(err)}}return true},_showDatepicker:function(input){input=input.target||input;if(input.nodeName.toLowerCase()!="input"){input=$("input",input.parentNode)[0]}if($.datepicker._isDisabledDatepicker(input)||$.datepicker._lastInput==input){return}var inst=$.datepicker._getInst(input);if($.datepicker._curInst&&$.datepicker._curInst!=inst){$.datepicker._curInst.dpDiv.stop(true,true);if(inst&&$.datepicker._datepickerShowing){$.datepicker._hideDatepicker($.datepicker._curInst.input[0])}}var beforeShow=$.datepicker._get(inst,"beforeShow");var beforeShowSettings=beforeShow?beforeShow.apply(input,[input,inst]):{};if(beforeShowSettings===false){return}extendRemove(inst.settings,beforeShowSettings);inst.lastVal=null;$.datepicker._lastInput=input;$.datepicker._setDateFromField(inst);if($.datepicker._inDialog){input.value=""}if(!$.datepicker._pos){$.datepicker._pos=$.datepicker._findPos(input);$.datepicker._pos[1]+=input.offsetHeight}var isFixed=false;$(input).parents().each(function(){isFixed|=$(this).css("position")=="fixed";return !isFixed});var offset={left:$.datepicker._pos[0],top:$.datepicker._pos[1]};$.datepicker._pos=null;inst.dpDiv.empty();inst.dpDiv.css({position:"absolute",display:"block",top:"-1000px"});$.datepicker._updateDatepicker(inst);offset=$.datepicker._checkOffset(inst,offset,isFixed);inst.dpDiv.css({position:($.datepicker._inDialog&&$.blockUI?"static":(isFixed?"fixed":"absolute")),display:"none",left:offset.left+"px",top:offset.top+"px"});if(!inst.inline){var showAnim=$.datepicker._get(inst,"showAnim");var duration=$.datepicker._get(inst,"duration");var postProcess=function(){var cover=inst.dpDiv.find("iframe.ui-datepicker-cover");if(!!cover.length){var borders=$.datepicker._getBorders(inst.dpDiv);cover.css({left:-borders[0],top:-borders[1],width:inst.dpDiv.outerWidth(),height:inst.dpDiv.outerHeight()})}};inst.dpDiv.zIndex($(input).zIndex()+1);$.datepicker._datepickerShowing=true;if($.effects&&($.effects.effect[showAnim]||$.effects[showAnim])){inst.dpDiv.show(showAnim,$.datepicker._get(inst,"showOptions"),duration,postProcess)}else{inst.dpDiv[showAnim||"show"]((showAnim?duration:null),postProcess)}if(!showAnim||!duration){postProcess()}if(inst.input.is(":visible")&&!inst.input.is(":disabled")){inst.input.focus()}$.datepicker._curInst=inst}},_updateDatepicker:function(inst){this.maxRows=4;var borders=$.datepicker._getBorders(inst.dpDiv);instActive=inst;inst.dpDiv.empty().append(this._generateHTML(inst));this._attachHandlers(inst);var cover=inst.dpDiv.find("iframe.ui-datepicker-cover");if(!!cover.length){cover.css({left:-borders[0],top:-borders[1],width:inst.dpDiv.outerWidth(),height:inst.dpDiv.outerHeight()})}inst.dpDiv.find("."+this._dayOverClass+" a").mouseover();var numMonths=this._getNumberOfMonths(inst);var cols=numMonths[1];var width=17;inst.dpDiv.removeClass("ui-datepicker-multi-2 ui-datepicker-multi-3 ui-datepicker-multi-4").width("");if(cols>1){inst.dpDiv.addClass("ui-datepicker-multi-"+cols).css("width",(width*cols)+"em")}inst.dpDiv[(numMonths[0]!=1||numMonths[1]!=1?"add":"remove")+"Class"]("ui-datepicker-multi");inst.dpDiv[(this._get(inst,"isRTL")?"add":"remove")+"Class"]("ui-datepicker-rtl");if(inst==$.datepicker._curInst&&$.datepicker._datepickerShowing&&inst.input&&inst.input.is(":visible")&&!inst.input.is(":disabled")&&inst.input[0]!=document.activeElement){inst.input.focus()}if(inst.yearshtml){var origyearshtml=inst.yearshtml;setTimeout(function(){if(origyearshtml===inst.yearshtml&&inst.yearshtml){inst.dpDiv.find("select.ui-datepicker-year:first").replaceWith(inst.yearshtml)}origyearshtml=inst.yearshtml=null},0)}},_getBorders:function(elem){var convert=function(value){return{thin:1,medium:2,thick:3}[value]||value};return[parseFloat(convert(elem.css("border-left-width"))),parseFloat(convert(elem.css("border-top-width")))]},_checkOffset:function(inst,offset,isFixed){var dpWidth=inst.dpDiv.outerWidth();var dpHeight=inst.dpDiv.outerHeight();var inputWidth=inst.input?inst.input.outerWidth():0;var inputHeight=inst.input?inst.input.outerHeight():0;var viewWidth=document.documentElement.clientWidth+(isFixed?0:$(document).scrollLeft());var viewHeight=document.documentElement.clientHeight+(isFixed?0:$(document).scrollTop());offset.left-=(this._get(inst,"isRTL")?(dpWidth-inputWidth):0);offset.left-=(isFixed&&offset.left==inst.input.offset().left)?$(document).scrollLeft():0;offset.top-=(isFixed&&offset.top==(inst.input.offset().top+inputHeight))?$(document).scrollTop():0;offset.left-=Math.min(offset.left,(offset.left+dpWidth>viewWidth&&viewWidth>dpWidth)?Math.abs(offset.left+dpWidth-viewWidth):0);offset.top-=Math.min(offset.top,(offset.top+dpHeight>viewHeight&&viewHeight>dpHeight)?Math.abs(dpHeight+inputHeight):0);return offset},_findPos:function(obj){var inst=this._getInst(obj);var isRTL=this._get(inst,"isRTL");while(obj&&(obj.type=="hidden"||obj.nodeType!=1||$.expr.filters.hidden(obj))){obj=obj[isRTL?"previousSibling":"nextSibling"]}var position=$(obj).offset();return[position.left,position.top]},_hideDatepicker:function(input){var inst=this._curInst;if(!inst||(input&&inst!=$.data(input,PROP_NAME))){return}if(this._datepickerShowing){var showAnim=this._get(inst,"showAnim");var duration=this._get(inst,"duration");var postProcess=function(){$.datepicker._tidyDialog(inst)};if($.effects&&($.effects.effect[showAnim]||$.effects[showAnim])){inst.dpDiv.hide(showAnim,$.datepicker._get(inst,"showOptions"),duration,postProcess)}else{inst.dpDiv[(showAnim=="slideDown"?"slideUp":(showAnim=="fadeIn"?"fadeOut":"hide"))]((showAnim?duration:null),postProcess)}if(!showAnim){postProcess()}this._datepickerShowing=false;var onClose=this._get(inst,"onClose");if(onClose){onClose.apply((inst.input?inst.input[0]:null),[(inst.input?inst.input.val():""),inst])}this._lastInput=null;if(this._inDialog){this._dialogInput.css({position:"absolute",left:"0",top:"-100px"});if($.blockUI){$.unblockUI();$("body").append(this.dpDiv)}}this._inDialog=false}},_tidyDialog:function(inst){inst.dpDiv.removeClass(this._dialogClass).unbind(".ui-datepicker-calendar")},_checkExternalClick:function(event){if(!$.datepicker._curInst){return}var $target=$(event.target),inst=$.datepicker._getInst($target[0]);if((($target[0].id!=$.datepicker._mainDivId&&$target.parents("#"+$.datepicker._mainDivId).length==0&&!$target.hasClass($.datepicker.markerClassName)&&!$target.closest("."+$.datepicker._triggerClass).length&&$.datepicker._datepickerShowing&&!($.datepicker._inDialog&&$.blockUI)))||($target.hasClass($.datepicker.markerClassName)&&$.datepicker._curInst!=inst)){$.datepicker._hideDatepicker()}},_adjustDate:function(id,offset,period){var target=$(id);var inst=this._getInst(target[0]);if(this._isDisabledDatepicker(target[0])){return}this._adjustInstDate(inst,offset+(period=="M"?this._get(inst,"showCurrentAtPos"):0),period);this._updateDatepicker(inst)},_gotoToday:function(id){var target=$(id);var inst=this._getInst(target[0]);if(this._get(inst,"gotoCurrent")&&inst.currentDay){inst.selectedDay=inst.currentDay;inst.drawMonth=inst.selectedMonth=inst.currentMonth;inst.drawYear=inst.selectedYear=inst.currentYear}else{var date=new Date();inst.selectedDay=date.getDate();inst.drawMonth=inst.selectedMonth=date.getMonth();inst.drawYear=inst.selectedYear=date.getFullYear()}this._notifyChange(inst);this._adjustDate(target)},_selectMonthYear:function(id,select,period){var target=$(id);var inst=this._getInst(target[0]);inst["selected"+(period=="M"?"Month":"Year")]=inst["draw"+(period=="M"?"Month":"Year")]=parseInt(select.options[select.selectedIndex].value,10);this._notifyChange(inst);this._adjustDate(target)},_selectDay:function(id,month,year,td){var target=$(id);if($(td).hasClass(this._unselectableClass)||this._isDisabledDatepicker(target[0])){return}var inst=this._getInst(target[0]);inst.selectedDay=inst.currentDay=$("a",td).html();inst.selectedMonth=inst.currentMonth=month;inst.selectedYear=inst.currentYear=year;this._selectDate(id,this._formatDate(inst,inst.currentDay,inst.currentMonth,inst.currentYear))},_clearDate:function(id){var target=$(id);var inst=this._getInst(target[0]);this._selectDate(target,"")},_selectDate:function(id,dateStr){var target=$(id);var inst=this._getInst(target[0]);dateStr=(dateStr!=null?dateStr:this._formatDate(inst));if(inst.input){inst.input.val(dateStr)}this._updateAlternate(inst);var onSelect=this._get(inst,"onSelect");if(onSelect){onSelect.apply((inst.input?inst.input[0]:null),[dateStr,inst])}else{if(inst.input){inst.input.trigger("change")}}if(inst.inline){this._updateDatepicker(inst)}else{this._hideDatepicker();this._lastInput=inst.input[0];if(typeof(inst.input[0])!="object"){inst.input.focus()}this._lastInput=null}},_updateAlternate:function(inst){var altField=this._get(inst,"altField");if(altField){var altFormat=this._get(inst,"altFormat")||this._get(inst,"dateFormat");var date=this._getDate(inst);var dateStr=this.formatDate(altFormat,date,this._getFormatConfig(inst));$(altField).each(function(){$(this).val(dateStr)})}},noWeekends:function(date){var day=date.getDay();return[(day>0&&day<6),""]},iso8601Week:function(date){var checkDate=new Date(date.getTime());checkDate.setDate(checkDate.getDate()+4-(checkDate.getDay()||7));var time=checkDate.getTime();checkDate.setMonth(0);checkDate.setDate(1);return Math.floor(Math.round((time-checkDate)/86400000)/7)+1},parseDate:function(format,value,settings){if(format==null||value==null){throw"Invalid arguments"}value=(typeof value=="object"?value.toString():value+"");if(value==""){return null}var shortYearCutoff=(settings?settings.shortYearCutoff:null)||this._defaults.shortYearCutoff;shortYearCutoff=(typeof shortYearCutoff!="string"?shortYearCutoff:new Date().getFullYear()%100+parseInt(shortYearCutoff,10));var dayNamesShort=(settings?settings.dayNamesShort:null)||this._defaults.dayNamesShort;var dayNames=(settings?settings.dayNames:null)||this._defaults.dayNames;var monthNamesShort=(settings?settings.monthNamesShort:null)||this._defaults.monthNamesShort;var monthNames=(settings?settings.monthNames:null)||this._defaults.monthNames;var year=-1;var month=-1;var day=-1;var doy=-1;var literal=false;var lookAhead=function(match){var matches=(iFormat+1<format.length&&format.charAt(iFormat+1)==match);if(matches){iFormat++}return matches};var getNumber=function(match){var isDoubled=lookAhead(match);var size=(match=="@"?14:(match=="!"?20:(match=="y"&&isDoubled?4:(match=="o"?3:2))));var digits=new RegExp("^\\d{1,"+size+"}");var num=value.substring(iValue).match(digits);if(!num){throw"Missing number at position "+iValue}iValue+=num[0].length;return parseInt(num[0],10)};var getName=function(match,shortNames,longNames){var names=$.map(lookAhead(match)?longNames:shortNames,function(v,k){return[[k,v]]}).sort(function(a,b){return -(a[1].length-b[1].length)});var index=-1;$.each(names,function(i,pair){var name=pair[1];if(value.substr(iValue,name.length).toLowerCase()==name.toLowerCase()){index=pair[0];iValue+=name.length;return false}});if(index!=-1){return index+1}else{throw"Unknown name at position "+iValue}};var checkLiteral=function(){if(value.charAt(iValue)!=format.charAt(iFormat)){throw"Unexpected literal at position "+iValue}iValue++};var iValue=0;for(var iFormat=0;iFormat<format.length;iFormat++){if(literal){if(format.charAt(iFormat)=="'"&&!lookAhead("'")){literal=false}else{checkLiteral()}}else{switch(format.charAt(iFormat)){case"d":day=getNumber("d");break;case"D":getName("D",dayNamesShort,dayNames);break;case"o":doy=getNumber("o");break;case"m":month=getNumber("m");break;case"M":month=getName("M",monthNamesShort,monthNames);break;case"y":year=getNumber("y");break;case"@":var date=new Date(getNumber("@"));year=date.getFullYear();month=date.getMonth()+1;day=date.getDate();break;case"!":var date=new Date((getNumber("!")-this._ticksTo1970)/10000);year=date.getFullYear();month=date.getMonth()+1;day=date.getDate();break;case"'":if(lookAhead("'")){checkLiteral()}else{literal=true}break;default:checkLiteral()}}}if(iValue<value.length){var extra=value.substr(iValue);if(!/^\s+/.test(extra)){throw"Extra/unparsed characters found in date: "+extra}}if(year==-1){year=new Date().getFullYear()}else{if(year<100){year+=new Date().getFullYear()-new Date().getFullYear()%100+(year<=shortYearCutoff?0:-100)}}if(doy>-1){month=1;day=doy;do{var dim=this._getDaysInMonth(year,month-1);if(day<=dim){break}month++;day-=dim}while(true)}var date=this._daylightSavingAdjust(new Date(year,month-1,day));if(date.getFullYear()!=year||date.getMonth()+1!=month||date.getDate()!=day){throw"Invalid date"}return date},ATOM:"yy-mm-dd",COOKIE:"D, dd M yy",ISO_8601:"yy-mm-dd",RFC_822:"D, d M y",RFC_850:"DD, dd-M-y",RFC_1036:"D, d M y",RFC_1123:"D, d M yy",RFC_2822:"D, d M yy",RSS:"D, d M y",TICKS:"!",TIMESTAMP:"@",W3C:"yy-mm-dd",_ticksTo1970:(((1970-1)*365+Math.floor(1970/4)-Math.floor(1970/100)+Math.floor(1970/400))*24*60*60*10000000),formatDate:function(format,date,settings){if(!date){return""}var dayNamesShort=(settings?settings.dayNamesShort:null)||this._defaults.dayNamesShort;var dayNames=(settings?settings.dayNames:null)||this._defaults.dayNames;var monthNamesShort=(settings?settings.monthNamesShort:null)||this._defaults.monthNamesShort;var monthNames=(settings?settings.monthNames:null)||this._defaults.monthNames;var lookAhead=function(match){var matches=(iFormat+1<format.length&&format.charAt(iFormat+1)==match);if(matches){iFormat++}return matches};var formatNumber=function(match,value,len){var num=""+value;if(lookAhead(match)){while(num.length<len){num="0"+num}}return num};var formatName=function(match,value,shortNames,longNames){return(lookAhead(match)?longNames[value]:shortNames[value])};var output="";var literal=false;if(date){for(var iFormat=0;iFormat<format.length;iFormat++){if(literal){if(format.charAt(iFormat)=="'"&&!lookAhead("'")){literal=false}else{output+=format.charAt(iFormat)}}else{switch(format.charAt(iFormat)){case"d":output+=formatNumber("d",date.getDate(),2);break;case"D":output+=formatName("D",date.getDay(),dayNamesShort,dayNames);break;case"o":output+=formatNumber("o",Math.round((new Date(date.getFullYear(),date.getMonth(),date.getDate()).getTime()-new Date(date.getFullYear(),0,0).getTime())/86400000),3);break;case"m":output+=formatNumber("m",date.getMonth()+1,2);break;case"M":output+=formatName("M",date.getMonth(),monthNamesShort,monthNames);break;case"y":output+=(lookAhead("y")?date.getFullYear():(date.getYear()%100<10?"0":"")+date.getYear()%100);break;case"@":output+=date.getTime();break;case"!":output+=date.getTime()*10000+this._ticksTo1970;break;case"'":if(lookAhead("'")){output+="'"}else{literal=true}break;default:output+=format.charAt(iFormat)}}}}return output},_possibleChars:function(format){var chars="";var literal=false;var lookAhead=function(match){var matches=(iFormat+1<format.length&&format.charAt(iFormat+1)==match);if(matches){iFormat++}return matches};for(var iFormat=0;iFormat<format.length;iFormat++){if(literal){if(format.charAt(iFormat)=="'"&&!lookAhead("'")){literal=false}else{chars+=format.charAt(iFormat)}}else{switch(format.charAt(iFormat)){case"d":case"m":case"y":case"@":chars+="0123456789";break;case"D":case"M":return null;case"'":if(lookAhead("'")){chars+="'"}else{literal=true}break;default:chars+=format.charAt(iFormat)}}}return chars},_get:function(inst,name){return inst.settings[name]!==undefined?inst.settings[name]:this._defaults[name]},_setDateFromField:function(inst,noDefault){if(inst.input.val()==inst.lastVal){return}var dateFormat=this._get(inst,"dateFormat");var dates=inst.lastVal=inst.input?inst.input.val():null;var date,defaultDate;date=defaultDate=this._getDefaultDate(inst);var settings=this._getFormatConfig(inst);try{date=this.parseDate(dateFormat,dates,settings)||defaultDate}catch(event){this.log(event);dates=(noDefault?"":dates)}inst.selectedDay=date.getDate();inst.drawMonth=inst.selectedMonth=date.getMonth();inst.drawYear=inst.selectedYear=date.getFullYear();inst.currentDay=(dates?date.getDate():0);inst.currentMonth=(dates?date.getMonth():0);inst.currentYear=(dates?date.getFullYear():0);this._adjustInstDate(inst)},_getDefaultDate:function(inst){return this._restrictMinMax(inst,this._determineDate(inst,this._get(inst,"defaultDate"),new Date()))},_determineDate:function(inst,date,defaultDate){var offsetNumeric=function(offset){var date=new Date();date.setDate(date.getDate()+offset);return date};var offsetString=function(offset){try{return $.datepicker.parseDate($.datepicker._get(inst,"dateFormat"),offset,$.datepicker._getFormatConfig(inst))}catch(e){}var date=(offset.toLowerCase().match(/^c/)?$.datepicker._getDate(inst):null)||new Date();var year=date.getFullYear();var month=date.getMonth();var day=date.getDate();var pattern=/([+-]?[0-9]+)\s*(d|D|w|W|m|M|y|Y)?/g;var matches=pattern.exec(offset);while(matches){switch(matches[2]||"d"){case"d":case"D":day+=parseInt(matches[1],10);break;case"w":case"W":day+=parseInt(matches[1],10)*7;break;case"m":case"M":month+=parseInt(matches[1],10);day=Math.min(day,$.datepicker._getDaysInMonth(year,month));break;case"y":case"Y":year+=parseInt(matches[1],10);day=Math.min(day,$.datepicker._getDaysInMonth(year,month));break}matches=pattern.exec(offset)}return new Date(year,month,day)};var newDate=(date==null||date===""?defaultDate:(typeof date=="string"?offsetString(date):(typeof date=="number"?(isNaN(date)?defaultDate:offsetNumeric(date)):new Date(date.getTime()))));newDate=(newDate&&newDate.toString()=="Invalid Date"?defaultDate:newDate);if(newDate){newDate.setHours(0);newDate.setMinutes(0);newDate.setSeconds(0);newDate.setMilliseconds(0)}return this._daylightSavingAdjust(newDate)},_daylightSavingAdjust:function(date){if(!date){return null}date.setHours(date.getHours()>12?date.getHours()+2:0);return date},_setDate:function(inst,date,noChange){var clear=!date;var origMonth=inst.selectedMonth;var origYear=inst.selectedYear;var newDate=this._restrictMinMax(inst,this._determineDate(inst,date,new Date()));inst.selectedDay=inst.currentDay=newDate.getDate();inst.drawMonth=inst.selectedMonth=inst.currentMonth=newDate.getMonth();inst.drawYear=inst.selectedYear=inst.currentYear=newDate.getFullYear();if((origMonth!=inst.selectedMonth||origYear!=inst.selectedYear)&&!noChange){this._notifyChange(inst)}this._adjustInstDate(inst);if(inst.input){inst.input.val(clear?"":this._formatDate(inst))}},_getDate:function(inst){var startDate=(!inst.currentYear||(inst.input&&inst.input.val()=="")?null:this._daylightSavingAdjust(new Date(inst.currentYear,inst.currentMonth,inst.currentDay)));return startDate},_attachHandlers:function(inst){var stepMonths=this._get(inst,"stepMonths");var id="#"+inst.id.replace(/\\\\/g,"\\");inst.dpDiv.find("[data-handler]").map(function(){var handler={prev:function(){window["DP_jQuery_"+dpuuid].datepicker._adjustDate(id,-stepMonths,"M")},next:function(){window["DP_jQuery_"+dpuuid].datepicker._adjustDate(id,+stepMonths,"M")},hide:function(){window["DP_jQuery_"+dpuuid].datepicker._hideDatepicker()},today:function(){window["DP_jQuery_"+dpuuid].datepicker._gotoToday(id)},selectDay:function(){window["DP_jQuery_"+dpuuid].datepicker._selectDay(id,+this.getAttribute("data-month"),+this.getAttribute("data-year"),this);return false},selectMonth:function(){window["DP_jQuery_"+dpuuid].datepicker._selectMonthYear(id,this,"M");return false},selectYear:function(){window["DP_jQuery_"+dpuuid].datepicker._selectMonthYear(id,this,"Y");return false}};$(this).bind(this.getAttribute("data-event"),handler[this.getAttribute("data-handler")])})},_generateHTML:function(inst){var today=new Date();today=this._daylightSavingAdjust(new Date(today.getFullYear(),today.getMonth(),today.getDate()));var isRTL=this._get(inst,"isRTL");var showButtonPanel=this._get(inst,"showButtonPanel");var hideIfNoPrevNext=this._get(inst,"hideIfNoPrevNext");var navigationAsDateFormat=this._get(inst,"navigationAsDateFormat");var numMonths=this._getNumberOfMonths(inst);var showCurrentAtPos=this._get(inst,"showCurrentAtPos");var stepMonths=this._get(inst,"stepMonths");var isMultiMonth=(numMonths[0]!=1||numMonths[1]!=1);var currentDate=this._daylightSavingAdjust((!inst.currentDay?new Date(9999,9,9):new Date(inst.currentYear,inst.currentMonth,inst.currentDay)));var minDate=this._getMinMaxDate(inst,"min");var maxDate=this._getMinMaxDate(inst,"max");var drawMonth=inst.drawMonth-showCurrentAtPos;var drawYear=inst.drawYear;if(drawMonth<0){drawMonth+=12;drawYear--}if(maxDate){var maxDraw=this._daylightSavingAdjust(new Date(maxDate.getFullYear(),maxDate.getMonth()-(numMonths[0]*numMonths[1])+1,maxDate.getDate()));maxDraw=(minDate&&maxDraw<minDate?minDate:maxDraw);while(this._daylightSavingAdjust(new Date(drawYear,drawMonth,1))>maxDraw){drawMonth--;if(drawMonth<0){drawMonth=11;drawYear--}}}inst.drawMonth=drawMonth;inst.drawYear=drawYear;var prevText=this._get(inst,"prevText");prevText=(!navigationAsDateFormat?prevText:this.formatDate(prevText,this._daylightSavingAdjust(new Date(drawYear,drawMonth-stepMonths,1)),this._getFormatConfig(inst)));var prev=(this._canAdjustMonth(inst,-1,drawYear,drawMonth)?'<a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click" title="'+prevText+'"><span class="ui-icon ui-icon-circle-triangle-'+(isRTL?"e":"w")+'">'+prevText+"</span></a>":(hideIfNoPrevNext?"":'<a class="ui-datepicker-prev ui-corner-all ui-state-disabled" title="'+prevText+'"><span class="ui-icon ui-icon-circle-triangle-'+(isRTL?"e":"w")+'">'+prevText+"</span></a>"));var nextText=this._get(inst,"nextText");nextText=(!navigationAsDateFormat?nextText:this.formatDate(nextText,this._daylightSavingAdjust(new Date(drawYear,drawMonth+stepMonths,1)),this._getFormatConfig(inst)));var next=(this._canAdjustMonth(inst,+1,drawYear,drawMonth)?'<a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click" title="'+nextText+'"><span class="ui-icon ui-icon-circle-triangle-'+(isRTL?"w":"e")+'">'+nextText+"</span></a>":(hideIfNoPrevNext?"":'<a class="ui-datepicker-next ui-corner-all ui-state-disabled" title="'+nextText+'"><span class="ui-icon ui-icon-circle-triangle-'+(isRTL?"w":"e")+'">'+nextText+"</span></a>"));var currentText=this._get(inst,"currentText");var gotoDate=(this._get(inst,"gotoCurrent")&&inst.currentDay?currentDate:today);currentText=(!navigationAsDateFormat?currentText:this.formatDate(currentText,gotoDate,this._getFormatConfig(inst)));var controls=(!inst.inline?'<button type="button" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" data-handler="hide" data-event="click">'+this._get(inst,"closeText")+"</button>":"");var buttonPanel=(showButtonPanel)?'<div class="ui-datepicker-buttonpane ui-widget-content">'+(isRTL?controls:"")+(this._isInRange(inst,gotoDate)?'<button type="button" class="ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all" data-handler="today" data-event="click">'+currentText+"</button>":"")+(isRTL?"":controls)+"</div>":"";var firstDay=parseInt(this._get(inst,"firstDay"),10);firstDay=(isNaN(firstDay)?0:firstDay);var showWeek=this._get(inst,"showWeek");var dayNames=this._get(inst,"dayNames");var dayNamesShort=this._get(inst,"dayNamesShort");var dayNamesMin=this._get(inst,"dayNamesMin");var monthNames=this._get(inst,"monthNames");var monthNamesShort=this._get(inst,"monthNamesShort");var beforeShowDay=this._get(inst,"beforeShowDay");var showOtherMonths=this._get(inst,"showOtherMonths");var selectOtherMonths=this._get(inst,"selectOtherMonths");var calculateWeek=this._get(inst,"calculateWeek")||this.iso8601Week;var defaultDate=this._getDefaultDate(inst);var html="";for(var row=0;row<numMonths[0];row++){var group="";this.maxRows=4;for(var col=0;col<numMonths[1];col++){var selectedDate=this._daylightSavingAdjust(new Date(drawYear,drawMonth,inst.selectedDay));var cornerClass=" ui-corner-all";var calender="";if(isMultiMonth){calender+='<div class="ui-datepicker-group';if(numMonths[1]>1){switch(col){case 0:calender+=" ui-datepicker-group-first";cornerClass=" ui-corner-"+(isRTL?"right":"left");break;case numMonths[1]-1:calender+=" ui-datepicker-group-last";cornerClass=" ui-corner-"+(isRTL?"left":"right");break;default:calender+=" ui-datepicker-group-middle";cornerClass="";break}}calender+='">'}calender+='<div class="ui-datepicker-header ui-widget-header ui-helper-clearfix'+cornerClass+'">'+(/all|left/.test(cornerClass)&&row==0?(isRTL?next:prev):"")+(/all|right/.test(cornerClass)&&row==0?(isRTL?prev:next):"")+this._generateMonthYearHeader(inst,drawMonth,drawYear,minDate,maxDate,row>0||col>0,monthNames,monthNamesShort)+'</div><table class="ui-datepicker-calendar"><thead><tr>';var thead=(showWeek?'<th class="ui-datepicker-week-col">'+this._get(inst,"weekHeader")+"</th>":"");for(var dow=0;dow<7;dow++){var day=(dow+firstDay)%7;thead+="<th"+((dow+firstDay+6)%7>=5?' class="ui-datepicker-week-end"':"")+'><span title="'+dayNames[day]+'">'+dayNamesMin[day]+"</span></th>"}calender+=thead+"</tr></thead><tbody>";var daysInMonth=this._getDaysInMonth(drawYear,drawMonth);if(drawYear==inst.selectedYear&&drawMonth==inst.selectedMonth){inst.selectedDay=Math.min(inst.selectedDay,daysInMonth)}var leadDays=(this._getFirstDayOfMonth(drawYear,drawMonth)-firstDay+7)%7;var curRows=Math.ceil((leadDays+daysInMonth)/7);var numRows=(isMultiMonth?this.maxRows>curRows?this.maxRows:curRows:curRows);this.maxRows=numRows;var printDate=this._daylightSavingAdjust(new Date(drawYear,drawMonth,1-leadDays));for(var dRow=0;dRow<numRows;dRow++){calender+="<tr>";var tbody=(!showWeek?"":'<td class="ui-datepicker-week-col">'+this._get(inst,"calculateWeek")(printDate)+"</td>");for(var dow=0;dow<7;dow++){var daySettings=(beforeShowDay?beforeShowDay.apply((inst.input?inst.input[0]:null),[printDate]):[true,""]);var otherMonth=(printDate.getMonth()!=drawMonth);var unselectable=(otherMonth&&!selectOtherMonths)||!daySettings[0]||(minDate&&printDate<minDate)||(maxDate&&printDate>maxDate);tbody+='<td class="'+((dow+firstDay+6)%7>=5?" ui-datepicker-week-end":"")+(otherMonth?" ui-datepicker-other-month":"")+((printDate.getTime()==selectedDate.getTime()&&drawMonth==inst.selectedMonth&&inst._keyEvent)||(defaultDate.getTime()==printDate.getTime()&&defaultDate.getTime()==selectedDate.getTime())?" "+this._dayOverClass:"")+(unselectable?" "+this._unselectableClass+" ui-state-disabled":"")+(otherMonth&&!showOtherMonths?"":" "+daySettings[1]+(printDate.getTime()==currentDate.getTime()?" "+this._currentClass:"")+(printDate.getTime()==today.getTime()?" ui-datepicker-today":""))+'"'+((!otherMonth||showOtherMonths)&&daySettings[2]?' title="'+daySettings[2]+'"':"")+(unselectable?"":' data-handler="selectDay" data-event="click" data-month="'+printDate.getMonth()+'" data-year="'+printDate.getFullYear()+'"')+">"+(otherMonth&&!showOtherMonths?"&#xa0;":(unselectable?'<span class="ui-state-default">'+printDate.getDate()+"</span>":'<a class="ui-state-default'+(printDate.getTime()==today.getTime()?" ui-state-highlight":"")+(printDate.getTime()==currentDate.getTime()?" ui-state-active":"")+(otherMonth?" ui-priority-secondary":"")+'" href="#">'+printDate.getDate()+"</a>"))+"</td>";printDate.setDate(printDate.getDate()+1);printDate=this._daylightSavingAdjust(printDate)}calender+=tbody+"</tr>"}drawMonth++;if(drawMonth>11){drawMonth=0;drawYear++}calender+="</tbody></table>"+(isMultiMonth?"</div>"+((numMonths[0]>0&&col==numMonths[1]-1)?'<div class="ui-datepicker-row-break"></div>':""):"");group+=calender}html+=group}html+=buttonPanel+($.browser.msie&&parseInt($.browser.version,10)<7&&!inst.inline?'<iframe src="javascript:false;" class="ui-datepicker-cover" frameborder="0"></iframe>':"");inst._keyEvent=false;return html},_generateMonthYearHeader:function(inst,drawMonth,drawYear,minDate,maxDate,secondary,monthNames,monthNamesShort){var changeMonth=this._get(inst,"changeMonth");var changeYear=this._get(inst,"changeYear");var showMonthAfterYear=this._get(inst,"showMonthAfterYear");var html='<div class="ui-datepicker-title">';var monthHtml="";if(secondary||!changeMonth){monthHtml+='<span class="ui-datepicker-month">'+monthNames[drawMonth]+"</span>"}else{var inMinYear=(minDate&&minDate.getFullYear()==drawYear);var inMaxYear=(maxDate&&maxDate.getFullYear()==drawYear);monthHtml+='<select class="ui-datepicker-month" data-handler="selectMonth" data-event="change">';for(var month=0;month<12;month++){if((!inMinYear||month>=minDate.getMonth())&&(!inMaxYear||month<=maxDate.getMonth())){monthHtml+='<option value="'+month+'"'+(month==drawMonth?' selected="selected"':"")+">"+monthNamesShort[month]+"</option>"}}monthHtml+="</select>"}if(!showMonthAfterYear){html+=monthHtml+(secondary||!(changeMonth&&changeYear)?"&#xa0;":"")}if(!inst.yearshtml){inst.yearshtml="";if(secondary||!changeYear){html+='<span class="ui-datepicker-year">'+drawYear+"</span>"}else{var years=this._get(inst,"yearRange").split(":");var thisYear=new Date().getFullYear();var determineYear=function(value){var year=(value.match(/c[+-].*/)?drawYear+parseInt(value.substring(1),10):(value.match(/[+-].*/)?thisYear+parseInt(value,10):parseInt(value,10)));return(isNaN(year)?thisYear:year)};var year=determineYear(years[0]);var endYear=Math.max(year,determineYear(years[1]||""));year=(minDate?Math.max(year,minDate.getFullYear()):year);endYear=(maxDate?Math.min(endYear,maxDate.getFullYear()):endYear);inst.yearshtml+='<select class="ui-datepicker-year" data-handler="selectYear" data-event="change">';for(;year<=endYear;year++){inst.yearshtml+='<option value="'+year+'"'+(year==drawYear?' selected="selected"':"")+">"+year+"</option>"}inst.yearshtml+="</select>";html+=inst.yearshtml;inst.yearshtml=null}}html+=this._get(inst,"yearSuffix");if(showMonthAfterYear){html+=(secondary||!(changeMonth&&changeYear)?"&#xa0;":"")+monthHtml}html+="</div>";return html},_adjustInstDate:function(inst,offset,period){var year=inst.drawYear+(period=="Y"?offset:0);var month=inst.drawMonth+(period=="M"?offset:0);var day=Math.min(inst.selectedDay,this._getDaysInMonth(year,month))+(period=="D"?offset:0);var date=this._restrictMinMax(inst,this._daylightSavingAdjust(new Date(year,month,day)));inst.selectedDay=date.getDate();inst.drawMonth=inst.selectedMonth=date.getMonth();inst.drawYear=inst.selectedYear=date.getFullYear();if(period=="M"||period=="Y"){this._notifyChange(inst)}},_restrictMinMax:function(inst,date){var minDate=this._getMinMaxDate(inst,"min");var maxDate=this._getMinMaxDate(inst,"max");var newDate=(minDate&&date<minDate?minDate:date);newDate=(maxDate&&newDate>maxDate?maxDate:newDate);return newDate},_notifyChange:function(inst){var onChange=this._get(inst,"onChangeMonthYear");if(onChange){onChange.apply((inst.input?inst.input[0]:null),[inst.selectedYear,inst.selectedMonth+1,inst])}},_getNumberOfMonths:function(inst){var numMonths=this._get(inst,"numberOfMonths");return(numMonths==null?[1,1]:(typeof numMonths=="number"?[1,numMonths]:numMonths))},_getMinMaxDate:function(inst,minMax){return this._determineDate(inst,this._get(inst,minMax+"Date"),null)},_getDaysInMonth:function(year,month){return 32-this._daylightSavingAdjust(new Date(year,month,32)).getDate()},_getFirstDayOfMonth:function(year,month){return new Date(year,month,1).getDay()},_canAdjustMonth:function(inst,offset,curYear,curMonth){var numMonths=this._getNumberOfMonths(inst);var date=this._daylightSavingAdjust(new Date(curYear,curMonth+(offset<0?offset:numMonths[0]*numMonths[1]),1));if(offset<0){date.setDate(this._getDaysInMonth(date.getFullYear(),date.getMonth()))}return this._isInRange(inst,date)},_isInRange:function(inst,date){var minDate=this._getMinMaxDate(inst,"min");var maxDate=this._getMinMaxDate(inst,"max");return((!minDate||date.getTime()>=minDate.getTime())&&(!maxDate||date.getTime()<=maxDate.getTime()))},_getFormatConfig:function(inst){var shortYearCutoff=this._get(inst,"shortYearCutoff");shortYearCutoff=(typeof shortYearCutoff!="string"?shortYearCutoff:new Date().getFullYear()%100+parseInt(shortYearCutoff,10));return{shortYearCutoff:shortYearCutoff,dayNamesShort:this._get(inst,"dayNamesShort"),dayNames:this._get(inst,"dayNames"),monthNamesShort:this._get(inst,"monthNamesShort"),monthNames:this._get(inst,"monthNames")}},_formatDate:function(inst,day,month,year){if(!day){inst.currentDay=inst.selectedDay;inst.currentMonth=inst.selectedMonth;inst.currentYear=inst.selectedYear}var date=(day?(typeof day=="object"?day:this._daylightSavingAdjust(new Date(year,month,day))):this._daylightSavingAdjust(new Date(inst.currentYear,inst.currentMonth,inst.currentDay)));return this.formatDate(this._get(inst,"dateFormat"),date,this._getFormatConfig(inst))}});function bindHover(dpDiv){var selector="button, .ui-datepicker-prev, .ui-datepicker-next, .ui-datepicker-calendar td a";return dpDiv.delegate(selector,"mouseout",function(){$(this).removeClass("ui-state-hover");if(this.className.indexOf("ui-datepicker-prev")!=-1){$(this).removeClass("ui-datepicker-prev-hover")}if(this.className.indexOf("ui-datepicker-next")!=-1){$(this).removeClass("ui-datepicker-next-hover")}}).delegate(selector,"mouseover",function(){if(!$.datepicker._isDisabledDatepicker(instActive.inline?dpDiv.parent()[0]:instActive.input[0])){$(this).parents(".ui-datepicker-calendar").find("a").removeClass("ui-state-hover");$(this).addClass("ui-state-hover");if(this.className.indexOf("ui-datepicker-prev")!=-1){$(this).addClass("ui-datepicker-prev-hover")}if(this.className.indexOf("ui-datepicker-next")!=-1){$(this).addClass("ui-datepicker-next-hover")}}})}function extendRemove(target,props){$.extend(target,props);for(var name in props){if(props[name]==null||props[name]==undefined){target[name]=props[name]}}return target}$.fn.datepicker=function(options){if(!this.length){return this}if(!$.datepicker.initialized){$(document).mousedown($.datepicker._checkExternalClick).find(document.body).append($.datepicker.dpDiv);$.datepicker.initialized=true}var otherArgs=Array.prototype.slice.call(arguments,1);if(typeof options=="string"&&(options=="isDisabled"||options=="getDate"||options=="widget")){return $.datepicker["_"+options+"Datepicker"].apply($.datepicker,[this[0]].concat(otherArgs))}if(options=="option"&&arguments.length==2&&typeof arguments[1]=="string"){return $.datepicker["_"+options+"Datepicker"].apply($.datepicker,[this[0]].concat(otherArgs))}return this.each(function(){typeof options=="string"?$.datepicker["_"+options+"Datepicker"].apply($.datepicker,[this].concat(otherArgs)):$.datepicker._attachDatepicker(this,options)})};$.datepicker=new Datepicker();$.datepicker.initialized=false;$.datepicker.uuid=new Date().getTime();$.datepicker.version="1.9.0";window["DP_jQuery_"+dpuuid]=$})(jQuery);(function(d,e){var b="ui-dialog ui-widget ui-widget-content ui-corner-all ",a={buttons:true,height:true,maxHeight:true,maxWidth:true,minHeight:true,minWidth:true,width:true},c={maxHeight:true,maxWidth:true,minHeight:true,minWidth:true};d.widget("ui.dialog",{version:"1.9.0",options:{autoOpen:true,buttons:{},closeOnEscape:true,closeText:"close",dialogClass:"",draggable:true,hide:null,height:"auto",maxHeight:false,maxWidth:false,minHeight:150,minWidth:150,modal:false,position:{my:"center",at:"center",of:window,collision:"fit",using:function(g){var f=d(this).css(g).offset().top;if(f<0){d(this).css("top",g.top-f)}}},resizable:true,show:null,stack:true,title:"",width:300,zIndex:1000},_create:function(){this.originalTitle=this.element.attr("title");if(typeof this.originalTitle!=="string"){this.originalTitle=""}this.oldPosition={parent:this.element.parent(),index:this.element.parent().children().index(this.element)};this.options.title=this.options.title||this.originalTitle;var m=this,p=this.options,n=p.title||"&#160;",o=(this.uiDialog=d("<div>")).addClass(b+p.dialogClass).css({display:"none",outline:0,zIndex:p.zIndex}).attr("tabIndex",-1).keydown(function(q){if(p.closeOnEscape&&!q.isDefaultPrevented()&&q.keyCode&&q.keyCode===d.ui.keyCode.ESCAPE){m.close(q);q.preventDefault()}}).mousedown(function(q){m.moveToTop(false,q)}).appendTo("body"),i=this.element.show().removeAttr("title").addClass("ui-dialog-content ui-widget-content").appendTo(o),h=(this.uiDialogTitlebar=d("<div>")).addClass("ui-dialog-titlebar  ui-widget-header  ui-corner-all  ui-helper-clearfix").prependTo(o),l=d("<a href='#'></a>").addClass("ui-dialog-titlebar-close  ui-corner-all").attr("role","button").click(function(q){q.preventDefault();m.close(q)}).appendTo(h),j=(this.uiDialogTitlebarCloseText=d("<span>")).addClass("ui-icon ui-icon-closethick").text(p.closeText).appendTo(l),g=d("<span>").uniqueId().addClass("ui-dialog-title").html(n).prependTo(h),k=(this.uiDialogButtonPane=d("<div>")).addClass("ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"),f=(this.uiButtonSet=d("<div>")).addClass("ui-dialog-buttonset").appendTo(k);o.attr({role:"dialog","aria-labelledby":g.attr("id")});h.find("*").add(h).disableSelection();this._hoverable(l);this._focusable(l);if(p.draggable&&d.fn.draggable){this._makeDraggable()}if(p.resizable&&d.fn.resizable){this._makeResizable()}this._createButtons(p.buttons);this._isOpen=false;if(d.fn.bgiframe){o.bgiframe()}this._on(o,{keydown:function(s){if(!p.modal||s.keyCode!==d.ui.keyCode.TAB){return}var r=d(":tabbable",o),t=r.filter(":first"),q=r.filter(":last");if(s.target===q[0]&&!s.shiftKey){t.focus(1);return false}else{if(s.target===t[0]&&s.shiftKey){q.focus(1);return false}}}})},_init:function(){if(this.options.autoOpen){this.open()}},_destroy:function(){var g,f=this.oldPosition;if(this.overlay){this.overlay.destroy()}this.uiDialog.hide();this.element.removeClass("ui-dialog-content ui-widget-content").hide().appendTo("body");this.uiDialog.remove();if(this.originalTitle){this.element.attr("title",this.originalTitle)}g=f.parent.children().eq(f.index);if(g.length&&g[0]!==this.element[0]){g.before(this.element)}else{f.parent.append(this.element)}},widget:function(){return this.uiDialog},close:function(i){var h=this,g,f;if(!this._isOpen){return}if(false===this._trigger("beforeClose",i)){return}this._isOpen=false;if(this.overlay){this.overlay.destroy()}if(this.options.hide){this.uiDialog.hide(this.options.hide,function(){h._trigger("close",i)})}else{this.uiDialog.hide();this._trigger("close",i)}d.ui.dialog.overlay.resize();if(this.options.modal){g=0;d(".ui-dialog").each(function(){if(this!==h.uiDialog[0]){f=d(this).css("z-index");if(!isNaN(f)){g=Math.max(g,f)}}});d.ui.dialog.maxZ=g}return this},isOpen:function(){return this._isOpen},moveToTop:function(i,h){var g=this.options,f;if((g.modal&&!i)||(!g.stack&&!g.modal)){return this._trigger("focus",h)}if(g.zIndex>d.ui.dialog.maxZ){d.ui.dialog.maxZ=g.zIndex}if(this.overlay){d.ui.dialog.maxZ+=1;d.ui.dialog.overlay.maxZ=d.ui.dialog.maxZ;this.overlay.$el.css("z-index",d.ui.dialog.overlay.maxZ)}f={scrollTop:this.element.scrollTop(),scrollLeft:this.element.scrollLeft()};d.ui.dialog.maxZ+=1;this.uiDialog.css("z-index",d.ui.dialog.maxZ);this.element.attr(f);this._trigger("focus",h);return this},open:function(){if(this._isOpen){return}var h,g=this.options,f=this.uiDialog;this._size();this._position(g.position);f.show(g.show);this.overlay=g.modal?new d.ui.dialog.overlay(this):null;this.moveToTop(true);h=this.element.find(":tabbable");if(!h.length){h=this.uiDialogButtonPane.find(":tabbable");if(!h.length){h=f}}h.eq(0).focus();this._isOpen=true;this._trigger("open");return this},_createButtons:function(i){var g,j,h=this,f=false;this.uiDialogButtonPane.remove();this.uiButtonSet.empty();if(typeof i==="object"&&i!==null){d.each(i,function(){return !(f=true)})}if(f){d.each(i,function(k,m){m=d.isFunction(m)?{click:m,text:k}:m;var l=d("<button type='button'>").attr(m,true).unbind("click").click(function(){m.click.apply(h.element[0],arguments)}).appendTo(h.uiButtonSet);if(d.fn.button){l.button()}});this.uiDialog.addClass("ui-dialog-buttons");this.uiDialogButtonPane.appendTo(this.uiDialog)}else{this.uiDialog.removeClass("ui-dialog-buttons")}},_makeDraggable:function(){var h=this,g=this.options;function f(i){return{position:i.position,offset:i.offset}}this.uiDialog.draggable({cancel:".ui-dialog-content, .ui-dialog-titlebar-close",handle:".ui-dialog-titlebar",containment:"document",start:function(i,j){d(this).addClass("ui-dialog-dragging");h._trigger("dragStart",i,f(j))},drag:function(i,j){h._trigger("drag",i,f(j))},stop:function(i,j){g.position=[j.position.left-h.document.scrollLeft(),j.position.top-h.document.scrollTop()];d(this).removeClass("ui-dialog-dragging");h._trigger("dragStop",i,f(j));d.ui.dialog.overlay.resize()}})},_makeResizable:function(j){j=(j===e?this.options.resizable:j);var k=this,i=this.options,f=this.uiDialog.css("position"),h=typeof j==="string"?j:"n,e,s,w,se,sw,ne,nw";function g(l){return{originalPosition:l.originalPosition,originalSize:l.originalSize,position:l.position,size:l.size}}this.uiDialog.resizable({cancel:".ui-dialog-content",containment:"document",alsoResize:this.element,maxWidth:i.maxWidth,maxHeight:i.maxHeight,minWidth:i.minWidth,minHeight:this._minHeight(),handles:h,start:function(l,m){d(this).addClass("ui-dialog-resizing");k._trigger("resizeStart",l,g(m))},resize:function(l,m){k._trigger("resize",l,g(m))},stop:function(l,m){d(this).removeClass("ui-dialog-resizing");i.height=d(this).height();i.width=d(this).width();k._trigger("resizeStop",l,g(m));d.ui.dialog.overlay.resize()}}).css("position",f).find(".ui-resizable-se").addClass("ui-icon ui-icon-grip-diagonal-se")},_minHeight:function(){var f=this.options;if(f.height==="auto"){return f.minHeight}else{return Math.min(f.minHeight,f.height)}},_position:function(g){var h=[],i=[0,0],f;if(g){if(typeof g==="string"||(typeof g==="object"&&"0" in g)){h=g.split?g.split(" "):[g[0],g[1]];if(h.length===1){h[1]=h[0]}d.each(["left","top"],function(k,j){if(+h[k]===h[k]){i[k]=h[k];h[k]=j}});g={my:h.join(" "),at:h.join(" "),offset:i.join(" ")}}g=d.extend({},d.ui.dialog.prototype.options.position,g)}else{g=d.ui.dialog.prototype.options.position}f=this.uiDialog.is(":visible");if(!f){this.uiDialog.show()}this.uiDialog.position(g);if(!f){this.uiDialog.hide()}},_setOptions:function(h){var i=this,f={},g=false;d.each(h,function(j,k){i._setOption(j,k);if(j in a){g=true}if(j in c){f[j]=k}});if(g){this._size()}if(this.uiDialog.is(":data(resizable)")){this.uiDialog.resizable("option",f)}},_setOption:function(h,i){var g,j,f=this.uiDialog;switch(h){case"buttons":this._createButtons(i);break;case"closeText":this.uiDialogTitlebarCloseText.text(""+i);break;case"dialogClass":f.removeClass(this.options.dialogClass).addClass(b+i);break;case"disabled":if(i){f.addClass("ui-dialog-disabled")}else{f.removeClass("ui-dialog-disabled")}break;case"draggable":g=f.is(":data(draggable)");if(g&&!i){f.draggable("destroy")}if(!g&&i){this._makeDraggable()}break;case"position":this._position(i);break;case"resizable":j=f.is(":data(resizable)");if(j&&!i){f.resizable("destroy")}if(j&&typeof i==="string"){f.resizable("option","handles",i)}if(!j&&i!==false){this._makeResizable(i)}break;case"title":d(".ui-dialog-title",this.uiDialogTitlebar).html(""+(i||"&#160;"));break}this._super(h,i)},_size:function(){var g,j,i,h=this.options,f=this.uiDialog.is(":visible");this.element.show().css({width:"auto",minHeight:0,height:0});if(h.minWidth>h.width){h.width=h.minWidth}g=this.uiDialog.css({height:"auto",width:h.width}).outerHeight();j=Math.max(0,h.minHeight-g);if(h.height==="auto"){if(d.support.minHeight){this.element.css({minHeight:j,height:"auto"})}else{this.uiDialog.show();i=this.element.css("height","auto").height();if(!f){this.uiDialog.hide()}this.element.height(Math.max(i,j))}}else{this.element.height(Math.max(h.height-g,0))}if(this.uiDialog.is(":data(resizable)")){this.uiDialog.resizable("option","minHeight",this._minHeight())}}});d.extend(d.ui.dialog,{uuid:0,maxZ:0,getTitleId:function(f){var g=f.attr("id");if(!g){this.uuid+=1;g=this.uuid}return"ui-dialog-title-"+g},overlay:function(f){this.$el=d.ui.dialog.overlay.create(f)}});d.extend(d.ui.dialog.overlay,{instances:[],oldInstances:[],maxZ:0,events:d.map("focus,mousedown,mouseup,keydown,keypress,click".split(","),function(f){return f+".dialog-overlay"}).join(" "),create:function(g){if(this.instances.length===0){setTimeout(function(){if(d.ui.dialog.overlay.instances.length){d(document).bind(d.ui.dialog.overlay.events,function(h){if(d(h.target).zIndex()<d.ui.dialog.overlay.maxZ){return false}})}},1);d(window).bind("resize.dialog-overlay",d.ui.dialog.overlay.resize)}var f=(this.oldInstances.pop()||d("<div>").addClass("ui-widget-overlay"));d(document).bind("keydown.dialog-overlay",function(h){var i=d.ui.dialog.overlay.instances;if(i.length!==0&&i[i.length-1]===f&&g.options.closeOnEscape&&!h.isDefaultPrevented()&&h.keyCode&&h.keyCode===d.ui.keyCode.ESCAPE){g.close(h);h.preventDefault()}});f.appendTo(document.body).css({width:this.width(),height:this.height()});if(d.fn.bgiframe){f.bgiframe()}this.instances.push(f);return f},destroy:function(f){var g=d.inArray(f,this.instances),h=0;if(g!==-1){this.oldInstances.push(this.instances.splice(g,1)[0])}if(this.instances.length===0){d([document,window]).unbind(".dialog-overlay")}f.height(0).width(0).remove();d.each(this.instances,function(){h=Math.max(h,this.css("z-index"))});this.maxZ=h},height:function(){var g,f;if(d.browser.msie){g=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);f=Math.max(document.documentElement.offsetHeight,document.body.offsetHeight);if(g<f){return d(window).height()+"px"}else{return g+"px"}}else{return d(document).height()+"px"}},width:function(){var f,g;if(d.browser.msie){f=Math.max(document.documentElement.scrollWidth,document.body.scrollWidth);g=Math.max(document.documentElement.offsetWidth,document.body.offsetWidth);if(f<g){return d(window).width()+"px"}else{return f+"px"}}else{return d(document).width()+"px"}},resize:function(){var f=d([]);d.each(d.ui.dialog.overlay.instances,function(){f=f.add(this)});f.css({width:0,height:0}).css({width:d.ui.dialog.overlay.width(),height:d.ui.dialog.overlay.height()})}});d.extend(d.ui.dialog.overlay.prototype,{destroy:function(){d.ui.dialog.overlay.destroy(this.$el)}})}(jQuery));(function(b,d){var a=/up|down|vertical/,c=/up|left|vertical|horizontal/;b.effects.effect.blind=function(g,m){var h=b(this),q=["position","top","bottom","left","right","height","width"],n=b.effects.setMode(h,g.mode||"hide"),r=g.direction||"up",j=a.test(r),i=j?"height":"width",p=j?"top":"left",t=c.test(r),l={},s=n==="show",f,e,k;if(h.parent().is(".ui-effects-wrapper")){b.effects.save(h.parent(),q)}else{b.effects.save(h,q)}h.show();f=b.effects.createWrapper(h).css({overflow:"hidden"});e=f[i]();k=parseFloat(f.css(p))||0;l[i]=s?e:0;if(!t){h.css(j?"bottom":"right",0).css(j?"top":"left","auto").css({position:"absolute"});l[p]=s?k:e+k}if(s){f.css(i,0);if(!t){f.css(p,k+e)}}f.animate(l,{duration:g.duration,easing:g.easing,queue:false,complete:function(){if(n==="hide"){h.hide()}b.effects.restore(h,q);b.effects.removeWrapper(h);m()}})}})(jQuery);(function(a,b){a.effects.effect.bounce=function(m,l){var c=a(this),d=["position","top","bottom","left","right","height","width"],k=a.effects.setMode(c,m.mode||"effect"),j=k==="hide",v=k==="show",w=m.direction||"up",e=m.distance,h=m.times||5,x=h*2+(v||j?1:0),u=m.duration/x,p=m.easing,f=(w==="up"||w==="down")?"top":"left",n=(w==="up"||w==="left"),t,g,s,q=c.queue(),r=q.length;if(v||j){d.push("opacity")}a.effects.save(c,d);c.show();a.effects.createWrapper(c);if(!e){e=c[f==="top"?"outerHeight":"outerWidth"]()/3}if(v){s={opacity:1};s[f]=0;c.css("opacity",0).css(f,n?-e*2:e*2).animate(s,u,p)}if(j){e=e/Math.pow(2,h-1)}s={};s[f]=0;for(t=0;t<h;t++){g={};g[f]=(n?"-=":"+=")+e;c.animate(g,u,p).animate(s,u,p);e=j?e*2:e/2}if(j){g={opacity:0};g[f]=(n?"-=":"+=")+e;c.animate(g,u,p)}c.queue(function(){if(j){c.hide()}a.effects.restore(c,d);a.effects.removeWrapper(c);l()});if(r>1){q.splice.apply(q,[1,0].concat(q.splice(r,x+1)))}c.dequeue()}})(jQuery);(function(a,b){a.effects.effect.clip=function(f,i){var g=a(this),m=["position","top","bottom","left","right","height","width"],l=a.effects.setMode(g,f.mode||"hide"),p=l==="show",n=f.direction||"vertical",k=n==="vertical",q=k?"height":"width",j=k?"top":"left",h={},d,e,c;a.effects.save(g,m);g.show();d=a.effects.createWrapper(g).css({overflow:"hidden"});e=(g[0].tagName==="IMG")?d:g;c=e[q]();if(p){e.css(q,0);e.css(j,c/2)}h[q]=p?c:0;h[j]=p?0:c/2;e.animate(h,{queue:false,duration:f.duration,easing:f.easing,complete:function(){if(!p){g.hide()}a.effects.restore(g,m);a.effects.removeWrapper(g);i()}})}})(jQuery);(function(a,b){a.effects.effect.drop=function(d,h){var e=a(this),j=["position","top","bottom","left","right","opacity","height","width"],i=a.effects.setMode(e,d.mode||"hide"),l=i==="show",k=d.direction||"left",f=(k==="up"||k==="down")?"top":"left",m=(k==="up"||k==="left")?"pos":"neg",g={opacity:l?1:0},c;a.effects.save(e,j);e.show();a.effects.createWrapper(e);c=d.distance||e[f==="top"?"outerHeight":"outerWidth"](true)/2;if(l){e.css("opacity",0).css(f,m==="pos"?-c:c)}g[f]=(l?(m==="pos"?"+=":"-="):(m==="pos"?"-=":"+="))+c;e.animate(g,{queue:false,duration:d.duration,easing:d.easing,complete:function(){if(i==="hide"){e.hide()}a.effects.restore(e,j);a.effects.removeWrapper(e);h()}})}})(jQuery);(function(a,b){a.effects.effect.explode=function(s,r){var k=s.pieces?Math.round(Math.sqrt(s.pieces)):3,d=k,c=a(this),m=a.effects.setMode(c,s.mode||"hide"),w=m==="show",g=c.show().css("visibility","hidden").offset(),t=Math.ceil(c.outerWidth()/d),q=Math.ceil(c.outerHeight()/k),h=[],v,u,e,p,n,l;function x(){h.push(this);if(h.length===k*d){f()}}for(v=0;v<k;v++){p=g.top+v*q;l=v-(k-1)/2;for(u=0;u<d;u++){e=g.left+u*t;n=u-(d-1)/2;c.clone().appendTo("body").wrap("<div></div>").css({position:"absolute",visibility:"visible",left:-u*t,top:-v*q}).parent().addClass("ui-effects-explode").css({position:"absolute",overflow:"hidden",width:t,height:q,left:e+(w?n*t:0),top:p+(w?l*q:0),opacity:w?0:1}).animate({left:e+(w?0:n*t),top:p+(w?0:l*q),opacity:w?1:0},s.duration||500,s.easing,x)}}function f(){c.css({visibility:"visible"});a(h).remove();if(!w){c.hide()}r()}}})(jQuery);(function(a,b){a.effects.effect.fade=function(f,c){var d=a(this),e=a.effects.setMode(d,f.mode||"toggle");d.animate({opacity:e},{queue:false,duration:f.duration,easing:f.easing,complete:c})}})(jQuery);(function(a,b){a.effects.effect.fold=function(e,i){var f=a(this),n=["position","top","bottom","left","right","height","width"],k=a.effects.setMode(f,e.mode||"hide"),r=k==="show",l=k==="hide",t=e.size||15,m=/([0-9]+)%/.exec(t),s=!!e.horizFirst,j=r!==s,g=j?["width","height"]:["height","width"],h=e.duration/2,d,c,q={},p={};a.effects.save(f,n);f.show();d=a.effects.createWrapper(f).css({overflow:"hidden"});c=j?[d.width(),d.height()]:[d.height(),d.width()];if(m){t=parseInt(m[1],10)/100*c[l?0:1]}if(r){d.css(s?{height:0,width:t}:{height:t,width:0})}q[g[0]]=r?c[0]:t;p[g[1]]=r?c[1]:0;d.animate(q,h,e.easing).animate(p,h,e.easing,function(){if(l){f.hide()}a.effects.restore(f,n);a.effects.removeWrapper(f);i()})}})(jQuery);(function(a,b){a.effects.effect.highlight=function(h,c){var e=a(this),d=["backgroundImage","backgroundColor","opacity"],g=a.effects.setMode(e,h.mode||"show"),f={backgroundColor:e.css("backgroundColor")};if(g==="hide"){f.opacity=0}a.effects.save(e,d);e.show().css({backgroundImage:"none",backgroundColor:h.color||"#ffff99"}).animate(f,{queue:false,duration:h.duration,easing:h.easing,complete:function(){if(g==="hide"){e.hide()}a.effects.restore(e,d);c()}})}})(jQuery);(function(a,b){a.effects.effect.pulsate=function(c,g){var e=a(this),k=a.effects.setMode(e,c.mode||"show"),p=k==="show",l=k==="hide",q=(p||k==="hide"),m=((c.times||5)*2)+(q?1:0),f=c.duration/m,n=0,j=e.queue(),d=j.length,h;if(p||!e.is(":visible")){e.css("opacity",0).show();n=1}for(h=1;h<m;h++){e.animate({opacity:n},f,c.easing);n=1-n}e.animate({opacity:n},f,c.easing);e.queue(function(){if(l){e.hide()}g()});if(d>1){j.splice.apply(j,[1,0].concat(j.splice(d,m+1)))}e.dequeue()}})(jQuery);(function(a,b){a.effects.effect.puff=function(j,c){var h=a(this),i=a.effects.setMode(h,j.mode||"hide"),f=i==="hide",g=parseInt(j.percent,10)||150,e=g/100,d={height:h.height(),width:h.width()};a.extend(j,{effect:"scale",queue:false,fade:true,mode:i,complete:c,percent:f?g:100,from:f?d:{height:d.height*e,width:d.width*e}});h.effect(j)};a.effects.effect.scale=function(c,f){var d=a(this),l=a.extend(true,{},c),g=a.effects.setMode(d,c.mode||"effect"),h=parseInt(c.percent,10)||(parseInt(c.percent,10)===0?0:(g==="hide"?0:100)),j=c.direction||"both",k=c.origin,e={height:d.height(),width:d.width(),outerHeight:d.outerHeight(),outerWidth:d.outerWidth()},i={y:j!=="horizontal"?(h/100):1,x:j!=="vertical"?(h/100):1};l.effect="size";l.queue=false;l.complete=f;if(g!=="effect"){l.origin=k||["middle","center"];l.restore=true}l.from=c.from||(g==="show"?{height:0,width:0}:e);l.to={height:e.height*i.y,width:e.width*i.x,outerHeight:e.outerHeight*i.y,outerWidth:e.outerWidth*i.x};if(l.fade){if(g==="show"){l.from.opacity=0;l.to.opacity=1}if(g==="hide"){l.from.opacity=1;l.to.opacity=0}}d.effect(l)};a.effects.effect.size=function(c,h){var d=a(this),r=["position","top","bottom","left","right","width","height","overflow","opacity"],q=["position","top","bottom","left","right","overflow","opacity"],m=["width","height","overflow"],t=["fontSize"],n=["borderTopWidth","borderBottomWidth","paddingTop","paddingBottom"],g=["borderLeftWidth","borderRightWidth","paddingLeft","paddingRight"],j=a.effects.setMode(d,c.mode||"effect"),l=c.restore||j!=="effect",f=c.scale||"both",s=c.origin||["middle","center"],e,k,p,i=d.css("position");if(j==="show"){d.show()}e={height:d.height(),width:d.width(),outerHeight:d.outerHeight(),outerWidth:d.outerWidth()};d.from=c.from||e;d.to=c.to||e;p={from:{y:d.from.height/e.height,x:d.from.width/e.width},to:{y:d.to.height/e.height,x:d.to.width/e.width}};if(f==="box"||f==="both"){if(p.from.y!==p.to.y){r=r.concat(n);d.from=a.effects.setTransition(d,n,p.from.y,d.from);d.to=a.effects.setTransition(d,n,p.to.y,d.to)}if(p.from.x!==p.to.x){r=r.concat(g);d.from=a.effects.setTransition(d,g,p.from.x,d.from);d.to=a.effects.setTransition(d,g,p.to.x,d.to)}}if(f==="content"||f==="both"){if(p.from.y!==p.to.y){r=r.concat(t);d.from=a.effects.setTransition(d,t,p.from.y,d.from);d.to=a.effects.setTransition(d,t,p.to.y,d.to)}}a.effects.save(d,l?r:q);d.show();a.effects.createWrapper(d);d.css("overflow","hidden").css(d.from);if(s){k=a.effects.getBaseline(s,e);d.from.top=(e.outerHeight-d.outerHeight())*k.y;d.from.left=(e.outerWidth-d.outerWidth())*k.x;d.to.top=(e.outerHeight-d.to.outerHeight)*k.y;d.to.left=(e.outerWidth-d.to.outerWidth)*k.x}d.css(d.from);if(f==="content"||f==="both"){n=n.concat(["marginTop","marginBottom"]).concat(t);g=g.concat(["marginLeft","marginRight"]);m=r.concat(n).concat(g);d.find("*[width]").each(function(){var u=a(this),o={height:u.height(),width:u.width()};if(l){a.effects.save(u,m)}u.from={height:o.height*p.from.y,width:o.width*p.from.x};u.to={height:o.height*p.to.y,width:o.width*p.to.x};if(p.from.y!==p.to.y){u.from=a.effects.setTransition(u,n,p.from.y,u.from);u.to=a.effects.setTransition(u,n,p.to.y,u.to)}if(p.from.x!==p.to.x){u.from=a.effects.setTransition(u,g,p.from.x,u.from);u.to=a.effects.setTransition(u,g,p.to.x,u.to)}u.css(u.from);u.animate(u.to,c.duration,c.easing,function(){if(l){a.effects.restore(u,m)}})})}d.animate(d.to,{queue:false,duration:c.duration,easing:c.easing,complete:function(){if(d.to.opacity===0){d.css("opacity",d.from.opacity)}if(j==="hide"){d.hide()}a.effects.restore(d,l?r:q);if(!l){if(i==="static"){d.css({position:"relative",top:d.to.top,left:d.to.left})}else{a.each(["top","left"],function(o,u){d.css(u,function(w,y){var x=parseInt(y,10),v=o?d.to.left:d.to.top;if(y==="auto"){return v+"px"}return x+v+"px"})})}}a.effects.removeWrapper(d);h()}})}})(jQuery);(function(a,b){a.effects.effect.shake=function(l,k){var c=a(this),d=["position","top","bottom","left","right","height","width"],j=a.effects.setMode(c,l.mode||"effect"),u=l.direction||"left",e=l.distance||20,h=l.times||3,v=h*2+1,q=Math.round(l.duration/v),g=(u==="up"||u==="down")?"top":"left",f=(u==="up"||u==="left"),t={},s={},r={},p,m=c.queue(),n=m.length;a.effects.save(c,d);c.show();a.effects.createWrapper(c);t[g]=(f?"-=":"+=")+e;s[g]=(f?"+=":"-=")+e*2;r[g]=(f?"-=":"+=")+e*2;c.animate(t,q,l.easing);for(p=1;p<h;p++){c.animate(s,q,l.easing).animate(r,q,l.easing)}c.animate(s,q,l.easing).animate(t,q/2,l.easing).queue(function(){if(j==="hide"){c.hide()}a.effects.restore(c,d);a.effects.removeWrapper(c);k()});if(n>1){m.splice.apply(m,[1,0].concat(m.splice(n,v+1)))}c.dequeue()}})(jQuery);(function(a,b){a.effects.effect.slide=function(e,i){var f=a(this),k=["position","top","bottom","left","right","width","height"],j=a.effects.setMode(f,e.mode||"show"),m=j==="show",l=e.direction||"left",g=(l==="up"||l==="down")?"top":"left",d=(l==="up"||l==="left"),c,h={};a.effects.save(f,k);f.show();c=e.distance||f[g==="top"?"outerHeight":"outerWidth"](true);a.effects.createWrapper(f).css({overflow:"hidden"});if(m){f.css(g,d?(isNaN(c)?"-"+c:-c):c)}h[g]=(m?(d?"+=":"-="):(d?"-=":"+="))+c;f.animate(h,{queue:false,duration:e.duration,easing:e.easing,complete:function(){if(j==="hide"){f.hide()}a.effects.restore(f,k);a.effects.removeWrapper(f);i()}})}})(jQuery);(function(a,b){a.effects.effect.transfer=function(d,h){var f=a(this),k=a(d.to),n=k.css("position")==="fixed",j=a("body"),l=n?j.scrollTop():0,m=n?j.scrollLeft():0,c=k.offset(),g={top:c.top-l,left:c.left-m,height:k.innerHeight(),width:k.innerWidth()},i=f.offset(),e=a('<div class="ui-effects-transfer"></div>').appendTo(document.body).addClass(d.className).css({top:i.top-l,left:i.left-m,height:f.innerHeight(),width:f.innerWidth(),position:n?"fixed":"absolute"}).animate(g,d.duration,d.easing,function(){e.remove();h()})}})(jQuery);(function(b,c){var a=false;b.widget("ui.menu",{version:"1.9.0",defaultElement:"<ul>",delay:300,options:{icons:{submenu:"ui-icon-carat-1-e"},menus:"ul",position:{my:"left top",at:"right top"},role:"menu",blur:null,focus:null,select:null},_create:function(){this.activeMenu=this.element;this.element.uniqueId().addClass("ui-menu ui-widget ui-widget-content ui-corner-all").toggleClass("ui-menu-icons",!!this.element.find(".ui-icon").length).attr({role:this.options.role,tabIndex:0}).bind("click"+this.eventNamespace,b.proxy(function(d){if(this.options.disabled){d.preventDefault()}},this));if(this.options.disabled){this.element.addClass("ui-state-disabled").attr("aria-disabled","true")}this._on({"mousedown .ui-menu-item > a":function(d){d.preventDefault()},"click .ui-state-disabled > a":function(d){d.preventDefault()},"click .ui-menu-item:has(a)":function(d){var e=b(d.target).closest(".ui-menu-item");if(!a&&e.not(".ui-state-disabled").length){a=true;this.select(d);if(e.has(".ui-menu").length){this.expand(d)}else{if(!this.element.is(":focus")){this.element.trigger("focus",[true]);if(this.active&&this.active.parents(".ui-menu").length===1){clearTimeout(this.timer)}}}}},"mouseenter .ui-menu-item":function(d){var e=b(d.currentTarget);e.siblings().children(".ui-state-active").removeClass("ui-state-active");this.focus(d,e)},mouseleave:"collapseAll","mouseleave .ui-menu":"collapseAll",focus:function(f,d){var e=this.active||this.element.children(".ui-menu-item").eq(0);if(!d){this.focus(f,e)}},blur:function(d){this._delay(function(){if(!b.contains(this.element[0],this.document[0].activeElement)){this.collapseAll(d)}})},keydown:"_keydown"});this.refresh();this._on(this.document,{click:function(d){if(!b(d.target).closest(".ui-menu").length){this.collapseAll(d)}a=false}})},_destroy:function(){this.element.removeAttr("aria-activedescendant").find(".ui-menu").andSelf().removeClass("ui-menu ui-widget ui-widget-content ui-corner-all ui-menu-icons").removeAttr("role").removeAttr("tabIndex").removeAttr("aria-labelledby").removeAttr("aria-expanded").removeAttr("aria-hidden").removeAttr("aria-disabled").removeUniqueId().show();this.element.find(".ui-menu-item").removeClass("ui-menu-item").removeAttr("role").removeAttr("aria-disabled").children("a").removeUniqueId().removeClass("ui-corner-all ui-state-hover").removeAttr("tabIndex").removeAttr("role").removeAttr("aria-haspopup").children().each(function(){var d=b(this);if(d.data("ui-menu-submenu-carat")){d.remove()}});this.element.find(".ui-menu-divider").removeClass("ui-menu-divider ui-widget-content")},_keydown:function(j){var e,i,k,h,g,d=true;function f(l){return l.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&")}switch(j.keyCode){case b.ui.keyCode.PAGE_UP:this.previousPage(j);break;case b.ui.keyCode.PAGE_DOWN:this.nextPage(j);break;case b.ui.keyCode.HOME:this._move("first","first",j);break;case b.ui.keyCode.END:this._move("last","last",j);break;case b.ui.keyCode.UP:this.previous(j);break;case b.ui.keyCode.DOWN:this.next(j);break;case b.ui.keyCode.LEFT:this.collapse(j);break;case b.ui.keyCode.RIGHT:if(this.active&&!this.active.is(".ui-state-disabled")){this.expand(j)}break;case b.ui.keyCode.ENTER:case b.ui.keyCode.SPACE:this._activate(j);break;case b.ui.keyCode.ESCAPE:this.collapse(j);break;default:d=false;i=this.previousFilter||"";k=String.fromCharCode(j.keyCode);h=false;clearTimeout(this.filterTimer);if(k===i){h=true}else{k=i+k}g=new RegExp("^"+f(k),"i");e=this.activeMenu.children(".ui-menu-item").filter(function(){return g.test(b(this).children("a").text())});e=h&&e.index(this.active.next())!==-1?this.active.nextAll(".ui-menu-item"):e;if(!e.length){k=String.fromCharCode(j.keyCode);g=new RegExp("^"+f(k),"i");e=this.activeMenu.children(".ui-menu-item").filter(function(){return g.test(b(this).children("a").text())})}if(e.length){this.focus(j,e);if(e.length>1){this.previousFilter=k;this.filterTimer=this._delay(function(){delete this.previousFilter},1000)}else{delete this.previousFilter}}else{delete this.previousFilter}}if(d){j.preventDefault()}},_activate:function(d){if(!this.active.is(".ui-state-disabled")){if(this.active.children("a[aria-haspopup='true']").length){this.expand(d)}else{this.select(d)}}},refresh:function(){var f,e=this.options.icons.submenu,d=this.element.find(this.options.menus+":not(.ui-menu)").addClass("ui-menu ui-widget ui-widget-content ui-corner-all").hide().attr({role:this.options.role,"aria-hidden":"true","aria-expanded":"false"});f=d.add(this.element);f.children(":not(.ui-menu-item):has(a)").addClass("ui-menu-item").attr("role","presentation").children("a").uniqueId().addClass("ui-corner-all").attr({tabIndex:-1,role:this._itemRole()});f.children(":not(.ui-menu-item)").each(function(){var g=b(this);if(!/[^\-—–\s]/.test(g.text())){g.addClass("ui-widget-content ui-menu-divider")}});f.children(".ui-state-disabled").attr("aria-disabled","true");d.each(function(){var i=b(this),h=i.prev("a"),g=b("<span>").addClass("ui-menu-icon ui-icon "+e).data("ui-menu-submenu-carat",true);h.attr("aria-haspopup","true").prepend(g);i.attr("aria-labelledby",h.attr("id"))});if(this.active&&!b.contains(this.element[0],this.active[0])){this.blur()}},_itemRole:function(){return{menu:"menuitem",listbox:"option"}[this.options.role]},focus:function(e,d){var g,f;this.blur(e,e&&e.type==="focus");this._scrollIntoView(d);this.active=d.first();f=this.active.children("a").addClass("ui-state-focus");if(this.options.role){this.element.attr("aria-activedescendant",f.attr("id"))}this.active.parent().closest(".ui-menu-item").children("a:first").addClass("ui-state-active");if(e&&e.type==="keydown"){this._close()}else{this.timer=this._delay(function(){this._close()},this.delay)}g=d.children(".ui-menu");if(g.length&&(/^mouse/.test(e.type))){this._startOpening(g)}this.activeMenu=d.parent();this._trigger("focus",e,{item:d})},_scrollIntoView:function(g){var j,f,h,d,e,i;if(this._hasScroll()){j=parseFloat(b.css(this.activeMenu[0],"borderTopWidth"))||0;f=parseFloat(b.css(this.activeMenu[0],"paddingTop"))||0;h=g.offset().top-this.activeMenu.offset().top-j-f;d=this.activeMenu.scrollTop();e=this.activeMenu.height();i=g.height();if(h<0){this.activeMenu.scrollTop(d+h)}else{if(h+i>e){this.activeMenu.scrollTop(d+h-e+i)}}}},blur:function(e,d){if(!d){clearTimeout(this.timer)}if(!this.active){return}this.active.children("a").removeClass("ui-state-focus");this.active=null;this._trigger("blur",e,{item:this.active})},_startOpening:function(d){clearTimeout(this.timer);if(d.attr("aria-hidden")!=="true"){return}this.timer=this._delay(function(){this._close();this._open(d)},this.delay)},_open:function(e){var d=b.extend({of:this.active},this.options.position);clearTimeout(this.timer);this.element.find(".ui-menu").not(e.parents(".ui-menu")).hide().attr("aria-hidden","true");e.show().removeAttr("aria-hidden").attr("aria-expanded","true").position(d)},collapseAll:function(e,d){clearTimeout(this.timer);this.timer=this._delay(function(){var f=d?this.element:b(e&&e.target).closest(this.element.find(".ui-menu"));if(!f.length){f=this.element}this._close(f);this.blur(e);this.activeMenu=f},this.delay)},_close:function(d){if(!d){d=this.active?this.active.parent():this.element}d.find(".ui-menu").hide().attr("aria-hidden","true").attr("aria-expanded","false").end().find("a.ui-state-active").removeClass("ui-state-active")},collapse:function(e){var d=this.active&&this.active.parent().closest(".ui-menu-item",this.element);if(d&&d.length){this._close();this.focus(e,d)}},expand:function(e){var d=this.active&&this.active.children(".ui-menu ").children(".ui-menu-item").first();if(d&&d.length){this._open(d.parent());this._delay(function(){this.focus(e,d)})}},next:function(d){this._move("next","first",d)},previous:function(d){this._move("prev","last",d)},isFirstItem:function(){return this.active&&!this.active.prevAll(".ui-menu-item").length},isLastItem:function(){return this.active&&!this.active.nextAll(".ui-menu-item").length},_move:function(g,e,f){var d;if(this.active){if(g==="first"||g==="last"){d=this.active[g==="first"?"prevAll":"nextAll"](".ui-menu-item").eq(-1)}else{d=this.active[g+"All"](".ui-menu-item").eq(0)}}if(!d||!d.length||!this.active){d=this.activeMenu.children(".ui-menu-item")[e]()}this.focus(f,d)},nextPage:function(f){var e,g,d;if(!this.active){this.next(f);return}if(this.isLastItem()){return}if(this._hasScroll()){g=this.active.offset().top;d=this.element.height();this.active.nextAll(".ui-menu-item").each(function(){e=b(this);return e.offset().top-g-d<0});this.focus(f,e)}else{this.focus(f,this.activeMenu.children(".ui-menu-item")[!this.active?"first":"last"]())}},previousPage:function(f){var e,g,d;if(!this.active){this.next(f);return}if(this.isFirstItem()){return}if(this._hasScroll()){g=this.active.offset().top;d=this.element.height();this.active.prevAll(".ui-menu-item").each(function(){e=b(this);return e.offset().top-g+d>0});this.focus(f,e)}else{this.focus(f,this.activeMenu.children(".ui-menu-item").first())}},_hasScroll:function(){return this.element.outerHeight()<this.element.prop("scrollHeight")},select:function(d){this.active=this.active||b(d.target).closest(".ui-menu-item");var e={item:this.active};if(!this.active.has(".ui-menu").length){this.collapseAll(d,true)}this._trigger("select",d,e)}})}(jQuery));(function(e,c){e.ui=e.ui||{};var i,j=Math.max,n=Math.abs,l=Math.round,d=/left|center|right/,g=/top|center|bottom/,a=/[\+\-]\d+%?/,k=/^\w+/,b=/%$/,f=e.fn.position;function m(q,p,o){return[parseInt(q[0],10)*(b.test(q[0])?p/100:1),parseInt(q[1],10)*(b.test(q[1])?o/100:1)]}function h(o,p){return parseInt(e.css(o,p),10)||0}e.position={scrollbarWidth:function(){if(i!==c){return i}var p,o,r=e("<div style='display:block;width:50px;height:50px;overflow:hidden;'><div style='height:100px;width:auto;'></div></div>"),q=r.children()[0];e("body").append(r);p=q.offsetWidth;r.css("overflow","scroll");o=q.offsetWidth;if(p===o){o=r[0].clientWidth}r.remove();return(i=p-o)},getScrollInfo:function(s){var r=s.isWindow?"":s.element.css("overflow-x"),q=s.isWindow?"":s.element.css("overflow-y"),p=r==="scroll"||(r==="auto"&&s.width<s.element[0].scrollWidth),o=q==="scroll"||(q==="auto"&&s.height<s.element[0].scrollHeight);return{width:p?e.position.scrollbarWidth():0,height:o?e.position.scrollbarWidth():0}},getWithinInfo:function(p){var q=e(p||window),o=e.isWindow(q[0]);return{element:q,isWindow:o,offset:q.offset()||{left:0,top:0},scrollLeft:q.scrollLeft(),scrollTop:q.scrollTop(),width:o?q.width():q.outerWidth(),height:o?q.height():q.outerHeight()}}};e.fn.position=function(y){if(!y||!y.of){return f.apply(this,arguments)}y=e.extend({},y);var z,v,s,x,r,u=e(y.of),q=e.position.getWithinInfo(y.within),o=e.position.getScrollInfo(q),t=u[0],w=(y.collision||"flip").split(" "),p={};if(t.nodeType===9){v=u.width();s=u.height();x={top:0,left:0}}else{if(e.isWindow(t)){v=u.width();s=u.height();x={top:u.scrollTop(),left:u.scrollLeft()}}else{if(t.preventDefault){y.at="left top";v=s=0;x={top:t.pageY,left:t.pageX}}else{v=u.outerWidth();s=u.outerHeight();x=u.offset()}}}r=e.extend({},x);e.each(["my","at"],function(){var C=(y[this]||"").split(" "),B,A;if(C.length===1){C=d.test(C[0])?C.concat(["center"]):g.test(C[0])?["center"].concat(C):["center","center"]}C[0]=d.test(C[0])?C[0]:"center";C[1]=g.test(C[1])?C[1]:"center";B=a.exec(C[0]);A=a.exec(C[1]);p[this]=[B?B[0]:0,A?A[0]:0];y[this]=[k.exec(C[0])[0],k.exec(C[1])[0]]});if(w.length===1){w[1]=w[0]}if(y.at[0]==="right"){r.left+=v}else{if(y.at[0]==="center"){r.left+=v/2}}if(y.at[1]==="bottom"){r.top+=s}else{if(y.at[1]==="center"){r.top+=s/2}}z=m(p.at,v,s);r.left+=z[0];r.top+=z[1];return this.each(function(){var B,K,D=e(this),F=D.outerWidth(),C=D.outerHeight(),E=h(this,"marginLeft"),A=h(this,"marginTop"),J=F+E+h(this,"marginRight")+o.width,I=C+A+h(this,"marginBottom")+o.height,G=e.extend({},r),H=m(p.my,D.outerWidth(),D.outerHeight());if(y.my[0]==="right"){G.left-=F}else{if(y.my[0]==="center"){G.left-=F/2}}if(y.my[1]==="bottom"){G.top-=C}else{if(y.my[1]==="center"){G.top-=C/2}}G.left+=H[0];G.top+=H[1];if(!e.support.offsetFractions){G.left=l(G.left);G.top=l(G.top)}B={marginLeft:E,marginTop:A};e.each(["left","top"],function(M,L){if(e.ui.position[w[M]]){e.ui.position[w[M]][L](G,{targetWidth:v,targetHeight:s,elemWidth:F,elemHeight:C,collisionPosition:B,collisionWidth:J,collisionHeight:I,offset:[z[0]+H[0],z[1]+H[1]],my:y.my,at:y.at,within:q,elem:D})}});if(e.fn.bgiframe){D.bgiframe()}if(y.using){K=function(O){var Q=x.left-G.left,N=Q+v-F,P=x.top-G.top,M=P+s-C,L={target:{element:u,left:x.left,top:x.top,width:v,height:s},element:{element:D,left:G.left,top:G.top,width:F,height:C},horizontal:N<0?"left":Q>0?"right":"center",vertical:M<0?"top":P>0?"bottom":"middle"};if(v<F&&n(Q+N)<v){L.horizontal="center"}if(s<C&&n(P+M)<s){L.vertical="middle"}if(j(n(Q),n(N))>j(n(P),n(M))){L.important="horizontal"}else{L.important="vertical"}y.using.call(this,O,L)}}D.offset(e.extend(G,{using:K}))})};e.ui.position={fit:{left:function(s,r){var q=r.within,u=q.isWindow?q.scrollLeft:q.offset.left,w=q.width,t=s.left-r.collisionPosition.marginLeft,v=u-t,p=t+r.collisionWidth-w-u,o;if(r.collisionWidth>w){if(v>0&&p<=0){o=s.left+v+r.collisionWidth-w-u;s.left+=v-o}else{if(p>0&&v<=0){s.left=u}else{if(v>p){s.left=u+w-r.collisionWidth}else{s.left=u}}}}else{if(v>0){s.left+=v}else{if(p>0){s.left-=p}else{s.left=j(s.left-t,s.left)}}}},top:function(r,q){var p=q.within,v=p.isWindow?p.scrollTop:p.offset.top,w=q.within.height,t=r.top-q.collisionPosition.marginTop,u=v-t,s=t+q.collisionHeight-w-v,o;if(q.collisionHeight>w){if(u>0&&s<=0){o=r.top+u+q.collisionHeight-w-v;r.top+=u-o}else{if(s>0&&u<=0){r.top=v}else{if(u>s){r.top=v+w-q.collisionHeight}else{r.top=v}}}}else{if(u>0){r.top+=u}else{if(s>0){r.top-=s}else{r.top=j(r.top-t,r.top)}}}}},flip:{left:function(u,t){var s=t.within,y=s.offset.left+s.scrollLeft,B=s.width,q=s.isWindow?s.scrollLeft:s.offset.left,v=u.left-t.collisionPosition.marginLeft,z=v-q,p=v+t.collisionWidth-B-q,x=t.my[0]==="left"?-t.elemWidth:t.my[0]==="right"?t.elemWidth:0,A=t.at[0]==="left"?t.targetWidth:t.at[0]==="right"?-t.targetWidth:0,r=-2*t.offset[0],o,w;if(z<0){o=u.left+x+A+r+t.collisionWidth-B-y;if(o<0||o<n(z)){u.left+=x+A+r}}else{if(p>0){w=u.left-t.collisionPosition.marginLeft+x+A+r-q;if(w>0||n(w)<p){u.left+=x+A+r}}}},top:function(t,s){var r=s.within,A=r.offset.top+r.scrollTop,B=r.height,o=r.isWindow?r.scrollTop:r.offset.top,v=t.top-s.collisionPosition.marginTop,x=v-o,u=v+s.collisionHeight-B-o,y=s.my[1]==="top",w=y?-s.elemHeight:s.my[1]==="bottom"?s.elemHeight:0,C=s.at[1]==="top"?s.targetHeight:s.at[1]==="bottom"?-s.targetHeight:0,q=-2*s.offset[1],z,p;if(x<0){p=t.top+w+C+q+s.collisionHeight-B-A;if((t.top+w+C+q)>x&&(p<0||p<n(x))){t.top+=w+C+q}}else{if(u>0){z=t.top-s.collisionPosition.marginTop+w+C+q-o;if((t.top+w+C+q)>u&&(z>0||n(z)<u)){t.top+=w+C+q}}}}},flipfit:{left:function(){e.ui.position.flip.left.apply(this,arguments);e.ui.position.fit.left.apply(this,arguments)},top:function(){e.ui.position.flip.top.apply(this,arguments);e.ui.position.fit.top.apply(this,arguments)}}};(function(){var s,u,p,r,q,o=document.getElementsByTagName("body")[0],t=document.createElement("div");s=document.createElement(o?"div":"body");p={visibility:"hidden",width:0,height:0,border:0,margin:0,background:"none"};if(o){e.extend(p,{position:"absolute",left:"-1000px",top:"-1000px"})}for(q in p){s.style[q]=p[q]}s.appendChild(t);u=o||document.documentElement;u.insertBefore(s,u.firstChild);t.style.cssText="position: absolute; left: 10.7432222px;";r=e(t).offset().left;e.support.offsetFractions=r>10&&r<11;s.innerHTML="";u.removeChild(s)})();if(e.uiBackCompat!==false){(function(p){var o=p.fn.position;p.fn.position=function(r){if(!r||!r.offset){return o.call(this,r)}var s=r.offset.split(" "),q=r.at.split(" ");if(s.length===1){s[1]=s[0]}if(/^\d/.test(s[0])){s[0]="+"+s[0]}if(/^\d/.test(s[1])){s[1]="+"+s[1]}if(q.length===1){if(/left|center|right/.test(q[0])){q[1]="center"}else{q[1]=q[0];q[0]="center"}}return o.call(this,p.extend(r,{at:q[0]+s[0]+" "+q[1]+s[1],offset:c}))}}(jQuery))}}(jQuery));(function(a,b){a.widget("ui.progressbar",{version:"1.9.0",options:{value:0,max:100},min:0,_create:function(){this.element.addClass("ui-progressbar ui-widget ui-widget-content ui-corner-all").attr({role:"progressbar","aria-valuemin":this.min,"aria-valuemax":this.options.max,"aria-valuenow":this._value()});this.valueDiv=a("<div class='ui-progressbar-value ui-widget-header ui-corner-left'></div>").appendTo(this.element);this.oldValue=this._value();this._refreshValue()},_destroy:function(){this.element.removeClass("ui-progressbar ui-widget ui-widget-content ui-corner-all").removeAttr("role").removeAttr("aria-valuemin").removeAttr("aria-valuemax").removeAttr("aria-valuenow");this.valueDiv.remove()},value:function(c){if(c===b){return this._value()}this._setOption("value",c);return this},_setOption:function(c,d){if(c==="value"){this.options.value=d;this._refreshValue();if(this._value()===this.options.max){this._trigger("complete")}}this._super(c,d)},_value:function(){var c=this.options.value;if(typeof c!=="number"){c=0}return Math.min(this.options.max,Math.max(this.min,c))},_percentage:function(){return 100*this._value()/this.options.max},_refreshValue:function(){var d=this.value(),c=this._percentage();if(this.oldValue!==d){this.oldValue=d;this._trigger("change")}this.valueDiv.toggle(d>this.min).toggleClass("ui-corner-right",d===this.options.max).width(c.toFixed(0)+"%");this.element.attr("aria-valuenow",d)}})})(jQuery);(function(b,c){var a=5;b.widget("ui.slider",b.ui.mouse,{version:"1.9.0",widgetEventPrefix:"slide",options:{animate:false,distance:0,max:100,min:0,orientation:"horizontal",range:false,step:1,value:0,values:null},_create:function(){var f,j=this.options,h=this.element.find(".ui-slider-handle").addClass("ui-state-default ui-corner-all"),g="<a class='ui-slider-handle ui-state-default ui-corner-all' href='#'></a>",d=(j.values&&j.values.length)||1,e=[];this._keySliding=false;this._mouseSliding=false;this._animateOff=true;this._handleIndex=null;this._detectOrientation();this._mouseInit();this.element.addClass("ui-slider ui-slider-"+this.orientation+" ui-widget ui-widget-content ui-corner-all"+(j.disabled?" ui-slider-disabled ui-disabled":""));this.range=b([]);if(j.range){if(j.range===true){if(!j.values){j.values=[this._valueMin(),this._valueMin()]}if(j.values.length&&j.values.length!==2){j.values=[j.values[0],j.values[0]]}}this.range=b("<div></div>").appendTo(this.element).addClass("ui-slider-range ui-widget-header"+((j.range==="min"||j.range==="max")?" ui-slider-range-"+j.range:""))}for(f=h.length;f<d;f++){e.push(g)}this.handles=h.add(b(e.join("")).appendTo(this.element));this.handle=this.handles.eq(0);this.handles.add(this.range).filter("a").click(function(i){i.preventDefault()}).mouseenter(function(){if(!j.disabled){b(this).addClass("ui-state-hover")}}).mouseleave(function(){b(this).removeClass("ui-state-hover")}).focus(function(){if(!j.disabled){b(".ui-slider .ui-state-focus").removeClass("ui-state-focus");b(this).addClass("ui-state-focus")}else{b(this).blur()}}).blur(function(){b(this).removeClass("ui-state-focus")});this.handles.each(function(k){b(this).data("ui-slider-handle-index",k)});this._on(this.handles,{keydown:function(n){var o,l,k,m,i=b(n.target).data("ui-slider-handle-index");switch(n.keyCode){case b.ui.keyCode.HOME:case b.ui.keyCode.END:case b.ui.keyCode.PAGE_UP:case b.ui.keyCode.PAGE_DOWN:case b.ui.keyCode.UP:case b.ui.keyCode.RIGHT:case b.ui.keyCode.DOWN:case b.ui.keyCode.LEFT:n.preventDefault();if(!this._keySliding){this._keySliding=true;b(n.target).addClass("ui-state-active");o=this._start(n,i);if(o===false){return}}break}m=this.options.step;if(this.options.values&&this.options.values.length){l=k=this.values(i)}else{l=k=this.value()}switch(n.keyCode){case b.ui.keyCode.HOME:k=this._valueMin();break;case b.ui.keyCode.END:k=this._valueMax();break;case b.ui.keyCode.PAGE_UP:k=this._trimAlignValue(l+((this._valueMax()-this._valueMin())/a));break;case b.ui.keyCode.PAGE_DOWN:k=this._trimAlignValue(l-((this._valueMax()-this._valueMin())/a));break;case b.ui.keyCode.UP:case b.ui.keyCode.RIGHT:if(l===this._valueMax()){return}k=this._trimAlignValue(l+m);break;case b.ui.keyCode.DOWN:case b.ui.keyCode.LEFT:if(l===this._valueMin()){return}k=this._trimAlignValue(l-m);break}this._slide(n,i,k)},keyup:function(k){var i=b(k.target).data("ui-slider-handle-index");if(this._keySliding){this._keySliding=false;this._stop(k,i);this._change(k,i);b(k.target).removeClass("ui-state-active")}}});this._refreshValue();this._animateOff=false},_destroy:function(){this.handles.remove();this.range.remove();this.element.removeClass("ui-slider ui-slider-horizontal ui-slider-vertical ui-slider-disabled ui-widget ui-widget-content ui-corner-all");this._mouseDestroy()},_mouseCapture:function(f){var j,m,e,h,l,n,i,d,k=this,g=this.options;if(g.disabled){return false}this.elementSize={width:this.element.outerWidth(),height:this.element.outerHeight()};this.elementOffset=this.element.offset();j={x:f.pageX,y:f.pageY};m=this._normValueFromMouse(j);e=this._valueMax()-this._valueMin()+1;this.handles.each(function(o){var p=Math.abs(m-k.values(o));if(e>p){e=p;h=b(this);l=o}});if(g.range===true&&this.values(1)===g.min){l+=1;h=b(this.handles[l])}n=this._start(f,l);if(n===false){return false}this._mouseSliding=true;this._handleIndex=l;h.addClass("ui-state-active").focus();i=h.offset();d=!b(f.target).parents().andSelf().is(".ui-slider-handle");this._clickOffset=d?{left:0,top:0}:{left:f.pageX-i.left-(h.width()/2),top:f.pageY-i.top-(h.height()/2)-(parseInt(h.css("borderTopWidth"),10)||0)-(parseInt(h.css("borderBottomWidth"),10)||0)+(parseInt(h.css("marginTop"),10)||0)};if(!this.handles.hasClass("ui-state-hover")){this._slide(f,l,m)}this._animateOff=true;return true},_mouseStart:function(d){return true},_mouseDrag:function(f){var d={x:f.pageX,y:f.pageY},e=this._normValueFromMouse(d);this._slide(f,this._handleIndex,e);return false},_mouseStop:function(d){this.handles.removeClass("ui-state-active");this._mouseSliding=false;this._stop(d,this._handleIndex);this._change(d,this._handleIndex);this._handleIndex=null;this._clickOffset=null;this._animateOff=false;return false},_detectOrientation:function(){this.orientation=(this.options.orientation==="vertical")?"vertical":"horizontal"},_normValueFromMouse:function(e){var d,h,g,f,i;if(this.orientation==="horizontal"){d=this.elementSize.width;h=e.x-this.elementOffset.left-(this._clickOffset?this._clickOffset.left:0)}else{d=this.elementSize.height;h=e.y-this.elementOffset.top-(this._clickOffset?this._clickOffset.top:0)}g=(h/d);if(g>1){g=1}if(g<0){g=0}if(this.orientation==="vertical"){g=1-g}f=this._valueMax()-this._valueMin();i=this._valueMin()+g*f;return this._trimAlignValue(i)},_start:function(f,e){var d={handle:this.handles[e],value:this.value()};if(this.options.values&&this.options.values.length){d.value=this.values(e);d.values=this.values()}return this._trigger("start",f,d)},_slide:function(h,g,f){var d,e,i;if(this.options.values&&this.options.values.length){d=this.values(g?0:1);if((this.options.values.length===2&&this.options.range===true)&&((g===0&&f>d)||(g===1&&f<d))){f=d}if(f!==this.values(g)){e=this.values();e[g]=f;i=this._trigger("slide",h,{handle:this.handles[g],value:f,values:e});d=this.values(g?0:1);if(i!==false){this.values(g,f,true)}}}else{if(f!==this.value()){i=this._trigger("slide",h,{handle:this.handles[g],value:f});if(i!==false){this.value(f)}}}},_stop:function(f,e){var d={handle:this.handles[e],value:this.value()};if(this.options.values&&this.options.values.length){d.value=this.values(e);d.values=this.values()}this._trigger("stop",f,d)},_change:function(f,e){if(!this._keySliding&&!this._mouseSliding){var d={handle:this.handles[e],value:this.value()};if(this.options.values&&this.options.values.length){d.value=this.values(e);d.values=this.values()}this._trigger("change",f,d)}},value:function(d){if(arguments.length){this.options.value=this._trimAlignValue(d);this._refreshValue();this._change(null,0);return}return this._value()},values:function(e,h){var g,d,f;if(arguments.length>1){this.options.values[e]=this._trimAlignValue(h);this._refreshValue();this._change(null,e);return}if(arguments.length){if(b.isArray(arguments[0])){g=this.options.values;d=arguments[0];for(f=0;f<g.length;f+=1){g[f]=this._trimAlignValue(d[f]);this._change(null,f)}this._refreshValue()}else{if(this.options.values&&this.options.values.length){return this._values(e)}else{return this.value()}}}else{return this._values()}},_setOption:function(e,f){var d,g=0;if(b.isArray(this.options.values)){g=this.options.values.length}b.Widget.prototype._setOption.apply(this,arguments);switch(e){case"disabled":if(f){this.handles.filter(".ui-state-focus").blur();this.handles.removeClass("ui-state-hover");this.handles.prop("disabled",true);this.element.addClass("ui-disabled")}else{this.handles.prop("disabled",false);this.element.removeClass("ui-disabled")}break;case"orientation":this._detectOrientation();this.element.removeClass("ui-slider-horizontal ui-slider-vertical").addClass("ui-slider-"+this.orientation);this._refreshValue();break;case"value":this._animateOff=true;this._refreshValue();this._change(null,0);this._animateOff=false;break;case"values":this._animateOff=true;this._refreshValue();for(d=0;d<g;d+=1){this._change(null,d)}this._animateOff=false;break}},_value:function(){var d=this.options.value;d=this._trimAlignValue(d);return d},_values:function(d){var g,f,e;if(arguments.length){g=this.options.values[d];g=this._trimAlignValue(g);return g}else{f=this.options.values.slice();for(e=0;e<f.length;e+=1){f[e]=this._trimAlignValue(f[e])}return f}},_trimAlignValue:function(g){if(g<=this._valueMin()){return this._valueMin()}if(g>=this._valueMax()){return this._valueMax()}var d=(this.options.step>0)?this.options.step:1,f=(g-this._valueMin())%d,e=g-f;if(Math.abs(f)*2>=d){e+=(f>0)?d:(-d)}return parseFloat(e.toFixed(5))},_valueMin:function(){return this.options.min},_valueMax:function(){return this.options.max},_refreshValue:function(){var i,h,l,j,m,g=this.options.range,f=this.options,k=this,e=(!this._animateOff)?f.animate:false,d={};if(this.options.values&&this.options.values.length){this.handles.each(function(o,n){h=(k.values(o)-k._valueMin())/(k._valueMax()-k._valueMin())*100;d[k.orientation==="horizontal"?"left":"bottom"]=h+"%";b(this).stop(1,1)[e?"animate":"css"](d,f.animate);if(k.options.range===true){if(k.orientation==="horizontal"){if(o===0){k.range.stop(1,1)[e?"animate":"css"]({left:h+"%"},f.animate)}if(o===1){k.range[e?"animate":"css"]({width:(h-i)+"%"},{queue:false,duration:f.animate})}}else{if(o===0){k.range.stop(1,1)[e?"animate":"css"]({bottom:(h)+"%"},f.animate)}if(o===1){k.range[e?"animate":"css"]({height:(h-i)+"%"},{queue:false,duration:f.animate})}}}i=h})}else{l=this.value();j=this._valueMin();m=this._valueMax();h=(m!==j)?(l-j)/(m-j)*100:0;d[this.orientation==="horizontal"?"left":"bottom"]=h+"%";this.handle.stop(1,1)[e?"animate":"css"](d,f.animate);if(g==="min"&&this.orientation==="horizontal"){this.range.stop(1,1)[e?"animate":"css"]({width:h+"%"},f.animate)}if(g==="max"&&this.orientation==="horizontal"){this.range[e?"animate":"css"]({width:(100-h)+"%"},{queue:false,duration:f.animate})}if(g==="min"&&this.orientation==="vertical"){this.range.stop(1,1)[e?"animate":"css"]({height:h+"%"},f.animate)}if(g==="max"&&this.orientation==="vertical"){this.range[e?"animate":"css"]({height:(100-h)+"%"},{queue:false,duration:f.animate})}}}})}(jQuery));(function(b){function a(c){return function(){var d=this.element.val();c.apply(this,arguments);this._refresh();if(d!==this.element.val()){this._trigger("change")}}}b.widget("ui.spinner",{version:"1.9.0",defaultElement:"<input>",widgetEventPrefix:"spin",options:{culture:null,icons:{down:"ui-icon-triangle-1-s",up:"ui-icon-triangle-1-n"},incremental:true,max:null,min:null,numberFormat:null,page:10,step:1,change:null,spin:null,start:null,stop:null},_create:function(){this._setOption("max",this.options.max);this._setOption("min",this.options.min);this._setOption("step",this.options.step);this._value(this.element.val(),true);this._draw();this._on(this._events);this._refresh();this._on(this.window,{beforeunload:function(){this.element.removeAttr("autocomplete")}})},_getCreateOptions:function(){var c={},d=this.element;b.each(["min","max","step"],function(e,f){var g=d.attr(f);if(g!==undefined&&g.length){c[f]=g}});return c},_events:{keydown:function(c){if(this._start(c)&&this._keydown(c)){c.preventDefault()}},keyup:"_stop",focus:function(){this.uiSpinner.addClass("ui-state-active");this.previous=this.element.val()},blur:function(c){if(this.cancelBlur){delete this.cancelBlur;return}this._refresh();this.uiSpinner.removeClass("ui-state-active");if(this.previous!==this.element.val()){this._trigger("change",c)}},mousewheel:function(c,d){if(!d){return}if(!this.spinning&&!this._start(c)){return false}this._spin((d>0?1:-1)*this.options.step,c);clearTimeout(this.mousewheelTimer);this.mousewheelTimer=this._delay(function(){if(this.spinning){this._stop(c)}},100);c.preventDefault()},"mousedown .ui-spinner-button":function(d){var c;c=this.element[0]===this.document[0].activeElement?this.previous:this.element.val();function e(){var f=this.element[0]===this.document[0].activeElement;if(!f){this.element.focus();this.previous=c;this._delay(function(){this.previous=c})}}d.preventDefault();e.call(this);this.cancelBlur=true;this._delay(function(){delete this.cancelBlur;e.call(this)});if(this._start(d)===false){return}this._repeat(null,b(d.currentTarget).hasClass("ui-spinner-up")?1:-1,d)},"mouseup .ui-spinner-button":"_stop","mouseenter .ui-spinner-button":function(c){if(!b(c.currentTarget).hasClass("ui-state-active")){return}if(this._start(c)===false){return false}this._repeat(null,b(c.currentTarget).hasClass("ui-spinner-up")?1:-1,c)},"mouseleave .ui-spinner-button":"_stop"},_draw:function(){var c=this.uiSpinner=this.element.addClass("ui-spinner-input").attr("autocomplete","off").wrap(this._uiSpinnerHtml()).parent().append(this._buttonHtml());this._hoverable(c);this.element.attr("role","spinbutton");this.buttons=c.find(".ui-spinner-button").attr("tabIndex",-1).button().removeClass("ui-corner-all");if(this.buttons.height()>Math.ceil(c.height()*0.5)&&c.height()>0){c.height(c.height())}if(this.options.disabled){this.disable()}},_keydown:function(d){var c=this.options,e=b.ui.keyCode;switch(d.keyCode){case e.UP:this._repeat(null,1,d);return true;case e.DOWN:this._repeat(null,-1,d);return true;case e.PAGE_UP:this._repeat(null,c.page,d);return true;case e.PAGE_DOWN:this._repeat(null,-c.page,d);return true}return false},_uiSpinnerHtml:function(){return"<span class='ui-spinner ui-state-default ui-widget ui-widget-content ui-corner-all'></span>"},_buttonHtml:function(){return"<a class='ui-spinner-button ui-spinner-up ui-corner-tr'><span class='ui-icon "+this.options.icons.up+"'>&#9650;</span></a><a class='ui-spinner-button ui-spinner-down ui-corner-br'><span class='ui-icon "+this.options.icons.down+"'>&#9660;</span></a>"},_start:function(c){if(!this.spinning&&this._trigger("start",c)===false){return false}if(!this.counter){this.counter=1}this.spinning=true;return true},_repeat:function(d,c,e){d=d||500;clearTimeout(this.timer);this.timer=this._delay(function(){this._repeat(40,c,e)},d);this._spin(c*this.options.step,e)},_spin:function(d,c){var e=this.value()||0;if(!this.counter){this.counter=1}e=this._adjustValue(e+d*this._increment(this.counter));if(!this.spinning||this._trigger("spin",c,{value:e})!==false){this._value(e);this.counter++}},_increment:function(c){var d=this.options.incremental;if(d){return b.isFunction(d)?d(c):Math.floor(c*c*c/50000-c*c/500+17*c/200+1)}return 1},_precision:function(){var c=this._precisionOf(this.options.step);if(this.options.min!==null){c=Math.max(c,this._precisionOf(this.options.min))}return c},_precisionOf:function(d){var e=d.toString(),c=e.indexOf(".");return c===-1?0:e.length-c-1},_adjustValue:function(e){var d,f,c=this.options;d=c.min!==null?c.min:0;f=e-d;f=Math.round(f/c.step)*c.step;e=d+f;e=parseFloat(e.toFixed(this._precision()));if(c.max!==null&&e>c.max){return c.max}if(c.min!==null&&e<c.min){return c.min}return e},_stop:function(c){if(!this.spinning){return}clearTimeout(this.timer);clearTimeout(this.mousewheelTimer);this.counter=0;this.spinning=false;this._trigger("stop",c)},_setOption:function(c,d){if(c==="culture"||c==="numberFormat"){var e=this._parse(this.element.val());this.options[c]=d;this.element.val(this._format(e));return}if(c==="max"||c==="min"||c==="step"){if(typeof d==="string"){d=this._parse(d)}}this._super(c,d);if(c==="disabled"){if(d){this.element.prop("disabled",true);this.buttons.button("disable")}else{this.element.prop("disabled",false);this.buttons.button("enable")}}},_setOptions:a(function(c){this._super(c);this._value(this.element.val())}),_parse:function(c){if(typeof c==="string"&&c!==""){c=window.Globalize&&this.options.numberFormat?Globalize.parseFloat(c,10,this.options.culture):+c}return c===""||isNaN(c)?null:c},_format:function(c){if(c===""){return""}return window.Globalize&&this.options.numberFormat?Globalize.format(c,this.options.numberFormat,this.options.culture):c},_refresh:function(){this.element.attr({"aria-valuemin":this.options.min,"aria-valuemax":this.options.max,"aria-valuenow":this._parse(this.element.val())})},_value:function(e,c){var d;if(e!==""){d=this._parse(e);if(d!==null){if(!c){d=this._adjustValue(d)}e=this._format(d)}}this.element.val(e);this._refresh()},_destroy:function(){this.element.removeClass("ui-spinner-input").prop("disabled",false).removeAttr("autocomplete").removeAttr("role").removeAttr("aria-valuemin").removeAttr("aria-valuemax").removeAttr("aria-valuenow");this.uiSpinner.replaceWith(this.element)},stepUp:a(function(c){this._stepUp(c)}),_stepUp:function(c){this._spin((c||1)*this.options.step)},stepDown:a(function(c){this._stepDown(c)}),_stepDown:function(c){this._spin((c||1)*-this.options.step)},pageUp:a(function(c){this._stepUp((c||1)*this.options.page)}),pageDown:a(function(c){this._stepDown((c||1)*this.options.page)}),value:function(c){if(!arguments.length){return this._parse(this.element.val())}a(this._value).call(this,c)},widget:function(){return this.uiSpinner}})}(jQuery));(function(c,e){var a=0,f=/#.*$/;function d(){return ++a}function b(g){g=g.cloneNode(false);return g.hash.length>1&&g.href.replace(f,"")===location.href.replace(f,"")}c.widget("ui.tabs",{version:"1.9.0",delay:300,options:{active:null,collapsible:false,event:"click",heightStyle:"content",hide:null,show:null,activate:null,beforeActivate:null,beforeLoad:null,load:null},_create:function(){var g,i=this,h=this.options,j=h.active;this.running=false;this.element.addClass("ui-tabs ui-widget ui-widget-content ui-corner-all").toggleClass("ui-tabs-collapsible",h.collapsible).delegate(".ui-tabs-nav > li","mousedown"+this.eventNamespace,function(k){if(c(this).is(".ui-state-disabled")){k.preventDefault()}}).delegate(".ui-tabs-anchor","focus"+this.eventNamespace,function(){if(c(this).closest("li").is(".ui-state-disabled")){this.blur()}});this._processTabs();if(j===null){if(location.hash){this.anchors.each(function(l,k){if(k.hash===location.hash){j=l;return false}})}if(j===null){j=this.tabs.filter(".ui-tabs-active").index()}if(j===null||j===-1){j=this.tabs.length?0:false}}if(j!==false){j=this.tabs.index(this.tabs.eq(j));if(j===-1){j=h.collapsible?false:0}}h.active=j;if(!h.collapsible&&h.active===false&&this.anchors.length){h.active=0}if(c.isArray(h.disabled)){h.disabled=c.unique(h.disabled.concat(c.map(this.tabs.filter(".ui-state-disabled"),function(k){return i.tabs.index(k)}))).sort()}if(this.options.active!==false&&this.anchors.length){this.active=this._findActive(this.options.active)}else{this.active=c()}this._refresh();if(this.active.length){this.load(h.active)}},_getCreateEventData:function(){return{tab:this.active,panel:!this.active.length?c():this._getPanelForTab(this.active)}},_tabKeydown:function(i){var h=c(this.document[0].activeElement).closest("li"),g=this.tabs.index(h),j=true;if(this._handlePageNav(i)){return}switch(i.keyCode){case c.ui.keyCode.RIGHT:case c.ui.keyCode.DOWN:g++;break;case c.ui.keyCode.UP:case c.ui.keyCode.LEFT:j=false;g--;break;case c.ui.keyCode.END:g=this.anchors.length-1;break;case c.ui.keyCode.HOME:g=0;break;case c.ui.keyCode.SPACE:i.preventDefault();clearTimeout(this.activating);this._activate(g);return;case c.ui.keyCode.ENTER:i.preventDefault();clearTimeout(this.activating);this._activate(g===this.options.active?false:g);return;default:return}i.preventDefault();clearTimeout(this.activating);g=this._focusNextTab(g,j);if(!i.ctrlKey){h.attr("aria-selected","false");this.tabs.eq(g).attr("aria-selected","true");this.activating=this._delay(function(){this.option("active",g)},this.delay)}},_panelKeydown:function(g){if(this._handlePageNav(g)){return}if(g.ctrlKey&&g.keyCode===c.ui.keyCode.UP){g.preventDefault();this.active.focus()}},_handlePageNav:function(g){if(g.altKey&&g.keyCode===c.ui.keyCode.PAGE_UP){this._activate(this._focusNextTab(this.options.active-1,false));return true}if(g.altKey&&g.keyCode===c.ui.keyCode.PAGE_DOWN){this._activate(this._focusNextTab(this.options.active+1,true));return true}},_findNextTab:function(h,i){var g=this.tabs.length-1;function j(){if(h>g){h=0}if(h<0){h=g}return h}while(c.inArray(j(),this.options.disabled)!==-1){h=i?h+1:h-1}return h},_focusNextTab:function(g,h){g=this._findNextTab(g,h);this.tabs.eq(g).focus();return g},_setOption:function(g,h){if(g==="active"){this._activate(h);return}if(g==="disabled"){this._setupDisabled(h);return}this._super(g,h);if(g==="collapsible"){this.element.toggleClass("ui-tabs-collapsible",h);if(!h&&this.options.active===false){this._activate(0)}}if(g==="event"){this._setupEvents(h)}if(g==="heightStyle"){this._setupHeightStyle(h)}},_tabId:function(g){return g.attr("aria-controls")||"ui-tabs-"+d()},_sanitizeSelector:function(g){return g?g.replace(/[!"$%&'()*+,.\/:;<=>?@\[\]\^`{|}~]/g,"\\$&"):""},refresh:function(){var i,h=this.options,g=this.tablist.children(":has(a[href])");h.disabled=c.map(g.filter(".ui-state-disabled"),function(j){return g.index(j)});this._processTabs();if(h.active===false||!this.anchors.length){h.active=false;this.active=c()}else{if(this.active.length&&!c.contains(this.tablist[0],this.active[0])){if(this.tabs.length===h.disabled.length){h.active=false;this.active=c()}else{this._activate(this._findNextTab(Math.max(0,h.active-1),false))}}else{h.active=this.tabs.index(this.active)}}this._refresh()},_refresh:function(){this._setupDisabled(this.options.disabled);this._setupEvents(this.options.event);this._setupHeightStyle(this.options.heightStyle);this.tabs.not(this.active).attr({"aria-selected":"false",tabIndex:-1});this.panels.not(this._getPanelForTab(this.active)).hide().attr({"aria-expanded":"false","aria-hidden":"true"});if(!this.active.length){this.tabs.eq(0).attr("tabIndex",0)}else{this.active.addClass("ui-tabs-active ui-state-active").attr({"aria-selected":"true",tabIndex:0});this._getPanelForTab(this.active).show().attr({"aria-expanded":"true","aria-hidden":"false"})}},_processTabs:function(){var g=this;this.tablist=this._getList().addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all").attr("role","tablist");this.tabs=this.tablist.find("> li:has(a[href])").addClass("ui-state-default ui-corner-top").attr({role:"tab",tabIndex:-1});this.anchors=this.tabs.map(function(){return c("a",this)[0]}).addClass("ui-tabs-anchor").attr({role:"presentation",tabIndex:-1});this.panels=c();this.anchors.each(function(n,l){var h,j,m,k=c(l).uniqueId().attr("id"),o=c(l).closest("li"),p=o.attr("aria-controls");if(b(l)){h=l.hash;j=g.element.find(g._sanitizeSelector(h))}else{m=g._tabId(o);h="#"+m;j=g.element.find(h);if(!j.length){j=g._createPanel(m);j.insertAfter(g.panels[n-1]||g.tablist)}j.attr("aria-live","polite")}if(j.length){g.panels=g.panels.add(j)}if(p){o.data("ui-tabs-aria-controls",p)}o.attr({"aria-controls":h.substring(1),"aria-labelledby":k});j.attr("aria-labelledby",k)});this.panels.addClass("ui-tabs-panel ui-widget-content ui-corner-bottom").attr("role","tabpanel")},_getList:function(){return this.element.find("ol,ul").eq(0)},_createPanel:function(g){return c("<div>").attr("id",g).addClass("ui-tabs-panel ui-widget-content ui-corner-bottom").data("ui-tabs-destroy",true)},_setupDisabled:function(j){if(c.isArray(j)){if(!j.length){j=false}else{if(j.length===this.anchors.length){j=true}}}for(var h=0,g;(g=this.tabs[h]);h++){if(j===true||c.inArray(h,j)!==-1){c(g).addClass("ui-state-disabled").attr("aria-disabled","true")}else{c(g).removeClass("ui-state-disabled").removeAttr("aria-disabled")}}this.options.disabled=j},_setupEvents:function(h){var g={click:function(i){i.preventDefault()}};if(h){c.each(h.split(" "),function(j,i){g[i]="_eventHandler"})}this._off(this.anchors.add(this.tabs).add(this.panels));this._on(this.anchors,g);this._on(this.tabs,{keydown:"_tabKeydown"});this._on(this.panels,{keydown:"_panelKeydown"});this._focusable(this.tabs);this._hoverable(this.tabs)},_setupHeightStyle:function(g){var i,j,h=this.element.parent();if(g==="fill"){if(!c.support.minHeight){j=h.css("overflow");h.css("overflow","hidden")}i=h.height();this.element.siblings(":visible").each(function(){var l=c(this),k=l.css("position");if(k==="absolute"||k==="fixed"){return}i-=l.outerHeight(true)});if(j){h.css("overflow",j)}this.element.children().not(this.panels).each(function(){i-=c(this).outerHeight(true)});this.panels.each(function(){c(this).height(Math.max(0,i-c(this).innerHeight()+c(this).height()))}).css("overflow","auto")}else{if(g==="auto"){i=0;this.panels.each(function(){i=Math.max(i,c(this).height("").height())}).height(i)}}},_eventHandler:function(g){var p=this.options,k=this.active,l=c(g.currentTarget),j=l.closest("li"),n=j[0]===k[0],h=n&&p.collapsible,i=h?c():this._getPanelForTab(j),m=!k.length?c():this._getPanelForTab(k),o={oldTab:k,oldPanel:m,newTab:h?c():j,newPanel:i};g.preventDefault();if(j.hasClass("ui-state-disabled")||j.hasClass("ui-tabs-loading")||this.running||(n&&!p.collapsible)||(this._trigger("beforeActivate",g,o)===false)){return}p.active=h?false:this.tabs.index(j);this.active=n?c():j;if(this.xhr){this.xhr.abort()}if(!m.length&&!i.length){c.error("jQuery UI Tabs: Mismatching fragment identifier.")}if(i.length){this.load(this.tabs.index(j),g)}this._toggle(g,o)},_toggle:function(m,l){var k=this,g=l.newPanel,j=l.oldPanel;this.running=true;function i(){k.running=false;k._trigger("activate",m,l)}function h(){l.newTab.closest("li").addClass("ui-tabs-active ui-state-active");if(g.length&&k.options.show){k._show(g,k.options.show,i)}else{g.show();i()}}if(j.length&&this.options.hide){this._hide(j,this.options.hide,function(){l.oldTab.closest("li").removeClass("ui-tabs-active ui-state-active");h()})}else{l.oldTab.closest("li").removeClass("ui-tabs-active ui-state-active");j.hide();h()}j.attr({"aria-expanded":"false","aria-hidden":"true"});l.oldTab.attr("aria-selected","false");if(g.length&&j.length){l.oldTab.attr("tabIndex",-1)}else{if(g.length){this.tabs.filter(function(){return c(this).attr("tabIndex")===0}).attr("tabIndex",-1)}}g.attr({"aria-expanded":"true","aria-hidden":"false"});l.newTab.attr({"aria-selected":"true",tabIndex:0})},_activate:function(h){var g,i=this._findActive(h);if(i[0]===this.active[0]){return}if(!i.length){i=this.active}g=i.find(".ui-tabs-anchor")[0];this._eventHandler({target:g,currentTarget:g,preventDefault:c.noop})},_findActive:function(g){return g===false?c():this.tabs.eq(g)},_getIndex:function(g){if(typeof g==="string"){g=this.anchors.index(this.anchors.filter("[href$='"+g+"']"))}return g},_destroy:function(){if(this.xhr){this.xhr.abort()}this.element.removeClass("ui-tabs ui-widget ui-widget-content ui-corner-all ui-tabs-collapsible");this.tablist.removeClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all").removeAttr("role");this.anchors.removeClass("ui-tabs-anchor").removeAttr("role").removeAttr("tabIndex").removeData("href.tabs").removeData("load.tabs").removeUniqueId();this.tabs.add(this.panels).each(function(){if(c.data(this,"ui-tabs-destroy")){c(this).remove()}else{c(this).removeClass("ui-state-default ui-state-active ui-state-disabled ui-corner-top ui-corner-bottom ui-widget-content ui-tabs-active ui-tabs-panel").removeAttr("tabIndex").removeAttr("aria-live").removeAttr("aria-busy").removeAttr("aria-selected").removeAttr("aria-labelledby").removeAttr("aria-hidden").removeAttr("aria-expanded").removeAttr("role")}});this.tabs.each(function(){var g=c(this),h=g.data("ui-tabs-aria-controls");if(h){g.attr("aria-controls",h)}else{g.removeAttr("aria-controls")}});if(this.options.heightStyle!=="content"){this.panels.css("height","")}},enable:function(g){var h=this.options.disabled;if(h===false){return}if(g===e){h=false}else{g=this._getIndex(g);if(c.isArray(h)){h=c.map(h,function(i){return i!==g?i:null})}else{h=c.map(this.tabs,function(i,j){return j!==g?j:null})}}this._setupDisabled(h)},disable:function(g){var h=this.options.disabled;if(h===true){return}if(g===e){h=true}else{g=this._getIndex(g);if(c.inArray(g,h)!==-1){return}if(c.isArray(h)){h=c.merge([g],h).sort()}else{h=[g]}}this._setupDisabled(h)},load:function(i,m){i=this._getIndex(i);var l=this,j=this.tabs.eq(i),h=j.find(".ui-tabs-anchor"),g=this._getPanelForTab(j),k={tab:j,panel:g};if(b(h[0])){return}this.xhr=c.ajax(this._ajaxSettings(h,m,k));if(this.xhr&&this.xhr.statusText!=="canceled"){j.addClass("ui-tabs-loading");g.attr("aria-busy","true");this.xhr.success(function(n){setTimeout(function(){g.html(n);l._trigger("load",m,k)},1)}).complete(function(o,n){setTimeout(function(){if(n==="abort"){l.panels.stop(false,true)}j.removeClass("ui-tabs-loading");g.removeAttr("aria-busy");if(o===l.xhr){delete l.xhr}},1)})}},_ajaxSettings:function(g,j,i){var h=this;return{url:g.attr("href"),beforeSend:function(l,k){return h._trigger("beforeLoad",j,c.extend({jqXHR:l,ajaxSettings:k},i))}}},_getPanelForTab:function(g){var h=c(g).attr("aria-controls");return this.element.find(this._sanitizeSelector("#"+h))}});if(c.uiBackCompat!==false){c.ui.tabs.prototype._ui=function(h,g){return{tab:h,panel:g,index:this.anchors.index(h)}};c.widget("ui.tabs",c.ui.tabs,{url:function(h,g){this.anchors.eq(h).attr("href",g)}});c.widget("ui.tabs",c.ui.tabs,{options:{ajaxOptions:null,cache:false},_create:function(){this._super();var g=this;this._on({tabsbeforeload:function(h,i){if(c.data(i.tab[0],"cache.tabs")){h.preventDefault();return}i.jqXHR.success(function(){if(g.options.cache){c.data(i.tab[0],"cache.tabs",true)}})}})},_ajaxSettings:function(h,i,j){var g=this.options.ajaxOptions;return c.extend({},g,{error:function(m,k,l){try{g.error(m,k,j.tab.closest("li").index(),j.tab[0])}catch(l){}}},this._superApply(arguments))},_setOption:function(g,h){if(g==="cache"&&h===false){this.anchors.removeData("cache.tabs")}this._super(g,h)},_destroy:function(){this.anchors.removeData("cache.tabs");this._super()},url:function(h,g){this.anchors.eq(h).removeData("cache.tabs");this._superApply(arguments)}});c.widget("ui.tabs",c.ui.tabs,{abort:function(){if(this.xhr){this.xhr.abort()}}});c.widget("ui.tabs",c.ui.tabs,{options:{spinner:"<em>Loading&#8230;</em>"},_create:function(){this._super();this._on({tabsbeforeload:function(i,j){if(i.target!==this.element[0]||!this.options.spinner){return}var h=j.tab.find("span"),g=h.html();h.html(this.options.spinner);j.jqXHR.complete(function(){h.html(g)})}})}});c.widget("ui.tabs",c.ui.tabs,{options:{enable:null,disable:null},enable:function(i){var h=this.options,g;if(i&&h.disabled===true||(c.isArray(h.disabled)&&c.inArray(i,h.disabled)!==-1)){g=true}this._superApply(arguments);if(g){this._trigger("enable",null,this._ui(this.anchors[i],this.panels[i]))}},disable:function(i){var h=this.options,g;if(i&&h.disabled===false||(c.isArray(h.disabled)&&c.inArray(i,h.disabled)===-1)){g=true}this._superApply(arguments);if(g){this._trigger("disable",null,this._ui(this.anchors[i],this.panels[i]))}}});c.widget("ui.tabs",c.ui.tabs,{options:{add:null,remove:null,tabTemplate:"<li><a href='#{href}'><span>#{label}</span></a></li>"},add:function(l,k,j){if(j===e){j=this.anchors.length}var m,h,i=this.options,g=c(i.tabTemplate.replace(/#\{href\}/g,l).replace(/#\{label\}/g,k)),n=!l.indexOf("#")?l.replace("#",""):this._tabId(g);g.addClass("ui-state-default ui-corner-top").data("ui-tabs-destroy",true);g.attr("aria-controls",n);m=j>=this.tabs.length;h=this.element.find("#"+n);if(!h.length){h=this._createPanel(n);if(m){if(j>0){h.insertAfter(this.panels.eq(-1))}else{h.appendTo(this.element)}}else{h.insertBefore(this.panels[j])}}h.addClass("ui-tabs-panel ui-widget-content ui-corner-bottom").hide();if(m){g.appendTo(this.tablist)}else{g.insertBefore(this.tabs[j])}i.disabled=c.map(i.disabled,function(o){return o>=j?++o:o});this.refresh();if(this.tabs.length===1&&i.active===false){this.option("active",0)}this._trigger("add",null,this._ui(this.anchors[j],this.panels[j]));return this},remove:function(i){i=this._getIndex(i);var h=this.options,j=this.tabs.eq(i).remove(),g=this._getPanelForTab(j).remove();if(j.hasClass("ui-tabs-active")&&this.anchors.length>2){this._activate(i+(i+1<this.anchors.length?1:-1))}h.disabled=c.map(c.grep(h.disabled,function(k){return k!==i}),function(k){return k>=i?--k:k});this.refresh();this._trigger("remove",null,this._ui(j.find("a")[0],g[0]));return this}});c.widget("ui.tabs",c.ui.tabs,{length:function(){return this.anchors.length}});c.widget("ui.tabs",c.ui.tabs,{options:{idPrefix:"ui-tabs-"},_tabId:function(h){var g=h.is("li")?h.find("a[href]"):h;g=g[0];return c(g).closest("li").attr("aria-controls")||g.title&&g.title.replace(/\s/g,"_").replace(/[^\w\u00c0-\uFFFF\-]/g,"")||this.options.idPrefix+d()}});c.widget("ui.tabs",c.ui.tabs,{options:{panelTemplate:"<div></div>"},_createPanel:function(g){return c(this.options.panelTemplate).attr("id",g).addClass("ui-tabs-panel ui-widget-content ui-corner-bottom").data("ui-tabs-destroy",true)}});c.widget("ui.tabs",c.ui.tabs,{_create:function(){var g=this.options;if(g.active===null&&g.selected!==e){g.active=g.selected===-1?false:g.selected}this._super();g.selected=g.active;if(g.selected===false){g.selected=-1}},_setOption:function(h,i){if(h!=="selected"){return this._super(h,i)}var g=this.options;this._super("active",i===-1?false:i);g.selected=g.active;if(g.selected===false){g.selected=-1}},_eventHandler:function(g){this._superApply(arguments);this.options.selected=this.options.active;if(this.options.selected===false){this.options.selected=-1}}});c.widget("ui.tabs",c.ui.tabs,{options:{show:null,select:null},_create:function(){this._super();if(this.options.active!==false){this._trigger("show",null,this._ui(this.active.find(".ui-tabs-anchor")[0],this._getPanelForTab(this.active)[0]))}},_trigger:function(h,i,j){var g=this._superApply(arguments);if(!g){return false}if(h==="beforeActivate"&&j.newTab.length){g=this._super("select",i,{tab:j.newTab.find(".ui-tabs-anchor")[0],panel:j.newPanel[0],index:j.newTab.closest("li").index()})}else{if(h==="activate"&&j.newTab.length){g=this._super("show",i,{tab:j.newTab.find(".ui-tabs-anchor")[0],panel:j.newPanel[0],index:j.newTab.closest("li").index()})}}return g}});c.widget("ui.tabs",c.ui.tabs,{select:function(g){g=this._getIndex(g);if(g===-1){if(this.options.collapsible&&this.options.selected!==-1){g=this.options.selected}else{return}}this.anchors.eq(g).trigger(this.options.event+this.eventNamespace)}});(function(){var g=0;c.widget("ui.tabs",c.ui.tabs,{options:{cookie:null},_create:function(){var h=this.options,i;if(h.active==null&&h.cookie){i=parseInt(this._cookie(),10);if(i===-1){i=false}h.active=i}this._super()},_cookie:function(i){var h=[this.cookie||(this.cookie=this.options.cookie.name||"ui-tabs-"+(++g))];if(arguments.length){h.push(i===false?-1:i);h.push(this.options.cookie)}return c.cookie.apply(null,h)},_refresh:function(){this._super();if(this.options.cookie){this._cookie(this.options.active,this.options.cookie)}},_eventHandler:function(h){this._superApply(arguments);if(this.options.cookie){this._cookie(this.options.active,this.options.cookie)}},_destroy:function(){this._super();if(this.options.cookie){this._cookie(null,this.options.cookie)}}})})();c.widget("ui.tabs",c.ui.tabs,{_trigger:function(h,i,j){var g=c.extend({},j);if(h==="load"){g.panel=g.panel[0];g.tab=g.tab.find(".ui-tabs-anchor")[0]}return this._super(h,i,g)}});c.widget("ui.tabs",c.ui.tabs,{options:{fx:null},_getFx:function(){var h,g,i=this.options.fx;if(i){if(c.isArray(i)){h=i[0];g=i[1]}else{h=g=i}}return i?{show:g,hide:h}:null},_toggle:function(n,m){var l=this,g=m.newPanel,j=m.oldPanel,k=this._getFx();if(!k){return this._super(n,m)}l.running=true;function i(){l.running=false;l._trigger("activate",n,m)}function h(){m.newTab.closest("li").addClass("ui-tabs-active ui-state-active");if(g.length&&k.show){g.animate(k.show,k.show.duration,function(){i()})}else{g.show();i()}}if(j.length&&k.hide){j.animate(k.hide,k.hide.duration,function(){m.oldTab.closest("li").removeClass("ui-tabs-active ui-state-active");h()})}else{m.oldTab.closest("li").removeClass("ui-tabs-active ui-state-active");j.hide();h()}}})}})(jQuery);(function(d){var b=0;function c(f,g){var e=(f.attr("aria-describedby")||"").split(/\s+/);e.push(g);f.data("ui-tooltip-id",g).attr("aria-describedby",d.trim(e.join(" ")))}function a(g){var h=g.data("ui-tooltip-id"),f=(g.attr("aria-describedby")||"").split(/\s+/),e=d.inArray(h,f);if(e!==-1){f.splice(e,1)}g.removeData("ui-tooltip-id");f=d.trim(f.join(" "));if(f){g.attr("aria-describedby",f)}else{g.removeAttr("aria-describedby")}}d.widget("ui.tooltip",{version:"1.9.0",options:{content:function(){return d(this).attr("title")},hide:true,items:"[title]",position:{my:"left+15 center",at:"right center",collision:"flipfit flipfit"},show:true,tooltipClass:null,track:false,close:null,open:null},_create:function(){this._on({mouseover:"open",focusin:"open"});this.tooltips={}},_setOption:function(e,g){var f=this;if(e==="disabled"){this[g?"_disable":"_enable"]();this.options[e]=g;return}this._super(e,g);if(e==="content"){d.each(this.tooltips,function(i,h){f._updateContent(h)})}},_disable:function(){var e=this;d.each(this.tooltips,function(h,f){var g=d.Event("blur");g.target=g.currentTarget=f[0];e.close(g,true)});this.element.find(this.options.items).andSelf().each(function(){var f=d(this);if(f.is("[title]")){f.data("ui-tooltip-title",f.attr("title")).attr("title","")}})},_enable:function(){this.element.find(this.options.items).andSelf().each(function(){var e=d(this);if(e.data("ui-tooltip-title")){e.attr("title",e.data("ui-tooltip-title"))}})},open:function(e){var f=d(e?e.target:this.element).closest(this.options.items);if(!f.length){return}if(this.options.track&&f.data("ui-tooltip-id")){this._find(f).position(d.extend({of:f},this.options.position));this._off(this.document,"mousemove");return}if(f.attr("title")){f.data("ui-tooltip-title",f.attr("title"))}f.data("tooltip-open",true);this._updateContent(f,e)},_updateContent:function(i,h){var g,e=this.options.content,f=this;if(typeof e==="string"){return this._open(h,i,e)}g=e.call(i[0],function(j){if(!i.data("tooltip-open")){return}f._delay(function(){this._open(h,i,j)})});if(g){this._open(h,i,g)}},_open:function(g,i,f){var h,j;if(!f){return}h=this._find(i);if(h.length){h.find(".ui-tooltip-content").html(f);return}if(i.is("[title]")){if(g&&g.type==="mouseover"){i.attr("title","")}else{i.removeAttr("title")}}h=this._tooltip(i);c(i,h.attr("id"));h.find(".ui-tooltip-content").html(f);function e(k){j.of=k;h.position(j)}if(this.options.track&&g&&/^mouse/.test(g.originalEvent.type)){j=d.extend({},this.options.position);this._on(this.document,{mousemove:e});e(g)}else{h.position(d.extend({of:i},this.options.position))}h.hide();this._show(h,this.options.show);this._trigger("open",g,{tooltip:h});this._on(i,{mouseleave:"close",focusout:"close",keyup:function(k){if(k.keyCode===d.ui.keyCode.ESCAPE){var l=d.Event(k);l.currentTarget=i[0];this.close(l,true)}}})},close:function(f,h){var e=this,i=d(f?f.currentTarget:this.element),g=this._find(i);if(this.closing){return}if(!h&&f&&f.type!=="focusout"&&this.document[0].activeElement===i[0]){return}if(i.data("ui-tooltip-title")){i.attr("title",i.data("ui-tooltip-title"))}a(i);g.stop(true);this._hide(g,this.options.hide,function(){d(this).remove();delete e.tooltips[this.id]});i.removeData("tooltip-open");this._off(i,"mouseleave focusout keyup");this._off(this.document,"mousemove");this.closing=true;this._trigger("close",f,{tooltip:g});this.closing=false},_tooltip:function(e){var g="ui-tooltip-"+b++,f=d("<div>").attr({id:g,role:"tooltip"}).addClass("ui-tooltip ui-widget ui-corner-all ui-widget-content "+(this.options.tooltipClass||""));d("<div>").addClass("ui-tooltip-content").appendTo(f);f.appendTo(this.document[0].body);if(d.fn.bgiframe){f.bgiframe()}this.tooltips[g]=e;return f},_find:function(e){var f=e.data("ui-tooltip-id");return f?d("#"+f):d()},_destroy:function(){var e=this;d.each(this.tooltips,function(h,f){var g=d.Event("blur");g.target=g.currentTarget=f[0];e.close(g,true);d("#"+h).remove();if(f.data("ui-tooltip-title")){f.attr("title",f.data("ui-tooltip-title"));f.removeData("ui-tooltip-title")}})}})}(jQuery));
+(function( jQuery, undefined ) {
+
+    var stepHooks = "backgroundColor borderBottomColor borderLeftColor borderRightColor borderTopColor color columnRuleColor outlineColor textDecorationColor textEmphasisColor".split(" "),
+
+    // plusequals test for += 100 -= 100
+    rplusequals = /^([\-+])=\s*(\d+\.?\d*)/,
+    // a set of RE's that can match strings and generate color tuples.
+    stringParsers = [{
+            re: /rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+            parse: function( execResult ) {
+                return [
+                    execResult[ 1 ],
+                    execResult[ 2 ],
+                    execResult[ 3 ],
+                    execResult[ 4 ]
+                ];
+            }
+        }, {
+            re: /rgba?\(\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+            parse: function( execResult ) {
+                return [
+                    execResult[ 1 ] * 2.55,
+                    execResult[ 2 ] * 2.55,
+                    execResult[ 3 ] * 2.55,
+                    execResult[ 4 ]
+                ];
+            }
+        }, {
+            // this regex ignores A-F because it's compared against an already lowercased string
+            re: /#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})/,
+            parse: function( execResult ) {
+                return [
+                    parseInt( execResult[ 1 ], 16 ),
+                    parseInt( execResult[ 2 ], 16 ),
+                    parseInt( execResult[ 3 ], 16 )
+                ];
+            }
+        }, {
+            // this regex ignores A-F because it's compared against an already lowercased string
+            re: /#([a-f0-9])([a-f0-9])([a-f0-9])/,
+            parse: function( execResult ) {
+                return [
+                    parseInt( execResult[ 1 ] + execResult[ 1 ], 16 ),
+                    parseInt( execResult[ 2 ] + execResult[ 2 ], 16 ),
+                    parseInt( execResult[ 3 ] + execResult[ 3 ], 16 )
+                ];
+            }
+        }, {
+            re: /hsla?\(\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\%\s*,\s*(\d+(?:\.\d+)?)\%\s*(?:,\s*(\d+(?:\.\d+)?)\s*)?\)/,
+            space: "hsla",
+            parse: function( execResult ) {
+                return [
+                    execResult[ 1 ],
+                    execResult[ 2 ] / 100,
+                    execResult[ 3 ] / 100,
+                    execResult[ 4 ]
+                ];
+            }
+        }],
+
+    // jQuery.Color( )
+    color = jQuery.Color = function( color, green, blue, alpha ) {
+        return new jQuery.Color.fn.parse( color, green, blue, alpha );
+    },
+    spaces = {
+        rgba: {
+            props: {
+                red: {
+                    idx: 0,
+                    type: "byte"
+                },
+                green: {
+                    idx: 1,
+                    type: "byte"
+                },
+                blue: {
+                    idx: 2,
+                    type: "byte"
+                }
+            }
+        },
+
+        hsla: {
+            props: {
+                hue: {
+                    idx: 0,
+                    type: "degrees"
+                },
+                saturation: {
+                    idx: 1,
+                    type: "percent"
+                },
+                lightness: {
+                    idx: 2,
+                    type: "percent"
+                }
+            }
+        }
+    },
+    propTypes = {
+        "byte": {
+            floor: true,
+            max: 255
+        },
+        "percent": {
+            max: 1
+        },
+        "degrees": {
+            mod: 360,
+            floor: true
+        }
+    },
+    support = color.support = {},
+
+    // element for support tests
+    supportElem = jQuery( "<p>" )[ 0 ],
+
+    // colors = jQuery.Color.names
+    colors,
+
+    // local aliases of functions called often
+    each = jQuery.each;
+
+// determine rgba support immediately
+supportElem.style.cssText = "background-color:rgba(1,1,1,.5)";
+support.rgba = supportElem.style.backgroundColor.indexOf( "rgba" ) > -1;
+
+// define cache name and alpha properties
+// for rgba and hsla spaces
+each( spaces, function( spaceName, space ) {
+    space.cache = "_" + spaceName;
+    space.props.alpha = {
+        idx: 3,
+        type: "percent",
+        def: 1
+    };
+});
+
+function clamp( value, prop, allowEmpty ) {
+    var type = propTypes[ prop.type ] || {};
+
+    if ( value == null ) {
+        return (allowEmpty || !prop.def) ? null : prop.def;
+    }
+
+    // ~~ is an short way of doing floor for positive numbers
+    value = type.floor ? ~~value : parseFloat( value );
+
+    // IE will pass in empty strings as value for alpha,
+    // which will hit this case
+    if ( isNaN( value ) ) {
+        return prop.def;
+    }
+
+    if ( type.mod ) {
+        // we add mod before modding to make sure that negatives values
+        // get converted properly: -10 -> 350
+        return (value + type.mod) % type.mod;
+    }
+
+    // for now all property types without mod have min and max
+    return 0 > value ? 0 : type.max < value ? type.max : value;
+}
+
+function stringParse( string ) {
+    var inst = color(),
+        rgba = inst._rgba = [];
+
+    string = string.toLowerCase();
+
+    each( stringParsers, function( i, parser ) {
+        var parsed,
+            match = parser.re.exec( string ),
+            values = match && parser.parse( match ),
+            spaceName = parser.space || "rgba";
+
+        if ( values ) {
+            parsed = inst[ spaceName ]( values );
+
+            // if this was an rgba parse the assignment might happen twice
+            // oh well....
+            inst[ spaces[ spaceName ].cache ] = parsed[ spaces[ spaceName ].cache ];
+            rgba = inst._rgba = parsed._rgba;
+
+            // exit each( stringParsers ) here because we matched
+            return false;
+        }
+    });
+
+    // Found a stringParser that handled it
+    if ( rgba.length ) {
+
+        // if this came from a parsed string, force "transparent" when alpha is 0
+        // chrome, (and maybe others) return "transparent" as rgba(0,0,0,0)
+        if ( rgba.join() === "0,0,0,0" ) {
+            jQuery.extend( rgba, colors.transparent );
+        }
+        return inst;
+    }
+
+    // named colors
+    return colors[ string ];
+}
+
+color.fn = jQuery.extend( color.prototype, {
+    parse: function( red, green, blue, alpha ) {
+        if ( red === undefined ) {
+            this._rgba = [ null, null, null, null ];
+            return this;
+        }
+        if ( red.jquery || red.nodeType ) {
+            red = jQuery( red ).css( green );
+            green = undefined;
+        }
+
+        var inst = this,
+            type = jQuery.type( red ),
+            rgba = this._rgba = [];
+
+        // more than 1 argument specified - assume ( red, green, blue, alpha )
+        if ( green !== undefined ) {
+            red = [ red, green, blue, alpha ];
+            type = "array";
+        }
+
+        if ( type === "string" ) {
+            return this.parse( stringParse( red ) || colors._default );
+        }
+
+        if ( type === "array" ) {
+            each( spaces.rgba.props, function( key, prop ) {
+                rgba[ prop.idx ] = clamp( red[ prop.idx ], prop );
+            });
+            return this;
+        }
+
+        if ( type === "object" ) {
+            if ( red instanceof color ) {
+                each( spaces, function( spaceName, space ) {
+                    if ( red[ space.cache ] ) {
+                        inst[ space.cache ] = red[ space.cache ].slice();
+                    }
+                });
+            } else {
+                each( spaces, function( spaceName, space ) {
+                    var cache = space.cache;
+                    each( space.props, function( key, prop ) {
+
+                        // if the cache doesn't exist, and we know how to convert
+                        if ( !inst[ cache ] && space.to ) {
+
+                            // if the value was null, we don't need to copy it
+                            // if the key was alpha, we don't need to copy it either
+                            if ( key === "alpha" || red[ key ] == null ) {
+                                return;
+                            }
+                            inst[ cache ] = space.to( inst._rgba );
+                        }
+
+                        // this is the only case where we allow nulls for ALL properties.
+                        // call clamp with alwaysAllowEmpty
+                        inst[ cache ][ prop.idx ] = clamp( red[ key ], prop, true );
+                    });
+
+                    // everything defined but alpha?
+                    if ( inst[ cache ] && $.inArray( null, inst[ cache ].slice( 0, 3 ) ) < 0 ) {
+                        // use the default of 1
+                        inst[ cache ][ 3 ] = 1;
+                        if ( space.from ) {
+                            inst._rgba = space.from( inst[ cache ] );
+                        }
+                    }
+                });
+            }
+            return this;
+        }
+    },
+    is: function( compare ) {
+        var is = color( compare ),
+            same = true,
+            inst = this;
+
+        each( spaces, function( _, space ) {
+            var localCache,
+                isCache = is[ space.cache ];
+            if (isCache) {
+                localCache = inst[ space.cache ] || space.to && space.to( inst._rgba ) || [];
+                each( space.props, function( _, prop ) {
+                    if ( isCache[ prop.idx ] != null ) {
+                        same = ( isCache[ prop.idx ] === localCache[ prop.idx ] );
+                        return same;
+                    }
+                });
+            }
+            return same;
+        });
+        return same;
+    },
+    _space: function() {
+        var used = [],
+            inst = this;
+        each( spaces, function( spaceName, space ) {
+            if ( inst[ space.cache ] ) {
+                used.push( spaceName );
+            }
+        });
+        return used.pop();
+    },
+    transition: function( other, distance ) {
+        var end = color( other ),
+            spaceName = end._space(),
+            space = spaces[ spaceName ],
+            startColor = this.alpha() === 0 ? color( "transparent" ) : this,
+            start = startColor[ space.cache ] || space.to( startColor._rgba ),
+            result = start.slice();
+
+        end = end[ space.cache ];
+        each( space.props, function( key, prop ) {
+            var index = prop.idx,
+                startValue = start[ index ],
+                endValue = end[ index ],
+                type = propTypes[ prop.type ] || {};
+
+            // if null, don't override start value
+            if ( endValue === null ) {
+                return;
+            }
+            // if null - use end
+            if ( startValue === null ) {
+                result[ index ] = endValue;
+            } else {
+                if ( type.mod ) {
+                    if ( endValue - startValue > type.mod / 2 ) {
+                        startValue += type.mod;
+                    } else if ( startValue - endValue > type.mod / 2 ) {
+                        startValue -= type.mod;
+                    }
+                }
+                result[ index ] = clamp( ( endValue - startValue ) * distance + startValue, prop );
+            }
+        });
+        return this[ spaceName ]( result );
+    },
+    blend: function( opaque ) {
+        // if we are already opaque - return ourself
+        if ( this._rgba[ 3 ] === 1 ) {
+            return this;
+        }
+
+        var rgb = this._rgba.slice(),
+            a = rgb.pop(),
+            blend = color( opaque )._rgba;
+
+        return color( jQuery.map( rgb, function( v, i ) {
+            return ( 1 - a ) * blend[ i ] + a * v;
+        }));
+    },
+    toRgbaString: function() {
+        var prefix = "rgba(",
+            rgba = jQuery.map( this._rgba, function( v, i ) {
+                return v == null ? ( i > 2 ? 1 : 0 ) : v;
+            });
+
+        if ( rgba[ 3 ] === 1 ) {
+            rgba.pop();
+            prefix = "rgb(";
+        }
+
+        return prefix + rgba.join() + ")";
+    },
+    toHslaString: function() {
+        var prefix = "hsla(",
+            hsla = jQuery.map( this.hsla(), function( v, i ) {
+                if ( v == null ) {
+                    v = i > 2 ? 1 : 0;
+                }
+
+                // catch 1 and 2
+                if ( i && i < 3 ) {
+                    v = Math.round( v * 100 ) + "%";
+                }
+                return v;
+            });
+
+        if ( hsla[ 3 ] === 1 ) {
+            hsla.pop();
+            prefix = "hsl(";
+        }
+        return prefix + hsla.join() + ")";
+    },
+    toHexString: function( includeAlpha ) {
+        var rgba = this._rgba.slice(),
+            alpha = rgba.pop();
+
+        if ( includeAlpha ) {
+            rgba.push( ~~( alpha * 255 ) );
+        }
+
+        return "#" + jQuery.map( rgba, function( v ) {
+
+            // default to 0 when nulls exist
+            v = ( v || 0 ).toString( 16 );
+            return v.length === 1 ? "0" + v : v;
+        }).join("");
+    },
+    toString: function() {
+        return this._rgba[ 3 ] === 0 ? "transparent" : this.toRgbaString();
+    }
+});
+color.fn.parse.prototype = color.fn;
+
+// hsla conversions adapted from:
+// https://code.google.com/p/maashaack/source/browse/packages/graphics/trunk/src/graphics/colors/HUE2RGB.as?r=5021
+
+function hue2rgb( p, q, h ) {
+    h = ( h + 1 ) % 1;
+    if ( h * 6 < 1 ) {
+        return p + (q - p) * h * 6;
+    }
+    if ( h * 2 < 1) {
+        return q;
+    }
+    if ( h * 3 < 2 ) {
+        return p + (q - p) * ((2/3) - h) * 6;
+    }
+    return p;
+}
+
+spaces.hsla.to = function ( rgba ) {
+    if ( rgba[ 0 ] == null || rgba[ 1 ] == null || rgba[ 2 ] == null ) {
+        return [ null, null, null, rgba[ 3 ] ];
+    }
+    var r = rgba[ 0 ] / 255,
+        g = rgba[ 1 ] / 255,
+        b = rgba[ 2 ] / 255,
+        a = rgba[ 3 ],
+        max = Math.max( r, g, b ),
+        min = Math.min( r, g, b ),
+        diff = max - min,
+        add = max + min,
+        l = add * 0.5,
+        h, s;
+
+    if ( min === max ) {
+        h = 0;
+    } else if ( r === max ) {
+        h = ( 60 * ( g - b ) / diff ) + 360;
+    } else if ( g === max ) {
+        h = ( 60 * ( b - r ) / diff ) + 120;
+    } else {
+        h = ( 60 * ( r - g ) / diff ) + 240;
+    }
+
+    if ( l === 0 || l === 1 ) {
+        s = l;
+    } else if ( l <= 0.5 ) {
+        s = diff / add;
+    } else {
+        s = diff / ( 2 - add );
+    }
+    return [ Math.round(h) % 360, s, l, a == null ? 1 : a ];
+};
+
+spaces.hsla.from = function ( hsla ) {
+    if ( hsla[ 0 ] == null || hsla[ 1 ] == null || hsla[ 2 ] == null ) {
+        return [ null, null, null, hsla[ 3 ] ];
+    }
+    var h = hsla[ 0 ] / 360,
+        s = hsla[ 1 ],
+        l = hsla[ 2 ],
+        a = hsla[ 3 ],
+        q = l <= 0.5 ? l * ( 1 + s ) : l + s - l * s,
+        p = 2 * l - q;
+
+    return [
+        Math.round( hue2rgb( p, q, h + ( 1 / 3 ) ) * 255 ),
+        Math.round( hue2rgb( p, q, h ) * 255 ),
+        Math.round( hue2rgb( p, q, h - ( 1 / 3 ) ) * 255 ),
+        a
+    ];
+};
+
+
+each( spaces, function( spaceName, space ) {
+    var props = space.props,
+        cache = space.cache,
+        to = space.to,
+        from = space.from;
+
+    // makes rgba() and hsla()
+    color.fn[ spaceName ] = function( value ) {
+
+        // generate a cache for this space if it doesn't exist
+        if ( to && !this[ cache ] ) {
+            this[ cache ] = to( this._rgba );
+        }
+        if ( value === undefined ) {
+            return this[ cache ].slice();
+        }
+
+        var ret,
+            type = jQuery.type( value ),
+            arr = ( type === "array" || type === "object" ) ? value : arguments,
+            local = this[ cache ].slice();
+
+        each( props, function( key, prop ) {
+            var val = arr[ type === "object" ? key : prop.idx ];
+            if ( val == null ) {
+                val = local[ prop.idx ];
+            }
+            local[ prop.idx ] = clamp( val, prop );
+        });
+
+        if ( from ) {
+            ret = color( from( local ) );
+            ret[ cache ] = local;
+            return ret;
+        } else {
+            return color( local );
+        }
+    };
+
+    // makes red() green() blue() alpha() hue() saturation() lightness()
+    each( props, function( key, prop ) {
+        // alpha is included in more than one space
+        if ( color.fn[ key ] ) {
+            return;
+        }
+        color.fn[ key ] = function( value ) {
+            var vtype = jQuery.type( value ),
+                fn = ( key === "alpha" ? ( this._hsla ? "hsla" : "rgba" ) : spaceName ),
+                local = this[ fn ](),
+                cur = local[ prop.idx ],
+                match;
+
+            if ( vtype === "undefined" ) {
+                return cur;
+            }
+
+            if ( vtype === "function" ) {
+                value = value.call( this, cur );
+                vtype = jQuery.type( value );
+            }
+            if ( value == null && prop.empty ) {
+                return this;
+            }
+            if ( vtype === "string" ) {
+                match = rplusequals.exec( value );
+                if ( match ) {
+                    value = cur + parseFloat( match[ 2 ] ) * ( match[ 1 ] === "+" ? 1 : -1 );
+                }
+            }
+            local[ prop.idx ] = value;
+            return this[ fn ]( local );
+        };
+    });
+});
+
+// add .fx.step functions
+each( stepHooks, function( i, hook ) {
+    jQuery.cssHooks[ hook ] = {
+        set: function( elem, value ) {
+            var parsed, curElem,
+                backgroundColor = "";
+
+            if ( jQuery.type( value ) !== "string" || ( parsed = stringParse( value ) ) ) {
+                value = color( parsed || value );
+                if ( !support.rgba && value._rgba[ 3 ] !== 1 ) {
+                    curElem = hook === "backgroundColor" ? elem.parentNode : elem;
+                    while (
+                        (backgroundColor === "" || backgroundColor === "transparent") &&
+                        curElem && curElem.style
+                    ) {
+                        try {
+                            backgroundColor = jQuery.css( curElem, "backgroundColor" );
+                            curElem = curElem.parentNode;
+                        } catch ( e ) {
+                        }
+                    }
+
+                    value = value.blend( backgroundColor && backgroundColor !== "transparent" ?
+                        backgroundColor :
+                        "_default" );
+                }
+
+                value = value.toRgbaString();
+            }
+            try {
+                elem.style[ hook ] = value;
+            } catch( error ) {
+                // wrapped to prevent IE from throwing errors on "invalid" values like 'auto' or 'inherit'
+            }
+        }
+    };
+    jQuery.fx.step[ hook ] = function( fx ) {
+        if ( !fx.colorInit ) {
+            fx.start = color( fx.elem, hook );
+            fx.end = color( fx.end );
+            fx.colorInit = true;
+        }
+        jQuery.cssHooks[ hook ].set( fx.elem, fx.start.transition( fx.end, fx.pos ) );
+    };
+});
+
+jQuery.cssHooks.borderColor = {
+    expand: function( value ) {
+        var expanded = {};
+
+        each( [ "Top", "Right", "Bottom", "Left" ], function( i, part ) {
+            expanded[ "border" + part + "Color" ] = value;
+        });
+        return expanded;
+    }
+};
+
+// Basic color names only.
+// Usage of any of the other color names requires adding yourself or including
+// jquery.color.svg-names.js.
+colors = jQuery.Color.names = {
+    // 4.1. Basic color keywords
+    aqua: "#00ffff",
+    black: "#000000",
+    blue: "#0000ff",
+    fuchsia: "#ff00ff",
+    gray: "#808080",
+    green: "#008000",
+    lime: "#00ff00",
+    maroon: "#800000",
+    navy: "#000080",
+    olive: "#808000",
+    purple: "#800080",
+    red: "#ff0000",
+    silver: "#c0c0c0",
+    teal: "#008080",
+    white: "#ffffff",
+    yellow: "#ffff00",
+
+    // 4.2.3. "transparent" color keyword
+    transparent: [ null, null, null, 0 ],
+
+    _default: "#ffffff"
+};
+
+})( jQuery );
+
+
+
+/******************************************************************************/
+/****************************** CLASS ANIMATIONS ******************************/
+/******************************************************************************/
+(function() {
+
+var classAnimationActions = [ "add", "remove", "toggle" ],
+    shorthandStyles = {
+        border: 1,
+        borderBottom: 1,
+        borderColor: 1,
+        borderLeft: 1,
+        borderRight: 1,
+        borderTop: 1,
+        borderWidth: 1,
+        margin: 1,
+        padding: 1
+    };
+
+$.each([ "borderLeftStyle", "borderRightStyle", "borderBottomStyle", "borderTopStyle" ], function( _, prop ) {
+    $.fx.step[ prop ] = function( fx ) {
+        if ( fx.end !== "none" && !fx.setAttr || fx.pos === 1 && !fx.setAttr ) {
+            jQuery.style( fx.elem, prop, fx.end );
+            fx.setAttr = true;
+        }
+    };
+});
+
+function getElementStyles() {
+    var style = this.ownerDocument.defaultView ?
+            this.ownerDocument.defaultView.getComputedStyle( this, null ) :
+            this.currentStyle,
+        newStyle = {},
+        key,
+        len;
+
+    // webkit enumerates style porperties
+    if ( style && style.length && style[ 0 ] && style[ style[ 0 ] ] ) {
+        len = style.length;
+        while ( len-- ) {
+            key = style[ len ];
+            if ( typeof style[ key ] === "string" ) {
+                newStyle[ $.camelCase( key ) ] = style[ key ];
+            }
+        }
+    } else {
+        for ( key in style ) {
+            if ( typeof style[ key ] === "string" ) {
+                newStyle[ key ] = style[ key ];
+            }
+        }
+    }
+
+    return newStyle;
+}
+
+
+function styleDifference( oldStyle, newStyle ) {
+    var diff = {},
+        name, value;
+
+    for ( name in newStyle ) {
+        value = newStyle[ name ];
+        if ( oldStyle[ name ] !== value ) {
+            if ( !shorthandStyles[ name ] ) {
+                if ( $.fx.step[ name ] || !isNaN( parseFloat( value ) ) ) {
+                    diff[ name ] = value;
+                }
+            }
+        }
+    }
+
+    return diff;
+}
+
+$.effects.animateClass = function( value, duration, easing, callback ) {
+    var o = $.speed( duration, easing, callback );
+
+    return this.queue( function() {
+        var animated = $( this ),
+            baseClass = animated.attr( "class" ) || "",
+            applyClassChange,
+            allAnimations = o.children ? animated.find( "*" ).andSelf() : animated;
+
+        // map the animated objects to store the original styles.
+        allAnimations = allAnimations.map(function() {
+            var el = $( this );
+            return {
+                el: el,
+                start: getElementStyles.call( this )
+            };
+        });
+
+        // apply class change
+        applyClassChange = function() {
+            $.each( classAnimationActions, function(i, action) {
+                if ( value[ action ] ) {
+                    animated[ action + "Class" ]( value[ action ] );
+                }
+            });
+        };
+        applyClassChange();
+
+        // map all animated objects again - calculate new styles and diff
+        allAnimations = allAnimations.map(function() {
+            this.end = getElementStyles.call( this.el[ 0 ] );
+            this.diff = styleDifference( this.start, this.end );
+            return this;
+        });
+
+        // apply original class
+        animated.attr( "class", baseClass );
+
+        // map all animated objects again - this time collecting a promise
+        allAnimations = allAnimations.map(function() {
+            var styleInfo = this,
+                dfd = $.Deferred(),
+                opts = jQuery.extend({}, o, {
+                    queue: false,
+                    complete: function() {
+                        dfd.resolve( styleInfo );
+                    }
+                });
+
+            this.el.animate( this.diff, opts );
+            return dfd.promise();
+        });
+
+        // once all animations have completed:
+        $.when.apply( $, allAnimations.get() ).done(function() {
+
+            // set the final class
+            applyClassChange();
+
+            // for each animated element,
+            // clear all css properties that were animated
+            $.each( arguments, function() {
+                var el = this.el;
+                $.each( this.diff, function(key) {
+                    el.css( key, '' );
+                });
+            });
+
+            // this is guarnteed to be there if you use jQuery.speed()
+            // it also handles dequeuing the next anim...
+            o.complete.call( animated[ 0 ] );
+        });
+    });
+};
+
+$.fn.extend({
+    _addClass: $.fn.addClass,
+    addClass: function( classNames, speed, easing, callback ) {
+        return speed ?
+            $.effects.animateClass.call( this,
+                { add: classNames }, speed, easing, callback ) :
+            this._addClass( classNames );
+    },
+
+    _removeClass: $.fn.removeClass,
+    removeClass: function( classNames, speed, easing, callback ) {
+        return speed ?
+            $.effects.animateClass.call( this,
+                { remove: classNames }, speed, easing, callback ) :
+            this._removeClass( classNames );
+    },
+
+    _toggleClass: $.fn.toggleClass,
+    toggleClass: function( classNames, force, speed, easing, callback ) {
+        if ( typeof force === "boolean" || force === undefined ) {
+            if ( !speed ) {
+                // without speed parameter
+                return this._toggleClass( classNames, force );
+            } else {
+                return $.effects.animateClass.call( this,
+                    (force ? { add: classNames } : { remove: classNames }),
+                    speed, easing, callback );
+            }
+        } else {
+            // without force parameter
+            return $.effects.animateClass.call( this,
+                { toggle: classNames }, force, speed, easing );
+        }
+    },
+
+    switchClass: function( remove, add, speed, easing, callback) {
+        return $.effects.animateClass.call( this, {
+            add: add,
+            remove: remove
+        }, speed, easing, callback );
+    }
+});
+
+})();
+
+/******************************************************************************/
+/*********************************** EFFECTS **********************************/
+/******************************************************************************/
+
+(function() {
+
+$.extend( $.effects, {
+    version: "1.9.1",
+
+    // Saves a set of properties in a data storage
+    save: function( element, set ) {
+        for( var i=0; i < set.length; i++ ) {
+            if ( set[ i ] !== null ) {
+                element.data( dataSpace + set[ i ], element[ 0 ].style[ set[ i ] ] );
+            }
+        }
+    },
+
+    // Restores a set of previously saved properties from a data storage
+    restore: function( element, set ) {
+        var val, i;
+        for( i=0; i < set.length; i++ ) {
+            if ( set[ i ] !== null ) {
+                val = element.data( dataSpace + set[ i ] );
+                // support: jQuery 1.6.2
+                // http://bugs.jquery.com/ticket/9917
+                // jQuery 1.6.2 incorrectly returns undefined for any falsy value.
+                // We can't differentiate between "" and 0 here, so we just assume
+                // empty string since it's likely to be a more common value...
+                if ( val === undefined ) {
+                    val = "";
+                }
+                element.css( set[ i ], val );
+            }
+        }
+    },
+
+    setMode: function( el, mode ) {
+        if (mode === "toggle") {
+            mode = el.is( ":hidden" ) ? "show" : "hide";
+        }
+        return mode;
+    },
+
+    // Translates a [top,left] array into a baseline value
+    // this should be a little more flexible in the future to handle a string & hash
+    getBaseline: function( origin, original ) {
+        var y, x;
+        switch ( origin[ 0 ] ) {
+            case "top": y = 0; break;
+            case "middle": y = 0.5; break;
+            case "bottom": y = 1; break;
+            default: y = origin[ 0 ] / original.height;
+        }
+        switch ( origin[ 1 ] ) {
+            case "left": x = 0; break;
+            case "center": x = 0.5; break;
+            case "right": x = 1; break;
+            default: x = origin[ 1 ] / original.width;
+        }
+        return {
+            x: x,
+            y: y
+        };
+    },
+
+    // Wraps the element around a wrapper that copies position properties
+    createWrapper: function( element ) {
+
+        // if the element is already wrapped, return it
+        if ( element.parent().is( ".ui-effects-wrapper" )) {
+            return element.parent();
+        }
+
+        // wrap the element
+        var props = {
+                width: element.outerWidth(true),
+                height: element.outerHeight(true),
+                "float": element.css( "float" )
+            },
+            wrapper = $( "<div></div>" )
+                .addClass( "ui-effects-wrapper" )
+                .css({
+                    fontSize: "100%",
+                    background: "transparent",
+                    border: "none",
+                    margin: 0,
+                    padding: 0
+                }),
+            // Store the size in case width/height are defined in % - Fixes #5245
+            size = {
+                width: element.width(),
+                height: element.height()
+            },
+            active = document.activeElement;
+
+        // support: Firefox
+        // Firefox incorrectly exposes anonymous content
+        // https://bugzilla.mozilla.org/show_bug.cgi?id=561664
+        try {
+            active.id;
+        } catch( e ) {
+            active = document.body;
+        }
+
+        element.wrap( wrapper );
+
+        // Fixes #7595 - Elements lose focus when wrapped.
+        if ( element[ 0 ] === active || $.contains( element[ 0 ], active ) ) {
+            $( active ).focus();
+        }
+
+        wrapper = element.parent(); //Hotfix for jQuery 1.4 since some change in wrap() seems to actually lose the reference to the wrapped element
+
+        // transfer positioning properties to the wrapper
+        if ( element.css( "position" ) === "static" ) {
+            wrapper.css({ position: "relative" });
+            element.css({ position: "relative" });
+        } else {
+            $.extend( props, {
+                position: element.css( "position" ),
+                zIndex: element.css( "z-index" )
+            });
+            $.each([ "top", "left", "bottom", "right" ], function(i, pos) {
+                props[ pos ] = element.css( pos );
+                if ( isNaN( parseInt( props[ pos ], 10 ) ) ) {
+                    props[ pos ] = "auto";
+                }
+            });
+            element.css({
+                position: "relative",
+                top: 0,
+                left: 0,
+                right: "auto",
+                bottom: "auto"
+            });
+        }
+        element.css(size);
+
+        return wrapper.css( props ).show();
+    },
+
+    removeWrapper: function( element ) {
+        var active = document.activeElement;
+
+        if ( element.parent().is( ".ui-effects-wrapper" ) ) {
+            element.parent().replaceWith( element );
+
+            // Fixes #7595 - Elements lose focus when wrapped.
+            if ( element[ 0 ] === active || $.contains( element[ 0 ], active ) ) {
+                $( active ).focus();
+            }
+        }
+
+
+        return element;
+    },
+
+    setTransition: function( element, list, factor, value ) {
+        value = value || {};
+        $.each( list, function( i, x ) {
+            var unit = element.cssUnit( x );
+            if ( unit[ 0 ] > 0 ) {
+                value[ x ] = unit[ 0 ] * factor + unit[ 1 ];
+            }
+        });
+        return value;
+    }
+});
+
+// return an effect options object for the given parameters:
+function _normalizeArguments( effect, options, speed, callback ) {
+
+    // allow passing all options as the first parameter
+    if ( $.isPlainObject( effect ) ) {
+        options = effect;
+        effect = effect.effect;
+    }
+
+    // convert to an object
+    effect = { effect: effect };
+
+    // catch (effect, null, ...)
+    if ( options == null ) {
+        options = {};
+    }
+
+    // catch (effect, callback)
+    if ( $.isFunction( options ) ) {
+        callback = options;
+        speed = null;
+        options = {};
+    }
+
+    // catch (effect, speed, ?)
+    if ( typeof options === "number" || $.fx.speeds[ options ] ) {
+        callback = speed;
+        speed = options;
+        options = {};
+    }
+
+    // catch (effect, options, callback)
+    if ( $.isFunction( speed ) ) {
+        callback = speed;
+        speed = null;
+    }
+
+    // add options to effect
+    if ( options ) {
+        $.extend( effect, options );
+    }
+
+    speed = speed || options.duration;
+    effect.duration = $.fx.off ? 0 :
+        typeof speed === "number" ? speed :
+        speed in $.fx.speeds ? $.fx.speeds[ speed ] :
+        $.fx.speeds._default;
+
+    effect.complete = callback || options.complete;
+
+    return effect;
+}
+
+function standardSpeed( speed ) {
+    // valid standard speeds
+    if ( !speed || typeof speed === "number" || $.fx.speeds[ speed ] ) {
+        return true;
+    }
+
+    // invalid strings - treat as "normal" speed
+    if ( typeof speed === "string" && !$.effects.effect[ speed ] ) {
+        // TODO: remove in 2.0 (#7115)
+        if ( backCompat && $.effects[ speed ] ) {
+            return false;
+        }
+        return true;
+    }
+
+    return false;
+}
+
+$.fn.extend({
+    effect: function( /* effect, options, speed, callback */ ) {
+        var args = _normalizeArguments.apply( this, arguments ),
+            mode = args.mode,
+            queue = args.queue,
+            effectMethod = $.effects.effect[ args.effect ],
+
+            // DEPRECATED: remove in 2.0 (#7115)
+            oldEffectMethod = !effectMethod && backCompat && $.effects[ args.effect ];
+
+        if ( $.fx.off || !( effectMethod || oldEffectMethod ) ) {
+            // delegate to the original method (e.g., .show()) if possible
+            if ( mode ) {
+                return this[ mode ]( args.duration, args.complete );
+            } else {
+                return this.each( function() {
+                    if ( args.complete ) {
+                        args.complete.call( this );
+                    }
+                });
+            }
+        }
+
+        function run( next ) {
+            var elem = $( this ),
+                complete = args.complete,
+                mode = args.mode;
+
+            function done() {
+                if ( $.isFunction( complete ) ) {
+                    complete.call( elem[0] );
+                }
+                if ( $.isFunction( next ) ) {
+                    next();
+                }
+            }
+
+            // if the element is hiddden and mode is hide,
+            // or element is visible and mode is show
+            if ( elem.is( ":hidden" ) ? mode === "hide" : mode === "show" ) {
+                done();
+            } else {
+                effectMethod.call( elem[0], args, done );
+            }
+        }
+
+        // TODO: remove this check in 2.0, effectMethod will always be true
+        if ( effectMethod ) {
+            return queue === false ? this.each( run ) : this.queue( queue || "fx", run );
+        } else {
+            // DEPRECATED: remove in 2.0 (#7115)
+            return oldEffectMethod.call(this, {
+                options: args,
+                duration: args.duration,
+                callback: args.complete,
+                mode: args.mode
+            });
+        }
+    },
+
+    _show: $.fn.show,
+    show: function( speed ) {
+        if ( standardSpeed( speed ) ) {
+            return this._show.apply( this, arguments );
+        } else {
+            var args = _normalizeArguments.apply( this, arguments );
+            args.mode = "show";
+            return this.effect.call( this, args );
+        }
+    },
+
+    _hide: $.fn.hide,
+    hide: function( speed ) {
+        if ( standardSpeed( speed ) ) {
+            return this._hide.apply( this, arguments );
+        } else {
+            var args = _normalizeArguments.apply( this, arguments );
+            args.mode = "hide";
+            return this.effect.call( this, args );
+        }
+    },
+
+    // jQuery core overloads toggle and creates _toggle
+    __toggle: $.fn.toggle,
+    toggle: function( speed ) {
+        if ( standardSpeed( speed ) || typeof speed === "boolean" || $.isFunction( speed ) ) {
+            return this.__toggle.apply( this, arguments );
+        } else {
+            var args = _normalizeArguments.apply( this, arguments );
+            args.mode = "toggle";
+            return this.effect.call( this, args );
+        }
+    },
+
+    // helper functions
+    cssUnit: function(key) {
+        var style = this.css( key ),
+            val = [];
+
+        $.each( [ "em", "px", "%", "pt" ], function( i, unit ) {
+            if ( style.indexOf( unit ) > 0 ) {
+                val = [ parseFloat( style ), unit ];
+            }
+        });
+        return val;
+    }
+});
+
+})();
+
+/******************************************************************************/
+/*********************************** EASING ***********************************/
+/******************************************************************************/
+
+(function() {
+
+// based on easing equations from Robert Penner (http://www.robertpenner.com/easing)
+
+var baseEasings = {};
+
+$.each( [ "Quad", "Cubic", "Quart", "Quint", "Expo" ], function( i, name ) {
+    baseEasings[ name ] = function( p ) {
+        return Math.pow( p, i + 2 );
+    };
+});
+
+$.extend( baseEasings, {
+    Sine: function ( p ) {
+        return 1 - Math.cos( p * Math.PI / 2 );
+    },
+    Circ: function ( p ) {
+        return 1 - Math.sqrt( 1 - p * p );
+    },
+    Elastic: function( p ) {
+        return p === 0 || p === 1 ? p :
+            -Math.pow( 2, 8 * (p - 1) ) * Math.sin( ( (p - 1) * 80 - 7.5 ) * Math.PI / 15 );
+    },
+    Back: function( p ) {
+        return p * p * ( 3 * p - 2 );
+    },
+    Bounce: function ( p ) {
+        var pow2,
+            bounce = 4;
+
+        while ( p < ( ( pow2 = Math.pow( 2, --bounce ) ) - 1 ) / 11 ) {}
+        return 1 / Math.pow( 4, 3 - bounce ) - 7.5625 * Math.pow( ( pow2 * 3 - 2 ) / 22 - p, 2 );
+    }
+});
+
+$.each( baseEasings, function( name, easeIn ) {
+    $.easing[ "easeIn" + name ] = easeIn;
+    $.easing[ "easeOut" + name ] = function( p ) {
+        return 1 - easeIn( 1 - p );
+    };
+    $.easing[ "easeInOut" + name ] = function( p ) {
+        return p < 0.5 ?
+            easeIn( p * 2 ) / 2 :
+            1 - easeIn( p * -2 + 2 ) / 2;
+    };
+});
+
+})();
+
+})(jQuery));
+(function( $, undefined ) {
+
+var rvertical = /up|down|vertical/,
+    rpositivemotion = /up|left|vertical|horizontal/;
+
+$.effects.effect.blind = function( o, done ) {
+    // Create element
+    var el = $( this ),
+        props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+        mode = $.effects.setMode( el, o.mode || "hide" ),
+        direction = o.direction || "up",
+        vertical = rvertical.test( direction ),
+        ref = vertical ? "height" : "width",
+        ref2 = vertical ? "top" : "left",
+        motion = rpositivemotion.test( direction ),
+        animation = {},
+        show = mode === "show",
+        wrapper, distance, margin;
+
+    // if already wrapped, the wrapper's properties are my property. #6245
+    if ( el.parent().is( ".ui-effects-wrapper" ) ) {
+        $.effects.save( el.parent(), props );
+    } else {
+        $.effects.save( el, props );
+    }
+    el.show();
+    wrapper = $.effects.createWrapper( el ).css({
+        overflow: "hidden"
+    });
+
+    distance = wrapper[ ref ]();
+    margin = parseFloat( wrapper.css( ref2 ) ) || 0;
+
+    animation[ ref ] = show ? distance : 0;
+    if ( !motion ) {
+        el
+            .css( vertical ? "bottom" : "right", 0 )
+            .css( vertical ? "top" : "left", "auto" )
+            .css({ position: "absolute" });
+
+        animation[ ref2 ] = show ? margin : distance + margin;
+    }
+
+    // start at 0 if we are showing
+    if ( show ) {
+        wrapper.css( ref, 0 );
+        if ( ! motion ) {
+            wrapper.css( ref2, margin + distance );
+        }
+    }
+
+    // Animate
+    wrapper.animate( animation, {
+        duration: o.duration,
+        easing: o.easing,
+        queue: false,
+        complete: function() {
+            if ( mode === "hide" ) {
+                el.hide();
+            }
+            $.effects.restore( el, props );
+            $.effects.removeWrapper( el );
+            done();
+        }
+    });
+
+};
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.effects.effect.fade = function( o, done ) {
+    var el = $( this ),
+        mode = $.effects.setMode( el, o.mode || "toggle" );
+
+    el.animate({
+        opacity: mode
+    }, {
+        queue: false,
+        duration: o.duration,
+        easing: o.easing,
+        complete: done
+    });
+};
+
+})( jQuery );
+(function( $, undefined ) {
+
+$.effects.effect.fold = function( o, done ) {
+
+    // Create element
+    var el = $( this ),
+        props = [ "position", "top", "bottom", "left", "right", "height", "width" ],
+        mode = $.effects.setMode( el, o.mode || "hide" ),
+        show = mode === "show",
+        hide = mode === "hide",
+        size = o.size || 15,
+        percent = /([0-9]+)%/.exec( size ),
+        horizFirst = !!o.horizFirst,
+        widthFirst = show !== horizFirst,
+        ref = widthFirst ? [ "width", "height" ] : [ "height", "width" ],
+        duration = o.duration / 2,
+        wrapper, distance,
+        animation1 = {},
+        animation2 = {};
+
+    $.effects.save( el, props );
+    el.show();
+
+    // Create Wrapper
+    wrapper = $.effects.createWrapper( el ).css({
+        overflow: "hidden"
+    });
+    distance = widthFirst ?
+        [ wrapper.width(), wrapper.height() ] :
+        [ wrapper.height(), wrapper.width() ];
+
+    if ( percent ) {
+        size = parseInt( percent[ 1 ], 10 ) / 100 * distance[ hide ? 0 : 1 ];
+    }
+    if ( show ) {
+        wrapper.css( horizFirst ? {
+            height: 0,
+            width: size
+        } : {
+            height: size,
+            width: 0
+        });
+    }
+
+    // Animation
+    animation1[ ref[ 0 ] ] = show ? distance[ 0 ] : size;
+    animation2[ ref[ 1 ] ] = show ? distance[ 1 ] : 0;
+
+    // Animate
+    wrapper
+        .animate( animation1, duration, o.easing )
+        .animate( animation2, duration, o.easing, function() {
+            if ( hide ) {
+                el.hide();
+            }
+            $.effects.restore( el, props );
+            $.effects.removeWrapper( el );
+            done();
+        });
+
+};
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.effects.effect.pulsate = function( o, done ) {
+    var elem = $( this ),
+        mode = $.effects.setMode( elem, o.mode || "show" ),
+        show = mode === "show",
+        hide = mode === "hide",
+        showhide = ( show || mode === "hide" ),
+
+        // showing or hiding leaves of the "last" animation
+        anims = ( ( o.times || 5 ) * 2 ) + ( showhide ? 1 : 0 ),
+        duration = o.duration / anims,
+        animateTo = 0,
+        queue = elem.queue(),
+        queuelen = queue.length,
+        i;
+
+    if ( show || !elem.is(":visible")) {
+        elem.css( "opacity", 0 ).show();
+        animateTo = 1;
+    }
+
+    // anims - 1 opacity "toggles"
+    for ( i = 1; i < anims; i++ ) {
+        elem.animate({
+            opacity: animateTo
+        }, duration, o.easing );
+        animateTo = 1 - animateTo;
+    }
+
+    elem.animate({
+        opacity: animateTo
+    }, duration, o.easing);
+
+    elem.queue(function() {
+        if ( hide ) {
+            elem.hide();
+        }
+        done();
+    });
+
+    // We just queued up "anims" animations, we need to put them next in the queue
+    if ( queuelen > 1 ) {
+        queue.splice.apply( queue,
+            [ 1, 0 ].concat( queue.splice( queuelen, anims + 1 ) ) );
+    }
+    elem.dequeue();
+};
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.effects.effect.puff = function( o, done ) {
+    var elem = $( this ),
+        mode = $.effects.setMode( elem, o.mode || "hide" ),
+        hide = mode === "hide",
+        percent = parseInt( o.percent, 10 ) || 150,
+        factor = percent / 100,
+        original = {
+            height: elem.height(),
+            width: elem.width()
+        };
+
+    $.extend( o, {
+        effect: "scale",
+        queue: false,
+        fade: true,
+        mode: mode,
+        complete: done,
+        percent: hide ? percent : 100,
+        from: hide ?
+            original :
+            {
+                height: original.height * factor,
+                width: original.width * factor
+            }
+    });
+
+    elem.effect( o );
+};
+
+$.effects.effect.scale = function( o, done ) {
+
+    // Create element
+    var el = $( this ),
+        options = $.extend( true, {}, o ),
+        mode = $.effects.setMode( el, o.mode || "effect" ),
+        percent = parseInt( o.percent, 10 ) ||
+            ( parseInt( o.percent, 10 ) === 0 ? 0 : ( mode === "hide" ? 0 : 100 ) ),
+        direction = o.direction || "both",
+        origin = o.origin,
+        original = {
+            height: el.height(),
+            width: el.width(),
+            outerHeight: el.outerHeight(),
+            outerWidth: el.outerWidth()
+        },
+        factor = {
+            y: direction !== "horizontal" ? (percent / 100) : 1,
+            x: direction !== "vertical" ? (percent / 100) : 1
+        };
+
+    // We are going to pass this effect to the size effect:
+    options.effect = "size";
+    options.queue = false;
+    options.complete = done;
+
+    // Set default origin and restore for show/hide
+    if ( mode !== "effect" ) {
+        options.origin = origin || ["middle","center"];
+        options.restore = true;
+    }
+
+    options.from = o.from || ( mode === "show" ? { height: 0, width: 0 } : original );
+    options.to = {
+        height: original.height * factor.y,
+        width: original.width * factor.x,
+        outerHeight: original.outerHeight * factor.y,
+        outerWidth: original.outerWidth * factor.x
+    };
+
+    // Fade option to support puff
+    if ( options.fade ) {
+        if ( mode === "show" ) {
+            options.from.opacity = 0;
+            options.to.opacity = 1;
+        }
+        if ( mode === "hide" ) {
+            options.from.opacity = 1;
+            options.to.opacity = 0;
+        }
+    }
+
+    // Animate
+    el.effect( options );
+
+};
+
+$.effects.effect.size = function( o, done ) {
+
+    // Create element
+    var original, baseline, factor,
+        el = $( this ),
+        props0 = [ "position", "top", "bottom", "left", "right", "width", "height", "overflow", "opacity" ],
+
+        // Always restore
+        props1 = [ "position", "top", "bottom", "left", "right", "overflow", "opacity" ],
+
+        // Copy for children
+        props2 = [ "width", "height", "overflow" ],
+        cProps = [ "fontSize" ],
+        vProps = [ "borderTopWidth", "borderBottomWidth", "paddingTop", "paddingBottom" ],
+        hProps = [ "borderLeftWidth", "borderRightWidth", "paddingLeft", "paddingRight" ],
+
+        // Set options
+        mode = $.effects.setMode( el, o.mode || "effect" ),
+        restore = o.restore || mode !== "effect",
+        scale = o.scale || "both",
+        origin = o.origin || [ "middle", "center" ],
+        position = el.css( "position" ),
+        props = restore ? props0 : props1,
+        zero = {
+            height: 0,
+            width: 0
+        };
+
+    if ( mode === "show" ) {
+        el.show();
+    }
+    original = {
+        height: el.height(),
+        width: el.width(),
+        outerHeight: el.outerHeight(),
+        outerWidth: el.outerWidth()
+    };
+
+    if ( o.mode === "toggle" && mode === "show" ) {
+        el.from = o.to || zero;
+        el.to = o.from || original;
+    } else {
+        el.from = o.from || ( mode === "show" ? zero : original );
+        el.to = o.to || ( mode === "hide" ? zero : original );
+    }
+
+    // Set scaling factor
+    factor = {
+        from: {
+            y: el.from.height / original.height,
+            x: el.from.width / original.width
+        },
+        to: {
+            y: el.to.height / original.height,
+            x: el.to.width / original.width
+        }
+    };
+
+    // Scale the css box
+    if ( scale === "box" || scale === "both" ) {
+
+        // Vertical props scaling
+        if ( factor.from.y !== factor.to.y ) {
+            props = props.concat( vProps );
+            el.from = $.effects.setTransition( el, vProps, factor.from.y, el.from );
+            el.to = $.effects.setTransition( el, vProps, factor.to.y, el.to );
+        }
+
+        // Horizontal props scaling
+        if ( factor.from.x !== factor.to.x ) {
+            props = props.concat( hProps );
+            el.from = $.effects.setTransition( el, hProps, factor.from.x, el.from );
+            el.to = $.effects.setTransition( el, hProps, factor.to.x, el.to );
+        }
+    }
+
+    // Scale the content
+    if ( scale === "content" || scale === "both" ) {
+
+        // Vertical props scaling
+        if ( factor.from.y !== factor.to.y ) {
+            props = props.concat( cProps ).concat( props2 );
+            el.from = $.effects.setTransition( el, cProps, factor.from.y, el.from );
+            el.to = $.effects.setTransition( el, cProps, factor.to.y, el.to );
+        }
+    }
+
+    $.effects.save( el, props );
+    el.show();
+    $.effects.createWrapper( el );
+    el.css( "overflow", "hidden" ).css( el.from );
+
+    // Adjust
+    if (origin) { // Calculate baseline shifts
+        baseline = $.effects.getBaseline( origin, original );
+        el.from.top = ( original.outerHeight - el.outerHeight() ) * baseline.y;
+        el.from.left = ( original.outerWidth - el.outerWidth() ) * baseline.x;
+        el.to.top = ( original.outerHeight - el.to.outerHeight ) * baseline.y;
+        el.to.left = ( original.outerWidth - el.to.outerWidth ) * baseline.x;
+    }
+    el.css( el.from ); // set top & left
+
+    // Animate
+    if ( scale === "content" || scale === "both" ) { // Scale the children
+
+        // Add margins/font-size
+        vProps = vProps.concat([ "marginTop", "marginBottom" ]).concat(cProps);
+        hProps = hProps.concat([ "marginLeft", "marginRight" ]);
+        props2 = props0.concat(vProps).concat(hProps);
+
+        el.find( "*[width]" ).each( function(){
+            var child = $( this ),
+                c_original = {
+                    height: child.height(),
+                    width: child.width()
+                };
+            if (restore) {
+                $.effects.save(child, props2);
+            }
+
+            child.from = {
+                height: c_original.height * factor.from.y,
+                width: c_original.width * factor.from.x
+            };
+            child.to = {
+                height: c_original.height * factor.to.y,
+                width: c_original.width * factor.to.x
+            };
+
+            // Vertical props scaling
+            if ( factor.from.y !== factor.to.y ) {
+                child.from = $.effects.setTransition( child, vProps, factor.from.y, child.from );
+                child.to = $.effects.setTransition( child, vProps, factor.to.y, child.to );
+            }
+
+            // Horizontal props scaling
+            if ( factor.from.x !== factor.to.x ) {
+                child.from = $.effects.setTransition( child, hProps, factor.from.x, child.from );
+                child.to = $.effects.setTransition( child, hProps, factor.to.x, child.to );
+            }
+
+            // Animate children
+            child.css( child.from );
+            child.animate( child.to, o.duration, o.easing, function() {
+
+                // Restore children
+                if ( restore ) {
+                    $.effects.restore( child, props2 );
+                }
+            });
+        });
+    }
+
+    // Animate
+    el.animate( el.to, {
+        queue: false,
+        duration: o.duration,
+        easing: o.easing,
+        complete: function() {
+            if ( el.to.opacity === 0 ) {
+                el.css( "opacity", el.from.opacity );
+            }
+            if( mode === "hide" ) {
+                el.hide();
+            }
+            $.effects.restore( el, props );
+            if ( !restore ) {
+
+                // we need to calculate our new positioning based on the scaling
+                if ( position === "static" ) {
+                    el.css({
+                        position: "relative",
+                        top: el.to.top,
+                        left: el.to.left
+                    });
+                } else {
+                    $.each([ "top", "left" ], function( idx, pos ) {
+                        el.css( pos, function( _, str ) {
+                            var val = parseInt( str, 10 ),
+                                toRef = idx ? el.to.left : el.to.top;
+
+                            // if original was "auto", recalculate the new value from wrapper
+                            if ( str === "auto" ) {
+                                return toRef + "px";
+                            }
+
+                            return val + toRef + "px";
+                        });
+                    });
+                }
+            }
+
+            $.effects.removeWrapper( el );
+            done();
+        }
+    });
+
+};
+
+})(jQuery);
+(function( $, undefined ) {
+
+$.effects.effect.slide = function( o, done ) {
+
+    // Create element
+    var el = $( this ),
+        props = [ "position", "top", "bottom", "left", "right", "width", "height" ],
+        mode = $.effects.setMode( el, o.mode || "show" ),
+        show = mode === "show",
+        direction = o.direction || "left",
+        ref = (direction === "up" || direction === "down") ? "top" : "left",
+        positiveMotion = (direction === "up" || direction === "left"),
+        distance,
+        animation = {};
+
+    // Adjust
+    $.effects.save( el, props );
+    el.show();
+    distance = o.distance || el[ ref === "top" ? "outerHeight" : "outerWidth" ]( true );
+
+    $.effects.createWrapper( el ).css({
+        overflow: "hidden"
+    });
+
+    if ( show ) {
+        el.css( ref, positiveMotion ? (isNaN(distance) ? "-" + distance : -distance) : distance );
+    }
+
+    // Animation
+    animation[ ref ] = ( show ?
+        ( positiveMotion ? "+=" : "-=") :
+        ( positiveMotion ? "-=" : "+=")) +
+        distance;
+
+    // Animate
+    el.animate( animation, {
+        queue: false,
+        duration: o.duration,
+        easing: o.easing,
+        complete: function() {
+            if ( mode === "hide" ) {
+                el.hide();
+            }
+            $.effects.restore( el, props );
+            $.effects.removeWrapper( el );
+            done();
+        }
+    });
+};
+
+})(jQuery);

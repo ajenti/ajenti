@@ -7,9 +7,10 @@ class window.Stream
     start: () ->
         @socket = io.connect('/stream')
         @socket.on 'ui', (ui) ->
-            ui = JXG.decompress(ui)
+            ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
             console.log '<< ui', ui
+            UI.clear()
             UI.replace(UI.inflate(ui))
         @socket.on 'update-request', () ->
             UI.checkForUpdates()
@@ -50,9 +51,16 @@ class window.UIManager
             cls = Controls.default
         return new cls(this, json, children)
 
+    clear: () ->
+        $('.root *').unbind() 
+        $.cleanData($('.root *')) 
+        $('.root *').safeRemove()
+        $.cache = {}
+        delete @ui
+    
     replace: (ui) ->
         @ui = ui
-        $('.root').empty().append(@ui.dom)
+        $('.root').append(@ui.dom)
 
     extractUpdates: (control, target) ->
         updates = control.extractUpdates()
@@ -108,7 +116,6 @@ class window.Control
         
         @uid = @properties.uid    
         @childContainer = null
-        @childWrappers = {}
         @dom = null
         @children = []
         @createDom()
@@ -119,6 +126,10 @@ class window.Control
         
         if @properties.visible != true and @dom
             @dom.hide()
+        if @dom and @dom.length
+            @dom = @dom[0]
+        if @childContainer
+            @childContainer = @childContainer[0]
 
     createDom: () ->
         ""
@@ -141,11 +152,7 @@ class window.Control
     append: (child) ->
         @children.push child
         wrapper = @wrapChild(child)
-        @childWrappers[child.uid] = wrapper
-        @childContainer.append(wrapper)
-
-    remove: (child) ->
-        child.remove()
+        $(@childContainer).append(wrapper)
 
     publish: () ->
         @ui.checkForUpdates()
@@ -197,6 +204,13 @@ window.ajentiSecurityResume = (info) ->
     $('#security-error').fadeOut()
 
 
+
+$.fn.safeRemove = () ->
+    this.each (i,e) ->
+        if e.parentNode
+            e.parentNode.removeChild(e)
+
+
 # Touch support
 
 clickms = 100
@@ -232,7 +246,7 @@ touchHandler = (event) ->
     first.target.dispatchEvent(simulatedEvent)
     event.preventDefault()
 
-document.addEventListener("touchstart", touchHandler, true)
-document.addEventListener("touchmove", touchHandler, true)
-document.addEventListener("touchend", touchHandler, true)
-document.addEventListener("touchcancel", touchHandler, true)
+#document.addEventListener("touchstart", touchHandler, true)
+#document.addEventListener("touchmove", touchHandler, true)
+#document.addEventListener("touchend", touchHandler, true)
+#document.addEventListener("touchcancel", touchHandler, true)

@@ -2,6 +2,7 @@ import hashlib
 import time
 import Cookie
 import random
+import gevent
 
 import ajenti
 from ajenti.api import *
@@ -15,12 +16,19 @@ class Session:
         self.id = id
         self.data = {}
         self.active = True
+        self.greenlets = []
 
     def destroy(self):
         self.active = False
+        for g in self.greenlets:
+            g.kill()
 
     def touch(self):
         self.timestamp = time.time()
+
+    def spawn(self, *args, **kwargs):
+        g = gevent.spawn(*args, **kwargs)
+        self.greenlets += [g]
 
     def is_dead(self):
         return not self.active or (time.time() - self.timestamp) > 3600
