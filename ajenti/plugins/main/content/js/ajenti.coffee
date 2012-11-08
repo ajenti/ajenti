@@ -55,7 +55,7 @@ class window.UIManager
         $('.root *').unbind() 
         $.cleanData($('.root *')) 
         $('.root *').safeRemove()
-        $.cache = {}
+        #$.cache = {} # Breaks stuff
         delete @ui
     
     replace: (ui) ->

@@ -9,3 +9,6 @@ from ajenti.ui import *
 @interface
 class SectionPlugin (BasePlugin, UIElement):
     typeid = 'main:section'
+
+    def on_page_load(self):
+        pass

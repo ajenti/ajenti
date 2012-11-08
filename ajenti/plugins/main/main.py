@@ -153,10 +153,12 @@ class SectionsRoot (UIElement):
                 pass
         self.children = sorted(self.children, key=lambda x: (self.category_order[x.category], x.order, x.title))
         if len(self.children) > 0:
-            self.children[0].active = True
+            self.on_switch(self.children[0].uid)
         self.on('switch', self.on_switch)
 
     def on_switch(self, uid):
         for child in self.children:
             child.active = child.uid == uid
+            if child.active:
+                child.on_page_load()
             child.visible = child.active

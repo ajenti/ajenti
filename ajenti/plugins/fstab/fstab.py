@@ -16,16 +16,17 @@ class Filesystems (SectionPlugin):
         self.category = 'System'
         self.append(self.ui.inflate('fstab:main'))
 
-        self.reload_disks()
         self.find('type').items = ['Auto', 'EXT2', 'EXT3', 'EXT4', 'NTFS', 'FAT', 'ZFS', 'ReiserFS', 'None', 'Loop']
         self.find('type').values = ['auto', 'ext2', 'ext3', 'ext4', 'ntfs', 'vfat', 'zfs', 'reiser', 'none', 'loop']
 
         self.config = FSTabConfig(path='/etc/fstab')
-        self.config.load()
-        self.binder = Binder(self.config.tree, self.find('fstab-config'))
+        self.binder = Binder(None, self.find('fstab-config'))
         self.find('filesystems').new_item = lambda c: Filesystem()
-        self.binder.autodiscover()
-        self.binder.populate()
+
+    def on_page_load(self):
+        self.reload_disks()
+        self.config.load()
+        self.binder.reset(self.config.tree).autodiscover().populate()
 
     def reload_disks(self):
         lst = disks.list_devices(by_uuid=True, by_id=True, by_label=True)

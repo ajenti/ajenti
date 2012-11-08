@@ -26,8 +26,7 @@ class FileManager (SectionPlugin):
         self.find('breadcrumbs').post_item_bind = post_bc_bind
 
         self.binder = Binder(self.controller, self.find('filemanager'))
-        self.binder.autodiscover()
-        self.binder.populate()
+        self.binder.autodiscover().populate()
 
         self.tabs = self.find('tabs')
 

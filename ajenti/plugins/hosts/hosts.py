@@ -16,12 +16,13 @@ class Hosts (SectionPlugin):
         self.append(self.ui.inflate('hosts:main'))
 
         self.config = HostsConfig(path='/etc/hosts')
-        self.config.load()
-        self.binder = Binder(self.config.tree, self.find('hosts-config'))
+        self.binder = Binder(None, self.find('hosts-config'))
         self.find('aliases').new_item = lambda c: Alias()
         self.find('hosts').new_item = lambda c: Host()
-        self.binder.autodiscover()
-        self.binder.populate()
+
+    def on_page_load(self):
+        self.config.load()
+        self.binder.reset(self.config.tree).autodiscover().populate()
 
     @on('save', 'click')
     def save(self):

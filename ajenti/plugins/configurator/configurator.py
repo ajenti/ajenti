@@ -40,8 +40,7 @@ class Configurator (SectionPlugin):
                         item.permissions.remove(perm[0])
         self.find('users').post_item_update = post_user_update
 
-        self.binder.autodiscover()
-        self.binder.populate()
+        self.binder.autodiscover().populate()
 
     @restrict('configurator:configure')
     @on('save-button', 'click')

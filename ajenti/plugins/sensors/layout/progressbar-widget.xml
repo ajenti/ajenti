@@ -1,0 +1,19 @@
+<hc>
+    <icon id="icon" icon="off" />
+    <box width="90">
+        <label id="name" style="bold" text="---" />
+    </box>
+    <box width="45">
+        <label id="value" text="---" />
+    </box>
+    <progressbar id="progress" width="155" value="0.4" />
+
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="Variant" id="form-line">
+                <combobox id="variant" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>

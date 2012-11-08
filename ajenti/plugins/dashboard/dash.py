@@ -28,6 +28,7 @@ class Dash (SectionPlugin):
         self.find('add-widgets').post_item_bind = post_widget_bind
         CollectionAutoBinding(DashboardWidget.get_classes(), None, self.find('add-widgets')).populate()
 
+    def on_page_load(self):
         self.refresh()
 
     @on('refresh-button', 'click')

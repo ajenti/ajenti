@@ -19,6 +19,9 @@ class Binding (object):
     def populate(self):
         pass
 
+    def unpopulate(self):
+        pass
+
     def update(self):
         pass
 
@@ -54,13 +57,18 @@ class CollectionAutoBinding (Binding):
         self.items_ui = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
         self.old_items = copy.copy(self.items_ui.children)
 
+    def unpopulate(self):
+        self.items_ui.children = copy.copy(self.old_items)
+
     def populate(self):
         if self.field:
             self.collection = getattr(self.object, self.field)
         else:
             self.collection = self.object
         self.values = self.ui.values(self.collection)
-        self.items_ui.children = copy.copy(self.old_items)
+
+        self.unpopulate()
+
         self.binders = {}
         for value in self.values:
             template = self.template.clone()
@@ -106,10 +114,17 @@ class CollectionAutoBinding (Binding):
 
 
 class Binder (object):
-    def __init__(self, object, ui):
-        self.object = object
-        self.ui = ui
+    def __init__(self, object=None, ui=None):
         self.bindings = []
+        self.reset(object, ui)
+
+    def reset(self, object=None, ui=None):
+        self.unpopulate()
+        if object:
+            self.object = object
+        if ui:
+            self.ui = ui
+        return self
 
     def autodiscover(self, object=None, ui=None):
         object = object or self.object
@@ -134,6 +149,10 @@ class Binder (object):
     def populate(self):
         for binding in self.bindings:
             binding.populate()
+
+    def unpopulate(self):
+        for binding in self.bindings:
+            binding.unpopulate()
 
     def update(self):
         for binding in self.bindings:

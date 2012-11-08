@@ -18,11 +18,12 @@ class Resolv (SectionPlugin):
         self.find('name-box').values = ['nameserver', 'domain', 'search', 'sortlist', 'options']
 
         self.config = ResolvConfig(path='/etc/resolv.conf')
-        self.config.load()
-        self.binder = Binder(self.config.tree, self.find('resolv-config'))
+        self.binder = Binder(None, self.find('resolv-config'))
         self.find('items').new_item = lambda c: Item()
-        self.binder.autodiscover()
-        self.binder.populate()
+
+    def on_page_load(self):
+        self.config.load()
+        self.binder.reset(self.config.tree).autodiscover().populate()
 
     @on('save', 'click')
     def save(self):
