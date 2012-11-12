@@ -1,0 +1,6 @@
+<dtr>
+    <dth width="1%" />
+    <dth width="99%"><label text="Name" /></dth>
+    <dth width="1%"><label text="Version" /></dth>
+    <dth width="250" />
+</dtr>

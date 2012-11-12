@@ -59,6 +59,7 @@ class CollectionAutoBinding (Binding):
 
     def unpopulate(self):
         self.items_ui.children = copy.copy(self.old_items)
+        return self
 
     def populate(self):
         if self.field:

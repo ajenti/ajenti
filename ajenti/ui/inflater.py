@@ -18,6 +18,10 @@ class Inflater:
 
     def inflate_rec(self, node):
         tag = node.tag.replace('{', '').replace('}', ':')
+
+        if tag == 'include':
+            return self.inflate(node.attrib['layout'])
+
         cls = self.ui.get_class(tag)
         props = {}
 

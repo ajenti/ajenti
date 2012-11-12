@@ -7,19 +7,13 @@
 
     <pad id="bind-root">
         <tabs id="tabs">
-            <tab title="Upgradable">
-                <bind:collection bind="upgradeable">
+            <tab title="Upgradeable">
+                <bind:collection bind="upgradeable" id="upgradeable">
                     <dt bind="__items">
-                        <dtr>
-                            <dth width="99%"><label text="Name" /></dth>
-                            <dth width="1%"><label text="Version" /></dth>
-                        </dtr>
+                        <include layout="packages:headers" />
                     </dt>
                     <bind:template>
-                        <dtr>
-                            <dtd><label bind="name" /></dtd>
-                            <dtd><label bind="version" /></dtd>
-                        </dtr>
+                        <include layout="packages:row" />
                     </bind:template>
                 </bind:collection>
             </tab>
@@ -37,30 +31,23 @@
 
                 <bind:collection id="search">
                     <dt bind="__items">
-                        <dtr>
-                            <dth width="1%" />
-                            <dth width="99%"><label text="Name" /></dth>
-                            <dth width="1%"><label text="Version" /></dth>
-                        </dtr>
+                        <include layout="packages:headers" />
                     </dt>
                     <bind:template>
-                        <dtr>
-                            <dtd width="1%">
-                                <icon bind="_icon" />
-                            </dtd>
-                            <dtd>
-                                <vc>
-                                    <label bind="name" />
-                                    <label bind="description" style="small" />
-                                </vc>
-                            </dtd>
-                            <dtd />
-                        </dtr>
+                        <include layout="packages:row" />
                     </bind:template>
                 </bind:collection>
             </tab>
 
-            <tab title="Pending">
+            <tab title="Pending" id="bind-pending">
+                <bind:collection id="pending" bind="_pending">
+                    <dt bind="__items">
+                        <include layout="packages:headers" />
+                    </dt>
+                    <bind:template>
+                        <include layout="packages:row" />
+                    </bind:template>
+                </bind:collection>
             </tab>
         </tabs>
     </pad>

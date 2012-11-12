@@ -63,6 +63,8 @@
 	}
 
 	&.hc {
+		white-space: nowrap;
+
 		&> div {
 			float: left;
 			padding-right: 5px;
@@ -137,6 +139,12 @@
 		&.style-link {
 			.actionlink();
 			.box-shadow(none);
+		}
+
+		&.style-mini {
+			.button-style(#ddd);
+			min-width: 0;
+			width: auto;
 		}
 
 		i {
