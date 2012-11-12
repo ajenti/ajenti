@@ -79,7 +79,6 @@ class Notepad (SectionPlugin):
 
     @on('savedialog', 'select')
     def on_save_dialog_select(self, path):
-        print path
         self.select(self.selected)
         self.savedialog.visible = False
         self.controller.save(self.selected, path)

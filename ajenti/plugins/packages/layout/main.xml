@@ -1,0 +1,67 @@
+<vc xmlns:bind="bind">
+    <toolbar>
+        <hc>
+            <button id="get-lists" icon="refresh" text="Get lists" />
+        </hc>
+    </toolbar>
+
+    <pad id="bind-root">
+        <tabs id="tabs">
+            <tab title="Upgradable">
+                <bind:collection bind="upgradeable">
+                    <dt bind="__items">
+                        <dtr>
+                            <dth width="99%"><label text="Name" /></dth>
+                            <dth width="1%"><label text="Version" /></dth>
+                        </dtr>
+                    </dt>
+                    <bind:template>
+                        <dtr>
+                            <dtd><label bind="name" /></dtd>
+                            <dtd><label bind="version" /></dtd>
+                        </dtr>
+                    </bind:template>
+                </bind:collection>
+            </tab>
+
+            <tab title="Search">
+                <pad>
+                    <right>
+                        <hc>
+                            <textbox id="search-box" />
+                            <button id="search-button" icon="search" text="Search" />
+                        </hc>
+                    </right>
+                    <label id="search-counter" />
+                </pad>
+
+                <bind:collection id="search">
+                    <dt bind="__items">
+                        <dtr>
+                            <dth width="1%" />
+                            <dth width="99%"><label text="Name" /></dth>
+                            <dth width="1%"><label text="Version" /></dth>
+                        </dtr>
+                    </dt>
+                    <bind:template>
+                        <dtr>
+                            <dtd width="1%">
+                                <icon bind="_icon" />
+                            </dtd>
+                            <dtd>
+                                <vc>
+                                    <label bind="name" />
+                                    <label bind="description" style="small" />
+                                </vc>
+                            </dtd>
+                            <dtd />
+                        </dtr>
+                    </bind:template>
+                </bind:collection>
+            </tab>
+
+            <tab title="Pending">
+            </tab>
+        </tabs>
+    </pad>
+</vc>

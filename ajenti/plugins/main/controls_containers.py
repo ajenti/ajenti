@@ -63,3 +63,6 @@ class Tab (UIElement):
 @plugin
 class Tabs (UIElement):
     typeid = 'tabs'
+
+    def on_switch(self):
+        self.children_changed = True  # force update

@@ -31,7 +31,7 @@ class PropertyBinding (Binding):
         Binding.__init__(self, object, field, ui)
         if property is None:
             for prop in ui.properties.values():
-                if type(self.get()) in prop.bindtypes:
+                if type(self.get()) in prop.bindtypes or type(self.get()) == type(None):
                     self.property = prop.name
                     break
             else:
@@ -96,6 +96,7 @@ class CollectionAutoBinding (Binding):
             pass
 
         self.ui.post_bind(self.object, self.collection, self.ui)
+        return self
 
     def on_add(self):
         self.update()
@@ -128,12 +129,13 @@ class Binder (object):
 
     def autodiscover(self, object=None, ui=None):
         object = object or self.object
-        for k, v in object.__dict__.iteritems():
+        for k in dir(object):
+            v = getattr(object, k)
             children = (ui or self.ui).nearest(lambda x: x.bind == k)
             for child in children:
                 if child == ui:
                     raise Exception('Circular UI reference for %s!' % k)
-                if type(v) in [str, unicode, int, float, bool, property] or v is None:
+                if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None:
                     self.add(PropertyBinding(object, k, child))
                 elif type(v) not in [dict, list, tuple]:
                     self.autodiscover(v, child)

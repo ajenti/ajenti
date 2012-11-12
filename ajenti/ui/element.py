@@ -182,6 +182,8 @@ class UIElement (object):
                     return True
 
     def event(self, event, params=None):
+        if hasattr(self, 'on_%s' % event):
+            getattr(self, 'on_%s' % event)(**(params or {}))
         if event in self.events:
             self.events[event](*self.event_args[event], **(params or {}))
 
