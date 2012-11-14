@@ -9,7 +9,7 @@ import pyte
 
 
 class Terminal (object):
-    def __init__(self):
+    def __init__(self, command=None):
         self.protocol = None
         self.width = 160
         self.height = 35
@@ -21,10 +21,12 @@ class Terminal (object):
         env['LINES'] = str(self.height)
         env['LC_ALL'] = 'en_US.UTF8'
 
+        command = command or 'sh -c \"$SHELL\"',
+        print 'launching',   command
         pid, master = pty.fork()
         if pid == 0:
             p = sp.Popen(
-                'sh -c \"$SHELL\"',
+                command,
                 shell=True,
                 close_fds=True,
                 env=env,
@@ -54,6 +56,7 @@ class PTYProtocol():
         self.data = ''
         self.pid = pid
         self.master = master
+        self.dead = False
 
         fd = self.master
         fl = fcntl.fcntl(fd, fcntl.F_GETFL)
@@ -81,6 +84,9 @@ class PTYProtocol():
         for i in range(0, 45):
             try:
                 d = self.mstream.read()
+                #if not d:
+                #    self.dead = True
+                #    return self.format()
                 self.data += d
                 if len(self.data) > 0:
                     u = unicode(str(self.data))
@@ -90,7 +96,7 @@ class PTYProtocol():
             except IOError:
                 pass
             except UnicodeDecodeError:
-                print 'UNICODE'
+                pass
             gevent.sleep(0.33)
         return self.format()
 

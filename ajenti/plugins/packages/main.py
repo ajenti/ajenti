@@ -61,6 +61,26 @@ class Packages (SectionPlugin):
         self.pending[package.name] = package
         self.refresh()
 
+    @on('get-lists-button', 'click')
+    def on_get_lists(self):
+        self.mgr.get_lists()
+
+    @on('apply-button', 'click')
+    def on_apply(self):
+        self.mgr.do(self.pending.values())
+
+    @on('upgrade-all-button', 'click')
+    def on_upgrade_all(self):
+        for p in self.mgr.upgradeable:
+            p.action = 'i'
+            self.pending[p.name] = p
+        self.refresh()
+
+    @on('cancel-all-button', 'click')
+    def on_cancel_all(self):
+        self.pending = {}
+        self.refresh()
+
     def fill(self, packages):
         for p in packages:
             if p.name in self.pending:

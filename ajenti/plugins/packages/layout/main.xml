@@ -1,13 +1,22 @@
 <vc xmlns:bind="bind">
     <toolbar>
         <hc>
-            <button id="get-lists" icon="refresh" text="Get lists" />
+            <button id="get-lists-button" icon="refresh" text="Get lists" />
+            <button id="apply-button" icon="ok" text="Apply" />
         </hc>
     </toolbar>
 
     <pad id="bind-root">
         <tabs id="tabs">
             <tab title="Upgradeable">
+                <pad>
+                    <right>
+                        <hc>
+                            <button id="upgrade-all-button" icon="ok-sign" text="Upgrade all" />
+                        </hc>
+                    </right>
+                </pad>
+
                 <bind:collection bind="upgradeable" id="upgradeable">
                     <dt bind="__items">
                         <include layout="packages:headers" />
@@ -40,6 +49,14 @@
             </tab>
 
             <tab title="Pending" id="bind-pending">
+                <pad>
+                    <right>
+                        <hc>
+                            <button id="cancel-all-button" icon="remove-sign" text="Cancel all" />
+                        </hc>
+                    </right>
+                </pad>
+
                 <bind:collection id="pending" bind="_pending">
                     <dt bind="__items">
                         <include layout="packages:headers" />

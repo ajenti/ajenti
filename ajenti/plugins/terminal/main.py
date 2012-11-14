@@ -1,12 +1,12 @@
 from base64 import b64decode, b64encode
-import gzip
+import zlib
 import json
 from PIL import Image, ImageDraw
 import StringIO
 
 from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
-from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import UIElement, p, on
 
 from terminal import Terminal
@@ -33,14 +33,20 @@ class Terminals (SectionPlugin):
             thumb.on('close', self.on_close, k)
             list.append(thumb)
 
+    @intent('terminal')
+    def launch(self, command=None):
+        key = self.on_new(command)
+        self.context.endpoint.send_url('/terminal/%i' % key)
+
     @on('new-button', 'click')
-    def on_new(self):
+    def on_new(self, command=None):
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1
         else:
             key = 0
-        self.terminals[key] = Terminal()
+        self.terminals[key] = Terminal(command)
         self.refresh()
+        return key
 
     def on_close(self, k):
         self.terminals[k].kill()
@@ -100,8 +106,8 @@ class TerminalSocket (SocketPlugin):
 
     def on_message(self, message):
         if message['type'] == 'select':
-            self.id = message['tid']
-            self.terminal = self.context.session.terminals[int(message['tid'])]
+            self.id = int(message['tid'])
+            self.terminal = self.context.session.terminals[self.id]
             self.send_data(self.terminal.protocol.history())
             self.spawn(self.worker)
         if message['type'] == 'key':
@@ -111,10 +117,9 @@ class TerminalSocket (SocketPlugin):
     def worker(self):
         while True:
             self.send_data(self.terminal.protocol.read())
+            if self.terminal.protocol.dead:
+                del self.context.session.terminals[self.id]
+                return
 
     def send_data(self, data):
-        sio = StringIO.StringIO()
-        gz = gzip.GzipFile(fileobj=sio, mode='w')
-        gz.write(json.dumps(data))
-        gz.close()
-        self.emit('set', b64encode(sio.getvalue()))
+        self.emit('set', b64encode(zlib.compress(json.dumps(data))[2:-4]))

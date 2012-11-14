@@ -25,7 +25,16 @@ class PackageManager (BasePlugin):
     def init(self):
         self.upgradeable = []
 
+    def get_lists(self):
+        pass
+
     def refresh(self):
+        pass
+
+    def search(self, query):
+        return []
+
+    def do(self, actions):
         pass
 
 
@@ -42,7 +51,7 @@ class DebianPackageManager (PackageManager):
         out_s = subprocess.check_output(['apt-cache', 'search', query])
         r = []
         for l in out_s.split('\n'):
-            s = l.split()
+            s = filter(None, l.split(' '))
             if len(s) == 0:
                 continue
 
@@ -53,11 +62,20 @@ class DebianPackageManager (PackageManager):
             r.append(p)
         return r
 
+    def get_lists(self):
+        self.context.launch('terminal', command='apt-get update')
+
+    def do(self, actions):
+        cmd = 'apt-get install '
+        for a in actions:
+            cmd += a.name + {'r': '-', 'i': '+'}[a.action] + ' '
+        self.context.launch('terminal', command=cmd)
+
     def _parse_asv(self, d):
         r = []
         for l in d.split('\n'):
             s = l.split('/')
-            if len(s) == 0:
+            if len(s) == 0 or not s[0]:
                 continue
 
             p = PackageInfo()
@@ -68,7 +86,7 @@ class DebianPackageManager (PackageManager):
     def _parse_apt(self, d):
         r = []
         for l in d.split('\n'):
-            s = l.split()
+            s = filter(None, l.split(' '))
             if len(s) == 0:
                 continue
 
@@ -87,7 +105,7 @@ class DebianPackageManager (PackageManager):
     def _parse_dpkg(self, d):
         r = []
         for l in d.split('\n'):
-            s = l.split()
+            s = filter(None, l.split(' '))
             if len(s) == 0:
                 continue
 

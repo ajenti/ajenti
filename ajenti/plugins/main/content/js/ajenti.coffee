@@ -24,6 +24,8 @@ class window.Stream
             ajentiSecurityError()
         @socket.on 'notify', (data) ->
             Notificator.notify(data)
+        @socket.on 'url', (url) ->
+            window.open(url, '_blank')
 
     send: (message) ->
         console.log '>>', message

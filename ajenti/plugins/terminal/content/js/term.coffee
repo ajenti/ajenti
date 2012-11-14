@@ -22,12 +22,12 @@ class window.Terminal
         $(document).keypress (event) =>
             ch = @filter_key(event, $.browser.mozilla)
             if event.which != 13
-                @send(JXG.Util.Base64.encode(ch))
+                @send(RawDeflate.Base64.encode(ch))
             event.preventDefault()
 
         $(document).keyup (event) =>
             ch = @filter_key(event)
-            @send(JXG.Util.Base64.encode(ch))
+            @send(RawDeflate.Base64.encode(ch))
             event.preventDefault()
 
         @socket.on 'set', (data) =>
@@ -42,7 +42,8 @@ class window.Terminal
         @socket.send(JSON.stringify(type: 'key', key: ch, tid: @id))
 
     draw: (data) ->
-        data = JSON.parse(JXG.decompress(data))
+        data = RawDeflate.inflate(RawDeflate.Base64.decode(data))
+        data = JSON.parse(data)
 
         $('#term pre.cursor').removeClass('cursor');
 

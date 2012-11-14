@@ -50,12 +50,17 @@ class MainSocket (SocketPlugin):
             self.request.session.data['ui'] = ui
             ui.root = MainPage.new(ui)
             ui.root.username = self.request.session.identity
-            ui.root.append(SectionsRoot.new(ui))
+            sections_root = SectionsRoot.new(ui)
+            ui.root.append(sections_root)
+            ui._sections = sections_root.children
+            ui._sections_root = sections_root
 
         self.ui = self.request.session.data['ui']
         self.send_ui()
         self.spawn(self.ui_watcher)
         self.context.notify = self.send_notify
+        self.context.launch = self.launch
+        self.context.endpoint = self
 
     def on_message(self, message):
         try:
@@ -87,6 +92,9 @@ class MainSocket (SocketPlugin):
     def send_security_error(self):
         self.emit('security-error', '')
 
+    def send_url(self, url):
+        self.emit('url', url)
+
     def send_crash(self, exc):
         data = {
             'message': str(exc),
@@ -98,6 +106,16 @@ class MainSocket (SocketPlugin):
 
     def send_notify(self, text):
         self.emit('notify', text)
+
+    def switch_tab(self, tab):
+        self.ui._sections_root.on_switch(tab.uid)
+
+    def launch(self, intent, **data):
+        for section in self.ui._sections:
+            for handler in section._intents:
+                if handler == intent:
+                    section._intents[handler](**data)
+                    return
 
     def ui_watcher(self):
         while True:
