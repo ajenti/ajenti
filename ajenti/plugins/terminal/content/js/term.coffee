@@ -31,6 +31,7 @@ class window.Terminal
             event.preventDefault()
 
         @socket.on 'set', (data) =>
+            Loading.hide()
             @draw(data)
 
         @select()

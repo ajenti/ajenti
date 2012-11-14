@@ -10,5 +10,5 @@ class window.Controls.logs__log extends window.Control
             @socket.on 'add', @add
 
     add: (data) =>
-        @dom.val(@dom.val() + data)
-        @dom[0].scrollTop = @dom[0].scrollHeight;
+        $(@dom).val($(@dom).val() + data)
+        @dom.scrollTop = @dom.scrollHeight;

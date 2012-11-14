@@ -50,7 +50,7 @@ class window.Controls.openfiledialog extends Controls.dialog
 					new Controls.icon(@ui, { icon: 'folder-open' }),
 					new Controls.label(@ui, { text: dir })
 				])
-				item.dom.click () =>
+				$(item.dom).click () =>
 					@event('item-click', item: dir)
 				@container.append new Controls.listitem(@ui, {}, [item])
 		for file in @properties._files
@@ -59,7 +59,7 @@ class window.Controls.openfiledialog extends Controls.dialog
 					new Controls.icon(@ui, { icon: 'file' }),
 					new Controls.label(@ui, { text: file })
 				])
-				item.dom.click () =>
+				$(item.dom).click () =>
 					@event('item-click', item: file)
 				@container.append new Controls.listitem(@ui, {}, [item])
 
@@ -97,12 +97,11 @@ class window.Controls.savefiledialog extends Controls.dialog
 					new Controls.icon(@ui, { icon: 'folder-open' }),
 					new Controls.label(@ui, { text: dir })
 				])
-				item.dom.click () =>
+				$(item.dom).click () =>
 					@event('item-click', item: dir)
 				@container.append new Controls.listitem(@ui, {}, [item])
 
 	on_button: (params) =>
-		console.log params.button, params.button != 'ok'
 		if params.button != 'ok'
 			return true
 		if @input.properties.value.length > 0

@@ -6,30 +6,42 @@ class window.Stream
 
     start: () ->
         @socket = io.connect('/stream')
+
         @socket.on 'ui', (ui) ->
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
             console.log '<< ui', ui
             UI.clear()
             UI.replace(UI.inflate(ui))
+            Loading.hide()
+
+        @socket.on 'ack', () ->
+            Loading.hide()
+
         @socket.on 'update-request', () ->
             UI.checkForUpdates()
             UI.sendUpdates(true)
+            Loading.show()
+
         @socket.on 'crash', (data) ->
             data = JSON.parse(data)
             console.log 'CRASH:', data
             ajentiCrash(data)
+
         @socket.on 'security-error', () ->
             console.log 'SECURITY ERROR'
             ajentiSecurityError()
+
         @socket.on 'notify', (data) ->
             Notificator.notify(data)
+
         @socket.on 'url', (url) ->
             window.open(url, '_blank')
 
     send: (message) ->
         console.log '>>', message
         @socket.send JSON.stringify(message)
+        Loading.show()
     
     emit_ui_update: (updates) ->
         @send(type: 'ui_update', content: updates)
@@ -106,6 +118,42 @@ class window.UIManager
         @sendUpdates()
 
 
+class window.LoadingDim 
+    constructor: (@dom) ->
+        obj = @dom.find('.spinner')
+        dt = 0.030
+        worker = (ang, t) ->
+            UIUtil.rotate(obj, ang)
+            setTimeout(() ->
+                if obj.parent().length == 0
+                    return
+                rot = (Math.sin(t * 2) + 1) / 2 * 25 + 10
+                worker(ang + rot, t + dt)
+            , dt * 1000)
+        worker(0, 3.14 / 2)
+        @dom.show()
+
+    hide: () ->
+        @dom.stop().fadeTo(500, 0, () => @dom.hide())
+
+    show: () ->
+        @dom.show().stop().fadeTo(500, 1)
+
+
+window.UIUtil =
+    rotate: (obj, degree) ->
+        obj.css({
+        '-webkit-transform': 'rotate(' + degree + 'deg)',
+        '-moz-transform': 'rotate(' + degree + 'deg)',
+        '-ms-transform': 'rotate(' + degree + 'deg)',
+        '-o-transform': 'rotate(' + degree + 'deg)',
+        'transform': 'rotate(' + degree + 'deg)',
+        })
+
+
+$(() ->
+    window.Loading = new LoadingDim($('#loading'))
+)
 
 
 window.Controls = { }
@@ -165,10 +213,11 @@ class window.Control
         localHandler = this['on_' + event]
         if localHandler
             if not localHandler(params)
-                return
+                return false
         if not @uid or @properties.client
-            return
+            return false
         @ui.event(this, event, params)
+        return true
 
     _int_to_px: (i) ->
         if /^[0-9]+$/.test(i)

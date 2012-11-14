@@ -22,8 +22,11 @@ class Terminals (SectionPlugin):
 
         self.terminals = {}
         self.context.session.terminals = self.terminals
+
+    def on_page_load(self):
         self.refresh()
 
+    @intent('terminals:refresh')
     def refresh(self):
         list = self.find('list')
         list.empty()
@@ -117,8 +120,9 @@ class TerminalSocket (SocketPlugin):
     def worker(self):
         while True:
             self.send_data(self.terminal.protocol.read())
-            if self.terminal.protocol.dead:
+            if self.terminal.dead():
                 del self.context.session.terminals[self.id]
+                self.context.launch('terminals:refresh')
                 return
 
     def send_data(self, data):

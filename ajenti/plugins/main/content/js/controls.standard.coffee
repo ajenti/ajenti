@@ -80,8 +80,8 @@ class window.Controls.button extends window.Control
         icon = _make_icon(@properties.icon)
         @dom = $("""<a href="#" class="control button style-#{@properties.style}">#{icon}#{@properties.text}</a>""")
         @dom.click (e) =>
-            @event 'click'
-            @cancel(e)
+            if @event 'click'
+                @cancel(e)
 
 
 class window.Controls.formline extends window.Control
@@ -271,8 +271,8 @@ class window.Controls.listitem extends window.Control
         """)
         @childContainer = @dom
         @dom.click (e) =>
-            @event 'click'
-            @cancel(e)
+            if @event 'click'
+                @cancel(e)
 
 
 class window.Controls.toolbar extends window.Control

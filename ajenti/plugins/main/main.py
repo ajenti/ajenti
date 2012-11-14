@@ -76,6 +76,8 @@ class MainSocket (SocketPlugin):
                 if self.ui.has_updates():
                     self.ui.clear_updates()
                     self.send_ui()
+                else:
+                    self.send_ack()
         except SecurityError, e:
             self.send_security_error()
         except Exception, e:
@@ -85,6 +87,9 @@ class MainSocket (SocketPlugin):
         data = json.dumps(self.ui.render())
         data = b64encode(zlib.compress(data)[2:-4])
         self.emit('ui', data)
+
+    def send_ack(self):
+        self.emit('ack')
 
     def send_update_request(self):
         self.emit('update-request')

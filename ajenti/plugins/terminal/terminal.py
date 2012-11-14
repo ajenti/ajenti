@@ -22,7 +22,6 @@ class Terminal (object):
         env['LC_ALL'] = 'en_US.UTF8'
 
         command = command or 'sh -c \"$SHELL\"',
-        print 'launching',   command
         pid, master = pty.fork()
         if pid == 0:
             p = sp.Popen(
@@ -42,7 +41,7 @@ class Terminal (object):
         self.start()
 
     def dead(self):
-        return self.protocol is None
+        return self.protocol is None or self.protocol.dead
 
     def write(self, data):
         self.protocol.write(data)
@@ -68,25 +67,11 @@ class PTYProtocol():
         self.stream = pyte.Stream()
         self.stream.attach(self.term)
         self.data = ''
-        self.unblock()
-
-    def unblock(self):
-        fd = self.master
-        fl = fcntl.fcntl(fd, fcntl.F_GETFL)
-        fcntl.fcntl(fd, fcntl.F_SETFL, fl | os.O_NONBLOCK)
-
-    def block(self):
-        fd = self.master
-        fl = fcntl.fcntl(fd, fcntl.F_GETFL)
-        fcntl.fcntl(fd, fcntl.F_SETFL, fl - os.O_NONBLOCK)
 
     def read(self):
         for i in range(0, 45):
             try:
                 d = self.mstream.read()
-                #if not d:
-                #    self.dead = True
-                #    return self.format()
                 self.data += d
                 if len(self.data) > 0:
                     u = unicode(str(self.data))
@@ -98,7 +83,15 @@ class PTYProtocol():
             except UnicodeDecodeError:
                 pass
             gevent.sleep(0.33)
+
+            self._check()
         return self.format()
+
+    def _check(self):
+        try:
+            os.kill(self.pid, 0)
+        except:
+            self.dead = True
 
     def history(self):
         return self.format(full=True)
@@ -118,10 +111,8 @@ class PTYProtocol():
         return r
 
     def write(self, data):
-        self.block()
         self.mstream.write(data)
         self.mstream.flush()
-        self.unblock()
 
     def kill(self):
         os.kill(self.pid, 9)
