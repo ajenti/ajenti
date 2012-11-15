@@ -43,7 +43,7 @@ class ConsoleHandler (logging.StreamHandler):
         if record.levelname == 'ERROR':
             l = '\033[31mERROR\033[0m '
         s += l.ljust(9)
-        s += self.formatter.format(record)
+        s += record.msg % record.args
         s += '\n'
         self.stream.write(s)
 
