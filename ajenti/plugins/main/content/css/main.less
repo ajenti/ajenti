@@ -150,21 +150,16 @@ body {
 
     >.content {
         margin: 60px auto;
-        width: 600px;
+        width: 800px;
         padding: 20px;
-        background: rgba(0,0,0,.125);
-        border-left:    1px solid rgba(0,0,0,0.25);
-        border-top:     1px solid rgba(0,0,0,0.25);
-        border-right:   1px solid rgba(255,255,255,0.125);
-        border-bottom:  1px solid rgba(255,255,255,0.125);
-        .border-radius(15px);
 
         >.inner {
-            background: #f0f0f0;
             padding: 20px;
             overflow: hidden;
-            .border-radius(15px);
-            .box-shadow(@mainPaneShadow);
+
+            * {
+                color: rgba(255,255,255,.95);
+            }
 
             h1  {
                 color: @controlText;

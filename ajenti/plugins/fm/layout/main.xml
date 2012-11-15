@@ -65,7 +65,7 @@
                 <right>
                     <button id="clear-clipboard" icon="remove-sign" text="Empty" />
                 </right>
-                <label text="Clipboard" />
+                <label text="Clipboard" style="bold" />
                 <bind:collection bind="clipboard">
                     <pad>
                         <dt bind="__items">

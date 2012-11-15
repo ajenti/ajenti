@@ -34,6 +34,7 @@ class Dash (SectionPlugin):
     @on('refresh-button', 'click')
     def on_refresh(self):
         self.refresh()
+        a=1/0
 
     @on('add-button', 'click')
     def on_dialog_open(self):
