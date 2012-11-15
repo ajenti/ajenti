@@ -25,16 +25,73 @@ class FileManager (SectionPlugin):
             ui.find('name').on('click', self.on_bc_click, object, item)
         self.find('breadcrumbs').post_item_bind = post_bc_bind
 
-        self.binder = Binder(self.controller, self.find('filemanager'))
-        self.binder.autodiscover().populate()
-
+        self.binder = Binder(self.controller, self.find('filemanager')).autodiscover().populate()
+        self.clipboard = []
+        self.binder_c = Binder(self, self.find('filemanager')).autodiscover().populate()
         self.tabs = self.find('tabs')
+
+    def refresh_clipboard(self):
+        self.binder_c.reset().autodiscover().populate()
 
     @on('tabs', 'switch')
     def on_tab_switch(self):
         if self.tabs.active == (len(self.controller.tabs) - 1):
             self.controller.new_tab()
         self.refresh()
+
+    @on('close', 'click')
+    def on_tab_close(self):
+        if len(self.controller.tabs) > 1:
+            self.controller.tabs.pop(self.tabs.active)
+        self.tabs.active = 0
+        self.refresh()
+
+    @on('mass-cut', 'click')
+    def on_cut(self):
+        l = self._get_checked()
+        for i in l:
+            i.action = 'cut'
+        self.clipboard += l
+        self.refresh_clipboard()
+
+    @on('mass-copy', 'click')
+    def on_copy(self):
+        l = self._get_checked()
+        for i in l:
+            i.action = 'copy'
+        self.clipboard += l
+        self.refresh_clipboard()
+
+    @on('paste', 'click')
+    def on_paste(self):
+        tab = self.controller.tabs[self.tabs.active]
+        for i in self.clipboard:
+            if i.action == 'cut':
+                shutil.move(i.fullpath, tab.path)
+            else:
+                if os.path.isdir(i.fullpath):
+                    shutil.copytree(i.fullpath, os.path.join(tab.path, i.name))
+                else:
+                    shutil.copy(i.fullpath, os.path.join(tab.path, i.name))
+        self.clipboard = []
+        self.refresh_clipboard()
+        self.refresh()
+
+    def _get_checked(self):
+        self.binder.update()
+        tab = self.controller.tabs[self.tabs.active]
+        r = []
+        for item in tab.items:
+            if item.checked:
+                r.append(item)
+                item.checked = False
+        self.refresh()
+        return r
+
+    @on('clear-clipboard', 'click')
+    def on_clear_clipboard(self):
+        self.clipboard = []
+        self.refresh_clipboard()
 
     def on_item_click(self, tab, item):
         tab.navigate(os.path.join(tab.path, item.name))
@@ -85,7 +142,9 @@ class Tab (object):
 
 class Item (object):
     def __init__(self, path):
+        self.checked = False
         self.path, self.name = os.path.split(path)
+        self.fullpath = path
         self.isdir = os.path.isdir(path)
         self.icon = 'folder-close' if self.isdir else 'file'
         self.sizestr = '' if self.isdir else str_fsize(os.path.getsize(path))

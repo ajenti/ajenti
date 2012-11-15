@@ -58,6 +58,7 @@ class CollectionAutoBinding (Binding):
         self.old_items = copy.copy(self.items_ui.children)
 
     def unpopulate(self):
+        self.items_ui.empty()
         self.items_ui.children = copy.copy(self.old_items)
         return self
 
@@ -152,14 +153,17 @@ class Binder (object):
     def populate(self):
         for binding in self.bindings:
             binding.populate()
+        return self
 
     def unpopulate(self):
         for binding in self.bindings:
             binding.unpopulate()
+        return self
 
     def update(self):
         for binding in self.bindings:
             binding.update()
+        return self
 
 
 # Helper elements

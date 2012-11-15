@@ -1,7 +1,7 @@
 import mimetypes
 
 from ajenti.api import *
-from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 
 
@@ -68,8 +68,9 @@ class Notepad (SectionPlugin):
     def on_save_as(self):
         self.savedialog.visible = True
 
+    @intent('notepad')
     @on('opendialog', 'select')
-    def on_open_dialog_select(self, path):
+    def on_open_dialog_select(self, path=None):
         self.opendialog.visible = False
         self.select(self.controller.open(path))
 
