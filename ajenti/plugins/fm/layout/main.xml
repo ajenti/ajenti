@@ -50,7 +50,6 @@
                                         </dtd>
                                         <dtd>
                                             <hc>
-                                                <button id="rename" icon="pencil" text="Rename" />
                                             </hc>
                                         </dtd>
                                 	</dtr>
@@ -94,4 +93,52 @@
             </pad>
         </vc>
     </pad>
+
+    <dialog id="dialog" visible="False">
+        <pad>
+            <vc>
+                <label text="Name" style="bold" />
+                
+                <pad>
+                    <hc>
+                        <icon bind="icon" />
+                        <textbox bind="name" />
+                    </hc>
+                </pad>
+                
+                <label text="Access" style="bold" />
+                
+                <pad>
+                    <vc>
+                        <hc>
+                            <label text="Owner" />
+                            <editable bind="owner" />
+                        </hc>
+                        <hc>
+                            <checkbox text="R" bind="mod_ur" />
+                            <checkbox text="W" bind="mod_uw" />
+                            <checkbox text="X" bind="mod_ux" />
+                        </hc>
+                        <hc>
+                            <label text="Group" />
+                            <editable bind="group" />
+                        </hc>
+                        <hc>
+                            <checkbox text="R" bind="mod_gr" />
+                            <checkbox text="W" bind="mod_gw" />
+                            <checkbox text="X" bind="mod_gx" />
+                        </hc>
+                        <hc>
+                            <label text="Others" />
+                        </hc>
+                        <hc>
+                            <checkbox text="R" bind="mod_ar" />
+                            <checkbox text="W" bind="mod_aw" />
+                            <checkbox text="X" bind="mod_ax" />
+                        </hc>
+                    </vc>
+                </pad>
+            </vc>
+        </pad>
+    </dialog>
 </vc> 

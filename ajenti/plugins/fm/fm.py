@@ -1,4 +1,8 @@
 import os
+import shutil
+import stat
+import pwd
+import grp
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
@@ -29,6 +33,12 @@ class FileManager (SectionPlugin):
         self.clipboard = []
         self.binder_c = Binder(self, self.find('filemanager')).autodiscover().populate()
         self.tabs = self.find('tabs')
+
+        self.find('dialog').buttons = [
+            {'id': 'save', 'text': 'Save'},
+            {'id': 'cancel', 'text': 'Cancel'},
+        ]
+
 
     def refresh_clipboard(self):
         self.binder_c.reset().autodiscover().populate()
@@ -62,6 +72,15 @@ class FileManager (SectionPlugin):
         self.clipboard += l
         self.refresh_clipboard()
 
+    @on('mass-delete', 'click')
+    def on_delete(self):
+        for i in self._get_checked():
+            if os.path.isdir(i.fullpath):
+                shutil.rmtree(i.fullpath)
+            else:
+                os.unlink(i.fullpath)
+        self.refresh()
+
     @on('paste', 'click')
     def on_paste(self):
         tab = self.controller.tabs[self.tabs.active]
@@ -94,14 +113,32 @@ class FileManager (SectionPlugin):
         self.refresh_clipboard()
 
     def on_item_click(self, tab, item):
-        tab.navigate(os.path.join(tab.path, item.name))
+        path = os.path.join(tab.path, item.name)
+        if not os.path.isdir(path):
+            self.edit(path)
+        tab.navigate(path)
         self.refresh()
+
+    def edit(self, path):
+        self.find('dialog').visible = True
+        self.item = Item(path)
+        self.item.read()
+        self.binder_d = Binder(self.item, self.find('dialog')).autodiscover().populate()
+
+    @on('dialog', 'button')
+    def on_close_dialog(self, button):
+        self.find('dialog').visible = False
+        if button == 'save':
+            self.binder_d.update()
+            self.item.write()
 
     def on_bc_click(self, tab, item):
         tab.navigate(item.path)
         self.refresh()
 
     def refresh(self):
+        for tab in self.controller.tabs:
+            tab.refresh()
         self.binder.populate()
 
 
@@ -122,6 +159,11 @@ class Tab (object):
             self.navigate(path)
         else:
             self.shortpath = '+'
+            self.path = None
+
+    def refresh(self):
+        if self.path:
+            self.navigate(self.path)
 
     def navigate(self, path):
         if not os.path.isdir(path):
@@ -141,6 +183,18 @@ class Tab (object):
 
 
 class Item (object):
+    stat_bits = [
+        stat.S_IRUSR,
+        stat.S_IWUSR,
+        stat.S_IXUSR,
+        stat.S_IRGRP,
+        stat.S_IWGRP,
+        stat.S_IXGRP,
+        stat.S_IROTH,
+        stat.S_IWOTH,
+        stat.S_IXOTH,
+    ]
+
     def __init__(self, path):
         self.checked = False
         self.path, self.name = os.path.split(path)
@@ -148,6 +202,28 @@ class Item (object):
         self.isdir = os.path.isdir(path)
         self.icon = 'folder-close' if self.isdir else 'file'
         self.sizestr = '' if self.isdir else str_fsize(os.path.getsize(path))
+
+    def read(self):
+        stat = os.stat(self.fullpath)
+        self.owner = pwd.getpwuid(stat.st_uid)[0]
+        self.group = grp.getgrgid(stat.st_gid)[0]
+        self.mod_ur, self.mod_uw, self.mod_ux, \
+            self.mod_gr, self.mod_gw, self.mod_gx, \
+            self.mod_ar, self.mod_aw, self.mod_ax = [
+                (stat.st_mode & Item.stat_bits[i] != 0)
+                for i in range(0, 9)
+            ]
+
+    def write(self):
+        mods = [self.mod_ur, self.mod_uw, self.mod_ux, \
+            self.mod_gr, self.mod_gw, self.mod_gx, \
+            self.mod_ar, self.mod_aw, self.mod_ax]
+        chmod = sum(
+                Item.stat_bits[i] * (1 if mods[i] else 0)
+                for i in range(0, 9)
+            )
+        os.chmod(self.fullpath, chmod)
+        os.chown(self.fullpath, pwd.getpwnam(self.owner)[2], grp.getgrnam(self.group)[2])
 
 
 class Breadcrumb (object):
