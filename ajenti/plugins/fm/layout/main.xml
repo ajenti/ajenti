@@ -4,6 +4,8 @@
             <button id="close" icon="remove-sign" text="Close" />
         </right>
         <hc>
+            <button id="new-file" icon="file" text="New File" />
+            <button id="new-dir" icon="folder-close" text="New Folder" />
             <button id="mass-cut" icon="chevron-right" text="Cut" />
             <button id="mass-copy" icon="fast-forward" text="Copy" />
             <button id="paste" icon="chevron-down" text="Paste" />
@@ -49,8 +51,7 @@
                                             <label bind="sizestr" />
                                         </dtd>
                                         <dtd>
-                                            <hc>
-                                            </hc>
+                                            <button id="edit" icon="list" text="Properties" />
                                         </dtd>
                                 	</dtr>
                                 </bind:template>

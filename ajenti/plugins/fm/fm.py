@@ -23,6 +23,7 @@ class FileManager (SectionPlugin):
 
         def post_item_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_item_click, object, item)
+            ui.find('edit').on('click', self.edit, item.fullpath)
         self.find('items').post_item_bind = post_item_bind
 
         def post_bc_bind(object, collection, item, ui):
@@ -39,7 +40,6 @@ class FileManager (SectionPlugin):
             {'id': 'cancel', 'text': 'Cancel'},
         ]
 
-
     def refresh_clipboard(self):
         self.binder_c.reset().autodiscover().populate()
 
@@ -54,6 +54,16 @@ class FileManager (SectionPlugin):
         if len(self.controller.tabs) > 1:
             self.controller.tabs.pop(self.tabs.active)
         self.tabs.active = 0
+        self.refresh()
+
+    @on('new-file', 'click')
+    def on_new_file(self):
+        open(os.path.join(self.controller.tabs[self.tabs.active].path, 'new file'), 'w').close()
+        self.refresh()
+
+    @on('new-dir', 'click')
+    def on_new_directory(self):
+        os.mkdir(os.path.join(self.controller.tabs[self.tabs.active].path, 'new directory'))
         self.refresh()
 
     @on('mass-cut', 'click')
@@ -131,6 +141,7 @@ class FileManager (SectionPlugin):
         if button == 'save':
             self.binder_d.update()
             self.item.write()
+            self.refresh()
 
     def on_bc_click(self, tab, item):
         tab.navigate(item.path)
@@ -224,6 +235,7 @@ class Item (object):
             )
         os.chmod(self.fullpath, chmod)
         os.chown(self.fullpath, pwd.getpwnam(self.owner)[2], grp.getgrnam(self.group)[2])
+        os.rename(self.fullpath, os.path.join(self.path, self.name))
 
 
 class Breadcrumb (object):
