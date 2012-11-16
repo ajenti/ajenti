@@ -10,7 +10,7 @@ class window.Stream
         @socket.on 'ui', (ui) ->
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
-            console.log '<< ui', ui
+            console.log 'Received update', ui
             UI.clear()
             UI.replace(UI.inflate(ui))
             Loading.hide()
@@ -38,8 +38,15 @@ class window.Stream
         @socket.on 'url', (url) ->
             window.open(url, '_blank')
 
+        @socket.on 'debug', (data) ->
+            data = JSON.parse(data)
+            console.group 'Profiling'
+            for d in data.profiles
+                console.log d[0], d[1]
+            console.groupEnd()
+
     send: (message) ->
-        console.log '>>', message
+        console.log 'Sending updates', message
         @socket.send JSON.stringify(message)
         Loading.show()
     

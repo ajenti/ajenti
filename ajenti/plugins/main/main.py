@@ -4,8 +4,10 @@ from base64 import b64encode
 import zlib
 import traceback
 
+import ajenti
 from ajenti.api import *
 from ajenti.api.http import *
+from ajenti.debug import *
 from ajenti.middleware import AuthenticationMiddleware
 from ajenti.users import PermissionProvider, UserManager, SecurityError
 from ajenti.ui import *
@@ -65,26 +67,36 @@ class MainSocket (SocketPlugin):
     def on_message(self, message):
         try:
             if message['type'] == 'ui_update':
+                profile('Total')
                 for update in message['content']:
                     if update['type'] == 'event':
+                        profile('Handling event')
                         self.ui.dispatch_event(update['uid'], update['event'], update['params'])
+                        profile_end('Handling event')
                     if update['type'] == 'update':
+                        profile('Handling updates')
                         el = self.ui.find_uid(update['uid'])
                         for k, v in update['properties'].iteritems():
                             el.properties[k].set(v)
                             el.properties[k].dirty = False
+                        profile_end('Handling updates')
                 if self.ui.has_updates():
                     self.ui.clear_updates()
                     self.send_ui()
                 else:
                     self.send_ack()
+                profile_end('Total')
+                if ajenti.debug:
+                    self.send_debug()
         except SecurityError, e:
             self.send_security_error()
         except Exception, e:
             self.send_crash(e)
 
     def send_ui(self):
+        profile('Rendering')
         data = json.dumps(self.ui.render())
+        profile_end('Rendering')
         data = b64encode(zlib.compress(data)[2:-4])
         self.emit('ui', data)
 
@@ -99,6 +111,12 @@ class MainSocket (SocketPlugin):
 
     def send_url(self, url):
         self.emit('url', url)
+
+    def send_debug(self):
+        data = {
+            'profiles': get_profiles()
+        }
+        self.emit('debug', json.dumps(data))
 
     def send_crash(self, exc):
         data = {
