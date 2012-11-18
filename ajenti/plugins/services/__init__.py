@@ -13,4 +13,5 @@ info = PluginInfo(
 def init():
     import api
     import sm_upstart
+    import sm_sysvinit
     import main

@@ -201,5 +201,5 @@ class SectionsRoot (UIElement):
         for child in self.children:
             child.active = child.uid == uid
             if child.active:
-                child.on_page_load()
+                child.broadcast('on_page_load')
             child.visible = child.active

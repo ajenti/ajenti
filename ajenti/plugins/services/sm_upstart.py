@@ -19,8 +19,7 @@ class UpstartServiceManager (ServiceManager):
             obj = self.bus.get_object("com.ubuntu.Upstart", job)
             jprops = obj.GetAll("com.ubuntu.Upstart0_6.Job", dbus_interface=dbus.PROPERTIES_IFACE)
 
-            s = Service()
-            s.name = str(jprops['name'])
+            s = UpstartService(str(jprops['name']))
 
             paths = obj.GetAllInstances(dbus_interface="com.ubuntu.Upstart0_6.Job")
             if len(paths) > 0:
@@ -33,11 +32,16 @@ class UpstartServiceManager (ServiceManager):
             r.append(s)
         return r
 
-    def start(self, service):
-        subprocess.call(['start', service.name])
 
-    def stop(self, service):
-        subprocess.call(['stop', service.name])
+class UpstartService (Service):
+    def __init__(self, name):
+        self.name = name
 
-    def restart(self, service):
-        subprocess.call(['restart', service.name])
+    def start(self):
+        subprocess.call(['start', self.name])
+
+    def stop(self):
+        subprocess.call(['stop', self.name])
+
+    def restart(self):
+        subprocess.call(['restart', self.name])

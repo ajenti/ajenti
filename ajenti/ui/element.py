@@ -168,6 +168,13 @@ class UIElement (object):
                 if child.has_updates():
                     child.clear_updates()
 
+    def broadcast(self, method, *args, **kwargs):
+        if hasattr(self, method):
+            getattr(self, method)(*args, **kwargs)
+
+        for child in self.children:
+            child.broadcast(method, *args, **kwargs)
+
     def dispatch_event(self, uid, event, params=None):
         if self.uid == uid:
             self.event(event, params)
