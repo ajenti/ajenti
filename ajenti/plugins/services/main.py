@@ -1,6 +1,6 @@
 from ajenti.api import *
 from ajenti.ui.binder import Binder
-from ajenti.ui import p, UIElement
+from ajenti.ui import p, UIElement, on
 from ajenti.plugins.main.api import SectionPlugin
 
 from api import ServiceMultiplexor
@@ -53,8 +53,26 @@ class ServiceControlBar (UIElement):
     typeid = "servicebar"
 
     def init(self):
+        self.service = ServiceMultiplexor.get().get_one(self.name)
         self.append(self.ui.inflate('services:bar'))
-        self.find('name').text = self.name
 
     def on_page_load(self):
-        pass
+        self.service.refresh()
+        self.find('start').visible = not self.service.running
+        self.find('stop').visible = self.service.running
+        self.find('restart').visible = self.service.running
+
+    @on('start', 'click')
+    def on_start(self):
+        self.service.start()
+        self.on_page_load()
+
+    @on('restart', 'click')
+    def on_restart(self):
+        self.service.restart()
+        self.on_page_load()
+
+    @on('stop', 'click')
+    def on_stop(self):
+        self.service.stop()
+        self.on_page_load()

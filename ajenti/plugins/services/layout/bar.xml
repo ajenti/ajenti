@@ -1,6 +1,5 @@
 <toolbar>
     <hc>
-        <label id="name" style="bold" />
         <button id="start" icon="play" text="Start" />
         <button id="stop" icon="stop" text="Stop" />
         <button id="restart" icon="step-forward" text="Restart" />

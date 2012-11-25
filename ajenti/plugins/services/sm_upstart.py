@@ -37,6 +37,9 @@ class UpstartService (Service):
     def __init__(self, name):
         self.name = name
 
+    def refresh(self):
+        self.running = 'running' in subprocess.check_output(['status', self.name])
+
     def start(self):
         subprocess.call(['start', self.name])
 

@@ -12,6 +12,11 @@ class ServiceMultiplexor (object):
             r += mgr.get_all()
         return r
 
+    def get_one(self, name):
+        for s in self.get_all():
+            if s.name == name:
+                return s
+
 
 @interface
 class ServiceManager (object):

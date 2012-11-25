@@ -4,7 +4,7 @@ from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 from reconfigure.configs import FSTabConfig
-from reconfigure.items.fstab import Filesystem
+from reconfigure.builders.fstab import FilesystemBuilder
 
 import disks
 
@@ -16,12 +16,12 @@ class Filesystems (SectionPlugin):
         self.category = 'System'
         self.append(self.ui.inflate('fstab:main'))
 
-        self.find('type').items = ['Auto', 'EXT2', 'EXT3', 'EXT4', 'NTFS', 'FAT', 'ZFS', 'ReiserFS', 'None', 'Loop']
+        self.find('type').labels = ['Auto', 'EXT2', 'EXT3', 'EXT4', 'NTFS', 'FAT', 'ZFS', 'ReiserFS', 'None', 'Loop']
         self.find('type').values = ['auto', 'ext2', 'ext3', 'ext4', 'ntfs', 'vfat', 'zfs', 'reiser', 'none', 'loop']
 
         self.config = FSTabConfig(path='/etc/fstab')
         self.binder = Binder(None, self.find('fstab-config'))
-        self.find('filesystems').new_item = lambda c: Filesystem()
+        self.find('filesystems').new_item = lambda c: FilesystemBuilder.empty()
 
     def on_page_load(self):
         self.reload_disks()
@@ -30,7 +30,7 @@ class Filesystems (SectionPlugin):
 
     def reload_disks(self):
         lst = disks.list_devices(by_uuid=True, by_id=True, by_label=True)
-        self.find('device').items = [x[0] for x in lst]
+        self.find('device').labels = [x[0] for x in lst]
         self.find('device').values = [x[1] for x in lst]
 
     @on('save', 'click')

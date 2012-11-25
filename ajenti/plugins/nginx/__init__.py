@@ -5,7 +5,8 @@ from ajenti.plugins import *
 info = PluginInfo(
     title='NGINX',
     dependencies=[
-        PluginDependency('main')
+        PluginDependency('main'),
+        PluginDependency('services'),
     ],
 )
 

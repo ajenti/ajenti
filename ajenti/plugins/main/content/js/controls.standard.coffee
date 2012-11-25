@@ -200,9 +200,10 @@ class window.Controls.combobox extends window.Control
         """)
         @input = @dom.find('input')
         @data = []
-        for i in [0..@properties.items.length]
+        console.log @properties
+        for i in [0..@properties.labels.length]
             do (i) =>
-                @data.push {label: @properties.items[i], value: @properties.values[i]}
+                @data.push {label: @properties.labels[i], value: @properties.values[i]}
         @input.autocomplete source: @data
 
     detectUpdates: () ->

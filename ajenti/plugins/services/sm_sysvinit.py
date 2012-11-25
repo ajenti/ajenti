@@ -30,6 +30,9 @@ class SysVInitService (Service):
         self.name = name
         self.script = '/etc/init.d/%s' % self.name
 
+    def refresh(self):
+        self.running = subprocess.call([self.script, 'status']) == 0
+
     def start(self):
         subprocess.call([self.script, 'start'])
 
