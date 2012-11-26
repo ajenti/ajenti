@@ -19,6 +19,7 @@ class Icon (UIElement):
 @p('text', default='', bindtypes=[str, unicode])
 @p('icon', default=None)
 @p('style', default='normal')
+@p('warning', default=None)
 @plugin
 class Button (UIElement):
     typeid = 'button'

@@ -8,8 +8,6 @@ from api import ServiceMultiplexor
 
 @plugin
 class Services (SectionPlugin):
-    default_classconfig = {'widgets': []}
-
     def init(self):
         self.title = 'Services'
         self.category = 'Software'

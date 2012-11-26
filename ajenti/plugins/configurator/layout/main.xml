@@ -41,7 +41,7 @@
                                 <collapserow>
                                     <box>
                                         <right>
-                                            <button bind="__delete" icon="remove" text="Delete" style="circle" />
+                                            <button bind="__delete" icon="remove" text="Delete" style="circle" warning="Confirm deletion" />
                                         </right>
                                         <hc>
                                             <icon icon="user" />

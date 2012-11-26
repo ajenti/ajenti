@@ -31,6 +31,8 @@ class Inflater:
                 if prop.name == key:
                     if prop.type in [int, float, unicode, eval]:
                         value = prop.type(value)
+                    elif prop.type in [list]:
+                        value = eval(value)
                     elif prop.type == bool:
                         value = value == 'True'
                     props[key] = value

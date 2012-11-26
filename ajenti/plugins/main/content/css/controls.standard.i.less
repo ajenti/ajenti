@@ -223,6 +223,16 @@
 		}
 	}
 
+	&.dropdown {
+		.size(@controlHeight - 2px, @controlWidth);
+		line-height: @controlHeight;
+		padding: 1px 0 1px;
+		text-decoration: none;
+		color: @controlText;
+		.button-style(#ddd);
+		text-transform: none;
+	}
+
 	&.combobox {
 		.control-textinput();
 	}

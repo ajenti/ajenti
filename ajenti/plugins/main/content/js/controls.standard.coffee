@@ -80,8 +80,9 @@ class window.Controls.button extends window.Control
         icon = _make_icon(@properties.icon)
         @dom = $("""<a href="#" class="control button style-#{@properties.style}">#{icon}#{@properties.text}</a>""")
         @dom.click (e) =>
-            if @event 'click'
-                @cancel(e)
+            if not @properties.warning or confirm(@properties.warning)
+                if @event 'click'
+                    @cancel(e)
 
 
 class window.Controls.formline extends window.Control
@@ -193,6 +194,28 @@ class window.Controls.checkbox extends window.Control
         return r
 
 
+class window.Controls.dropdown extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div><select class="control dropdown" /></div>
+        """)
+        @input = @dom.find('select')
+        @data = []
+        for i in [0...@properties.labels.length]
+            do (i) =>
+                @input.append("""<option value="#{@properties.values[i]}" #{if @properties.values[i] == @properties.value then 'selected' else ''}>#{@properties.labels[i]}</option>""")
+
+    detectUpdates: () ->
+        r = {}
+        value = @input.val()
+        if @properties.type == 'integer'
+            value = parseInt(value)
+        if value != @properties.value
+            r.value = value
+        @properties.value = value
+        return r
+
+
 class window.Controls.combobox extends window.Control
     createDom: () ->
         @dom = $("""
@@ -200,8 +223,7 @@ class window.Controls.combobox extends window.Control
         """)
         @input = @dom.find('input')
         @data = []
-        console.log @properties
-        for i in [0..@properties.labels.length]
+        for i in [0...@properties.labels.length]
             do (i) =>
                 @data.push {label: @properties.labels[i], value: @properties.values[i]}
         @input.autocomplete source: @data

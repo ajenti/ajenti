@@ -51,7 +51,7 @@ class FileManager (SectionPlugin):
 
     @on('close', 'click')
     def on_tab_close(self):
-        if len(self.controller.tabs) > 1:
+        if len(self.controller.tabs) > 2:
             self.controller.tabs.pop(self.tabs.active)
         self.tabs.active = 0
         self.refresh()

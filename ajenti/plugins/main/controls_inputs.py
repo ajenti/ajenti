@@ -24,16 +24,16 @@ class CheckBox (UIElement):
     typeid = 'checkbox'
 
 
-@p('labels', default=[])
-@p('values', default=[])
+@p('labels', default=[], type=list)
+@p('values', default=[], type=list)
 @p('value', default='', bindtypes=[str, unicode])
 @plugin
 class Dropdown (UIElement):
     typeid = 'dropdown'
 
 
-@p('labels', default=[])
-@p('values', default=[])
+@p('labels', default=[], type=list)
+@p('values', default=[], type=list)
 @p('value', default='', bindtypes=[str, unicode])
 @plugin
 class Combobox (UIElement):
