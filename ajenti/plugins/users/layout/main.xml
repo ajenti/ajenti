@@ -2,6 +2,9 @@
     <toolbar>
         <hc>
             <button id="add-user" icon="plus" text="Add user" />
+            <inputdialog id="input-username" text="Username:" visible="False" />
+            <button id="add-group" icon="plus" text="Add group" />
+            <inputdialog id="input-groupname" text="Group name:" visible="False" />
         </hc>
     </toolbar>
 

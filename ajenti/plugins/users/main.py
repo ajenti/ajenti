@@ -1,3 +1,5 @@
+import subprocess
+
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
@@ -18,6 +20,8 @@ class Users (SectionPlugin):
         self.binder = Binder(None, self.find('passwd-config'))
         self.binder_g = Binder(None, self.find('group-config'))
 
+        self.mgr = UsersBackend.get()
+
     def on_page_load(self):
         self.refresh()
 
@@ -35,6 +39,24 @@ class Users (SectionPlugin):
         self.binder.reset(self.config.tree).autodiscover().populate()
         self.binder_g.reset(self.config_g.tree).autodiscover().populate()
 
+    @on('add-user', 'click')
+    def on_add_user(self):
+        self.find('input-username').visible = True
+
+    @on('input-username', 'submit')
+    def on_add_user_done(self, value):
+        self.mgr.add_user(value)
+        self.refresh()
+
+    @on('add-group', 'click')
+    def on_add_group(self):
+        self.find('input-groupname').visible = True
+
+    @on('input-groupname', 'submit')
+    def on_add_group_done(self, value):
+        self.mgr.add_group(value)
+        self.refresh()
+
     @on('save-users', 'click')
     def save_users(self):
         self.binder.update()
@@ -44,3 +66,23 @@ class Users (SectionPlugin):
     def save_groups(self):
         self.binder_g.update()
         self.config_g.save()
+
+
+@interface
+class UsersBackend (object):
+    def add_user(self, name):
+        pass
+
+    def add_group(self, name):
+        pass
+
+
+@plugin
+class LinuxUsersBackend (UsersBackend):
+    platforms = ['debian']
+
+    def add_user(self, name):
+        subprocess.call(['useradd', name])
+
+    def add_group(self, name):
+        subprocess.call(['groupadd', name])

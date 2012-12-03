@@ -11,6 +11,18 @@ class Dialog (UIElement):
     typeid = 'dialog'
 
 
+@p('text', default='Input value:', type=unicode)
+@p('value', default='', bindtypes=[str, unicode], type=unicode)
+@plugin
+class InputDialog (UIElement):
+    typeid = 'inputdialog'
+
+    def on_button(self, button):
+        if button == 'ok':
+            self.reverse_event('submit', {'value': self.value})
+        self.visible = False
+
+
 @p('_files', default=[], type=list)
 @p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)

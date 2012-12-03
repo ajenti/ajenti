@@ -22,6 +22,14 @@ class PluginInfo:
 
 
 def plugin(cls):
+    if hasattr(cls, 'verify'):
+        if not cls.verify():
+            return
+
+    if hasattr(cls, 'platforms'):
+        if not ajenti.platform in cls.platforms:
+            return
+
     manager.register_implementation(cls)
     cls._plugin = True
     cls._path = inspect.getfile(cls)
@@ -45,7 +53,10 @@ def _check_plugin(cls):
 
 def interface(cls):
     def get(cls):
-        return manager.get_instance(manager.get_implementations(cls)[0])
+        impls = manager.get_implementations(cls)
+        if len(impls) == 0:
+            raise Exception('Implementations for %s not found' % cls.__name__)
+        return manager.get_instance(impls[0])
     cls.get = get.__get__(cls)
 
     def get_all(cls):

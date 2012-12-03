@@ -69,10 +69,6 @@ class MainSocket (SocketPlugin):
             if message['type'] == 'ui_update':
                 profile('Total')
                 for update in message['content']:
-                    if update['type'] == 'event':
-                        profile('Handling event')
-                        self.ui.dispatch_event(update['uid'], update['event'], update['params'])
-                        profile_end('Handling event')
                     if update['type'] == 'update':
                         profile('Handling updates')
                         el = self.ui.find_uid(update['uid'])
@@ -80,6 +76,10 @@ class MainSocket (SocketPlugin):
                             el.properties[k].set(v)
                             el.properties[k].dirty = False
                         profile_end('Handling updates')
+                    if update['type'] == 'event':
+                        profile('Handling event')
+                        self.ui.dispatch_event(update['uid'], update['event'], update['params'])
+                        profile_end('Handling event')
                 if self.ui.has_updates():
                     self.ui.clear_updates()
                     self.send_ui()

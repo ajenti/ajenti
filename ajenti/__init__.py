@@ -51,6 +51,7 @@ def detect_platform():
     platform_mapping = {
         'ubuntu': 'debian',
         'linuxmint': 'debian',
+        'elementary os': 'debian',
     }
 
     if platform.system() != 'Linux':
@@ -69,7 +70,7 @@ def detect_platform():
         except:
             dist = 'unknown'
 
-    res = dist.strip().lower()
+    res = dist.strip(' \'"\t\n\r').lower()
     if res in base_mapping:
         res = base_mapping[res]
 
