@@ -4,6 +4,7 @@
             <dtr>
                 <dth width="1%" />
                 <dth><label text="Name" /></dth>
+                <dth width="10%"><label text="Origin" /></dth>
                 <dth width="1%"><label text="Actions" /></dth>
             </dtr>
         </dt>
@@ -11,6 +12,7 @@
             <dtr>
                 <dtd><icon bind="icon" /></dtd>
                 <dtd><label bind="name" /></dtd>
+                <dtd><label bind="source" /></dtd>
                 <dtd>
                     <hc>
                         <button id="start" icon="play" text="Start" />

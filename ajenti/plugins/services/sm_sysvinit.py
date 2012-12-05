@@ -26,6 +26,8 @@ class SysVInitServiceManager (ServiceManager):
 
 
 class SysVInitService (Service):
+    source = 'sysvinit'
+
     def __init__(self, name):
         self.name = name
         self.script = '/etc/init.d/%s' % self.name

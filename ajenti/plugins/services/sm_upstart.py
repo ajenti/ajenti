@@ -34,6 +34,8 @@ class UpstartServiceManager (ServiceManager):
 
 
 class UpstartService (Service):
+    source = 'upstart'
+
     def __init__(self, name):
         self.name = name
 

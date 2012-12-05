@@ -11,9 +11,6 @@
                             <right>
                                 <hc>
                                     <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
-                                    <button id="start" icon="play" text="Start" />
-                                    <button id="stop" icon="stop" text="Stop" />
-                                    <button id="restart" icon="step-forward" text="Restart" />
                                 </hc>
                             </right>
                             <hc>

@@ -1,4 +1,5 @@
 from ajenti.api import *
+from ajenti.util import cache_value
 
 
 @plugin
@@ -6,6 +7,7 @@ class ServiceMultiplexor (object):
     def init(self):
         self.managers = ServiceManager.get_all()
 
+    @cache_value(1)
     def get_all(self):
         r = []
         for mgr in self.managers:
@@ -25,6 +27,8 @@ class ServiceManager (object):
 
 
 class Service (object):
+    source = 'unknown'
+
     def __init__(self):
         self.name = None
         self.running = False

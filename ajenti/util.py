@@ -1,5 +1,6 @@
 import traceback
 import logging
+import time
 
 
 def str_fsize(sz):
@@ -26,6 +27,23 @@ def str_timedelta(s):
     if s > 0:
         r = '%i days, ' % s + r
     return r
+
+
+def cache_value(duration):
+    def decorator(fx):
+        fx.__cached = None
+        fx.__cached_at = 0
+
+        def wrapper(*args, **kwargs):
+            if time.time() - fx.__cached_at > duration:
+                val = fx(*args, **kwargs)
+                fx.__cached = val
+                fx.__cached_at = time.time()
+            else:
+                val = fx.__cached
+            return val
+        return wrapper
+    return decorator
 
 
 def make_report():

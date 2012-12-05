@@ -23,7 +23,7 @@ class DiskSpaceWidget (ConfigurableWidget):
     def on_config_start(self):
         device_list = self.dialog.find('device')
         lst = self.sensor.get_variants()
-        device_list.items = lst
+        device_list.labels = lst
         device_list.values = lst
         device_list.value = self.config['device']
 

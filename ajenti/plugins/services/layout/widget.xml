@@ -1,0 +1,19 @@
+<hc>
+    <box width="20">
+        <icon id="icon" />
+    </box>
+    <box width="230">
+        <label id="name" style="bold" text="---" />
+    </box>
+    <button style="mini" id="start" icon="play" visible="False" />
+    <button style="mini" id="stop" icon="stop" visible="False" />
+    <button style="mini" id="restart" icon="step-forward" visible="False" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="Service">
+                <dropdown id="service" bind="service" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>
