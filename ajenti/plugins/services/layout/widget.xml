@@ -2,7 +2,7 @@
     <box width="20">
         <icon id="icon" />
     </box>
-    <box width="230">
+    <box width="220">
         <label id="name" style="bold" text="---" />
     </box>
     <button style="mini" id="start" icon="play" visible="False" />

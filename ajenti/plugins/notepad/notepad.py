@@ -46,6 +46,9 @@ class Notepad (SectionPlugin):
             item.find('close').on('click', self.on_close, id)
             item.find('close').visible = len(self.controller.files.keys()) > 1
             item.on('click', self.select, id)
+
+            if file['path'] in self.classconfig['bookmarks']:
+                item.find('icon').icon = 'tag'
             self.list.append(item)
 
     @on('new-button', 'click')
@@ -91,7 +94,7 @@ class Notepad (SectionPlugin):
         self.savedialog.visible = False
 
     def on_close(self, id):
-        for self.controller.files[id]['path'] in self.classconfig['bookmarks']:
+        if self.controller.files[id]['path'] in self.classconfig['bookmarks']:
             self.classconfig['bookmarks'].remove(self.controller.files[id]['path'])
             self.save_classconfig()
         self.controller.close(id)
@@ -99,8 +102,10 @@ class Notepad (SectionPlugin):
 
     @on('bookmark-button', 'click')
     def on_bookmark(self):
-        self.classconfig['bookmarks'].append(self.controller.files[self.selected]['path'])
-        self.save_classconfig()
+        if not self.controller.files[self.selected]['path'] in self.classconfig['bookmarks']:
+            self.classconfig['bookmarks'].append(self.controller.files[self.selected]['path'])
+            self.save_classconfig()
+        self.select(self.selected)
 
 
 class Controller (object):
