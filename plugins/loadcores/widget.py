@@ -7,7 +7,7 @@ from ajenti.utils import *
 class CoresWidget(Plugin):
     implements(apis.dashboard.IWidget)
     title = 'Load Cores'
-    icon = '/dl/loadcores/widget.png'
+    icon = '/dl/loadcores/icon.png'
     name = 'Load Cores'
     style = 'normal'
 
