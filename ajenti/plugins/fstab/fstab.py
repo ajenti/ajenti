@@ -4,7 +4,7 @@ from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 from reconfigure.configs import FSTabConfig
-from reconfigure.builders.fstab import FilesystemBuilder
+from reconfigure.items.fstab import FilesystemData
 
 import disks
 
@@ -21,7 +21,7 @@ class Filesystems (SectionPlugin):
 
         self.config = FSTabConfig(path='/etc/fstab')
         self.binder = Binder(None, self.find('fstab-config'))
-        self.find('filesystems').new_item = lambda c: FilesystemBuilder.empty()
+        self.find('filesystems').new_item = lambda c: FilesystemData()
 
     def on_page_load(self):
         self.reload_disks()

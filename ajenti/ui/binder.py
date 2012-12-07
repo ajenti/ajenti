@@ -132,6 +132,7 @@ class Binder (object):
     def autodiscover(self, object=None, ui=None):
         object = object or self.object
         for k in dir(object):
+            #print object, k, dir(object)
             v = getattr(object, k)
             children = (ui or self.ui).nearest(lambda x: x.bind == k)
             for child in children:
@@ -139,11 +140,11 @@ class Binder (object):
                     raise Exception('Circular UI reference for %s!' % k)
                 if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None:
                     self.add(PropertyBinding(object, k, child))
-                elif type(v) not in [dict, list, tuple]:
+                elif not hasattr(v, '__iter__'):
                     self.autodiscover(v, child)
                 else:
                     if not child.typeid.startswith('bind:collection'):
-                        raise Exception('Collection only binds to <bind:collection />')
+                        raise Exception('Collection %s (%s) only binds to <bind:collection />' % (k, type(v)))
                     self.add(child.binding()(object, k, child))
         return self
 
