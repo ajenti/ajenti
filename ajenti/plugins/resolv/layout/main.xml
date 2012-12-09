@@ -19,7 +19,7 @@
                         <pad>
                             <vc>
                                 <formline text="Type">
-                                    <combobox id="name-box" bind="name" />
+                                    <dropdown id="name-box" bind="name" />
                                 </formline>
                                 <formline text="Value">
                                     <textbox bind="value" />

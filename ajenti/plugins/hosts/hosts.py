@@ -4,7 +4,7 @@ from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 from reconfigure.configs import HostsConfig
-from reconfigure.items.hosts import Alias, Host
+from reconfigure.items.hosts import AliasData, HostData
 
 
 @plugin
@@ -17,8 +17,8 @@ class Hosts (SectionPlugin):
 
         self.config = HostsConfig(path='/etc/hosts')
         self.binder = Binder(None, self.find('hosts-config'))
-        self.find('aliases').new_item = lambda c: Alias()
-        self.find('hosts').new_item = lambda c: Host()
+        self.find('aliases').new_item = lambda c: AliasData()
+        self.find('hosts').new_item = lambda c: HostData()
 
     def on_page_load(self):
         self.config.load()

@@ -4,7 +4,7 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 
 from reconfigure.configs import SupervisorConfig
-from reconfigure.builders.supervisor import ProgramBuilder
+from reconfigure.items.supervisor import ProgramData
 
 from client import SupervisorServiceManager
 
@@ -17,7 +17,7 @@ class Supervisor (SectionPlugin):
         self.append(self.ui.inflate('supervisor:main'))
         self.mgr = SupervisorServiceManager.get()
         self.binder = Binder(None, self.find('main'))
-        self.find('programs').new_item = lambda c: ProgramBuilder.empty()
+        self.find('programs').new_item = lambda c: ProgramData()
         self.config = SupervisorConfig(path='/etc/supervisor/supervisord.conf')
 
     def on_page_load(self):

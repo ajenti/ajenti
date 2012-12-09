@@ -35,7 +35,7 @@ class Users (SectionPlugin):
                 return u - 10000
             return u
 
-        self.config.tree.users = sorted(self.config.tree.users, key=_sorter)
+        self.config.tree.users.sort(_sorter)
         self.binder.reset(self.config.tree).autodiscover().populate()
         self.binder_g.reset(self.config_g.tree).autodiscover().populate()
 
