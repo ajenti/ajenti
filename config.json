@@ -15,6 +15,11 @@
                 "section:Configurator"
             ]
         }, 
+        "unnamed": {
+            "configs": {}, 
+            "password": "sha512|$6$rounds=40000$f2sI1BuJO58kzotH$tqc.jofTjZnAm8ef5azmtFtAaIAbv4zMNd4g5X0y1zBcnUuLeNB30DcpE2tHSmn7TbwB9.dU/OSTvdWdy3eXZ1", 
+            "permissions": []
+        }, 
         "root": {
             "configs": {
                 "ajenti.plugins.packages.api.DebianPackageManager": "null", 
@@ -44,7 +49,9 @@
                 "ajenti.plugins.fstab.widget.DiskSpaceWidget": "null"
             }, 
             "password": "sha512|$6$rounds=40000$XAlmdP.m6NeQ3N/l$6dBlXwV9E9rEIyi9STBVQPxx/gzf7OfmRuaJrbEqmAfna0ip1QQyNelGF16IxSppToRvPtvfI7i2R.HON83D3/", 
-            "permissions": []
+            "permissions": [
+                "section:Dash"
+            ]
         }
     }, 
     "ssl": {

@@ -182,10 +182,10 @@ class UIElement (object):
         else:
             for child in self.children:
                 if child.dispatch_event(uid, event, params):
-                    for v in self.__class__.__dict__.values():
+                    for k, v in self.__class__.__dict__.iteritems():
                         if hasattr(v, '_event_id'):
                             if self.find(v._event_id).uid == uid and v._event_name == event:
-                                getattr(self, v.__name__)(**(params or {}))
+                                getattr(self, k)(**(params or {}))
                     return True
 
     def event(self, event, params=None):

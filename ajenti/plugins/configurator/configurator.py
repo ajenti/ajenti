@@ -4,7 +4,7 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
 from ajenti.users import UserManager, PermissionProvider, restrict
-from reconfigure.items.ajenti import User
+from reconfigure.items.ajenti import UserData
 
 
 @plugin
@@ -17,7 +17,7 @@ class Configurator (SectionPlugin):
         self.append(self.ui.inflate('configurator:main'))
 
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
-        self.find('users').new_item = lambda c: User('Unnamed', '')
+        self.find('users').new_item = lambda c: UserData()
 
         def post_user_bind(object, collection, item, ui):
             box = ui.find('permissions')
@@ -42,15 +42,15 @@ class Configurator (SectionPlugin):
 
         self.binder.autodiscover().populate()
 
-    @restrict('configurator:configure')
     @on('save-button', 'click')
+    @restrict('configurator:configure')
     def save(self):
         self.binder.update()
         for user in ajenti.config.tree.users.values():
             if not '|' in user.password:
                 user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
-        ajenti.config.save()
+        print ajenti.config.save()
         self.context.notify('Saved')
 
 

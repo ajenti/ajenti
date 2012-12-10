@@ -5,6 +5,8 @@ import copy
 import ajenti
 from ajenti.plugins import manager
 
+from reconfigure.items.ajenti import ConfigData
+
 
 class PluginInfo:
     def __init__(self, **kwargs):
@@ -97,7 +99,9 @@ class BasePlugin (object):
         self.context = extract_context()
 
         if self.context:
-            self.classconfig = self.context.user.configs.setdefault(self.classname, copy.deepcopy(self.default_classconfig))
+            config = ConfigData()
+            config.data = copy.deepcopy(self.default_classconfig)
+            self.classconfig = self.context.user.configs.setdefault(self.classname, config).data
 
     def open_content(self, path, mode='r'):
         _check_plugin(self.__class__)
