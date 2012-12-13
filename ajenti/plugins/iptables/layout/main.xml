@@ -1,0 +1,65 @@
+<pad xmlns:bind="bind">
+    <box id="config">
+        <bind:collection bind="tables" id="tables">
+            <tabs bind="__items" />
+            <bind:template>
+                <tab bind="name">
+                    <pad>
+                        <vc>
+                            <bind:collection bind="chains" id="chains">
+                                <button bind="__add" icon="plus" text="New Chain" />
+                                <vc bind="__items" />
+                                <bind:template>
+                                    <vc>
+                                        <right>
+                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                        </right>
+
+                                        <label bind="name" style="bold" />
+                                        
+                                        <bind:collection bind="rules" id="rules">
+                                            <dt bind="__items" />
+
+                                            <bind:template>
+                                                <collapserow>
+                                                    <box>
+                                                        <right>
+                                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                                        </right>
+                                                        <label text="test" />
+                                                    </box>
+                                                    <dtd>
+                                                        <pad>
+
+                                                            <bind:collection bind="options" id="options">
+                                                                <dt bind="__items" />
+                                                                
+                                                                <bind:template>
+                                                                    <dtr>
+                                                                        <dtd>
+                                                                            <label bind="name" />
+                                                                        </dtd>
+                                                                    </dtr>
+                                                                </bind:template>
+                                                                <button bind="__add" icon="plus" text="New Option" />
+                                                            </bind:collection>
+                                                        </pad>
+                                                    </dtd>
+                                                </collapserow>
+                                            </bind:template>
+
+                                            <box height="5" />
+                                            <button bind="__add" icon="plus" text="New Rule" />
+                                        </bind:collection>
+                                    </vc>
+                                </bind:template>
+                            </bind:collection>
+                        </vc>
+                    </pad>
+                </tab>
+            </bind:template>
+            <button bind="__add" visible="False" />
+        </bind:collection>
+        <button id="save" text="Save" />
+    </box>
+</pad> 

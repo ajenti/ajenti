@@ -101,7 +101,8 @@ class BasePlugin (object):
         if self.context:
             config = ConfigData()
             config.data = copy.deepcopy(self.default_classconfig)
-            self.classconfig = self.context.user.configs.setdefault(self.classname, config).data
+            if self.default_classconfig:
+                self.classconfig = self.context.user.configs.setdefault(self.classname, config).data
 
     def open_content(self, path, mode='r'):
         _check_plugin(self.__class__)

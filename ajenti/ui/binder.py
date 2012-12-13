@@ -53,16 +53,23 @@ class CollectionAutoBinding (Binding):
     def __init__(self, object, field, ui):
         Binding.__init__(self, object, field, ui)
         self.template = ui.find_type('bind:template')
+        self.template_parent = self.template.parent
         self.template.visible = False
         self.items_ui = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
         self.old_items = copy.copy(self.items_ui.children)
 
     def unpopulate(self):
+        self.template_parent.append(self.template)
         self.items_ui.empty()
         self.items_ui.children = copy.copy(self.old_items)
         return self
 
+    def _element_in_child_binder(self, root, e):
+        return any(x.typeid.startswith('bind:') for x in root.path_to(e))
+
     def populate(self):
+        self.template_parent.remove(self.template)
+
         if self.field:
             self.collection = getattr(self.object, self.field)
         else:
@@ -83,18 +90,18 @@ class CollectionAutoBinding (Binding):
 
             try:
                 del_button = template.nearest(lambda x: x.bind == '__delete')[0]
-                if del_button:
+                if not self._element_in_child_binder(template, del_button):
                     del_button.on('click', self.on_delete, value)
-            except:
+            except IndexError:
                 pass
 
             self.ui.post_item_bind(self.object, self.collection, value, template)
 
         try:
             add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
-            if add_button is not None:
+            if not self._element_in_child_binder(self.ui, add_button):
                 add_button.on('click', self.on_add)
-        except:
+        except IndexError:
             pass
 
         self.ui.post_bind(self.object, self.collection, self.ui)

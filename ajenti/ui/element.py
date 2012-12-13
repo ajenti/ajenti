@@ -76,8 +76,11 @@ class UIElement (object):
         if not hasattr(self, '_properties'):
             self._properties = []
 
+        self.parent = None
+
         self.children = []
-        self.children.extend(children)
+        for c in children:
+            self.append(c)
         self.children_changed = False
 
         self.properties = {}
@@ -99,7 +102,9 @@ class UIElement (object):
         o = copy.copy(self)
         o.uid = UIElement.__generate_id()
         o.setstate(copy.deepcopy(self.getstate()))
-        o.children = [c.clone() for c in self.children]
+        o.children = []
+        for c in self.children:
+            o.append(c.clone())
         return o
 
     def init(self):
@@ -129,6 +134,13 @@ class UIElement (object):
 
     def contains(self, element):
         return len(self.nearest(lambda x: x == element)) > 0
+
+    def path_to(self, element):
+        r = []
+        while element != self:
+            r.insert(0, element)
+            element = element.parent
+        return r
 
     def render(self):
         result = {
@@ -203,8 +215,10 @@ class UIElement (object):
 
     def append(self, child):
         self.children.append(child)
+        child.parent = self
         self.children_changed = True
 
     def remove(self, child):
         self.children.remove(child)
+        child.parent = None
         self.children_changed = True
