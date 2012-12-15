@@ -7,7 +7,10 @@ class DiskUsageMeter(LinearMeter):
     transform = 'percent'
    
     def get_usage(self, dev):
-        u = shell('df --total | grep -w %s' % dev)
+        if detect_platform() == 'freebsd':
+            u = shell('df -c -t ufs,zfs | grep -w %s' % dev)
+        else:
+            u = shell('df --total | grep -w %s' % dev)
         if dev == 'total':
             u = int(u.split().pop().strip('%'))
         else:
