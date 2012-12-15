@@ -26,22 +26,13 @@
                                                         <right>
                                                             <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
                                                         </right>
-                                                        <label text="test" />
+                                                        <label bind="summary" />
                                                     </box>
                                                     <dtd>
                                                         <pad>
-
                                                             <bind:collection bind="options" id="options">
-                                                                <dt bind="__items" />
-                                                                
-                                                                <bind:template>
-                                                                    <dtr>
-                                                                        <dtd>
-                                                                            <label bind="name" />
-                                                                        </dtd>
-                                                                    </dtr>
-                                                                </bind:template>
-                                                                <button bind="__add" icon="plus" text="New Option" />
+                                                                <vc bind="__items" />
+                                                                <dropdown id="add-option" server="True" />
                                                             </bind:collection>
                                                         </pad>
                                                     </dtd>

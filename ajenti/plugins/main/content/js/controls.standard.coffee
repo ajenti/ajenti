@@ -205,6 +205,11 @@ class window.Controls.dropdown extends window.Control
             do (i) =>
                 @input.append("""<option value="#{@properties.values[i]}" #{if @properties.values[i] == @properties.value then 'selected' else ''}>#{@properties.labels[i]}</option>""")
 
+        if @properties.server
+            @input.change (e) =>
+                @event('change', {})
+                @cancel(e)
+
     detectUpdates: () ->
         r = {}
         value = @input.val()

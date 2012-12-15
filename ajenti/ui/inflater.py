@@ -4,6 +4,10 @@ import os
 from ajenti.plugins import manager
 
 
+class TemplateNotFoundError (Exception):
+    pass
+
+
 class Inflater:
     def __init__(self, ui):
         self.ui = ui
@@ -12,7 +16,10 @@ class Inflater:
     def inflate(self, layout):
         if not layout in self.cache:
             plugin, path = layout.split(':')
-            file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
+            try:
+                file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
+            except IOError, e:
+                raise TemplateNotFoundError(e)
             self.cache[layout] = etree.parse(file)
         return self.inflate_rec(self.cache[layout].getroot())
 

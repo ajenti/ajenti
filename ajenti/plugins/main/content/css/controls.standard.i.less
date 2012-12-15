@@ -229,13 +229,14 @@
 	}
 
 	&.dropdown {
-		.size(@controlHeight - 2px, @controlWidth);
 		line-height: @controlHeight;
-		padding: 1px 0 1px;
+		padding: 1px 5px 1px !important;
 		text-decoration: none;
 		color: @controlText;
 		.button-style(#ddd);
+		.size(@controlHeight + 2px, @controlWidth2);
 		text-transform: none;
+    	-webkit-appearance: none;
 	}
 
 	&.combobox {
