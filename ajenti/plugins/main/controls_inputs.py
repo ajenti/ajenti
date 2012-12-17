@@ -35,6 +35,7 @@ class Dropdown (UIElement):
 
 @p('labels', default=[], type=list)
 @p('values', default=[], type=list)
+@p('separator', default=None, type=str)
 @p('value', default='', bindtypes=[str, unicode])
 @plugin
 class Combobox (UIElement):

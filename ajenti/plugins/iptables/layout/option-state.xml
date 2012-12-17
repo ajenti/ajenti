@@ -1,0 +1,13 @@
+<hc xmlns:bind="bind">
+    <bind:list bind="arguments">
+        <bind:item>
+            <hc>
+                <label text="States" />
+                <combobox bind="value" separator="," 
+                    labels="['NEW','ESTABLISHED','INVALID','RELATED','UNTRACKED']" 
+                    values="['NEW','ESTABLISHED','INVALID','RELATED','UNTRACKED']" 
+                />
+            </hc>
+        </bind:item>
+    </bind:list>
+</hc>

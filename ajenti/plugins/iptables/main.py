@@ -34,19 +34,18 @@ class Firewall (SectionPlugin):
             u.find('action-select').labels = actions
             u.find('action-select').values = actions
             action = ''
-            for o in i.options:
-                if o.name in ['j', 'jump']:
-                    action = o.arguments[0].value
+            j_option = i.get_option('j', 'jump')
+            if j_option:
+                action = j_option.arguments[0].value
             u.find('action').text = action
             u.find('action').style = 'iptables-action iptables-%s' % action
             u.find('action-select').value = action
 
         def post_rule_update(o, c, i, u):
             action = u.find('action-select').value
-            for o in i.options:
-                if o.name in ['j', 'jump']:
-                    o.arguments[0].value = action
-                    break
+            j_option = i.get_option('j', 'jump')
+            if j_option:
+                j_option.arguments[0].value = action
             else:
                 o = OptionData.create_destination()
                 o.arguments[0].value = action
@@ -55,8 +54,7 @@ class Firewall (SectionPlugin):
         self.find('rules').post_item_bind = post_rule_bind
         self.find('rules').post_item_update = post_rule_update
 
-        self.find('add-option').values = [''] + OptionData.templates.keys()
-        self.find('add-option').labels = ['Add option'] + OptionData.templates.keys()
+        self.find('add-option').values = self.find('add-option').labels = ['Add option'] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
         self.config.load()
@@ -82,6 +80,14 @@ class OptionsBinding (CollectionAutoBinding):
     option_map = {
         's': 'source',
         'src': 'source',
+        'i': 'in-interface',
+        'o': 'out-interface',
+        'sport': 'source-port',
+        'dport': 'destination-port',
+        'sports': 'source-ports',
+        'dports': 'destination-ports',
+        'm': 'match',
+        'p': 'protocol',
     }
 
     template_map = {
@@ -90,7 +96,9 @@ class OptionsBinding (CollectionAutoBinding):
         'in-interface': 'interface',
         'out-interface': 'interface',
         'source-port': 'port',
-        'destination-port': 'port',
+        'destination-port': 'ports',
+        'source-ports': 'port',
+        'destination-ports': 'ports',
     }
 
     def get_template(self, item, ui):
