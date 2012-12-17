@@ -7,7 +7,7 @@ from ajenti.ui.inflater import TemplateNotFoundError
 from ajenti.ui.binder import Binder, CollectionAutoBinding
 
 from reconfigure.configs import IPTablesConfig
-from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionData, ArgumentData
+from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionData
 
 
 @plugin
@@ -84,6 +84,15 @@ class OptionsBinding (CollectionAutoBinding):
         'src': 'source',
     }
 
+    template_map = {
+        'source': 'address',
+        'destination': 'address',
+        'in-interface': 'interface',
+        'out-interface': 'interface',
+        'source-port': 'port',
+        'destination-port': 'port',
+    }
+
     def get_template(self, item, ui):
         root = ui.ui.inflate('iptables:option')
         try:
@@ -92,7 +101,12 @@ class OptionsBinding (CollectionAutoBinding):
                 option = OptionsBinding.option_map[option]
             item.name = option
             item.cmdline = '--%s' % option
-            option_ui = ui.ui.inflate('iptables:option-%s' % option)
+
+            if option in OptionsBinding.template_map:
+                template = OptionsBinding.template_map[option]
+            else:
+                template = option
+            option_ui = ui.ui.inflate('iptables:option-%s' % template)
             root.find('slot').append(option_ui)
         except TemplateNotFoundError:
             pass

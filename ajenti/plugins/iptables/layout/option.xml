@@ -3,8 +3,12 @@
         <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
     </right>
     <hc>
-        <label bind="cmdline" style="bold" />
-        <label bind="title" style="bold" />
+        <box width="120">
+            <hc>
+                <label bind="cmdline" style="bold" />
+                <label bind="title" style="bold" />
+            </hc>
+        </box>
         <box id="slot" />
     </hc>
 </box>
