@@ -231,7 +231,9 @@ class window.Controls.combobox extends window.Control
         for i in [0...@properties.labels.length]
             do (i) =>
                 @data.push {label: @properties.labels[i], value: @properties.values[i]}
-        @input.autocomplete source: @data
+        @input.autocomplete source: @data, minLength: 0
+        @input.click () =>
+            @input.autocomplete 'search', ''
 
     detectUpdates: () ->
         r = {}
@@ -315,11 +317,41 @@ class window.Controls.toolbar extends window.Control
 class window.Controls.dt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table" style="width: #{w}"></table>""")
+        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table" style="width: #{w}">
+                <tbody></tbody>
+            </table>""")
         @childContainer = @dom#.find('>tbody')
 
     wrapChild: (child) ->
         return child.dom
+
+
+class window.Controls.sortabledt extends window.Controls.dt
+    createDom: () ->
+        super()
+        @tbody = @dom.find('tbody')
+        @tbody.sortable().disableSelection()
+        @order = []
+
+    detectUpdates: () ->
+        @newOrder = []
+        @tbody.find('>*').each (i, e) =>
+            @newOrder.push parseInt($(e).attr('data-order'))
+
+        r = {}
+        if @newOrder != @order and @order.length > 0
+            r.order = @newOrder
+
+        @order = @newOrder
+        return r
+
+    wrapChild: (child) ->
+        $(child.dom).attr('data-order', @children.length)
+        return child.dom
+
+    append: (child) ->
+        super(child)
+        @order.push @children.length
 
 
 class window.Controls.dtr extends window.Control

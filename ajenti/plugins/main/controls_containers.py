@@ -40,6 +40,13 @@ class Table (UIElement):
     typeid = 'dt'
 
 
+@p('sortable', default=True, type=bool)
+@p('order', default='', type=str)
+@plugin
+class SortableTable (Table):
+    typeid = 'sortabledt'
+
+
 @p('width', default=None)
 @plugin
 class TableCell (UIElement):

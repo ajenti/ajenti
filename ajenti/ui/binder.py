@@ -131,6 +131,9 @@ class CollectionAutoBinding (Binding):
         self.item_ui = {}
         self.binders = {}
         for value in self.values:
+            if not self.ui.filter(value):
+                continue
+
             if value in old_item_ui:
                 template = old_item_ui[value]
             else:
@@ -176,9 +179,19 @@ class CollectionAutoBinding (Binding):
         self.populate()
 
     def update(self):
+        if hasattr(self.items_ui, 'sortable'):
+            new_values = []
+            for i in self.items_ui.order:
+                if i - 1 < len(self.collection):
+                    new_values.append(self.collection[i - 1])
+            while len(self.collection) > 0:
+                self.collection.pop(0)
+            for e in new_values:
+                self.collection.append(e)
         for value in self.values:
-            self.binders[value].update()
-            self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
+            if self.ui.filter(value):
+                self.binders[value].update()
+                self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
 
 
 class Binder (object):
@@ -251,6 +264,7 @@ class ListElement (UIElement):
 @p('post_item_update', default=lambda o, c, i, u: None, type=eval, public=False)
 @p('binding', default=CollectionAutoBinding, type=eval, public=False)
 @p('values', default=lambda c: c, type=eval, public=False)
+@p('filter', default=lambda i: True, type=eval, public=False)
 @plugin
 class CollectionElement (UIElement):
     typeid = 'bind:collection'
