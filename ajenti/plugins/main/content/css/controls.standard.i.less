@@ -103,6 +103,47 @@
 		}
 	}
 
+	&.tooltip {
+		position: relative;
+		display: inline-block;
+		overflow: visible;
+
+		>* {
+			float:left;
+		}
+
+		>.tip {
+			opacity: 0;
+			float: left;
+			.transition(opacity 1s);
+
+			>* {
+				float: left;
+			}
+
+			>:first-child {
+				border-style: solid;
+				border-color: transparent rgba(0,0,0,.75);
+				border-width: 5px 5px 5px 0;
+				margin: 10px 0 0;
+			}
+
+			>:last-child {
+				margin: 4px 0 0;
+
+				background: rgba(0,0,0,.75);
+				color: white;
+				padding: 3px 8px;
+				.border-radius(3px);
+			}
+		}
+
+		&:hover > .tip {
+			display: block;
+			opacity: 1;
+		}
+	}
+
 	&.icon {
 		.size(@controlHeight, auto);
 		display: inline-block;

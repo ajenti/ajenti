@@ -9,6 +9,13 @@ class Label (UIElement):
     typeid = 'label'
 
 
+@p('text', default='', bindtypes=[str, unicode, int])
+@p('style', default='')
+@plugin
+class Tooltip (UIElement):
+    typeid = 'tooltip'
+
+
 @p('icon', default=None, bindtypes=[str, unicode])
 @p('style', default='normal')
 @plugin

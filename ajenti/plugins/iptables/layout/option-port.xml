@@ -3,7 +3,9 @@
         <bind:item>
             <hc>
                 <label text="Port" />
-                <textbox bind="value" type="integer" />
+                <tooltip text="Prepend '!' to invert the condition">
+                    <textbox bind="value" type="integer" />
+                </tooltip>
             </hc>
         </bind:item>
     </bind:list>

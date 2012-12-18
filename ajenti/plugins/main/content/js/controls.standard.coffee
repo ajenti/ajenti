@@ -69,10 +69,25 @@ class window.Controls.label extends window.Control
         @dom = $("""<span class="control label #{@properties.style}">#{@properties.text}</span>""")
 
 
+class window.Controls.tooltip extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <span class="control tooltip #{@properties.style}">
+                <div class="container"></div>
+                <div class="tip">
+                    <div></div>
+                    <div>#{@properties.text}</div>
+                </div>
+            </span>
+        """)
+        @childContainer = @dom.find('.container')
+
+
 class window.Controls.icon extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
         @dom = $("""<div class="control icon style-#{@properties.style}">#{icon}</div>""")
+
 
 
 class window.Controls.button extends window.Control

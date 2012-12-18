@@ -93,6 +93,7 @@ class OptionsBinding (CollectionAutoBinding):
     template_map = {
         'source': 'address',
         'destination': 'address',
+        'mac-source': 'address',
         'in-interface': 'interface',
         'out-interface': 'interface',
         'source-port': 'port',
