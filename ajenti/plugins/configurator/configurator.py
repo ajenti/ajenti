@@ -11,7 +11,7 @@ from reconfigure.items.ajenti import UserData
 class Configurator (SectionPlugin):
     def init(self):
         self.title = 'Configure'
-        self.category = 'Ajenti'
+        self.category = ''
         self.order = 50
 
         self.append(self.ui.inflate('configurator:main'))

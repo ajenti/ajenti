@@ -4,6 +4,17 @@ class window.Controls.main__page extends window.Control
             <div class="control container main-page"> 
                 <div class="header">
                     <div class="container">
+                        
+                        <div class="logo">
+                            <div class="box one"></div>
+                            <div class="box two"></div>
+                            <div class="box three"></div>
+
+                            <div class="corner one"></div>
+                            <div class="corner two"></div>
+                            <div class="corner three"></div>
+                        </div>
+
                         <div class="userbox">
                             <div class="logout">
                                 <a href="/logout"><i class="icon-off icon-white"></i></a>

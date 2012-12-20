@@ -176,7 +176,7 @@ class SectionsCategory (UIElement):
 class SectionsRoot (UIElement):
     typeid = 'main:sections_root'
     category_order = {
-        'Ajenti': 0,
+        '': 0,
         'System': 50,
         'Tools': 60,
         'Software': 80,

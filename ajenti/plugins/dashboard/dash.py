@@ -1,5 +1,3 @@
-import gevent
-
 from ajenti.api import *
 from ajenti.api.sensors import Sensor
 from ajenti.ui.binder import CollectionAutoBinding
@@ -15,7 +13,7 @@ class Dash (SectionPlugin):
 
     def init(self):
         self.title = 'Dashboard'
-        self.category = 'Ajenti'
+        self.category = ''
         self.order = 0
 
         self.append(self.ui.inflate('dashboard:dash'))
