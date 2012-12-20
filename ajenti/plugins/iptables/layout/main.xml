@@ -1,66 +1,74 @@
-<pad xmlns:bind="bind">
-    <box id="config">
-        <bind:collection bind="tables" id="tables">
-            <tabs bind="__items" />
-            <bind:template>
-                <tab bind="name">
-                    <pad>
-                        <vc>
-                            <bind:collection bind="chains" id="chains">
-                                <button bind="__add" icon="plus" text="New Chain" />
-                                <vc bind="__items" />
-                                <bind:template>
-                                    <vc>
-                                        <right>
-                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
-                                        </right>
+<vc xmlns:bind="bind">
+    <toolbar>
+        <hc>
+            <button id="apply" text="Apply" icon="ok" />
+            <button id="edit" text="Raw edit" icon="pencil" />
+        </hc>
+    </toolbar>
+    <pad>
+        <box id="config">
+            <bind:collection bind="tables" id="tables">
+                <tabs bind="__items" />
+                <bind:template>
+                    <tab bind="name">
+                        <pad>
+                            <vc>
+                                <bind:collection bind="chains" id="chains">
+                                    <button bind="__add" icon="plus" text="New Chain" />
+                                    <vc bind="__items" />
+                                    <bind:template>
+                                        <vc>
+                                            <right>
+                                                <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                            </right>
 
-                                        <label bind="name" style="bold" />
-                                        
-                                        <bind:collection bind="rules" id="rules">
-                                            <sortabledt bind="__items" />
+                                            <label bind="name" style="bold" />
+                                            
+                                            <bind:collection bind="rules" id="rules">
+                                                <sortabledt bind="__items" />
 
-                                            <bind:template>
-                                                <collapserow>
-                                                    <box>
-                                                        <right>
-                                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
-                                                        </right>
-                                                        <hc>
-                                                            <label id="action" />
-                                                            <label bind="summary" />
-                                                        </hc>
-                                                    </box>
-                                                    <pad>
-                                                        <vc>
+                                                <bind:template>
+                                                    <collapserow>
+                                                        <box>
+                                                            <right>
+                                                                <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                                            </right>
                                                             <hc>
-                                                                <label text="Action:" style="bold" />
-                                                                <combobox bind="action" id="action-select" />
+                                                                <label id="action" />
+                                                                <label bind="summary" />
                                                             </hc>
-                                                            <label text="Conditions" style="bold" />
-                                                            <pad>
-                                                                <bind:collection bind="options" id="options">
-                                                                    <vc bind="__items" />
-                                                                    <dropdown id="add-option" server="True" />
-                                                                </bind:collection>
-                                                            </pad>
-                                                        </vc>
-                                                    </pad>
-                                                </collapserow>
-                                            </bind:template>
+                                                        </box>
+                                                        <pad>
+                                                            <vc>
+                                                                <hc>
+                                                                    <label text="Action:" style="bold" />
+                                                                    <combobox bind="action" id="action-select" />
+                                                                </hc>
+                                                                <label text="Conditions" style="bold" />
+                                                                <pad>
+                                                                    <bind:collection bind="options" id="options">
+                                                                        <vc bind="__items" />
+                                                                        <dropdown id="add-option" server="True" />
+                                                                    </bind:collection>
+                                                                </pad>
+                                                            </vc>
+                                                        </pad>
+                                                    </collapserow>
+                                                </bind:template>
 
-                                            <box height="5" />
-                                            <button bind="__add" icon="plus" text="New Rule" />
-                                        </bind:collection>
-                                    </vc>
-                                </bind:template>
-                            </bind:collection>
-                        </vc>
-                    </pad>
-                </tab>
-            </bind:template>
-            <button bind="__add" visible="False" />
-        </bind:collection>
-        <button id="save" text="Save" />
-    </box>
-</pad> 
+                                                <box height="5" />
+                                                <button bind="__add" icon="plus" text="New Rule" />
+                                            </bind:collection>
+                                        </vc>
+                                    </bind:template>
+                                </bind:collection>
+                            </vc>
+                        </pad>
+                    </tab>
+                </bind:template>
+                <button bind="__add" visible="False" />
+            </bind:collection>
+            <button id="save" text="Save" />
+        </box>
+    </pad> 
+</vc>

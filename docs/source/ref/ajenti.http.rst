@@ -1,6 +1,6 @@
-ajenti.core
+ajenti.http
 ***********
 
-.. automodule:: ajenti.core
+.. automodule:: ajenti.http
    :members:
    :undoc-members:

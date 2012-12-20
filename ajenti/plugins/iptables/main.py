@@ -1,4 +1,5 @@
 import itertools
+import subprocess
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
@@ -74,6 +75,19 @@ class Firewall (SectionPlugin):
         self.binder.update()
         self.refresh()
         self.config.save()
+
+    @on('edit', 'click')
+    def raw_edit(self):
+        self.context.launch('notepad', path='/etc/iptables.up.rules')
+
+    @on('apply', 'click')
+    def apply(self):
+        self.save()
+        cmd = 'cat /etc/iptables.up.rules | iptables-restore'
+        if subprocess.call(cmd, shell=True) != 0:
+            self.context.launch('terminal', command=cmd)
+        else:
+            self.context.notify('Saved')
 
 
 class OptionsBinding (CollectionAutoBinding):

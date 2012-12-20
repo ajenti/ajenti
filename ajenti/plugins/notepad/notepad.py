@@ -76,6 +76,7 @@ class Notepad (SectionPlugin):
     def on_open_dialog_select(self, path=None):
         self.opendialog.visible = False
         self.select(self.controller.open(path))
+        self.activate()
 
     @on('opendialog', 'button')
     def on_open_dialog_button(self, button):

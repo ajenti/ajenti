@@ -9,6 +9,10 @@ from reconfigure.items.ajenti import ConfigData
 
 
 class PluginInfo:
+    """
+    Describes a loaded plugin package
+    """
+
     def __init__(self, **kwargs):
         self.author = ''
         self.homepage = ''
@@ -24,6 +28,28 @@ class PluginInfo:
 
 
 def plugin(cls):
+    """
+    A decorator to create plugin classes::
+
+        @plugin
+        class SomePlugin (ISomething):
+            pass
+
+    If the class has a ``verify`` method returning ``bool``, it's invoked. If the method returned ``False``, plugin is rejected and removed from implementation lists.
+
+    If the class has a ``platforms`` attribute, which is a list of supported platform names, it's compared against the current runtime OS platform. If the current platform is not in the list, plugin is also rejected.
+
+    Following class methods are injected.
+
+    .. function:: .get()
+
+        :returns: any existing instance or creates a new one
+
+    .. function:: .new(*args, **kwargs)
+
+        :returns: a new instance. Use this method instead of constructor, since it invokes the proper initialization chain and registers the instance
+    ....
+    """
     if hasattr(cls, 'verify'):
         if not cls.verify():
             return
@@ -54,6 +80,38 @@ def _check_plugin(cls):
 
 
 def interface(cls):
+    """
+    A decorator to create plugin interfaces::
+
+        @interface
+        class ISomething (object):
+            def contract(self):
+                pass
+
+    Following class methods are injected:
+
+    .. function:: .get()
+
+        :returns: any existing instance or creates a new one
+
+    .. function:: .get_all()
+
+        :returns: list of instances for each implementation
+
+    .. function:: .get_class()
+
+        :returns: any implementation class
+
+    .. function:: .get_classes()
+
+        :returns: list of implementation classes
+
+    .. function:: .get_instances()
+
+        :returns: list of all existing instances
+    ....
+    """
+
     def get(cls):
         impls = manager.get_implementations(cls)
         if len(impls) == 0:
@@ -77,12 +135,16 @@ def interface(cls):
         return manager.get_instances(cls)
     cls.get_instances = get_instances.__get__(cls)
 
+    cls._interface = True
     manager.register_interface(cls)
 
     return cls
 
 
 def extract_context():
+    """
+    An utility function that extracts and returns the nearest :class:`AppContext` from the current call stack.
+    """
     for frame in inspect.stack():
         self_argument = frame[0].f_code.co_varnames[0]  # This *should* be 'self'
         instance = frame[0].f_locals[self_argument]
@@ -92,10 +154,21 @@ def extract_context():
 
 
 class BasePlugin (object):
+    """
+    A base plugin class that provides :class:`AppContext` and ``classconfig`` functionality.
+    """
+
     default_classconfig = None
+    """ Override this in your class with a default config object (must be JSON-serializable) """
+
     context = None
+    """ Automatically receives a reference to the current :class:`AppContext` """
 
     def init(self):
+        """
+        Do your initialization here. Correct bottom-to-up inheritance call order guaranteed.
+        """
+
         self.context = extract_context()
 
         if self.context:
@@ -105,6 +178,13 @@ class BasePlugin (object):
                 self.classconfig = self.context.user.configs.setdefault(self.classname, config).data
 
     def open_content(self, path, mode='r'):
+        """
+        Provides access to plugin-specific files from ``/content`` directory of the package
+
+        :param path: path relative to package's ``/content``
+        :param mode: Python file access mode
+        :returns: An open file object
+        """
         _check_plugin(self.__class__)
 
         root = os.path.split(self.__class__._path)[0]
@@ -115,14 +195,29 @@ class BasePlugin (object):
         return open(os.path.join(root, 'content', path), mode)
 
     def save_classconfig(self):
+        """
+        Saves the content of ``classconfig`` attribute into the user's configuration section.
+        """
         self.context.user.configs[self.classname] = self.classconfig
         ajenti.config.save()
 
 
 class AppContext (object):
-    def __init__(self, context):
-        self.session = context.session
-        self.user = ajenti.config.tree.users[context.session.identity]
+    """
+    A session-specific context provided to everyone who inherits :class:`BasePlugin`.
+
+    .. attribute:: session
+
+        current HTTP session: :class:`ajenti.middleware.Session`
+
+    .. attribute:: user
+
+        current logged in user: :class:`reconfigure.items.ajenti.UserData`
+    """
+
+    def __init__(self, httpcontext):
+        self.session = httpcontext.session
+        self.user = ajenti.config.tree.users[httpcontext.session.identity]
 
 
 __all__ = [

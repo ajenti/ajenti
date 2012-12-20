@@ -374,8 +374,11 @@ class window.Controls.sortabledt extends window.Controls.dt
             @newOrder.push parseInt($(e).attr('data-order'))
 
         r = {}
-        if @newOrder != @order and @order.length > 0
-            r.order = @newOrder
+        for i in [0..@order.length]
+            if @newOrder[i] != @order[i]
+                console.log @newOrder , @order
+                r.order = @newOrder
+                break
 
         @order = @newOrder
         return r

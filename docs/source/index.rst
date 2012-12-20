@@ -13,13 +13,15 @@ Contents:
 
    ref/ajenti
    ref/ajenti.api
-   ref/ajenti.config
-   ref/ajenti.com
-   ref/ajenti.core
+   ref/ajenti.api.http
+   ref/ajenti.http
+   ref/ajenti.middleware
+   ref/ajenti.routing
    ref/ajenti.feedback
-   ref/ajenti.plugmgr
+   ref/ajenti.plugins
    ref/ajenti.ui
-   ref/ajenti.utils
+   ref/ajenti.users
+   ref/ajenti.util
 
    ref/ajenti.plugins.core
    ref/ajenti.plugins.dashboard

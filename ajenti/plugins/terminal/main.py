@@ -28,26 +28,29 @@ class Terminals (SectionPlugin):
 
     @intent('terminals:refresh')
     def refresh(self):
-        list = self.find('list')
-        list.empty()
+        ulist = self.find('list')
+        ulist.empty()
+        for k, v in list(self.terminals.iteritems()):
+            if v.autoclose and v.dead():
+                self.terminals.pop(k)
         for k in sorted(self.terminals.keys()):
             thumb = TerminalThumbnail(self.ui)
             thumb.tid = k
             thumb.on('close', self.on_close, k)
-            list.append(thumb)
+            ulist.append(thumb)
 
     @intent('terminal')
     def launch(self, command=None):
-        key = self.on_new(command)
+        key = self.on_new(command, autoclose=True)
         self.context.endpoint.send_url('/terminal/%i' % key)
 
     @on('new-button', 'click')
-    def on_new(self, command=None):
+    def on_new(self, command=None, **kwargs):
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1
         else:
             key = 0
-        self.terminals[key] = Terminal(command)
+        self.terminals[key] = Terminal(command, **kwargs)
         self.refresh()
         return key
 

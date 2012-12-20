@@ -9,10 +9,11 @@ import pyte
 
 
 class Terminal (object):
-    def __init__(self, command=None):
+    def __init__(self, command=None, autoclose=False):
         self.protocol = None
         self.width = 160
         self.height = 35
+        self.autoclose = autoclose
 
         env = {}
         env.update(os.environ)

@@ -36,7 +36,7 @@ class window.Stream
             Notificator.notify(data)
 
         @socket.on 'url', (url) ->
-            window.open(url, '_blank')
+            UI.openTab(url)
 
         @socket.on 'debug', (data) ->
             data = JSON.parse(data)
@@ -123,6 +123,9 @@ class window.UIManager
 
         @queueUpdate update
         @sendUpdates()
+
+    openTab: (url) ->
+        window.open().location = url
 
 
 class window.LoadingDim 

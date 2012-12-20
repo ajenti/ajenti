@@ -1,35 +1,38 @@
-# Global state
-
-config = None
-version = None
-
-""" Current platform """
-platform = None
-
-""" Current platform without Ubuntu=Debian mapping """
-platform_unmapped = None
-
-""" Human-friendly platform name """
-platform_string = None
-
-""" Unique installation ID """
-installation_uid = None
-
-""" Web server """
-server = None
-
-""" Debug mode """
-debug = False
-
-
-__all__ = [platform, platform_string, platform_unmapped, installation_uid, version, server, debug, 'init']
-
-
 import build
 import subprocess
 import os
-import platform
+import platform as pyplatform
 import random
+
+
+# Global state
+
+config = None
+""" Loaded config, is a `reconfigure.items.ajenti.AjentiData` """
+
+version = None
+""" Ajenti version """
+
+platform = None
+""" Current platform """
+
+platform_unmapped = None
+""" Current platform without "Ubuntu is Debian"-like mapping """
+
+platform_string = None
+""" Human-friendly platform name """
+
+installation_uid = None
+""" Unique installation ID """
+
+server = None
+""" Web server """
+
+debug = False
+""" Debug mode """
+
+
+__all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init']
 
 
 def detect_version():
@@ -54,15 +57,15 @@ def detect_platform():
         'elementary os': 'debian',
     }
 
-    if platform.system() != 'Linux':
-        return platform.system().lower()
+    if pyplatform.system() != 'Linux':
+        return pyplatform.system().lower()
 
     dist = ''
-    (maj, min, patch) = platform.python_version_tuple()
+    (maj, min, patch) = pyplatform.python_version_tuple()
     if (maj * 10 + min) >= 26:
-        dist = platform.linux_distribution()[0]
+        dist = pyplatform.linux_distribution()[0]
     else:
-        dist = platform.dist()[0]
+        dist = pyplatform.dist()[0]
 
     if dist == '':
         try:

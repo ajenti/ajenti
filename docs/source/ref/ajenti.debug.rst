@@ -1,6 +1,6 @@
-ajenti.com
+ajenti.api
 **********
 
-.. automodule:: ajenti.com
+.. automodule:: ajenti.api
    :members:
    :undoc-members:
