@@ -14,17 +14,14 @@ Contents:
    ref/ajenti
    ref/ajenti.api
    ref/ajenti.api.http
+   ref/ajenti.debug
    ref/ajenti.http
    ref/ajenti.middleware
-   ref/ajenti.routing
-   ref/ajenti.feedback
    ref/ajenti.plugins
    ref/ajenti.ui
    ref/ajenti.users
    ref/ajenti.util
 
-   ref/ajenti.plugins.core
-   ref/ajenti.plugins.dashboard
 
 Indices and tables
 ==================

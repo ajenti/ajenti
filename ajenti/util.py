@@ -5,7 +5,7 @@ import time
 
 def str_fsize(sz):
     """
-    Formats file size as string (1.2 Mb)
+    Formats file size as string (i.e., 1.2 Mb)
     """
     if sz < 1024:
         return '%.1f bytes' % sz
@@ -20,6 +20,9 @@ def str_fsize(sz):
 
 
 def str_timedelta(s):
+    """
+    Formats a time delta (i.e., "5 days, 5:06:07")
+    """
     d60 = lambda x: ('0' if (x % 60) < 10 else '') + str(x % 60)
     s = int(s)
     r = '%s:%s:%s' % (d60(s / 3600), d60(s / 60), d60(s))
@@ -30,6 +33,11 @@ def str_timedelta(s):
 
 
 def cache_value(duration):
+    """
+    Makes a function lazy.
+
+    :param duration: cache duration in seconds
+    """
     def decorator(fx):
         fx.__cached = None
         fx.__cached_at = 0

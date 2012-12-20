@@ -4,6 +4,9 @@ from passlib.hash import sha512_crypt
 
 
 def restrict(permission):
+    """
+    Marks a decorated function as requiring ``permission``. If the invoking user doesn't have one, :class:`SecurityError` is raised.
+    """
     def decorator(fx):
         def wrapper(*args, **kwargs):
             UserManager.get().require_permission(permission)
@@ -13,6 +16,14 @@ def restrict(permission):
 
 
 class SecurityError (Exception):
+    """
+    Indicates that user didn't have a required permission.
+
+    .. attribute:: permission
+
+        permission ID
+    """
+
     def __init__(self, permission):
         self.permission = permission
 
@@ -23,6 +34,10 @@ class SecurityError (Exception):
 @plugin
 class UserManager (object):
     def check_password(self, username, password):
+        """
+        Verifies the given username/password combo
+        """
+
         if not username in ajenti.config.tree.users:
             return False
         type = 'plain'
@@ -42,6 +57,10 @@ class UserManager (object):
         return password
 
     def require_permission(self, permission):
+        """
+        Checks current user for given permissing and raises :class:`SecurityError` if he doesn't have one
+        """
+
         context = extract_context()
         if context.user.name == 'root':
             return
@@ -51,8 +70,17 @@ class UserManager (object):
 
 @interface
 class PermissionProvider (object):
+    """
+    Override to create your own set of permissions
+    """
+
     def get_permissions(self):
+        """ Should return a list of permission names """
         return []
 
     def get_name(self):
+        """ Should return a human-friendly name for this set of permissions (displayed in Configurator) """
         return ''
+
+
+__all__ = ['restrict', 'PermissionProvider', 'SecurityError', 'UserManager']

@@ -11,6 +11,10 @@ from ajenti.users import UserManager
 
 
 class Session:
+    """
+    Holds the HTTP session data
+    """
+
     def __init__(self, id):
         self.touch()
         self.id = id
@@ -19,14 +23,25 @@ class Session:
         self.greenlets = []
 
     def destroy(self):
+        """
+        Marks this session as dead
+        """
         self.active = False
         for g in self.greenlets:
             g.kill()
 
     def touch(self):
+        """
+        Updates the "last used" timestamp
+        """
         self.timestamp = time.time()
 
     def spawn(self, *args, **kwargs):
+        """
+        Spawns a ``greenlet`` that will be stopped and garbage-collected when the session is destroyed
+
+        :params: Same as for :func:`gevent.spawn`
+        """
         g = gevent.spawn(*args, **kwargs)
         self.greenlets += [g]
 
@@ -34,6 +49,9 @@ class Session:
         return not self.active or (time.time() - self.timestamp) > 3600
 
     def set_cookie(self, context):
+        """
+        Adds headers to :class:`ajenti.http.HttpContext` that set the session cookie
+        """
         C = Cookie.SimpleCookie()
         C['session'] = self.id
         C['session']['path'] = '/'
@@ -54,10 +72,16 @@ class SessionMiddleware (HttpHandler):
         return hashlib.sha1(hash).hexdigest()
 
     def vacuum(self):
+        """
+        Eliminates dead sessions
+        """
         for session in [x for x in self.sessions.values() if x.is_dead()]:
             del self.sessions[session.id]
 
     def open_session(self, context):
+        """
+        Creates a new session for the :class:`ajenti.http.HttpContext`
+        """
         session_id = self.generate_session_id(context)
         session = Session(session_id)
         self.sessions[session_id] = session
@@ -96,3 +120,6 @@ class AuthenticationMiddleware (HttpHandler):
 
     def logout(self, context):
         context.session.identity = None
+
+
+__all__ = ['Session', 'SessionMiddleware', 'AuthenticationMiddleware']

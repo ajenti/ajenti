@@ -1,5 +1,6 @@
-ajenti.plugins.dashboard
-************************
+ajenti.middleware
+*****************
 
-.. automodule:: ajenti.plugins.dashboard.api
+.. automodule:: ajenti.middleware
    :members:
+   :undoc-members:

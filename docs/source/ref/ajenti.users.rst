@@ -1,6 +1,6 @@
-ajenti.debug
+ajenti.users
 ************
 
-.. automodule:: ajenti.debug
+.. automodule:: ajenti.users
    :members:
    :undoc-members:

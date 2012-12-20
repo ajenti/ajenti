@@ -1,6 +1,6 @@
-ajenti.plugmgr
+ajenti.plugins
 **************
 
-.. automodule:: ajenti.plugmgr
+.. automodule:: ajenti.plugins
    :members:
    :undoc-members:
