@@ -89,6 +89,7 @@ class Dash (SectionPlugin):
                     'config': item.config,
                 })
         self.classconfig = cfg
+        print self.classconfig
         self.save_classconfig()
         self.refresh()
 

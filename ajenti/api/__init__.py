@@ -207,7 +207,7 @@ class BasePlugin (object):
         """
         Saves the content of ``classconfig`` attribute into the user's configuration section.
         """
-        self.context.user.configs[self.classname] = self.classconfig
+        self.context.user.configs[self.classname].data = self.classconfig
         ajenti.config.save()
 
 

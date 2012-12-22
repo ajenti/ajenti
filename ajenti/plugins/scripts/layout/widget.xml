@@ -1,0 +1,21 @@
+<hc>
+    <box width="280">
+        <label id="name" style="bold" text="---" />
+    </box>
+
+    <button style="mini" id="start" icon="play" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="Title">
+                <textbox id="title" />
+            </formline>
+            <formline text="Command">
+                <textbox id="command" />
+            </formline>
+            <formline>
+                <checkbox id="terminal" text="Run in terminal" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>
