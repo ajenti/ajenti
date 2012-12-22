@@ -72,6 +72,19 @@
 	    					border-top-color: #333;
 	    				}
 	    			}
+
+	    			.text {
+	    				position: absolute;
+		    			top: 5px;
+		    			left: 0;
+		    			width: 150px;
+		    			text-align: center;
+		    			font-size: 20px;
+		    			font-weight: bold;
+		    			z-index: 5;
+		    			color: @orange;
+		    			text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
+		    		}
 	    		}
 
 		    	&>.userbox {
@@ -98,7 +111,7 @@
 		    			right: 0;
 	    				#gradient > .vertical(#555, #333);
 	    				.box-shadow(0 0 1px black);
-	    				width: 15px;
+	    				width: 14px;
 	    				height: 16px;
 	    				border: 1px solid #222;
 	    				padding: 8px;

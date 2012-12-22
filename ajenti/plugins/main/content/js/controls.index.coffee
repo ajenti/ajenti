@@ -9,6 +9,7 @@ class window.Controls.main__page extends window.Control
                             <div class="box one"></div>
                             <div class="box two"></div>
                             <div class="box three"></div>
+                            <div class="text">Ajenti</div>
 
                             <div class="corner one"></div>
                             <div class="corner two"></div>
