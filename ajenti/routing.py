@@ -27,6 +27,10 @@ class CentralDispatcher (BasePlugin, HttpHandler):
         self.io = SocketIORouteHandler()
 
     def handle(self, context):
+        """
+        Dispatch the request to every HttpPlugin
+        """
+
         if hasattr(context.session, 'appcontext'):
             self.context = context.session.appcontext
 

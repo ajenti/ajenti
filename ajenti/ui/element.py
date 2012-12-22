@@ -3,7 +3,23 @@ import copy
 from ajenti.api import *
 
 
-def p(prop, default=None, bindtypes=[], type=unicode, public=True):
+def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
+    """
+    Creates an UI property inside an :class:`UIElement`::
+
+        @p('title')
+        @p('category', default='Other', doc='Section category name')
+        @p('active', default=False)
+        class SectionPlugin (BasePlugin, UIElement):
+            typeid = 'main:section'
+
+    :param default: Default value
+    :param bindtypes: List of Python types that can be bound to this property
+    :param type: expected Python type for this value
+    :param public: whether this property is rendered and sent to client
+    :param doc: docstring
+    """
+
     def decorator(cls):
         prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes, type=type, public=public)
         if not hasattr(cls, '_properties'):
@@ -16,12 +32,30 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True):
         def set(self, value):
             return self.properties[prop].set(value)
 
-        setattr(cls, prop, property(get, set))
+        _property = property(get, set, None, doc)
+        setattr(cls, prop, _property)
         return cls
     return decorator
 
 
 def on(id, event):
+    """
+    Sets the decorated method to handle indicated event::
+
+        @plugin
+        class Hosts (SectionPlugin):
+            def init(self):
+                self.append(self.ui.inflate('hosts:main'))
+                ...
+
+            @on('save', 'click')
+            def save(self):
+                self.config.save()
+
+    :param id: element ID
+    :param event: event name
+    """
+
     def decorator(fx):
         fx._event_id = id
         fx._event_name = event
@@ -49,15 +83,24 @@ class UIProperty (object):
         self.value = value
 
 
-@p('visible', default=True, type=bool)
-@p('bind', default=None, type=str)
-@p('client', default=False, type=True)
-@p('bindtransform', default=lambda x: x, type=eval, public=False)
-@p('id', default=None, type=str)
+@p('visible', default=True, type=bool,
+    doc='Visibility of the element')
+@p('bind', default=None, type=str,
+    doc='Bound property name')
+@p('client', default=False, type=True,
+    doc='Whether this element\'s events are only processed on client side')
+@p('bindtransform', default=lambda x: x, type=eval, public=False,
+    doc='Value transformation function for one-direction bindings')
+@p('id', default=None, type=str,
+    doc='Element ID')
 @plugin
 @interface
 class UIElement (object):
+    """ Base UI element class """
+
     typeid = None
+    """ Unique identifier or element type class, used for XML tag name """
+
     __last_id = 0
 
     @classmethod
@@ -71,6 +114,7 @@ class UIElement (object):
         if typeid is not None:
             self.typeid = typeid
 
+        #: Generated unique identifier (UID)
         self.uid = UIElement.__generate_id()
 
         if not hasattr(self, '_properties'):
@@ -83,6 +127,7 @@ class UIElement (object):
             self.append(c)
         self.children_changed = False
 
+        # Copy properties from the class
         self.properties = {}
         for prop in self._properties:
             self.properties[prop.name] = prop.clone()
@@ -99,6 +144,9 @@ class UIElement (object):
         self.typeid, self.id, self.properties, self.events, self.event_args = s
 
     def clone(self):
+        """
+        :returns: a deep copy of the element and its children. Property values are shallow copies.
+        """
         o = copy.copy(self)
         o.uid = UIElement.__generate_id()
         o.setstate(copy.deepcopy(self.getstate()))
@@ -111,6 +159,11 @@ class UIElement (object):
         pass
 
     def nearest(self, predicate):
+        """
+        Returns the nearest child which matches an arbitrary predicate lambda
+
+        :param predicate: ``lambda element: bool``
+        """
         r = []
         q = [self]
         while len(q) > 0:
@@ -121,21 +174,36 @@ class UIElement (object):
         return r
 
     def find(self, id):
+        """
+        :returns: the nearest child with given ID or ``None``
+        """
         r = self.nearest(lambda x: x.id == id)
         return r[0] if len(r) > 0 else None
 
     def find_uid(self, uid):
+        """
+        :returns: the nearest child with given UID or ``None``
+        """
         r = self.nearest(lambda x: x.uid == uid)
         return r[0] if len(r) > 0 else None
 
     def find_type(self, typeid):
+        """
+        :returns: the nearest child with given type ID or ``None``
+        """
         r = self.nearest(lambda x: x.typeid == typeid)
         return r[0] if len(r) > 0 else None
 
     def contains(self, element):
+        """
+        Checks if the ``element`` is in the subtree of ``self``
+        """
         return len(self.nearest(lambda x: x == element)) > 0
 
     def path_to(self, element):
+        """
+        :returns: a list of elements forming a path from ``self`` to ``element``
+        """
         r = []
         while element != self:
             r.insert(0, element)
@@ -143,6 +211,9 @@ class UIElement (object):
         return r
 
     def render(self):
+        """
+        Renders this element and its subtree to JSON
+        """
         result = {
             'id': self.id,
             'uid': self.uid,
@@ -156,10 +227,16 @@ class UIElement (object):
         return result
 
     def on(self, event, handler, *args):
+        """
+        Binds event with ID ``event`` to ``handler``. ``*args`` will be passed to the ``handler``.
+        """
         self.events[event] = handler
         self.event_args[event] = args
 
     def has_updates(self):
+        """
+        Checks for pending UI updates
+        """
         if self.children_changed:
             return True
         for property in self.properties.values():
@@ -172,6 +249,9 @@ class UIElement (object):
         return False
 
     def clear_updates(self):
+        """
+        Marks all pending updates as processed
+        """
         self.children_changed = False
         for property in self.properties.values():
             property.dirty = False
@@ -181,6 +261,9 @@ class UIElement (object):
                     child.clear_updates()
 
     def broadcast(self, method, *args, **kwargs):
+        """
+        Calls ``method`` on every member of the subtree
+        """
         if hasattr(self, method):
             getattr(self, method)(*args, **kwargs)
 
@@ -188,6 +271,9 @@ class UIElement (object):
             child.broadcast(method, *args, **kwargs)
 
     def dispatch_event(self, uid, event, params=None):
+        """
+        Dispatches an event to an element with given UID
+        """
         if self.uid == uid:
             self.event(event, params)
             return True
@@ -201,24 +287,39 @@ class UIElement (object):
                     return True
 
     def event(self, event, params=None):
+        """
+        Invokes handler for ``event`` on this element with given ``**params``
+        """
         if hasattr(self, 'on_%s' % event):
             getattr(self, 'on_%s' % event)(**(params or {}))
         if event in self.events:
             self.events[event](*self.event_args[event], **(params or {}))
 
     def reverse_event(self, event, params=None):
+        """
+        Raises the event on this element by feeding it to the UI root (so that ``@on`` methods in ancestors will work).
+        """
         self.ui.dispatch_event(self.uid, event, params)
 
     def empty(self):
+        """
+        Detaches all child elements
+        """
         self.children = []
         self.children_changed = True
 
     def append(self, child):
+        """
+        Appends a ``child``
+        """
         self.children.append(child)
         child.parent = self
         self.children_changed = True
 
     def remove(self, child):
+        """
+        Detaches the ``child``
+        """
         self.children.remove(child)
         child.parent = None
         self.children_changed = True

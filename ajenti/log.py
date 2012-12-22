@@ -4,6 +4,10 @@ from datetime import datetime
 
 
 class DebugHandler (logging.StreamHandler):
+    """
+    Captures log into a buffer for error reports
+    """
+
     def __init__(self):
         self.capturing = False
         self.buffer = ''

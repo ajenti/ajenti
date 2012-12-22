@@ -48,8 +48,10 @@ def plugin(cls):
     .. function:: .new(*args, **kwargs)
 
         :returns: a new instance. Use this method instead of constructor, since it invokes the proper initialization chain and registers the instance
-    ....
+
     """
+
+    # Run custom verificator if any
     if hasattr(cls, 'verify'):
         if not cls.verify():
             return
@@ -62,6 +64,8 @@ def plugin(cls):
     cls._plugin = True
     cls._path = inspect.getfile(cls)
     cls.classname = cls.__module__ + '.' + cls.__name__
+
+    # Inject methods
 
     def get(cls):
         return manager.get_instance(cls)
@@ -109,8 +113,10 @@ def interface(cls):
     .. function:: .get_instances()
 
         :returns: list of all existing instances
-    ....
+
     """
+
+    # Inject methods
 
     def get(cls):
         impls = manager.get_implementations(cls)
@@ -146,10 +152,12 @@ def extract_context():
     An utility function that extracts and returns the nearest :class:`AppContext` from the current call stack.
     """
     for frame in inspect.stack():
+        # Traverse the call stack
         self_argument = frame[0].f_code.co_varnames[0]  # This *should* be 'self'
-        instance = frame[0].f_locals[self_argument]
+        instance = frame[0].f_locals[self_argument]  # = first passed *arg
         if isinstance(instance, BasePlugin):
             if instance.context is not None:
+                # Grab the context if any
                 return instance.context
 
 
@@ -172,6 +180,7 @@ class BasePlugin (object):
         self.context = extract_context()
 
         if self.context:
+            # Load the classconfig
             config = ConfigData()
             config.data = copy.deepcopy(self.default_classconfig)
             if self.default_classconfig:
@@ -213,6 +222,16 @@ class AppContext (object):
     .. attribute:: user
 
         current logged in user: :class:`reconfigure.items.ajenti.UserData`
+
+    Methods injected by MainPlugin:
+
+    .. method:: notify(text)
+
+        :param text: Notification text to show
+
+    .. method:: launch(id, *args, **kwargs)
+
+        :param id: Intent ID to be launched
     """
 
     def __init__(self, httpcontext):

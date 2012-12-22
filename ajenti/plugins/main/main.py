@@ -48,6 +48,7 @@ class MainSocket (SocketPlugin):
 
     def on_connect(self):
         if not 'ui' in self.request.session.data:
+            # This is a newly created session
             ui = UI()
             self.request.session.data['ui'] = ui
             ui.root = MainPage.new(ui)
@@ -60,6 +61,8 @@ class MainSocket (SocketPlugin):
         self.ui = self.request.session.data['ui']
         self.send_ui()
         self.spawn(self.ui_watcher)
+
+        # Inject the context methods
         self.context.notify = self.send_notify
         self.context.launch = self.launch
         self.context.endpoint = self
@@ -67,9 +70,11 @@ class MainSocket (SocketPlugin):
     def on_message(self, message):
         try:
             if message['type'] == 'ui_update':
+                # UI updates arrived
                 profile('Total')
                 for update in message['content']:
                     if update['type'] == 'update':
+                        # Property change
                         profile('Handling updates')
                         el = self.ui.find_uid(update['uid'])
                         for k, v in update['properties'].iteritems():
@@ -77,13 +82,16 @@ class MainSocket (SocketPlugin):
                             el.properties[k].dirty = False
                         profile_end('Handling updates')
                     if update['type'] == 'event':
+                        # Element event emitted
                         profile('Handling event')
                         self.ui.dispatch_event(update['uid'], update['event'], update['params'])
                         profile_end('Handling event')
                 if self.ui.has_updates():
+                    # If any updates happened due to event handlers, send these immediately
                     self.ui.clear_updates()
                     self.send_ui()
                 else:
+                    # Otherwise just ACK
                     self.send_ack()
                 profile_end('Total')
                 if ajenti.debug:
@@ -141,6 +149,7 @@ class MainSocket (SocketPlugin):
                     return
 
     def ui_watcher(self):
+        # Sends UI updates periodically
         while True:
             if self.ui.has_updates():
                 self.send_update_request()
@@ -154,6 +163,7 @@ class SectionPermissions (PermissionProvider):
         return 'Section access'
 
     def get_permissions(self):
+        # Generate permission set on-the-fly
         return [
             ('section:%s' % x.__name__, x.__name__)
             for x in SectionPlugin.get_classes()

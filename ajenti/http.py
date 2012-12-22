@@ -158,6 +158,7 @@ class HttpContext:
         Returns a GZip compressed response with content of file located in ``path`` and correct headers
         """
 
+        # Block path traversal
         if '..' in path:
             self.respond_forbidden()
             return ''

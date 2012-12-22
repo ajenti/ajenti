@@ -3,11 +3,15 @@ from ajenti.ui import *
 
 
 @p('title')
-@p('order', default=99)
-@p('category', default='Other')
+@p('order', default=99, doc='Sorting weight, light plugins end up higher')
+@p('category', default='Other', doc='Section category name')
 @p('active', default=False)
 @interface
 class SectionPlugin (BasePlugin, UIElement):
+    """
+    A base class for section plugins visible on the left in the UI. Inherits :class:`ajenti.ui.UIElement`
+    """
+
     typeid = 'main:section'
     _intents = {}
 
@@ -17,14 +21,23 @@ class SectionPlugin (BasePlugin, UIElement):
                 self._intents[v._intent] = getattr(self, k)
 
     def activate(self):
+        """
+        Activate this section
+        """
         self.context.endpoint.switch_tab(self)
 
     def on_page_load(self):
+        """
+        Called when this section becomes active, or the page is reloaded
+        """
         pass
 
 
-def intent(name):
+def intent(id):
+    """
+    Registers this method as an intent with given ID
+    """
     def decorator(fx):
-        fx._intent = name
+        fx._intent = id
         return fx
     return decorator

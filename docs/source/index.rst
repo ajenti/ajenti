@@ -18,6 +18,7 @@ Contents:
    ref/ajenti.http
    ref/ajenti.middleware
    ref/ajenti.plugins
+   ref/ajenti.plugins.main.api
    ref/ajenti.ui
    ref/ajenti.users
    ref/ajenti.util
