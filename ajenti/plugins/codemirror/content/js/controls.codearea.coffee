@@ -1,7 +1,7 @@
 class window.Controls.codearea extends window.Control
 	createDom: () ->
 		@dom = $("""
-			<div class="control codearea"> 
+			<div class="control control-inset codearea"> 
 			</div>
 		""")
 		@cm = CodeMirror @dom[0],

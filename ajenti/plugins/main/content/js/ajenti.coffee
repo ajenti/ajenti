@@ -144,9 +144,11 @@ class window.LoadingDim
         @dom.show()
 
     hide: () ->
+        $('body').removeClass('loading')
         @dom.stop().fadeTo(500, 0, () => @dom.hide())
 
     show: () ->
+        $('body').addClass('loading')
         @dom.show().stop().fadeTo(500, 1)
 
 

@@ -220,6 +220,8 @@ class window.Controls.dropdown extends window.Control
             do (i) =>
                 @input.append("""<option value="#{@properties.values[i]}" #{if @properties.values[i] == @properties.value then 'selected' else ''}>#{@properties.labels[i]}</option>""")
 
+        @input.select2()
+        
         if @properties.server
             @input.change (e) =>
                 @event('change', {})
@@ -322,7 +324,7 @@ class window.Controls.collapse extends window.Control
 class window.Controls.list extends window.Control
     createDom: () ->
         @dom = $("""
-            <div class="control list">
+            <div class="control container list">
             </div>
         """)
         @childContainer = @dom
@@ -331,7 +333,7 @@ class window.Controls.list extends window.Control
 class window.Controls.listitem extends window.Control
     createDom: () ->
         @dom = $("""
-            <div class="control listitem">
+            <div class="control container listitem">
             </div>
         """)
         @childContainer = @dom

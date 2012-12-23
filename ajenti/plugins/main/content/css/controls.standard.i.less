@@ -270,14 +270,14 @@
 	}
 
 	&.dropdown {
-		line-height: @controlHeight;
+		/*line-height: @controlHeight;
 		padding: 1px 5px 1px !important;
 		text-decoration: none;
 		color: @controlText;
-		.button-style(#ddd);
+		.button-style(#ddd);*/
 		.size(@controlHeight + 2px, @controlWidth2);
-		text-transform: none;
-    	-webkit-appearance: none;
+		/*text-transform: none;
+    	-webkit-appearance: none;*/
 	}
 
 	&.combobox {
@@ -345,18 +345,30 @@
 	}
 
 	&.list {
-		border-top: 1px solid #eee;
+		.control-inset();
+		.square(auto);
 
 		&> div {
 			border-bottom: 1px solid #eee;
+
+			&:last-child {
+				border-bottom: none;
+			}
 		}
 	}
 
 	&.listitem {
 		cursor: pointer;
+		padding: 0 5px;
 
-		&:hover {
-			background: rgba(255,255,255,0.5);
+		&:active {
+			#gradient > .vertical(lighten(@orange, 15%), @orange);
+			color: darken(@orange, 20%);
+
+			* {
+				color: white;
+				text-shadow: 0 1px 0px rgba(255,255,255,.60);
+			}
 		}
 	}
 
