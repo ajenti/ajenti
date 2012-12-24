@@ -23,9 +23,6 @@ class window.Controls.main__page extends window.Control
                             <div class="username">
                                 #{@properties.username}
                             </div>
-                            <div>
-                                <i class="icon-user icon-white"></i>
-                            </div>
                         </div>
                     </div>
                 </div>

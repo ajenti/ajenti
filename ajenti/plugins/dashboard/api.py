@@ -9,7 +9,7 @@ from ajenti.ui import UIElement, p
 class DashboardWidget (BasePlugin, UIElement):
     typeid = 'dashboard:widget'
     name = '---'
-    icon = ''
+    icon = None
 
     def save_config(self):
         self.event('save-config')

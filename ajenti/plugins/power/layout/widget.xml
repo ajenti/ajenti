@@ -1,0 +1,14 @@
+<hc>
+    <icon id="icon" icon="bolt" />
+    <box width="225" id="ac">
+        <label style="bold" text="AC power" />
+    </box>
+    <box width="225" id="battery">
+        <hc>
+            <label style="bold" text="Battery" />
+            <progressbar id="charge" value="0.5" width="140" />
+        </hc>
+    </box>
+    <button style="mini" id="reboot" icon="undo" warning="Reboot the system?" />
+    <button style="mini" id="shutdown" icon="off" warning="Shutdown the system?" />
+</hc>

@@ -282,7 +282,8 @@ class UIElement (object):
                 if child.dispatch_event(uid, event, params):
                     for k, v in self.__class__.__dict__.iteritems():
                         if hasattr(v, '_event_id'):
-                            if self.find(v._event_id).uid == uid and v._event_name == event:
+                            element = self.find(v._event_id)
+                            if element and element.uid == uid and v._event_name == event:
                                 getattr(self, k)(**(params or {}))
                     return True
 

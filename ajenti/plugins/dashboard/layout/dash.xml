@@ -17,6 +17,7 @@
             <bind:template>
                 <listitem id="listitem">
                     <hc>
+                        <icon bind="icon" />
                         <label bind="name" id="button" />
                     </hc>
                 </listitem>

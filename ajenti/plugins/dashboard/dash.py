@@ -24,7 +24,8 @@ class Dash (SectionPlugin):
             u.find('listitem').on('click', self.on_add_widget_click, i)
 
         self.find('add-widgets').post_item_bind = post_widget_bind
-        CollectionAutoBinding(DashboardWidget.get_classes(), None, self.find('add-widgets')).populate()
+        CollectionAutoBinding(sorted(DashboardWidget.get_classes(), key=lambda x: x.name),
+            None, self.find('add-widgets')).populate()
 
     def on_page_load(self):
         self.refresh()
@@ -89,7 +90,6 @@ class Dash (SectionPlugin):
                     'config': item.config,
                 })
         self.classconfig = cfg
-        print self.classconfig
         self.save_classconfig()
         self.refresh()
 

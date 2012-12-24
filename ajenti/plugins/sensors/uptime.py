@@ -9,7 +9,7 @@ class UptimeSensor (Sensor):
     id = 'uptime'
     timeout = 1
 
-    def measure(self, device):
+    def measure(self, variant):
         return float(open('/proc/uptime').read().split()[0])
 
 
