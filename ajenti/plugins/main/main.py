@@ -7,8 +7,8 @@ import traceback
 import ajenti
 from ajenti.api import *
 from ajenti.api.http import *
-from ajenti.debug import *
 from ajenti.middleware import AuthenticationMiddleware
+from ajenti.profiler import *
 from ajenti.users import PermissionProvider, UserManager, SecurityError
 from ajenti.ui import *
 from ajenti.util import make_report
