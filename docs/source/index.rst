@@ -20,6 +20,7 @@ Contents:
    ref/ajenti.plugins
    ref/ajenti.plugins.main.api
    ref/ajenti.ui
+   ref/ajenti.ui.binder
    ref/ajenti.users
    ref/ajenti.util
 

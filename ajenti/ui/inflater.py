@@ -2,12 +2,15 @@ from lxml import etree
 import os
 
 from ajenti.plugins import manager
+from ajenti.util import *
 
 
+@public
 class TemplateNotFoundError (Exception):
     pass
 
 
+@public
 class Inflater:
     def __init__(self, ui):
         self.ui = ui

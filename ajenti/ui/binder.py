@@ -2,58 +2,98 @@ import copy
 
 from ajenti.api import *
 from ajenti.ui.element import p, UIElement
+from ajenti.util import *
 
 
+@public
 class Binding (object):
-    def __init__(self, object, field, ui):
+    """
+    A base class for bindings. Binding is a link between a Python object attribute and Ajenti UI element's property.
+
+    :param object: a Python object
+    :param attribute: attribute name
+    :param ui: Ajenti :class:`ajenti.ui.UIElement`
+    """
+
+    def __init__(self, object, attribute, ui):
         self.object = object
-        self.field = field
+        self.attribute = attribute
         self.ui = ui
 
     def get(self):
-        return getattr(self.object, self.field)
+        """
+        :returns: value of the bound attribute
+        """
+        return getattr(self.object, self.attribute)
 
     def set(self, value):
-        setattr(self.object, self.field, value)
+        """
+        Sets value of the bound attribute
+        """
+        setattr(self.object, self.attribute, value)
 
     def populate(self):
-        pass
+        """
+        Should update the UI with attribute's value
+        """
 
     def unpopulate(self):
-        pass
+        """
+        Should revert UI to normal state
+        """
 
     def update(self):
-        pass
+        """
+        Should update the attribute with data from the UI
+        """
 
 
+@public
 class PropertyBinding (Binding):
-    def __init__(self, object, field, ui, property=None):
-        Binding.__init__(self, object, field, ui)
+    """
+    A simple binding between UI element's property and Python object's attribute
+
+    :param property: UI property name. If ``None``, property is deduced from ``bindtypes``
+    """
+
+    def __init__(self, object, attribute, ui, property=None):
+        Binding.__init__(self, object, attribute, ui)
         if property is None:
+            # find a property with matching bindtypes
+            v = self.__get_transformed()
             for prop in ui.properties.values():
                 if prop.bindtypes:
-                    if type(self.get()) in prop.bindtypes or type(self.get()) == type(None) or ui.bindtransform:
+                    # nb: we can't guess the type for None
+                    if type(v) in prop.bindtypes or type(v) == type(None):
                         self.property = prop.name
                         break
             else:
-                raise Exception('Cannot bind %s.%s' % (object, field))
+                raise Exception('Cannot bind %s.%s' % (object, attribute))
         else:
             self.property = property
 
+    def __get_transformed(self):
+        return self.ui.bindtransform(self.get()) if self.ui.bindtransform else self.get()
+
     def populate(self):
         self.old_value = self.get()
-        v = self.ui.bindtransform(self.get()) if self.ui.bindtransform else self.get()
-        self.ui.properties[self.property].value = v
+        self.ui.properties[self.property].value = self.__get_transformed()
 
     def update(self):
         new_value = self.ui.properties[self.property].value
+        # avoid unnecessary sets
         if new_value != self.old_value:
             self.set(new_value)
 
 
+@public
 class ListAutoBinding (Binding):
-    def __init__(self, object, field, ui):
-        Binding.__init__(self, object, field, ui)
+    """
+    Binds values of a collection to UI element's children consecutively, using :class:`Binder`
+    """
+
+    def __init__(self, object, attribute, ui):
+        Binding.__init__(self, object, attribute, ui)
         self.binders = {}
 
     def unpopulate(self):
@@ -61,8 +101,8 @@ class ListAutoBinding (Binding):
             binder.unpopulate()
 
     def populate(self):
-        if self.field:
-            self.collection = getattr(self.object, self.field)
+        if self.attribute:
+            self.collection = getattr(self.object, self.attribute)
         else:
             self.collection = self.object
         self.values = self.ui.values(self.collection)
@@ -89,9 +129,33 @@ class ListAutoBinding (Binding):
             self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
 
 
+@public
 class CollectionAutoBinding (Binding):
-    def __init__(self, object, field, ui):
-        Binding.__init__(self, object, field, ui)
+    """
+    Binds values of a collection to UI element's children using a template.
+    The expected UI layout::
+
+        <xml xmlns:bind="bind">
+            <bind:collection id="<binding to this>">
+                <container-element bind="__items">
+                    <1-- instantiated templates will appear here -->
+                </container-element>
+
+                <bind:template>
+                    <!-- a template for one collection item
+                         it will be bound to item using ajenti.ui.binder.Binder -->
+                    <label bind="some_property" />
+
+                    <button id="__delete" /> <!-- a delete button may appear in the template -->
+                </bind:template>
+
+                <button id="__add" /> <!-- an add button may appear inside collection tag -->
+            </bind:collection>
+        </xml>
+    """
+
+    def __init__(self, object, attribute, ui):
+        Binding.__init__(self, object, attribute, ui)
         self.template = ui.find_type('bind:template')
         if self.template:
             self.template_parent = self.template.parent
@@ -106,46 +170,56 @@ class CollectionAutoBinding (Binding):
         if self.template:
             self.template_parent.append(self.template)
         self.items_ui.empty()
+        # restore original container content
         self.items_ui.children = copy.copy(self.old_items)
         return self
 
     def _element_in_child_binder(self, root, e):
+        # detect if the element is trapped inside a nested bind: tag
+        # relative to e
         return any(x.typeid.startswith('bind:') for x in root.path_to(e))
 
     def get_template(self, item, ui):
+        # override for custom item template creation
         return self.template.clone()
 
     def populate(self):
         if self.template:
             self.template_parent.remove(self.template)
 
-        if self.field:
-            self.collection = getattr(self.object, self.field)
+        if self.attribute:
+            self.collection = getattr(self.object, self.attribute)
         else:
             self.collection = self.object
         self.values = self.ui.values(self.collection)
 
         self.unpopulate()
 
+        # remember old template instances and binders
         old_item_ui = self.item_ui
         old_binders = self.binders
 
         self.item_ui = {}
         self.binders = {}
         for value in self.values:
+            # apply the filter property
             if not self.ui.filter(value):
                 continue
 
             if value in old_item_ui:
+                # reuse old template
                 template = old_item_ui[value]
             else:
+                # create new one
                 template = self.get_template(value, self.ui)
                 template.visible = True
             self.items_ui.append(template)
             self.item_ui[value] = template
             if value in old_binders:
+                # reuse binder
                 binder = old_binders[value]
             else:
+                # create new one
                 binder = Binder(value, template)
                 binder.autodiscover()
             binder.populate()
@@ -196,12 +270,23 @@ class CollectionAutoBinding (Binding):
                 self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
 
 
+@public
 class Binder (object):
+    """
+    An automatic object-to-ui-hierarchy binder. Uses ``bind`` UI property to find what and where to bind.
+
+    :param object: Python object
+    :param ui: UI hierarchy root
+    """
+
     def __init__(self, object=None, ui=None):
         self.bindings = []
         self.reset(object, ui)
 
     def reset(self, object=None, ui=None):
+        """
+        Cancels the binding and replaces Python object / UI root.
+        """
         self.unpopulate()
         if object:
             self.object = object
@@ -210,6 +295,9 @@ class Binder (object):
         return self
 
     def autodiscover(self, object=None, ui=None):
+        """
+        Recursively scans UI tree for ``bind`` properties, and creates bindings.
+        """
         object = object or self.object
         for k in dir(object):
             v = getattr(object, k)
@@ -231,41 +319,55 @@ class Binder (object):
         self.bindings.append(binding)
 
     def populate(self):
+        """
+        Populates the bindings.
+        """
         for binding in self.bindings:
             binding.populate()
         return self
 
     def unpopulate(self):
+        """
+        Unpopulates the bindings.
+        """
         for binding in self.bindings:
             binding.unpopulate()
         return self
 
     def update(self):
+        """
+        Updates the bindings.
+        """
         for binding in self.bindings:
             binding.update()
         return self
 
 
 # Helper elements
-@p('post_bind', default=lambda o, c, u: None, type=eval, public=False)
-@p('post_item_bind', default=lambda o, c, i, u: None, type=eval, public=False)
-@p('post_item_update', default=lambda o, c, i, u: None, type=eval, public=False)
-@p('binding', default=ListAutoBinding, type=eval, public=False)
-@p('values', default=lambda c: c, type=eval, public=False)
+@public
+@p('post_bind', default=lambda o, c, u: None, type=eval, public=False,
+    doc='Called after binding is complete, ``lambda object, collection, ui: None``')
+@p('post_item_bind', default=lambda o, c, i, u: None, type=eval, public=False,
+    doc='Called after an item is bound, ``lambda object, collection, item, item-ui: None``')
+@p('post_item_update', default=lambda o, c, i, u: None, type=eval, public=False,
+    doc='Called after an item is updated, ``lambda object, collection, item, item-ui: None``')
+@p('binding', default=ListAutoBinding, type=eval, public=False,
+    doc='Collection binding class to use')
+@p('values', default=lambda c: c, type=eval, public=False,
+    doc='Called to extract values from the collection, ``lambda collection: []``')
 @plugin
 class ListElement (UIElement):
     typeid = 'bind:list'
 
 
-@p('add_item', default=lambda i, c: c.append(i), type=eval, public=False)
-@p('new_item', default=lambda c: None, type=eval, public=False)
-@p('delete_item', default=lambda i, c: c.remove(i), type=eval, public=False)
-@p('post_bind', default=lambda o, c, u: None, type=eval, public=False)
-@p('post_item_bind', default=lambda o, c, i, u: None, type=eval, public=False)
-@p('post_item_update', default=lambda o, c, i, u: None, type=eval, public=False)
+@public
+@p('add_item', default=lambda i, c: c.append(i), type=eval, public=False,
+    doc='Called to append value to the collection, ``lambda item, collection: None``')
+@p('new_item', default=lambda c: None, type=eval, public=False,
+    doc='Called to create an empty new item, ``lambda collection: object()``')
+@p('delete_item', default=lambda i, c: c.remove(i), type=eval, public=False,
+    doc='Called to remove value from the collection, ``lambda item, collection: None``')
 @p('binding', default=CollectionAutoBinding, type=eval, public=False)
-@p('values', default=lambda c: c, type=eval, public=False)
-@p('filter', default=lambda i: True, type=eval, public=False)
 @plugin
-class CollectionElement (UIElement):
+class CollectionElement (ListElement):
     typeid = 'bind:collection'

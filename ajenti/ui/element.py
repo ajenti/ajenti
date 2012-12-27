@@ -1,8 +1,10 @@
 import copy
 
 from ajenti.api import *
+from ajenti.util import *
 
 
+@public
 def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
     """
     Creates an UI property inside an :class:`UIElement`::
@@ -38,6 +40,7 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
     return decorator
 
 
+@public
 def on(id, event):
     """
     Sets the decorated method to handle indicated event::
@@ -63,6 +66,7 @@ def on(id, event):
     return decorator
 
 
+@public
 class UIProperty (object):
     def __init__(self, name, value=None, bindtypes=[], type=unicode, public=True):
         self.dirty = False
@@ -83,6 +87,7 @@ class UIProperty (object):
         self.value = value
 
 
+@public
 @p('visible', default=True, type=bool,
     doc='Visibility of the element')
 @p('bind', default=None, type=str,
