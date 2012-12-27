@@ -17,22 +17,11 @@ class PluginsPlugin (SectionPlugin):
         # In case you didn't notice it yet, this is the Plugins Plugin
         self.append(self.ui.inflate('plugins:main'))
 
-        self.binder = Binder(self, self.find('plugins'))
+        def post_plugin_bind(object, collection, item, ui):
+            ui.find('warning-icon').visible = bool(item.crash)
+        #self.find('plugins').post_item_bind = post_plugin_bind
 
-        """
-        self.find('users').new_item = lambda c: UserData()
-
-        def post_user_bind(object, collection, item, ui):
-            box = ui.find('permissions')
-            for prov in PermissionProvider.get_all():
-                line = self.ui.create('tab', title=prov.get_name())
-                box.append(line)
-                for perm in prov.get_permissions():
-                    line.append(self.ui.create('checkbox', id=perm[0], text=perm[1], \
-                        value=(perm[0] in item.permissions)))
-        self.find('users').post_item_bind = post_user_bind
-        """
-
+        self.binder = Binder(self, self.find('bind-root'))
         self.refresh()
 
     def refresh(self):

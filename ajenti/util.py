@@ -1,8 +1,25 @@
 import traceback
 import logging
 import time
+import sys
 
 
+def public(f):
+    """"Use a decorator to avoid retyping function/class names.
+
+    * Based on an idea by Duncan Booth:
+    http://groups.google.com/group/comp.lang.python/msg/11cbb03e09611b8a
+    * Improved via a suggestion by Dave Angel:
+    http://groups.google.com/group/comp.lang.python/msg/3d400fb22d8a42e1
+    """
+    all = sys.modules[f.__module__].__dict__.setdefault('__all__', [])
+    if f.__name__ not in all:  # Prevent duplicates if run from an IDE.
+        all.append(f.__name__)
+    return f
+public(public)  # Emulate decorating ourself
+
+
+@public
 def str_fsize(sz):
     """
     Formats file size as string (i.e., 1.2 Mb)
@@ -19,6 +36,7 @@ def str_fsize(sz):
     return '%.1f Gb' % sz
 
 
+@public
 def str_timedelta(s):
     """
     Formats a time delta (i.e., "5 days, 5:06:07")
@@ -32,6 +50,7 @@ def str_timedelta(s):
     return r
 
 
+@public
 def cache_value(duration):
     """
     Makes a function lazy.
@@ -54,6 +73,7 @@ def cache_value(duration):
     return decorator
 
 
+@public
 def make_report():
     """
     Formats a bug report.

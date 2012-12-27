@@ -89,7 +89,7 @@ class UIProperty (object):
     doc='Bound property name')
 @p('client', default=False, type=True,
     doc='Whether this element\'s events are only processed on client side')
-@p('bindtransform', default=lambda x: x, type=eval, public=False,
+@p('bindtransform', default=None, type=eval, public=False,
     doc='Value transformation function for one-direction bindings')
 @p('id', default=None, type=str,
     doc='Element ID')

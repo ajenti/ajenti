@@ -1,8 +1,9 @@
 <vc xmlns:bind="bind">
-    <pad id="plugins">
-        <bind:collection bind="plugins">
+    <pad id="bind-root">
+        <bind:collection id="plugins" bind="plugins">
             <dt bind="__items">
                 <dtr>
+                    <dth width="16" />
                     <dth width="16" />
                     <dth><label text="Name" /></dth>
                     <dth><label text="Author" /></dth>
@@ -12,13 +13,21 @@
             <bind:template>
                 <dtr>
                     <dtd>
+                        <icon id="warning-icon" bind="crash" bindtransform="lambda x: 'warning-sign' if x else None" style="yellow" />
+                    </dtd>
+                    <dtd>
                         <icon bind="icon" />
                     </dtd>
                     <dtd>
-                        <hc>
-                            <label bind="title" style="bold" />
-                            <label bind="name" />
-                        </hc>
+                        <collapse>
+                            <hc>
+                                <label bind="title" style="bold" />
+                                <label bind="name" />
+                            </hc>
+                            <pad>
+                                <label text="test" />
+                            </pad>
+                        </collapse>
                     </dtd>
                     <dtd>
                         <label bind="author" />

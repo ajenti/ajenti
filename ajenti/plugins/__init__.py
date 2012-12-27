@@ -2,12 +2,17 @@ import imp
 import os
 import logging
 import traceback
+import sys
+
+from ajenti.util import *
 
 
+@public
 class PluginLoadError (Exception):
     pass
 
 
+@public
 class PluginCrashed (PluginLoadError):
     def __init__(self, e):
         self.e = e
@@ -17,9 +22,11 @@ class PluginCrashed (PluginLoadError):
         return 'crashed: %s' % self.e
 
 
+@public
 class Dependency:
     class Unsatisfied (PluginLoadError):
         def __init__(self):
+            PluginLoadError.__init__(self, None)
             self.dependency = None
 
         def reason(self):
@@ -42,6 +49,26 @@ class Dependency:
             raise exception
 
 
+@public
+class ModuleDependency (Dependency):
+    class Unsatisfied (Dependency.Unsatisfied):
+        def reason(self):
+            return '%s' % self.dependency.module_name
+
+    def __init__(self, module_name):
+        self.module_name = module_name
+
+    def satisfied(self):
+        if self.module_name in sys.modules:
+            return True
+        try:
+            __import__(self.module_name)
+            return True
+        except:
+            return False
+
+
+@public
 class PluginDependency (Dependency):
     class Unsatisfied (Dependency.Unsatisfied):
         def reason(self):
@@ -51,9 +78,11 @@ class PluginDependency (Dependency):
         self.plugin_name = plugin_name
 
     def satisfied(self):
-        return self.plugin_name in manager.get_all().keys()
+        # get_order() only contains successfully loaded plugins
+        return self.plugin_name in manager.get_order()
 
 
+@public
 class PluginManager:
     """
     Handles plugin loading and unloading
@@ -129,6 +158,12 @@ class PluginManager:
                 self.load(name)
                 return
             except PluginDependency.Unsatisfied, e:
+                if e.dependency.plugin_name in manager.get_all():
+                    if manager.get_all()[e.dependency.plugin_name].crash:
+                        manager.get_all()[name].crash = e
+                        logging.warn(' *** Plugin dependency unsatisfied: %s -> %s' % \
+                            (name, e.dependency.plugin_name))
+                        return
                 try:
                     logging.debug('Preloading plugin dependency: %s' % e.dependency.plugin_name)
                     self.load_recursive(e.dependency.plugin_name)
@@ -152,6 +187,7 @@ class PluginManager:
         info.module = mod
         info.active = False
         info.name = name
+        info.crash = None
         if hasattr(mod, 'init'):
             info.init = mod.init
         self.__plugins[name] = info
@@ -171,12 +207,13 @@ class PluginManager:
             self.__order.append(name)
         except PluginDependency.Unsatisfied, e:
             raise
-        except PluginLoadError, e:
+        except PluginCrashed, e:
             logging.warn(' *** Plugin crashed: %s' % e)
             print e.traceback
+            info.crash = e
+        except PluginLoadError, e:
+            logging.warn(' *** Plugin failed to load: %s' % e)
             info.crash = e
 
 
 manager = PluginManager()
-
-__all__ = ['manager', 'PluginLoadError', 'PluginCrashed', 'PluginDependency']

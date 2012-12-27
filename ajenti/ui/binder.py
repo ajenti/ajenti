@@ -31,9 +31,10 @@ class PropertyBinding (Binding):
         Binding.__init__(self, object, field, ui)
         if property is None:
             for prop in ui.properties.values():
-                if type(self.get()) in prop.bindtypes or type(self.get()) == type(None):
-                    self.property = prop.name
-                    break
+                if prop.bindtypes:
+                    if type(self.get()) in prop.bindtypes or type(self.get()) == type(None) or ui.bindtransform:
+                        self.property = prop.name
+                        break
             else:
                 raise Exception('Cannot bind %s.%s' % (object, field))
         else:
@@ -41,7 +42,8 @@ class PropertyBinding (Binding):
 
     def populate(self):
         self.old_value = self.get()
-        self.ui.properties[self.property].value = self.ui.bindtransform(self.get())
+        v = self.ui.bindtransform(self.get()) if self.ui.bindtransform else self.get()
+        self.ui.properties[self.property].value = v
 
     def update(self):
         new_value = self.ui.properties[self.property].value
@@ -210,13 +212,12 @@ class Binder (object):
     def autodiscover(self, object=None, ui=None):
         object = object or self.object
         for k in dir(object):
-            #print object, k, dir(object)
             v = getattr(object, k)
             children = (ui or self.ui).nearest(lambda x: x.bind == k)
             for child in children:
                 if child == ui:
                     raise Exception('Circular UI reference for %s!' % k)
-                if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None:
+                if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None or child.bindtransform:
                     self.add(PropertyBinding(object, k, child))
                 elif not hasattr(v, '__iter__'):
                     self.autodiscover(v, child)
