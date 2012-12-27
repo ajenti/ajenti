@@ -14,6 +14,8 @@ class PluginInfo:
     """
 
     def __init__(self, **kwargs):
+        self.name = ''
+        self.icon = None
         self.author = ''
         self.homepage = ''
         self.dependencies = []
@@ -25,6 +27,12 @@ class PluginInfo:
 
         for k in kwargs:
             setattr(self, k, kwargs[k])
+
+    def __cmp__(self, other):
+        return cmp(self.name, other.name)
+
+    def __hash__(self):
+        return hash(self.name)
 
 
 def plugin(cls):

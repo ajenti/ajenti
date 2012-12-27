@@ -8,6 +8,7 @@ from api import ServiceMultiplexor
 @plugin
 class ServiceWidget (ConfigurableWidget):
     name = 'Service'
+    icon = 'play'
 
     def on_prepare(self):
         self.mgr = ServiceMultiplexor.get()

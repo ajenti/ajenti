@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Services',
+    icon='play',
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),

@@ -3,7 +3,8 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-    title='Resources Manager',
+    title='Resource Manager',
+    icon='link',
     dependencies=[
     ],
 )

@@ -11,6 +11,7 @@ from reconfigure.items.hosts import AliasData, HostData
 class Hosts (SectionPlugin):
     def init(self):
         self.title = 'Hosts'
+        self.icon = 'sitemap'
         self.category = 'System'
 
         self.append(self.ui.inflate('hosts:main'))

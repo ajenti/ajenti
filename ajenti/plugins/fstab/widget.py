@@ -6,6 +6,7 @@ from ajenti.plugins.dashboard.api import ConfigurableWidget
 @plugin
 class DiskSpaceWidget (ConfigurableWidget):
     name = 'Disk space'
+    icon = 'hdd'
 
     def on_prepare(self):
         self.sensor = Sensor.find('disk-usage')

@@ -24,6 +24,7 @@ class MemorySensor (Sensor):
 @plugin
 class MemoryWidget (DashboardWidget):
     name = 'Memory usage'
+    icon = 'tasks'
 
     def init(self):
         self.sensor = Sensor.find('memory')

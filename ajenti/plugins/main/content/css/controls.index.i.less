@@ -234,6 +234,10 @@
 				margin: 3px 0;
 				.border-radius(3px);
 
+				i:before {
+					top: -1px;
+				}
+
 				&:hover {
 					background: rgba(0,0,0,0.05);
 				}
@@ -244,6 +248,11 @@
 					//color: white;
 					.box-shadow(@controlShadowHighlight);
 					text-shadow: 0 1px 0px rgba(255,255,255,.60);
+
+					i:before {
+						text-shadow: 0 1px 0px rgba(255,255,255,.60);
+						color: darken(@orange, 20%);
+					}
 				}
 			}
 		}

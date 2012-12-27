@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Package manager',
+    icon='gift',
     dependencies=[
         PluginDependency('main')
     ],

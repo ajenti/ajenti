@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Filesystems',
+    icon='hdd',
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),

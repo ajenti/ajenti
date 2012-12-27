@@ -41,6 +41,7 @@ class CPUSensor (Sensor):
 @plugin
 class CPUWidget (DashboardWidget):
     name = 'CPU usage'
+    icon = 'signal'
 
     def init(self):
         self.sensor = Sensor.find('cpu')

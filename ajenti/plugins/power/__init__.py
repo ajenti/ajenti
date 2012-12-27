@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Power',
+    icon='bolt',
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),

@@ -13,6 +13,7 @@ from client import SupervisorServiceManager
 class Supervisor (SectionPlugin):
     def init(self):
         self.title = 'Supervisor'
+        self.icon = 'play'
         self.category = 'Software'
         self.append(self.ui.inflate('supervisor:main'))
         self.mgr = SupervisorServiceManager.get()

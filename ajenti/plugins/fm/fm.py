@@ -16,6 +16,7 @@ class FileManager (SectionPlugin):
     def init(self):
         self.title = 'File manager'
         self.category = 'Tools'
+        self.icon = 'folder-open'
 
         self.append(self.ui.inflate('fm:main'))
         self.controller = Controller()

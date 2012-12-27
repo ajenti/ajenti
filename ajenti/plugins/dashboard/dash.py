@@ -14,6 +14,7 @@ class Dash (SectionPlugin):
     def init(self):
         self.title = 'Dashboard'
         self.category = ''
+        self.icon = 'dashboard'
         self.order = 0
 
         self.append(self.ui.inflate('dashboard:dash'))

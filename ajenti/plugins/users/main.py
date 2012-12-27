@@ -12,6 +12,7 @@ from reconfigure.configs import PasswdConfig, GroupConfig
 class Users (SectionPlugin):
     def init(self):
         self.title = 'Users'
+        self.icon = 'group'
         self.category = 'System'
         self.append(self.ui.inflate('users:main'))
 

@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Sensors',
+    icon='leaf',
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),

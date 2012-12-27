@@ -16,6 +16,7 @@ class UptimeSensor (Sensor):
 @plugin
 class UptimeWidget (DashboardWidget):
     name = 'Uptime'
+    icon = 'off'
 
     def init(self):
         self.sensor = Sensor.find('uptime')

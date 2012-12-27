@@ -15,6 +15,7 @@ from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionDat
 class Firewall (SectionPlugin):
     def init(self):
         self.title = 'Firewall'
+        self.icon = 'fire'
         self.category = 'System'
 
         self.append(self.ui.inflate('iptables:main'))

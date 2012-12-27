@@ -60,7 +60,7 @@ class window.Controls.main__sections_tab extends window.Control
     createDom: () ->
         @dom = $("""
             <a href="#" class="tab #{if @properties.active then 'active' else ''}">
-                #{@properties.title}
+                <i class="icon-#{@properties.icon}"></i> #{@properties.title}
             </a>
         """)
 

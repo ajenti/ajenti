@@ -10,6 +10,7 @@ from api import PackageManager
 class Packages (SectionPlugin):
     def init(self):
         self.title = 'Packages'
+        self.icon = 'gift'
         self.category = 'System'
 
         self.mgr = PackageManager.get()

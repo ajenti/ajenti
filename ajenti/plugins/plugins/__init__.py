@@ -3,13 +3,13 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-    title='Terminal',
-    icon='list-alt',
+    title='Plugins',
+    icon='cogs',
     dependencies=[
-        PluginDependency('main'),
+        PluginDependency('main')
     ],
 )
 
 
 def init():
-    import main
+    import plugins

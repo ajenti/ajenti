@@ -13,6 +13,7 @@ import disks
 class Filesystems (SectionPlugin):
     def init(self):
         self.title = 'Filesystems'
+        self.icon = 'hdd'
         self.category = 'System'
         self.append(self.ui.inflate('fstab:main'))
 

@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Users',
+    icon='group',
     dependencies=[
         PluginDependency('main'),
     ],

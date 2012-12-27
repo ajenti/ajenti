@@ -3,7 +3,8 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-    title='Configuration',
+    title='Ajenti Configurator',
+    icon='wrench',
     dependencies=[
         PluginDependency('main')
     ],

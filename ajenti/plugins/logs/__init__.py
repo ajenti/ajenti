@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Logs',
+    icon='list',
     dependencies=[
         PluginDependency('main'),
     ],

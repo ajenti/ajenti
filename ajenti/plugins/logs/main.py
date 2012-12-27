@@ -10,6 +10,7 @@ from ajenti.ui import UIElement, p, on
 class Logs (SectionPlugin):
     def init(self):
         self.title = 'Logs'
+        self.icon = 'list'
         self.category = 'System'
 
         self.append(self.ui.inflate('logs:main'))

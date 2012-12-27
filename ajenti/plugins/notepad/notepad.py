@@ -13,6 +13,7 @@ class Notepad (SectionPlugin):
 
     def init(self):
         self.title = 'Notepad'
+        self.icon = 'pencil'
         self.category = 'Tools'
 
         self.append(self.ui.inflate('notepad:main'))

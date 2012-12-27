@@ -11,6 +11,7 @@ from reconfigure.items.resolv import ItemData
 class Resolv (SectionPlugin):
     def init(self):
         self.title = 'Nameservers'
+        self.icon = 'globe'
         self.category = 'System'
 
         self.append(self.ui.inflate('resolv:main'))

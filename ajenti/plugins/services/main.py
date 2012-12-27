@@ -10,6 +10,7 @@ from api import ServiceMultiplexor
 class Services (SectionPlugin):
     def init(self):
         self.title = 'Services'
+        self.icon = 'play'
         self.category = 'Software'
         self.append(self.ui.inflate('services:main'))
         self.mgr = ServiceMultiplexor.get()

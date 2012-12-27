@@ -1,6 +1,6 @@
 import subprocess
 
-from ajenti.api import plugin, BasePlugin
+from ajenti.api import plugin
 from ajenti.plugins.dashboard.api import ConfigurableWidget
 from ajenti.ui import on
 
@@ -8,6 +8,7 @@ from ajenti.ui import on
 @plugin
 class ScriptWidget (ConfigurableWidget):
     name = 'Script'
+    icon = 'play'
 
     def on_prepare(self):
         self.append(self.ui.inflate('scripts:widget'))

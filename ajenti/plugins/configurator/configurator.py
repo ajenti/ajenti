@@ -11,6 +11,7 @@ from reconfigure.items.ajenti import UserData
 class Configurator (SectionPlugin):
     def init(self):
         self.title = 'Configure'
+        self.icon = 'wrench'
         self.category = ''
         self.order = 50
 
@@ -50,7 +51,7 @@ class Configurator (SectionPlugin):
             if not '|' in user.password:
                 user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
-        print ajenti.config.save()
+        ajenti.config.save()
         self.context.notify('Saved')
 
 

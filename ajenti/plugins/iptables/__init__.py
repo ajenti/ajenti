@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Firewall',
+    icon='fire',
     dependencies=[
         PluginDependency('main')
     ],

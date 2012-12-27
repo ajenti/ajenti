@@ -5,8 +5,8 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Core',
+    icon='link',
     dependencies=[
-        #PluginDependency('ads')
     ],
 )
 

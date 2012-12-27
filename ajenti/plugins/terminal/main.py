@@ -16,6 +16,7 @@ from terminal import Terminal
 class Terminals (SectionPlugin):
     def init(self):
         self.title = 'Terminal'
+        self.icon = 'list-alt'
         self.category = 'Tools'
 
         self.append(self.ui.inflate('terminal:main'))
