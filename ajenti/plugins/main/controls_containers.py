@@ -85,11 +85,3 @@ class Tabs (UIElement):
 
     def on_switch(self):
         self.children_changed = True  # force update
-
-
-@plugin
-class BindTemplate (UIElement):
-    typeid = 'bind:template'
-
-    def init(self):
-        self.visible = False
