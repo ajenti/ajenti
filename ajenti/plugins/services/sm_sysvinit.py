@@ -36,10 +36,13 @@ class SysVInitService (Service):
         self.running = subprocess.call([self.script, 'status']) == 0
 
     def start(self):
-        subprocess.call([self.script, 'start'])
+        self.command('start')
 
     def stop(self):
-        subprocess.call([self.script, 'stop'])
+        self.command('stop')
 
     def restart(self):
-        subprocess.call([self.script, 'restart'])
+        self.command('restart')
+
+    def command(self, cmd):
+        subprocess.call([self.script, cmd])

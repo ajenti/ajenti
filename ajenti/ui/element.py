@@ -318,6 +318,8 @@ class UIElement (object):
         """
         Appends a ``child``
         """
+        if child in self.children:
+            return
         self.children.append(child)
         child.parent = self
         self.children_changed = True

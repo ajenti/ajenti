@@ -6,7 +6,7 @@ _make_icon = (icon) ->
 class window.Controls.default extends window.Control
     createDom: () ->
         @dom = $("""
-            <div>
+            <div class="control container">
             </div>
         """)
         @childContainer = @dom

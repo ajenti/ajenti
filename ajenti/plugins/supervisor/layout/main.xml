@@ -1,5 +1,13 @@
 <vc xmlns:bind="bind">
-    <servicebar name="supervisor" />
+    <servicebar 
+        name="supervisor" 
+        buttons="
+            [{
+                'command': 'force-reload',
+                'text': 'Reload',
+                'icon': 'step-forward',
+            }]
+        " />
 
     <pad id="main">
         <bind:collection bind="programs" id="programs">

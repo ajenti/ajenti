@@ -45,3 +45,6 @@ class Service (object):
 
     def restart(self):
         pass
+
+    def command(self, cmd):
+        pass

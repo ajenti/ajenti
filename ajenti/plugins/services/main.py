@@ -47,6 +47,7 @@ class Services (SectionPlugin):
 
 
 @p('name')
+@p('buttons', default=[], type=eval)
 @plugin
 class ServiceControlBar (UIElement):
     typeid = "servicebar"
@@ -54,6 +55,11 @@ class ServiceControlBar (UIElement):
     def init(self):
         self.service = ServiceMultiplexor.get().get_one(self.name)
         self.append(self.ui.inflate('services:bar'))
+        for btn in self.buttons:
+            b = self.ui.create('button')
+            b.text, b.icon = btn['text'], btn['icon']
+            b.on('click', self.on_command, btn['command'])
+            self.find('buttons').append(b)
 
     def on_page_load(self):
         self.service.refresh()
@@ -74,4 +80,8 @@ class ServiceControlBar (UIElement):
     @on('stop', 'click')
     def on_stop(self):
         self.service.stop()
+        self.on_page_load()
+
+    def on_command(self, cmd):
+        self.service.command(cmd)
         self.on_page_load()

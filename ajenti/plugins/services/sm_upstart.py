@@ -50,3 +50,6 @@ class UpstartService (Service):
 
     def restart(self):
         subprocess.call(['restart', self.name])
+
+    def command(self, cmd):
+        subprocess.call(['/etc/init.d/%s' % self.name, 'cmd'])
