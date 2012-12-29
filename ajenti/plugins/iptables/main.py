@@ -74,8 +74,8 @@ class Firewall (SectionPlugin):
     @on('save', 'click')
     def save(self):
         self.binder.update()
-        self.refresh()
         self.config.save()
+        self.refresh()
 
     @on('edit', 'click')
     def raw_edit(self):

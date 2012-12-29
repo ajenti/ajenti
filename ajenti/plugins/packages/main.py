@@ -1,9 +1,9 @@
 from ajenti.api import *
-from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 from ajenti.ui.binder import Binder, CollectionAutoBinding
 
-from api import PackageManager
+from api import PackageManager, PackageInfo
 
 
 @plugin
@@ -41,6 +41,13 @@ class Packages (SectionPlugin):
         self.binder_s.unpopulate().populate()
         self._pending = self.pending.values()
         self.binder_p.reset(self).autodiscover().populate()
+
+    @intent('install-package')
+    def intent_install(self, package):
+        self.activate()
+        p = PackageInfo()
+        p.name, p.action = package, 'i'
+        self.mgr.do([p])
 
     def on_page_load(self):
         self.mgr.refresh()

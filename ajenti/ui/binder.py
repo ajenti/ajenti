@@ -129,6 +129,18 @@ class ListAutoBinding (Binding):
             self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
 
 
+def _element_in_child_binder(root, e):
+    # detect if the element is trapped inside a nested bind: tag
+    # relative to e
+    return any(x.typeid.startswith('bind:') for x in root.path_to(e))
+
+
+def _element_in_child_template(root, e):
+    # detect if the element is trapped inside a nested bind: tag
+    # relative to e
+    return any(x.typeid.startswith('bind:template') for x in root.path_to(e))
+
+
 @public
 class CollectionAutoBinding (Binding):
     """
@@ -173,11 +185,6 @@ class CollectionAutoBinding (Binding):
         # restore original container content
         self.items_ui.children = copy.copy(self.old_items)
         return self
-
-    def _element_in_child_binder(self, root, e):
-        # detect if the element is trapped inside a nested bind: tag
-        # relative to e
-        return any(x.typeid.startswith('bind:') for x in root.path_to(e))
 
     def get_template(self, item, ui):
         # override for custom item template creation
@@ -227,7 +234,7 @@ class CollectionAutoBinding (Binding):
 
             try:
                 del_button = template.nearest(lambda x: x.bind == '__delete')[0]
-                if not self._element_in_child_binder(template, del_button):
+                if not _element_in_child_binder(template, del_button):
                     del_button.on('click', self.on_delete, value)
             except IndexError:
                 pass
@@ -236,7 +243,7 @@ class CollectionAutoBinding (Binding):
 
         try:
             add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
-            if not self._element_in_child_binder(self.ui, add_button):
+            if not _element_in_child_binder(self.ui, add_button):
                 add_button.on('click', self.on_add)
         except IndexError:
             pass
@@ -255,7 +262,7 @@ class CollectionAutoBinding (Binding):
         self.populate()
 
     def update(self):
-        if hasattr(self.items_ui, 'sortable'):
+        if hasattr(self.items_ui, 'sortable') and self.items_ui.order:
             new_values = []
             for i in self.items_ui.order:
                 if i - 1 < len(self.collection):
@@ -264,6 +271,7 @@ class CollectionAutoBinding (Binding):
                 self.collection.pop(0)
             for e in new_values:
                 self.collection.append(e)
+            self.items_ui.order = []
         for value in self.values:
             if self.ui.filter(value):
                 self.binders[value].update()
@@ -305,6 +313,8 @@ class Binder (object):
             for child in children:
                 if child == ui:
                     raise Exception('Circular UI reference for %s!' % k)
+                if _element_in_child_template((ui or self.ui), child):
+                    continue
                 if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None or child.bindtransform:
                     self.add(PropertyBinding(object, k, child))
                 elif not hasattr(v, '__iter__'):
@@ -344,7 +354,6 @@ class Binder (object):
 
 
 # Helper elements
-@public
 @p('post_bind', default=lambda o, c, u: None, type=eval, public=False,
     doc='Called after binding is complete, ``lambda object, collection, ui: None``')
 @p('post_item_bind', default=lambda o, c, i, u: None, type=eval, public=False,
@@ -353,10 +362,18 @@ class Binder (object):
     doc='Called after an item is updated, ``lambda object, collection, item, item-ui: None``')
 @p('binding', default=ListAutoBinding, type=eval, public=False,
     doc='Collection binding class to use')
+@p('filter', default=lambda i: True, type=eval, public=False,
+    doc='Called to filter collection''s values, ``lambda value: bool``')
 @p('values', default=lambda c: c, type=eval, public=False,
     doc='Called to extract values from the collection, ``lambda collection: []``')
+@public
+class BasicCollectionElement (UIElement):
+    pass
+
+
+@public
 @plugin
-class ListElement (UIElement):
+class ListElement (BasicCollectionElement):
     typeid = 'bind:list'
 
 
@@ -369,5 +386,5 @@ class ListElement (UIElement):
     doc='Called to remove value from the collection, ``lambda item, collection: None``')
 @p('binding', default=CollectionAutoBinding, type=eval, public=False)
 @plugin
-class CollectionElement (ListElement):
+class CollectionElement (BasicCollectionElement):
     typeid = 'bind:collection'

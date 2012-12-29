@@ -21,6 +21,15 @@ class window.Controls.pad extends window.Control
         @childContainer = @dom
 
 
+class window.Controls.indent extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control container indent">
+            </div>
+        """)
+        @childContainer = @dom
+
+
 class window.Controls.box extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
@@ -417,6 +426,37 @@ class window.Controls.dth extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         @dom = $("""<th style="width: #{w}">#{@properties.text}</th>""")
+        @childContainer = @dom
+
+    wrapChild: (child) ->
+        return child.dom
+
+
+class window.Controls.lt extends window.Control
+    createDom: () ->
+        w = @_int_to_px(@properties.width)
+        @dom = $("""<table cellspacing="0" cellpadding="0" class="control layout-table" style="width: #{w}">
+                <tbody></tbody>
+            </table>""")
+        @childContainer = @dom#.find('>tbody')
+
+    wrapChild: (child) ->
+        return child.dom
+
+
+class window.Controls.ltr extends window.Control
+    createDom: () ->
+        @dom = $("""<tr></tr>""")
+        @childContainer = @dom
+
+    wrapChild: (child) ->
+        return child.dom
+
+
+class window.Controls.ltd extends window.Control
+    createDom: () ->
+        w = @_int_to_px(@properties.width)
+        @dom = $("""<td style="width: #{w}"></td>""")
         @childContainer = @dom
 
     wrapChild: (child) ->

@@ -8,7 +8,7 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),
-        ModuleDependency('lolz'),
+        #ModuleDependency('lolz'),
     ],
 )
 

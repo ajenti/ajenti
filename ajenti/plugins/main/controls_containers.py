@@ -60,6 +60,18 @@ class TableHeader (UIElement):
     typeid = 'dth'
 
 
+@p('width', default='99%')
+@plugin
+class LayoutTable (UIElement):
+    typeid = 'lt'
+
+
+@p('width', default=None)
+@plugin
+class LayoutTableCell (UIElement):
+    typeid = 'ltd'
+
+
 @p('title', default='', bindtypes=[str, unicode])
 @plugin
 class Tab (UIElement):

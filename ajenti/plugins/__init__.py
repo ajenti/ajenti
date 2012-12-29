@@ -23,7 +23,7 @@ class PluginCrashed (PluginLoadError):
 
 
 @public
-class Dependency:
+class Dependency (object):
     class Unsatisfied (PluginLoadError):
         def __init__(self):
             PluginLoadError.__init__(self, None)
@@ -51,6 +51,8 @@ class Dependency:
 
 @public
 class ModuleDependency (Dependency):
+    description = 'Python module'
+
     class Unsatisfied (Dependency.Unsatisfied):
         def reason(self):
             return '%s' % self.dependency.module_name
@@ -67,9 +69,14 @@ class ModuleDependency (Dependency):
         except:
             return False
 
+    def __str__(self):
+        return self.module_name
+
 
 @public
 class PluginDependency (Dependency):
+    description = 'Plugin'
+
     class Unsatisfied (Dependency.Unsatisfied):
         def reason(self):
             return '%s' % self.dependency.plugin_name
@@ -80,6 +87,9 @@ class PluginDependency (Dependency):
     def satisfied(self):
         # get_order() only contains successfully loaded plugins
         return self.plugin_name in manager.get_order()
+
+    def __str__(self):
+        return self.plugin_name
 
 
 @public
