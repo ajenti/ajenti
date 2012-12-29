@@ -58,3 +58,7 @@ clean:
 	rm -rf $(DOCBUILDDIR)/*
 	rm -rf build/ debian/$(PROJECT)* debian/*stamp* debian/files MANIFEST *.egg-info
 	find . -name '*.pyc' -delete
+	find . -name '*.c.js' -delete
+	find . -name '*.coffee.js' -delete
+	find . -name '*.c.css' -delete
+	find . -name '*.less.css' -delete

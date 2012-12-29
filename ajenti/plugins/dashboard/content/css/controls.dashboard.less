@@ -2,29 +2,36 @@
     .dashboard-dash {
         >.container {
             float: left;
-            width: 350px;
-            padding: 15px 25px;
+            width: 50%;
             min-height: 200px;
+
+            &.container-1 {
+                margin: 0 -1px 0 0;
+            }
 
             >.placeholder {
                 border: 1px dashed #68a;
-                background: #bdf;
-                width: 100%;
                 height: 40px;
-                margin: 15px 0;
-                border-radius: 5px;
+                width: 100%;
+                padding: 10px 5px;
+                box-sizing: border-box;
             }
 
             &.trash {
                 display: none;
+                background: -webkit-linear-gradient(top, #ddd, #eee);
+                background: -moz-linear-gradient(top, #ddd, #eee);
                 border: 1px dashed #a86;
-                background: #fdb;
-                width: 50%;
-                min-height: 80px;
-                margin: 15px auto;
-                padding: 15px 25px 0;
-                border-radius: 5px;
-                color: #a86;
+                box-shadow: 0 0 10px rgba(0,0,0,.5) inset;
+                width: 100%;
+                height: 30px;
+                min-height: auto;   
+                border: 1px solid #ddd;
+                font-weight: bold;
+                font-size: 20px;
+                padding: 20px 0;
+                color: #bbb;
+                text-shadow: 0 1px 0 rgba(255,255,255,.5);
                 text-align: center;
                 float: none;
                 clear: both;
@@ -33,22 +40,28 @@
     }
 
     .dashboard-widget {
-        margin: 10px 0;
-        width: 345px;
-        border-radius: 5px;
-        box-shadow: 0 1px 2px rgba(0,0,0,.35);
-        padding: 5px;
+        width: 100%;
+        padding: 10px 5px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-width: 0 1px 1px 0;
 
         >.handle {
             width: 8px;
             height: 30px;
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH2wkeCyEzNuGfhQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXYzh9+vR/BnyAeAXUMwoAFlwUQUDbs/QAAAAASUVORK5CYII=') repeat;
             float: left;
-            margin: 0 5px 0 0;
+            margin: 0 15px 0 5px;
+            opacity: .75;
         }
 
         >.content {
             float: left;
+        }
+
+        &.ui-sortable-helper {
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,.25);
         }
     }
 

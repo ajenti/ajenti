@@ -258,18 +258,22 @@
 		}
 
 		&>.main {
-			.content-gradient();
-			.border-radius(5px);
-			.box-shadow(@mainPaneShadow);
 			overflow: hidden;
 
 			margin: 0 0 0 10px;
 			float: left;
-			width: 800px;
 
 			.section {
 				display: none;
 
+				&.normal {
+					.content-gradient();
+					.border-radius(5px);
+					.box-shadow(@mainPaneShadow);
+				}
+				
+				width: 800px;
+			
 				&.active {
 					display: block;
 				}

@@ -7,6 +7,7 @@ from ajenti.ui import *
 @p('order', default=99, doc='Sorting weight, light plugins end up higher')
 @p('category', default='Other', doc='Section category name')
 @p('active', default=False)
+@p('plain', default=False)
 @interface
 class SectionPlugin (BasePlugin, UIElement):
     """

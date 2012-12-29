@@ -112,7 +112,7 @@ class window.Controls.main__sections_root extends window.Control
 class window.Controls.main__section extends window.Control
     createDom: () ->
         @dom = $("""
-            <div class="control section container #{if @properties.active then 'active' else ''}">
+            <div class="control section container #{if @properties.active then 'active' else ''} #{if @properties.plain then 'plain' else 'normal'}"">
                 <div class="--child-container"></div>
             </div>
         """)

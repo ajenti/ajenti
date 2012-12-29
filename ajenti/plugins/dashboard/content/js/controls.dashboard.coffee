@@ -7,7 +7,7 @@ class window.Controls.dashboard__dash extends window.Control
                 <div class="container widget-container container-1" data-index="1">
                 </div>
                 <div class="container trash">
-                    Drop here to remove
+                    > Dispose used widgets here <
                 </div>
             </div>
         """)
@@ -39,7 +39,7 @@ class window.Controls.dashboard__dash extends window.Control
 class window.Controls.dashboard__widget extends window.Control
     createDom: () ->
         @dom = $("""
-            <div data-uid="#{@properties.uid}" class="control dashboard-widget content-gradient">
+            <div data-uid="#{@properties.uid}" class="control dashboard-widget">
                 <div class="handle"></div>
                 <div class="content"></div>
             </div>
