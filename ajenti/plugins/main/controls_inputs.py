@@ -40,3 +40,9 @@ class Dropdown (UIElement):
 @plugin
 class Combobox (UIElement):
     typeid = 'combobox'
+
+
+@p('target', type=str)
+@plugin
+class FileUpload (UIElement):
+    typeid = 'fileupload'

@@ -62,6 +62,11 @@
             </bind:collection>
 
             <pad>
+                <label text="Upload" style="bold" />
+                <fileupload target="/fm-upload" />
+            </pad>
+
+            <pad>
                 <right>
                     <button id="clear-clipboard" icon="remove-sign" text="Empty" />
                 </right>

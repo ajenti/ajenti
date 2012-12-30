@@ -155,3 +155,42 @@ class window.Controls.combobox extends window.Control
             r.value = value
         @properties.value = value
         return r
+
+
+
+class window.Controls.fileupload extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control fileupload">
+                <input type="file" />
+                
+                <div class="full-overlay">
+                    <div class="content">
+                        <div class="inner">
+                            <h1>Upload</h1>
+                            <div class="pb"></div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        """)
+        @progress = new window.Controls.progressbar(@ui, {}, [])
+        @dom.find('.pb').append($(@progress.dom))
+        @input = @dom.find('input')[0]
+        @input.addEventListener 'change', (e) =>
+            file = @input.files[0]
+            xhr = new XMLHttpRequest()
+            xhr.file = file
+            
+            if xhr.upload
+                xhr.upload.onprogress = (e) =>
+                    done = e.position || e.loaded
+                    total = e.totalSize || e.total
+                    progress = 1.0 * done / total / 2
+                    @progress.setProgress(progress)
+
+            xhr.open('post', @properties.target, true)
+            xhr.send(file)
+            $(@dom).find('.full-overlay').show()
+        , false
+        @dom.find('.full-overlay').hide()

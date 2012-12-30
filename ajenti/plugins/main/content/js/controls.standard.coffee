@@ -72,12 +72,16 @@ class window.Controls.listitem extends window.Control
 class window.Controls.progressbar extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        pw = @_int_to_px(Math.round(@properties.width * @properties.value))
         @dom = $("""
             <div class="control progressbar" style="width: #{w}">
-                <div class="fill" style="width: #{pw}">
+                <div class="fill">
                     <div class="tip"></div>
                 </div>
             </div>
         """)
+        @setProgress(@properties.value)
         @childContainer = @dom
+
+    setProgress: (p) ->
+        pw = @_int_to_px(Math.round(@properties.width * p))
+        $(@dom).find('.fill').css({width: pw})
