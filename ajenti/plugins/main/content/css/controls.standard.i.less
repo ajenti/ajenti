@@ -448,22 +448,24 @@
 
 	&.progressbar {
 		margin: 10px 1px;
-		height: @controlHeight - 18px;
-		border-top: 1px solid #999;
+		height: @controlHeight - 19px;
+		//border-top: 1px solid #999;
 		border-left: 1px solid #c8c8c8;
 		border-right: 1px solid #c8c8c8;
 		border-bottom: 1px solid #fff;
 		.border-radius(@controlHeight / 2 - 5px);
-		.box-shadow(0 -1px 0 #ccc inset);
+		.box-shadow(~"0 -1px 0 #ddd inset, 0 1px 0 #aaa inset");
 		#gradient > .vertical(#bbb, #ddd);
 
 		div.fill {
-			height: @controlHeight - 19px;
+			height: @controlHeight - 18px;
+			margin: 0 0 -1px;
 			.border-radius(@controlHeight / 2 - 6px);
 			#gradient > .vertical(lighten(@orange, 15%), @orange);
 			#gradient > .vertical(@orange, lighten(@orange, 25%));
 			position: relative;
 			overflow: hidden;
+			.box-shadow(0 1px 0 #aaa inset);
 
 			div.tip {
 				position: absolute;
