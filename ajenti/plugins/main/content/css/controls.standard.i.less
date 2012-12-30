@@ -443,8 +443,8 @@
 	}
 
 	&.progressbar {
-		margin: 6px 1px;
-		height: @controlHeight - 10px;
+		margin: 10px 1px;
+		height: @controlHeight - 18px;
 		border-top: 1px solid #999;
 		border-left: 1px solid #c8c8c8;
 		border-right: 1px solid #c8c8c8;
@@ -453,11 +453,24 @@
 		.box-shadow(0 -1px 0 #ccc inset);
 		#gradient > .vertical(#bbb, #ddd);
 
-		div {
-			height: @controlHeight - 11px;
+		div.fill {
+			height: @controlHeight - 19px;
 			.border-radius(@controlHeight / 2 - 6px);
 			#gradient > .vertical(lighten(@orange, 15%), @orange);
-			.box-shadow(@controlShadowHighlight);
+			#gradient > .vertical(@orange, lighten(@orange, 25%));
+			position: relative;
+			overflow: hidden;
+
+			div.tip {
+				position: absolute;
+				right: 0;
+				width: 20px;
+				height: @controlHeight - 19px;
+
+				#gradient > .horizontal(rgba(255,255,255,0), rgba(255,255,255,.6));
+				.border-radius(@controlHeight / 2 - 6px);
+				background-color: transparent;
+			}
 		}
 	}
 }

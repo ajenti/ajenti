@@ -75,7 +75,9 @@ class window.Controls.progressbar extends window.Control
         pw = @_int_to_px(Math.round(@properties.width * @properties.value))
         @dom = $("""
             <div class="control progressbar" style="width: #{w}">
-                <div class="fill" style="width: #{pw}"></div>
+                <div class="fill" style="width: #{pw}">
+                    <div class="tip"></div>
+                </div>
             </div>
         """)
         @childContainer = @dom
