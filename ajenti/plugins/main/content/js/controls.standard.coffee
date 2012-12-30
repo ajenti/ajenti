@@ -1,5 +1,5 @@
 _make_icon = (icon) ->
-    if icon then """<i class="icon-#{icon}"></i>&nbsp;""" else ""
+    if icon then """<i class="icon-#{icon}"></i>""" else ""
 
 
 class window.Controls.default extends window.Control
@@ -41,7 +41,7 @@ class window.Controls.icon extends window.Control
 class window.Controls.button extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $("""<a href="#" class="control button style-#{@properties.style}">#{icon}#{@properties.text}</a>""")
+        @dom = $("""<a href="#" class="control button style-#{@properties.style}">#{icon} #{@properties.text}</a>""")
         @dom.click (e) =>
             if not @properties.warning or confirm(@properties.warning)
                 if @event 'click'
