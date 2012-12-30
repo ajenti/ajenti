@@ -49,12 +49,14 @@ def detect_platform():
         'gentoo base system': 'gentoo',
         'centos linux': 'centos',
         'mandriva linux': 'mandriva',
+        'elementary os': 'ubuntu',
+        'linuxmint': 'ubuntu',
+        'redhat enterprise linux': 'rhel',
     }
 
     platform_mapping = {
         'ubuntu': 'debian',
-        'linuxmint': 'debian',
-        'elementary os': 'debian',
+        'rhel': 'centos',
     }
 
     if pyplatform.system() != 'Linux':

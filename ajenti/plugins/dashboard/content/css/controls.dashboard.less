@@ -1,5 +1,8 @@
+@import "../../../main/content/css/mixins.i.less";
+@import "../../../main/content/css/vars.i.less";
+
 .control {
-    .dashboard-dash {
+    &.dashboard-dash {
         >.container {
             float: left;
             width: 50%;
@@ -19,8 +22,7 @@
 
             &.trash {
                 display: none;
-                background: -webkit-linear-gradient(top, #ddd, #eee);
-                background: -moz-linear-gradient(top, #ddd, #eee);
+                #gradient > .vertical(#ddd, #eee);
                 border: 1px dashed #a86;
                 box-shadow: 0 0 10px rgba(0,0,0,.5) inset;
                 width: 100%;
@@ -39,7 +41,7 @@
         }
     }
 
-    .dashboard-widget {
+    &.dashboard-widget {
         width: 100%;
         padding: 10px 5px;
         box-sizing: border-box;
@@ -71,6 +73,71 @@
         font-weight: bold;
         color: rgba(255,255,255,.75);
         text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    &.dashboard-header {
+        &>.icon {
+            .size(60px,60px);
+            margin: 10px;
+            .border-radius(5px);
+            border: 1px solid rgba(0,0,0,.25);
+            .box-shadow(0 0 2px white inset);
+
+            position: relative;
+
+            &.ubuntu {
+                @ubuntuOrange: saturate(lighten(@orange, 5%), 10%);
+                #gradient > .radial(lighten(@ubuntuOrange, 20%), @ubuntuOrange);
+                >.image.ubuntu { display: block; }
+            }
+
+            &.debian {
+                @red: #d70751;
+                #gradient > .radial(lighten(@red, 20%), @red);
+                >.image.debian { display: block; }
+            }
+
+            &.centos {
+                @purple: #932279;
+                #gradient > .radial(lighten(@purple, 20%), @purple);
+                >.image.centos { display: block; }
+            }
+
+            &.rhel {
+                @red: #f00;
+                #gradient > .radial(lighten(@red, 20%), @red);
+                >.image.rhel { display: block; }
+            }
+
+
+            >.bar {
+                position: absolute;
+                width: 62px;
+                padding: 4px 0 5px;
+                bottom: -1px;
+                left: -1px;
+                border-top: 1px solid rgba(0,0,0,.5);
+                .border-radius(0 0 5px 5px);
+                #gradient > .vertical(#666,#555);
+                .box-shadow(0 1px 0px rgba(255,255,255,.25) inset);
+                
+                color: white;
+                text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+                font-size: 10px;
+            }
+
+            >.image {
+                .square(32px);
+                position: absolute;
+                left: 50%;
+                top: 30%;
+                margin: -16px;
+                display: none;
+            }
+        }
     }
 }
 

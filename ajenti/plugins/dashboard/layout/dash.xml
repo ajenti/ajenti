@@ -1,5 +1,6 @@
 <vc xmlns:dashboard="dashboard" xmlns:bind="bind">
-    <toolbar>
+    <dashboard:header id="header" />
+    <hc>
         <right>
             <hc>
                 <button text="Refresh" icon="refresh" id="refresh-button" />
@@ -7,7 +8,7 @@
             </hc>
         </right>
         <label id="hostname" style="dashboard-host" />
-    </toolbar>
+    </hc>
     <dashboard:dash id="dash" />
     <dialog id="add-dialog" buttons="[{'text': 'Cancel', 'id': 'cancel'}]" visible="False">
         <bind:collection id="add-widgets">

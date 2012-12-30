@@ -1,7 +1,8 @@
+import ajenti
 from ajenti.api import *
 from ajenti.api.sensors import Sensor
 from ajenti.ui.binder import CollectionAutoBinding
-from ajenti.ui import on, UIElement
+from ajenti.ui import on, UIElement, p
 from ajenti.plugins.main.api import SectionPlugin
 
 from api import DashboardWidget
@@ -20,6 +21,8 @@ class Dash (SectionPlugin):
         self.append(self.ui.inflate('dashboard:dash'))
         self.dash = self.find('dash')
         self.dash.on('reorder', self.on_reorder)
+
+        self.find('header').platform = 'debian'#ajenti.platform_unmapped
 
         def post_widget_bind(o, c, i, u):
             u.find('listitem').on('click', self.on_add_widget_click, i)
@@ -98,3 +101,9 @@ class Dash (SectionPlugin):
 @plugin
 class DashboardDash (UIElement):
     typeid = 'dashboard:dash'
+
+
+@p('platform')
+@plugin
+class DashboardHeader (UIElement):
+    typeid = 'dashboard:header'
