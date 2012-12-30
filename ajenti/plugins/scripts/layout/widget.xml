@@ -1,5 +1,5 @@
 <hc>
-    <box width="280">
+    <box width="275">
         <label id="name" style="bold" text="---" />
     </box>
 

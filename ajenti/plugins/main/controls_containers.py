@@ -2,8 +2,8 @@ from ajenti.api import *
 from ajenti.ui import p, UIElement
 
 
-@p('width', default=None)
-@p('height', default=None)
+@p('width', default=1)
+@p('height', default=1)
 @p('scroll', default=False, type=bool)
 @plugin
 class Box (UIElement):

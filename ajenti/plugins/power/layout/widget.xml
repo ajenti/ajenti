@@ -1,11 +1,14 @@
 <hc>
-    <icon id="icon" icon="bolt" />
-    <box width="225" id="ac">
+    <box width="20">
+        <icon id="icon" icon="bolt" />
+    </box>
+    <box width="250" id="ac">
         <label style="bold" text="AC power" />
     </box>
-    <box width="225" id="battery">
+    <box width="250" id="battery">
         <hc>
             <label style="bold" text="Battery" />
+            <box width="30" />
             <progressbar id="charge" value="0.5" width="140" />
         </hc>
     </box>

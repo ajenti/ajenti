@@ -1,12 +1,14 @@
 <hc>
-    <icon id="icon" icon="off" />
+    <box width="20">
+        <icon id="icon" icon="off" />
+    </box>
     <box width="90">
         <label id="name" style="bold" text="---" />
     </box>
-    <box width="45">
+    <box width="50">
         <label id="value" text="---" />
     </box>
-    <progressbar id="progress" width="155" value="0.4" />
+    <progressbar id="progress" width="150" value="0.4" />
 
 
     <dialog id="config-dialog" visible="False">
