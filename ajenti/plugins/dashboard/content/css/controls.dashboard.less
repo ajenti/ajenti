@@ -5,6 +5,7 @@
     &.dashboard-dash {
         >.container {
             float: left;
+            border-top: 1px solid #ddd;
             width: 50%;
             min-height: 200px;
 
@@ -76,7 +77,10 @@
     }
 
     &.dashboard-header {
+        
         &>.icon {
+            float: left;
+
             .size(60px,60px);
             margin: 10px;
             .border-radius(5px);
@@ -137,6 +141,28 @@
                 margin: -16px;
                 display: none;
             }
+        }
+
+        &>.labels {
+            float: left;
+            padding: 8px 0 0;
+
+            .hostname {
+                font-size: 24px;
+                color: #888;
+                text-shadow: 0 1px 0 #eee;
+                font-weight: bold;
+            }
+
+            .distro {
+                font-size: 16px;
+                color: #aaa;
+            }
+        }
+
+        &>.inner {
+            float: right;
+            padding: 20px;
         }
     }
 }

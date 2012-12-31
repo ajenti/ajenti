@@ -22,7 +22,8 @@ class Dash (SectionPlugin):
         self.dash = self.find('dash')
         self.dash.on('reorder', self.on_reorder)
 
-        self.find('header').platform = 'debian'#ajenti.platform_unmapped
+        self.find('header').platform = ajenti.platform_unmapped
+        self.find('header').distro = ajenti.platform_string
 
         def post_widget_bind(o, c, i, u):
             u.find('listitem').on('click', self.on_add_widget_click, i)
@@ -58,7 +59,7 @@ class Dash (SectionPlugin):
         self.refresh()
 
     def refresh(self):
-        self.find('hostname').text = Sensor.find('hostname').value()
+        self.find('header').hostname = Sensor.find('hostname').value()
 
         self.dash.empty()
         for widget in self.classconfig['widgets']:
@@ -104,6 +105,8 @@ class DashboardDash (UIElement):
 
 
 @p('platform')
+@p('hostname')
+@p('distro')
 @plugin
 class DashboardHeader (UIElement):
     typeid = 'dashboard:header'

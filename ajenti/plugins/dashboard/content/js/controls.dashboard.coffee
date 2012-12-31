@@ -60,6 +60,14 @@ class window.Controls.dashboard__header extends window.Control
                     
                     <div class="bar">#{@properties.platform}</div>
                 </div>
+
+                <div class="labels">
+                    <div class="hostname">#{@properties.hostname}</div>
+                    <div class="distro">#{@properties.distro}</div>
+                </div>
+
+                <div class="inner"></div>
             </div>
         """)
+        @childContainer = @dom.find('.inner')
 
