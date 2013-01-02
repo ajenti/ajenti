@@ -135,8 +135,8 @@ class MainSocket (SocketPlugin):
         data = json.dumps(data)
         self.emit('crash', data)
 
-    def send_notify(self, text):
-        self.emit('notify', text)
+    def send_notify(self, type, text):
+        self.emit('notify', json.dumps({'type': type, 'text': text}))
 
     def switch_tab(self, tab):
         self.ui._sections_root.on_switch(tab.uid)

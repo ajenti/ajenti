@@ -33,7 +33,8 @@ class window.Stream
             ajentiSecurityError()
 
         @socket.on 'notify', (data) ->
-            Notificator.notify(data)
+            data = JSON.parse(data)
+            Notificator.notify(data.type, data.text)
 
         @socket.on 'url', (url) ->
             UI.openTab(url)

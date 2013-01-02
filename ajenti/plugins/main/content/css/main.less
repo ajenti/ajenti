@@ -119,19 +119,23 @@ body {
 
 #notifications {
     position: absolute;
-    bottom: 20px;
+    top: 50px;
     right: 20px;
-    width: 120px;
+    width: 220px;
     height: 40px;
 
     .notification {
-        width: 100px;
-        height: 20px;
-        .button-style(@green);
-        text-transform: none;
-        text-align: left;
-        position: absolute;
-        padding: 10px;    
+        &.info {
+            .button-style(#ddd);
+        }
+
+        width: 200px !important;
+        max-height: auto !important;
+        height: auto !important;
+        text-transform: none !important;
+        text-align: left !important;
+        position: absolute !important;
+        padding: 10px !important;    
     }
 }
 

@@ -1,7 +1,7 @@
 class Notification
-    constructor: (@text, @timeout, @notificator, @position) ->
+    constructor: (@type, @text, @timeout, @notificator, @position) ->
         @dom = $("""
-            <div class="notification">
+            <div class="notification #{@type}">
                 #{@text}
             </div>
         """)
@@ -13,8 +13,10 @@ class Notification
         setTimeout @remove, @timeout
 
     remove: () =>
-        @dom.animate {left: '300px'}, 500, 'swing', () =>
+        #@dom.animate {left: '300px'}, 500, 'swing', () =>
+        @dom.fadeTo 500, 0, () =>
             @notificator.notifications.pop this
+            @dom.remove()
                 
     moveUp: (dy) =>
         @position -= dy
@@ -25,12 +27,12 @@ class Notificator
     constructor: () ->
         @notifications = []
 
-    notify: (text, timeout) ->
-        timeout ?= 2000
+    notify: (type, text, timeout) ->
+        timeout ?= 4000
         for notification in @notifications
             do (notification) =>
-                notification.moveUp(50)
-        notification = new Notification(text, timeout, this, 0)
+                notification.moveUp(-50)
+        notification = new Notification(type, text, timeout, this, 0)
         @notifications.push notification
         $('#notifications').append notification.dom
 

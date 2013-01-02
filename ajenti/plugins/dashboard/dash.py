@@ -37,6 +37,7 @@ class Dash (SectionPlugin):
 
     @on('refresh-button', 'click')
     def on_refresh(self):
+        self.context.notify('info', 'sasd')
         self.refresh()
 
     @on('add-button', 'click')
