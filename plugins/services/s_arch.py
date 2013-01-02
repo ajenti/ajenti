@@ -11,7 +11,6 @@ class ArchServiceManager(Plugin):
 
     def list_all(self):
         r = []
-        running = os.listdir('/var/run/daemons')
         for s in os.listdir('/etc/rc.d'):
             svc = apis.services.Service()
             svc.name = s
