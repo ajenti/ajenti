@@ -19,7 +19,7 @@ class ArchServiceManager(Plugin):
         if self.use_systemd:
             service = re.compile("^([^\s]+)\.service\W")
 
-            for unit in shell("systemctl --no-ask-password --full -t service list-unit-files --all").splitlines():
+            for unit in shell("systemctl --no-ask-password --full -t service list-unit-files --all --no-legend").splitlines():
                 match = service.match(unit)
                 if match:
                     services.append(match.group(1))
