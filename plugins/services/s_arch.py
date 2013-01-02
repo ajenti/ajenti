@@ -37,9 +37,9 @@ class ArchServiceManager(Plugin):
 
     def get_status(self, name):
         if self.use_systemd:
-            re_status = re.compile("^\s+Active: ([^\s]+)", re.M)
+            re_status = re.compile("^ActiveState=(.+)$")
 
-            status = shell("systemctl --no-ask-password status {}.service".format(name))
+            status = shell("systemctl --no-ask-password --property ActiveState show {}.service".format(name))
             match = re_status.search(status)
 
             if not match or match.group(1) != "active":
