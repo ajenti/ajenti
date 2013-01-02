@@ -1,9 +1,9 @@
 MODULES = ['api', 'main', 'meter', 'widget', 's_upstart', 's_arch', 's_bsd', 's_centos', 's_gentoo']
 
-DEPS =  [
+DEPS = [
     (['centos', 'fedora'],
      [
-	('app', 'Service manager', 'chkconfig'),
+        ('app', 'Service manager', 'chkconfig'),
      ])
 ]
 
