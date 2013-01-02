@@ -1,10 +1,16 @@
 <vc>
-    <toolbar>
-        <hc>
-            <button id="new-button" text="New" icon="plus" />
-        </hc>
-    </toolbar>
-    <pad>
-        <box id="list" />
-    </pad>
+    <box>
+        <right>
+            <hc>
+                <textbox id="command" />
+                <button id="run-button" text="Run" icon="chevron-right" />
+            </hc>
+        </right>
+        <button id="new-button" text="New" icon="plus" />
+    </box>
+    <body>
+        <pad>
+            <box id="list" />
+        </pad>
+    </body>
 </vc>

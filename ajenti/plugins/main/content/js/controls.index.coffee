@@ -117,3 +117,12 @@ class window.Controls.main__section extends window.Control
             </div>
         """)
         @childContainer = @dom.find('.--child-container')
+
+
+class window.Controls.body extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control section-body container">
+            </div>
+        """)
+        @childContainer = @dom

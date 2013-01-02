@@ -189,8 +189,11 @@ class window.Controls.fileupload extends window.Control
                     progress = 1.0 * done / total / 2
                     @progress.setProgress(progress)
 
+            d = new FormData()
+            d.append('file', file)
+
             xhr.open('post', @properties.target, true)
-            xhr.send(file)
+            xhr.send(d)
             $(@dom).find('.full-overlay').show()
         , false
         @dom.find('.full-overlay').hide()

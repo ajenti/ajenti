@@ -5,6 +5,7 @@ import pwd
 import grp
 
 from ajenti.api import *
+from ajenti.api.http import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
@@ -60,6 +61,10 @@ class FileManager (SectionPlugin):
     @on('new-file', 'click')
     def on_new_file(self):
         open(os.path.join(self.controller.tabs[self.tabs.active].path, 'new file'), 'w').close()
+        self.refresh()
+
+    def upload(self, name, file):
+        open(os.path.join(self.controller.tabs[self.tabs.active].path, name), 'w').write(file.read())
         self.refresh()
 
     @on('new-dir', 'click')
@@ -152,6 +157,16 @@ class FileManager (SectionPlugin):
         for tab in self.controller.tabs:
             tab.refresh()
         self.binder.populate()
+
+
+@plugin
+class UploadReceiver (HttpPlugin):
+    @url('/fm-upload')
+    def handle(self, context):
+        file = context.query['file']
+        context.session.endpoint.get_section(FileManager).upload(file.filename, file.file)
+        context.respond_ok()
+        return 'OK'
 
 
 class Controller (object):

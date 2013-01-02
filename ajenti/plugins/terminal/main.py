@@ -42,18 +42,23 @@ class Terminals (SectionPlugin):
 
     @intent('terminal')
     def launch(self, command=None):
-        key = self.on_new(command, autoclose=True)
-        self.context.endpoint.send_url('/terminal/%i' % key)
+        self.on_new(command, autoclose=True, autoopen=True)
 
     @on('new-button', 'click')
-    def on_new(self, command=None, **kwargs):
+    def on_new(self, command=None, autoopen=False, **kwargs):
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1
         else:
             key = 0
         self.terminals[key] = Terminal(command, **kwargs)
         self.refresh()
+        if autoopen:
+            self.context.endpoint.send_url('/terminal/%i' % key)
         return key
+
+    @on('run-button', 'click')
+    def on_run(self):
+        self.on_new(self.find('command').value, autoclose=True, autoopen=True)
 
     def on_close(self, k):
         self.terminals[k].kill()

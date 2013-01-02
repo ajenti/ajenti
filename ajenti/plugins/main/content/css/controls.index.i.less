@@ -268,11 +268,7 @@
 			.section {
 				display: none;
 
-				&.normal {
-					.content-gradient();
-					.border-radius(5px);
-					.box-shadow(@mainPaneShadow);
-				}
+				
 				
 				width: 800px;
 			
@@ -281,5 +277,11 @@
 				}
 			}
 		}
+	}
+
+	&.section-body {
+		.content-gradient();
+		.border-radius(5px);
+		.box-shadow(@mainPaneShadow);
 	}
 }

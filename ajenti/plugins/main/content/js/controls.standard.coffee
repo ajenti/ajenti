@@ -1,4 +1,4 @@
-_make_icon = (icon) ->
+window._make_icon = (icon) ->
     if icon then """<i class="icon-#{icon}"></i>""" else ""
 
 

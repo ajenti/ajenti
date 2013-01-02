@@ -62,6 +62,9 @@ class MainSocket (SocketPlugin):
         self.send_ui()
         self.spawn(self.ui_watcher)
 
+        # Inject into session
+        self.request.session.endpoint = self
+
         # Inject the context methods
         self.context.notify = self.send_notify
         self.context.launch = self.launch
@@ -147,6 +150,11 @@ class MainSocket (SocketPlugin):
                 if handler == intent:
                     section._intents[handler](**data)
                     return
+
+    def get_section(self, cls):
+        for section in self.ui._sections:
+            if section.__class__ == cls:
+                return section
 
     def ui_watcher(self):
         # Sends UI updates periodically

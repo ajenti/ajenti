@@ -1,5 +1,5 @@
 <vc xmlns:bind="bind">
-    <toolbar>
+    <box>
         <right>
             <button id="close" icon="remove-sign" text="Close" />
         </right>
@@ -11,140 +11,142 @@
             <button id="paste" icon="chevron-down" text="Paste" />
             <button id="mass-delete" icon="remove" text="Delete" warning="Confirm deletion" />
         </hc>
-    </toolbar>
-    <pad>
-        <vc id="filemanager">
-            <bind:collection bind="tabs">
-                <tabs id="tabs" bind="__items" />
-                <bind:template>
-                    <tab bind="shortpath">
-                        <vc>
-                            <bind:collection id="breadcrumbs" bind="breadcrumbs">
-                                <hc bind="__items">
-                                </hc>
-                                <bind:template>
-                                    <hc>
-                                        <button id="name" style="link" bind="name" />
-                                        <icon icon="chevron-right" />
-                                    </hc>
-                                </bind:template>
-                            </bind:collection>
-                            <bind:collection id="items" bind="items">
-                        		<dt bind="__items">
-                                    <dtr>
-                                        <dth width="1%" />
-                                        <dth text="Name" />
-                                        <dth text="Size" width="100" />
-                                        <dth width="1%" />
-                                    </dtr>
-                                </dt>
-                                <bind:template>
-                                	<dtr>
-                                        <dtd><checkbox id="check" bind="checked" /></dtd>
-                                        <dtd>
-                                            <hc>
-                                                <icon bind="icon" />
-                                			    <button style="link" bind="name" id="name" />
-                                            </hc>
-                                		</dtd>
-                                        <dtd>
-                                            <label bind="sizestr" />
-                                        </dtd>
-                                        <dtd>
-                                            <button id="edit" icon="list" text="Properties" />
-                                        </dtd>
-                                	</dtr>
-                                </bind:template>
-                            </bind:collection>
-                        </vc>
-                    </tab>
-                </bind:template>
-            </bind:collection>
-
-            <pad>
-                <label text="Upload" style="bold" />
-                <fileupload target="/fm-upload" />
-            </pad>
-
-            <pad>
-                <right>
-                    <button id="clear-clipboard" icon="remove-sign" text="Empty" />
-                </right>
-                <label text="Clipboard" style="bold" />
-                <bind:collection bind="clipboard">
-                    <pad>
-                        <dt bind="__items">
-                            <dtr>
-                                <dth><label text="Name" /></dth>
-                                <dth width="1%" />
-                            </dtr>
-                        </dt>
-                    </pad>
-                    <bind:template>
-                        <dtr>
-                            <dtd>
-                                <hc>
-                                    <icon bind="icon" />
-                                    <button style="link" bind="name" id="name" />
-                                </hc>
-                            </dtd>
-                            <dtd>
-                                <hc>
-                                    <button id="remove" icon="remove-sign" text="Remove" />
-                                </hc>
-                            </dtd>
-                        </dtr>
-                    </bind:template>
-                </bind:collection> 
-            </pad>
-        </vc>
-    </pad>
-
-    <dialog id="dialog" visible="False">
+    </box>
+    <body>
         <pad>
-            <vc>
-                <label text="Name" style="bold" />
-                
+            <vc id="filemanager">
+                <bind:collection bind="tabs">
+                    <tabs id="tabs" bind="__items" />
+                    <bind:template>
+                        <tab bind="shortpath">
+                            <vc>
+                                <bind:collection id="breadcrumbs" bind="breadcrumbs">
+                                    <hc bind="__items">
+                                    </hc>
+                                    <bind:template>
+                                        <hc>
+                                            <button id="name" style="link" bind="name" />
+                                            <icon icon="chevron-right" />
+                                        </hc>
+                                    </bind:template>
+                                </bind:collection>
+                                <bind:collection id="items" bind="items">
+                            		<dt bind="__items">
+                                        <dtr>
+                                            <dth width="1%" />
+                                            <dth text="Name" />
+                                            <dth text="Size" width="100" />
+                                            <dth width="1%" />
+                                        </dtr>
+                                    </dt>
+                                    <bind:template>
+                                    	<dtr>
+                                            <dtd><checkbox id="check" bind="checked" /></dtd>
+                                            <dtd>
+                                                <hc>
+                                                    <icon bind="icon" />
+                                    			    <button style="link" bind="name" id="name" />
+                                                </hc>
+                                    		</dtd>
+                                            <dtd>
+                                                <label bind="sizestr" />
+                                            </dtd>
+                                            <dtd>
+                                                <button id="edit" icon="list" text="Properties" />
+                                            </dtd>
+                                    	</dtr>
+                                    </bind:template>
+                                </bind:collection>
+                            </vc>
+                        </tab>
+                    </bind:template>
+                </bind:collection>
+
                 <pad>
-                    <hc>
-                        <icon bind="icon" />
-                        <textbox bind="name" />
-                    </hc>
+                    <label text="Upload" style="bold" />
+                    <fileupload target="/fm-upload" />
                 </pad>
-                
-                <label text="Access" style="bold" />
-                
+
                 <pad>
-                    <vc>
-                        <hc>
-                            <label text="Owner" />
-                            <editable bind="owner" />
-                        </hc>
-                        <hc>
-                            <checkbox text="R" bind="mod_ur" />
-                            <checkbox text="W" bind="mod_uw" />
-                            <checkbox text="X" bind="mod_ux" />
-                        </hc>
-                        <hc>
-                            <label text="Group" />
-                            <editable bind="group" />
-                        </hc>
-                        <hc>
-                            <checkbox text="R" bind="mod_gr" />
-                            <checkbox text="W" bind="mod_gw" />
-                            <checkbox text="X" bind="mod_gx" />
-                        </hc>
-                        <hc>
-                            <label text="Others" />
-                        </hc>
-                        <hc>
-                            <checkbox text="R" bind="mod_ar" />
-                            <checkbox text="W" bind="mod_aw" />
-                            <checkbox text="X" bind="mod_ax" />
-                        </hc>
-                    </vc>
+                    <right>
+                        <button id="clear-clipboard" icon="remove-sign" text="Empty" />
+                    </right>
+                    <label text="Clipboard" style="bold" />
+                    <bind:collection bind="clipboard">
+                        <pad>
+                            <dt bind="__items">
+                                <dtr>
+                                    <dth><label text="Name" /></dth>
+                                    <dth width="1%" />
+                                </dtr>
+                            </dt>
+                        </pad>
+                        <bind:template>
+                            <dtr>
+                                <dtd>
+                                    <hc>
+                                        <icon bind="icon" />
+                                        <button style="link" bind="name" id="name" />
+                                    </hc>
+                                </dtd>
+                                <dtd>
+                                    <hc>
+                                        <button id="remove" icon="remove-sign" text="Remove" />
+                                    </hc>
+                                </dtd>
+                            </dtr>
+                        </bind:template>
+                    </bind:collection> 
                 </pad>
             </vc>
         </pad>
-    </dialog>
+
+        <dialog id="dialog" visible="False">
+            <pad>
+                <vc>
+                    <label text="Name" style="bold" />
+                    
+                    <pad>
+                        <hc>
+                            <icon bind="icon" />
+                            <textbox bind="name" />
+                        </hc>
+                    </pad>
+                    
+                    <label text="Access" style="bold" />
+                    
+                    <pad>
+                        <vc>
+                            <hc>
+                                <label text="Owner" />
+                                <editable bind="owner" />
+                            </hc>
+                            <hc>
+                                <checkbox text="R" bind="mod_ur" />
+                                <checkbox text="W" bind="mod_uw" />
+                                <checkbox text="X" bind="mod_ux" />
+                            </hc>
+                            <hc>
+                                <label text="Group" />
+                                <editable bind="group" />
+                            </hc>
+                            <hc>
+                                <checkbox text="R" bind="mod_gr" />
+                                <checkbox text="W" bind="mod_gw" />
+                                <checkbox text="X" bind="mod_gx" />
+                            </hc>
+                            <hc>
+                                <label text="Others" />
+                            </hc>
+                            <hc>
+                                <checkbox text="R" bind="mod_ar" />
+                                <checkbox text="W" bind="mod_aw" />
+                                <checkbox text="X" bind="mod_ax" />
+                            </hc>
+                        </vc>
+                    </pad>
+                </vc>
+            </pad>
+        </dialog>
+    </body>
 </vc> 
