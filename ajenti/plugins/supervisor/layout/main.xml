@@ -9,67 +9,69 @@
             }]
         " />
 
-    <pad id="main">
-        <bind:collection bind="programs" id="programs">
-            <vc>
-                <dt bind="__items" />
-                <bind:template>
-                    <collapserow>
-                        <box>
-                            <right>
+    <body>
+        <pad id="main">
+            <bind:collection bind="programs" id="programs">
+                <vc>
+                    <dt bind="__items" />
+                    <bind:template>
+                        <collapserow>
+                            <box>
+                                <right>
+                                    <hc>
+                                        <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                    </hc>
+                                </right>
                                 <hc>
-                                    <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                    <icon bind="icon" />
+                                    <box width="200">
+                                        <label bind="name" style="bold" />
+                                    </box>
+                                    <label bind="status" />
                                 </hc>
-                            </right>
-                            <hc>
-                                <icon bind="icon" />
-                                <box width="200">
-                                    <label bind="name" style="bold" />
-                                </box>
-                                <label bind="status" />
-                            </hc>
-                        </box>
-                        <pad>
-                            <hc>
-                                <vc>
-                                    <formline text="Command">
-                                        <textbox bind="command" />
-                                    </formline>
-                                    <formline text="Working directory">
-                                        <textbox bind="directory" />
-                                    </formline>
-                                    <formline text="Autostart">
-                                        <dropdown bind="autostart" values="['true', 'false']" 
-                                            labels="['Enabled', 'Disabled']" />
-                                    </formline>
-                                    <formline text="Autorestart">
-                                        <dropdown bind="autorestart" values="['true', 'unexpected', 'false']" 
-                                            labels="['Enabled', 'On crash', 'Disabled']" />
-                                    </formline>
-                                </vc>
-                                <vc>
-                                    <formline text="Start timeout">
-                                        <textbox bind="startsecs" />
-                                    </formline>
-                                    <formline text="Start retries">
-                                        <textbox bind="startretries" />
-                                    </formline>
-                                    <formline text="Username">
-                                        <textbox bind="user" />
-                                    </formline>
-                                    <formline text="Environment">
-                                        <textbox bind="environment" />
-                                    </formline>
-                                </vc>
-                            </hc>
-                        </pad>
-                    </collapserow>
-                </bind:template>
-                <hc>
-                    <button id="save" text="Save" />
-                    <button bind="__add" icon="plus" text="Create" />
-                </hc>
-            </vc>
-        </bind:collection>
-    </pad>
+                            </box>
+                            <pad>
+                                <hc>
+                                    <vc>
+                                        <formline text="Command">
+                                            <textbox bind="command" />
+                                        </formline>
+                                        <formline text="Working directory">
+                                            <textbox bind="directory" />
+                                        </formline>
+                                        <formline text="Autostart">
+                                            <dropdown bind="autostart" values="['true', 'false']" 
+                                                labels="['Enabled', 'Disabled']" />
+                                        </formline>
+                                        <formline text="Autorestart">
+                                            <dropdown bind="autorestart" values="['true', 'unexpected', 'false']" 
+                                                labels="['Enabled', 'On crash', 'Disabled']" />
+                                        </formline>
+                                    </vc>
+                                    <vc>
+                                        <formline text="Start timeout">
+                                            <textbox bind="startsecs" />
+                                        </formline>
+                                        <formline text="Start retries">
+                                            <textbox bind="startretries" />
+                                        </formline>
+                                        <formline text="Username">
+                                            <textbox bind="user" />
+                                        </formline>
+                                        <formline text="Environment">
+                                            <textbox bind="environment" />
+                                        </formline>
+                                    </vc>
+                                </hc>
+                            </pad>
+                        </collapserow>
+                    </bind:template>
+                    <hc>
+                        <button id="save" text="Save" />
+                        <button bind="__add" icon="plus" text="Create" />
+                    </hc>
+                </vc>
+            </bind:collection>
+        </pad>
+    </body>
 </vc>

@@ -1,11 +1,9 @@
 <vc xmlns:logs="logs">
-    <toolbar>
-        <hc>
-            <button id="open-button" text="Open" icon="folder-open" />
-        </hc>
-    </toolbar>
-    <pad>
-        <logs:log id="log" />
-    </pad>
+    <button id="open-button" text="Open" icon="folder-open" />
+    <body>
+        <pad>
+            <logs:log id="log" />
+        </pad>
+    </body>
     <openfiledialog id="opendialog" visible="False" path="/var/log" />
 </vc>

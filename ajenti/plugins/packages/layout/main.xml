@@ -1,71 +1,71 @@
 <vc xmlns:bind="bind">
-    <toolbar>
-        <hc>
-            <button id="get-lists-button" icon="refresh" text="Get lists" />
-            <button id="apply-button" icon="ok" text="Apply" />
-        </hc>
-    </toolbar>
+    <hc>
+        <button id="get-lists-button" icon="refresh" text="Get lists" />
+        <button id="apply-button" icon="ok" text="Apply" />
+    </hc>
 
-    <pad id="bind-root">
-        <tabs id="tabs">
-            <tab title="Upgradeable">
-                <pad>
-                    <right>
-                        <hc>
-                            <button id="upgrade-all-button" icon="ok-sign" text="Upgrade all" />
-                        </hc>
-                    </right>
-                </pad>
+    <body>
+        <pad id="bind-root">
+            <tabs id="tabs">
+                <tab title="Upgradeable">
+                    <pad>
+                        <right>
+                            <hc>
+                                <button id="upgrade-all-button" icon="ok-sign" text="Upgrade all" />
+                            </hc>
+                        </right>
+                    </pad>
 
-                <bind:collection bind="upgradeable" id="upgradeable">
-                    <dt bind="__items">
-                        <include layout="packages:headers" />
-                    </dt>
-                    <bind:template>
-                        <include layout="packages:row" />
-                    </bind:template>
-                </bind:collection>
-            </tab>
+                    <bind:collection bind="upgradeable" id="upgradeable">
+                        <dt bind="__items">
+                            <include layout="packages:headers" />
+                        </dt>
+                        <bind:template>
+                            <include layout="packages:row" />
+                        </bind:template>
+                    </bind:collection>
+                </tab>
 
-            <tab title="Search">
-                <pad>
-                    <right>
-                        <hc>
-                            <textbox id="search-box" />
-                            <button id="search-button" icon="search" text="Search" />
-                        </hc>
-                    </right>
-                    <label id="search-counter" />
-                </pad>
+                <tab title="Search">
+                    <pad>
+                        <right>
+                            <hc>
+                                <textbox id="search-box" />
+                                <button id="search-button" icon="search" text="Search" />
+                            </hc>
+                        </right>
+                        <label id="search-counter" />
+                    </pad>
 
-                <bind:collection id="search">
-                    <dt bind="__items">
-                        <include layout="packages:headers" />
-                    </dt>
-                    <bind:template>
-                        <include layout="packages:row" />
-                    </bind:template>
-                </bind:collection>
-            </tab>
+                    <bind:collection id="search">
+                        <dt bind="__items">
+                            <include layout="packages:headers" />
+                        </dt>
+                        <bind:template>
+                            <include layout="packages:row" />
+                        </bind:template>
+                    </bind:collection>
+                </tab>
 
-            <tab title="Pending" id="bind-pending">
-                <pad>
-                    <right>
-                        <hc>
-                            <button id="cancel-all-button" icon="remove-sign" text="Cancel all" />
-                        </hc>
-                    </right>
-                </pad>
+                <tab title="Pending" id="bind-pending">
+                    <pad>
+                        <right>
+                            <hc>
+                                <button id="cancel-all-button" icon="remove-sign" text="Cancel all" />
+                            </hc>
+                        </right>
+                    </pad>
 
-                <bind:collection id="pending" bind="_pending">
-                    <dt bind="__items">
-                        <include layout="packages:headers" />
-                    </dt>
-                    <bind:template>
-                        <include layout="packages:row" />
-                    </bind:template>
-                </bind:collection>
-            </tab>
-        </tabs>
-    </pad>
+                    <bind:collection id="pending" bind="_pending">
+                        <dt bind="__items">
+                            <include layout="packages:headers" />
+                        </dt>
+                        <bind:template>
+                            <include layout="packages:row" />
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
+        </pad>
+    </body>
 </vc>

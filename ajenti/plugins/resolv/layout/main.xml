@@ -1,8 +1,8 @@
-<pad xmlns:bind="bind">
-    <formline text="Configuration" id="resolv-config">
+<body>
+    <pad xmlns:bind="bind" id="resolv-config">
         <bind:collection bind="items" id="items">
             <vc>
-                <dt bind="__items" width="400" />
+                <dt bind="__items" />
                 <bind:template>
                     <collapserow>
                         <box>
@@ -34,5 +34,5 @@
                 </hc>
             </vc>
         </bind:collection>
-    </formline>
-</pad> 
+    </pad> 
+</body>

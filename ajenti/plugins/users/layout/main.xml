@@ -1,109 +1,109 @@
 <vc xmlns:bind="bind">
-    <toolbar>
-        <hc>
-            <button id="add-user" icon="plus" text="Add user" />
-            <inputdialog id="input-username" text="Username:" visible="False" />
-            <button id="add-group" icon="plus" text="Add group" />
-            <inputdialog id="input-groupname" text="Group name:" visible="False" />
-        </hc>
-    </toolbar>
+    <hc>
+        <button id="add-user" icon="plus" text="Add user" />
+        <inputdialog id="input-username" text="Username:" visible="False" />
+        <button id="add-group" icon="plus" text="Add group" />
+        <inputdialog id="input-groupname" text="Group name:" visible="False" />
+    </hc>
 
-    <pad>
-        <tabs>
-            <tab title="Users">
-                <box width="750" id="passwd-config">
-                    <bind:collection bind="users">
-                        <vc>
-                            <dt bind="__items" />
-                            <bind:template>
-                                <collapserow>
-                                    <box>
-                                        <right>
-                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
-                                        </right>
-                                        <hc>
-                                            <icon icon="user" />
-                                            <label style="bold" bind="name" />
-                                            <label bind="uid" />
-                                        </hc>   
-                                    </box>
-                                    
-                                    <pad>
-                                        <hc>
-                                            <vc>
-                                                <formline text="Username">
-                                                    <textbox bind="name" />
-                                                </formline>
-                                                <formline text="UID">
-                                                    <textbox bind="uid" />
-                                                </formline>
-                                                <formline text="GID">
-                                                    <textbox bind="gid" />
-                                                </formline>
-                                            </vc>
-                                            <vc>
-                                                <formline text="Comment">
-                                                    <textbox bind="comment" />
-                                                </formline>
-                                                <formline text="Home directory">
-                                                    <textbox bind="home" />
-                                                </formline>
-                                                <formline text="Login shell">
-                                                    <textbox bind="shell" />
-                                                </formline>
-                                            </vc>
-                                        </hc>
-                                    </pad>
-                                </collapserow>
-                            </bind:template>
-                            <button id="save-users" text="Save" />
-                        </vc>
-                    </bind:collection>
-                </box>
-            </tab>
+    <body>
+        <pad>
+            <tabs>
+                <tab title="Users">
+                    <box width="750" id="passwd-config">
+                        <bind:collection bind="users">
+                            <vc>
+                                <dt bind="__items" />
+                                <bind:template>
+                                    <collapserow>
+                                        <box>
+                                            <right>
+                                                <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                            </right>
+                                            <hc>
+                                                <icon icon="user" />
+                                                <label style="bold" bind="name" />
+                                                <label bind="uid" />
+                                            </hc>   
+                                        </box>
+                                        
+                                        <pad>
+                                            <hc>
+                                                <vc>
+                                                    <formline text="Username">
+                                                        <textbox bind="name" />
+                                                    </formline>
+                                                    <formline text="UID">
+                                                        <textbox bind="uid" />
+                                                    </formline>
+                                                    <formline text="GID">
+                                                        <textbox bind="gid" />
+                                                    </formline>
+                                                </vc>
+                                                <vc>
+                                                    <formline text="Comment">
+                                                        <textbox bind="comment" />
+                                                    </formline>
+                                                    <formline text="Home directory">
+                                                        <textbox bind="home" />
+                                                    </formline>
+                                                    <formline text="Login shell">
+                                                        <textbox bind="shell" />
+                                                    </formline>
+                                                </vc>
+                                            </hc>
+                                        </pad>
+                                    </collapserow>
+                                </bind:template>
+                                <button id="save-users" text="Save" />
+                            </vc>
+                        </bind:collection>
+                    </box>
+                </tab>
 
-            <tab title="Groups">
-                <box width="750" id="group-config">
-                    <bind:collection bind="groups">
-                        <vc>
-                            <dt bind="__items" />
-                            <bind:template>
-                                <collapserow>
-                                    <box>
-                                        <right>
-                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
-                                        </right>
-                                        <hc>
-                                            <icon icon="th-large" />
-                                            <label style="bold" bind="name" />
-                                            <label bind="gid" />
-                                        </hc>   
-                                    </box>
-                                    
-                                    <pad>
-                                        <hc>
-                                            <vc>
-                                                <formline text="Name">
-                                                    <textbox bind="name" />
-                                                </formline>
-                                                <formline text="GID">
-                                                    <textbox bind="gid" />
-                                                </formline>
-                                            </vc>
-                                            <vc>
-                                                <formline text="Members">
-                                                    <textbox bind="users" />
-                                                </formline>
-                                            </vc>
-                                        </hc>
-                                    </pad>
-                                </collapserow>
-                            </bind:template>
-                            <button id="save-groups" text="Save" />
-                        </vc>
-                    </bind:collection>
-                </box>
-            </tab>
-        </tabs>
-    </pad>
+                <tab title="Groups">
+                    <box width="750" id="group-config">
+                        <bind:collection bind="groups">
+                            <vc>
+                                <dt bind="__items" />
+                                <bind:template>
+                                    <collapserow>
+                                        <box>
+                                            <right>
+                                                <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                            </right>
+                                            <hc>
+                                                <icon icon="th-large" />
+                                                <label style="bold" bind="name" />
+                                                <label bind="gid" />
+                                            </hc>   
+                                        </box>
+                                        
+                                        <pad>
+                                            <hc>
+                                                <vc>
+                                                    <formline text="Name">
+                                                        <textbox bind="name" />
+                                                    </formline>
+                                                    <formline text="GID">
+                                                        <textbox bind="gid" />
+                                                    </formline>
+                                                </vc>
+                                                <vc>
+                                                    <formline text="Members">
+                                                        <textbox bind="users" />
+                                                    </formline>
+                                                </vc>
+                                            </hc>
+                                        </pad>
+                                    </collapserow>
+                                </bind:template>
+                                <button id="save-groups" text="Save" />
+                            </vc>
+                        </bind:collection>
+                    </box>
+                </tab>
+            </tabs>
+        </pad>
+    </body>
 </vc> 
