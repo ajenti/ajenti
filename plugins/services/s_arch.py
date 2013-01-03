@@ -19,7 +19,7 @@ class ArchServiceManager(Plugin):
         if self.use_systemd:
             service = re.compile("^([^\s]+)\.service\W")
 
-            for unit in shell("systemctl --no-ask-password --full -t service list-unit-files --all").splitlines():
+            for unit in shell("systemctl --no-ask-password --full -t service list-unit-files --all --no-legend").splitlines():
                 match = service.match(unit)
                 if match:
                     services.append(match.group(1))
@@ -37,9 +37,9 @@ class ArchServiceManager(Plugin):
 
     def get_status(self, name):
         if self.use_systemd:
-            re_status = re.compile("^\s+Active: ([^\s]+)", re.M)
+            re_status = re.compile("^ActiveState=(.+)$")
 
-            status = shell("systemctl --no-ask-password status {}.service".format(name))
+            status = shell("systemctl --no-ask-password --property ActiveState show %s.service" % name)
             match = re_status.search(status)
 
             if not match or match.group(1) != "active":
@@ -47,23 +47,23 @@ class ArchServiceManager(Plugin):
             else:
                 return 'running'
         else:
-            s = shell('/etc/rc.d/{} status'.format(name))
+            s = shell('/etc/rc.d/%s status' % name)
             return 'running' if 'running' in s else 'stopped'
 
     def start(self, name):
         if self.use_systemd:
-            shell("systemctl --no-ask-password start {}.service".format(name))
+            shell("systemctl --no-ask-password start %s.service" % name)
         else:
-            shell('/etc/rc.d/{} start'.format(name))
+            shell('/etc/rc.d/%s start'.format(name))
 
     def stop(self, name):
         if self.use_systemd:
-            shell("systemctl --no-ask-password stop {}.service".format(name))
+            shell("systemctl --no-ask-password stop %s.service" % name)
         else:
-            shell('/etc/rc.d/{} stop'.format(name))
+            shell('/etc/rc.d/%s stop'.format(name))
 
     def restart(self, name):
         if self.use_systemd:
-            shell("systemctl --no-ask-password reload-or-restart {}.service".format(name))
+            shell("systemctl --no-ask-password reload-or-restart %s.service" % name)
         else:
-            shell('/etc/rc.d/{} restart'.format(name))
+            shell('/etc/rc.d/%s restart' % name)
