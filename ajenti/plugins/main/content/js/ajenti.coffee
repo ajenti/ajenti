@@ -7,6 +7,13 @@ class window.Stream
     start: () ->
         @socket = io.connect('/stream')
 
+        @socket.on 'connect', () ->
+            $('#connection-error').hide()
+
+        @socket.on 'disconnect', () ->
+            $('#connection-error').show()
+
+
         @socket.on 'ui', (ui) ->
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
@@ -45,6 +52,8 @@ class window.Stream
             for d in data.profiles
                 console.log d[0], d[1]
             console.groupEnd()
+
+        $('#connection-error').hide()
 
     send: (message) ->
         console.log 'Sending updates', message

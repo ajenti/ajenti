@@ -28,6 +28,16 @@ class window.Controls.box extends window.Control
         @childContainer = @dom
 
 
+class window.Controls.center extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control container center">
+                <div></div>
+            </div>
+        """)
+        @childContainer = @dom.find('div')
+
+
 class window.Controls.right extends window.Control
     createDom: () ->
         @dom = $("""

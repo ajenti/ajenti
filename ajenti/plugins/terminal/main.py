@@ -31,6 +31,7 @@ class Terminals (SectionPlugin):
     def refresh(self):
         ulist = self.find('list')
         ulist.empty()
+        self.find('empty').visible = len(self.terminals) == 0
         for k, v in list(self.terminals.iteritems()):
             if v.autoclose and v.dead():
                 self.terminals.pop(k)

@@ -11,6 +11,13 @@
     <body>
         <pad>
             <box id="list" />
+            <box id="empty">
+                <pad>
+                    <center>
+                        <label text="No active terminals" />
+                    </center>
+                </pad>
+            </box>
         </pad>
     </body>
 </vc>
