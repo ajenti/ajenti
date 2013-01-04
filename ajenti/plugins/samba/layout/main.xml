@@ -1,0 +1,67 @@
+<vc xmlns:bind="bind">
+    <servicebar name="smbd" />
+
+    <body>
+        <pad>
+            <tabs id="config">
+                <tab title="Shares">
+                    <bind:collection bind="shares" id="shares">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="folder-close" />
+                                        <box width="200">
+                                            <label bind="name" style="bold" />
+                                        </box>
+                                        <label bind="path" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <hc>
+                                        <vc>
+                                            <formline text="Name">
+                                                <textbox bind="name" />
+                                            </formline>
+                                            <formline text="Path">
+                                                <textbox bind="path" />
+                                            </formline>
+                                            <formline text="Guest access">
+                                                <checkbox bind="guest_ok" />
+                                            </formline>
+                                            <formline text="Browseable">
+                                                <checkbox bind="browseable" />
+                                            </formline>
+                                            <formline text="Read only">
+                                                <checkbox bind="read_only" />
+                                            </formline>
+                                        </vc>
+                                    </hc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+                <tab title="Config">
+                </tab>
+                <tab title="Sessions">
+                </tab>
+            </tabs>
+
+        </pad>
+    </body>
+
+    <hc>
+        <button id="save" text="Save" />
+    </hc>
+</vc>
