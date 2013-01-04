@@ -6,6 +6,8 @@ import os
 import re
 import sys
 
+import ajenti.compat
+
 
 def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath

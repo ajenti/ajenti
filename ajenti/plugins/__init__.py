@@ -2,6 +2,7 @@ import imp
 import os
 import logging
 import traceback
+import subprocess
 import sys
 
 from ajenti.util import *
@@ -90,6 +91,24 @@ class PluginDependency (Dependency):
 
     def __str__(self):
         return self.plugin_name
+
+
+@public
+class BinaryDependency (Dependency):
+    description = 'Application binary'
+
+    class Unsatisfied (Dependency.Unsatisfied):
+        def reason(self):
+            return '%s' % self.dependency.binary_name
+
+    def __init__(self, binary_name):
+        self.binary_name = binary_name
+
+    def satisfied(self):
+        return subprocess.call(['which', self.binary_name]) == 0
+
+    def __str__(self):
+        return self.binary_name
 
 
 @public

@@ -4,8 +4,9 @@ import sys
 import os
 import logging
 import daemon
-import signal
-import json
+#import pidfile
+
+import ajenti.compat
 
 import ajenti
 import ajenti.log
@@ -39,7 +40,7 @@ if __name__ == '__main__':
         usage()
         sys.exit(2)
 
-    daemon = False
+    is_daemon = False
 
     for o, a in opts:
         if o in ('-h', '--help'):
@@ -52,7 +53,7 @@ if __name__ == '__main__':
             if os.path.isfile(a):
                 config_file = a
         elif o in ('-d', '--start'):
-            daemon = True
+            is_daemon = True
 
     # Find default config file
     if not config_file:
@@ -69,12 +70,12 @@ if __name__ == '__main__':
     ajenti.log.init(log_level)
 
     ###check_uid()
-    
+
     logging.basicConfig(level=log_level)
 
-    if daemon:
+    if is_daemon:
         context = daemon.DaemonContext(
-            pidfile=pidfile.PidFile('/var/run/ajenti.pid'),
+            #pidfile=pidfile.PidFile('/var/run/ajenti.pid'),
         )
         with context:
             from ajenti import core

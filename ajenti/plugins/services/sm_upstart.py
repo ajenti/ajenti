@@ -1,4 +1,8 @@
-import dbus
+try:
+    import dbus
+except ImportError:
+    pass
+
 import subprocess
 
 from ajenti.api import *
@@ -8,6 +12,8 @@ from api import Service, ServiceManager
 
 @plugin
 class UpstartServiceManager (ServiceManager):
+    platforms = ['debian']
+
     def init(self):
         self.bus = dbus.SystemBus()
         self.upstart = self.bus.get_object("com.ubuntu.Upstart", "/com/ubuntu/Upstart")

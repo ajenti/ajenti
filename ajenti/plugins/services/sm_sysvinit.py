@@ -7,6 +7,8 @@ from api import Service, ServiceManager
 
 @plugin
 class SysVInitServiceManager (ServiceManager):
+    platforms = ['debian']
+
     def get_all(self):
         r = []
         for line in subprocess.check_output(['service', '--status-all']).splitlines():

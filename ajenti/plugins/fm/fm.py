@@ -162,7 +162,7 @@ class FileManager (SectionPlugin):
 @plugin
 class UploadReceiver (HttpPlugin):
     @url('/fm-upload')
-    def handle(self, context):
+    def handle_upload(self, context):
         file = context.query['file']
         context.session.endpoint.get_section(FileManager).upload(file.filename, file.file)
         context.respond_ok()
