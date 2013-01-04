@@ -3,6 +3,7 @@ import subprocess
 import os
 import platform as pyplatform
 import random
+import signal
 
 
 # Global state
@@ -32,7 +33,7 @@ debug = False
 """ Debug mode """
 
 
-__all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init']
+__all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init', 'exit']
 
 
 def detect_version():
@@ -111,3 +112,7 @@ def init():
     ajenti.platform_unmapped, ajenti.platform = detect_platform()
     ajenti.platform_string = detect_platform_string()
     ajenti.installation_uid = check_uid()
+
+
+def exit():
+    os.kill(os.getpid(), signal.SIGQUIT)

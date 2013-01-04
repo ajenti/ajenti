@@ -22,7 +22,7 @@ class Packages (SectionPlugin):
             ui.find('remove').on('click', self.on_remove, item)
             ui.find('cancel').on('click', self.on_cancel, item)
             ui.find('install').visible = item.action == None
-            ui.find('remove').visible = item.action == None and item.state == 'r'
+            ui.find('remove').visible = item.action == None and item.state == 'i'
             ui.find('cancel').visible = item.action != None
 
         self.find('upgradeable').post_item_bind = post_item_bind
@@ -76,6 +76,8 @@ class Packages (SectionPlugin):
     @on('apply-button', 'click')
     def on_apply(self):
         self.mgr.do(self.pending.values())
+        self.pending = {}
+        self.refresh()
 
     @on('upgrade-all-button', 'click')
     def on_upgrade_all(self):

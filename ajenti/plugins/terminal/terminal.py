@@ -1,11 +1,12 @@
 import os
-import sys
 import subprocess as sp
 import fcntl
 import pty
 import gevent
 
 import pyte
+
+import ajenti
 
 
 class Terminal (object):
@@ -32,7 +33,8 @@ class Terminal (object):
                 env=env,
             )
             p.wait()
-            sys.exit(0)
+            ajenti.exit()
+            return
         self.screen = pyte.DiffScreen(self.width, self.height)
         self.protocol = PTYProtocol(pid, master, self.screen)
 
