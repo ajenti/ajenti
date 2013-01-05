@@ -1,65 +1,67 @@
 <vc xmlns:bind="bind">
-    <pad id="bind-root">
-        <bind:collection id="plugins" bind="plugins">
-            <dt bind="__items">
-                <dtr>
-                    <dth width="16" />
-                    <dth width="16" />
-                    <dth><label text="Name" /></dth>
-                    <dth><label text="Author" /></dth>
-                </dtr>
-            </dt>
+    <body>
+        <pad id="bind-root">
+            <bind:collection id="plugins" bind="plugins">
+                <dt bind="__items">
+                    <dtr>
+                        <dth width="16" />
+                        <dth width="16" />
+                        <dth text="Name" />
+                        <dth text="Author" />
+                    </dtr>
+                </dt>
 
-            <bind:template>
-                <dtr>
-                    <dtd>
-                        <icon id="warning-icon" bind="crash" bindtransform="lambda x: 'warning-sign' if x else None" style="yellow" />
-                    </dtd>
-                    <dtd>
-                        <icon bind="icon" />
-                    </dtd>
-                    <dtd>
-                        <collapse>
-                            <hc>
-                                <label bind="title" style="bold" />
-                                <label bind="name" />
-                            </hc>
-                            <indent>
-                                <label text="Dependencies" style="bold" />
-                                
-                                <bind:collection bind="dependencies" id="dependencies">
-                                    <indent>
-                                        <lt bind="__items" />
-                                    </indent>
+                <bind:template>
+                    <dtr>
+                        <dtd>
+                            <icon id="warning-icon" bind="crash" bindtransform="lambda x: 'warning-sign' if x else None" style="yellow" />
+                        </dtd>
+                        <dtd>
+                            <icon bind="icon" />
+                        </dtd>
+                        <dtd>
+                            <collapse>
+                                <hc>
+                                    <label bind="title" style="bold" />
+                                    <label bind="name" />
+                                </hc>
+                                <indent>
+                                    <label text="Dependencies" style="bold" />
+                                    
+                                    <bind:collection bind="dependencies" id="dependencies">
+                                        <indent>
+                                            <lt bind="__items" />
+                                        </indent>
 
-                                    <bind:template>
-                                        <ltr>
-                                            <ltd>
-                                                <icon id="warning-icon" bind="satisfied" 
-                                                    bindtransform="
-                                                        lambda x: 'warning-sign' if not x() else None
-                                                    " style="yellow" />
-                                            </ltd>
-                                            <ltd>
-                                                <label bind="description" style="bold"/>
-                                            </ltd>
-                                            <ltd>
-                                                <label bind="__str__" bindtransform="lambda x: x()" />
-                                            </ltd>
-                                            <ltd>
-                                                <button icon="wrench" text="Fix" id="fix-module" visible="False" />
-                                            </ltd>
-                                        </ltr>
-                                    </bind:template>
-                                </bind:collection>
-                            </indent>
-                        </collapse>
-                    </dtd>
-                    <dtd>
-                        <label bind="author" />
-                    </dtd>
-                </dtr>
-            </bind:template>
-        </bind:collection>
-    </pad>
+                                        <bind:template>
+                                            <ltr>
+                                                <ltd>
+                                                    <icon id="warning-icon" bind="satisfied" 
+                                                        bindtransform="
+                                                            lambda x: 'warning-sign' if not x() else None
+                                                        " style="yellow" />
+                                                </ltd>
+                                                <ltd>
+                                                    <label bind="description" style="bold"/>
+                                                </ltd>
+                                                <ltd>
+                                                    <label bind="__str__" bindtransform="lambda x: x()" />
+                                                </ltd>
+                                                <ltd>
+                                                    <button icon="wrench" text="Fix" id="fix-module" visible="False" />
+                                                </ltd>
+                                            </ltr>
+                                        </bind:template>
+                                    </bind:collection>
+                                </indent>
+                            </collapse>
+                        </dtd>
+                        <dtd>
+                            <label bind="author" />
+                        </dtd>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
+        </pad>
+    </body>
 </vc>

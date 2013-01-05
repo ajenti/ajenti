@@ -4,7 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Notepad',
-    icon='pencil',
+    icon='edit',
     dependencies=[
         PluginDependency('main'),
         PluginDependency('codemirror'),

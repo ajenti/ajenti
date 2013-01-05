@@ -1,26 +1,28 @@
-<pad id="main" xmlns:bind="bind">
-    <bind:collection bind="services" id="services">
-        <dt bind="__items">
-            <dtr>
-                <dth width="1%" />
-                <dth><label text="Name" /></dth>
-                <dth width="10%"><label text="Origin" /></dth>
-                <dth width="1%"><label text="Actions" /></dth>
-            </dtr>
-        </dt>
-        <bind:template>
-            <dtr>
-                <dtd><icon bind="icon" /></dtd>
-                <dtd><label bind="name" /></dtd>
-                <dtd><label bind="source" /></dtd>
-                <dtd>
-                    <hc>
-                        <button id="start" icon="play" text="Start" />
-                        <button id="stop" icon="stop" text="Stop" />
-                        <button id="restart" icon="step-forward" text="Restart" />
-                    </hc>
-                </dtd>
-            </dtr>
-        </bind:template>
-    </bind:collection>
-</pad>
+<body>
+    <pad id="main" xmlns:bind="bind">
+        <bind:collection bind="services" id="services">
+            <dt bind="__items">
+                <dtr>
+                    <dth width="1%" />
+                    <dth text="Name" />
+                    <dth width="10%" text="Origin" />
+                    <dth width="1%" text="Actions" />
+                </dtr>
+            </dt>
+            <bind:template>
+                <dtr>
+                    <dtd><icon bind="icon" /></dtd>
+                    <dtd><label bind="name" /></dtd>
+                    <dtd><label bind="source" /></dtd>
+                    <dtd>
+                        <hc>
+                            <button id="start" icon="play" text="Start" />
+                            <button id="stop" icon="stop" text="Stop" />
+                            <button id="restart" icon="step-forward" text="Restart" />
+                        </hc>
+                    </dtd>
+                </dtr>
+            </bind:template>
+        </bind:collection>
+    </pad>
+</body>

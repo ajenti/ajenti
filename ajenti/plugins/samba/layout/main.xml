@@ -60,6 +60,7 @@
                         </bind:template>
                     </bind:collection>
                 </tab>
+
                 <tab title="Config" bind="global">
                     <formgroup text="Networking">
                         <vc>
@@ -95,9 +96,18 @@
                         </vc>
                     </formgroup>
                 </tab>
+
                 <tab title="Sessions" id="status">
                     <bind:collection bind="connections" id="connections">
-                        <dt bind="__items" />
+                        <dt bind="__items">
+                            <dtr>
+                                <dth text="Share" />
+                                <dth text="User" />
+                                <dth text="Machine" />
+                                <dth text="PID" />
+                                <dth width="1" />
+                            </dtr>
+                        </dt>
                         <bind:template>
                             <dtr>
                                 <dtd>
@@ -112,7 +122,7 @@
                                 <dtd>
                                     <label bind="pid" />
                                 </dtd>
-                                <dtd width="1">
+                                <dtd>
                                     <button id="disconnect" text="Disconnect" icon="remove" />
                                 </dtd>
                             </dtr>
