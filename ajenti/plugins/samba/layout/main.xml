@@ -95,7 +95,29 @@
                         </vc>
                     </formgroup>
                 </tab>
-                <tab title="Sessions">
+                <tab title="Sessions" id="status">
+                    <bind:collection bind="connections" id="connections">
+                        <dt bind="__items" />
+                        <bind:template>
+                            <dtr>
+                                <dtd>
+                                    <label bind="share" />
+                                </dtd>
+                                <dtd>
+                                    <label bind="user" />
+                                </dtd>
+                                <dtd>
+                                    <label bind="machine" />
+                                </dtd>
+                                <dtd>
+                                    <label bind="pid" />
+                                </dtd>
+                                <dtd width="1">
+                                    <button id="disconnect" text="Disconnect" icon="remove" />
+                                </dtd>
+                            </dtr>
+                        </bind:template>
+                    </bind:collection>
                 </tab>
             </tabs>
 
