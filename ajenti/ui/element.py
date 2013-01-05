@@ -131,6 +131,7 @@ class UIElement (object):
         for c in children:
             self.append(c)
         self.children_changed = False
+        self.invalidated = False
 
         # Copy properties from the class
         self.properties = {}
@@ -242,7 +243,7 @@ class UIElement (object):
         """
         Checks for pending UI updates
         """
-        if self.children_changed:
+        if self.children_changed or self.invalidated:
             return True
         for property in self.properties.values():
             if property.dirty:
@@ -258,12 +259,16 @@ class UIElement (object):
         Marks all pending updates as processed
         """
         self.children_changed = False
+        self.invalidated = False
         for property in self.properties.values():
             property.dirty = False
         if self.visible:
             for child in self.children:
                 if child.has_updates():
                     child.clear_updates()
+
+    def invalidate(self):
+        self.invalidated = True
 
     def broadcast(self, method, *args, **kwargs):
         """

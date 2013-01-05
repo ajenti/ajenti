@@ -5,7 +5,7 @@
 
 		&>.header {
 			#gradient > .vertical(lighten(@headerBackground, 15%), @headerBackground);
-			height: 30px;
+			height: @headerHeight;
 		    //.box-shadow(0 0 5px rgba(0,0,0,0.5));
 
 		    &>.container {
@@ -16,7 +16,7 @@
 	    		&>.logo {
 	    			.text {
 	    				position: absolute;
-		    			top: 2px;
+		    			top: 1px;
 		    			left: 0;
 		    			width: 150px;
 		    			font-family: 'PT Sans', sans-serif;
@@ -31,43 +31,42 @@
 		    	&>.userbox {
 		    		float: right;
 		    		width: 200px;
-		    		padding: 6px 30px 0;
-		    		position: relative;
 
 		    		>* {
 		    			float: right;
-		    			padding: 1px 0 0;
 		    		}
 
 		    		.username {
 		    			color: @controlText;
 		    			font-size: @fontSize;
 		    			font-weight: bold;
-		    			padding: 0 10px 0 5px;
+	    				color: #ddd;
+	    				padding: 0 5px;
+	    				line-height: @headerHeight - 2px;
 		    		}
 
 		    		a {
-		    			position: absolute;
-		    			top: -2px;
-		    			right: 0;
-	    				#gradient > .vertical(#555, #333);
-	    				.box-shadow(0 0 1px black);
-	    				width: 14px;
-	    				height: 16px;
-	    				border: 1px solid #222;
-	    				padding: 8px;
-	    				z-index: 3;
-	    				color: white;
+	    				width: 20px;
+	    				border-left: 1px solid #222;
+	    				border-right: 1px solid #222;
+	    				padding: 0 8px;
+
+	    				*:before {
+		    				color: white;
+	    					vertical-align: 1px;
+	    				}
+
 	    				display: block;
-	    				line-height: 24px;
+	    				text-align: center;
+	    				line-height: @headerHeight;
 	    				text-decoration: none;
 		    		
-		    			&:hover * {
-			    			opacity: 1;
+		    			&:hover {
+			    			background: rgba(255,255,255,.125);
 		    			}
 
 		    			&:active {
-		    				top: -1px;
+			    			background: rgba(255,255,255,.25);
 		    			}
 		    		}
 		    	}

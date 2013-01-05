@@ -221,3 +221,4 @@ class SectionsRoot (UIElement):
             if child.active:
                 child.broadcast('on_page_load')
             child.visible = child.active
+        self.invalidate()
