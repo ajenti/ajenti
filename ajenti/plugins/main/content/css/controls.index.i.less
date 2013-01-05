@@ -14,71 +14,12 @@
 	    		position: relative;
 
 	    		&>.logo {
-	    			position: absolute;
-	    			left: 2px;
-	    			top: 0;
-
-	    			.box {
-	    				position: absolute;
-		    			top: 0;
-
-						&.one {
-		    				left: -2px;
-	    					padding: 0 2px;
-	    					background: rgba(0, 0, 0, .25);
-	    				}
-
-		    			&.two {
-		    				left: -1px;
-	    					padding: 0 1px;
-	    					background: rgba(0, 0, 0, .5);
-	    				}
-
-		    			&.three {
-		    				left: 0;
-		    				top: -2px;
-		    				padding: 0;
-		    				#gradient > .vertical(#555, #333);
-	    				}
-	    			
-		    			width: 150px;
-	    				height: 33px;
-	    				z-index: 3;
-	    			}
-
-	    			.corner {
-	    				position: absolute;
-
-						border-style: solid;
-						border-width: 10px 75px 0;
-						border-color: gray transparent transparent;
-    					z-index: 4;
-
-		    			width: 0px;
-		    			height: 0px;
-
-		    			&.one {
-	    					top: 33px;
-	    					border-top-color: rgba(0, 0, 0, .5);
-	    				}
-
-		    			&.two {
-		    				top: 32px;
-	    					border-top-color: rgba(0, 0, 0, .5);
-	    				}
-
-		    			&.three {
-		    				top: 31px;
-	    					border-top-color: #333;
-	    				}
-	    			}
-
 	    			.text {
 	    				position: absolute;
-		    			top: 5px;
+		    			top: 2px;
 		    			left: 0;
 		    			width: 150px;
-		    			text-align: center;
+		    			font-family: 'PT Sans', sans-serif;
 		    			font-size: 20px;
 		    			font-weight: bold;
 		    			z-index: 5;
@@ -157,29 +98,25 @@
 
 			&>.container {
 				width: 960px;
-				margin: 10px auto;
+				margin: 7px auto;
 
 				&>.name {
 					float: left;
-					font-size: 24px;
-					font-weight: bold;
-					color: #555;
-					text-shadow: 0 1px 0px #999;
 					margin: 0 20px 0 0;
-
-					&>.url {
-						font-size: 10px;
+					
+					a {
+						font-family: 'PT Sans', sans-serif;
+						font-size: 24px;
 						font-weight: bold;
-						text-align: right;	
+						color: #555;
+						text-shadow: 0 1px 0px #999;
 
-						a {
-							text-decoration: none;
-							color: #555;
+						text-decoration: none;
+						color: #555;
 
-							&:hover {
-								text-shadow: 0 0 3px #999;
-								color: white;
-							}
+						&:hover {
+							text-shadow: 0 0 3px #999;
+							color: white;
 						}
 					}
 				}

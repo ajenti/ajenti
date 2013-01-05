@@ -6,14 +6,7 @@ class window.Controls.main__page extends window.Control
                     <div class="container">
                         
                         <div class="logo">
-                            <div class="box one"></div>
-                            <div class="box two"></div>
-                            <div class="box three"></div>
-                            <div class="text">Ajenti</div>
-
-                            <div class="corner one"></div>
-                            <div class="corner two"></div>
-                            <div class="corner three"></div>
+                            <div class="text">ajenti</div>
                         </div>
 
                         <div class="userbox">
@@ -34,20 +27,19 @@ class window.Controls.main__page extends window.Control
                 <div class="footer">
                     <div class="container">
                         <div class="name">
-                            Ajenti
-                            <div class="url"><a href="http://ajenti.org" target="_blank">ajenti.org</a></div>
+                            <a href="http://ajenti.org" target="_blank">ajenti</a>
                         </div>
 
                         <div class="link">
-                            <a href="" target="_blank">Homepage</a>
+                            <a href="http://ajenti.userecho.com" target="_blank">Feedback</a>
                         </div>
 
                         <div class="link">
-                            <a href="" target="_blank">Wiki</a>
+                            <a href="http://wiki.ajenti.org" target="_blank">Wiki</a>
                         </div>
 
                         <div class="link">
-                            <a href="" target="_blank">Bugtracker</a>
+                            <a href="http://bugs.launchpad.net/ajenti" target="_blank">Bugtracker</a>
                         </div>
                     </div>
                 </div>

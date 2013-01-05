@@ -36,14 +36,22 @@
                                             <formline text="Path">
                                                 <textbox bind="path" />
                                             </formline>
-                                            <formline text="Guest access">
-                                                <checkbox bind="guest_ok" />
+                                            <formline>
+                                                <checkbox bind="guest_ok" text="Guest access" />
                                             </formline>
-                                            <formline text="Browseable">
-                                                <checkbox bind="browseable" />
+                                            <formline>
+                                                <checkbox bind="browseable" text="Browseable" />
                                             </formline>
-                                            <formline text="Read only">
-                                                <checkbox bind="read_only" />
+                                        </vc>
+                                        <vc>
+                                            <formline text="Create mask">
+                                                <textbox bind="create_mask" />
+                                            </formline>
+                                            <formline text="Directory mask">
+                                                <textbox bind="directory_mask" />
+                                            </formline>
+                                            <formline>
+                                                <checkbox bind="read_only" text="Read only" />
                                             </formline>
                                         </vc>
                                     </hc>
@@ -52,7 +60,40 @@
                         </bind:template>
                     </bind:collection>
                 </tab>
-                <tab title="Config">
+                <tab title="Config" bind="global">
+                    <formgroup text="Networking">
+                        <vc>
+                            <formline text="Interfaces">
+                                <textbox bind="interfaces" />
+                            </formline>
+                            <formline>
+                                <checkbox bind="bind_interfaces_only" text="Bind only to these interfaces" />
+                            </formline>
+                        </vc>
+                    </formgroup>
+                    <formgroup text="Identification">
+                        <vc>
+                            <formline text="Workgroup">
+                                <textbox bind="workgroup" />
+                            </formline>
+                            <formline text="Server string">
+                                <textbox bind="server_string" />
+                            </formline>
+                        </vc>
+                    </formgroup>
+                    <formgroup text="Other">
+                        <vc>
+                            <formline text="Log file">
+                                <textbox bind="log_file" />
+                            </formline>
+                            <formline text="Security">
+                                <dropdown bind="security" 
+                                    labels="['User-level', 'ADS Realm', 'NT Domain', 'Share-level', 'Another Server']"
+                                    values="['user', 'ads', 'domain', 'share', 'server']"
+                                    />
+                            </formline>
+                        </vc>
+                    </formgroup>
                 </tab>
                 <tab title="Sessions">
                 </tab>
