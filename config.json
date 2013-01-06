@@ -35,7 +35,7 @@
     }, 
     "ssl": {
         "enable": false, 
-        "certificate_path": "", 
-        "key_path": ""
+        "certificate_path": "/home/eugeny/ajenti.crt", 
+        "key_path": "/home/eugeny/ajenti.key"
     }
 }

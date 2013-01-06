@@ -254,7 +254,10 @@ class window.Control
 
 
 
+#---------------------
 # Crash handler
+#---------------------
+
 window.ajentiCrash = (info) ->
     $('#crash').fadeIn()
     $('#crash-traceback').html(info.message + "\n" + info.traceback)
@@ -284,7 +287,20 @@ $.fn.safeRemove = () ->
             e.parentNode.removeChild(e)
 
 
+
+#---------------------
+# SSL alert
+#---------------------
+
+$(() ->
+    if location.protocol == 'https:'
+        $('#ssl-alert').hide()
+)
+
+
+#---------------------
 # Touch support
+#---------------------
 
 clickms = 100
 lastTouchDown = -1

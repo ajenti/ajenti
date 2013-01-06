@@ -27,6 +27,19 @@
                         </formline>
                     </vc>
                 </formgroup>
+                <formgroup text="SSL Self-Signed Certificate Generator">
+                    <vc>
+                        <formline text="Hostname">
+                            <textbox id="fake-ssl-host" />
+                        </formline>
+                        <formline text="Place certificate in">
+                            <textbox id="fake-ssl-path" value="/etc/ajenti" />
+                        </formline>
+                        <formline>
+                            <button id="fake-ssl" text="Generate" icon="cogs" />
+                        </formline>
+                    </vc>
+                </formgroup>
                 <formgroup text="Users">
                     <vc>
                         <formline text="Authentication">

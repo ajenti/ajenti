@@ -135,7 +135,11 @@ body {
         &.info {
             .button-style(#ddd);
         }
-
+        
+        &.error {
+            .button-style(#d00);
+        }
+        
         width: 200px !important;
         max-height: auto !important;
         height: auto !important;
@@ -201,6 +205,20 @@ body {
                 height: 200px;
             }
         }
+    }
+}
+
+#ssl-alert {
+    padding: 3px 10px;
+    line-height: 26px;
+    #gradient > .vertical(#f55, #c00);
+    border-bottom: 1px solid #a00;
+    border-top: 1px solid #f88;
+
+    b, span, i:before {
+        color: white;
+        opacity: 1;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     }
 }
 

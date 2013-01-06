@@ -1,4 +1,5 @@
 lxml
 python-daemon
 passlib
+gevent
 gevent-socketio

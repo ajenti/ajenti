@@ -25,9 +25,11 @@ def run():
     ssl = {}
     if ajenti.config.tree.ssl.enable:
         ssl = {
-            'keyfile':  ajenti.config.tree.ssl.certificate_path,
-            'certfile': ajenti.config.tree.ssl.key_path,
+            'certfile':  ajenti.config.tree.ssl.certificate_path,
+            'keyfile': ajenti.config.tree.ssl.key_path,
+            'ciphers': 'RC4-SHA',
         }
+        print ssl
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     ajenti.server = SocketIOServer(

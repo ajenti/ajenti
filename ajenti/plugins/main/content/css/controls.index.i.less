@@ -31,6 +31,7 @@
 		    	&>.userbox {
 		    		float: right;
 		    		width: 200px;
+		    		position: relative;
 
 		    		>* {
 		    			float: right;
@@ -47,18 +48,18 @@
 
 		    		a {
 	    				width: 20px;
+	    				height: @headerHeight - 1px;
 	    				border-left: 1px solid #222;
 	    				border-right: 1px solid #222;
 	    				padding: 0 8px;
+	    				display: block;
 
 	    				*:before {
 		    				color: white;
-	    					vertical-align: 1px;
 	    				}
 
-	    				display: block;
 	    				text-align: center;
-	    				line-height: @headerHeight;
+	    				line-height: @headerHeight - 2px;
 	    				text-decoration: none;
 		    		
 		    			&:hover {
