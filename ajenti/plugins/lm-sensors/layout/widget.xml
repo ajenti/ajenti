@@ -1,0 +1,17 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="fire" />
+    </box>
+    <box width="90">
+        <label id="name" style="bold" text="---" />
+    </box>
+    <label id="value" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="Sensor" id="form-line">
+                <dropdown id="sensor" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>

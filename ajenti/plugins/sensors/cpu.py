@@ -29,7 +29,6 @@ class CPUSensor (Sensor):
                 di = i2 - i1
                 #dw = w2 - self.w1
                 if dt > 0:
-                    print di, dt
                     idle = 1.0 * di / dt
                 else:
                     idle = 1.0
