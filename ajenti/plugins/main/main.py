@@ -213,7 +213,7 @@ class SectionsRoot (UIElement):
         self.children = sorted(self.children, key=lambda x: (self.category_order[x.category], x.order, x.title))
         if len(self.children) > 0:
             self.on_switch(self.children[0].uid)
-        self.on('switch', self.on_switch)
+        #self.on('switch', self.on_switch)
 
     def on_switch(self, uid):
         for child in self.children:

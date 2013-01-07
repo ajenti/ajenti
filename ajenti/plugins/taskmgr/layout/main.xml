@@ -1,0 +1,55 @@
+<vc xmlns:bind="bind">
+    <body>
+        <pad>
+            <bind:collection bind="processes" id="processes">
+                <dt bind="__items">
+                    <dtr>
+                        <dth text="" />
+                        <dth text="PID (Parent)" />
+                        <dth text="Name" />
+                        <dth text="CPU" />
+                        <dth text="RAM" />
+                        <dth text="User" />
+                        <dth text="" />
+                    </dtr>
+                </dt>
+                <bind:template>
+                    <dtr>
+                        <dtd>
+                            <icon icon="cog" />
+                        </dtd>
+                        <dtd>
+                            <vc>
+                                <label bind="pid" style="bold" />
+                                <label bind="_ppid" />
+                            </vc>
+                        </dtd>
+                        <dtd>
+                            <vc>
+                                <label bind="_name" style="bold" />
+                                <box width="200">
+                                    <label bind="_cmd" />
+                                </box>
+                            </vc>
+                        </dtd>
+                        <dtd>
+                            <label bind="_cpu" />
+                        </dtd>
+                        <dtd>
+                            <label bind="_ram" />
+                        </dtd>
+                        <dtd>
+                            <label bind="_username" />
+                        </dtd>
+                        <dtd>
+                            <vc>
+                                <button id="term" text="Terminate" icon="stop" />
+                                <button id="kill" text="Kill" icon="trash" />
+                            </vc>
+                        </dtd>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
+        </pad>
+    </body>
+</vc> 

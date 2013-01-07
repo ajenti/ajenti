@@ -17,9 +17,11 @@ class window.Stream
         @socket.on 'ui', (ui) ->
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
-            console.log 'Received update', ui
+            console.group 'Received update', ui
             UI.clear()
             UI.replace(UI.inflate(ui))
+            console.log 'Total elements:', UI._total_elements
+            console.groupEnd()
             Loading.hide()
 
         @socket.on 'ack', () ->
@@ -72,6 +74,7 @@ class window.UIManager
 
     inflate: (json) ->
         children = []
+        @_total_elements += 1
         if json.visible == true
             for child in json.children
                 do (child) =>
@@ -83,6 +86,7 @@ class window.UIManager
         return new cls(this, json, children)
 
     clear: () ->
+        @_total_elements = 0
         $('.root *').unbind() 
         $.cleanData($('.root *')) 
         $('.root *').safeRemove()
