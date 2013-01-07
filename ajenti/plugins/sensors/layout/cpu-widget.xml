@@ -1,0 +1,9 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="signal" />
+    </box>
+    <box width="90">
+        <label id="name" style="bold" text="CPU usage" />
+    </box>
+    <vc id="lines" />
+</hc>

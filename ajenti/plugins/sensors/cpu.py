@@ -3,39 +3,54 @@ import gevent
 from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import DashboardWidget
+from ajenti.ui.binder import Binder
 
 
 @plugin
 class CPUSensor (Sensor):
     id = 'cpu'
-    timeout = 1
+    timeout = 3
 
     def init(self):
-        self._value = 0
+        self._value = [0] * len(self.get_jiffies())
         gevent.spawn(self.worker)
 
     def measure(self, variant=None):
         return self._value
 
     def worker(self):
+        old = new = self.get_jiffies()
         while True:
-            self.t1, self.i1, self.w1 = self.get_jiffies()
-            gevent.sleep(1)
-            t2, i2, w2 = self.get_jiffies()
-            dt = t2 - self.t1
-            di = i2 - self.i1
-            #dw = w2 - self.w1
-            self.t1, self.i1, self.w1 = t2, i2, w2
-            idle = 1.0 * di / dt
-            #wait = 1.0 * dw / dt # iowait
-            self._value = 1.0 - idle
+            r = []
+            for o, n in zip(old, new):
+                t1, i1, w1 = o
+                t2, i2, w2 = n
+                dt = t2 - t1
+                di = i2 - i1
+                #dw = w2 - self.w1
+                if dt > 0:
+                    print di, dt
+                    idle = 1.0 * di / dt
+                else:
+                    idle = 1.0
+                #wait = 1.0 * dw / dt # iowait
+                r.append(1.0 - idle)
+            self._value = r
+
+            old = new
+            gevent.sleep(self.timeout)
+            new = self.get_jiffies()
 
     def get_jiffies(self):
-        l = filter(None, open('/proc/stat', 'r').read().split('\n')[0].split())
-        idle = int(l[4])
-        iowait = int(l[5])
-        total = sum(int(x) for x in l[1:9])
-        return total, idle, iowait
+        r = []
+        for l in open('/proc/stat', 'r').read().split('\n'):
+            l = l.split()
+            if len(l) > 5 and l[0] != 'cpu' and l[0].startswith('cpu'):
+                idle = int(l[4])
+                iowait = int(l[5])
+                total = sum(int(x) for x in l[1:9])
+                r.append((total, idle, iowait))
+        return r
 
 
 @plugin
@@ -45,9 +60,11 @@ class CPUWidget (DashboardWidget):
 
     def init(self):
         self.sensor = Sensor.find('cpu')
-        self.append(self.ui.inflate('sensors:progressbar-widget'))
+        self.append(self.ui.inflate('sensors:cpu-widget'))
         self.find('icon').icon = 'signal'
         self.find('name').text = 'CPU usage'
-        value = self.sensor.value()
-        self.find('value').text = '%i%%' % (value * 100)
-        self.find('progress').value = value
+        for value in self.sensor.value():
+            l = self.ui.inflate('sensors:cpu-line')
+            l.find('progress').value = value
+            l.find('value').text = '%i%%' % int(value * 100)
+            self.find('lines').append(l)

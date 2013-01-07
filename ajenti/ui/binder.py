@@ -307,23 +307,29 @@ class Binder (object):
         Recursively scans UI tree for ``bind`` properties, and creates bindings.
         """
         object = object or self.object
-        for k in dir(object):
-            v = getattr(object, k)
+        for k in dir(object) + ['.']:
             children = (ui or self.ui).nearest(lambda x: x.bind == k)
             for child in children:
                 if child == ui:
                     raise Exception('Circular UI reference for %s!' % k)
                 if _element_in_child_template((ui or self.ui), child):
                     continue
-                if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None or child.bindtransform:
-                    self.add(PropertyBinding(object, k, child))
-                elif not hasattr(v, '__iter__'):
-                    self.autodiscover(v, child)
-                else:
-                    if not hasattr(child, 'binding'):
-                        raise Exception('Collection %s (%s) only binds to <bind:collection />' % (k, type(v)))
-                    self.add(child.binding(object, k, child))
+                self._try_bind(object, k, child)
         return self
+
+    def _try_bind(self, object, k, child):
+        if k == '.':
+            v = object
+        else:
+            v = getattr(object, k)
+        if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None or child.bindtransform:
+            self.add(PropertyBinding(object, k, child))
+        elif not hasattr(v, '__iter__'):
+            self.autodiscover(v, child)
+        else:
+            if not hasattr(child, 'binding'):
+                raise Exception('Collection %s (%s) only binds to <bind:collection />' % (k, type(v)))
+            self.add(child.binding(object, k, child))
 
     def add(self, binding):
         self.bindings.append(binding)

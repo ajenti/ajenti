@@ -29,7 +29,6 @@ def run():
             'keyfile': ajenti.config.tree.ssl.key_path,
             'ciphers': 'RC4-SHA',
         }
-        print ssl
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     ajenti.server = SocketIOServer(

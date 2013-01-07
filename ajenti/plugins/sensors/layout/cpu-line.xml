@@ -1,0 +1,6 @@
+<hc>
+    <box width="50">
+        <label id="value" text="---" />
+    </box>
+    <progressbar id="progress" width="150" />
+</hc>
