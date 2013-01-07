@@ -7,7 +7,6 @@ info = PluginInfo(
     icon='th-list',
     dependencies=[
         PluginDependency('main'),
-        ModuleDependency('psutil'),
     ],
 )
 

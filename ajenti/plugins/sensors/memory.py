@@ -1,3 +1,5 @@
+import psutil
+
 from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import DashboardWidget
@@ -10,15 +12,8 @@ class MemorySensor (Sensor):
     timeout = 5
 
     def measure(self, variant):
-        memdata = dict([
-            (l.split()[0].strip(':'),
-             int(l.split()[1]) * 1024)
-            for l in open('/proc/meminfo').read().split('\n')
-            if len(l) > 0
-        ])
-        total = memdata['MemTotal']
-        free = memdata['MemFree'] + memdata['Buffers'] + memdata['Cached']
-        return (total - free, total)
+        v = psutil.virtual_memory()
+        return (v.total - v.available, v.total)
 
 
 @plugin
@@ -27,13 +22,8 @@ class SwapSensor (Sensor):
     timeout = 5
 
     def measure(self, variant):
-        used = total = 0
-        for l in open('/proc/swaps').read().split('\n')[2:]:
-            l = l.split()
-            if len(l) > 3:
-                total += int(l[2]) * 1024
-                used += int(l[3]) * 1024
-        return (used, total)
+        v = psutil.swap_memory()
+        return (v.used, v.total)
 
 
 @plugin

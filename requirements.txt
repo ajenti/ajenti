@@ -3,3 +3,4 @@ python-daemon
 passlib
 gevent
 gevent-socketio
+psutil

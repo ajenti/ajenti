@@ -1,6 +1,6 @@
 import os
 import re
-import subprocess
+import psutil
 
 from ajenti.api import *
 from ajenti.api.sensors import Sensor
@@ -33,31 +33,14 @@ def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
 @plugin
 class DiskUsageSensor (Sensor):
     id = 'disk-usage'
-    timeout = 30
-
-    _partstatformat = re.compile('(/dev/)?(?P<dev>\w+)\s+\d+\s+\d+\s+\d+\s+' +
-                                       '(?P<usage>\d+)%\s+(?P<mountpoint>\S+)$')
-    _totalformat = re.compile('(?P<dev>total)\s+\d+\s+\d+\s+\d+\s+(?P<usage>\d+)%$')
-
-    def _get_stats(self, predicate=(lambda m: True)):
-        if hasattr(self, 'variant') and self.variant == 'total':
-            matcher = self._totalformat
-        else:
-            matcher = self._partstatformat
-
-        stats = subprocess.check_output(['df', '--total'])
-        matches = []
-        for stat in stats.splitlines():
-            match = matcher.match(stat)
-            if match and predicate(match):
-                matches.append(match)
-        return matches
+    timeout = 5
 
     def get_variants(self):
-        return sorted(set([m.group('dev') for m in self._get_stats()])) + ['total']
+        return sorted([x.mountpoint for x in psutil.disk_partitions()])
 
-    def measure(self, device):
-        devmatches = self._get_stats(lambda m: m.group('dev').endswith(device))
-        if not devmatches:
-            return 0
-        return int(devmatches[0].group('usage'))
+    def measure(self, path):
+        try:
+            v = psutil.disk_usage(path)
+        except OSError:
+            return (0, 1)
+        return (v.used, v.total)
