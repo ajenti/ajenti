@@ -1,10 +1,12 @@
 <well>
+    <right>
+        <button id="install" icon="gift" text="Install" />
+    </right>
     <hc>
         <vc>
             <label style="bold nopad" bind="pkg" />
             <label bind="text" style="nopad" />
         </vc>
-        <box width="20" />
-        <button id="install" icon="gift" text="Install" />
+        <box width="20" height="1" />
     </hc>
 </well>

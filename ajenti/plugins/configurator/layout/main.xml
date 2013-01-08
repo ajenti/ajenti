@@ -16,9 +16,7 @@
                 </formgroup>
                 <formgroup text="SSL" bind="ssl">
                     <vc>
-                        <formline>
-                            <packages:installer package="stunnel" />
-                        </formline>
+                        <packages:installer package="stunnel" text="SSl requires stunnel package" />
 
                         <formline text="Use SSL">
                             <checkbox bind="enable" />

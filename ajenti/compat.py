@@ -11,7 +11,7 @@ if not hasattr(subprocess, 'check_output'):
     subprocess.check_output = c_o
 
 # suppress stdout for subprocess callables by default
-__null = open(os.devnull)
+__null = open(os.devnull, 'w')
 
 
 old_Popen = subprocess.Popen.__init__

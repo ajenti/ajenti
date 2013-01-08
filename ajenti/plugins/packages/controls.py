@@ -2,9 +2,10 @@ import ajenti
 from ajenti.api import *
 from ajenti.ui import UIElement, p, on
 from ajenti.ui.binder import Binder
+from ajenti.plugins import BinaryDependency, ModuleDependency
 
 
-@p('package')
+@p('package', default='')
 @p('text', default='This package can be installed automatically')
 @plugin
 class PackageInstaller (UIElement, BasePlugin):
@@ -15,6 +16,9 @@ class PackageInstaller (UIElement, BasePlugin):
         self.append(self.ui.inflate('packages:installer'))
         self.recheck()
 
+    def on_page_load(self):
+        self.recheck()
+
     def recheck(self):
         if ajenti.platform in db:
             apps = db[ajenti.platform]
@@ -22,6 +26,12 @@ class PackageInstaller (UIElement, BasePlugin):
                 self.pkg = db[ajenti.platform][self.package]
                 self.visible = True
                 Binder(self, self).autodiscover().populate()
+            if self.package.startswith('python-module-'):
+                d = ModuleDependency(self.package[len('python-module-')])
+            else:
+                d = BinaryDependency(self.package)
+            if d.satisfied():
+                self.visible = False
 
     @on('install', 'click')
     def on_install(self):
