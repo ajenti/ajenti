@@ -76,8 +76,7 @@ class Configurator (SectionPlugin):
     def gen_ssl(self, host, path):
         self.save()
         ajenti.config.tree.ssl.enable = True
-        ajenti.config.tree.ssl.certificate_path = '%s/ajenti.crt' % path
-        ajenti.config.tree.ssl.key_path = '%s/ajenti.key' % path
+        ajenti.config.tree.ssl.certificate_path = '%s/ajenti.pem' % path
         ajenti.config.save()
         self.refresh()
 

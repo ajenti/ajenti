@@ -24,9 +24,6 @@
                         <formline text="Path to certificate">
                             <textbox bind="certificate_path" />
                         </formline>
-                        <formline text="Path to key">
-                            <textbox bind="key_path" />
-                        </formline>
                     </vc>
                 </formgroup>
                 <formgroup text="SSL Self-Signed Certificate Generator">
