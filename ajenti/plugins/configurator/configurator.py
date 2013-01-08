@@ -90,7 +90,7 @@ class Configurator (SectionPlugin):
             openssl rsa -in /tmp/ajenti.key.org -out /tmp/ajenti.key -passin pass:1234;
             echo '\n-> Generating certificate\n';
             openssl x509 -req -days 365 -in /tmp/ajenti.csr -signkey /tmp/ajenti.key -out /tmp/ajenti.crt -passin pass:1234;
-            cp /tmp/ajenti.key /tmp/ajenti.crt {1};
+            cat /tmp/ajenti.key /tmp/ajenti.crt > {1}/ajenti.pem;
             rm /tmp/ajenti.*;
             echo '\n\n===================\nRestart Ajenti to apply changes!\n===================';
         """.format(host, path)

@@ -139,7 +139,12 @@ class window.UIManager
         @sendUpdates()
 
     openTab: (url) ->
-        window.open().location = url
+        w = window.open()
+        w.location = url
+        setTimeout () =>
+            if w.innerWidth == 0
+                alert('Please unblock popups!')
+        , 100
 
 
 class window.LoadingDim 

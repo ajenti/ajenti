@@ -79,6 +79,15 @@
 		overflow: visible;
 	}
 
+	&.well {
+		overflow: visible;
+		display: inline-block;
+		background: rgba(0,0,0,.0625);
+		.border-radius(5px);
+		.box-shadow(0 2px 2px rgba(0,0,0,.25) inset);
+		padding: 10px;
+	}
+
 	&.hc {
 		white-space: nowrap;
 
@@ -117,6 +126,11 @@
 		&.small {
 			font-size: @fontSize * 0.75;
 			height: auto;	
+		}
+
+		&.nopad {
+			line-height: normal;
+			height: auto;
 		}
 	}
 
@@ -429,6 +443,7 @@
 					border: 1px solid @tableBorder;
 					border-width: 1px 0 0 1px;
 					padding: 5px;
+					vertical-align: top;
 				}
 
 				&:first-child td {
@@ -460,6 +475,7 @@
 	&.layout-table {
 		&>tbody>tr>td {
 			padding: 0 5px;
+			vertical-align: top;
 		}
 	}
 

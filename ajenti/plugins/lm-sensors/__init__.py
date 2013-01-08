@@ -8,6 +8,7 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),
+        BinaryDependency('sensors'),
     ],
 )
 

@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc xmlns:bind="bind" xmlns:packages="packages">
     <body>
         <pad id="bind-root">
             <bind:collection id="plugins" bind="plugins">
@@ -46,9 +46,7 @@
                                                 </ltd>
                                                 <ltd>
                                                     <label bind="__str__" bindtransform="lambda x: x()" />
-                                                </ltd>
-                                                <ltd>
-                                                    <button icon="wrench" text="Fix" id="fix-module" visible="False" />
+                                                    <packages:installer id="fix" />
                                                 </ltd>
                                             </ltr>
                                         </bind:template>

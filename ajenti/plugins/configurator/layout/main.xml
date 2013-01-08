@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc xmlns:bind="bind" xmlns:packages="packages">
     <button text="Save" id="save-button" icon="ok" />
 
     <body>
@@ -16,6 +16,10 @@
                 </formgroup>
                 <formgroup text="SSL" bind="ssl">
                     <vc>
+                        <formline>
+                            <packages:installer package="stunnel" />
+                        </formline>
+
                         <formline text="Use SSL">
                             <checkbox bind="enable" />
                         </formline>
