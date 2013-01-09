@@ -46,26 +46,35 @@ class Services (SectionPlugin):
         self.refresh()
 
 
-@p('name')
+@p('name', bindtypes=[str, unicode])
 @p('buttons', default=[], type=eval)
 @plugin
 class ServiceControlBar (UIElement):
-    typeid = "servicebar"
+    typeid = 'servicebar'
 
     def init(self):
-        self.service = ServiceMultiplexor.get().get_one(self.name)
+        self.reload()
+
+    def reload(self):
+        self.empty()
         self.append(self.ui.inflate('services:bar'))
+        self.service = ServiceMultiplexor.get().get_one(self.name)
         for btn in self.buttons:
             b = self.ui.create('button')
             b.text, b.icon = btn['text'], btn['icon']
             b.on('click', self.on_command, btn['command'])
             self.find('buttons').append(b)
+        self.refresh()
 
     def on_page_load(self):
-        self.service.refresh()
-        self.find('start').visible = not self.service.running
-        self.find('stop').visible = self.service.running
-        self.find('restart').visible = self.service.running
+        self.refresh()
+
+    def refresh(self):
+        if self.service:
+            self.service.refresh()
+            self.find('start').visible = not self.service.running
+            self.find('stop').visible = self.service.running
+            self.find('restart').visible = self.service.running
 
     @on('start', 'click')
     def on_start(self):

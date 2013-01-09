@@ -1,0 +1,41 @@
+<vc xmlns:bind="bind">
+    <servicebar 
+        bind="service_name" />
+
+    <body>
+        <pad>
+            <bind:collection bind="hosts" id="hosts">
+                <vc>
+                    <dt bind="__items" />
+                    <bind:template>
+                        <collapserow>
+                            <box>
+                                <right>
+                                    <hc>
+                                        <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                    </hc>
+                                </right>
+                                <hc>
+                                    <icon icon="globe" />
+                                    <box width="200">
+                                        <label bind="name" style="bold" />
+                                    </box>
+                                </hc>
+                            </box>
+                            <indent>
+                                <vc>
+                                    <formline text="Host is active">
+                                        <checkbox bind="active" />
+                                    </formline>
+                                    <formline text="Configuration">
+                                        <codearea bind="config" width="500" height="400" />
+                                    </formline>
+                                </vc>
+                            </indent>
+                        </collapserow>
+                    </bind:template>
+                </vc>
+            </bind:collection>
+        </pad>
+    </body>
+</vc>

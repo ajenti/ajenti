@@ -34,7 +34,7 @@
         }
     }, 
     "ssl": {
-        "enable": true, 
+        "enable": false, 
         "certificate_path": "/home/eugeny/ajenti.pem"
     }
 }

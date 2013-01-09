@@ -221,6 +221,14 @@ class window.Control
     wrapChild: (child) ->
         return child.dom
 
+    onBroadcast: (msg) ->
+
+    broadcast: (msg) ->
+        @onBroadcast(msg)
+        for c in @children
+            do (c) =>
+                c.broadcast(msg)
+        
     extractUpdates: () ->
         updates = @detectUpdates()
         if not @uid or $.isEmptyObject(updates)

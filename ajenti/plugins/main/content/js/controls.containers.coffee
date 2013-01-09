@@ -235,6 +235,8 @@ class window.Controls.collapserow extends window.Control
             @expanded = not @expanded
             @publish()
             $(@container).toggle('blind')
+            if @expanded
+                @broadcast('visible')
             @cancel(e)
 
     detectUpdates: () ->
@@ -309,6 +311,8 @@ class window.Controls.collapse extends window.Control
             @expanded = not @expanded
             @publish()
             @container.toggle('blind')
+            if @expanded
+                @broadcast('visible')
             @cancel(e)
 
     detectUpdates: () ->

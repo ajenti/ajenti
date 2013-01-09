@@ -5,11 +5,10 @@ from ajenti.plugins import *
 info = PluginInfo(
     title='NGINX',
     dependencies=[
-        PluginDependency('main'),
-        PluginDependency('services'),
+        PluginDependency('webserver_common'),
     ],
 )
 
 
 def init():
-    import configurator
+    import main
