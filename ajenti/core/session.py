@@ -203,7 +203,9 @@ class SessionManager(object):
         self._start_response_args = (status, headers)
 
     def _load_session_cookie(self, environ):
-        C = Cookie.SimpleCookie(environ.get('HTTP_COOKIE'))
+        cookie_str = environ.get('HTTP_COOKIE')
+        cookie_str = cookie_str.replace('&', '_')
+        C = Cookie.SimpleCookie(cookie_str)
         cookie = C.get('sess')
         if cookie is not None:
             self._session = self._session_store.checkout(cookie.value)
