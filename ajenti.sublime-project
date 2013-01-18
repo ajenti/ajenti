@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/home/eugeny/Work/ajenti-ng"
+			"path": "/home/eugeny/Work/ajenti-ng",
+            "file_exclude_patterns": ["*.c.css", "*.less.css", "*.coffee.js", "*.c.js"]
 		}
 	]
 }
