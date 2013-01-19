@@ -1,9 +1,4 @@
 {
-    "bind": {
-        "host": "0.0.0.0", 
-        "port": 8000
-    }, 
-    "authentication": false, 
     "users": {
         "test": {
             "configs": {}, 
@@ -25,7 +20,7 @@
         "root": {
             "configs": {
                 "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
-                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"container\": \"1\", \"config\": null, \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}, {\"index\": 1, \"container\": \"1\", \"config\": {\"variant\": \"5\"}, \"class\": \"ajenti.plugins.sensors.load.LoadWidget\"}, {\"index\": 0, \"container\": \"0\", \"config\": null, \"class\": \"ajenti.plugins.sensors.uptime.UptimeWidget\"}, {\"index\": 1, \"container\": \"0\", \"config\": null, \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 2, \"container\": \"0\", \"config\": null, \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 3, \"container\": \"0\", \"config\": {\"device\": \"/\"}, \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}, {\"index\": 0, \"config\": {\"device\": \"lo\"}, \"container\": 0, \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}, {\"index\": 0, \"config\": {\"device\": \"wlan0\"}, \"container\": 0, \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}]}"
+                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}, {\"index\": 1, \"config\": {\"variant\": \"5\"}, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.load.LoadWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 2, \"config\": {\"device\": \"/\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}, {\"index\": 3, \"config\": {\"device\": \"lo\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}, {\"index\": 4, \"config\": {\"device\": \"wlan0\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}]}"
             }, 
             "password": "sha512|$6$rounds=40000$XAlmdP.m6NeQ3N/l$6dBlXwV9E9rEIyi9STBVQPxx/gzf7OfmRuaJrbEqmAfna0ip1QQyNelGF16IxSppToRvPtvfI7i2R.HON83D3/", 
             "permissions": [
@@ -33,8 +28,15 @@
             ]
         }
     }, 
+    "bind": {
+        "host": "0.0.0.0", 
+        "port": 8000
+    }, 
+    "authentication": false, 
     "ssl": {
         "enable": false, 
         "certificate_path": "/home/eugeny/ajenti.pem"
-    }
+    }, 
+    "enable_feedback": true, 
+    "installation_id": 2
 }

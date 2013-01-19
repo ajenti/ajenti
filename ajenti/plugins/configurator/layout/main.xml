@@ -76,6 +76,14 @@
                         </formline>
                     </vc>
                 </formgroup>
+                <formgroup text="Other">
+                    <formline text="Send feedback">
+                        <vc>
+                            <checkbox bind="enable_feedback" text="Enable" />
+                            <label style="small" text="Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org" />
+                        </vc>
+                    </formline>
+                </formgroup>
             </vc>
         </pad>
     </body>

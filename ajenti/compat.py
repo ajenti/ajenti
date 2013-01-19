@@ -47,3 +47,10 @@ def tbdel(self):
     del self.__compat_lock
 
 threading.Thread._Thread__block = property(tbget, tbset, tbdel)
+
+
+# suppress Requests logging
+import requests
+import logging
+
+logging.getLogger("requests").setLevel(logging.WARNING)

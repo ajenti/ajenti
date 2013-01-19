@@ -13,6 +13,7 @@ from ajenti.http import HttpRoot
 from ajenti.routing import CentralDispatcher
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
 import ajenti.plugins
+import ajenti.feedback
 
 import gevent
 from gevent import monkey
@@ -91,5 +92,7 @@ def run():
         gevent.signal(signal.SIGTERM, lambda: sys.exit(0))
     except:
         pass
+
+    ajenti.feedback.start()
 
     ajenti.server.serve_forever()

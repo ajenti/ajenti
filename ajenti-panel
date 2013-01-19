@@ -69,8 +69,6 @@ if __name__ == '__main__':
     ajenti.init()
     ajenti.log.init(log_level)
 
-    ###check_uid()
-
     logging.basicConfig(level=log_level)
 
     if is_daemon:

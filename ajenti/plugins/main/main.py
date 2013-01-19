@@ -12,6 +12,7 @@ from ajenti.profiler import *
 from ajenti.users import PermissionProvider, UserManager, SecurityError
 from ajenti.ui import *
 from ajenti.util import make_report
+import ajenti.feedback
 
 from api import SectionPlugin
 
@@ -180,8 +181,12 @@ class SectionPermissions (PermissionProvider):
 
 @p('username')
 @plugin
-class MainPage (UIElement):
+class MainPage (UIElement, BasePlugin):
     typeid = 'main:page'
+
+    def on_feedback(self, email, text):
+        ajenti.feedback.send_feedback(email, text)
+        self.context.notify('info', 'Feedback sent!')
 
 
 @p('name')

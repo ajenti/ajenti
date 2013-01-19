@@ -22,9 +22,44 @@
 		    			font-family: 'PT Sans', sans-serif;
 		    			font-size: 20px;
 		    			font-weight: bold;
-		    			z-index: 5;
 		    			color: @orange;
 		    			text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
+
+		    			.release {
+		    				color: #c30;
+		    				display: inline-block;
+		    			}
+		    		}
+	    		}
+
+	    		&>.feedback {
+	    			position: relative;
+	    			margin: 0 0 0 150px;
+
+	    			.activate {
+	    				display: inline-block;
+		    			font-family: 'PT Sans', sans-serif;
+		    			font-size: 14px;
+		    			font-weight: bold;
+		    			color: #ddd;
+		    			padding: 0 20px;
+		    			line-height: @headerHeight;
+		    			text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+
+		    			&:hover {
+		    				background: rgba(255,255,255,.25);
+		    			}
+		    		}
+
+		    		.box {
+		    			z-index: 99;
+		    			overflow: hidden;
+		    			box-shadow: 0 1px 2px black;
+		    			padding: 5px 10px;
+		    			position: absolute;
+		    			top: @headerHeight;
+		    			left: 0;
+		    			background: white;
 		    		}
 	    		}
 
