@@ -1,0 +1,34 @@
+<body xmlns:bind="bind" xmlns:munin="munin">
+    <pad>
+        <bind:collection bind="domains">
+            <vc>
+                <vc bind="__items" />
+                <bind:template>
+                    <vc>
+                        <label bind="name" style="bold" />
+
+                        <bind:collection bind="hosts">
+                            <dt bind="__items" />
+
+                            <bind:template>
+                                <collapserow>
+                                    <label bind="name" />
+                                </collapserow>
+
+                                <bind:collection bind="graphs">
+                                    <tabs bind="__items" />
+                                    
+                                    <bind:template>
+                                        <tab bind="full_name">
+                                            <munin:plot />
+                                        </tab>
+                                    </bind:template>
+                                </bind:collection>
+                            </bind:template>
+                        </bind:collection>
+                    </vc>
+                </bind:template>
+            </vc>
+        </bind:collection>
+    </pad> 
+</body>
