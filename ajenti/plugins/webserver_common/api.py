@@ -1,6 +1,7 @@
 import os
 
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 
@@ -23,9 +24,11 @@ class AvailabilitySymlinks (object):
     def is_enabled(self, entry):
         return self.find_link(entry) is not None
 
+    def get_path(self, entry):
+        return os.path.abspath(os.path.join(self.dir_a, entry))
+
     def find_link(self, entry):
-        path = os.path.join(self.dir_a, entry)
-        path = os.path.abspath(path)
+        path = self.get_path(entry)
 
         for e in os.listdir(self.dir_e):
             if os.path.abspath(os.path.realpath(os.path.join(self.dir_e, e))) == path:
@@ -34,16 +37,23 @@ class AvailabilitySymlinks (object):
     def enable(self, entry):
         e = self.find_link(entry)
         if not e:
-            os.symlink(os.path.join(self.dir_a, entry), os.path.join(self.dir_e, entry))
+            os.symlink(self.get_path(entry), os.path.join(self.dir_e, entry))
 
     def disable(self, entry):
         e = self.find_link(entry)
         if e:
             os.unlink(os.path.join(self.dir_e, e))
 
+    def rename(self, old, new):
+        on = self.is_enabled(old)
+        self.disable(old)
+        os.rename(self.get_path(old), self.get_path(new))
+        if on:
+            self.enable(new)
+
     def delete(self, entry):
         self.disable(entry)
-        os.unlink(self.dir_a, entry)
+        os.unlink(self.get_path(entry))
 
     def open(self, entry, mode='r'):
         return open(os.path.join(self.dir_a, entry), mode)
@@ -72,6 +82,7 @@ class WebserverPlugin (SectionPlugin):
     service_buttons = []
     hosts_available_dir = ''
     hosts_enabled_dir = ''
+    template = ''
 
     def init(self):
         self.append(self.ui.inflate('webserver_common:main'))
@@ -79,8 +90,36 @@ class WebserverPlugin (SectionPlugin):
         self.find_type('servicebar').buttons = self.service_buttons
         self.hosts_dir = AvailabilitySymlinks(self.hosts_available_dir, self.hosts_enabled_dir)
 
+        def delete_host(host, c):
+            c.remove(host)
+            self.hosts_dir.delete(host.name)
+
+        def on_host_bind(o, c, host, u):
+            host.__old_name = host.name
+
+        def on_host_update(o, c, host, u):
+            if host.__old_name != host.name:
+                self.hosts_dir.rename(host.__old_name, host.name)
+            host.save()
+
+        def new_host(c):
+            name = 'untitled'
+            self.hosts_dir.open(name, 'w').write(self.template)
+            return WebserverHost(self.hosts_dir, name)
+
+        self.find('hosts').delete_item = delete_host
+        self.find('hosts').new_item = new_host
+        self.find('hosts').post_item_bind = on_host_bind
+        self.find('hosts').post_item_update = on_host_update
+
     def on_page_load(self):
         self.refresh()
+
+    @on('save-button', 'click')
+    def save(self):
+        self.binder.update()
+        self.refresh()
+        self.context.notify('info', 'Saved')
 
     def refresh(self):
         self.hosts = [WebserverHost(self.hosts_dir, x) for x in self.hosts_dir.list_available()]

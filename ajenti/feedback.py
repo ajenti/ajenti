@@ -28,7 +28,6 @@ def send(url, data):
         data['id'] = id
     logging.debug('Feedback >> %s (%s)' % (url, data))
     response = requests.post(URL + url, data=data)
-    print response.text
     logging.debug('Feedback << %s' % response.text)
     return response.json()
 

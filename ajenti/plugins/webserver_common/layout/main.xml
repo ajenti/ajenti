@@ -17,6 +17,7 @@
                                 </right>
                                 <hc>
                                     <icon icon="globe" />
+                                        <checkbox bind="active" />
                                     <box width="200">
                                         <label bind="name" style="bold" />
                                     </box>
@@ -24,6 +25,9 @@
                             </box>
                             <indent>
                                 <vc>
+                                    <formline text="Name">
+                                        <textbox bind="name" />
+                                    </formline>
                                     <formline text="Host is active">
                                         <checkbox bind="active" />
                                     </formline>
@@ -34,8 +38,11 @@
                             </indent>
                         </collapserow>
                     </bind:template>
+                    <button bind="__add" icon="plus" text="Create" />
                 </vc>
             </bind:collection>
         </pad>
     </body>
+
+    <button text="Save" id="save-button" icon="ok" />
 </vc>
