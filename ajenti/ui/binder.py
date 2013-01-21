@@ -86,6 +86,14 @@ class PropertyBinding (Binding):
             self.set(new_value)
 
 
+class DictValueBinding (PropertyBinding):
+    def get(self):
+        return self.object[self.attribute]
+
+    def set(self, value):
+        self.object[self.attribute] = value
+
+
 @public
 class ListAutoBinding (Binding):
     """
@@ -127,6 +135,49 @@ class ListAutoBinding (Binding):
         for value in self.values:
             self.binders[value].update()
             self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
+
+
+@public
+class DictAutoBinding (Binding):
+    """
+    Binds values from a dict to UI element's children mapping 'bind' attribute to dict key, using :class:`Binder`
+    """
+
+    def __init__(self, object, attribute, ui):
+        Binding.__init__(self, object, attribute, ui)
+        self.binders = {}
+
+    def unpopulate(self):
+        for binder in self.binders.values():
+            binder.unpopulate()
+
+    def populate(self):
+        if self.attribute:
+            self.collection = getattr(self.object, self.attribute)
+        else:
+            self.collection = self.object
+        self.values = self.ui.values(self.collection)
+
+        self.unpopulate()
+
+        self.binders = {}
+        for key in self.values:
+            try:
+                template = self.ui.nearest(lambda x: x.bind == key)[0]
+            except IndexError:
+                raise Exception('Bind target for key %s not found' % repr(key))
+            binder = DictValueBinding(self.values, key, template)
+            binder.populate()
+            self.binders[key] = binder
+            self.ui.post_item_bind(self.object, self.collection, key, template)
+
+        self.ui.post_bind(self.object, self.collection, self.ui)
+        return self
+
+    def update(self):
+        for key in self.values:
+            self.binders[key].update()
+            self.ui.post_item_update(self.object, self.collection, key, self.binders[key].ui)
 
 
 def _element_in_child_binder(root, e):
@@ -306,13 +357,14 @@ class Binder (object):
         """
         Recursively scans UI tree for ``bind`` properties, and creates bindings.
         """
+        ui = ui or self.ui
         object = object or self.object
         for k in dir(object) + ['.']:
-            children = (ui or self.ui).nearest(lambda x: x.bind == k)
+            children = ui.nearest(lambda x: x.bind == k)
             for child in children:
                 if child == ui:
                     raise Exception('Circular UI reference for %s!' % k)
-                if _element_in_child_template((ui or self.ui), child):
+                if _element_in_child_template(ui, child):
                     continue
                 self._try_bind(object, k, child)
         return self
@@ -394,3 +446,9 @@ class ListElement (BasicCollectionElement):
 @plugin
 class CollectionElement (BasicCollectionElement):
     typeid = 'bind:collection'
+
+
+@p('binding', default=DictAutoBinding, type=eval, public=False)
+@plugin
+class DictElement (BasicCollectionElement):
+    typeid = 'bind:dict'

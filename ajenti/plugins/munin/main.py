@@ -20,16 +20,32 @@ class Munin (SectionPlugin):
         self.append(self.ui.inflate('munin:main'))
 
         self.munin_client = MuninClient.get()
-        #self.config = FSTabConfig(path='/etc/fstab')
         self.binder = Binder(None, self)
-        #self.find('filesystems').new_item = lambda c: FilesystemData()
 
     def on_page_load(self):
         self.refresh()
 
     def refresh(self):
         self.munin_client.reset()
+        try:
+            self.munin_client.fetch_domains()
+        except requests.ConnectionError, e:
+            self.find_type('tabs').active = 1
+            self.context.notify('error', 'Couldn\'t connect to Munin: %s' % e.message)
+        except Exception, e:
+            self.find_type('tabs').active = 1
+            if e.message == 'auth':
+                self.context.notify('error', 'Munin HTTP authentication failed')
+            else:
+                raise
         self.binder.reset(self.munin_client).autodiscover().populate()
+
+    @on('save-button', 'click')
+    def save(self):
+        self.binder.update()
+        self.munin_client.save_classconfig()
+        self.refresh()
+        self.find_type('tabs').active = 0
 
 
 @plugin

@@ -190,6 +190,7 @@ class BasePlugin (object):
         if self.context:
             # Load the classconfig
             config = ConfigData()
+            config.name = self.classname
             config.data = copy.deepcopy(self.default_classconfig)
             if self.default_classconfig:
                 self.classconfig = self.context.user.configs.setdefault(self.classname, config).data

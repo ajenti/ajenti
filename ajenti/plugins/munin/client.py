@@ -15,31 +15,37 @@ class MuninClient (BasePlugin):
     def init(self):
         self.reset()
 
+    def fetch_domains(self):
+        self._domains = []
+        s = self._fetch('/')
+        ds = s.findAll('span', 'domain')
+        for d in ds:
+            domain = MuninDomain()
+            domain.name = str(d.a.string)
+            hs = d.parent.findAll('span', 'host')
+            for h in hs:
+                host = MuninHost(self)
+                host.name = str(h.a.string)
+                host.domain = domain
+                domain.hosts.append(host)
+            self._domains.append(domain)
+
     @property
     def domains(self):
         if self._domains is None:
-            s = self._fetch('/')
-            ds = s.findAll('span', 'domain')
-            self._domains = []
-            for d in ds:
-                domain = MuninDomain()
-                domain.name = str(d.a.string)
-                hs = d.parent.findAll('span', 'host')
-                for h in hs:
-                    host = MuninHost(self)
-                    host.name = str(h.a.string)
-                    host.domain = domain
-                    domain.hosts.append(host)
-                self._domains.append(domain)
+            self.fetch_domains()
         return self._domains
 
     def reset(self):
         self._domains = None
 
     def _fetch(self, url):
-        return BeautifulSoup(requests.get(self.classconfig['prefix'] + url,
+        req = requests.get(self.classconfig['prefix'] + url,
                 auth=(self.classconfig['username'], self.classconfig['password'])
-               ).text)
+               )
+        if req.status_code == 401:
+            raise Exception('auth')
+        return BeautifulSoup(req.text)
 
 
 class MuninDomain:

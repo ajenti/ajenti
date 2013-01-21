@@ -1,42 +1,62 @@
 <body xmlns:bind="bind" xmlns:munin="munin">
     <pad>
-        <bind:collection bind="domains">
-            <vc>
-                <vc bind="__items" />
-                <bind:template>
+        <tabs>
+            <tab title="View">
+                <bind:collection bind="domains">
                     <vc>
-                        <label bind="name" style="bold" />
+                        <vc bind="__items" />
+                        <bind:template>
+                            <vc>
+                                <label bind="name" style="bold" />
 
-                        <bind:collection bind="hosts">
-                            <dt bind="__items" />
+                                <bind:collection bind="hosts">
+                                    <dt bind="__items" />
 
-                            <bind:template>
-                                <collapserow>
-                                    <label bind="name" />
+                                    <bind:template>
+                                        <collapserow>
+                                            <label bind="name" />
 
-                                    <bind:collection bind="graphs">
-                                        <dt bind="__items" />
-                                        
-                                        <bind:template>
-                                            <collapserow>
-                                                <label bind="full_name" />
-                                                <munin:plot bind="url" 
-                                                    period="day" />
-                                                <munin:plot bind="url" 
-                                                    period="week" />
-                                                <munin:plot bind="url" 
-                                                    period="month" />
-                                                <munin:plot bind="url" 
-                                                    period="year" />
-                                            </collapserow>
-                                        </bind:template>
-                                    </bind:collection>
-                                </collapserow>
-                            </bind:template>
-                        </bind:collection>
+                                            <bind:collection bind="graphs">
+                                                <dt bind="__items" />
+                                                
+                                                <bind:template>
+                                                    <collapserow>
+                                                        <label bind="full_name" />
+                                                        <munin:plot bind="url" 
+                                                            period="day" />
+                                                        <munin:plot bind="url" 
+                                                            period="week" />
+                                                        <munin:plot bind="url" 
+                                                            period="month" />
+                                                        <munin:plot bind="url" 
+                                                            period="year" />
+                                                    </collapserow>
+                                                </bind:template>
+                                            </bind:collection>
+                                        </collapserow>
+                                    </bind:template>
+                                </bind:collection>
+                            </vc>
+                        </bind:template>
                     </vc>
-                </bind:template>
-            </vc>
-        </bind:collection>
+                </bind:collection>
+            </tab>
+            <tab title="Configure">
+                <bind:dict bind="classconfig">
+                    <formline text="Base URL">
+                        <textbox bind="prefix" />
+                    </formline>
+                    <formline text="Username">
+                        <textbox bind="username" />
+                    </formline>
+                    <formline text="Password">
+                        <textbox bind="password" />
+                    </formline>
+                    <formline>
+                        <button text="Save" id="save-button" icon="ok" />
+                    </formline>
+                </bind:dict>
+            </tab>
+        </tabs>
     </pad> 
 </body>

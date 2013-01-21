@@ -1,25 +1,9 @@
 {
     "users": {
-        "test": {
-            "configs": {}, 
-            "password": "sha512|$6$rounds=40000$.OODrnmHwgP3heqa$KHgtBnzDnIPrrIdjEmWifaR38G84kUBq7CeiERssLzF4xnOrqhqe42TV8WrepV/YJjdSlclMZeh9JjiP0tDyB1", 
-            "permissions": [
-                "section:Filesystems", 
-                "section:Notepad", 
-                "section:Dash", 
-                "section:Configurator"
-            ]
-        }, 
-        "unnamed": {
-            "configs": {}, 
-            "password": "sha512|$6$rounds=40000$f2sI1BuJO58kzotH$tqc.jofTjZnAm8ef5azmtFtAaIAbv4zMNd4g5X0y1zBcnUuLeNB30DcpE2tHSmn7TbwB9.dU/OSTvdWdy3eXZ1", 
-            "permissions": [
-                "configurator:configure"
-            ]
-        }, 
         "root": {
             "configs": {
-                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": []}", 
+                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [\"/etc/logrotate.conf\"]}", 
+                "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}", 
                 "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}, {\"index\": 1, \"config\": {\"variant\": \"5\"}, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.load.LoadWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 2, \"config\": {\"device\": \"/\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}, {\"index\": 3, \"config\": {\"device\": \"lo\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}, {\"index\": 4, \"config\": {\"device\": \"wlan0\"}, \"container\": \"0\", \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}]}"
             }, 
             "password": "sha512|$6$rounds=40000$XAlmdP.m6NeQ3N/l$6dBlXwV9E9rEIyi9STBVQPxx/gzf7OfmRuaJrbEqmAfna0ip1QQyNelGF16IxSppToRvPtvfI7i2R.HON83D3/", 
