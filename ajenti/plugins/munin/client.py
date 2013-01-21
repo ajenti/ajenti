@@ -1,10 +1,18 @@
+from ajenti.api import *
+
 from BeautifulSoup import BeautifulSoup
 import requests
 
 
-class MuninClient (object):
-    def __init__(self, config):
-        self.config = config
+@plugin
+class MuninClient (BasePlugin):
+    default_classconfig = {
+        'username': 'username',
+        'password': '123',
+        'prefix': 'http://localhost:8080/munin'
+    }
+
+    def init(self):
         self.reset()
 
     @property
@@ -29,8 +37,8 @@ class MuninClient (object):
         self._domains = None
 
     def _fetch(self, url):
-        return BeautifulSoup(requests.get(self.config['prefix'] + url,
-                auth=(self.config['username'], self.config['password'])
+        return BeautifulSoup(requests.get(self.classconfig['prefix'] + url,
+                auth=(self.classconfig['username'], self.classconfig['password'])
                ).text)
 
 
@@ -57,7 +65,7 @@ class MuninHost:
                 graph.name = g['href'].split('/')[0] if '/' in g['href'] else g['href'].split('.')[0]
                 graph.full_name = str(g.string)
                 graph.host = self
-                graph.url = '/%s/%s/%s-day.png' % (self.domain.name, self.name, graph.name)
+                graph.url = '/%s/%s/%s-' % (self.domain.name, self.name, graph.name)
                 self._graphs.append(graph)
         return self._graphs
 
@@ -67,7 +75,3 @@ class MuninGraph:
         self.name = ''
         self.full_name = ''
         self.url = ''
-
-    def history(self, period):
-        return '/%s/%s/%s-%s.png' % (
-            self.host.domain.name, self.host.name, self.name, period)

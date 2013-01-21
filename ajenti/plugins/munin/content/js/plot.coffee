@@ -1,6 +1,5 @@
 class window.Controls.munin__plot extends window.Control
     createDom: () ->
-        url = '/localdomain/localhost.localdomain/apache_accesses-day.png'
-        url = '/munin-proxy/' + encodeURIComponent(url)
-        @dom = $("""<img class="control munin-plot" src="#{url}" />""")
+        url = '/munin-proxy/' + encodeURIComponent(@properties.url) + @properties.period + '.png'
+        @dom = $("""<div class="control munin-plot"><img src="#{url}" /></div>""")
 

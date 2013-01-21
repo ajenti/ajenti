@@ -68,7 +68,7 @@ class PropertyBinding (Binding):
                         self.property = prop.name
                         break
             else:
-                raise Exception('Cannot bind %s.%s (=%s)' % (object, attribute, v))
+                raise Exception('Cannot bind %s.%s (%s, %s)' % (object, attribute, str(type(v)), repr(v)))
         else:
             self.property = property
 

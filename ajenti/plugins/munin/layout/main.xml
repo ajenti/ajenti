@@ -13,17 +13,25 @@
                             <bind:template>
                                 <collapserow>
                                     <label bind="name" />
-                                </collapserow>
 
-                                <bind:collection bind="graphs">
-                                    <tabs bind="__items" />
-                                    
-                                    <bind:template>
-                                        <tab bind="full_name">
-                                            <munin:plot />
-                                        </tab>
-                                    </bind:template>
-                                </bind:collection>
+                                    <bind:collection bind="graphs">
+                                        <dt bind="__items" />
+                                        
+                                        <bind:template>
+                                            <collapserow>
+                                                <label bind="full_name" />
+                                                <munin:plot bind="url" 
+                                                    period="day" />
+                                                <munin:plot bind="url" 
+                                                    period="week" />
+                                                <munin:plot bind="url" 
+                                                    period="month" />
+                                                <munin:plot bind="url" 
+                                                    period="year" />
+                                            </collapserow>
+                                        </bind:template>
+                                    </bind:collection>
+                                </collapserow>
                             </bind:template>
                         </bind:collection>
                     </vc>
