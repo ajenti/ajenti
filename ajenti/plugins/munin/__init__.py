@@ -8,10 +8,12 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),
+        BinaryDependency('munin-cron'),
+        ModuleDependency('BeautifulSoup'),
     ],
 )
 
 
 def init():
     import main
-    
+    import widget

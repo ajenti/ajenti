@@ -3,7 +3,7 @@ from ajenti.api import *
 from ajenti.api.sensors import Sensor
 from ajenti.ui.binder import CollectionAutoBinding
 from ajenti.ui import on, UIElement, p
-from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.main.api import SectionPlugin, intent
 
 from api import DashboardWidget
 
@@ -47,16 +47,24 @@ class Dash (SectionPlugin):
     def on_dialog_close(self, button):
         self.find('add-dialog').visible = False
 
-    def on_add_widget_click(self, cls):
+    def on_add_widget_click(self, cls, config=None):
+        self.add_widget(cls, config)
+
+    def add_widget(self, cls, config=None):
         self.find('add-dialog').visible = False
         self.classconfig['widgets'].append({
             'class': cls.classname,
             'container': 0,
             'index': 0,
-            'config': None,
+            'config': config,
         })
         self.save_classconfig()
         self.refresh()
+
+    @intent('dashboard-add-widget')
+    def add_widget_intent(self, cls=None, config=None):
+        self.add_widget(cls, config)
+        self.activate()
 
     def refresh(self):
         self.find('header').hostname = Sensor.find('hostname').value()

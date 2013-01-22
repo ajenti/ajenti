@@ -8,6 +8,7 @@ import requests
 import urllib2
 
 from client import MuninClient
+from widget import MuninWidget
 
 
 @plugin
@@ -19,11 +20,21 @@ class Munin (SectionPlugin):
         self.category = 'Software'
         self.append(self.ui.inflate('munin:main'))
 
+        def post_graph_bind(o, c, i, u):
+            for plot in u.nearest(lambda x: x.typeid == 'munin:plot'):
+                plot.on('widget', self.on_add_widget, i)
+
+        self.find('graphs').post_item_bind = post_graph_bind
+
         self.munin_client = MuninClient.get()
         self.binder = Binder(None, self)
 
     def on_page_load(self):
         self.refresh()
+
+    def on_add_widget(self, graph, url=None, period=None):
+        print url
+        self.context.launch('dashboard-add-widget', cls=MuninWidget, config={'url': url, 'period': period})
 
     def refresh(self):
         self.munin_client.reset()
@@ -68,6 +79,7 @@ class MuninProxy (HttpPlugin):
 
 @p('url', bindtypes=[str, unicode])
 @p('period')
+@p('widget', type=bool)
 @plugin
 class MuninPlot (UIElement):
     typeid = 'munin:plot'

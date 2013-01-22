@@ -16,7 +16,7 @@
                                         <collapserow>
                                             <label bind="name" />
 
-                                            <bind:collection bind="graphs">
+                                            <bind:collection bind="graphs" id="graphs">
                                                 <dt bind="__items" />
                                                 
                                                 <bind:template>

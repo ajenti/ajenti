@@ -20,6 +20,8 @@ class PowerSensor (Sensor):
                 for s in ss:
                     if s.startswith('state:') and s.endswith('on-line'):
                         return 'ac'
+            else:
+                return 'ac'
         return 'battery'
 
 

@@ -4,6 +4,7 @@ Module for sending usage statistics to ajenti.org
 
 import ajenti
 import requests
+import json
 import gevent
 import logging
 
@@ -29,7 +30,7 @@ def send(url, data):
     logging.debug('Feedback >> %s (%s)' % (url, data))
     response = requests.post(URL + url, data=data)
     logging.debug('Feedback << %s' % response.text)
-    return response.json()
+    return json.loads(response.content)
 
 
 @public
