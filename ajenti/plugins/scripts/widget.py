@@ -36,4 +36,4 @@ class ScriptWidget (ConfigurableWidget):
             self.context.launch('terminal', command=self.config['command'])
         else:
             subprocess.Popen(self.config['command'], shell=True)
-            self.context.notify('Launched')
+            self.context.notify('info','Launched')
