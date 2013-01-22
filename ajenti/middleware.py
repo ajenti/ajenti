@@ -91,7 +91,8 @@ class SessionMiddleware (HttpHandler):
         self.vacuum()
         cookie_str = context.env.get('HTTP_COOKIE')
         # fix bad cookies
-        cookie_str = cookie_str.replace('&', '_')
+        if cookie_str:
+            cookie_str = cookie_str.replace('&', '_')
 
         cookie = Cookie.SimpleCookie(cookie_str).get('session')
         context.session = None

@@ -89,8 +89,9 @@ class window.Terminal
                 if iidx == @cursy && i == @cursx
                     misc = ' class="cursor" '
                 if cell[3] || cell[4] || cell[5]
-                    if cell[3]
-                        sty += 'font-weight: bold;'
+                    # bold fonts in Firefox on Linux are TOTALLY BROKEN
+                    #if cell[3]
+                    #    sty += 'font-weight: bold;'
                     if cell[4]
                         sty += 'font-style: italic;'
                     if cell[5]

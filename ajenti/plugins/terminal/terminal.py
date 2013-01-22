@@ -29,6 +29,8 @@ class Terminal (object):
             p = sp.Popen(
                 command,
                 shell=True,
+                stdout=None,
+                stderr=None,
                 close_fds=True,
                 env=env,
             )
