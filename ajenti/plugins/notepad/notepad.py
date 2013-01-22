@@ -89,7 +89,7 @@ class Notepad (SectionPlugin):
         self.savedialog.visible = False
         self.controller.save(self.selected, path)
         self.select(self.selected)
-        self.context.notify('Saved')
+        self.context.notify('info','Saved')
 
     @on('savedialog', 'button')
     def on_save_dialog_button(self, button):
