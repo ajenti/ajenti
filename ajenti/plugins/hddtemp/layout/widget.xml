@@ -1,0 +1,15 @@
+<hc>
+    <icon icon="hdd" />
+    <box width="65">
+        <label id="device" style="bold" text="---" />
+    </box>
+    <label id="value" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="Device">
+                <dropdown id="device" bind="device" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>

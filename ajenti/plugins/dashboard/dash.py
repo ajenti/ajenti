@@ -29,7 +29,9 @@ class Dash (SectionPlugin):
             u.find('listitem').on('click', self.on_add_widget_click, i)
 
         self.find('add-widgets').post_item_bind = post_widget_bind
-        CollectionAutoBinding(sorted(DashboardWidget.get_classes(), key=lambda x: x.name),
+
+        classes = [x for x in DashboardWidget.get_classes() if not x.hidden]
+        CollectionAutoBinding(sorted(classes, key=lambda x: x.name),
             None, self.find('add-widgets')).populate()
 
     def on_page_load(self):

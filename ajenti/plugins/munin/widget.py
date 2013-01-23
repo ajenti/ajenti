@@ -6,6 +6,7 @@ from ajenti.plugins.dashboard.api import ConfigurableWidget
 class MuninWidget (ConfigurableWidget):
     name = 'Munin'
     icon = 'stethoscope'
+    hidden = True
 
     def on_prepare(self):
         self.append(self.ui.inflate('munin:widget'))

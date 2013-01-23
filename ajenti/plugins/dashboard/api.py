@@ -10,6 +10,7 @@ class DashboardWidget (BasePlugin, UIElement):
     typeid = 'dashboard:widget'
     name = '---'
     icon = None
+    hidden = False
 
     def save_config(self):
         self.event('save-config')
