@@ -204,7 +204,8 @@ class SessionManager(object):
 
     def _load_session_cookie(self, environ):
         cookie_str = environ.get('HTTP_COOKIE')
-        cookie_str = cookie_str.replace('&', '_')
+        if cookie_str:
+            cookie_str = cookie_str.replace('&', '_')
         C = Cookie.SimpleCookie(cookie_str)
         cookie = C.get('sess')
         if cookie is not None:
