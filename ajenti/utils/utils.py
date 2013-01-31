@@ -3,6 +3,7 @@ import platform
 import os
 import mimetypes
 import urllib
+import math
 from datetime import datetime
 from hashlib import sha1
 from base64 import b64encode
@@ -181,6 +182,19 @@ def wsgi_serve_file(req, start_response, file):
         start_response('404 Not Found',[])
         return ''
 
+    # Check if file is newer than client's browser cache
+    mtimestamp = math.trunc(os.path.getmtime(file))
+    mtime = datetime.utcfromtimestamp(mtimestamp)
+    rtime = req.get('HTTP_IF_MODIFIED_SINCE', None)
+    if rtime is not None:
+        try:
+            rtime = datetime.strptime(rtime, '%a, %b %d %Y %H:%M:%S GMT')
+            if mtime <= rtime:
+                start_response('304 Not Modified',[])
+                return ''
+        except:
+            pass
+
     headers = []
     # Check if we have any known file type
     # For faster response, check for known types:
@@ -200,20 +214,9 @@ def wsgi_serve_file(req, start_response, file):
     headers.append(('Content-type',content_type))
 
     size = os.path.getsize(file)
-    mtimestamp = os.path.getmtime(file)
-    mtime = datetime.utcfromtimestamp(mtimestamp)
-
-    rtime = req.get('HTTP_IF_MODIFIED_SINCE', None)
-    if rtime is not None:
-        try:
-            rtime = datetime.strptime(rtime, '%a, %b %d %Y %H:%M:%S GMT')
-            if mtime <= rtime:
-                start_response('304 Not Modified',[])
-                return ''
-        except:
-            pass
 
     headers.append(('Content-length',str(size)))
-    headers.append(('Last-modified',mtime.strftime('%a, %b %d %Y %H:%M:%S GMT')))
+    lmtime = str(mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
+    headers.append(('Last-Modified', lmtime))
     start_response('200 OK', headers)
     return open(file).read()
