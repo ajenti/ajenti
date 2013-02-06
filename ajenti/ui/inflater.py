@@ -1,6 +1,7 @@
 from lxml import etree
 import os
 
+import ajenti
 from ajenti.plugins import manager
 from ajenti.util import *
 
@@ -23,7 +24,8 @@ class Inflater:
                 file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
             except IOError, e:
                 raise TemplateNotFoundError(e)
-            self.cache[layout] = etree.parse(file)
+            if not ajenti.debug:
+                self.cache[layout] = etree.parse(file)
         return self.inflate_rec(self.cache[layout].getroot())
 
     def inflate_rec(self, node):
