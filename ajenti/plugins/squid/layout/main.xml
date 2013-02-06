@@ -1,0 +1,65 @@
+<vc xmlns:bind="bind">
+    <servicebar name="squid3" />
+
+    <body>
+        <pad>
+            <tabs id="config">
+                <tab title="ACL">
+                    <bind:collection bind="acl" id="acl">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="lock" />
+                                        <label bind="name" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <hc>
+                                        <formline text="Name">
+                                            <textbox bind="name" />
+                                        </formline>
+                                        <formline text="Options">
+                                            <bind:collection bind="options">
+                                                <vc>
+                                                    <lt bind="__items" />
+                                                    <button bind="__add" icon="plus" text="Create" />
+                                                </vc>
+
+                                                <bind:template>
+                                                    <ltr>
+                                                        <ltd>
+                                                            <textbox bind="value" />
+                                                        </ltd>
+                                                        <ltd>
+                                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                                        </ltd>
+                                                    </ltr>
+                                                </bind:template>
+                                            </bind:collection>
+                                        </formline>
+                                    </hc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
+
+        </pad>
+    </body>
+
+    <hc>
+        <button id="save" text="Save" />
+    </hc>
+</vc>

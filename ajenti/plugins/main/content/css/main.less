@@ -94,17 +94,17 @@ body {
 }
 
 .button-style(@g1) {
-	#gradient > .vertical(lighten(@g1, 10%), @g1);
+	#gradient > .vertical(lighten(@g1, 5%), @g1);
 	color: rgba(0,0,0,.5);
 	border: none;
 
 	&:hover {
-		#gradient > .vertical(lighten(@g1, 20%), lighten(@g1, 5%));
+		#gradient > .vertical(lighten(@g1, 10%), lighten(@g1, 5%));
 	}
 
 	&:active {
 		#gradient > .vertical(@g1, darken(@g1, 5%));	
-		padding: 2px 0 0;
+		//padding: 2px 0 0;
 		.box-shadow(@controlShadowHighlightPressed);
 	}
 

@@ -164,10 +164,10 @@
 	&.icon {
 		.size(@controlHeight, auto);
 		display: inline-block;
+		line-height: @controlHeight - 5px;
 
 		i {
 			display: block;
-			margin: 12px 0 0;
 		}
 
 		&.style-yellow {
@@ -176,9 +176,8 @@
 	}
 
 	&.button {
-		.size(@controlHeight - 2px, @controlWidth);
-		line-height: @controlHeight;
-		padding: 1px 0 1px;
+		.size(auto, @controlWidth);
+		padding: 6px 0 5px;
 		text-decoration: none;
 		color: @controlText;
 
@@ -215,9 +214,27 @@
 		}
 
 		i {
-			top: -1px;
+			top: 1px;
 			position: relative;
 			color: black;
+		}
+
+		&.style-icon {
+			background: transparent !important;
+			border: none;
+			.box-shadow(none);
+			.square(14px);
+			padding: 2px;
+			opacity: .5;
+			line-height: normal;
+
+			&:hover {
+				opacity: 0.75;
+			}
+
+			&:active {
+				padding: 3px 2px 1px;
+			}
 		}
 
 		&.style-circle {
