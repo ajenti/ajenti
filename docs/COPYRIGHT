@@ -11,8 +11,6 @@ Contributors:
 Various parts:
 * CodeMirror embeddable editor (c) Marijn Haverbeke <marijnh@gmail.com>
 * PyTE (c) Selectel <https://github.com/selectel/pyte>, see plugins/terminal/pyte/
-* Fugue icons (c) Yusuke Kamiyamane: http://p.yusukekamiyamane.com/
-* Faenza icons (c) Matthieu James <matthieu.james@gmail.com>
 
 
 FEEDBACK:

@@ -17,16 +17,16 @@
 
 NAME=ajenti
 DESC="Ajenti"
-PID=/var/run/ajenti.pid
+PIDFILE=/var/run/ajenti.pid
 
 case "$1" in
 	start)
 		echo "Starting $DESC"
-		ajenti-panel --start
+		ajenti-panel -d
     	;;
 	stop)
 		echo "Stopping $DESC"
-		ajenti-panel --stop
+		kill `cat $PIDFILE`
 		;;
 	restart)
 		$0 stop
@@ -37,7 +37,8 @@ case "$1" in
 		fi
 		;;
 	force-reload)
-	    pkill -9 ajenti
+		kill -9 `cat $PIDFILE`
+		rm $PIDFILE
 	    $0 start
 	    ;;
 	*)

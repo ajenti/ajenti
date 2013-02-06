@@ -28,7 +28,7 @@ subprocess.Popen.__init__ = Popen
 
 
 # fix AttributeError
-# a super-rude fix - DummyThread doesn't has a __block so provide an acquired one
+# a super-rude fix - DummyThread doesn't have a __block so provide an acquired one
 import threading
 
 
@@ -51,7 +51,6 @@ threading.Thread._Thread__block = property(tbget, tbset, tbdel)
 
 
 # suppress Requests logging
-import requests
 import logging
 
 logging.getLogger("requests").setLevel(logging.WARNING)

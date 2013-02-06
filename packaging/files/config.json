@@ -1,0 +1,22 @@
+{
+    "users": {
+        "root": {
+            "configs": {
+            }, 
+            "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
+            "permissions": [
+            ]
+        }
+    }, 
+    "bind": {
+        "host": "0.0.0.0", 
+        "port": 8000
+    }, 
+    "authentication": true, 
+    "ssl": {
+        "enable": false, 
+        "certificate_path": ""
+    }, 
+    "enable_feedback": true, 
+    "installation_id": null
+}

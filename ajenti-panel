@@ -4,12 +4,10 @@ import sys
 import os
 import logging
 import daemon
-#import pidfile
-
-import ajenti.compat
 
 import ajenti
 import ajenti.log
+from ajenti.util import PidFile
 
 from reconfigure.configs import AjentiConfig
 
@@ -73,7 +71,9 @@ if __name__ == '__main__':
 
     if is_daemon:
         context = daemon.DaemonContext(
-            #pidfile=pidfile.PidFile('/var/run/ajenti.pid'),
+            pidfile=PidFile('/var/run/ajenti.pid'),
+            stdout=open('/var/log/ajenti.log', 'w'),
+            stderr=open('/var/log/ajenti.err.log', 'w'),
         )
         with context:
             from ajenti import core
