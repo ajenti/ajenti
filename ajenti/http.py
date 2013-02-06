@@ -1,6 +1,7 @@
 import os
 import gzip
 import cgi
+import math
 from StringIO import StringIO
 from datetime import datetime
 
@@ -181,7 +182,7 @@ class HttpContext:
         else:
             self.add_header('Content-Type', 'application/octet-stream')
 
-        mtime = datetime.utcfromtimestamp(os.path.getmtime(path))
+        mtime = datetime.utcfromtimestamp(math.trunc(os.path.getmtime(path)))
 
         rtime = self.env.get('HTTP_IF_MODIFIED_SINCE', None)
         if rtime is not None:
