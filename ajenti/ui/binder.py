@@ -30,7 +30,10 @@ class Binding (object):
         """
         Sets value of the bound attribute
         """
-        setattr(self.object, self.attribute, value)
+        try:
+            setattr(self.object, self.attribute, value)
+        except Exception:
+            raise Exception('Binder set failed: %s.%s = %s' % (self.object, self.attribute, repr(value)))
 
     def populate(self):
         """
@@ -71,6 +74,7 @@ class PropertyBinding (Binding):
                 raise Exception('Cannot bind %s.%s (%s, %s)' % (object, attribute, str(type(v)), repr(v)))
         else:
             self.property = property
+        self.oneway = ui.bindtransform is not None
 
     def __get_transformed(self):
         return self.ui.bindtransform(self.get()) if self.ui.bindtransform else self.get()
@@ -80,6 +84,8 @@ class PropertyBinding (Binding):
         self.ui.properties[self.property].value = self.__get_transformed()
 
     def update(self):
+        if self.oneway:
+            return
         new_value = self.ui.properties[self.property].value
         # avoid unnecessary sets
         if new_value != self.old_value:

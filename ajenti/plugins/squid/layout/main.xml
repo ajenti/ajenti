@@ -76,8 +76,27 @@
                         </bind:template>
                     </bind:collection>
                 </tab>
-            </tabs>
 
+                <tab title="Ports">
+                    <label style="bold" text="HTTP" />
+                    <bind:collection bind="http_port" id="http_port">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+                        <include layout="squid:port-template" />
+                    </bind:collection>
+
+                    <label style="bold" text="HTTPS" />
+                    <bind:collection bind="https_port" id="https_port">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+                        <include layout="squid:port-template" />
+                    </bind:collection>
+                </tab>
+            </tabs>
         </pad>
     </body>
 

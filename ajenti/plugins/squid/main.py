@@ -4,7 +4,7 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 
 from reconfigure.configs import SquidConfig
-from reconfigure.items.squid import ACLData
+from reconfigure.items.squid import ACLData, HTTPAccessData, HTTPPortData, HTTPSPortData
 
 
 @plugin
@@ -17,6 +17,9 @@ class Squid (SectionPlugin):
 
         self.binder = Binder(None, self.find('config'))
         self.find('acl').new_item = lambda c: ACLData()
+        self.find('http_access').new_item = lambda c: HTTPAccessData()
+        self.find('http_port').new_item = lambda c: HTTPPortData()
+        self.find('https_port').new_item = lambda c: HTTPSPortData()
         self.config = SquidConfig(path='/etc/squid3/squid.conf')
 
         #def post_item_bind(object, collection, item, ui):

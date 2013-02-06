@@ -1,0 +1,28 @@
+<bind:template xmlns:bind="bind">
+    <collapserow>
+        <box>
+            <right>
+                <hc>
+                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                </hc>
+            </right>
+            <hc>
+                <icon icon="globe" />
+                <box width="100">
+                    <label bind="port" />
+                </box>
+                <label bind="options" bindtransform="lambda x: ' '.join(_.value for _ in x)" />
+            </hc>
+        </box>
+        <pad>
+            <hc>
+                <formline text="Port">
+                    <textbox bind="port" />
+                </formline>
+                <formline text="Options">
+                    <include layout="squid:options-editor" />
+                </formline>
+            </hc>
+        </pad>
+    </collapserow>
+</bind:template>

@@ -33,7 +33,6 @@ class Munin (SectionPlugin):
         self.refresh()
 
     def on_add_widget(self, graph, url=None, period=None):
-        print url
         self.context.launch('dashboard-add-widget', cls=MuninWidget, config={'url': url, 'period': period})
 
     def refresh(self):
