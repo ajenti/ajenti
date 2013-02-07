@@ -169,14 +169,47 @@ body {
 
 
     >.spinner {
-        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAd1JREFUeNrEV+1tgzAQBasDMEK7AUwATNBEqvo7TFA6QZIN0gngd1UJNiiZAEbIBmWD9tEekXHPhA+TWDpZSvB7d/a789m2Bo73j8zFtIL5sED6K31+WkfWxGEPIG5ItzC357PJTtz1EN9jSpRojQ+7J+qG3BmAMesIBEO+wZT1kOewV1jY2Bhy0pF+ByjyTLN+DzuAsJ4aLfC/Ma2Bkf9zgM68ZCKvYBEWVXPOGvgN7hesCcAD3kkVYaIhD2dGHWN6lLLIIa7wrAHa+sA0eStSIpWDC0hrZxFumYWRAXKLMDihvvxqgJRZqoLDwp3JfAfPjgnUE1Re1XFYoOZwmCtBtb2T5ya2XnMUufKzLxjxHResvCp2IJiPqgUdqC6WYioUVxucA86tHbBu7YC7IJ/LOVCoqbGgAyp2IZjUWNHNZXQQplr0joIpDs2IF4iew8xt8q5UzqdzZxuInrtvKuB7rQjfmFTMTBwFYSSaDusvC+BJqoixJtsYIP9k1F+0bZncEUVSS/Yw90KibU8Y8k5/wDalILdnRh1rmhxL25TKno9pQPF9IBUZX9NfyF1WOuppdoE8GaiTmsjz0W9DA+QFkZ9GvQ2n1HXm7t9zUZtyIGRSrKDSng/V0Y8AAwBW47B521pbqAAAAABJRU5ErkJggg==);
-        width: 32px;
-        height: 32px;
-        margin: -16px 0 0 -16px;
+        width: 40px;
+        height: 40px;
+        @interpolator: cubic-bezier(0.3, 0.5, 0.7, 0.5);
+        -webkit-animation: spinner 3s @interpolator infinite;
+        -moz-animation: spinner 3s @interpolator infinite;
+        animation: spinner 3s @interpolator infinite;
+
+        i::before { 
+            font-size: 47px; 
+            color: white;
+            top: -3px;
+        }
+
+        margin: -10px 0 0 -10px;
         position: absolute;
         left: 50%;
         top: 50%;
         opacity: .5;
+
+        &.one {
+            margin-left: -30px;
+            margin-top: -20px;
+        }
+
+        &.two {
+            margin-left: 8px;
+            animation-direction: reverse;
+            -moz-animation-direction: reverse;
+            -webkit-animation-direction: reverse;
+        }
+
+        &.three {
+            margin-top: 18px;
+            width: 30px;
+            height: 30px;
+
+            i::before {
+                font-size: 33px;
+                top: -1px;
+            }
+        }
     }
 
     >.content {
@@ -241,6 +274,38 @@ body {
                 text-shadow: 0 -1px 0 rgba(0,0,0,.5);
             }
         }
+    }
+}
+
+
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+
+    100% {
+        -webkit-transform: rotate(720deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    from {
+       -moz-transform: rotate(0);
+    }
+
+    to {
+       -moz-transform: rotate(720deg);
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(720deg);
     }
 }
 

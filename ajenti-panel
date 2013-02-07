@@ -6,6 +6,7 @@ import logging
 import daemon
 
 import ajenti
+import ajenti.compat
 import ajenti.log
 from ajenti.util import PidFile
 

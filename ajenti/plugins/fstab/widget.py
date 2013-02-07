@@ -1,6 +1,7 @@
 from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import ConfigurableWidget
+from ajenti.util import str_fsize
 
 
 @plugin
@@ -15,7 +16,7 @@ class DiskSpaceWidget (ConfigurableWidget):
     def on_start(self):
         self.find('device').text = self.config['device']
         u, t = self.sensor.value(self.config['device'])
-        self.find('percent').text = '%i%%' % int(100.0 * u / t)
+        self.find('percent').text = str_fsize(u)
         self.find('usage').value = float(1.0 * u / t)
 
     def create_config(self):

@@ -35,6 +35,6 @@ class Nginx (WebserverPlugin):
 """
 
     def init(self):
-        self.title = 'nginx'
+        self.title = 'NGINX'
         self.category = 'Software'
         self.icon = 'globe'

@@ -149,17 +149,6 @@ class window.UIManager
 
 class window.LoadingDim 
     constructor: (@dom) ->
-        obj = @dom.find('.spinner')
-        dt = 0.030
-        worker = (ang, t) ->
-            UIUtil.rotate(obj, ang)
-            setTimeout(() ->
-                if obj.parent().length == 0
-                    return
-                rot = (Math.sin(t * 2) + 1) / 2 * 25 + 10
-                worker(ang + rot, t + dt)
-            , dt * 1000)
-        worker(0, 3.14 / 2)
         @dom.show()
 
     hide: () ->
@@ -169,17 +158,6 @@ class window.LoadingDim
     show: () ->
         $('body').addClass('loading')
         @dom.show().stop().fadeTo(500, 1)
-
-
-window.UIUtil =
-    rotate: (obj, degree) ->
-        obj.css({
-        '-webkit-transform': 'rotate(' + degree + 'deg)',
-        '-moz-transform': 'rotate(' + degree + 'deg)',
-        '-ms-transform': 'rotate(' + degree + 'deg)',
-        '-o-transform': 'rotate(' + degree + 'deg)',
-        'transform': 'rotate(' + degree + 'deg)',
-        })
 
 
 $(() ->

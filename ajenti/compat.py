@@ -11,14 +11,12 @@ if not hasattr(subprocess, 'check_output'):
         return popen.stdout.read() + popen.stderr.read()
     subprocess.check_output = c_o
 
-# suppress stdout for subprocess callables by default
-__null = open(os.devnull, 'w')
-
 
 old_Popen = subprocess.Popen.__init__
 
 
 def Popen(*args, **kwargs):
+    __null = open(os.devnull, 'w')
     return old_Popen(
         stdout=kwargs.pop('stdout', __null),
         stderr=kwargs.pop('stderr', __null),

@@ -1,12 +1,14 @@
 <hc>
-    <icon icon="hdd" />
-    <box width="65">
+    <box width="20">
+        <icon icon="hdd" />
+    </box>
+    <box width="90">
         <label id="device" style="bold" text="---" />
     </box>
-    <box width="45">
+    <box width="50">
         <label id="percent" text="---" />
     </box>
-    <progressbar id="usage" width="180" value="0.4" />
+    <progressbar id="usage" width="150" value="0.4" />
 
     <dialog id="config-dialog" visible="False">
         <pad>
