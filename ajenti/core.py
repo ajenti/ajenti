@@ -17,7 +17,7 @@ import ajenti.feedback
 
 import gevent
 from gevent import monkey
-monkey.patch_all()
+monkey.patch_all(select=False)
 from socketio.server import SocketIOServer
 
 

@@ -18,6 +18,7 @@ old_Popen = subprocess.Popen.__init__
 def Popen(*args, **kwargs):
     __null = open(os.devnull, 'w')
     return old_Popen(
+        stdin=kwargs.pop('stdin', subprocess.PIPE),
         stdout=kwargs.pop('stdout', __null),
         stderr=kwargs.pop('stderr', __null),
         *args, **kwargs)

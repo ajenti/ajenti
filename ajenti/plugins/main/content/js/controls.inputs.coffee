@@ -1,7 +1,11 @@
 class window.Controls.textbox extends window.Control
     createDom: () ->
         @dom = $("""
-            <div><input class="control textbox" type="text" value="#{@properties.value}" /></div>
+            <div>
+                <input class="control textbox #{@properties.style}" 
+                    type="text" 
+                    value="#{@properties.value}" />
+            </div>
         """)
         @input = @dom.find('input')
 

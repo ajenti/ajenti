@@ -98,6 +98,8 @@ class UIProperty (object):
     doc='Value transformation function for one-direction bindings')
 @p('id', default=None, type=str,
     doc='Element ID')
+@p('style', default='normal',
+    doc='Additional CSS class')
 @plugin
 @interface
 class UIElement (object):

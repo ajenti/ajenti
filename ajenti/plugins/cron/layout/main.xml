@@ -1,0 +1,154 @@
+<vc xmlns:bind="bind">
+    <hc>
+        <dropdown id="users" />
+        <button id="user_select" icon="user" text="Select" />
+    </hc>
+
+    <body>
+        <pad>
+            <tabs id="config">
+                <tab title="Normal">
+                    <bind:collection bind="normal_tasks" id="normal_tasks">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="time" />
+                                        <label bind="describe" bindtransform="apply" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <lt>
+                                        <ltr>
+                                            <ltd><label text="Minute" /></ltd>
+                                            <ltd><label text="Hour" /></ltd>
+                                            <ltd><label text="Day" /></ltd>
+                                            <ltd><label text="Month" /></ltd>
+                                            <ltd><label text="DoW" /></ltd>
+                                            <ltd><label text="Command" /></ltd>
+                                        </ltr>
+                                        <ltr>
+                                            <ltd>
+                                                <textbox bind="minute" style="mini" />
+                                            </ltd>
+                                            <ltd>
+                                                <textbox bind="hour" style="mini" />
+                                            </ltd>
+                                            <ltd>
+                                                <textbox bind="day_of_month" style="mini" />
+                                            </ltd>
+                                            <ltd>
+                                                <textbox bind="month" style="mini" />
+                                            </ltd>
+                                            <ltd>
+                                                <textbox bind="day_of_week" style="mini" />
+                                            </ltd>
+                                            <ltd>
+                                                <textbox bind="command" style="big" />
+                                            </ltd>
+                                        </ltr>
+                                    </lt>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+
+                <tab title="Special">
+                    <bind:collection bind="special_tasks" id="special_tasks">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="time" />
+                                        <box width="100">
+                                            <label bind="special" />
+                                        </box>
+                                        <label bind="command" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <lt>
+                                        <ltr>
+                                            <ltd><label text="Schedule" /></ltd>
+                                            <ltd><label text="Command" /></ltd>
+                                        </ltr>
+                                        <ltr>
+                                            <ltd>
+                                                <dropdown
+                                                    bind="special"
+                                                    values="['@hourly', '@daily', '@weekly', '@monthly', '@yearly', '@reboot']"
+                                                    labels="['Hourly', 'Daily', 'Weekly', 'Monthly', 'Yearly', 'On reboot']"
+                                                />
+                                            </ltd>
+                                            <ltd>
+                                                <textbox bind="command" style="big" />
+                                            </ltd>
+                                        </ltr>
+                                    </lt>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+
+                <tab title="Environment">
+                    <bind:collection bind="env_settings" id="env_settings">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="Create" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="time" />
+                                        <label bind="name" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <formline text="Name">
+                                        <textbox bind="name" />
+                                    </formline>
+                                    <formline text="Value">
+                                        <textbox bind="value" />
+                                    </formline>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
+        </pad>
+    </body>
+
+    <hc>
+        <button id="save" text="Save" />
+    </hc>
+</vc>
