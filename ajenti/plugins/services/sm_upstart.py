@@ -18,6 +18,15 @@ class UpstartServiceManager (ServiceManager):
         self.bus = dbus.SystemBus()
         self.upstart = self.bus.get_object("com.ubuntu.Upstart", "/com/ubuntu/Upstart")
 
+    @classmethod
+    def verify(cls):
+        try:
+            c = cls()
+            c.init()
+            return True
+        except:
+            return False
+
     def get_all(self):
         jobs = self.upstart.GetAllJobs(dbus_interface="com.ubuntu.Upstart0_6")
         r = []

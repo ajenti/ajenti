@@ -49,6 +49,10 @@ deb: build
 	rm ../$(PROJECT)*.changes
 	mv ../$(PROJECT)*.deb dist/
 
+upload-deb: deb
+	scp dist/*.deb root@ajenti.org:/srv/repo
+	ssh root@ajenti.org /srv/repo/rebuild-debian.sh
+
 tgz: build
 	rm dist/*.tar.gz || true
 	$(PYTHON) setup.py sdist 
