@@ -61,6 +61,9 @@ def run():
     ajenti.plugins.manager.load_all()
 
     bind_spec = (ajenti.config.tree.http_binding.host, ajenti.config.tree.http_binding.port)
+    if ':' in bind_spec[0]:
+        addrs = socket.getaddrinfo(bind_spec[0], bind_spec[1], socket.AF_INET6, 0, socket.SOL_TCP)
+        bind_spec = addrs[0][-1]
 
     if ajenti.config.tree.ssl.enable:
         ssl_tunnel = SSLTunnel()
@@ -72,11 +75,20 @@ def run():
         else:
             logging.error('SSL tunnel failed to start')
 
+    # Fix stupid socketio bug (it tries to do *args[0][0])
+    socket.socket.__getitem__ = lambda x, y: None
+
+    logging.info('Starting server on %s' % (bind_spec, ))
+    listener = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    listener.bind(bind_spec)
+    listener.listen(10)
+
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     ajenti.server = SocketIOServer(
-        bind_spec,
+        listener,
         log=open(os.devnull, 'w'),
         application=HttpRoot(stack).dispatch,
+        policy_server=False,
     )
 
     # auth.log
