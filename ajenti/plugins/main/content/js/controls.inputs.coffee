@@ -71,7 +71,9 @@ class window.Controls.checkbox extends window.Control
                     #{if @properties.value then 'checked="checked"' else ''} 
                 />
                 <label for="#{@properties.uid}">
-                    <div class="tick"></div>
+                    <div class="tick">
+                        <i class="icon-ok"></i>
+                    </div>
                 </label>
                 <div class="control label">#{@properties.text}</div>
             </div>

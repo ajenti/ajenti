@@ -318,11 +318,24 @@
 			&:active {
 				padding: 2px 1px 0;
 			}
+
+			.tick {
+				.transition(0.5s);
+				opacity: 0;
+			}
 		}
 
 		>input:checked+label {
 			#gradient > .vertical(lighten(@orange, 25%), @orange);
 			.box-shadow(@controlShadowHighlightPressed);
+
+			.tick {
+				opacity: .5;
+			}
+		}
+
+		.label {
+			margin: 0;
 		}
 	}
 
