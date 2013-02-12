@@ -16,7 +16,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -129,8 +129,44 @@
                         </bind:template>
                     </bind:collection>
                 </tab>
-            </tabs>
 
+                <tab title="Users" id="users">
+                    <bind:collection bind="users" id="user-list">
+                        <vc>
+                            <dt bind="__items" />
+                            <dropdown id="add-user-list" />
+                            <button icon="add" id="add-user" text="Add" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button id="delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="user" />
+                                        <box width="100">
+                                            <label bind="username" style="bold" />
+                                        </box>
+                                        <label bind="sid" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <formline text="Password">
+                                        <hc>
+                                            <textbox id="password" />
+                                            <button id="password-set" icon="lock" text="Set" />
+                                        </hc>
+                                    </formline>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
         </pad>
     </body>
 

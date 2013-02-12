@@ -79,7 +79,8 @@ def run():
     socket.socket.__getitem__ = lambda x, y: None
 
     logging.info('Starting server on %s' % (bind_spec, ))
-    listener = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
+    listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     listener.bind(bind_spec)
     listener.listen(10)
 

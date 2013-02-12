@@ -3,10 +3,11 @@ from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 
-from reconfigure.configs import SambaConfig
+from reconfigure.configs import SambaConfig, PasswdConfig
 from reconfigure.items.samba import ShareData
 
 from status import SambaMonitor
+from smbusers import SambaUsers
 
 
 @plugin
@@ -26,6 +27,25 @@ class Samba (SectionPlugin):
 
         self.find('connections').post_item_bind = post_item_bind
 
+        def post_user_bind(object, collection, item, ui):
+            def delete_user():
+                self.usermgr.delete(item.username)
+                self.refresh()
+            ui.find('delete').on('click', delete_user)
+
+            def set_password():
+                if self.usermgr.set_password(item.username, ui.find('password').value):
+                    self.context.notify('info', 'Password updated')
+                    ui.find('password').value = ''
+                else:
+                    self.context.notify('error', 'Password update failed')
+            ui.find('password-set').on('click', set_password)
+
+        self.find('user-list').post_item_bind = post_user_bind
+
+        self.usermgr = SambaUsers()
+        self.binder_u = Binder(self.usermgr, self.find('users'))
+
         self.monitor = SambaMonitor()
         self.binder_m = Binder(self.monitor, self.find('status'))
 
@@ -39,8 +59,22 @@ class Samba (SectionPlugin):
     def refresh(self):
         self.config.load()
         self.monitor.refresh()
-        self.binder_m.reset(self.monitor).autodiscover().populate()
+        self.usermgr.load()
         self.binder.reset(self.config.tree).autodiscover().populate()
+        self.binder_m.reset(self.monitor).autodiscover().populate()
+        self.binder_u.reset(self.usermgr).autodiscover().populate()
+
+        users_dropdown = self.find('add-user-list')
+        users = [x.name for x in PasswdConfig(path='/etc/passwd').load().tree.users]
+        for u in self.usermgr.users:
+            if u.username in users:
+                users.remove(u.username)
+        users_dropdown.values = users_dropdown.labels = users
+
+    @on('add-user', 'click')
+    def on_add_user(self):
+        self.usermgr.create(self.find('add-user-list').value)
+        self.refresh()
 
     @on('save', 'click')
     def on_save(self):
