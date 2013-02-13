@@ -1,6 +1,6 @@
 %define name ajenti
-%define version 0.9.0
-%define unmangled_version 0.9.0
+%define version __VERSION__
+%define unmangled_version __VERSION__
 %define release 1
 
 Summary: The server administration panel
@@ -13,7 +13,7 @@ Group: Development/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Prefix: %{_prefix}
 BuildArch: noarch
-Vendor: Eugeny Pankov <e@ajenti.org>
+Vendor: Eugene Pankov <e@ajenti.org>
 Url: http://ajenti.org/
 
 requires: python-gevent, python-greenlet, python-lxml, openssl, python-gevent-socketio, python-psutil, python-imaging, stunnel, python-daemon, python-passlib, python-requests, python-reconfigure

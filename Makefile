@@ -1,6 +1,7 @@
 PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
+RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
 VERSION=0.9.0
 PREFIX=/usr
@@ -13,7 +14,7 @@ DOCBUILDDIR   = docs/build
 DOCSOURCEDIR   = docs/source
 ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(DOCSOURCEDIR)
 
-all:
+all: build
 
 build:
 	echo version = \"$(VERSION)\" > ajenti/build.py
@@ -34,20 +35,26 @@ cdoc:
 install: build
 	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE) --prefix $(PREFIX)
 
-rpm: build
+rpm: build tgz
 	rm -rf dist/*.rpm
-	$(PYTHON) setup.py sdist 
-	#$(PYTHON) setup.py bdist_rpm --spec-file dist/ajenti.spec #--post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
-	cat dist/ajenti.spec.in | sed s/__VERSION__/$(VERSION)/g > ajenti.spec
-	rpmbuild -bb ajenti.spec --buildroot .
-	rm ajenti.spec
-	mv ~/rpmbuild/RPMS/noarch/$(PROJECT)*.rpm dist
 
-deb: build
+	cat packaging/ajenti.spec.in | sed s/__VERSION__/$(VERSION)/g > ajenti.spec
+
+	mkdir -p build/SOURCES || true
+	cp dist/ajenti*.tar.gz build/SOURCES
+
+	rpmbuild --define '_topdir $(RPMTOPDIR)' -bb ajenti.spec 
+
+	mv build/RPMS/noarch/$(PROJECT)*.rpm dist
+
+	rm ajenti.spec
+
+deb: build tgz
+	rm -rf dist/*.deb
+
 	cat debian/changelog.in | sed s/__VERSION__/$(VERSION)/g | sed "s/__DATE__/$(DATE)/g" > debian/changelog
 
-	rm -rf dist/*.deb
-	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
+	cp dist/$(PROJECT)*.tar.gz ..
 	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
 	dpkg-buildpackage -b -rfakeroot -us -uc
 
@@ -63,6 +70,9 @@ upload-deb: deb
 
 tgz: build
 	rm dist/*.tar.gz || true
+	
+	cat setup.py.in | sed s/__VERSION__/$(VERSION)/g > setup.py
+	
 	$(PYTHON) setup.py sdist 
 
 clean:
