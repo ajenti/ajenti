@@ -16,4 +16,4 @@ def init():
     import main
     import pm_apt
     import pm_yum
-    import controls
+    import installer

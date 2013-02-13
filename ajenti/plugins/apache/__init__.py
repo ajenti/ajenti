@@ -7,6 +7,7 @@ info = PluginInfo(
     icon='globe',
     dependencies=[
         PluginDependency('webserver_common'),
+        BinaryDependency('apache2'),
     ],
 )
 
