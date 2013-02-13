@@ -46,6 +46,13 @@ db = {
         'stunnel': 'stunnel',
     },
     'centos': {
-        'supervisord': 'supervisor'
+        'python-module-BeautifulSoup': 'python-BeautifulSoup',
+        'supervisord': 'supervisor',
+        'hddtemp': 'hddtemp',
+        'sensors': 'lm_sensors',
+        'munin-cron': 'munin',
+        'smbd': 'samba',
+        'smartctl': 'smartmontools',
+        'squid3': 'squid',
     },
 }
