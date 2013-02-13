@@ -68,6 +68,10 @@ upload-deb: deb
 	scp dist/*.deb root@ajenti.org:/srv/repo
 	ssh root@ajenti.org /srv/repo/rebuild-debian.sh
 
+upload-rpm: rpm
+	scp dist/*.rpm root@ajenti.org:/srv/repo/ng/centos/6
+	ssh root@ajenti.org /srv/repo/rebuild-centos.sh
+
 tgz: build
 	rm dist/*.tar.gz || true
 	
