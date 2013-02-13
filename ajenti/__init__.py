@@ -51,6 +51,7 @@ def detect_platform():
         'centos linux': 'centos',
         'mandriva linux': 'mandriva',
         'elementary os': 'ubuntu',
+        'trisquel': 'ubuntu',
         'linuxmint': 'ubuntu',
         'redhat enterprise linux': 'rhel',
     }

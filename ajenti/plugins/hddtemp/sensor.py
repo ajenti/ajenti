@@ -7,7 +7,7 @@ from ajenti.api.sensors import Sensor
 
 
 @plugin
-class DiskUsageSensor (Sensor):
+class DiskTemperatureSensor (Sensor):
     id = 'hdd-temp'
     timeout = 5
 
