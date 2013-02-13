@@ -205,23 +205,23 @@ class PluginManager:
         """
         logging.debug('Loading plugin %s' % name)
         try:
-            mod = imp.load_module('ajenti.plugins.%s' % name, *imp.find_module(name, [self.get_plugins_root()]))
-            logging.debug('  == %s ' % mod.info.title)
-        except Exception, e:
-            logging.warn(' *** Plugin not loadable: %s' % e)
-            traceback.print_exc()
-            raise PluginCrashed(e)
+            try:
+                mod = imp.load_module('ajenti.plugins.%s' % name, *imp.find_module(name, [self.get_plugins_root()]))
+                logging.debug('  == %s ' % mod.info.title)
+            except Exception, e:
+                logging.warn(' *** Plugin not loadable: %s' % e)
+                traceback.print_exc()
+                raise PluginDependency.Unsatisfied()
 
-        info = mod.info
-        info.module = mod
-        info.active = False
-        info.name = name
-        info.crash = None
-        if hasattr(mod, 'init'):
-            info.init = mod.init
-        self.__plugins[name] = info
+            info = mod.info
+            info.module = mod
+            info.active = False
+            info.name = name
+            info.crash = None
+            if hasattr(mod, 'init'):
+                info.init = mod.init
+            self.__plugins[name] = info
 
-        try:
             for dependency in info.dependencies:
                 dependency.check()
             info.active = True

@@ -65,7 +65,7 @@ deb: build tgz
 	rm debian/changelog
 
 upload-deb: deb
-	scp dist/*.deb root@ajenti.org:/srv/repo
+	scp dist/*.deb root@ajenti.org:/srv/repo/ng/debian
 	ssh root@ajenti.org /srv/repo/rebuild-debian.sh
 
 upload-rpm: rpm
