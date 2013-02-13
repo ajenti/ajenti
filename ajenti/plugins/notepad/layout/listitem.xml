@@ -1,6 +1,6 @@
 <listitem>
 	<right>
-		<button style="circle" id="close" icon="remove" />
+		<button style="icon" id="close" icon="remove" />
 	</right>
 	<hc>
 		<icon icon="file" id="icon" />

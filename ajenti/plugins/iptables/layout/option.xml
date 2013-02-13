@@ -1,6 +1,6 @@
 <box xmlns:bind="bind">
     <right>
-        <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+        <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
     </right>
     <hc>
         <box width="120">

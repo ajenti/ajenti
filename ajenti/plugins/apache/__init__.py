@@ -3,7 +3,8 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-    title='NGINX',
+    title='Apache',
+    icon='globe',
     dependencies=[
         PluginDependency('webserver_common'),
     ],

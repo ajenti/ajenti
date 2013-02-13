@@ -18,7 +18,7 @@
                                         <bind:template>
                                             <vc>
                                                 <right>
-                                                    <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
                                                 </right>
 
                                                 <label bind="name" style="bold" />
@@ -30,7 +30,7 @@
                                                         <collapserow>
                                                             <box>
                                                                 <right>
-                                                                    <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                                                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
                                                                 </right>
                                                                 <hc>
                                                                     <label id="action" />

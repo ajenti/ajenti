@@ -7,7 +7,7 @@
                     <collapserow>
                         <box>
                             <right>
-                                <button bind="__delete" icon="remove" style="circle" warning="Confirm deletion" />
+                                <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
                             </right>
                             <hc>
                                 <icon icon="globe" />
