@@ -209,9 +209,11 @@ class PluginManager:
                 mod = imp.load_module('ajenti.plugins.%s' % name, *imp.find_module(name, [self.get_plugins_root()]))
                 logging.debug('  == %s ' % mod.info.title)
             except Exception, e:
-                logging.warn(' *** Plugin not loadable: %s' % e)
-                traceback.print_exc()
-                raise PluginDependency.Unsatisfied()
+                # TOTAL CRASH
+                from ajenti.api import PluginInfo
+                info = PluginInfo(name=name, crash=e)
+                self.__plugins[name] = info
+                raise PluginCrashed(e)
 
             info = mod.info
             info.module = mod
