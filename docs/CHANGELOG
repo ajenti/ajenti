@@ -1,47 +1,5 @@
-ajenti (0.9.0) UNRELEASED; urgency=low
-
-  * ...
-
- -- Eugeny Pankov <e@ajenti.org>  Tue, 6 Feb 2013 11:40:00 +0300
-
-ajenti (0.6.3) UNRELEASED; urgency=low
-
-  * Bugfix release
-
- -- Eugeny Pankov <e@ajenti.org>  Tue, 4 Sep 2012 16:26:00 +0300
-
-ajenti (0.6.2) UNRELEASED; urgency=low
-
-  * Bugfix release
-
- -- Eugeny Pankov <e@ajenti.org>  Sat, 14 Apr 2011 13:38:00 +0300
-
-ajenti (0.6.1) UNRELEASED; urgency=low
-
-  * Bugfix release
-
- -- Eugeny Pankov <e@ajenti.org>  Thu, 31 Oct 2011 15:48:00 +0300
-
-ajenti (0.6.0) UNRELEASED; urgency=low
-
-  * Minor fixes
-
- -- Eugeny Pankov <e@ajenti.org>  Thu, 14 Oct 2011 23:16:00 +0300
-
-ajenti (0.5.101) UNRELEASED; urgency=low
-
-  * Hotfix for gevent crash on Debian Squeeze.
-
- -- Eugeny Pankov <e@ajenti.org>  Thu, 14 Oct 2011 23:16:00 +0300
-
-ajenti (0.5.100) UNRELEASED; urgency=low
-
-  * Hotfix for JS performance issue (Twipsy JS).
-
- -- Eugeny Pankov <e@ajenti.org>  Thu, 13 Oct 2011 22:41:00 +0300
-
-ajenti (0.5.99) UNRELEASED; urgency=low
+ajenti (__VERSION__) UNRELEASED; urgency=low
 
   * Initial pre-release.
 
- -- Eugeny Pankov <e@ajenti.org>  Thu, 13 Oct 2011 18:29:00 +0300
+ -- Eugeny Pankov <e@ajenti.org>  __DATE__

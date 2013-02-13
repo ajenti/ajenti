@@ -1,13 +1,13 @@
 %define name ajenti
-%define version 0.6.3
-%define unmangled_version 0.6.3
+%define version 0.9.0
+%define unmangled_version 0.9.0
 %define release 1
 
 Summary: The server administration panel
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{unmangled_version}.tar.gz
+Source0: %{name}-%{version}.tar.gz
 License: LGPLv3
 Group: Development/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -16,7 +16,8 @@ BuildArch: noarch
 Vendor: Eugeny Pankov <e@ajenti.org>
 Url: http://ajenti.org/
 
-requires: python-gevent, python-greenlet, python-lxml, pyOpenSSL
+requires: python-gevent, python-greenlet, python-lxml, openssl, python-gevent-socketio, python-psutil, python-imaging, stunnel, python-daemon, python-passlib, python-requests, python-reconfigure
+
 
 %description
 Web admin panel

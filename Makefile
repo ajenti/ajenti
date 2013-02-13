@@ -2,8 +2,9 @@ PYTHON=`which python`
 DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 PROJECT=ajenti
-VERSION=0.7.0
+VERSION=0.9.0
 PREFIX=/usr
+DATE=`date -R`
 
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
@@ -37,17 +38,24 @@ rpm: build
 	rm -rf dist/*.rpm
 	$(PYTHON) setup.py sdist 
 	#$(PYTHON) setup.py bdist_rpm --spec-file dist/ajenti.spec #--post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
-	rpmbuild -bb dist/ajenti.spec
+	cat dist/ajenti.spec.in | sed s/__VERSION__/$(VERSION)/g > ajenti.spec
+	rpmbuild -bb ajenti.spec --buildroot .
+	rm ajenti.spec
 	mv ~/rpmbuild/RPMS/noarch/$(PROJECT)*.rpm dist
 
 deb: build
+	cat debian/changelog.in | sed s/__VERSION__/$(VERSION)/g | sed "s/__DATE__/$(DATE)/g" > debian/changelog
+
 	rm -rf dist/*.deb
 	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../
 	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
 	dpkg-buildpackage -b -rfakeroot -us -uc
+
+	mv ../$(PROJECT)*.deb dist/
+	
 	rm ../$(PROJECT)*.orig.tar.gz
 	rm ../$(PROJECT)*.changes
-	mv ../$(PROJECT)*.deb dist/
+	rm debian/changelog
 
 upload-deb: deb
 	scp dist/*.deb root@ajenti.org:/srv/repo
