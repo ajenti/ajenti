@@ -27,6 +27,7 @@ class Supervisor (SectionPlugin):
     def refresh(self):
         self.config.load()
         self.mgr.fill(self.config.tree.programs)
+        print self.config.tree.programs[0].user
         self.binder.reset(self.config.tree).autodiscover().populate()
 
     @on('save', 'click')

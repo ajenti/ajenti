@@ -16,9 +16,9 @@
                     <dtd><label bind="source" /></dtd>
                     <dtd>
                         <hc>
-                            <button id="start" icon="play" text="Start" />
-                            <button id="stop" icon="stop" text="Stop" />
-                            <button id="restart" icon="step-forward" text="Restart" />
+                            <button id="start" icon="play" style="mini" />
+                            <button id="stop" icon="stop" style="mini" />
+                            <button id="restart" icon="step-forward" style="mini" />
                         </hc>
                     </dtd>
                 </dtr>
