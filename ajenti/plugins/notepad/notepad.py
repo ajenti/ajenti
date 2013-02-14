@@ -30,7 +30,7 @@ class Notepad (SectionPlugin):
             for path in self.classconfig['bookmarks']:
                 id = self.controller.open(path)
             self.select(id)
-        else:
+        if len(self.controller.files.keys()) == 0:
             self.on_new()
 
     def select(self, id):
@@ -89,7 +89,7 @@ class Notepad (SectionPlugin):
         self.savedialog.visible = False
         self.controller.save(self.selected, path)
         self.select(self.selected)
-        self.context.notify('info','Saved')
+        self.context.notify('info', 'Saved')
 
     @on('savedialog', 'button')
     def on_save_dialog_button(self, button):
@@ -129,7 +129,10 @@ class Controller (object):
     def open(self, path):
         id = self.new()
         self.files[id]['path'] = path
-        self.files[id]['content'] = open(path).read()
+        try:
+            self.files[id]['content'] = open(path).read()
+        except IOError:
+            self.files[id]['content'] = ''
         self.files[id]['mime'] = mimetypes.guess_type(path, strict=False)[0]
         return id
 

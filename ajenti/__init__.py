@@ -62,7 +62,8 @@ def detect_platform():
     }
 
     if pyplatform.system() != 'Linux':
-        return pyplatform.system().lower()
+        res = pyplatform.system().lower()
+        return res, res
 
     dist = ''
     (maj, min, patch) = pyplatform.python_version_tuple()

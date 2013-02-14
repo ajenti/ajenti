@@ -4,3 +4,5 @@ passlib
 gevent
 gevent-socketio
 psutil
+requests
+PIL

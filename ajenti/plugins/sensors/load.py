@@ -5,6 +5,8 @@ from ajenti.plugins.dashboard.api import ConfigurableWidget
 
 @plugin
 class LoadSensor (Sensor):
+    platforms = ['debian', 'centos']
+
     id = 'load'
     timeout = 1
 
@@ -18,6 +20,8 @@ class LoadSensor (Sensor):
 
 @plugin
 class LoadWidget (ConfigurableWidget):
+    platforms = ['debian', 'centos']
+
     name = 'Load average'
     icon = 'signal'
 
