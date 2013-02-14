@@ -8,6 +8,7 @@ from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import UIElement, p, on
+from ajenti.users import PermissionProvider, restrict
 
 from terminal import Terminal
 
@@ -46,6 +47,7 @@ class Terminals (SectionPlugin):
         self.on_new(command, autoclose=True, autoopen=True)
 
     @on('new-button', 'click')
+    @restrict('terminal:shell')
     def on_new(self, command=None, autoopen=False, **kwargs):
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1
@@ -58,6 +60,7 @@ class Terminals (SectionPlugin):
         return key
 
     @on('run-button', 'click')
+    @restrict('terminal:custom')
     def on_run(self):
         self.on_new(self.find('command').value, autoclose=True, autoopen=True)
 
@@ -137,3 +140,15 @@ class TerminalSocket (SocketPlugin):
 
     def send_data(self, data):
         self.emit('set', b64encode(zlib.compress(json.dumps(data))[2:-4]))
+
+
+@plugin
+class TerminalPermissionsProvider (PermissionProvider):
+    def get_name(self):
+        return 'Terminal'
+
+    def get_permissions(self):
+        return [
+            ('terminal:shell', 'Shell'),
+            ('terminal:custom', 'Custom command'),
+        ]

@@ -103,4 +103,4 @@ class ConfigurationPermissionsProvider (PermissionProvider):
         return 'Configuration'
 
     def get_permissions(self):
-        return [('configurator:configure', 'Change configuration')]
+        return [('configurator:configure', 'Modify Ajenti configuration')]

@@ -2,7 +2,7 @@ from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 from ajenti.ui.binder import Binder, CollectionAutoBinding
-
+from ajenti.users import PermissionProvider, restrict
 from api import PackageManager, PackageInfo
 
 
@@ -43,6 +43,7 @@ class Packages (SectionPlugin):
         self.binder_p.reset(self).autodiscover().populate()
 
     @intent('install-package')
+    @restrict('packages:modify')
     def intent_install(self, package):
         self.activate()
         p = PackageInfo()
@@ -53,33 +54,39 @@ class Packages (SectionPlugin):
         self.mgr.refresh()
         self.refresh()
 
+    @restrict('packages:modify')
     def on_install(self, package):
         package.action = 'i'
         self.pending[package.name] = package
         self.refresh()
 
+    @restrict('packages:modify')
     def on_cancel(self, package):
         package.action = None
         if package.name in self.pending:
             del self.pending[package.name]
         self.refresh()
 
+    @restrict('packages:modify')
     def on_remove(self, package):
         package.action = 'r'
         self.pending[package.name] = package
         self.refresh()
 
     @on('get-lists-button', 'click')
+    @restrict('packages:refresh')
     def on_get_lists(self):
         self.mgr.get_lists()
 
     @on('apply-button', 'click')
+    @restrict('packages:modify')
     def on_apply(self):
         self.mgr.do(self.pending.values())
         self.pending = {}
         self.refresh()
 
     @on('upgrade-all-button', 'click')
+    @restrict('packages:modify')
     def on_upgrade_all(self):
         for p in self.mgr.upgradeable:
             p.action = 'i'
@@ -87,6 +94,7 @@ class Packages (SectionPlugin):
         self.refresh()
 
     @on('cancel-all-button', 'click')
+    @restrict('packages:modify')
     def on_cancel_all(self):
         self.pending = {}
         self.refresh()
@@ -110,3 +118,15 @@ class Packages (SectionPlugin):
 
         self.fill(results)
         self.binder_s = CollectionAutoBinding(results, None, self.find('search')).populate()
+
+
+@plugin
+class PackagesPermissionsProvider (PermissionProvider):
+    def get_name(self):
+        return 'Packages'
+
+    def get_permissions(self):
+        return [
+            ('packages:modify', 'Install / remove'),
+            ('packages:refresh', 'Refresh'),
+        ]

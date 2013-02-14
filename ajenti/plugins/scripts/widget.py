@@ -2,6 +2,7 @@ import subprocess
 
 from ajenti.api import plugin
 from ajenti.plugins.dashboard.api import ConfigurableWidget
+from ajenti.users import PermissionProvider, restrict
 from ajenti.ui import on
 
 
@@ -31,9 +32,21 @@ class ScriptWidget (ConfigurableWidget):
         self.config['terminal'] = self.dialog.find('terminal').value
 
     @on('start', 'click')
+    @restrict('scripts:run')
     def on_s_start(self):
         if self.config['terminal']:
             self.context.launch('terminal', command=self.config['command'])
         else:
             subprocess.Popen(self.config['command'], shell=True)
-            self.context.notify('info','Launched')
+            self.context.notify('info', 'Launched')
+
+
+@plugin
+class ScriptPermissionsProvider (PermissionProvider):
+    def get_name(self):
+        return 'Scripts'
+
+    def get_permissions(self):
+        return [
+            ('scripts:run', 'Run scripts'),
+        ]

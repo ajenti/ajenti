@@ -28,7 +28,10 @@ def send(url, data):
     if id:
         data['id'] = id
     logging.debug('Feedback >> %s (%s)' % (url, data))
-    response = requests.post(URL + url, data=data)
+    try:
+        response = requests.post(URL + url, data=data)
+    except:
+        raise IOError()
     logging.debug('Feedback << %s' % response.text)
     return json.loads(response.content)
 
@@ -53,12 +56,15 @@ def worker():
                 resp = send('register', data)
                 if resp['status'] != 'ok':
                     return
-            except:
-                return
+            except IOError:
+                pass
             ajenti.config.tree.installation_id = resp['id']
             ajenti.config.save()
             enabled = True
 
         while True:
-            send('ping', {})
+            try:
+                send('ping', {})
+            except IOError:
+                pass
             gevent.sleep(3600 * 12)

@@ -5,6 +5,7 @@ from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import DashboardWidget
 from ajenti.ui import on
+from ajenti.users import PermissionProvider, restrict
 
 
 @plugin
@@ -63,9 +64,23 @@ class PowerWidget (DashboardWidget):
         self.find('charge').value = charge[0] * 1.0 / charge[1]
 
     @on('reboot', 'click')
+    @restrict('power:reboot')
     def on_reboot(self):
         subprocess.call(['reboot'])
 
     @on('shutdown', 'click')
+    @restrict('power:shutdown')
     def on_shutdown(self):
         subprocess.call(['poweroff'])
+
+
+@plugin
+class PowerPermissionsProvider (PermissionProvider):
+    def get_name(self):
+        return 'Power'
+
+    def get_permissions(self):
+        return [
+            ('power:reboot', 'Reboot'),
+            ('power:shutdown', 'Shutdown'),
+        ]
