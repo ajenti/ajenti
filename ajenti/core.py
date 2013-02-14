@@ -109,3 +109,19 @@ def run():
     ajenti.feedback.start()
 
     ajenti.server.serve_forever()
+
+    if hasattr(ajenti.server, 'restart_marker'):
+        logging.warn('Restarting by request')
+
+        fd = 20  # Close all descriptors. Creepy thing
+        while fd > 2:
+            try:
+                os.close(fd)
+                logging.debug('Closed descriptor #%i' % fd)
+            except:
+                pass
+            fd -= 1
+
+        os.execv(sys.argv[0], sys.argv)
+    else:
+        logging.info('Stopped by request')

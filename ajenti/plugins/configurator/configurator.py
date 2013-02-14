@@ -72,6 +72,10 @@ class Configurator (SectionPlugin):
         else:
             self.gen_ssl(host, path.rstrip('/'))
 
+    @on('restart-button', 'click')
+    def on_restart(self):
+        ajenti.restart()
+
     @intent('setup-fake-ssl')
     def gen_ssl(self, host, path):
         self.save()
@@ -103,4 +107,7 @@ class ConfigurationPermissionsProvider (PermissionProvider):
         return 'Configuration'
 
     def get_permissions(self):
-        return [('configurator:configure', 'Modify Ajenti configuration')]
+        return [
+            ('configurator:configure', 'Modify Ajenti configuration'),
+            ('configurator:restart', 'Restart Ajenti'),
+        ]

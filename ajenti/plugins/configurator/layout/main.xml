@@ -1,5 +1,8 @@
 <vc xmlns:bind="bind" xmlns:packages="packages">
-    <button text="Save" id="save-button" icon="ok" />
+    <hc>
+        <button text="Save" id="save-button" icon="ok" />
+        <button text="Restart" id="restart-button" icon="refresh" warning="Restart Ajenti?" />
+    </hc>
 
     <body>
         <pad>

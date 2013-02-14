@@ -33,7 +33,7 @@ debug = False
 """ Debug mode """
 
 
-__all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init', 'exit']
+__all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init', 'exit', 'restart']
 
 
 def detect_version():
@@ -118,3 +118,8 @@ def init():
 
 def exit():
     os.kill(os.getpid(), signal.SIGQUIT)
+
+
+def restart():
+    server.restart_marker = True
+    server.stop()
