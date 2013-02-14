@@ -1,3 +1,5 @@
+import random
+
 import ajenti
 from ajenti.api import *
 from ajenti.api.sensors import Sensor
@@ -56,7 +58,7 @@ class Dash (SectionPlugin):
         self.find('add-dialog').visible = False
         self.classconfig['widgets'].append({
             'class': cls.classname,
-            'container': 0,
+            'container': random.randrange(0, 2),
             'index': 0,
             'config': config,
         })

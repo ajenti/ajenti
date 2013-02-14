@@ -16,6 +16,14 @@ class Users (SectionPlugin):
         self.category = 'System'
         self.append(self.ui.inflate('users:main'))
 
+        def _sorter(x):
+            u = int(x.uid)
+            if u >= 1000:
+                return u - 10000
+            return u
+
+        self.find('users').sorting = _sorter
+
         self.config = PasswdConfig(path='/etc/passwd')
         self.config_g = GroupConfig(path='/etc/group')
         self.binder = Binder(None, self.find('passwd-config'))
@@ -30,13 +38,6 @@ class Users (SectionPlugin):
         self.config.load()
         self.config_g.load()
 
-        def _sorter(x):
-            u = int(x.uid)
-            if u >= 1000:
-                return u - 10000
-            return u
-
-        self.config.tree.users.sort(_sorter)
         self.binder.reset(self.config.tree).autodiscover().populate()
         self.binder_g.reset(self.config_g.tree).autodiscover().populate()
 

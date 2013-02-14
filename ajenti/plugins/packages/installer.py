@@ -41,9 +41,14 @@ class PackageInstaller (UIElement, BasePlugin):
 
 db = {
     'debian': {
+        'python-module-BeautifulSoup': 'python-beautifulsoup',
         'supervisord': 'supervisor',
+        'hddtemp': 'hddtemp',
         'sensors': 'lm-sensors',
-        'stunnel': 'stunnel',
+        'munin-cron': 'munin',
+        'smbd': 'samba',
+        'smartctl': 'smartmontools',
+        'squid3': 'squid3',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',
