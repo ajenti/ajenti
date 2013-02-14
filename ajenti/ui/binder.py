@@ -255,7 +255,10 @@ class CollectionAutoBinding (Binding):
             self.collection = getattr(self.object, self.attribute)
         else:
             self.collection = self.object
+
         self.values = self.ui.values(self.collection)
+        if self.ui.sorting:
+            self.values = sorted(self.values, key=self.ui.sorting)
 
         self.unpopulate()
 
@@ -448,6 +451,8 @@ class ListElement (BasicCollectionElement):
     doc='Called to create an empty new item, ``lambda collection: object()``')
 @p('delete_item', default=lambda i, c: c.remove(i), type=eval, public=False,
     doc='Called to remove value from the collection, ``lambda item, collection: None``')
+@p('sorting', default=None, type=eval, public=False,
+    doc='If defined, used as key function to sort items')
 @p('binding', default=CollectionAutoBinding, type=eval, public=False)
 @plugin
 class CollectionElement (BasicCollectionElement):

@@ -11,7 +11,7 @@
             <tabs>
                 <tab title="Users">
                     <box width="750" id="passwd-config">
-                        <bind:collection bind="users">
+                        <bind:collection bind="users" id="users">
                             <vc>
                                 <dt bind="__items" />
                                 <bind:template>
