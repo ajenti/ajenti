@@ -95,7 +95,7 @@ class BSDUsersBackend (UsersBackend):
     platforms = ['freebsd']
 
     def add_user(self, name):
-        subprocess.call(['useradd', name])
+        subprocess.call(['pw', 'useradd', name])
 
     def add_group(self, name):
-        subprocess.call(['groupadd', name])
+        subprocess.call(['pw', 'groupadd', name])

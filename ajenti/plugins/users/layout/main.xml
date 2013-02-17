@@ -63,7 +63,7 @@
 
                 <tab title="Groups">
                     <box width="750" id="group-config">
-                        <bind:collection bind="groups">
+                        <bind:collection bind="groups" id="groups">
                             <vc>
                                 <dt bind="__items" />
                                 <bind:template>
