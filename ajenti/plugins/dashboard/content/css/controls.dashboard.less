@@ -113,6 +113,12 @@
                 >.image.rhel { display: block; }
             }
 
+            &.freebsd {
+                @red: #f00;
+                #gradient > .radial(lighten(@red, 20%), @red);
+                >.image.freebsd { display: block; }
+            }
+
 
             >.bar {
                 position: absolute;
