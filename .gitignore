@@ -1,7 +1,6 @@
 *.pyc
 docs/build/*
 *~
-setup.py
 
 debian/ajenti*
 dist/*.rpm

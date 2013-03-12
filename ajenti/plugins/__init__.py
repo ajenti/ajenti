@@ -117,6 +117,8 @@ class PluginManager:
     Handles plugin loading and unloading
     """
 
+    extra_location = '/var/lib/ajenti/plugins'
+
     __classes = {}
     __plugins = {}
     __order = []
@@ -167,7 +169,7 @@ class PluginManager:
 
     def load_all(self):
         path = os.path.split(__file__)[0]
-        for item in os.listdir(path):
+        for item in os.listdir(path) + os.listdir(self.extra_location):
             if not '.' in item:
                 if not item in self.__plugins:
                     self.load_recursive(item)
@@ -190,8 +192,8 @@ class PluginManager:
                 if e.dependency.plugin_name in manager.get_all():
                     if manager.get_all()[e.dependency.plugin_name].crash:
                         manager.get_all()[name].crash = e
-                        logging.warn(' *** Plugin dependency unsatisfied: %s -> %s' % \
-                            (name, e.dependency.plugin_name))
+                        logging.warn(' *** Plugin dependency unsatisfied: %s -> %s' %
+                                    (name, e.dependency.plugin_name))
                         return
                 try:
                     logging.debug('Preloading plugin dependency: %s' % e.dependency.plugin_name)
@@ -206,7 +208,8 @@ class PluginManager:
         logging.debug('Loading plugin %s' % name)
         try:
             try:
-                mod = imp.load_module('ajenti.plugins.%s' % name, *imp.find_module(name, [self.get_plugins_root()]))
+                mod = imp.load_module('ajenti.plugins.%s' % name,
+                                      *imp.find_module(name, [self.get_plugins_root(), self.extra_location]))
                 logging.debug('  == %s ' % mod.info.title)
             except Exception, e:
                 # TOTAL CRASH

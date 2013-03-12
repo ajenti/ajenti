@@ -75,8 +75,6 @@ upload-rpm: rpm
 tgz: build
 	rm dist/*.tar.gz || true
 	
-	cat setup.py.in | sed s/__VERSION__/$(VERSION)/g > setup.py
-	
 	$(PYTHON) setup.py sdist 
 
 clean:
