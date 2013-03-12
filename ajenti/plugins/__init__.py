@@ -169,7 +169,11 @@ class PluginManager:
 
     def load_all(self):
         path = os.path.split(__file__)[0]
-        for item in os.listdir(path) + os.listdir(self.extra_location):
+        items = os.listdir(path)
+        if os.path.exists(self.extra_location):
+            items += os.listdir(self.extra_location)
+
+        for item in items:
             if not '.' in item:
                 if not item in self.__plugins:
                     self.load_recursive(item)

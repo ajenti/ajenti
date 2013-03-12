@@ -4,9 +4,9 @@
 		position: relative;
 
 		&>.header {
-			#gradient > .vertical(lighten(@headerBackground, 15%), @headerBackground);
+			#gradient > .vertical(#333, #222);
 			height: @headerHeight;
-		    //.box-shadow(0 0 5px rgba(0,0,0,0.5));
+		    .box-shadow(0 0 5px rgba(0,0,0,0.5));
 
 		    &>.container {
 				margin: 0 auto;
@@ -112,7 +112,7 @@
 		    overflow: hidden;
 		    position: relative;
 			padding: 10px 0;
-			border-top: 1px solid rgba(255,255,255,.125);
+			//border-top: 1px solid rgba(255,255,255,.125);
 
 			&>.content {
 				margin: 0 auto @footerHeight + 10px;
