@@ -182,10 +182,7 @@ class PluginManager:
         return os.path.split(__file__)[0]
 
     def resolve_path(self, name):
-        path = os.path.join(self.get_plugins_root(), name)
-        if os.path.exists(path):
-            return path
-        return None
+        return self.__plugins[name].path
 
     def load_recursive(self, name):
         while True:
@@ -226,6 +223,7 @@ class PluginManager:
             info.module = mod
             info.active = False
             info.name = name
+            info.path = mod.__path__[0]
             info.crash = None
             if hasattr(mod, 'init'):
                 info.init = mod.init
