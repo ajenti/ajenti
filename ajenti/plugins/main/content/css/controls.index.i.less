@@ -178,8 +178,16 @@
 	&.main-sections-category {
 		>div:first-child {
 			font-weight: bold;
-			color: #333;
-			text-shadow: 0 1px 0 #777;
+			
+			.ui-dark & {
+				color: #333;
+				text-shadow: 0 1px 0 #777;
+			}
+			
+			.ui-light & {
+				color: #aaa;
+			}
+			
 			text-transform: uppercase;
 		}
 	}
@@ -198,7 +206,11 @@
 				display: block;
 				text-decoration: none;
 				color: #888;
-				text-shadow: 0 1px 1px #333;
+
+				.ui-dark & {
+					text-shadow: 0 1px 1px #333;
+				}
+
 				padding: 1px 10px 0;
 				margin: 3px 0;
 				.border-radius(3px);
@@ -239,7 +251,8 @@
 
 				
 				
-				width: 800px;
+				width: 798px;
+				margin: 0 1px 1px;
 			
 				&.active {
 					display: block;
@@ -249,6 +262,7 @@
 	}
 
 	&.section-body {
+		margin: 1px !important;
 		.content-gradient();
 		.border-radius(5px);
 		.box-shadow(@mainPaneShadow);

@@ -146,6 +146,20 @@ class window.UIManager
                 alert('Please unblock popups!')
         , 100
 
+    restoreTheme: () ->
+        if getCookie('ajenti-theme') == 'dark'
+            @toggleTheme()
+
+    toggleTheme: () ->
+        $('html').toggleClass('ui-dark')
+        $('html').toggleClass('ui-light')
+        
+        if $('html').hasClass('ui-dark')
+            setCookie('ajenti-theme', 'dark')
+        else
+            setCookie('ajenti-theme', 'light')
+
+
 
 class window.LoadingDim 
     constructor: (@dom) ->
@@ -160,9 +174,10 @@ class window.LoadingDim
         @dom.show().stop().fadeTo(500, 1)
 
 
-$(() ->
+$ () ->
     window.Loading = new LoadingDim($('#loading'))
-)
+    UI.restoreTheme()
+    $('#ui-theme-toggle').click () -> UI.toggleTheme()
 
 
 window.Controls = { }
