@@ -3,9 +3,13 @@
 from distutils.core import setup
 from setuptools import find_packages
 
+import ajenti.build
+
+__version = ajenti.build.version
+
 setup(
     name='ajenti',
-    version='0.9.0',
+    version=__version,
     install_requires=[
         'pyOpenSSL',
         'gevent',
@@ -25,5 +29,6 @@ setup(
     data_files=[
         ('/etc/ajenti', ['packaging/files/config.json']),
         ('/etc/init.d', ['packaging/files/ajenti']),
+        ('/var/lib/ajenti/plugins', ['packaging/files/.placeholder']),
     ],
 )

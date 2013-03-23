@@ -1,6 +1,7 @@
 #!/bin/bash
 
 daemon_name=ajenti
+PIDFILE=/var/run/ajenti.pid
 
 . /etc/rc.conf
 . /etc/rc.d/functions
@@ -20,7 +21,7 @@ case "$1" in
 
 	stop)
 		stat_busy "Stopping $daemon_name daemon"
-		ajenti-panel -s
+		kill `cat $PIDFILE`
 		if [[ $? -gt 0 ]]; then
 			stat_fail
 			exit 1

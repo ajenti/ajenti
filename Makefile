@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=0.9.0
+VERSION=0.9.1
 PREFIX=/usr
 DATE=`date -R`
 
@@ -74,8 +74,6 @@ upload-rpm: rpm
 
 tgz: build
 	rm dist/*.tar.gz || true
-	
-	cat setup.py.in | sed s/__VERSION__/$(VERSION)/g > setup.py
 	
 	$(PYTHON) setup.py sdist 
 

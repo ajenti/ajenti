@@ -117,6 +117,8 @@ class PluginManager:
     Handles plugin loading and unloading
     """
 
+    extra_location = '/var/lib/ajenti/plugins'
+
     __classes = {}
     __plugins = {}
     __order = []
@@ -167,7 +169,11 @@ class PluginManager:
 
     def load_all(self):
         path = os.path.split(__file__)[0]
-        for item in os.listdir(path):
+        items = os.listdir(path)
+        if os.path.exists(self.extra_location):
+            items += os.listdir(self.extra_location)
+
+        for item in items:
             if not '.' in item:
                 if not item in self.__plugins:
                     self.load_recursive(item)
@@ -176,10 +182,7 @@ class PluginManager:
         return os.path.split(__file__)[0]
 
     def resolve_path(self, name):
-        path = os.path.join(self.get_plugins_root(), name)
-        if os.path.exists(path):
-            return path
-        return None
+        return self.__plugins[name].path
 
     def load_recursive(self, name):
         while True:
@@ -190,8 +193,8 @@ class PluginManager:
                 if e.dependency.plugin_name in manager.get_all():
                     if manager.get_all()[e.dependency.plugin_name].crash:
                         manager.get_all()[name].crash = e
-                        logging.warn(' *** Plugin dependency unsatisfied: %s -> %s' % \
-                            (name, e.dependency.plugin_name))
+                        logging.warn(' *** Plugin dependency unsatisfied: %s -> %s' %
+                                    (name, e.dependency.plugin_name))
                         return
                 try:
                     logging.debug('Preloading plugin dependency: %s' % e.dependency.plugin_name)
@@ -206,7 +209,8 @@ class PluginManager:
         logging.debug('Loading plugin %s' % name)
         try:
             try:
-                mod = imp.load_module('ajenti.plugins.%s' % name, *imp.find_module(name, [self.get_plugins_root()]))
+                mod = imp.load_module('ajenti.plugins.%s' % name,
+                                      *imp.find_module(name, [self.get_plugins_root(), self.extra_location]))
                 logging.debug('  == %s ' % mod.info.title)
             except Exception, e:
                 # TOTAL CRASH
@@ -219,6 +223,7 @@ class PluginManager:
             info.module = mod
             info.active = False
             info.name = name
+            info.path = mod.__path__[0]
             info.crash = None
             if hasattr(mod, 'init'):
                 info.init = mod.init

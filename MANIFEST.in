@@ -7,3 +7,4 @@ include LICENSE
 include Makefile
 include packaging/files/config.json
 include packaging/files/ajenti
+include packaging/files/.placeholder
