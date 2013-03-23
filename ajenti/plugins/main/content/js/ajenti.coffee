@@ -96,6 +96,7 @@ class window.UIManager
     replace: (ui) ->
         @ui = ui
         $('.root').append(@ui.dom)
+        aoConnector.reportHeight($('body')[0].scrollHeight)
 
     extractUpdates: (control, target) ->
         updates = control.extractUpdates()
