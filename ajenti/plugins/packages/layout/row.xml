@@ -6,8 +6,8 @@
     <dtd><label bind="version" /></dtd>
     <dtd>
         <hc>
-            <button id="install" text="Install" icon="ok" />
-            <button id="remove" text="Remove" icon="remove" />
+            <button id="install" style="mini" icon="ok" />
+            <button id="remove" style="mini" icon="remove" />
             <button id="cancel" text="Cancel" icon="remove-sign" />
         </hc>
     </dtd>

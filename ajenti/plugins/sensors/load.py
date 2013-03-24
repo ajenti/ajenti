@@ -2,7 +2,7 @@ import subprocess
 
 from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
-from ajenti.plugins.dashboard.api import ConfigurableWidget
+from ajenti.plugins.dashboard.api import DashboardWidget
 
 
 class BaseLoadSensor (Sensor):
@@ -34,11 +34,11 @@ class BSDLoadSensor (BaseLoadSensor):
 
 
 @plugin
-class LoadWidget (ConfigurableWidget):
+class LoadWidget (DashboardWidget):
     name = 'Load average'
     icon = 'signal'
 
-    def on_prepare(self):
+    def init(self):
         self.sensor = Sensor.find('load')
         self.append(self.ui.inflate('sensors:value-widget'))
         self.find('icon').icon = 'signal'
