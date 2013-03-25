@@ -98,7 +98,7 @@ def shell(c, stderr=False):
     """
     Runs commandline in the default shell and returns output. Blocking.
     """
-    p = subprocess.Popen('LC_ALL=C '+c, shell=True,
+    p = subprocess.Popen('LANG=C LC_ALL=C '+c, shell=True,
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
 
