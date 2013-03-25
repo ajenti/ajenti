@@ -182,7 +182,7 @@ class ApacheSCPlugin(apis.webserver.WebserverPlugin):
     text = 'Apache 2'
     icon = '/dl/apache/icon.png'
     folder = 'servers'
-    ws_service = 'apache2'
+    ws_service = 'httpd'
     ws_name = 'apache'
     ws_icon = '/dl/apache/icon.png'
     ws_title = 'Apache 2'
