@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=0.9.2
+VERSION=0.9.3
 PREFIX=/usr
 DATE=`date -R`
 
@@ -18,7 +18,7 @@ all: build
 
 build:
 	echo version = \"$(VERSION)\" > ajenti/build.py
-	./compile_resources.py 
+	./compile_resources.py || true
 	
 run: 
 	./ajenti-panel -v -c ./config.json
@@ -86,3 +86,5 @@ clean:
 	find . -name '*.coffee.js' -delete
 	find . -name '*.c.css' -delete
 	find . -name '*.less.css' -delete
+
+.PHONY: build

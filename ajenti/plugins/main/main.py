@@ -51,10 +51,15 @@ class MainSocket (SocketPlugin):
         if not 'ui' in self.request.session.data:
             # This is a newly created session
             ui = UI()
+
             self.request.session.data['ui'] = ui
             ui.root = MainPage.new(ui)
             ui.root.username = self.request.session.identity
             sections_root = SectionsRoot.new(ui)
+
+            for e in sections_root.startup_crashes:
+                self.send_crash(e)
+
             ui.root.append(sections_root)
             ui._sections = sections_root.children
             ui._sections_root = sections_root
@@ -131,9 +136,11 @@ class MainSocket (SocketPlugin):
         self.emit('debug', json.dumps(data))
 
     def send_crash(self, exc):
+        if not hasattr(exc, 'traceback'):
+            exc.traceback = traceback.format_exc(exc)
         data = {
             'message': str(exc),
-            'traceback': traceback.format_exc(exc),
+            'traceback': exc.traceback,
             'report': make_report()
         }
         data = json.dumps(data)
@@ -208,11 +215,19 @@ class SectionsRoot (UIElement):
 
     def init(self):
         self.categories = {}
+        self.startup_crashes = []
         for cls in SectionPlugin.get_classes():
             try:
                 UserManager.get().require_permission('section:%s' % cls.__name__)
-                cat = cls.new(self.ui)
-                self.append(cat)
+
+                try:
+                    cat = cls.new(self.ui)
+                    self.append(cat)
+                except SecurityError:
+                    pass
+                except Exception, e:
+                    e.traceback = traceback.format_exc(exc)
+                    self.startup_crashes.append(e)
             except SecurityError:
                 pass
         self.children = sorted(self.children, key=lambda x: (self.category_order[x.category], x.order, x.title))
