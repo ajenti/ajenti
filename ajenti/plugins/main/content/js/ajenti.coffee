@@ -13,14 +13,18 @@ class window.Stream
         @socket.on 'disconnect', () ->
             $('#connection-error').show()
 
-
         @socket.on 'ui', (ui) ->
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
             console.group 'Received update', ui
+
+            t0 = new Date().getTime()
             UI.clear()
             UI.replace(UI.inflate(ui))
+            t1 = new Date().getTime()
+            
             console.log 'Total elements:', UI._total_elements
+            console.log 'UI updated in', t1-t0, 'ms'
             console.groupEnd()
             Loading.hide()
 

@@ -226,7 +226,7 @@ class SectionsRoot (UIElement):
                 except SecurityError:
                     pass
                 except Exception, e:
-                    e.traceback = traceback.format_exc(exc)
+                    e.traceback = traceback.format_exc(e)
                     self.startup_crashes.append(e)
             except SecurityError:
                 pass

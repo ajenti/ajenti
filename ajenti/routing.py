@@ -3,6 +3,7 @@ import socketio
 from ajenti.http import HttpHandler
 from ajenti.api import BasePlugin
 from ajenti.api.http import HttpPlugin, SocketPlugin
+from ajenti.profiler import *
 
 
 class SocketIORouteHandler (HttpHandler):
@@ -26,6 +27,7 @@ class CentralDispatcher (BasePlugin, HttpHandler):
         self.invalid = InvalidRouteHandler()
         self.io = SocketIORouteHandler()
 
+    @profiled(lambda a, k: 'HTTP %s' % a[1].path)
     def handle(self, context):
         """
         Dispatch the request to every HttpPlugin
