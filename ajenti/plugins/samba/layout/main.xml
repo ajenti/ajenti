@@ -1,5 +1,5 @@
 <vc xmlns:bind="bind">
-    <servicebar name="smbd" />
+    <servicebar id="servicebar" name="smbd" />
 
     <body>
         <pad>

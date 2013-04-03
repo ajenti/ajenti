@@ -1,3 +1,4 @@
+import ajenti
 from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
@@ -17,6 +18,10 @@ class Samba (SectionPlugin):
         self.icon = 'folder-close'
         self.category = 'Software'
         self.append(self.ui.inflate('samba:main'))
+
+        if ajenti.platform == 'centos':
+            self.find('servicebar').name = 'smb'
+            self.find('servicebar').reload()
 
         self.binder = Binder(None, self.find('config'))
         self.find('shares').new_item = lambda c: ShareData()
