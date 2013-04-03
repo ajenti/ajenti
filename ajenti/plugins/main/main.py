@@ -230,7 +230,14 @@ class SectionsRoot (UIElement):
                     self.startup_crashes.append(e)
             except SecurityError:
                 pass
-        self.children = sorted(self.children, key=lambda x: (self.category_order[x.category], x.order, x.title))
+
+        def category_order(x):
+            order = 98
+            if x.category in self.category_order:
+                order = self.category_order[x.category]
+            return (order, x.order, x.title)
+
+        self.children = sorted(self.children, key=category_order)
         if len(self.children) > 0:
             self.on_switch(self.children[0].uid)
         #self.on('switch', self.on_switch)
