@@ -76,24 +76,18 @@ class Notepad (SectionPlugin):
     @on('opendialog', 'select')
     def on_open_dialog_select(self, path=None):
         self.opendialog.visible = False
-        self.select(self.controller.open(path))
-        self.activate()
-
-    @on('opendialog', 'button')
-    def on_open_dialog_button(self, button):
-        self.opendialog.visible = False
+        if path:
+            self.select(self.controller.open(path))
+            self.activate()
 
     @on('savedialog', 'select')
     def on_save_dialog_select(self, path):
-        self.select(self.selected)
         self.savedialog.visible = False
-        self.controller.save(self.selected, path)
-        self.select(self.selected)
-        self.context.notify('info', 'Saved')
-
-    @on('savedialog', 'button')
-    def on_save_dialog_button(self, button):
-        self.savedialog.visible = False
+        if path:
+            self.select(self.selected)
+            self.controller.save(self.selected, path)
+            self.select(self.selected)
+            self.context.notify('info', 'Saved')
 
     def on_close(self, id):
         if self.controller.files[id]['path'] in self.classconfig['bookmarks']:

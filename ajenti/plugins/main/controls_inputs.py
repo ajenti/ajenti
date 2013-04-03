@@ -26,7 +26,7 @@ class CheckBox (UIElement):
 
 @p('labels', default=[], type=list)
 @p('values', default=[], type=list)
-@p('value', default='', bindtypes=[str, unicode])
+@p('value', default='', bindtypes=[str, int, unicode])
 @p('server', default=False, type=bool)
 @plugin
 class Dropdown (UIElement):

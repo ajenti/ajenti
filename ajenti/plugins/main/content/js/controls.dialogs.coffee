@@ -70,7 +70,7 @@ class window.Controls.openfiledialog extends Controls.dialog
 
         @container = new Controls.list(@ui) 
         @append new Controls.pad(@ui, {}, [
-                    new Controls.box(@ui, { width: 'auto', height: 300, scroll: true}, [@container])
+                    new Controls.box(@ui, { width: 'auto', height: 300, scroll: true }, [@container])
                 ])
 
         for dir in @properties._dirs
@@ -90,6 +90,36 @@ class window.Controls.openfiledialog extends Controls.dialog
                 ])
                 $(item.dom).click () =>
                     @event('item-click', item: file)
+                @container.append new Controls.listitem(@ui, {}, [item])
+
+
+class window.Controls.opendirdialog extends Controls.dialog
+    createDom: () ->
+        @properties.buttons = [
+            {
+                text: 'Select'
+                id: 'select'
+            },
+            {
+                text: 'Cancel'
+                id: 'cancel'
+            },
+        ]
+        super()
+
+        @container = new Controls.list(@ui) 
+        @append new Controls.pad(@ui, {}, [
+                    new Controls.box(@ui, { width: 'auto', height: 300, scroll: true }, [@container])
+                ])
+
+        for dir in @properties._dirs
+            do (dir) =>
+                item = new Controls.hc(@ui, {}, [
+                    new Controls.icon(@ui, { icon: 'folder-open' }),
+                    new Controls.label(@ui, { text: dir })
+                ])
+                $(item.dom).click () =>
+                    @event('item-click', item: dir)
                 @container.append new Controls.listitem(@ui, {}, [item])
 
 

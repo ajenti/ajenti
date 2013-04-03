@@ -216,12 +216,17 @@ class SectionsRoot (UIElement):
     def init(self):
         self.categories = {}
         self.startup_crashes = []
+
+        profile('Starting plugins')
+
         for cls in SectionPlugin.get_classes():
             try:
                 UserManager.get().require_permission('section:%s' % cls.__name__)
 
                 try:
+                    profile('Starting %s' % cls.__name__)
                     cat = cls.new(self.ui)
+                    profile_end()
                     self.append(cat)
                 except SecurityError:
                     pass
@@ -230,6 +235,8 @@ class SectionsRoot (UIElement):
                     self.startup_crashes.append(e)
             except SecurityError:
                 pass
+
+        profile_end()
 
         def category_order(x):
             order = 98

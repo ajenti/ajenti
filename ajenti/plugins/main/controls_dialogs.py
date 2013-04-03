@@ -42,6 +42,9 @@ class OpenFileDialog (UIElement):
         else:
             self.reverse_event('select', {'path': path})
 
+    def on_button(self, button=None):
+        self.reverse_event('select', {'path': None})
+
     def refresh(self):
         self._dirs = []
         self._files = []
@@ -52,6 +55,35 @@ class OpenFileDialog (UIElement):
                 self._dirs.append(item)
             else:
                 self._files.append(item)
+
+
+@p('_dirs', default=[], type=list)
+@p('path', default='/', type=unicode)
+@plugin
+class OpenDirDialog (UIElement):
+    typeid = 'opendirdialog'
+
+    def init(self):
+        self.on('item-click', self.on_item_click)
+        self.refresh()
+
+    def on_item_click(self, item):
+        self.path = os.path.abspath(os.path.join(self.path, item))
+        self.refresh()
+
+    def on_button(self, button=None):
+        if button == 'select':
+            self.reverse_event('select', {'path': self.path})
+        else:
+            self.reverse_event('select', {'path': None})
+
+    def refresh(self):
+        self._dirs = []
+        if len(self.path) > 1:
+            self._dirs.append('..')
+        for item in sorted(os.listdir(self.path)):
+            if os.path.isdir(os.path.join(self.path, item)):
+                self._dirs.append(item)
 
 
 @p('_dirs', default=[], type=list)
@@ -71,6 +103,9 @@ class SaveFileDialog (UIElement):
             self.refresh()
         else:
             self.reverse_event('select', {'path': path})
+
+    def on_button(self, button=None):
+        self.reverse_event('select', {'path': None})
 
     def refresh(self):
         self._dirs = []
