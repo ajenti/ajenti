@@ -85,10 +85,10 @@ class ArchHostnameManager(Plugin):
     platform = ['arch']
 
     def gethostname(self):
-        return apis.rcconf.RCConf(self.app).get_param('HOSTNAME')
+        return open('/etc/hostname').read()
 
     def sethostname(self, hn):
-        apis.rcconf.RCConf(self.app).set_param('HOSTNAME', hn, near='HOSTNAME')
+        open('/etc/hostname', 'w').write(hn)
 
 
 class BSDHostnameManager(Plugin):
