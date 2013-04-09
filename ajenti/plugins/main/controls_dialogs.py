@@ -26,11 +26,13 @@ class InputDialog (UIElement):
 @p('_files', default=[], type=list)
 @p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)
+@p('root', default='/', type=unicode)
 @plugin
 class OpenFileDialog (UIElement):
     typeid = 'openfiledialog'
 
     def init(self):
+        self.verify_path()
         self.on('item-click', self.on_item_click)
         self.refresh()
 
@@ -38,9 +40,14 @@ class OpenFileDialog (UIElement):
         path = os.path.abspath(os.path.join(self.path, item))
         if os.path.isdir(path):
             self.path = path
+            self.verify_path()
             self.refresh()
         else:
             self.reverse_event('select', {'path': path})
+
+    def verify_path(self):
+        if not self.path.startswith(self.root):
+            self.path = self.root
 
     def on_button(self, button=None):
         self.reverse_event('select', {'path': None})
@@ -59,17 +66,24 @@ class OpenFileDialog (UIElement):
 
 @p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)
+@p('root', default='/', type=unicode)
 @plugin
 class OpenDirDialog (UIElement):
     typeid = 'opendirdialog'
 
     def init(self):
+        self.verify_path()
         self.on('item-click', self.on_item_click)
         self.refresh()
 
     def on_item_click(self, item):
         self.path = os.path.abspath(os.path.join(self.path, item))
+        self.verify_path()
         self.refresh()
+
+    def verify_path(self):
+        if not self.path.startswith(self.root):
+            self.path = self.root
 
     def on_button(self, button=None):
         if button == 'select':
