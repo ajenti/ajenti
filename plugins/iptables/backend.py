@@ -427,28 +427,23 @@ class DebianConfig(Plugin):
 class ArchConfig(Plugin):
     implements(IConfig)
     platform = ['arch']
-    path = '/etc/network.d/hooks/iptables'
+    path = '/etc/systemd/system/multi-user.target.wants/iptables.service'
 
     @property
     def apply_shell(self):
         return '#!/bin/sh\ncat \'%s\' | iptables-restore' % Config(self.app).rules_file
 
     def has_autostart(self):
-        return self.apply_shell in open('/etc/rc.local').read().splitlines()
+        return os.path.exists(self.path)
 
     def set_autostart(self, active):
-        ll = open('/etc/rc.local').read().splitlines()
-        f = open('/etc/rc.local', 'w')
-        saved = False
-        for l in ll:
-            if l == 'exit 0' and active and not saved:
-                f.write(self.apply_shell + '\n')
-                saved = True
-            if l != self.apply_shell:
-                f.write(l + '\n')
-        if active and not saved:
-            f.write(self.apply_shell + '\n')
-        f.close()
+        if active:
+            os.symlink('/usr/lib/systemd/system/iptables.service', self.path)
+        else:
+            try:
+                os.unlink(self.path)
+            except:
+                pass
 
 
 class GentooConfig(Plugin):
