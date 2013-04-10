@@ -73,7 +73,7 @@ class window.Controls.progressbar extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         @dom = $("""
-            <div class="control progressbar" style="width: #{w}">
+            <div class="control progressbar #{@properties.style}" style="width: #{w}">
                 <div class="fill">
                     <div class="tip"></div>
                 </div>

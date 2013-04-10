@@ -5,7 +5,7 @@ from ajenti.plugins import *
 from ajenti.ui import *
 
 
-@p('buttons', default=[{'text':'OK', 'id':'ok'}], type=eval)
+@p('buttons', default=[{'text': 'OK', 'id': 'ok'}], type=eval)
 @plugin
 class Dialog (UIElement):
     typeid = 'dialog'
