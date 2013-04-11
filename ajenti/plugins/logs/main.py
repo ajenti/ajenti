@@ -2,7 +2,7 @@ import gevent
 
 from ajenti.api import *
 from ajenti.api.http import SocketPlugin
-from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import UIElement, p, on
 
 
@@ -26,12 +26,14 @@ class Logs (SectionPlugin):
         self.opendialog.visible = False
 
     @on('opendialog', 'select')
-    def on_file_select(self, path):
+    def on_file_select(self, path=None):
         self.opendialog.visible = False
         self.select(path)
 
+    @intent('view-log')
     def select(self, path):
         self.log.path = path
+        self.activate()
 
 
 @p('path', type=unicode)
