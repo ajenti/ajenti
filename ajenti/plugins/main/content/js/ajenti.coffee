@@ -10,6 +10,10 @@ class window.Stream
         @socket.on 'connect', () ->
             $('#connection-error').hide()
 
+        @socket.on 'auth-error', () ->
+            console.log 'Authentication lost!'
+            location.reload()
+            
         @socket.on 'disconnect', () ->
             $('#connection-error').show()
 

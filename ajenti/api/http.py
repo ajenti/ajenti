@@ -85,6 +85,7 @@ class SocketPlugin (BasePlugin, BaseNamespace, RoomsMixin, BroadcastMixin):
     def recv_connect(self):
         """ Internal """
         if self.request.session.identity is None:
+            self.emit('auth-error', '')
             return
 
         self.context = self.request.session.appcontext
