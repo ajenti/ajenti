@@ -1,6 +1,6 @@
 MODULES = ['main', 'backend']
 
-DEPS = [(['freebsd', 'centos', 'arch', 'gentoo', 'mandriva'],
+DEPS = [(['freebsd', 'centos', 'gentoo', 'mandriva'],
          [
            ('plugin', 'lib_rcconf'),
          ]
