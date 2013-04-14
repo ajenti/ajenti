@@ -1,6 +1,7 @@
 import copy
 
 from ajenti.api import *
+from ajenti.profiler import *
 from ajenti.ui.element import p, UIElement
 from ajenti.util import *
 

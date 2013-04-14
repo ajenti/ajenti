@@ -1,9 +1,9 @@
 import time
 
-_profiles = []
+_profiles = {}
 _profiles_running = {}
 _profiles_stack = []
-    
+
 
 def profile(name):
     """
@@ -20,7 +20,9 @@ def profile_end(name=None):
     """
     last_name = _profiles_stack.pop()
     name = name or last_name
-    _profiles.append((name, time.time() - _profiles_running[name]))
+    if not name in _profiles:
+        _profiles[name] = 0.0
+    _profiles[name] += time.time() - _profiles_running[name]
 
 
 def get_profiles():
@@ -28,9 +30,8 @@ def get_profiles():
     Returns all accumulated profiling values
     """
     global _profiles
-    r = []
-    r.extend(_profiles)
-    _profiles = []
+    r = _profiles
+    _profiles = {}
     return r
 
 

@@ -1,6 +1,8 @@
 import copy
+import cPickle
 
 from ajenti.api import *
+from ajenti.profiler import *
 from ajenti.util import *
 
 
@@ -77,7 +79,7 @@ class UIProperty (object):
         self.public = public
 
     def clone(self):
-        return copy.deepcopy(self)
+        return copy.copy(self)
 
     def get(self):
         return self.value
@@ -145,19 +147,21 @@ class UIElement (object):
         self.events = {}
         self.event_args = {}
 
-    def getstate(self):
-        return (self.typeid, self.id, self.properties, self.events, self.event_args)
-
-    def setstate(self, s):
-        self.typeid, self.id, self.properties, self.events, self.event_args = s
-
     def clone(self):
         """
         :returns: a deep copy of the element and its children. Property values are shallow copies.
         """
         o = copy.copy(self)
         o.uid = UIElement.__generate_id()
-        o.setstate(copy.deepcopy(self.getstate()))
+        profile('Element clone')
+        profile_end()
+
+        o.events = self.events.copy()
+        o.event_args = self.event_args.copy()
+        o.properties = {}
+        for p in self.properties:
+            o.properties[p] = self.properties[p].clone()
+
         o.children = []
         for c in self.children:
             o.append(c.clone())
@@ -227,7 +231,7 @@ class UIElement (object):
             'uid': self.uid,
             'typeid': self.typeid,
             'events': self.events.keys(),
-            'children': [c.render() for c in self.children],
+            'children': [c.render() for c in self.children if self.visible],
         }
         for prop in self.properties.values():
             if prop.public:

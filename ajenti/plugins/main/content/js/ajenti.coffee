@@ -18,17 +18,21 @@ class window.Stream
             $('#connection-error').show()
 
         @socket.on 'ui', (ui) ->
+            console.group 'Received update'
+            console.log 'Payload size', ui.length
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
             ui = JSON.parse(ui)
-            console.group 'Received update', ui
+            console.log 'JSON data:', ui
 
-            t0 = new Date().getTime()
             UI.clear()
-            UI.replace(UI.inflate(ui))
-            t1 = new Date().getTime()
+            profiler.start('UI inflating')
+            ui = UI.inflate(ui)
+            profiler.stop()
+            profiler.start('UI replacement')
+            UI.replace(ui)
+            profiler.stop()
             
             console.log 'Total elements:', UI._total_elements
-            console.log 'UI updated in', t1-t0, 'ms'
             console.groupEnd()
             Loading.hide()
 
@@ -59,8 +63,8 @@ class window.Stream
         @socket.on 'debug', (data) ->
             data = JSON.parse(data)
             console.group 'Profiling'
-            for d in data.profiles
-                console.log d[0], d[1]
+            for d of data.profiles
+                console.log d, data.profiles[d]
             console.groupEnd()
 
         $('#connection-error').hide()
@@ -201,7 +205,11 @@ class window.Control
         @childContainer = null
         @dom = null
         @children = []
+
+        profiler.start('Generating DOM')
         @createDom()
+        profiler.stop()
+
         if children
             for child in children
                 do (child) =>
