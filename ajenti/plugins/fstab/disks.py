@@ -10,9 +10,10 @@ def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
     result = []
 
     def add_dir(path, namefx=lambda s, r: s, valuefx=lambda s, r: r):
-        for s in os.listdir(path):
-            rp = os.path.realpath(os.path.join(path, s))
-            result.append((namefx(s, rp), valuefx(s, rp)))
+        if os.path.exists(path):
+            for s in os.listdir(path):
+                rp = os.path.realpath(os.path.join(path, s))
+                result.append((namefx(s, rp), valuefx(s, rp)))
 
     for s in os.listdir('/dev'):
         if re.match('sd.$|hd.$|scd.$|fd.$|ad.+$', s):
