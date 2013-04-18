@@ -4,7 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='ajenti.org integration',
-    icon='globe',
+    icon='group',
     dependencies=[
         PluginDependency('main'),
     ],

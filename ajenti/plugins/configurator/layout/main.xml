@@ -6,88 +6,114 @@
 
     <body>
         <pad>
-            <vc id="ajenti-config">
-                <formgroup text="HTTP Server" bind="http_binding">
-                    <vc>
-                        <formline text="Host">
-                            <textbox bind="host" />
-                        </formline>
-                        <formline text="Port">
-                            <textbox bind="port" type="integer" />
-                        </formline>
-                    </vc>
-                </formgroup>
-                <formgroup text="SSL" bind="ssl">
-                    <vc>
-                        <packages:installer package="stunnel" text="SSl requires stunnel package" />
+            <tabs>
+                <tab title="General">
+                    <vc id="ajenti-config">
+                        <formgroup text="HTTP Server" bind="http_binding">
+                            <vc>
+                                <formline text="Host">
+                                    <textbox bind="host" />
+                                </formline>
+                                <formline text="Port">
+                                    <textbox bind="port" type="integer" />
+                                </formline>
+                            </vc>
+                        </formgroup>
+                        <formgroup text="SSL" bind="ssl">
+                            <vc>
+                                <packages:installer package="stunnel" text="SSl requires stunnel package" />
 
-                        <formline text="Use SSL">
-                            <checkbox bind="enable" />
-                        </formline>
-                        <formline text="Path to certificate">
-                            <textbox bind="certificate_path" />
-                        </formline>
-                    </vc>
-                </formgroup>
-                <formgroup text="SSL Self-Signed Certificate Generator">
-                    <vc>
-                        <formline text="Hostname">
-                            <textbox id="fake-ssl-host" />
-                        </formline>
-                        <formline text="Place certificate in">
-                            <textbox id="fake-ssl-path" value="/etc/ajenti" />
-                        </formline>
-                        <formline>
-                            <button id="fake-ssl" text="Generate" icon="cogs" />
-                        </formline>
-                    </vc>
-                </formgroup>
-                <formgroup text="Users">
-                    <vc>
-                        <formline text="Authentication">
-                            <checkbox text="Enable" bind="authentication" />
-                        </formline>
-                        <formline text="Accounts">
-                            <bind:collection 
-                                    id="users"
-                                    bind="users" 
-                                    values="lambda c: c.values()"
-                                    add_item="lambda i,c: c.update({i.name: i})"
-                                    delete_item="lambda i,c: c.pop(i.name) if i.name != 'root' else None">
-                                <vc>
-                                    <dt bind="__items" width="400" />
-                                    <bind:template>
-                                        <collapserow>
-                                            <box>
-                                                <right>
-                                                    <button bind="__delete" icon="remove" text="Delete" style="icon" warning="Confirm deletion" />
-                                                </right>
-                                                <hc>
-                                                    <icon icon="user" />
-                                                    <box width="100">
-                                                        <editable bind="name" />
+                                <formline text="Use SSL">
+                                    <checkbox bind="enable" />
+                                </formline>
+                                <formline text="Path to certificate">
+                                    <textbox bind="certificate_path" />
+                                </formline>
+                            </vc>
+                        </formgroup>
+                        <formgroup text="SSL Self-Signed Certificate Generator">
+                            <vc>
+                                <formline text="Hostname">
+                                    <textbox id="fake-ssl-host" />
+                                </formline>
+                                <formline text="Place certificate in">
+                                    <textbox id="fake-ssl-path" value="/etc/ajenti" />
+                                </formline>
+                                <formline>
+                                    <button id="fake-ssl" text="Generate" icon="cogs" />
+                                </formline>
+                            </vc>
+                        </formgroup>
+                        <formgroup text="Users">
+                            <vc>
+                                <formline text="Authentication">
+                                    <checkbox text="Enable" bind="authentication" />
+                                </formline>
+                                <formline text="Accounts">
+                                    <bind:collection 
+                                            id="users"
+                                            bind="users" 
+                                            values="lambda c: c.values()"
+                                            add_item="lambda i,c: c.update({i.name: i})"
+                                            delete_item="lambda i,c: c.pop(i.name) if i.name != 'root' else None">
+                                        <vc>
+                                            <dt bind="__items" width="400" />
+                                            <bind:template>
+                                                <collapserow>
+                                                    <box>
+                                                        <right>
+                                                            <button bind="__delete" icon="remove" text="Delete" style="icon" warning="Confirm deletion" />
+                                                        </right>
+                                                        <hc>
+                                                            <icon icon="user" />
+                                                            <box width="100">
+                                                                <editable bind="name" />
+                                                            </box>
+                                                            <editable bind="password" placeholder="Change password" icon="lock" />
+                                                        </hc>
                                                     </box>
-                                                    <editable bind="password" placeholder="Change password" icon="lock" />
-                                                </hc>
-                                            </box>
-                                            <tabs id="permissions" client="True" />
-                                        </collapserow>
-                                    </bind:template>
-                                    <button bind="__add" icon="plus" text="Create" />
+                                                    <tabs id="permissions" client="True" />
+                                                </collapserow>
+                                            </bind:template>
+                                            <button bind="__add" icon="plus" text="Create" />
+                                        </vc>
+                                    </bind:collection>
+                                </formline>
+                            </vc>
+                        </formgroup>
+                        <formgroup text="Other">
+                            <formline text="Send feedback">
+                                <vc>
+                                    <checkbox bind="enable_feedback" text="Enable" />
+                                    <label style="small" text="Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org" />
                                 </vc>
-                            </bind:collection>
-                        </formline>
+                            </formline>
+                        </formgroup>
                     </vc>
-                </formgroup>
-                <formgroup text="Other">
-                    <formline text="Send feedback">
-                        <vc>
-                            <checkbox bind="enable_feedback" text="Enable" />
-                            <label style="small" text="Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org" />
-                        </vc>
-                    </formline>
-                </formgroup>
-            </vc>
+                </tab>
+
+                <tab title="Plugins">
+                    <bind:collection id="root-classconfigs" filter="lambda x: x.classconfig_editor">
+                        <dt bind="__items" />
+
+                        <bind:template>
+                            <collapserow>
+                                <hc>
+                                    <label style="bold" bind="classconfig_name" />
+                                </hc>
+                                <pad>
+                                    <vc>
+                                        <vc id="container" />
+                                        <formline>
+                                            <button id="save" icon="ok" text="Save" />
+                                        </formline>
+                                    </vc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection> 
+                </tab>
+            </tabs>
         </pad>
     </body>
 </vc>

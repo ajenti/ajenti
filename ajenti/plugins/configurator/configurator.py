@@ -5,7 +5,7 @@ import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
-from ajenti.ui.binder import Binder
+from ajenti.ui.binder import Binder, CollectionAutoBinding, DictAutoBinding
 from ajenti.users import UserManager, PermissionProvider, restrict
 from reconfigure.items.ajenti import UserData
 
@@ -21,6 +21,27 @@ class Configurator (SectionPlugin):
         self.append(self.ui.inflate('configurator:main'))
 
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
+        self.root_classconfig_binding = CollectionAutoBinding(
+            BasePlugin.get_instances(),
+            None,
+            self.find('root-classconfigs')
+        )
+
+        def post_classconfig_bind(object, collection, item, ui):
+            editor = item.classconfig_editor.new(self.ui)
+            ui.find('container').append(editor)
+            binder = DictAutoBinding(item, 'classconfig', editor.find('bind'))
+            binder.populate()
+
+            def save():
+                binder.update()
+                item.save_classconfig()
+                self.context.notify('info', 'Saved')
+
+            ui.find('save').on('click', save)
+
+        self.find('root-classconfigs').post_item_bind = post_classconfig_bind
+
         self.find('users').new_item = lambda c: UserData()
 
         def post_user_bind(object, collection, item, ui):
@@ -49,6 +70,7 @@ class Configurator (SectionPlugin):
 
     def refresh(self):
         self.binder.autodiscover().populate()
+        self.root_classconfig_binding.populate()
 
     @on('save-button', 'click')
     @restrict('configurator:configure')
