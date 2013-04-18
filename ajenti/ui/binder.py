@@ -367,7 +367,11 @@ class Binder (object):
         """
         Recursively scans UI tree for ``bind`` properties, and creates bindings.
         """
-        self.bindings = []
+
+        # Initial call
+        if not object and not ui:
+            self.bindings = []
+
         ui = ui or self.ui
         object = object or self.object
         for k in dir(object) + ['.']:

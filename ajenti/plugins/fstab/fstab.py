@@ -17,8 +17,8 @@ class Filesystems (SectionPlugin):
         self.category = 'System'
         self.append(self.ui.inflate('fstab:main'))
 
-        self.find('type').labels = ['Auto', 'EXT2', 'EXT3', 'EXT4', 'NTFS', 'FAT', 'ZFS', 'ReiserFS', 'None', 'Loop']
-        self.find('type').values = ['auto', 'ext2', 'ext3', 'ext4', 'ntfs', 'vfat', 'zfs', 'reiser', 'none', 'loop']
+        self.find('type').labels = ['Auto', 'EXT2', 'EXT3', 'EXT4', 'NTFS', 'FAT', 'ZFS', 'ReiserFS', 'Samba', 'None', 'Loop']
+        self.find('type').values = ['auto', 'ext2', 'ext3', 'ext4', 'ntfs', 'vfat', 'zfs', 'reiser',  'smb',   'none', 'loop']
 
         self.config = FSTabConfig(path='/etc/fstab')
         self.binder = Binder(None, self.find('fstab-config'))
