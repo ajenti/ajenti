@@ -176,6 +176,7 @@ def extract_context():
             return instance.context
 
 
+@interface
 class BasePlugin (object):
     """
     A base plugin class that provides :class:`AppContext` and ``classconfig`` functionality.
@@ -183,6 +184,12 @@ class BasePlugin (object):
 
     default_classconfig = None
     """ Override this in your class with a default config object (must be JSON-serializable) """
+
+    classconfig_name = None
+    """ Override this in your class if you want this plugin to be configurable through Configure > Plugins """
+
+    classconfig_editor = None
+    """ Override this in your class with an ajenti.plugins.configurator.api.ClassConfigEditor derivative """
 
     context = None
     """ Automatically receives a reference to the current :class:`AppContext` """
@@ -200,7 +207,6 @@ class BasePlugin (object):
             config.name = self.classname
             config.data = copy.deepcopy(self.default_classconfig)
             if self.default_classconfig:
-
                 self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
 
     def __get_config_store(self):

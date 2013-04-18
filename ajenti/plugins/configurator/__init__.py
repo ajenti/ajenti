@@ -12,4 +12,5 @@ info = PluginInfo(
 
 
 def init():
+    import api
     import configurator

@@ -1,0 +1,7 @@
+<bind:dict xmlns:bind="bind" id="bind">
+    <vc>
+        <formline text="Machine key">
+            <textbox bind="key" />
+        </formline>
+    </vc>
+</bind:dict>

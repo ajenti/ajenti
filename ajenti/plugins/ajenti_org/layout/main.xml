@@ -9,14 +9,20 @@
                     <textbox id="machine-key" />
                     <button icon="ok" text="Authorize" id="save-key" />
                 </hc>
+
             </vc>
         </pad>
 
         <pad id="pane-configured" visible="False">
-            <hc>
-                <label style="bold" text="Last report:" />
-                <label id="last-report" />
-            </hc>
+            <vc>
+                <hc>
+                    <label style="bold" text="Last successful report:" />
+                    <label id="last-report" />
+                    <button icon="remove" text="Disconnect" id="disconnect" />
+                </hc>
+
+                <label id="last-error" />
+            </vc>
         </pad>
     </body>
 </vc>
