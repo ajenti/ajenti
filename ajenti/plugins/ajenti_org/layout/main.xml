@@ -1,0 +1,22 @@
+<vc>
+    <body>
+        <pad id="pane-not-configured" visible="False">
+            <vc>
+                <label style="bold" text="Ajenti.org integration is not yet configured." />
+
+                <hc>
+                    <label text="Please enter machine key:" />
+                    <textbox id="machine-key" />
+                    <button icon="ok" text="Authorize" id="save-key" />
+                </hc>
+            </vc>
+        </pad>
+
+        <pad id="pane-configured" visible="False">
+            <hc>
+                <label style="bold" text="Last report:" />
+                <label id="last-report" />
+            </hc>
+        </pad>
+    </body>
+</vc>

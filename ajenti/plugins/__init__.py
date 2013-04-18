@@ -111,31 +111,12 @@ class BinaryDependency (Dependency):
         return self.binary_name
 
 
-@public
-class PluginManager:
-    """
-    Handles plugin loading and unloading
-    """
+class PluginContext (object):
+    def __init__(self):
+        self.__instances = {}
 
-    extra_location = '/var/lib/ajenti/plugins'
-
-    __classes = {}
-    __plugins = {}
-    __order = []
-    __instances = {}
-
-    def register_interface(self, iface):
-        setattr(iface, '__ajenti_interface', True)
-
-    def register_implementation(self, impl):
-        impl._implements = []
-        for cls in impl.mro():
-            if hasattr(cls, '__ajenti_interface'):
-                self.__classes.setdefault(cls, []).append(impl)
-                impl._implements.append(cls)
-
-    def get_implementations(self, iface):
-        return self.__classes.setdefault(iface, [])
+    def __str__(self):
+        return 'Root context'
 
     def get_instances(self, cls):
         return self.__instances.setdefault(cls, [])
@@ -159,6 +140,33 @@ class PluginManager:
             self.__instances.setdefault(iface, []).append(instance)
 
         return instance
+
+
+@public
+class PluginManager:
+    """
+    Handles plugin loading and unloading
+    """
+
+    extra_location = '/var/lib/ajenti/plugins'
+    context = PluginContext()
+
+    __classes = {}
+    __plugins = {}
+    __order = []
+
+    def register_interface(self, iface):
+        setattr(iface, '__ajenti_interface', True)
+
+    def register_implementation(self, impl):
+        impl._implements = []
+        for cls in impl.mro():
+            if hasattr(cls, '__ajenti_interface'):
+                self.__classes.setdefault(cls, []).append(impl)
+                impl._implements.append(cls)
+
+    def get_implementations(self, iface):
+        return self.__classes.setdefault(iface, [])
 
     # Plugin loader
     def get_all(self):

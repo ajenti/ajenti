@@ -3,7 +3,7 @@ import inspect
 import copy
 
 import ajenti
-from ajenti.plugins import manager
+from ajenti.plugins import manager, PluginContext
 
 from reconfigure.items.ajenti import ConfigData
 
@@ -76,12 +76,15 @@ def plugin(cls):
     # Inject methods
 
     def get(cls):
-        return manager.get_instance(cls)
+        return manager.context.get_instance(cls)
     cls.get = get.__get__(cls)
 
     def new(cls, *args, **kwargs):
-        return manager.instantiate(cls, *args, **kwargs)
+        return manager.context.instantiate(cls, *args, **kwargs)
     cls.new = new.__get__(cls)
+
+    if hasattr(cls, 'classinit'):
+        cls.classinit()
 
     return cls
 
@@ -102,11 +105,11 @@ def interface(cls):
 
     Following class methods are injected:
 
-    .. function:: .get()
+    .. function:: .get(context=PluginManager.context)
 
         :returns: any existing instance or creates a new one
 
-    .. function:: .get_all()
+    .. function:: .get_all(context=PluginManager.context)
 
         :returns: list of instances for each implementation
 
@@ -118,7 +121,7 @@ def interface(cls):
 
         :returns: list of implementation classes
 
-    .. function:: .get_instances()
+    .. function:: .get_instances(context=PluginManager.context)
 
         :returns: list of all existing instances
 
@@ -126,15 +129,15 @@ def interface(cls):
 
     # Inject methods
 
-    def get(cls):
+    def get(cls, context=manager.context):
         impls = manager.get_implementations(cls)
         if len(impls) == 0:
             raise Exception('Implementations for %s not found' % cls.__name__)
-        return manager.get_instance(impls[0])
+        return context.get_instance(impls[0])
     cls.get = get.__get__(cls)
 
-    def get_all(cls):
-        return [manager.get_instance(x) for x in manager.get_implementations(cls)]
+    def get_all(cls, context=manager.context):
+        return [context.get_instance(x) for x in manager.get_implementations(cls)]
     cls.get_all = get_all.__get__(cls)
 
     def get_class(cls):
@@ -145,8 +148,8 @@ def interface(cls):
         return manager.get_implementations(cls)
     cls.get_classes = get_classes.__get__(cls)
 
-    def get_instances(cls):
-        return manager.get_instances(cls)
+    def get_instances(cls, context=manager.context):
+        return context.get_instances(cls)
     cls.get_instances = get_instances.__get__(cls)
 
     cls._interface = True
@@ -161,12 +164,16 @@ def extract_context():
     """
     for frame in inspect.stack():
         # Traverse the call stack
-        self_argument = frame[0].f_code.co_varnames[0]  # This *should* be 'self'
+        arguments = frame[0].f_code.co_varnames
+        if not arguments:
+            continue
+        self_argument = arguments[0]  # This *should* be 'self'
+        if not self_argument in frame[0].f_locals:
+            continue
         instance = frame[0].f_locals[self_argument]  # = first passed *arg
-        if isinstance(instance, BasePlugin):
-            if instance.context is not None:
-                # Grab the context if any
-                return instance.context
+        if hasattr(instance, 'context') and isinstance(instance.context, PluginContext):
+            # Grab the context if any
+            return instance.context
 
 
 class BasePlugin (object):
@@ -193,7 +200,13 @@ class BasePlugin (object):
             config.name = self.classname
             config.data = copy.deepcopy(self.default_classconfig)
             if self.default_classconfig:
-                self.classconfig = self.context.user.configs.setdefault(self.classname, config).data
+
+                self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
+
+    def __get_config_store(self):
+        if isinstance(self.context, AppContext):
+            return self.context.user.configs
+        return ajenti.config.tree.configs
 
     def open_content(self, path, mode='r'):
         """
@@ -216,11 +229,11 @@ class BasePlugin (object):
         """
         Saves the content of ``classconfig`` attribute into the user's configuration section.
         """
-        self.context.user.configs[self.classname].data = self.classconfig
+        self.__get_config_store()[self.classname].data = self.classconfig
         ajenti.config.save()
 
 
-class AppContext (object):
+class AppContext (PluginContext):
     """
     A session-specific context provided to everyone who inherits :class:`BasePlugin`.
 
@@ -244,8 +257,12 @@ class AppContext (object):
     """
 
     def __init__(self, httpcontext):
+        PluginContext.__init__(self)
         self.session = httpcontext.session
         self.user = ajenti.config.tree.users[httpcontext.session.identity]
+
+    def __str__(self):
+        return 'Context for %s' % self.user.name
 
 
 __all__ = [

@@ -22,5 +22,8 @@
         "certificate_path": "/home/eugeny/ajenti.pem"
     }, 
     "enable_feedback": true, 
-    "installation_id": 2
+    "configs": {
+        "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": \"123\"}"
+    }, 
+    "installation_id": 1
 }
