@@ -76,7 +76,7 @@
                         <pad>
                             <dt bind="__items">
                                 <dtr>
-                                    <dth><label text="Name" /></dth>
+                                    <dth text="Name" />
                                     <dth width="1%" />
                                 </dtr>
                             </dt>
