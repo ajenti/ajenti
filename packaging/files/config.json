@@ -18,5 +18,6 @@
         "certificate_path": ""
     }, 
     "enable_feedback": true, 
+    "configs": {},
     "installation_id": null
 }
