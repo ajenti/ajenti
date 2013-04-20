@@ -6,6 +6,7 @@ import grp
 
 from ajenti.api import *
 from ajenti.api.http import *
+from ajenti.plugins.configurator.api import ClassConfigEditor
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
@@ -13,15 +14,28 @@ from ajenti.util import str_fsize
 
 
 @plugin
-class FileManager (SectionPlugin):
+class FileManagerConfigEditor (ClassConfigEditor):
+    title = 'File Manager'
+    icon = 'folder-open'
+
     def init(self):
-        self.title = 'File manager'
+        self.append(self.ui.inflate('fm:config'))
+
+
+@plugin
+class FileManager (SectionPlugin):
+    default_classconfig = {'root': '/'}
+    classconfig_editor = FileManagerConfigEditor
+    classconfig_root = True
+
+    def init(self):
+        self.title = 'File Manager'
         self.category = 'Tools'
         self.icon = 'folder-open'
 
         self.append(self.ui.inflate('fm:main'))
         self.controller = Controller()
-        self.controller.new_tab()
+        self.controller.new_tab(self.classconfig['root'])
 
         def post_item_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_item_click, object, item)
@@ -48,7 +62,7 @@ class FileManager (SectionPlugin):
     @on('tabs', 'switch')
     def on_tab_switch(self):
         if self.tabs.active == (len(self.controller.tabs) - 1):
-            self.controller.new_tab()
+            self.controller.new_tab(self.classconfig['root'])
         self.refresh()
 
     @on('close', 'click')
@@ -132,6 +146,8 @@ class FileManager (SectionPlugin):
         path = os.path.join(tab.path, item.name)
         if not os.path.isdir(path):
             self.edit(path)
+        if not path.startswith(self.classconfig['root']):
+            return
         tab.navigate(path)
         self.refresh()
 
@@ -150,6 +166,8 @@ class FileManager (SectionPlugin):
             self.refresh()
 
     def on_bc_click(self, tab, item):
+        if not item.path.startswith(self.classconfig['root']):
+            return
         tab.navigate(item.path)
         self.refresh()
 
@@ -173,10 +191,10 @@ class Controller (object):
     def __init__(self):
         self.tabs = []
 
-    def new_tab(self):
+    def new_tab(self, path='/'):
         if len(self.tabs) > 1:
             self.tabs.pop(-1)
-        self.tabs.append(Tab('/'))
+        self.tabs.append(Tab(path))
         self.tabs.append(Tab(None))
 
 

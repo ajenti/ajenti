@@ -92,14 +92,15 @@
                     </vc>
                 </tab>
 
-                <tab title="Plugins">
-                    <bind:collection id="root-classconfigs" filter="lambda x: x.classconfig_editor">
+                <tab title="Plugins" id="classconfigs">
+                    <bind:collection bind="classes" id="classes">
                         <dt bind="__items" />
 
                         <bind:template>
                             <collapserow>
-                                <hc>
-                                    <label style="bold" bind="classconfig_name" />
+                                <hc bind="classconfig_editor">
+                                    <icon bind="icon" />
+                                    <label style="bold" bind="title" />
                                 </hc>
                                 <pad>
                                     <vc>

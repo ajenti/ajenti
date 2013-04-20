@@ -11,6 +11,22 @@ from reconfigure.items.ajenti import UserData
 
 
 @plugin
+class ClassConfigManager (BasePlugin):
+    def init(self):
+        self.classes = []
+
+    def reload(self):
+        if self.context.user.name == 'root':
+            self.classes = BasePlugin.get_instances(self.context)
+            self.classes += BasePlugin.get_instances(self.context.parent)
+        else:
+            self.classes = filter(lambda x: not x.classconfig_root, BasePlugin.get_instances())
+        self.classes = filter(lambda x: x.classconfig_editor, self.classes)
+        self.classes = list(set(self.classes))
+        print self.classes
+
+
+@plugin
 class Configurator (SectionPlugin):
     def init(self):
         self.title = 'Configure'
@@ -21,11 +37,9 @@ class Configurator (SectionPlugin):
         self.append(self.ui.inflate('configurator:main'))
 
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
-        self.root_classconfig_binding = CollectionAutoBinding(
-            BasePlugin.get_instances(),
-            None,
-            self.find('root-classconfigs')
-        )
+
+        self.ccmgr = ClassConfigManager.get()
+        self.classconfig_binding = Binder(self.ccmgr, self.find('classconfigs'))
 
         def post_classconfig_bind(object, collection, item, ui):
             editor = item.classconfig_editor.new(self.ui)
@@ -40,7 +54,7 @@ class Configurator (SectionPlugin):
 
             ui.find('save').on('click', save)
 
-        self.find('root-classconfigs').post_item_bind = post_classconfig_bind
+        self.find('classconfigs').find('classes').post_item_bind = post_classconfig_bind
 
         self.find('users').new_item = lambda c: UserData()
 
@@ -68,9 +82,13 @@ class Configurator (SectionPlugin):
 
         self.refresh()
 
+    def on_page_load(self):
+        self.refresh()
+
     def refresh(self):
         self.binder.autodiscover().populate()
-        self.root_classconfig_binding.populate()
+        self.ccmgr.reload()
+        self.classconfig_binding.reset().autodiscover().populate()
 
     @on('save-button', 'click')
     @restrict('configurator:configure')

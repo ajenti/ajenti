@@ -6,6 +6,7 @@ import gevent
 
 import ajenti
 from ajenti.api import *
+from ajenti.plugins import manager
 from ajenti.http import HttpHandler
 from ajenti.users import UserManager
 
@@ -116,12 +117,12 @@ class AuthenticationMiddleware (HttpHandler):
                 context.session.identity = None
             else:
                 context.session.identity = 'root'
-                context.session.appcontext = AppContext(context)
+                context.session.appcontext = AppContext(manager.context, context)
 
     def try_login(self, context, username, password):
         if UserManager.get().check_password(username, password):
             context.session.identity = username
-            context.session.appcontext = AppContext(context)
+            context.session.appcontext = AppContext(manager.context, context)
             return True
         return False
 

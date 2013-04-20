@@ -17,15 +17,18 @@ ENDPOINT = 'http://ajenti.local.org:8080/docking-bay/receive/%i'
 
 @plugin
 class AjentiOrgReporterConfigEditor (ClassConfigEditor):
+    title = 'ajenti.org reporter'
+    icon = 'globe'
+
     def init(self):
         self.append(self.ui.inflate('ajenti_org:config'))
 
 
 @plugin
 class AjentiOrgReporter (BasePlugin):
-    classconfig_editor = AjentiOrgReporterConfigEditor
     default_classconfig = {'key': None}
-    classconfig_name = 'ajenti.org reporter'
+    classconfig_editor = AjentiOrgReporterConfigEditor
+    classconfig_root = True
 
     def init(self):
         self.last_report = None

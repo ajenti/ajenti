@@ -49,11 +49,11 @@ def plugin(cls):
 
     Following class methods are injected.
 
-    .. function:: .get()
+    .. function:: .get(context=<current context>)
 
         :returns: any existing instance or creates a new one
 
-    .. function:: .new(*args, **kwargs)
+    .. function:: .new(*args, context=<current context>, **kwargs)
 
         :returns: a new instance. Use this method instead of constructor, since it invokes the proper initialization chain and registers the instance
 
@@ -75,12 +75,17 @@ def plugin(cls):
 
     # Inject methods
 
-    def get(cls):
-        return manager.context.get_instance(cls)
+    def get(cls, context=None):
+        if not context:
+            context = extract_context()
+        return context.get_instance(cls)
     cls.get = get.__get__(cls)
 
     def new(cls, *args, **kwargs):
-        return manager.context.instantiate(cls, *args, **kwargs)
+        context = kwargs.get('context', None)
+        if not context:
+            context = extract_context()
+        return context.instantiate(cls, *args, **kwargs)
     cls.new = new.__get__(cls)
 
     if hasattr(cls, 'classinit'):
@@ -105,11 +110,11 @@ def interface(cls):
 
     Following class methods are injected:
 
-    .. function:: .get(context=PluginManager.context)
+    .. function:: .get(context=<current context>)
 
         :returns: any existing instance or creates a new one
 
-    .. function:: .get_all(context=PluginManager.context)
+    .. function:: .get_all(context=<current context>)
 
         :returns: list of instances for each implementation
 
@@ -121,7 +126,7 @@ def interface(cls):
 
         :returns: list of implementation classes
 
-    .. function:: .get_instances(context=PluginManager.context)
+    .. function:: .get_instances(context=<current context>)
 
         :returns: list of all existing instances
 
@@ -129,14 +134,18 @@ def interface(cls):
 
     # Inject methods
 
-    def get(cls, context=manager.context):
+    def get(cls, context=None):
+        if not context:
+            context = extract_context()
         impls = manager.get_implementations(cls)
         if len(impls) == 0:
             raise Exception('Implementations for %s not found' % cls.__name__)
         return context.get_instance(impls[0])
     cls.get = get.__get__(cls)
 
-    def get_all(cls, context=manager.context):
+    def get_all(cls, context=None):
+        if not context:
+            context = extract_context()
         return [context.get_instance(x) for x in manager.get_implementations(cls)]
     cls.get_all = get_all.__get__(cls)
 
@@ -148,7 +157,9 @@ def interface(cls):
         return manager.get_implementations(cls)
     cls.get_classes = get_classes.__get__(cls)
 
-    def get_instances(cls, context=manager.context):
+    def get_instances(cls, context=None):
+        if not context:
+            context = extract_context()
         return context.get_instances(cls)
     cls.get_instances = get_instances.__get__(cls)
 
@@ -188,6 +199,9 @@ class BasePlugin (object):
     classconfig_name = None
     """ Override this in your class if you want this plugin to be configurable through Configure > Plugins """
 
+    classconfig_root = False
+    """ When True, classconfig will be stored in root's config section disregarding current user """
+
     classconfig_editor = None
     """ Override this in your class with an ajenti.plugins.configurator.api.ClassConfigEditor derivative """
 
@@ -210,9 +224,9 @@ class BasePlugin (object):
                 self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
 
     def __get_config_store(self):
-        if isinstance(self.context, AppContext):
+        if not self.classconfig_root:
             return self.context.user.configs
-        return ajenti.config.tree.configs
+        return ajenti.config.tree.users['root'].configs
 
     def open_content(self, path, mode='r'):
         """
@@ -262,8 +276,9 @@ class AppContext (PluginContext):
         :param id: Intent ID to be launched
     """
 
-    def __init__(self, httpcontext):
+    def __init__(self, parent, httpcontext):
         PluginContext.__init__(self)
+        self.parent = parent
         self.session = httpcontext.session
         self.user = ajenti.config.tree.users[httpcontext.session.identity]
 

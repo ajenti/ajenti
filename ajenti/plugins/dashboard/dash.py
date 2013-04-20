@@ -33,7 +33,8 @@ class Dash (SectionPlugin):
         self.find('add-widgets').post_item_bind = post_widget_bind
 
         classes = [x for x in DashboardWidget.get_classes() if not x.hidden]
-        CollectionAutoBinding(sorted(classes, key=lambda x: x.name),
+        CollectionAutoBinding(
+            sorted(classes, key=lambda x: x.name),
             None, self.find('add-widgets')).populate()
 
     def on_page_load(self):
@@ -81,7 +82,7 @@ class Dash (SectionPlugin):
                         self.ui,
                         container=widget['container'],
                         index=widget['index'],
-                        config=widget['config']
+                        config=widget['config'],
                     )
                     instance.on('save-config', self.on_widget_config, widget, instance)
                     self.dash.append(instance)

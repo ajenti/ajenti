@@ -378,7 +378,8 @@ class Binder (object):
             children = ui.nearest(lambda x: x.bind == k)
             for child in children:
                 if child == ui:
-                    raise Exception('Circular UI reference for %s!' % k)
+                    continue
+                    #raise Exception('Circular UI reference for %s!' % k)
                 if _element_in_child_template(ui, child):
                     continue
                 self._try_bind(object, k, child)
