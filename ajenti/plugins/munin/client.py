@@ -12,6 +12,8 @@ class MuninClient (BasePlugin):
         'prefix': 'http://localhost:8080/munin'
     }
 
+    classconfig_root = True
+
     def init(self):
         self.reset()
 

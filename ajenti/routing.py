@@ -3,6 +3,7 @@ import socketio
 from ajenti.http import HttpHandler
 from ajenti.api import BasePlugin
 from ajenti.api.http import HttpPlugin, SocketPlugin
+from ajenti.plugins import manager
 from ajenti.profiler import *
 
 
@@ -35,6 +36,8 @@ class CentralDispatcher (BasePlugin, HttpHandler):
 
         if hasattr(context.session, 'appcontext'):
             self.context = context.session.appcontext
+        else:
+            self.context = manager.context
 
         if context.path.startswith('/socket.io'):
             return context.fallthrough(self.io)

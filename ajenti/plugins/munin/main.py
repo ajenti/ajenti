@@ -13,7 +13,6 @@ from widget import MuninWidget
 
 @plugin
 class Munin (SectionPlugin):
-
     def init(self):
         self.title = 'Munin'
         self.icon = 'stethoscope'
