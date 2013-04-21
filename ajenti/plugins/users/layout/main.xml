@@ -55,7 +55,7 @@
                                         </pad>
                                     </collapserow>
                                 </bind:template>
-                                <button id="save-users" text="Save" />
+                                <button id="save-users" text="Save" icon="ok" />
                             </vc>
                         </bind:collection>
                     </box>
@@ -98,7 +98,7 @@
                                         </pad>
                                     </collapserow>
                                 </bind:template>
-                                <button id="save-groups" text="Save" />
+                                <button id="save-groups" text="Save" icon="ok" />
                             </vc>
                         </bind:collection>
                     </box>

@@ -6,6 +6,7 @@ import StringIO
 
 from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
+from ajenti.plugins.configurator.api import ClassConfigEditor
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import UIElement, p, on
 from ajenti.users import PermissionProvider, restrict
@@ -14,7 +15,19 @@ from terminal import Terminal
 
 
 @plugin
+class TerminalClassConfigEditor (ClassConfigEditor):
+    title = 'Terminal'
+    icon = 'list-alt'
+
+    def init(self):
+        self.append(self.ui.inflate('terminal:config'))
+
+
+@plugin
 class Terminals (SectionPlugin):
+    default_classconfig = {'shell': 'sh -c $SHELL'}
+    classconfig_editor = TerminalClassConfigEditor
+
     def init(self):
         self.title = 'Terminal'
         self.icon = 'list-alt'
@@ -44,6 +57,8 @@ class Terminals (SectionPlugin):
 
     @intent('terminal')
     def launch(self, command=None):
+        if not command:
+            command = self.classconfig['shell']
         self.on_new(command, autoclose=True, autoopen=True)
 
     @on('new-button', 'click')

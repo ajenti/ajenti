@@ -1,3 +1,4 @@
+import os
 import itertools
 import subprocess
 
@@ -13,6 +14,8 @@ from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionDat
 
 @plugin
 class Firewall (SectionPlugin):
+    config_path = '/etc/iptables.up.rules'
+
     def init(self):
         self.title = 'Firewall'
         self.icon = 'fire'
@@ -20,8 +23,9 @@ class Firewall (SectionPlugin):
 
         self.append(self.ui.inflate('iptables:main'))
 
-        self.config = IPTablesConfig(path='/etc/iptables.up.rules')
+        self.config = IPTablesConfig(path=self.config_path)
         self.binder = Binder(None, self.find('config'))
+
         self.find('tables').new_item = lambda c: TableData()
         self.find('chains').new_item = lambda c: ChainData()
         self.find('rules').new_item = lambda c: RuleData()
@@ -59,6 +63,8 @@ class Firewall (SectionPlugin):
         self.find('add-option').values = self.find('add-option').labels = ['Add option'] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
+        if not os.path.exists(self.config_path):
+            subprocess.call('iptables-save > %s' % self.config_path, shell=True)
         self.config.load()
         self.refresh()
 
@@ -88,7 +94,7 @@ class Firewall (SectionPlugin):
         if subprocess.call(cmd, shell=True) != 0:
             self.context.launch('terminal', command=cmd)
         else:
-            self.context.notify('Saved')
+            self.context.notify('info', 'Saved')
 
 
 class OptionsBinding (CollectionAutoBinding):

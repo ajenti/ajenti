@@ -23,7 +23,6 @@ class ClassConfigManager (BasePlugin):
             self.classes = filter(lambda x: not x.classconfig_root, BasePlugin.get_instances())
         self.classes = filter(lambda x: x.classconfig_editor, self.classes)
         self.classes = list(set(self.classes))
-        print self.classes
 
 
 @plugin

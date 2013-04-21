@@ -12,6 +12,12 @@
             <progressbar id="charge" value="0.5" width="140" />
         </hc>
     </box>
-    <button style="mini" id="reboot" icon="undo" warning="Reboot the system?" />
-    <button style="mini" id="shutdown" icon="off" warning="Shutdown the system?" />
+
+    <tooltip text="Reboot">
+        <button style="mini" id="reboot" icon="undo" warning="Reboot the system?" />
+    </tooltip>
+    
+    <tooltip text="Power off">
+        <button style="mini" id="shutdown" icon="off" warning="Shutdown the system?" />
+    </tooltip>
 </hc>

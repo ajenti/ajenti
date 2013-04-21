@@ -66,12 +66,12 @@
                             </pad>
                         </collapserow>
                     </bind:template>
-                    <hc>
-                        <button id="save" text="Save" />
-                        <button bind="__add" icon="plus" text="Create" />
-                    </hc>
+                    
+                    <button bind="__add" icon="plus" text="Create" />
                 </vc>
             </bind:collection>
         </pad>
     </body>
+                        
+    <button id="save" text="Save" icon="ok" />
 </vc>

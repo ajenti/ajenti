@@ -136,30 +136,22 @@
 		position: relative;
 		display: inline-block;
 		overflow: visible;
+		margin: 0;
 
-		>* {
-			float:left;
-		}
+		&.body {
+			position: relative;
 
-		>.tip {
-			opacity: 0;
-			float: left;
-			.transition(opacity 1s);
-
-			>* {
-				float: left;
+			>:last-child {
+				display: block;
+				width: 1px;
+				margin-left: 10px;
+				border-style: solid;
+				border-color: rgba(0,0,0,.75) transparent;
+				border-width: 5px 5px 0 5px;
 			}
 
 			>:first-child {
-				border-style: solid;
-				border-color: transparent rgba(0,0,0,.75);
-				border-width: 5px 5px 5px 0;
-				margin: 10px 0 0;
-			}
-
-			>:last-child {
-				margin: 4px 0 0;
-
+				display: block;
 				background: rgba(0,0,0,.75);
 				color: white;
 				padding: 3px 8px;
@@ -174,7 +166,7 @@
 	}
 
 	&.icon {
-		.size(@controlHeight, auto);
+		.size(@controlHeight, 16px);
 		display: inline-block;
 		line-height: @controlHeight - 5px;
 

@@ -19,6 +19,9 @@ class PluginCrashed (PluginLoadError):
         self.e = e
         self.traceback = traceback.format_exc()
 
+    def describe(self):
+        return 'Crashed: %s' % self.e
+
     def __str__(self):
         return 'crashed: %s' % self.e
 
@@ -32,6 +35,9 @@ class Dependency (object):
 
         def reason(self):
             pass
+
+        def describe(self):
+            return 'Dependency unsatisfied'
 
         def __str__(self):
             return '%s (%s)' % (self.dependency.__class__, self.reason())

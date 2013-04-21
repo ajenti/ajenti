@@ -42,10 +42,14 @@
                             <label bind="_username" />
                         </dtd>
                         <dtd>
-                            <vc>
-                                <button id="term" text="Terminate" icon="stop" />
-                                <button id="kill" text="Kill" icon="trash" />
-                            </vc>
+                            <hc>
+                                <tooltip text="Terminate">
+                                    <button id="term" style="mini" icon="stop" />
+                                </tooltip>
+                                <tooltip text="Kill">
+                                    <button id="kill" style="mini" icon="trash" />
+                                </tooltip>
+                            </hc>
                         </dtd>
                     </dtr>
                 </bind:template>

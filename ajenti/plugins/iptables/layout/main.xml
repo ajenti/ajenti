@@ -1,6 +1,5 @@
 <vc xmlns:bind="bind">
     <hc>
-        <button id="apply" text="Apply" icon="ok" />
         <button id="edit" text="Raw edit" icon="pencil" />
     </hc>
     <body>
@@ -67,8 +66,12 @@
                     </bind:template>
                     <button bind="__add" visible="False" />
                 </bind:collection>
-                <button id="save" text="Save" />
             </box>
         </pad> 
     </body>
+    
+    <hc>
+        <button id="save" text="Save" icon="ok" />
+        <button id="apply" text="Apply" icon="arrow-right" />
+    </hc>
 </vc>

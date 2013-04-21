@@ -149,6 +149,6 @@
     </body>
 
     <hc>
-        <button id="save" text="Save" />
+        <button id="save" text="Save" icon="ok" />
     </hc>
 </vc>

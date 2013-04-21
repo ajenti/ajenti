@@ -16,9 +16,15 @@
                     <dtd><label bind="source" /></dtd>
                     <dtd>
                         <hc>
-                            <button id="start" icon="play" style="mini" />
-                            <button id="stop" icon="stop" style="mini" />
-                            <button id="restart" icon="step-forward" style="mini" />
+                            <tooltip text="Start">
+                                <button id="start" icon="play" style="mini" />
+                            </tooltip>
+                            <tooltip text="Stop">
+                                <button id="stop" icon="stop" style="mini" />
+                            </tooltip>
+                            <tooltip text="Restart">
+                                <button id="restart" icon="step-forward" style="mini" />
+                            </tooltip>
                         </hc>
                     </dtd>
                 </dtr>

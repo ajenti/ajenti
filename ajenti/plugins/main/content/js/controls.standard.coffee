@@ -21,13 +21,23 @@ class window.Controls.tooltip extends window.Control
     createDom: () ->
         @dom = $("""
             <span class="control tooltip #{@properties.style}">
-                <div class="container"></div>
-                <div class="tip">
-                    <div></div>
-                    <div>#{@properties.text}</div>
-                </div>
+                <div class="container" title=""></div>
             </span>
         """)
+        @dom.find('.container').tooltip({
+            content: () => """
+                <div class="control tooltip body">
+                    <div>
+                        #{@properties.text}
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            """
+            position: 
+                my: "left-15 bottom"
+                at: "center top"
+        })
         @childContainer = @dom.find('.container')
 
 
