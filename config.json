@@ -7,6 +7,7 @@
                 "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}", 
                 "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"container\": \"1\", \"config\": null, \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}, {\"index\": 1, \"container\": \"1\", \"config\": {\"variant\": \"5\"}, \"class\": \"ajenti.plugins.sensors.load.LoadWidget\"}, {\"index\": 0, \"container\": \"0\", \"config\": null, \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 1, \"container\": \"0\", \"config\": null, \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 2, \"container\": \"0\", \"config\": {\"device\": \"/\"}, \"class\": \"ajenti.plugins.fstab.widget.DiskSpaceWidget\"}, {\"index\": 3, \"container\": \"0\", \"config\": {\"device\": \"lo\"}, \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}, {\"index\": 4, \"container\": \"0\", \"config\": {\"device\": \"wlan0\"}, \"class\": \"ajenti.plugins.network.widget.TrafficWidget\"}, {\"index\": 0, \"config\": {\"service\": \"rsyslog\"}, \"container\": 0, \"class\": \"ajenti.plugins.services.widget.ServiceWidget\"}]}", 
                 "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": null}", 
+                "ajenti.plugins.mysql.main.MySQLPlugin": "{\"password\": \"123\", \"user\": \"root\"}", 
                 "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [\"/etc/logrotate.conf\"]}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
@@ -19,7 +20,7 @@
         "host": "0.0.0.0", 
         "port": 8000
     }, 
-    "authentication": false,
+    "authentication": false, 
     "ssl": {
         "enable": false, 
         "certificate_path": "/home/eugeny/ajenti.pem"

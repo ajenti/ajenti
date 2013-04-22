@@ -1,0 +1,26 @@
+<vc xmlns:bind="bind">
+    <servicebar 
+        bind="service_name" />
+
+    <body>
+        <pad>
+            <bind:collection bind="databases" id="databases">
+                <vc>
+                    <dt bind="__items" />
+                    <bind:template>
+                        <dtr>
+                            <dtd>
+                                <label bind="name" />
+                            </dtd>
+                            <dtd width="1">
+                                <button bind="__delete" icon="trash" style="mini" warning="Confirm database drop!" />
+                            </dtd>
+                        </dtr>
+                    </bind:template>
+                </vc>
+            </bind:collection>
+
+            <button icon="plus" text="Create" id="add-db" />
+        </pad>
+    </body>
+</vc>

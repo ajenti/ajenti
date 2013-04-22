@@ -1,0 +1,10 @@
+<bind:dict xmlns:bind="bind" id="bind">
+    <vc>
+        <formline text="Username">
+            <textbox bind="user" />
+        </formline>
+        <formline text="Password">
+            <textbox bind="password" />
+        </formline>
+    </vc>
+</bind:dict>
