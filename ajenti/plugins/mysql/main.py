@@ -2,7 +2,7 @@ import subprocess
 
 from ajenti.api import *
 from ajenti.plugins.configurator.api import ClassConfigEditor
-from ajenti.plugins.db_common.api import DBPlugin, Database
+from ajenti.plugins.db_common.api import DBPlugin, Database, User
 
 
 @plugin
@@ -42,7 +42,6 @@ class MySQLPlugin (DBPlugin):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        print sql
         o, e = p.communicate(sql)
         if p.returncode:
             raise Exception(e)
@@ -58,3 +57,20 @@ class MySQLPlugin (DBPlugin):
 
     def query_drop(self, db):
         self.query("DROP DATABASE `%s`;" % db.name)
+
+    def query_create(self, name):
+        self.query("CREATE DATABASE `%s` CHARACTER SET UTF8;" % name)
+
+    def query_users(self):
+        r = []
+        for l in self.query('USE mysql; SELECT * FROM user;'):
+            u = User()
+            u.host, u.name = l.split('\t')[:2]
+            r.append(u)
+        return r
+
+    def query_create_user(self, user):
+        self.query("CREATE USER `%s`@`%s` IDENTIFIED BY '%s'" % (user.name, user.host, user.password))
+
+    def query_drop_user(self, user):
+        self.query("DROP USER `%s`@`%s`" % (user.name, user.host))

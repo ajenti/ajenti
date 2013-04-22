@@ -4,6 +4,7 @@
 
     <body>
         <pad>
+            <label text="Databases" style="bold" />
             <bind:collection bind="databases" id="databases">
                 <vc>
                     <dt bind="__items" />
@@ -21,6 +22,52 @@
             </bind:collection>
 
             <button icon="plus" text="Create" id="add-db" />
+     
+
+            <label text="Users" style="bold" />
+            <bind:collection bind="users" id="users">
+                <vc>
+                    <dt bind="__items">
+                        <dtr>
+                            <dth text="Username" />
+                            <dth text="Host" />
+                        </dtr>
+                    </dt>
+                    <bind:template>
+                        <dtr>
+                            <dtd>
+                                <label bind="name" />
+                            </dtd>
+                            <dtd>
+                                <label bind="host" />
+                            </dtd>
+                            <dtd width="1">
+                                <button bind="__delete" icon="trash" style="mini" warning="Confirm deletion" />
+                            </dtd>
+                        </dtr>
+                    </bind:template>
+                </vc>
+            </bind:collection>
+
+            <button icon="plus" text="Create" id="add-user" />
         </pad>
     </body>
+
+    <inputdialog id="db-name-dialog" text="Database name" visible="False" />
+
+    <dialog id="add-user-dialog" visible="False">
+        <pad>
+            <vc>
+                <formline text="Username">
+                    <textbox id="name" />
+                </formline>
+                <formline text="Hostname">
+                    <textbox id="host" />
+                </formline>
+                <formline text="Password">
+                    <textbox id="password" />
+                </formline>
+            </vc>
+        </pad>
+    </dialog>
 </vc>
