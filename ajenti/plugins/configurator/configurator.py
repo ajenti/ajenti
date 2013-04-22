@@ -39,8 +39,10 @@ class Configurator (SectionPlugin):
 
         self.ccmgr = ClassConfigManager.get()
         self.classconfig_binding = Binder(self.ccmgr, self.find('classconfigs'))
+        self.classconfig_rows = {}
 
         def post_classconfig_bind(object, collection, item, ui):
+            self.classconfig_rows[item] = ui
             editor = item.classconfig_editor.new(self.ui)
             ui.find('container').append(editor)
             binder = DictAutoBinding(item, 'classconfig', editor.find('bind'))
@@ -114,6 +116,17 @@ class Configurator (SectionPlugin):
     @on('restart-button', 'click')
     def on_restart(self):
         ajenti.restart()
+
+    @intent('configure-plugin')
+    def configure_plugin(self, plugin=None):
+        self.find('tabs').active = 1
+        self.refresh()
+        #if plugin in self.classconfig_rows:
+        #    self.classconfig_rows[plugin].children[0].expanded = True
+        #    print self.classconfig_rows[plugin].children[0]
+        if plugin:
+            self.context.notify('info', 'Please configure %s plugin!' % plugin.classconfig_editor.title)
+        self.activate()
 
     @intent('setup-fake-ssl')
     def gen_ssl(self, host, path):

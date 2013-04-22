@@ -147,6 +147,9 @@ class UIElement (object):
         self.events = {}
         self.event_args = {}
 
+    def __str__(self):
+        return '<%s @ %s>' % (self.typeid, id(self))
+
     def clone(self):
         """
         :returns: a deep copy of the element and its children. Property values are shallow copies.

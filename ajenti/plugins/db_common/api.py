@@ -53,6 +53,7 @@ class DBPlugin (SectionPlugin):
             self.users = self.query_users()
         except Exception, e:
             self.context.notify('error', str(e))
+            self.context.launch('configure-plugin', plugin=self)
 
         self.binder.reset(self).autodiscover().populate()
         self.find_type('servicebar').reload()
