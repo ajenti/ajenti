@@ -5,6 +5,7 @@ from datetime import datetime
 
 from ajenti.api import *
 from ajenti.api.sensors import Sensor
+from ajenti.plugins import manager
 from ajenti.plugins.configurator.api import ClassConfigEditor
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
@@ -85,17 +86,18 @@ class AjentiOrgSection (SectionPlugin):
         self.category = ''
         self.order = 25
         self.append(self.ui.inflate('ajenti_org:main'))
+        self.reporter = AjentiOrgReporter.get(manager.context)
 
     def on_page_load(self):
         self.refresh()
 
     def refresh(self):
-        key = AjentiOrgReporter.get().get_key()
+        key = self.reporter.get_key()
         self.find('pane-not-configured').visible = key is None
         self.find('pane-configured').visible = key is not None
-        self.find('last-report').text = str(AjentiOrgReporter.get().last_report)
-        self.find('last-error').visible = AjentiOrgReporter.get().last_error is not None
-        self.find('last-error').text = str(AjentiOrgReporter.get().last_error)
+        self.find('last-report').text = str(self.reporter.last_report)
+        self.find('last-error').visible = self.reporter.last_error is not None
+        self.find('last-error').text = str(self.reporter.last_error)
 
     @on('save-key', 'click')
     def on_save_key(self):

@@ -6,7 +6,7 @@
 
     <body>
         <pad>
-            <tabs>
+            <tabs id="tabs">
                 <tab title="General">
                     <vc id="ajenti-config">
                         <formgroup text="HTTP Server" bind="http_binding">
@@ -97,7 +97,7 @@
                         <dt bind="__items" />
 
                         <bind:template>
-                            <collapserow>
+                            <collapserow expanded="True">
                                 <hc bind="classconfig_editor">
                                     <icon bind="icon" />
                                     <label style="bold" bind="title" />

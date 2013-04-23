@@ -28,7 +28,7 @@ class Notificator
         @notifications = []
 
     notify: (type, text, timeout) ->
-        timeout ?= 4000
+        timeout ?= 7000
         for notification in @notifications
             do (notification) =>
                 notification.moveUp(-50)
