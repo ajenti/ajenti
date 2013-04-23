@@ -95,10 +95,13 @@ class window.UIManager
         cls = Controls[typeid]
         if not cls
             cls = Controls.default
+
+        $('.ui-tooltip').remove()
         return new cls(this, json, children)
 
     clear: () ->
         @_total_elements = 0
+        @ui.broadcast('destruct')
         $('.root *').unbind() 
         $.cleanData($('.root *')) 
         $('.root *').safeRemove()
@@ -224,6 +227,8 @@ class window.Control
 
     createDom: () ->
         ""
+
+    destruct: () ->
 
     detectUpdates: () ->
         return {}

@@ -12,3 +12,7 @@ class window.Controls.logs__log extends window.Control
     add: (data) =>
         $(@dom).val($(@dom).val() + data)
         @dom.scrollTop = @dom.scrollHeight;
+
+    onBroadcast: (msg) ->
+        if msg == 'destruct'
+            @socket.disconnect()

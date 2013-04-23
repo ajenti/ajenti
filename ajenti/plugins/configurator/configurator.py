@@ -85,7 +85,7 @@ class Configurator (SectionPlugin):
         self.refresh()
 
     def refresh(self):
-        self.binder.autodiscover().populate()
+        self.binder.reset().autodiscover().populate()
         self.ccmgr.reload()
         self.classconfig_binding.reset().autodiscover().populate()
 
