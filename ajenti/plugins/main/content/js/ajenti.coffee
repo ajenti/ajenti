@@ -101,7 +101,8 @@ class window.UIManager
 
     clear: () ->
         @_total_elements = 0
-        @ui.broadcast('destruct')
+        if @ui
+            @ui.broadcast('destruct')
         $('.root *').unbind() 
         $.cleanData($('.root *')) 
         $('.root *').safeRemove()
