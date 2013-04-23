@@ -20,9 +20,9 @@ class window.Controls.label extends window.Control
 class window.Controls.tooltip extends window.Control
     createDom: () ->
         @dom = $("""
-            <span class="control tooltip #{@properties.style}">
+            <div class="control tooltip #{@properties.style}">
                 <div class="container" title=""></div>
-            </span>
+            </div>
         """)
         @dom.find('.container').tooltip({
             content: () => """

@@ -59,12 +59,12 @@ class window.Controls.right extends window.Control
 class window.Controls.hc extends window.Control
     createDom: () ->
         @dom = $("""
-            <div class="control container hc"></div>
+            <table class="control container hc"><tr></tr></table>
         """)
-        @childContainer = @dom
+        @childContainer = @dom.find('tr')
 
     wrapChild: (child) ->
-        return $('<div></div>').append(child.dom)[0]
+        return $('<td></td>').append(child.dom)[0]
 
 
 class window.Controls.vc extends window.Control
