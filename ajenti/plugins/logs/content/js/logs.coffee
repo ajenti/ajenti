@@ -15,4 +15,5 @@ class window.Controls.logs__log extends window.Control
 
     onBroadcast: (msg) ->
         if msg == 'destruct'
-            @socket.disconnect()
+            if @socket
+                @socket.disconnect()
