@@ -1,0 +1,69 @@
+<vc xmlns:bind="bind">
+    <body>
+        <pad>
+            <box width="750">
+                <bind:collection bind="exports" id="exports">
+                    <vc>
+                        <dt bind="__items" />
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="hdd" />
+                                        <label bind="name" />
+                                    </hc>   
+                                </box>
+                                
+                                <pad>
+                                    <vc>
+                                        <formline text="Directory">
+                                            <textbox bind="name" />
+                                        </formline>
+                                        <vc>
+                                            <bind:collection id="clients" bind="clients">
+                                                <formline text="Clients">
+                                                    <vc>
+                                                        <dt bind="__items">
+                                                            <dtr>
+                                                                <dth width="1" />
+                                                                <dth text="Address" />
+                                                                <dth text="Options" />
+                                                                <dth width="1" />
+                                                            </dtr>
+                                                        </dt>
+                                                        <button bind="__add" icon="plus" text="Create" />
+                                                    </vc>
+                                                </formline>
+                                                <bind:template>
+                                                    <dtr>
+                                                        <dtd>
+                                                            <icon icon="desktop" />
+                                                        </dtd>
+                                                        <dtd>
+                                                            <textbox bind="name" />
+                                                        </dtd>
+                                                        <dtd>
+                                                            <textbox bind="options" />
+                                                        </dtd>
+                                                        <dtd>
+                                                            <button bind="__delete" icon="remove" style="icon" />
+                                                        </dtd>
+                                                    </dtr>
+                                                </bind:template>
+                                            </bind:collection>
+                                        </vc>
+                                    </vc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                        <button bind="__add" icon="plus" text="Create" />
+                    </vc>
+                </bind:collection>
+            </box>
+        </pad> 
+    </body>
+    <button id="save" text="Save" icon="ok" />
+</vc>
