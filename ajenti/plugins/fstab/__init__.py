@@ -13,6 +13,6 @@ info = PluginInfo(
 
 
 def init():
-    import fstab
+    import main
     import widget
     import disks
