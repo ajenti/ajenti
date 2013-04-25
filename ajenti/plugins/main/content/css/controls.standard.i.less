@@ -94,13 +94,8 @@
 	&.hc {
 		white-space: nowrap;
 
-		&> div {
-			float: left;
-			padding-right: 5px;
-
-			&:last-child {
-				padding-right: 0;
-			}
+		&>tbody>tr>td {
+			vertical-align: top;
 		}
 	}
 
@@ -428,6 +423,7 @@
 					border: 1px solid @tableBorder;
 					border-width: 1px 0 0 1px;
 					padding: 5px;
+					vertical-align: middle;
 				}
 
 				&:first-child td {
