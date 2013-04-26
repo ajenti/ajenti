@@ -1,8 +1,5 @@
 import os
 import shutil
-import stat
-import pwd
-import grp
 
 from ajenti.api import *
 from ajenti.api.http import *
@@ -10,7 +7,8 @@ from ajenti.plugins.configurator.api import ClassConfigEditor
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
-from ajenti.util import str_fsize
+
+from backend import FMBackend, Item
 
 
 @plugin
@@ -32,6 +30,8 @@ class FileManager (SectionPlugin):
         self.title = 'File Manager'
         self.category = 'Tools'
         self.icon = 'folder-open'
+
+        self.backend = FMBackend().get()
 
         self.append(self.ui.inflate('fm:main'))
         self.controller = Controller()
@@ -104,24 +104,24 @@ class FileManager (SectionPlugin):
 
     @on('mass-delete', 'click')
     def on_delete(self):
-        for i in self._get_checked():
-            if os.path.isdir(i.fullpath):
-                shutil.rmtree(i.fullpath)
-            else:
-                os.unlink(i.fullpath)
+        self.backend.remove(self._get_checked())
         self.refresh()
 
     @on('paste', 'click')
     def on_paste(self):
         tab = self.controller.tabs[self.tabs.active]
+        for_move = []
+        for_copy = []
         for i in self.clipboard:
             if i.action == 'cut':
-                shutil.move(i.fullpath, tab.path)
+                for_move.append(i)
             else:
-                if os.path.isdir(i.fullpath):
-                    shutil.copytree(i.fullpath, os.path.join(tab.path, i.name))
-                else:
-                    shutil.copy(i.fullpath, os.path.join(tab.path, i.name))
+                for_copy.append(i)
+
+        if for_move:
+            self.backend.move(for_move, tab.path)
+        if for_copy:
+            self.backend.copy(for_copy, tab.path)
         self.clipboard = []
         self.refresh_clipboard()
         self.refresh()
@@ -225,51 +225,6 @@ class Tab (object):
         while len(p) > 1:
             p = os.path.split(p)[0]
             self.breadcrumbs.insert(0, Breadcrumb(p))
-
-
-class Item (object):
-    stat_bits = [
-        stat.S_IRUSR,
-        stat.S_IWUSR,
-        stat.S_IXUSR,
-        stat.S_IRGRP,
-        stat.S_IWGRP,
-        stat.S_IXGRP,
-        stat.S_IROTH,
-        stat.S_IWOTH,
-        stat.S_IXOTH,
-    ]
-
-    def __init__(self, path):
-        self.checked = False
-        self.path, self.name = os.path.split(path)
-        self.fullpath = path
-        self.isdir = os.path.isdir(path)
-        self.icon = 'folder-close' if self.isdir else 'file'
-        self.sizestr = '' if self.isdir else str_fsize(os.path.getsize(path))
-
-    def read(self):
-        stat = os.stat(self.fullpath)
-        self.owner = pwd.getpwuid(stat.st_uid)[0]
-        self.group = grp.getgrgid(stat.st_gid)[0]
-        self.mod_ur, self.mod_uw, self.mod_ux, \
-            self.mod_gr, self.mod_gw, self.mod_gx, \
-            self.mod_ar, self.mod_aw, self.mod_ax = [
-                (stat.st_mode & Item.stat_bits[i] != 0)
-                for i in range(0, 9)
-            ]
-
-    def write(self):
-        mods = [self.mod_ur, self.mod_uw, self.mod_ux, \
-            self.mod_gr, self.mod_gw, self.mod_gx, \
-            self.mod_ar, self.mod_aw, self.mod_ax]
-        chmod = sum(
-                Item.stat_bits[i] * (1 if mods[i] else 0)
-                for i in range(0, 9)
-            )
-        os.chmod(self.fullpath, chmod)
-        os.chown(self.fullpath, pwd.getpwnam(self.owner)[2], grp.getgrnam(self.group)[2])
-        os.rename(self.fullpath, os.path.join(self.path, self.name))
 
 
 class Breadcrumb (object):
