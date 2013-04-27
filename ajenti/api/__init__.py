@@ -82,7 +82,7 @@ def plugin(cls):
     cls.get = get.__get__(cls)
 
     def new(cls, *args, **kwargs):
-        context = kwargs.get('context', None)
+        context = kwargs.pop('context', None)
         if not context:
             context = extract_context()
         return context.instantiate(cls, *args, **kwargs)

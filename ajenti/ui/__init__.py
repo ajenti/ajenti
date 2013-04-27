@@ -5,7 +5,8 @@ from inflater import Inflater
 from element import p, on, UIElement
 
 
-class UI (object):
+@plugin
+class UI (BasePlugin):
     """
     The root UI object, one per session
     """
@@ -18,7 +19,7 @@ class UI (object):
         Creates an element by its type ID.
         """
         cls = self.get_class(typeid)
-        inst = cls.new(self, *args, **kwargs)
+        inst = cls.new(self, context=self.context, *args, **kwargs)
         inst.typeid = typeid
         return inst
 

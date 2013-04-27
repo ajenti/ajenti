@@ -2,7 +2,6 @@ import copy
 import cPickle
 
 from ajenti.api import *
-from ajenti.profiler import *
 from ajenti.util import *
 
 
@@ -70,6 +69,8 @@ def on(id, event):
 
 @public
 class UIProperty (object):
+    __slots__ = ['dirty', 'name', 'value', 'bindtypes', 'type', 'public']
+
     def __init__(self, name, value=None, bindtypes=[], type=unicode, public=True):
         self.dirty = False
         self.name = name
@@ -79,7 +80,13 @@ class UIProperty (object):
         self.public = public
 
     def clone(self):
-        return copy.copy(self)
+        return UIProperty(
+            self.name,
+            self.value,
+            self.bindtypes,
+            self.type,
+            self.public,
+        )
 
     def get(self):
         return self.value
@@ -156,8 +163,6 @@ class UIElement (object):
         """
         o = copy.copy(self)
         o.uid = UIElement.__generate_id()
-        profile('Element clone')
-        profile_end()
 
         o.events = self.events.copy()
         o.event_args = self.event_args.copy()

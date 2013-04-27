@@ -50,7 +50,7 @@ class MainSocket (SocketPlugin):
     def on_connect(self):
         if not 'ui' in self.request.session.data:
             # This is a newly created session
-            ui = UI()
+            ui = UI.new()
 
             self.request.session.data['ui'] = ui
             ui.root = MainPage.new(ui)
@@ -65,6 +65,7 @@ class MainSocket (SocketPlugin):
             ui._sections_root = sections_root
 
         self.ui = self.request.session.data['ui']
+        self.send_init()
         self.send_ui()
         self.spawn(self.ui_watcher)
 
@@ -109,6 +110,13 @@ class MainSocket (SocketPlugin):
             self.send_security_error()
         except Exception, e:
             self.send_crash(e)
+
+    def send_init(self):
+        data = {
+            'version': ajenti.version,
+            'platform': ajenti.platform,
+        }
+        self.emit('init', json.dumps(data))
 
     def send_ui(self):
         profile('Rendering')
