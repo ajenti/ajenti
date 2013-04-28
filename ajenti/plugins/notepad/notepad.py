@@ -66,7 +66,7 @@ class Notepad (SectionPlugin):
         if not path:
             self.on_save_as()
         else:
-            self.on_save_select(None)
+            self.on_save_dialog_select(path)
 
     @on('save-as-button', 'click')
     def on_save_as(self):
