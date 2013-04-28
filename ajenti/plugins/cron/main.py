@@ -31,7 +31,8 @@ class Cron (SectionPlugin):
         self.current_user = user
         try:
             data = subprocess.check_output(['crontab', '-l', '-u', user])
-        except:
+        except Exception, e:
+            self.context.notify('error', str(e))
             data = ''
         self.config = CrontabConfig(content=data)
         self.config.load()
