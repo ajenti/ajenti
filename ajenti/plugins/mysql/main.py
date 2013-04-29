@@ -33,7 +33,7 @@ class MySQLPlugin (DBPlugin):
         self.category = 'Software'
         self.icon = 'table'
 
-    def query(self, sql):
+    def query(self, sql, db=''):
         p = subprocess.Popen([
             'mysql',
             '-u' + self.classconfig['user'],
@@ -42,10 +42,16 @@ class MySQLPlugin (DBPlugin):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        o, e = p.communicate(sql)
+        o, e = p.communicate((('USE %s; ' % db) if db else '') + sql)
         if p.returncode:
             raise Exception(e)
         return filter(None, o.splitlines()[1:])
+
+    def query_sql(self, db, sql):
+        r = []
+        for l in self.query(sql + ';', db):
+            r.append(l.split('\t'))
+        return r
 
     def query_databases(self):
         r = []
