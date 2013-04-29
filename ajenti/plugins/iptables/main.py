@@ -14,34 +14,47 @@ from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionDat
 
 
 @interface
-class FirewallAutostartManager (object):
-    def get_state(self):
+class FirewallManager (object):
+    def get_autostart_state(self):
         pass
 
-    def set_state(self, state):
+    def set_autostart_state(self, state):
         pass
 
 
 @plugin
-class DebianFirewallAutostartManager (FirewallAutostartManager):
-    path = '/etc/network/if-up.d/iptables'
+class DebianFirewallManager (FirewallManager):
+    platforms = ['debian']
+    autostart_script_path = '/etc/network/if-up.d/iptables'
+    config_path = '/etc/iptables.up.rules'
 
-    def get_state(self):
-        return os.path.exists(self.path)
+    def get_autostart_state(self):
+        return os.path.exists(self.autostart_script_path)
 
-    def set_state(self, state):
-        if state and not self.get_state():
-            open(self.path, 'w').write("""#!/bin/sh
+    def set_autostart_state(self, state):
+        if state and not self.get_autostart_state():
+            open(self.autostart_script_path, 'w').write("""#!/bin/sh
             iptables-restore < %s
-            """ % Firewall.config_path)
-            os.chmod(self.path, stat.S_IRWXU | stat.S_IRWXO)
-        if not state and self.get_state():
-            os.unlink(self.path)
+            """ % self.config_path)
+            os.chmod(self.autostart_script_path, stat.S_IRWXU | stat.S_IRWXO)
+        if not state and self.get_autostart_state():
+            os.unlink(self.autostart_script_path)
+
+
+@plugin
+class CentOSFirewallManager (FirewallManager, BasePlugin):
+    platforms = ['centos']
+    config_path = '/etc/sysconfig/iptables'
+
+    def get_autostart_state(self):
+        return True
+
+    def set_autostart_state(self, state):
+        self.context.notify('info', 'You can\'t disable firewall autostart on this platform')
 
 
 @plugin
 class Firewall (SectionPlugin):
-    config_path = '/etc/iptables.up.rules'
 
     def init(self):
         self.title = 'Firewall'
@@ -50,9 +63,9 @@ class Firewall (SectionPlugin):
 
         self.append(self.ui.inflate('iptables:main'))
 
-        self.config = IPTablesConfig(path=self.config_path)
+        self.fw_mgr = FirewallManager.get()
+        self.config = IPTablesConfig(path=self.fw_mgr.config_path)
         self.binder = Binder(None, self.find('config'))
-        self.autostart_mgr = FirewallAutostartManager.get()
 
         self.find('tables').new_item = lambda c: TableData()
         self.find('chains').new_item = lambda c: ChainData()
@@ -91,18 +104,18 @@ class Firewall (SectionPlugin):
         self.find('add-option').values = self.find('add-option').labels = ['Add option'] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
-        if not os.path.exists(self.config_path):
-            subprocess.call('iptables-save > %s' % self.config_path, shell=True)
+        if not os.path.exists(self.fw_mgr.config_path):
+            subprocess.call('iptables-save > %s' % self.fw_mgr.config_path, shell=True)
         self.config.load()
         self.refresh()
 
     def refresh(self):
         self.binder.reset(self.config.tree).autodiscover().populate()
-        self.find('autostart').text = ('Disable' if self.autostart_mgr.get_state() else 'Enable') + ' autostart'
+        self.find('autostart').text = ('Disable' if self.fw_mgr.get_autostart_state() else 'Enable') + ' autostart'
 
     @on('autostart', 'click')
     def on_autostart_change(self):
-        self.autostart_mgr.set_state(not self.autostart_mgr.get_state())
+        self.fw_mgr.set_autostart_state(not self.fw_mgr.get_autostart_state())
         self.refresh()
 
     def on_add_option(self, options, rule, ui):
