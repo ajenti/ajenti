@@ -1,6 +1,7 @@
 <vc xmlns:bind="bind">
     <hc>
         <button id="edit" text="Raw edit" icon="pencil" />
+        <button id="autostart" icon="refresh" style="normal big" />
     </hc>
     <body>
         <pad>
@@ -17,10 +18,15 @@
                                         <bind:template>
                                             <vc>
                                                 <right>
-                                                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                                    <hc>
+                                                        <combobox bind="default" id="action-select" />
+                                                        <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                                    </hc>
                                                 </right>
 
-                                                <label bind="name" style="bold" />
+                                                <hc>
+                                                    <label bind="name" style="bold" />
+                                                </hc>
                                                 
                                                 <bind:collection bind="rules" id="rules">
                                                     <sortabledt bind="__items" />

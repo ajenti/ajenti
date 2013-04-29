@@ -1,4 +1,5 @@
 import os
+import stat
 import itertools
 import subprocess
 
@@ -10,6 +11,32 @@ from ajenti.ui.binder import Binder, CollectionAutoBinding
 
 from reconfigure.configs import IPTablesConfig
 from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionData
+
+
+@interface
+class FirewallAutostartManager (object):
+    def get_state(self):
+        pass
+
+    def set_state(self, state):
+        pass
+
+
+@plugin
+class DebianFirewallAutostartManager (FirewallAutostartManager):
+    path = '/etc/network/if-up.d/iptables'
+
+    def get_state(self):
+        return os.path.exists(self.path)
+
+    def set_state(self, state):
+        if state and not self.get_state():
+            open(self.path, 'w').write("""#!/bin/sh
+            iptables-restore < %s
+            """ % Firewall.config_path)
+            os.chmod(self.path, stat.S_IRWXU | stat.S_IRWXO)
+        if not state and self.get_state():
+            os.unlink(self.path)
 
 
 @plugin
@@ -25,6 +52,7 @@ class Firewall (SectionPlugin):
 
         self.config = IPTablesConfig(path=self.config_path)
         self.binder = Binder(None, self.find('config'))
+        self.autostart_mgr = FirewallAutostartManager.get()
 
         self.find('tables').new_item = lambda c: TableData()
         self.find('chains').new_item = lambda c: ChainData()
@@ -36,7 +64,7 @@ class Firewall (SectionPlugin):
         def post_rule_bind(o, c, i, u):
             u.find('add-option').on('change', self.on_add_option, c, i, u)
             actions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'MASQUERADE', 'DNAT', 'SNAT'] + \
-               list(set(itertools.chain.from_iterable([[c.name for c in t.chains] for t in self.config.tree.tables])))
+                list(set(itertools.chain.from_iterable([[c.name for c in t.chains] for t in self.config.tree.tables])))
             u.find('action-select').labels = actions
             u.find('action-select').values = actions
             action = ''
@@ -70,6 +98,12 @@ class Firewall (SectionPlugin):
 
     def refresh(self):
         self.binder.reset(self.config.tree).autodiscover().populate()
+        self.find('autostart').text = ('Disable' if self.autostart_mgr.get_state() else 'Enable') + ' autostart'
+
+    @on('autostart', 'click')
+    def on_autostart_change(self):
+        self.autostart_mgr.set_state(not self.autostart_mgr.get_state())
+        self.refresh()
 
     def on_add_option(self, options, rule, ui):
         o = OptionData.create(ui.find('add-option').value)
