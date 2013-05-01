@@ -1,0 +1,64 @@
+import os
+
+import ajenti
+from ajenti.api import *
+from ajenti.plugins.main.api import SectionPlugin
+from ajenti.ui import on
+from ajenti.ui.binder import Binder
+
+from reconfigure.configs import CTDBConfig, CTDBNodesConfig, CTDBPublicAddressesConfig
+from reconfigure.items.ctdb import NodeData, PublicAddressData
+
+
+@plugin
+class CTDB (SectionPlugin):
+    nodes_file = '/etc/ctdb/nodes'
+    addresses_file = '/etc/ctdb/public_addresses'
+
+    def init(self):
+        self.title = 'CTDB'
+        self.icon = 'folder-close'
+        self.category = 'Software'
+
+        self.append(self.ui.inflate('ctdb:main'))
+
+        self.config_path = {
+            'debian': '/etc/default/ctdb',
+            'centos': '/etc/sysconfig/ctdb'
+        }[ajenti.platform]
+
+        self.config = CTDBConfig(path=self.config_path)
+        self.config.load()
+
+        self.binder = Binder(None, self.find('main-config'))
+        self.n_binder = Binder(None, self.find('nodes-config'))
+        self.a_binder = Binder(None, self.find('addresses-config'))
+        self.find('nodes').new_item = lambda c: NodeData()
+        self.find('addresses').new_item = lambda c: PublicAddressData()
+
+    def on_page_load(self):
+        n_path = self.config.tree.nodes_file
+        self.nodes_config = CTDBNodesConfig(path=n_path)
+        if not os.path.exists(n_path):
+            open(n_path, 'w').close()
+        self.nodes_config.load()
+
+        a_path = self.config.tree.public_addresses_file
+        self.addresses_config = CTDBPublicAddressesConfig(path=a_path)
+        if not os.path.exists(a_path):
+            open(a_path, 'w').close()
+        self.addresses_config.load()
+
+        self.config.load()
+        self.binder.reset(self.config.tree).autodiscover().populate()
+        self.n_binder.reset(self.nodes_config.tree).autodiscover().populate()
+        self.a_binder.reset(self.addresses_config.tree).autodiscover().populate()
+
+    @on('save', 'click')
+    def save(self):
+        self.binder.update()
+        self.n_binder.update()
+        self.a_binder.update()
+        self.config.save()
+        self.nodes_config.save()
+        self.addresses_config.save()
