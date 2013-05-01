@@ -166,7 +166,7 @@ class window.Controls.dtr extends window.Control
 class window.Controls.dtd extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<td style="width: #{w}"></td>""")
+        @dom = $("""<td style="max-width: #{w}"></td>""")
         @childContainer = @dom
 
     wrapChild: (child) ->
