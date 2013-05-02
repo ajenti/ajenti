@@ -48,6 +48,7 @@ class SortableTable (Table):
 
 
 @p('width', default=None)
+@p('forcewidth', default=None)
 @plugin
 class TableCell (UIElement):
     typeid = 'dtd'
