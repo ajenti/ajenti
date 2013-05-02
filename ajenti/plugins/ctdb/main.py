@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 import ajenti
 from ajenti.api import *
@@ -16,7 +17,7 @@ class CTDB (SectionPlugin):
     addresses_file = '/etc/ctdb/public_addresses'
 
     def init(self):
-        self.title = 'CTDB'
+        self.title = 'Samba Cluster'
         self.icon = 'folder-close'
         self.category = 'Software'
 
@@ -53,6 +54,14 @@ class CTDB (SectionPlugin):
         self.binder.reset(self.config.tree).autodiscover().populate()
         self.n_binder.reset(self.nodes_config.tree).autodiscover().populate()
         self.a_binder.reset(self.addresses_config.tree).autodiscover().populate()
+        self.refresh()
+
+    @on('refresh', 'click')
+    def refresh(self):
+        try:
+            self.find('status').value = subprocess.check_output(['ctdb', 'status'])
+        except:
+            self.find('status').value = 'Failed to obtain CTDB status'
 
     @on('save', 'click')
     def save(self):
@@ -62,3 +71,4 @@ class CTDB (SectionPlugin):
         self.config.save()
         self.nodes_config.save()
         self.addresses_config.save()
+        self.context.notify('info', 'Saved')
