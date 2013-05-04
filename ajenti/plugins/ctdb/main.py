@@ -60,6 +60,7 @@ class CTDB (SectionPlugin):
     def refresh(self):
         try:
             self.find('status').value = subprocess.check_output(['ctdb', 'status'])
+            self.find('status-ip').value = subprocess.check_output(['ctdb', 'ip'])
         except:
             self.find('status').value = 'Failed to obtain CTDB status'
 

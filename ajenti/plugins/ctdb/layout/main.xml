@@ -6,7 +6,12 @@
             <tabs>
                 <tab title="Status">
                     <vc>
+                        <label style="bold" text="Status" />
                         <codearea id="status" />
+                        
+                        <label style="bold" text="Public IPs" />
+                        <codearea id="status-ip" />
+
                         <button id="refresh" icon="refresh" text="Refresh" />
                     </vc>
                 </tab>
