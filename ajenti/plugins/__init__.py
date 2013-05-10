@@ -40,7 +40,7 @@ class Dependency (object):
             return 'Dependency unsatisfied'
 
         def __str__(self):
-            return '%s (%s)' % (self.dependency.__class__, self.reason())
+            return '%s (%s)' % (self.dependency.__class__.__name__, self.reason())
 
     def satisfied(self):
         return False

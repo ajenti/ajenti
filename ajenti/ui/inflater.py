@@ -20,17 +20,17 @@ class Inflater:
 
     def inflate(self, layout):
         if not layout in self.cache or ajenti.debug:
-            profile('Inflating %s' % layout)
+            #profile('Inflating %s' % layout)
             plugin, path = layout.split(':')
             try:
                 file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
             except IOError, e:
                 raise TemplateNotFoundError(e)
             self.cache[layout] = etree.parse(file)
-        else:
-            profile('Inflating %s (cached)' % layout)
+        #else:
+            #profile('Inflating %s (cached)' % layout)
         layout = self.inflate_rec(self.cache[layout].getroot())
-        profile_end()
+        #profile_end()
         return layout
 
     def inflate_rec(self, node):

@@ -38,6 +38,30 @@ class DBPlugin (SectionPlugin):
     def on_page_load(self):
         self.refresh()
 
+    @on('sql-run', 'click')
+    def on_sql_run(self):
+        try:
+            result = self.query_sql(self.find('sql-db').value, self.find('sql-input').value)
+            self.context.notify('info', 'Query finished')
+        except Exception, e:
+            self.context.notify('error', str(e))
+            return
+
+        tbl = self.find('sql-output')
+        tbl.empty()
+
+        if len(result) > 200:
+            self.context.notify('info', 'Output cut from %i rows to 200' % len(result))
+            result = result[:200]
+
+        for row in result:
+            erow = self.ui.create('dtr')
+            tbl.append(erow)
+            for cell in row:
+                ecell = self.ui.create('dtd')
+                ecell.append(self.ui.create('label', text=str(cell)))
+                erow.append(ecell)
+
     @on('add-db', 'click')
     def on_add_db(self):
         self.find('db-name-dialog').value = ''
@@ -48,6 +72,8 @@ class DBPlugin (SectionPlugin):
         self.find('add-user-dialog').visible = True
 
     def refresh(self):
+        self.find_type('servicebar').reload()
+
         try:
             self.databases = self.query_databases()
             self.users = self.query_users()
@@ -55,9 +81,10 @@ class DBPlugin (SectionPlugin):
             self.context.notify('error', str(e))
             if self.classconfig_editor:
                 self.context.launch('configure-plugin', plugin=self)
+            return
 
+        self.find('sql-db').labels = self.find('sql-db').values = [x.name for x in self.databases]
         self.binder.reset(self).autodiscover().populate()
-        self.find_type('servicebar').reload()
 
     @on('db-name-dialog', 'button')
     def on_db_name_dialog_close(self, button=None):
@@ -78,6 +105,9 @@ class DBPlugin (SectionPlugin):
         u.password = d.find('password').value
         self.query_create_user(u)
         self.refresh()
+
+    def query_sql(self, db, sql):
+        return []
 
     def query_databases(self):
         return []

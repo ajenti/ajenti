@@ -17,6 +17,13 @@ class window.Stream
         @socket.on 'disconnect', () ->
             $('#connection-error').show()
 
+        @socket.on 'init', (data) ->
+            data = JSON.parse(data)
+            console.group 'Welcome to Ajenti'
+            console.log 'version', data.version
+            console.log 'running on', data.platform
+            console.groupEnd()
+
         @socket.on 'ui', (ui) ->
             console.group 'Received update'
             console.log 'Payload size', ui.length

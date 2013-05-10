@@ -20,12 +20,12 @@ class PSQLPlugin (DBPlugin):
         self.category = 'Software'
         self.icon = 'table'
 
-    def query(self, sql):
+    def query(self, sql, db=''):
         p = subprocess.Popen([
             'su',
             'postgres',
             '-c',
-            'psql -R"~~~" -A -t -c "%s"' % sql],
+            'psql -R"~~~" -A -t -c "%s" %s' % (sql, db)],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
@@ -33,6 +33,12 @@ class PSQLPlugin (DBPlugin):
         if p.returncode:
             raise Exception(e)
         return filter(None, o.split('~~~'))
+
+    def query_sql(self, db, sql):
+        r = []
+        for l in self.query(sql.replace('"', '\\"') + ';', db):
+            r.append(l.split('|'))
+        return r
 
     def query_databases(self):
         r = []
@@ -43,7 +49,6 @@ class PSQLPlugin (DBPlugin):
         return r
 
     def query_drop(self, db):
-        print db, db.name
         self.query('DROP DATABASE %s;' % db.name)
 
     def query_create(self, name):

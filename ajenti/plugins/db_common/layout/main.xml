@@ -4,6 +4,18 @@
 
     <body>
         <pad>
+            <label text="SQL" style="bold" />
+
+            <hc>
+                <dropdown id="sql-db" />
+                <textbox style="big" id="sql-input" />
+                <button icon="play" text="Run" id="sql-run" />
+            </hc>
+
+            <dt id="sql-output" />
+        </pad>
+
+        <pad>
             <label text="Databases" style="bold" />
             <bind:collection bind="databases" id="databases">
                 <vc>
