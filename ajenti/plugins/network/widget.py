@@ -23,6 +23,32 @@ class TrafficSensor (Sensor):
 
 
 @plugin
+class ImmediateTrafficSensor (Sensor):
+    id = 'immediate-traffic'
+    timeout = 5
+
+    def init(self):
+        self.last_tx = {}
+        self.last_rx = {}
+
+    def get_variants(self):
+        return psutil.network_io_counters(pernic=True).keys()
+
+    def measure(self, device):
+        try:
+            v = psutil.network_io_counters(pernic=True)[device]
+        except KeyError:
+            return (0, 0)
+        r = (v.bytes_sent, v.bytes_recv)
+        if not self.last_tx.get(device, None):
+            self.last_tx[device], self.last_rx[device] = r
+            return (0, 0)
+        else:
+            d = (r[0] - self.last_tx[device], r[1] - self.last_rx[device])
+            self.last_tx[device], self.last_rx[device] = r
+            return d
+
+@plugin
 class TrafficWidget (ConfigurableWidget):
     name = 'Traffic'
     icon = 'exchange'
