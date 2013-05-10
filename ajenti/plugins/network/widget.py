@@ -23,12 +23,37 @@ class TrafficSensor (Sensor):
 
 
 @plugin
-class ImmediateTrafficSensor (Sensor):
-    id = 'immediate-traffic'
+class ImmediateTXSensor (Sensor):
+    id = 'immediate-tx'
     timeout = 5
 
     def init(self):
         self.last_tx = {}
+
+    def get_variants(self):
+        return psutil.network_io_counters(pernic=True).keys()
+
+    def measure(self, device):
+        try:
+            v = psutil.network_io_counters(pernic=True)[device]
+        except KeyError:
+            return 0
+        r = (v.bytes_sent, v.bytes_recv)
+        if not self.last_tx.get(device, None):
+            self.last_tx[device] = r[0]
+            return 0
+        else:
+            d = r[0] - self.last_tx[device]
+            self.last_tx[device] = r[0]
+            return d
+
+
+@plugin
+class ImmediateRXSensor (Sensor):
+    id = 'immediate-rx'
+    timeout = 5
+
+    def init(self):
         self.last_rx = {}
 
     def get_variants(self):
@@ -38,15 +63,16 @@ class ImmediateTrafficSensor (Sensor):
         try:
             v = psutil.network_io_counters(pernic=True)[device]
         except KeyError:
-            return (0, 0)
+            return 0
         r = (v.bytes_sent, v.bytes_recv)
-        if not self.last_tx.get(device, None):
-            self.last_tx[device], self.last_rx[device] = r
-            return (0, 0)
+        if not self.last_rx.get(device, None):
+            self.last_rx[device] = r[1]
+            return 0
         else:
-            d = (r[0] - self.last_tx[device], r[1] - self.last_rx[device])
-            self.last_tx[device], self.last_rx[device] = r
+            d = r[1] - self.last_rx[device]
+            self.last_rx[device] = r[1]
             return d
+
 
 @plugin
 class TrafficWidget (ConfigurableWidget):
