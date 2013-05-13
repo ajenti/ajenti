@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=0.9.30
+VERSION=0.9.31
 PREFIX=/usr
 DATE=`date -R`
 

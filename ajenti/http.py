@@ -28,7 +28,7 @@ class HttpRoot:
         context = HttpContext(env, start_response)
         for middleware in self.stack:
             output = middleware.handle(context)
-            if output:
+            if output is not None:
                 return output
 
 
