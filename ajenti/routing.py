@@ -44,6 +44,6 @@ class CentralDispatcher (BasePlugin, HttpHandler):
 
         for instance in HttpPlugin.get_all():
             output = instance.handle(context)
-            if output:
+            if output is not None:
                 return output
         return context.fallthrough(self.invalid)
