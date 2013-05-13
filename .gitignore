@@ -25,3 +25,4 @@ debian/*stamp*
 *.c.css
 
 ajenti/plugins/ltfs*
+ajenti/plugins/elements*

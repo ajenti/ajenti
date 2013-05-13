@@ -2,6 +2,7 @@ import os
 import gzip
 import cgi
 import math
+import gevent
 from StringIO import StringIO
 from datetime import datetime
 
@@ -154,7 +155,7 @@ class HttpContext:
 
         return compressed
 
-    def file(self, path):
+    def file(self, path, stream=False):
         """
         Returns a GZip compressed response with content of file located in ``path`` and correct headers
         """
@@ -196,7 +197,17 @@ class HttpContext:
 
         #self.add_header('Content-Length', str(size))
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
-        return self.gzip(open(path).read())
+
+        if stream:
+            f = open(path)
+            bufsize = 10 * 1024
+            buf = 1
+            while buf:
+                buf = f.read(bufsize)
+                gevent.sleep(0)
+                yield buf
+        else:
+            return self.gzip(open(path).read())
 
 
 class HttpHandler (object):
