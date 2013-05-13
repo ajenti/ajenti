@@ -199,13 +199,15 @@ class HttpContext:
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
 
         if stream:
-            f = open(path)
-            bufsize = 10 * 1024
-            buf = 1
-            while buf:
-                buf = f.read(bufsize)
-                gevent.sleep(0)
-                yield buf
+            def streamer():
+                f = open(path)
+                bufsize = 10 * 1024
+                buf = 1
+                while buf:
+                    buf = f.read(bufsize)
+                    gevent.sleep(0)
+                    yield buf
+            return streamer
         else:
             return self.gzip(open(path).read())
 
