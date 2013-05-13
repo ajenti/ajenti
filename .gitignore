@@ -23,6 +23,7 @@ debian/*stamp*
 # Compressed
 *.c.js
 *.c.css
+*.tar.gz
 
 ajenti/plugins/ltfs*
 ajenti/plugins/elements*

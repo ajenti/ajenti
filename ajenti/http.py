@@ -28,7 +28,7 @@ class HttpRoot:
         context = HttpContext(env, start_response)
         for middleware in self.stack:
             output = middleware.handle(context)
-            if context.response_ready:
+            if output:
                 return output
 
 
@@ -163,11 +163,11 @@ class HttpContext:
         # Block path traversal
         if '..' in path:
             self.respond_forbidden()
-            return ''
+            yield ''
 
         if not os.path.isfile(path):
             self.respond_not_found()
-            return ''
+            yield ''
 
         content_types = {
             '.css': 'text/css',
@@ -186,30 +186,51 @@ class HttpContext:
         mtime = datetime.utcfromtimestamp(math.trunc(os.path.getmtime(path)))
 
         rtime = self.env.get('HTTP_IF_MODIFIED_SINCE', None)
-        if rtime is not None:
+        if rtime:
             try:
                 rtime = datetime.strptime(rtime, '%a, %b %d %Y %H:%M:%S GMT')
                 if mtime <= rtime:
                     self.respond('304 Not Modified')
-                    return ''
+                    yield ''
             except:
                 pass
 
-        #self.add_header('Content-Length', str(size))
+        range = self.env.get('HTTP_RANGE', None)
+        rfrom = rto = None
+        if range and range.startswith('bytes'):
+            rsize = os.stat(path).st_size
+            rfrom, rto = range.split('=')[1].split('-')
+            rfrom = int(rfrom) if rfrom else 0
+            rto = int(rto) if rto else (rsize - 1)
+
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
+        self.add_header('Accept-Ranges', 'bytes')
 
         if stream:
-            def streamer():
-                f = open(path)
-                bufsize = 10 * 1024
-                buf = 1
-                while buf:
-                    buf = f.read(bufsize)
-                    gevent.sleep(0)
-                    yield buf
-            return streamer
+            self.add_header('Content-Length', str(rto - rfrom + 1))
+            if rfrom:
+                self.add_header('Content-Range', 'bytes %i-%i/%i' % (rfrom, rto, rsize))
+                self.respond('206 Partial Content')
+            else:
+                self.respond_ok()
+            fd = os.open(path, os.O_RDONLY)# | os.O_NONBLOCK)
+            os.lseek(fd, rfrom, os.SEEK_SET)
+            bufsize = 100 * 1024
+            read = rfrom
+            buf = 1
+            while buf:
+                buf = os.read(fd, bufsize)
+                gevent.sleep(0)
+                if read + len(buf) > rto:
+                    buf = buf[:rto + 1 - read]
+                yield buf
+                read += len(buf)
+                if read >= rto:
+                    break
+            os.close(fd)
         else:
-            return self.gzip(open(path).read())
+            self.respond_ok()
+            yield self.gzip(open(path).read())
 
 
 class HttpHandler (object):
