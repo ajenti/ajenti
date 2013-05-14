@@ -41,6 +41,7 @@ class AjentiOrgReporter (BasePlugin):
         cls.get()
 
     def get_key(self):
+        self.load_classconfig()
         if not 'key' in self.classconfig:
             return None
         return self.classconfig['key']

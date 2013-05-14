@@ -212,16 +212,20 @@ class BasePlugin (object):
         """
         Do your initialization here. Correct bottom-to-up inheritance call order guaranteed.
         """
-
         self.context = extract_context()
 
         if self.context:
-            # Load the classconfig
-            config = ConfigData()
-            config.name = self.classname
-            config.data = copy.deepcopy(self.default_classconfig)
-            if self.default_classconfig:
-                self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
+            self.load_classconfig()
+
+    def load_classconfig(self):
+        """
+        Loads the content of ``classconfig`` attribute from the user's configuration section.
+        """
+        config = ConfigData()
+        config.name = self.classname
+        config.data = copy.deepcopy(self.default_classconfig)
+        if self.default_classconfig:
+            self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
 
     def __get_config_store(self):
         if not self.classconfig_root:
