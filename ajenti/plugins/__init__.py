@@ -14,6 +14,15 @@ class PluginLoadError (Exception):
 
 
 @public
+class PluginFormatError (PluginLoadError):
+    def describe(self):
+        return 'Plugin format error'
+
+    def __str__(self):
+        return 'format error'
+
+
+@public
 class PluginCrashed (PluginLoadError):
     def __init__(self, e):
         self.e = e
@@ -201,8 +210,7 @@ class PluginManager:
     def load_recursive(self, name):
         while True:
             try:
-                self.load(name)
-                return
+                return self.load(name)
             except PluginDependency.Unsatisfied, e:
                 if e.dependency.plugin_name in manager.get_all():
                     if manager.get_all()[e.dependency.plugin_name].crash:
@@ -212,7 +220,9 @@ class PluginManager:
                         return
                 try:
                     logging.debug('Preloading plugin dependency: %s' % e.dependency.plugin_name)
-                    self.load_recursive(e.dependency.plugin_name)
+                    if not self.load_recursive(e.dependency.plugin_name):
+                        manager.get_all()[name].crash = e
+                        return
                 except:
                     raise
 
@@ -225,7 +235,11 @@ class PluginManager:
             try:
                 mod = imp.load_module('ajenti.plugins.%s' % name,
                                       *imp.find_module(name, [self.get_plugins_root(), self.extra_location]))
+                if not hasattr(mod, 'info'):
+                    raise PluginFormatError()
                 logging.debug('  == %s ' % mod.info.title)
+            except PluginFormatError:
+                raise
             except Exception, e:
                 # TOTAL CRASH
                 from ajenti.api import PluginInfo
@@ -255,14 +269,18 @@ class PluginManager:
             if name in self.__order:
                 self.__order.remove(name)
             self.__order.append(name)
+
+            return True
         except PluginDependency.Unsatisfied, e:
             raise
+        except PluginFormatError, e:
+            logging.warn(' *** [%s] Plugin error: %s' % (name, e))
         except PluginCrashed, e:
-            logging.warn(' *** Plugin crashed: %s' % e)
+            logging.warn(' *** [%s] Plugin crashed: %s' % (name, e))
             print e.traceback
             info.crash = e
         except PluginLoadError, e:
-            logging.warn(' *** Plugin failed to load: %s' % e)
+            logging.warn(' *** [%s] Plugin failed to load: %s' % (name, e))
             info.crash = e
 
 

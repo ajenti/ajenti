@@ -71,3 +71,16 @@ class window.Controls.dashboard__header extends window.Control
         """)
         @childContainer = @dom.find('.inner')
 
+
+
+class window.Controls.dashboard__welcome extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control container welcome">
+                Welcome to the development version of Ajenti.<br/>
+                Use the <b>Feedback</b> link on top to report short immediate suggestions.<br/>
+                <a href="mailto:e@ajenti.org">Mail me</a> about serious issues.<br/>
+                <br/>
+                <b>Don't forget to change default password in the Configurator!</b>
+            </div>
+        """)

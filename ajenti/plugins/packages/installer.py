@@ -49,6 +49,10 @@ db = {
         'smbd': 'samba',
         'smartctl': 'smartmontools',
         'squid3': 'squid3',
+        'apache2': 'apache2',
+        'ctdb': 'ctdb',
+        'mysql': 'mysql-server',
+        'psql': 'postgresql',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',

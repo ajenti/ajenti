@@ -17,7 +17,10 @@ class ContentServer (HttpPlugin):
     def handle_resources(self, context, type):
         if ajenti.debug:
             if time.time() - self.last_query > 5:
-                print subprocess.check_output('./compile_resources.py nocompress', shell=True)
+                try:
+                    print subprocess.check_output('./compile_resources.py nocompress', shell=True)
+                except:
+                    pass
                 ContentCompressor.get().compress()
             self.last_query = time.time()
         content = ContentCompressor.get().compressed[type]
