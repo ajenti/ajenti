@@ -6,18 +6,26 @@
 Welcome to Ajenti's documentation!
 ==================================
 
-Contents:
+Documentation
+-------------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
+   man/install/general
+   man/install/debian
+
+API Reference
+-------------
+
+.. toctree::
    ref/ajenti
    ref/ajenti.api
    ref/ajenti.api.http
-   ref/ajenti.debug
    ref/ajenti.http
    ref/ajenti.middleware
    ref/ajenti.plugins
+   ref/ajenti.profiler
    ref/ajenti.plugins.main.api
    ref/ajenti.ui
    ref/ajenti.ui.binder
