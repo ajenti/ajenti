@@ -2,18 +2,21 @@
 import subprocess
 import re
 
-from ajenti.api import plugin
+from ajenti.api import BasePlugin, plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import ConfigurableWidget
 from ajenti.util import *
 
 
-class LMSensors (object):
+class LMSensors (BasePlugin):
     re_temp = re.compile(r'^(?P<name>.+?):\s+\+(?P<value>[\d.]+).+$')
 
     @cache_value(3)
     def get(self):
-        lines = subprocess.check_output(['sensors']).splitlines()
+        try:
+            lines = subprocess.check_output(['sensors', '-asd']).splitlines()
+        except subprocess.CalledProcessError:
+            return {}  # sensors not configured
         r = {}
         for l in lines:
             m = self.re_temp.match(l)
