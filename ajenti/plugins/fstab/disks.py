@@ -41,7 +41,10 @@ class DiskUsageSensor (Sensor):
 
     def measure(self, path):
         try:
-            v = psutil.disk_usage(path)
+            if path:
+                v = psutil.disk_usage(path)
+            else:
+                return (0, 1)
         except OSError:
             return (0, 1)
         return (v.used, v.total)
