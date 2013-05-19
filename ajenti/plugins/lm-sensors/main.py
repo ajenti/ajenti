@@ -14,8 +14,8 @@ class LMSensors (BasePlugin):
     @cache_value(3)
     def get(self):
         try:
-            lines = subprocess.check_output(['sensors', '-asd']).splitlines()
-        except subprocess.CalledProcessError:
+            lines = subprocess.check_output(['sensors']).splitlines()
+        except subprocess.CalledProcessError, e:
             return {}  # sensors not configured
         r = {}
         for l in lines:
