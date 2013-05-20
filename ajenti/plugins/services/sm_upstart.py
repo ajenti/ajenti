@@ -28,24 +28,27 @@ class UpstartServiceManager (ServiceManager):
             return False
 
     def get_all(self):
-        jobs = self.upstart.GetAllJobs(dbus_interface="com.ubuntu.Upstart0_6")
-        r = []
-        for job in jobs:
-            obj = self.bus.get_object("com.ubuntu.Upstart", job)
-            jprops = obj.GetAll("com.ubuntu.Upstart0_6.Job", dbus_interface=dbus.PROPERTIES_IFACE)
+        try:
+            jobs = self.upstart.GetAllJobs(dbus_interface="com.ubuntu.Upstart0_6")
+            r = []
+            for job in jobs:
+                obj = self.bus.get_object("com.ubuntu.Upstart", job)
+                jprops = obj.GetAll("com.ubuntu.Upstart0_6.Job", dbus_interface=dbus.PROPERTIES_IFACE)
 
-            s = UpstartService(str(jprops['name']))
+                s = UpstartService(str(jprops['name']))
 
-            paths = obj.GetAllInstances(dbus_interface="com.ubuntu.Upstart0_6.Job")
-            if len(paths) > 0:
-                instance = self.bus.get_object("com.ubuntu.Upstart", paths[0])
-                iprops = instance.GetAll("com.ubuntu.Upstart0_6.Instance", dbus_interface=dbus.PROPERTIES_IFACE)
-                s.running = str(iprops['state']) == 'running'
-            else:
-                s.running = False
+                paths = obj.GetAllInstances(dbus_interface="com.ubuntu.Upstart0_6.Job")
+                if len(paths) > 0:
+                    instance = self.bus.get_object("com.ubuntu.Upstart", paths[0])
+                    iprops = instance.GetAll("com.ubuntu.Upstart0_6.Instance", dbus_interface=dbus.PROPERTIES_IFACE)
+                    s.running = str(iprops['state']) == 'running'
+                else:
+                    s.running = False
 
-            r.append(s)
-        return r
+                r.append(s)
+            return r
+        except dbus.DBusException:
+            return []
 
 
 class UpstartService (Service):
