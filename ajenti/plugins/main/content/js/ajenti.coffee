@@ -200,8 +200,9 @@ class window.LoadingDim
 
 $ () ->
     window.Loading = new LoadingDim($('#loading'))
-    UI.restoreTheme()
-    $('#ui-theme-toggle').click () -> UI.toggleTheme()
+    if window.UI
+        UI.restoreTheme()
+        $('#ui-theme-toggle').click () -> UI.toggleTheme()
 
 
 window.Controls = { }
