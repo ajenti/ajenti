@@ -63,5 +63,9 @@ db = {
         'smbd': 'samba',
         'smartctl': 'smartmontools',
         'squid3': 'squid',
+        'apache2': 'httpd',
+        'ctdb': 'ctdb',
+        'mysql': 'mysql',
+        'psql': 'postgresql',
     },
 }
