@@ -5,6 +5,7 @@ Installing packages
 ===================
 
 * :ref:`Debian Packages <debian-packages>`
+* :ref:`RPM Packages <rpm-packages>`
 
 Running
 =======
