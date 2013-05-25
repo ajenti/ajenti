@@ -37,7 +37,10 @@ class TaskManager (SectionPlugin):
             p._cpu = p.get_cpu_percent(interval=0)
             p._ram = '%i K' % int(p.get_memory_info()[0] / 1024)
             p._ppid = p.ppid
-            p._username = p.username
+            try:
+                p._username = p.username
+            except:
+                p._username = '?'
 
         self.binder.reset(self).autodiscover().populate()
         profile_end('Process list')
