@@ -100,7 +100,7 @@ class Configurator (SectionPlugin):
                 user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
         ajenti.config.save()
-        self.context.notify('info', 'Saved')
+        self.context.notify('info', 'Saved. Please restart Ajenti for changes to take effect.')
 
     @on('fake-ssl', 'click')
     def on_gen_ssl(self):

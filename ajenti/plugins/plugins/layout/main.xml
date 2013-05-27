@@ -14,7 +14,7 @@
                 <bind:template>
                     <dtr>
                         <dtd>
-                            <tooltip bind="crash" bindtransform="lambda x: x.describe() if x else None">
+                            <tooltip bind="crash" id="crash" bindtransform="lambda x: x.describe() if x else None">
                                 <icon id="warning-icon" bind="crash" bindtransform="lambda x: 'warning-sign' if x else None" style="yellow" />
                             </tooltip>
                         </dtd>

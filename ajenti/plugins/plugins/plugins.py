@@ -15,6 +15,10 @@ class PluginsPlugin (SectionPlugin):
         # In case you didn't notice it yet, this is the Plugins Plugin Plugin
         self.append(self.ui.inflate('plugins:main'))
 
+        def post_plugin_bind(object, collection, item, ui):
+            if not item.crash:
+                ui.find('crash').visible = False
+
         def post_dep_bind(object, collection, item, ui):
             if not item.satisfied():
                 installer = ui.find('fix')
@@ -24,6 +28,7 @@ class PluginsPlugin (SectionPlugin):
                     installer.package = item.binary_name
                 installer.recheck()
 
+        self.find('plugins').post_item_bind = post_plugin_bind
         self.find('dependencies').post_item_bind = post_dep_bind
 
         self.binder = Binder(self, self.find('bind-root'))
