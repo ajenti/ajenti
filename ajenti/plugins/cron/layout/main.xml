@@ -1,7 +1,7 @@
 <vc xmlns:bind="bind">
     <hc>
         <dropdown id="users" />
-        <button id="user_select" icon="user" text="Select" />
+        <button id="user-select" icon="user" text="Select" />
     </hc>
 
     <body>

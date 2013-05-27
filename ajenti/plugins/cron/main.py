@@ -27,6 +27,11 @@ class Cron (SectionPlugin):
     def on_page_load(self):
         self.refresh()
 
+    @on('user-select', 'click')
+    def on_user_select(self):
+        self.load_tab(self.find('users').value)
+        self.refresh()
+
     def load_tab(self, user):
         self.current_user = user
         try:
