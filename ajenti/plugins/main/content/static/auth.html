@@ -26,14 +26,20 @@
                             <div class="l control label">Password</div>
                             <div><input class="control textbox" type="password" name="password" /></div>
                         </div>
-                        <a class="control button style-normal" href="#" id="login"><i class="icon-chevron-right"></i> Log in</a>
+                        <a class="control button style-normal" href="#" id="login">
+                            <i class="icon-chevron-right"></i> Log in
+                        </a>
+                        <input style="display:none" type="submit" />
                     </div>
                 </form>
             </div>
         </div>
 
         <script>
-            $($('input')[0]).focus();
+            $($('input')[0]).focus().keyup(function (e) {
+                if (e.which == 13)
+                    $('form')[0].submit();
+            });
             $('#login').click(function () {
                 $('form')[0].submit();
             });
