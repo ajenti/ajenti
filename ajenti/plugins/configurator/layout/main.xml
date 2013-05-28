@@ -67,7 +67,7 @@
                                                         <hc>
                                                             <icon icon="user" />
                                                             <box width="100">
-                                                                <editable bind="name" />
+                                                                <editable bind="name" style="mini" />
                                                             </box>
                                                             <editable bind="password" placeholder="Change password" icon="lock" />
                                                         </hc>

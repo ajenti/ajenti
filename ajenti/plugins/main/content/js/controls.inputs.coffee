@@ -26,7 +26,7 @@ class window.Controls.editable extends window.Control
         @dom = $("""
             <div class="control editable">
                 <div class="control label">#{icon} <span>#{@properties.placeholder ? @properties.value}</span></div>
-                <input class="control textbox" type="text" value="#{@properties.value or ''}" />
+                <input class="control textbox #{@properties.style}" type="text" value="#{@properties.value or ''}" />
             </div>
         """)
         @label = @dom.find('.label')
