@@ -134,8 +134,8 @@ class MainSocket (SocketPlugin):
     def send_security_error(self):
         self.emit('security-error', '')
 
-    def send_url(self, url):
-        self.emit('url', url)
+    def send_url(self, url, title='new tab'):
+        self.emit('url', {'url': url, 'title': title})
 
     def send_debug(self):
         data = {

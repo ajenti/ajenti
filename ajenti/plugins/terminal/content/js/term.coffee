@@ -7,7 +7,7 @@ class window.Controls.terminal__thumbnail extends window.Control
             </div>
         """)
         @dom.click () =>
-            UI.openTab "/terminal/#{@properties.tid}"
+            Tabs.addTab "/terminal/#{@properties.tid}", "Terminal #{@properties.tid}"
         @dom.find('a').click (e) =>
             @event('close')
             e.stopPropagation()

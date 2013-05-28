@@ -64,8 +64,9 @@ class window.Stream
             data = JSON.parse(data)
             Notificator.notify(data.type, data.text)
 
-        @socket.on 'url', (url) ->
-            UI.openTab(url)
+        @socket.on 'url', (data) ->
+            data = JSON.parse(data)
+            Tabs.open(data.url, data.title)
 
         @socket.on 'debug', (data) ->
             data = JSON.parse(data)
@@ -162,14 +163,6 @@ class window.UIManager
         @queueUpdate update
         @sendUpdates()
 
-    openTab: (url) ->
-        w = window.open()
-        w.location = url
-        setTimeout () =>
-            if w.innerWidth == 0
-                alert('Please unblock popups!')
-        , 100
-
     restoreTheme: () ->
         if getCookie('ajenti-theme') == 'dark'
             @toggleTheme()
@@ -198,8 +191,41 @@ class window.LoadingDim
         @dom.show().stop().fadeTo(500, 1)
 
 
+class TabManager
+    constructor: () ->
+        @mainTab = $('#tab-ajenti')
+        @tabHeadersDom = $('#tab-headers')
+        @tabsDom = $('#tabs')
+        @tabHeadersDom.find('a').click () =>
+            @tabsDom.find('>*').hide()
+            @mainTab.show()
+            @tabHeadersDom.find('a').removeClass('active')
+            @tabHeadersDom.find('a:first').addClass('active')
+        
+        @tabHeadersDom.find('a').click()
+
+    addTab: (url, title) ->
+        dom = $("""
+            <div class="tab"><iframe src="#{url}" /></div>
+        """)
+        @tabsDom.append(dom)
+        headerDom = $("""
+            <a href="#">#{title}</a>
+        """)
+        @tabHeadersDom.append(headerDom)
+
+        headerDom.click () =>
+            @tabsDom.find('>*').hide()
+            dom.show()
+            @tabHeadersDom.find('a').removeClass('active')
+            headerDom.addClass('active')
+
+        headerDom.click()
+
+
 $ () ->
     window.Loading = new LoadingDim($('#loading'))
+    window.Tabs = new TabManager()
     if window.UI
         UI.restoreTheme()
         $('#ui-theme-toggle').click () -> UI.toggleTheme()

@@ -137,6 +137,48 @@ body {
     clear: both;
 }
 
+#tab-headers {
+    background: #eee;
+    overflow: hidden;
+
+    a {
+        display: block;
+        float: left;
+        padding: 5px 10px;
+        border-right: 1px solid #ccc;
+        font-weight: bold;
+
+        &:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
+        &:active {
+            background: rgba(0,0,0,0.125);
+        }
+
+        color: #666;
+        text-decoration: none;
+
+        &.active {
+            #gradient > .vertical(lighten(@orange, 15%), @orange);
+            color: darken(@orange, 20%);
+            text-shadow: 0 1px 0px rgba(255,255,255,.60);
+        }
+    }
+}
+
+#tabs {
+    &> div {
+        height: 100%;
+
+        &> iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+}
+
 
 #notifications {
     position: fixed;
