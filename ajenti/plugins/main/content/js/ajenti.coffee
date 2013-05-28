@@ -66,7 +66,7 @@ class window.Stream
 
         @socket.on 'url', (data) ->
             data = JSON.parse(data)
-            Tabs.open(data.url, data.title)
+            Tabs.addTab(data.url, data.title)
 
         @socket.on 'debug', (data) ->
             data = JSON.parse(data)

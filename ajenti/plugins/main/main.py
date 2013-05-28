@@ -135,7 +135,7 @@ class MainSocket (SocketPlugin):
         self.emit('security-error', '')
 
     def send_url(self, url, title='new tab'):
-        self.emit('url', {'url': url, 'title': title})
+        self.emit('url', json.dumps({'url': url, 'title': title}))
 
     def send_debug(self):
         data = {
