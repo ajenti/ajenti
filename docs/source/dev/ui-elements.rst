@@ -166,3 +166,112 @@ User will be able to reorder rows ::
     @p('title', default='', bindtypes=[str, unicode])
 
 
+
+Standard Controls
+=================
+
+<label>: Label
+--------------
+
+    @p('text', default='', bindtypes=[str, unicode, int, float])
+
+
+<button>: Button
+----------------
+
+.. image:: /_static/dev/ui-elements/button.png 
+
+::
+
+    @p('text', default='', bindtypes=[str, unicode])
+    @p('icon', default=None)
+    @p('warning', default=None)  # display a warning text before click
+
+    click()  # fired on click
+
+
+
+<icon>: Inline Icon
+-------------------
+
+Icon IDs in Ajenti are coming from this page: http://fortawesome.github.io/Font-Awesome/icons/
+
+    @p('icon', default=None, bindtypes=[str, unicode])
+
+
+<tooltip>: Tooltip
+------------------
+
+.. image:: /_static/dev/ui-elements/tooltip.png
+
+::
+
+    @p('text', default='', bindtypes=[str, unicode, int])
+
+
+<progressbar>: Progress Bar
+---------------------------
+
+.. image:: /_static/dev/ui-elements/progressbar.png
+
+::
+
+    @p('width', default=None)
+    @p('value', default=0, type=float, bindtypes=[float]) # between 0.0 and 1.0
+    
+
+
+<list>, <listitem>: Lists
+-------------------------
+
+.. image:: /_static/dev/ui-elements/list.png
+
+A list with clickable items::
+
+    <list>
+        <listitem>
+            <label text="child" />
+        </listitem>
+        <listitem>
+            <label text="child" />
+        </listitem>
+        <listitem>
+            <label text="child" />
+        </listitem>
+    </list>
+
+    <listitem>:
+    click()  # fired on click
+
+
+Inputs
+======
+
+<textbox>: Textbox
+------------------
+
+::
+
+    @p('value', default='', bindtypes=[str, unicode, int])
+    @p('type', default='text')  # or 'integer'
+
+
+<editable>: Editable Label
+--------------------------
+
+.. image:: /_static/dev/ui-elements/editable.png
+
+A label that becomes textbox when clicked::
+
+    @p('value', default='', bindtypes=[str, unicode])
+    @p('icon', default=None)
+
+
+<checkbox>: Checkbox
+------------------
+
+::
+
+    @p('text', default='')
+    @p('value', default=False, bindtypes=[bool])
+    
