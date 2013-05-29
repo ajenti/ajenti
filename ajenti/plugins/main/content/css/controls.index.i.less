@@ -3,6 +3,41 @@
 		min-height: 100%;
 		position: relative;
 
+		.feedback {
+			position: absolute;
+			left: -150px;
+			top: 30px;
+			background: rgba(0,0,0,.125);
+			border-radius: 5px;
+			margin: 0 0 0 150px;
+			width: 145px;
+
+			.activate {
+				display: inline-block;
+    			font-family: 'PT Sans', sans-serif;
+    			font-size: 14px;
+    			font-weight: bold;
+    			color: #555;
+    			padding: 0 20px;
+    			line-height: @headerHeight;
+
+    			&:hover {
+    				background: rgba(255,255,255,.25);
+    			}
+    		}
+
+    		.box {
+    			z-index: 99;
+    			overflow: hidden;
+    			box-shadow: 0 1px 2px black;
+    			padding: 5px 10px;
+    			position: absolute;
+    			top: @headerHeight;
+    			left: 0;
+    			background: white;
+    		}
+		}
+
 		&>.header {
 			#gradient > .vertical(#333, #222);
 			height: @headerHeight;
@@ -12,97 +47,6 @@
 				margin: 0 auto;
 		    	width: 960px;
 	    		position: relative;
-
-	    		&>.logo {
-	    			.text {
-	    				position: absolute;
-		    			top: 1px;
-		    			left: 0;
-		    			width: 150px;
-		    			font-family: 'PT Sans', sans-serif;
-		    			font-size: 20px;
-		    			font-weight: bold;
-		    			color: @orange;
-		    			text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
-
-		    			.release {
-		    				color: #c30;
-		    				display: inline-block;
-		    			}
-		    		}
-	    		}
-
-	    		&>.feedback {
-	    			position: relative;
-	    			margin: 0 0 0 150px;
-	    			width: 300px;
-
-	    			.activate {
-	    				display: inline-block;
-		    			font-family: 'PT Sans', sans-serif;
-		    			font-size: 14px;
-		    			font-weight: bold;
-		    			color: #ddd;
-		    			padding: 0 20px;
-		    			line-height: @headerHeight;
-		    			text-shadow: 0 -1px 0 rgba(0,0,0,.5);
-
-		    			&:hover {
-		    				background: rgba(255,255,255,.25);
-		    			}
-		    		}
-
-		    		.box {
-		    			z-index: 99;
-		    			overflow: hidden;
-		    			box-shadow: 0 1px 2px black;
-		    			padding: 5px 10px;
-		    			position: absolute;
-		    			top: @headerHeight;
-		    			left: 0;
-		    			background: white;
-		    		}
-	    		}
-
-		    	&>.userbox {
-		    		float: right;
-		    		width: 200px;
-		    		position: relative;
-
-		    		>* {
-		    			float: right;
-		    		}
-
-		    		.username {
-		    			color: @controlText;
-		    			font-size: @fontSize;
-		    			font-weight: bold;
-	    				color: #ddd;
-	    				padding: 0 5px;
-	    				line-height: @headerHeight - 2px;
-		    		}
-
-		    		a {
-	    				width: 20px;
-	    				padding: 7px 8px;
-	    				display: block;
-
-	    				*:before {
-		    				color: white;
-	    				}
-
-	    				text-align: center;
-	    				text-decoration: none;
-		    		
-		    			&:hover {
-			    			background: rgba(255,255,255,.125);
-		    			}
-
-		    			&:active {
-			    			background: rgba(255,255,255,.25);
-		    			}
-		    		}
-		    	}
 		    }
 		}
 
@@ -263,6 +207,7 @@
 
 	&.section-body {
 		margin: 1px !important;
+		clear: both;
 		.content-gradient();
 		.border-radius(5px);
 		.box-shadow(@mainPaneShadow);

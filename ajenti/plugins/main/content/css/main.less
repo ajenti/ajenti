@@ -137,32 +137,59 @@ body {
     clear: both;
 }
 
-#tab-headers {
-    background: #eee;
-    overflow: hidden;
+#header {
+    #gradient > .vertical(#333, #222);
+    height: @headerHeight;
+    .box-shadow(0 0 5px rgba(0,0,0,0.5));
+    
+    .container {
+        width: 960px;
+        margin: auto;
 
-    a {
-        display: block;
-        float: left;
-        padding: 5px 10px;
-        border-right: 1px solid #ccc;
-        font-weight: bold;
+        &>.logo {
+            .text {
+                float: left;
+                font-family: 'PT Sans', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                padding: 1px 20px 0 15px;
+                color: @orange;
+                text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
 
-        &:hover {
-            background: rgba(255,255,255,0.5);
+                .release {
+                    color: #c30;
+                    display: inline-block;
+                }
+            }
         }
 
-        &:active {
-            background: rgba(0,0,0,0.125);
+        a {
+            display: inline-block;
+            float: left;
+            padding: 8px 10px;
+            border-right: 1px solid rgba(0,0,0,.25);
+            font-weight: bold;
+
+            &:hover {
+                background: rgba(255,255,255,0.125);
+            }
+
+            &:active {
+                background: rgba(0,0,0,0.125);
+            }
+
+            color: #666;
+            text-decoration: none;
+
+            &.active {
+                #gradient > .vertical(lighten(@orange, 15%), @orange);
+                color: darken(@orange, 20%);
+                text-shadow: 0 1px 0px rgba(255,255,255,.60);
+            }
         }
 
-        color: #666;
-        text-decoration: none;
-
-        &.active {
-            #gradient > .vertical(lighten(@orange, 15%), @orange);
-            color: darken(@orange, 20%);
-            text-shadow: 0 1px 0px rgba(255,255,255,.60);
+        .logout {
+            float: right;
         }
     }
 }

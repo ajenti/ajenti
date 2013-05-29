@@ -2,42 +2,22 @@ class window.Controls.main__page extends window.Control
     createDom: () ->
         @dom = $("""
             <div class="control container main-page"> 
-                <div class="header">
-                    <div class="container">
-                        
-                        <div class="logo">
-                            <div class="text">
-                                ajenti
-                                <div class="release">α</div>
-                            </div>
-                        </div>
-
-                        <div class="userbox">
-                            <div class="logout">
-                                <a href="/logout"><i class="icon-off icon-white"></i></a>
-                            </div>
-                            <div class="username">
-                                #{@properties.username}
-                            </div>
-                        </div>
-
-                        <div class="feedback">
-                            <a class="activate">Leave Feedback</a>
-                            <div class="box">
-                                <label>Email (optional)</label>
-                                <br/>
-                                <input class="control textbox" />
-                                <br/>
-                                <label>Text</label>
-                                <br/>
-                                <textarea class="control textbox"></textarea>
-                                <br/>
-                                <a href="#" class="control button style-normal">Submit</a>
-                            </div>
+                <div class="content-wr">
+                    <div class="feedback">
+                        <a class="activate">Leave Feedback</a>
+                        <div class="box">
+                            <label>Email (optional)</label>
+                            <br/>
+                            <input class="control textbox" />
+                            <br/>
+                            <label>Text</label>
+                            <br/>
+                            <textarea class="control textbox"></textarea>
+                            <br/>
+                            <a href="#" class="control button style-normal">Submit</a>
                         </div>
                     </div>
-                </div>
-                <div class="content-wr">
+
                     <div class="content">
                         <div class="--child-container"></div>
                     </div>

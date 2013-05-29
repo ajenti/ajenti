@@ -268,10 +268,30 @@ A label that becomes textbox when clicked::
 
 
 <checkbox>: Checkbox
-------------------
+--------------------
 
 ::
 
     @p('text', default='')
     @p('value', default=False, bindtypes=[bool])
     
+
+<dropdown>: Dropdown Select
+---------------------------
+
+::
+
+    @p('labels', default=[], type=list) 
+    @p('values', default=[], type=list)
+    @p('value', default='', bindtypes=[str, int, unicode])
+
+
+<combobox>: Combo Box
+---------------------
+
+::
+
+    @p('labels', default=[], type=list)
+    @p('values', default=[], type=list)
+    @p('separator', default=None, type=str) # if set, combobox becomes autocomplete-multiple-input-box
+    @p('value', default='', bindtypes=[str, unicode])
