@@ -14,6 +14,20 @@ Documentation
 
    man/install/general
    man/install/debian
+   man/install/rpm
+
+
+Developers
+----------
+
+.. toctree::
+   :maxdepth: 1
+   
+   dev/intro.rst
+   dev/plugins.rst
+   dev/ui.rst
+   dev/ui-elements.rst
+
 
 API Reference
 -------------

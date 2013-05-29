@@ -15,7 +15,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project = u'Ajenti'
-copyright = u'2013, Eugeny Pankov'
+copyright = u'2013, Eugene Pankov'
 
 import ajenti.build
 version = ajenti.build.version
@@ -54,7 +54,7 @@ htmlhelp_basename = 'Ajentidoc'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'Ajenti.tex', u'Ajenti Documentation',
-   u'Eugeny Pankov', 'manual'),
+   u'Eugene Pankov', 'manual'),
 ]
 
 #latex_logo = None
@@ -74,7 +74,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'ajenti', u'Ajenti Documentation',
-     [u'Eugeny Pankov'], 1)
+     [u'Eugene Pankov'], 1)
 ]
 
 
@@ -82,9 +82,9 @@ man_pages = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'Ajenti'
-epub_author = u'Eugeny Pankov'
-epub_publisher = u'Eugeny Pankov'
-epub_copyright = u'2011, Eugeny Pankov'
+epub_author = u'Eugene Pankov'
+epub_publisher = u'Eugene Pankov'
+epub_copyright = u'2011, Eugene Pankov'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
