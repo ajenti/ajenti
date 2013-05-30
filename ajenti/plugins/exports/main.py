@@ -1,3 +1,5 @@
+import os
+
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
@@ -9,13 +11,18 @@ from reconfigure.items.exports import ExportData, ClientData
 
 @plugin
 class Exports (SectionPlugin):
+    config_path = '/etc/exports'
+
     def init(self):
         self.title = 'NFS Exports'
         self.icon = 'hdd'
         self.category = 'System'
         self.append(self.ui.inflate('exports:main'))
 
-        self.config = ExportsConfig(path='/etc/exports')
+        if not os.path.exists(self.config_path):
+            open(self.config_path, 'w').close()
+
+        self.config = ExportsConfig(path=self.config_path)
         self.binder = Binder(None, self)
         self.find('exports').new_item = lambda c: ExportData()
         self.find('clients').new_item = lambda c: ClientData()
