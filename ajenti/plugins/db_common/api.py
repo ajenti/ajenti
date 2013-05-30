@@ -86,10 +86,6 @@ class DBPlugin (SectionPlugin):
         self.find('sql-db').labels = self.find('sql-db').values = [x.name for x in self.databases]
         self.binder.reset(self).autodiscover().populate()
 
-    @on('db-name-dialog', 'button')
-    def on_db_name_dialog_close(self, button=None):
-        self.find('db-name-dialog').visible = False
-
     @on('db-name-dialog', 'submit')
     def on_db_name_dialog_submit(self, value=None):
         self.query_create(value)
@@ -99,11 +95,12 @@ class DBPlugin (SectionPlugin):
     def on_add_user_dialog(self, button=None):
         d = self.find('add-user-dialog')
         d.visible = False
-        u = User()
-        u.name = d.find('name').value
-        u.host = d.find('host').value
-        u.password = d.find('password').value
-        self.query_create_user(u)
+        if button == 'ok':
+            u = User()
+            u.name = d.find('name').value
+            u.host = d.find('host').value
+            u.password = d.find('password').value
+            self.query_create_user(u)
         self.refresh()
 
     def query_sql(self, db, sql):

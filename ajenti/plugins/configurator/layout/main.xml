@@ -69,7 +69,7 @@
                                                             <box width="100">
                                                                 <editable bind="name" style="mini" />
                                                             </box>
-                                                            <editable bind="password" placeholder="Change password" icon="lock" />
+                                                            <editable id="password" placeholder="Change password" icon="lock" />
                                                         </hc>
                                                     </box>
                                                     <tabs id="permissions" client="True" />

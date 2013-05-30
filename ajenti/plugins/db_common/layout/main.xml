@@ -73,7 +73,7 @@
 
     <inputdialog id="db-name-dialog" text="Database name" visible="False" />
 
-    <dialog id="add-user-dialog" visible="False">
+    <dialog id="add-user-dialog" visible="False" buttons="['ok','cancel']">
         <pad>
             <vc>
                 <formline text="Username">

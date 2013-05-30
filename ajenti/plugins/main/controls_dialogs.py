@@ -5,10 +5,23 @@ from ajenti.plugins import *
 from ajenti.ui import *
 
 
-@p('buttons', default=[{'text': 'OK', 'id': 'ok'}], type=eval)
+@p('buttons', default=['ok'], type=eval)
 @plugin
 class Dialog (UIElement):
     typeid = 'dialog'
+
+    def init(self):
+        presets = {
+            'ok': {'text': 'OK', 'id': 'ok'},
+            'cancel': {'text': 'Cancel', 'id': 'cancel'},
+        }
+        new_buttons = []
+        for button in self.buttons:
+            if type(button) == str and button in presets:
+                new_buttons.append(presets[button])
+            else:
+                new_buttons.append(button)
+        self.buttons = new_buttons
 
 
 @p('text', default='Input value:', type=unicode)
@@ -20,6 +33,8 @@ class InputDialog (UIElement):
     def on_button(self, button):
         if button == 'ok':
             self.reverse_event('submit', {'value': self.value})
+        else:
+            self.reverse_event('cancel', {})
         self.visible = False
 
 

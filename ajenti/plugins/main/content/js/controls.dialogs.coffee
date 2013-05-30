@@ -32,12 +32,12 @@ class window.Controls.inputdialog extends Controls.dialog
     createDom: () ->
         @properties.buttons = [
             {
-                text: 'Cancel'
-                id: 'cancel'
-            },
-            {
                 text: 'OK'
                 id: 'ok'
+            },
+            {
+                text: 'Cancel'
+                id: 'cancel'
             },
         ]
         super()

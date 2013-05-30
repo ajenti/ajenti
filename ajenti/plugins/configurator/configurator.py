@@ -79,6 +79,8 @@ class Configurator (SectionPlugin):
                         item.permissions.append(perm[0])
                     if not has and perm[0] in item.permissions:
                         item.permissions.remove(perm[0])
+            if ui.find('password').value:
+                item.password = ui.find('password').value
         self.find('users').post_item_update = post_user_update
 
         self.refresh()
