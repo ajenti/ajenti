@@ -74,6 +74,7 @@ def cache_value(duration):
             else:
                 val = fx.__cached
             return val
+        wrapper.__doc__ = fx.__doc__
         return wrapper
     return decorator
 

@@ -7,12 +7,13 @@ from ajenti.ui.binder import Binder
 
 class AvailabilitySymlinks (object):
     """
-    Manage directories of following style:
-    --sites.available
-     |-a.site
-     --b.site
-    --sites.enabled
-     --a.site -> ../sites.available/a.site
+    Manage directories of following style::
+
+        --sites.available
+         |-a.site
+         --b.site
+        --sites.enabled
+         --a.site -> ../sites.available/a.site
     """
 
     def __init__(self, dir_a, dir_e):

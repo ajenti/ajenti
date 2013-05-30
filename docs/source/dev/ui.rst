@@ -20,7 +20,7 @@ Replace the contents of ``main.py`` from the :ref:`Plugins tutorial <dev-plugins
 
 
     @plugin
-    class Terminals (SectionPlugin):
+    class TestPlugin (SectionPlugin):
         def init(self):
             self.title = 'Test'  # those are not class attributes and can be only set in or after init()
             self.icon = 'question'
@@ -68,3 +68,11 @@ Add a subdirectory ``layout`` and place a file named ``main.xml`` there::
 Now restart Ajenti. The new plugin **Test** will be visible under **Demo** category. Clicking the **+1** button will increase the counter.
 
 .. image:: /_static/dev/ui/example.png
+
+The visible part of plugin is an UIElement, inherited from :class:`ajenti.plugins.main.api.SectionPlugin`.
+
+When you click the button, the 'click' even is fired down the UI tree. The first method to have correctly decorated ``@on`` method will handle the event. Alternatively, you can set event handler on the element itself by adding this code to ``init``::
+
+    self.find('increment-button').on('click', self.on_button)
+
+Continue to :ref:`Bindings <dev-binding>`

@@ -26,6 +26,7 @@ Developers
    dev/intro.rst
    dev/plugins.rst
    dev/ui.rst
+   dev/binding.rst
    dev/ui-elements.rst
 
 
@@ -40,11 +41,23 @@ API Reference
    ref/ajenti.middleware
    ref/ajenti.plugins
    ref/ajenti.profiler
-   ref/ajenti.plugins.main.api
    ref/ajenti.ui
    ref/ajenti.ui.binder
    ref/ajenti.users
    ref/ajenti.util
+
+
+Plugin API Reference
+--------------------
+
+.. toctree::
+   ref/ajenti.plugins.main.api
+   ref/ajenti.plugins.dashboard.api
+   ref/ajenti.plugins.configurator.api
+   ref/ajenti.plugins.db_common.api
+   ref/ajenti.plugins.webserver_common.api
+   ref/ajenti.plugins.packages.api
+   ref/ajenti.plugins.services.api
 
 
 Indices and tables

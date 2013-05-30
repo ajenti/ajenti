@@ -4,17 +4,26 @@ from ajenti.util import cache_value
 
 @plugin
 class ServiceMultiplexor (object):
+    """
+    Merges together output of all available ServiceManagers.
+    """
     def init(self):
         self.managers = ServiceManager.get_all()
 
     @cache_value(1)
     def get_all(self):
+        """
+        Returns all :class:`Service` s.
+        """
         r = []
         for mgr in self.managers:
             r += mgr.get_all()
         return r
 
     def get_one(self, name):
+        """
+        Returns a :class:`Service` by name.
+        """
         for s in self.get_all():
             if s.name == name:
                 return s
@@ -28,6 +37,7 @@ class ServiceManager (object):
 
 class Service (object):
     source = 'unknown'
+    """ Marks which ServiceManager owns this object """
 
     def __init__(self):
         self.name = None
