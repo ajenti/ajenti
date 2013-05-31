@@ -75,6 +75,36 @@ class ImmediateRXSensor (Sensor):
 
 
 @plugin
+class ImmediateTrafficWidget (ConfigurableWidget):
+    name = 'Immediate Traffic'
+    icon = 'exchange'
+
+    def on_prepare(self):
+        self.sensor = Sensor.find('traffic')
+        self.sensor_tx = Sensor.find('immediate-tx')
+        self.sensor_rx = Sensor.find('immediate-rx')
+        self.append(self.ui.inflate('network:widget'))
+
+    def on_start(self):
+        self.find('device').text = self.config['device']
+        self.find('up').text = str_fsize(self.sensor_tx.value(self.config['device'])) + '/s'
+        self.find('down').text = str_fsize(self.sensor_rx.value(self.config['device'])) + '/s'
+
+    def create_config(self):
+        return {'device': ''}
+
+    def on_config_start(self):
+        device_list = self.dialog.find('device')
+        lst = self.sensor.get_variants()
+        device_list.labels = lst
+        device_list.values = lst
+        device_list.value = self.config['device']
+
+    def on_config_save(self):
+        self.config['device'] = self.dialog.find('device').value
+
+
+@plugin
 class TrafficWidget (ConfigurableWidget):
     name = 'Traffic'
     icon = 'exchange'
