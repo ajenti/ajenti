@@ -7,6 +7,7 @@ info = PluginInfo(
     icon='time',
     dependencies=[
         PluginDependency('main'),
+        BinaryDependency('crontab'),
     ],
 )
 
