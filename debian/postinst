@@ -1,4 +1,12 @@
 #!/bin/sh
 #DEBHELPER#
 update-rc.d ajenti defaults > /dev/null
-/etc/init.d/ajenti start
+ajenti-ssl-gen `hostname` || true
+
+echo ------------------------------------------------
+echo Now start Ajenti with \'service ajenti start\'
+echo Ajenti will listen on HTTPS port 8000 by default
+echo 
+echo Default username : root
+echo Default password : admin
+echo ------------------------------------------------

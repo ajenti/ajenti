@@ -36,9 +36,6 @@
                                 <formline text="Hostname">
                                     <textbox id="fake-ssl-host" />
                                 </formline>
-                                <formline text="Place certificate in">
-                                    <textbox id="fake-ssl-path" value="/etc/ajenti" />
-                                </formline>
                                 <formline>
                                     <button id="fake-ssl" text="Generate" icon="cogs" />
                                 </formline>

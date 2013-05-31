@@ -40,4 +40,12 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/ajenti/config.json
 
 %post
-service ajenti start
+ajenti-ssl-gen `hostname`
+
+echo ------------------------------------------------
+echo Now start Ajenti with \'service ajenti restart\'
+echo Ajenti will listen on HTTPS port 8000 by default
+echo 
+echo Default username : root
+echo Default password : admin
+echo ------------------------------------------------

@@ -112,6 +112,7 @@ def run():
 
     if hasattr(ajenti.server, 'restart_marker'):
         logging.warn('Restarting by request')
+        ssl_tunnel.stop()
 
         fd = 20  # Close all descriptors. Creepy thing
         while fd > 2:

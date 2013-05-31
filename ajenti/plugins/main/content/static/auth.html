@@ -36,7 +36,7 @@
         </div>
 
         <script>
-            $($('input')[0]).focus().keyup(function (e) {
+            $('input').focus().keyup(function (e) {
                 if (e.which == 13)
                     $('form')[0].submit();
             });

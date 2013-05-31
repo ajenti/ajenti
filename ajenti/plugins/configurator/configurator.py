@@ -107,13 +107,10 @@ class Configurator (SectionPlugin):
     @on('fake-ssl', 'click')
     def on_gen_ssl(self):
         host = self.find('fake-ssl-host').value
-        path = self.find('fake-ssl-path').value
         if host == '':
             self.context.notify('error', 'Please supply hostname')
-        elif not os.path.exists(path):
-            self.context.notify('error', 'Please supply valid path')
         else:
-            self.gen_ssl(host, path.rstrip('/'))
+            self.gen_ssl(host)
 
     @on('restart-button', 'click')
     def on_restart(self):
@@ -131,28 +128,11 @@ class Configurator (SectionPlugin):
         self.activate()
 
     @intent('setup-fake-ssl')
-    def gen_ssl(self, host, path):
+    def gen_ssl(self, host):
         self.save()
-        ajenti.config.tree.ssl.enable = True
-        ajenti.config.tree.ssl.certificate_path = '%s/ajenti.pem' % path
-        ajenti.config.save()
+        subprocess.call(['ajenti-ssl-gen', host, '-f'])
+        ajenti.config.load()
         self.refresh()
-
-        script = """
-            echo '\n-> Generating key\n';
-            openssl genrsa -des3 -out /tmp/ajenti.key -passout pass:1234 2048;
-            echo '\n-> Generating certificate request\n';
-            openssl req -new -key /tmp/ajenti.key -out /tmp/ajenti.csr -passin pass:1234 -subj /C=US/ST=NA/L=Nowhere/O=Acme\\ Inc/OU=IT/CN={0}/;
-            echo '\n-> Removing passphrase\n';
-            cp /tmp/ajenti.key /tmp/ajenti.key.org;
-            openssl rsa -in /tmp/ajenti.key.org -out /tmp/ajenti.key -passin pass:1234;
-            echo '\n-> Generating certificate\n';
-            openssl x509 -req -days 365 -in /tmp/ajenti.csr -signkey /tmp/ajenti.key -out /tmp/ajenti.crt -passin pass:1234;
-            cat /tmp/ajenti.key /tmp/ajenti.crt > {1}/ajenti.pem;
-            rm /tmp/ajenti.*;
-            echo '\n\n===================\nRestart Ajenti to apply changes!\n===================';
-        """.format(host, path)
-        self.context.launch('terminal', command=script)
 
 
 @plugin

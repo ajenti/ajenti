@@ -25,7 +25,7 @@ setup(
     url='http://ajenti.org/',
     packages=find_packages(exclude=['reconfigure', 'reconfigure.*']),
     package_data={'': ['content/*.*', 'content/*/*.*', 'content/*/*/*.*', 'layout/*.*']},
-    scripts=['ajenti-panel'],
+    scripts=['ajenti-panel', 'ajenti-ssl-gen'],
     data_files=[
         ('/etc/ajenti', ['packaging/files/config.json']),
         ('/etc/init.d', ['packaging/files/ajenti']),
