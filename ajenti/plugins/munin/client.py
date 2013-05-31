@@ -42,9 +42,11 @@ class MuninClient (BasePlugin):
         self._domains = None
 
     def _fetch(self, url):
-        req = requests.get(self.classconfig['prefix'] + url,
-                auth=(self.classconfig['username'], self.classconfig['password'])
-               )
+        req = requests.get(
+            self.classconfig['prefix'] + url,
+            auth=(self.classconfig['username'], self.classconfig['password']),
+            verify=False,
+        )
         if req.status_code == 401:
             raise Exception('auth')
         return BeautifulSoup(req.text)
