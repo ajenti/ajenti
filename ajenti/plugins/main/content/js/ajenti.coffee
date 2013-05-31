@@ -22,6 +22,7 @@ class window.Stream
             console.group 'Welcome to Ajenti'
             console.log 'version', data.version
             console.log 'running on', data.platform
+            $('title').text(data.hostname)
             console.groupEnd()
 
         @socket.on 'ui', (ui) ->
@@ -203,8 +204,12 @@ class TabManager
             @tabHeadersDom.find('a:first').addClass('active')
         
         @tabHeadersDom.find('a').click()
+        @openTabs = {}
 
     addTab: (url, title) ->
+        if @openTabs[url]
+            @openTabs[url].click()
+            return
         dom = $("""
             <div class="tab"><iframe src="#{url}" /></div>
         """)
@@ -213,7 +218,7 @@ class TabManager
             <a href="#">#{title}</a>
         """)
         @tabHeadersDom.append(headerDom)
-
+        @openTabs[url] = headerDom
         headerDom.click () =>
             @tabsDom.find('>*').hide()
             dom.show()

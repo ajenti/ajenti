@@ -7,6 +7,7 @@ import traceback
 import ajenti
 from ajenti.api import *
 from ajenti.api.http import *
+from ajenti.api.sensors import Sensor
 from ajenti.middleware import AuthenticationMiddleware
 from ajenti.profiler import *
 from ajenti.users import PermissionProvider, UserManager, SecurityError
@@ -115,6 +116,7 @@ class MainSocket (SocketPlugin):
         data = {
             'version': ajenti.version,
             'platform': ajenti.platform,
+            'hostname': Sensor.find('hostname').value(),
         }
         self.emit('init', json.dumps(data))
 

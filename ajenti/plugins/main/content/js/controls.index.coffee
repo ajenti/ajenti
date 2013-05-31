@@ -22,25 +22,6 @@ class window.Controls.main__page extends window.Control
                         <div class="--child-container"></div>
                     </div>
                 </div>
-                <div class="footer">
-                    <div class="container">
-                        <div class="name">
-                            <a href="http://ajenti.org" target="_blank">ajenti</a>
-                        </div>
-
-                        <div class="link">
-                            <a href="http://ajenti.userecho.com" target="_blank">Feedback</a>
-                        </div>
-
-                        <div class="link">
-                            <a href="http://wiki.ajenti.org" target="_blank">Wiki</a>
-                        </div>
-
-                        <div class="link">
-                            <a href="http://bugs.launchpad.net/ajenti" target="_blank">Bugtracker</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         """)
         @childContainer = @dom.find('.--child-container')

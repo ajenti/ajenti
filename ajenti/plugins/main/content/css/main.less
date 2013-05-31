@@ -47,7 +47,7 @@ body {
     font-size: @fontSize;
     overflow-x: hidden;
     overflow-y: scroll;
-
+    position: relative;
 	height: 100%;
 
     .ui-dark & {
@@ -149,12 +149,21 @@ body {
         &>.logo {
             .text {
                 float: left;
-                font-family: 'PT Sans', sans-serif;
-                font-size: 20px;
-                font-weight: bold;
                 padding: 1px 20px 0 15px;
-                color: @orange;
-                text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
+
+                a, div {
+                    font-family: 'PT Sans', sans-serif;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: @orange;
+                    text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    text-shadow: 0 0 10px @orange;
+                    cursor: pointer;
+                }
 
                 .release {
                     color: #c30;
@@ -163,7 +172,7 @@ body {
             }
         }
 
-        a {
+        .logout, #tab-headers a {
             display: inline-block;
             float: left;
             padding: 8px 10px;
