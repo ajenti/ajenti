@@ -34,6 +34,8 @@ class Packages (SectionPlugin):
         self.binder_s = CollectionAutoBinding([], None, self.find('search')).populate()
 
         self.pending = {}
+        self.installation_running = False
+        self.action_queue = []
 
     def refresh(self):
         self.fill(self.mgr.upgradeable)
@@ -42,13 +44,31 @@ class Packages (SectionPlugin):
         self._pending = self.pending.values()
         self.binder_p.reset(self).autodiscover().populate()
 
+    def run(self, tasks):
+        if self.installation_running:
+            self.action_queue += tasks
+            self.context.notify('info', 'Enqueueing package installation')
+            return
+
+        self.installation_running = True
+
+        def callback():
+            self.installation_running = False
+            if self.action_queue:
+                self.run(self.action_queue)
+                self.action_queue = []
+                return
+            self.context.notify('info', 'Installation complete!')
+
+        self.mgr.do(tasks, callback=callback)
+
     @intent('install-package')
     @restrict('packages:modify')
     def intent_install(self, package):
-        self.activate()
+        #self.activate()
         p = PackageInfo()
         p.name, p.action = package, 'i'
-        self.mgr.do([p])
+        self.run([p])
 
     def on_page_load(self):
         self.mgr.refresh()
@@ -81,7 +101,7 @@ class Packages (SectionPlugin):
     @on('apply-button', 'click')
     @restrict('packages:modify')
     def on_apply(self):
-        self.mgr.do(self.pending.values())
+        self.run(self.pending.values())
         self.pending = {}
         self.refresh()
 

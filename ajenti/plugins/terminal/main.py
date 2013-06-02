@@ -56,10 +56,10 @@ class Terminals (SectionPlugin):
             ulist.append(thumb)
 
     @intent('terminal')
-    def launch(self, command=None):
+    def launch(self, command=None, callback=None):
         if not command:
             command = self.classconfig['shell']
-        self.on_new(command, autoclose=True, autoopen=True)
+        self.on_new(command, autoclose=True, autoopen=True, callback=callback)
 
     @on('new-button', 'click')
     @restrict('terminal:shell')
@@ -71,7 +71,7 @@ class Terminals (SectionPlugin):
         self.terminals[key] = Terminal(command, **kwargs)
         self.refresh()
         if autoopen:
-            self.context.endpoint.send_url('/terminal/%i' % key)
+            self.context.endpoint.send_url('/terminal/%i' % key, 'Terminal %i' % key)
         return key
 
     @on('run-button', 'click')

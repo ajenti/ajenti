@@ -33,11 +33,11 @@ class DebianPackageManager (PackageManager):
     def get_lists(self):
         self.context.launch('terminal', command='apt-get update')
 
-    def do(self, actions):
+    def do(self, actions, callback=lambda: 0):
         cmd = 'apt-get install '
         for a in actions:
             cmd += a.name + {'r': '-', 'i': '+'}[a.action] + ' '
-        self.context.launch('terminal', command=cmd)
+        self.context.launch('terminal', command=cmd, callback=callback)
 
     def _parse_asv(self, d):
         r = []

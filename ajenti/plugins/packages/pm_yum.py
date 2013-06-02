@@ -36,7 +36,7 @@ class YumPackageManager (PackageManager):
     def get_lists(self):
         self.context.launch('terminal', command='yum check-update')
 
-    def do(self, actions):
+    def do(self, actions, callback=lambda: 0):
         to_install = [a for a in actions if a.action == 'i']
         to_remove = [a for a in actions if a.action == 'r']
         cmd = ''
@@ -46,7 +46,7 @@ class YumPackageManager (PackageManager):
                 cmd += ' && '
         if len(to_remove) > 0:
             cmd += 'yum remove ' + ' '.join(a.name for a in to_remove)
-        self.context.launch('terminal', command=cmd)
+        self.context.launch('terminal', command=cmd, callback=callback)
 
     def _parse_yum(self, ss):
         r = []

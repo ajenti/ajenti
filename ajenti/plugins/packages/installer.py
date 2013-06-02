@@ -53,6 +53,7 @@ db = {
         'ctdb': 'ctdb',
         'mysql': 'mysql-server',
         'psql': 'postgresql',
+        'nfsstat': 'nfs-kernel-server',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',

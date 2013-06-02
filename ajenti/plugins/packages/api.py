@@ -34,5 +34,5 @@ class PackageManager (BasePlugin):
     def search(self, query):
         return []
 
-    def do(self, actions):
+    def do(self, actions, callback=lambda: 0):
         pass

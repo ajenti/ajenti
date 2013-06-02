@@ -1,16 +1,13 @@
 import os
-import subprocess as sp
 import fcntl
 import pty
 import gevent
 
 import pyte
 
-import ajenti
-
 
 class Terminal (object):
-    def __init__(self, command=None, autoclose=False):
+    def __init__(self, command=None, autoclose=False, **kwargs):
         self.protocol = None
         self.width = 160
         self.height = 35
@@ -23,23 +20,14 @@ class Terminal (object):
         env['LINES'] = str(self.height)
         env['LC_ALL'] = 'en_US.UTF8'
 
-        command = command or 'sh -c \"$SHELL\"',
+        command = ['sh', '-c', command or '$SHELL']
+
         pid, master = pty.fork()
         if pid == 0:
-            p = sp.Popen(
-                command,
-                shell=True,
-                stdin=None,
-                stdout=None,
-                stderr=None,
-                close_fds=True,
-                env=env,
-            )
-            p.wait()
-            ajenti.exit()
-            return
+            os.execvp('sh', command)
+
         self.screen = pyte.DiffScreen(self.width, self.height)
-        self.protocol = PTYProtocol(pid, master, self.screen)
+        self.protocol = PTYProtocol(pid, master, self.screen, **kwargs)
 
     def restart(self):
         if self.protocol is not None:
@@ -57,11 +45,12 @@ class Terminal (object):
 
 
 class PTYProtocol():
-    def __init__(self, pid, master, term):
+    def __init__(self, pid, master, term, callback=None):
         self.data = ''
         self.pid = pid
         self.master = master
         self.dead = False
+        self.callback = callback
 
         fd = self.master
         fl = fcntl.fcntl(fd, fcntl.F_GETFL)
@@ -90,14 +79,20 @@ class PTYProtocol():
                 pass
             gevent.sleep(0.33)
 
-            self._check()
+        self._check()
         return self.format()
 
     def _check(self):
-        try:
-            os.kill(self.pid, 0)
-        except:
-            self.dead = True
+        pid, status = os.waitpid(self.pid, os.WNOHANG)
+        if pid:
+            self.on_died()
+
+    def on_died(self):
+        if self.dead:
+            return
+        self.dead = True
+        if self.callback:
+            self.callback()
 
     def history(self):
         return self.format(full=True)
