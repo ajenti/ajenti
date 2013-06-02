@@ -22,6 +22,7 @@
                                     <hc>
                                         <icon icon="lock" />
                                         <label bind="name" />
+                                        <label bind="describe" bindtransform="lambda x: x()" />
                                     </hc>
                                 </box>
                                 <pad>

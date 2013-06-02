@@ -36,14 +36,17 @@ class Services (SectionPlugin):
     def on_start(self, item):
         item.start()
         self.refresh()
+        self.context.notify('info', '%s started' % item.name)
 
     def on_stop(self, item):
         item.stop()
         self.refresh()
+        self.context.notify('info', '%s stopped' % item.name)
 
     def on_restart(self, item):
         item.restart()
         self.refresh()
+        self.context.notify('info', '%s restarted' % item.name)
 
 
 @p('name', bindtypes=[str, unicode])
