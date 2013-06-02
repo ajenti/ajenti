@@ -1,4 +1,5 @@
 import mimetypes
+import os
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin, intent
@@ -10,6 +11,7 @@ class Notepad (SectionPlugin):
     default_classconfig = {
         'bookmarks': []
     }
+    SIZE_LIMIT = 1024 * 1024 * 5
 
     def init(self):
         self.title = 'Notepad'
@@ -77,6 +79,9 @@ class Notepad (SectionPlugin):
     def on_open_dialog_select(self, path=None):
         self.opendialog.visible = False
         if path:
+            if os.stat(path).st_size > self.SIZE_LIMIT:
+                self.context.notify('error', 'File is too big')
+                return
             self.select(self.controller.open(path))
             self.activate()
 
