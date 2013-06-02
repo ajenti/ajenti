@@ -20,6 +20,7 @@ The following are the absolutely minimal set of software required to build and r
   * python-imaging
   * coffee-script (use NPM)
   * lessc (use NPM)
+  * yui-compressor
 
 Setting up
 ==========
