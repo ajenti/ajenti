@@ -9,15 +9,20 @@ from reconfigure.items.netatalk import ShareData
 
 @plugin
 class Netatalk (SectionPlugin):
+    config_path = '/etc/afp.conf'
+
     def init(self):
         self.title = 'Netatalk'
         self.icon = 'folder-close'
         self.category = 'Software'
         self.append(self.ui.inflate('netatalk:main'))
 
+        if not os.path.exists(self.config_path):
+            open(self.config_path, 'w').close()
+
         self.binder = Binder(None, self.find('config'))
         self.find('shares').new_item = lambda c: ShareData()
-        self.config = NetatalkConfig(path='/etc/afp.conf')
+        self.config = NetatalkConfig(path=config_path)
 
     def on_page_load(self):
         self.refresh()
