@@ -11,11 +11,12 @@ if len(sys.argv) < 2:
 host = sys.argv[1]
 path = '/etc/ajenti'
 config_path = '/etc/ajenti/config.json'
+marker_path = '/etc/ajenti/.ssl-generated'
 
 
 conf = json.loads(open(config_path).read())
 if len(sys.argv) == 2:
-    if conf['ssl']['enable']:
+    if os.path.exists(marker_path):
         print 'SSL is already configured, aborting'
         sys.exit(1)
 
@@ -39,5 +40,7 @@ subprocess.call(script, shell=True)
 conf['ssl']['enable'] = True
 conf['ssl']['certificate_path'] = os.path.join(path, 'ajenti.pem')
 open(config_path, 'w').write(json.dumps(conf))
+
+open(marker_path, 'w').close()
 
 print 'SSL configured!'
