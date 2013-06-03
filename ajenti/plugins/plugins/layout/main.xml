@@ -2,7 +2,7 @@
     <body>
         <pad id="bind-root">
             <bind:collection id="plugins" bind="plugins">
-                <dt bind="__items">
+                <dt bind="__items" style="compressed">
                     <dtr>
                         <dth width="16" />
                         <dth width="16" />

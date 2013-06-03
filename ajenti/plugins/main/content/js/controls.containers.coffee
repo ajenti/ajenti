@@ -114,7 +114,7 @@ class window.Controls.toolbar extends window.Control
 class window.Controls.dt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table" style="width: #{w}">
+        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table #{@properties.style}" style="width: #{w}">
                 <tbody></tbody>
             </table>""")
         @childContainer = @dom#.find('>tbody')
