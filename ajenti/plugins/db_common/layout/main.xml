@@ -83,7 +83,7 @@
                     <textbox id="host" />
                 </formline>
                 <formline text="Password">
-                    <textbox id="password" />
+                    <passwordbox id="password" />
                 </formline>
             </vc>
         </pad>

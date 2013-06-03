@@ -20,6 +20,18 @@ class window.Controls.textbox extends window.Control
         return r
 
 
+class window.Controls.passwordbox extends window.Controls.textbox
+    createDom: () ->
+        @dom = $("""
+            <div>
+                <input class="control textbox #{@properties.style}" 
+                    type="password" 
+                    value="#{@properties.value or ''}" />
+            </div>
+        """)
+        @input = @dom.find('input')
+
+
 class window.Controls.editable extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)

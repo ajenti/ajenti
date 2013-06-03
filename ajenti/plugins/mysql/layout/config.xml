@@ -4,7 +4,7 @@
             <textbox bind="user" />
         </formline>
         <formline text="Password">
-            <textbox bind="password" />
+            <passwordbox bind="password" />
         </formline>
     </vc>
 </bind:dict>

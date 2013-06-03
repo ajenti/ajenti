@@ -9,6 +9,12 @@ class TextBox (UIElement):
     typeid = 'textbox'
 
 
+@p('value', default='', bindtypes=[str, unicode, int])
+@plugin
+class PasswordBox (UIElement):
+    typeid = 'passwordbox'
+
+
 @p('value', default='', bindtypes=[str, unicode])
 @p('icon', default=None)
 @p('placeholder', default=None)
