@@ -101,7 +101,7 @@ class Firewall (SectionPlugin):
         self.find('rules').post_item_bind = post_rule_bind
         self.find('rules').post_item_update = post_rule_update
 
-        self.find('add-option').values = self.find('add-option').labels = ['Add option'] + ['custom'] + sorted(OptionData.templates.keys())
+        self.find('add-option').values = self.find('add-option').labels = ['Add option'] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
         if not os.path.exists(self.fw_mgr.config_path):

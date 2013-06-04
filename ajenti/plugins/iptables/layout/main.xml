@@ -24,9 +24,9 @@
                                                     </hc>
                                                 </right>
 
-                                                <hc>
+                                                <box width="400">
                                                     <label bind="name" style="bold" />
-                                                </hc>
+                                                </box>
                                                 
                                                 <bind:collection bind="rules" id="rules">
                                                     <sortabledt bind="__items" />
@@ -37,10 +37,12 @@
                                                                 <right>
                                                                     <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
                                                                 </right>
-                                                                <hc>
-                                                                    <label id="action" />
-                                                                    <label bind="summary" />
-                                                                </hc>
+                                                                <box width="660">
+                                                                    <hc>
+                                                                        <label id="action" />
+                                                                        <label bind="summary" />
+                                                                    </hc>
+                                                                </box>
                                                             </box>
                                                             <pad>
                                                                 <vc>
