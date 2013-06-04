@@ -9,7 +9,7 @@
                 "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": \"123\"}", 
                 "ajenti.plugins.mysql.main.MySQLPlugin": "{\"password\": \"1234\", \"user\": \"root\"}", 
                 "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [\"/etc/logrotate.conf\"]}", 
-                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\nccopy_reg\\n_reconstructor\\np2\\n(cajenti.plugins.elements.projects.main\\nElementsProject\\np3\\nc__builtin__\\nobject\\np4\\nNtRp5\\n(dp6\\nS'lock'\\np7\\nNsS'path'\\np8\\nS'/'\\nsS'name'\\np9\\nVtest\\np10\\nsS'permissions'\\np11\\n(lp12\\ng2\\n(cajenti.plugins.elements.projects.main\\nElementsProjectPermission\\np13\\ng4\\nNtRp14\\n(dp15\\nS'project'\\np16\\nNsS'user'\\np17\\nS'root'\\np18\\nsbasba.\"}"
+                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\nccopy_reg\\n_reconstructor\\np2\\n(cajenti.plugins.elements.projects.main\\nElementsProject\\np3\\nc__builtin__\\nobject\\np4\\nNtRp5\\n(dp6\\nS'lock'\\np7\\nNsS'path'\\np8\\nV/home/eugeny/Documents\\np9\\nsS'name'\\np10\\nVtest\\np11\\nsS'permissions'\\np12\\n(lp13\\ng2\\n(cajenti.plugins.elements.projects.main\\nElementsProjectPermission\\np14\\ng4\\nNtRp15\\n(dp16\\nS'project'\\np17\\nNsS'user'\\np18\\nS'root'\\np19\\nsbasba.\"}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
             "permissions": [

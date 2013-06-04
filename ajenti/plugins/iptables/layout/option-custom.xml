@@ -1,0 +1,12 @@
+<hc xmlns:bind="bind">
+    <bind:list bind="arguments">
+        <bind:item>
+            <hc>
+                <label text="Name" />
+                <textbox bind="name" />
+                <label text="Value" />
+                <textbox bind="value" />
+            </hc>
+        </bind:item>
+    </bind:list>
+</hc>

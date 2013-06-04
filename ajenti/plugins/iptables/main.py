@@ -101,7 +101,7 @@ class Firewall (SectionPlugin):
         self.find('rules').post_item_bind = post_rule_bind
         self.find('rules').post_item_update = post_rule_update
 
-        self.find('add-option').values = self.find('add-option').labels = ['Add option'] + sorted(OptionData.templates.keys())
+        self.find('add-option').values = self.find('add-option').labels = ['Add option'] + ['custom'] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
         if not os.path.exists(self.fw_mgr.config_path):
@@ -172,19 +172,22 @@ class OptionsBinding (CollectionAutoBinding):
 
     def get_template(self, item, ui):
         root = ui.ui.inflate('iptables:option')
-        try:
-            option = item.name
-            if option in OptionsBinding.option_map:
-                option = OptionsBinding.option_map[option]
-            item.name = option
-            item.cmdline = '--%s' % option
 
-            if option in OptionsBinding.template_map:
-                template = OptionsBinding.template_map[option]
-            else:
-                template = option
+        option = item.name
+        if option in OptionsBinding.option_map:
+            option = OptionsBinding.option_map[option]
+        item.name = option
+        item.cmdline = '--%s' % option
+
+        if option in OptionsBinding.template_map:
+            template = OptionsBinding.template_map[option]
+        else:
+            template = option
+
+        try:
             option_ui = ui.ui.inflate('iptables:option-%s' % template)
-            root.find('slot').append(option_ui)
         except TemplateNotFoundError:
-            pass
+            option_ui = ui.ui.inflate('iptables:option-custom')
+
+        root.find('slot').append(option_ui)
         return root

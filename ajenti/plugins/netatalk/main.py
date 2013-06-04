@@ -1,3 +1,5 @@
+import os
+
 from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
@@ -22,7 +24,7 @@ class Netatalk (SectionPlugin):
 
         self.binder = Binder(None, self.find('config'))
         self.find('shares').new_item = lambda c: ShareData()
-        self.config = NetatalkConfig(path=config_path)
+        self.config = NetatalkConfig(path=self.config_path)
 
     def on_page_load(self):
         self.refresh()

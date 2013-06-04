@@ -10,7 +10,7 @@ Package: ajenti
 Architecture: all
 Homepage: http://ajenti.org/
 XB-Python-Version: ${python:Versions}
-Depends: ${misc:Depends}, ${python:Depends}, python-lxml (>=2.2.4), python-gevent, openssl, python-gevent-socketio, python-psutil (>=0.6.0), python-reconfigure (>=0.1.9), python-daemon, python-passlib, python-requests, python-dbus, python-imaging, stunnel, apt-show-versions
+Depends: ${misc:Depends}, ${python:Depends}, python-lxml (>=2.2.4), python-gevent, openssl, python-gevent-socketio, python-psutil (>=0.6.0), python-reconfigure (>=0.1.10), python-daemon, python-passlib, python-requests, python-dbus, python-imaging, stunnel, apt-show-versions
 Description: Server administration web interface
  It provides rich functionality and support for lots of server software,
  along with system configuration options.
