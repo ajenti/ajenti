@@ -41,7 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 ajenti-ssl-gen `hostname`
-service --add ajenti
+chkconfig --add ajenti
 service ajenti restart > /dev/null 2>&1
 
 echo ------------------------------------------------
