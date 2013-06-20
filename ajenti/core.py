@@ -29,7 +29,7 @@ class SSLTunnel (object):
     def start(self, host, port, certificate_path):
         self.port = self.get_free_port()
         logging.info('Starting SSL tunnel for port %i' % self.port)
-        self.process = subprocess.Popen([
+        cmd = [
             'stunnel',
             '-p', certificate_path,
             '-r', '127.0.0.1:%i' % self.port,
@@ -37,7 +37,10 @@ class SSLTunnel (object):
             '-f',
             '-P', '',
             '-o', os.devnull,
-            '-D', '0'], stdout=None)
+            '-D', '0'
+        ]
+        logging.debug(' '.join(cmd))
+        self.process = subprocess.Popen(cmd, stdout=None)
 
     def check(self):
         time.sleep(0.5)
