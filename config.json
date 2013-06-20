@@ -2,7 +2,7 @@
     "users": {
         "root": {
             "configs": {
-                "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/home\"}", 
+                "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/\"}", 
                 "ajenti.plugins.terminal.main.Terminals": "{\"shell\": \"sh -c $SHELL\"}", 
                 "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}", 
                 "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}]}", 
