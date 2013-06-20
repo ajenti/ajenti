@@ -91,6 +91,7 @@ def run():
         log=open(os.devnull, 'w'),
         application=HttpRoot(stack).dispatch,
         policy_server=False,
+        resource='ajenti:socket',
     )
 
     # auth.log

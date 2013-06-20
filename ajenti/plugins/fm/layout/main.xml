@@ -64,7 +64,7 @@
 
                 <pad>
                     <label text="Upload" style="bold" />
-                    <fileupload target="/fm-upload" />
+                    <fileupload target="/ajenti:fm-upload" />
                 </pad>
 
                 <pad>

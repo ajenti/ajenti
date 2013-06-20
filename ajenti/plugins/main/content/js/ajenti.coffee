@@ -5,7 +5,7 @@ class window.Stream
     constructor: () ->
 
     start: () ->
-        @socket = io.connect('/stream')
+        @socket = ajentiConnectSocket('/stream')
 
         @socket.on 'connect', () ->
             $('#connection-error').hide()
@@ -329,6 +329,9 @@ class window.Control
 #---------------------
 # Crash handler
 #---------------------
+
+window.ajentiConnectSocket = (uri) ->
+    return io.connect(uri, resource: 'ajenti:socket')
 
 window.ajentiCrash = (info) ->
     $('#crash').fadeIn()

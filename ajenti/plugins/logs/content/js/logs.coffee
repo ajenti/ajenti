@@ -5,7 +5,7 @@ class window.Controls.logs__log extends window.Control
             </textarea>
         """)
         if @properties.path
-            @socket = io.connect('/log')
+            @socket = ajentiConnectSocket('/log')
             @socket.send(JSON.stringify(type: 'select', path: @properties.path))
             @socket.on 'add', @add
 

@@ -62,7 +62,7 @@ class MuninProxy (HttpPlugin):
     def init(self):
         self.client = MuninClient.get()
 
-    @url('/munin-proxy/(?P<url>.+)')
+    @url('/ajenti:munin-proxy/(?P<url>.+)')
     def get_page(self, context, url):
         if context.session.identity is None:
             context.respond_redirect('/')

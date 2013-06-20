@@ -179,7 +179,7 @@ class FileManager (SectionPlugin):
 
 @plugin
 class UploadReceiver (HttpPlugin):
-    @url('/fm-upload')
+    @url('/ajenti:fm-upload')
     def handle_upload(self, context):
         file = context.query['file']
         context.session.endpoint.get_section(FileManager).upload(file.filename, file.file)

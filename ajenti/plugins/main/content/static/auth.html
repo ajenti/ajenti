@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset='utf-8' />
-        <title></title>
-        <link rel="stylesheet" href="static/resources.css" />
-        <script src="static/resources.js"></script>
+        <title>Ajenti</title>
+        <link rel="stylesheet" href="/ajenti:static/resources.css" />
+        <link rel="icon" type="image/png" href="/ajenti:static/main/favicon.png" />
+        <script src="/ajenti:static/resources.js"></script>
     </head>
     
     <body>
@@ -16,7 +17,7 @@
 
         <div class="page auth">
             <div class="content">
-                <form action="/auth" method="POST">
+                <form action="/ajenti:auth" method="POST">
                     <div class="control vc">
                         <div class="control hc">
                             <div class="l control label">Username</div>
@@ -36,7 +37,8 @@
         </div>
 
         <script>
-            $('input').focus().keyup(function (e) {
+            $($('input')[0]).focus();
+            $('input').keyup(function (e) {
                 if (e.which == 13)
                     $('form')[0].submit();
             });
