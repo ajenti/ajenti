@@ -87,7 +87,7 @@ class Terminals (SectionPlugin):
 
 @plugin
 class TerminalHttp (BasePlugin, HttpPlugin):
-    @url('/terminal/(?P<id>\d+)')
+    @url('/ajenti:terminal/(?P<id>\d+)')
     def get_page(self, context, id):
         if context.session.identity is None:
             context.respond_redirect('/')
@@ -95,7 +95,7 @@ class TerminalHttp (BasePlugin, HttpPlugin):
         context.respond_ok()
         return self.open_content('static/index.html').read()
 
-    @url('/terminal/(?P<id>\d+)/thumbnail')
+    @url('/ajenti:terminal/(?P<id>\d+)/thumbnail')
     def get_thumbnail(self, context, id):
         terminal = context.session.terminals[int(id)]
 

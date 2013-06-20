@@ -1,0 +1,23 @@
+.. _reverse-proxy:
+
+Reverse Proxying Ajenti
+***********************
+
+All Ajenti URLs are absolute and start with ``/ajenti:``, which makes it easy to reverse-proxy it with, for example, nginx::
+
+    server {
+        server_name fallthrough;
+        client_max_body_size 20m;
+
+        listen 80;
+
+        location /ajenti {
+            rewrite /ajenti/(.*) /$1 break;
+            proxy_pass  http://127.0.0.1:8000;
+            proxy_redirect off;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    }
+
+

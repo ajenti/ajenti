@@ -2,12 +2,12 @@ class window.Controls.terminal__thumbnail extends window.Control
     createDom: () ->
         @dom = $("""
             <div class="control terminal-thumbnail">
-                <img src="/terminal/#{@properties.tid}/thumbnail" />
+                <img src="/ajenti:terminal/#{@properties.tid}/thumbnail" />
                 <a class="close">&#x2715;</a>
             </div>
         """)
         @dom.click () =>
-            Tabs.addTab "/terminal/#{@properties.tid}", "Terminal #{@properties.tid}"
+            Tabs.addTab "/ajenti:terminal/#{@properties.tid}", "Terminal #{@properties.tid}"
         @dom.find('a').click (e) =>
             @event('close')
             e.stopPropagation()
@@ -17,7 +17,7 @@ class window.Terminal
     constructor: () ->
         @id = document.location.href.split('/')[4]
         @term = $('#term')
-        @socket = io.connect('/terminal')
+        @socket = ajentiConnectSocket('/terminal')
 
         $(document).keypress (event) =>
             ch = @filter_key(event, $.browser.mozilla)
@@ -166,85 +166,3 @@ class window.Terminal
                     return ''
         event.preventDefault()
         return ch
-
-
-"""
-var _cursor, _cursx, _cursy, _tid;
-
-
-
-function termSend(data) {
-    $.ajax({
-        url: '/terminal/' + _tid + '/post/' + data,
-        type: 'GET',
-        cache: false,
-        success: function () {
-            termActivity();
-        },
-        error: termOffline
-    });
-}
-
-function 
-
-
-function termInit(tid) {
-
-}
-
-
-
-
-
-
-function termTV() {
-    $('.tv-noise').css('width', document.width*2 + 'px');
-    $('.tv-noise').css('height', document.height*2 + 'px');
-    $('.tv-line').css('width', document.width*2 + 'px');
-    $('.tv-noise').show();
-    $('.tv-line').show();
-    termTVUpdate();
-    termTVUpdateLine(true);
-    termTVUpdateShake();
-    $('.tv-icon').fadeOut();
-}
-
-function termTVUpdate() {
-    $('.tv-noise').each(function (i,e) {
-        var dx = Math.floor(Math.random()*50-25), dy = Math.floor(Math.random()*50-25);
-        $(e).css('top', dx+'px');
-        $(e).css('left', dy+'px');
-    });
-
-    $('.tv-line').each(function (i,e) {
-        $(e).css('top', e.offsetTop + 3 + "px");
-    });
-    
-    $('#term').css('opacity', 0.9+Math.random()*0.1+"");
-    setTimeout("termTVUpdate()", 50);
-}
-
-function termTVUpdateLine(force) {
-    $('.tv-line').each(function (i,e) {
-        if (Math.random() > 0.25 && (force || e.offsetTop > $('#term')[0].offsetTop + $('#term')[0].clientHeight))
-            $(e).css('top', $('#term')[0].offsetTop-Math.random()*500);
-    });
-    setTimeout("termTVUpdateLine()", 3000+Math.random()*4000);
-}
-
-function termTVUpdateShake(reset) {
-    $('#term div').each(function (i,e) {
-        var dx = Math.floor(Math.random()*5);
-        if (reset) dx = 0;
-        $(e).css('padding-left', dx+'px');
-    });
-
-    if (reset)
-        setTimeout("termTVUpdateShake()", Math.random()*4000);
-    else
-        if (Math.random() < 0.20)
-            setTimeout("termTVUpdateShake(true)", 20);
-        else
-            setTimeout("termTVUpdateShake()", 20);
-}
-"""

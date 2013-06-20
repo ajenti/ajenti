@@ -37,7 +37,7 @@ class SSLTunnel (object):
             '-f',
             '-P', '',
             '-o', os.devnull,
-            '-D', '0'])
+            '-D', '0'], stdout=None)
 
     def check(self):
         time.sleep(0.5)
@@ -65,6 +65,7 @@ def run():
         addrs = socket.getaddrinfo(bind_spec[0], bind_spec[1], socket.AF_INET6, 0, socket.SOL_TCP)
         bind_spec = addrs[0][-1]
 
+    ssl_tunnel = None
     if ajenti.config.tree.ssl.enable:
         ssl_tunnel = SSLTunnel()
         ssl_tunnel.start(bind_spec[0], bind_spec[1], ajenti.config.tree.ssl.certificate_path)
@@ -90,6 +91,7 @@ def run():
         log=open(os.devnull, 'w'),
         application=HttpRoot(stack).dispatch,
         policy_server=False,
+        resource='ajenti:socket',
     )
 
     # auth.log
@@ -112,7 +114,8 @@ def run():
 
     if hasattr(ajenti.server, 'restart_marker'):
         logging.warn('Restarting by request')
-        ssl_tunnel.stop()
+        if ssl_tunnel:
+            ssl_tunnel.stop()
 
         fd = 20  # Close all descriptors. Creepy thing
         while fd > 2:

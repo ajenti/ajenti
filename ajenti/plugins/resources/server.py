@@ -13,7 +13,7 @@ from ajenti.plugins import manager
 class ContentServer (HttpPlugin):
     last_query = 0
 
-    @url('/static/resources.(?P<type>.+)')
+    @url('/ajenti:static/resources.(?P<type>.+)')
     def handle_resources(self, context, type):
         if ajenti.debug:
             if time.time() - self.last_query > 5:
@@ -31,7 +31,7 @@ class ContentServer (HttpPlugin):
         context.add_header('Content-Type', types[type])
         return context.gzip(content)
 
-    @url('/static/(?P<plugin>\w+)/(?P<path>.+)')
+    @url('/ajenti:static/(?P<plugin>\w+)/(?P<path>.+)')
     def handle_static(self, context, plugin, path):
         plugin_path = manager.resolve_path(plugin)
         if plugin_path is None:

@@ -67,6 +67,12 @@ class Filesystems (SectionPlugin):
         self.context.notify('info', 'Unmounted')
         self.refresh()
 
+    @on('mount-all', 'click')
+    def on_mount_all(self):
+        if subprocess.call(['mount', '-a']):
+            self.context.notify('error', 'mount -a failed')
+        self.refresh()
+
     @on('refresh', 'click')
     def refresh(self):
         self.reload_disks()

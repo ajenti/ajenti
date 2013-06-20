@@ -39,7 +39,7 @@ class CentralDispatcher (BasePlugin, HttpHandler):
         else:
             self.context = manager.context
 
-        if context.path.startswith('/socket.io'):
+        if context.path.startswith('/ajenti:socket'):
             return context.fallthrough(self.io)
 
         for instance in HttpPlugin.get_all():

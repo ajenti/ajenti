@@ -1,5 +1,8 @@
 <vc xmlns:bind="bind">
-    <button icon="refresh" id="refresh" text="Refresh" />
+    <hc>
+        <button icon="refresh" id="refresh" text="Refresh" />
+        <button icon="hdd" id="mount-all" text="Mount all" />
+    </hc>
 
     <body>
         <pad id="fstab" bind="fstab">

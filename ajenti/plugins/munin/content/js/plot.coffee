@@ -1,6 +1,6 @@
 class window.Controls.munin__plot extends window.Control
     createDom: () ->
-        url = '/munin-proxy/' + encodeURIComponent(@properties.url)
+        url = '/ajenti:munin-proxy/' + encodeURIComponent(@properties.url)
         if @properties.period
             url += @properties.period + '.png'
         @dom = $("""

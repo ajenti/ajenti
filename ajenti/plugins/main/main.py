@@ -29,7 +29,7 @@ class MainServer (BasePlugin, HttpPlugin):
         context.respond_ok()
         return self.open_content('static/index.html').read()
 
-    @url('/auth')
+    @url('/ajenti:auth')
     def handle_auth(self, context):
         username = context.query.getvalue('username', '')
         password = context.query.getvalue('password', '')
@@ -37,7 +37,7 @@ class MainServer (BasePlugin, HttpPlugin):
             gevent.sleep(3)
         return context.redirect('/')
 
-    @url('/logout')
+    @url('/ajenti:logout')
     def handle_logout(self, context):
         AuthenticationMiddleware.get().logout(context)
         context.session.destroy()
