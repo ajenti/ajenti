@@ -7,6 +7,7 @@ import subprocess
 import syslog
 import sys
 import time
+import tempfile
 
 import ajenti
 from ajenti.http import HttpRoot
@@ -29,21 +30,35 @@ class SSLTunnel (object):
     def start(self, host, port, certificate_path):
         self.port = self.get_free_port()
         logging.info('Starting SSL tunnel for port %i' % self.port)
+        stunnel = 'stunnel'
+        if subprocess.call(['which', 'stunnel4']) == 0:
+            stunnel = 'stunnel4'
+        cfg = tempfile.NamedTemporaryFile(delete=False)
+        cfg.write("""
+            cert = %s
+            foreground = yes
+            pid =
+
+            [default]
+            accept = %s:%i
+            connect = 127.0.0.1:%i
+        """ % (
+            certificate_path,
+            host or '0.0.0.0', port,
+            self.port
+        ))
+        cfg.close()
         cmd = [
-            'stunnel',
-            '-p', certificate_path,
-            '-r', '127.0.0.1:%i' % self.port,
-            '-d', '%s:%i' % (host or '0.0.0.0', port),
-            '-f',
-            '-P', '',
-            '-o', os.devnull,
-            '-D', '0'
+            stunnel,
+            cfg.name,
         ]
-        logging.debug(' '.join(cmd))
         self.process = subprocess.Popen(cmd, stdout=None)
+        time.sleep(0.2)
+        os.unlink(cfg.name)
 
     def check(self):
         time.sleep(0.5)
+        print self.process.poll()
         return self.process.poll() is None
 
     def stop(self):
