@@ -9,19 +9,19 @@
             <hc>
                 <dropdown id="sql-db" />
                 <textbox style="big" id="sql-input" />
-                <button icon="play" text="Run" id="sql-run" />
+                <button icon="play" text="{Run}" id="sql-run" />
             </hc>
 
             <dt id="sql-output" />
         </pad>
 
         <pad>
-            <label text="Databases" style="bold" />
+            <label text="{Databases}" style="bold" />
             <bind:collection bind="databases" id="databases">
                 <vc>
                     <dt bind="__items">
                         <dtr>
-                            <dth text="Name" />
+                            <dth text="{Name}" />
                             <dth />
                         </dtr>
                     </dt>
@@ -31,23 +31,23 @@
                                 <label bind="name" />
                             </dtd>
                             <dtd width="1">
-                                <button bind="__delete" icon="trash" style="mini" warning="Confirm database drop!" />
+                                <button bind="__delete" icon="trash" style="mini" warning="{Confirm database drop!}" />
                             </dtd>
                         </dtr>
                     </bind:template>
                 </vc>
             </bind:collection>
 
-            <button icon="plus" text="Create" id="add-db" />
+            <button icon="plus" text="{Create}" id="add-db" />
      
 
-            <label text="Users" style="bold" />
+            <label text="{Users}" style="bold" />
             <bind:collection bind="users" id="users">
                 <vc>
                     <dt bind="__items">
                         <dtr>
-                            <dth text="Username" />
-                            <dth text="Host" />
+                            <dth text="{Username}" />
+                            <dth text="{Host}" />
                             <dth />
                         </dtr>
                     </dt>
@@ -60,29 +60,29 @@
                                 <label bind="host" />
                             </dtd>
                             <dtd width="1">
-                                <button bind="__delete" icon="trash" style="mini" warning="Confirm deletion" />
+                                <button bind="__delete" icon="trash" style="mini" warning="{Confirm deletion}" />
                             </dtd>
                         </dtr>
                     </bind:template>
                 </vc>
             </bind:collection>
 
-            <button icon="plus" text="Create" id="add-user" />
+            <button icon="plus" text="{Create}" id="add-user" />
         </pad>
     </body>
 
-    <inputdialog id="db-name-dialog" text="Database name" visible="False" />
+    <inputdialog id="db-name-dialog" text="{Database name}" visible="False" />
 
     <dialog id="add-user-dialog" visible="False" buttons="['ok','cancel']">
         <pad>
             <vc>
-                <formline text="Username">
+                <formline text="{Username}">
                     <textbox id="name" />
                 </formline>
-                <formline text="Hostname">
+                <formline text="{Hostname}">
                     <textbox id="host" />
                 </formline>
-                <formline text="Password">
+                <formline text="{Password}">
                     <passwordbox id="password" />
                 </formline>
             </vc>

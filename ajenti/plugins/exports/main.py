@@ -14,9 +14,9 @@ class Exports (SectionPlugin):
     config_path = '/etc/exports'
 
     def init(self):
-        self.title = 'NFS Exports'
+        self.title = _('NFS Exports')
         self.icon = 'hdd'
-        self.category = 'System'
+        self.category = _('System')
         self.append(self.ui.inflate('exports:main'))
 
         if not os.path.exists(self.config_path):
@@ -35,4 +35,4 @@ class Exports (SectionPlugin):
     def save(self):
         self.binder.update()
         self.config.save()
-        self.context.notify('info', 'Saved')
+        self.context.notify('info', _('Saved'))

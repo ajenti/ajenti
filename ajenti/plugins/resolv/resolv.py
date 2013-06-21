@@ -10,12 +10,12 @@ from reconfigure.items.resolv import ItemData
 @plugin
 class Resolv (SectionPlugin):
     def init(self):
-        self.title = 'Nameservers'
+        self.title = _('Nameservers')
         self.icon = 'globe'
-        self.category = 'System'
+        self.category = _('System')
 
         self.append(self.ui.inflate('resolv:main'))
-        self.find('name-box').labels = ['DNS nameserver', 'Local domain name', 'Search list', 'Sort list', 'Options']
+        self.find('name-box').labels = [_('DNS nameserver'), _('Local domain name'), _('Search list'), _('Sort list'), _('Options')]
         self.find('name-box').values = ['nameserver', 'domain', 'search', 'sortlist', 'options']
 
         self.config = ResolvConfig(path='/etc/resolv.conf')

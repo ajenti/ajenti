@@ -9,7 +9,7 @@
 
     <dialog id="config-dialog" visible="False">
         <pad>
-            <formline text="Sensor" id="form-line">
+            <formline text="{Sensor}" id="form-line">
                 <dropdown id="sensor" />
             </formline>
         </pad>

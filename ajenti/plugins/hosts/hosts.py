@@ -10,9 +10,9 @@ from reconfigure.items.hosts import AliasData, HostData
 @plugin
 class Hosts (SectionPlugin):
     def init(self):
-        self.title = 'Hosts'
+        self.title = _('Hosts')
         self.icon = 'sitemap'
-        self.category = 'System'
+        self.category = _('System')
 
         self.append(self.ui.inflate('hosts:main'))
 

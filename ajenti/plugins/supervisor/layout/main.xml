@@ -19,7 +19,7 @@
                             <box>
                                 <right>
                                     <hc>
-                                        <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                     </hc>
                                 </right>
                                 <hc>
@@ -33,32 +33,32 @@
                             <pad>
                                 <hc>
                                     <vc>
-                                        <formline text="Command">
+                                        <formline text="{Command}">
                                             <textbox bind="command" />
                                         </formline>
-                                        <formline text="Working directory">
+                                        <formline text="{Working directory}">
                                             <textbox bind="directory" />
                                         </formline>
-                                        <formline text="Autostart">
+                                        <formline text="{Autostart}">
                                             <dropdown bind="autostart" values="['true', 'false']" 
-                                                labels="['Enabled', 'Disabled']" />
+                                                labels="[_('Enabled'), _('Disabled')]" />
                                         </formline>
-                                        <formline text="Autorestart">
+                                        <formline text="{Autorestart}">
                                             <dropdown bind="autorestart" values="['true', 'unexpected', 'false']" 
-                                                labels="['Enabled', 'On crash', 'Disabled']" />
+                                                labels="[_('Enabled'), _('On crash'), _('Disabled')]" />
                                         </formline>
                                     </vc>
                                     <vc>
-                                        <formline text="Start timeout">
+                                        <formline text="{Start timeout}">
                                             <textbox bind="startsecs" />
                                         </formline>
-                                        <formline text="Start retries">
+                                        <formline text="{Start retries}">
                                             <textbox bind="startretries" />
                                         </formline>
-                                        <formline text="Username">
+                                        <formline text="{Username}">
                                             <textbox bind="user" />
                                         </formline>
-                                        <formline text="Environment">
+                                        <formline text="{Environment}">
                                             <textbox bind="environment" />
                                         </formline>
                                     </vc>
@@ -67,11 +67,11 @@
                         </collapserow>
                     </bind:template>
                     
-                    <button bind="__add" icon="plus" text="Create" />
+                    <button bind="__add" icon="plus" text="{Create}" />
                 </vc>
             </bind:collection>
         </pad>
     </body>
                         
-    <button id="save" text="Save" icon="ok" />
+    <button id="save" text="{Save}" icon="ok" />
 </vc>

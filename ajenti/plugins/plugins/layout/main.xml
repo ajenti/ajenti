@@ -28,7 +28,7 @@
                                     <label bind="name" />
                                 </hc>
                                 <indent>
-                                    <label text="Dependencies" style="bold" />
+                                    <label text="{Dependencies}" style="bold" />
                                     
                                     <bind:collection bind="dependencies" id="dependencies">
                                         <indent>

@@ -16,7 +16,7 @@ class Netatalk (SectionPlugin):
     def init(self):
         self.title = 'Netatalk'
         self.icon = 'folder-close'
-        self.category = 'Software'
+        self.category = _('Software')
         self.append(self.ui.inflate('netatalk:main'))
 
         if not os.path.exists(self.config_path):

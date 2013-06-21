@@ -1,7 +1,7 @@
 <body xmlns:bind="bind" xmlns:munin="munin">
     <pad>
         <tabs>
-            <tab title="View">
+            <tab title="{View}">
                 <bind:collection bind="domains">
                     <vc>
                         <vc bind="__items" />
@@ -41,7 +41,7 @@
                     </vc>
                 </bind:collection>
             </tab>
-            <tab title="Configure">
+            <tab title="{Configure}">
                 <bind:dict bind="classconfig">
                     <formline text="Base URL">
                         <textbox bind="prefix" />

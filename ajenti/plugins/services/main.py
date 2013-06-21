@@ -9,9 +9,9 @@ from api import ServiceMultiplexor
 @plugin
 class Services (SectionPlugin):
     def init(self):
-        self.title = 'Services'
+        self.title = _('Services')
         self.icon = 'play'
-        self.category = 'Software'
+        self.category = _('Software')
         self.append(self.ui.inflate('services:main'))
         self.mgr = ServiceMultiplexor.get()
         self.binder = Binder(None, self.find('main'))
@@ -36,17 +36,17 @@ class Services (SectionPlugin):
     def on_start(self, item):
         item.start()
         self.refresh()
-        self.context.notify('info', '%s started' % item.name)
+        self.context.notify('info', _('%s started') % item.name)
 
     def on_stop(self, item):
         item.stop()
         self.refresh()
-        self.context.notify('info', '%s stopped' % item.name)
+        self.context.notify('info', _('%s stopped') % item.name)
 
     def on_restart(self, item):
         item.restart()
         self.refresh()
-        self.context.notify('info', '%s restarted' % item.name)
+        self.context.notify('info', _('%s restarted') % item.name)
 
 
 @p('name', bindtypes=[str, unicode])

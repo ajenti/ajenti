@@ -13,7 +13,7 @@ from backend import FMBackend, Item
 
 @plugin
 class FileManagerConfigEditor (ClassConfigEditor):
-    title = 'File Manager'
+    title = _('File Manager')
     icon = 'folder-open'
 
     def init(self):
@@ -27,8 +27,8 @@ class FileManager (SectionPlugin):
     classconfig_root = True
 
     def init(self):
-        self.title = 'File Manager'
-        self.category = 'Tools'
+        self.title = _('File Manager')
+        self.category = _('Tools')
         self.icon = 'folder-open'
 
         self.backend = FMBackend().get()
@@ -52,8 +52,8 @@ class FileManager (SectionPlugin):
         self.tabs = self.find('tabs')
 
         self.find('dialog').buttons = [
-            {'id': 'save', 'text': 'Save'},
-            {'id': 'cancel', 'text': 'Cancel'},
+            {'id': 'save', 'text': _('Save')},
+            {'id': 'cancel', 'text': _('Cancel')},
         ]
 
     def refresh_clipboard(self):

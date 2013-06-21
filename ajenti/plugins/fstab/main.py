@@ -40,9 +40,9 @@ class MountsBackend (BasePlugin):
 @plugin
 class Filesystems (SectionPlugin):
     def init(self):
-        self.title = 'Filesystems'
+        self.title = _('Filesystems')
         self.icon = 'hdd'
-        self.category = 'System'
+        self.category = _('System')
         self.append(self.ui.inflate('fstab:main'))
 
         self.find('type').labels = ['Auto', 'EXT2', 'EXT3', 'EXT4', 'NTFS', 'FAT', 'ZFS', 'ReiserFS', 'Samba', 'None', 'Loop']
@@ -64,13 +64,13 @@ class Filesystems (SectionPlugin):
 
     def on_umount(self, mount):
         subprocess.call(['umount', mount.mountpoint])
-        self.context.notify('info', 'Unmounted')
+        self.context.notify('info', _('Unmounted'))
         self.refresh()
 
     @on('mount-all', 'click')
     def on_mount_all(self):
         if subprocess.call(['mount', '-a']):
-            self.context.notify('error', 'mount -a failed')
+            self.context.notify('error', _('mount -a failed'))
         self.refresh()
 
     @on('refresh', 'click')

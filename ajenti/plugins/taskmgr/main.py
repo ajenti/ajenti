@@ -11,7 +11,7 @@ from ajenti.profiler import *
 @plugin
 class TaskManager (SectionPlugin):
     def init(self):
-        self.title = 'Processes'
+        self.title = _('Processes')
         self.icon = 'th-list'
         self.category = 'System'
         self.append(self.ui.inflate('taskmgr:main'))

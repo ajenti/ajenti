@@ -7,7 +7,7 @@ from ajenti.ui.binder import Binder
 @plugin
 class PluginsPlugin (SectionPlugin):
     def init(self):
-        self.title = 'Plugins'
+        self.title = _('Plugins')
         self.icon = 'cogs'
         self.category = ''
         self.order = 50

@@ -14,9 +14,9 @@ class Notepad (SectionPlugin):
     SIZE_LIMIT = 1024 * 1024 * 5
 
     def init(self):
-        self.title = 'Notepad'
+        self.title = _('Notepad')
         self.icon = 'edit'
-        self.category = 'Tools'
+        self.category = _('Tools')
 
         self.append(self.ui.inflate('notepad:main'))
 
@@ -92,7 +92,7 @@ class Notepad (SectionPlugin):
             self.select(self.selected)
             self.controller.save(self.selected, path)
             self.select(self.selected)
-            self.context.notify('info', 'Saved')
+            self.context.notify('info', _('Saved'))
 
     def on_close(self, id):
         if self.controller.files[id]['path'] in self.classconfig['bookmarks']:

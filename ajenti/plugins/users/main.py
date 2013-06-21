@@ -11,9 +11,9 @@ from reconfigure.configs import PasswdConfig, GroupConfig
 @plugin
 class Users (SectionPlugin):
     def init(self):
-        self.title = 'Users'
+        self.title = _('Users')
         self.icon = 'group'
-        self.category = 'System'
+        self.category = _('System')
         self.append(self.ui.inflate('users:main'))
 
         def _sorter(x):

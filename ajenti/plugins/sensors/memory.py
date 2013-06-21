@@ -28,14 +28,14 @@ class SwapSensor (Sensor):
 
 @plugin
 class MemoryWidget (DashboardWidget):
-    name = 'Memory usage'
+    name = _('Memory usage')
     icon = 'tasks'
 
     def init(self):
         self.sensor = Sensor.find('memory')
         self.append(self.ui.inflate('sensors:progressbar-widget'))
         self.find('icon').icon = 'tasks'
-        self.find('name').text = 'Memory usage'
+        self.find('name').text = _('Memory usage')
         value = self.sensor.value()
         self.find('value').text = str_fsize(value[0])
         self.find('progress').value = 1.0 * value[0] / value[1]
@@ -43,14 +43,14 @@ class MemoryWidget (DashboardWidget):
 
 @plugin
 class SwapWidget (DashboardWidget):
-    name = 'Swap usage'
+    name = _('Swap usage')
     icon = 'hdd'
 
     def init(self):
         self.sensor = Sensor.find('swap')
         self.append(self.ui.inflate('sensors:progressbar-widget'))
         self.find('icon').icon = 'hdd'
-        self.find('name').text = 'Swap usage'
+        self.find('name').text = _('Swap usage')
         value = self.sensor.value()
         self.find('value').text = str_fsize(value[0])
         if value[1] > 0:

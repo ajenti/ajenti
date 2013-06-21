@@ -42,7 +42,7 @@ class DBPlugin (SectionPlugin):
     def on_sql_run(self):
         try:
             result = self.query_sql(self.find('sql-db').value, self.find('sql-input').value)
-            self.context.notify('info', 'Query finished')
+            self.context.notify('info', _('Query finished'))
         except Exception, e:
             self.context.notify('error', str(e))
             return
@@ -51,7 +51,7 @@ class DBPlugin (SectionPlugin):
         tbl.empty()
 
         if len(result) > 200:
-            self.context.notify('info', 'Output cut from %i rows to 200' % len(result))
+            self.context.notify('info', _('Output cut from %i rows to 200') % len(result))
             result = result[:200]
 
         for row in result:

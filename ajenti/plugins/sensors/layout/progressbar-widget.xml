@@ -13,7 +13,7 @@
 
     <dialog id="config-dialog" visible="False">
         <pad>
-            <formline text="Variant" id="form-line">
+            <formline text="{Variant}" id="form-line">
                 <combobox id="variant" />
             </formline>
         </pad>

@@ -5,11 +5,11 @@
                 <dt bind="__items">
                     <dtr>
                         <dth text="" />
-                        <dth text="PID (Parent)" />
-                        <dth text="Name" />
-                        <dth text="CPU" />
-                        <dth text="RAM" />
-                        <dth text="User" />
+                        <dth text="{PID (Parent)}" />
+                        <dth text="{Name}" />
+                        <dth text="{CPU}" />
+                        <dth text="{RAM}" />
+                        <dth text="{User}" />
                         <dth text="" />
                     </dtr>
                 </dt>
@@ -43,10 +43,10 @@
                         </dtd>
                         <dtd>
                             <hc>
-                                <tooltip text="Terminate">
+                                <tooltip text="{Terminate}">
                                     <button id="term" style="mini" icon="stop" />
                                 </tooltip>
-                                <tooltip text="Kill">
+                                <tooltip text="{Kill}">
                                     <button id="kill" style="mini" icon="trash" />
                                 </tooltip>
                             </hc>

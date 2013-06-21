@@ -8,7 +8,7 @@
                         <collapserow>
                             <box>
                                 <right>
-                                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                    <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                 </right>
                                 <hc>
                                     <icon icon="globe" />
@@ -19,10 +19,10 @@
                             
                             <pad>
                                 <vc>
-                                    <formline text="Type">
+                                    <formline text="{Type}">
                                         <dropdown id="name-box" bind="name" />
                                     </formline>
-                                    <formline text="Value">
+                                    <formline text="{Value}">
                                         <textbox bind="value" />
                                     </formline>
                                 </vc>
@@ -30,11 +30,11 @@
                         </collapserow>
                     </bind:template>
 
-                    <button bind="__add" icon="plus" text="Create" />
+                    <button bind="__add" icon="plus" text="{Create}" />
                 </vc>
             </bind:collection>
         </pad> 
     </body>
     
-    <button id="save" text="Save" />
+    <button id="save" text="{Save}" />
 </vc>

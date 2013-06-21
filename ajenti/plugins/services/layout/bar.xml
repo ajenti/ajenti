@@ -1,5 +1,5 @@
 <hc id="buttons">
-    <button id="start" icon="play" text="Start" />
-    <button id="stop" icon="stop" text="Stop" />
-    <button id="restart" icon="step-forward" text="Restart" />
+    <button id="start" icon="play" text="{Start}" />
+    <button id="stop" icon="stop" text="{Stop}" />
+    <button id="restart" icon="step-forward" text="{Restart}" />
 </hc>

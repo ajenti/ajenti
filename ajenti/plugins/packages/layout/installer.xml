@@ -1,6 +1,6 @@
 <well>
     <right>
-        <button id="install" icon="gift" text="Install" />
+        <button id="install" icon="gift" text="{Install}" />
     </right>
     <hc>
         <vc>

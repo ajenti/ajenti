@@ -7,14 +7,14 @@
 
     <dialog id="config-dialog" visible="False">
         <pad>
-            <formline text="Title">
+            <formline text="{Name}">
                 <textbox id="title" />
             </formline>
-            <formline text="Command">
+            <formline text="{Command}">
                 <textbox id="command" />
             </formline>
             <formline>
-                <checkbox id="terminal" text="Run in terminal" />
+                <checkbox id="terminal" text="{Run in terminal}" />
             </formline>
         </pad>
     </dialog>

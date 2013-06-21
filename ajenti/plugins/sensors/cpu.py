@@ -16,14 +16,14 @@ class CPUSensor (Sensor):
 
 @plugin
 class CPUWidget (DashboardWidget):
-    name = 'CPU usage'
+    name = _('CPU usage')
     icon = 'signal'
 
     def init(self):
         self.sensor = Sensor.find('cpu')
         self.append(self.ui.inflate('sensors:cpu-widget'))
         self.find('icon').icon = 'signal'
-        self.find('name').text = 'CPU usage'
+        self.find('name').text = _('CPU usage')
         for value in self.sensor.value():
             l = self.ui.inflate('sensors:cpu-line')
             l.find('progress').value = value

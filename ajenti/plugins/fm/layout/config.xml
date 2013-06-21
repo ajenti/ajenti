@@ -1,6 +1,6 @@
 <bind:dict xmlns:bind="bind" id="bind">
     <vc>
-        <formline text="Topmost directory">
+        <formline text="{Topmost directory}">
             <textbox bind="root" />
         </formline>
     </vc>

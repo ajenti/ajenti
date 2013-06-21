@@ -8,7 +8,7 @@
         <hc>
             <button id="install" style="mini" icon="ok" />
             <button id="remove" style="mini" icon="remove" />
-            <button id="cancel" text="Cancel" icon="remove-sign" />
+            <button id="cancel" text="{Cancel}" icon="remove-sign" />
         </hc>
     </dtd>
 </dtr>

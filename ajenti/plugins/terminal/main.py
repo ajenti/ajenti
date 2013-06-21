@@ -16,7 +16,7 @@ from terminal import Terminal
 
 @plugin
 class TerminalClassConfigEditor (ClassConfigEditor):
-    title = 'Terminal'
+    title = _('Terminal')
     icon = 'list-alt'
 
     def init(self):
@@ -29,9 +29,9 @@ class Terminals (SectionPlugin):
     classconfig_editor = TerminalClassConfigEditor
 
     def init(self):
-        self.title = 'Terminal'
+        self.title = _('Terminal')
         self.icon = 'list-alt'
-        self.category = 'Tools'
+        self.category = _('Tools')
 
         self.append(self.ui.inflate('terminal:main'))
 
@@ -160,10 +160,10 @@ class TerminalSocket (SocketPlugin):
 @plugin
 class TerminalPermissionsProvider (PermissionProvider):
     def get_name(self):
-        return 'Terminal'
+        return _('Terminal')
 
     def get_permissions(self):
         return [
-            ('terminal:shell', 'Shell'),
-            ('terminal:custom', 'Custom command'),
+            ('terminal:shell', _('Run shell')),
+            ('terminal:custom', _('Run custom commands')),
         ]

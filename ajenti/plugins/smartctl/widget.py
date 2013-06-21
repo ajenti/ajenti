@@ -52,10 +52,10 @@ class SMARTWidget (ConfigurableWidget):
         self.find('device').text = self.config['device']
         v = self.sensor.value(self.config['device'])
         v = {
-            -1: 'No data',
-             0: 'FAILING',
-             1: 'PRE-FAIL',
-             2: 'Unknown error',
+            -1: _('No data'),
+             0: _('FAILING'),
+             1: _('PRE-FAIL'),
+             2: _('Unknown error'),
              3: 'OK'
         }[v]
         self.find('value').text = v

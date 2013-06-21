@@ -6,7 +6,7 @@ from ajenti.plugins.dashboard.api import ConfigurableWidget
 
 @plugin
 class HDDTempWidget (ConfigurableWidget):
-    name = 'HDD Temperature'
+    name = _('HDD Temperature')
     icon = 'hdd'
 
     def on_prepare(self):

@@ -2,7 +2,8 @@
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/ctdb/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:24
-#: ajenti/plugins/cron/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:22 ajenti/plugins/fm/fm.py:55
+#: ajenti/plugins/exports/layout/main.xml:8
 msgid "Save"
 msgstr "Сохранить"
 
@@ -24,6 +25,7 @@ msgid "HTTP Server"
 msgstr "HTTP-сервер"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
+#: ajenti/plugins/db_common/layout/main.xml:8
 msgid "Host"
 msgstr "Хост"
 
@@ -44,6 +46,7 @@ msgid "SSL Self-Signed Certificate Generator"
 msgstr "Генератор самоподписанных сертификатов"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:13
 msgid "Hostname"
 msgstr "Хост"
 
@@ -52,6 +55,7 @@ msgid "Generate"
 msgstr "Сгенерировать"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
+#: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "Пользователи"
 
@@ -71,6 +75,7 @@ msgstr "Учетные записи"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:7
 msgid "Delete"
 msgstr "Удалить"
 
@@ -84,6 +89,9 @@ msgstr "Удалить"
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/exports/layout/main.xml:1
 msgid "Confirm deletion"
 msgstr "Удалить?"
 
@@ -102,6 +110,10 @@ msgstr "Изменить пароль"
 #: ajenti/plugins/cron/layout/main.xml:13
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/db_common/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:10
+#: ajenti/plugins/exports/layout/main.xml:6
+#: ajenti/plugins/exports/layout/main.xml:7
 msgid "Create"
 msgstr "Создать"
 
@@ -130,7 +142,7 @@ msgid "Configure"
 msgstr "Настройки"
 
 #: ajenti/plugins/configurator/configurator.py:54
-#: ajenti/plugins/ctdb/main.py:75
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 msgid "Saved"
 msgstr "Сохранено"
 
@@ -159,7 +171,7 @@ msgstr "Изменять настройки Ajenti"
 msgid "Restart Ajenti"
 msgstr "Перезапускать Ajenti"
 
-#: ajenti/plugins/cron/main.py:17
+#: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
 msgid "System"
 msgstr "Система"
 
@@ -218,6 +230,8 @@ msgstr "Переменные среды"
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:11
 msgid "Name"
 msgstr "Имя"
 
@@ -301,6 +315,7 @@ msgstr "Узлы"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/exports/layout/main.xml:4
 msgid "Address"
 msgstr "Адрес"
 
@@ -339,4 +354,122 @@ msgstr "Виджет"
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
 msgstr "[{'text': _('Отмена'), 'id': 'cancel'}]"
+
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "Запрос выполнен"
+
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr "Количество строк уменьшено с %i до 200"
+
+#: ajenti/plugins/db_common/layout/main.xml:1
+msgid "Run"
+msgstr "Выполнить"
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Базы данных"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "Подтвердите удаление базы данных!"
+
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Имя базы данных"
+
+#: ajenti/plugins/db_common/layout/main.xml:14
+msgid "Password"
+msgstr "Пароль"
+
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+msgid "File Manager"
+msgstr "Менеджер файлов"
+
+#: ajenti/plugins/fm/fm.py:31
+msgid "Tools"
+msgstr "Инструменты"
+
+#: ajenti/plugins/fm/fm.py:56
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "Верхний каталог"
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "Закрыть"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "New File"
+msgstr "Новый файл"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New Folder"
+msgstr "Новая папка"
+
+#: ajenti/plugins/fm/layout/main.xml:4
+msgid "Cut"
+msgstr "Вырезать"
+
+#: ajenti/plugins/fm/layout/main.xml:5
+msgid "Copy"
+msgstr "Копировать"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Paste"
+msgstr "Вставить"
+
+#: ajenti/plugins/fm/layout/main.xml:9
+msgid "Upload"
+msgstr "Загрузить"
+
+#: ajenti/plugins/fm/layout/main.xml:10
+msgid "Clipboard"
+msgstr "Буфер обмена"
+
+#: ajenti/plugins/fm/layout/main.xml:12
+msgid "Remove"
+msgstr "Убрать"
+
+#: ajenti/plugins/fm/layout/main.xml:13
+msgid "Access"
+msgstr "Доступ"
+
+#: ajenti/plugins/fm/layout/main.xml:14
+msgid "Owner"
+msgstr "Владелец"
+
+#: ajenti/plugins/fm/layout/main.xml:15
+msgid "Group"
+msgstr "Группа"
+
+#: ajenti/plugins/fm/layout/main.xml:16
+msgid "Others"
+msgstr "Другие"
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "NFS"
+
+#: ajenti/plugins/exports/layout/main.xml:2
+msgid "Directory"
+msgstr "Каталог"
+
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr "Клиенты"
+
+#: ajenti/plugins/exports/layout/main.xml:5
+msgid "Options"
+msgstr "Параметры"
 

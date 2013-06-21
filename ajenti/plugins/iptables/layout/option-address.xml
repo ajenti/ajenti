@@ -2,7 +2,7 @@
     <bind:list bind="arguments">
         <bind:item>
             <hc>
-                <label text="Address" />
+                <label text="{Address}" />
                 <textbox bind="value" />
             </hc>
         </bind:item>

@@ -4,11 +4,11 @@
     <body>
         <pad>
             <tabs id="config">
-                <tab title="Shares">
+                <tab title="{Shares}">
                     <bind:collection bind="shares" id="shares">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -16,7 +16,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -29,31 +29,31 @@
                                 </box>
                                 <pad>
                                     <vc>
-                                        <formline text="Name">
+                                        <formline text="{Name}">
                                             <textbox bind="name" />
                                         </formline>
-                                        <formline text="Path">
+                                        <formline text="{Path}">
                                             <textbox bind="path" />
                                         </formline>
-                                        <formline text="Password">
+                                        <formline text="{Password}">
                                             <textbox bind="password" />
                                         </formline>
-                                        <formline text="Valid users">
+                                        <formline text="{Valid users}">
                                             <textbox bind="valid_users" />
                                         </formline>
-                                        <formline text="Resource forks">
+                                        <formline text="{Resource forks}">
                                             <dropdown bind="appledouble"
                                                 labels="['v2', 'ea']"
                                                 values="['v2', 'ea']"
                                                 />
                                         </formline>
-                                        <formline text="Extended attributes">
+                                        <formline text="{Extended attributes}">
                                             <dropdown bind="ea"
                                                 labels="['none', 'ea', 'auto', 'sys']"
                                                 values="['none', 'ea', 'auto', 'sys']"
                                                 />
                                         </formline>
-                                        <formline text="CNID scheme">
+                                        <formline text="{CNID scheme}">
                                             <textbox bind="cnid_scheme" />
                                         </formline>
                                     </vc>
@@ -63,12 +63,12 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="Config" bind="global">
+                <tab title="{Config}" bind="global">
                     <vc>
-                        <formline text="AFP port">
+                        <formline text="{AFP port}">
                             <textbox bind="afp_port" />
                         </formline>
-                        <formline text="CNID address">
+                        <formline text="{CNID address}">
                             <textbox bind="cnid_listen" />
                         </formline>
                     </vc>
@@ -78,6 +78,6 @@
     </body>
 
     <hc>
-        <button id="save" text="Save" icon="ok" />
+        <button id="save" text="{Save}" icon="ok" />
     </hc>
 </vc>

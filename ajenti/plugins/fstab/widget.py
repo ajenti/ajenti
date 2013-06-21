@@ -6,7 +6,7 @@ from ajenti.util import str_fsize
 
 @plugin
 class DiskSpaceWidget (ConfigurableWidget):
-    name = 'Disk space'
+    name = _('Disk space')
     icon = 'hdd'
 
     def on_prepare(self):

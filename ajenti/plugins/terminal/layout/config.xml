@@ -1,6 +1,6 @@
 <bind:dict xmlns:bind="bind" id="bind">
     <vc>
-        <formline text="Default shell">
+        <formline text="{Default shell}">
             <textbox bind="shell" />
         </formline>
     </vc>

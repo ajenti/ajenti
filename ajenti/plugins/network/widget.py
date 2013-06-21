@@ -76,7 +76,7 @@ class ImmediateRXSensor (Sensor):
 
 @plugin
 class ImmediateTrafficWidget (ConfigurableWidget):
-    name = 'Immediate Traffic'
+    name = _('Immediate Traffic')
     icon = 'exchange'
 
     def on_prepare(self):
@@ -106,7 +106,7 @@ class ImmediateTrafficWidget (ConfigurableWidget):
 
 @plugin
 class TrafficWidget (ConfigurableWidget):
-    name = 'Traffic'
+    name = _('Traffic')
     icon = 'exchange'
 
     def on_prepare(self):

@@ -7,7 +7,7 @@
 
     <dialog id="config-dialog" visible="False">
         <pad>
-            <formline text="Device">
+            <formline text="{Device}">
                 <dropdown id="device" bind="device" />
             </formline>
         </pad>

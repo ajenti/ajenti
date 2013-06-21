@@ -14,7 +14,7 @@ class Supervisor (SectionPlugin):
     def init(self):
         self.title = 'Supervisor'
         self.icon = 'play'
-        self.category = 'Software'
+        self.category = _('Software')
         self.append(self.ui.inflate('supervisor:main'))
         self.mgr = SupervisorServiceManager.get()
         self.binder = Binder(None, self.find('main'))

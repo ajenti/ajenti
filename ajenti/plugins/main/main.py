@@ -186,7 +186,7 @@ class MainSocket (SocketPlugin):
 @plugin
 class SectionPermissions (PermissionProvider):
     def get_name(self):
-        return 'Section access'
+        return _('Section access')
 
     def get_permissions(self):
         # Generate permission set on-the-fly
@@ -203,7 +203,7 @@ class MainPage (UIElement, BasePlugin):
 
     def on_feedback(self, email, text):
         ajenti.feedback.send_feedback(email, text)
-        self.context.notify('info', 'Feedback sent!')
+        self.context.notify('info', _('Feedback sent!'))
 
 
 @p('name')

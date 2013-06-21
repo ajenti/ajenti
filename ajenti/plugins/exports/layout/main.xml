@@ -9,7 +9,7 @@
                             <collapserow>
                                 <box>
                                     <right>
-                                        <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                     </right>
                                     <hc>
                                         <icon icon="hdd" />
@@ -19,22 +19,22 @@
                                 
                                 <pad>
                                     <vc>
-                                        <formline text="Directory">
+                                        <formline text="{Directory}">
                                             <textbox bind="name" />
                                         </formline>
                                         <vc>
                                             <bind:collection id="clients" bind="clients">
-                                                <formline text="Clients">
+                                                <formline text="{Clients}">
                                                     <vc>
                                                         <dt bind="__items">
                                                             <dtr>
                                                                 <dth width="1" />
-                                                                <dth text="Address" />
-                                                                <dth text="Options" />
+                                                                <dth text="{Address}" />
+                                                                <dth text="{Options}" />
                                                                 <dth width="1" />
                                                             </dtr>
                                                         </dt>
-                                                        <button bind="__add" icon="plus" text="Create" />
+                                                        <button bind="__add" icon="plus" text="{Create}" />
                                                     </vc>
                                                 </formline>
                                                 <bind:template>
@@ -59,11 +59,11 @@
                                 </pad>
                             </collapserow>
                         </bind:template>
-                        <button bind="__add" icon="plus" text="Create" />
+                        <button bind="__add" icon="plus" text="{Create}" />
                     </vc>
                 </bind:collection>
             </box>
         </pad> 
     </body>
-    <button id="save" text="Save" icon="ok" />
+    <button id="save" text="{Save}" icon="ok" />
 </vc>

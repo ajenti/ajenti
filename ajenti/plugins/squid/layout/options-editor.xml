@@ -1,7 +1,7 @@
 <bind:collection bind="options" xmlns:bind="bind">
     <vc>
         <lt bind="__items" />
-        <button bind="__add" icon="plus" text="Create" />
+        <button bind="__add" icon="plus" text="{Create}" />
     </vc>
 
     <bind:template>
@@ -10,7 +10,7 @@
                 <textbox bind="value" />
             </ltd>
             <ltd>
-                <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
             </ltd>
         </ltr>
     </bind:template>

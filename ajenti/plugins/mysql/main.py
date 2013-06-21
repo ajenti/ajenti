@@ -23,14 +23,14 @@ class MySQLPlugin (DBPlugin):
     service_buttons = [
         {
             'command': 'reload',
-            'text': 'Reload',
+            'text': _('Reload'),
             'icon': 'step-forward',
         }
     ]
 
     def init(self):
         self.title = 'MySQL'
-        self.category = 'Software'
+        self.category = _('Software')
         self.icon = 'table'
 
     def query(self, sql, db=''):

@@ -4,11 +4,11 @@
     <body>
         <pad>
             <tabs id="config">
-                <tab title="Shares">
+                <tab title="{Shares}">
                     <bind:collection bind="shares" id="shares">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -16,7 +16,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -30,28 +30,28 @@
                                 <pad>
                                     <hc>
                                         <vc>
-                                            <formline text="Name">
+                                            <formline text="{Name}">
                                                 <textbox bind="name" />
                                             </formline>
-                                            <formline text="Path">
+                                            <formline text="{Path}">
                                                 <textbox bind="path" />
                                             </formline>
                                             <formline>
-                                                <checkbox bind="guest_ok" text="Guest access" />
+                                                <checkbox bind="guest_ok" text="{Guest access}" />
                                             </formline>
                                             <formline>
-                                                <checkbox bind="browseable" text="Browseable" />
+                                                <checkbox bind="browseable" text="{Browseable}" />
                                             </formline>
                                         </vc>
                                         <vc>
-                                            <formline text="Create mask">
+                                            <formline text="{Create mask}">
                                                 <textbox bind="create_mask" />
                                             </formline>
-                                            <formline text="Directory mask">
+                                            <formline text="{Directory mask}">
                                                 <textbox bind="directory_mask" />
                                             </formline>
                                             <formline>
-                                                <checkbox bind="read_only" text="Read only" />
+                                                <checkbox bind="read_only" text="{Read only}" />
                                             </formline>
                                         </vc>
                                     </hc>
@@ -61,33 +61,33 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="Config" bind="global">
-                    <formgroup text="Networking">
+                <tab title="{Config}" bind="global">
+                    <formgroup text="{Networking}">
                         <vc>
-                            <formline text="Interfaces">
+                            <formline text="{Interfaces}">
                                 <textbox bind="interfaces" />
                             </formline>
                             <formline>
-                                <checkbox bind="bind_interfaces_only" text="Bind only to these interfaces" />
+                                <checkbox bind="bind_interfaces_only" text="{Bind only to these interfaces}" />
                             </formline>
                         </vc>
                     </formgroup>
-                    <formgroup text="Identification">
+                    <formgroup text="{Identification}">
                         <vc>
-                            <formline text="Workgroup">
+                            <formline text="{Workgroup}">
                                 <textbox bind="workgroup" />
                             </formline>
-                            <formline text="Server string">
+                            <formline text="{Server string}">
                                 <textbox bind="server_string" />
                             </formline>
                         </vc>
                     </formgroup>
-                    <formgroup text="Other">
+                    <formgroup text="{Other}">
                         <vc>
-                            <formline text="Log file">
+                            <formline text="{Log file}">
                                 <textbox bind="log_file" />
                             </formline>
-                            <formline text="Security">
+                            <formline text="{Security}">
                                 <dropdown bind="security" 
                                     labels="['User-level', 'ADS Realm', 'NT Domain', 'Share-level', 'Another Server']"
                                     values="['user', 'ads', 'domain', 'share', 'server']"
@@ -97,13 +97,13 @@
                     </formgroup>
                 </tab>
 
-                <tab title="Sessions" id="status">
+                <tab title="{Sessions}" id="status">
                     <bind:collection bind="connections" id="connections">
                         <dt bind="__items">
                             <dtr>
-                                <dth text="Share" />
-                                <dth text="User" />
-                                <dth text="Machine" />
+                                <dth text="{Share}" />
+                                <dth text="{User}" />
+                                <dth text="{Machine}" />
                                 <dth text="PID" />
                                 <dth width="1" />
                             </dtr>
@@ -123,19 +123,19 @@
                                     <label bind="pid" />
                                 </dtd>
                                 <dtd>
-                                    <button id="disconnect" text="Disconnect" icon="remove" />
+                                    <button id="disconnect" text="{Disconnect}" icon="remove" />
                                 </dtd>
                             </dtr>
                         </bind:template>
                     </bind:collection>
                 </tab>
 
-                <tab title="Users" id="users">
+                <tab title="{Users}" id="users">
                     <bind:collection bind="users" id="user-list">
                         <vc>
                             <dt bind="__items" />
                             <dropdown id="add-user-list" />
-                            <button icon="add" id="add-user" text="Add" />
+                            <button icon="add" id="add-user" text="{Add}" />
                         </vc>
 
                         <bind:template>
@@ -143,7 +143,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button id="delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button id="delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -155,10 +155,10 @@
                                     </hc>
                                 </box>
                                 <pad>
-                                    <formline text="Password">
+                                    <formline text="{Password}">
                                         <hc>
                                             <textbox id="password" />
-                                            <button id="password-set" icon="lock" text="Set" />
+                                            <button id="password-set" icon="lock" text="{Set}" />
                                         </hc>
                                     </formline>
                                 </pad>
@@ -171,6 +171,6 @@
     </body>
 
     <hc>
-        <button id="save" text="Save" icon="ok" />
+        <button id="save" text="{Save}" icon="ok" />
     </hc>
 </vc>

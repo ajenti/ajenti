@@ -6,7 +6,7 @@ from ajenti.plugins import BinaryDependency, ModuleDependency
 
 
 @p('package', default='')
-@p('text', default='This package can be installed automatically')
+@p('text', default=_('This package can be installed automatically'))
 @plugin
 class PackageInstaller (UIElement, BasePlugin):
     typeid = 'packages:installer'

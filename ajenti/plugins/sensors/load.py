@@ -35,12 +35,12 @@ class BSDLoadSensor (BaseLoadSensor):
 
 @plugin
 class LoadWidget (DashboardWidget):
-    name = 'Load average'
+    name = _('Load average')
     icon = 'signal'
 
     def init(self):
         self.sensor = Sensor.find('load')
         self.append(self.ui.inflate('sensors:value-widget'))
         self.find('icon').icon = 'signal'
-        self.find('name').text = 'Load average'
+        self.find('name').text = _('Load average')
         self.find('value').text = '&nbsp;&nbsp;'.join(str(self.sensor.value(x)) for x in self.sensor.get_variants())

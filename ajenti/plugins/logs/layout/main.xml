@@ -1,5 +1,5 @@
 <vc xmlns:logs="logs">
-    <button id="open-button" text="Open" icon="folder-open" />
+    <button id="open-button" text="{Open}" icon="folder-open" />
     <body>
         <pad>
             <logs:log id="log" />

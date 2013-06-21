@@ -8,7 +8,7 @@
                     <bind:collection bind="acl" id="acl">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -16,7 +16,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -27,10 +27,10 @@
                                 </box>
                                 <pad>
                                     <hc>
-                                        <formline text="Name">
+                                        <formline text="{Name}">
                                             <textbox bind="name" />
                                         </formline>
-                                        <formline text="Options">
+                                        <formline text="{Options}">
                                             <include layout="squid:options-editor" />
                                         </formline>
                                     </hc>
@@ -40,11 +40,11 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="HTTP Access">
+                <tab title="{HTTP Access}">
                     <bind:collection bind="http_access" id="http_access">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -52,7 +52,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -65,10 +65,10 @@
                                 </box>
                                 <pad>
                                     <hc>
-                                        <formline text="Mode">
-                                            <dropdown bind="mode" values="['allow', 'deny']" labels="['Allow', 'Deny']"/>
+                                        <formline text="{Mode}">
+                                            <dropdown bind="mode" values="['allow', 'deny']" labels="[_('Allow'), _('Deny'()]"/>
                                         </formline>
-                                        <formline text="Options">
+                                        <formline text="{Options}">
                                             <include layout="squid:options-editor" />
                                         </formline>
                                     </hc>
@@ -78,12 +78,12 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="Ports">
+                <tab title="{Ports}">
                     <label style="bold" text="HTTP" />
                     <bind:collection bind="http_port" id="http_port">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
                         <include layout="squid:port-template" />
                     </bind:collection>
@@ -92,7 +92,7 @@
                     <bind:collection bind="https_port" id="https_port">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
                         <include layout="squid:port-template" />
                     </bind:collection>
@@ -102,6 +102,6 @@
     </body>
 
     <hc>
-        <button id="save" text="Save" />
+        <button id="save" text="{Save}" />
     </hc>
 </vc>

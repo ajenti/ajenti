@@ -3,7 +3,7 @@
         <box>
             <right>
                 <hc>
-                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                    <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                 </hc>
             </right>
             <hc>
@@ -16,10 +16,10 @@
         </box>
         <pad>
             <hc>
-                <formline text="Port">
+                <formline text="{Port}">
                     <textbox bind="port" />
                 </formline>
-                <formline text="Options">
+                <formline text="{Options}">
                     <include layout="squid:options-editor" />
                 </formline>
             </hc>

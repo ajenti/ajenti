@@ -1,7 +1,7 @@
 <vc xmlns:bind="bind">
     <hc>
-        <button icon="refresh" id="refresh" text="Refresh" />
-        <button icon="hdd" id="mount-all" text="Mount all" />
+        <button icon="refresh" id="refresh" text="{Refresh}" />
+        <button icon="hdd" id="mount-all" text="{Mount all}" />
     </hc>
 
     <body>
@@ -14,7 +14,7 @@
                         <collapserow>
                             <box>
                                 <right>
-                                    <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                    <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                 </right>
                                 <hc>
                                     <icon icon="hdd" />
@@ -27,24 +27,24 @@
                             <pad>
                                 <hc>
                                     <vc>
-                                        <formline text="Device">
+                                        <formline text="{Device}">
                                             <combobox id="device" bind="device" />
                                         </formline>
-                                        <formline text="Mountpoint">
+                                        <formline text="{Mountpoint}">
                                             <textbox bind="mountpoint" />
                                         </formline>
-                                        <formline text="FS type">
+                                        <formline text="{FS type}">
                                             <combobox id="type" bind="type" />
                                         </formline>
                                     </vc>
                                     <vc>
-                                        <formline text="Options">
+                                        <formline text="{Options}">
                                             <textbox bind="options" />
                                         </formline>
-                                        <formline text="Scan frequency">
+                                        <formline text="{Scan frequency}">
                                             <textbox bind="freq" />
                                         </formline>
-                                        <formline text="Scan pass">
+                                        <formline text="{Scan pass}">
                                             <textbox bind="passno" />
                                         </formline>
                                     </vc>
@@ -52,22 +52,22 @@
                             </pad>
                         </collapserow>
                     </bind:template>
-                    <button bind="__add" icon="plus" text="Create" />
+                    <button bind="__add" icon="plus" text="{Create}" />
                 </vc>
             </bind:collection>
         </pad> 
 
         <pad id="mounts" bind="mounts">
-            <label text="Mounted filesystems" style="bold" />
+            <label text="{Mounted filesystems}" style="bold" />
             <bind:collection bind="filesystems" id="filesystems">
                 <vc>
                     <dt bind="__items">
                         <dtr>
-                            <dth text="Device" />
-                            <dth text="Mountpoint" />
-                            <dth text="Used" />
-                            <dth text="Size" />
-                            <dth text="Usage" />
+                            <dth text="{Device}" />
+                            <dth text="{Mountpoint}" />
+                            <dth text="{Used}" />
+                            <dth text="{Size}" />
+                            <dth text="{Usage}" />
                             <dth width="1" />
                         </dtr>
                     </dt>
@@ -89,7 +89,7 @@
                                 <progressbar bind="usage" width="200" />
                             </dtd>
                             <dtd>
-                                <tooltip text="Unmount">
+                                <tooltip text="{Unmount}">
                                     <button icon="eject" style="mini" id="umount" />
                                 </tooltip>
                             </dtd>
@@ -99,5 +99,5 @@
             </bind:collection>  
         </pad>
     </body>
-    <button id="save" text="Save" icon="ok" />
+    <button id="save" text="{Save}" icon="ok" />
 </vc>

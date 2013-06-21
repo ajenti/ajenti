@@ -2,7 +2,7 @@
     <bind:list bind="arguments">
         <bind:item>
             <hc>
-                <label text="Reason" />
+                <label text="{Reason}" />
                 <combobox bind="value" 
                     values="['icmp-net-unreachable','icmp-host-unreachable','icmp-port-unreachable','icmp-proto-unreachable','icmp-net-prohibited', 'icmp-host-prohibited', 'icmp-admin-prohibited']" 
                     labels="['icmp-net-unreachable','icmp-host-unreachable','icmp-port-unreachable','icmp-proto-unreachable','icmp-net-prohibited', 'icmp-host-prohibited', 'icmp-admin-prohibited']" 

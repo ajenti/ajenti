@@ -16,7 +16,7 @@ class Samba (SectionPlugin):
     def init(self):
         self.title = 'Samba'
         self.icon = 'folder-close'
-        self.category = 'Software'
+        self.category = _('Software')
         self.append(self.ui.inflate('samba:main'))
 
         if ajenti.platform == 'centos':
@@ -40,10 +40,10 @@ class Samba (SectionPlugin):
 
             def set_password():
                 if self.usermgr.set_password(item.username, ui.find('password').value):
-                    self.context.notify('info', 'Password updated')
+                    self.context.notify('info', _('Password updated'))
                     ui.find('password').value = ''
                 else:
-                    self.context.notify('error', 'Password update failed')
+                    self.context.notify('error', _('Password update failed'))
             ui.find('password-set').on('click', set_password)
 
         self.find('user-list').post_item_bind = post_user_bind

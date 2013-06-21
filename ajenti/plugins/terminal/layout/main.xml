@@ -3,10 +3,10 @@
         <right>
             <hc>
                 <textbox id="command" />
-                <button id="run-button" text="Run" icon="chevron-right" />
+                <button id="run-button" text="{Run}" icon="chevron-right" />
             </hc>
         </right>
-        <button id="new-button" text="New" icon="plus" />
+        <button id="new-button" text="{New}" icon="plus" />
     </box>
     <body>
         <pad>
@@ -14,7 +14,7 @@
             <box id="empty">
                 <pad>
                     <center>
-                        <label text="No active terminals" />
+                        <label text="{No active terminals}" />
                     </center>
                 </pad>
             </box>

@@ -2,9 +2,9 @@
     <bind:list bind="arguments">
         <bind:item>
             <hc>
-                <label text="Name" />
+                <label text="{Name}" />
                 <textbox bind="name" />
-                <label text="Value" />
+                <label text="{Value}" />
                 <textbox bind="value" />
             </hc>
         </bind:item>

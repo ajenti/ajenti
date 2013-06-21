@@ -8,7 +8,7 @@ from ajenti.ui import on
 
 @plugin
 class ScriptWidget (ConfigurableWidget):
-    name = 'Script'
+    name = _('Script')
     icon = 'play'
 
     def on_prepare(self):
@@ -38,15 +38,15 @@ class ScriptWidget (ConfigurableWidget):
             self.context.launch('terminal', command=self.config['command'])
         else:
             subprocess.Popen(self.config['command'], shell=True)
-            self.context.notify('info', 'Launched')
+            self.context.notify('info', _('Launched'))
 
 
 @plugin
 class ScriptPermissionsProvider (PermissionProvider):
     def get_name(self):
-        return 'Scripts'
+        return _('Scripts')
 
     def get_permissions(self):
         return [
-            ('scripts:run', 'Run scripts'),
+            ('scripts:run', _('Run scripts')),
         ]

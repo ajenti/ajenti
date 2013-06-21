@@ -50,16 +50,16 @@ class CentOSFirewallManager (FirewallManager, BasePlugin):
         return True
 
     def set_autostart_state(self, state):
-        self.context.notify('info', 'You can\'t disable firewall autostart on this platform')
+        self.context.notify('info', _('You can\'t disable firewall autostart on this platform'))
 
 
 @plugin
 class Firewall (SectionPlugin):
 
     def init(self):
-        self.title = 'Firewall'
+        self.title = _('Firewall')
         self.icon = 'fire'
-        self.category = 'System'
+        self.category = _('System')
 
         self.append(self.ui.inflate('iptables:main'))
 
@@ -101,7 +101,7 @@ class Firewall (SectionPlugin):
         self.find('rules').post_item_bind = post_rule_bind
         self.find('rules').post_item_update = post_rule_update
 
-        self.find('add-option').values = self.find('add-option').labels = ['Add option'] + sorted(OptionData.templates.keys())
+        self.find('add-option').values = self.find('add-option').labels = [_('Add option')] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
         if not os.path.exists(self.fw_mgr.config_path):
@@ -111,7 +111,7 @@ class Firewall (SectionPlugin):
 
     def refresh(self):
         self.binder.reset(self.config.tree).autodiscover().populate()
-        self.find('autostart').text = ('Disable' if self.fw_mgr.get_autostart_state() else 'Enable') + ' autostart'
+        self.find('autostart').text = (_('Disable') if self.fw_mgr.get_autostart_state() else _('Enable')) + _(' autostart')
 
     @on('autostart', 'click')
     def on_autostart_change(self):
@@ -141,7 +141,7 @@ class Firewall (SectionPlugin):
         if subprocess.call(cmd, shell=True) != 0:
             self.context.launch('terminal', command=cmd)
         else:
-            self.context.notify('info', 'Saved')
+            self.context.notify('info', _('Saved'))
 
 
 class OptionsBinding (CollectionAutoBinding):

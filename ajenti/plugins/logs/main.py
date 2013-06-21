@@ -9,9 +9,9 @@ from ajenti.ui import UIElement, p, on
 @plugin
 class Logs (SectionPlugin):
     def init(self):
-        self.title = 'Logs'
+        self.title = _('Logs')
         self.icon = 'list'
-        self.category = 'System'
+        self.category = _('System')
 
         self.append(self.ui.inflate('logs:main'))
         self.opendialog = self.find('opendialog')

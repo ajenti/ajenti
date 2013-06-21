@@ -2,7 +2,7 @@
     <bind:list bind="arguments">
         <bind:item>
             <hc>
-                <label text="Protocol" />
+                <label text="{Protocol}" />
                 <combobox bind="value" values="['all','tcp','udp','icmp','udplilte','esp','ah','sctp']" labels="['any','TCP','UDP','ICMP','UDP Lite','ESP','AH','SCTP']"/>
             </hc>
         </bind:item>

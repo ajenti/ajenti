@@ -10,9 +10,9 @@ from reconfigure.items.squid import ACLData, HTTPAccessData, HTTPPortData, HTTPS
 @plugin
 class Squid (SectionPlugin):
     def init(self):
-        self.title = 'Squid'
+        self.title = _('Squid')
         self.icon = 'exchange'
-        self.category = 'Software'
+        self.category = _('Software')
         self.append(self.ui.inflate('squid:main'))
 
         self.binder = Binder(None, self.find('config'))
@@ -21,10 +21,6 @@ class Squid (SectionPlugin):
         self.find('http_port').new_item = lambda c: HTTPPortData()
         self.find('https_port').new_item = lambda c: HTTPSPortData()
         self.config = SquidConfig(path='/etc/squid3/squid.conf')
-
-        #def post_item_bind(object, collection, item, ui):
-        #   ui.find('disconnect').on('click', self.on_disconnect, item)
-        #self.find('connections').post_item_bind = post_item_bind
 
     def on_page_load(self):
         self.refresh()

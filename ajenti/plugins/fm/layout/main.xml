@@ -1,15 +1,15 @@
 <vc xmlns:bind="bind">
     <box>
         <right>
-            <button id="close" icon="remove-sign" text="Close" />
+            <button id="close" icon="remove-sign" text="{Close}" />
         </right>
         <hc>
-            <button id="new-file" icon="file" text="New File" />
-            <button id="new-dir" icon="folder-close" text="New Folder" />
-            <button id="mass-cut" icon="cut" text="Cut" />
-            <button id="mass-copy" icon="copy" text="Copy" />
-            <button id="paste" icon="paste" text="Paste" />
-            <button id="mass-delete" icon="trash" text="Delete" warning="Confirm deletion" />
+            <button id="new-file" icon="file" text="{New File}" />
+            <button id="new-dir" icon="folder-close" text="{New Folder}" />
+            <button id="mass-cut" icon="cut" text="{Cut}" />
+            <button id="mass-copy" icon="copy" text="{Copy}" />
+            <button id="paste" icon="paste" text="{Paste}" />
+            <button id="mass-delete" icon="trash" text="{Delete}" warning="{Confirm deletion}" />
         </hc>
     </box>
     <body>
@@ -63,7 +63,7 @@
                 </bind:collection>
 
                 <pad>
-                    <label text="Upload" style="bold" />
+                    <label text="{Upload}" style="bold" />
                     <fileupload target="/ajenti:fm-upload" />
                 </pad>
 
@@ -71,12 +71,12 @@
                     <right>
                         <button id="clear-clipboard" icon="remove-sign" text="Empty" />
                     </right>
-                    <label text="Clipboard" style="bold" />
+                    <label text="{Clipboard}" style="bold" />
                     <bind:collection bind="clipboard">
                         <pad>
                             <dt bind="__items">
                                 <dtr>
-                                    <dth text="Name" />
+                                    <dth text="{Name}" />
                                     <dth width="1%" />
                                 </dtr>
                             </dt>
@@ -91,7 +91,7 @@
                                 </dtd>
                                 <dtd>
                                     <hc>
-                                        <button id="remove" icon="remove-sign" text="Remove" />
+                                        <button id="remove" icon="remove-sign" text="{Remove}" />
                                     </hc>
                                 </dtd>
                             </dtr>
@@ -104,7 +104,7 @@
         <dialog id="dialog" visible="False">
             <pad>
                 <vc>
-                    <label text="Name" style="bold" />
+                    <label text="{Name}" style="bold" />
                     
                     <pad>
                         <hc>
@@ -113,12 +113,12 @@
                         </hc>
                     </pad>
                     
-                    <label text="Access" style="bold" />
+                    <label text="{Access}" style="bold" />
                     
                     <pad>
                         <vc>
                             <hc>
-                                <label text="Owner" />
+                                <label text="{Owner}" />
                                 <editable bind="owner" />
                             </hc>
                             <hc>
@@ -127,7 +127,7 @@
                                 <checkbox text="X" bind="mod_ux" />
                             </hc>
                             <hc>
-                                <label text="Group" />
+                                <label text="{Group}" />
                                 <editable bind="group" />
                             </hc>
                             <hc>
@@ -136,7 +136,7 @@
                                 <checkbox text="X" bind="mod_gx" />
                             </hc>
                             <hc>
-                                <label text="Others" />
+                                <label text="{Others}" />
                             </hc>
                             <hc>
                                 <checkbox text="R" bind="mod_ar" />

@@ -16,7 +16,7 @@ class Munin (SectionPlugin):
     def init(self):
         self.title = 'Munin'
         self.icon = 'stethoscope'
-        self.category = 'Software'
+        self.category = _('Software')
         self.append(self.ui.inflate('munin:main'))
 
         def post_graph_bind(o, c, i, u):
@@ -40,11 +40,11 @@ class Munin (SectionPlugin):
             self.munin_client.fetch_domains()
         except requests.ConnectionError, e:
             self.find_type('tabs').active = 1
-            self.context.notify('error', 'Couldn\'t connect to Munin: %s' % e.message)
+            self.context.notify('error', _('Couldn\'t connect to Munin: %s') % e.message)
         except Exception, e:
             self.find_type('tabs').active = 1
             if e.message == 'auth':
-                self.context.notify('error', 'Munin HTTP authentication failed')
+                self.context.notify('error', _('Munin HTTP authentication failed'))
             else:
                 raise
         self.binder.reset(self.munin_client).autodiscover().populate()

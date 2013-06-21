@@ -9,9 +9,9 @@ from api import PackageManager, PackageInfo
 @plugin
 class Packages (SectionPlugin):
     def init(self):
-        self.title = 'Packages'
+        self.title = _('Packages')
         self.icon = 'gift'
-        self.category = 'System'
+        self.category = _('System')
 
         self.mgr = PackageManager.get()
 
@@ -21,9 +21,9 @@ class Packages (SectionPlugin):
             ui.find('install').on('click', self.on_install, item)
             ui.find('remove').on('click', self.on_remove, item)
             ui.find('cancel').on('click', self.on_cancel, item)
-            ui.find('install').visible = item.action == None
-            ui.find('remove').visible = item.action == None and item.state == 'i'
-            ui.find('cancel').visible = item.action != None
+            ui.find('install').visible = item.action is None
+            ui.find('remove').visible = item.action is None and item.state == 'i'
+            ui.find('cancel').visible = item.action is not None
 
         self.find('upgradeable').post_item_bind = post_item_bind
         self.find('search').post_item_bind = post_item_bind
@@ -47,7 +47,7 @@ class Packages (SectionPlugin):
     def run(self, tasks):
         if self.installation_running:
             self.action_queue += tasks
-            self.context.notify('info', 'Enqueueing package installation')
+            self.context.notify('info', _('Enqueueing package installation'))
             return
 
         self.installation_running = True
@@ -58,7 +58,7 @@ class Packages (SectionPlugin):
                 self.run(self.action_queue)
                 self.action_queue = []
                 return
-            self.context.notify('info', 'Installation complete!')
+            self.context.notify('info', _('Installation complete!'))
 
         self.mgr.do(tasks, callback=callback)
 
@@ -131,10 +131,10 @@ class Packages (SectionPlugin):
         if self.binder_s:
             self.binder_s.unpopulate()
         if len(results) > 100:
-            self.find('search-counter').text = '%i found, 100 shown' % len(results)
+            self.find('search-counter').text = _('%i found, 100 shown') % len(results)
             results = results[:100]
         else:
-            self.find('search-counter').text = '%i found' % len(results)
+            self.find('search-counter').text = _('%i found') % len(results)
 
         self.fill(results)
         self.binder_s = CollectionAutoBinding(results, None, self.find('search')).populate()
@@ -143,10 +143,10 @@ class Packages (SectionPlugin):
 @plugin
 class PackagesPermissionsProvider (PermissionProvider):
     def get_name(self):
-        return 'Packages'
+        return _('Packages')
 
     def get_permissions(self):
         return [
-            ('packages:modify', 'Install / remove'),
-            ('packages:refresh', 'Refresh'),
+            ('packages:modify', _('Install / remove')),
+            ('packages:refresh', _('Refresh lists')),
         ]

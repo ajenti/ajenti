@@ -52,7 +52,7 @@ class BatterySensor (Sensor):
 
 @plugin
 class PowerWidget (DashboardWidget):
-    name = 'Power'
+    name = _('Power')
     icon = 'bolt'
 
     def init(self):
@@ -77,10 +77,10 @@ class PowerWidget (DashboardWidget):
 @plugin
 class PowerPermissionsProvider (PermissionProvider):
     def get_name(self):
-        return 'Power'
+        return _('Power control')
 
     def get_permissions(self):
         return [
-            ('power:reboot', 'Reboot'),
-            ('power:shutdown', 'Shutdown'),
+            ('power:reboot', _('Reboot')),
+            ('power:shutdown', _('Shutdown')),
         ]
