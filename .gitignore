@@ -17,6 +17,8 @@ debian/*stamp*
 
 .~lock.*
 
+crowdin.zip
+
 # Compiled
 *.coffee.js
 *.less.css

@@ -11,8 +11,8 @@ msgstr ""
 "POT-Creation-Date: 2013-06-21 21:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Russian <LL@li.org>\n"
+"Language: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,51 +27,51 @@ msgstr "Рестарт"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr ""
+msgstr "Перезапустить Ajenti?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "Общие"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 msgid "HTTP Server"
-msgstr ""
+msgstr "HTTP сервер"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Host"
-msgstr ""
+msgstr "Хост"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr ""
+msgstr "Использовать SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "Сертификат"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "Генератор самоподписанных сертификатов"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 msgid "Hostname"
-msgstr ""
+msgstr "Хост"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Сгенерировать"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "Аутентификация"
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23

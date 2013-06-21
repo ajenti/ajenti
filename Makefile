@@ -33,6 +33,12 @@ cdoc:
 	rm -rf $(DOCBUILDDIR)/*
 	make doc
 
+pull-crowdin:
+	curl http://api.crowdin.net/api/project/ajenti/export?key=`cat ~/Dropbox/.crowdin.ajenti.key`
+	wget http://api.crowdin.net/api/project/ajenti/download/all.zip?key=`cat ~/Dropbox/.crowdin.ajenti.key` -O all.zip
+	unzip all.zip
+	rm all.zip
+
 install: build
 	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE) --prefix $(PREFIX)
 
