@@ -188,11 +188,14 @@ body {
             }
 
             color: #666;
+            i:before { color: #666; }
+
             text-decoration: none;
 
             &.active {
                 #gradient > .vertical(lighten(@orange, 15%), @orange);
                 color: darken(@orange, 20%);
+                i:before { color: darken(@orange, 20%); }
                 text-shadow: 0 1px 0px rgba(255,255,255,.60);
             }
         }

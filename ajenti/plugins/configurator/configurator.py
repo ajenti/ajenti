@@ -62,6 +62,8 @@ class Configurator (SectionPlugin):
         def post_user_bind(object, collection, item, ui):
             box = ui.find('permissions')
             box.empty()
+            ui.find('name-edit').visible = item.name != 'root'
+            ui.find('name-label').visible = item.name == 'root'
             for prov in PermissionProvider.get_all():
                 line = self.ui.create('tab', title=prov.get_name())
                 box.append(line)

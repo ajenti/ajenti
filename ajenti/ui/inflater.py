@@ -48,7 +48,9 @@ class Inflater:
                 value = _(value[1:-1])
             for prop in cls._properties:
                 if prop.name == key:
-                    if prop.type in [int, float, unicode, eval]:
+                    if prop.type in [eval, list, dict]:
+                        value = _(value)
+                    if prop.type in [int, float, unicode, eval, dict]:
                         value = prop.type(value)
                     elif prop.type in [list]:
                         value = eval(value)

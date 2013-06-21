@@ -1,7 +1,7 @@
 <vc xmlns:bind="bind">
     <hc>
         <button icon="refresh" id="refresh" text="{Refresh}" />
-        <button icon="hdd" id="mount-all" text="{Mount all}" />
+        <button icon="hdd" id="mount-all" text="{Mount all}" style="normal big" />
     </hc>
 
     <body>

@@ -7,7 +7,7 @@ class window.Controls.dashboard__dash extends window.Control
                 <div class="container widget-container container-1" data-index="1">
                 </div>
                 <div class="container trash">
-                    > Dispose used widgets here <
+                    <i class="icon-trash"></i>
                 </div>
             </div>
         """)

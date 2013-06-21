@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import atexit
 import gettext
 import locale
@@ -121,11 +123,11 @@ def run():
     # auth.log
     try:
         syslog.openlog(
-            ident='ajenti',
+            ident=str(b'ajenti'),
             facility=syslog.LOG_AUTH,
         )
     except:
-        syslog.openlog('ajenti')
+        syslog.openlog(b'ajenti')
 
     try:
         gevent.signal(signal.SIGTERM, lambda: sys.exit(0))

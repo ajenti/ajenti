@@ -1,6 +1,6 @@
 <vc xmlns:bind="bind">
     <hc>
-        <button id="edit" text="{Raw edit}" icon="pencil" />
+        <button id="edit" text="{Raw edit}" icon="pencil" style="normal big" />
         <button id="autostart" icon="refresh" style="normal big" />
     </hc>
     <body>

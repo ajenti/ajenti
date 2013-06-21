@@ -4,7 +4,7 @@
         buttons="
             [{
                 'command': 'force-reload',
-                'text': 'Reload',
+                'text': _('Reload'),
                 'icon': 'step-forward',
             }]
         " />
