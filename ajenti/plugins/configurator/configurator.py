@@ -28,7 +28,7 @@ class ClassConfigManager (BasePlugin):
 @plugin
 class Configurator (SectionPlugin):
     def init(self):
-        self.title = 'Configure'
+        self.title = _('Configure')
         self.icon = 'wrench'
         self.category = ''
         self.order = 50
@@ -51,7 +51,7 @@ class Configurator (SectionPlugin):
             def save():
                 binder.update()
                 item.save_classconfig()
-                self.context.notify('info', 'Saved')
+                self.context.notify('info', _('Saved'))
 
             ui.find('save').on('click', save)
 
@@ -66,8 +66,9 @@ class Configurator (SectionPlugin):
                 line = self.ui.create('tab', title=prov.get_name())
                 box.append(line)
                 for perm in prov.get_permissions():
-                    line.append(self.ui.create('checkbox', id=perm[0], text=perm[1], \
-                        value=(perm[0] in item.permissions)))
+                    line.append(
+                        self.ui.create('checkbox', id=perm[0], text=perm[1], value=(perm[0] in item.permissions))
+                    )
         self.find('users').post_item_bind = post_user_bind
 
         def post_user_update(object, collection, item, ui):
@@ -102,13 +103,13 @@ class Configurator (SectionPlugin):
                 user.password = UserManager.get().hash_password(user.password)
         self.binder.populate()
         ajenti.config.save()
-        self.context.notify('info', 'Saved. Please restart Ajenti for changes to take effect.')
+        self.context.notify('info', _('Saved. Please restart Ajenti for changes to take effect.'))
 
     @on('fake-ssl', 'click')
     def on_gen_ssl(self):
         host = self.find('fake-ssl-host').value
         if host == '':
-            self.context.notify('error', 'Please supply hostname')
+            self.context.notify('error', _('Please supply hostname'))
         else:
             self.gen_ssl(host)
 
@@ -124,7 +125,7 @@ class Configurator (SectionPlugin):
         #    self.classconfig_rows[plugin].children[0].expanded = True
         #    print self.classconfig_rows[plugin].children[0]
         if plugin:
-            self.context.notify('info', 'Please configure %s plugin!' % plugin.classconfig_editor.title)
+            self.context.notify('info', _('Please configure %s plugin!') % plugin.classconfig_editor.title)
         self.activate()
 
     @intent('setup-fake-ssl')
@@ -138,10 +139,10 @@ class Configurator (SectionPlugin):
 @plugin
 class ConfigurationPermissionsProvider (PermissionProvider):
     def get_name(self):
-        return 'Configuration'
+        return _('Configuration')
 
     def get_permissions(self):
         return [
-            ('configurator:configure', 'Modify Ajenti configuration'),
-            ('configurator:restart', 'Restart Ajenti'),
+            ('configurator:configure', _('Modify Ajenti configuration')),
+            ('configurator:restart', _('Restart Ajenti')),
         ]

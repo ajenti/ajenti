@@ -4,8 +4,8 @@ import subprocess
 from lxml import etree
 
 
-LANGUAGES = ['en_US', 'ru_RU']
 LOCALEDIR = 'ajenti/locale'
+LANGUAGES = [x for x in os.listdir(LOCALEDIR) if not '.' in x]
 
 pot_path = os.path.join(LOCALEDIR, 'ajenti.po')
 
@@ -62,6 +62,7 @@ for lang in LANGUAGES:
     if not os.path.exists(po_dir):
         os.makedirs(po_dir)
 
+    """
     print ' :: Merging %s' % lang
     subprocess.check_call([
         'msgmerge',
@@ -70,6 +71,7 @@ for lang in LANGUAGES:
         po_path,
         pot_path,
     ])
+    """
 
     print ' :: Compiling %s' % lang
     subprocess.check_call([

@@ -36,8 +36,13 @@ cdoc:
 pull-crowdin:
 	curl http://api.crowdin.net/api/project/ajenti/export?key=`cat ~/Dropbox/.crowdin.ajenti.key`
 	wget http://api.crowdin.net/api/project/ajenti/download/all.zip?key=`cat ~/Dropbox/.crowdin.ajenti.key` -O all.zip
-	unzip all.zip
+	unzip -o all.zip
 	rm all.zip
+	./make_messages.py
+
+push-crowdin:
+	./make_messages.py
+	curl -F "files[/ajenti.po]=@ajenti/locale/ajenti.po" http://api.crowdin.net/api/project/ajenti/update-file?key=`cat ~/Dropbox/.crowdin.ajenti.key`
 
 install: build
 	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE) --prefix $(PREFIX)
