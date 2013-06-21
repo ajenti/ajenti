@@ -2,14 +2,14 @@
     <vc>
         <dashboard:header id="header">
             <hc>
-                <button text="Refresh" icon="refresh" id="refresh-button" />
-                <button text="Add widget" icon="plus" id="add-button" />
+                <button text="{Refresh}" icon="refresh" id="refresh-button" />
+                <button text="{Add widget}" icon="plus" id="add-button" />
             </hc>
         </dashboard:header>
 
         <dashboard:dash id="dash" />
 
-        <dialog id="add-dialog" buttons="[{'text': 'Cancel', 'id': 'cancel'}]" visible="False">
+        <dialog id="add-dialog" buttons="[{'text': _('Cancel'), 'id': 'cancel'}]" visible="False">
             <bind:collection id="add-widgets">
                 <pad>
                     <list bind="__items" />

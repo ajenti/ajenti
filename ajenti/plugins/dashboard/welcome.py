@@ -10,8 +10,8 @@ class DashboardWelcome (UIElement):
 
 @plugin
 class WelcomeWidget (DashboardWidget):
-    name = 'Welcome'
+    name = _('Welcome')
     icon = 'comment'
-    #hidden = True
+
     def init(self):
         self.append(self.ui.inflate('dashboard:welcome'))

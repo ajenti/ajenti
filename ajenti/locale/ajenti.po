@@ -4,6 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #: ajenti/plugins/configurator/layout/main.xml:1
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/ctdb/layout/main.xml:25
+#: ajenti/plugins/cron/layout/main.xml:24
+#: ajenti/plugins/cron/layout/main.xml:22
 msgid "Save"
 msgstr ""
 
@@ -16,6 +20,7 @@ msgid "Restart Ajenti?"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:4
+#: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
 msgstr ""
 
@@ -61,6 +66,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/configurator/layout/main.xml:29
 msgid "Enable"
 msgstr ""
 
@@ -69,36 +75,60 @@ msgid "Accounts"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Delete"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/cron/layout/main.xml:4
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/cron/layout/main.xml:19
 msgid "Confirm deletion"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:12
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:18
 msgid "Create"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Other"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:30
 msgid ""
 "Ajenti will anonymously send its version, your OS name, and which plugins "
 "you use most to ajenti.org"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
 msgstr ""
 
@@ -107,6 +137,7 @@ msgid "Configure"
 msgstr ""
 
 #: ajenti/plugins/configurator/configurator.py:54
+#: ajenti/plugins/ctdb/main.py:75
 msgid "Saved"
 msgstr ""
 
@@ -133,4 +164,187 @@ msgstr ""
 
 #: ajenti/plugins/configurator/configurator.py:147
 msgid "Restart Ajenti"
+msgstr ""
+
+#: ajenti/plugins/cron/main.py:17
+msgid "System"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:1
+msgid "Select"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:2
+msgid "Normal"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
+msgid "Minute"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
+msgid "Hour"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
+msgid "Day"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
+msgid "Month"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/cron/layout/main.xml:10
+msgid "DoW"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/cron/layout/main.xml:15
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:17
+msgid "Command"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:12
+msgid "Special"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:16
+msgid "Schedule"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:17
+msgid "Environment"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:20
+msgid "Name"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:23
+#: ajenti/plugins/cron/layout/main.xml:21
+msgid "Value"
+msgstr ""
+
+#: ajenti/plugins/ctdb/main.py:20
+msgid "Samba Cluster"
+msgstr ""
+
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
+msgid "Software"
+msgstr ""
+
+#: ajenti/plugins/ctdb/main.py:65
+msgid "Failed to obtain CTDB status"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
+msgid "Status"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:3
+msgid "Public IPs"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:5
+msgid "Manage Samba"
+msgstr ""
+
+#: ajenti/plugins/cron/layout/main.xml:16
+msgid ""
+"[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On "
+"reboot')]"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:6
+msgid "Debug level"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:7
+msgid "Files"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:8
+msgid "Recovery lock file"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:9
+msgid "Public addresses file"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:10
+msgid "Nodes file"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:11
+msgid "Log file"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:12
+msgid "Networking"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:13
+msgid "Public interface"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:14
+msgid "Public network"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:15
+msgid "Public gateway"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:16
+msgid "Nodes"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:22
+msgid "Address"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:20
+msgid "Public addresses"
+msgstr ""
+
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr ""
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr ""
+
+#: ajenti/plugins/apache/main.py:11
+msgid "Reload"
+msgstr ""
+
+#: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
+msgid "Dashboard"
+msgstr ""
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr ""
+
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+msgid "Refresh"
+msgstr ""
+
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Add widget"
+msgstr ""
+
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
 msgstr ""

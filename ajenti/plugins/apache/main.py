@@ -8,7 +8,7 @@ class Apache (WebserverPlugin):
     service_buttons = [
         {
             'command': 'force-reload',
-            'text': 'Reload',
+            'text': _('Reload'),
             'icon': 'step-forward',
         }
     ]
@@ -36,5 +36,5 @@ class Apache (WebserverPlugin):
 
     def init(self):
         self.title = 'Apache'
-        self.category = 'Software'
+        self.category = _('Software')
         self.icon = 'globe'

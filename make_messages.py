@@ -34,6 +34,12 @@ for (dirpath, dirnames, filenames) in os.walk('ajenti'):
                     for k, v in n.items():
                         if v.startswith('{') and v.endswith('}'):
                             msgs.append(v[1:-1])
+                        try:
+                            if "_('" in v:
+                                eval(v, {'_': lambda x: x})
+                                msgs.append(v)
+                        except:
+                            pass
                     for c in n:
                         traverse(c)
                 traverse(xml)

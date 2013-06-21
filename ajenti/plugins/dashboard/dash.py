@@ -15,7 +15,7 @@ class Dash (SectionPlugin):
     default_classconfig = {'widgets': []}
 
     def init(self):
-        self.title = 'Dashboard'
+        self.title = _('Dashboard')
         self.category = ''
         self.icon = 'dashboard'
         self.order = 0

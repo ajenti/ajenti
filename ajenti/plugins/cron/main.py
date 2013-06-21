@@ -14,7 +14,7 @@ class Cron (SectionPlugin):
     def init(self):
         self.title = 'Cron'
         self.icon = 'time'
-        self.category = 'System'
+        self.category = _('System')
         self.append(self.ui.inflate('cron:main'))
 
         self.binder = Binder(None, self.find('config'))

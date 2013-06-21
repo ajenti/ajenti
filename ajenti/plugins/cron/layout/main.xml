@@ -1,17 +1,17 @@
 <vc xmlns:bind="bind">
     <hc>
         <dropdown id="users" />
-        <button id="user-select" icon="user" text="Select" />
+        <button id="user-select" icon="user" text="{Select}" />
     </hc>
 
     <body>
         <pad>
             <tabs id="config">
-                <tab title="Normal">
+                <tab title="{Normal}">
                     <bind:collection bind="normal_tasks" id="normal_tasks">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -19,7 +19,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -30,12 +30,12 @@
                                 <pad>
                                     <lt>
                                         <ltr>
-                                            <ltd><label text="Minute" /></ltd>
-                                            <ltd><label text="Hour" /></ltd>
-                                            <ltd><label text="Day" /></ltd>
-                                            <ltd><label text="Month" /></ltd>
-                                            <ltd><label text="DoW" /></ltd>
-                                            <ltd><label text="Command" /></ltd>
+                                            <ltd><label text="{Minute}" /></ltd>
+                                            <ltd><label text="{Hour}" /></ltd>
+                                            <ltd><label text="{Day}" /></ltd>
+                                            <ltd><label text="{Month}" /></ltd>
+                                            <ltd><label text="{DoW}" /></ltd>
+                                            <ltd><label text="{Command}" /></ltd>
                                         </ltr>
                                         <ltr>
                                             <ltd>
@@ -64,11 +64,11 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="Special">
+                <tab title="{Special}">
                     <bind:collection bind="special_tasks" id="special_tasks">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -76,7 +76,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -90,15 +90,15 @@
                                 <pad>
                                     <lt>
                                         <ltr>
-                                            <ltd><label text="Schedule" /></ltd>
-                                            <ltd><label text="Command" /></ltd>
+                                            <ltd><label text="{Schedule}" /></ltd>
+                                            <ltd><label text="{Command}" /></ltd>
                                         </ltr>
                                         <ltr>
                                             <ltd>
                                                 <dropdown
                                                     bind="special"
                                                     values="['@hourly', '@daily', '@weekly', '@monthly', '@yearly', '@reboot']"
-                                                    labels="['Hourly', 'Daily', 'Weekly', 'Monthly', 'Yearly', 'On reboot']"
+                                                    labels="[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
                                                 />
                                             </ltd>
                                             <ltd>
@@ -112,11 +112,11 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="Environment">
+                <tab title="{Environment}">
                     <bind:collection bind="env_settings" id="env_settings">
                         <vc>
                             <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
 
                         <bind:template>
@@ -124,7 +124,7 @@
                                 <box>
                                     <right>
                                         <hc>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </hc>
                                     </right>
                                     <hc>
@@ -133,10 +133,10 @@
                                     </hc>
                                 </box>
                                 <pad>
-                                    <formline text="Name">
+                                    <formline text="{Name}">
                                         <textbox bind="name" />
                                     </formline>
-                                    <formline text="Value">
+                                    <formline text="{Value}">
                                         <textbox bind="value" />
                                     </formline>
                                 </pad>
@@ -149,6 +149,6 @@
     </body>
 
     <hc>
-        <button id="save" text="Save" icon="ok" />
+        <button id="save" text="{Save}" icon="ok" />
     </hc>
 </vc>

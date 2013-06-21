@@ -4,7 +4,7 @@ from ajenti.ui import *
 
 
 info = PluginInfo(
-    title='CodeMirror code editor',
+    title=_('CodeMirror code editor'),
     icon='link',
     dependencies=[
         PluginDependency('main')

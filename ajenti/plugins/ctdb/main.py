@@ -17,9 +17,9 @@ class CTDB (SectionPlugin):
     addresses_file = '/etc/ctdb/public_addresses'
 
     def init(self):
-        self.title = 'Samba Cluster'
+        self.title = _('Samba Cluster')
         self.icon = 'folder-close'
-        self.category = 'Software'
+        self.category = _('Software')
 
         self.append(self.ui.inflate('ctdb:main'))
 
@@ -62,7 +62,7 @@ class CTDB (SectionPlugin):
             self.find('status').value = subprocess.check_output(['ctdb', 'status'])
             self.find('status-ip').value = subprocess.check_output(['ctdb', 'ip'])
         except:
-            self.find('status').value = 'Failed to obtain CTDB status'
+            self.find('status').value = _('Failed to obtain CTDB status')
 
     @on('save', 'click')
     def save(self):
@@ -72,4 +72,4 @@ class CTDB (SectionPlugin):
         self.config.save()
         self.nodes_config.save()
         self.addresses_config.save()
-        self.context.notify('info', 'Saved')
+        self.context.notify('info', _('Saved'))

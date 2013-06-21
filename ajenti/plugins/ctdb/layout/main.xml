@@ -4,12 +4,12 @@
     <body>
         <pad xmlns:bind="bind">
             <tabs>
-                <tab title="Status">
+                <tab title="{Status}">
                     <vc>
-                        <label style="bold" text="Status" />
+                        <label style="bold" text="{Status}" />
                         <codearea id="status" />
                         
-                        <label style="bold" text="Public IPs" />
+                        <label style="bold" text="{Public IPs}" />
                         <codearea id="status-ip" />
 
                         <button id="refresh" icon="refresh" text="Refresh" />
@@ -18,43 +18,43 @@
 
                 <tab title="General" id="main-config">
                     <vc>
-                        <formgroup text="General">
-                            <formline text="Manage Samba">
+                        <formgroup text="{General}">
+                            <formline text="{Manage Samba}">
                                 <checkbox bind="manages_samba" />
                             </formline>
-                            <formline text="Debug level">
+                            <formline text="{Debug level}">
                                 <textbox bind="debug_level" />
                             </formline>
                         </formgroup>
-                        <formgroup text="Files">
-                            <formline text="Recovery lock file">
+                        <formgroup text="{Files}">
+                            <formline text="{Recovery lock file}">
                                 <textbox bind="recovery_lock_file" style="big" />
                             </formline>
-                            <formline text="Public addresses file">
+                            <formline text="{Public addresses file}">
                                 <textbox bind="public_addresses_file" style="big" />
                             </formline>
-                            <formline text="Nodes file">
+                            <formline text="{Nodes file}">
                                 <textbox bind="nodes_file" style="big" />
                             </formline>
-                            <formline text="Log file">
+                            <formline text="{Log file}">
                                 <textbox bind="log_file" style="big" />
                             </formline>
                         </formgroup>
-                        <formgroup text="Networking">
-                            <formline text="Public interface">
+                        <formgroup text="{Networking}">
+                            <formline text="{Public interface}">
                                 <textbox bind="public_interface" />
                             </formline>
-                            <formline text="Public network">
+                            <formline text="{Public network}">
                                 <textbox bind="public_network" />
                             </formline>
-                            <formline text="Public gateway">
+                            <formline text="{Public gateway}">
                                 <textbox bind="public_gateway" />
                             </formline>
                         </formgroup>
                     </vc>
                 </tab>
 
-                <tab title="Nodes" id="nodes-config">
+                <tab title="{Nodes}" id="nodes-config">
                     <bind:collection bind="nodes" id="nodes">
                         <vc>
                             <dt bind="__items" />
@@ -62,7 +62,7 @@
                                 <collapserow>
                                     <box>
                                         <right>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </right>
                                         <hc>
                                             <icon icon="desktop" />
@@ -71,19 +71,19 @@
                                     </box>
                                     
                                     <indent>
-                                        <formline text="Address">
+                                        <formline text="{Address}">
                                             <textbox bind="address" />
                                         </formline>
                                     </indent>
                                 </collapserow>
                             </bind:template>
                         
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
                     </bind:collection>
                 </tab>
 
-                <tab title="Public addresses" id="addresses-config">
+                <tab title="{Public addresses}" id="addresses-config">
                     <bind:collection bind="addresses" id="addresses">
                         <vc>
                             <dt bind="__items" />
@@ -91,7 +91,7 @@
                                 <collapserow>
                                     <box>
                                         <right>
-                                            <button bind="__delete" icon="remove" style="icon" warning="Confirm deletion" />
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                         </right>
                                         <hc>
                                             <icon icon="desktop" />
@@ -101,10 +101,10 @@
                                     
                                     <indent>
                                         <vc>
-                                            <formline text="Address">
+                                            <formline text="{Address}">
                                                 <textbox bind="address" />
                                             </formline>
-                                            <formline text="Interface">
+                                            <formline text="{Interface}">
                                                 <textbox bind="interface" />
                                             </formline>
                                         </vc>
@@ -112,7 +112,7 @@
                                 </collapserow>
                             </bind:template>
                         
-                            <button bind="__add" icon="plus" text="Create" />
+                            <button bind="__add" icon="plus" text="{Create}" />
                         </vc>
                     </bind:collection>
                 </tab>
@@ -120,5 +120,5 @@
         </pad> 
     </body>
 
-    <button id="save" text="Save" icon="ok" />
+    <button id="save" text="{Save}" icon="ok" />
 </vc>
