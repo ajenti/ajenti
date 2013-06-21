@@ -44,6 +44,8 @@ class Inflater:
 
         for key in node.attrib:
             value = node.attrib[key]
+            if value.startswith('{') and value.endswith('}'):
+                value = _(value[1:-1])
             for prop in cls._properties:
                 if prop.name == key:
                     if prop.type in [int, float, unicode, eval]:

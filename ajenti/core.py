@@ -1,4 +1,6 @@
 import atexit
+import gettext
+import locale
 import logging
 import os
 import signal
@@ -58,7 +60,6 @@ class SSLTunnel (object):
 
     def check(self):
         time.sleep(0.5)
-        print self.process.poll()
         return self.process.poll() is None
 
     def stop(self):
@@ -73,6 +74,11 @@ class SSLTunnel (object):
 
 
 def run():
+    locale.setlocale(locale.LC_ALL, '')
+    localedir = os.path.abspath(os.path.join(os.path.split(ajenti.core.__file__)[0], 'locale'))
+    gettext.textdomain('ajenti')
+    gettext.install('ajenti', localedir, unicode=True)
+
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
 
     # Load plugins

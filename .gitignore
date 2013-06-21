@@ -1,4 +1,5 @@
 *.pyc
+*.mo
 docs/build/*
 *~
 

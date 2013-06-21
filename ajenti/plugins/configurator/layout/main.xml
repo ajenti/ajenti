@@ -1,52 +1,50 @@
 <vc xmlns:bind="bind" xmlns:packages="packages">
     <hc>
-        <button text="Save" id="save-button" icon="ok" />
-        <button text="Restart" id="restart-button" icon="refresh" warning="Restart Ajenti?" />
+        <button text="{Save}" id="save-button" icon="ok" />
+        <button text="{Restart}" id="restart-button" icon="refresh" warning="{Restart Ajenti?}" />
     </hc>
 
     <body>
         <pad>
             <tabs id="tabs">
-                <tab title="General">
+                <tab title="{General}">
                     <vc id="ajenti-config">
-                        <formgroup text="HTTP Server" bind="http_binding">
+                        <formgroup text="{HTTP Server}" bind="http_binding">
                             <vc>
-                                <formline text="Host">
+                                <formline text="{Host}">
                                     <textbox bind="host" />
                                 </formline>
-                                <formline text="Port">
+                                <formline text="{Port}">
                                     <textbox bind="port" type="integer" />
                                 </formline>
                             </vc>
                         </formgroup>
                         <formgroup text="SSL" bind="ssl">
                             <vc>
-                                <packages:installer package="stunnel" text="SSl requires stunnel package" />
-
-                                <formline text="Use SSL">
+                                <formline text="{Use SSL}">
                                     <checkbox bind="enable" />
                                 </formline>
-                                <formline text="Path to certificate">
+                                <formline text="{Path to certificate}">
                                     <textbox bind="certificate_path" />
                                 </formline>
                             </vc>
                         </formgroup>
-                        <formgroup text="SSL Self-Signed Certificate Generator">
+                        <formgroup text="{SSL Self-Signed Certificate Generator}">
                             <vc>
-                                <formline text="Hostname">
+                                <formline text="{Hostname}">
                                     <textbox id="fake-ssl-host" />
                                 </formline>
                                 <formline>
-                                    <button id="fake-ssl" text="Generate" icon="cogs" />
+                                    <button id="fake-ssl" text="{Generate}" icon="cogs" />
                                 </formline>
                             </vc>
                         </formgroup>
-                        <formgroup text="Users">
+                        <formgroup text="{Users}">
                             <vc>
-                                <formline text="Authentication">
-                                    <checkbox text="Enable" bind="authentication" />
+                                <formline text="{Authentication}">
+                                    <checkbox text="{Enable}" bind="authentication" />
                                 </formline>
-                                <formline text="Accounts">
+                                <formline text="{Accounts}">
                                     <bind:collection 
                                             id="users"
                                             bind="users" 
@@ -59,37 +57,37 @@
                                                 <collapserow>
                                                     <box>
                                                         <right>
-                                                            <button bind="__delete" icon="remove" text="Delete" style="icon" warning="Confirm deletion" />
+                                                            <button bind="__delete" icon="remove" text="{Delete}" style="icon" warning="{Confirm deletion}" />
                                                         </right>
                                                         <hc>
                                                             <icon icon="user" />
                                                             <box width="100">
                                                                 <editable bind="name" style="mini" />
                                                             </box>
-                                                            <editable id="password" placeholder="Change password" icon="lock" />
+                                                            <editable id="password" placeholder="{Change password}" icon="lock" />
                                                         </hc>
                                                     </box>
                                                     <tabs id="permissions" client="True" />
                                                 </collapserow>
                                             </bind:template>
-                                            <button bind="__add" icon="plus" text="Create" />
+                                            <button bind="__add" icon="plus" text="{Create}" />
                                         </vc>
                                     </bind:collection>
                                 </formline>
                             </vc>
                         </formgroup>
-                        <formgroup text="Other">
-                            <formline text="Send feedback">
+                        <formgroup text="{Other}">
+                            <formline text="{Send feedback}">
                                 <vc>
-                                    <checkbox bind="enable_feedback" text="Enable" />
-                                    <label style="small" text="Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org" />
+                                    <checkbox bind="enable_feedback" text="{Enable}" />
+                                    <label style="small" text="{Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org}" />
                                 </vc>
                             </formline>
                         </formgroup>
                     </vc>
                 </tab>
 
-                <tab title="Plugins" id="classconfigs">
+                <tab title="{Plugins}" id="classconfigs">
                     <bind:collection bind="classes" id="classes">
                         <dt bind="__items" />
 

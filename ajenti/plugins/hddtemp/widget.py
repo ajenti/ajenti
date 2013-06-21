@@ -1,4 +1,4 @@
-#coding: utf8
+#coding: utf-8
 from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import ConfigurableWidget
