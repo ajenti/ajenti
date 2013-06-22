@@ -14,3 +14,4 @@ info = PluginInfo(
 
 def init():
     import widget
+    import api

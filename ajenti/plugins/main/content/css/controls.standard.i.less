@@ -11,16 +11,18 @@
 	font-family: @fontFamily; 
 	font-size: @fontSize;
 	
-	padding: 0 4px;
-	border: 1px solid transparent;
+	padding: 1px 4px;
 	.control-inset();
+	border: none;
 
 	&:hover {
 		border: 1px solid #eee;
+		padding: 0 3px;
 	}
 
 	&:focus {
 		border: 1px solid @orange;
+		padding: 0 3px;
 	} 
 }
 

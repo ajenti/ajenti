@@ -1,10 +1,9 @@
 <hc xmlns:bind="bind">
     <bind:list bind="arguments">
         <bind:item>
-            <hc>
-                <label text="{Ports}" />
+            <formline text="{Ports}">
                 <textbox bind="value" />
-            </hc>
+            </formline>
         </bind:item>
     </bind:list>
 </hc>

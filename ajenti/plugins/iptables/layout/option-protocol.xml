@@ -1,10 +1,9 @@
 <hc xmlns:bind="bind">
     <bind:list bind="arguments">
         <bind:item>
-            <hc>
-                <label text="{Protocol}" />
+            <formline text="{Protocol}">
                 <combobox bind="value" values="['all','tcp','udp','icmp','udplilte','esp','ah','sctp']" labels="['any','TCP','UDP','ICMP','UDP Lite','ESP','AH','SCTP']"/>
-            </hc>
+            </formline>
         </bind:item>
     </bind:list>
 </hc>

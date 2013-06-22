@@ -9,6 +9,8 @@ from ajenti.ui import on
 from ajenti.ui.inflater import TemplateNotFoundError
 from ajenti.ui.binder import Binder, CollectionAutoBinding
 
+from ajenti.plugins.network.api import NetworkManager
+
 from reconfigure.configs import IPTablesConfig
 from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionData
 
@@ -76,10 +78,6 @@ class Firewall (SectionPlugin):
 
         def post_rule_bind(o, c, i, u):
             u.find('add-option').on('change', self.on_add_option, c, i, u)
-            actions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'MASQUERADE', 'DNAT', 'SNAT'] + \
-                list(set(itertools.chain.from_iterable([[c.name for c in t.chains] for t in self.config.tree.tables])))
-            u.find('action-select').labels = actions
-            u.find('action-select').values = actions
             action = ''
             j_option = i.get_option('j', 'jump')
             if j_option:
@@ -110,8 +108,16 @@ class Firewall (SectionPlugin):
         self.refresh()
 
     def refresh(self):
-        self.binder.reset(self.config.tree).autodiscover().populate()
         self.find('autostart').text = (_('Disable') if self.fw_mgr.get_autostart_state() else _('Enable')) + _(' autostart')
+
+        self.binder.reset(self.config.tree)
+        actions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'MASQUERADE', 'DNAT', 'SNAT'] + \
+            list(set(itertools.chain.from_iterable([[c.name for c in t.chains] for t in self.config.tree.tables])))
+        self.find('action-select').labels = actions
+        self.find('action-select').values = actions
+        self.find('chain-action-select').labels = actions
+        self.find('chain-action-select').values = actions
+        self.binder.autodiscover().populate()
 
     @on('autostart', 'click')
     def on_autostart_change(self):
@@ -127,6 +133,12 @@ class Firewall (SectionPlugin):
     @on('save', 'click')
     def save(self):
         self.binder.update()
+
+        for t in self.config.tree.tables:
+            for c in t.chains:
+                for r in c.rules:
+                    r.verify()
+
         self.config.save()
         self.refresh()
 
@@ -165,8 +177,8 @@ class OptionsBinding (CollectionAutoBinding):
         'in-interface': 'interface',
         'out-interface': 'interface',
         'source-port': 'port',
-        'destination-port': 'ports',
-        'source-ports': 'port',
+        'destination-port': 'port',
+        'source-ports': 'ports',
         'destination-ports': 'ports',
     }
 
@@ -189,5 +201,8 @@ class OptionsBinding (CollectionAutoBinding):
         except TemplateNotFoundError:
             option_ui = ui.ui.inflate('iptables:option-custom')
 
+        if option_ui.find('device'):
+            device = option_ui.find('device')
+            device.values = device.labels = NetworkManager.get().get_devices()
         root.find('slot').append(option_ui)
         return root

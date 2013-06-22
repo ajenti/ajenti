@@ -1,14 +1,14 @@
-<box xmlns:bind="bind">
-    <right>
-        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
-    </right>
-    <hc>
-        <box width="120">
-            <hc>
-                <label bind="cmdline" style="bold" />
-                <label bind="title" style="bold" />
-            </hc>
-        </box>
+<dtr xmlns:bind="bind">
+    <dtd width="150">
+        <label bind="cmdline" style="bold" />   
+    </dtd>
+    <dtd>
+        <checkbox bind="negative" text="Invert" />
+    </dtd>
+    <dtd>
         <box id="slot" />
-    </hc>
-</box>
+    </dtd>
+    <dtd width="1">
+        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+    </dtd>
+</dtr>

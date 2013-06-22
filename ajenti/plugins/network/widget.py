@@ -5,6 +5,8 @@ from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import ConfigurableWidget
 from ajenti.util import str_fsize
 
+from api import NetworkManager
+
 
 @plugin
 class TrafficSensor (Sensor):
@@ -12,7 +14,7 @@ class TrafficSensor (Sensor):
     timeout = 5
 
     def get_variants(self):
-        return psutil.network_io_counters(pernic=True).keys()
+        return NetworkManager.get().get_devices()
 
     def measure(self, device):
         try:

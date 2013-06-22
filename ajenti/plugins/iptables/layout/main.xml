@@ -19,7 +19,7 @@
                                             <vc>
                                                 <right>
                                                     <hc>
-                                                        <combobox bind="default" id="action-select" />
+                                                        <combobox bind="default" id="chain-action-select" />
                                                         <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
                                                     </hc>
                                                 </right>
@@ -51,12 +51,12 @@
                                                                         <combobox bind="action" id="action-select" />
                                                                     </hc>
                                                                     <label text="{Conditions}" style="bold" />
-                                                                    <pad>
+                                                                    <indent>
                                                                         <bind:collection bind="options" id="options">
-                                                                            <vc bind="__items" />
+                                                                            <dt bind="__items" />
                                                                             <dropdown id="add-option" server="True" />
                                                                         </bind:collection>
-                                                                    </pad>
+                                                                    </indent>
                                                                 </vc>
                                                             </pad>
                                                         </collapserow>
