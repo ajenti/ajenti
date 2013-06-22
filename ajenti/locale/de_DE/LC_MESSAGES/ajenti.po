@@ -16,6 +16,7 @@
 #: ajenti/plugins/resolv/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:31
 #: ajenti/plugins/netatalk/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:14
 msgid "Save"
 msgstr "Speichern"
 
@@ -86,7 +87,7 @@ msgstr "Authentifizierung"
 #: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
-#: ajenti/plugins/iptables/main.py:114
+#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
 msgid "Enable"
 msgstr "Aktivieren"
 
@@ -130,6 +131,7 @@ msgstr "Löschen"
 #: ajenti/plugins/samba/layout/main.xml:3
 #: ajenti/plugins/samba/layout/main.xml:28
 #: ajenti/plugins/netatalk/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:2
 msgid "Confirm deletion"
 msgstr "Löschvorgang bestätigen"
 
@@ -165,6 +167,7 @@ msgstr "Passwort ändern"
 #: ajenti/plugins/resolv/layout/main.xml:4
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Create"
 msgstr "Erstellen"
 
@@ -198,32 +201,39 @@ msgstr "Konfigurieren"
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
+#: ajenti/plugins/iptables/main.py:156
 msgid "Saved"
 msgstr "Gespeichert"
 
 #: ajenti/plugins/configurator/configurator.py:106
+#: ajenti/plugins/configurator/configurator.py:108
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Gespeichert. Bitte starten Sie Ajenti neu, damit die Änderungen wirksam werden."
 
 #: ajenti/plugins/configurator/configurator.py:112
+#: ajenti/plugins/configurator/configurator.py:114
 msgid "Please supply hostname"
 msgstr "Bitte geben Sie den Hostname an"
 
 #: ajenti/plugins/configurator/configurator.py:128
+#: ajenti/plugins/configurator/configurator.py:130
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Bitte konfigurieren Sie das %s Plugin!"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:144
 msgid "Configuration"
 msgstr "Konfiguration"
 
 #: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:148
 msgid "Modify Ajenti configuration"
 msgstr "Ajenti-Konfiguration ändern"
 
 #: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:149
 msgid "Restart Ajenti"
 msgstr "Ajenti neustarten"
 
@@ -231,7 +241,7 @@ msgstr "Ajenti neustarten"
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
 #: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
-#: ajenti/plugins/resolv/resolv.py:15
+#: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 msgid "System"
 msgstr "System"
 
@@ -270,6 +280,7 @@ msgstr "DoW"
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/scripts/layout/widget.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:3
 msgid "Command"
 msgstr "Befehl"
 
@@ -287,6 +298,7 @@ msgstr "Zeitplan"
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Environment"
 msgstr "Umgebung"
 
@@ -471,6 +483,7 @@ msgstr "Datenbank-Löschung bestätigen!"
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/main.xml:7
 #: ajenti/plugins/mysql/layout/config.xml:1
+#: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Username"
 msgstr "Benutzername"
 
@@ -713,50 +726,57 @@ msgid "HDD Temperature"
 msgstr "Festplattentemperatur"
 
 #: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
 msgstr "Arbeitsverzeichnis"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
+#: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
 msgstr "Autostart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
+#: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
 msgstr "[_('Aktiviert'), _('Deaktiviert')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
 msgstr "Auto-Neustart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
 msgstr "[_('Aktiviert'), _('Bei Absturz'), _('Deaktiviert')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
+#: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
 msgstr "Start-Timeout"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
 msgstr "Start-Wiederholungen"
 
-#: ajenti/plugins/iptables/main.py:53
+#: ajenti/plugins/iptables/main.py:53 ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Der Firewall-Autostart kann auf dieser Plattform nicht deaktiviert werden"
 
-#: ajenti/plugins/iptables/main.py:60
+#: ajenti/plugins/iptables/main.py:60 ajenti/plugins/iptables/main.py:62
 msgid "Firewall"
 msgstr "Firewall"
 
-#: ajenti/plugins/iptables/main.py:104
+#: ajenti/plugins/iptables/main.py:104 ajenti/plugins/iptables/main.py:102
 msgid "Add option"
 msgstr "Option hinzufügen"
 
-#: ajenti/plugins/iptables/main.py:114
+#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
 msgid "Disable"
 msgstr "Deaktivieren"
 
-#: ajenti/plugins/iptables/main.py:114
+#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
 msgid " autostart"
 msgstr " Autostart"
 
@@ -1014,11 +1034,11 @@ msgstr "Gruppen"
 msgid "Members"
 msgstr "Mitglieder"
 
-#: ajenti/plugins/network/widget.py:79
+#: ajenti/plugins/network/widget.py:79 ajenti/plugins/network/widget.py:81
 msgid "Immediate Traffic"
 msgstr "Derzeitiger Netzwerkverkehr"
 
-#: ajenti/plugins/network/widget.py:109
+#: ajenti/plugins/network/widget.py:109 ajenti/plugins/network/widget.py:111
 msgid "Traffic"
 msgstr "Netzwerkverkehr"
 
@@ -1237,4 +1257,8 @@ msgstr "AFP-Port"
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
 msgstr "CNID Adresse"
+
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "             [{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]         "
+msgstr "             [{'command': 'force-reload',                 'text': _('Neu laden'),                 'icon': 'step-forward',             }]         "
 
