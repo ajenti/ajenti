@@ -85,6 +85,7 @@ class Firewall (SectionPlugin):
             u.find('action').text = action
             u.find('action').style = 'iptables-action iptables-%s' % action
             u.find('action-select').value = action
+            u.find('title').text = i.comment if i.comment else i.summary
 
         def post_rule_update(o, c, i, u):
             action = u.find('action-select').value

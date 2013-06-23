@@ -40,16 +40,18 @@
                                                                 <box width="660">
                                                                     <hc>
                                                                         <label id="action" />
-                                                                        <label bind="summary" />
+                                                                        <label id="title" />
                                                                     </hc>
                                                                 </box>
                                                             </box>
                                                             <pad>
                                                                 <vc>
-                                                                    <hc>
-                                                                        <label text="{Action:}" style="bold" />
+                                                                    <formline text="{Action}">
                                                                         <combobox bind="action" id="action-select" />
-                                                                    </hc>
+                                                                    </formline>
+                                                                    <formline text="{Comment}">
+                                                                        <textbox bind="comment" />
+                                                                    </formline>
                                                                     <label text="{Conditions}" style="bold" />
                                                                     <indent>
                                                                         <bind:collection bind="options" id="options">
