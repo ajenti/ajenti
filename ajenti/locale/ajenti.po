@@ -22,6 +22,7 @@
 #: ajenti/plugins/samba/layout/main.xml:31
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Save"
 msgstr ""
 
@@ -93,6 +94,7 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:112
 msgid "Enable"
 msgstr ""
 
@@ -208,7 +210,7 @@ msgstr ""
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
-#: ajenti/plugins/iptables/main.py:156
+#: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 msgid "Saved"
 msgstr ""
 
@@ -759,15 +761,15 @@ msgstr ""
 msgid "Firewall"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:102
+#: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 msgid "Add option"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 msgid "Disable"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 msgid " autostart"
 msgstr ""
 
@@ -792,15 +794,18 @@ msgid "Action:"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Conditions"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/main.xml:8
 msgid "New Rule"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Apply"
 msgstr ""
 
@@ -1010,6 +1015,7 @@ msgid "User"
 msgstr ""
 
 #: ajenti/plugins/users/layout/main.xml:8
+#: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Comment"
 msgstr ""
 
@@ -1263,4 +1269,8 @@ msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:5
+msgid "Action"
 msgstr ""
