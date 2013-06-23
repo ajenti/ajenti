@@ -564,31 +564,6 @@ msgstr "Власник"
 msgid "Group"
 msgstr "Група"
 
-#: ajenti/plugins/fm/layout/main.xml:16 ajenti/plugins/fm/layout/main.xml:17
-msgid "Others"
-msgstr ""
-
-#: ajenti/plugins/exports/main.py:17
-msgid "NFS Exports"
-msgstr ""
-
-#: ajenti/plugins/exports/layout/main.xml:2
-msgid "Directory"
-msgstr ""
-
-#: ajenti/plugins/exports/layout/main.xml:3
-msgid "Clients"
-msgstr ""
-
-#: ajenti/plugins/exports/layout/main.xml:5
-#: ajenti/plugins/fstab/layout/main.xml:7
-#: ajenti/plugins/squid/layout/main.xml:4
-#: ajenti/plugins/squid/layout/main.xml:9
-#: ajenti/plugins/squid/layout/port-template.xml:3
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Options"
-msgstr ""
-
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
 msgstr ""
@@ -693,6 +668,14 @@ msgstr ""
 msgid "FS type"
 msgstr ""
 
+#: ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:9
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/exports/layout/main.xml:5
+msgid "Options"
+msgstr ""
+
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
 msgstr ""
@@ -725,58 +708,55 @@ msgstr ""
 msgid "HDD Temperature"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr ""
+
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:4
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:53 ajenti/plugins/iptables/main.py:55
+#: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:60 ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/iptables/main.py:62
 msgid "Firewall"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:104 ajenti/plugins/iptables/main.py:102
+#: ajenti/plugins/iptables/main.py:102
 msgid "Add option"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111
 msgid "Disable"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111
 msgid " autostart"
 msgstr ""
 
@@ -913,6 +893,10 @@ msgstr ""
 msgid "Install"
 msgstr ""
 
+#: ajenti/plugins/fm/layout/main.xml:17
+msgid "Others"
+msgstr ""
+
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
 msgstr ""
@@ -1034,11 +1018,11 @@ msgstr "Групи"
 msgid "Members"
 msgstr "Користувачі"
 
-#: ajenti/plugins/network/widget.py:79 ajenti/plugins/network/widget.py:81
+#: ajenti/plugins/network/widget.py:81
 msgid "Immediate Traffic"
 msgstr ""
 
-#: ajenti/plugins/network/widget.py:109 ajenti/plugins/network/widget.py:111
+#: ajenti/plugins/network/widget.py:111
 msgid "Traffic"
 msgstr "Трафік"
 
@@ -1129,6 +1113,18 @@ msgstr ""
 #: ajenti/plugins/smartctl/widget.py:58
 msgid "Unknown error"
 msgstr "Невідома помилка"
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr ""
+
+#: ajenti/plugins/exports/layout/main.xml:2
+msgid "Directory"
+msgstr ""
+
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr ""
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
@@ -1257,8 +1253,4 @@ msgstr ""
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
 msgstr "CNID адреса"
-
-#: ajenti/plugins/supervisor/layout/main.xml:1
-msgid "             [{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]         "
-msgstr ""
 

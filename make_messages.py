@@ -37,7 +37,7 @@ for (dirpath, dirnames, filenames) in os.walk('ajenti'):
                         try:
                             if "_('" in v:
                                 eval(v, {'_': lambda x: x})
-                                msgs.append(v)
+                                msgs.append(v.strip())
                         except:
                             pass
                     for c in n:

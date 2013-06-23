@@ -1,7 +1,4 @@
 #!/bin/sh
-#
-# $Id: ajenti.init.d,v 1.4 2003/07/13 19:12:41 mdz Exp $
-#
 
 ### BEGIN INIT INFO
 # Provides:          ajenti
@@ -15,34 +12,54 @@
 # Description:       Ajenti administration frontend
 ### END INIT INFO
 
-NAME=ajenti
-DESC="Ajenti"
+. /lib/lsb/init-functions
+
+NAME=Ajenti
+DAEMON=/usr/bin/ajenti-panel
 PIDFILE=/var/run/ajenti.pid
+
+test -x $DAEMON || exit 5
 
 case "$1" in
 	start)
-		echo "Starting $DESC"
-		ajenti-panel -d
-    	;;
-	stop)
-		echo "Stopping $DESC"
-		kill `cat $PIDFILE`
-		;;
-	restart)
-		$0 stop
-		sleep 1
-		$0 start
-		if [ "$?" != "0" ]; then
-			exit 1
+		if [ -e $PIDFILE ]; then
+			status_of_proc -p $PIDFILE $DAEMON $NAME && status="0" || status="$?"
+			if [ $status = "0" ]; then
+				exit
+			fi
+		fi
+		log_daemon_msg "Starting" "$NAME"
+		if start-stop-daemon --start --quiet --oknodo --pidfile $PIDFILE --exec $DAEMON -- -d ; then
+			log_end_msg 0
+		else
+			log_end_msg 1
 		fi
 		;;
-	force-reload)
-		kill -9 `cat $PIDFILE`
-		rm $PIDFILE
-	    $0 start
-	    ;;
+	stop)
+		if [ -e $PIDFILE ]; then
+			status_of_proc -p $PIDFILE $DAEMON "Stoppping $NAME" && status="0" || status="$?"
+			if [ "$status" = 0 ]; then
+				start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE
+				/bin/rm -rf $PIDFILE
+			fi
+		else
+		   log_daemon_msg "$NAME is not running"
+		   log_end_msg 0
+		fi
+		;;
+	restart)
+  		$0 stop && sleep 2 && $0 start
+		;;
+ 	status)
+  		if [ -e $PIDFILE ]; then
+   			status_of_proc -p $PIDFILE $DAEMON $NAME && exit 0 || exit $?
+  		else
+   			log_daemon_msg "$NAME is not running"
+   			log_end_msg 0
+   		fi
+  		;;
 	*)
-		echo "Usage: $0 {start|stop|restart|force-reload}"
+		echo "Usage: $0 {start|stop|restart|status}"
 		exit 1 
 esac
 

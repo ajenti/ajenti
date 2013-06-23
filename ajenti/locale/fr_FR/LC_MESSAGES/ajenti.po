@@ -564,31 +564,6 @@ msgstr "Propriétaire"
 msgid "Group"
 msgstr "Groupe"
 
-#: ajenti/plugins/fm/layout/main.xml:16 ajenti/plugins/fm/layout/main.xml:17
-msgid "Others"
-msgstr "Autres"
-
-#: ajenti/plugins/exports/main.py:17
-msgid "NFS Exports"
-msgstr "Exports NFS"
-
-#: ajenti/plugins/exports/layout/main.xml:2
-msgid "Directory"
-msgstr "Répertoire"
-
-#: ajenti/plugins/exports/layout/main.xml:3
-msgid "Clients"
-msgstr "Clients"
-
-#: ajenti/plugins/exports/layout/main.xml:5
-#: ajenti/plugins/fstab/layout/main.xml:7
-#: ajenti/plugins/squid/layout/main.xml:4
-#: ajenti/plugins/squid/layout/main.xml:9
-#: ajenti/plugins/squid/layout/port-template.xml:3
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Options"
-msgstr "Options"
-
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
 msgstr "Alimentation"
@@ -693,6 +668,14 @@ msgstr "Point de montage"
 msgid "FS type"
 msgstr "Type de systèmes de fichiers"
 
+#: ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:9
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/exports/layout/main.xml:5
+msgid "Options"
+msgstr "Options"
+
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
 msgstr "Fréquence de scan"
@@ -725,58 +708,55 @@ msgstr "Démonter"
 msgid "HDD Temperature"
 msgstr "Température du disque dur"
 
-#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{                 'command': 'force-reload',                 'text': _('Actualiser'),                 'icon': 'step-forward',             }]"
+
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
 msgstr "Répertoire de travail"
 
-#: ajenti/plugins/supervisor/layout/main.xml:4
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
 msgstr "Démarrage automatique"
 
-#: ajenti/plugins/supervisor/layout/main.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
 msgstr "[_('Activé'), _('Désactivé')]"
 
-#: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
 msgstr "Redémarrage automatique"
 
-#: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
 msgstr "[_('Activé'), _('Sur plantage'), _('Désactivé')]"
 
-#: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
 msgstr "Délai d'attente du démarrage"
 
-#: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
 msgstr "Tentatives de démarrage"
 
-#: ajenti/plugins/iptables/main.py:53 ajenti/plugins/iptables/main.py:55
+#: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Vous ne pouvez pas désactiver le démarrage automatique du pare-feu sur cette plate-forme"
 
-#: ajenti/plugins/iptables/main.py:60 ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/iptables/main.py:62
 msgid "Firewall"
 msgstr "Pare-feu"
 
-#: ajenti/plugins/iptables/main.py:104 ajenti/plugins/iptables/main.py:102
+#: ajenti/plugins/iptables/main.py:102
 msgid "Add option"
 msgstr "Ajouter une option"
 
-#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111
 msgid "Disable"
 msgstr "Désactiver"
 
-#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111
 msgid " autostart"
 msgstr " démarrage automatique"
 
@@ -913,6 +893,10 @@ msgstr "Annuler tous"
 msgid "Install"
 msgstr "Installer"
 
+#: ajenti/plugins/fm/layout/main.xml:17
+msgid "Others"
+msgstr "Autres"
+
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
 msgstr "Capteurs"
@@ -1034,11 +1018,11 @@ msgstr "Groupes"
 msgid "Members"
 msgstr "Membres"
 
-#: ajenti/plugins/network/widget.py:79 ajenti/plugins/network/widget.py:81
+#: ajenti/plugins/network/widget.py:81
 msgid "Immediate Traffic"
 msgstr "Trafic immédiat"
 
-#: ajenti/plugins/network/widget.py:109 ajenti/plugins/network/widget.py:111
+#: ajenti/plugins/network/widget.py:111
 msgid "Traffic"
 msgstr "Trafic"
 
@@ -1104,7 +1088,7 @@ msgstr "Nom de domaine local"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Search list"
-msgstr "Rechercher dans la liste"
+msgstr "Liste de recherche"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Sort list"
@@ -1129,6 +1113,18 @@ msgstr "PRE-PANNE"
 #: ajenti/plugins/smartctl/widget.py:58
 msgid "Unknown error"
 msgstr "Erreur inconnue"
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "Exports NFS"
+
+#: ajenti/plugins/exports/layout/main.xml:2
+msgid "Directory"
+msgstr "Répertoire"
+
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr "Clients"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
@@ -1257,8 +1253,4 @@ msgstr "Port AFP"
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
 msgstr "Adresse CNID"
-
-#: ajenti/plugins/supervisor/layout/main.xml:1
-msgid "             [{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]         "
-msgstr "[{'command': 'force-reload', 'text': _('Recharger'), 'icon': 'step-forward', }]"
 
