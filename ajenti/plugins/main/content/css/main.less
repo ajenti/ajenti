@@ -228,13 +228,18 @@ body {
 
     .notification {
         &.info {
-            .button-style(#ddd);
+            border-left: 5px solid #0d0;
         }
         
         &.error {
-            .button-style(#d00);
+            border-left: 5px solid #d00;
         }
         
+        #gradient > .vertical(#eee, #fff);
+        opacity: .9;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.5);
+
         width: 200px !important;
         max-height: auto !important;
         height: auto !important;
