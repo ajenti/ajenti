@@ -1,0 +1,60 @@
+<vc>
+    <body>
+        <pad xmlns:bind="bind">
+            <bind:collection bind="arrays" id="arrays">
+                <dt bind="__items">
+                    <dtr>
+                        <dth text="{Name}" />
+                        <dth text="{State}" />
+                        <dth text="{Type}" />
+                        <dth text="{Devices}" />
+                        <dth text="{Blocks}" />
+                    </dtr>
+                </dt>
+                <bind:template>
+                    <dtr>
+                        <dtd>
+                            <hc>
+                                <icon icon="hdd" />
+                                <label bind="name" />
+                            </hc>
+                        </dtd>
+                        <dtd>
+                            <vc>
+                                <hc>
+                                    <icon bind="active" bindtransform="lambda x: 'ok' if x else 'remove'" />
+                                    <label bind="state" />
+                                </hc>
+                                <hc id="recovery">
+                                    <icon icon="warning-sign" style="yellow" />
+                                    <label style="bold" text="Recovery:" />
+                                    <progressbar bind="recovery_progress" width="100" />
+                                    <label bind="recovery_remaining" />
+                                    <label text="remaining" />
+                                </hc>
+                            </vc>
+                        </dtd>
+                        <dtd>
+                            <label bind="type" bindtransform="lambda x: x.upper()" />
+                        </dtd>
+                        <dtd>
+                            <bind:collection bind="devices">
+                                <vc bind="__items" />
+                                <bind:template>
+                                    <hc>
+                                        <icon bind="up" bindtransform="lambda x: 'ok' if x else 'remove'" />
+                                        <icon icon="hdd" />
+                                        <label bind="name" />
+                                    </hc>
+                                </bind:template>
+                            </bind:collection>
+                        </dtd>
+                        <dtd>
+                            <label bind="blocks" />
+                        </dtd>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
+        </pad> 
+    </body>
+</vc>
