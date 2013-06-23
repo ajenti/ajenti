@@ -24,6 +24,7 @@ Developers
 .. toctree::
    :maxdepth: 1
    
+   dev/contributing.rst
    dev/intro.rst
    dev/plugins.rst
    dev/ui.rst
