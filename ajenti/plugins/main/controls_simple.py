@@ -29,7 +29,7 @@ class Button (UIElement):
 
 
 @p('width', default=None)
-@p('value', default=0, type=float, bindtypes=[float])
+@p('value', default=0, type=float, bindtypes=[int, float])
 @plugin
 class ProgressBar (UIElement):
     typeid = 'progressbar'
