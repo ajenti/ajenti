@@ -18,33 +18,34 @@ NAME=Ajenti
 DAEMON=/usr/bin/ajenti-panel
 PIDFILE=/var/run/ajenti.pid
 
-test -x $DAEMON || exit 5
+#test -x $DAEMON || exit 5
 
 case "$1" in
 	start)
 		if [ -e $PIDFILE ]; then
-			status_of_proc -p $PIDFILE $DAEMON $NAME && status="0" || status="$?"
-			if [ $status = "0" ]; then
-				exit
+			if [ kill -0 `cat $PIDFILE` ]; then
+                echo "$NAME is already running!"
+				exit 1
 			fi
 		fi
-		log_daemon_msg "Starting" "$NAME"
+		echo "* Starting" "$NAME"
 		if start-stop-daemon --start --quiet --oknodo --pidfile $PIDFILE --exec $DAEMON -- -d ; then
-			log_end_msg 0
+            echo ""
 		else
-			log_end_msg 1
+            echo 'Failed!'
 		fi
 		;;
 	stop)
+        echo "* Stopping" "$NAME"
 		if [ -e $PIDFILE ]; then
-			status_of_proc -p $PIDFILE $DAEMON "Stoppping $NAME" && status="0" || status="$?"
-			if [ "$status" = 0 ]; then
+            if [ kill -0 `cat $PIDFILE` ]; then
 				start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE
 				/bin/rm -rf $PIDFILE
+            else
+                echo "$NAME is not running!"
 			fi
 		else
-		   log_daemon_msg "$NAME is not running"
-		   log_end_msg 0
+		   echo "$NAME is not running!"
 		fi
 		;;
 	restart)
@@ -52,10 +53,13 @@ case "$1" in
 		;;
  	status)
   		if [ -e $PIDFILE ]; then
-   			status_of_proc -p $PIDFILE $DAEMON $NAME && exit 0 || exit $?
+            if [ kill -0 `cat $PIDFILE` ]; then
+                echo "$NAME is running"
+            else
+                echo "$NAME is not running"
+            fi
   		else
-   			log_daemon_msg "$NAME is not running"
-   			log_end_msg 0
+   			echo "$NAME is not running"
    		fi
   		;;
 	*)
