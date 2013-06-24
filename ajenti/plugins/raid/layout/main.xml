@@ -27,7 +27,7 @@
                                 </hc>
                                 <hc id="recovery">
                                     <icon icon="warning-sign" style="yellow" />
-                                    <label style="bold" text="Recovery:" />
+                                    <label style="bold" text="{Recovery:}" />
                                     <progressbar bind="recovery_progress" width="100" />
                                     <label bind="recovery_remaining" />
                                     <label text="remaining" />
