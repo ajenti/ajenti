@@ -1293,3 +1293,7 @@ msgstr ""
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
 msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr ""

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import sys
 import subprocess
 from lxml import etree
 
@@ -8,6 +9,10 @@ LOCALEDIR = 'ajenti/locale'
 LANGUAGES = [x for x in os.listdir(LOCALEDIR) if not '.' in x]
 
 pot_path = os.path.join(LOCALEDIR, 'ajenti.po')
+
+if subprocess.call(['which', 'xgettext']) != 0:
+    print 'xgettext app not found'
+    sys.exit(0)
 
 for (dirpath, dirnames, filenames) in os.walk('ajenti'):
     for f in filenames:
