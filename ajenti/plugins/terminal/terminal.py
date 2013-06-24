@@ -24,7 +24,7 @@ class Terminal (object):
 
         pid, master = pty.fork()
         if pid == 0:
-            os.execvp('sh', command)
+            os.execvpe('sh', command, env)
 
         self.screen = pyte.DiffScreen(self.width, self.height)
         self.protocol = PTYProtocol(pid, master, self.screen, **kwargs)
