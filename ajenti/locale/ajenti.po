@@ -251,6 +251,7 @@ msgstr ""
 #: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
+#: ajenti/plugins/raid/main.py:17
 msgid "System"
 msgstr ""
 
@@ -327,6 +328,7 @@ msgstr ""
 #: ajenti/plugins/hosts/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:4
 #: ajenti/plugins/netatalk/layout/main.xml:4
+#: ajenti/plugins/raid/layout/main.xml:1
 msgid "Name"
 msgstr ""
 
@@ -1112,6 +1114,7 @@ msgid "Sort list"
 msgstr ""
 
 #: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/raid/layout/main.xml:3
 msgid "Type"
 msgstr ""
 
@@ -1273,4 +1276,20 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action"
+msgstr ""
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
 msgstr ""
