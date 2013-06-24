@@ -76,7 +76,10 @@ class SSLTunnel (object):
 
 
 def run():
-    locale.setlocale(locale.LC_ALL, '')
+    try:
+        locale.setlocale(locale.LC_ALL, '')
+    except:
+        logging.warning('Couldn\'t set default locale')
     localedir = os.path.abspath(os.path.join(os.path.split(ajenti.core.__file__)[0], 'locale'))
     gettext.textdomain('ajenti')
     gettext.install('ajenti', localedir, unicode=True)
