@@ -1,3 +1,4 @@
+import os
 import gevent
 import requests
 import json
@@ -16,6 +17,10 @@ ENDPOINT = 'http://ajenti.local.org:8080/docking-bay/receive/%i'
 ENDPOINT = 'http://ajenti.org/docking-bay/receive/%i'
 
 
+def _check():
+    return os.path.exists('/var/lib/ajenti/.ajenti.org.enabled')
+
+
 @plugin
 class AjentiOrgReporterConfigEditor (ClassConfigEditor):
     title = 'ajenti.org reporter'
@@ -30,6 +35,10 @@ class AjentiOrgReporter (BasePlugin):
     default_classconfig = {'key': None}
     classconfig_editor = AjentiOrgReporterConfigEditor
     classconfig_root = True
+
+    @classmethod
+    def verify(cls):
+        return _check()
 
     def init(self):
         self.last_report = None
@@ -81,6 +90,11 @@ class AjentiOrgReporter (BasePlugin):
 
 @plugin
 class AjentiOrgSection (SectionPlugin):
+
+    @classmethod
+    def verify(cls):
+        return _check()
+
     def init(self):
         self.title = 'Ajenti.org'
         self.icon = 'group'

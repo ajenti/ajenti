@@ -28,7 +28,7 @@ class RAIDManager (BasePlugin):
 
     def refresh(self):
         self.arrays = []
-        ll = open('mdstat').read().splitlines()
+        ll = open('/proc/mdstat').read().splitlines()
         while ll:
             l = ll.pop(0)
             if l.startswith('Personalities'):
