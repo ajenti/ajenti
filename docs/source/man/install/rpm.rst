@@ -17,3 +17,9 @@ Install the package::
 Start the service::
     
     service ajenti restart
+
+Package does not match intended download?
+=========================================
+::
+
+    yum clean metadata
