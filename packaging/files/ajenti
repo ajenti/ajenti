@@ -22,44 +22,35 @@ PIDFILE=/var/run/ajenti.pid
 
 case "$1" in
 	start)
-		if [ -e $PIDFILE ]; then
-			if [ kill -0 `cat $PIDFILE` ]; then
-                echo "$NAME is already running!"
-				exit 1
-			fi
-		fi
-		echo "* Starting" "$NAME"
-		if start-stop-daemon --start --quiet --oknodo --pidfile $PIDFILE --exec $DAEMON -- -d ; then
-            echo ""
+		echo "Starting $NAME:"
+        if pidofproc -p $PIDFILE $DAEMON; then
+            log_failure_msg "already running"
+            exit 1
+        fi
+		if $DAEMON -d ; then
+            log_success_msg "started"
 		else
-            echo 'Failed!'
+            log_failure_msg "failed"
 		fi
 		;;
 	stop)
-        echo "* Stopping" "$NAME"
-		if [ -e $PIDFILE ]; then
-            if [ kill -0 `cat $PIDFILE` ]; then
-				start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE
-				/bin/rm -rf $PIDFILE
-            else
-                echo "$NAME is not running!"
-			fi
+        echo "Stopping $NAME:"
+        if pidofproc -p $PIDFILE $DAEMON; then
+            killproc -p $PIDFILE $DAEMON
+			/bin/rm -rf $PIDFILE
+            log_success_msg "stopped"
 		else
-		   echo "$NAME is not running!"
+		   log_failure_msg "not running"
 		fi
 		;;
 	restart)
   		$0 stop && sleep 2 && $0 start
 		;;
  	status)
-  		if [ -e $PIDFILE ]; then
-            if [ kill -0 `cat $PIDFILE` ]; then
-                echo "$NAME is running"
-            else
-                echo "$NAME is not running"
-            fi
-  		else
-   			echo "$NAME is not running"
+        if pidofproc -p $PIDFILE $DAEMON; then
+            log_success_msg "$NAME is running"
+        else
+            log_success_msg "$NAME is not running"
    		fi
   		;;
 	*)

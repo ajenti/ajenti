@@ -17,6 +17,7 @@
 #: ajenti/plugins/samba/layout/main.xml:31
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Save"
 msgstr "Salvar"
 
@@ -88,6 +89,7 @@ msgstr "Autenticação"
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:112
 msgid "Enable"
 msgstr "Ativar"
 
@@ -201,7 +203,7 @@ msgstr "Configurar"
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
-#: ajenti/plugins/iptables/main.py:156
+#: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 msgid "Saved"
 msgstr "Salvo"
 
@@ -242,6 +244,7 @@ msgstr "Reiniciar Ajenti"
 #: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
+#: ajenti/plugins/raid/main.py:17
 msgid "System"
 msgstr "Sistema"
 
@@ -318,6 +321,7 @@ msgstr "Ambiente"
 #: ajenti/plugins/hosts/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:4
 #: ajenti/plugins/netatalk/layout/main.xml:4
+#: ajenti/plugins/raid/layout/main.xml:1
 msgid "Name"
 msgstr "Nome"
 
@@ -748,15 +752,15 @@ msgstr "Você não pode desativar o auto-iníco do firewall nesta plataforma"
 msgid "Firewall"
 msgstr "Firewall"
 
-#: ajenti/plugins/iptables/main.py:102
+#: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 msgid "Add option"
 msgstr "Adicionar opção"
 
-#: ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 msgid "Disable"
 msgstr "Desativar"
 
-#: ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 msgid " autostart"
 msgstr " auto-iniciar"
 
@@ -781,15 +785,18 @@ msgid "Action:"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Conditions"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/main.xml:8
 msgid "New Rule"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Apply"
 msgstr ""
 
@@ -999,6 +1006,7 @@ msgid "User"
 msgstr "Usuário"
 
 #: ajenti/plugins/users/layout/main.xml:8
+#: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Comment"
 msgstr "Comentar"
 
@@ -1095,6 +1103,7 @@ msgid "Sort list"
 msgstr "Listas ordenadas"
 
 #: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/raid/layout/main.xml:3
 msgid "Type"
 msgstr "Tipo"
 
@@ -1252,5 +1261,29 @@ msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:5
+msgid "Action"
+msgstr ""
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
 msgstr ""
 
