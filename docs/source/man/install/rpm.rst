@@ -3,6 +3,8 @@
 RPM Packages
 ************
 
+Ajenti requires EPEL repositories: http://fedoraproject.org/wiki/EPEL
+
 Add repository key::
 
     wget http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm

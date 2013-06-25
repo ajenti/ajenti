@@ -1297,3 +1297,8 @@ msgstr ""
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
 msgstr ""
+
+#: ajenti/plugins/notepad/notepad.py:47
+#, python-format
+msgid "Untitled %i"
+msgstr ""
