@@ -12,7 +12,29 @@
 # Description:       Ajenti administration frontend
 ### END INIT INFO
 
-. /lib/lsb/init-functions
+if [ -e /lib/lsb/init-functions ]; then
+    . /lib/lsb/init-functions
+    
+    log_success() {
+        log_success_msg "$1"
+    }
+
+    log_failure() {
+        log_failure_msg "$1"
+    }
+else
+    . /etc/rc.d/init.d/functions
+
+    log_success() {
+        echo_success
+        echo "$1"
+    }
+
+    log_failure() {
+        echo_failure
+        echo "$1"
+    }
+fi
 
 NAME=Ajenti
 DAEMON=/usr/bin/ajenti-panel
@@ -20,37 +42,39 @@ PIDFILE=/var/run/ajenti.pid
 
 #test -x $DAEMON || exit 5
 
+
 case "$1" in
 	start)
 		echo "Starting $NAME:"
-        if pidofproc -p $PIDFILE $DAEMON; then
-            log_failure_msg "already running"
+
+        if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
+            log_failure "already running"
             exit 1
         fi
 		if $DAEMON -d ; then
-            log_success_msg "started"
+            log_success "started"
 		else
-            log_failure_msg "failed"
+            log_failure "failed"
 		fi
 		;;
 	stop)
         echo "Stopping $NAME:"
-        if pidofproc -p $PIDFILE $DAEMON; then
+        if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
             killproc -p $PIDFILE $DAEMON
 			/bin/rm -rf $PIDFILE
-            log_success_msg "stopped"
+            log_success "stopped"
 		else
-		   log_failure_msg "not running"
+		   log_failure "not running"
 		fi
 		;;
 	restart)
   		$0 stop && sleep 2 && $0 start
 		;;
  	status)
-        if pidofproc -p $PIDFILE $DAEMON; then
-            log_success_msg "$NAME is running"
+        if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
+            log_success "$NAME is running"
         else
-            log_success_msg "$NAME is not running"
+            log_success "$NAME is not running"
    		fi
   		;;
 	*)
