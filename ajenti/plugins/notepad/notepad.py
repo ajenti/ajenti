@@ -44,7 +44,7 @@ class Notepad (SectionPlugin):
         self.list.empty()
         for id, file in self.controller.files.iteritems():
             item = self.ui.inflate('notepad:listitem')
-            item.find('name').text = file['path'] or 'Untitled %i' % id
+            item.find('name').text = file['path'] or _('Untitled %i') % id
 
             item.find('close').on('click', self.on_close, id)
             item.find('close').visible = len(self.controller.files.keys()) > 1

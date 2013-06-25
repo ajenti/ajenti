@@ -37,7 +37,8 @@ class Cron (SectionPlugin):
         try:
             data = subprocess.check_output(['crontab', '-l', '-u', user])
         except Exception, e:
-            self.context.notify('error', str(e))
+            # Empty crontab - ignore!
+            #self.context.notify('error', str(e))
             data = ''
         self.config = CrontabConfig(content=data)
         self.config.load()
