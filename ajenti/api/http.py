@@ -28,7 +28,7 @@ class HttpPlugin (object):
 
         @plugin
         class TerminalHttp (BasePlugin, HttpPlugin):
-            @url('/terminal/(?P<id>\d+)')
+            @url('/ajenti:terminal/(?P<id>\d+)')
             def get_page(self, context, id):
                 if context.session.identity is None:
                     context.respond_redirect('/')

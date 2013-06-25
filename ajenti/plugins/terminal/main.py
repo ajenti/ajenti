@@ -71,7 +71,7 @@ class Terminals (SectionPlugin):
         self.terminals[key] = Terminal(command, **kwargs)
         self.refresh()
         if autoopen:
-            self.context.endpoint.send_url('/terminal/%i' % key, 'Terminal %i' % key)
+            self.context.endpoint.send_url('/ajenti:terminal/%i' % key, 'Terminal %i' % key)
         return key
 
     @on('run-button', 'click')
