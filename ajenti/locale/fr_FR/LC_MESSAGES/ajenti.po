@@ -99,7 +99,7 @@ msgstr "Comptes utilisateurs"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
-#: ajenti/plugins/fm/layout/main.xml:7
+#: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -134,6 +134,7 @@ msgstr "Supprimer"
 #: ajenti/plugins/samba/layout/main.xml:28
 #: ajenti/plugins/netatalk/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/fm/layout/main.xml:5
 msgid "Confirm deletion"
 msgstr "Confirmer la suppression"
 
@@ -244,7 +245,7 @@ msgstr "Redémarrer Ajenti"
 #: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
-#: ajenti/plugins/raid/main.py:17
+#: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 msgid "System"
 msgstr "Système"
 
@@ -321,7 +322,8 @@ msgstr "Environnement"
 #: ajenti/plugins/hosts/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:4
 #: ajenti/plugins/netatalk/layout/main.xml:4
-#: ajenti/plugins/raid/layout/main.xml:1
+#: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/fm/layout/main.xml:10
 msgid "Name"
 msgstr "Nom"
 
@@ -543,28 +545,30 @@ msgstr "Copier"
 msgid "Paste"
 msgstr "Coller"
 
-#: ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/fm/layout/main.xml:9 ajenti/plugins/fm/layout/main.xml:6
 msgid "Upload"
 msgstr "Uploader"
 
-#: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:7
 msgid "Clipboard"
 msgstr "Presse-papier"
 
-#: ajenti/plugins/fm/layout/main.xml:12
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
 msgid "Remove"
 msgstr "Supprimer"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
+#: ajenti/plugins/fm/layout/main.xml:11
 msgid "Access"
 msgstr "Accès"
 
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
+#: ajenti/plugins/fm/layout/main.xml:12
 msgid "Owner"
 msgstr "Propriétaire"
 
 #: ajenti/plugins/fm/layout/main.xml:15 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:13
 msgid "Group"
 msgstr "Groupe"
 
@@ -900,7 +904,7 @@ msgstr "Annuler tous"
 msgid "Install"
 msgstr "Installer"
 
-#: ajenti/plugins/fm/layout/main.xml:17
+#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
 msgstr "Autres"
 
@@ -1285,5 +1289,10 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
+msgstr ""
+
+#: ajenti/plugins/notepad/notepad.py:47
+#, python-format
+msgid "Untitled %i"
 msgstr ""
 

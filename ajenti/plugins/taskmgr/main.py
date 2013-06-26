@@ -13,7 +13,7 @@ class TaskManager (SectionPlugin):
     def init(self):
         self.title = _('Processes')
         self.icon = 'th-list'
-        self.category = 'System'
+        self.category = _('System')
         self.append(self.ui.inflate('taskmgr:main'))
 
         def post_item_bind(object, collection, item, ui):

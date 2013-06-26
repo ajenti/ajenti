@@ -6,9 +6,9 @@
         <hc>
             <button id="new-file" icon="file" text="{New File}" />
             <button id="new-dir" icon="folder-close" text="{New Folder}" />
-            <button id="mass-cut" icon="cut" text="{Cut}" />
-            <button id="mass-copy" icon="copy" text="{Copy}" />
-            <button id="paste" icon="paste" text="{Paste}" />
+            <button id="mass-cut" icon="cut" style="mini" />
+            <button id="mass-copy" icon="copy" style="mini" />
+            <button id="paste" icon="paste" style="mini" />
             <button id="mass-delete" icon="trash" text="{Delete}" warning="{Confirm deletion}" />
         </hc>
     </box>
