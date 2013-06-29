@@ -30,7 +30,8 @@ class Notepad (SectionPlugin):
         self.selected = None
         if self.classconfig['bookmarks']:
             for path in self.classconfig['bookmarks']:
-                id = self.controller.open(path)
+                if path:
+                    id = self.controller.open(path)
             self.select(id)
         if len(self.controller.files.keys()) == 0:
             self.on_new()
