@@ -105,7 +105,7 @@ class Firewall (SectionPlugin):
 
     def on_page_load(self):
         if not os.path.exists(self.fw_mgr.config_path):
-            open(self.fw_mgr.config_path).write("""
+            open(self.fw_mgr.config_path, 'w').write("""
 *mangle
 :PREROUTING ACCEPT [0:0]
 :INPUT ACCEPT [0:0]
