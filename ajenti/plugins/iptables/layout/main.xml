@@ -2,6 +2,7 @@
     <hc>
         <button id="edit" text="{Raw edit}" icon="pencil" style="normal big" />
         <button id="autostart" icon="refresh" style="normal big" />
+        <button id="load-current" icon="arrow-up" style="normal big" text="{Load current state}" warning="{This will overwrite the saved configuration with current firewall state! Continue?}" />
     </hc>
     <body>
         <pad>

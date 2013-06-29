@@ -126,6 +126,10 @@ class ListAutoBinding (Binding):
 
         self.binders = {}
         index = 0
+
+        if len(self.values) > len(self.ui.children):
+            raise Exception('Number of bind:list children is less than collection size')
+
         for value in self.values:
             template = self.ui.children[index]
             index += 1

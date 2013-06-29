@@ -105,7 +105,33 @@ class Firewall (SectionPlugin):
 
     def on_page_load(self):
         if not os.path.exists(self.fw_mgr.config_path):
-            subprocess.call('iptables-save > %s' % self.fw_mgr.config_path, shell=True)
+            open(self.fw_mgr.config_path).write("""
+*mangle
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+COMMIT
+*nat
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+COMMIT
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+COMMIT
+
+            """)
+        self.config.load()
+        self.refresh()
+
+    @on('load-current', 'click')
+    def on_load_current(self):
+        subprocess.call('iptables-save > %s' % self.fw_mgr.config_path, shell=True)
         self.config.load()
         self.refresh()
 
