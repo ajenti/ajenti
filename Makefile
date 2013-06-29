@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=0.99.7
+VERSION=0.99.8
 PREFIX=/usr
 DATE=`date -R`
 
@@ -76,6 +76,10 @@ deb: build tgz
 	rm ../$(PROJECT)*.changes
 	rm debian/changelog
 
+tgz: build
+	rm dist/*.tar.gz || true
+	$(PYTHON) setup.py sdist 
+
 upload-deb: deb
 	scp dist/*.deb root@ajenti.org:/srv/repo/ng/debian
 	ssh root@ajenti.org /srv/repo/rebuild-debian.sh
@@ -84,10 +88,8 @@ upload-rpm: rpm
 	scp dist/*.rpm root@ajenti.org:/srv/repo/ng/centos/6
 	ssh root@ajenti.org /srv/repo/rebuild-centos.sh
 
-tgz: build
-	rm dist/*.tar.gz || true
-	
-	$(PYTHON) setup.py sdist 
+upload-tgz: tgz
+	$(PYTHON) setup.py sdist upload
 
 clean:
 	$(PYTHON) setup.py clean

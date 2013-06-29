@@ -57,6 +57,7 @@ class CentOSFirewallManager (FirewallManager, BasePlugin):
 
 @plugin
 class Firewall (SectionPlugin):
+    platforms = ['centos', 'debian']
 
     def init(self):
         self.title = _('Firewall')

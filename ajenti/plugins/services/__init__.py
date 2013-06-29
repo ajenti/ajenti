@@ -8,7 +8,6 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('main'),
         PluginDependency('dashboard'),
-        #ModuleDependency('lolz'),
     ],
 )
 
@@ -18,5 +17,6 @@ def init():
     import sm_upstart
     import sm_sysvinit
     import sm_centos
+    import sm_freebsd
     import main
     import widget

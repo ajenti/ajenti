@@ -1269,30 +1269,30 @@ msgstr "Adresse CNID"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
-msgstr ""
+msgstr "RAID"
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "État"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Périphériques"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Blocs"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Récupération:"
 
 #: ajenti/plugins/notepad/notepad.py:47
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "%i sans titre"
 
