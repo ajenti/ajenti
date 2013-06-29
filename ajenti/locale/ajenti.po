@@ -23,6 +23,7 @@
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/supervisor/layout/main.xml:14
 #: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
 msgid "Save"
 msgstr ""
 
@@ -94,7 +95,7 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:138
 msgid "Enable"
 msgstr ""
 
@@ -140,6 +141,8 @@ msgstr ""
 #: ajenti/plugins/netatalk/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Confirm deletion"
 msgstr ""
 
@@ -212,6 +215,7 @@ msgstr ""
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:183
 msgid "Saved"
 msgstr ""
 
@@ -772,10 +776,12 @@ msgid "Add option"
 msgstr ""
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:138
 msgid "Disable"
 msgstr ""
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:138
 msgid " autostart"
 msgstr ""
 
@@ -792,6 +798,7 @@ msgid "Raw edit"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
 msgstr ""
 
@@ -801,17 +808,20 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "New Rule"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/layout/main.xml:12
 msgid "Apply"
 msgstr ""
 
@@ -1022,6 +1032,7 @@ msgstr ""
 
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
 msgstr ""
 
@@ -1279,6 +1290,7 @@ msgid "CNID address"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
 msgstr ""
 
@@ -1305,4 +1317,14 @@ msgstr ""
 #: ajenti/plugins/notepad/notepad.py:47
 #, python-format
 msgid "Untitled %i"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid ""
+"This will overwrite the saved configuration with current firewall state! "
+"Continue?"
 msgstr ""

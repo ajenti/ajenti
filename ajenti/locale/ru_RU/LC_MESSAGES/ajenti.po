@@ -18,6 +18,7 @@
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/supervisor/layout/main.xml:14
 #: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
 msgid "Save"
 msgstr "Сохранить"
 
@@ -89,7 +90,8 @@ msgstr "Аутентификация"
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
+#: ajenti/plugins/iptables/main.py:139
 msgid "Enable"
 msgstr "Включить"
 
@@ -135,6 +137,8 @@ msgstr "Удалить"
 #: ajenti/plugins/netatalk/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Confirm deletion"
 msgstr "Удалить?"
 
@@ -205,6 +209,7 @@ msgstr "Настройки"
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 msgid "Saved"
 msgstr "Сохранено"
 
@@ -246,6 +251,7 @@ msgstr "Перезапускать Ajenti"
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/iptables/main.py:65
 msgid "System"
 msgstr "Система"
 
@@ -752,19 +758,22 @@ msgstr "Попытки запуска"
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Вы не можете отключить автозапуск сетевого экрана на этой платформе"
 
-#: ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
 msgstr "Сетевой экран"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
+#: ajenti/plugins/iptables/main.py:104
 msgid "Add option"
 msgstr "Добавить параметр"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid "Disable"
 msgstr "Отключить"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
 msgstr " автозапуск"
 
@@ -781,6 +790,7 @@ msgid "Raw edit"
 msgstr "Редактировать вручную"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
 msgstr "Новая цепочка"
 
@@ -790,17 +800,20 @@ msgstr "Действие:"
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
 msgstr "Условия"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "New Rule"
 msgstr "Новое правило"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/layout/main.xml:12
 msgid "Apply"
 msgstr "Применить"
 
@@ -1011,6 +1024,7 @@ msgstr "Пользователь"
 
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -1268,6 +1282,7 @@ msgid "CNID address"
 msgstr "Адрес CNID"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
 msgstr "Действие"
 
@@ -1295,4 +1310,12 @@ msgstr "Восстановление:"
 #, python-format
 msgid "Untitled %i"
 msgstr "Безымянный %i"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr ""
 

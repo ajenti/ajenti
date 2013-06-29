@@ -18,6 +18,7 @@
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/supervisor/layout/main.xml:14
 #: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -89,7 +90,8 @@ msgstr "Έλεγχος ταυτότητας"
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
+#: ajenti/plugins/iptables/main.py:139
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
@@ -135,6 +137,8 @@ msgstr "Διαγραφή"
 #: ajenti/plugins/netatalk/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Confirm deletion"
 msgstr "Επιβεβαίωση διαγραφής"
 
@@ -206,6 +210,7 @@ msgstr "Ρύθμιση παραμέτρων"
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 msgid "Saved"
 msgstr "Αποθηκεύτηκε"
 
@@ -247,6 +252,7 @@ msgstr "Επανεκκίνηση του Ajenti"
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/iptables/main.py:65
 msgid "System"
 msgstr "Σύστημα"
 
@@ -359,61 +365,61 @@ msgstr "Κατάσταση"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "Δημόσια IPs"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr ""
+msgstr "Διαχείριση Samba"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_('Ωριαία'), _('Ημερήσια'), _('Εβδομαδιαία'), _('Μηνιαία'), _('Ετήσια'), _('Κατά την επανεκκίνηση')]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr ""
+msgstr "Επίπεδο εντοπισμού σφαλμάτων"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr ""
+msgstr "Αρχεία"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Ανάκτηση κλειδωμένου αρχείου"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "Αρχείο δημόσιων  διευθύνσεων"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Αρχείο κόμβων"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr ""
+msgstr "Αρχείο καταγραφής"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "Δικτύωση"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "Δημόσια διασύνδεση"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Δημόσιο δίκτυο"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Δημόσια πύλη"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "Κόμβοι"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -421,68 +427,68 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr ""
+msgstr "Δημόσιες διευθύνσεις"
 
 #: ajenti/plugins/ctdb/layout/main.xml:23
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 msgid "Interface"
-msgstr ""
+msgstr "Διεπαφή"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "Πρόγραμμα επεξεργασίας κώδικα CodeMirror"
 
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
 msgid "Reload"
-msgstr ""
+msgstr "Νέα φόρτωση"
 
 #: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
 msgid "Dashboard"
-msgstr ""
+msgstr "Ταμπλό"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "Καλώς όρισες"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:1
 msgid "Refresh"
-msgstr ""
+msgstr "Ανανέωση"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr ""
+msgstr "Προσθήκη γραφικού στοιχείου"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr ""
+msgstr "[{«κείμενο»: _('Άκυρο'), 'id': 'ακυρο'}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr ""
+msgstr "Πέρας ερωτήματος"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Έξοδος κομμένη από %i σειρές σε 200"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr ""
+msgstr "Τρέξιμο"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr ""
+msgstr "Βάσεις δεδομένων"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Επιβεβαίωση της πτώσης της βάσης δεδομένων!"
 
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
@@ -492,94 +498,94 @@ msgstr ""
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Username"
-msgstr ""
+msgstr "Όνομα χρήστη"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr ""
+msgstr "Όνομα βάσης δεδομένων"
 
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/mysql/layout/config.xml:2
 #: ajenti/plugins/samba/layout/main.xml:29
 #: ajenti/plugins/netatalk/layout/main.xml:6
 msgid "Password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης"
 
 #: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
-msgstr ""
+msgstr "Διαχειριστής αρχείων"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/notepad/notepad.py:19
 msgid "Tools"
-msgstr ""
+msgstr "Εργαλεία"
 
 #: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:1
 msgid "Cancel"
-msgstr ""
+msgstr "Άκυρο"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Αρχικό κατάλογο"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr ""
+msgstr "Κλείσιμο"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr ""
+msgstr "Νέο αρχείο"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr ""
+msgstr "Νέο φάκελο"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr ""
+msgstr "Αποκοπή"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
-msgstr ""
+msgstr "Αντιγραφή"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
-msgstr ""
+msgstr "Επικόλληση"
 
 #: ajenti/plugins/fm/layout/main.xml:9 ajenti/plugins/fm/layout/main.xml:6
 msgid "Upload"
-msgstr ""
+msgstr "Ανέβασμα"
 
 #: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:7
 msgid "Clipboard"
-msgstr ""
+msgstr "Πρόχειρο"
 
 #: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
 msgid "Remove"
-msgstr ""
+msgstr "Απομάκρυνση"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
 #: ajenti/plugins/fm/layout/main.xml:11
 msgid "Access"
-msgstr ""
+msgstr "Πρόσβαση"
 
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Owner"
-msgstr ""
+msgstr "Ιδιοκτήτης"
 
 #: ajenti/plugins/fm/layout/main.xml:15 ajenti/plugins/fm/layout/main.xml:16
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:13
 msgid "Group"
-msgstr ""
+msgstr "Ομάδα"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr ""
+msgstr "Δύναμη"
 
 #: ajenti/plugins/power/power.py:80
 msgid "Power control"
-msgstr ""
+msgstr "Έλεγχος ισχύος"
 
 #: ajenti/plugins/power/power.py:84
 msgid "Reboot"
@@ -753,299 +759,307 @@ msgstr "Έναρξη επαναλήψεων"
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Δεν μπορείτε να απενεργοποιήσετε την αυτόματη εκκίνηση του τείχους προστασίας σε αυτήν την πλατφόρμα"
 
-#: ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
 msgstr "Τείχος προστασίας"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
+#: ajenti/plugins/iptables/main.py:104
 msgid "Add option"
 msgstr "Προσθήκη επιλογής"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
-msgstr ""
+msgstr " Αυτόματη εκκίνηση"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr ""
+msgstr "Αρθρώματα"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "Καταστάσεις"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Ακατέργαστη επεξεργασία"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Νέα αλυσίδα"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
-msgstr ""
+msgstr "Δράση:"
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "Συνθήκες"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "New Rule"
-msgstr ""
+msgstr "Νέος κανόνας"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/layout/main.xml:12
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "Πρωτόκολλο"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Ports"
-msgstr ""
+msgstr "Θύρες"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Αιτία"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr ""
+msgstr "Σενάριο"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr ""
+msgstr "Ξεκίνησε"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr ""
+msgstr "Σενάρια"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr ""
+msgstr "Εκτέλεση δεσμών ενεργειών"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "Τρέξτε στο τερματικό"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr ""
+msgstr "Αυτό το πακέτο μπορεί να εγκατασταθεί αυτόματα"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
-msgstr ""
+msgstr "Πακέτα"
 
 #: ajenti/plugins/packages/main.py:50
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "Η εγκατάσταση του πακέτου τοποθετήθηκε σε ουρά αναμονής"
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
-msgstr ""
+msgstr "Η εγκατάσταση είναι πλήρης!"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i βρέθηκαν, 100 φαίνεται"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "%i βρέθηκαν"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
-msgstr ""
+msgstr "Εγκατάσταση / αφαίρεση"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr ""
+msgstr "Ανανεώσετε τις λίστες"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr ""
+msgstr "Έκδοση"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Πάρετε λίστες"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "Δυνατότητα αναβάθμισης"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "Αναβάθμιση όλα"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr ""
+msgstr "Αναζήτηση"
 
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr ""
+msgstr "Σε εκκρεμότητα"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr ""
+msgstr "Ακύρωση όλων"
 
 #: ajenti/plugins/packages/layout/installer.xml:1
 msgid "Install"
-msgstr ""
+msgstr "Εγκατάσταση"
 
 #: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
-msgstr ""
+msgstr "Άλλοι"
 
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "Αισθητήρας"
 
 #: ajenti/plugins/squid/main.py:13
 msgid "Squid"
-msgstr ""
+msgstr "Squid"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "HTTP πρόσβαση"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "Λειτουργία"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
 #: ajenti/plugins/terminal/main.py:163
 msgid "Terminal"
-msgstr ""
+msgstr "Τερματικό"
 
 #: ajenti/plugins/terminal/main.py:167
 msgid "Run shell"
-msgstr ""
+msgstr "Εκτελέσετε το κέλυφος"
 
 #: ajenti/plugins/terminal/main.py:168
 msgid "Run custom commands"
-msgstr ""
+msgstr "Εκτελέστε τις προσαρμοσμένες εντολές"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "Προεπιλεγμένο κέλυφος"
 
 #: ajenti/plugins/terminal/layout/main.xml:2
 #: ajenti/plugins/notepad/layout/main.xml:1
 msgid "New"
-msgstr ""
+msgstr "Νέα"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "Δεν υπάρχουν ενεργά τερματικά"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
-msgstr ""
+msgstr "Αρχεία καταγραφής"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
-msgstr ""
+msgstr "Ανοικτή"
 
 #: ajenti/plugins/services/main.py:12
 msgid "Services"
-msgstr ""
+msgstr "Υπηρεσίες"
 
 #: ajenti/plugins/services/main.py:39
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s ξεκίνησε"
 
 #: ajenti/plugins/services/main.py:44
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s σταμάτησε"
 
 #: ajenti/plugins/services/main.py:49
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s επανεκκίνηση"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr ""
+msgstr "Υπηρεσία"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 msgid "Start"
-msgstr ""
+msgstr "Έναρξη"
 
 #: ajenti/plugins/services/layout/bar.xml:2
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "Σταμάτα"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "Προέλευση"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "Δράσεις"
 
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "User"
-msgstr ""
+msgstr "Χρήστης"
 
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
-msgstr ""
+msgstr "Σχόλιο"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Home directory"
-msgstr ""
+msgstr "Κεντρικός κατάλογος"
 
 #: ajenti/plugins/users/layout/main.xml:10
 msgid "Shell"
-msgstr ""
+msgstr "Κέλυφος"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Groups"
-msgstr ""
+msgstr "Ομάδες"
 
 #: ajenti/plugins/users/layout/main.xml:15
 msgid "Members"
-msgstr ""
+msgstr "Μέλη"
 
 #: ajenti/plugins/network/widget.py:81
 msgid "Immediate Traffic"
-msgstr ""
+msgstr "Άμεση κυκλοφορία"
 
 #: ajenti/plugins/network/widget.py:111
 msgid "Traffic"
-msgstr ""
+msgstr "Κυκλοφορία"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
-msgstr ""
+msgstr "Διαδικασίες"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr ""
+msgstr "PID (γονική)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "CPU"
@@ -1057,220 +1071,221 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "Terminate"
-msgstr ""
+msgstr "Τερματισμός"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Kill"
-msgstr ""
+msgstr "Εξόντωση"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Υπολογιστές"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
-msgstr ""
+msgstr "Ψευδώνυμα"
 
 #: ajenti/plugins/notepad/notepad.py:17
 msgid "Notepad"
-msgstr ""
+msgstr "Σημειωματάριο"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr ""
+msgstr "Αποθήκευση ως"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr ""
+msgstr "Δημιουργία σελιδοδείκτη"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
-msgstr ""
+msgstr "Εξαρτήσεις"
 
 #: ajenti/plugins/resolv/resolv.py:13
 msgid "Nameservers"
-msgstr ""
+msgstr "Διακομιστές ονομάτων"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "DNS nameserver"
-msgstr ""
+msgstr "Διακομιστής ονομάτων DNS"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Local domain name"
-msgstr ""
+msgstr "Όνομα τοπικού τομέα"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Search list"
-msgstr ""
+msgstr "Λίστα αναζήτησης"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Sort list"
-msgstr ""
+msgstr "Λίστα ταξινόμησης"
 
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/raid/layout/main.xml:3
 msgid "Type"
-msgstr ""
+msgstr "Τύπος"
 
 #: ajenti/plugins/smartctl/widget.py:55
 msgid "No data"
-msgstr ""
+msgstr "Δεν υπάρχουν δεδομένα"
 
 #: ajenti/plugins/smartctl/widget.py:56
 msgid "FAILING"
-msgstr ""
+msgstr "ΠΡΟΒΛΗΜΑΤΙΚΗ"
 
 #: ajenti/plugins/smartctl/widget.py:57
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "ΠΡΟ-ΑΠΟΤΥΧΙΑ"
 
 #: ajenti/plugins/smartctl/widget.py:58
 msgid "Unknown error"
-msgstr ""
+msgstr "Άγνωστο σφάλμα"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "Εξαγωγές NFS"
 
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
-msgstr ""
+msgstr "Κατάλογος"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Clients"
-msgstr ""
+msgstr "Πελάτες"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr ""
+msgstr "Αδυναμία σύνδεσης με Munin: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "Αποτυχία ελέγχου ταυτότητας με HTTP στο Munin"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr ""
+msgstr "Βλέπε"
 
 #: ajenti/plugins/samba/main.py:43
 msgid "Password updated"
-msgstr ""
+msgstr "Ενημέρωση κωδικού πρόσβασης"
 
 #: ajenti/plugins/samba/main.py:46
 msgid "Password update failed"
-msgstr ""
+msgstr "Ενημέρωση του κωδικού πρόσβασης απέτυχε"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "Κονόχρηστα"
 
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "Διαδρομή"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 msgid "Guest access"
-msgstr ""
+msgstr "Δικαίωμα πρόσβασης επισκέπτη"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr ""
+msgstr "Προβαλλόμενα"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
-msgstr ""
+msgstr "Δημιουργία μάσκας"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Directory mask"
-msgstr ""
+msgstr "Μάσκα καταλόγου"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Read only"
-msgstr ""
+msgstr "Μόνο για ανάγνωση"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "Διαμόρφωση"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
-msgstr ""
+msgstr "Διασυνδέσεις"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Σύνδεση μόνο σε αυτές τις διασυνδέσεις"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Identification"
-msgstr ""
+msgstr "Ταυτοποίηση"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Workgroup"
-msgstr ""
+msgstr "Ομάδα εργασίας"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr ""
+msgstr "Γραμματοσειρά διακομιστή"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
-msgstr ""
+msgstr "Ασφάλεια"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Sessions"
-msgstr ""
+msgstr "Συνεδρίες"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Share"
-msgstr ""
+msgstr "Κοινόχρηστο"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Machine"
-msgstr ""
+msgstr "Μηχανή"
 
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
-msgstr ""
+msgstr "Προσθέστε"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "Set"
-msgstr ""
+msgstr "Σύνολο"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr ""
+msgstr "Έγκυροι χρήστες"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Δίκρανα των πόρων"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Πρόσθετα χαρακτηριστικά"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "CNID σχήμα"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "Θύρα AFP"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "Διεύθυνση CNID"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Δράση"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1278,22 +1293,30 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Κατάσταση"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Συσκευές"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Μπλοκάδες"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Ανάκτηση:"
 
 #: ajenti/plugins/notepad/notepad.py:47
 #, python-format
 msgid "Untitled %i"
+msgstr "Άτιτλο %i"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
 msgstr ""
 

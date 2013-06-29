@@ -18,6 +18,7 @@
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/supervisor/layout/main.xml:14
 #: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
 msgid "Save"
 msgstr "Speichern"
 
@@ -89,7 +90,8 @@ msgstr "Authentifizierung"
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
+#: ajenti/plugins/iptables/main.py:139
 msgid "Enable"
 msgstr "Aktivieren"
 
@@ -135,6 +137,8 @@ msgstr "Löschen"
 #: ajenti/plugins/netatalk/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Confirm deletion"
 msgstr "Löschvorgang bestätigen"
 
@@ -205,6 +209,7 @@ msgstr "Konfigurieren"
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 msgid "Saved"
 msgstr "Gespeichert"
 
@@ -246,6 +251,7 @@ msgstr "Ajenti neustarten"
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/iptables/main.py:65
 msgid "System"
 msgstr "System"
 
@@ -752,19 +758,22 @@ msgstr "Start-Wiederholungen"
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Der Firewall-Autostart kann auf dieser Plattform nicht deaktiviert werden"
 
-#: ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
 msgstr "Firewall"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
+#: ajenti/plugins/iptables/main.py:104
 msgid "Add option"
 msgstr "Option hinzufügen"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid "Disable"
 msgstr "Deaktivieren"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
 msgstr " Autostart"
 
@@ -781,6 +790,7 @@ msgid "Raw edit"
 msgstr "RAW bearbeiten"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
 msgstr "Neue Kette"
 
@@ -790,17 +800,20 @@ msgstr "Aktion:"
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
 msgstr "Bedingungen"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "New Rule"
 msgstr "Neue Regel"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/layout/main.xml:12
 msgid "Apply"
 msgstr "Anwenden"
 
@@ -1011,6 +1024,7 @@ msgstr "Benutzer"
 
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -1268,6 +1282,7 @@ msgid "CNID address"
 msgstr "CNID Adresse"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
 msgstr "Aktion"
 
@@ -1294,5 +1309,13 @@ msgstr "Wiederherstellung:"
 #: ajenti/plugins/notepad/notepad.py:47
 #, python-format
 msgid "Untitled %i"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
 msgstr ""
 
