@@ -28,12 +28,14 @@ class Notepad (SectionPlugin):
         self.controller = Controller()
 
         self.selected = None
+        id = None
         if self.classconfig['bookmarks']:
             for path in self.classconfig['bookmarks']:
                 if path:
                     id = self.controller.open(path)
+        if id:
             self.select(id)
-        if len(self.controller.files.keys()) == 0:
+        else:
             self.on_new()
 
     def select(self, id):
