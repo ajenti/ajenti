@@ -54,6 +54,7 @@ db = {
         'mysql': 'mysql-server',
         'psql': 'postgresql',
         'nfsstat': 'nfs-kernel-server',
+        'mdadm': 'mdadm',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',
@@ -68,5 +69,6 @@ db = {
         'ctdb': 'ctdb',
         'mysql': 'mysql',
         'psql': 'postgresql',
+        'mdadm': 'mdadm',
     },
 }

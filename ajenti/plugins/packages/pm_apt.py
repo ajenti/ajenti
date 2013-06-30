@@ -9,7 +9,7 @@ class DebianPackageManager (PackageManager):
     platforms = ['debian']
 
     def refresh(self):
-        out_u = subprocess.check_output(['apt-show-versions', '-b', '-u'])
+        out_u = subprocess.check_output(['apt-show-versions', '-u'])
         out_a = subprocess.check_output(['dpkg', '-l'])
         self.all = self._parse_dpkg(out_a)
         self.all_dict = dict((x.name, x) for x in self.all)
@@ -48,6 +48,7 @@ class DebianPackageManager (PackageManager):
 
             p = PackageInfo()
             p.name = s[0]
+            p.version = s[1].split()[-1]
             r.append(p)
         return r
 
