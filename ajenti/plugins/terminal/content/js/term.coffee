@@ -66,7 +66,7 @@ class window.Terminal
         
         @term.css(
             left: (window.innerWidth / 2 - @term.width() / 2) + 'px'
-            top: (20 + window.innerHeight / 2 - @term.height() / 2) + 'px'
+            top: '50px'
         )
 
     row: (row, idx) ->
