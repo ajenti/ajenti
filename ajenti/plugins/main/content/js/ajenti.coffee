@@ -198,13 +198,15 @@ class TabManager
         @tabHeadersDom = $('#tab-headers')
         @tabsDom = $('#tabs')
         @tabHeadersDom.find('a').click () =>
-            @tabsDom.find('>*').hide()
-            @mainTab.show()
-            @tabHeadersDom.find('a').removeClass('active')
-            @tabHeadersDom.find('a:first').addClass('active')
-        
-        @tabHeadersDom.find('a').click()
+            @goHome()
+        @goHome()
         @openTabs = {}
+
+    goHome: () ->
+        @tabsDom.find('>*').hide()
+        @mainTab.show()
+        @tabHeadersDom.find('a').removeClass('active')
+        @tabHeadersDom.find('a:first').addClass('active')
 
     addTab: (url, title) ->
         if @openTabs[url]
@@ -215,18 +217,28 @@ class TabManager
         """)
         @tabsDom.append(dom)
         headerDom = $("""
-            <a href="#">#{title}</a>
+            <a href="#">#{title}<span class="close"><i class="icon-remove"></span></a></a>
         """)
         @tabHeadersDom.append(headerDom)
         @openTabs[url] = headerDom
+        @openTabs[url].dom = dom
         headerDom.click () =>
             @tabsDom.find('>*').hide()
             dom.show()
+            setTimeout () =>
+                dom.find('iframe')[0].contentWindow.focus()
+            , 100
             @tabHeadersDom.find('a').removeClass('active')
             headerDom.addClass('active')
-
+        headerDom.find('.close').click () =>
+            @closeTab(url)
         headerDom.click()
 
+    closeTab: (url) ->
+        @openTabs[url].dom.remove()
+        @openTabs[url].remove()
+        delete @openTabs[url]
+        @goHome()
 
 $ () ->
     window.Loading = new LoadingDim($('#loading'))

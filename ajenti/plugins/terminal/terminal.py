@@ -85,12 +85,13 @@ class PTYProtocol():
     def _check(self):
         pid, status = os.waitpid(self.pid, os.WNOHANG)
         if pid:
-            self.on_died()
+            self.on_died(code=status)
 
-    def on_died(self):
+    def on_died(self, code=0):
         if self.dead:
             return
         self.dead = True
+        self.stream.feed('\n\n * ' + _('Process has exited with status %i') % code)
         if self.callback:
             self.callback()
 
