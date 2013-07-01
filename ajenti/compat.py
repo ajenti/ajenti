@@ -1,5 +1,6 @@
 import subprocess
 import os
+import sys
 
 
 # add subprocess.check_output to Python < 2.6
@@ -53,3 +54,20 @@ threading.Thread._Thread__block = property(tbget, tbset, tbdel)
 import logging
 
 logging.getLogger("requests").setLevel(logging.WARNING)
+
+# suppress simplejson
+try:
+    import simplejson
+    _loads = simplejson.loads
+
+    def wrap(fx):
+        def f(*args, **kwargs):
+            kwargs.pop('use_decimal', None)
+            return fx(*args, **kwargs)
+        return f
+
+    simplejson.dumps = wrap(simplejson.dumps)
+    simplejson.loads = wrap(simplejson.loads)
+except Exception, e:
+    print e
+    pass
