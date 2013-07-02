@@ -3,6 +3,8 @@
 Debian Packages
 ***************
 
+Debian Squeeze requires squeeze-backports repository: http://backports.debian.org/Instructions/
+
 Add repository key::
 
     wget http://repo.ajenti.org/debian/key -O- | apt-key add -
