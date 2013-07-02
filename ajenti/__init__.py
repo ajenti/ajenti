@@ -54,6 +54,7 @@ def detect_platform():
         'trisquel': 'ubuntu',
         'linuxmint': 'ubuntu',
         'redhat enterprise linux': 'rhel',
+        'red hat enterprise linux server': 'rhel',
     }
 
     platform_mapping = {
