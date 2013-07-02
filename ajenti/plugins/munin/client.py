@@ -69,14 +69,21 @@ class MuninHost:
         if self._graphs is None:
             s = self._client._fetch('/%s/%s/' % (self.domain.name, self.name))
             gs = [x.a for x in s.findAll('div', 'lighttext')]
+            new_content = s.findAll('div', id='content')
+            if new_content:
+                gs += new_content[0].findAll('a')
+
             self._graphs = []
+            have_graphs = []
             for g in gs:
                 graph = MuninGraph()
                 graph.name = g['href'].split('/')[0] if '/' in g['href'] else g['href'].split('.')[0]
-                graph.full_name = str(g.string)
+                graph.full_name = str(g.string or g.img['alt'])
                 graph.host = self
                 graph.url = '/%s/%s/%s-' % (self.domain.name, self.name, graph.name)
-                self._graphs.append(graph)
+                if not graph.name in have_graphs:
+                    self._graphs.append(graph)
+                have_graphs.append(graph.name)
         return self._graphs
 
 
