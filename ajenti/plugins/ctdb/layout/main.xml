@@ -2,7 +2,7 @@
     <servicebar id="servicebar" name="ctdb" />
 
     <body>
-        <pad xmlns:bind="bind">
+        <pad>
             <tabs>
                 <tab title="{Status}">
                     <vc>

@@ -1,4 +1,4 @@
-<body xmlns:dashboard="dashboard" xmlns:bind="bind">
+<body xmlns:dashboard="dashboard">
     <vc>
         <dashboard:header id="header">
             <hc>

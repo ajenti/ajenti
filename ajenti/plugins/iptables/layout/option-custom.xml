@@ -1,12 +1,19 @@
-<hc xmlns:bind="bind">
-    <bind:list bind="arguments">
-        <bind:item>
-            <formline text="{Name}">
-                <textbox bind="name" />
-            </formline>
-            <formline text="{Value}">
-                <textbox bind="value" />
-            </formline>
-        </bind:item>
-    </bind:list>
-</hc>
+<vc>
+    <formline text="{Name}">
+        <textbox bind="name" />
+    </formline>
+    <formline text="{Arguments}">
+        <vc>
+            <bind:collection bind="arguments">
+                <vc bind="__items" />
+                <bind:template>
+                    <hc>
+                        <textbox bind="value" />
+                        <button style="icon" icon="remove" bind="__delete" />
+                    </hc>
+                </bind:template>
+            </bind:collection>
+            <button icon="add" text="{Create}" bind="__add" />
+        </vc>
+    </formline>
+</vc>

@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind" xmlns:packages="packages">
+<vc xmlns:packages="packages">
     <body>
         <pad id="bind-root">
             <bind:collection id="plugins" bind="plugins">
@@ -13,19 +13,19 @@
 
                 <bind:template>
                     <dtr>
-                        <dtd>
-                            <tooltip bind="crash" id="crash" bindtransform="lambda x: x.describe() if x else None">
-                                <icon id="warning-icon" bind="crash" bindtransform="lambda x: 'warning-sign' if x else None" style="yellow" />
+                        <dtd binder:context="crash">
+                            <tooltip bind:text="crash" id="crash" bindtransform="lambda x: x.describe() if x else None">
+                                <icon id="warning-icon" bind:icon="crash" bindtransform="lambda x: 'warning-sign' if x else None" style="yellow" />
                             </tooltip>
                         </dtd>
                         <dtd>
-                            <icon bind="icon" />
+                            <icon bind:icon="icon" />
                         </dtd>
                         <dtd>
                             <collapse>
                                 <hc>
-                                    <label bind="title" style="bold" />
-                                    <label bind="name" />
+                                    <label  debug="1" bind:text="title" style="bold"/>
+                                    <label  debug="2" bind:text="name" />
                                 </hc>
                                 <indent>
                                     <label text="{Dependencies}" style="bold" />
@@ -38,16 +38,16 @@
                                         <bind:template>
                                             <ltr>
                                                 <ltd>
-                                                    <icon id="warning-icon" bind="satisfied" 
+                                                    <icon id="warning-icon" bind:icon="satisfied" 
                                                         bindtransform="
                                                             lambda x: 'warning-sign' if not x() else None
                                                         " style="yellow" />
                                                 </ltd>
                                                 <ltd>
-                                                    <label bind="description" style="bold"/>
+                                                    <label bind:text="description" style="bold"/>
                                                 </ltd>
                                                 <ltd>
-                                                    <label bind="__str__" bindtransform="lambda x: x()" />
+                                                    <label bind:text="value" />
                                                     <packages:installer id="fix" />
                                                 </ltd>
                                             </ltr>
@@ -57,7 +57,7 @@
                             </collapse>
                         </dtd>
                         <dtd>
-                            <label bind="author" />
+                            <label bind:text="author" />
                         </dtd>
                     </dtr>
                 </bind:template>

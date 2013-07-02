@@ -1,6 +1,6 @@
 <vc>
     <body>
-        <pad xmlns:bind="bind" id="hosts-config">
+        <pad id="hosts-config">
             <bind:collection bind="hosts" id="hosts">
                 <vc>
                     <dt bind="__items" />

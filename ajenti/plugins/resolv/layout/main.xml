@@ -1,6 +1,6 @@
 <vc>
     <body>
-        <pad xmlns:bind="bind" id="resolv-config">
+        <pad id="resolv-config">
             <bind:collection bind="items" id="items">
                 <vc>
                     <dt bind="__items" />

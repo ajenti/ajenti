@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind" xmlns:packages="packages">
+<vc>
     <hc>
         <button text="{Save}" id="save-button" icon="ok" />
         <button text="{Restart}" id="restart-button" icon="refresh" warning="{Restart Ajenti?}" />
@@ -9,7 +9,7 @@
             <tabs id="tabs">
                 <tab title="{General}">
                     <vc id="ajenti-config">
-                        <formgroup text="{HTTP Server}" bind="http_binding">
+                        <formgroup text="{HTTP Server}" binder:context="http_binding">
                             <vc>
                                 <formline text="{Host}">
                                     <textbox bind="host" />
@@ -19,7 +19,7 @@
                                 </formline>
                             </vc>
                         </formgroup>
-                        <formgroup text="SSL" bind="ssl">
+                        <formgroup text="SSL" binder:context="ssl">
                             <vc>
                                 <formline text="{Use SSL}">
                                     <checkbox bind="enable" />
@@ -94,7 +94,7 @@
 
                         <bind:template>
                             <collapserow expanded="True">
-                                <hc bind="classconfig_editor">
+                                <hc binder:context="classconfig_editor">
                                     <icon bind="icon" />
                                     <label style="bold" bind="title" />
                                 </hc>

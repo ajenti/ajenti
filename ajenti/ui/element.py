@@ -178,18 +178,24 @@ class UIElement (object):
     def init(self):
         pass
 
-    def nearest(self, predicate):
+    def nearest(self, predicate, exclude=lambda x: False, descend=True):
         """
         Returns the nearest child which matches an arbitrary predicate lambda
 
         :param predicate: ``lambda element: bool``
+        :param exclude: ``lambda element: bool`` - excludes matching branches from search
+        :param descend: ``lambda element: bool``
         """
         r = []
         q = [self]
         while len(q) > 0:
             e = q.pop(0)
+            if exclude(e):
+                continue
             if predicate(e):
                 r.append(e)
+                if not descend and e is not self:
+                    continue
             q.extend(e.children)
         return r
 

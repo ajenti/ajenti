@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc>
     <body>
         <pad>
             <bind:collection bind="processes" id="processes">

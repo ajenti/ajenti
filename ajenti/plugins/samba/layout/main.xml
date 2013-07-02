@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc>
     <servicebar id="servicebar" name="smbd" />
 
     <body>
@@ -61,7 +61,7 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="{Config}" bind="global">
+                <tab title="{Config}" binder:context="global">
                     <formgroup text="{Networking}">
                         <vc>
                             <formline text="{Interfaces}">

@@ -1,4 +1,4 @@
-<dtr xmlns:bind="bind">
+<dtr>
     <dtd width="150">
         <label bind="cmdline" style="bold" />   
     </dtd>

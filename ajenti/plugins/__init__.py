@@ -64,6 +64,10 @@ class Dependency (object):
             exception = self.build_exception()
             raise exception
 
+    @property
+    def value(self):
+        return str(self)
+
 
 @public
 class ModuleDependency (Dependency):

@@ -1,4 +1,4 @@
-<body xmlns:bind="bind" xmlns:munin="munin">
+<body xmlns:munin="munin">
     <pad>
         <tabs>
             <tab title="{View}">

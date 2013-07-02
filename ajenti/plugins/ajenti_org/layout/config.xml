@@ -1,4 +1,4 @@
-<bind:dict xmlns:bind="bind" id="bind">
+<bind:dict id="bind">
     <vc>
         <formline text="Machine key">
             <textbox bind="key" />

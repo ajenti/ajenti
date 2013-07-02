@@ -1,4 +1,4 @@
-<hc xmlns:bind="bind">
+<hc>
     <bind:list bind="arguments">
         <bind:item>
             <formline text="{Interface}">

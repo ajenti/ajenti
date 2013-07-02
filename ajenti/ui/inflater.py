@@ -3,6 +3,7 @@ import os
 
 import ajenti
 from ajenti.plugins import manager
+from ajenti.ui.element import UIProperty
 from ajenti.util import *
 from ajenti.profiler import *
 
@@ -16,6 +17,7 @@ class TemplateNotFoundError (Exception):
 class Inflater:
     def __init__(self, ui):
         self.ui = ui
+        self.parser = etree.XMLParser()
         self.cache = {}
 
     def inflate(self, layout):
@@ -26,10 +28,12 @@ class Inflater:
                 file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
             except IOError, e:
                 raise TemplateNotFoundError(e)
-            self.cache[layout] = etree.parse(file)
+            data = file.read()
+            data = """<xml xmlns:bind="bind" xmlns:binder="binder">%s</xml>""" % data
+            self.cache[layout] = etree.fromstring(data, parser=self.parser)[0]
         #else:
             #profile('Inflating %s (cached)' % layout)
-        layout = self.inflate_rec(self.cache[layout].getroot())
+        layout = self.inflate_rec(self.cache[layout])
         #profile_end()
         return layout
 
@@ -41,6 +45,7 @@ class Inflater:
 
         cls = self.ui.get_class(tag)
         props = {}
+        extra_props = {}
 
         for key in node.attrib:
             value = node.attrib[key]
@@ -59,8 +64,11 @@ class Inflater:
                     props[key] = value
                     break
             else:
-                raise Exception('Invalid property: %s' % key)
+                extra_props[key] = value
+                #raise Exception('Invalid property: %s' % key)
 
         children = list(self.inflate_rec(child) for child in node)
         element = self.ui.create(tag, children=children, **props)
+        for k, v in extra_props.iteritems():
+            element.properties[k] = UIProperty(name=k, value=v, public=False)
         return element

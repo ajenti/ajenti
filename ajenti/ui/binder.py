@@ -68,11 +68,11 @@ class PropertyBinding (Binding):
             for prop in ui.properties.values():
                 if prop.bindtypes:
                     # nb: we can't guess the type for None
-                    if type(v) in prop.bindtypes or type(v) == type(None):
+                    if type(v) in prop.bindtypes or v is None:
                         self.property = prop.name
                         break
             else:
-                raise Exception('Cannot bind %s.%s (%s, %s)' % (object, attribute, str(type(v)), repr(v)))
+                raise Exception('Cannot bind %s.%s (%s, = %s)' % (repr(object), attribute, repr(type(v)), repr(v)))
         else:
             self.property = property
         self.oneway = ui.bindtransform is not None
@@ -378,30 +378,51 @@ class Binder (object):
 
         ui = ui or self.ui
         object = object or self.object
-        for k in dir(object) + ['.']:
-            children = ui.nearest(lambda x: x.bind == k)
-            for child in children:
-                if child == ui:
-                    continue
-                    #raise Exception('Circular UI reference for %s!' % k)
-                if _element_in_child_template(ui, child):
-                    continue
-                self._try_bind(object, k, child)
-        return self
 
-    def _try_bind(self, object, k, child):
-        if k == '.':
-            v = object
-        else:
-            v = getattr(object, k)
-        if type(v) in [str, unicode, int, float, bool, property, type(None)] or v is None or child.bindtransform:
-            self.add(PropertyBinding(object, k, child))
-        elif not hasattr(v, '__iter__'):
-            self.autodiscover(v, child)
-        else:
-            if not hasattr(child, 'binding'):
-                raise Exception('Collection %s (%s) only binds to <bind:collection />' % (k, type(v)))
-            self.add(child.binding(object, k, child))
+        def is_bound(el):
+            if el.typeid.startswith('bind:'):
+                return True
+            for prop in el.properties.keys():
+                if prop == 'bind' or prop.startswith('{bind}') or prop.startswith('{binder}'):
+                    return True
+            return False
+
+        bindables = ui.nearest(
+            lambda x: is_bound(x),
+            exclude=lambda x: (
+                x.parent != ui and x != ui and (
+                    '{bind}context' in x.parent.properties or  # skip nested contexts
+                    x.parent.typeid == 'bind:template'  # and templates
+                )
+            )
+        )
+
+        for bindable in bindables:
+            # Custom/collection binding
+            if bindable.typeid.startswith('bind:'):
+                k = bindable.bind
+                if k in dir(object):
+                    self.add(bindable.binding(object, k, bindable))
+                continue
+
+            for prop in bindable.properties:
+                k = bindable.properties[prop].get()
+
+                if prop == 'bind':
+                    if k in dir(object):
+                        self.add(PropertyBinding(object, k, bindable))
+
+                # Nested binder context
+                if prop == '{binder}context':
+                    if bindable is not ui:
+                        self.autodiscover(getattr(object, k), bindable)
+
+                # Property binding
+                if prop.startswith('{bind}'):
+                    if k in dir(object):
+                        self.add(PropertyBinding(object, k, bindable, prop.split('}')[1]))
+
+        return self
 
     def add(self, binding):
         self.bindings.append(binding)

@@ -1,6 +1,6 @@
 <vc>
     <body>
-        <pad xmlns:bind="bind">
+        <pad>
             <bind:collection bind="arrays" id="arrays">
                 <dt bind="__items">
                     <dtr>

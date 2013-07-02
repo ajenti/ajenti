@@ -1,5 +1,5 @@
 <body>
-    <pad id="main" xmlns:bind="bind">
+    <pad id="main">
         <bind:collection bind="services" id="services">
             <dt bind="__items">
                 <dtr>

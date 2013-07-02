@@ -1,4 +1,4 @@
-<bind:template xmlns:bind="bind">
+<bind:template>
     <collapserow>
         <box>
             <right>

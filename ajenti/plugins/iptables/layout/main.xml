@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc>
     <hc>
         <button id="edit" text="{Raw edit}" icon="pencil" style="normal big" />
         <button id="autostart" icon="refresh" style="normal big" />

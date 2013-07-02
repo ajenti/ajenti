@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc>
     <hc>
         <dropdown id="users" />
         <button id="user-select" icon="user" text="{Select}" />

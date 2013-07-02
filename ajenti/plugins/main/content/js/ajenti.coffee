@@ -342,12 +342,14 @@ class window.Control
 # Crash handler
 #---------------------
 
+_escape = (s) -> s.replace(/</g, '&lt;')
+
 window.ajentiConnectSocket = (uri) ->
     return io.connect(uri, resource: 'ajenti:socket')
 
 window.ajentiCrash = (info) ->
     $('#crash').fadeIn()
-    $('#crash-traceback').html(info.message + "\n" + info.traceback)
+    $('#crash-traceback').html(_escape(info.message + "\n" + info.traceback))
     $('#crash-report textarea').val(info.report)
 
 window.ajentiCrashResume = (info) ->

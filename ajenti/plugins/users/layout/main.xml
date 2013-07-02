@@ -1,4 +1,4 @@
-<vc xmlns:bind="bind">
+<vc>
     <hc>
         <button id="add-user" icon="plus" text="{User}" />
         <inputdialog id="input-username" text="{Username}" visible="False" />

@@ -1,11 +1,11 @@
-<vc xmlns:bind="bind">
+<vc>
     <hc>
         <button icon="refresh" id="refresh" text="{Refresh}" />
         <button icon="hdd" id="mount-all" text="{Mount all}" style="normal big" />
     </hc>
 
     <body>
-        <pad id="fstab" bind="fstab">
+        <pad id="fstab" binder:context="fstab">
             <label text="fstab" style="bold" />
             <bind:collection bind="filesystems" id="filesystems">
                 <vc>
@@ -57,7 +57,7 @@
             </bind:collection>
         </pad> 
 
-        <pad id="mounts" bind="mounts">
+        <pad id="mounts" binder:context="mounts">
             <label text="{Mounted filesystems}" style="bold" />
             <bind:collection bind="filesystems" id="filesystems">
                 <vc>
