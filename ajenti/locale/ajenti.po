@@ -180,6 +180,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Create"
 msgstr ""
 
@@ -1337,4 +1338,8 @@ msgstr ""
 #: ajenti/plugins/terminal/terminal.py:94
 #, python-format
 msgid "Process has exited with status %i"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
 msgstr ""

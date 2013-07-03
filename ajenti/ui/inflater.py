@@ -5,7 +5,7 @@ import ajenti
 from ajenti.plugins import manager
 from ajenti.ui.element import UIProperty
 from ajenti.util import *
-from ajenti.profiler import *
+#from ajenti.profiler import *
 
 
 @public
@@ -30,10 +30,11 @@ class Inflater:
                 raise TemplateNotFoundError(e)
             data = file.read()
             data = """<xml xmlns:bind="bind" xmlns:binder="binder">%s</xml>""" % data
-            self.cache[layout] = etree.fromstring(data, parser=self.parser)[0]
+            xml = etree.fromstring(data, parser=self.parser)[0]
+            self.cache[layout] = self.inflate_rec(xml)
         #else:
             #profile('Inflating %s (cached)' % layout)
-        layout = self.inflate_rec(self.cache[layout])
+        layout = self.cache[layout].clone()
         #profile_end()
         return layout
 
@@ -51,7 +52,7 @@ class Inflater:
             value = node.attrib[key]
             if value.startswith('{') and value.endswith('}'):
                 value = _(value[1:-1])
-            for prop in cls._properties:
+            for prop in cls._properties.values():
                 if prop.name == key:
                     if prop.type in [eval, list, dict]:
                         value = _(value)
@@ -70,5 +71,6 @@ class Inflater:
         children = list(self.inflate_rec(child) for child in node)
         element = self.ui.create(tag, children=children, **props)
         for k, v in extra_props.iteritems():
-            element.properties[k] = UIProperty(name=k, value=v, public=False)
+            element.property_definitions[k] = UIProperty(name=k, public=False)
+            element.properties[k] = v
         return element

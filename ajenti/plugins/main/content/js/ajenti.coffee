@@ -27,8 +27,9 @@ class window.Stream
 
         @socket.on 'ui', (ui) ->
             console.group 'Received update'
-            console.log 'Payload size', ui.length
+            console.log 'Transfer size', ui.length
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
+            console.log 'Payload size', ui.length
             ui = JSON.parse(ui)
             console.log 'JSON data:', ui
 
@@ -105,7 +106,6 @@ class window.UIManager
         if not cls
             cls = Controls.default
 
-        $('.ui-tooltip').remove()
         return new cls(this, json, children)
 
     clear: () ->
@@ -119,6 +119,7 @@ class window.UIManager
         delete @ui
     
     replace: (ui) ->
+        $('.ui-tooltip').remove()
         @ui = ui
         $('.root').append(@ui.dom)
         aoConnector.reportHeight($('body')[0].scrollHeight)

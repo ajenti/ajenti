@@ -1,7 +1,6 @@
 import copy
 
 from ajenti.api import *
-from ajenti.profiler import *
 from ajenti.ui.element import p, UIElement
 from ajenti.util import *
 
@@ -65,7 +64,7 @@ class PropertyBinding (Binding):
         if property is None:
             # find a property with matching bindtypes
             v = self.__get_transformed()
-            for prop in ui.properties.values():
+            for prop in ui.property_definitions.values():
                 if prop.bindtypes:
                     # nb: we can't guess the type for None
                     if type(v) in prop.bindtypes or v is None:
@@ -82,12 +81,12 @@ class PropertyBinding (Binding):
 
     def populate(self):
         self.old_value = self.get()
-        self.ui.properties[self.property].value = self.__get_transformed()
+        self.ui.properties[self.property] = self.__get_transformed()
 
     def update(self):
         if self.oneway:
             return
-        new_value = self.ui.properties[self.property].value
+        new_value = self.ui.properties[self.property]
         # avoid unnecessary sets
         if new_value != self.old_value:
             self.set(new_value)
@@ -267,6 +266,14 @@ class CollectionAutoBinding (Binding):
 
         self.unpopulate()
 
+        # Do it before DOM becomes huge
+        try:
+            add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
+            if not _element_in_child_binder(self.ui, add_button):
+                add_button.on('click', self.on_add)
+        except IndexError:
+            pass
+
         # remember old template instances and binders
         old_item_ui = self.item_ui
         old_binders = self.binders
@@ -305,13 +312,6 @@ class CollectionAutoBinding (Binding):
                 pass
 
             self.ui.post_item_bind(self.object, self.collection, value, template)
-
-        try:
-            add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
-            if not _element_in_child_binder(self.ui, add_button):
-                add_button.on('click', self.on_add)
-        except IndexError:
-            pass
 
         self.ui.post_bind(self.object, self.collection, self.ui)
         return self
@@ -406,7 +406,7 @@ class Binder (object):
                 continue
 
             for prop in bindable.properties:
-                k = bindable.properties[prop].get()
+                k = bindable.properties[prop]
 
                 if prop == 'bind':
                     if k in dir(object):
@@ -414,7 +414,7 @@ class Binder (object):
 
                 # Nested binder context
                 if prop == '{binder}context':
-                    if bindable is not ui:
+                    if bindable is not ui and k:
                         self.autodiscover(getattr(object, k), bindable)
 
                 # Property binding

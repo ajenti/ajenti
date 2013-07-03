@@ -24,16 +24,18 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
     """
 
     def decorator(cls):
-        prop_obj = UIProperty(prop, value=default, bindtypes=bindtypes, type=type, public=public)
+        prop_obj = UIProperty(prop, default=default, bindtypes=bindtypes, type=type, public=public)
         if not hasattr(cls, '_properties'):
-            cls._properties = []
-        cls._properties = cls._properties + [prop_obj]
+            cls._properties = {}
+        cls._properties = cls._properties.copy()
+        cls._properties[prop] = prop_obj
 
         def get(self):
-            return self.properties[prop].get()
+            return self.properties[prop]
 
         def set(self, value):
-            return self.properties[prop].set(value)
+            self.properties_dirty[prop] = self.properties[prop] != value
+            self.properties[prop] = value
 
         _property = property(get, set, None, doc)
         setattr(cls, prop, _property)
@@ -69,12 +71,11 @@ def on(id, event):
 
 @public
 class UIProperty (object):
-    __slots__ = ['dirty', 'name', 'value', 'bindtypes', 'type', 'public']
+    __slots__ = ['name', 'default', 'bindtypes', 'type', 'public']
 
-    def __init__(self, name, value=None, bindtypes=[], type=unicode, public=True):
-        self.dirty = False
+    def __init__(self, name, default=None, bindtypes=[], type=unicode, public=True):
         self.name = name
-        self.value = value
+        self.default = default
         self.bindtypes = bindtypes
         self.type = type
         self.public = public
@@ -82,30 +83,23 @@ class UIProperty (object):
     def clone(self):
         return UIProperty(
             self.name,
-            self.value,
+            self.default,
             self.bindtypes,
             self.type,
             self.public,
         )
 
-    def get(self):
-        return self.value
-
-    def set(self, value):
-        self.dirty = self.value != value
-        self.value = value
-
 
 @public
 @p('visible', default=True, type=bool,
     doc='Visibility of the element')
-@p('bind', default=None, type=str,
+@p('bind', default=None, type=str, public=False,
     doc='Bound property name')
 @p('client', default=False, type=True,
     doc='Whether this element\'s events are only processed on client side')
 @p('bindtransform', default=None, type=eval, public=False,
     doc='Value transformation function for one-direction bindings')
-@p('id', default=None, type=str,
+@p('id', default=None, type=str, public=False,
     doc='Element ID')
 @p('style', default='normal',
     doc='Additional CSS class')
@@ -124,51 +118,58 @@ class UIElement (object):
         cls.__last_id += 1
         return cls.__last_id
 
+    def _prepare(self):
+        #: Generated unique identifier (UID)
+        self.uid = UIElement.__generate_id()
+        if not hasattr(self, '_properties'):
+            self._properties = []
+        self.parent = None
+        self.children = []
+        self.children_changed = False
+        self.invalidated = False
+        self.events = {}
+        self.event_args = {}
+
     def __init__(self, ui, typeid=None, children=[], **kwargs):
         self.ui = ui
+        self._prepare()
 
         if typeid is not None:
             self.typeid = typeid
 
-        #: Generated unique identifier (UID)
-        self.uid = UIElement.__generate_id()
-
-        if not hasattr(self, '_properties'):
-            self._properties = []
-
-        self.parent = None
-
-        self.children = []
         for c in children:
             self.append(c)
-        self.children_changed = False
-        self.invalidated = False
 
         # Copy properties from the class
         self.properties = {}
-        for prop in self._properties:
-            self.properties[prop.name] = prop.clone()
+        self.properties_dirty = {}
+        for prop in self._properties.values():
+            self.properties[prop.name] = prop.default
+            self.properties_dirty[prop.name] = False
         for key in kwargs:
-            self.properties[key].set(kwargs[key])
-
-        self.events = {}
-        self.event_args = {}
+            self.properties[key] = kwargs[key]
 
     def __str__(self):
         return '<%s @ %s>' % (self.typeid, id(self))
+
+    @property
+    def property_definitions(self):
+        return self.__class__._properties
 
     def clone(self):
         """
         :returns: a deep copy of the element and its children. Property values are shallow copies.
         """
-        o = copy.copy(self)
-        o.uid = UIElement.__generate_id()
+        o = self.__class__.__new__(self.__class__)
+        o._prepare()
+        o.ui, o.typeid = self.ui, self.typeid
+        #o = copy.copy(self)
+        #o.uid = UIElement.__generate_id()
 
         o.events = self.events.copy()
         o.event_args = self.event_args.copy()
-        o.properties = {}
-        for p in self.properties:
-            o.properties[p] = self.properties[p].clone()
+        o.properties = self.properties.copy()
+        o.properties_dirty = self.properties_dirty.copy()
 
         o.children = []
         for c in self.children:
@@ -178,7 +179,7 @@ class UIElement (object):
     def init(self):
         pass
 
-    def nearest(self, predicate, exclude=lambda x: False, descend=True):
+    def nearest(self, predicate, exclude=None, descend=True):
         """
         Returns the nearest child which matches an arbitrary predicate lambda
 
@@ -190,7 +191,7 @@ class UIElement (object):
         q = [self]
         while len(q) > 0:
             e = q.pop(0)
-            if exclude(e):
+            if exclude and exclude(e):
                 continue
             if predicate(e):
                 r.append(e)
@@ -241,15 +242,15 @@ class UIElement (object):
         Renders this element and its subtree to JSON
         """
         result = {
-            'id': self.id,
+            #'id': self.id,
             'uid': self.uid,
             'typeid': self.typeid,
-            'events': self.events.keys(),
+            #'events': self.events.keys(),
             'children': [c.render() for c in self.children if self.visible],
         }
-        for prop in self.properties.values():
-            if prop.public:
-                result[prop.name] = prop.value
+        for prop in self.properties:
+            if self.property_definitions[prop].public:
+                result[prop] = self.properties[prop]
         return result
 
     def on(self, event, handler, *args):
@@ -265,9 +266,8 @@ class UIElement (object):
         """
         if self.children_changed or self.invalidated:
             return True
-        for property in self.properties.values():
-            if property.dirty:
-                return True
+        if any(self.properties_dirty.values()):
+            return True
         if self.visible:
             for child in self.children:
                 if child.has_updates():
@@ -280,8 +280,8 @@ class UIElement (object):
         """
         self.children_changed = False
         self.invalidated = False
-        for property in self.properties.values():
-            property.dirty = False
+        for property in self.properties:
+            self.properties_dirty[property] = False
         if self.visible:
             for child in self.children:
                 if child.has_updates():

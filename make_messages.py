@@ -31,7 +31,7 @@ for (dirpath, dirnames, filenames) in os.walk('ajenti'):
         if f.endswith('.xml'):
             print ' :: XML  %s' % path
             content = open(path).read()
-            xml = etree.fromstring(content)
+            xml = etree.fromstring('<xml xmlns:bind="bind" xmlns:binder="binder">' + content + '</xml>')
             try:
                 msgs = []
 

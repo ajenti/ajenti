@@ -89,8 +89,8 @@ class MainSocket (SocketPlugin):
                         profile('Handling updates')
                         el = self.ui.find_uid(update['uid'])
                         for k, v in update['properties'].iteritems():
-                            el.properties[k].set(v)
-                            el.properties[k].dirty = False
+                            el.properties[k] = v
+                            el.properties_dirty[k] = False
                         profile_end('Handling updates')
                     if update['type'] == 'event':
                         # Element event emitted
