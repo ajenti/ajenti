@@ -3,7 +3,7 @@ from ajenti.plugins import *
 
 
 info = PluginInfo(
-    title=_('Dashboard'),
+    title='Dashboard',
     icon='dashboard',
     dependencies=[
         PluginDependency('main')

@@ -1,4 +1,4 @@
-.. _bsd-install:
+.. _bsd-installation:
 
 FreeBSD Installation
 ********************
