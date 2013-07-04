@@ -57,13 +57,13 @@ class Terminals (SectionPlugin):
 
     @intent('terminal')
     def launch(self, command=None, callback=None):
-        if not command:
-            command = self.classconfig['shell']
         self.on_new(command, autoclose=True, autoopen=True, callback=callback)
 
     @on('new-button', 'click')
     @restrict('terminal:shell')
     def on_new(self, command=None, autoopen=False, **kwargs):
+        if not command:
+            command = self.classconfig['shell']
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1
         else:
