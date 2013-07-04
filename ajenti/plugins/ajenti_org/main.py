@@ -14,7 +14,7 @@ import ajenti
 
 
 ENDPOINT = 'http://ajenti.local.org:8080/docking-bay/receive/%i'
-ENDPOINT = 'http://ajenti.org/docking-bay/receive/%i'
+#ENDPOINT = 'http://ajenti.org/docking-bay/receive/%i'
 
 
 def _check():

@@ -19,6 +19,7 @@
 #: ajenti/plugins/supervisor/layout/main.xml:14
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/iptables/layout/main.xml:11
+#: ajenti/plugins/iptables/layout/main.xml:12
 msgid "Save"
 msgstr "Salva"
 
@@ -175,6 +176,7 @@ msgstr "Modifica password"
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Create"
 msgstr "Crea"
 
@@ -521,6 +523,7 @@ msgid "Tools"
 msgstr "Strumenti"
 
 #: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:1
+#: ajenti/plugins/packages/layout/row.xml:3
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -765,6 +768,7 @@ msgstr "Firewall"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 #: ajenti/plugins/iptables/main.py:104
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "Aggiungi opzione"
 
@@ -808,6 +812,7 @@ msgstr "Condizioni"
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
 msgstr "Nuova regola"
 
@@ -815,6 +820,7 @@ msgstr "Nuova regola"
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/layout/main.xml:12
+#: ajenti/plugins/iptables/layout/main.xml:13
 msgid "Apply"
 msgstr "Applica"
 
@@ -1322,7 +1328,28 @@ msgid "This will overwrite the saved configuration with current firewall state! 
 msgstr "Questo sovrascriverà la configurazione salvata con l'attuale stato del firewall! Continuare?"
 
 #: ajenti/plugins/terminal/terminal.py:94
+#: ajenti/plugins/terminal/terminal.py:95
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "Processo è stato terminato con status %i"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr ""
+
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr ""
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr ""
+
+#: ajenti/plugins/terminal/terminal.py:97
+msgid "Process has exited successfully"
+msgstr ""
 
