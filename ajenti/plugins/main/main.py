@@ -191,8 +191,8 @@ class SectionPermissions (PermissionProvider):
     def get_permissions(self):
         # Generate permission set on-the-fly
         return [
-            ('section:%s' % x.__name__, x.__name__)
-            for x in SectionPlugin.get_classes()
+            ('section:%s' % x.__class__.__name__, _(x.title))
+            for x in SectionPlugin.get_instances()
         ]
 
 

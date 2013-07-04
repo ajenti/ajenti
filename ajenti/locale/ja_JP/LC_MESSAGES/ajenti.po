@@ -230,7 +230,7 @@ msgstr "ホスト名を入力してください。"
 #: ajenti/plugins/configurator/configurator.py:130
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr "%S プラグインを設定してください ！"
+msgstr "%s プラグインを設定してください ！"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
