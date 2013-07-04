@@ -6,8 +6,12 @@
     <dtd><label bind="version" /></dtd>
     <dtd>
         <hc>
-            <button id="install" style="mini" icon="ok" />
-            <button id="remove" style="mini" icon="remove" />
+            <tooltip text="{Mark for installation/upgrade}">
+                <button id="install" style="mini" icon="ok" />
+            </tooltip>
+            <tooltip text="{Mark for removal}">
+                <button id="remove" style="mini" icon="remove" />
+            </tooltip>
             <tooltip text="{Cancel}">
                 <button id="cancel" style="mini" icon="remove-sign" />
             </tooltip>

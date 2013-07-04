@@ -16,13 +16,16 @@
                         </right>
                     </pad>
 
-                    <bind:collection bind="upgradeable" id="upgradeable">
+                    <bind:collection bind="upgradeable" id="upgradeable" pagesize="50">
                         <dt bind="__items">
                             <include layout="packages:headers" />
                         </dt>
                         <bind:template>
                             <include layout="packages:row" />
                         </bind:template>
+                        <right>
+                            <paging bind="__paging" />
+                        </right>
                     </bind:collection>
                 </tab>
 
@@ -37,13 +40,16 @@
                         <label id="search-counter" />
                     </pad>
 
-                    <bind:collection id="search">
+                    <bind:collection id="search" pagesize="50">
                         <dt bind="__items">
                             <include layout="packages:headers" />
                         </dt>
                         <bind:template>
                             <include layout="packages:row" />
                         </bind:template>
+                        <right>
+                            <paging bind="__paging" />
+                        </right>
                     </bind:collection>
                 </tab>
 
