@@ -239,10 +239,14 @@ class window.Controls.paging extends window.Control
         @select.select2(width: '80px')
         @prev = @dom.find('.prev')
         @next = @dom.find('.next')
+
         if @properties.active == 0
             @prev.hide()
         if @properties.active == @properties.length - 1
             @next.hide()
+        if !@properties.length
+            @dom.hide()
+
         @prev.click () =>
             @set(@properties.active - 1)
         @next.click () =>
