@@ -13,7 +13,7 @@
                     </hc>
                 </bind:template>
             </bind:collection>
-            <button icon="add" text="{Create}" bind="__add" />
+            <button icon="plus" text="{Argument}" bind="__add" />
         </vc>
     </formline>
 </vc>

@@ -52,3 +52,10 @@ class Combobox (UIElement):
 @plugin
 class FileUpload (UIElement):
     typeid = 'fileupload'
+
+
+@p('active', type=int)
+@p('length', type=int)
+@plugin
+class Paging (UIElement):
+    typeid = 'paging'

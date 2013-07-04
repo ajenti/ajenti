@@ -274,6 +274,17 @@ class CollectionAutoBinding (Binding):
         except IndexError:
             pass
 
+        if self.ui.pagesize:
+            try:
+                self.paging = None
+                paging = self.ui.nearest(lambda x: x.bind == '__paging')[0]
+                if not _element_in_child_binder(self.ui, paging):
+                    self.paging = paging
+                    paging.on('switch', self.set_page)
+                    paging.length = int((len(self.values) - 1) / self.ui.pagesize) + 1
+            except IndexError:
+                pass
+
         # remember old template instances and binders
         old_item_ui = self.item_ui
         old_binders = self.binders
@@ -313,8 +324,18 @@ class CollectionAutoBinding (Binding):
 
             self.ui.post_item_bind(self.object, self.collection, value, template)
 
+        self.set_page(0)
         self.ui.post_bind(self.object, self.collection, self.ui)
         return self
+
+    def set_page(self, page=0):
+        if self.ui.pagesize:
+            i = 0
+            for value in self.values:
+                self.item_ui[value].visible = int(i / self.ui.pagesize) == page
+                i += 1
+            if self.paging:
+                self.paging.active = page
 
     def on_add(self):
         self.update()
@@ -485,6 +506,7 @@ class ListElement (BasicCollectionElement):
     doc='Called to remove value from the collection, ``lambda item, collection: None``')
 @p('sorting', default=None, type=eval, public=False,
     doc='If defined, used as key function to sort items')
+@p('pagesize', default=0, type=int, public=False)
 @p('binding', default=CollectionAutoBinding, type=eval, public=False)
 @plugin
 class CollectionElement (BasicCollectionElement):

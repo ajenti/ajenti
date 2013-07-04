@@ -29,7 +29,7 @@
                                                     <label bind="name" style="bold" />
                                                 </box>
                                                 
-                                                <bind:collection bind="rules" id="rules">
+                                                <bind:collection bind="rules" id="rules" pagesize="10">
                                                     <sortabledt bind="__items" />
 
                                                     <bind:template>
@@ -57,7 +57,8 @@
                                                                     <indent>
                                                                         <bind:collection bind="options" id="options">
                                                                             <dt bind="__items" />
-                                                                            <dropdown id="add-option" server="True" />
+                                                                            <dropdown id="add-option" server="True"
+                                                                                value="{Add option}" />
                                                                         </bind:collection>
                                                                     </indent>
                                                                 </vc>
@@ -65,6 +66,9 @@
                                                         </collapserow>
                                                     </bind:template>
 
+                                                    <right>
+                                                        <paging bind="__paging" />
+                                                    </right>
                                                     <box height="5" />
                                                     <button bind="__add" icon="plus" text="{New Rule}" />
                                                 </bind:collection>

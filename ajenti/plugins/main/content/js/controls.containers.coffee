@@ -132,13 +132,20 @@ class window.Controls.sortabledt extends window.Controls.dt
 
     detectUpdates: () ->
         @newOrder = []
+        hasChanges = false
         @tbody.find('>*').each (i, e) =>
-            @newOrder.push parseInt($(e).attr('data-order'))
+            idx = parseInt($(e).attr('data-order'))
+            if (i+1) != idx
+                hasChanges = true
+            @newOrder.push idx
 
         r = {}
+        if !hasChanges
+            return r
+
         for i in [0..@order.length]
             if @newOrder[i] != @order[i]
-                console.log @newOrder , @order
+                #console.log @newOrder , @order
                 r.order = @newOrder
                 break
 

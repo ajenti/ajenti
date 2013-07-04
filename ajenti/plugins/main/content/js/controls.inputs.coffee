@@ -3,18 +3,20 @@ class window.Controls.textbox extends window.Control
         @dom = $("""
             <div>
                 <input class="control textbox #{@properties.style}" 
-                    type="text" 
-                    value="#{@properties.value or ''}" />
+                    type="text" />
             </div>
         """)
         @input = @dom.find('input')
+        @input.val(@properties.value)
 
     detectUpdates: () ->
         r = {}
         value = @input.val()
+        oldvalue = @properties.value || ""
         if @properties.type == 'integer'
             value = parseInt(value)
-        if value != @properties.value
+        if value != oldvalue
+            console.log value, @properties.value
             r.value = value
         @properties.value = value
         return r
@@ -25,11 +27,11 @@ class window.Controls.passwordbox extends window.Controls.textbox
         @dom = $("""
             <div>
                 <input class="control textbox #{@properties.style}" 
-                    type="password" 
-                    value="#{@properties.value or ''}" />
+                    type="password" />
             </div>
         """)
         @input = @dom.find('input')
+        @input.val(@properties.value)
 
 
 class window.Controls.editable extends window.Control
@@ -125,6 +127,7 @@ class window.Controls.dropdown extends window.Control
         if @properties.type == 'integer'
             value = parseInt(value)
         if value != @properties.value
+            console.log value, @properties.value
             r.value = value
         @properties.value = value
         return r
@@ -215,3 +218,40 @@ class window.Controls.fileupload extends window.Control
             $(@dom).find('.full-overlay').show()
         , false
         @dom.find('.full-overlay').hide()
+
+
+class window.Controls.paging extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control paging">
+                <div class="control label">Page:&nbsp;</div>
+                <a class="prev control button style-mini"><i class="icon-arrow-left"></i></a>
+                <select />
+                <a class="next control button style-mini"><i class="icon-arrow-right"></i></a>
+            </div>
+        """)
+        @select = @dom.find('select')
+        for i in [0...@properties.length]
+            @select.append($("""
+                <option value="#{i+1}">#{i+1}</option>
+            """))
+        @select.val(@properties.active + 1)
+        @select.select2(width: '80px')
+        @prev = @dom.find('.prev')
+        @next = @dom.find('.next')
+        if @properties.active == 0
+            @prev.hide()
+        if @properties.active == @properties.length - 1
+            @next.hide()
+        @prev.click () =>
+            @set(@properties.active - 1)
+        @next.click () =>
+            @set(@properties.active + 1)
+        @select.change () =>
+            idx = parseInt(@select.val()) - 1
+            console.log idx, @properties.active
+            if idx != @properties.active
+                @set(idx)
+
+    set: (page) ->
+        @event('switch', page: page)
