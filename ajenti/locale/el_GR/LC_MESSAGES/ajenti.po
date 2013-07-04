@@ -192,7 +192,7 @@ msgstr "Αποστολή σχολίων"
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr "Το Ajenti θα στείλει ανώνυμα την έκδοσή του, το όνομα του λειτουργικού σας συστήματος , και "
+msgstr "Το Ajenti θα στείλει ανώνυμα την έκδοσή του, το όνομα του λειτουργικού σας συστήματος , και \n"
 "ποιά πρόσθετα χρησιμοποιείτε περισσότερο στο ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:25
@@ -211,6 +211,7 @@ msgstr "Ρύθμιση παραμέτρων"
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
+#: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 msgid "Saved"
 msgstr "Αποθηκεύτηκε"
 
@@ -1307,7 +1308,8 @@ msgstr "Μπλοκάδες"
 msgid "Recovery:"
 msgstr "Ανάκτηση:"
 
-#: ajenti/plugins/notepad/notepad.py:47
+#: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
+#: ajenti/plugins/notepad/notepad.py:50
 #, python-format
 msgid "Untitled %i"
 msgstr "Άτιτλο %i"
@@ -1318,5 +1320,10 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr ""
+
+#: ajenti/plugins/terminal/terminal.py:94
+#, python-format
+msgid "Process has exited with status %i"
 msgstr ""
 

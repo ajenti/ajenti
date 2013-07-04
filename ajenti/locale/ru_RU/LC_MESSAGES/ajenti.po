@@ -210,6 +210,7 @@ msgstr "Настройки"
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
+#: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 msgid "Saved"
 msgstr "Сохранено"
 
@@ -1306,16 +1307,22 @@ msgstr "Блоки"
 msgid "Recovery:"
 msgstr "Восстановление:"
 
-#: ajenti/plugins/notepad/notepad.py:47
+#: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
+#: ajenti/plugins/notepad/notepad.py:50
 #, python-format
 msgid "Untitled %i"
 msgstr "Безымянный %i"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Загрузить текущие"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr ""
+msgstr "Сохраненные правила будут перезаписаны текущими правилами iptables. Продолжить?"
+
+#: ajenti/plugins/terminal/terminal.py:94
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "Процесс завершился с кодом %i"
 

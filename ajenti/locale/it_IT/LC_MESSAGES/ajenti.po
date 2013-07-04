@@ -210,6 +210,7 @@ msgstr "Configura"
 #: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
+#: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 msgid "Saved"
 msgstr "Salvato"
 
@@ -384,7 +385,7 @@ msgstr "File"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Recovery File bloccato"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
@@ -457,7 +458,7 @@ msgstr "Benvenuto"
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:1
 msgid "Refresh"
-msgstr "Ricarica"
+msgstr "Aggiorna"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
@@ -465,16 +466,16 @@ msgstr "Aggiungi widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr ""
+msgstr "[{'text': _('Annulla'), 'id': 'cancel'}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr ""
+msgstr "Query finita"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Visualizzo dalla riga %i alla riga 200"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
@@ -487,7 +488,7 @@ msgstr "Database"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Conferma cancellazione database!"
 
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
@@ -629,11 +630,11 @@ msgstr "Utilizzo della CPU"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr "Utilizzo della memoria"
+msgstr "Memoria in uso"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr "Utilizzo swap"
+msgstr "Swap in uso"
 
 #: ajenti/plugins/sensors/uptime.py:18
 msgid "Uptime"
@@ -696,7 +697,7 @@ msgstr "Frequenza di scansione"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Scansione superata"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
@@ -724,11 +725,11 @@ msgstr "Temperatura dell'hard disk"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr ""
+msgstr "[{'command': 'force-reload', 'text': _('Ricarica'), 'icon': 'step-forward',}]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr ""
+msgstr "Cartella di lavoro"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
@@ -736,7 +737,7 @@ msgstr "Avvio automatico"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
-msgstr ""
+msgstr "[_('Abilitato'), _('Disabilitato')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
@@ -744,11 +745,11 @@ msgstr "Riavvio automatico"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr ""
+msgstr "[_ ('Abilitato'), _ ('On Crash'), _ ('Disabilitato')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr ""
+msgstr "Timeout di Avvio"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
@@ -775,7 +776,7 @@ msgstr "Disabilita"
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
-msgstr ""
+msgstr " avvio automatico"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
@@ -787,12 +788,12 @@ msgstr "Stati"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Modifica Raw"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Nuova catena"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
@@ -869,12 +870,12 @@ msgstr "Installazione completa!"
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i trovato/i, 100 mostrati"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "%i trovato/i"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
@@ -1058,7 +1059,7 @@ msgstr "Processi"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr ""
+msgstr "PID (Padre)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "CPU"
@@ -1131,11 +1132,11 @@ msgstr "Nessun dato"
 
 #: ajenti/plugins/smartctl/widget.py:56
 msgid "FAILING"
-msgstr ""
+msgstr "FAILING"
 
 #: ajenti/plugins/smartctl/widget.py:57
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "PRE-FAIL"
 
 #: ajenti/plugins/smartctl/widget.py:58
 msgid "Unknown error"
@@ -1227,7 +1228,7 @@ msgstr "Gruppo di lavoro"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr ""
+msgstr "Server string"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
@@ -1263,7 +1264,7 @@ msgstr "Utenti validi"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Fork delle risorse"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
@@ -1306,16 +1307,22 @@ msgstr "Blocchi"
 msgid "Recovery:"
 msgstr "Recupero:"
 
-#: ajenti/plugins/notepad/notepad.py:47
+#: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
+#: ajenti/plugins/notepad/notepad.py:50
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "SenzaTitolo %i"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Carica stato attuale"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr ""
+msgstr "Questo sovrascriverà la configurazione salvata con l'attuale stato del firewall! Continuare?"
+
+#: ajenti/plugins/terminal/terminal.py:94
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "Processo è stato terminato con status %i"
 
