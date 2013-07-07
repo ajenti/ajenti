@@ -80,7 +80,7 @@ def cache_value(duration):
 
 
 @public
-def make_report():
+def make_report(e):
     """
     Formats a bug report.
     """
@@ -107,7 +107,7 @@ def make_report():
                installation_uid,
                debug,
                ' '.join(manager.get_order()),
-               traceback.format_exc(),
+               traceback.format_exc(e),
                logging.blackbox.buffer,
               ))
 

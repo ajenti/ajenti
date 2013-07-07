@@ -151,7 +151,7 @@ class MainSocket (SocketPlugin):
         data = {
             'message': str(exc),
             'traceback': exc.traceback,
-            'report': make_report()
+            'report': make_report(exc)
         }
         data = json.dumps(data)
         self.emit('crash', data)
