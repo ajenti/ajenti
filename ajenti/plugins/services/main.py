@@ -56,6 +56,7 @@ class ServiceControlBar (UIElement):
     typeid = 'servicebar'
 
     def init(self):
+        self.service = None
         self.reload()
 
     def reload(self):
@@ -70,7 +71,7 @@ class ServiceControlBar (UIElement):
         self.refresh()
 
     def on_page_load(self):
-        self.refresh()
+        self.reload()
 
     def refresh(self):
         if self.service:
