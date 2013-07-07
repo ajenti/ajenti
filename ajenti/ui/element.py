@@ -129,6 +129,7 @@ class UIElement (object):
         self.invalidated = False
         self.events = {}
         self.event_args = {}
+        self.context = None
 
     def __init__(self, ui, typeid=None, children=[], **kwargs):
         self.ui = ui
@@ -162,9 +163,7 @@ class UIElement (object):
         """
         o = self.__class__.__new__(self.__class__)
         o._prepare()
-        o.ui, o.typeid = self.ui, self.typeid
-        #o = copy.copy(self)
-        #o.uid = UIElement.__generate_id()
+        o.ui, o.typeid, o.context = self.ui, self.typeid, self.context
 
         o.events = self.events.copy()
         o.event_args = self.event_args.copy()
