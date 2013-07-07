@@ -28,7 +28,7 @@ class Item (object):
         self.fullpath = path
         self.isdir = os.path.isdir(path)
         self.icon = 'folder-close' if self.isdir else 'file'
-        self.size = '' if self.isdir else os.path.getsize(path)
+        self.size = 0 if self.isdir else os.path.getsize(path)
         self.sizestr = '' if self.isdir else str_fsize(self.size)
 
     def read(self):
