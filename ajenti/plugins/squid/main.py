@@ -1,3 +1,4 @@
+import ajenti
 from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
@@ -14,6 +15,10 @@ class Squid (SectionPlugin):
         self.icon = 'exchange'
         self.category = _('Software')
         self.append(self.ui.inflate('squid:main'))
+
+        if ajenti.platform == 'centos':
+            self.find('servicebar').name = 'squid'
+            self.find('servicebar').reload()
 
         self.binder = Binder(None, self.find('config'))
         self.find('acl').new_item = lambda c: ACLData()

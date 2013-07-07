@@ -1,3 +1,4 @@
+import ajenti
 from ajenti.api import *
 from ajenti.plugins.webserver_common.api import WebserverPlugin
 
@@ -38,3 +39,5 @@ class Apache (WebserverPlugin):
         self.title = 'Apache'
         self.category = _('Software')
         self.icon = 'globe'
+        if ajenti.platform == 'centos':
+            self.service_name = 'httpd'

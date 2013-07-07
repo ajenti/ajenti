@@ -72,8 +72,6 @@ class DBPlugin (SectionPlugin):
         self.find('add-user-dialog').visible = True
 
     def refresh(self):
-        self.find_type('servicebar').reload()
-
         try:
             self.databases = self.query_databases()
             self.users = self.query_users()
@@ -85,6 +83,7 @@ class DBPlugin (SectionPlugin):
 
         self.find('sql-db').labels = self.find('sql-db').values = [x.name for x in self.databases]
         self.binder.reset(self).autodiscover().populate()
+        self.find_type('servicebar').reload()
 
     @on('db-name-dialog', 'submit')
     def on_db_name_dialog_submit(self, value=None):
