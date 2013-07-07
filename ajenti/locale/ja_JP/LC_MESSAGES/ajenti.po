@@ -375,7 +375,7 @@ msgstr "Samba を管理します"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
@@ -468,7 +468,7 @@ msgstr "ウィジェットを追加します"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr "[{'text': _('Cancel'), 'id': 'cancel'}]"
+msgstr ""
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
@@ -609,7 +609,6 @@ msgstr "バッテリー"
 #: ajenti/plugins/power/layout/widget.xml:3
 msgid "Reboot the system?"
 msgstr "システムを再起動しますか?"
-""
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Shutdown the system?"
@@ -729,7 +728,7 @@ msgstr "HDD温度"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr "[{ 'command': 'force-reload', 'text': _('Reload'), 'icon': 'step-forward', }]"
+msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
@@ -741,7 +740,7 @@ msgstr "自動起動"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
-msgstr "[_('Enabled'), _('Disabled')]"
+msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
@@ -749,7 +748,7 @@ msgstr "自動再起動"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr "[_('Enabled'), _('On crash'), _('Disabled')]"
+msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
