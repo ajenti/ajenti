@@ -63,7 +63,7 @@
                     </bind:collection>
                 </tab>
 
-                <tab title="{Config}" bind:context="global">
+                <tab title="{Config}" binder:context="global">
                     <vc>
                         <formline text="{AFP port}">
                             <textbox bind="afp_port" />
