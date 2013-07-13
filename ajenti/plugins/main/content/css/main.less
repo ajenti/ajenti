@@ -207,15 +207,24 @@ body {
 
         .logout {
             float: right;
+
+            i:before {
+                color: #eee;
+                position: relative;
+                top: 1px;
+            }
         }
     }
 }
 
 #tabs {
+    height: 100%;
+
     &> div {
         height: 100%;
 
         &> iframe {
+            background: black;
             width: 100%;
             height: 100%;
             border: none;

@@ -63,11 +63,6 @@ class window.Terminal
                 else
                     ln = $(lns[k])
                     ln.html(@cells(data.lines[k], k))
-        
-        @term.css(
-            left: (window.innerWidth / 2 - @term.width() / 2) + 'px'
-            top: '50px'
-        )
 
     row: (row, idx) ->
         '<div>' + @cells(row, idx) + '</div>';
