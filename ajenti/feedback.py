@@ -32,7 +32,7 @@ def send(url, data):
         response = requests.post(URL + url, data=data)
     except:
         raise IOError()
-    logging.debug('Feedback << %s' % response.text)
+    logging.debug('Feedback << %s' % response.content)
     return json.loads(response.content)
 
 

@@ -8,3 +8,5 @@ include Makefile
 include packaging/files/config.json
 include packaging/files/ajenti
 include packaging/files/.placeholder
+recursive-exclude ajenti/plugins/elements
+recursive-exclude ajenti/plugins/ltfs
