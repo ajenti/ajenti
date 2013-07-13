@@ -47,6 +47,7 @@ class MainServer (BasePlugin, HttpPlugin):
 @plugin
 class MainSocket (SocketPlugin):
     name = '/stream'
+    ui = None
 
     def on_connect(self):
         if not 'ui' in self.request.session.data:
@@ -79,6 +80,8 @@ class MainSocket (SocketPlugin):
         self.context.endpoint = self
 
     def on_message(self, message):
+        if not self.ui:
+            return
         try:
             if message['type'] == 'ui_update':
                 # UI updates arrived
