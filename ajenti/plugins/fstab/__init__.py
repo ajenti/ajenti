@@ -16,3 +16,4 @@ def init():
     import main
     import widget
     import disks
+    import iops
