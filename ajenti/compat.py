@@ -68,6 +68,5 @@ try:
 
     simplejson.dumps = wrap(simplejson.dumps)
     simplejson.loads = wrap(simplejson.loads)
-except Exception, e:
-    print e
+except:
     pass

@@ -25,4 +25,4 @@ Ajenti can be run in a verbose debug mode::
 
     ajenti-panel -v
 
-The panel will be available on HTTPS port **8000**. The default username is **root**, and the password is **admin**
+The panel will be available on **HTTPS** port **8000**. The default username is **root**, and the password is **admin**
