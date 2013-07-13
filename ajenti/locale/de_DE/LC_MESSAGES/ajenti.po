@@ -1335,21 +1335,21 @@ msgstr "Prozess wurde mit dem Status %i beendet"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Argumente"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Argument"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "Für Installation/Upgrade markieren"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Für Entfernen markieren"
 
 #: ajenti/plugins/terminal/terminal.py:97
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Prozess wurde erfolgreich beendet"
 

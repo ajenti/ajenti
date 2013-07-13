@@ -387,7 +387,7 @@ msgstr "Arquivos"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Recuperar arquivo bloqueado"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
@@ -464,7 +464,7 @@ msgstr "Atualizar"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr ""
+msgstr "Add widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
@@ -472,7 +472,7 @@ msgstr "[{'text': _('Cancel'), 'id': 'cancel'}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr "Consulta terminou"
+msgstr "Consulta conluída"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
@@ -545,7 +545,7 @@ msgstr "Nova Pasta"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr "Cortar"
+msgstr "Recortar"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
@@ -700,7 +700,7 @@ msgstr "Freqüência de scaneamento"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Verificar senha"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
@@ -728,7 +728,7 @@ msgstr "Temperatura do disco rígido"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{ 'command': 'force-reload', 'text': _('Reload'), 'icon': 'step-forward', }]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
@@ -797,7 +797,7 @@ msgstr "Edição direta do arquivo"
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr "Nova cadeia"
+msgstr "Nova Cadeia"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
@@ -843,7 +843,7 @@ msgstr "Script"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr "Lançado"
+msgstr "Iniciado"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
@@ -859,7 +859,7 @@ msgstr "Executar em terminal"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr "Este pacote pode ser instalado automaticamente"
+msgstr "Este pacote será instalado automaticamente"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1214,7 +1214,7 @@ msgstr "Somente leitura"
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr "Config"
+msgstr "Configuração"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
@@ -1270,7 +1270,7 @@ msgstr "Usuários válidos"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Bifurcações da fonte"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
@@ -1278,15 +1278,15 @@ msgstr "Atributos estendidos"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "Esquema CNID"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "Porta AFP"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "Endereço CNID"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:7
@@ -1321,7 +1321,7 @@ msgstr "Sem Título %i"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr "Estado atual de carga"
+msgstr "Carga atual"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
@@ -1335,21 +1335,21 @@ msgstr "O processo foi encerrado com status %i"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Argumentos"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Argumento"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "Marque para instalar/atualizar"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Marque para remover"
 
 #: ajenti/plugins/terminal/terminal.py:97
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Processo encerrado com sucesso"
 

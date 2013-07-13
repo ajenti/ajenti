@@ -230,23 +230,23 @@ msgstr "من فضلك! ادخل اسم المستضيف"
 #: ajenti/plugins/configurator/configurator.py:130
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "فضلا، قم باعداد الاضافة %s"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:144
 msgid "Configuration"
-msgstr ""
+msgstr "اعدادات"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "تغير اعدادات Ajenti "
 
 #: ajenti/plugins/configurator/configurator.py:147
 #: ajenti/plugins/configurator/configurator.py:149
 msgid "Restart Ajenti"
-msgstr ""
+msgstr "اعادة تشغيل Ajenti"
 
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
@@ -256,36 +256,36 @@ msgstr ""
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 #: ajenti/plugins/iptables/main.py:65
 msgid "System"
-msgstr ""
+msgstr "النظام"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr ""
+msgstr "اختيار"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr ""
+msgstr "عادي"
 
 #: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
 msgid "Minute"
-msgstr ""
+msgstr "دقيقة"
 
 #: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
 msgid "Hour"
-msgstr ""
+msgstr "ساعة"
 
 #: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
 msgid "Day"
-msgstr ""
+msgstr "يوم"
 
 #: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
 msgid "Month"
-msgstr ""
+msgstr "شهر"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/cron/layout/main.xml:10
 msgid "DoW"
-msgstr ""
+msgstr "مؤشر داو جونز"
 
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -295,17 +295,17 @@ msgstr ""
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
 msgid "Command"
-msgstr ""
+msgstr "اوامر"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 #: ajenti/plugins/cron/layout/main.xml:12
 msgid "Special"
-msgstr ""
+msgstr "خاصة"
 
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Schedule"
-msgstr ""
+msgstr "الجدول الزمني"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:19
@@ -313,7 +313,7 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Environment"
-msgstr ""
+msgstr "البيئة"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:22
@@ -334,7 +334,7 @@ msgstr ""
 #: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:23
@@ -342,11 +342,11 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:3
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr ""
+msgstr "مجموعة سامبا"
 
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
@@ -355,73 +355,73 @@ msgstr ""
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/netatalk/main.py:19
 msgid "Software"
-msgstr ""
+msgstr "البرمجيات"
 
 #: ajenti/plugins/ctdb/main.py:65
 msgid "Failed to obtain CTDB status"
-msgstr ""
+msgstr "فشل في الحصول على حالة CTDB "
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "IP عام"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr ""
+msgstr "إدارة سامبا"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_('Hourly')، _('Daily')، _('Weekly')، _('Monthly')، _('Yearly')، _ ('على إعادة التشغيل')]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr ""
+msgstr "مستوى التصحيح "
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr ""
+msgstr "الملفات"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "استرداد قفل الملف"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "عنوان الملف العام "
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "ملف العقد"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr ""
+msgstr "ملف السجل"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "الربط الشبكي"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "الواجهة العامة"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "الشبكة عامة"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "البوابة العامة"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "العقد"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -429,42 +429,42 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
 msgid "Address"
-msgstr ""
+msgstr "العنوان"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr ""
+msgstr "عناوين عامة"
 
 #: ajenti/plugins/ctdb/layout/main.xml:23
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 msgid "Interface"
-msgstr ""
+msgstr "الواجهة"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "محرر التعليمات البرمجية CodeMirror "
 
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
 msgid "Reload"
-msgstr ""
+msgstr "إعادة تحميل"
 
 #: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
 msgid "Dashboard"
-msgstr ""
+msgstr "لوحة التحكم"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "مرحباً"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:1
 msgid "Refresh"
-msgstr ""
+msgstr "تحديث"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr ""
+msgstr "إدراج إضافة"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
@@ -472,21 +472,21 @@ msgstr ""
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr ""
+msgstr "انتهاء الاستعلام"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "إخراج قطع من الصفوف %i إلى 200"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr ""
+msgstr "تنفيذ"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr ""
+msgstr "قواعد البيانات"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
@@ -712,109 +712,109 @@ msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr ""
+msgstr "الحجم"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr ""
+msgstr "الاستخدام"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr ""
+msgstr "إلغاء التحميل"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "درجة حرارة القرص الصلب"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr ""
+msgstr "[{'الأوامر': 'القوة--تحديث'، 'نص': _('اعادة التحميل')، 'ايقونة': 'خطوة إلى الأمام'،}]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr ""
+msgstr "مجلد العمل"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
-msgstr ""
+msgstr "تشغيل تلقائي"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
-msgstr ""
+msgstr "[_('Enabled'), _('Disabled')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
-msgstr ""
+msgstr "إعادة تشغيل تلقائي"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr ""
+msgstr "[_('تفعيل')، _ ('عند عدم الاستجابة')، _('تعطيل')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr ""
+msgstr "بدء المهلة"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
-msgstr ""
+msgstr "بدء عمليات إعادة المحاولة"
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
-msgstr ""
+msgstr "لا يكمنك تعطيل اعادة التشغيل التلقائية لجدار الحماية على هذا النظام"
 
 #: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
-msgstr ""
+msgstr "جدار الحماية"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 #: ajenti/plugins/iptables/main.py:104
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
-msgstr ""
+msgstr "إضافة خيار"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid "Disable"
-msgstr ""
+msgstr "تعطيل"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
-msgstr ""
+msgstr " تشغيل تلقائي"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr ""
+msgstr "الوحدات النمطية"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "الدول"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "تحرير مباشر"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "سلسلة جديدة"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
-msgstr ""
+msgstr "الإجراء:"
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "الشروط"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "قاعدة جديدة"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
@@ -822,111 +822,111 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/iptables/layout/main.xml:13
 msgid "Apply"
-msgstr ""
+msgstr "تطبيق"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "البروتوكول"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Ports"
-msgstr ""
+msgstr "منافذ"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "السبب"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr ""
+msgstr "السكريبت"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr ""
+msgstr "نفذت"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr ""
+msgstr "سكريبتات"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr ""
+msgstr "تشغيل السكريبتات"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "تشغيل في محطة طرفية"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr ""
+msgstr "يمكن تثبيت هذه الحزمة تلقائياً"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
-msgstr ""
+msgstr "الحزم"
 
 #: ajenti/plugins/packages/main.py:50
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "تثبيت حزم في الانتظار"
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
-msgstr ""
+msgstr "انتهى التثبيت"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr " تم العثور على %i ، سيظهر 100"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "تم العثور على %i"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
-msgstr ""
+msgstr "تثبيت/إزالة"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr ""
+msgstr "تحديث القوائم"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr ""
+msgstr "الإصدار"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "الحصول على القوائم"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "قابل للتحديث"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "ترقية كلية"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr ""
+msgstr "البحث"
 
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr ""
+msgstr "في الانتظار"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr ""
+msgstr "إلغاء جميع"
 
 #: ajenti/plugins/packages/layout/installer.xml:1
 msgid "Install"
-msgstr ""
+msgstr "تثبيت"
 
 #: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
-msgstr ""
+msgstr "اعدادات اخرى"
 
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
@@ -1154,119 +1154,119 @@ msgstr ""
 
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
-msgstr ""
+msgstr "مجلد"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Clients"
-msgstr ""
+msgstr "عملاء"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr ""
+msgstr "تعذر الاتصال إلى مونين: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "مصادقة Munin HTTP فشلت "
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr ""
+msgstr "عرض"
 
 #: ajenti/plugins/samba/main.py:43
 msgid "Password updated"
-msgstr ""
+msgstr "تحديث كلمة المرور "
 
 #: ajenti/plugins/samba/main.py:46
 msgid "Password update failed"
-msgstr ""
+msgstr "فشل تحديث كلمة المرور"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "مشاركة"
 
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "المسار"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 msgid "Guest access"
-msgstr ""
+msgstr "دخول الزوار"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr ""
+msgstr "قابل للعرض"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
-msgstr ""
+msgstr "إنشاء قناع"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Directory mask"
-msgstr ""
+msgstr "قناع الدليل"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Read only"
-msgstr ""
+msgstr "للقراءة فقط"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "التهيئة"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
-msgstr ""
+msgstr "واجهات"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "ربط فقط إلى هذه الواجهات"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Identification"
-msgstr ""
+msgstr "التعريف"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Workgroup"
-msgstr ""
+msgstr "مجموعة العمل"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr ""
+msgstr "سلسلة الخادم"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
-msgstr ""
+msgstr "الأمن"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Sessions"
-msgstr ""
+msgstr "جلسات"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Share"
-msgstr ""
+msgstr "مشاركة"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Machine"
-msgstr ""
+msgstr "آلة"
 
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr ""
+msgstr "انقطاع الاتصال"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
-msgstr ""
+msgstr "إضافة"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "Set"
-msgstr ""
+msgstr "تعيين"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr ""
+msgstr "المستخدمين المعرفيين"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"

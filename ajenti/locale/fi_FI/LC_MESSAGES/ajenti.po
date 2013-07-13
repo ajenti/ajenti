@@ -21,70 +21,70 @@
 #: ajenti/plugins/iptables/layout/main.xml:11
 #: ajenti/plugins/iptables/layout/main.xml:12
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
 msgid "Restart"
-msgstr ""
+msgstr "Käynnistä uudelleen"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr ""
+msgstr "Käynnistä Ajenti uudelleen?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "Yleiset"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 msgid "HTTP Server"
-msgstr ""
+msgstr "HTTP-palvelin"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
 msgid "Host"
-msgstr ""
+msgstr "Osoite"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
-msgstr ""
+msgstr "Portti"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr ""
+msgstr "Käytä SSL:ää"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "Salausvarmenteen polku"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "Itseallekirjoitetun SSL-varmenteen generaattori"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Generoi"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
 #: ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:26
 msgid "Users"
-msgstr ""
+msgstr "Käyttäjät"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "Todennus"
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -94,17 +94,17 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
 #: ajenti/plugins/iptables/main.py:139
 msgid "Enable"
-msgstr ""
+msgstr "Päälle"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Accounts"
-msgstr ""
+msgstr "Tilit"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/cron/layout/main.xml:4
@@ -141,12 +141,12 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Vahvista poisto"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
-msgstr ""
+msgstr "Vaihda salasana"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:3
@@ -178,34 +178,34 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:13
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Create"
-msgstr ""
+msgstr "Luo"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:18
 msgid "Other"
-msgstr ""
+msgstr "Muut"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
-msgstr ""
+msgstr "Lähetä palautetta"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti lähettää versionumeronsa, käyttöjärjestelmäsi nimen ja käyttämäsi lisäosat ajenti.orgiin anonyymisti"
 
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/plugins/plugins.py:10
 msgid "Plugins"
-msgstr ""
+msgstr "Lisäosat"
 
 #: ajenti/plugins/configurator/configurator.py:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr ""
+msgstr "Määritä"
 
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
@@ -214,39 +214,39 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 msgid "Saved"
-msgstr ""
+msgstr "Tallennettu"
 
 #: ajenti/plugins/configurator/configurator.py:106
 #: ajenti/plugins/configurator/configurator.py:108
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr ""
+msgstr "Tallennettu. Käynnistä Ajenti uudestaan ottaaksesi muutokset käyttöön."
 
 #: ajenti/plugins/configurator/configurator.py:112
 #: ajenti/plugins/configurator/configurator.py:114
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Kirjoita hostname"
 
 #: ajenti/plugins/configurator/configurator.py:128
 #: ajenti/plugins/configurator/configurator.py:130
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Määritä lisäosa %s!"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:144
 msgid "Configuration"
-msgstr ""
+msgstr "Asetukset"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Muokkaa Ajentin asetuksia"
 
 #: ajenti/plugins/configurator/configurator.py:147
 #: ajenti/plugins/configurator/configurator.py:149
 msgid "Restart Ajenti"
-msgstr ""
+msgstr "Käynnistä Ajenti uudelleen"
 
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
@@ -256,36 +256,36 @@ msgstr ""
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 #: ajenti/plugins/iptables/main.py:65
 msgid "System"
-msgstr ""
+msgstr "Järjestelmä"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr ""
+msgstr "Valitse"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr ""
+msgstr "Normaali"
 
 #: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
 msgid "Minute"
-msgstr ""
+msgstr "Minuutti"
 
 #: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
 msgid "Hour"
-msgstr ""
+msgstr "Tunti"
 
 #: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
 msgid "Day"
-msgstr ""
+msgstr "Päivä"
 
 #: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
 msgid "Month"
-msgstr ""
+msgstr "Kuukausi"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/cron/layout/main.xml:10
 msgid "DoW"
-msgstr ""
+msgstr "Viikonpäivä"
 
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -295,17 +295,17 @@ msgstr ""
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
 msgid "Command"
-msgstr ""
+msgstr "Komento"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 #: ajenti/plugins/cron/layout/main.xml:12
 msgid "Special"
-msgstr ""
+msgstr "Erityiset"
 
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Schedule"
-msgstr ""
+msgstr "Ajastus"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:19
@@ -313,7 +313,7 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Environment"
-msgstr ""
+msgstr "Ympäristö"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:22
@@ -334,7 +334,7 @@ msgstr ""
 #: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:23
@@ -342,11 +342,11 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:3
 msgid "Value"
-msgstr ""
+msgstr "Arvo"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr ""
+msgstr "Samba-klusteri"
 
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
@@ -355,73 +355,73 @@ msgstr ""
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/netatalk/main.py:19
 msgid "Software"
-msgstr ""
+msgstr "Ohjelmisto"
 
 #: ajenti/plugins/ctdb/main.py:65
 msgid "Failed to obtain CTDB status"
-msgstr ""
+msgstr "CTDB-tilan noutaminen ei onnistunut"
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 msgid "Status"
-msgstr ""
+msgstr "Tila"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "Julkiset IP:t"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr ""
+msgstr "Hallitse Sambaa"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_('Tunneittain'), _('Päivittäin'), _('Viikoittain'), _('Kuukausittain'), _('Vuosittain'), _('Käynnistettäessä')]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr ""
+msgstr "Debug-taso"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr ""
+msgstr "Tiedostot"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Recovery lock -tiedosto"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "Julkisten osoitteiden tiedosto"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Solmut-tiedosto"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr ""
+msgstr "Lokitiedosto"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "Verkko"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "Julkinen interface"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Julkinen verkko"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Julkinen gateway"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "Solmut"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -429,68 +429,68 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
 msgid "Address"
-msgstr ""
+msgstr "Osoite"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr ""
+msgstr "Julkiset osoitteet"
 
 #: ajenti/plugins/ctdb/layout/main.xml:23
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 msgid "Interface"
-msgstr ""
+msgstr "Liitäntä"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "CodeMirror-koodieditori"
 
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
 msgid "Reload"
-msgstr ""
+msgstr "Lataa uudelleen"
 
 #: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
 msgid "Dashboard"
-msgstr ""
+msgstr "Ohjausnäkymä"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "Tervetuloa"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:1
 msgid "Refresh"
-msgstr ""
+msgstr "Päivitä"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr ""
+msgstr "Lisää vimpain"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr ""
+msgstr "[{'text': _('Peruuta'), 'id': 'cancel'}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr ""
+msgstr "Kysely päättynyt"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Tuloste leikattu %i rivistä 200:een"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr ""
+msgstr "Suorita"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr ""
+msgstr "Tietokannat"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Vahvista tietokannan poisto!"
 
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
@@ -500,173 +500,173 @@ msgstr ""
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Username"
-msgstr ""
+msgstr "Käyttäjätunnus"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr ""
+msgstr "Tietokannan nimi"
 
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/mysql/layout/config.xml:2
 #: ajenti/plugins/samba/layout/main.xml:29
 #: ajenti/plugins/netatalk/layout/main.xml:6
 msgid "Password"
-msgstr ""
+msgstr "Salasana"
 
 #: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
-msgstr ""
+msgstr "Tiedostonhallinta"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/notepad/notepad.py:19
 msgid "Tools"
-msgstr ""
+msgstr "Työkalut"
 
 #: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:1
 #: ajenti/plugins/packages/layout/row.xml:3
 msgid "Cancel"
-msgstr ""
+msgstr "Peruuta"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Ylin kansio"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr ""
+msgstr "Uusi tiedosto"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr ""
+msgstr "Uusi kansio"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr ""
+msgstr "Leikkaa"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
-msgstr ""
+msgstr "Kopioi"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
-msgstr ""
+msgstr "Liitä"
 
 #: ajenti/plugins/fm/layout/main.xml:9 ajenti/plugins/fm/layout/main.xml:6
 msgid "Upload"
-msgstr ""
+msgstr "Lataa"
 
 #: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:7
 msgid "Clipboard"
-msgstr ""
+msgstr "Leikepöytä"
 
 #: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
 msgid "Remove"
-msgstr ""
+msgstr "Poista"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
 #: ajenti/plugins/fm/layout/main.xml:11
 msgid "Access"
-msgstr ""
+msgstr "Oikeus"
 
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Owner"
-msgstr ""
+msgstr "Omistaja"
 
 #: ajenti/plugins/fm/layout/main.xml:15 ajenti/plugins/fm/layout/main.xml:16
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:13
 msgid "Group"
-msgstr ""
+msgstr "Ryhmä"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr ""
+msgstr "Virta"
 
 #: ajenti/plugins/power/power.py:80
 msgid "Power control"
-msgstr ""
+msgstr "Virta-asetukset"
 
 #: ajenti/plugins/power/power.py:84
 msgid "Reboot"
-msgstr ""
+msgstr "Käynnistä uudelleen"
 
 #: ajenti/plugins/power/power.py:85
 msgid "Shutdown"
-msgstr ""
+msgstr "Sammuta"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "Verkkovirta"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "Akku"
 
 #: ajenti/plugins/power/layout/widget.xml:3
 msgid "Reboot the system?"
-msgstr ""
+msgstr "Käynnistä järjestelmä uudelleen?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Shutdown the system?"
-msgstr ""
+msgstr "Sammuta järjestelmä?"
 
 #: ajenti/plugins/main/main.py:189
 msgid "Section access"
-msgstr ""
+msgstr "Pääsyosio"
 
 #: ajenti/plugins/main/main.py:206
 msgid "Feedback sent!"
-msgstr ""
+msgstr "Palaute lähetetty!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr ""
+msgstr "Kuormituskeskiarvo"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr ""
+msgstr "Suorittimen käyttö"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr ""
+msgstr "Muistinkäyttö"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr ""
+msgstr "Swap-käyttö"
 
 #: ajenti/plugins/sensors/uptime.py:18
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 msgid "Variant"
-msgstr ""
+msgstr "Variantti"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
-msgstr ""
+msgstr "Tiedostojärjestelmät"
 
 #: ajenti/plugins/fstab/main.py:67
 msgid "Unmounted"
-msgstr ""
+msgstr "Irroitettu"
 
 #: ajenti/plugins/fstab/main.py:73
 msgid "mount -a failed"
-msgstr ""
+msgstr "mount -a epäonnistui"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr ""
+msgstr "Levytila"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr ""
+msgstr "Liitä kaikki"
 
 #: ajenti/plugins/fstab/layout/main.xml:4
 #: ajenti/plugins/fstab/layout/main.xml:12
@@ -675,16 +675,16 @@ msgstr ""
 #: ajenti/plugins/network/layout/widget.xml:1
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "Laite"
 
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "Mountpoint"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 msgid "FS type"
-msgstr ""
+msgstr "FS-tyyppi"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:4
@@ -692,129 +692,129 @@ msgstr ""
 #: ajenti/plugins/squid/layout/port-template.xml:3
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/exports/layout/main.xml:5
 msgid "Options"
-msgstr ""
+msgstr "Asetukset"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
-msgstr ""
+msgstr "Skannaustiheys"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Scan pass"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "Liitetyt tiedostojärjestelmät"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr ""
+msgstr "Käytetty"
 
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr ""
+msgstr "Koko"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr ""
+msgstr "Käyttö"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr ""
+msgstr "Irroita"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "HDD lämpötila"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr ""
+msgstr "[{                 'command': 'force-reload',                 'text': _('Lataa uudelleen'),                 'icon': 'step-forward',             }]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr ""
+msgstr "Työkansio"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
-msgstr ""
+msgstr "Autostart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
-msgstr ""
+msgstr "[_('Päällä'), _('Poissa')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
-msgstr ""
+msgstr "Automaattikäynnistys"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr ""
+msgstr "[_('Päällä'), _('On crash'), _('Poissa')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr ""
+msgstr "Käynnistysviive"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
-msgstr ""
+msgstr "Käynnistysyritykset"
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
-msgstr ""
+msgstr "Et voi poistaa palomuurin automaattikäynnistystä tällä alustalla"
 
 #: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
-msgstr ""
+msgstr "Palomuuri"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 #: ajenti/plugins/iptables/main.py:104
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
-msgstr ""
+msgstr "Lisää asetus"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid "Disable"
-msgstr ""
+msgstr "Poista käytöstä"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
-msgstr ""
+msgstr " autostart"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr ""
+msgstr "Lisäosat"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "Tilat"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Raakamuokkaus"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Uusi ketju"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
-msgstr ""
+msgstr "Toiminta:"
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "Ehdot"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "Uusi sääntö"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
@@ -822,250 +822,250 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/iptables/layout/main.xml:13
 msgid "Apply"
-msgstr ""
+msgstr "Hyväksy"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "Protokolla"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Ports"
-msgstr ""
+msgstr "Portit"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Syy"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr ""
+msgstr "Komentosarja"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr ""
+msgstr "Käynnistetty"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr ""
+msgstr "Komentosarjat"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr ""
+msgstr "Suorita komentosarjoja"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "Suorita terminaalissa"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr ""
+msgstr "Tämä paketti voidaan asentaa automaattisesti"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
-msgstr ""
+msgstr "Paketit"
 
 #: ajenti/plugins/packages/main.py:50
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "Lisätään paketin asennus listaan"
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
-msgstr ""
+msgstr "Asennus on valmis!"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i löydetty, 100 näytetty"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "%i löydetty"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
-msgstr ""
+msgstr "Asenna / Poista"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr ""
+msgstr "Päivitä luettelot"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr ""
+msgstr "Versio"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Hae luettelot"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "Päivitettävissä"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "Päivitä kaikki"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr ""
+msgstr "Etsi"
 
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr ""
+msgstr "Vireillä"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr ""
+msgstr "Peruuta kaikki"
 
 #: ajenti/plugins/packages/layout/installer.xml:1
 msgid "Install"
-msgstr ""
+msgstr "Asenna"
 
 #: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
-msgstr ""
+msgstr "Muut"
 
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "Anturi"
 
 #: ajenti/plugins/squid/main.py:13
 msgid "Squid"
-msgstr ""
+msgstr "Squid"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "HTTP-pääsy"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "Tila"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
 #: ajenti/plugins/terminal/main.py:163
 msgid "Terminal"
-msgstr ""
+msgstr "Terminaali"
 
 #: ajenti/plugins/terminal/main.py:167
 msgid "Run shell"
-msgstr ""
+msgstr "Suorita komentorivi"
 
 #: ajenti/plugins/terminal/main.py:168
 msgid "Run custom commands"
-msgstr ""
+msgstr "Suorita mukautettuja komentoja"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "Oletusarvoinen komentotulkki"
 
 #: ajenti/plugins/terminal/layout/main.xml:2
 #: ajenti/plugins/notepad/layout/main.xml:1
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "Ei aktiivisia terminaaleja"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
-msgstr ""
+msgstr "Lokit"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
-msgstr ""
+msgstr "Avoinna"
 
 #: ajenti/plugins/services/main.py:12
 msgid "Services"
-msgstr ""
+msgstr "Palvelut"
 
 #: ajenti/plugins/services/main.py:39
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s käynnistetty"
 
 #: ajenti/plugins/services/main.py:44
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s sammutettu"
 
 #: ajenti/plugins/services/main.py:49
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s käynnistetty uudelleen"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr ""
+msgstr "Palvelu"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 msgid "Start"
-msgstr ""
+msgstr "Käynnistä"
 
 #: ajenti/plugins/services/layout/bar.xml:2
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "Alkuperä"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "Toiminnot"
 
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "User"
-msgstr ""
+msgstr "Käyttäjä"
 
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
-msgstr ""
+msgstr "Kommentti"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Home directory"
-msgstr ""
+msgstr "Kotikansio"
 
 #: ajenti/plugins/users/layout/main.xml:10
 msgid "Shell"
-msgstr ""
+msgstr "Komentorivi"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Groups"
-msgstr ""
+msgstr "Ryhmät"
 
 #: ajenti/plugins/users/layout/main.xml:15
 msgid "Members"
-msgstr ""
+msgstr "Jäsenet"
 
 #: ajenti/plugins/network/widget.py:81
 msgid "Immediate Traffic"
-msgstr ""
+msgstr "Välitön liikenne"
 
 #: ajenti/plugins/network/widget.py:111
 msgid "Traffic"
-msgstr ""
+msgstr "Liikenne"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
-msgstr ""
+msgstr "Prosessit"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr ""
+msgstr "PID (vanhempi)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "CPU"
@@ -1077,221 +1077,221 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "Terminate"
-msgstr ""
+msgstr "Lopeta"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Kill"
-msgstr ""
+msgstr "Tapa"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Hostit"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
-msgstr ""
+msgstr "Aliakset"
 
 #: ajenti/plugins/notepad/notepad.py:17
 msgid "Notepad"
-msgstr ""
+msgstr "Muistio"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr ""
+msgstr "Tallenna nimellä"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr ""
+msgstr "Tallenna kirjanmerkkeihin"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
-msgstr ""
+msgstr "Riippuvuudet"
 
 #: ajenti/plugins/resolv/resolv.py:13
 msgid "Nameservers"
-msgstr ""
+msgstr "Nimipalvelimet"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "DNS nameserver"
-msgstr ""
+msgstr "DNS-nimipalvelin"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Local domain name"
-msgstr ""
+msgstr "Paikallinen verkkotunnus"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Search list"
-msgstr ""
+msgstr "Hakulista"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Sort list"
-msgstr ""
+msgstr "Lajitteluluettelo"
 
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/raid/layout/main.xml:3
 msgid "Type"
-msgstr ""
+msgstr "Tyyppi"
 
 #: ajenti/plugins/smartctl/widget.py:55
 msgid "No data"
-msgstr ""
+msgstr "Ei tietoja"
 
 #: ajenti/plugins/smartctl/widget.py:56
 msgid "FAILING"
-msgstr ""
+msgstr "FAILING"
 
 #: ajenti/plugins/smartctl/widget.py:57
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "PRE-FAIL"
 
 #: ajenti/plugins/smartctl/widget.py:58
 msgid "Unknown error"
-msgstr ""
+msgstr "Tuntematon virhe"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "NFS-vienti"
 
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
-msgstr ""
+msgstr "Hakemisto"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Clients"
-msgstr ""
+msgstr "Asiakkaat"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr ""
+msgstr "Muniniin ei voitu muodostaa yhteyttä: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "Munin HTTP-todennus epäonnistui"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr ""
+msgstr "Näytä"
 
 #: ajenti/plugins/samba/main.py:43
 msgid "Password updated"
-msgstr ""
+msgstr "Salasana päivitetty"
 
 #: ajenti/plugins/samba/main.py:46
 msgid "Password update failed"
-msgstr ""
+msgstr "Salasana päivitys epäonnistui"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "Jaot"
 
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "Polku"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 msgid "Guest access"
-msgstr ""
+msgstr "Vieraspääsy"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr ""
+msgstr "Selattavissa"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
-msgstr ""
+msgstr "Luontimaski"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Directory mask"
-msgstr ""
+msgstr "Hakemistomaski"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Read only"
-msgstr ""
+msgstr "Vain luku"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "Asetukset"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfaces"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Sido vain näihin liitäntäihin"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Identification"
-msgstr ""
+msgstr "Tunnistautuminen"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Workgroup"
-msgstr ""
+msgstr "Työryhmä"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr ""
+msgstr "Palvelimen merkkijono"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
-msgstr ""
+msgstr "Turvallisuus"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Sessions"
-msgstr ""
+msgstr "Istunnot"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Share"
-msgstr ""
+msgstr "Jaa"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Machine"
-msgstr ""
+msgstr "Kone"
 
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr ""
+msgstr "Katkaise yhteys"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "Set"
-msgstr ""
+msgstr "Aseta"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr ""
+msgstr "Kelvolliset käyttäjät"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Resurssiforkit"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Lisämääritteet"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "CNID-skeema"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "AFP-portti"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "CNID-osoite"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Toiminta"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1299,57 +1299,57 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Tila"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Laitteet"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Lohkot"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Palautus:"
 
 #: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
 #: ajenti/plugins/notepad/notepad.py:50
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "Nimetön %i"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Lataa nykyinen tila"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr ""
+msgstr "Tämä korvaa tallennetut asetukset palomuurin nykytilalla! Haluatko jatkaa?"
 
 #: ajenti/plugins/terminal/terminal.py:94
 #: ajenti/plugins/terminal/terminal.py:95
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "Prosessi on päättynyt statuksella %i"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Argumentit"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Argumentti"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "Merkitse asennettavaksi/päivitettäväksi"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Merkitse poistettavaksi"
 
 #: ajenti/plugins/terminal/terminal.py:97
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Prosessi on lopetettu onnistuneesti"
 
