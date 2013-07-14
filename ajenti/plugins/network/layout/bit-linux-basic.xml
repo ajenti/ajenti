@@ -1,0 +1,11 @@
+<vc>
+    <formline text="Addressing">
+        <dropdown bind="addressing"
+            labels="[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+            values="['loopback', 'static', 'manual', 'dhcp', 'bootp', 'wvdial', 'ipv4ll']"
+            />
+    </formline>
+    <formline>
+        <checkbox text="Auto-up" bind="auto" />
+    </formline>
+</vc>

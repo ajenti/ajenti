@@ -1,0 +1,22 @@
+<bind:dict bind="params">
+    <vc>
+        <formline text="Hostname">
+            <textbox bind="hostname" />
+        </formline>
+        <formline text="Lease hours">
+            <textbox bind="leasehours" />
+        </formline>
+        <formline text="Lease time">
+            <textbox bind="leasetime" />
+        </formline>
+        <formline text="Vendor ID">
+            <textbox bind="vendor" />
+        </formline>
+        <formline text="Client ID">
+            <textbox bind="client" />
+        </formline>
+        <formline text="MTU">
+            <textbox bind="mtu" />
+        </formline>
+    </vc>
+</bind:dict>

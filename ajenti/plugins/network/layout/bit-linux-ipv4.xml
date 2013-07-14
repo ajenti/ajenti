@@ -1,0 +1,28 @@
+<bind:dict bind="params">
+    <vc>
+        <formline text="Address">
+            <textbox bind="address" />
+        </formline>
+        <formline text="Mask">
+            <textbox bind="netmask" />
+        </formline>
+        <formline text="Gateway">
+            <textbox bind="gateway" />
+        </formline>
+        <formline text="Network">
+            <textbox bind="network" />
+        </formline>
+        <formline text="Broadcast IP">
+            <textbox bind="broadcast" />
+        </formline>
+        <formline text="Metric">
+            <textbox bind="metric" />
+        </formline>
+        <formline text="MAC">
+            <textbox bind="hwaddress" />
+        </formline>
+        <formline text="MTU">
+            <textbox bind="mtu" />
+        </formline>
+    </vc>
+</bind:dict>

@@ -175,7 +175,8 @@ class DictAutoBinding (Binding):
             try:
                 template = self.ui.nearest(lambda x: x.bind == key)[0]
             except IndexError:
-                raise Exception('Bind target for key %s not found' % repr(key))
+                continue
+                #raise Exception('Bind target for key %s not found' % repr(key))
             binder = DictValueBinding(self.values, key, template)
             binder.populate()
             self.binders[key] = binder
@@ -412,8 +413,8 @@ class Binder (object):
             lambda x: is_bound(x),
             exclude=lambda x: (
                 x.parent != ui and x != ui and (
-                    '{bind}context' in x.parent.properties or  # skip nested contexts
-                    x.parent.typeid == 'bind:template'  # and templates
+                    '{bind}context' in x.parent.properties  # skip nested contexts
+                    or x.parent.typeid.startswith('bind:')  # and templates and nested collections
                 )
             )
         )

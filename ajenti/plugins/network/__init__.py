@@ -15,3 +15,10 @@ info = PluginInfo(
 def init():
     import widget
     import api
+    import main
+    import nctp_linux
+    import nc_debian
+    import ncs_linux_basic
+    import ncs_linux_ipv4
+    import ncs_linux_dhcp
+    import ncs_linux_ifupdown

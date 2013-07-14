@@ -1,0 +1,16 @@
+<bind:dict bind="params">
+    <vc>
+        <formline text="Pre-up">
+            <textbox bind="up" />
+        </formline>
+        <formline text="Pre-down">
+            <textbox bind="down" />
+        </formline>
+        <formline text="Post-up">
+            <textbox bind="post-up" />
+        </formline>
+        <formline text="Post-down">
+            <textbox bind="post-down" />
+        </formline>
+    </vc>
+</bind:dict>
