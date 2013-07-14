@@ -87,6 +87,17 @@ class Terminals (SectionPlugin):
 
 @plugin
 class TerminalHttp (BasePlugin, HttpPlugin):
+    colors = {
+        'green': '#859900',
+        'white': '#eee8d5',
+        'yellow': '#b58900',
+        'red': '#dc322f',
+        'magenta': '#d33682',
+        'violet': '#6c71c4',
+        'blue': '#268bd2',
+        'cyan': '#2aa198',
+    }
+
     @url('/ajenti:terminal/(?P<id>\d+)')
     def get_page(self, context, id):
         if context.session.identity is None:
@@ -108,10 +119,14 @@ class TerminalHttp (BasePlugin, HttpPlugin):
                 fc = terminal.screen[y][x][1]
                 if fc == 'default':
                     fc = 'lightgray'
+                if fc in self.colors:
+                    fc = self.colors[fc]
                 fc = ImageDraw.ImageColor.getcolor(fc, 'RGB')
                 bc = terminal.screen[y][x][2]
                 if bc == 'default':
                     bc = 'black'
+                if bc in self.colors:
+                    bc = self.colors[bc]
                 bc = ImageDraw.ImageColor.getcolor(bc, 'RGB')
                 ch = terminal.screen[y][x][0]
                 draw.point((x, 10 + y * 2 + 1), fill=(fc if ord(ch) > 32 else bc))

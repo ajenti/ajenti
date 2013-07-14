@@ -13,6 +13,19 @@ class window.Controls.terminal__thumbnail extends window.Control
             e.stopPropagation()
 
 
+
+colors = 
+    black: '#073642'
+    green: '#859900'
+    white: '#eee8d5'
+    yellow: '#b58900'
+    red: '#dc322f'
+    magenta: '#d33682'
+    violet: '#6c71c4'
+    blue: '#268bd2'
+    cyan: '#2aa198'
+
+
 class window.Terminal
     constructor: () ->
         @id = document.location.href.split('/')[4]
@@ -91,7 +104,20 @@ class window.Terminal
                         sty += 'font-style: italic;'
                     if cell[5]
                         sty += 'text-decoration: underline;'
-                r += '</pre><pre' + misc + ' style="color:' + cell[1] + ';background:' + cell[2] + ';' + sty + '">'
+
+                color = cell[1]
+                if color == 'default'
+                    color = 'white'
+                color = colors[color]
+                color ?= cell[1]
+
+                background = cell[2]
+                if background == 'default'
+                    background = 'black'
+                background = colors[background]
+                background ?= cell[2]
+
+                r += '</pre><pre' + misc + ' style="color:' + color + ';background:' + background + ';' + sty + '">'
                 fg = cell[1]
                 bg = cell[2]
                 bold = cell[3]
