@@ -6,7 +6,7 @@
                     <dtr>
                         <dth width="1" />
                         <dth text="{Name}" />
-                        <dth text="{Class}" width="100" />
+                        <dth text="{Class}" width="50" />
                         <dth text="TX" width="100" />
                         <dth text="RX" width="100" />
                         <dth width="1" />
