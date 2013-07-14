@@ -127,7 +127,10 @@ class window.Controls.sortabledt extends window.Controls.dt
     createDom: () ->
         super()
         @tbody = @dom.find('tbody')
-        @tbody.sortable().disableSelection()
+        @tbody.sortable(
+            distance: 5
+            cancel: 'input,button,a'
+        )
         @order = []
 
     detectUpdates: () ->
