@@ -1,9 +1,8 @@
 import time
 import os
+import subprocess
 
-from ajenti.com import *
-from ajenti.utils import *
-from ajenti.ui import *
+from ajenti.api import *
 
 from api import *
 from nctp_linux import *
@@ -16,9 +15,10 @@ optionmap = {
     'MACADDR': 'hwaddr',
 }
 
-class CentosNetworkConfig(LinuxIfconfig):
-    implements(INetworkConfig)
-    platform = ['centos', 'mandriva']
+
+@plugin
+class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
+    platforms = ['centos']
 
     interfaces = None
 
@@ -43,8 +43,8 @@ class CentosNetworkConfig(LinuxIfconfig):
                     d = {}
                     for s in ss:
                         try:
-                            k = s.split('=')[0].strip('\t \'');
-                            v = s.split('=')[1].strip('\t \'');
+                            k = s.split('=')[0].strip('\t \'')
+                            v = s.split('=')[1].strip('\t \'')
                             d[k] = v
                         except:
                             pass
@@ -54,7 +54,7 @@ class CentosNetworkConfig(LinuxIfconfig):
                     try:
                         if 'BOOTPROTO' in d:
                             m = d['BOOTPROTO']
-                        c,m = self.classes[m]
+                        c, m = self.classes[m]
                     except:
                         pass
 
@@ -72,21 +72,22 @@ class CentosNetworkConfig(LinuxIfconfig):
                             e.params[k] = d[k]
 
                     e.devclass = self.detect_dev_class(e)
-                    e.up = shell_status('ifconfig ' + e.name + '|grep UP') == 0
-                    e.get_bits(self.app, self.detect_iface_bits(e))
+                    try:
+                        e.up = 'UP' in subprocess.check_output(['ifconfig', e.name])
+                    except:
+                        e.up = False
+                    e.bit_classes = self.detect_iface_bits(e)
 
-       
     def save(self):
         for i in self.interfaces:
             with open('/etc/sysconfig/network-scripts/ifcfg-' + i, 'w') as f:
                 self.save_iface(self.interfaces[i], f)
         return
 
-    
     def save_iface(self, iface, f):
         for x in self.classes:
             if x == (iface.type, iface.addressing):
-                f.write('BOOTPROTO=\'' + self.classes[x] + '\'\n');
+                f.write('BOOTPROTO=\'' + self.classes[x] + '\'\n')
 
         for x in iface.params:
             fnd = False

@@ -18,6 +18,7 @@ def init():
     import main
     import nctp_linux
     import nc_debian
+    import nc_centos
     import ncs_linux_basic
     import ncs_linux_ipv4
     import ncs_linux_dhcp

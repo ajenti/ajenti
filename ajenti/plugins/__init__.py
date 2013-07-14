@@ -241,7 +241,6 @@ class PluginManager:
                                       *imp.find_module(name, [self.get_plugins_root(), self.extra_location]))
                 if not hasattr(mod, 'info'):
                     raise PluginFormatError()
-                logging.debug('  == %s ' % mod.info.title)
             except PluginFormatError:
                 raise
             except Exception, e:
@@ -282,6 +281,9 @@ class PluginManager:
         except PluginCrashed, e:
             logging.warn(' *** [%s] Plugin crashed: %s' % (name, e))
             print e.traceback
+            info.crash = e
+        except Dependency.Unsatisfied, e:
+            logging.warn(' *** [%s] skipping due to %s' % (name, e))
             info.crash = e
         except PluginLoadError, e:
             logging.warn(' *** [%s] Plugin failed to load: %s' % (name, e))
