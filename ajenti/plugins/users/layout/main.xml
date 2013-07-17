@@ -2,6 +2,7 @@
     <hc>
         <button id="add-user" icon="plus" text="{User}" />
         <inputdialog id="input-username" text="{Username}" visible="False" />
+        <inputdialog id="input-new-password" text="{New Password}" visible="False" />
         <button id="add-group" icon="plus" text="{Group}" />
         <inputdialog id="input-groupname" text="{Name}" visible="False" />
     </hc>
@@ -26,7 +27,9 @@
                                                 <label bind="uid" />
                                             </hc>   
                                         </box>
-                                        
+
+
+
                                         <pad>
                                             <hc>
                                                 <vc>
@@ -53,6 +56,14 @@
                                                 </vc>
                                             </hc>
                                         </pad>
+
+
+                                        <pad>
+                                            <hc>
+                                                <button id="create-home-dir" text="{Create home}" icon="folder-close" />
+                                            </hc>
+                                        </pad>
+
                                     </collapserow>
                                 </bind:template>
                                 <button id="save-users" text="{Save}" icon="ok" />
