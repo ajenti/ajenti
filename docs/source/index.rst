@@ -14,6 +14,7 @@ Documentation
 
    man/install/general
    man/install/debian
+   man/install/ubuntu
    man/install/rpm
    man/install/bsd
    man/reverse-proxy
