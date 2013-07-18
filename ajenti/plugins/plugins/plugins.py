@@ -32,8 +32,7 @@ class PluginsPlugin (SectionPlugin):
         self.find('dependencies').post_item_bind = post_dep_bind
 
         self.binder = Binder(self, self.find('bind-root'))
-        self.refresh()
 
-    def refresh(self):
+    def on_page_load(self):
         self.plugins = sorted(manager.get_all().values())
         self.binder.reset().autodiscover().populate()

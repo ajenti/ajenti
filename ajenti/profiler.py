@@ -5,7 +5,7 @@ _profiles_running = {}
 _profiles_stack = []
 
 
-def profile(name):
+def profile_start(name):
     """
     Starts a profiling interval with specific ``name``
     Profiling data is sent to the client with next data batch.
@@ -39,9 +39,9 @@ def profiled(namefx=None):
     def decorator(fx):
         def wrapper(*args, **kwargs):
             if namefx:
-                profile(namefx(args, kwargs))
+                profile_start(namefx(args, kwargs))
             else:
-                profile('%s %s %s' % (fx.__name__, args, kwargs))
+                profile_start('%s %s %s' % (fx.__name__, args, kwargs))
             r = fx(*args, **kwargs)
             profile_end()
             return r

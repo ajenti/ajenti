@@ -28,8 +28,6 @@ class TaskManager (SectionPlugin):
         self.refresh()
 
     def refresh(self):
-        profile('Process list')
-
         self.processes = list(psutil.process_iter())
         for p in self.processes:
             p._name = p.name
@@ -43,7 +41,6 @@ class TaskManager (SectionPlugin):
                 p._username = '?'
 
         self.binder.reset(self).autodiscover().populate()
-        profile_end('Process list')
 
     def on_term(self, p):
         os.kill(p.pid, 15)

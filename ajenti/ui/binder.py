@@ -428,6 +428,8 @@ class Binder (object):
                 continue
 
             for prop in bindable.properties:
+                if not prop.startswith('{bind') and prop != 'bind':
+                    continue
                 k = bindable.properties[prop]
 
                 if prop == 'bind':
