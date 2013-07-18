@@ -2,7 +2,6 @@
     <hc>
         <button id="add-user" icon="plus" text="{User}" />
         <inputdialog id="input-username" text="{Username}" visible="False" />
-        <inputdialog id="input-new-password" text="{New Password}" visible="False" />
         <button id="add-group" icon="plus" text="{Group}" />
         <inputdialog id="input-groupname" text="{Name}" visible="False" />
     </hc>
@@ -25,10 +24,63 @@
                                                 <icon icon="user" />
                                                 <label style="bold" bind="name" />
                                                 <label bind="uid" />
-                                            </hc>   
+                                            </hc>
                                         </box>
 
+                                        <pad>
+                                            <hc>
+                                                <vc>
+                                                    <formline text="{Username}">
+                                                        <textbox bind="name" />
+                                                    </formline>
+                                                    <formline text="UID">
+                                                        <textbox bind="uid" />
+                                                    </formline>
+                                                    <formline text="GID">
+                                                        <textbox bind="gid" />
+                                                    </formline>
+                                                </vc>
+                                                <vc>
+                                                    <formline text="{Comment}">
+                                                        <textbox bind="comment" />
+                                                    </formline>
+                                                    <formline text="{Home directory}">
+                                                        <hc>
+                                                            <textbox bind="home" />
+                                                            <button id="create-home-dir" text="{Create}" style="mini" visible="False" />
+                                                        </hc>
+                                                    </formline>
+                                                    <formline text="{Shell}">
+                                                        <textbox bind="shell" />
+                                                    </formline>
+                                                </vc>
+                                            </hc>
+                                        </pad>
+                                    </collapserow>
+                                </bind:template>
+                                <button id="save-users" text="{Save}" icon="ok" />
+                            </vc>
+                        </bind:collection>
+                    </box>
+                </tab>
 
+                <tab title="{System Users}">
+                    <box width="750" id="passwd-config-system">
+                        <bind:collection bind="users" id="system-users">
+                            <vc>
+                                <dt bind="__items" />
+                                <bind:template>
+                                    <collapserow>
+                                        <box>
+                                            <right>
+                                                <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                            </right>
+                                            <hc>
+                                                <icon icon="user" />
+                                                <label style="bold" bind="name" />
+                                                <label bind="uid" />
+                                            </hc>   
+                                        </box>
 
                                         <pad>
                                             <hc>
@@ -56,14 +108,6 @@
                                                 </vc>
                                             </hc>
                                         </pad>
-
-
-                                        <pad>
-                                            <hc>
-                                                <button id="create-home-dir" text="{Create home}" icon="folder-close" />
-                                            </hc>
-                                        </pad>
-
                                     </collapserow>
                                 </bind:template>
                                 <button id="save-users" text="{Save}" icon="ok" />
