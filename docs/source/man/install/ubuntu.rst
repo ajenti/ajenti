@@ -3,6 +3,8 @@
 Ubuntu Packages
 ***************
 
+Ajenti requires ubuntu 12.04 Precise Pangolin. Previous releases might work with Python upgraded.
+
 Add repository key::
 
     wget http://repo.ajenti.org/debian/key -O- | apt-key add -
