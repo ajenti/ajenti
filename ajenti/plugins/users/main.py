@@ -41,6 +41,7 @@ class Users (SectionPlugin):
         self.mgr = UsersBackend.get()
 
         def post_item_bind(object, collection, item, ui):
+            ui.find('change-password').on('click', self.change_password, item, ui)
             if not os.path.exists(item.home):
                 ui.find('create-home-dir').on('click', self.create_home_dir, item, ui)
                 ui.find('create-home-dir').visible = True
@@ -91,6 +92,20 @@ class Users (SectionPlugin):
         self.context.notify('info', _('Home dir for %s was created') % user.name)
         ui.find('create-home-dir').visible = False
 
+    def change_password(self, user, ui):
+        new_password = ui.find('new-password').value
+
+        if new_password:
+            error = self.mgr.change_password(user, new_password)
+
+            if error:
+                self.context.notify('error', _('%s') % error)
+            else:
+                self.context.notify('info', _('Password for %s was changed') % user.name)
+                ui.find('new-password').value = ''
+        else:
+            self.context.notify('error', _('Password for %s should`t be empty') % user.name)
+
 @interface
 class UsersBackend (object):
     def add_user(self, name):
@@ -101,6 +116,15 @@ class UsersBackend (object):
 
     def change_home(self, user):
         pass
+
+    def change_password(self, user, password):
+        print password
+        proc = subprocess.Popen(['passwd', user.name], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc.stdin.write('%s\n' % password)
+        proc.stdin.write('%s' % password)
+        proc.stdin.flush()
+        stdout,stderr = proc.communicate()
+        return stderr
 
     def make_home_dir(self, user):
         subprocess.call(['mkdir', '-p', user.home])
