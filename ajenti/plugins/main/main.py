@@ -85,11 +85,11 @@ class MainSocket (SocketPlugin):
         try:
             if message['type'] == 'ui_update':
                 # UI updates arrived
-                profile('Total')
+                profile_start('Total')
                 for update in message['content']:
                     if update['type'] == 'update':
                         # Property change
-                        profile('Handling updates')
+                        profile_start('Handling updates')
                         el = self.ui.find_uid(update['uid'])
                         for k, v in update['properties'].iteritems():
                             el.properties[k] = v
@@ -97,7 +97,7 @@ class MainSocket (SocketPlugin):
                         profile_end('Handling updates')
                     if update['type'] == 'event':
                         # Element event emitted
-                        profile('Handling event')
+                        profile_start('Handling event')
                         self.ui.dispatch_event(update['uid'], update['event'], update['params'])
                         profile_end('Handling event')
                 if self.ui.has_updates():
@@ -124,7 +124,7 @@ class MainSocket (SocketPlugin):
         self.emit('init', json.dumps(data))
 
     def send_ui(self):
-        profile('Rendering')
+        profile_start('Rendering')
         data = json.dumps(self.ui.render())
         profile_end('Rendering')
         data = b64encode(zlib.compress(data)[2:-4])
@@ -230,14 +230,14 @@ class SectionsRoot (UIElement):
         self.categories = {}
         self.startup_crashes = []
 
-        profile('Starting plugins')
+        profile_start('Starting plugins')
 
         for cls in SectionPlugin.get_classes():
             try:
                 UserManager.get().require_permission('section:%s' % cls.__name__)
 
                 try:
-                    profile('Starting %s' % cls.__name__)
+                    profile_start('Starting %s' % cls.__name__)
                     cat = cls.new(self.ui)
                     profile_end()
                     self.append(cat)

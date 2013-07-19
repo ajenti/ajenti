@@ -20,47 +20,48 @@
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/iptables/layout/main.xml:11
 #: ajenti/plugins/iptables/layout/main.xml:12
+#: ajenti/plugins/network/layout/main.xml:3
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr ""
+msgstr "Reiniciar Ajenti?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 msgid "HTTP Server"
-msgstr ""
+msgstr "Servidor HTTP"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
-msgstr ""
+msgstr "Porta"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr ""
+msgstr "Usar SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "Caminho para o certificado"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
@@ -73,18 +74,18 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Gerar"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
 #: ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:26
 msgid "Users"
-msgstr ""
+msgstr "Usuários"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticação"
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -94,17 +95,17 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
 #: ajenti/plugins/iptables/main.py:139
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Accounts"
-msgstr ""
+msgstr "Contas"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/cron/layout/main.xml:4
@@ -141,12 +142,12 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Confirmar eliminação"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
-msgstr ""
+msgstr "Alterar senha"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:3
@@ -178,34 +179,34 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:13
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Create"
-msgstr ""
+msgstr "Criar"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:18
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
-msgstr ""
+msgstr "Enviar feedback"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti anonimamente enviará sua versão, seu nome do sistema operacional e quais plugins você usar a maioria para ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/plugins/plugins.py:10
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: ajenti/plugins/configurator/configurator.py:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr ""
+msgstr "Configurar"
 
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
@@ -213,8 +214,9 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
+#: ajenti/plugins/network/main.py:68
 msgid "Saved"
-msgstr ""
+msgstr "Salvo"
 
 #: ajenti/plugins/configurator/configurator.py:106
 #: ajenti/plugins/configurator/configurator.py:108
@@ -254,7 +256,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/iptables/main.py:65
+#: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
 msgid "System"
 msgstr ""
 
@@ -333,6 +335,7 @@ msgstr ""
 #: ajenti/plugins/netatalk/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
 #: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:1
 msgid "Name"
 msgstr ""
 
@@ -948,15 +951,15 @@ msgid "Mode"
 msgstr ""
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:163
+#: ajenti/plugins/terminal/main.py:163 ajenti/plugins/terminal/main.py:178
 msgid "Terminal"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:167
+#: ajenti/plugins/terminal/main.py:167 ajenti/plugins/terminal/main.py:182
 msgid "Run shell"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:168
+#: ajenti/plugins/terminal/main.py:168 ajenti/plugins/terminal/main.py:183
 msgid "Run custom commands"
 msgstr ""
 
@@ -1358,5 +1361,17 @@ msgstr ""
 
 #: ajenti/plugins/fstab/iops.py:61
 msgid "Immediate I/O"
+msgstr ""
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr ""
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
 msgstr ""
 

@@ -20,6 +20,7 @@
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/iptables/layout/main.xml:11
 #: ajenti/plugins/iptables/layout/main.xml:12
+#: ajenti/plugins/network/layout/main.xml:3
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -214,6 +215,7 @@ msgstr "Ρύθμιση παραμέτρων"
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
+#: ajenti/plugins/network/main.py:68
 msgid "Saved"
 msgstr "Αποθηκεύτηκε"
 
@@ -255,7 +257,7 @@ msgstr "Επανεκκίνηση του Ajenti"
 #: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/iptables/main.py:65
+#: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
 msgid "System"
 msgstr "Σύστημα"
 
@@ -334,6 +336,7 @@ msgstr "Περιβάλλον"
 #: ajenti/plugins/netatalk/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
 #: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:1
 msgid "Name"
 msgstr "Όνομα"
 
@@ -949,15 +952,15 @@ msgid "Mode"
 msgstr "Λειτουργία"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:163
+#: ajenti/plugins/terminal/main.py:163 ajenti/plugins/terminal/main.py:178
 msgid "Terminal"
 msgstr "Τερματικό"
 
-#: ajenti/plugins/terminal/main.py:167
+#: ajenti/plugins/terminal/main.py:167 ajenti/plugins/terminal/main.py:182
 msgid "Run shell"
 msgstr "Εκτελέσετε το κέλυφος"
 
-#: ajenti/plugins/terminal/main.py:168
+#: ajenti/plugins/terminal/main.py:168 ajenti/plugins/terminal/main.py:183
 msgid "Run custom commands"
 msgstr "Εκτελέστε τις προσαρμοσμένες εντολές"
 
@@ -1359,5 +1362,17 @@ msgstr ""
 
 #: ajenti/plugins/fstab/iops.py:61
 msgid "Immediate I/O"
+msgstr ""
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr ""
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
 msgstr ""
 

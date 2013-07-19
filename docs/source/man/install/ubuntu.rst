@@ -1,9 +1,7 @@
-.. _debian-packages:
+.. _ubuntu-packages:
 
-Debian Packages
+Ubuntu Packages
 ***************
-
-Debian Squeeze requires squeeze-backports repository: http://backports.debian.org/Instructions/
 
 Add repository key::
 
@@ -12,7 +10,6 @@ Add repository key::
 Add repository to /etc/apt/sources.list::
     
     echo "deb http://repo.ajenti.org/ng/debian main main" >> /etc/apt/sources.list
-    echo "deb http://repo.ajenti.org/ng/debian debian debian" >> /etc/apt/sources.list
 
 Install the package::
     

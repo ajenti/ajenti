@@ -52,7 +52,10 @@ class Dependency (object):
             return '%s (%s)' % (self.dependency.__class__.__name__, self.reason())
 
     def satisfied(self):
-        return False
+        if hasattr(self, '_was_satisfied'):
+            return self._was_satisfied
+        self._was_satisfied = self.is_satisfied()
+        return self._was_satisfied
 
     def build_exception(self):
         exception = self.Unsatisfied()
@@ -80,7 +83,7 @@ class ModuleDependency (Dependency):
     def __init__(self, module_name):
         self.module_name = module_name
 
-    def satisfied(self):
+    def is_satisfied(self):
         if self.module_name in sys.modules:
             return True
         try:
@@ -104,7 +107,7 @@ class PluginDependency (Dependency):
     def __init__(self, plugin_name):
         self.plugin_name = plugin_name
 
-    def satisfied(self):
+    def is_satisfied(self):
         # get_order() only contains successfully loaded plugins
         return self.plugin_name in manager.get_order()
 
@@ -123,7 +126,7 @@ class BinaryDependency (Dependency):
     def __init__(self, binary_name):
         self.binary_name = binary_name
 
-    def satisfied(self):
+    def is_satisfied(self):
         return subprocess.call(['which', self.binary_name]) == 0
 
     def __str__(self):

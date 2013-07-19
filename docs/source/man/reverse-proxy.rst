@@ -21,3 +21,11 @@ All Ajenti URLs are absolute and start with ``/ajenti:``, which makes it easy to
     }
 
 
+For Apache, add following to your ``<Location>``::
+
+    ProxyPass /ajenti http://localhost:8000
+    ProxyPassMatch ^/(ajenti.*)$ http://localhost:8000/$1
+
+    ProxyPassReverse /ajenti:static/ http://localhost:8000/ajenti:static/
+    ProxyPassReverse /ajenti:auth http://localhost:8000/ajenti:auth
+    ProxyPassReverse /ajenti http://localhost:8000

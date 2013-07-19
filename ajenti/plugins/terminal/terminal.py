@@ -68,6 +68,7 @@ class PTYProtocol():
             try:
                 d = self.mstream.read()
                 self.data += d
+                print d
                 if len(self.data) > 0:
                     u = unicode(str(self.data))
                     self.stream.feed(u)
@@ -88,6 +89,7 @@ class PTYProtocol():
             self.on_died(code=status)
 
     def on_died(self, code=0):
+        print 'died'
         if self.dead:
             return
         self.dead = True
@@ -116,6 +118,7 @@ class PTYProtocol():
         return r
 
     def write(self, data):
+        print repr(data)
         self.mstream.write(data)
         self.mstream.flush()
 
