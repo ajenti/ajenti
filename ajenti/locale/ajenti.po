@@ -146,11 +146,13 @@ msgstr ""
 #: ajenti/plugins/fm/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/elements/layout/projects-main.xml:2
 msgid "Confirm deletion"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/elements/layout/projects-main.xml:1
 msgid "Change password"
 msgstr ""
 
@@ -183,6 +185,7 @@ msgstr ""
 #: ajenti/plugins/netatalk/layout/main.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:13
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
+#: ajenti/plugins/elements/layout/projects-main.xml:3
 msgid "Create"
 msgstr ""
 
@@ -963,14 +966,17 @@ msgstr ""
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
 #: ajenti/plugins/terminal/main.py:163 ajenti/plugins/terminal/main.py:178
+#: ajenti/plugins/terminal/main.py:183
 msgid "Terminal"
 msgstr ""
 
 #: ajenti/plugins/terminal/main.py:167 ajenti/plugins/terminal/main.py:182
+#: ajenti/plugins/terminal/main.py:187
 msgid "Run shell"
 msgstr ""
 
 #: ajenti/plugins/terminal/main.py:168 ajenti/plugins/terminal/main.py:183
+#: ajenti/plugins/terminal/main.py:188
 msgid "Run custom commands"
 msgstr ""
 
@@ -1348,6 +1354,7 @@ msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:94
 #: ajenti/plugins/terminal/terminal.py:95
+#: ajenti/plugins/terminal/terminal.py:97
 #, python-format
 msgid "Process has exited with status %i"
 msgstr ""
@@ -1369,6 +1376,7 @@ msgid "Mark for removal"
 msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:99
 msgid "Process has exited successfully"
 msgstr ""
 
