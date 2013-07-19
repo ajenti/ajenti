@@ -48,7 +48,6 @@ class OpenFileDialog (UIElement):
 
     def init(self):
         self.verify_path()
-        self.on('item-click', self.on_item_click)
         self.refresh()
 
     def on_item_click(self, item):
@@ -77,7 +76,6 @@ class OpenFileDialog (UIElement):
                 self._dirs.append(item)
             else:
                 self._files.append(item)
-
 
 @p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)
