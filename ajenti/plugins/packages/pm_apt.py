@@ -16,18 +16,22 @@ class DebianPackageManager (PackageManager):
         self.upgradeable = self._parse_asv(out_u)
 
     def search(self, query):
-        out_s = subprocess.check_output(['apt-cache', 'search', query])
+        out_s = subprocess.check_output(['apt-show-versions', '-a', '-R', query])
         r = []
+        found = {}
         for l in out_s.split('\n'):
-            s = filter(None, l.split(' '))
-            if len(s) == 0:
+            s = l.split()
+            if len(s) < 4:
                 continue
 
             p = PackageInfo()
             p.name = s[0]
             p.state = 'i' if p.name in self.all_dict else 'r'
-            p.description = ' '.join(s[2:])
-            r.append(p)
+            p.version = s[1]
+
+            if not p.name in found or found[p.name] < p.version:
+                r.append(p)
+                found[p.name] = p.version
         return r
 
     def get_lists(self):
@@ -48,7 +52,7 @@ class DebianPackageManager (PackageManager):
 
             p = PackageInfo()
             p.name = s[0]
-            p.version = s[1].split()[-1]
+            p.version = s[1].split(' ')[-1]
             r.append(p)
         return r
 
