@@ -1,0 +1,50 @@
+<vc>
+    <body>
+        <pad>
+            <vc>
+                <label style="bold" text="{Subnetworks}" />
+                <bind:collection bind="subnets" id="subnets">
+                    <vc>
+                        <dt bind="__items" />
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="sitemap" />
+                                        <label bind="name" />
+                                    </hc>   
+                                </box>
+                                
+                                <indent>
+                                    <vc>
+                                        <formline text="{Specification}">
+                                            <tooltip text="[address] netmask [netmask]">
+                                                <textbox bind="name" style="big" />
+                                            </tooltip>
+                                        </formline>
+                                        <formline text="{IP ranges}">
+                                            <include layout="dhcpd:ranges" />
+                                        </formline>
+                                        <formline text="{Options}">
+                                            <include layout="dhcpd:options" />
+                                        </formline>
+                                    </vc>
+                                </indent>
+                            </collapserow>
+                        </bind:template>
+                            
+                        <button bind="__add" icon="plus" text="{Create}" />
+                    </vc>
+                </bind:collection>
+                
+                <label style="bold" text="{Global options}" />
+                <include layout="dhcpd:options" />
+            </vc>
+        </pad> 
+    </body>
+
+    <button id="save" text="{Save}" icon="ok" />
+</vc>

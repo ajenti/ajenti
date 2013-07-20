@@ -1,0 +1,13 @@
+ <bind:collection bind="options" id="options">
+    <vc>
+        <vc bind="__items" />
+        <bind:template>
+            <hc>
+                <textbox bind="value" style="big" />
+                <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+            </hc>
+        </bind:template>
+            
+        <button bind="__add" icon="plus" text="{Create}" />
+    </vc>
+</bind:collection>

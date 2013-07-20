@@ -1,0 +1,15 @@
+ <bind:collection bind="ranges" id="ranges">
+    <vc>
+        <vc bind="__items" />
+        <bind:template>
+            <hc>
+                <tooltip text="[ip start] [ip end]">
+                    <textbox bind="range" />
+                </tooltip>
+                <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+            </hc>
+        </bind:template>
+            
+        <button bind="__add" icon="plus" text="{Create}" />
+    </vc>
+</bind:collection>
