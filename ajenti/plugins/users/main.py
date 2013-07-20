@@ -29,8 +29,15 @@ class Users (SectionPlugin):
                 return False
             return True
 
+        def _sorter(x):
+            g = int(x.gid)
+            if g >= 1000:
+                return g - 10000
+            return g
+
         self.find('users').filter = _filterOnlyUsers
         self.find('system-users').filter = _filterOnlySystemUsers
+        self.find('groups').sorting = _sorter
 
         self.config = PasswdConfig(path='/etc/passwd')
         self.config_g = GroupConfig(path='/etc/group')
@@ -99,12 +106,13 @@ class Users (SectionPlugin):
             error = self.mgr.change_password(user, new_password)
 
             if error:
-                self.context.notify('error', _('%s') % error)
+                self.context.notify('error', _('Error: "%s". Maybe you ran the service not from root?') % error)
             else:
                 self.context.notify('info', _('Password for %s was changed') % user.name)
                 ui.find('new-password').value = ''
         else:
             self.context.notify('error', _('Password for %s should`t be empty') % user.name)
+
 
 @interface
 class UsersBackend (object):
@@ -118,25 +126,28 @@ class UsersBackend (object):
         pass
 
     def change_password(self, user, password):
-        print password
         proc = subprocess.Popen(['passwd', user.name], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         proc.stdin.write('%s\n' % password)
         proc.stdin.write('%s' % password)
         proc.stdin.flush()
-        stdout,stderr = proc.communicate()
-        return stderr
+        stdout, stderr = proc.communicate()
+
+        if proc.returncode:
+            return stderr
+        return False
 
     def make_home_dir(self, user):
         subprocess.call(['mkdir', '-p', user.home])
         subprocess.call(['chown',  user.uid+':'+user.gid, user.home])
         self.change_home(user)
 
+
 @plugin
 class LinuxUsersBackend (UsersBackend):
     platforms = ['debian', 'centos']
 
     def add_user(self, name):
-        subprocess.call(['useradd', name])
+        subprocess.call(['useradd', '-s', '/bin/false', name])
 
     def add_group(self, name):
         subprocess.call(['groupadd', name])
@@ -144,12 +155,13 @@ class LinuxUsersBackend (UsersBackend):
     def change_home(self, user):
         subprocess.call(['usermod', '-d', user.home, '-m', user.name])
 
+
 @plugin
 class BSDUsersBackend (UsersBackend):
     platforms = ['freebsd']
 
     def add_user(self, name):
-        subprocess.call(['pw', 'useradd', name])
+        subprocess.call(['pw', 'useradd', '-s', '/bin/false', name])
 
     def add_group(self, name):
         subprocess.call(['pw', 'groupadd', name])

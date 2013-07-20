@@ -24,7 +24,7 @@
                 </formline>
                 <formline text="{New password}">
                     <hc>
-                        <passwordbox id="new-password" />
+                        <passwordbox id="new-password" style="width-auto" />
                         <button id="change-password" text="{Change}" style="mini" />
                     </hc>
                 </formline>
@@ -35,7 +35,7 @@
                 </formline>
                 <formline text="{Home directory}">
                     <hc>
-                        <textbox bind="home" />
+                        <textbox bind="home" style="width-auto" />
                         <button id="create-home-dir" text="{Create}" style="mini" visible="False" />
                     </hc>
                 </formline>
