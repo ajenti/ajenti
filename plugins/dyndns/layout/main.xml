@@ -1,0 +1,36 @@
+<xml>
+    <toolbar>
+        <button id="add" text="Add instruction" icon="/dl/core/ui/stock/add.png" />
+    </toolbar>
+
+    <label text="DynDns" size="5" />
+
+    <pad>
+        <dt id="list">
+            <dtr header="True">
+                <dth width="50%">
+                    <label text="Field" />
+                </dth>
+                <dth width="50%">
+                    <label text="Value" />
+                </dth>
+                <dth width="1" />
+            </dtr>
+        </dt>
+    </pad>
+
+    <dialogbox id="dialog">
+        <formline text="Type">
+            <select name="field" id="field">
+                <selectoption value="username" text="Username" id="username"/>
+                <selectoption value="password" text="Password" id="password"/>
+                <selectoption value="update" text="Update" id="update"/>
+                <selectoption value="alias" text="Alias" id="alias"/>
+                <selectoption value="background" text="Background" id="background"/>
+            </select>
+        </formline>
+        <formline text="Value">
+            <textinput name="value" id="value" />
+        </formline>
+    </dialogbox>
+</xml>
