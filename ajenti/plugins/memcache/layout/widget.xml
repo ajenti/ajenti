@@ -1,0 +1,12 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="tasks" />
+    </box>
+    <box width="90">
+        <label style="bold" text="Memcache" />
+    </box>
+    <box width="50">
+        <label id="value" text="---" />
+    </box>
+    <progressbar id="progress" width="150" value="0.4" />
+</hc>
