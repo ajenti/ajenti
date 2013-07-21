@@ -186,7 +186,7 @@ class DictAutoBinding (Binding):
         return self
 
     def update(self):
-        for key in self.values:
+        for key in self.binders:
             self.binders[key].update()
             self.ui.post_item_update(self.object, self.collection, key, self.binders[key].ui)
 
