@@ -11,6 +11,7 @@ from nctp_linux import *
 optionmap = {
     'IPADDR': 'address',
     'NETMASK': 'netmask',
+    'GATEWAY': 'gateway',
     'BROADCAST': 'broadcast',
     'MACADDR': 'hwaddr',
 }
