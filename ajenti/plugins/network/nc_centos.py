@@ -23,7 +23,7 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
     interfaces = None
 
     classes = {
-        'static': ('inet', 'none'),
+        'none': ('inet', 'static'),
         'dhcp': ('inet', 'dhcp'),
         'loopback': ('inet', 'loopback')
     }
