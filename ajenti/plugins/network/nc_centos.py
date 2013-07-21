@@ -43,8 +43,8 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
                     d = {}
                     for s in ss:
                         try:
-                            k = s.split('=')[0].strip('\t \'')
-                            v = s.split('=')[1].strip('\t \'')
+                            k = s.split('=')[0].strip('\t "\'')
+                            v = s.split('=')[1].strip('\t "\'')
                             d[k] = v
                         except:
                             pass
@@ -87,13 +87,13 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
     def save_iface(self, iface, f):
         for x in self.classes:
             if x == (iface.type, iface.addressing):
-                f.write('BOOTPROTO=\'' + self.classes[x] + '\'\n')
+                f.write('BOOTPROTO="' + self.classes[x] + '"\n')
 
         for x in iface.params:
             fnd = False
             for k in optionmap:
                 if optionmap[k] == x:
-                    f.write(k + '=' + iface.params[x] + '\n')
+                    f.write(k + '="' + iface.params[x] + '"\n')
                     fnd = True
             if not fnd:
-                f.write(x + '=' + iface.params[x] + '\n')
+                f.write(x + '="' + iface.params[x] + '"\n')

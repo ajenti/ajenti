@@ -151,12 +151,14 @@ msgstr ""
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
 #: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/elements/layout/users-main.xml:2
 msgid "Confirm deletion"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/elements/layout/projects-main.xml:1
+#: ajenti/plugins/elements/layout/users-main.xml:1
 msgid "Change password"
 msgstr ""
 
@@ -193,6 +195,7 @@ msgstr ""
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:6
+#: ajenti/plugins/elements/layout/users-main.xml:3
 msgid "Create"
 msgstr ""
 
@@ -1424,4 +1427,8 @@ msgstr ""
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
+msgstr ""
+
+#: ajenti/plugins/memcache/widget.py:29
+msgid "Memcache memory usage"
 msgstr ""
