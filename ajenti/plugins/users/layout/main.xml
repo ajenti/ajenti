@@ -45,7 +45,7 @@
                                                         <textbox bind="comment" />
                                                     </formline>
                                                     <formline text="{Home directory}">
-                                                        <textbox bind="home" />
+                                                        <pathbox directory="True" bind="home" />
                                                     </formline>
                                                     <formline text="{Shell}">
                                                         <textbox bind="shell" />

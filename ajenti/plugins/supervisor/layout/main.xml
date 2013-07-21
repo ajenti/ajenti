@@ -34,10 +34,10 @@
                                 <hc>
                                     <vc>
                                         <formline text="{Command}">
-                                            <textbox bind="command" />
+                                            <pathbox bind="command" />
                                         </formline>
                                         <formline text="{Working directory}">
-                                            <textbox bind="directory" />
+                                            <pathbox directory="True" bind="directory" />
                                         </formline>
                                         <formline text="{Autostart}">
                                             <dropdown bind="autostart" values="['true', 'false']" 

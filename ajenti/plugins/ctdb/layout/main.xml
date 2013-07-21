@@ -28,16 +28,16 @@
                         </formgroup>
                         <formgroup text="{Files}">
                             <formline text="{Recovery lock file}">
-                                <textbox bind="recovery_lock_file" style="big" />
+                                <pathbox bind="recovery_lock_file" style="big" />
                             </formline>
                             <formline text="{Public addresses file}">
-                                <textbox bind="public_addresses_file" style="big" />
+                                <pathbox bind="public_addresses_file" style="big" />
                             </formline>
                             <formline text="{Nodes file}">
-                                <textbox bind="nodes_file" style="big" />
+                                <pathbox bind="nodes_file" style="big" />
                             </formline>
                             <formline text="{Log file}">
-                                <textbox bind="log_file" style="big" />
+                                <pathbox bind="log_file" style="big" />
                             </formline>
                         </formgroup>
                         <formgroup text="{Networking}">

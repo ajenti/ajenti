@@ -25,7 +25,7 @@
                                     <checkbox bind="enable" />
                                 </formline>
                                 <formline text="{Path to certificate}">
-                                    <textbox bind="certificate_path" />
+                                    <pathbox bind="certificate_path" />
                                 </formline>
                             </vc>
                         </formgroup>

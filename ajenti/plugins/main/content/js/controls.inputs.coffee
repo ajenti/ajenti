@@ -259,3 +259,27 @@ class window.Controls.paging extends window.Control
 
     set: (page) ->
         @event('switch', page: page)
+
+
+class window.Controls.pathbox extends window.Control
+    createDom: () ->
+        @dom = $("""
+            <div class="control container pathbox">
+            </div>
+        """)
+        @childContainer = @dom
+        @textbox = new Controls.textbox(@ui, value: @properties.value)
+        @button = new Controls.button(
+            @ui, 
+            style: 'mini'
+            icon: if @properties.directory then 'folder-close' else 'file'
+            text: ''
+        )
+        @append(@textbox)
+        @append(@button)
+
+        @button.on_click = () =>
+            @event('start', {})
+
+    detectUpdates: () ->
+        return @textbox.detectUpdates()

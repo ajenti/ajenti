@@ -11,7 +11,7 @@
                 <textbox id="title" />
             </formline>
             <formline text="{Command}">
-                <textbox id="command" />
+                <pathbox id="command" />
             </formline>
             <formline>
                 <checkbox id="terminal" text="{Run in terminal}" />

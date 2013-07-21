@@ -20,7 +20,7 @@
                                 <pad>
                                     <vc>
                                         <formline text="{Directory}">
-                                            <textbox bind="name" />
+                                            <pathbox directory="True" bind="name" />
                                         </formline>
                                         <vc>
                                             <bind:collection id="clients" bind="clients">

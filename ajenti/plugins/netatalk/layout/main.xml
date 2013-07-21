@@ -33,7 +33,7 @@
                                             <textbox bind="name" />
                                         </formline>
                                         <formline text="{Path}">
-                                            <textbox bind="path" />
+                                            <pathbox directory="True" bind="path" />
                                         </formline>
                                         <formline text="{Password}">
                                             <textbox bind="password" />

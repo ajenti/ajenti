@@ -31,7 +31,7 @@
                                             <combobox id="device" bind="device" />
                                         </formline>
                                         <formline text="{Mountpoint}">
-                                            <textbox bind="mountpoint" />
+                                            <pathbox directory="True" bind="mountpoint" />
                                         </formline>
                                         <formline text="{FS type}">
                                             <combobox id="type" bind="type" />

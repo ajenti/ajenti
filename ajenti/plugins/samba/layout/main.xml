@@ -34,7 +34,7 @@
                                                 <textbox bind="name" />
                                             </formline>
                                             <formline text="{Path}">
-                                                <textbox bind="path" />
+                                                <pathbox directory="True" bind="path" />
                                             </formline>
                                             <formline>
                                                 <checkbox bind="guest_ok" text="{Guest access}" />
