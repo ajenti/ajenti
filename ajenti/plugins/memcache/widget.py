@@ -33,6 +33,5 @@ class MemcachedWidget (DashboardWidget):
         self.sensor = Sensor.find('memcache')
         self.append(self.ui.inflate('memcache:widget'))
         value = self.sensor.value()
-        print value
         self.find('value').text = str_fsize(value[0])
         self.find('progress').value = 1.0 * value[0] / value[1]
