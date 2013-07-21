@@ -23,8 +23,7 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
     interfaces = None
 
     classes = {
-        'static': ('inet', 'static'),
-        '6to4': ('inet6', 'static'),
+        'static': ('inet', 'none'),
         'dhcp': ('inet', 'dhcp'),
         'loopback': ('inet', 'loopback')
     }
@@ -86,8 +85,8 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
 
     def save_iface(self, iface, f):
         for x in self.classes:
-            if x == (iface.type, iface.addressing):
-                f.write('BOOTPROTO="' + self.classes[x] + '"\n')
+            if self.classes[x] == (iface.type, iface.addressing):
+                f.write('BOOTPROTO="' + x + '"\n')
 
         for x in iface.params:
             fnd = False
