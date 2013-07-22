@@ -150,6 +150,10 @@ class TerminalThumbnail (UIElement):
 class TerminalSocket (SocketPlugin):
     name = '/terminal'
 
+    def on_connect(self):
+        self.emit('re-select')
+        self.terminal = None
+
     def on_message(self, message):
         if message['type'] == 'select':
             self.id = int(message['tid'])
@@ -157,8 +161,9 @@ class TerminalSocket (SocketPlugin):
             self.send_data(self.terminal.protocol.history())
             self.spawn(self.worker)
         if message['type'] == 'key':
-            ch = b64decode(message['key'])
-            self.terminal.write(ch)
+            if self.terminal:
+                ch = b64decode(message['key'])
+                self.terminal.write(ch)
 
     def worker(self):
         while True:

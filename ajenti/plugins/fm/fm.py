@@ -48,7 +48,7 @@ class FileManager (SectionPlugin):
 
         self.binder = Binder(self.controller, self.find('filemanager')).autodiscover().populate()
         self.clipboard = []
-        self.binder_c = Binder(self, self.find('filemanager')).autodiscover().populate()
+        self.binder_c = Binder(self, self.find('bind-clipboard')).autodiscover().populate()
         self.tabs = self.find('tabs')
 
         self.find('dialog').buttons = [

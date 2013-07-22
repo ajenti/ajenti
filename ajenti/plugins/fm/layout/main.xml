@@ -67,7 +67,7 @@
                     <fileupload target="/ajenti:fm-upload" />
                 </pad>
 
-                <pad>
+                <pad id="bind-clipboard">
                     <right>
                         <button id="clear-clipboard" icon="remove-sign" text="Empty" />
                     </right>

@@ -173,9 +173,14 @@ class UIElement (object):
         o.children = []
         for c in self.children:
             o.append(c.clone())
+
+        o.post_clone()
         return o
 
     def init(self):
+        pass
+
+    def post_clone(self):
         pass
 
     def nearest(self, predicate, exclude=None, descend=True):
@@ -283,8 +288,7 @@ class UIElement (object):
             self.properties_dirty[property] = False
         if self.visible:
             for child in self.children:
-                if child.has_updates():
-                    child.clear_updates()
+                child.clear_updates()
 
     def invalidate(self):
         self.invalidated = True
@@ -321,8 +325,9 @@ class UIElement (object):
         """
         Invokes handler for ``event`` on this element with given ``**params``
         """
-        if hasattr(self, 'on_%s' % event):
-            getattr(self, 'on_%s' % event)(**(params or {}))
+        self_event = event.replace('-', '_')
+        if hasattr(self, 'on_%s' % self_event):
+            getattr(self, 'on_%s' % self_event)(**(params or {}))
         if event in self.events:
             self.events[event](*self.event_args[event], **(params or {}))
 

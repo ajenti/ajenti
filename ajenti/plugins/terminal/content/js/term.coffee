@@ -47,7 +47,8 @@ class window.Terminal
             Loading.hide()
             @draw(data)
 
-        @select()
+        @socket.on 're-select', (data) =>
+            @select()
         
     select: () =>
         @socket.send(JSON.stringify(type: 'select', tid: @id))
