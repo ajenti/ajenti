@@ -31,7 +31,7 @@
                                 <bind:template>
                                     <include layout="users:user-list" />
                                 </bind:template>
-                                <button id="save-users" text="{Save}" icon="ok" />
+                                <button id="save-system-users" text="{Save}" icon="ok" />
                             </vc>
                         </bind:collection>
                     </box>

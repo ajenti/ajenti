@@ -86,6 +86,7 @@ class Users (SectionPlugin):
         self.refresh()
 
     @on('save-users', 'click')
+    @on('save-system-users', 'click')
     def save_users(self):
         self.binder.update()
         self.config.save()
