@@ -1,0 +1,51 @@
+ <collapserow>
+    <box>
+        <right>
+            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+        </right>
+        <hc>
+            <icon icon="user" />
+            <label style="bold" bind="name" />
+            <label bind="uid" />
+        </hc>
+    </box>
+
+    <pad>
+        <vc>
+            <hc>
+                <vc>
+                    <formline text="{Username}">
+                        <textbox bind="name" />
+                    </formline>
+                    <formline text="UID">
+                        <textbox bind="uid" />
+                    </formline>
+                    <formline text="GID">
+                        <textbox bind="gid" />
+                    </formline>
+                </vc>
+                <vc>
+                    <formline text="{Comment}">
+                        <textbox bind="comment" />
+                    </formline>
+                    <formline text="{Home directory}">
+                        <hc>
+                            <pathbox directory="True" bind="home" />
+                            <button id="create-home-dir" text="{Create}" style="mini" visible="False" />
+                        </hc>
+                    </formline>
+                    <formline text="{Shell}">
+                        <textbox bind="shell" />
+                    </formline>
+                </vc>
+            </hc>
+            <formline text="{New password}">
+                <hc>
+                    <passwordbox id="new-password" />
+                    <button id="change-password" text="{Set}" style="mini" />
+                    <button id="remove-password" text="{Remove}" icon="remove" style="mini" />
+                </hc>
+            </formline>
+        </vc>
+    </pad>
+</collapserow>
