@@ -71,7 +71,7 @@ class AjentiOrgReporter (BasePlugin):
                     data[variant] = sensor.value(variant)
                 datapack['sensors'][sensor.id] = data
 
-            gevent.sleep(3)
+            gevent.sleep(15)
             url = ENDPOINT % ajenti.config.tree.installation_id
 
             if not self.get_key():
