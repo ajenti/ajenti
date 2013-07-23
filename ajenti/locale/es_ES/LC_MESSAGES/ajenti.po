@@ -22,6 +22,10 @@
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/network/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save"
 msgstr "Guardar"
 
@@ -80,7 +84,7 @@ msgstr "Generar"
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
 #: ajenti/plugins/users/layout/main.xml:5
-#: ajenti/plugins/samba/layout/main.xml:26
+#: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
 msgid "Users"
 msgstr "Usuarios"
 
@@ -146,12 +150,17 @@ msgstr "Eliminar"
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
 #: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/elements/layout/users-main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/users/layout/main.xml:10
+#: ajenti/plugins/bind9/layout/main.xml:2
 msgid "Confirm deletion"
 msgstr "Confirmar eliminación"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/elements/layout/projects-main.xml:1
+#: ajenti/plugins/elements/layout/users-main.xml:1
 msgid "Change password"
 msgstr "Cambiar contraseña"
 
@@ -188,6 +197,10 @@ msgstr "Cambiar contraseña"
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:6
+#: ajenti/plugins/elements/layout/users-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/bind9/layout/main.xml:8
+#: ajenti/plugins/bind9/layout/main.xml:10
 msgid "Create"
 msgstr "Crear"
 
@@ -224,7 +237,7 @@ msgstr "Configurar"
 #: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
-#: ajenti/plugins/network/main.py:68
+#: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
 msgid "Saved"
 msgstr "Guardado"
 
@@ -267,6 +280,7 @@ msgstr "Reiniciar Ajenti"
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 #: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
+#: ajenti/plugins/users/main.py:17
 msgid "System"
 msgstr "Sistema"
 
@@ -346,6 +360,8 @@ msgstr "Entorno"
 #: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
 #: ajenti/plugins/fm/layout/main.xml:10
 #: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/bind9/layout/main.xml:3
 msgid "Name"
 msgstr "Nombre"
 
@@ -368,6 +384,7 @@ msgstr "Cluster Samba"
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
+#: ajenti/plugins/bind9/main.py:17
 msgid "Software"
 msgstr "Software"
 
@@ -483,7 +500,7 @@ msgstr "Añadir widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr "[{'texto': _('Cancelar'), 'id': 'cancelar'}]"
+msgstr "[{'text': _('Cancelar'), 'id': 'cancel'}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
@@ -514,6 +531,7 @@ msgstr "Confirmar eliminación de la base de datos!"
 #: ajenti/plugins/users/layout/main.xml:7
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/users/layout/user-list.xml:2
 msgid "Username"
 msgstr "Nombre de usuario"
 
@@ -579,6 +597,7 @@ msgid "Clipboard"
 msgstr "Portapapeles"
 
 #: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:9
 msgid "Remove"
 msgstr "Eliminar"
 
@@ -639,7 +658,7 @@ msgstr "Comentario enviado!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr "Carga media"
+msgstr "Promedio de carga"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
@@ -733,7 +752,7 @@ msgstr "Tamaño"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr "Utilización"
+msgstr "Uso"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
@@ -809,7 +828,7 @@ msgstr "Estados"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr "Edición RAW"
+msgstr "Edición Directa"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
@@ -1052,22 +1071,27 @@ msgstr "Usuario"
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/users/layout/user-list.xml:3
 msgid "Comment"
 msgstr "Comentario"
 
 #: ajenti/plugins/users/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
 msgstr "Directorio hogar"
 
 #: ajenti/plugins/users/layout/main.xml:10
+#: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
 msgstr "Shell"
 
 #: ajenti/plugins/users/layout/main.xml:12
+#: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
 msgstr "Grupos"
 
 #: ajenti/plugins/users/layout/main.xml:15
+#: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
 msgstr "Miembros"
 
@@ -1129,7 +1153,7 @@ msgstr "Dependencias"
 
 #: ajenti/plugins/resolv/resolv.py:13
 msgid "Nameservers"
-msgstr "Nameservers"
+msgstr "Servidores de Nombre"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "DNS nameserver"
@@ -1149,6 +1173,7 @@ msgstr "Lista de ordenamiento"
 
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
 msgstr "Tipo"
 
@@ -1191,7 +1216,7 @@ msgstr "Falló la autenticación HTTP de Munin"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr "Visualizar"
+msgstr "Ver"
 
 #: ajenti/plugins/samba/main.py:43
 msgid "Password updated"
@@ -1217,7 +1242,7 @@ msgstr "Acceso de invitado"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr "Navegable"
+msgstr "Explorable"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
@@ -1281,6 +1306,7 @@ msgid "Add"
 msgstr "Añadir"
 
 #: ajenti/plugins/samba/layout/main.xml:30
+#: ajenti/plugins/users/layout/user-list.xml:8
 msgid "Set"
 msgstr "Definir"
 
@@ -1373,7 +1399,7 @@ msgstr "Marcar para eliminar"
 #: ajenti/plugins/terminal/terminal.py:97
 #: ajenti/plugins/terminal/terminal.py:99
 msgid "Process has exited successfully"
-msgstr "El proceso finalizó de manera exitosa"
+msgstr "El proceso finalizó exitosamente"
 
 #: ajenti/plugins/fstab/iops.py:61
 msgid "Immediate I/O"
@@ -1393,21 +1419,81 @@ msgstr "[_('Loopback'), _('Estático'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "Servidor DHCP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Subredes"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "Especificación"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr ""
+msgstr "Rangos IP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
+msgstr "Opciones globales"
+
+#: ajenti/plugins/memcache/widget.py:29
+msgid "Memcache memory usage"
+msgstr "Uso de memoria memcache"
+
+#: ajenti/plugins/users/main.py:101
+#, python-format
+msgid "Home dir for %s was created"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:110
+#, python-format
+msgid "Password for %s was changed"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:113
+#, python-format
+msgid "Error: \"%s\""
+msgstr ""
+
+#: ajenti/plugins/users/main.py:115
+msgid "Password should't be empty"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:119
+#, python-format
+msgid "Password for %s was removed"
+msgstr ""
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr ""
+
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr ""
+
+#: ajenti/plugins/bind9/main.py:37
+msgid "Zone saved"
+msgstr ""
+
+#: ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr ""
+
+#: ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr ""
+
+#: ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr ""
+
+#: ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr ""
+
+#: ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
 msgstr ""
 
