@@ -1,0 +1,58 @@
+<vc>
+    <body>
+        <pad>
+            <vc>
+                <label style="bold" text="{Zones}" />
+                <bind:collection bind="zones" id="zones">
+                    <vc>
+                        <dt bind="__items" />
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="globe" />
+                                        <label bind="name" />
+                                    </hc>   
+                                </box>
+                                
+                                <indent>
+                                    <vc>
+                                        <formline text="{Name}">
+                                            <textbox bind="name" />
+                                        </formline>
+                                        <formline text="{Type}">
+                                            <combobox bind="type" 
+                                                labels="['Master', 'Slave']"
+                                                values="['master', 'slave']"
+                                            />
+                                        </formline>
+                                        <formline text="{File}">
+                                            <pathbox bind="file" />
+                                        </formline>
+                                        <formline text="{Zone}">
+                                            <vc id="no-file">
+                                                <label text="{Zone file does not exist}" />
+                                                <button icon="file" text="{Create}" id="create-zone" />
+                                            </vc>
+                                            <vc id="file">
+                                                <codearea id="editor" />
+                                                <button icon="ok" id="save-zone" text="{Save zone}" />
+                                            </vc>
+                                        </formline>
+                                    </vc>
+                                </indent>
+                            </collapserow>
+                        </bind:template>
+                            
+                        <button bind="__add" icon="plus" text="{Create}" />
+                    </vc>
+                </bind:collection>
+            </vc>
+        </pad> 
+    </body>
+
+    <button id="save" text="{Save}" icon="ok" />
+</vc>
