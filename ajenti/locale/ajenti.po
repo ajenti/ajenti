@@ -103,7 +103,7 @@ msgstr ""
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
 #: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
-#: ajenti/plugins/iptables/main.py:139
+#: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
 msgid "Enable"
 msgstr ""
 
@@ -245,6 +245,7 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 #: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
+#: ajenti/plugins/iptables/main.py:185
 msgid "Saved"
 msgstr ""
 
@@ -816,16 +817,19 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 #: ajenti/plugins/iptables/main.py:104
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/main.py:105
 msgid "Add option"
 msgstr ""
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
+#: ajenti/plugins/iptables/main.py:140
 msgid "Disable"
 msgstr ""
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
+#: ajenti/plugins/iptables/main.py:140
 msgid " autostart"
 msgstr ""
 
