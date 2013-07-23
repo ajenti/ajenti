@@ -94,9 +94,10 @@ class Firewall (SectionPlugin):
             if j_option:
                 j_option.arguments[0].value = action
             else:
-                o = OptionData.create_destination()
-                o.arguments[0].value = action
-                i.options.append(o)
+                if action:
+                    o = OptionData.create_destination()
+                    o.arguments[0].value = action
+                    i.options.append(o)
 
         self.find('rules').post_item_bind = post_rule_bind
         self.find('rules').post_item_update = post_rule_update

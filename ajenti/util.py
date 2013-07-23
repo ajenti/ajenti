@@ -1,4 +1,5 @@
 import traceback
+import subprocess
 import logging
 import time
 import sys
@@ -91,25 +92,30 @@ def make_report(e):
     # Finalize the reported log
     logging.blackbox.stop()
 
-    return (('Ajenti %s bug report\n' +
-           '--------------------\n\n' +
-           'Detected platform: %s / %s / %s\n' +
-           'Python: %s\n' +
-           'Installation: %s\n' +
-           'Debug: %s\n' +
-           'Loaded plugins:\n%s\n\n' +
-           '%s\n\n'
-           'Log:\n%s\n'
-           )
-            % (version,
-               platform, platform_unmapped, platform_string,
-               '.'.join([str(x) for x in _platform.python_version_tuple()]),
-               installation_uid,
-               debug,
-               ' '.join(manager.get_order()),
-               traceback.format_exc(e),
-               logging.blackbox.buffer,
-              ))
+    return """Ajenti %s bug report
+--------------------
+Detected platform: %s / %s / %s
+Architecture: %s
+Python: %s
+Installation: %s
+Debug: %s
+Loaded plugins:
+%s
+
+%s
+Log content:
+%s
+            """ % (
+        version,
+        platform, platform_unmapped, platform_string,
+        subprocess.check_output(['uname', '-mp']),
+        '.'.join([str(x) for x in _platform.python_version_tuple()]),
+        installation_uid,
+        debug,
+        ' '.join(manager.get_order()),
+        traceback.format_exc(e),
+        logging.blackbox.buffer,
+    )
 
 
 @public
