@@ -70,12 +70,12 @@ msgstr "Caminho para o certificado"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "Gerador de certificado SSL auto-assinado"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 msgid "Hostname"
-msgstr ""
+msgstr "Nome terminal"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
@@ -249,7 +249,7 @@ msgstr "Guardado. Por favor reinicie o Ajenti para que as alterações entrem em
 #: ajenti/plugins/configurator/configurator.py:112
 #: ajenti/plugins/configurator/configurator.py:114
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Por favor, forneça o nome do terminal"
 
 #: ajenti/plugins/configurator/configurator.py:128
 #: ajenti/plugins/configurator/configurator.py:130
@@ -418,25 +418,25 @@ msgstr "Ficheiros"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Recuperar ficheiro bloqueado"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "Ficheiro de endereços públicos"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Ficheiros de nós"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr ""
+msgstr "Ficheiro de registo"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "Rede"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
@@ -444,15 +444,15 @@ msgstr "Interface pública"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Rede pública"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Gateway público"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "Nós"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -473,13 +473,13 @@ msgstr "Interface"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "Editor de código CodeMirror"
 
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
 #: ajenti/plugins/apache/main.py:12
 msgid "Reload"
-msgstr ""
+msgstr "Atualizar"
 
 #: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
 msgid "Dashboard"
@@ -496,20 +496,20 @@ msgstr "Atualizar"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr ""
+msgstr "Adicionar widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr ""
+msgstr "[{'texto': _('Cancelar'), 'id': 'Cancelar'}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr ""
+msgstr "Consulta terminada"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Saída reduzida de %i linhas para 200"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
@@ -522,7 +522,7 @@ msgstr "Bases de dados"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Confirmar remoção da base de dados!"
 
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
@@ -562,7 +562,7 @@ msgstr "Cancelar"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Diretório de nível superior"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -604,7 +604,7 @@ msgstr "Remover"
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
 #: ajenti/plugins/fm/layout/main.xml:11
 msgid "Access"
-msgstr ""
+msgstr "Acesso"
 
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
 #: ajenti/plugins/fm/layout/main.xml:12
@@ -618,11 +618,11 @@ msgstr "Grupo"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr ""
+msgstr "Energia"
 
 #: ajenti/plugins/power/power.py:80
 msgid "Power control"
-msgstr ""
+msgstr "Controle de energia"
 
 #: ajenti/plugins/power/power.py:84
 msgid "Reboot"
@@ -634,7 +634,7 @@ msgstr "Desligar"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "Alimentação AC"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
@@ -650,7 +650,7 @@ msgstr "Desligar o sistema?"
 
 #: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
 msgid "Section access"
-msgstr ""
+msgstr "Acesso à secção"
 
 #: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
 msgid "Feedback sent!"
@@ -658,7 +658,7 @@ msgstr "Feedback enviado!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr ""
+msgstr "Carga Média"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
@@ -680,7 +680,7 @@ msgstr "Uptime"
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
@@ -732,11 +732,11 @@ msgstr "Opções"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
-msgstr ""
+msgstr "Frequência de verificação"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Verificar palavra-passe"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
@@ -768,7 +768,7 @@ msgstr "[{ 'command': 'force-reload', 'text': _('Atualizar'), 'icon': 'step-forw
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr ""
+msgstr "Diretório de trabalho"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
@@ -788,11 +788,11 @@ msgstr "[_('Ativar'), _('Em bloqueio'), _('Desativar')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr ""
+msgstr "Iniciar tempo limite"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
-msgstr ""
+msgstr "Iniciar tentativas"
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
@@ -816,7 +816,7 @@ msgstr "Desativar"
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 msgid " autostart"
-msgstr ""
+msgstr "Auto iniciar"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
@@ -828,12 +828,12 @@ msgstr "Estados"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Edição bruta"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Nova cadeia"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
@@ -867,27 +867,27 @@ msgstr "Protocolo"
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Ports"
-msgstr ""
+msgstr "Portas"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Razão"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr ""
+msgstr "Script"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr ""
+msgstr "Iniciado"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr ""
+msgstr "Scripts"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr ""
+msgstr "Iniciar scripts"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"

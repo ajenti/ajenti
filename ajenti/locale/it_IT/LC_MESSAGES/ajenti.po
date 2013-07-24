@@ -1419,81 +1419,81 @@ msgstr "[_('Loopback'), _('Statico'), _('Manuale'), 'DHCP', 'BootP', 'WVDial', '
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "Server DHCP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Sottoreti"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "Specifiche"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr ""
+msgstr "Range di IP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Opzioni generali"
 
 #: ajenti/plugins/memcache/widget.py:29
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Utilizzo della memoria Memcache"
 
 #: ajenti/plugins/users/main.py:101
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Home dir per %s è stato creato"
 
 #: ajenti/plugins/users/main.py:110
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "La password per %s è stato cambiato"
 
 #: ajenti/plugins/users/main.py:113
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Errore: \"%s\""
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password should't be empty"
-msgstr ""
+msgstr "La password non può essere vuota"
 
 #: ajenti/plugins/users/main.py:119
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "La password per %s è stato rimossa"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Nuova password"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Utenti del sistema"
 
 #: ajenti/plugins/bind9/main.py:37
 msgid "Zone saved"
-msgstr ""
+msgstr "Zone salvate"
 
 #: ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Zone"
 
 #: ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
-msgstr ""
+msgstr "File"
 
 #: ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr ""
+msgstr "Zona"
 
 #: ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Non esistono file di zona"
 
 #: ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
+msgstr "Salva la zona"
 
