@@ -6,7 +6,7 @@ import os
 import re
 import sys
 
-#import ajenti.compat
+import ajenti.compat
 
 
 def compile_coffeescript(inpath):
