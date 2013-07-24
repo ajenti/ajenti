@@ -133,6 +133,24 @@ class BinaryDependency (Dependency):
         return self.binary_name
 
 
+@public
+class FileDependency (Dependency):
+    description = 'File'
+
+    class Unsatisfied (Dependency.Unsatisfied):
+        def reason(self):
+            return '%s' % self.dependency.file_name
+
+    def __init__(self, file_name):
+        self.file_name = file_name
+
+    def is_satisfied(self):
+        return os.path.exists(self.file_name)
+
+    def __str__(self):
+        return self.file_name
+
+
 class PluginContext (object):
     def __init__(self):
         self.__instances = {}
