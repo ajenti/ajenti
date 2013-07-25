@@ -16,7 +16,6 @@ class window.Controls.textbox extends window.Control
         if @properties.type == 'integer'
             value = parseInt(value)
         if value != oldvalue
-            console.log value, @properties.value
             r.value = value
         @properties.value = value
         return r

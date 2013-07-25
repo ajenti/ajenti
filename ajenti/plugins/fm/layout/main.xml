@@ -30,7 +30,7 @@
                                         </hc>
                                     </bind:template>
                                 </bind:collection>
-                                <bind:collection id="items" bind="items">
+                                <bind:collection id="items" bind="items" pagesize="30">
                             		<dt bind="__items">
                                         <dtr>
                                             <dth width="1%" />
@@ -56,6 +56,10 @@
                                             </dtd>
                                     	</dtr>
                                     </bind:template>
+
+                                    <right>
+                                        <paging bind="__paging" />
+                                    </right>
                                 </bind:collection>
                             </vc>
                         </tab>

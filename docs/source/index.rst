@@ -35,6 +35,7 @@ Developers
    dev/simple-binding.rst
    dev/collection-binding.rst
    dev/ui-elements.rst
+   dev/custom-controls.rst
 
 
 API Reference
