@@ -34,7 +34,7 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
             return self.properties[prop]
 
         def set(self, value):
-            self.properties_dirty[prop] = self.properties[prop] != value
+            self.properties_dirty[prop] |= self.properties[prop] != value
             self.properties[prop] = value
 
         _property = property(get, set, None, doc)

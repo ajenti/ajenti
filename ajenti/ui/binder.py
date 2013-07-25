@@ -81,7 +81,7 @@ class PropertyBinding (Binding):
 
     def populate(self):
         self.old_value = self.get()
-        self.ui.properties[self.property] = self.__get_transformed()
+        setattr(self.ui, self.property, self.__get_transformed())
 
     def update(self):
         if self.oneway:
