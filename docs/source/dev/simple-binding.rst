@@ -71,4 +71,4 @@ We have added ``bind`` attributes to the elements which are to be auto-populated
 
 .. image:: /_static/dev/simple-binding.png
 
-`Download this example </_static/dev/test_binding.tar.gz>`_
+`Download this example </_static/dev/test_bindings.tar.gz>`_
