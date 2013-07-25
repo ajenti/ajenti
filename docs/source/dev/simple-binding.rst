@@ -69,6 +69,6 @@ Layout::
 
 We have added ``bind`` attributes to the elements which are to be auto-populated with values. If you want to bind multiple properties, use XML attributes like ``bind:text`` or ``bind:style``.
 
-.. image:: /_static/dev/simple-binding/ss.png
+.. image:: /_static/dev/simple-binding.png
 
-`Download this example </_static/dev/simple-binding/test_binding.tar.gz>`_
+`Download this example </_static/dev/test_binding.tar.gz>`_

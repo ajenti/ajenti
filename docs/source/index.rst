@@ -31,7 +31,7 @@ Developers
    dev/plugins.rst
    dev/ui.rst
    dev/simple-binding.rst
-   dev/binding.rst
+   dev/collection-binding.rst
    dev/ui-elements.rst
 
 
