@@ -28,8 +28,10 @@ Developers
    
    dev/contributing.rst
    dev/intro.rst
+   dev/examples.rst
    dev/plugins.rst
    dev/ui.rst
+   dev/notifications.rst
    dev/simple-binding.rst
    dev/collection-binding.rst
    dev/ui-elements.rst

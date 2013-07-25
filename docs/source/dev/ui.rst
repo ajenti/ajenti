@@ -74,5 +74,3 @@ The visible part of plugin is an UIElement, inherited from :class:`ajenti.plugin
 When you click the button, the 'click' even is fired down the UI tree. The first method to have correctly decorated ``@on`` method will handle the event. Alternatively, you can set event handler on the element itself by adding this code to ``init``::
 
     self.find('increment-button').on('click', self.on_button)
-
-Continue to :ref:`Bindings <dev-binding>`
