@@ -30,6 +30,7 @@ Developers
    dev/intro.rst
    dev/plugins.rst
    dev/ui.rst
+   dev/simple-binding.rst
    dev/binding.rst
    dev/ui-elements.rst
 
