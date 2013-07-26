@@ -1,0 +1,63 @@
+<body>
+    <bind:collection bind="adapters">
+        <vc bind="__items" />
+        <bind:template>
+            <pad>
+                <vc>
+                    <hc>
+                        <label style="bold" text="{Adapter}" />
+                        <label bind="id" />
+                    </hc>
+
+                    <bind:collection bind="arrays" id="arrays">
+                        <dt bind="__items" />
+                        <bind:template>
+                            <collapserow>
+                                <hc>
+                                    <icon icon="sitemap" />
+                                    
+                                    <box width="120">
+                                        <label bind="name" />
+                                    </box>
+
+                                    <box width="80">
+                                        <label bind="state" />
+                                    </box>
+
+                                    <box width="100">
+                                        <label bind="size" />
+                                    </box>
+                                        
+                                    <box width="250">
+                                        <label bind="raid_level" />
+                                    </box>
+                                </hc>
+                                <pad>
+                                    <bind:collection bind="disks">
+                                        <lt bind="__items" />
+                                        <bind:template>
+                                            <ltr>
+                                                <ltd>
+                                                    <icon icon="hdd" />
+                                                </ltd>
+                                                <ltd>
+                                                    <label bind="id" />
+                                                </ltd>
+                                                <ltd>
+                                                    <label bind="inquiry_data" />
+                                                </ltd>
+                                                <ltd>
+                                                    <label bind="firmware_state" />
+                                                </ltd>
+                                            </ltr>
+                                        </bind:template>
+                                    </bind:collection>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </vc>
+            </pad>
+        </bind:template>
+    </bind:collection>
+</body>
