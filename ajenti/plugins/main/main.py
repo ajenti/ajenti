@@ -113,6 +113,8 @@ class MainSocket (SocketPlugin):
         except SecurityError, e:
             self.send_security_error()
         except Exception, e:
+            traceback.print_exc()
+            e.traceback = traceback.format_exc(e)
             self.send_crash(e)
 
     def send_init(self):
@@ -150,6 +152,7 @@ class MainSocket (SocketPlugin):
 
     def send_crash(self, exc):
         if not hasattr(exc, 'traceback'):
+            traceback.print_exc()
             exc.traceback = traceback.format_exc(exc)
         data = {
             'message': str(exc),
@@ -244,6 +247,7 @@ class SectionsRoot (UIElement):
                 except SecurityError:
                     pass
                 except Exception, e:
+                    traceback.print_exc()
                     e.traceback = traceback.format_exc(e)
                     self.startup_crashes.append(e)
             except SecurityError:
