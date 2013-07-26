@@ -37,7 +37,7 @@ def compress_js(inpath):
     if not do_compress:
         return shutil.copy(inpath, outpath)
     print ' - YUI JS:   %s' % inpath
-    cmd = 'yui-compressor --nomunge --disable-optimizations "%s"' % inpath
+    cmd = 'yui-compressor "%s"' % inpath
     out = subprocess.check_output(cmd, shell=True)
     open(outpath, 'w').write(out)
 
