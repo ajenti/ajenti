@@ -7,6 +7,12 @@ import ajenti.build
 
 __version = ajenti.build.version
 
+exclusion = [
+    'ajenti.plugins.elements',
+    'ajenti.plugins.ltfs',
+    'ajenti.plugins.test*',
+]
+
 setup(
     name='ajenti',
     version=__version,
@@ -26,7 +32,7 @@ setup(
     author='Eugeny Pankov',
     author_email='e@ajenti.org',
     url='http://ajenti.org/',
-    packages=find_packages(exclude=['reconfigure', 'reconfigure.*']),
+    packages=find_packages(exclude=['reconfigure', 'reconfigure.*'] + exclusion),
     package_data={'': ['content/*.*', 'content/*/*.*', 'content/*/*/*.*', 'layout/*.*', 'locale/*/*/*.mo']},
     scripts=['ajenti-panel', 'ajenti-ssl-gen'],
     data_files=[

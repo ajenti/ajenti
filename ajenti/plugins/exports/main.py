@@ -16,7 +16,7 @@ class Exports (SectionPlugin):
     def init(self):
         self.title = _('NFS Exports')
         self.icon = 'hdd'
-        self.category = _('System')
+        self.category = _('Software')
         self.append(self.ui.inflate('exports:main'))
 
         if not os.path.exists(self.config_path):
