@@ -659,10 +659,12 @@ msgid "Shutdown the system?"
 msgstr ""
 
 #: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
+#: ajenti/plugins/main/main.py:195
 msgid "Section access"
 msgstr ""
 
 #: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
+#: ajenti/plugins/main/main.py:212
 msgid "Feedback sent!"
 msgstr ""
 

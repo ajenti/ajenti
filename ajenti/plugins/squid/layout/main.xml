@@ -66,7 +66,7 @@
                                 <pad>
                                     <hc>
                                         <formline text="{Mode}">
-                                            <dropdown bind="mode" values="['allow', 'deny']" labels="[_('Allow'), _('Deny'()]"/>
+                                            <dropdown bind="mode" values="['allow', 'deny']" labels="[_('Allow'), _('Deny')]"/>
                                         </formline>
                                         <formline text="{Options}">
                                             <include layout="squid:options-editor" />
