@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 ajenti-ssl-gen `hostname`
 chkconfig --add ajenti
-service ajenti restart > /dev/null 2>&1
+service ajenti restart
 
 echo ------------------------------------------------
 echo Now start Ajenti with \'service ajenti restart\'

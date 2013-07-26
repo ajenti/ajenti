@@ -11,7 +11,7 @@ import ajenti.compat
 
 def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath
-    print ' - Coffee:\n\t%s -> \n\t%s' % (inpath, outpath)
+    print ' - Coffee:   %s' % inpath
 
     subprocess.check_output('coffee -o compiler-output -c "%s"' % inpath, shell=True)
     shutil.move(glob.glob('./compiler-output/*.js')[0], outpath)
@@ -20,8 +20,10 @@ def compile_coffeescript(inpath):
 
 def compile_less(inpath):
     outpath = '%s.css' % inpath
-    print ' - LESS  :\n\t%s -> \n\t%s' % (inpath, outpath)
-    print subprocess.check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
+    print ' - LESS  :   %s' % inpath
+    out = subprocess.check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
+    if out:
+        print out
     #print subprocess.check_output('recess --compile "%s" > "%s"' % (inpath, outpath), shell=True)
 
 compilers = {
@@ -34,10 +36,10 @@ def compress_js(inpath):
     outpath = os.path.splitext(inpath)[0] + '.c.js'
     if not do_compress:
         return shutil.copy(inpath, outpath)
-    print ' - YUI JS:\n\t%s -> \n\t%s' % (inpath, outpath)
-    cmd = 'yui-compressor --nomunge --disable-optimizations -o "%s" "%s"' % (outpath, inpath)
-    #print '   $ ' + cmd
-    subprocess.check_output(cmd, shell=True)
+    print ' - YUI JS:   %s' % inpath
+    cmd = 'yui-compressor --nomunge --disable-optimizations "%s"' % inpath
+    out = subprocess.check_output(cmd, shell=True)
+    open(outpath, 'w').write(out)
 
 
 def compress_css(inpath):
