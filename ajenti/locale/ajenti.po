@@ -288,7 +288,7 @@ msgstr ""
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 #: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
-#: ajenti/plugins/users/main.py:17
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
 msgid "System"
 msgstr ""
 
@@ -1514,4 +1514,8 @@ msgstr ""
 
 #: ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
+msgstr ""
+
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
 msgstr ""

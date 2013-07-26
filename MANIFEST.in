@@ -10,3 +10,5 @@ include packaging/files/ajenti
 include packaging/files/.placeholder
 recursive-exclude ajenti/plugins/elements
 recursive-exclude ajenti/plugins/ltfs
+recursive-exclude ajenti/plugins/test
+recursive-exclude ajenti/plugins/test*
