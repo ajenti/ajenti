@@ -6,10 +6,10 @@ import sys
 # add subprocess.check_output to Python < 2.6
 if not hasattr(subprocess, 'check_output'):
     def c_o(*args, **kwargs):
-        kwargs['stdout'] = kwargs['stderr'] = subprocess.PIPE
+        kwargs['stdout'] = subprocess.PIPE
         popen = subprocess.Popen(*args, **kwargs)
-        popen.wait()
-        return popen.stdout.read() + popen.stderr.read()
+        stdout, stderr = popen.communicate()
+        return stdout
     subprocess.check_output = c_o
 
 
