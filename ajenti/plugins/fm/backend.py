@@ -36,8 +36,17 @@ class Item (object):
 
     def read(self):
         stat = os.stat(self.fullpath)
-        self.owner = pwd.getpwuid(stat.st_uid)[0]
-        self.group = grp.getgrgid(stat.st_gid)[0]
+
+        try:
+            self.owner = pwd.getpwuid(stat.st_uid)[0]
+        except KeyError:
+            self.owner = str(stat.st_uid)
+
+        try:
+            self.group = grp.getgrgid(stat.st_gid)[0]
+        except KeyError:
+            self.group = str(stat.st_gid)
+
         self.mod_ur, self.mod_uw, self.mod_ux, \
             self.mod_gr, self.mod_gw, self.mod_gx, \
             self.mod_ar, self.mod_aw, self.mod_ax = [
