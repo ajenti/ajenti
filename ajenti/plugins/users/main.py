@@ -112,7 +112,7 @@ class Users (SectionPlugin):
             except Exception, e:
                 self.context.notify('error', _('Error: "%s"') % e.message)
         else:
-            self.context.notify('error', _('Password should\'t be empty'))
+            self.context.notify('error', _('Password shouldn\'t be empty'))
 
     def remove_password(self, user):
         self.mgr.remove_password(user)

@@ -26,6 +26,7 @@
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/bind9/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:14
 msgid "Save"
 msgstr "保存"
 
@@ -98,7 +99,7 @@ msgstr "認証"
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
 #: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
-#: ajenti/plugins/iptables/main.py:139
+#: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
 msgid "Enable"
 msgstr "有効"
 
@@ -201,6 +202,7 @@ msgstr "パスワード変更"
 #: ajenti/plugins/users/layout/user-list.xml:5
 #: ajenti/plugins/bind9/layout/main.xml:8
 #: ajenti/plugins/bind9/layout/main.xml:10
+#: ajenti/plugins/squid/layout/main.xml:13
 msgid "Create"
 msgstr "作成"
 
@@ -238,6 +240,7 @@ msgstr "設定"
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 #: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
+#: ajenti/plugins/iptables/main.py:185
 msgid "Saved"
 msgstr "保存しました"
 
@@ -280,7 +283,7 @@ msgstr "Ajenti を再起動します。"
 #: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 #: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
-#: ajenti/plugins/users/main.py:17
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
 msgid "System"
 msgstr "システム"
 
@@ -384,7 +387,7 @@ msgstr "サンバ クラスター"
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
-#: ajenti/plugins/bind9/main.py:17
+#: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 msgid "Software"
 msgstr "ソフトウェア"
 
@@ -649,10 +652,12 @@ msgid "Shutdown the system?"
 msgstr "システムをシャット ダウンしますか？"
 
 #: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
+#: ajenti/plugins/main/main.py:195
 msgid "Section access"
 msgstr "セクションへのアクセス"
 
 #: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
+#: ajenti/plugins/main/main.py:212
 msgid "Feedback sent!"
 msgstr "フィードバック を送信しました！"
 
@@ -727,6 +732,7 @@ msgstr "FSタイプ"
 #: ajenti/plugins/squid/layout/port-template.xml:3
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/exports/layout/main.xml:5
 #: ajenti/plugins/dhcpd/layout/main.xml:5
+#: ajenti/plugins/squid/layout/main.xml:10
 msgid "Options"
 msgstr "オプション"
 
@@ -805,16 +811,19 @@ msgstr "ファイアウォール"
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 #: ajenti/plugins/iptables/main.py:104
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/main.py:105
 msgid "Add option"
 msgstr "オプションを追加します。"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
+#: ajenti/plugins/iptables/main.py:140
 msgid "Disable"
 msgstr "無効"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
+#: ajenti/plugins/iptables/main.py:140
 msgid " autostart"
 msgstr "自動起動"
 
@@ -866,6 +875,7 @@ msgstr "プロトコル"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/squid/layout/main.xml:11
 msgid "Ports"
 msgstr "ポート"
 
@@ -1495,5 +1505,18 @@ msgstr ""
 
 #: ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
+msgstr ""
+
+#: ajenti/plugins/megaraid/layout/main.xml:1
+#: ajenti/plugins/elements/layout/megaraid-main.xml:1
+msgid "Adapter"
+msgstr ""
+
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "[_('Allow'), _('Deny')]"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:115
+msgid "Password shouldn't be empty"
 msgstr ""
 

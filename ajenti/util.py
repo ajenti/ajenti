@@ -4,6 +4,7 @@ import logging
 import time
 import sys
 import fcntl
+import locale
 import os
 
 
@@ -99,6 +100,7 @@ Architecture: %s
 Python: %s
 Installation: %s
 Debug: %s
+Locale: %s
 Loaded plugins:
 %s
 
@@ -112,6 +114,7 @@ Log content:
         '.'.join([str(x) for x in _platform.python_version_tuple()]),
         installation_uid,
         debug,
+        locale.getlocale(locale.LC_MESSAGES),
         ' '.join(manager.get_order()),
         traceback.format_exc(e),
         logging.blackbox.buffer,
