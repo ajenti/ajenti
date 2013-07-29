@@ -383,7 +383,7 @@ $.fn.safeRemove = () ->
 #---------------------
 
 $(() ->
-    if location.protocol == 'https:'
+    if location.protocol == 'https:' or location.hostname == 'localhost'
         $('#ssl-alert').hide()
 )
 
