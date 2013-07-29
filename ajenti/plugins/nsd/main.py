@@ -5,27 +5,27 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
-from reconfigure.configs import BIND9Config
-from reconfigure.items.bind9 import ZoneData
+from reconfigure.configs import NSDConfig
+from reconfigure.items.nsd import ZoneData
 
 
 @plugin
-class BIND9Plugin (SectionPlugin):
+class NSDPlugin (SectionPlugin):
     def init(self):
-        self.title = 'BIND9'
+        self.title = 'NSD'
         self.icon = 'globe'
         self.category = _('Software')
 
-        self.append(self.ui.inflate('bind9:main'))
+        self.append(self.ui.inflate('nsd:main'))
 
-        self.config = BIND9Config(path='/etc/bind/named.conf')
+        self.config = NSDConfig(path='/etc/nsd3/nsd.conf')
         self.binder = Binder(None, self)
         self.find('zones').new_item = lambda c: ZoneData()
 
         def post_zone_bind(o, c, i, u):
             path = i.file
             if not path.startswith('/'):
-                path = '/etc/bind/' + path
+                path = '/etc/nsd3/' + path
             exists = os.path.exists(path)
             u.find('no-file').visible = not exists
             u.find('file').visible = exists
@@ -37,8 +37,7 @@ class BIND9Plugin (SectionPlugin):
                 self.context.notify('info', _('Zone saved'))
 
             def on_create_zone():
-                open(path, 'w').write("""
-                    $TTL    604800
+                open(path, 'w').write("""$TTL    604800
 @       IN      SOA     ns. root.ns. (
                               1         ; Serial
                          604800         ; Refresh
