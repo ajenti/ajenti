@@ -37,8 +37,7 @@ class BIND9Plugin (SectionPlugin):
                 self.context.notify('info', _('Zone saved'))
 
             def on_create_zone():
-                open(path, 'w').write("""
-                    $TTL    604800
+                open(path, 'w').write("""$TTL    604800
 @       IN      SOA     ns. root.ns. (
                               1         ; Serial
                          604800         ; Refresh
