@@ -16,7 +16,7 @@ class MySQLClassConfigEditor (ClassConfigEditor):
 
 @plugin
 class MySQLPlugin (DBPlugin):
-    default_classconfig = {'user': 'root', 'password': ''}
+    default_classconfig = {'user': 'root', 'password': '', 'hostname': 'localhost'}
     classconfig_editor = MySQLClassConfigEditor
 
     service_name = 'mysql'
@@ -34,10 +34,13 @@ class MySQLPlugin (DBPlugin):
         self.icon = 'table'
 
     def query(self, sql, db=''):
-        p = subprocess.Popen([
-            'mysql',
-            '-u' + self.classconfig['user'],
-            '-p' + self.classconfig['password']],
+        p = subprocess.Popen(
+            [
+                'mysql',
+                '-u' + self.classconfig['user'],
+                '-p' + self.classconfig['password'],
+                '-h', self.classconfig.get('hostname', None) or 'localhost',
+            ],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
