@@ -6,6 +6,7 @@ import sys
 import fcntl
 import locale
 import os
+import catcher
 
 
 def public(f):
@@ -93,6 +94,14 @@ def make_report(e):
     # Finalize the reported log
     logging.blackbox.stop()
 
+    catcher_url = None
+    try:
+        report = catcher.collect(e)
+        html = catcher.formatters.HTMLFormatter().format(report, maxdepth=3)
+        catcher_url = catcher.uploaders.AjentiOrgUploader().upload(html)
+    except:
+        pass
+
     return """Ajenti %s bug report
 --------------------
 Detected platform: %s / %s / %s
@@ -105,6 +114,8 @@ Loaded plugins:
 %s
 
 %s
+%s
+
 Log content:
 %s
             """ % (
@@ -117,6 +128,7 @@ Log content:
         locale.getlocale(locale.LC_MESSAGES),
         ' '.join(manager.get_order()),
         traceback.format_exc(e),
+        catcher_url or 'Failed to upload traceback',
         logging.blackbox.buffer,
     )
 

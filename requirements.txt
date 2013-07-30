@@ -4,6 +4,7 @@ passlib
 gevent
 gevent-socketio
 psutil
+python-catcher
 requests
 reconfigure
 PIL

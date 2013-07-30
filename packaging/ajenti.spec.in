@@ -16,7 +16,7 @@ BuildArch: noarch
 Vendor: Eugene Pankov <e@ajenti.org>
 Url: http://ajenti.org/
 
-requires: python-gevent, python-greenlet, python-lxml, openssl, python-gevent-socketio, python-gevent-websocket, python-psutil >= 0.6.0, python-imaging, stunnel, python-daemon, python-passlib, python-requests, reconfigure >= 0.1.19
+requires: python-gevent, python-greenlet, python-lxml, openssl, python-gevent-socketio, python-gevent-websocket, python-psutil >= 0.6.0, python-imaging, stunnel, python-daemon, python-passlib, python-requests, reconfigure >= 0.1.19, python-catcher
 
 
 %description

@@ -1,8 +1,9 @@
-import json
-import gevent
 from base64 import b64encode
-import zlib
+import catcher
+import gevent
+import json
 import traceback
+import zlib
 
 import ajenti
 from ajenti.api import *
@@ -113,6 +114,7 @@ class MainSocket (SocketPlugin):
         except SecurityError, e:
             self.send_security_error()
         except Exception, e:
+            catcher.backup(e)
             traceback.print_exc()
             e.traceback = traceback.format_exc(e)
             self.send_crash(e)
@@ -247,6 +249,7 @@ class SectionsRoot (UIElement):
                 except SecurityError:
                     pass
                 except Exception, e:
+                    catcher.backup(e)
                     traceback.print_exc()
                     e.traceback = traceback.format_exc(e)
                     self.startup_crashes.append(e)
