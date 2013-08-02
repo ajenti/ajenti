@@ -16,7 +16,7 @@ class HDDTempWidget (ConfigurableWidget):
     def on_start(self):
         self.find('device').text = self.config['device']
         v = self.sensor.value(self.config['device'])
-        self.find('value').value = '%.2f °C' % v
+        self.find('value').text = '%.2f °C' % v
 
     def create_config(self):
         return {'device': ''}
