@@ -25,7 +25,8 @@ class SMARTSensor (Sensor):
         0  = DISK FAILING
         1  = PRE-FAIL
         2  = Unknown error
-        3  = DISK OK
+        3  = Errors in log
+        4  = DISK OK
         """
         r = subprocess.call(['smartctl', '-a', '/dev/' + path])
         if r & 2:
@@ -34,8 +35,10 @@ class SMARTSensor (Sensor):
             return 0
         if r & 16:
             return 1
-        if r == 0:
+        if r & 64:
             return 3
+        if r == 0:
+            return 4
         return 2
 
 
@@ -53,10 +56,11 @@ class SMARTWidget (ConfigurableWidget):
         v = self.sensor.value(self.config['device'])
         v = {
             -1: _('No data'),
-             0: _('FAILING'),
-             1: _('PRE-FAIL'),
-             2: _('Unknown error'),
-             3: 'OK'
+            0: _('FAILING'),
+            1: _('PRE-FAIL'),
+            2: _('Unknown error'),
+            3: _('Errors in log'),
+            4: 'OK'
         }[v]
         self.find('value').text = v
 
