@@ -1,4 +1,5 @@
 import psutil
+import time
 
 from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
@@ -31,6 +32,7 @@ class ImmediateTXSensor (Sensor):
 
     def init(self):
         self.last_tx = {}
+        self.last_time = {}
 
     def get_variants(self):
         return psutil.network_io_counters(pernic=True).keys()
@@ -43,10 +45,12 @@ class ImmediateTXSensor (Sensor):
         r = (v.bytes_sent, v.bytes_recv)
         if not self.last_tx.get(device, None):
             self.last_tx[device] = r[0]
+            self.last_time[device] = time.time()
             return 0
         else:
-            d = r[0] - self.last_tx[device]
+            d = (r[0] - self.last_tx[device]) / (1.0 * time.time() - self.last_time[device])
             self.last_tx[device] = r[0]
+            self.last_time[device] = time.time()
             return d
 
 
