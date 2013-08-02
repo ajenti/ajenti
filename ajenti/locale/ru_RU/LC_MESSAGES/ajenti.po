@@ -27,6 +27,7 @@
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/bind9/layout/main.xml:11
 #: ajenti/plugins/squid/layout/main.xml:14
+#: ajenti/plugins/nsd/layout/main.xml:10
 msgid "Save"
 msgstr "Сохранить"
 
@@ -52,6 +53,7 @@ msgstr "HTTP-сервер"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
 msgstr "Хост"
 
@@ -154,7 +156,7 @@ msgstr "Удалить"
 #: ajenti/plugins/elements/layout/users-main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:1
 #: ajenti/plugins/users/layout/main.xml:10
-#: ajenti/plugins/bind9/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
 msgid "Confirm deletion"
 msgstr "Удалить?"
 
@@ -203,6 +205,7 @@ msgstr "Изменить пароль"
 #: ajenti/plugins/bind9/layout/main.xml:8
 #: ajenti/plugins/bind9/layout/main.xml:10
 #: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
 msgid "Create"
 msgstr "Создать"
 
@@ -240,7 +243,8 @@ msgstr "Настройки"
 #: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 #: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
-#: ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/bind9/main.py:70
 msgid "Saved"
 msgstr "Сохранено"
 
@@ -364,7 +368,7 @@ msgstr "Переменные среды"
 #: ajenti/plugins/fm/layout/main.xml:10
 #: ajenti/plugins/network/layout/main.xml:1
 #: ajenti/plugins/users/layout/main.xml:11
-#: ajenti/plugins/bind9/layout/main.xml:3
+#: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
 msgid "Name"
 msgstr "Имя"
 
@@ -388,6 +392,7 @@ msgstr "Кластер Samba"
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/nsd/main.py:17
 msgid "Software"
 msgstr "Программы"
 
@@ -535,6 +540,7 @@ msgstr "Подтвердите удаление базы данных!"
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -546,6 +552,7 @@ msgstr "Имя базы данных"
 #: ajenti/plugins/mysql/layout/config.xml:2
 #: ajenti/plugins/samba/layout/main.xml:29
 #: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/mysql/layout/config.xml:3
 msgid "Password"
 msgstr "Пароль"
 
@@ -652,12 +659,12 @@ msgid "Shutdown the system?"
 msgstr "Выключить систему?"
 
 #: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
-#: ajenti/plugins/main/main.py:195
+#: ajenti/plugins/main/main.py:195 ajenti/plugins/main/main.py:197
 msgid "Section access"
 msgstr "Доступ к плагинам"
 
 #: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
-#: ajenti/plugins/main/main.py:212
+#: ajenti/plugins/main/main.py:212 ajenti/plugins/main/main.py:214
 msgid "Feedback sent!"
 msgstr "Отзыв отправлен!"
 
@@ -1187,19 +1194,23 @@ msgstr "Список сортировки"
 msgid "Type"
 msgstr "Тип"
 
-#: ajenti/plugins/smartctl/widget.py:55
+#: ajenti/plugins/smartctl/widget.py:55 ajenti/plugins/smartctl/widget.py:57
+#: ajenti/plugins/smartctl/widget.py:58
 msgid "No data"
 msgstr "Данные отсутствуют"
 
-#: ajenti/plugins/smartctl/widget.py:56
+#: ajenti/plugins/smartctl/widget.py:56 ajenti/plugins/smartctl/widget.py:58
+#: ajenti/plugins/smartctl/widget.py:59
 msgid "FAILING"
 msgstr "ОТКАЗ"
 
-#: ajenti/plugins/smartctl/widget.py:57
+#: ajenti/plugins/smartctl/widget.py:57 ajenti/plugins/smartctl/widget.py:59
+#: ajenti/plugins/smartctl/widget.py:60
 msgid "PRE-FAIL"
 msgstr "СКОРЫЙ ОТКАЗ"
 
-#: ajenti/plugins/smartctl/widget.py:58
+#: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
+#: ajenti/plugins/smartctl/widget.py:61
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
@@ -1468,7 +1479,7 @@ msgstr "Ошибка: \"%s\""
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password should't be empty"
-msgstr ""
+msgstr "Пароль не может быть пустым"
 
 #: ajenti/plugins/users/main.py:119
 #, python-format
@@ -1483,27 +1494,27 @@ msgstr "Новый пароль"
 msgid "System Users"
 msgstr "Системные пользователи"
 
-#: ajenti/plugins/bind9/main.py:37
+#: ajenti/plugins/bind9/main.py:37 ajenti/plugins/nsd/main.py:37
 msgid "Zone saved"
 msgstr "Зона сохранена"
 
-#: ajenti/plugins/bind9/layout/main.xml:1
+#: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/nsd/layout/main.xml:1
 msgid "Zones"
 msgstr "Зоны"
 
-#: ajenti/plugins/bind9/layout/main.xml:5
+#: ajenti/plugins/bind9/layout/main.xml:5 ajenti/plugins/nsd/layout/main.xml:4
 msgid "File"
 msgstr "Файл"
 
-#: ajenti/plugins/bind9/layout/main.xml:6
+#: ajenti/plugins/bind9/layout/main.xml:6 ajenti/plugins/nsd/layout/main.xml:5
 msgid "Zone"
 msgstr "Зона"
 
-#: ajenti/plugins/bind9/layout/main.xml:7
+#: ajenti/plugins/bind9/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:6
 msgid "Zone file does not exist"
 msgstr "Файл зоны не существует"
 
-#: ajenti/plugins/bind9/layout/main.xml:9
+#: ajenti/plugins/bind9/layout/main.xml:9 ajenti/plugins/nsd/layout/main.xml:8
 msgid "Save zone"
 msgstr "Сохранить зону"
 
@@ -1514,9 +1525,13 @@ msgstr "Адаптер"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
-msgstr ""
+msgstr "[_('Разрешить'), _('Запретить')]"
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password shouldn't be empty"
+msgstr "Пароль не может быть пустым"
+
+#: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:62
+msgid "Errors in log"
 msgstr ""
 

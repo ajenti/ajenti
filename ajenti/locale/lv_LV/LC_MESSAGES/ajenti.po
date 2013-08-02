@@ -29,71 +29,71 @@
 #: ajenti/plugins/squid/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10
 msgid "Save"
-msgstr "حفظ"
+msgstr "Saglabāt"
 
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
 msgid "Restart"
-msgstr "اعادة تشغيل"
+msgstr "Pārstartēt"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr "اعادة تشغيل Ajenti؟"
+msgstr "Pārstartēt Ajenti?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
-msgstr "اعدادات عامة"
+msgstr "Vispārēji"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 msgid "HTTP Server"
-msgstr "خادم HTTP"
+msgstr "HTTP Serveris"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
-msgstr "الهوست"
+msgstr "Serveris"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
-msgstr "المنفذ"
+msgstr "Ports"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr "استخدم SSL"
+msgstr "Lietot SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr "مسار الترخيص"
+msgstr "Sertifikāta ceļš"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr "مولد شهادة SSL ذاتية التوقيع"
+msgstr "Pašparakstītu SSL sertifikātu ģenerators"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 msgid "Hostname"
-msgstr "اسم المضيف"
+msgstr "Servera nosaukums"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr "تنفيذ"
+msgstr "Ģenerēt"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
 #: ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
 msgid "Users"
-msgstr "المستخدمين"
+msgstr "Lietotāji"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr "مصادقة"
+msgstr "Autentifikācija"
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -103,17 +103,17 @@ msgstr "مصادقة"
 #: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
 #: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
 msgid "Enable"
-msgstr "تفعيل"
+msgstr "Iespējot"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Accounts"
-msgstr "الحسابات"
+msgstr "Konti"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 msgid "Delete"
-msgstr "حذف"
+msgstr "Dzēst"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/cron/layout/main.xml:4
@@ -158,14 +158,14 @@ msgstr "حذف"
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
 msgid "Confirm deletion"
-msgstr "تاكيد عملية الحذف"
+msgstr "Apstiprināt dzēšanu"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/elements/layout/projects-main.xml:1
 #: ajenti/plugins/elements/layout/users-main.xml:1
 msgid "Change password"
-msgstr "تغيير كلمة المرور"
+msgstr "Mainīt paroli"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:3
@@ -207,34 +207,34 @@ msgstr "تغيير كلمة المرور"
 #: ajenti/plugins/squid/layout/main.xml:13
 #: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
 msgid "Create"
-msgstr "ادخال"
+msgstr "Izveidot"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:18
 msgid "Other"
-msgstr "اعدادات اخرى"
+msgstr "Citi"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
-msgstr "ارسل ملاحظاتك"
+msgstr "Nosūtīt atsauksmi"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr "سيقوم Ajenti بارسال رقم الاصدار واسم نظام التشغيل المستخدم، و جل الاضافات التي تستخدمها  بصفة مجهولة الى ajenti.org "
+msgstr "Ajenti anonīmi nosūtīs savu versiju, operētājsistēmas nosaukumu un kādus spraudņus visvairāk izmantojat uz ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/plugins/plugins.py:10
 msgid "Plugins"
-msgstr "الإضافات"
+msgstr "Spraudņi"
 
 #: ajenti/plugins/configurator/configurator.py:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr "الاعدادات"
+msgstr "Konfigurēt"
 
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
@@ -246,39 +246,39 @@ msgstr "الاعدادات"
 #: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
 #: ajenti/plugins/bind9/main.py:70
 msgid "Saved"
-msgstr "تم الحفظ"
+msgstr "Saglabāts"
 
 #: ajenti/plugins/configurator/configurator.py:106
 #: ajenti/plugins/configurator/configurator.py:108
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr "تم الحفظ. رجاءا قم باعادت تشغبل البرنامج حتى يتم العمل بالتغييرات. "
+msgstr "Saglabāts. Lūdzu, restartējiet Ajenti lai izmaiņas stātos spēkā."
 
 #: ajenti/plugins/configurator/configurator.py:112
 #: ajenti/plugins/configurator/configurator.py:114
 msgid "Please supply hostname"
-msgstr "من فضلك! ادخل اسم المستضيف"
+msgstr "Lūdzu, norādiet servera nosaukumu"
 
 #: ajenti/plugins/configurator/configurator.py:128
 #: ajenti/plugins/configurator/configurator.py:130
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr "فضلا، قم باعداد الاضافة %s"
+msgstr "Lūdzu, konfigurējiet spraudni %s!"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:144
 msgid "Configuration"
-msgstr "اعدادات"
+msgstr "Konfigurācija"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
 msgid "Modify Ajenti configuration"
-msgstr "تغير اعدادات Ajenti "
+msgstr "Modificēt Ajenti konfigurāciju"
 
 #: ajenti/plugins/configurator/configurator.py:147
 #: ajenti/plugins/configurator/configurator.py:149
 msgid "Restart Ajenti"
-msgstr "اعادة تشغيل Ajenti"
+msgstr "Pārstartēt Ajenti"
 
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
@@ -289,36 +289,36 @@ msgstr "اعادة تشغيل Ajenti"
 #: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
 msgid "System"
-msgstr "النظام"
+msgstr "Sistēma"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr "اختيار"
+msgstr "Izvēlēties"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr "عادي"
+msgstr "Normāls"
 
 #: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
 msgid "Minute"
-msgstr "دقيقة"
+msgstr "Minūte"
 
 #: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
 msgid "Hour"
-msgstr "ساعة"
+msgstr "Stunda"
 
 #: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
 msgid "Day"
-msgstr "يوم"
+msgstr "Diena"
 
 #: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
 msgid "Month"
-msgstr "شهر"
+msgstr "Mēnesis"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/cron/layout/main.xml:10
 msgid "DoW"
-msgstr "مؤشر داو جونز"
+msgstr "Nedēļas dienas"
 
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -328,17 +328,17 @@ msgstr "مؤشر داو جونز"
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
 msgid "Command"
-msgstr "اوامر"
+msgstr "Komanda"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 #: ajenti/plugins/cron/layout/main.xml:12
 msgid "Special"
-msgstr "خاصة"
+msgstr "Ipaši"
 
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Schedule"
-msgstr "الجدول الزمني"
+msgstr "Grafiks"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:19
@@ -346,7 +346,7 @@ msgstr "الجدول الزمني"
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Environment"
-msgstr "البيئة"
+msgstr "Vide"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:22
@@ -370,7 +370,7 @@ msgstr "البيئة"
 #: ajenti/plugins/users/layout/main.xml:11
 #: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
 msgid "Name"
-msgstr "الاسم"
+msgstr "Vārds"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:23
@@ -378,11 +378,11 @@ msgstr "الاسم"
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:3
 msgid "Value"
-msgstr "القيمة"
+msgstr "Vērtība"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr "مجموعة سامبا"
+msgstr "Samba masīvs"
 
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
@@ -394,73 +394,73 @@ msgstr "مجموعة سامبا"
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/nsd/main.py:17
 msgid "Software"
-msgstr "البرمجيات"
+msgstr "Programmatūra"
 
 #: ajenti/plugins/ctdb/main.py:65
 msgid "Failed to obtain CTDB status"
-msgstr "فشل في الحصول على حالة CTDB "
+msgstr "Neizdevās iegūt CTDB statusu"
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 msgid "Status"
-msgstr "الحالة"
+msgstr "Statuss"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr "IP عام"
+msgstr "Publiskās IP"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr "إدارة سامبا"
+msgstr "Pārvaldīt Samba"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr "[_('Hourly')، _('Daily')، _('Weekly')، _('Monthly')، _('Yearly')، _ ('على إعادة التشغيل')]"
+msgstr "[_('Katru stundu'), _('Katru dienu'), _('Katru nedēļu'), _('Katru mēnesi'), _('Katru gadu'), _ ('Pēc pārstartēšanas')]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr "مستوى التصحيح "
+msgstr "Atkļūdošanas līmenis"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr "الملفات"
+msgstr "Faili"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr "استرداد قفل الملف"
+msgstr "Atkopšanas atslēgas fails"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr "عنوان الملف العام "
+msgstr "Publisko adrešu fails"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr "ملف العقد"
+msgstr "Mezglu fails"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr "ملف السجل"
+msgstr "Žurnāla fails"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr "الربط الشبكي"
+msgstr "Tīklošana"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr "الواجهة العامة"
+msgstr "Publiskais interfeiss"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr "الشبكة عامة"
+msgstr "Publiskais tīkls"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr "البوابة العامة"
+msgstr "Publiska vārteja"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr "العقد"
+msgstr "Mezgli"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -468,69 +468,69 @@ msgstr "العقد"
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
 msgid "Address"
-msgstr "العنوان"
+msgstr "Adrese"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr "عناوين عامة"
+msgstr "Publiskās adreses"
 
 #: ajenti/plugins/ctdb/layout/main.xml:23
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 msgid "Interface"
-msgstr "الواجهة"
+msgstr "Interfeiss"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr "محرر التعليمات البرمجية CodeMirror "
+msgstr "CodeMirror koda redaktors"
 
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
 #: ajenti/plugins/apache/main.py:12
 msgid "Reload"
-msgstr "إعادة تحميل"
+msgstr "Pārlādēt"
 
 #: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
 msgid "Dashboard"
-msgstr "لوحة التحكم"
+msgstr "Sākums"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr "مرحباً"
+msgstr "Laipni lūdzam"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:1
 msgid "Refresh"
-msgstr "تحديث"
+msgstr "Atjaunot"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr "إدراج إضافة"
+msgstr "Pievienot rīku"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr ""
+msgstr "[{\"text\": _('Atcelt'), \"id\": \"cancel\"}]"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr "انتهاء الاستعلام"
+msgstr "Vaicājums izpildīts"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr "إخراج قطع من الصفوف %i إلى 200"
+msgstr "Izvades nogriezta no %i rindām līdz 200"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr "تنفيذ"
+msgstr "Izpildīt"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr "قواعد البيانات"
+msgstr "Datubāzes"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Apstiprinātu datu bāzes dzēšanu!"
 
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
@@ -542,11 +542,11 @@ msgstr ""
 #: ajenti/plugins/users/layout/user-list.xml:2
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr ""
+msgstr "Lietotājvārds"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr ""
+msgstr "Datubāzes nosaukums"
 
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/mysql/layout/config.xml:2
@@ -554,165 +554,165 @@ msgstr ""
 #: ajenti/plugins/netatalk/layout/main.xml:6
 #: ajenti/plugins/mysql/layout/config.xml:3
 msgid "Password"
-msgstr ""
+msgstr "Parole"
 
 #: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
-msgstr ""
+msgstr "Failu pārvaldnieks"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/notepad/notepad.py:19
 msgid "Tools"
-msgstr ""
+msgstr "Rīki"
 
 #: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:1
 #: ajenti/plugins/packages/layout/row.xml:3
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Mājas direktorija"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr ""
+msgstr "Aizvērt"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr ""
+msgstr "Jauns fails"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr ""
+msgstr "Jauna direktorija"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr ""
+msgstr "Izgriezt"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
-msgstr ""
+msgstr "Kopēt"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
-msgstr ""
+msgstr "Ielīmēt"
 
 #: ajenti/plugins/fm/layout/main.xml:9 ajenti/plugins/fm/layout/main.xml:6
 msgid "Upload"
-msgstr ""
+msgstr "Augšupielādēt"
 
 #: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:7
 msgid "Clipboard"
-msgstr ""
+msgstr "Starpliktuve"
 
 #: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
 #: ajenti/plugins/users/layout/user-list.xml:9
 msgid "Remove"
-msgstr ""
+msgstr "Noņemt"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
 #: ajenti/plugins/fm/layout/main.xml:11
 msgid "Access"
-msgstr ""
+msgstr "Piekļuve"
 
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Owner"
-msgstr ""
+msgstr "Īpašnieks"
 
 #: ajenti/plugins/fm/layout/main.xml:15 ajenti/plugins/fm/layout/main.xml:16
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:13
 msgid "Group"
-msgstr ""
+msgstr "Grupa"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr ""
+msgstr "Barošana"
 
 #: ajenti/plugins/power/power.py:80
 msgid "Power control"
-msgstr ""
+msgstr "Barošanas pārvaldība"
 
 #: ajenti/plugins/power/power.py:84
 msgid "Reboot"
-msgstr ""
+msgstr "Pārstartēt"
 
 #: ajenti/plugins/power/power.py:85
 msgid "Shutdown"
-msgstr ""
+msgstr "Izslēgt"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "Strāvas padeve"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "Akumulators"
 
 #: ajenti/plugins/power/layout/widget.xml:3
 msgid "Reboot the system?"
-msgstr ""
+msgstr "Pārstartēt sistēmu?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Shutdown the system?"
-msgstr ""
+msgstr "Izslēgt sistēmu?"
 
 #: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
 #: ajenti/plugins/main/main.py:195 ajenti/plugins/main/main.py:197
 msgid "Section access"
-msgstr ""
+msgstr "Sadaļa piekļuve"
 
 #: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
 #: ajenti/plugins/main/main.py:212 ajenti/plugins/main/main.py:214
 msgid "Feedback sent!"
-msgstr ""
+msgstr "Atsauksme nosūtīta!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr ""
+msgstr "Vidējā slodze"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU noslodze"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr ""
+msgstr "Atmiņas lietojums"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr ""
+msgstr "Maiņvietas lietojums"
 
 #: ajenti/plugins/sensors/uptime.py:18
 msgid "Uptime"
-msgstr ""
+msgstr "Online laiks"
 
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 msgid "Variant"
-msgstr ""
+msgstr "Variants"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
-msgstr ""
+msgstr "Failu sistēmas"
 
 #: ajenti/plugins/fstab/main.py:67
 msgid "Unmounted"
-msgstr ""
+msgstr "Nav uzmontēts"
 
 #: ajenti/plugins/fstab/main.py:73
 msgid "mount -a failed"
-msgstr ""
+msgstr "mount -a neizdevās izpildīt"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr ""
+msgstr "Diska vieta"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr ""
+msgstr "Montēt visu"
 
 #: ajenti/plugins/fstab/layout/main.xml:4
 #: ajenti/plugins/fstab/layout/main.xml:12
@@ -722,16 +722,16 @@ msgstr ""
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "Ierīce"
 
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "Montēšanas punkts"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 msgid "FS type"
-msgstr ""
+msgstr "Failu sistēmas veids"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:4
@@ -741,132 +741,132 @@ msgstr ""
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Options"
-msgstr ""
+msgstr "Opcijas"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
-msgstr ""
+msgstr "Skenēšanas biežums"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Skenēšanas kārtība"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "Piemontētās failu sistēmas"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr ""
+msgstr "Izmantots"
 
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr "الحجم"
+msgstr "Izmērs"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr "الاستخدام"
+msgstr "Lietojums"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr "إلغاء التحميل"
+msgstr "Atmontēt"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr "درجة حرارة القرص الصلب"
+msgstr "Cietā diska temperatūra"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr "[{'الأوامر': 'القوة--تحديث'، 'نص': _('اعادة التحميل')، 'ايقونة': 'خطوة إلى الأمام'،}]"
+msgstr "[{                 'command': 'force-reload',                 'text': _('Atjaunot'),                 'icon': 'step-forward',             }]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr "مجلد العمل"
+msgstr "Darba direktorija"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
-msgstr "تشغيل تلقائي"
+msgstr "Automātiska palaišana"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
-msgstr "[_('Enabled'), _('Disabled')]"
+msgstr "[_('Ieslēgts'), _('Izslēgts')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
-msgstr "إعادة تشغيل تلقائي"
+msgstr "Automātiski pārstartēt"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr "[_('تفعيل')، _ ('عند عدم الاستجابة')، _('تعطيل')]"
+msgstr "[_('Ieslēgts'), _('Avārijas gadījumā'), _('Izslēgts')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr "بدء المهلة"
+msgstr "Palaišanas taimauts"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
-msgstr "بدء عمليات إعادة المحاولة"
+msgstr "Palaišanas mēģinājumi"
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
-msgstr "لا يكمنك تعطيل اعادة التشغيل التلقائية لجدار الحماية على هذا النظام"
+msgstr "Nevar atslēgt ugunsmūra automātisku palaišanu šajā platformā"
 
 #: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
-msgstr "جدار الحماية"
+msgstr "Ugunsmūris"
 
 #: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
 #: ajenti/plugins/iptables/main.py:104
 #: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/main.py:105
 msgid "Add option"
-msgstr "إضافة خيار"
+msgstr "Pievienot opciju"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 #: ajenti/plugins/iptables/main.py:140
 msgid "Disable"
-msgstr "تعطيل"
+msgstr "Atslēgt"
 
 #: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 #: ajenti/plugins/iptables/main.py:140
 msgid " autostart"
-msgstr " تشغيل تلقائي"
+msgstr " automātiska palaišana"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr "الوحدات النمطية"
+msgstr "Moduļi"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr "الدول"
+msgstr "Stāvokļi"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr "تحرير مباشر"
+msgstr "Labot manuāli"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr "سلسلة جديدة"
+msgstr "Jauna ķēde"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 msgid "Action:"
-msgstr "الإجراء:"
+msgstr "Darbība:"
 
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr "الشروط"
+msgstr "Nosacījumi"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr "قاعدة جديدة"
+msgstr "Jauns noteikums"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 #: ajenti/plugins/packages/layout/main.xml:2
@@ -874,259 +874,259 @@ msgstr "قاعدة جديدة"
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/iptables/layout/main.xml:13
 msgid "Apply"
-msgstr "تطبيق"
+msgstr "Lietot"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr "البروتوكول"
+msgstr "Protokols"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/squid/layout/main.xml:11
 msgid "Ports"
-msgstr "منافذ"
+msgstr "Porti"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr "السبب"
+msgstr "Iemesls"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr "السكريبت"
+msgstr "Skripts"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr "نفذت"
+msgstr "Palaists"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr "سكريبتات"
+msgstr "Skripti"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr "تشغيل السكريبتات"
+msgstr "Palaist skriptus"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr "تشغيل في محطة طرفية"
+msgstr "Izpildīt terminālī"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr "يمكن تثبيت هذه الحزمة تلقائياً"
+msgstr "Šī pakotne var tikt uzstādīta automātiski"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
-msgstr "الحزم"
+msgstr "Pakotnes"
 
 #: ajenti/plugins/packages/main.py:50
 msgid "Enqueueing package installation"
-msgstr "تثبيت حزم في الانتظار"
+msgstr "Pakotnes uzstādīšana ierindota"
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
-msgstr "انتهى التثبيت"
+msgstr "Uzstādīšana pabeigta!"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr " تم العثور على %i ، سيظهر 100"
+msgstr "%i rezultāti, 100 tiek rādīti"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr "تم العثور على %i"
+msgstr "%i rezultāti"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
-msgstr "تثبيت/إزالة"
+msgstr "Uzstādīt / noņemt"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr "تحديث القوائم"
+msgstr "Atjaunot sarakstu"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr "الإصدار"
+msgstr "Versija"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr "الحصول على القوائم"
+msgstr "Iegūt sarakstus"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr "قابل للتحديث"
+msgstr "Atjaunojams"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr "ترقية كلية"
+msgstr "Jaunināt visus"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr "البحث"
+msgstr "Meklēt"
 
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr "في الانتظار"
+msgstr "Gaida"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr "إلغاء جميع"
+msgstr "Atcelt visus"
 
 #: ajenti/plugins/packages/layout/installer.xml:1
 msgid "Install"
-msgstr "تثبيت"
+msgstr "Uzstādīt"
 
 #: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
-msgstr "اعدادات اخرى"
+msgstr "Citi"
 
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "Sensors"
 
 #: ajenti/plugins/squid/main.py:13 ajenti/plugins/squid/main.py:14
 msgid "Squid"
-msgstr ""
+msgstr "Squid"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "HTTP piekļuve"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "Režīms"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
 #: ajenti/plugins/terminal/main.py:163 ajenti/plugins/terminal/main.py:178
 #: ajenti/plugins/terminal/main.py:183
 msgid "Terminal"
-msgstr ""
+msgstr "Terminālis"
 
 #: ajenti/plugins/terminal/main.py:167 ajenti/plugins/terminal/main.py:182
 #: ajenti/plugins/terminal/main.py:187
 msgid "Run shell"
-msgstr ""
+msgstr "Palaist termināli"
 
 #: ajenti/plugins/terminal/main.py:168 ajenti/plugins/terminal/main.py:183
 #: ajenti/plugins/terminal/main.py:188
 msgid "Run custom commands"
-msgstr ""
+msgstr "Palaist pielāgotu komandu"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "Noklusējuma terminālis"
 
 #: ajenti/plugins/terminal/layout/main.xml:2
 #: ajenti/plugins/notepad/layout/main.xml:1
 msgid "New"
-msgstr ""
+msgstr "Jauns"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "Nav aktīvu termināļu"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
-msgstr ""
+msgstr "Notikumu žurnāli"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
-msgstr ""
+msgstr "Atvērt"
 
 #: ajenti/plugins/services/main.py:12
 msgid "Services"
-msgstr ""
+msgstr "Pakalpojumi"
 
 #: ajenti/plugins/services/main.py:39
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s palaists"
 
 #: ajenti/plugins/services/main.py:44
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s apturēts"
 
 #: ajenti/plugins/services/main.py:49
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s pārstartēts"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr ""
+msgstr "Pakalpojums"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 msgid "Start"
-msgstr ""
+msgstr "Sākt"
 
 #: ajenti/plugins/services/layout/bar.xml:2
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "Apturēt"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "Izcelsme"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "Darbības"
 
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "User"
-msgstr ""
+msgstr "Lietotājs"
 
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/users/layout/user-list.xml:3
 msgid "Comment"
-msgstr ""
+msgstr "Komentārs"
 
 #: ajenti/plugins/users/layout/main.xml:9
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr ""
+msgstr "Mājas direktorija"
 
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
-msgstr ""
+msgstr "Terminālis"
 
 #: ajenti/plugins/users/layout/main.xml:12
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr ""
+msgstr "Grupas"
 
 #: ajenti/plugins/users/layout/main.xml:15
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr ""
+msgstr "Dalībnieki"
 
 #: ajenti/plugins/network/widget.py:81
 msgid "Immediate Traffic"
-msgstr ""
+msgstr "Pašreizējā plūsma"
 
 #: ajenti/plugins/network/widget.py:111
 msgid "Traffic"
-msgstr ""
+msgstr "Plūsma"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
-msgstr ""
+msgstr "Procesi"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr ""
+msgstr "PID (vecāka)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "CPU"
@@ -1138,227 +1138,227 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "Terminate"
-msgstr ""
+msgstr "Pārtraukt"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Kill"
-msgstr ""
+msgstr "Piespiedu beigšana"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Serveris"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
-msgstr ""
+msgstr "Pseidonīmi"
 
 #: ajenti/plugins/notepad/notepad.py:17
 msgid "Notepad"
-msgstr ""
+msgstr "Piezīmjbloks"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr ""
+msgstr "Saglabāt kā"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr ""
+msgstr "Grāmatzīme"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
-msgstr ""
+msgstr "Atkarības"
 
 #: ajenti/plugins/resolv/resolv.py:13
 msgid "Nameservers"
-msgstr ""
+msgstr "Domēna vārdu serveris"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "DNS nameserver"
-msgstr ""
+msgstr "DNS vārdu serveris"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Local domain name"
-msgstr ""
+msgstr "Lokālais domēna vārds"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Search list"
-msgstr ""
+msgstr "Meklēšanas saraksts"
 
 #: ajenti/plugins/resolv/resolv.py:18
 msgid "Sort list"
-msgstr ""
+msgstr "Kārtošanas saraksts"
 
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
-msgstr ""
+msgstr "Tips"
 
 #: ajenti/plugins/smartctl/widget.py:55 ajenti/plugins/smartctl/widget.py:57
 #: ajenti/plugins/smartctl/widget.py:58
 msgid "No data"
-msgstr ""
+msgstr "Nav datu"
 
 #: ajenti/plugins/smartctl/widget.py:56 ajenti/plugins/smartctl/widget.py:58
 #: ajenti/plugins/smartctl/widget.py:59
 msgid "FAILING"
-msgstr ""
+msgstr "KĻŪDA"
 
 #: ajenti/plugins/smartctl/widget.py:57 ajenti/plugins/smartctl/widget.py:59
 #: ajenti/plugins/smartctl/widget.py:60
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "PRE-FAIL"
 
 #: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "Unknown error"
-msgstr ""
+msgstr "Nezināma kļūda"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "NFS eksports"
 
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
-msgstr "مجلد"
+msgstr "Direktorija"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Clients"
-msgstr "عملاء"
+msgstr "Klienti"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr "تعذر الاتصال إلى مونين: %s"
+msgstr "Nevarēja izveidot savienojumu ar Munin: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr "مصادقة Munin HTTP فشلت "
+msgstr "Munin HTTP autentifikācija neizdevās"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr "عرض"
+msgstr "Skats"
 
 #: ajenti/plugins/samba/main.py:43
 msgid "Password updated"
-msgstr "تحديث كلمة المرور "
+msgstr "Parole atjaunota"
 
 #: ajenti/plugins/samba/main.py:46
 msgid "Password update failed"
-msgstr "فشل تحديث كلمة المرور"
+msgstr "Paroles atjaunošana neizdevās"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr "مشاركة"
+msgstr "Koplietojumi"
 
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr "المسار"
+msgstr "Ceļš"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 msgid "Guest access"
-msgstr "دخول الزوار"
+msgstr "Viesa piekļuves tiesības"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr "قابل للعرض"
+msgstr "Pārlūkojams"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
-msgstr "إنشاء قناع"
+msgstr "Izveides maska"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Directory mask"
-msgstr "قناع الدليل"
+msgstr "Direktorijas maska"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Read only"
-msgstr "للقراءة فقط"
+msgstr "Tikai lasāms"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr "التهيئة"
+msgstr "Konfigurācija"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
-msgstr "واجهات"
+msgstr "Interfeisi"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "Bind only to these interfaces"
-msgstr "ربط فقط إلى هذه الواجهات"
+msgstr "Izmantot tikai šos tīkla interfeisus"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Identification"
-msgstr "التعريف"
+msgstr "Identifikācija"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Workgroup"
-msgstr "مجموعة العمل"
+msgstr "Darba grupa"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr "سلسلة الخادم"
+msgstr "Servera nosaukums"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
-msgstr "الأمن"
+msgstr "Drošība"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Sessions"
-msgstr "جلسات"
+msgstr "Sesijas"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Share"
-msgstr "مشاركة"
+msgstr "Koplietojums"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Machine"
-msgstr "آلة"
+msgstr "Ierīce"
 
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr "انقطاع الاتصال"
+msgstr "Atvienot"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
-msgstr "إضافة"
+msgstr "Pievienot"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 #: ajenti/plugins/users/layout/user-list.xml:8
 msgid "Set"
-msgstr "تعيين"
+msgstr "Iestatīt"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr "المستخدمين المعرفيين"
+msgstr "Derīgi lietotāji"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Resursu atvasinājumi"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Paplašinātie atribūti"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "CNID shēma"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "AFP ports"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "CNID adrese"
 
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Darbība"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1366,170 +1366,170 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Stāvoklis"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Ierīces"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Bloki"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Atkopšana:"
 
 #: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
 #: ajenti/plugins/notepad/notepad.py:50
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "Nenosaukts %i"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Ielādēt pašreizējo stāvokli"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr ""
+msgstr "Šī darbība pārrakstīs saglabātās konfigurācijas ar pašreizējo ugunsmūra statusu! Vai turpināt?"
 
 #: ajenti/plugins/terminal/terminal.py:94
 #: ajenti/plugins/terminal/terminal.py:95
 #: ajenti/plugins/terminal/terminal.py:97
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "Procesā ir izgājis ar statusu %i"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Argumenti"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Arguments"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "Atzīmēt uzstādīšanai/atjaunošanai"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Atzīmēt noņemšanai"
 
 #: ajenti/plugins/terminal/terminal.py:97
 #: ajenti/plugins/terminal/terminal.py:99
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Process ir izgājis veiksmīgi"
 
 #: ajenti/plugins/fstab/iops.py:61
 msgid "Immediate I/O"
-msgstr ""
+msgstr "Tūlītējs I/O"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "Tīkls"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Class"
-msgstr ""
+msgstr "Klase"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-msgstr ""
+msgstr "[_('Atpakaļsaite'), _('Statisks'), _('Manuāls'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "DHCP serveris"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Apakštīkli"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "Specifikācija"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr ""
+msgstr "IP diapazoni"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Globālās opcijas"
 
 #: ajenti/plugins/memcache/widget.py:29
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcache atmiņas lietojums"
 
 #: ajenti/plugins/users/main.py:101
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Mājas direktorija %s ir izveidota"
 
 #: ajenti/plugins/users/main.py:110
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "%s parole ir nomainīta"
 
 #: ajenti/plugins/users/main.py:113
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Kļūda: \"%s\""
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password should't be empty"
-msgstr ""
+msgstr "Parole nedrīkst būt tukša"
 
 #: ajenti/plugins/users/main.py:119
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "%s parole tika noņemta"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Jaunā parole"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Sistēmas lietotāji"
 
 #: ajenti/plugins/bind9/main.py:37 ajenti/plugins/nsd/main.py:37
 msgid "Zone saved"
-msgstr ""
+msgstr "Zona saglabāta"
 
 #: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/nsd/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Zonas"
 
 #: ajenti/plugins/bind9/layout/main.xml:5 ajenti/plugins/nsd/layout/main.xml:4
 msgid "File"
-msgstr ""
+msgstr "Fails"
 
 #: ajenti/plugins/bind9/layout/main.xml:6 ajenti/plugins/nsd/layout/main.xml:5
 msgid "Zone"
-msgstr ""
+msgstr "Zona"
 
 #: ajenti/plugins/bind9/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:6
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Zonas fails nepastāv"
 
 #: ajenti/plugins/bind9/layout/main.xml:9 ajenti/plugins/nsd/layout/main.xml:8
 msgid "Save zone"
-msgstr ""
+msgstr "Saglabāt zonu"
 
 #: ajenti/plugins/megaraid/layout/main.xml:1
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 msgid "Adapter"
-msgstr ""
+msgstr "Adapteris"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
-msgstr ""
+msgstr "[_('Atļaut'), _('Aizliegt')]"
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Parole nedrīkst būt tukša"
 
 #: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:62
 msgid "Errors in log"
