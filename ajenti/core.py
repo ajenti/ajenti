@@ -57,14 +57,14 @@ class SSLTunnel (object):
             cfg.name,
         ]
         self.process = subprocess.Popen(cmd, stdout=None)
-        time.sleep(0.2)
-        os.unlink(cfg.name)
+        self._filename = cfg.name
 
     def check(self):
         time.sleep(0.5)
         return self.process.poll() is None
 
     def stop(self):
+        os.unlink(self._filename)
         self.process.terminate()
 
     def get_free_port(self):
