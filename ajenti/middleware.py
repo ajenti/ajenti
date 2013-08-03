@@ -1,11 +1,11 @@
 import hashlib
 import time
-import Cookie
 import random
 import gevent
 
 import ajenti
 from ajenti.api import *
+from ajenti.cookies import Cookie, Cookies
 from ajenti.plugins import manager
 from ajenti.http import HttpHandler
 from ajenti.users import UserManager
@@ -53,10 +53,7 @@ class Session:
         """
         Adds headers to :class:`ajenti.http.HttpContext` that set the session cookie
         """
-        C = Cookie.SimpleCookie()
-        C['session'] = self.id
-        C['session']['path'] = '/'
-        context.add_header('Set-Cookie', C['session'].OutputString())
+        context.add_header('Set-Cookie', Cookie('session', self.id).render_response())
 
 
 @plugin
@@ -91,11 +88,10 @@ class SessionMiddleware (HttpHandler):
     def handle(self, context):
         self.vacuum()
         cookie_str = context.env.get('HTTP_COOKIE')
-        # fix bad cookies
-        if cookie_str:
-            cookie_str = cookie_str.replace('&', '_')
-
-        cookie = Cookie.SimpleCookie(cookie_str).get('session')
+        cookie = Cookies.from_request(
+            cookie_str,
+            ignore_bad_cookies=True,
+        )['session']
         context.session = None
         if cookie and cookie.value:
             if cookie.value in self.sessions:
