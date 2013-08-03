@@ -20,3 +20,4 @@ def init():
     import sm_freebsd
     import main
     import widget
+    import sensor
