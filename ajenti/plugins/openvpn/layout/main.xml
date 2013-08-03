@@ -1,0 +1,106 @@
+<vc>
+    <hc>
+        <button id="hard-restart" text="{Restart}" icon="refresh" />
+        <button id="soft-restart" text="{Reload}" icon="refresh" />
+    </hc>
+
+    <body>
+        <pad>
+            <tabs>
+                <tab title="{Status}">
+                    <vc>
+                        <bind:collection bind="clients" id="clients">
+                            <dt bind="__items">
+                                <dtr>
+                                    <dth text="CN" />
+                                    <dth text="{Remote IP}" />
+                                    <dth text="{Local IP}" />
+                                    <dth text="RX" />
+                                    <dth text="TX" />
+                                    <dth text="{Connected since}" />
+                                    <dth />
+                                </dtr>
+                            </dt>
+
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <label bind="cn" />
+                                    </dtd>
+                                    <dtd>
+                                        <label bind="raddress" />
+                                    </dtd>
+                                    <dtd>
+                                        <label bind="vaddress" />
+                                    </dtd>
+                                    <dtd>
+                                        <label bind="brecv" bindtransform="lambda x: str_fsize(int(x))" />
+                                    </dtd>
+                                    <dtd>
+                                        <label bind="bsent" bindtransform="lambda x: str_fsize(int(x))" />
+                                    </dtd>
+                                    <dtd>
+                                        <label bind="connsince" />
+                                    </dtd>
+                                    <dtd>
+                                        <tooltip text="{Disconnect}">
+                                            <button icon="remove" style="mini" bind="__delete" />
+                                        </tooltip>
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+
+                        <bind:dict bind="stats">
+                            <vc>
+                                <hc>
+                                    <icon icon="group" />
+                                    <label bind="nclients" />
+                                    <label text="{clients}" />
+                                </hc>
+                                <hc>
+                                    <icon icon="arrow-down" />
+                                    <label bind="bytesin" bindtransform="lambda x: str_fsize(int(x))" />
+                                </hc>
+                                <hc>
+                                    <icon icon="arrow-up" />
+                                    <label bind="bytesout" bindtransform="lambda x: str_fsize(int(x))" />
+                                </hc>
+                            </vc>
+                        </bind:dict>
+                    </vc>
+                </tab>
+
+                <tab title="{Messages}">
+                    <bind:collection bind="messages" pagesize="50">
+                        <dt bind="__items">
+                            <dtr>
+                                <dth text="{Timestamp}" />
+                                <dth text="{Flags}" />
+                                <dth text="{Text}" />
+                            </dtr>
+                        </dt>
+
+                        <right>
+                            <paging bind="__paging" />
+                        </right>
+
+                        <bind:template>
+                            <dtr>
+                                <dtd>
+                                    <label bind="timestamp" />
+                                </dtd>
+                                <dtd>
+                                    <label bind="flags" />
+                                </dtd>
+                                <dtd>
+                                    <label bind="text" />
+                                </dtd>
+                            </dtr>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
+        </pad>
+    </body>
+</vc>

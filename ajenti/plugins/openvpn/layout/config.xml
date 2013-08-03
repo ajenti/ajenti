@@ -1,0 +1,12 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{Management address}">
+            <tooltip text="{host:port or UNIX socket path}">
+                <textbox bind="addr" />
+            </tooltip>
+        </formline>
+        <formline text="{Password}">
+            <passwordbox bind="password" />
+        </formline>
+    </vc>
+</bind:dict>
