@@ -35,6 +35,7 @@ msgstr "Guardar"
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
+#: ajenti/plugins/openvpn/layout/main.xml:1
 msgid "Restart"
 msgstr "Reiniciar"
 
@@ -392,7 +393,7 @@ msgstr "Samba Cluster"
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
-#: ajenti/plugins/nsd/main.py:17
+#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
 msgid "Software"
 msgstr "Software"
 
@@ -401,6 +402,7 @@ msgid "Failed to obtain CTDB status"
 msgstr "Falha ao obter o estado do CTDB"
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
+#: ajenti/plugins/openvpn/layout/main.xml:3
 msgid "Status"
 msgstr "Estado"
 
@@ -485,7 +487,7 @@ msgstr "Editor de código CodeMirror"
 
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
-#: ajenti/plugins/apache/main.py:12
+#: ajenti/plugins/apache/main.py:12 ajenti/plugins/openvpn/layout/main.xml:2
 msgid "Reload"
 msgstr "Atualizar"
 
@@ -553,6 +555,7 @@ msgstr "Nome da Base Dados"
 #: ajenti/plugins/samba/layout/main.xml:29
 #: ajenti/plugins/netatalk/layout/main.xml:6
 #: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
 msgid "Password"
 msgstr "Palavra-passe"
 
@@ -1112,11 +1115,11 @@ msgstr "Grupos"
 msgid "Members"
 msgstr "Membros"
 
-#: ajenti/plugins/network/widget.py:81
+#: ajenti/plugins/network/widget.py:81 ajenti/plugins/network/widget.py:85
 msgid "Immediate Traffic"
 msgstr "Tráfego imediato"
 
-#: ajenti/plugins/network/widget.py:111
+#: ajenti/plugins/network/widget.py:111 ajenti/plugins/network/widget.py:115
 msgid "Traffic"
 msgstr "Tráfego"
 
@@ -1319,6 +1322,7 @@ msgid "Machine"
 msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:25
+#: ajenti/plugins/openvpn/layout/main.xml:7
 msgid "Disconnect"
 msgstr ""
 
@@ -1533,5 +1537,49 @@ msgstr "Password não pode estar vazia"
 
 #: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:62
 msgid "Errors in log"
+msgstr ""
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:12
+msgid "Text"
 msgstr ""
 
