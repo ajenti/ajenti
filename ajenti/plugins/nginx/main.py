@@ -4,6 +4,7 @@ from ajenti.plugins.webserver_common.api import WebserverPlugin
 
 @plugin
 class Nginx (WebserverPlugin):
+    platforms = ['debian']
     service_name = 'nginx'
     service_buttons = [
         {
