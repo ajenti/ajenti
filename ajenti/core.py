@@ -66,6 +66,8 @@ class SSLTunnel (object):
     def stop(self):
         os.unlink(self._filename)
         self.process.terminate()
+        if self.check():
+            self.process.kill()
 
     def get_free_port(self):
         s = socket.socket()
