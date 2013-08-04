@@ -87,18 +87,19 @@ class SessionMiddleware (HttpHandler):
 
     def handle(self, context):
         self.vacuum()
-        cookie_str = context.env.get('HTTP_COOKIE')
-        cookie = Cookies.from_request(
-            cookie_str,
-            ignore_bad_cookies=True,
-        )['session']
+        cookie_str = context.env.get('HTTP_COOKIE', None)
         context.session = None
-        if cookie and cookie.value:
-            if cookie.value in self.sessions:
-                # Session found
-                context.session = self.sessions[cookie.value]
-                if context.session.is_dead():
-                    context.session = None
+        if cookie_str:
+            cookie = Cookies.from_request(
+                cookie_str,
+                ignore_bad_cookies=True,
+            )['session']
+            if cookie and cookie.value:
+                if cookie.value in self.sessions:
+                    # Session found
+                    context.session = self.sessions[cookie.value]
+                    if context.session.is_dead():
+                        context.session = None
         if context.session is None:
             context.session = self.open_session(context)
         context.session.set_cookie(context)
