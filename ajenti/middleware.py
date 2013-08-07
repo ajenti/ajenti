@@ -53,7 +53,7 @@ class Session:
         """
         Adds headers to :class:`ajenti.http.HttpContext` that set the session cookie
         """
-        context.add_header('Set-Cookie', Cookie('session', self.id).render_response())
+        context.add_header('Set-Cookie', Cookie('session', self.id, path='/').render_response())
 
 
 @plugin
