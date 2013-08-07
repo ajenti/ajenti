@@ -37,7 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
 
-%config /etc/ajenti/config.json
+%config(noreplace) /etc/ajenti/config.json
 
 %post
 ajenti-ssl-gen `hostname`
