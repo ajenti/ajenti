@@ -401,6 +401,7 @@ msgstr ""
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/nginx/main.py:40
 msgid "Software"
 msgstr ""
 
@@ -497,6 +498,7 @@ msgstr ""
 #: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
 #: ajenti/plugins/apache/main.py:12 ajenti/plugins/openvpn/layout/main.xml:2
+#: ajenti/plugins/nginx/main.py:12
 msgid "Reload"
 msgstr ""
 

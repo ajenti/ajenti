@@ -1432,154 +1432,154 @@ msgstr ""
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "Réseau"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Class"
-msgstr ""
+msgstr "Classe"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-msgstr ""
+msgstr "[_('Loopback'), _('Statique'), _('Manuel'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "Serveur DHCP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Sous-réseaux"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "Spécification"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr ""
+msgstr "Plages IP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Options globales"
 
 #: ajenti/plugins/memcache/widget.py:29
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Utilisation de la mémoire memcache"
 
 #: ajenti/plugins/users/main.py:101
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Le répertoire utilisateur pour %s a été créé"
 
 #: ajenti/plugins/users/main.py:110
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Le mot de passe pour %s a été modifié"
 
 #: ajenti/plugins/users/main.py:113
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Erreur : \"%s\""
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password should't be empty"
-msgstr ""
+msgstr "Le mot de passe ne peut être vide"
 
 #: ajenti/plugins/users/main.py:119
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Le mot de passe pour %s a été supprimé"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Nouveau mot de passe"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Utilisateurs système"
 
 #: ajenti/plugins/bind9/main.py:37 ajenti/plugins/nsd/main.py:37
 msgid "Zone saved"
-msgstr ""
+msgstr "Zone enregistrée"
 
 #: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/nsd/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Zones"
 
 #: ajenti/plugins/bind9/layout/main.xml:5 ajenti/plugins/nsd/layout/main.xml:4
 msgid "File"
-msgstr ""
+msgstr "Fichier"
 
 #: ajenti/plugins/bind9/layout/main.xml:6 ajenti/plugins/nsd/layout/main.xml:5
 msgid "Zone"
-msgstr ""
+msgstr "Zone"
 
 #: ajenti/plugins/bind9/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:6
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Le fichier de zone n'existe pas"
 
 #: ajenti/plugins/bind9/layout/main.xml:9 ajenti/plugins/nsd/layout/main.xml:8
 msgid "Save zone"
-msgstr ""
+msgstr "Enregistrer zone"
 
 #: ajenti/plugins/megaraid/layout/main.xml:1
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 msgid "Adapter"
-msgstr ""
+msgstr "Contrôleur"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
-msgstr ""
+msgstr "[_('Accepter'), _('Refuser')]"
 
 #: ajenti/plugins/users/main.py:115
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Le mot de passe ne peut être vide"
 
 #: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:62
 msgid "Errors in log"
-msgstr ""
+msgstr "Erreurs dans le journal"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
-msgstr ""
+msgstr "OpenVPN"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr ""
+msgstr "Adresse de gestion"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "hôte:port ou chemin du socket UNIX"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr ""
+msgstr "IP distante"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr ""
+msgstr "IP locale"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Connecté depuis"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "clients"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Timestamp"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "Drapeaux"
 
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 
