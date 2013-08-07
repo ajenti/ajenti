@@ -93,7 +93,7 @@ class SessionMiddleware (HttpHandler):
             cookie = Cookies.from_request(
                 cookie_str,
                 ignore_bad_cookies=True,
-            )['session']
+            ).get('session', None)
             if cookie and cookie.value:
                 if cookie.value in self.sessions:
                     # Session found
