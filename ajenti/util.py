@@ -115,6 +115,8 @@ def make_report(e):
     # Finalize the reported log
     logging.blackbox.stop()
 
+    tb = traceback.format_exc(e)
+    
     catcher_url = None
     try:
         report = catcher.collect(e)
@@ -148,7 +150,7 @@ Log content:
         debug,
         locale.getlocale(locale.LC_MESSAGES),
         ' '.join(manager.get_order()),
-        traceback.format_exc(e),
+        tb,
         catcher_url or 'Failed to upload traceback',
         logging.blackbox.buffer,
     )
