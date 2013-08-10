@@ -35,7 +35,12 @@ Launch Ajenti in debug mode::
 
 Navigate to http://localhost:8000/.
 
+Press Ctrl-\ at any time to launch an interactive Python shell and Ctrl-D to resume Ajenti.
+
 CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console.
+
+Plugin development
+==================
 
 New plugins can be placed in both ``<source>/ajenti/plugins/`` (if you expect inclusion in the source tree) and ``/var/lib/ajenti/plugins``.
 
