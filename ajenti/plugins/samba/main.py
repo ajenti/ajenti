@@ -1,8 +1,8 @@
-import ajenti
 from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
+from ajenti.util import platform_select
 
 from reconfigure.configs import SambaConfig, PasswdConfig
 from reconfigure.items.samba import ShareData
@@ -19,9 +19,13 @@ class Samba (SectionPlugin):
         self.category = _('Software')
         self.append(self.ui.inflate('samba:main'))
 
-        if ajenti.platform == 'centos':
-            self.find('servicebar').name = 'smb'
-            self.find('servicebar').reload()
+        self.find('servicebar').name = platform_select(
+            debian='samba',
+            ubuntu='smbd',
+            centos='smbd',
+            default='samba',
+        )
+        self.find('servicebar').reload()
 
         self.binder = Binder(None, self.find('config'))
         self.find('shares').new_item = lambda c: ShareData()

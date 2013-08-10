@@ -8,6 +8,8 @@ import locale
 import os
 import catcher
 
+import ajenti
+
 
 def public(f):
     """"
@@ -83,13 +85,32 @@ def cache_value(duration):
 
 
 @public
+def platform_select(**values):
+    """
+    Selects a value from **kwargs depending on runtime platform::
+
+        service = platform_select(
+            debian='samba',
+            ubuntu='smbd',
+            centos='smbd',
+            default='samba',
+        )
+    """
+    if ajenti.platform_unmapped in values:
+        return values[ajenti.platform_unmapped]    
+    if ajenti.platform in values:
+        return values[ajenti.platform]
+    return values.get('default', None)
+
+
+@public
 def make_report(e):
     """
     Formats a bug report.
     """
     import platform as _platform
     from ajenti.plugins import manager
-    from ajenti import platform, platform_string, platform_unmapped, installation_uid, version, debug
+    from ajenti import platform, platform_unmapped, platform_string, installation_uid, version, debug
 
     # Finalize the reported log
     logging.blackbox.stop()

@@ -4,6 +4,7 @@ from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
+from ajenti.util import platform_select
 
 from reconfigure.configs import BIND9Config
 from reconfigure.items.bind9 import ZoneData
@@ -11,6 +12,16 @@ from reconfigure.items.bind9 import ZoneData
 
 @plugin
 class BIND9Plugin (SectionPlugin):
+    config_root = platform_select(
+        debian='/etc/bind/',
+        centos='/etc/named/',
+    )
+    
+    config_path = platform_select(
+        debian='/etc/bind/named.conf',
+        centos='/etc/named.conf',
+    )
+
     def init(self):
         self.title = 'BIND9'
         self.icon = 'globe'
@@ -18,14 +29,14 @@ class BIND9Plugin (SectionPlugin):
 
         self.append(self.ui.inflate('bind9:main'))
 
-        self.config = BIND9Config(path='/etc/bind/named.conf')
+        self.config = BIND9Config(path=self.config_path)
         self.binder = Binder(None, self)
         self.find('zones').new_item = lambda c: ZoneData()
 
         def post_zone_bind(o, c, i, u):
             path = i.file
             if not path.startswith('/'):
-                path = '/etc/bind/' + path
+                path = self.config_root + path
             exists = os.path.exists(path)
             u.find('no-file').visible = not exists
             u.find('file').visible = exists

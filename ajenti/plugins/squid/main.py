@@ -1,8 +1,8 @@
-import ajenti
 from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
+from ajenti.util import platform_select
 
 from reconfigure.configs import SquidConfig
 from reconfigure.items.squid import ACLData, HTTPAccessData, HTTPPortData, HTTPSPortData
@@ -16,9 +16,12 @@ class Squid (SectionPlugin):
         self.category = _('Software')
         self.append(self.ui.inflate('squid:main'))
 
-        if ajenti.platform == 'centos':
-            self.find('servicebar').name = 'squid'
-            self.find('servicebar').reload()
+        self.find('servicebar').name = platform_select(
+            debian='squid3',
+            centos='squid',
+            default='squid',
+        )
+        self.find('servicebar').reload()
 
         self.binder = Binder(None, self.find('config'))
         self.find('acl').new_item = lambda c: ACLData()

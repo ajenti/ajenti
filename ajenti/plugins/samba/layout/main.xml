@@ -1,5 +1,5 @@
 <vc>
-    <servicebar id="servicebar" name="smbd" />
+    <servicebar id="servicebar" />
 
     <body>
         <pad>
