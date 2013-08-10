@@ -14,13 +14,21 @@ The following are the absolutely minimal set of software required to build and r
   * python-gevent-socketio
   * python-psutil
   * python-reconfigure (available in Ajenti repositories)
+  * python-catcher
   * python-daemon
   * python-passlib
   * python-requests
   * python-imaging
   * coffee-script (use NPM)
   * lessc (use NPM)
+  * stunnel
   * yui-compressor
+
+Debian/Ubuntu extras:
+
+  * apt-show-versions
+  * python-dbus (ubuntu)
+
 
 Setting up
 ==========
