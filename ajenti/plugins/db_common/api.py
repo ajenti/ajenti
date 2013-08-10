@@ -87,7 +87,11 @@ class DBPlugin (SectionPlugin):
 
     @on('db-name-dialog', 'submit')
     def on_db_name_dialog_submit(self, value=None):
-        self.query_create(value)
+        try:
+            self.query_create(value)
+        except Exception, e:
+            self.context.notify('error', str(e))
+            return
         self.refresh()
 
     @on('add-user-dialog', 'button')
@@ -99,7 +103,12 @@ class DBPlugin (SectionPlugin):
             u.name = d.find('name').value
             u.host = d.find('host').value
             u.password = d.find('password').value
-            self.query_create_user(u)
+            try:
+                self.query_create_user(u)
+            except Exception, e:
+                self.context.notify('error', str(e))
+                return
+
         self.refresh()
 
     def query_sql(self, db, sql):
