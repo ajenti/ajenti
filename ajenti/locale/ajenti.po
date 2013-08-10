@@ -252,7 +252,7 @@ msgstr ""
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 #: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
 #: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
-#: ajenti/plugins/bind9/main.py:70
+#: ajenti/plugins/bind9/main.py:70 ajenti/plugins/bind9/main.py:81
 msgid "Saved"
 msgstr ""
 
@@ -401,7 +401,7 @@ msgstr ""
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
-#: ajenti/plugins/nginx/main.py:40
+#: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
 msgid "Software"
 msgstr ""
 
@@ -1255,11 +1255,11 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ajenti/plugins/samba/main.py:43
+#: ajenti/plugins/samba/main.py:43 ajenti/plugins/samba/main.py:47
 msgid "Password updated"
 msgstr ""
 
-#: ajenti/plugins/samba/main.py:46
+#: ajenti/plugins/samba/main.py:46 ajenti/plugins/samba/main.py:50
 msgid "Password update failed"
 msgstr ""
 
@@ -1516,6 +1516,7 @@ msgid "System Users"
 msgstr ""
 
 #: ajenti/plugins/bind9/main.py:37 ajenti/plugins/nsd/main.py:37
+#: ajenti/plugins/bind9/main.py:48
 msgid "Zone saved"
 msgstr ""
 
