@@ -144,7 +144,6 @@ def run():
         pass
 
     ajenti.feedback.start()
-    raise Exception()
     ajenti.server.serve_forever()
 
     if hasattr(ajenti.server, 'restart_marker'):
