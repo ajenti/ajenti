@@ -17,6 +17,7 @@ import ajenti
 from ajenti.http import HttpRoot
 from ajenti.routing import CentralDispatcher
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
+import ajenti.console
 import ajenti.plugins
 import ajenti.feedback
 
@@ -88,6 +89,9 @@ def run():
 
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
 
+    if ajenti.debug:
+        ajenti.console.register()
+
     # Load plugins
     ajenti.plugins.manager.load_all()
 
@@ -140,7 +144,7 @@ def run():
         pass
 
     ajenti.feedback.start()
-
+    raise Exception()
     ajenti.server.serve_forever()
 
     if hasattr(ajenti.server, 'restart_marker'):
