@@ -13,7 +13,7 @@ debian/files
 debian/*stamp*
 
 .idea/
-*.sublime-workspace
+*.sublime-*
 
 .~lock.*
 
