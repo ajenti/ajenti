@@ -29,8 +29,12 @@
                         <dtd><label bind="tx" bindtransform="str_fsize" /></dtd>
                         <dtd><label bind="rx" bindtransform="str_fsize" /></dtd>
                         <dtd>
-                            <button style="mini" icon="arrow-up" id="up" bind:visible="up" bindtransform="lambda x: not x" />
-                            <button style="mini" icon="arrow-down" id="down" bind:visible="up" />
+                            <tooltip bind:visible="up" bindtransform="lambda x: not x" text="{Bring up}">
+                                <button style="mini" icon="arrow-up" id="up" />
+                            </tooltip>
+                            <tooltip bind:visible="up" text="{Bring down}">
+                                <button style="mini" icon="arrow-down" id="down" warning="{Bringing down primary network connection may cut off any access to the server! Are you sure?}" />
+                            </tooltip>
                         </dtd>
                     </dtr>
                 </bind:template>
