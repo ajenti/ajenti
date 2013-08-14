@@ -5,8 +5,9 @@ FreeBSD Installation
 
 Prerequisites::
     
-    cd /usr/ports/devel/py-pip;   make install clean;
-    cd /usr/ports/devel/libevent; make install clean;
+    cd /usr/ports/devel/py-pip;     make install clean;
+    cd /usr/ports/devel/libevent;   make install clean;
+    cd /usr/ports/security/stunnel; make install clean;
 
 Download and install latest Ajenti build from PYPI::
     
