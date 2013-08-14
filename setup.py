@@ -18,6 +18,7 @@ setup(
     version=__version,
     install_requires=[
         'pyOpenSSL',
+        'catcher',
         'gevent',
         'gevent-socketio',
         'lxml>=2.2.4',
