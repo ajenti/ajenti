@@ -40,6 +40,11 @@ class RAIDManager (BasePlugin):
                 array.name, tokens = l.split(':')
                 array.name = array.name.strip()
                 tokens = tokens.split()
+
+                if tokens[1].startswith('('):
+                    tokens[0] += ' ' + tokens[1]
+                    tokens.pop(1)
+
                 array.state = tokens[0]
                 array.active = array.state == 'active'
                 array.type = tokens[1]
