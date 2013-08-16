@@ -1,6 +1,8 @@
+import os
 import subprocess
 
 from ajenti.api import *
+from ajenti.util import cache_value
 
 from api import Service, ServiceManager
 
@@ -9,6 +11,7 @@ from api import Service, ServiceManager
 class SysVInitServiceManager (ServiceManager):
     platforms = ['debian']
 
+    @cache_value(1)
     def get_all(self):
         r = []
         for line in subprocess.check_output(['service', '--status-all']).splitlines():
@@ -25,6 +28,13 @@ class SysVInitServiceManager (ServiceManager):
             s.running = status == '+'
             r.append(s)
         return r
+
+    def get_one(self, name):
+        s = SysVInitService(name)
+        if os.path.exists(s.script):
+            s.refresh()
+            return s
+        return None
 
 
 class SysVInitService (Service):

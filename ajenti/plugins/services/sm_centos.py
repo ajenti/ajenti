@@ -1,6 +1,7 @@
 import subprocess
 
 from ajenti.api import *
+from ajenti.util import cache_value
 
 from api import ServiceManager
 from sm_sysvinit import SysVInitService
@@ -10,6 +11,7 @@ from sm_sysvinit import SysVInitService
 class CentOSServiceManager (ServiceManager):
     platforms = ['centos']
 
+    @cache_value(1)
     def get_all(self):
         r = []
         for line in subprocess.check_output(['chkconfig', '--list']).splitlines():

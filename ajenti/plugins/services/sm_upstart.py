@@ -6,6 +6,7 @@ except ImportError:
 import subprocess
 
 from ajenti.api import *
+from ajenti.util import cache_value
 
 from api import Service, ServiceManager
 
@@ -27,6 +28,7 @@ class UpstartServiceManager (ServiceManager):
         except:
             return False
 
+    @cache_value(1)
     def get_all(self):
         try:
             jobs = self.upstart.GetAllJobs(dbus_interface="com.ubuntu.Upstart0_6")

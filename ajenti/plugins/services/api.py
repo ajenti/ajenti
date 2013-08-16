@@ -24,15 +24,26 @@ class ServiceMultiplexor (object):
         """
         Returns a :class:`Service` by name.
         """
-        for s in self.get_all():
-            if s.name == name:
+        for mgr in self.managers:
+            s = mgr.get_one(name)
+            if s:
                 return s
+        return None
 
 
 @interface
 class ServiceManager (object):
     def get_all(self):
         return []
+
+    def get_one(self, name):
+        """
+        Returns a :class:`Service` by name.
+        """
+        for s in self.get_all():
+            if s.name == name:
+                return s
+        return None
 
 
 class Service (object):
