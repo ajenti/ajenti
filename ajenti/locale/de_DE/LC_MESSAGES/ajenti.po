@@ -28,6 +28,7 @@
 #: ajenti/plugins/bind9/layout/main.xml:11
 #: ajenti/plugins/squid/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:8
 msgid "Save"
 msgstr "Speichern"
 
@@ -36,6 +37,7 @@ msgstr "Speichern"
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
 #: ajenti/plugins/openvpn/layout/main.xml:1
+#: ajenti/plugins/network/layout/main.xml:6
 msgid "Restart"
 msgstr "Neustart"
 
@@ -245,7 +247,9 @@ msgstr "Konfigurieren"
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 #: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
 #: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
-#: ajenti/plugins/bind9/main.py:70
+#: ajenti/plugins/bind9/main.py:70 ajenti/plugins/bind9/main.py:81
+#: ajenti/plugins/iptables/main.py:173 ajenti/plugins/iptables/main.py:186
+#: ajenti/plugins/network/main.py:73
 msgid "Saved"
 msgstr "Gespeichert"
 
@@ -394,6 +398,7 @@ msgstr "Samba Cluster"
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
 msgid "Software"
 msgstr "Software"
 
@@ -476,159 +481,6 @@ msgstr "Adresse"
 msgid "Public addresses"
 msgstr "Öffentliche Adressen"
 
-#: ajenti/plugins/ctdb/layout/main.xml:23
-#: ajenti/plugins/iptables/layout/option-interface.xml:1
-msgid "Interface"
-msgstr "Schnittstelle"
-
-#: ajenti/plugins/codemirror/__init__.py:7
-msgid "CodeMirror code editor"
-msgstr "CodeMirror Code-editor"
-
-#: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
-#: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
-#: ajenti/plugins/apache/main.py:12 ajenti/plugins/openvpn/layout/main.xml:2
-msgid "Reload"
-msgstr "Neu laden"
-
-#: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
-msgid "Dashboard"
-msgstr "Dashboard"
-
-#: ajenti/plugins/dashboard/welcome.py:13
-msgid "Welcome"
-msgstr "Willkommen"
-
-#: ajenti/plugins/dashboard/layout/dash.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:1
-msgid "Refresh"
-msgstr "Aktualisieren"
-
-#: ajenti/plugins/dashboard/layout/dash.xml:2
-msgid "Add widget"
-msgstr "Widget"
-
-#: ajenti/plugins/dashboard/layout/dash.xml:3
-msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr "[{'text': _('Abbrechen'), 'id': 'cancel'}]"
-
-#: ajenti/plugins/db_common/api.py:45
-msgid "Query finished"
-msgstr "Abfrage beendet"
-
-#: ajenti/plugins/db_common/api.py:54
-#, python-format
-msgid "Output cut from %i rows to 200"
-msgstr "Ausgabe von %i auf 200 Zeilen reduziert"
-
-#: ajenti/plugins/db_common/layout/main.xml:1
-#: ajenti/plugins/terminal/layout/main.xml:1
-msgid "Run"
-msgstr "Ausführen"
-
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "Datenbanken"
-
-#: ajenti/plugins/db_common/layout/main.xml:4
-msgid "Confirm database drop!"
-msgstr "Datenbank-Löschung bestätigen!"
-
-#: ajenti/plugins/db_common/layout/main.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:12
-#: ajenti/plugins/supervisor/layout/main.xml:10
-#: ajenti/plugins/users/layout/main.xml:2
-#: ajenti/plugins/users/layout/main.xml:7
-#: ajenti/plugins/mysql/layout/config.xml:1
-#: ajenti/plugins/supervisor/layout/main.xml:11
-#: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/mysql/layout/config.xml:2
-msgid "Username"
-msgstr "Benutzername"
-
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "Datenbankname"
-
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/mysql/layout/config.xml:2
-#: ajenti/plugins/samba/layout/main.xml:29
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
-msgstr "Passwort"
-
-#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
-msgid "File Manager"
-msgstr "Datei-Manager"
-
-#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/notepad/notepad.py:19
-msgid "Tools"
-msgstr "Werkzeuge"
-
-#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:1
-#: ajenti/plugins/packages/layout/row.xml:3
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: ajenti/plugins/fm/layout/config.xml:1
-msgid "Topmost directory"
-msgstr "Oberste Verzeichnis"
-
-#: ajenti/plugins/fm/layout/main.xml:1
-msgid "Close"
-msgstr "Schließen"
-
-#: ajenti/plugins/fm/layout/main.xml:2
-msgid "New File"
-msgstr "Neue Datei"
-
-#: ajenti/plugins/fm/layout/main.xml:3
-msgid "New Folder"
-msgstr "Neuer Ordner"
-
-#: ajenti/plugins/fm/layout/main.xml:4
-msgid "Cut"
-msgstr "Ausschneiden"
-
-#: ajenti/plugins/fm/layout/main.xml:5
-msgid "Copy"
-msgstr "Kopieren"
-
-#: ajenti/plugins/fm/layout/main.xml:6
-msgid "Paste"
-msgstr "Einfügen"
-
-#: ajenti/plugins/fm/layout/main.xml:9 ajenti/plugins/fm/layout/main.xml:6
-msgid "Upload"
-msgstr "Hochladen"
-
-#: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:7
-msgid "Clipboard"
-msgstr "Zwischenablage"
-
-#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
-#: ajenti/plugins/users/layout/user-list.xml:9
-msgid "Remove"
-msgstr "Entfernen"
-
-#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
-#: ajenti/plugins/fm/layout/main.xml:11
-msgid "Access"
-msgstr "Zugriff"
-
-#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
-#: ajenti/plugins/fm/layout/main.xml:12
-msgid "Owner"
-msgstr "Eigentümer"
-
-#: ajenti/plugins/fm/layout/main.xml:15 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:13
-msgid "Group"
-msgstr "Gruppe"
-
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
 msgstr "Power"
@@ -661,13 +513,11 @@ msgstr "Das System neustarten?"
 msgid "Shutdown the system?"
 msgstr "Das System herunterfahren?"
 
-#: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
-#: ajenti/plugins/main/main.py:195 ajenti/plugins/main/main.py:197
+#: ajenti/plugins/main/main.py:197
 msgid "Section access"
 msgstr "Abschnitt-Zugriff"
 
-#: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
-#: ajenti/plugins/main/main.py:212 ajenti/plugins/main/main.py:214
+#: ajenti/plugins/main/main.py:214
 msgid "Feedback sent!"
 msgstr "Feedback gesendet!"
 
@@ -709,189 +559,51 @@ msgstr "Ausgehangen"
 msgid "mount -a failed"
 msgstr "mount -a fehlgeschlagen"
 
+#: ajenti/plugins/fstab/iops.py:61
+msgid "Immediate I/O"
+msgstr "Sofortige I/O"
+
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
 msgstr "Festplattenspeicher"
-
-#: ajenti/plugins/fstab/layout/main.xml:2
-msgid "Mount all"
-msgstr "Alle einhängen"
-
-#: ajenti/plugins/fstab/layout/main.xml:4
-#: ajenti/plugins/fstab/layout/main.xml:12
-#: ajenti/plugins/fstab/layout/widget.xml:1
-#: ajenti/plugins/hddtemp/layout/widget.xml:1
-#: ajenti/plugins/network/layout/widget.xml:1
-#: ajenti/plugins/smartctl/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/iio-widget.xml:1
-msgid "Device"
-msgstr "Gerät"
-
-#: ajenti/plugins/fstab/layout/main.xml:5
-#: ajenti/plugins/fstab/layout/main.xml:13
-msgid "Mountpoint"
-msgstr "Mountpoint"
-
-#: ajenti/plugins/fstab/layout/main.xml:6
-msgid "FS type"
-msgstr "FS Typ"
-
-#: ajenti/plugins/fstab/layout/main.xml:7
-#: ajenti/plugins/squid/layout/main.xml:4
-#: ajenti/plugins/squid/layout/main.xml:9
-#: ajenti/plugins/squid/layout/port-template.xml:3
-#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/exports/layout/main.xml:5
-#: ajenti/plugins/dhcpd/layout/main.xml:5
-#: ajenti/plugins/squid/layout/main.xml:10
-msgid "Options"
-msgstr "Optionen"
-
-#: ajenti/plugins/fstab/layout/main.xml:8
-msgid "Scan frequency"
-msgstr "Scan-Frequenz"
-
-#: ajenti/plugins/fstab/layout/main.xml:9
-msgid "Scan pass"
-msgstr "Scan-Durchlauf"
-
-#: ajenti/plugins/fstab/layout/main.xml:11
-msgid "Mounted filesystems"
-msgstr "Eingehangene Dateisysteme"
-
-#: ajenti/plugins/fstab/layout/main.xml:14
-msgid "Used"
-msgstr "Verwendet"
-
-#: ajenti/plugins/fstab/layout/main.xml:15
-msgid "Size"
-msgstr "Größe"
-
-#: ajenti/plugins/fstab/layout/main.xml:16
-msgid "Usage"
-msgstr "Nutzung"
-
-#: ajenti/plugins/fstab/layout/main.xml:17
-msgid "Unmount"
-msgstr "Aushängen"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
 msgstr "Festplattentemperatur"
 
-#: ajenti/plugins/supervisor/layout/main.xml:1
-msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr "[{                 'command': 'force-reload',                 'text': _('Neu laden'),                 'icon': 'step-forward',             }]"
+#: ajenti/plugins/dhcpd/main.py:13
+msgid "DHCP Server"
+msgstr "DHCP-Server"
 
-#: ajenti/plugins/supervisor/layout/main.xml:4
-msgid "Working directory"
-msgstr "Arbeitsverzeichnis"
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "Abfrage beendet"
 
-#: ajenti/plugins/supervisor/layout/main.xml:5
-msgid "Autostart"
-msgstr "Autostart"
-
-#: ajenti/plugins/supervisor/layout/main.xml:6
-msgid "[_('Enabled'), _('Disabled')]"
-msgstr "[_('Aktiviert'), _('Deaktiviert')]"
-
-#: ajenti/plugins/supervisor/layout/main.xml:7
-msgid "Autorestart"
-msgstr "Auto-Neustart"
-
-#: ajenti/plugins/supervisor/layout/main.xml:8
-msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr "[_('Aktiviert'), _('Bei Absturz'), _('Deaktiviert')]"
-
-#: ajenti/plugins/supervisor/layout/main.xml:9
-msgid "Start timeout"
-msgstr "Start-Timeout"
-
-#: ajenti/plugins/supervisor/layout/main.xml:10
-msgid "Start retries"
-msgstr "Start-Wiederholungen"
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr "Ausgabe von %i auf 200 Zeilen reduziert"
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Der Firewall-Autostart kann auf dieser Plattform nicht deaktiviert werden"
 
-#: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
+#: ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
 msgstr "Firewall"
 
-#: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
-#: ajenti/plugins/iptables/main.py:104
-#: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/main.py:105
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "Option hinzufügen"
 
-#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
-#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 #: ajenti/plugins/iptables/main.py:140
 msgid "Disable"
 msgstr "Deaktivieren"
 
-#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
-#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 #: ajenti/plugins/iptables/main.py:140
 msgid " autostart"
 msgstr " Autostart"
-
-#: ajenti/plugins/iptables/layout/option-match.xml:1
-msgid "Modules"
-msgstr "Module"
-
-#: ajenti/plugins/iptables/layout/option-state.xml:1
-msgid "States"
-msgstr "Staaten"
-
-#: ajenti/plugins/iptables/layout/main.xml:1
-msgid "Raw edit"
-msgstr "RAW bearbeiten"
-
-#: ajenti/plugins/iptables/layout/main.xml:2
-#: ajenti/plugins/iptables/layout/main.xml:4
-msgid "New Chain"
-msgstr "Neue Kette"
-
-#: ajenti/plugins/iptables/layout/main.xml:5
-msgid "Action:"
-msgstr "Aktion:"
-
-#: ajenti/plugins/iptables/layout/main.xml:6
-#: ajenti/plugins/iptables/layout/main.xml:7
-#: ajenti/plugins/iptables/layout/main.xml:9
-msgid "Conditions"
-msgstr "Bedingungen"
-
-#: ajenti/plugins/iptables/layout/main.xml:7
-#: ajenti/plugins/iptables/layout/main.xml:8
-#: ajenti/plugins/iptables/layout/main.xml:10
-#: ajenti/plugins/iptables/layout/main.xml:11
-msgid "New Rule"
-msgstr "Neue Regel"
-
-#: ajenti/plugins/iptables/layout/main.xml:9
-#: ajenti/plugins/packages/layout/main.xml:2
-#: ajenti/plugins/iptables/layout/main.xml:10
-#: ajenti/plugins/iptables/layout/main.xml:12
-#: ajenti/plugins/iptables/layout/main.xml:13
-msgid "Apply"
-msgstr "Anwenden"
-
-#: ajenti/plugins/iptables/layout/option-protocol.xml:1
-msgid "Protocol"
-msgstr "Protokoll"
-
-#: ajenti/plugins/iptables/layout/option-ports.xml:1
-#: ajenti/plugins/squid/layout/main.xml:10
-#: ajenti/plugins/squid/layout/main.xml:11
-msgid "Ports"
-msgstr "Ports"
-
-#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
-msgid "Reason"
-msgstr "Begründung"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
@@ -908,10 +620,6 @@ msgstr "Skripte"
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
 msgstr "Skripte ausführen"
-
-#: ajenti/plugins/scripts/layout/widget.xml:3
-msgid "Run in terminal"
-msgstr "Im Terminal ausführen"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
@@ -947,6 +655,449 @@ msgstr "Installieren / Entfernen"
 msgid "Refresh lists"
 msgstr "Listen aktualisieren"
 
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+msgid "File Manager"
+msgstr "Datei-Manager"
+
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/notepad/notepad.py:19
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr "OpenVPN"
+
+#: ajenti/plugins/squid/main.py:14
+msgid "Squid"
+msgstr "Squid"
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr "CodeMirror Code-editor"
+
+#: ajenti/plugins/terminal/terminal.py:97
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "Prozess wurde mit dem Status %i beendet"
+
+#: ajenti/plugins/terminal/terminal.py:99
+msgid "Process has exited successfully"
+msgstr "Prozess wurde erfolgreich beendet"
+
+#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
+#: ajenti/plugins/terminal/main.py:183
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ajenti/plugins/terminal/main.py:187
+msgid "Run shell"
+msgstr "Shell ausführen"
+
+#: ajenti/plugins/terminal/main.py:188
+msgid "Run custom commands"
+msgstr "Benutzerdefinierte Befehle ausführen"
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/memcache/widget.py:29
+msgid "Memcache memory usage"
+msgstr "Memcache-Speicherauslastung"
+
+#: ajenti/plugins/logs/main.py:12
+msgid "Logs"
+msgstr "Protokolle"
+
+#: ajenti/plugins/services/main.py:12
+msgid "Services"
+msgstr "Dienste"
+
+#: ajenti/plugins/services/main.py:39
+#, python-format
+msgid "%s started"
+msgstr "%s gestartet"
+
+#: ajenti/plugins/services/main.py:44
+#, python-format
+msgid "%s stopped"
+msgstr "%s gestoppt"
+
+#: ajenti/plugins/services/main.py:49
+#, python-format
+msgid "%s restarted"
+msgstr "%s neugestartet"
+
+#: ajenti/plugins/services/widget.py:10
+#: ajenti/plugins/services/layout/widget.xml:4
+msgid "Service"
+msgstr "Dienst"
+
+#: ajenti/plugins/users/main.py:99
+#, python-format
+msgid "Home dir for %s was created"
+msgstr "Home-Verzeichnis für %s wurde erstellt"
+
+#: ajenti/plugins/users/main.py:108
+#, python-format
+msgid "Password for %s was changed"
+msgstr "Passwort für %s wurde geändert"
+
+#: ajenti/plugins/users/main.py:111
+#, python-format
+msgid "Error: \"%s\""
+msgstr "Fehler: \"%s\""
+
+#: ajenti/plugins/users/main.py:113
+msgid "Password shouldn't be empty"
+msgstr "Passwort darf nicht leer sein"
+
+#: ajenti/plugins/users/main.py:117
+#, python-format
+msgid "Password for %s was removed"
+msgstr "Kennwort für %s wurde entfernt"
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr "Netzwerk"
+
+#: ajenti/plugins/network/widget.py:85
+msgid "Immediate Traffic"
+msgstr "Derzeitiger Netzwerkverkehr"
+
+#: ajenti/plugins/network/widget.py:115
+msgid "Traffic"
+msgstr "Netzwerkverkehr"
+
+#: ajenti/plugins/taskmgr/main.py:14
+msgid "Processes"
+msgstr "Prozesse"
+
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
+#: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
+#: ajenti/plugins/openvpn/layout/main.xml:2
+msgid "Reload"
+msgstr "Neu laden"
+
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+msgid "Zone saved"
+msgstr "Zone gespeichert"
+
+#: ajenti/plugins/hosts/hosts.py:13
+msgid "Hosts"
+msgstr "Hosts"
+
+#: ajenti/plugins/notepad/notepad.py:17
+msgid "Notepad"
+msgstr "Texteditor"
+
+#: ajenti/plugins/notepad/notepad.py:50
+#, python-format
+msgid "Untitled %i"
+msgstr "Unbenannt %i"
+
+#: ajenti/plugins/resolv/resolv.py:13
+msgid "Nameservers"
+msgstr "Nameserver"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "DNS nameserver"
+msgstr "DNS Nameserver"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "Local domain name"
+msgstr "Lokale Domain-Namen"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "Search list"
+msgstr "Suchliste"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "Sort list"
+msgstr "Sortierliste"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:5
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/exports/layout/main.xml:5
+msgid "Options"
+msgstr "Optionen"
+
+#: ajenti/plugins/smartctl/widget.py:58
+msgid "No data"
+msgstr "Keine Daten"
+
+#: ajenti/plugins/smartctl/widget.py:59
+msgid "FAILING"
+msgstr "FEHLGESCHLAGEN"
+
+#: ajenti/plugins/smartctl/widget.py:60
+msgid "PRE-FAIL"
+msgstr "PRE-FAIL"
+
+#: ajenti/plugins/smartctl/widget.py:61
+msgid "Unknown error"
+msgstr "Unbekannter Fehler"
+
+#: ajenti/plugins/smartctl/widget.py:62
+msgid "Errors in log"
+msgstr "Fehler im Protokoll"
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "NFS-Exports"
+
+#: ajenti/plugins/munin/main.py:43
+#, python-format
+msgid "Couldn't connect to Munin: %s"
+msgstr "Konnte keine Verbindung zu Munin herstellen: %s"
+
+#: ajenti/plugins/munin/main.py:47
+msgid "Munin HTTP authentication failed"
+msgstr "Munin-HTTP-Authentifizierung fehlgeschlagen"
+
+#: ajenti/plugins/samba/main.py:47
+msgid "Password updated"
+msgstr "Passwort aktualisiert"
+
+#: ajenti/plugins/samba/main.py:50
+msgid "Password update failed"
+msgstr "Passwort-Update fehlgeschlagen"
+
+#: ajenti/plugins/dashboard/dash.py:18
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr "Willkommen"
+
+#: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr "Adapter"
+
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+msgid "Device"
+msgstr "Gerät"
+
+#: ajenti/plugins/fstab/layout/main.xml:1
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: ajenti/plugins/fstab/layout/main.xml:2
+msgid "Mount all"
+msgstr "Alle einhängen"
+
+#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:13
+msgid "Mountpoint"
+msgstr "Mountpoint"
+
+#: ajenti/plugins/fstab/layout/main.xml:6
+msgid "FS type"
+msgstr "FS Typ"
+
+#: ajenti/plugins/fstab/layout/main.xml:8
+msgid "Scan frequency"
+msgstr "Scan-Frequenz"
+
+#: ajenti/plugins/fstab/layout/main.xml:9
+msgid "Scan pass"
+msgstr "Scan-Durchlauf"
+
+#: ajenti/plugins/fstab/layout/main.xml:11
+msgid "Mounted filesystems"
+msgstr "Eingehangene Dateisysteme"
+
+#: ajenti/plugins/fstab/layout/main.xml:14
+msgid "Used"
+msgstr "Verwendet"
+
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "Größe"
+
+#: ajenti/plugins/fstab/layout/main.xml:16
+msgid "Usage"
+msgstr "Nutzung"
+
+#: ajenti/plugins/fstab/layout/main.xml:17
+msgid "Unmount"
+msgstr "Aushängen"
+
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{                 'command': 'force-reload',                 'text': _('Neu laden'),                 'icon': 'step-forward',             }]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:4
+msgid "Working directory"
+msgstr "Arbeitsverzeichnis"
+
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Autostart"
+msgstr "Autostart"
+
+#: ajenti/plugins/supervisor/layout/main.xml:6
+msgid "[_('Enabled'), _('Disabled')]"
+msgstr "[_('Aktiviert'), _('Deaktiviert')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:7
+msgid "Autorestart"
+msgstr "Auto-Neustart"
+
+#: ajenti/plugins/supervisor/layout/main.xml:8
+msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
+msgstr "[_('Aktiviert'), _('Bei Absturz'), _('Deaktiviert')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:9
+msgid "Start timeout"
+msgstr "Start-Timeout"
+
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "Start retries"
+msgstr "Start-Wiederholungen"
+
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "Benutzername"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:1
+msgid "Subnetworks"
+msgstr "Teilnetze"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:3
+msgid "Specification"
+msgstr "Spezifikation"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:4
+msgid "IP ranges"
+msgstr "IP-Bereiche"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:7
+msgid "Global options"
+msgstr "Globale Optionen"
+
+#: ajenti/plugins/db_common/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:1
+msgid "Run"
+msgstr "Ausführen"
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Datenbanken"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "Datenbank-Löschung bestätigen!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Datenbankname"
+
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/openvpn/layout/config.xml:3
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/samba/layout/main.xml:29
+#: ajenti/plugins/netatalk/layout/main.xml:6
+msgid "Password"
+msgstr "Passwort"
+
+#: ajenti/plugins/iptables/layout/option-interface.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr "Schnittstelle"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr "Argumente"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr "Argument"
+
+#: ajenti/plugins/iptables/layout/option-match.xml:1
+msgid "Modules"
+msgstr "Module"
+
+#: ajenti/plugins/iptables/layout/option-state.xml:1
+msgid "States"
+msgstr "Staaten"
+
+#: ajenti/plugins/iptables/layout/main.xml:1
+msgid "Raw edit"
+msgstr "RAW bearbeiten"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr "Lade aktuellen Status"
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr "Dies überschreibt die aktuell gespeicherte Konfiguration mit aktuellem Firewall-Staus! Fortfahren?"
+
+#: ajenti/plugins/iptables/layout/main.xml:4
+msgid "New Chain"
+msgstr "Neue Kette"
+
+#: ajenti/plugins/iptables/layout/main.xml:7
+msgid "Action"
+msgstr "Aktion"
+
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/users/layout/user-list.xml:3
+msgid "Comment"
+msgstr "Kommentar"
+
+#: ajenti/plugins/iptables/layout/main.xml:9
+msgid "Conditions"
+msgstr "Bedingungen"
+
+#: ajenti/plugins/iptables/layout/main.xml:11
+msgid "New Rule"
+msgstr "Neue Regel"
+
+#: ajenti/plugins/iptables/layout/main.xml:13
+#: ajenti/plugins/packages/layout/main.xml:2
+msgid "Apply"
+msgstr "Anwenden"
+
+#: ajenti/plugins/iptables/layout/option-protocol.xml:1
+msgid "Protocol"
+msgstr "Protokoll"
+
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:11
+msgid "Ports"
+msgstr "Ports"
+
+#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
+msgid "Reason"
+msgstr "Begründung"
+
+#: ajenti/plugins/scripts/layout/widget.xml:3
+msgid "Run in terminal"
+msgstr "Im Terminal ausführen"
+
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
 msgstr "Version"
@@ -980,7 +1131,56 @@ msgstr "Alle abbrechen"
 msgid "Install"
 msgstr "Installieren"
 
-#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr "Für Installation/Upgrade markieren"
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr "Für Entfernen markieren"
+
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "Oberste Verzeichnis"
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "Schließen"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "New File"
+msgstr "Neue Datei"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New Folder"
+msgstr "Neuer Ordner"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Upload"
+msgstr "Hochladen"
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Clipboard"
+msgstr "Zwischenablage"
+
+#: ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:9
+msgid "Remove"
+msgstr "Entfernen"
+
+#: ajenti/plugins/fm/layout/main.xml:11
+msgid "Access"
+msgstr "Zugriff"
+
+#: ajenti/plugins/fm/layout/main.xml:12
+msgid "Owner"
+msgstr "Eigentümer"
+
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
+msgid "Group"
+msgstr "Gruppe"
+
+#: ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
 msgstr "Andere"
 
@@ -988,9 +1188,50 @@ msgstr "Andere"
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ajenti/plugins/squid/main.py:13 ajenti/plugins/squid/main.py:14
-msgid "Squid"
-msgstr "Squid"
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr "Verwaltungsadresse"
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr "Host:Port oder UNIX-Socket-Pfad"
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr "Entfernte IP"
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr "Lokale IP"
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr "Verbunden seit"
+
+#: ajenti/plugins/openvpn/layout/main.xml:7
+#: ajenti/plugins/samba/layout/main.xml:25
+msgid "Disconnect"
+msgstr "Trennen"
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr "Clients"
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr "Nachrichten"
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr "Zeitstempel"
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr "Flags"
+
+#: ajenti/plugins/openvpn/layout/main.xml:12
+msgid "Text"
+msgstr "Text"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
@@ -1000,21 +1241,9 @@ msgstr "HTTP-Zugriff"
 msgid "Mode"
 msgstr "Modus"
 
-#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:163 ajenti/plugins/terminal/main.py:178
-#: ajenti/plugins/terminal/main.py:183
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ajenti/plugins/terminal/main.py:167 ajenti/plugins/terminal/main.py:182
-#: ajenti/plugins/terminal/main.py:187
-msgid "Run shell"
-msgstr "Shell ausführen"
-
-#: ajenti/plugins/terminal/main.py:168 ajenti/plugins/terminal/main.py:183
-#: ajenti/plugins/terminal/main.py:188
-msgid "Run custom commands"
-msgstr "Benutzerdefinierte Befehle ausführen"
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "[_('Allow'), _('Deny')]"
+msgstr "[_('Erlauben'), _('Verwehren')]"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
@@ -1029,38 +1258,32 @@ msgstr "Neu"
 msgid "No active terminals"
 msgstr "Keine aktiven Terminals"
 
-#: ajenti/plugins/logs/main.py:12
-msgid "Logs"
-msgstr "Protokolle"
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr "Status"
+
+#: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:4
+msgid "Type"
+msgstr "Typ"
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr "Geräte"
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr "Blöcke"
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr "Wiederherstellung:"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
 msgstr "Öffnen"
-
-#: ajenti/plugins/services/main.py:12
-msgid "Services"
-msgstr "Dienste"
-
-#: ajenti/plugins/services/main.py:39
-#, python-format
-msgid "%s started"
-msgstr "%s gestartet"
-
-#: ajenti/plugins/services/main.py:44
-#, python-format
-msgid "%s stopped"
-msgstr "%s gestoppt"
-
-#: ajenti/plugins/services/main.py:49
-#, python-format
-msgid "%s restarted"
-msgstr "%s neugestartet"
-
-#: ajenti/plugins/services/widget.py:10
-#: ajenti/plugins/services/layout/widget.xml:4
-msgid "Service"
-msgstr "Dienst"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
@@ -1082,50 +1305,64 @@ msgstr "Herkunft"
 msgid "Actions"
 msgstr "Aktionen"
 
+#: ajenti/plugins/users/layout/user-list.xml:4
+msgid "Home directory"
+msgstr "Home-Verzeichnis"
+
+#: ajenti/plugins/users/layout/user-list.xml:6
+msgid "Shell"
+msgstr "Shell"
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: ajenti/plugins/users/layout/user-list.xml:8
+#: ajenti/plugins/samba/layout/main.xml:30
+msgid "Set"
+msgstr "Ändern"
+
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "User"
 msgstr "Benutzer"
 
-#: ajenti/plugins/users/layout/main.xml:8
-#: ajenti/plugins/iptables/layout/main.xml:6
-#: ajenti/plugins/iptables/layout/main.xml:8
-#: ajenti/plugins/users/layout/user-list.xml:3
-msgid "Comment"
-msgstr "Kommentar"
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr "Systembenutzer"
 
-#: ajenti/plugins/users/layout/main.xml:9
-#: ajenti/plugins/users/layout/user-list.xml:4
-msgid "Home directory"
-msgstr "Home-Verzeichnis"
-
-#: ajenti/plugins/users/layout/main.xml:10
-#: ajenti/plugins/users/layout/user-list.xml:6
-msgid "Shell"
-msgstr "Shell"
-
-#: ajenti/plugins/users/layout/main.xml:12
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
 msgstr "Gruppen"
 
-#: ajenti/plugins/users/layout/main.xml:15
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
 msgstr "Mitglieder"
 
-#: ajenti/plugins/network/widget.py:81 ajenti/plugins/network/widget.py:85
-msgid "Immediate Traffic"
-msgstr "Derzeitiger Netzwerkverkehr"
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr "Klasse"
 
-#: ajenti/plugins/network/widget.py:111 ajenti/plugins/network/widget.py:115
-msgid "Traffic"
-msgstr "Netzwerkverkehr"
+#: ajenti/plugins/network/layout/main.xml:3
+msgid "Bring up"
+msgstr ""
 
-#: ajenti/plugins/taskmgr/main.py:14
-msgid "Processes"
-msgstr "Prozesse"
+#: ajenti/plugins/network/layout/main.xml:4
+msgid "Bring down"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:5
+msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:7
+msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+msgstr "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
@@ -1147,17 +1384,29 @@ msgstr "Beenden"
 msgid "Kill"
 msgstr "Beenden erzwingen"
 
-#: ajenti/plugins/hosts/hosts.py:13
-msgid "Hosts"
-msgstr "Hosts"
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr "Zonen"
+
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr "Datei"
+
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr "Zone"
+
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr "Zone-Datei ist nicht vorhanden."
+
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
+msgstr "Zone speichern"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
 msgstr "Aliase"
-
-#: ajenti/plugins/notepad/notepad.py:17
-msgid "Notepad"
-msgstr "Texteditor"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
@@ -1171,56 +1420,6 @@ msgstr "Lesezeichen"
 msgid "Dependencies"
 msgstr "Abhängigkeiten"
 
-#: ajenti/plugins/resolv/resolv.py:13
-msgid "Nameservers"
-msgstr "Nameserver"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "DNS nameserver"
-msgstr "DNS Nameserver"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Local domain name"
-msgstr "Lokale Domain-Namen"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Search list"
-msgstr "Suchliste"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Sort list"
-msgstr "Sortierliste"
-
-#: ajenti/plugins/resolv/layout/main.xml:2
-#: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/bind9/layout/main.xml:4
-msgid "Type"
-msgstr "Typ"
-
-#: ajenti/plugins/smartctl/widget.py:55 ajenti/plugins/smartctl/widget.py:57
-#: ajenti/plugins/smartctl/widget.py:58
-msgid "No data"
-msgstr "Keine Daten"
-
-#: ajenti/plugins/smartctl/widget.py:56 ajenti/plugins/smartctl/widget.py:58
-#: ajenti/plugins/smartctl/widget.py:59
-msgid "FAILING"
-msgstr "FEHLGESCHLAGEN"
-
-#: ajenti/plugins/smartctl/widget.py:57 ajenti/plugins/smartctl/widget.py:59
-#: ajenti/plugins/smartctl/widget.py:60
-msgid "PRE-FAIL"
-msgstr "PRE-FAIL"
-
-#: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
-#: ajenti/plugins/smartctl/widget.py:61
-msgid "Unknown error"
-msgstr "Unbekannter Fehler"
-
-#: ajenti/plugins/exports/main.py:17
-msgid "NFS Exports"
-msgstr "NFS-Exports"
-
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
 msgstr "Verzeichnis"
@@ -1229,26 +1428,9 @@ msgstr "Verzeichnis"
 msgid "Clients"
 msgstr "Clients"
 
-#: ajenti/plugins/munin/main.py:43
-#, python-format
-msgid "Couldn't connect to Munin: %s"
-msgstr "Konnte keine Verbindung zu Munin herstellen: %s"
-
-#: ajenti/plugins/munin/main.py:47
-msgid "Munin HTTP authentication failed"
-msgstr "Munin-HTTP-Authentifizierung fehlgeschlagen"
-
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
 msgstr "Ansehen"
-
-#: ajenti/plugins/samba/main.py:43
-msgid "Password updated"
-msgstr "Passwort aktualisiert"
-
-#: ajenti/plugins/samba/main.py:46
-msgid "Password update failed"
-msgstr "Passwort-Update fehlgeschlagen"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
@@ -1321,19 +1503,17 @@ msgstr "Freigaben"
 msgid "Machine"
 msgstr "Maschine"
 
-#: ajenti/plugins/samba/layout/main.xml:25
-#: ajenti/plugins/openvpn/layout/main.xml:7
-msgid "Disconnect"
-msgstr "Trennen"
-
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: ajenti/plugins/samba/layout/main.xml:30
-#: ajenti/plugins/users/layout/user-list.xml:8
-msgid "Set"
-msgstr "Ändern"
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Add widget"
+msgstr "Widget"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
+msgstr "[{'text': _('Abbrechen'), 'id': 'cancel'}]"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
@@ -1358,228 +1538,4 @@ msgstr "AFP-Port"
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
 msgstr "CNID Adresse"
-
-#: ajenti/plugins/iptables/layout/main.xml:5
-#: ajenti/plugins/iptables/layout/main.xml:7
-msgid "Action"
-msgstr "Aktion"
-
-#: ajenti/plugins/raid/main.py:15
-msgid "RAID"
-msgstr ""
-
-#: ajenti/plugins/raid/layout/main.xml:2
-msgid "State"
-msgstr "Status"
-
-#: ajenti/plugins/raid/layout/main.xml:4
-msgid "Devices"
-msgstr "Geräte"
-
-#: ajenti/plugins/raid/layout/main.xml:5
-msgid "Blocks"
-msgstr "Blöcke"
-
-#: ajenti/plugins/raid/layout/main.xml:6
-msgid "Recovery:"
-msgstr "Wiederherstellung:"
-
-#: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
-#: ajenti/plugins/notepad/notepad.py:50
-#, python-format
-msgid "Untitled %i"
-msgstr "Unbenannt %i"
-
-#: ajenti/plugins/iptables/layout/main.xml:2
-msgid "Load current state"
-msgstr "Lade aktuellen Status"
-
-#: ajenti/plugins/iptables/layout/main.xml:3
-msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Dies überschreibt die aktuell gespeicherte Konfiguration mit aktuellem Firewall-Staus! Fortfahren?"
-
-#: ajenti/plugins/terminal/terminal.py:94
-#: ajenti/plugins/terminal/terminal.py:95
-#: ajenti/plugins/terminal/terminal.py:97
-#, python-format
-msgid "Process has exited with status %i"
-msgstr "Prozess wurde mit dem Status %i beendet"
-
-#: ajenti/plugins/iptables/layout/option-custom.xml:2
-msgid "Arguments"
-msgstr "Argumente"
-
-#: ajenti/plugins/iptables/layout/option-custom.xml:3
-msgid "Argument"
-msgstr "Argument"
-
-#: ajenti/plugins/packages/layout/row.xml:1
-msgid "Mark for installation/upgrade"
-msgstr "Für Installation/Upgrade markieren"
-
-#: ajenti/plugins/packages/layout/row.xml:2
-msgid "Mark for removal"
-msgstr "Für Entfernen markieren"
-
-#: ajenti/plugins/terminal/terminal.py:97
-#: ajenti/plugins/terminal/terminal.py:99
-msgid "Process has exited successfully"
-msgstr "Prozess wurde erfolgreich beendet"
-
-#: ajenti/plugins/fstab/iops.py:61
-msgid "Immediate I/O"
-msgstr "Sofortige I/O"
-
-#: ajenti/plugins/network/main.py:15
-msgid "Network"
-msgstr "Netzwerk"
-
-#: ajenti/plugins/network/layout/main.xml:2
-msgid "Class"
-msgstr "Klasse"
-
-#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
-msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-msgstr "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-
-#: ajenti/plugins/dhcpd/main.py:13
-msgid "DHCP Server"
-msgstr "DHCP-Server"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:1
-msgid "Subnetworks"
-msgstr "Teilnetze"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:3
-msgid "Specification"
-msgstr "Spezifikation"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:4
-msgid "IP ranges"
-msgstr "IP-Bereiche"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:7
-msgid "Global options"
-msgstr "Globale Optionen"
-
-#: ajenti/plugins/memcache/widget.py:29
-msgid "Memcache memory usage"
-msgstr "Memcache-Speicherauslastung"
-
-#: ajenti/plugins/users/main.py:101
-#, python-format
-msgid "Home dir for %s was created"
-msgstr "Home-Verzeichnis für %s wurde erstellt"
-
-#: ajenti/plugins/users/main.py:110
-#, python-format
-msgid "Password for %s was changed"
-msgstr "Passwort für %s wurde geändert"
-
-#: ajenti/plugins/users/main.py:113
-#, python-format
-msgid "Error: \"%s\""
-msgstr "Fehler: \"%s\""
-
-#: ajenti/plugins/users/main.py:115
-msgid "Password should't be empty"
-msgstr "Passwort darf nicht leer sein"
-
-#: ajenti/plugins/users/main.py:119
-#, python-format
-msgid "Password for %s was removed"
-msgstr "Kennwort für %s wurde entfernt"
-
-#: ajenti/plugins/users/layout/user-list.xml:7
-msgid "New password"
-msgstr "Neues Passwort"
-
-#: ajenti/plugins/users/layout/main.xml:7
-msgid "System Users"
-msgstr "Systembenutzer"
-
-#: ajenti/plugins/bind9/main.py:37 ajenti/plugins/nsd/main.py:37
-msgid "Zone saved"
-msgstr "Zone gespeichert"
-
-#: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/nsd/layout/main.xml:1
-msgid "Zones"
-msgstr "Zonen"
-
-#: ajenti/plugins/bind9/layout/main.xml:5 ajenti/plugins/nsd/layout/main.xml:4
-msgid "File"
-msgstr "Datei"
-
-#: ajenti/plugins/bind9/layout/main.xml:6 ajenti/plugins/nsd/layout/main.xml:5
-msgid "Zone"
-msgstr "Zone"
-
-#: ajenti/plugins/bind9/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:6
-msgid "Zone file does not exist"
-msgstr "Zone-Datei ist nicht vorhanden."
-
-#: ajenti/plugins/bind9/layout/main.xml:9 ajenti/plugins/nsd/layout/main.xml:8
-msgid "Save zone"
-msgstr "Zone speichern"
-
-#: ajenti/plugins/megaraid/layout/main.xml:1
-#: ajenti/plugins/elements/layout/megaraid-main.xml:1
-msgid "Adapter"
-msgstr "Adapter"
-
-#: ajenti/plugins/squid/layout/main.xml:9
-msgid "[_('Allow'), _('Deny')]"
-msgstr "[_('Erlauben'), _('Verwehren')]"
-
-#: ajenti/plugins/users/main.py:115
-msgid "Password shouldn't be empty"
-msgstr "Passwort darf nicht leer sein"
-
-#: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:62
-msgid "Errors in log"
-msgstr ""
-
-#: ajenti/plugins/openvpn/main.py:26
-msgid "OpenVPN"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/config.xml:1
-msgid "Management address"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/config.xml:2
-msgid "host:port or UNIX socket path"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:4
-msgid "Remote IP"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:5
-msgid "Local IP"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:6
-msgid "Connected since"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:8
-msgid "clients"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:9
-msgid "Messages"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:10
-msgid "Timestamp"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:11
-msgid "Flags"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:12
-msgid "Text"
-msgstr ""
 

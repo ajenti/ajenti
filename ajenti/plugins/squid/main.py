@@ -11,7 +11,7 @@ from reconfigure.items.squid import ACLData, HTTPAccessData, HTTPPortData, HTTPS
 @plugin
 class Squid (SectionPlugin):
     def init(self):
-        self.title = _('Squid')
+        self.title = 'Squid'
         self.icon = 'exchange'
         self.category = _('Software')
         self.append(self.ui.inflate('squid:main'))

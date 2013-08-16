@@ -28,6 +28,7 @@
 #: ajenti/plugins/bind9/layout/main.xml:11
 #: ajenti/plugins/squid/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:8
 msgid "Save"
 msgstr "Uložit"
 
@@ -36,6 +37,7 @@ msgstr "Uložit"
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
 #: ajenti/plugins/openvpn/layout/main.xml:1
+#: ajenti/plugins/network/layout/main.xml:6
 msgid "Restart"
 msgstr "Restart"
 
@@ -245,7 +247,9 @@ msgstr "Nastavení"
 #: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
 #: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
 #: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
-#: ajenti/plugins/bind9/main.py:70
+#: ajenti/plugins/bind9/main.py:70 ajenti/plugins/bind9/main.py:81
+#: ajenti/plugins/iptables/main.py:173 ajenti/plugins/iptables/main.py:186
+#: ajenti/plugins/network/main.py:73
 msgid "Saved"
 msgstr "Uloženo"
 
@@ -394,6 +398,7 @@ msgstr "Samba Cluster"
 #: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
 msgid "Software"
 msgstr "Software"
 
@@ -476,159 +481,6 @@ msgstr "Adresa"
 msgid "Public addresses"
 msgstr "Veřejné adresy"
 
-#: ajenti/plugins/ctdb/layout/main.xml:23
-#: ajenti/plugins/iptables/layout/option-interface.xml:1
-msgid "Interface"
-msgstr "Rozhraní"
-
-#: ajenti/plugins/codemirror/__init__.py:7
-msgid "CodeMirror code editor"
-msgstr "Editor kódu CodeMirror"
-
-#: ajenti/plugins/apache/main.py:11 ajenti/plugins/psql/main.py:13
-#: ajenti/plugins/mysql/main.py:26 ajenti/plugins/nginx/main.py:11
-#: ajenti/plugins/apache/main.py:12 ajenti/plugins/openvpn/layout/main.xml:2
-msgid "Reload"
-msgstr "Znovu načíst"
-
-#: ajenti/plugins/dashboard/dash.py:18 ajenti/plugins/dashboard/__init__.py:6
-msgid "Dashboard"
-msgstr "Přehled"
-
-#: ajenti/plugins/dashboard/welcome.py:13
-msgid "Welcome"
-msgstr "Vítejte"
-
-#: ajenti/plugins/dashboard/layout/dash.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:1
-msgid "Refresh"
-msgstr "Obnovit"
-
-#: ajenti/plugins/dashboard/layout/dash.xml:2
-msgid "Add widget"
-msgstr "Přidat widget"
-
-#: ajenti/plugins/dashboard/layout/dash.xml:3
-msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr "[{'text': _('Storno'), \"id\": \"storno\"}]"
-
-#: ajenti/plugins/db_common/api.py:45
-msgid "Query finished"
-msgstr "Dotaz dokončen"
-
-#: ajenti/plugins/db_common/api.py:54
-#, python-format
-msgid "Output cut from %i rows to 200"
-msgstr ""
-
-#: ajenti/plugins/db_common/layout/main.xml:1
-#: ajenti/plugins/terminal/layout/main.xml:1
-msgid "Run"
-msgstr "Spustit"
-
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "Databáze"
-
-#: ajenti/plugins/db_common/layout/main.xml:4
-msgid "Confirm database drop!"
-msgstr "Potvrďte smazání databáze!"
-
-#: ajenti/plugins/db_common/layout/main.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:12
-#: ajenti/plugins/supervisor/layout/main.xml:10
-#: ajenti/plugins/users/layout/main.xml:2
-#: ajenti/plugins/users/layout/main.xml:7
-#: ajenti/plugins/mysql/layout/config.xml:1
-#: ajenti/plugins/supervisor/layout/main.xml:11
-#: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/mysql/layout/config.xml:2
-msgid "Username"
-msgstr "Uživatel"
-
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "Název databáze"
-
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/mysql/layout/config.xml:2
-#: ajenti/plugins/samba/layout/main.xml:29
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
-msgstr "Heslo"
-
-#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
-msgid "File Manager"
-msgstr "Správce souborů"
-
-#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/notepad/notepad.py:19
-msgid "Tools"
-msgstr "Nástroje"
-
-#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:1
-#: ajenti/plugins/packages/layout/row.xml:3
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: ajenti/plugins/fm/layout/config.xml:1
-msgid "Topmost directory"
-msgstr "Nejvyšší adresář"
-
-#: ajenti/plugins/fm/layout/main.xml:1
-msgid "Close"
-msgstr "Zavřít"
-
-#: ajenti/plugins/fm/layout/main.xml:2
-msgid "New File"
-msgstr "Nový soubor"
-
-#: ajenti/plugins/fm/layout/main.xml:3
-msgid "New Folder"
-msgstr "Nový adresář"
-
-#: ajenti/plugins/fm/layout/main.xml:4
-msgid "Cut"
-msgstr "Vyjmout"
-
-#: ajenti/plugins/fm/layout/main.xml:5
-msgid "Copy"
-msgstr "Kopírovat"
-
-#: ajenti/plugins/fm/layout/main.xml:6
-msgid "Paste"
-msgstr "Vložit"
-
-#: ajenti/plugins/fm/layout/main.xml:9 ajenti/plugins/fm/layout/main.xml:6
-msgid "Upload"
-msgstr "Nahrát"
-
-#: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:7
-msgid "Clipboard"
-msgstr "Schránka"
-
-#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:9
-#: ajenti/plugins/users/layout/user-list.xml:9
-msgid "Remove"
-msgstr "Odstranit"
-
-#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/fm/layout/main.xml:14
-#: ajenti/plugins/fm/layout/main.xml:11
-msgid "Access"
-msgstr "Přístup"
-
-#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
-#: ajenti/plugins/fm/layout/main.xml:12
-msgid "Owner"
-msgstr "Vlastník"
-
-#: ajenti/plugins/fm/layout/main.xml:15 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:13
-msgid "Group"
-msgstr "Skupina"
-
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
 msgstr "Napájení"
@@ -661,13 +513,11 @@ msgstr "Restartovat systém?"
 msgid "Shutdown the system?"
 msgstr "Vypnout systém?"
 
-#: ajenti/plugins/main/main.py:189 ajenti/plugins/main/main.py:192
-#: ajenti/plugins/main/main.py:195 ajenti/plugins/main/main.py:197
+#: ajenti/plugins/main/main.py:197
 msgid "Section access"
 msgstr "Přístup k sekci"
 
-#: ajenti/plugins/main/main.py:206 ajenti/plugins/main/main.py:209
-#: ajenti/plugins/main/main.py:212 ajenti/plugins/main/main.py:214
+#: ajenti/plugins/main/main.py:214
 msgid "Feedback sent!"
 msgstr "Feedback odeslán!"
 
@@ -709,189 +559,51 @@ msgstr "Nepřipojené"
 msgid "mount -a failed"
 msgstr "mount -a failed"
 
+#: ajenti/plugins/fstab/iops.py:61
+msgid "Immediate I/O"
+msgstr ""
+
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
 msgstr "Místo na disku"
-
-#: ajenti/plugins/fstab/layout/main.xml:2
-msgid "Mount all"
-msgstr "Připojit všechny"
-
-#: ajenti/plugins/fstab/layout/main.xml:4
-#: ajenti/plugins/fstab/layout/main.xml:12
-#: ajenti/plugins/fstab/layout/widget.xml:1
-#: ajenti/plugins/hddtemp/layout/widget.xml:1
-#: ajenti/plugins/network/layout/widget.xml:1
-#: ajenti/plugins/smartctl/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/iio-widget.xml:1
-msgid "Device"
-msgstr "Zařízení"
-
-#: ajenti/plugins/fstab/layout/main.xml:5
-#: ajenti/plugins/fstab/layout/main.xml:13
-msgid "Mountpoint"
-msgstr "Adresář"
-
-#: ajenti/plugins/fstab/layout/main.xml:6
-msgid "FS type"
-msgstr "Typ FS"
-
-#: ajenti/plugins/fstab/layout/main.xml:7
-#: ajenti/plugins/squid/layout/main.xml:4
-#: ajenti/plugins/squid/layout/main.xml:9
-#: ajenti/plugins/squid/layout/port-template.xml:3
-#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/exports/layout/main.xml:5
-#: ajenti/plugins/dhcpd/layout/main.xml:5
-#: ajenti/plugins/squid/layout/main.xml:10
-msgid "Options"
-msgstr "Možnosti"
-
-#: ajenti/plugins/fstab/layout/main.xml:8
-msgid "Scan frequency"
-msgstr "Frekvence skenování"
-
-#: ajenti/plugins/fstab/layout/main.xml:9
-msgid "Scan pass"
-msgstr "Skenovat"
-
-#: ajenti/plugins/fstab/layout/main.xml:11
-msgid "Mounted filesystems"
-msgstr "Připojené souborové systémy"
-
-#: ajenti/plugins/fstab/layout/main.xml:14
-msgid "Used"
-msgstr "Využito"
-
-#: ajenti/plugins/fstab/layout/main.xml:15
-msgid "Size"
-msgstr "Velikost"
-
-#: ajenti/plugins/fstab/layout/main.xml:16
-msgid "Usage"
-msgstr "Využití"
-
-#: ajenti/plugins/fstab/layout/main.xml:17
-msgid "Unmount"
-msgstr "Odpojit"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
 msgstr "Teplota HDD"
 
-#: ajenti/plugins/supervisor/layout/main.xml:1
-msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr "[{ 'command': 'force-reload', 'text': _('Reload'), 'icon': 'step-forward', }]"
+#: ajenti/plugins/dhcpd/main.py:13
+msgid "DHCP Server"
+msgstr "DHCP Server"
 
-#: ajenti/plugins/supervisor/layout/main.xml:4
-msgid "Working directory"
-msgstr "Pracovní adresář"
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "Dotaz dokončen"
 
-#: ajenti/plugins/supervisor/layout/main.xml:5
-msgid "Autostart"
-msgstr "Automatické spuštění"
-
-#: ajenti/plugins/supervisor/layout/main.xml:6
-msgid "[_('Enabled'), _('Disabled')]"
-msgstr "[_('Zapnuto'), _('Vypnuto')]"
-
-#: ajenti/plugins/supervisor/layout/main.xml:7
-msgid "Autorestart"
-msgstr "Automatický restart"
-
-#: ajenti/plugins/supervisor/layout/main.xml:8
-msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr "[_('Zapnuto'), _('Selhání'), _('Vypnuto')]"
-
-#: ajenti/plugins/supervisor/layout/main.xml:9
-msgid "Start timeout"
-msgstr "Doba startu"
-
-#: ajenti/plugins/supervisor/layout/main.xml:10
-msgid "Start retries"
-msgstr "Začátek opakování"
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr ""
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Na této platformě nelze automatické spuštění brány firewall zakázat"
 
-#: ajenti/plugins/iptables/main.py:62 ajenti/plugins/iptables/main.py:63
+#: ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
 msgstr "Brána firewall"
 
-#: ajenti/plugins/iptables/main.py:102 ajenti/plugins/iptables/main.py:103
-#: ajenti/plugins/iptables/main.py:104
-#: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/main.py:105
+#: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "Přidat volbu"
 
-#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
-#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 #: ajenti/plugins/iptables/main.py:140
 msgid "Disable"
 msgstr "Vypnout"
 
-#: ajenti/plugins/iptables/main.py:111 ajenti/plugins/iptables/main.py:112
-#: ajenti/plugins/iptables/main.py:113 ajenti/plugins/iptables/main.py:139
 #: ajenti/plugins/iptables/main.py:140
 msgid " autostart"
 msgstr " automatické spuštění"
-
-#: ajenti/plugins/iptables/layout/option-match.xml:1
-msgid "Modules"
-msgstr "Moduly"
-
-#: ajenti/plugins/iptables/layout/option-state.xml:1
-msgid "States"
-msgstr "Stavy"
-
-#: ajenti/plugins/iptables/layout/main.xml:1
-msgid "Raw edit"
-msgstr "Raw úprava"
-
-#: ajenti/plugins/iptables/layout/main.xml:2
-#: ajenti/plugins/iptables/layout/main.xml:4
-msgid "New Chain"
-msgstr "Nový řetězec"
-
-#: ajenti/plugins/iptables/layout/main.xml:5
-msgid "Action:"
-msgstr "Akce:"
-
-#: ajenti/plugins/iptables/layout/main.xml:6
-#: ajenti/plugins/iptables/layout/main.xml:7
-#: ajenti/plugins/iptables/layout/main.xml:9
-msgid "Conditions"
-msgstr "Podmínky"
-
-#: ajenti/plugins/iptables/layout/main.xml:7
-#: ajenti/plugins/iptables/layout/main.xml:8
-#: ajenti/plugins/iptables/layout/main.xml:10
-#: ajenti/plugins/iptables/layout/main.xml:11
-msgid "New Rule"
-msgstr "Nové pravidlo"
-
-#: ajenti/plugins/iptables/layout/main.xml:9
-#: ajenti/plugins/packages/layout/main.xml:2
-#: ajenti/plugins/iptables/layout/main.xml:10
-#: ajenti/plugins/iptables/layout/main.xml:12
-#: ajenti/plugins/iptables/layout/main.xml:13
-msgid "Apply"
-msgstr "Použít"
-
-#: ajenti/plugins/iptables/layout/option-protocol.xml:1
-msgid "Protocol"
-msgstr "Protokol"
-
-#: ajenti/plugins/iptables/layout/option-ports.xml:1
-#: ajenti/plugins/squid/layout/main.xml:10
-#: ajenti/plugins/squid/layout/main.xml:11
-msgid "Ports"
-msgstr "Porty"
-
-#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
-msgid "Reason"
-msgstr "Důvod"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
@@ -908,10 +620,6 @@ msgstr "Skripty"
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
 msgstr "Spustit skripty"
-
-#: ajenti/plugins/scripts/layout/widget.xml:3
-msgid "Run in terminal"
-msgstr "Spustit v terminálu"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
@@ -947,6 +655,449 @@ msgstr "Instalovat / odstranit"
 msgid "Refresh lists"
 msgstr "Aktualizovat seznamy"
 
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+msgid "File Manager"
+msgstr "Správce souborů"
+
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/notepad/notepad.py:19
+msgid "Tools"
+msgstr "Nástroje"
+
+#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr ""
+
+#: ajenti/plugins/squid/main.py:14
+msgid "Squid"
+msgstr "Squid"
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr "Editor kódu CodeMirror"
+
+#: ajenti/plugins/terminal/terminal.py:97
+#, python-format
+msgid "Process has exited with status %i"
+msgstr ""
+
+#: ajenti/plugins/terminal/terminal.py:99
+msgid "Process has exited successfully"
+msgstr ""
+
+#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
+#: ajenti/plugins/terminal/main.py:183
+msgid "Terminal"
+msgstr "Terminál"
+
+#: ajenti/plugins/terminal/main.py:187
+msgid "Run shell"
+msgstr "Spustit shell"
+
+#: ajenti/plugins/terminal/main.py:188
+msgid "Run custom commands"
+msgstr "Spustit vlastní příkazy"
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/memcache/widget.py:29
+msgid "Memcache memory usage"
+msgstr "Memcache využití paměti"
+
+#: ajenti/plugins/logs/main.py:12
+msgid "Logs"
+msgstr "Protokoly"
+
+#: ajenti/plugins/services/main.py:12
+msgid "Services"
+msgstr "Služby"
+
+#: ajenti/plugins/services/main.py:39
+#, python-format
+msgid "%s started"
+msgstr "%s spuštěno"
+
+#: ajenti/plugins/services/main.py:44
+#, python-format
+msgid "%s stopped"
+msgstr "%s zastaveno"
+
+#: ajenti/plugins/services/main.py:49
+#, python-format
+msgid "%s restarted"
+msgstr "%s restartováno"
+
+#: ajenti/plugins/services/widget.py:10
+#: ajenti/plugins/services/layout/widget.xml:4
+msgid "Service"
+msgstr "Služba"
+
+#: ajenti/plugins/users/main.py:99
+#, python-format
+msgid "Home dir for %s was created"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:108
+#, python-format
+msgid "Password for %s was changed"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:111
+#, python-format
+msgid "Error: \"%s\""
+msgstr ""
+
+#: ajenti/plugins/users/main.py:113
+msgid "Password shouldn't be empty"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:117
+#, python-format
+msgid "Password for %s was removed"
+msgstr ""
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr "Síť"
+
+#: ajenti/plugins/network/widget.py:85
+msgid "Immediate Traffic"
+msgstr "Aktuální provoz"
+
+#: ajenti/plugins/network/widget.py:115
+msgid "Traffic"
+msgstr "Provoz"
+
+#: ajenti/plugins/taskmgr/main.py:14
+msgid "Processes"
+msgstr "Procesy"
+
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
+#: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
+#: ajenti/plugins/openvpn/layout/main.xml:2
+msgid "Reload"
+msgstr "Znovu načíst"
+
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+msgid "Zone saved"
+msgstr ""
+
+#: ajenti/plugins/hosts/hosts.py:13
+msgid "Hosts"
+msgstr "Hostitelé"
+
+#: ajenti/plugins/notepad/notepad.py:17
+msgid "Notepad"
+msgstr "Poznámkový blok"
+
+#: ajenti/plugins/notepad/notepad.py:50
+#, python-format
+msgid "Untitled %i"
+msgstr "Untitled %i"
+
+#: ajenti/plugins/resolv/resolv.py:13
+msgid "Nameservers"
+msgstr "Nameservery"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "DNS nameserver"
+msgstr "DNS nameserver"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "Local domain name"
+msgstr "Název místní domény"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "Search list"
+msgstr "Seznam hledání"
+
+#: ajenti/plugins/resolv/resolv.py:18
+msgid "Sort list"
+msgstr "Seřadit seznam"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:5
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/exports/layout/main.xml:5
+msgid "Options"
+msgstr "Možnosti"
+
+#: ajenti/plugins/smartctl/widget.py:58
+msgid "No data"
+msgstr "Žádná data"
+
+#: ajenti/plugins/smartctl/widget.py:59
+msgid "FAILING"
+msgstr "FAILING"
+
+#: ajenti/plugins/smartctl/widget.py:60
+msgid "PRE-FAIL"
+msgstr "PRE-FAIL"
+
+#: ajenti/plugins/smartctl/widget.py:61
+msgid "Unknown error"
+msgstr "Neznámá chyba"
+
+#: ajenti/plugins/smartctl/widget.py:62
+msgid "Errors in log"
+msgstr ""
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "NFS exporty"
+
+#: ajenti/plugins/munin/main.py:43
+#, python-format
+msgid "Couldn't connect to Munin: %s"
+msgstr "K Munin %s se nelze připojit"
+
+#: ajenti/plugins/munin/main.py:47
+msgid "Munin HTTP authentication failed"
+msgstr "Munin HTTP autentizace selhala"
+
+#: ajenti/plugins/samba/main.py:47
+msgid "Password updated"
+msgstr "Heslo bylo změněno"
+
+#: ajenti/plugins/samba/main.py:50
+msgid "Password update failed"
+msgstr "Při změně hesla nastala chyba"
+
+#: ajenti/plugins/dashboard/dash.py:18
+msgid "Dashboard"
+msgstr "Přehled"
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr "Vítejte"
+
+#: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr ""
+
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+msgid "Device"
+msgstr "Zařízení"
+
+#: ajenti/plugins/fstab/layout/main.xml:1
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+msgid "Refresh"
+msgstr "Obnovit"
+
+#: ajenti/plugins/fstab/layout/main.xml:2
+msgid "Mount all"
+msgstr "Připojit všechny"
+
+#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:13
+msgid "Mountpoint"
+msgstr "Adresář"
+
+#: ajenti/plugins/fstab/layout/main.xml:6
+msgid "FS type"
+msgstr "Typ FS"
+
+#: ajenti/plugins/fstab/layout/main.xml:8
+msgid "Scan frequency"
+msgstr "Frekvence skenování"
+
+#: ajenti/plugins/fstab/layout/main.xml:9
+msgid "Scan pass"
+msgstr "Skenovat"
+
+#: ajenti/plugins/fstab/layout/main.xml:11
+msgid "Mounted filesystems"
+msgstr "Připojené souborové systémy"
+
+#: ajenti/plugins/fstab/layout/main.xml:14
+msgid "Used"
+msgstr "Využito"
+
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "Velikost"
+
+#: ajenti/plugins/fstab/layout/main.xml:16
+msgid "Usage"
+msgstr "Využití"
+
+#: ajenti/plugins/fstab/layout/main.xml:17
+msgid "Unmount"
+msgstr "Odpojit"
+
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{ 'command': 'force-reload', 'text': _('Reload'), 'icon': 'step-forward', }]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:4
+msgid "Working directory"
+msgstr "Pracovní adresář"
+
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Autostart"
+msgstr "Automatické spuštění"
+
+#: ajenti/plugins/supervisor/layout/main.xml:6
+msgid "[_('Enabled'), _('Disabled')]"
+msgstr "[_('Zapnuto'), _('Vypnuto')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:7
+msgid "Autorestart"
+msgstr "Automatický restart"
+
+#: ajenti/plugins/supervisor/layout/main.xml:8
+msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
+msgstr "[_('Zapnuto'), _('Selhání'), _('Vypnuto')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:9
+msgid "Start timeout"
+msgstr "Doba startu"
+
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "Start retries"
+msgstr "Začátek opakování"
+
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "Uživatel"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:1
+msgid "Subnetworks"
+msgstr "Podsítě"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:3
+msgid "Specification"
+msgstr "Specifikace"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:4
+msgid "IP ranges"
+msgstr "IP rozsahy"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:7
+msgid "Global options"
+msgstr "Globální nastavení"
+
+#: ajenti/plugins/db_common/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:1
+msgid "Run"
+msgstr "Spustit"
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Databáze"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "Potvrďte smazání databáze!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Název databáze"
+
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/openvpn/layout/config.xml:3
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/samba/layout/main.xml:29
+#: ajenti/plugins/netatalk/layout/main.xml:6
+msgid "Password"
+msgstr "Heslo"
+
+#: ajenti/plugins/iptables/layout/option-interface.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr "Rozhraní"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/option-match.xml:1
+msgid "Modules"
+msgstr "Moduly"
+
+#: ajenti/plugins/iptables/layout/option-state.xml:1
+msgid "States"
+msgstr "Stavy"
+
+#: ajenti/plugins/iptables/layout/main.xml:1
+msgid "Raw edit"
+msgstr "Raw úprava"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr "Načíst aktuální stav"
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr "Uložené nastavení firewallu bude přepsáno současným stavem! Pokračovat?"
+
+#: ajenti/plugins/iptables/layout/main.xml:4
+msgid "New Chain"
+msgstr "Nový řetězec"
+
+#: ajenti/plugins/iptables/layout/main.xml:7
+msgid "Action"
+msgstr "Akce"
+
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/users/layout/user-list.xml:3
+msgid "Comment"
+msgstr "Komentář"
+
+#: ajenti/plugins/iptables/layout/main.xml:9
+msgid "Conditions"
+msgstr "Podmínky"
+
+#: ajenti/plugins/iptables/layout/main.xml:11
+msgid "New Rule"
+msgstr "Nové pravidlo"
+
+#: ajenti/plugins/iptables/layout/main.xml:13
+#: ajenti/plugins/packages/layout/main.xml:2
+msgid "Apply"
+msgstr "Použít"
+
+#: ajenti/plugins/iptables/layout/option-protocol.xml:1
+msgid "Protocol"
+msgstr "Protokol"
+
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:11
+msgid "Ports"
+msgstr "Porty"
+
+#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
+msgid "Reason"
+msgstr "Důvod"
+
+#: ajenti/plugins/scripts/layout/widget.xml:3
+msgid "Run in terminal"
+msgstr "Spustit v terminálu"
+
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
 msgstr "Verze"
@@ -980,7 +1131,56 @@ msgstr "Zrušit vše"
 msgid "Install"
 msgstr "Instalovat"
 
-#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/fm/layout/main.xml:14
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr ""
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "Nejvyšší adresář"
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "Zavřít"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "New File"
+msgstr "Nový soubor"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New Folder"
+msgstr "Nový adresář"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Upload"
+msgstr "Nahrát"
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Clipboard"
+msgstr "Schránka"
+
+#: ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:9
+msgid "Remove"
+msgstr "Odstranit"
+
+#: ajenti/plugins/fm/layout/main.xml:11
+msgid "Access"
+msgstr "Přístup"
+
+#: ajenti/plugins/fm/layout/main.xml:12
+msgid "Owner"
+msgstr "Vlastník"
+
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
+msgid "Group"
+msgstr "Skupina"
+
+#: ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
 msgstr "Další"
 
@@ -988,9 +1188,50 @@ msgstr "Další"
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ajenti/plugins/squid/main.py:13 ajenti/plugins/squid/main.py:14
-msgid "Squid"
-msgstr "Squid"
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:7
+#: ajenti/plugins/samba/layout/main.xml:25
+msgid "Disconnect"
+msgstr "Odpojit"
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:12
+msgid "Text"
+msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
@@ -1000,21 +1241,9 @@ msgstr "HTTP přístup"
 msgid "Mode"
 msgstr "Mód"
 
-#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:163 ajenti/plugins/terminal/main.py:178
-#: ajenti/plugins/terminal/main.py:183
-msgid "Terminal"
-msgstr "Terminál"
-
-#: ajenti/plugins/terminal/main.py:167 ajenti/plugins/terminal/main.py:182
-#: ajenti/plugins/terminal/main.py:187
-msgid "Run shell"
-msgstr "Spustit shell"
-
-#: ajenti/plugins/terminal/main.py:168 ajenti/plugins/terminal/main.py:183
-#: ajenti/plugins/terminal/main.py:188
-msgid "Run custom commands"
-msgstr "Spustit vlastní příkazy"
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "[_('Allow'), _('Deny')]"
+msgstr ""
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
@@ -1029,38 +1258,32 @@ msgstr "Nový"
 msgid "No active terminals"
 msgstr "Žádné aktivní terminály"
 
-#: ajenti/plugins/logs/main.py:12
-msgid "Logs"
-msgstr "Protokoly"
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr "Stav"
+
+#: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:4
+msgid "Type"
+msgstr "Typ"
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr "Zařízení"
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr "Bloky"
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr "Obnovení:"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
 msgstr "Otevřít"
-
-#: ajenti/plugins/services/main.py:12
-msgid "Services"
-msgstr "Služby"
-
-#: ajenti/plugins/services/main.py:39
-#, python-format
-msgid "%s started"
-msgstr "%s spuštěno"
-
-#: ajenti/plugins/services/main.py:44
-#, python-format
-msgid "%s stopped"
-msgstr "%s zastaveno"
-
-#: ajenti/plugins/services/main.py:49
-#, python-format
-msgid "%s restarted"
-msgstr "%s restartováno"
-
-#: ajenti/plugins/services/widget.py:10
-#: ajenti/plugins/services/layout/widget.xml:4
-msgid "Service"
-msgstr "Služba"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
@@ -1082,50 +1305,64 @@ msgstr "Origin"
 msgid "Actions"
 msgstr "Akce"
 
+#: ajenti/plugins/users/layout/user-list.xml:4
+msgid "Home directory"
+msgstr "Domovský adresář"
+
+#: ajenti/plugins/users/layout/user-list.xml:6
+msgid "Shell"
+msgstr "Shell"
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr ""
+
+#: ajenti/plugins/users/layout/user-list.xml:8
+#: ajenti/plugins/samba/layout/main.xml:30
+msgid "Set"
+msgstr "Nastavit"
+
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "User"
 msgstr "Uživatel"
 
-#: ajenti/plugins/users/layout/main.xml:8
-#: ajenti/plugins/iptables/layout/main.xml:6
-#: ajenti/plugins/iptables/layout/main.xml:8
-#: ajenti/plugins/users/layout/user-list.xml:3
-msgid "Comment"
-msgstr "Komentář"
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr ""
 
-#: ajenti/plugins/users/layout/main.xml:9
-#: ajenti/plugins/users/layout/user-list.xml:4
-msgid "Home directory"
-msgstr "Domovský adresář"
-
-#: ajenti/plugins/users/layout/main.xml:10
-#: ajenti/plugins/users/layout/user-list.xml:6
-msgid "Shell"
-msgstr "Shell"
-
-#: ajenti/plugins/users/layout/main.xml:12
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
 msgstr "Skupiny"
 
-#: ajenti/plugins/users/layout/main.xml:15
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
 msgstr "Členové"
 
-#: ajenti/plugins/network/widget.py:81 ajenti/plugins/network/widget.py:85
-msgid "Immediate Traffic"
-msgstr "Aktuální provoz"
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr "Třída"
 
-#: ajenti/plugins/network/widget.py:111 ajenti/plugins/network/widget.py:115
-msgid "Traffic"
-msgstr "Provoz"
+#: ajenti/plugins/network/layout/main.xml:3
+msgid "Bring up"
+msgstr ""
 
-#: ajenti/plugins/taskmgr/main.py:14
-msgid "Processes"
-msgstr "Procesy"
+#: ajenti/plugins/network/layout/main.xml:4
+msgid "Bring down"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:5
+msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:7
+msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+msgstr "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
@@ -1147,17 +1384,29 @@ msgstr "Ukončit"
 msgid "Kill"
 msgstr "Shodit"
 
-#: ajenti/plugins/hosts/hosts.py:13
-msgid "Hosts"
-msgstr "Hostitelé"
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
+msgstr ""
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
 msgstr "Aliasy"
-
-#: ajenti/plugins/notepad/notepad.py:17
-msgid "Notepad"
-msgstr "Poznámkový blok"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
@@ -1171,56 +1420,6 @@ msgstr "Záložka"
 msgid "Dependencies"
 msgstr "Závislosti"
 
-#: ajenti/plugins/resolv/resolv.py:13
-msgid "Nameservers"
-msgstr "Nameservery"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "DNS nameserver"
-msgstr "DNS nameserver"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Local domain name"
-msgstr "Název místní domény"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Search list"
-msgstr "Seznam hledání"
-
-#: ajenti/plugins/resolv/resolv.py:18
-msgid "Sort list"
-msgstr "Seřadit seznam"
-
-#: ajenti/plugins/resolv/layout/main.xml:2
-#: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/bind9/layout/main.xml:4
-msgid "Type"
-msgstr "Typ"
-
-#: ajenti/plugins/smartctl/widget.py:55 ajenti/plugins/smartctl/widget.py:57
-#: ajenti/plugins/smartctl/widget.py:58
-msgid "No data"
-msgstr "Žádná data"
-
-#: ajenti/plugins/smartctl/widget.py:56 ajenti/plugins/smartctl/widget.py:58
-#: ajenti/plugins/smartctl/widget.py:59
-msgid "FAILING"
-msgstr "FAILING"
-
-#: ajenti/plugins/smartctl/widget.py:57 ajenti/plugins/smartctl/widget.py:59
-#: ajenti/plugins/smartctl/widget.py:60
-msgid "PRE-FAIL"
-msgstr "PRE-FAIL"
-
-#: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
-#: ajenti/plugins/smartctl/widget.py:61
-msgid "Unknown error"
-msgstr "Neznámá chyba"
-
-#: ajenti/plugins/exports/main.py:17
-msgid "NFS Exports"
-msgstr "NFS exporty"
-
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
 msgstr "Adresář"
@@ -1229,26 +1428,9 @@ msgstr "Adresář"
 msgid "Clients"
 msgstr "Klienti"
 
-#: ajenti/plugins/munin/main.py:43
-#, python-format
-msgid "Couldn't connect to Munin: %s"
-msgstr "K Munin %s se nelze připojit"
-
-#: ajenti/plugins/munin/main.py:47
-msgid "Munin HTTP authentication failed"
-msgstr "Munin HTTP autentizace selhala"
-
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
 msgstr "Zobrazit"
-
-#: ajenti/plugins/samba/main.py:43
-msgid "Password updated"
-msgstr "Heslo bylo změněno"
-
-#: ajenti/plugins/samba/main.py:46
-msgid "Password update failed"
-msgstr "Při změně hesla nastala chyba"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
@@ -1321,19 +1503,17 @@ msgstr "Sdílet"
 msgid "Machine"
 msgstr "Stroj"
 
-#: ajenti/plugins/samba/layout/main.xml:25
-#: ajenti/plugins/openvpn/layout/main.xml:7
-msgid "Disconnect"
-msgstr "Odpojit"
-
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
 msgstr "Přidat"
 
-#: ajenti/plugins/samba/layout/main.xml:30
-#: ajenti/plugins/users/layout/user-list.xml:8
-msgid "Set"
-msgstr "Nastavit"
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Add widget"
+msgstr "Přidat widget"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
+msgstr "[{'text': _('Storno'), \"id\": \"storno\"}]"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
@@ -1358,228 +1538,4 @@ msgstr "AFP port"
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
 msgstr "CNID adresa"
-
-#: ajenti/plugins/iptables/layout/main.xml:5
-#: ajenti/plugins/iptables/layout/main.xml:7
-msgid "Action"
-msgstr "Akce"
-
-#: ajenti/plugins/raid/main.py:15
-msgid "RAID"
-msgstr ""
-
-#: ajenti/plugins/raid/layout/main.xml:2
-msgid "State"
-msgstr "Stav"
-
-#: ajenti/plugins/raid/layout/main.xml:4
-msgid "Devices"
-msgstr "Zařízení"
-
-#: ajenti/plugins/raid/layout/main.xml:5
-msgid "Blocks"
-msgstr "Bloky"
-
-#: ajenti/plugins/raid/layout/main.xml:6
-msgid "Recovery:"
-msgstr "Obnovení:"
-
-#: ajenti/plugins/notepad/notepad.py:47 ajenti/plugins/notepad/notepad.py:48
-#: ajenti/plugins/notepad/notepad.py:50
-#, python-format
-msgid "Untitled %i"
-msgstr "Untitled %i"
-
-#: ajenti/plugins/iptables/layout/main.xml:2
-msgid "Load current state"
-msgstr "Načíst aktuální stav"
-
-#: ajenti/plugins/iptables/layout/main.xml:3
-msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Uložené nastavení firewallu bude přepsáno současným stavem! Pokračovat?"
-
-#: ajenti/plugins/terminal/terminal.py:94
-#: ajenti/plugins/terminal/terminal.py:95
-#: ajenti/plugins/terminal/terminal.py:97
-#, python-format
-msgid "Process has exited with status %i"
-msgstr ""
-
-#: ajenti/plugins/iptables/layout/option-custom.xml:2
-msgid "Arguments"
-msgstr ""
-
-#: ajenti/plugins/iptables/layout/option-custom.xml:3
-msgid "Argument"
-msgstr ""
-
-#: ajenti/plugins/packages/layout/row.xml:1
-msgid "Mark for installation/upgrade"
-msgstr ""
-
-#: ajenti/plugins/packages/layout/row.xml:2
-msgid "Mark for removal"
-msgstr ""
-
-#: ajenti/plugins/terminal/terminal.py:97
-#: ajenti/plugins/terminal/terminal.py:99
-msgid "Process has exited successfully"
-msgstr ""
-
-#: ajenti/plugins/fstab/iops.py:61
-msgid "Immediate I/O"
-msgstr ""
-
-#: ajenti/plugins/network/main.py:15
-msgid "Network"
-msgstr "Síť"
-
-#: ajenti/plugins/network/layout/main.xml:2
-msgid "Class"
-msgstr "Třída"
-
-#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
-msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-msgstr "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-
-#: ajenti/plugins/dhcpd/main.py:13
-msgid "DHCP Server"
-msgstr "DHCP Server"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:1
-msgid "Subnetworks"
-msgstr "Podsítě"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:3
-msgid "Specification"
-msgstr "Specifikace"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:4
-msgid "IP ranges"
-msgstr "IP rozsahy"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:7
-msgid "Global options"
-msgstr "Globální nastavení"
-
-#: ajenti/plugins/memcache/widget.py:29
-msgid "Memcache memory usage"
-msgstr "Memcache využití paměti"
-
-#: ajenti/plugins/users/main.py:101
-#, python-format
-msgid "Home dir for %s was created"
-msgstr ""
-
-#: ajenti/plugins/users/main.py:110
-#, python-format
-msgid "Password for %s was changed"
-msgstr ""
-
-#: ajenti/plugins/users/main.py:113
-#, python-format
-msgid "Error: \"%s\""
-msgstr ""
-
-#: ajenti/plugins/users/main.py:115
-msgid "Password should't be empty"
-msgstr ""
-
-#: ajenti/plugins/users/main.py:119
-#, python-format
-msgid "Password for %s was removed"
-msgstr ""
-
-#: ajenti/plugins/users/layout/user-list.xml:7
-msgid "New password"
-msgstr ""
-
-#: ajenti/plugins/users/layout/main.xml:7
-msgid "System Users"
-msgstr ""
-
-#: ajenti/plugins/bind9/main.py:37 ajenti/plugins/nsd/main.py:37
-msgid "Zone saved"
-msgstr ""
-
-#: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/nsd/layout/main.xml:1
-msgid "Zones"
-msgstr ""
-
-#: ajenti/plugins/bind9/layout/main.xml:5 ajenti/plugins/nsd/layout/main.xml:4
-msgid "File"
-msgstr ""
-
-#: ajenti/plugins/bind9/layout/main.xml:6 ajenti/plugins/nsd/layout/main.xml:5
-msgid "Zone"
-msgstr ""
-
-#: ajenti/plugins/bind9/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:6
-msgid "Zone file does not exist"
-msgstr ""
-
-#: ajenti/plugins/bind9/layout/main.xml:9 ajenti/plugins/nsd/layout/main.xml:8
-msgid "Save zone"
-msgstr ""
-
-#: ajenti/plugins/megaraid/layout/main.xml:1
-#: ajenti/plugins/elements/layout/megaraid-main.xml:1
-msgid "Adapter"
-msgstr ""
-
-#: ajenti/plugins/squid/layout/main.xml:9
-msgid "[_('Allow'), _('Deny')]"
-msgstr ""
-
-#: ajenti/plugins/users/main.py:115
-msgid "Password shouldn't be empty"
-msgstr ""
-
-#: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:62
-msgid "Errors in log"
-msgstr ""
-
-#: ajenti/plugins/openvpn/main.py:26
-msgid "OpenVPN"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/config.xml:1
-msgid "Management address"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/config.xml:2
-msgid "host:port or UNIX socket path"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:4
-msgid "Remote IP"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:5
-msgid "Local IP"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:6
-msgid "Connected since"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:8
-msgid "clients"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:9
-msgid "Messages"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:10
-msgid "Timestamp"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:11
-msgid "Flags"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/main.xml:12
-msgid "Text"
-msgstr ""
 
