@@ -29,6 +29,7 @@ class NetworkPlugin (SectionPlugin):
                 ))
             u.find('up').on('click', self.on_up, i)
             u.find('down').on('click', self.on_down, i)
+            u.find('restart').on('click', self.on_restart, i)
 
         def post_interface_update(o, c, i, u):
             for bit in i.bits:
@@ -59,6 +60,10 @@ class NetworkPlugin (SectionPlugin):
     def on_down(self, iface=None):
         self.net_config.down(iface)
         self.refresh()
+
+    def on_restart(self, iface=None):
+        self.on_down(iface)
+        self.on_up(iface)
 
     @on('save', 'click')
     def on_save(self):
