@@ -10,7 +10,7 @@ name="ajenti"
 command="ajenti-panel"
 start_cmd="ajenti-panel -d"
 procname="/usr/local/bin/ajenti-panel"
-command_interpreter="/usr/local/bin/python"
+command_interpreter=`/usr/bin/env python`
 
 load_rc_config $name
 run_rc_command "$1"
