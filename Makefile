@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=0.99.34
+VERSION=0.99.35
 PREFIX=/usr
 DATE=`date -R`
 
@@ -19,7 +19,7 @@ all: build
 build:
 	echo version = \"$(VERSION)\" > ajenti/build.py
 	./compile_resources.py || true
-	./make_messages.py
+	./make_messages.py compile
 	
 run: 
 	./ajenti-panel -v -c ./config.json
@@ -38,10 +38,9 @@ pull-crowdin:
 	wget http://api.crowdin.net/api/project/ajenti/download/all.zip?key=`cat ~/Dropbox/.crowdin.ajenti.key` -O all.zip
 	unzip -o all.zip
 	rm all.zip
-	./make_messages.py
 
 push-crowdin:
-	./make_messages.py
+	./make_messages.py extract
 	curl -F "files[/ajenti.po]=@ajenti/locale/ajenti.po" http://api.crowdin.net/api/project/ajenti/update-file?key=`cat ~/Dropbox/.crowdin.ajenti.key`
 
 install: build
