@@ -15,9 +15,9 @@ class SambaUsers (object):
                 lines = subprocess.check_output(['pdbedit', '-Lv',  '-u', un]).split('\n')
                 fields = {}
                 for l in lines:
-                    if l:
+                    if l and ':' in l:
                         l = l.split(':', 1)
-                        fields[l[0]] = l[1]
+                        fields[l[0]] = l[1].strip()
                 u = SambaUser()
                 u.username = un
                 u.sid = fields['User SID']
