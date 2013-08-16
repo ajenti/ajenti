@@ -19,19 +19,15 @@ class Users (SectionPlugin):
 
         def _filterOnlyUsers(x):
             u = int(x.uid)
-            if u >= 1000:
-                return True
-            return False
+            return u >= 500
 
         def _filterOnlySystemUsers(x):
             u = int(x.uid)
-            if u >= 1000:
-                return False
-            return True
+            return u < 500
 
         def _sorter(x):
             g = int(x.gid)
-            if g >= 1000:
+            if g >= 500:
                 return g - 10000
             return g
 
@@ -55,6 +51,7 @@ class Users (SectionPlugin):
                 ui.find('create-home-dir').visible = True
 
         self.find('users').post_item_bind = post_item_bind
+        self.find('system-users').post_item_bind = post_item_bind
 
     def on_page_load(self):
         self.refresh()
@@ -89,6 +86,7 @@ class Users (SectionPlugin):
     @on('save-system-users', 'click')
     def save_users(self):
         self.binder.update()
+        self.binder_system.update()
         self.config.save()
 
     @on('save-groups', 'click')
