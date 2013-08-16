@@ -179,6 +179,7 @@ class PluginContext (object):
         for iface in cls._implements + [cls]:
             self.__instances.setdefault(iface, []).append(instance)
 
+        instance.context = self
         return instance
 
 

@@ -157,13 +157,13 @@ class UIElement (object):
     def property_definitions(self):
         return self.__class__._properties
 
-    def clone(self):
+    def clone(self, set_ui=None, set_context=None):
         """
         :returns: a deep copy of the element and its children. Property values are shallow copies.
         """
         o = self.__class__.__new__(self.__class__)
         o._prepare()
-        o.ui, o.typeid, o.context = self.ui, self.typeid, self.context
+        o.ui, o.typeid, o.context = (set_ui or self.ui), self.typeid, (set_context or self.context)
 
         o.events = self.events.copy()
         o.event_args = self.event_args.copy()
@@ -172,7 +172,7 @@ class UIElement (object):
 
         o.children = []
         for c in self.children:
-            o.append(c.clone())
+            o.append(c.clone(set_ui=set_ui, set_context=set_context))
 
         o.post_clone()
         return o

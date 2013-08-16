@@ -1,4 +1,5 @@
 from ajenti.api import *
+from ajenti.plugins import manager
 
 import binder
 from inflater import Inflater
@@ -11,33 +12,20 @@ class UI (BasePlugin):
     The root UI object, one per session
     """
 
-    def __init__(self):
-        self.inflater = Inflater(self)
+    def init(self):
+        self.inflater = Inflater.get(manager.context)
 
-    def create(self, typeid, *args, **kwargs):
+    def create(self, *args, **kwargs):
         """
         Creates an element by its type ID.
         """
-        cls = self.get_class(typeid)
-        inst = cls.new(self, context=self.context, *args, **kwargs)
-        inst.typeid = typeid
-        return inst
-
-    def get_class(self, typeid):
-        """
-        :returns: element class by element type ID
-        """
-        for cls in UIElement.get_classes():
-            if cls.typeid == typeid:
-                return cls
-        else:
-            return UIElement
+        return self.inflater.create_element(self, *args, **kwargs)
 
     def inflate(self, layout):
         """
         :returns: an inflated element tree of the given layout XML name
         """
-        return self.inflater.inflate(layout)
+        return self.inflater.inflate(self, layout)
 
     def render(self):
         """

@@ -20,6 +20,8 @@ from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
 import ajenti.console
 import ajenti.plugins
 import ajenti.feedback
+from ajenti.plugins import manager
+from ajenti.ui import Inflater
 
 import gevent
 from gevent import monkey
@@ -144,6 +146,7 @@ def run():
         pass
 
     ajenti.feedback.start()
+    Inflater.get(manager.context).precache()
     ajenti.server.serve_forever()
 
     if hasattr(ajenti.server, 'restart_marker'):

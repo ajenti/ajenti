@@ -1,9 +1,11 @@
 from lxml import etree
 import os
+import logging
 
 import ajenti
+from ajenti.api import plugin, BasePlugin
 from ajenti.plugins import manager
-from ajenti.ui.element import UIProperty
+from ajenti.ui.element import UIProperty, UIElement
 from ajenti.util import *
 #from ajenti.profiler import *
 
@@ -14,15 +16,50 @@ class TemplateNotFoundError (Exception):
 
 
 @public
-class Inflater:
-    def __init__(self, ui):
-        self.ui = ui
+@plugin
+class Inflater (BasePlugin):
+    def init(self):
         self.parser = etree.XMLParser()
         self.cache = {}
+        self._element_cache = {}
 
-    def inflate(self, layout):
+    def precache(self):
+        from ajenti.ui import UI
+        temp_ui = UI.new()
+        for plugin in manager.get_order():
+            layout_dir = os.path.join(manager.resolve_path(plugin), 'layout')
+            if os.path.exists(layout_dir):
+                for layout in os.listdir(layout_dir):
+                    layout = '%s:%s' % (plugin, layout.split('.')[0])
+                    logging.debug('Precaching layout %s' % layout)
+                    self.inflate(temp_ui, layout)
+
+    def create_element(self, ui, typeid, *args, **kwargs):
+        """
+        Creates an element by its type ID.
+        """
+        cls = self.get_class(typeid)
+        inst = cls.new(ui, context=(ui or self).context, *args, **kwargs)
+        inst.typeid = typeid
+        return inst
+
+    def get_class(self, typeid):
+        """
+        :returns: element class by element type ID
+        """
+        if typeid in self._element_cache:
+            return self._element_cache[typeid]
+        for cls in UIElement.get_classes():
+            if cls.typeid == typeid:
+                self._element_cache[typeid] = cls
+                return cls
+        else:
+            self._element_cache[typeid] = UIElement
+            return UIElement
+
+    def inflate(self, ui, layout):
         if not layout in self.cache or ajenti.debug:
-            #profile('Inflating %s' % layout)
+            print ui, layout
             plugin, path = layout.split(':')
             try:
                 file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
@@ -31,20 +68,17 @@ class Inflater:
             data = file.read()
             data = """<xml xmlns:bind="bind" xmlns:binder="binder">%s</xml>""" % data
             xml = etree.fromstring(data, parser=self.parser)[0]
-            self.cache[layout] = self.inflate_rec(xml)
-        #else:
-            #profile('Inflating %s (cached)' % layout)
-        layout = self.cache[layout].clone()
-        #profile_end()
+            self.cache[layout] = self.inflate_rec(ui, xml)
+        layout = self.cache[layout].clone(set_ui=ui, set_context=(ui or self).context)
         return layout
 
-    def inflate_rec(self, node):
+    def inflate_rec(self, ui, node):
         tag = node.tag.replace('{', '').replace('}', ':')
 
         if tag == 'include':
-            return self.inflate(node.attrib['layout'])
+            return self.inflate(ui, node.attrib['layout'])
 
-        cls = self.ui.get_class(tag)
+        cls = self.get_class(tag)
         props = {}
         extra_props = {}
 
@@ -66,10 +100,9 @@ class Inflater:
                     break
             else:
                 extra_props[key] = value
-                #raise Exception('Invalid property: %s' % key)
 
-        children = list(self.inflate_rec(child) for child in node)
-        element = self.ui.create(tag, children=children, **props)
+        children = list(self.inflate_rec(ui, child) for child in node)
+        element = self.create_element(ui, tag, children=children, **props)
         for k, v in extra_props.iteritems():
             element.property_definitions[k] = UIProperty(name=k, public=False)
             element.properties[k] = v
