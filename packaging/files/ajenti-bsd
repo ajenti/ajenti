@@ -7,8 +7,8 @@
 . /etc/rc.subr
 
 name="ajenti"
-command="ajenti-panel"
-start_cmd="ajenti-panel -d"
+command="/usr/local/bin/ajenti-panel"
+start_cmd="/usr/local/bin/ajenti-panel -d"
 procname="/usr/local/bin/ajenti-panel"
 command_interpreter=`/usr/bin/env python`
 
