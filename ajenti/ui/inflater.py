@@ -59,7 +59,6 @@ class Inflater (BasePlugin):
 
     def inflate(self, ui, layout):
         if not layout in self.cache or ajenti.debug:
-            print ui, layout
             plugin, path = layout.split(':')
             try:
                 file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
