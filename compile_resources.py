@@ -6,24 +6,37 @@ import os
 import re
 import sys
 
+import logging
 import ajenti.compat
+import ajenti.log
 
+
+def check_output(*args, **kwargs):
+    try:
+        return subprocess.check_output(*args, **kwargs)
+    except Exception, e:
+        logging.error('Call failed')
+        logging.error(' '.join(args[0]))
+        logging.error(str(e))
+
+
+ajenti.log.init()
 
 def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath
-    print ' - Coffee:   %s' % inpath
+    logging.info('Compiling CoffeeScript: %s' % inpath)
 
-    subprocess.check_output('coffee -o compiler-output -c "%s"' % inpath, shell=True)
+    check_output('coffee -o compiler-output -c "%s"' % inpath, shell=True)
     shutil.move(glob.glob('./compiler-output/*.js')[0], outpath)
     shutil.rmtree('compiler-output')
 
 
 def compile_less(inpath):
     outpath = '%s.css' % inpath
-    print ' - LESS  :   %s' % inpath
-    out = subprocess.check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
+    logging.info('Compiling LESS %s' % inpath)
+    out = check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
     if out:
-        print out
+        logging.error(out)
     #print subprocess.check_output('recess --compile "%s" > "%s"' % (inpath, outpath), shell=True)
 
 compilers = {
@@ -36,9 +49,9 @@ def compress_js(inpath):
     outpath = os.path.splitext(inpath)[0] + '.c.js'
     if not do_compress:
         return shutil.copy(inpath, outpath)
-    print ' - YUI JS:   %s' % inpath
+    logging.info('Compressing JS: %s' % inpath)
     cmd = 'yui-compressor "%s"' % inpath
-    out = subprocess.check_output(cmd, shell=True)
+    out = check_output(cmd, shell=True)
     open(outpath, 'w').write(out)
 
 
@@ -47,8 +60,8 @@ def compress_css(inpath):
     return shutil.copy(inpath, outpath)
     #if not do_compress:
     #   return shutil.copy(inpath, outpath)
-    print ' - YUI CSS:\t%s -> %s' % (inpath, outpath)
-    subprocess.check_output('yui-compressor -o "%s" "%s"' % (outpath, inpath), shell=True)
+    logging.info('Compressing CSS: %s' % inpath)
+    check_output('yui-compressor -o "%s" "%s"' % (outpath, inpath), shell=True)
 
 compressors = {
     r'.+[^\.][^mci]\.js$': compress_js,
