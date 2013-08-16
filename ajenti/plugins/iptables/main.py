@@ -170,6 +170,7 @@ COMMIT
 
         self.config.save()
         self.refresh()
+        self.context.notify('info', _('Saved'))
 
     @on('edit', 'click')
     def raw_edit(self):
