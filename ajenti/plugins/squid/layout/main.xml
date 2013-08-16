@@ -1,5 +1,5 @@
 <vc>
-    <servicebar />
+    <servicebar id="servicebar" />
 
     <body>
         <pad>
