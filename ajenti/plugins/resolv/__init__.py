@@ -12,4 +12,4 @@ info = PluginInfo(
 
 
 def init():
-    import resolv
+    import main
