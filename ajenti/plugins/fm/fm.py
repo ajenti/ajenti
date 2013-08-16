@@ -35,7 +35,6 @@ class FileManager (SectionPlugin):
 
         self.append(self.ui.inflate('fm:main'))
         self.controller = Controller()
-        self.controller.new_tab(self.classconfig['root'])
 
         def post_item_bind(object, collection, item, ui):
             ui.find('name').on('click', self.on_item_click, object, item)
@@ -46,15 +45,18 @@ class FileManager (SectionPlugin):
             ui.find('name').on('click', self.on_bc_click, object, item)
         self.find('breadcrumbs').post_item_bind = post_bc_bind
 
-        self.binder = Binder(self.controller, self.find('filemanager')).autodiscover().populate()
         self.clipboard = []
-        self.binder_c = Binder(self, self.find('bind-clipboard')).autodiscover().populate()
         self.tabs = self.find('tabs')
-
         self.find('dialog').buttons = [
             {'id': 'save', 'text': _('Save')},
             {'id': 'cancel', 'text': _('Cancel')},
         ]
+
+    def on_first_page_load(self):
+        self.controller.new_tab(self.classconfig['root'])
+        self.binder = Binder(self.controller, self.find('filemanager')).autodiscover().populate()
+        self.binder_c = Binder(self, self.find('bind-clipboard')).autodiscover().populate()
+
 
     def refresh_clipboard(self):
         self.binder_c.reset().autodiscover().populate()

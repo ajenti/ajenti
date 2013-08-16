@@ -86,8 +86,6 @@ class Configurator (SectionPlugin):
                 item.password = ui.find('password').value
         self.find('users').post_item_update = post_user_update
 
-        self.refresh()
-
     def on_page_load(self):
         self.refresh()
 

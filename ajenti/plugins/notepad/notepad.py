@@ -28,6 +28,8 @@ class Notepad (SectionPlugin):
         self.controller = Controller()
 
         self.selected = None
+
+    def on_first_page_load(self):
         id = None
         if self.classconfig['bookmarks']:
             for path in self.classconfig['bookmarks']:
