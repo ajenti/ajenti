@@ -18,6 +18,7 @@ class SectionPlugin (BasePlugin, UIElement):
     _intents = {}
 
     def init(self):
+        self._first_page_load = True
         for k, v in self.__class__.__dict__.iteritems():
             if hasattr(v, '_intent'):
                 self._intents[v._intent] = getattr(self, k)
@@ -28,11 +29,15 @@ class SectionPlugin (BasePlugin, UIElement):
         """
         self.context.endpoint.switch_tab(self)
 
+    def on_first_page_load(self):
+        """
+        Called before first ``on_page_load``
+        """
+
     def on_page_load(self):
         """
         Called when this section becomes active, or the page is reloaded
         """
-        pass
 
 
 def intent(id):

@@ -273,6 +273,9 @@ class SectionsRoot (UIElement):
         for child in self.children:
             child.active = child.uid == uid
             if child.active:
+                if child._first_page_load:
+                    child.broadcast('on_first_page_load')
+                    child._first_page_load = False
                 child.broadcast('on_page_load')
             child.visible = child.active
         self.invalidate()
