@@ -354,6 +354,12 @@ class UIElement (object):
         child.parent = self
         self.children_changed = True
 
+    def delete(self):
+        """
+        Detaches this element from its parent
+        """
+        self.parent.remove(self)
+
     def remove(self, child):
         """
         Detaches the ``child``
