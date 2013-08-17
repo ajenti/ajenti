@@ -191,6 +191,7 @@ class PluginManager:
 
     extra_location = '/var/lib/ajenti/plugins'
     context = PluginContext()
+    blacklist = []
 
     __classes = {}
     __plugins = {}
@@ -207,7 +208,7 @@ class PluginManager:
                 impl._implements.append(cls)
 
     def get_implementations(self, iface):
-        return self.__classes.setdefault(iface, [])
+        return filter(lambda x: x not in self.blacklist, self.__classes.setdefault(iface, []))
 
     # Plugin loader
     def get_all(self):
