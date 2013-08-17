@@ -1,11 +1,10 @@
-import os
 import subprocess
 
 import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
-from ajenti.ui.binder import Binder, CollectionAutoBinding, DictAutoBinding
+from ajenti.ui.binder import Binder, DictAutoBinding
 from ajenti.users import UserManager, PermissionProvider, restrict
 from reconfigure.items.ajenti import UserData
 
