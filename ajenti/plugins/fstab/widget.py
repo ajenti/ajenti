@@ -31,3 +31,18 @@ class DiskSpaceWidget (ConfigurableWidget):
 
     def on_config_save(self):
         self.config['device'] = self.dialog.find('device').value
+
+
+@plugin
+class DiskFreeSpaceWidget (DiskSpaceWidget):
+    name = _('Free disk space')
+    icon = 'hdd'
+
+    def on_prepare(self):
+        self.sensor = Sensor.find('disk-usage')
+        self.append(self.ui.inflate('fstab:free-widget'))
+
+    def on_start(self):
+        self.find('device').text = self.config['device']
+        u, t = self.sensor.value(self.config['device'])
+        self.find('value').text = _('%s free') % str_fsize(t - u)
