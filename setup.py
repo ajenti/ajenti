@@ -25,7 +25,7 @@ setup(
         'passlib',
         'psutil>=0.6.0',
         'python-catcher',
-        'requests',
+        'requests>=0.12.0',
         'reconfigure',
         'PIL',
     ],
