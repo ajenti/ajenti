@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import getopt
 import sys
+import stat
 import os
 import logging
 import daemon
@@ -63,6 +64,7 @@ if __name__ == '__main__':
             # Try local config file
             config_file = os.path.join(sys.path[0], 'config.json')
 
+    os.chmod(config_file, stat.S_IRWXU)
     ajenti.config = AjentiConfig(path=config_file)
     ajenti.config.load()
     ajenti.init()
