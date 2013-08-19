@@ -103,24 +103,30 @@ def run():
         bind_spec = addrs[0][-1]
 
     ssl_tunnel = None
-    if ajenti.config.tree.ssl.enable:
-        ssl_tunnel = SSLTunnel()
-        ssl_tunnel.start(bind_spec[0], bind_spec[1], ajenti.config.tree.ssl.certificate_path)
-        if ssl_tunnel.check():
-            logging.info('SSL tunnel running fine')
-            bind_spec = ('127.0.0.1', ssl_tunnel.port)
-            atexit.register(ssl_tunnel.stop)
-        else:
-            logging.error('SSL tunnel failed to start')
+    if not bind_spec[0].startswith('/'):
+        if ajenti.config.tree.ssl.enable:
+            ssl_tunnel = SSLTunnel()
+            ssl_tunnel.start(bind_spec[0], bind_spec[1], ajenti.config.tree.ssl.certificate_path)
+            if ssl_tunnel.check():
+                logging.info('SSL tunnel running fine')
+                bind_spec = ('127.0.0.1', ssl_tunnel.port)
+                atexit.register(ssl_tunnel.stop)
+            else:
+                logging.error('SSL tunnel failed to start')
 
     # Fix stupid socketio bug (it tries to do *args[0][0])
     socket.socket.__getitem__ = lambda x, y: None
 
     logging.info('Starting server on %s' % (bind_spec, ))
-    listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
-    listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    listener.bind(bind_spec)
-    listener.listen(10)
+    if bind_spec[0].startswith('/'):
+        listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        listener.bind(bind_spec[0])
+        listener.listen(10)
+    else:
+        listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
+        listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        listener.bind(bind_spec)
+        listener.listen(10)
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
     ajenti.server = SocketIOServer(

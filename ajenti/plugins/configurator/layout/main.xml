@@ -12,7 +12,10 @@
                         <formgroup text="{HTTP Server}" binder:context="http_binding">
                             <vc>
                                 <formline text="{Host}">
-                                    <textbox bind="host" />
+                                    <vc>
+                                        <textbox bind="host" />
+                                        <label style="small" text="{or UNIX socket path}" />
+                                    </vc>
                                 </formline>
                                 <formline text="{Port}">
                                     <textbox bind="port" type="integer" />
