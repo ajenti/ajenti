@@ -69,6 +69,7 @@ class Filesystems (SectionPlugin):
 
     @on('mount-all', 'click')
     def on_mount_all(self):
+        self.save()
         if subprocess.call(['mount', '-a']):
             self.context.notify('error', _('mount -a failed'))
         self.refresh()
@@ -90,3 +91,4 @@ class Filesystems (SectionPlugin):
     def save(self):
         self.binder.update()
         self.fstab_config.save()
+        self.context.notify('info', _('Saved'))
