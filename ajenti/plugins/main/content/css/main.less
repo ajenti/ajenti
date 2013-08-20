@@ -408,6 +408,32 @@ body {
     }
 }
 
+#userecho-link {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    position: fixed;
+    left: -70px;
+    font-size: 16px;
+    color: #777;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #777;
+    background: #ddd;
+    display: inline-block;
+    padding: 10px 20px;
+    top: 50%;
+    cursor: pointer;
+    opacity: .5;
+
+    &:hover {
+        opacity: 1;
+        left: -60px;
+        background: #fff;
+    }
+}
 
 
 @-webkit-keyframes spinner {

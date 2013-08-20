@@ -3,7 +3,7 @@ class window.Controls.main__page extends window.Control
         @dom = $("""
             <div class="control container main-page"> 
                 <div class="content-wr">
-                    <div class="feedback">
+                    <!--div class="feedback">
                         <a class="activate">Leave Feedback</a>
                         <div class="box">
                             <label>Email (optional)</label>
@@ -16,7 +16,7 @@ class window.Controls.main__page extends window.Control
                             <br/>
                             <a href="#" class="control button style-normal">Submit</a>
                         </div>
-                    </div>
+                    </div-->
 
                     <div class="content">
                         <div class="--child-container"></div>
