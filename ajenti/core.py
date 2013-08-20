@@ -119,6 +119,8 @@ def run():
 
     logging.info('Starting server on %s' % (bind_spec, ))
     if bind_spec[0].startswith('/'):
+        if os.path.exists(bind_spec[0]):
+            os.unlink(bind_spec[0])
         listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         listener.bind(bind_spec[0])
         listener.listen(10)
