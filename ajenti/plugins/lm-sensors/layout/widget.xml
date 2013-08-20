@@ -2,7 +2,7 @@
     <box width="20">
         <icon id="icon" icon="fire" />
     </box>
-    <box width="90">
+    <box width="120">
         <label id="name" style="bold" text="---" />
     </box>
     <label id="value" />
