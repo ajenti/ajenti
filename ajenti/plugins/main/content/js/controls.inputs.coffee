@@ -45,6 +45,7 @@ class window.Controls.editable extends window.Control
         @label = @dom.find('.label')
         @input = @dom.find('input')
         @input.hide()
+        @editmode = false
         @label.click @goEditMode
         @input.blur @goViewMode
         @input.keyup (e) =>
@@ -53,11 +54,13 @@ class window.Controls.editable extends window.Control
             @cancel(e)
 
     goViewMode: () =>
+        @editmode = false
         @label.find('>span').html(@properties.placeholder ? @input.val())
         @input.hide()
         @label.show()
 
     goEditMode: (e) =>
+        @editmode = true
         @label.hide()
         @input.show()
         @input.focus()
@@ -66,6 +69,8 @@ class window.Controls.editable extends window.Control
 
     detectUpdates: () ->
         r = {}
+        if @editmode
+            goViewMode()
         value = @input.val()
         if @properties.type == 'integer'
             value = parseInt(value)
