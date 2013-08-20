@@ -28,6 +28,8 @@ class SMARTSensor (Sensor):
         3  = Errors in log
         4  = DISK OK
         """
+        if not path:
+            return -1
         r = subprocess.call(['smartctl', '-a', '/dev/' + path])
         if r & 2:
             return -1
