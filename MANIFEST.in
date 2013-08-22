@@ -5,6 +5,7 @@ include README
 include COPYRIGHT
 include LICENSE
 include Makefile
+include requirements.txt
 include packaging/files/config.json
 include packaging/files/ajenti
 include packaging/files/.placeholder
