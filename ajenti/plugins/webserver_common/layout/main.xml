@@ -17,7 +17,7 @@
                                 </right>
                                 <hc>
                                     <icon icon="globe" />
-                                        <checkbox bind="active" />
+                                    <checkbox bind="active" id="header-active-checkbox" />
                                     <box width="200">
                                         <label bind="name" style="bold" />
                                     </box>
@@ -28,7 +28,7 @@
                                     <formline text="{Name}">
                                         <textbox bind="name" />
                                     </formline>
-                                    <formline text="{Enable}">
+                                    <formline text="{Enable}" id="body-active-line">
                                         <checkbox bind="active" />
                                     </formline>
                                     <formline text="{Configuration}">

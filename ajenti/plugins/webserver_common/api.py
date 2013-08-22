@@ -64,18 +64,20 @@ class AvailabilitySymlinks (object):
 
 
 class WebserverHost (object):
-    def __init__(self, dir, entry):
+    def __init__(self, owner, dir, entry):
+        self.owner = owner
         self.name = entry
         self.dir = dir
-        self.active = dir.is_enabled(entry)
+        self.active = (not self.owner.supports_host_activation) or dir.is_enabled(entry)
         self.config = dir.open(entry).read()
 
     def save(self):
         self.dir.open(self.name, 'w').write(self.config)
-        if self.active:
-            self.dir.enable(self.name)
-        else:
-            self.dir.disable(self.name)
+        if self.owner.supports_host_activation:
+            if self.active:
+                self.dir.enable(self.name)
+            else:
+                self.dir.disable(self.name)
 
 
 class WebserverPlugin (SectionPlugin):
@@ -84,6 +86,7 @@ class WebserverPlugin (SectionPlugin):
     hosts_available_dir = ''
     hosts_enabled_dir = ''
     template = ''
+    supports_host_activation = True
 
     def init(self):
         self.append(self.ui.inflate('webserver_common:main'))
@@ -106,12 +109,15 @@ class WebserverPlugin (SectionPlugin):
         def new_host(c):
             name = 'untitled'
             self.hosts_dir.open(name, 'w').write(self.template)
-            return WebserverHost(self.hosts_dir, name)
+            return WebserverHost(self, self.hosts_dir, name)
 
         self.find('hosts').delete_item = delete_host
         self.find('hosts').new_item = new_host
         self.find('hosts').post_item_bind = on_host_bind
         self.find('hosts').post_item_update = on_host_update
+        self.find('header-active-checkbox').visible = \
+            self.find('body-active-line').visible = \
+                self.supports_host_activation
 
     def on_page_load(self):
         self.refresh()
@@ -123,6 +129,6 @@ class WebserverPlugin (SectionPlugin):
         self.context.notify('info', 'Saved')
 
     def refresh(self):
-        self.hosts = [WebserverHost(self.hosts_dir, x) for x in self.hosts_dir.list_available()]
+        self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
         self.binder.reset(self).autodiscover().populate()
         self.find_type('servicebar').reload()

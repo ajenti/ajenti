@@ -1,10 +1,10 @@
 from ajenti.api import *
 from ajenti.plugins.webserver_common.api import WebserverPlugin
+from ajenti.util import platform_select
 
 
 @plugin
 class Nginx (WebserverPlugin):
-    platforms = ['debian']
     service_name = 'nginx'
     service_buttons = [
         {
@@ -13,8 +13,16 @@ class Nginx (WebserverPlugin):
             'icon': 'step-forward',
         }
     ]
-    hosts_available_dir = '/etc/nginx/sites-available'
+    hosts_available_dir = platform_select(
+        debian='/etc/nginx/sites-available',
+        centos='/etc/nginx/conf.d',
+        freebsd='/usr/local/etc/nginx/conf.d',
+    )
     hosts_enabled_dir = '/etc/nginx/sites-enabled'
+    supports_host_activation = platform_select(
+        debian=True,
+        default=False,
+    )
 
     template = """server {
     server_name name;
