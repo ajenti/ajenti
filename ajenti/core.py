@@ -18,7 +18,6 @@ import ajenti
 from ajenti.http import HttpRoot
 from ajenti.routing import CentralDispatcher
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
-import ajenti.console
 import ajenti.plugins
 import ajenti.feedback
 from ajenti.plugins import manager
