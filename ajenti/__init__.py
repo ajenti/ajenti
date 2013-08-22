@@ -32,6 +32,8 @@ server = None
 debug = False
 """ Debug mode """
 
+edition = 'vanilla'
+
 
 __all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init', 'exit', 'restart']
 

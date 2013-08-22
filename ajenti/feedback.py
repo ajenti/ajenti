@@ -52,6 +52,7 @@ def worker():
                 data = {
                     'version': ajenti.version,
                     'os': ajenti.platform,
+                    'edition': ajenti.edition,
                 }
                 resp = send('register', data)
                 if resp['status'] != 'ok':
