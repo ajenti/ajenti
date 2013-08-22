@@ -5,10 +5,18 @@
                 <dt bind="__items">
                     <dtr>
                         <dth text="" />
-                        <dth text="{PID (Parent)}" />
-                        <dth text="{Name}" />
-                        <dth text="{CPU}" />
-                        <dth text="{RAM}" />
+                        <dth>
+                            <button id="sort-by-pid" style="link" text="{PID (Parent)}" />
+                        </dth>
+                        <dth>
+                            <button id="sort-by-_name" style="link" text="{Name}" />
+                        </dth>
+                        <dth>
+                            <button id="sort-by-_cpu" style="link" text="{CPU}" />
+                        </dth>
+                        <dth>
+                            <button id="sort-by-_ram" style="link" text="{RAM}" />
+                        </dth>
                         <dth text="{User}" />
                         <dth text="" />
                     </dtr>

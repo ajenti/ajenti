@@ -23,8 +23,21 @@ class TaskManager (SectionPlugin):
         self.find('processes').post_item_bind = post_item_bind
 
         self.binder = Binder(None, self)
+        self.sorting = '_cpu'
+        self.sorting_reverse = True
+
+        for x in ['_cpu', 'pid', '_ram', '_name']:
+            self.find('sort-by-' + x).on('click', self.sort, x)
 
     def on_page_load(self):
+        self.refresh()
+
+    def sort(self, by):
+        if self.sorting == by:
+            self.sorting_reverse = not self.sorting_reverse
+        else:
+            self.sorting_reverse = by in ['_cpu', '_ram']
+        self.sorting = by
         self.refresh()
 
     def refresh(self):
@@ -40,6 +53,7 @@ class TaskManager (SectionPlugin):
             except:
                 p._username = '?'
 
+        self.processes = sorted(self.processes, key=lambda x: getattr(x, self.sorting), reverse=self.sorting_reverse)
         self.binder.reset(self).autodiscover().populate()
 
     def on_term(self, p):
