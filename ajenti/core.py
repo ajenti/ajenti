@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import atexit
+import exconsole
 import gettext
 import locale
 import logging
@@ -92,7 +93,7 @@ def run():
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
 
     if ajenti.debug:
-        ajenti.console.register()
+        exconsole.register()
 
     # Load plugins
     ajenti.plugins.manager.load_all()

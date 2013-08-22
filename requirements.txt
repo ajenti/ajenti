@@ -1,5 +1,6 @@
 lxml
 python-daemon
+python-exconsole
 passlib
 gevent
 gevent-socketio
