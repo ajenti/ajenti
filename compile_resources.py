@@ -5,6 +5,9 @@ import glob
 import os
 import re
 import sys
+import gevent
+import gevent.subprocess
+import uuid
 
 import logging
 import ajenti.compat
@@ -13,7 +16,7 @@ import ajenti.log
 
 def check_output(*args, **kwargs):
     try:
-        return subprocess.check_output(*args, **kwargs)
+        return gevent.subprocess.check_output(*args, **kwargs)
     except Exception, e:
         logging.error('Call failed')
         logging.error(' '.join(args[0]))
@@ -22,18 +25,24 @@ def check_output(*args, **kwargs):
 
 ajenti.log.init()
 
+
+def dirname():
+    return str(uuid.uuid4())
+
 def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath
     logging.info('Compiling CoffeeScript: %s' % inpath)
 
-    check_output('coffee -o compiler-output -c "%s"' % inpath, shell=True)
-    shutil.move(glob.glob('./compiler-output/*.js')[0], outpath)
-    shutil.rmtree('compiler-output')
+    d = dirname()
+    check_output('coffee -o %s -c "%s"' % (d, inpath), shell=True)
+    shutil.move(glob.glob('./%s/*.js' % d)[0], outpath)
+    shutil.rmtree(d)
 
 
 def compile_less(inpath):
     outpath = '%s.css' % inpath
     logging.info('Compiling LESS %s' % inpath)
+    
     out = check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
     if out:
         logging.error(out)
@@ -69,6 +78,8 @@ compressors = {
 }
 
 
+greenlets = []
+
 def traverse(fx):
     plugins_path = './ajenti/plugins'
     for plugin in os.listdir(plugins_path):
@@ -77,7 +88,7 @@ def traverse(fx):
             for (dp, dn, fn) in os.walk(path):
                 for name in fn:
                     file_path = os.path.join(dp, name)
-                    fx(file_path)
+                    greenlets.append(gevent.spawn(fx, file_path))
 
 
 def compile(file_path):
@@ -99,3 +110,24 @@ if len(sys.argv) > 1 and sys.argv[1] == 'nocompress':
 
 traverse(compile)
 traverse(compress)
+
+done = 0
+done_gls = []
+length = 40
+total = len(greenlets)
+print 
+
+while True:
+    for gl in greenlets:
+        if gl.ready() and not gl in done_gls:
+            done_gls.append(gl)
+            done += 1
+            dots = int(1.0 * length * done / total)
+            sys.stdout.write('\r%3i/%3i [' % (done, total) + '.' * dots + ' ' * (length - dots) + ']')
+            sys.stdout.flush()
+    gevent.sleep(0.1)
+    if done == total:
+        print
+        sys.exit(0)
+
+

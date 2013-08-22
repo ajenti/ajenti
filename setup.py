@@ -6,6 +6,7 @@ from setuptools import find_packages
 import ajenti.build
 
 __version = ajenti.build.version
+__requires = filter(None, open('requirements.txt').read().splitlines())
 
 exclusion = [
     'ajenti.plugins.elements',
@@ -16,19 +17,7 @@ exclusion = [
 setup(
     name='ajenti',
     version=__version,
-    install_requires=[
-        'pyOpenSSL',
-        'gevent',
-        'gevent-socketio',
-        'lxml>=2.2.4',
-        'python-daemon',
-        'passlib',
-        'psutil>=0.6.0',
-        'python-catcher',
-        'requests>=0.12.0',
-        'reconfigure',
-        'PIL',
-    ],
+    install_requires=__requires,
     description='The server administration panel',
     author='Eugeny Pankov',
     author_email='e@ajenti.org',
