@@ -81,6 +81,9 @@ class SSLTunnel (object):
 
 
 def run():
+    reload(sys)
+    sys.setdefaultencoding('utf8')
+    
     try:
         locale.setlocale(locale.LC_ALL, '')
     except:
