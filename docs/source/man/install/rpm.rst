@@ -3,6 +3,18 @@
 RPM Packages
 ************
 
+Please support us!
+==================
+    
+    Please support Ajenti by purchasing a pre-set Ajenti VPS from A2 Hosting.
+    
+    .. image:: /_static/a2hosting.png
+    
+    `Get an Ajenti VPS <https://affiliates.a2hosting.com/idevaffiliate.php?id=3660&url=304>`_
+
+Installing
+==========
+
 Ajenti requires EPEL repositories: http://fedoraproject.org/wiki/EPEL
 
 Add repository key::

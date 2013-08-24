@@ -3,6 +3,18 @@
 Ubuntu Packages
 ***************
 
+Please support us!
+==================
+    
+    Please support Ajenti by purchasing a pre-set Ajenti VPS from A2 Hosting.
+    
+    .. image:: /_static/a2hosting.png
+    
+    `Get an Ajenti VPS <https://affiliates.a2hosting.com/idevaffiliate.php?id=3660&url=304>`_
+
+Installing
+==========
+
 Ajenti requires ubuntu 12.04 Precise Pangolin. Previous releases might work with Python upgraded.
 
 Add repository key::
