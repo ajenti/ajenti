@@ -77,9 +77,17 @@ class window.Controls.dashboard__welcome extends window.Control
     createDom: () ->
         @dom = $("""
             <div class="control container welcome">
-                Welcome to the beta version of Ajenti.<br/>
+                Welcome to Ajenti.<br/>
                 Use the <b>Feedback</b> link to send us your suggestions!<br/>
-                <a href="mailto:e@ajenti.org">Mail me</a> if you have questions or issues.<br/>
+
+                <br/>
+                Follow @ajenti for news and announcements.</br>
+                
+                <iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=ajenti&show_count=true&dnt=true" style="width:300px; height:20px;"></iframe>
+                <br/>
+                <br/>
+
+                <a href="mailto:e@ajenti.org">Send e-mail</a> if you have private/security questions or issues.<br/>
                 <br/>
                 <b>Don't forget to change default password in the Configurator!</b>
             </div>
