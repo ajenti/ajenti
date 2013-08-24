@@ -13,7 +13,7 @@ Add repository key::
 
 Add repository to /etc/apt/sources.list::
     
-    echo "deb http://repo.ajenti.org/ng/debian main main debian" >> /etc/apt/sources.list
+    echo "deb http://repo.ajenti.org/debian main main debian" >> /etc/apt/sources.list
 
 Install the package::
     
