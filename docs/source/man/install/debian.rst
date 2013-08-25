@@ -15,7 +15,7 @@ Please support us!
 Installing
 ==========
 
-Ajenti requires Debian 6. Debian 5 might work with Python 2.6 installed.
+Ajenti requires Debian 6 or later. Debian 5 might work with Python 2.6 installed.
 
 Debian Squeeze requires squeeze-backports repository: http://backports.debian.org/Instructions/
 
