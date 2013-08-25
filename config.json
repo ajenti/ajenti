@@ -9,7 +9,7 @@
                 "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": \"123\"}", 
                 "ajenti.plugins.mysql.main.MySQLPlugin": "{\"password\": \"1234\", \"user\": \"root\"}", 
                 "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [\"/etc/logrotate.conf\"]}", 
-                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\nccopy_reg\\n_reconstructor\\np2\\n(cajenti.plugins.elements.projects.main\\nElementsProject\\np3\\nc__builtin__\\nobject\\np4\\nNtRp5\\n(dp6\\nS'quota_size_soft'\\np7\\nI0\\nsS'description'\\np8\\nS''\\nsS'name'\\np9\\nVtest\\np10\\nsS'quota_size_hard'\\np11\\nI0\\nsS'lock'\\np12\\nNsS'long_description'\\np13\\nS''\\nsS'emulate_avid'\\np14\\nI00\\nsS'directory'\\np15\\nS'test'\\np16\\nsS'path'\\np17\\nV/home/eugeny/Documents\\np18\\nsS'share_nfs'\\np19\\nI00\\nsS'share_smb'\\np20\\nI00\\nsS'share_afp'\\np21\\nI00\\nsS'permissions'\\np22\\n(lp23\\ng2\\n(cajenti.plugins.elements.projects.main\\nElementsProjectPermission\\np24\\ng4\\nNtRp25\\n(dp26\\nS'project'\\np27\\nNsS'user'\\np28\\nS'root'\\np29\\nsbasba.\"}"
+                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\nccopy_reg\\n_reconstructor\\np2\\n(cajenti.plugins.elements.projects.main\\nElementsProject\\np3\\nc__builtin__\\nobject\\np4\\nNtRp5\\n(dp6\\nS'quota_size_soft'\\np7\\nI0\\nsS'description'\\np8\\nS''\\nsS'name'\\np9\\nVtest\\np10\\nsS'quota_size_hard'\\np11\\nI0\\nsS'lock'\\np12\\nNsS'long_description'\\np13\\nS''\\nsS'emulate_avid'\\np14\\nI00\\nsS'affinity'\\np15\\nNsS'directory'\\np16\\nS'test'\\np17\\nsS'path'\\np18\\nV/home/eugeny/Documents\\np19\\nsS'share_afp'\\np20\\nI00\\nsS'share_smb'\\np21\\nI00\\nsS'share_nfs'\\np22\\nI00\\nsS'permissions'\\np23\\n(lp24\\ng2\\n(cajenti.plugins.elements.projects.main\\nElementsProjectPermission\\np25\\ng4\\nNtRp26\\n(dp27\\nS'project'\\np28\\nNsS'user'\\np29\\nS'root'\\np30\\nsbasba.\"}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
             "permissions": [
@@ -30,5 +30,5 @@
     "configs": {
         "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": \"123\"}"
     }, 
-    "installation_id": 1
+    "installation_id": 4548
 }

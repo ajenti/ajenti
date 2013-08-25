@@ -14,8 +14,8 @@ import ajenti
 
 
 ENDPOINT = 'http://ajenti.local.org:8080/docking-bay/receive/%i'
-ENDPOINT = 'http://ajenti.org/docking-bay/receive/%i'
-
+#ENDPOINT = 'http://ajenti.org/docking-bay/receive/%i'
+#
 
 def _check():
     return os.path.exists('/var/lib/ajenti/.ajenti.org.enabled')
@@ -71,7 +71,7 @@ class AjentiOrgReporter (BasePlugin):
                     data[variant] = sensor.value(variant)
                 datapack['sensors'][sensor.id] = data
 
-            gevent.sleep(15)
+            gevent.sleep(10)
             url = ENDPOINT % ajenti.config.tree.installation_id
 
             if not self.get_key():
