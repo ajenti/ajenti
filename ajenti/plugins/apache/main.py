@@ -1,6 +1,7 @@
 import ajenti
 from ajenti.api import *
 from ajenti.plugins.webserver_common.api import WebserverPlugin
+from ajenti.util import platform_select
 
 
 @plugin
@@ -13,8 +14,16 @@ class Apache (WebserverPlugin):
             'icon': 'step-forward',
         }
     ]
-    hosts_available_dir = '/etc/apache2/sites-available'
+    hosts_available_dir = platform_select(
+        debian='/etc/apache2/sites-available',
+        centos='/etc/httpd/conf.d',
+        freebsd='/usr/local/etc/apache/sites-available',
+    )
     hosts_enabled_dir = '/etc/apache2/sites-enabled'
+    supports_host_activation = platform_select(
+        debian=True,
+        default=False,
+    )
 
     template = """<VirtualHost *:80>
     ServerAdmin webmaster@localhost

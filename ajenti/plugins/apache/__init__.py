@@ -1,5 +1,6 @@
 from ajenti.api import *
 from ajenti.plugins import *
+from ajenti.util import platform_select
 
 
 info = PluginInfo(
@@ -7,7 +8,10 @@ info = PluginInfo(
     icon='globe',
     dependencies=[
         PluginDependency('webserver_common'),
-        BinaryDependency('apache2'),
+        BinaryDependency(platform_select(
+            centos='httpd',
+            default='apache2',
+        )),
     ],
 )
 
