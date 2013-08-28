@@ -9,13 +9,13 @@
                             <button id="sort-by-pid" style="link" text="{PID (Parent)}" />
                         </dth>
                         <dth>
-                            <button id="sort-by-_name" style="link" text="{Name}" />
+                            <button id="sort-by-_sort_name" style="link" text="{Name}" />
                         </dth>
                         <dth>
                             <button id="sort-by-_cpu" style="link" text="{CPU}" />
                         </dth>
                         <dth>
-                            <button id="sort-by-_ram" style="link" text="{RAM}" />
+                            <button id="sort-by-_sort_ram" style="link" text="{RAM}" />
                         </dth>
                         <dth text="{User}" />
                         <dth text="" />

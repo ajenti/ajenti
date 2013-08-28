@@ -11,5 +11,6 @@ include packaging/files/ajenti
 include packaging/files/.placeholder
 prune ajenti/plugins/elements
 prune ajenti/plugins/ltfs
+prune ajenti/plugins/vh
 prune ajenti/plugins/test
 prune ajenti/plugins/test*

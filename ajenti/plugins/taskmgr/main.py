@@ -26,7 +26,7 @@ class TaskManager (SectionPlugin):
         self.sorting = '_cpu'
         self.sorting_reverse = True
 
-        for x in ['_cpu', 'pid', '_ram', '_name']:
+        for x in ['_cpu', 'pid', '_sort_ram', '_sort_name']:
             self.find('sort-by-' + x).on('click', self.sort, x)
 
     def on_page_load(self):
@@ -48,6 +48,8 @@ class TaskManager (SectionPlugin):
             p._cpu = p.get_cpu_percent(interval=0)
             p._ram = '%i K' % int(p.get_memory_info()[0] / 1024)
             p._ppid = p.ppid
+            p._sort_ram = p.get_memory_info()[0]
+            p._sort_name = p.name.lower()
             try:
                 p._username = p.username
             except:

@@ -11,6 +11,7 @@ __requires = filter(None, open('requirements.txt').read().splitlines())
 exclusion = [
     'ajenti.plugins.elements',
     'ajenti.plugins.ltfs',
+    'ajenti.plugins.vh',
     'ajenti.plugins.test*',
 ]
 

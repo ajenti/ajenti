@@ -30,6 +30,7 @@ crowdin.zip
 ajenti/plugins/ltfs*
 ajenti/plugins/elements*
 ajenti/plugins/test*
+ajenti/plugins/vh*
 
 reconfigure
 

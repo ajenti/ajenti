@@ -226,7 +226,8 @@ class SectionsRoot (UIElement):
     category_order = {
         '': 0,
         'System': 50,
-        'Tools': 60,
+        'Web': 60,
+        'Tools': 70,
         'Software': 80,
         'Other': 99
     }
