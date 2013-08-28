@@ -120,11 +120,14 @@ class FileManager (SectionPlugin):
             else:
                 for_copy.append(i)
 
-        if for_move:
-            self.backend.move(for_move, tab.path)
-        if for_copy:
-            self.backend.copy(for_copy, tab.path)
-        self.clipboard = []
+        try:
+            if for_move:
+                self.backend.move(for_move, tab.path)
+            if for_copy:
+                self.backend.copy(for_copy, tab.path)
+            self.clipboard = []
+        except Exception as e:
+            self.context.notify('error', str(e))
         self.refresh_clipboard()
         self.refresh()
 
