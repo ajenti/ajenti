@@ -38,7 +38,11 @@ class MySQLPlugin (DBPlugin):
             [
                 'mysql',
                 '-u' + self.classconfig['user'],
+            ] + 
+            ([
                 '-p' + self.classconfig['password'],
+            ] if self.classconfig['password'] else []) + 
+            [
                 '-h', self.classconfig.get('hostname', None) or 'localhost',
             ],
             stdin=subprocess.PIPE,
