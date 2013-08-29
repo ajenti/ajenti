@@ -6,8 +6,14 @@ import os
 import re
 import sys
 import gevent
-import gevent.subprocess
+
+try:
+    from gevent import subprocess
+except:
+    import subprocess
+
 import uuid
+import threading
 
 import logging
 import ajenti.compat
@@ -16,11 +22,12 @@ import ajenti.log
 
 def check_output(*args, **kwargs):
     try:
-        return gevent.subprocess.check_output(*args, **kwargs)
+        return subprocess.check_output(*args, **kwargs)
     except Exception, e:
         logging.error('Call failed')
         logging.error(' '.join(args[0]))
         logging.error(str(e))
+        sys.exit(0)
 
 
 ajenti.log.init()
@@ -31,6 +38,10 @@ def dirname():
 
 def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath
+
+    if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
+        return
+
     logging.info('Compiling CoffeeScript: %s' % inpath)
 
     d = dirname()
@@ -41,8 +52,11 @@ def compile_coffeescript(inpath):
 
 def compile_less(inpath):
     outpath = '%s.css' % inpath
-    logging.info('Compiling LESS %s' % inpath)
     
+    if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
+        return
+        
+    logging.info('Compiling LESS %s' % inpath)
     out = check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
     if out:
         logging.error(out)
