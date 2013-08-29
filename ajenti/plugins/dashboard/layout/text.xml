@@ -1,0 +1,11 @@
+<hc>
+    <label id="text" text="---" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="{Text}">
+                <textbox id="text" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>
