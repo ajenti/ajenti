@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=1.0.3
+VERSION=`python -c "from ajenti import __version__; print __version__"`
 PREFIX=/usr
 DATE=`date -R`
 
@@ -16,10 +16,7 @@ ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) 
 
 all: build
 
-prepare:
-	echo version = \"$(VERSION)\" > ajenti/build.py
-
-build: prepare
+build: 
 	./compile_resources.py || true
 	./make_messages.py compile
 	

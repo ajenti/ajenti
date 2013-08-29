@@ -3,9 +3,8 @@
 from distutils.core import setup
 from setuptools import find_packages
 
-import ajenti.build
+import ajenti
 
-__version = ajenti.build.version
 __requires = filter(None, open('requirements.txt').read().splitlines())
 
 exclusion = [
@@ -17,7 +16,7 @@ exclusion = [
 
 setup(
     name='ajenti',
-    version=__version,
+    version=ajenti.__version__,
     install_requires=__requires,
     description='The server administration panel',
     author='Eugeny Pankov',

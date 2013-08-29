@@ -1,10 +1,10 @@
-import build
 import subprocess
 import os
 import platform as pyplatform
 import random
 import signal
 
+__version__ = '1.0.3'
 
 # Global state
 
@@ -43,7 +43,7 @@ def detect_version():
             shell=True,
             stdout=subprocess.PIPE)
     if p.wait() != 0:
-        return build.version
+        return __version__
     return p.stdout.read().strip('\n ')
 
 
