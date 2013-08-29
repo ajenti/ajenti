@@ -15,3 +15,4 @@ def init():
     import dash
     import api
     import welcome
+    import text
