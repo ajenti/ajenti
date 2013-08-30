@@ -24,7 +24,7 @@ class Squid (SectionPlugin):
         self.find('servicebar').reload()
 
         self.binder = Binder(None, self.find('config'))
-        self.find('acl').new_item = lambda c: ACLData()
+        self.find('acl').new_item = lambda c: ACLData('new')
         self.find('http_access').new_item = lambda c: HTTPAccessData()
         self.find('http_port').new_item = lambda c: HTTPPortData()
         self.find('https_port').new_item = lambda c: HTTPSPortData()
