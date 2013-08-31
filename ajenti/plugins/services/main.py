@@ -62,13 +62,14 @@ class ServiceControlBar (UIElement):
     def reload(self):
         self.empty()
         self.append(self.ui.inflate('services:bar'))
-        self.service = ServiceMultiplexor.get().get_one(self.name)
-        for btn in self.buttons:
-            b = self.ui.create('button')
-            b.text, b.icon = btn['text'], btn['icon']
-            b.on('click', self.on_command, btn['command'])
-            self.find('buttons').append(b)
-        self.refresh()
+        if self.name:
+            self.service = ServiceMultiplexor.get().get_one(self.name)
+            for btn in self.buttons:
+                b = self.ui.create('button')
+                b.text, b.icon = btn['text'], btn['icon']
+                b.on('click', self.on_command, btn['command'])
+                self.find('buttons').append(b)
+            self.refresh()
 
     def on_page_load(self):
         self.reload()
