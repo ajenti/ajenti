@@ -558,11 +558,11 @@ msgstr "Средняя загрузка"
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr "Загрузка процессора"
+msgstr "Загрузка CPU"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr "Использование памяти"
+msgstr "Память"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
@@ -1573,7 +1573,7 @@ msgstr "Адрес CNID"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr "Свободное дисковое пространство"
+msgstr "Свободное пространство"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
