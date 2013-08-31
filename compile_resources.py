@@ -77,7 +77,8 @@ def compress_js(inpath):
     logging.info('Compressing JS: %s' % inpath)
     cmd = 'yui-compressor "%s"' % inpath
     out = check_output(cmd, shell=True)
-    open(outpath, 'w').write(out)
+    if out:
+        open(outpath, 'w').write(out)
 
 
 def compress_css(inpath):
