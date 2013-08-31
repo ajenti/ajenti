@@ -16,13 +16,16 @@ class AvailabilitySymlinks (object):
          --a.site -> ../sites.available/a.site
     """
 
-    def __init__(self, dir_a, dir_e):
+    def __init__(self, dir_a, dir_e, supports_activation):
         self.dir_a, self.dir_e = dir_a, dir_e
+        self.supports_activation = supports_activation
 
     def list_available(self):
         return os.listdir(self.dir_a)
 
     def is_enabled(self, entry):
+        if not self.supports_activation:
+            return True
         return self.find_link(entry) is not None
 
     def get_path(self, entry):
@@ -36,11 +39,15 @@ class AvailabilitySymlinks (object):
                 return e
 
     def enable(self, entry):
+        if not self.supports_activation:
+            return
         e = self.find_link(entry)
         if not e:
             os.symlink(self.get_path(entry), os.path.join(self.dir_e, entry))
 
     def disable(self, entry):
+        if not self.supports_activation:
+            return
         e = self.find_link(entry)
         if e:
             os.unlink(os.path.join(self.dir_e, e))
@@ -68,16 +75,15 @@ class WebserverHost (object):
         self.owner = owner
         self.name = entry
         self.dir = dir
-        self.active = (not self.owner.supports_host_activation) or dir.is_enabled(entry)
+        self.active = dir.is_enabled(entry)
         self.config = dir.open(entry).read()
 
     def save(self):
         self.dir.open(self.name, 'w').write(self.config)
-        if self.owner.supports_host_activation:
-            if self.active:
-                self.dir.enable(self.name)
-            else:
-                self.dir.disable(self.name)
+        if self.active:
+            self.dir.enable(self.name)
+        else:
+            self.dir.disable(self.name)
 
 
 class WebserverPlugin (SectionPlugin):
@@ -92,7 +98,11 @@ class WebserverPlugin (SectionPlugin):
         self.append(self.ui.inflate('webserver_common:main'))
         self.binder = Binder(None, self)
         self.find_type('servicebar').buttons = self.service_buttons
-        self.hosts_dir = AvailabilitySymlinks(self.hosts_available_dir, self.hosts_enabled_dir)
+        self.hosts_dir = AvailabilitySymlinks(
+            self.hosts_available_dir, 
+            self.hosts_enabled_dir,
+            self.supports_host_activation
+        )
 
         def delete_host(host, c):
             c.remove(host)
