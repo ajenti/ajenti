@@ -40,6 +40,7 @@ def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath
 
     if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
+        logging.info('Skipping %s' % inpath)
         return
 
     logging.info('Compiling CoffeeScript: %s' % inpath)
@@ -54,6 +55,7 @@ def compile_less(inpath):
     outpath = '%s.css' % inpath
     
     if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
+        logging.info('Skipping %s' % inpath)
         return
         
     logging.info('Compiling LESS %s' % inpath)
@@ -80,6 +82,7 @@ def compress_js(inpath):
 
 def compress_css(inpath):
     outpath = os.path.splitext(inpath)[0] + '.c.css'
+    print inpath, outpath
     return shutil.copy(inpath, outpath)
     #if not do_compress:
     #   return shutil.copy(inpath, outpath)
@@ -104,6 +107,26 @@ def traverse(fx):
                     file_path = os.path.join(dp, name)
                     greenlets.append(gevent.spawn(fx, file_path))
 
+    done = 0
+    done_gls = []
+    length = 40
+    total = len(greenlets)
+    print 
+
+    while True:
+        for gl in greenlets:
+            if gl.ready() and not gl in done_gls:
+                done_gls.append(gl)
+                done += 1
+                dots = int(1.0 * length * done / total)
+                sys.stdout.write('\r%3i/%3i [' % (done, total) + '.' * dots + ' ' * (length - dots) + ']')
+                sys.stdout.flush()
+        gevent.sleep(0.1)
+        if done == total:
+            print
+            break
+
+
 
 def compile(file_path):
     for pattern in compilers:
@@ -122,26 +145,8 @@ if len(sys.argv) > 1 and sys.argv[1] == 'nocompress':
     do_compress = False
 
 
+greenlets = []
 traverse(compile)
+greenlets = []
 traverse(compress)
-
-done = 0
-done_gls = []
-length = 40
-total = len(greenlets)
-print 
-
-while True:
-    for gl in greenlets:
-        if gl.ready() and not gl in done_gls:
-            done_gls.append(gl)
-            done += 1
-            dots = int(1.0 * length * done / total)
-            sys.stdout.write('\r%3i/%3i [' % (done, total) + '.' * dots + ' ' * (length - dots) + ']')
-            sys.stdout.flush()
-    gevent.sleep(0.1)
-    if done == total:
-        print
-        sys.exit(0)
-
 
