@@ -4,6 +4,7 @@ docs/build/*
 *~
 
 debian/ajenti*
+debian/changelog
 dist/*.rpm
 dist/*.deb
 dist/*.gz
