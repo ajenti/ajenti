@@ -1,3 +1,4 @@
+import os
 import psutil
 
 from ajenti.api import plugin
@@ -10,6 +11,10 @@ from ajenti.util import str_fsize
 class ImmediateWriteSensor (Sensor):
     id = 'immediate-write'
     timeout = 5
+
+    @classmethod
+    def verify(cls):
+        return os.path.exists('/proc/partitions')
 
     def init(self):
         self.last_write = {}
@@ -35,6 +40,10 @@ class ImmediateWriteSensor (Sensor):
 class ImmediateReadSensor (Sensor):
     id = 'immediate-read'
     timeout = 5
+
+    @classmethod
+    def verify(cls):
+        return os.path.exists('/proc/partitions')
 
     def init(self):
         self.last_read = {}
