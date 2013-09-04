@@ -17,9 +17,9 @@ master_doc = 'index'
 project = u'Ajenti'
 copyright = u'2013, Eugene Pankov'
 
-import ajenti.build
-version = ajenti.build.version
-release = ajenti.build.version
+import ajenti
+version = ajenti.__version__
+release = ajenti.__version__
 
 exclude_patterns = []
 add_function_parentheses = True
