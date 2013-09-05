@@ -17,3 +17,8 @@ My OS isn't supported, but I'm a brave adventurer
 ::
 
     pip install ajenti
+
+How do I change interface language?
+-----------------------------------
+
+Ajenti follows system locale. Change system language and restart Ajenti.
