@@ -1,0 +1,10 @@
+<bind:dict bind="params">
+    <vc>
+        <formline text="{Source directory}">
+            <pathbox directory="True" bind="source" />
+        </formline>
+        <formline text="{Destination directory}">
+            <pathbox directory="True" bind="destination" />
+        </formline>
+    </vc>
+</bind:dict>

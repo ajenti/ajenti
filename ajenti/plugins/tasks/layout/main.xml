@@ -1,0 +1,49 @@
+<vc>
+    <body>
+        <pad>
+            <tabs>
+                <tab title="{Tasks}">
+                    <bind:collection bind="task_definitions" id="task_definitions">
+                        <vc>
+                            <dt bind="__items" />
+                            <hc>
+                                <dropdown id="task-classes" />
+                                <button id="create-task" icon="plus" text="{Create}" />
+                            </hc>
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                     <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="cog" />
+                                        <box width="200">
+                                            <label bind="name" style="bold" />
+                                        </box>
+                                        <label bind="path" />
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <vc>
+                                        <formline text="{Name}">
+                                            <textbox bind="name" />
+                                        </formline>
+                                    </vc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
+        </pad>
+    </body>
+
+    <hc>
+        <button id="save" text="{Save}" icon="ok" />
+    </hc>
+</vc>
