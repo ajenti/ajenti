@@ -1292,7 +1292,7 @@ msgstr "Pas de terminaux actifs"
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr "État"
+msgstr "Statut"
 
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
@@ -1573,12 +1573,12 @@ msgstr "Adresse CNID"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Espace disque disponible"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s libre"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
