@@ -19,6 +19,7 @@ class Task (object):
         self.running = False
         self.complete = False
         self.aborted = False
+        self.message = ''
 
     def start(self):
         self.thread = threading.Thread(target=self._run)
@@ -27,12 +28,12 @@ class Task (object):
     def _run(self):
         logging.info('Starting task %s' % self.__class__.__name__)
         self.running = True
-        self.run()
+        self.run(**self.params)
         self.running = False
         self.complete = True 
-        logging.info('Task %s complete' % self.__class__.__name__)
+        logging.info('Task %s complete (%s)' % (self.__class__.__name__, 'aborted' if self.aborted else 'success'))
 
-    def run():
+    def run(**kwargs):
         pass
 
     def abort(self):

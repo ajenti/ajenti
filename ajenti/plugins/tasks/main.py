@@ -21,14 +21,15 @@ class Tasks (SectionPlugin):
         self.binder = Binder(None, self)
 
         def post_td_bind(object, collection, item, ui):
-            params_ui = self.ui.inflate('tasks:params-' + item.get_class().ui)
-            item.binder = DictAutoBinding(item, 'params', params_ui.find('bind'))
-            item.binder.populate()
-            ui.find('slot').append(params_ui)
+            if item.get_class():
+                params_ui = self.ui.inflate('tasks:params-' + item.get_class().ui)
+                item.binder = DictAutoBinding(item, 'params', params_ui.find('bind'))
+                item.binder.populate()
+                ui.find('slot').append(params_ui)
 
         def post_td_update(object, collection, item, ui):
-            item.binder.update()
-
+            if hasattr(item, 'binder'):
+                item.binder.update()
 
         def post_rt_bind(object, collection, item, ui):
             def abort():
@@ -82,29 +83,3 @@ class Tasks (SectionPlugin):
         self.binder.update()
         self.manager.save()
         self.refresh()
-
-
-
-import gevent
-
-
-@plugin
-class TestTask (Task):
-    name = 'Test'
-    ui = 'copy'
-    default_params = {
-        'source': '',
-        'destination': '',
-    }
-
-    def get_name(self):
-        return 'Test'
-
-    def run(self, **params):
-        i = 0
-        while not self.aborted:
-            gevent.sleep(1)
-            i += 1
-            self.set_progress(i, 100)
-
-

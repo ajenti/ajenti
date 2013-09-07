@@ -7,6 +7,7 @@ info = PluginInfo(
     icon='cog',
     dependencies=[
         PluginDependency('main'),
+        PluginDependency('cron'),
     ],
 )
 
@@ -15,3 +16,4 @@ def init():
     import api
     import manager
     import main
+    import tasks

@@ -12,7 +12,6 @@
                                     <dth />
                                     <dth text="{Name}" width="99%" />
                                     <dth text="{Status}" />
-                                    <dth text="{Progress}" />
                                     <dth />
                                 </dtr>
                             </dt>
@@ -22,19 +21,22 @@
                                         <icon icon="play" />
                                     </dtd>
                                     <dtd binder:context="definition">
-                                        <label bind="name" />
+                                        <vc>
+                                            <label style="bold" bind="name" />
+                                            <hc>
+                                                <progressbar 
+                                                    bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
+                                                    width="200"
+                                                />
+                                                <label bind:text="message" />
+                                            </hc>
+                                        </vc>
                                     </dtd>
                                     <dtd>
                                         <vc>
                                             <label bind:visible="running" text="{Running}" />
                                             <label bind:visible="aborted" text="{Aborting}" />
                                         </vc>
-                                    </dtd>
-                                    <dtd>
-                                        <progressbar 
-                                            bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
-                                            width="200"
-                                        />
                                     </dtd>
                                     <dtd>
                                         <tooltip text="{Abort}">
