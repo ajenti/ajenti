@@ -20,7 +20,7 @@ class Netatalk (SectionPlugin):
         self.append(self.ui.inflate('netatalk:main'))
 
         if not os.path.exists(self.config_path):
-            open(self.config_path, 'w').close()
+            open(self.config_path, 'w').write("[Global]")
 
         self.binder = Binder(None, self.find('config'))
         self.find('shares').new_item = lambda c: ShareData()
