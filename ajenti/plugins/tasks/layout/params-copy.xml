@@ -1,4 +1,4 @@
-<bind:dict bind="params">
+<bind:dict id="bind">
     <vc>
         <formline text="{Source directory}">
             <pathbox directory="True" bind="source" />

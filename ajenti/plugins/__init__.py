@@ -168,6 +168,7 @@ class PluginContext (object):
 
     def instantiate(self, cls, *args, **kwargs):
         instance = cls(*args, **kwargs)
+        instance.context = self
         last_init = None
         for base in reversed(cls.mro()):
             if hasattr(base, 'init'):
@@ -179,7 +180,6 @@ class PluginContext (object):
         for iface in cls._implements + [cls]:
             self.__instances.setdefault(iface, []).append(instance)
 
-        instance.context = self
         return instance
 
 
