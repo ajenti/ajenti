@@ -4,8 +4,8 @@ window._make_icon = (icon) ->
 
 class window.Controls.default extends window.Control
     createDom: () ->
-        @dom = $("""
-            <div class="control container">
+        @dom = $$("""
+            <div>
             </div>
         """)
         @childContainer = @dom
@@ -14,7 +14,7 @@ class window.Controls.default extends window.Control
 
 class window.Controls.label extends window.Control
     createDom: () ->
-        @dom = $("""<span class="control label #{@properties.style}">#{@properties.text}</span>""")
+        @dom = $$("""<span class="control label #{@properties.style}">#{@properties.text}</span>""")
 
 
 class window.Controls.tooltip extends window.Control
@@ -44,7 +44,7 @@ class window.Controls.tooltip extends window.Control
 class window.Controls.icon extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $("""<div class="control icon style-#{@properties.style}">#{icon}</div>""")
+        @dom = $$("""<div class="control icon style-#{@properties.style}">#{icon}</div>""")
 
 
 
@@ -60,7 +60,7 @@ class window.Controls.button extends window.Control
 
 class window.Controls.list extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container list">
             </div>
         """)
@@ -82,7 +82,7 @@ class window.Controls.listitem extends window.Control
 class window.Controls.progressbar extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""
+        @dom = $$("""
             <div class="control progressbar #{@properties.style}" style="width: #{w}">
                 <div class="fill">
                     <div class="tip"></div>

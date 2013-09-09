@@ -1,6 +1,6 @@
 class window.Controls.pad extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container pad">
             </div>
         """)
@@ -9,7 +9,7 @@ class window.Controls.pad extends window.Control
 
 class window.Controls.indent extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container indent">
             </div>
         """)
@@ -20,7 +20,7 @@ class window.Controls.box extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         h = @_int_to_px(@properties.height)
-        @dom = $("""
+        @dom = $$("""
             <div class="control container box" style="width: #{w}; height: #{h}; 
                 overflow: #{if @properties.scroll then 'auto' else 'visible'}">
             </div>
@@ -30,7 +30,7 @@ class window.Controls.box extends window.Control
 
 class window.Controls.well extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container well">
             </div>
         """)
@@ -39,17 +39,16 @@ class window.Controls.well extends window.Control
 
 class window.Controls.center extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container center">
-                <div></div>
             </div>
         """)
-        @childContainer = @dom.find('div')
+        @childContainer = @dom
 
 
 class window.Controls.right extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container right">
             </div>
         """)
@@ -58,10 +57,10 @@ class window.Controls.right extends window.Control
 
 class window.Controls.hc extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <table class="control container hc"><tr></tr></table>
         """)
-        @childContainer = @dom.find('tr')
+        @childContainer = @dom.getElementsByTagName('tr')[0]
 
     wrapChild: (child) ->
         return $('<td></td>').append(child.dom)[0]
@@ -69,7 +68,7 @@ class window.Controls.hc extends window.Control
 
 class window.Controls.vc extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container vc"></div>
         """)
         @childContainer = @dom
@@ -80,14 +79,14 @@ class window.Controls.vc extends window.Control
 
 class window.Controls.formline extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control formline">
                 <div class="control label">#{@properties.text}</div>
                 <div class="--child-container">
                 </div>
             </div>
         """)
-        @childContainer = @dom.find('.--child-container')
+        @childContainer = @dom.getElementsByClassName('--child-container')
 
 
 class window.Controls.formgroup extends window.Control
@@ -104,7 +103,7 @@ class window.Controls.formgroup extends window.Control
 
 class window.Controls.toolbar extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container toolbar">
             </div>
         """)
@@ -114,10 +113,10 @@ class window.Controls.toolbar extends window.Control
 class window.Controls.dt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<table cellspacing="0" cellpadding="0" class="control table #{@properties.style}" style="width: #{w}">
+        @dom = $$("""<table cellspacing="0" cellpadding="0" class="control table #{@properties.style}" style="width: #{w}">
                 <tbody></tbody>
             </table>""")
-        @childContainer = @dom#.find('>tbody')
+        @childContainer = @dom.getElementsByTagName('tbody')[0]
 
     wrapChild: (child) ->
         return child.dom
@@ -126,7 +125,7 @@ class window.Controls.dt extends window.Control
 class window.Controls.sortabledt extends window.Controls.dt
     createDom: () ->
         super()
-        @tbody = @dom.find('tbody')
+        @tbody = $(@dom).find('tbody')
         @tbody.sortable(
             distance: 5
             cancel: 'input,button,a'
@@ -166,7 +165,7 @@ class window.Controls.sortabledt extends window.Controls.dt
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        @dom = $("""<tr></tr>""")
+        @dom = $$("""<tr></tr>""", 'tbody')
         @childContainer = @dom
 
     wrapChild: (child) ->
@@ -177,7 +176,7 @@ class window.Controls.dtd extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         fw = @_int_to_px(@properties.forcewidth)
-        @dom = $("""<td style="width: #{w}; max-width: #{fw}"></td>""")
+        @dom = $$("""<td style="width: #{w}; max-width: #{fw}"></td>""", 'tr')
         @childContainer = @dom
 
     wrapChild: (child) ->
@@ -187,7 +186,7 @@ class window.Controls.dtd extends window.Control
 class window.Controls.dth extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<th style="width: #{w}">#{@properties.text}</th>""")
+        @dom = $$("""<th style="width: #{w}">#{@properties.text}</th>""", 'tr')
         @childContainer = @dom
 
     wrapChild: (child) ->
@@ -197,10 +196,10 @@ class window.Controls.dth extends window.Control
 class window.Controls.lt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<table cellspacing="0" cellpadding="0" class="control layout-table" style="width: #{w}">
+        @dom = $$("""<table cellspacing="0" cellpadding="0" class="control layout-table" style="width: #{w}">
                 <tbody></tbody>
             </table>""")
-        @childContainer = @dom#.find('>tbody')
+        @childContainer = @dom.getElementsByTagName('tbody')[0]
 
     wrapChild: (child) ->
         return child.dom
@@ -208,7 +207,7 @@ class window.Controls.lt extends window.Control
 
 class window.Controls.ltr extends window.Control
     createDom: () ->
-        @dom = $("""<tr></tr>""")
+        @dom = $$("""<tr></tr>""", 'tbody')
         @childContainer = @dom
 
     wrapChild: (child) ->
@@ -218,7 +217,7 @@ class window.Controls.ltr extends window.Control
 class window.Controls.ltd extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $("""<td style="width: #{w}"></td>""")
+        @dom = $$("""<td style="width: #{w}"></td>""", 'tr')
         @childContainer = @dom
 
     wrapChild: (child) ->
@@ -287,7 +286,7 @@ class window.Controls.tabs extends window.Control
 
     append: (child) ->
         super(child)
-        header = $("""<li><a href="##{child.uid}">#{child.properties.title}</a></li>""")
+        header = $$("""<li><a href="##{child.uid}">#{child.properties.title}</a></li>""")
         @headers.append(header)
         @dom.tabs('destroy')
         @dom.tabs({

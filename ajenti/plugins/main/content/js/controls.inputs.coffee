@@ -1,12 +1,10 @@
 class window.Controls.textbox extends window.Control
     createDom: () ->
-        @dom = $("""
-            <div>
-                <input class="control textbox #{@properties.style}" 
+        @dom = $$("""
+            <input class="control textbox #{@properties.style}" 
                     type="text" />
-            </div>
         """)
-        @input = @dom.find('input')
+        @input = $(@dom)
         @input.val(@properties.value)
 
     detectUpdates: () ->
@@ -23,13 +21,11 @@ class window.Controls.textbox extends window.Control
 
 class window.Controls.passwordbox extends window.Controls.textbox
     createDom: () ->
-        @dom = $("""
-            <div>
-                <input class="control textbox #{@properties.style}" 
+        @dom = $$("""
+            <input class="control textbox #{@properties.style}" 
                     type="password" />
-            </div>
         """)
-        @input = @dom.find('input')
+        @input = $(@dom)
         @input.val(@properties.value)
 
 
@@ -110,7 +106,7 @@ class window.Controls.checkbox extends window.Control
 class window.Controls.dropdown extends window.Control
     createDom: () ->
         @dom = $("""
-            <div><select class="control dropdown" /></div>
+            <div><select class="control dropdown"></select></div>
         """)
         @input = @dom.find('select')
         @data = []
@@ -139,10 +135,10 @@ class window.Controls.dropdown extends window.Control
 
 class window.Controls.combobox extends window.Control
     createDom: () ->
-        @dom = $("""
-            <div><input class="control combobox" type="text" value="#{@properties.value}" /></div>
+        @dom = $$("""
+            <input class="control combobox" type="text" value="#{@properties.value}" />
         """)
-        @input = @dom.find('input')
+        @input = $(@dom)
         @data = []
         for i in [0...@properties.labels.length]
             do (i) =>
@@ -236,7 +232,7 @@ class window.Controls.paging extends window.Control
         """)
         @select = @dom.find('select')
         for i in [0...@properties.length]
-            @select.append($("""
+            @select.append($$("""
                 <option value="#{i+1}">#{i+1}</option>
             """))
         @select.val(@properties.active + 1)
@@ -267,7 +263,7 @@ class window.Controls.paging extends window.Control
 
 class window.Controls.pathbox extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container pathbox">
             </div>
         """)

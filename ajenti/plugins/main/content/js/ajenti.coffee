@@ -28,7 +28,9 @@ class window.Stream
         @socket.on 'ui', (ui) ->
             console.group 'Received update'
             console.log 'Transfer size', ui.length
+            profiler.start('Decompressing')
             ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
+            profiler.stop()
             console.log 'Payload size', ui.length
             ui = JSON.parse(ui)
             console.log 'JSON data:', ui
@@ -271,11 +273,11 @@ class window.Control
                 do (child) =>
                     @append(child)
         
-        if @properties.visible != true and @dom
-            @dom.hide()
         if @dom and @dom.length
             @dom = @dom[0]
-        if @childContainer
+        if @properties.visible != true and @dom
+            @dom.style.display = 'none'
+        if @childContainer and @childContainer.length
             @childContainer = @childContainer[0]
 
     createDom: () ->
@@ -309,7 +311,14 @@ class window.Control
     append: (child) ->
         @children.push child
         wrapper = @wrapChild(child)
-        $(@childContainer).append(wrapper)
+        if wrapper and wrapper.length
+            wrapper = wrapper[0]
+        if wrapper
+            if not @childContainer
+                notcc = 1
+            if @childContainer.length
+                @childContainer = @childContainer[0]
+            @childContainer.appendChild(wrapper)
 
     publish: () ->
         @ui.checkForUpdates()
@@ -386,6 +395,16 @@ $(() ->
     if location.protocol == 'https:' or location.hostname == 'localhost'
         $('#ssl-alert').hide()
 )
+
+
+#---------------------
+# Fast DOM
+#---------------------
+window.$$ = (html, container) ->
+    container ?= 'div'
+    div = document.createElement(container)
+    div.innerHTML = html
+    return div.childNodes[0]
 
 
 #---------------------

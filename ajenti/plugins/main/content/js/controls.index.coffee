@@ -41,7 +41,7 @@ class window.Controls.main__page extends window.Control
 
 class window.Controls.main__sections_tab extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <a href="#" class="tab #{if @properties.active then 'active' else ''}">
                 <i class="icon-#{@properties.icon}"></i>&nbsp;#{@properties.title}
             </a>
@@ -104,7 +104,7 @@ class window.Controls.main__section extends window.Control
 
 class window.Controls.body extends window.Control
     createDom: () ->
-        @dom = $("""
+        @dom = $$("""
             <div class="control container section-body">
             </div>
         """)
