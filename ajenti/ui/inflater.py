@@ -72,6 +72,10 @@ class Inflater (BasePlugin):
         return layout
 
     def inflate_rec(self, ui, node):
+        if callable(node.tag):
+            # skip comments
+            return None
+
         tag = node.tag.replace('{', '').replace('}', ':')
 
         if tag == 'include':
@@ -100,7 +104,7 @@ class Inflater (BasePlugin):
             else:
                 extra_props[key] = value
 
-        children = list(self.inflate_rec(ui, child) for child in node)
+        children = filter(None, list(self.inflate_rec(ui, child) for child in node))
         element = self.create_element(ui, tag, children=children, **props)
         for k, v in extra_props.iteritems():
             element.property_definitions[k] = UIProperty(name=k, public=False)

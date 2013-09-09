@@ -11,7 +11,7 @@ class SambaUsers (object):
     def load(self):
         self.users = []
         for un in [s.split(':')[0] for s in subprocess.check_output(['pdbedit', '-L']).split('\n')]:
-            if un and not ' ' in un:
+            if un and not ' ' in un and not un.startswith('WARNING'):
                 lines = subprocess.check_output(['pdbedit', '-Lv',  '-u', un]).split('\n')
                 fields = {}
                 for l in lines:

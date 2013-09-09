@@ -451,7 +451,7 @@ msgstr "管理Samba"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr "[_('每小时')、 _('每天')、 _('每周')、 _('每月')、 _('每年')、 _ ('启动时')]"
+msgstr "[_('每小时'), _('每天'), _('每周'), _('每月'), _('每年'), _ ('启动时')]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
