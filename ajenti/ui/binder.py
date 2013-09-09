@@ -5,6 +5,20 @@ from ajenti.ui.element import p, UIElement
 from ajenti.util import *
 
 
+def is_bound_context(el):
+    return '{binder}context' in el.properties and el.properties['{binder}context']
+
+
+def is_bound(el):
+    if el.typeid.startswith('bind:'):
+        return True
+    for prop in el.properties.keys():
+        if prop == 'bind' or prop.startswith('{bind}') or is_bound_context(el):
+            if el.properties[prop]:
+                return True
+    return False
+
+
 @public
 class Binding (object):
     """
@@ -71,7 +85,7 @@ class PropertyBinding (Binding):
                         self.property = prop.name
                         break
             else:
-                raise Exception('Cannot bind %s.%s (%s, = %s)' % (repr(object), attribute, repr(type(v)), repr(v)))
+                raise Exception('Cannot bind %s.%s (%s, = %s) to %s' % (repr(object), attribute, repr(type(v)), repr(v), ui))
         else:
             self.property = property
         self.oneway = ui.bindtransform is not None
@@ -94,7 +108,7 @@ class PropertyBinding (Binding):
 
 class DictValueBinding (PropertyBinding):
     def get(self):
-        return self.object[self.attribute]
+        return self.object.get(self.attribute, None)
 
     def set(self, value):
         self.object[self.attribute] = value
@@ -171,16 +185,29 @@ class DictAutoBinding (Binding):
         self.unpopulate()
 
         self.binders = {}
-        for key in self.values:
-            try:
-                template = self.ui.nearest(lambda x: x.bind == key)[0]
-            except IndexError:
+        bindables = self.ui.nearest(
+            lambda x: is_bound(x),
+            exclude=lambda x: (
+                x != self.ui and is_bound_context(x.parent) and x.parent != self.ui
+            )
+        )
+
+        for bindable in bindables:
+            if bindable == self.ui:
                 continue
-                #raise Exception('Bind target for key %s not found' % repr(key))
-            binder = DictValueBinding(self.values, key, template)
-            binder.populate()
-            self.binders[key] = binder
-            self.ui.post_item_bind(self.object, self.collection, key, template)
+    
+            for prop in bindable.properties:            
+                if not bindable.properties[prop]:
+                    continue
+                if prop.startswith('{bind}'):
+                    binder = DictValueBinding(self.values, bindable.properties[prop], bindable, prop.split('}')[1])
+                elif prop == 'bind':
+                    binder = DictValueBinding(self.values, bindable.bind, bindable)
+                else:
+                    continue
+                key = bindable.properties[prop]
+                binder.populate()
+                self.binders[key] = binder
 
         self.ui.post_bind(self.object, self.collection, self.ui)
         return self
@@ -401,13 +428,6 @@ class Binder (object):
         ui = ui or self.ui
         object = object or self.object
 
-        def is_bound(el):
-            if el.typeid.startswith('bind:'):
-                return True
-            for prop in el.properties.keys():
-                if prop == 'bind' or prop.startswith('{bind}') or prop.startswith('{binder}'):
-                    return True
-            return False
 
         bindables = ui.nearest(
             lambda x: is_bound(x),

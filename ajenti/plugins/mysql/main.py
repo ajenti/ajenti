@@ -1,23 +1,12 @@
-import subprocess
-
 from ajenti.api import *
-from ajenti.plugins.configurator.api import ClassConfigEditor
-from ajenti.plugins.db_common.api import DBPlugin, Database, User
+from ajenti.plugins.db_common.api import DBPlugin
 
-
-@plugin
-class MySQLClassConfigEditor (ClassConfigEditor):
-    title = 'MySQL'
-    icon = 'table'
-
-    def init(self):
-        self.append(self.ui.inflate('mysql:config'))
+from api import MySQLDB
 
 
 @plugin
 class MySQLPlugin (DBPlugin):
-    default_classconfig = {'user': 'root', 'password': '', 'hostname': 'localhost'}
-    classconfig_editor = MySQLClassConfigEditor
+    config_class = MySQLDB
 
     service_name = 'mysql'
     service_buttons = [
@@ -32,58 +21,25 @@ class MySQLPlugin (DBPlugin):
         self.title = 'MySQL'
         self.category = _('Software')
         self.icon = 'table'
-
-    def query(self, sql, db=''):
-        p = subprocess.Popen(
-            [
-                'mysql',
-                '-u' + self.classconfig['user'],
-            ] + 
-            ([
-                '-p' + self.classconfig['password'],
-            ] if self.classconfig['password'] else []) + 
-            [
-                '-h', self.classconfig.get('hostname', None) or 'localhost',
-            ],
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-        )
-        o, e = p.communicate((('USE %s; ' % db) if db else '') + sql)
-        if p.returncode:
-            raise Exception(e)
-        return filter(None, o.splitlines()[1:])
+        self.db = MySQLDB.get()
 
     def query_sql(self, db, sql):
-        r = []
-        for l in self.query(sql + ';', db):
-            r.append(l.split('\t'))
-        return r
+        return self.db.query_sql(db, sql)
 
     def query_databases(self):
-        r = []
-        for l in self.query('SHOW DATABASES;'):
-            db = Database()
-            db.name = l
-            r.append(db)
-        return r
+        return self.db.query_databases()
 
     def query_drop(self, db):
-        self.query("DROP DATABASE `%s`;" % db.name)
+        return self.db.query_drop(db)
 
     def query_create(self, name):
-        self.query("CREATE DATABASE `%s` CHARACTER SET UTF8;" % name)
+        return self.db.query_create(name)
 
     def query_users(self):
-        r = []
-        for l in self.query('USE mysql; SELECT * FROM user;'):
-            u = User()
-            u.host, u.name = l.split('\t')[:2]
-            r.append(u)
-        return r
+        return self.db.query_users()
 
     def query_create_user(self, user):
-        self.query("CREATE USER `%s`@`%s` IDENTIFIED BY '%s'" % (user.name, user.host, user.password))
+        return self.db.query_create_user(user)
 
     def query_drop_user(self, user):
-        self.query("DROP USER `%s`@`%s`" % (user.name, user.host))
+        return self.db.query_drop_user(user)

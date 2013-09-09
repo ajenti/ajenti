@@ -14,6 +14,7 @@ class PSQLPlugin (DBPlugin):
             'icon': 'step-forward',
         }
     ]
+    config_class = PSQLPlugin
 
     def init(self):
         self.title = 'PostgreSQL'

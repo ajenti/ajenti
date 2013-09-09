@@ -76,9 +76,9 @@ class DBPlugin (SectionPlugin):
             self.databases = self.query_databases()
             self.users = self.query_users()
         except Exception, e:
+            import traceback; traceback.print_exc();
             self.context.notify('error', str(e))
-            if self.classconfig_editor:
-                self.context.launch('configure-plugin', plugin=self)
+            self.context.launch('configure-plugin', plugin=self.config_class)
             return
 
         self.find('sql-db').labels = self.find('sql-db').values = [x.name for x in self.databases]
