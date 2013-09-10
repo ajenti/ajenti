@@ -1,0 +1,171 @@
+<vc>
+    <body>
+        <pad>
+            <tabs>
+                <tab title="{Running tasks}">
+                    <vc>
+                        <button icon="refresh" id="refresh" text="{Refresh}" />
+
+                        <bind:collection bind="running_tasks" id="running_tasks">
+                            <dt bind="__items">
+                                <dtr>
+                                    <dth />
+                                    <dth text="{Name}" width="99%" />
+                                    <dth text="{Status}" />
+                                    <dth />
+                                </dtr>
+                            </dt>
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <icon icon="play" />
+                                    </dtd>
+                                    <dtd binder:context="definition">
+                                        <vc>
+                                            <label style="bold" bind="name" />
+                                            <hc>
+                                                <progressbar 
+                                                    bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
+                                                    width="200"
+                                                />
+                                                <label bind:text="message" />
+                                            </hc>
+                                        </vc>
+                                    </dtd>
+                                    <dtd>
+                                        <vc>
+                                            <label bind:visible="running" text="{Running}" />
+                                            <label bind:visible="aborted" text="{Aborting}" />
+                                        </vc>
+                                    </dtd>
+                                    <dtd>
+                                        <tooltip text="{Abort}">
+                                            <button style="mini" icon="stop" id="abort" />
+                                        </tooltip>
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>      \
+
+                        <hc>
+                            <dropdown id="run-task-selector" />
+                            <button id="run-task" icon="play" text="{Run}" />
+                        </hc>                  
+                    </vc>
+                </tab>
+
+                <tab title="{Jobs}">
+                    <bind:collection bind="job_definitions" id="job_definitions">
+                        <vc>
+                            <dt bind="__items" />
+                            <button bind="__add" icon="plus" text="{Create}" />
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                     <right>
+                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="time" />
+                                        <box width="200">
+                                            <label bind="name" style="bold" />
+                                        </box>
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <vc>
+                                        <formline text="{Name}">
+                                            <textbox bind="name" />
+                                        </formline>
+                                        <formline text="{Run task}">
+                                            <dropdown bind="task_id" id="task-selector" />
+                                        </formline>
+                                        <formline>
+                                            <vc>
+                                                <label text="{Schedule}" style="bold" />
+                                                <dropdown
+                                                    bind="schedule_special"
+                                                    values="[None, '@hourly', '@daily', '@weekly', '@monthly', '@yearly', '@reboot']"
+                                                    labels="[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+                                                />
+                                                <label text="{Manual entry}" style="bold" />
+                                                <lt>
+                                                    <ltr>
+                                                        <ltd><label text="{Minute}" /></ltd>
+                                                        <ltd><label text="{Hour}" /></ltd>
+                                                        <ltd><label text="{Day}" /></ltd>
+                                                        <ltd><label text="{Month}" /></ltd>
+                                                        <ltd><label text="{DoW}" /></ltd>
+                                                    </ltr>
+                                                    <ltr>
+                                                        <ltd>
+                                                            <textbox bind="schedule_minute" style="mini" />
+                                                        </ltd>
+                                                        <ltd>
+                                                            <textbox bind="schedule_hour" style="mini" />
+                                                        </ltd>
+                                                        <ltd>
+                                                            <textbox bind="schedule_day_of_month" style="mini" />
+                                                        </ltd>
+                                                        <ltd>
+                                                            <textbox bind="schedule_month" style="mini" />
+                                                        </ltd>
+                                                        <ltd>
+                                                            <textbox bind="schedule_day_of_week" style="mini" />
+                                                        </ltd>
+                                                    </ltr>
+                                                </lt>
+                                            </vc>
+                                        </formline>
+                                    </vc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+
+                <tab title="{Tasks}">
+                    <bind:collection bind="task_definitions" id="task_definitions">
+                        <vc>
+                            <dt bind="__items" />
+                            <hc>
+                                <dropdown id="task-classes" />
+                                <button id="create-task" icon="plus" text="{Create}" />
+                            </hc>
+                        </vc>
+
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                     <right>
+                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                    </right>
+                                    <hc>
+                                        <icon icon="cog" />
+                                        <box width="200">
+                                            <label bind="name" style="bold" />
+                                        </box>
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <vc>
+                                        <formline text="{Name}">
+                                            <textbox bind="name" />
+                                        </formline>
+                                        <box id="slot" />
+                                    </vc>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </tab>
+            </tabs>
+        </pad>
+    </body>
+
+    <hc>
+        <button id="save" text="{Save}" icon="ok" />
+    </hc>
+</vc>

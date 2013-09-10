@@ -1,0 +1,10 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{From directory}">
+            <pathbox directory="True" bind="source" />
+        </formline>
+        <formline text="{Into directory}">
+            <pathbox directory="True" bind="destination" />
+        </formline>
+    </vc>
+</bind:dict>

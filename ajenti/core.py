@@ -15,17 +15,18 @@ import time
 import tempfile
 
 import ajenti
-from ajenti.http import HttpRoot
-from ajenti.routing import CentralDispatcher
-from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
-import ajenti.plugins
 import ajenti.feedback
+import ajenti.ipc
+import ajenti.plugins
+from ajenti.http import HttpRoot
+from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
 from ajenti.plugins import manager
+from ajenti.routing import CentralDispatcher
 from ajenti.ui import Inflater
 
 import gevent
 from gevent import monkey
-monkey.patch_all(select=False)
+monkey.patch_all(select=False, thread=False)
 from socketio.server import SocketIOServer
 
 
@@ -157,6 +158,8 @@ def run():
         pass
 
     ajenti.feedback.start()
+    ajenti.ipc.IPCServer.get(manager.context).start()
+
     Inflater.get(manager.context).precache()
     ajenti.server.serve_forever()
 
