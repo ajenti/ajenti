@@ -14,7 +14,7 @@ All Ajenti URLs are absolute and start with ``/ajenti:``, which makes it easy to
         location /ajenti {
             rewrite /ajenti/(.*) /$1 break;
             proxy_pass  http://127.0.0.1:8000;
-            proxy_redirect off;
+            proxy_redirect / /ajenti/;
             proxy_set_header Host $host;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
