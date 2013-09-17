@@ -32,25 +32,33 @@
                                     
                                     <bind:collection bind="dependencies" id="dependencies">
                                         <indent>
-                                            <lt bind="__items" />
+                                            <dt bind="__items" style="compressed">
+                                                <dtr>
+                                                    <dth text="{Type}" />
+                                                    <dth text="{Depends on}" />
+                                                    <dth text="{Status}" />
+                                                </dtr>
+                                            </dt>
                                         </indent>
 
                                         <bind:template>
-                                            <ltr>
-                                                <ltd>
-                                                    <icon id="warning-icon" bind:icon="satisfied" 
-                                                        bindtransform="
-                                                            lambda x: 'warning-sign' if not x() else None
-                                                        " style="yellow" />
-                                                </ltd>
-                                                <ltd>
+                                            <dtr>
+                                                <dtd>
                                                     <label bind:text="description" style="bold"/>
-                                                </ltd>
-                                                <ltd>
+                                                </dtd>
+                                                <dtd>
                                                     <label bind:text="value" />
-                                                    <packages:installer id="fix" />
-                                                </ltd>
-                                            </ltr>
+                                                </dtd>
+                                                <dtd>
+                                                    <hc>
+                                                        <icon id="warning-icon" bind:icon="satisfied" 
+                                                            bindtransform="
+                                                                lambda x: 'warning-sign' if not x() else 'ok'
+                                                            " style="yellow" />
+                                                        <packages:installer id="fix" />
+                                                    </hc>
+                                                </dtd>
+                                            </dtr>
                                         </bind:template>
                                     </bind:collection>
                                 </indent>
