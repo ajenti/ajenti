@@ -126,12 +126,20 @@ def run():
         if os.path.exists(bind_spec[0]):
             os.unlink(bind_spec[0])
         listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        listener.bind(bind_spec[0])
+        try:
+            listener.bind(bind_spec[0])
+        except:
+            logging.error('Could not bind to %s' % bind_spec[0])
+            sys.exit(1)
         listener.listen(10)
     else:
         listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        listener.bind(bind_spec)
+        try:
+            listener.bind(bind_spec)
+        except:
+            logging.error('Could not bind to %s' % (bind_spec,))
+            sys.exit(1)
         listener.listen(10)
 
     stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]

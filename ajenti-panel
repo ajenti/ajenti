@@ -27,6 +27,7 @@ Options:
 
 if __name__ == '__main__':
     log_level = logging.INFO
+    ajenti.log.init(log_level)
     config_file = ''
 
     try:
@@ -46,8 +47,7 @@ if __name__ == '__main__':
             log_level = logging.DEBUG
             ajenti.debug = True
         elif o in ('-c', '--config'):
-            if os.path.isfile(a):
-                config_file = a
+            config_file = a
         elif o in ('-d', '--start'):
             is_daemon = True
 
@@ -60,11 +60,16 @@ if __name__ == '__main__':
             # Try local config file
             config_file = os.path.join(sys.path[0], 'config.json')
 
+    if not os.path.exists(config_file):
+        logging.error('Config file "%s" not found' % config_file)
+        sys.exit(1)
+    else:
+        logging.info('Using config file %s' % config_file)
+        
     os.chmod(config_file, stat.S_IRWXU)
     ajenti.config = AjentiConfig(path=config_file)
     ajenti.config.load()
     ajenti.init()
-    ajenti.log.init(log_level)
 
     logging.basicConfig(level=log_level)
 
