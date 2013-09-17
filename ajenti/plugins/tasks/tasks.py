@@ -1,4 +1,4 @@
-import gevent
+import time
 import os
 import subprocess
 
@@ -10,7 +10,7 @@ from api import Task
 @plugin
 class CopyFilesTask (Task):
     name = 'Copy files'
-    ui = 'copydir'
+    ui = 'tasks:params-copydir'
     command = ['cp', '-rp']
     message_template = _('Copying %s')
     default_params = {
@@ -31,7 +31,7 @@ class CopyFilesTask (Task):
             srcpath = os.path.join(source, file)
             p = subprocess.Popen(self.command + [srcpath, destination])
             while p.poll() is None:
-                gevent.sleep(1)
+                time.sleep(1)
                 if self.aborted:
                     p.terminate()
                     return

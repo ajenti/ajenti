@@ -22,7 +22,7 @@ class Tasks (SectionPlugin):
 
         def post_td_bind(object, collection, item, ui):
             if item.get_class():
-                params_ui = self.ui.inflate('tasks:params-' + item.get_class().ui)
+                params_ui = self.ui.inflate(item.get_class().ui)
                 item.binder = DictAutoBinding(item, 'params', params_ui.find('bind'))
                 item.binder.populate()
                 ui.find('slot').append(params_ui)

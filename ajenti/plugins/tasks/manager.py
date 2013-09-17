@@ -57,17 +57,17 @@ class TaskManager (BasePlugin):
         for task in complete_tasks:
             self.running_tasks.remove(task)
     
-    def run(self, task_definition=None, task_id=None):
+    def run(self, task=None, task_definition=None, task_id=None):
         if task_id is not None:
             for td in self.task_definitions:
                 if td.id == task_id:
                     task_definition = td
                     break
-        if task_definition:
+        if task_definition is not None:
             task = task_definition.get_class().new(**task_definition.params)
             task.definition = task_definition
-            self.running_tasks.append(task)
-            task.start()
+        self.running_tasks.append(task)
+        task.start()
 
 
 @plugin
