@@ -221,7 +221,7 @@ class Tab (object):
         self.path = path
         self.shortpath = os.path.split(path)[1] or '/'
         self.items = []
-        for item in os.listdir(self.path):
+        for item in os.listdir(unicode(self.path)):
             itempath = os.path.join(self.path, item)
             if os.path.exists(itempath):
                 self.items.append(Item(itempath))
