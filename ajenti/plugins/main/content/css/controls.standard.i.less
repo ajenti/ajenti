@@ -109,6 +109,10 @@
 				padding-bottom: 0;
 			}
 		}
+
+		&.nopad > div {
+			padding-bottom: 0;
+		}
 	}
 
 	&.label {
@@ -459,30 +463,31 @@
 	}
 
 	&.progressbar {
-		margin: 5px 1px;
-		height: @controlHeight - 9px;
+		margin: 7px 1px;
+		height: @controlHeight - 13px;
 		border-right: 1px solid #c8c8c8;
 		border-bottom: 1px solid #fff;
+		padding: 0 0 0 1px; 
 		.border-radius(5px);
 		.box-shadow(~"0 -1px 0 #ddd inset, 0 1px 0 #aaa inset");
 		#gradient > .vertical(#bbb, #ddd);
 
 		div.fill {
-			height: @controlHeight - 8px;
-			margin: 0 0 -1px;
+			height: @controlHeight - 14px;
+			margin: 1px 0 -1px;
 			.border-radius(4px);
 			#gradient > .vertical(lighten(@orange, 15%), @orange);
 			position: relative;
 			overflow: hidden;
-			.box-shadow(0 1px 0 #aaa inset);
+			//.box-shadow(0 1px 0 #aaa inset);
 
 			div.tip { 
 				position: absolute;
 				right: 0;
 				width: 20px;
-				height: @controlHeight - 19px;
+				height: @controlHeight - 13px;
 
-				borde-right: 1px solid rgba(0,0,0,.25);
+				//border-right: 1px solid rgba(0,0,0,.25);
 				.border-radius(4px);
 				background-color: transparent;
 			}

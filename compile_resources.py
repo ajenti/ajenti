@@ -56,7 +56,7 @@ def compile_less(inpath):
     
     if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
         logging.info('Skipping %s' % inpath)
-        return
+        #return
         
     logging.info('Compiling LESS %s' % inpath)
     out = check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)

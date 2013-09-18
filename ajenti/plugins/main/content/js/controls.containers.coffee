@@ -58,7 +58,7 @@ class window.Controls.right extends window.Control
 class window.Controls.hc extends window.Control
     createDom: () ->
         @dom = $$("""
-            <table class="control container hc"><tr></tr></table>
+            <table class="control container hc #{@properties.style}"><tr></tr></table>
         """)
         @childContainer = @dom.getElementsByTagName('tr')[0]
 
@@ -69,7 +69,7 @@ class window.Controls.hc extends window.Control
 class window.Controls.vc extends window.Control
     createDom: () ->
         @dom = $$("""
-            <div class="control container vc"></div>
+            <div class="control container vc #{@properties.style}"></div>
         """)
         @childContainer = @dom
 
