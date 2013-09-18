@@ -31,7 +31,10 @@ class Task (object):
     def _run(self):
         logging.info('Starting task %s' % self.__class__.__name__)
         self.running = True
-        self.run(**self.params)
+        try:
+            self.run(**self.params)
+        except Exception, e:
+            logging.exception(str(e))
         self.running = False
         self.complete = True 
         logging.info('Task %s complete (%s)' % (self.__class__.__name__, 'aborted' if self.aborted else 'success'))
