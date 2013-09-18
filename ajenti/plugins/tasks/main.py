@@ -75,6 +75,7 @@ class Tasks (SectionPlugin):
     def on_create_task(self):
         cls = self.find('task-classes').value
         td = TaskDefinition(task_class=cls)
+        td.name = td.get_class().name
         self.manager.task_definitions.append(td)
         self.refresh()
 

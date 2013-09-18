@@ -18,6 +18,11 @@ class TaskManager (BasePlugin):
         self.task_definitions = [TaskDefinition(_) for _ in self.classconfig['task_definitions']]
         self.job_definitions = [JobDefinition(_) for _ in self.classconfig.get('job_definitions', [])]
         self.running_tasks = []
+        self.pending_tasks = []
+
+    @property
+    def all_tasks(self):
+        return self.running_tasks + self.pending_tasks
 
     def save(self):
         self.classconfig['task_definitions'] = [_.save() for _ in self.task_definitions]
@@ -52,6 +57,14 @@ class TaskManager (BasePlugin):
 
         CronManager.get().save_tab('root', tab)
 
+    def task_done(self, task):
+        if task in self.running_tasks:
+            self.running_tasks.remove(task)
+        if not self.running_tasks:
+            if self.pending_tasks:
+                t = self.pending_tasks.pop(0)
+                self.run(task=t)
+
     def refresh(self):
         complete_tasks = [task for task in self.running_tasks if task.complete]
         for task in complete_tasks:
@@ -66,8 +79,16 @@ class TaskManager (BasePlugin):
         if task_definition is not None:
             task = task_definition.get_class().new(**task_definition.params)
             task.definition = task_definition
-        self.running_tasks.append(task)
-        task.start()
+            task.parallel = task_definition.parallel
+
+        if not task.parallel and self.running_tasks:
+            self.pending_tasks.append(task)
+            task.pending = True
+        else:
+            self.running_tasks.append(task)
+            task.pending = False
+            task.callback = self.task_done
+            task.start()
 
 
 @plugin

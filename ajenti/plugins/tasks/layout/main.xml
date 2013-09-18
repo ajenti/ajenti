@@ -6,7 +6,7 @@
                     <vc>
                         <button icon="refresh" id="refresh" text="{Refresh}" />
 
-                        <bind:collection bind="running_tasks" id="running_tasks">
+                        <bind:collection bind="all_tasks" id="running_tasks">
                             <dt bind="__items">
                                 <dtr>
                                     <dth />
@@ -21,21 +21,20 @@
                                         <icon icon="play" />
                                     </dtd>
                                     <dtd binder:context="definition">
-                                        <vc>
+                                        <vc style="nopad">
                                             <label style="bold" bind="name" />
-                                            <hc>
-                                                <progressbar 
-                                                    bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
-                                                    width="200"
-                                                />
-                                                <label bind:text="message" />
-                                            </hc>
+                                            <label bind:text="message" />
+                                            <progressbar 
+                                                bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
+                                                width="200"
+                                            />
                                         </vc>
                                     </dtd>
                                     <dtd>
-                                        <vc>
+                                        <vc style="nopad">
                                             <label bind:visible="running" text="{Running}" />
                                             <label bind:visible="aborted" text="{Aborting}" />
+                                            <label bind:visible="pending" text="{Pending}" />
                                         </vc>
                                     </dtd>
                                     <dtd>
@@ -153,6 +152,9 @@
                                     <vc>
                                         <formline text="{Name}">
                                             <textbox bind="name" />
+                                        </formline>
+                                        <formline>
+                                            <checkbox bind="parallel" text="{Run in parallel}" />
                                         </formline>
                                         <box id="slot" />
                                     </vc>

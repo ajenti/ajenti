@@ -18,8 +18,11 @@ class Task (object):
         self._progress_max = 1
         self.running = False
         self.complete = False
+        self.pending = False
         self.aborted = False
+        self.parallel = False
         self.message = ''
+        self.callback = lambda x: None
 
     def start(self):
         self.thread = threading.Thread(target=self._run)
@@ -32,6 +35,7 @@ class Task (object):
         self.running = False
         self.complete = True 
         logging.info('Task %s complete (%s)' % (self.__class__.__name__, 'aborted' if self.aborted else 'success'))
+        self.callback(self)
 
     def run(**kwargs):
         pass
@@ -52,6 +56,7 @@ class Task (object):
 class TaskDefinition (object):
     def __init__(self, j={}, task_class=None):
         self.name = j.get('name', 'unnamed')
+        self.parallel = j.get('parallel', False)
         self.task_class = j.get('task_class', task_class)
         self.params = j.get('params', self.get_class().default_params if self.get_class() else {})
         self.id = j.get('id', str(uuid.uuid4()))
