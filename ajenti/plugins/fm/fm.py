@@ -131,6 +131,15 @@ class FileManager (SectionPlugin):
         self.refresh_clipboard()
         self.refresh()
 
+    @on('select-all', 'click')
+    def on_select_all(self):
+        self.binder.update()
+        tab = self.controller.tabs[self.tabs.active]
+        for item in tab.items:
+            item.checked = True
+        self.binder.populate()
+        self.context.notify('info', _('Selected %i items') % len(tab.items)) 
+
     def _get_checked(self):
         self.binder.update()
         tab = self.controller.tabs[self.tabs.active]

@@ -451,7 +451,7 @@ msgstr "Gestione Samba"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr "[_('Ogni ora), _('Al giorno'), _('Settimanalmente'), _('Mensilmente'), _('Annualmente'), _ ('Al riavvio')]"
+msgstr "[_('Ogni ora'), _('Al giorno'), _('Settimanalmente'), _('Mensilmente'), _('Annualmente'), _ ('Al riavvio')]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
@@ -1573,12 +1573,12 @@ msgstr "Indirizzo CNID"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Spazio libero su disco"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s libero"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"

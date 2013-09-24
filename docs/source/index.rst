@@ -12,6 +12,7 @@ Documentation
 .. toctree::
    :maxdepth: 1
 
+   man/faq
    man/install/general
    man/install/debian
    man/install/ubuntu

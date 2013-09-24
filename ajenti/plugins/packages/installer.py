@@ -69,7 +69,7 @@ db = {
         'apache2': 'httpd',
         'ctdb': 'ctdb',
         'mysql': 'mysql',
-        'mysqld': 'mysql',
+        'mysqld': 'mysql-server',
         'psql': 'postgresql',
         'mdadm': 'mdadm',
         'nginx': 'nginx',

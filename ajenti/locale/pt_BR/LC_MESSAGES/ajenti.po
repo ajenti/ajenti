@@ -772,7 +772,7 @@ msgstr "Serviço"
 #: ajenti/plugins/users/main.py:99
 #, python-format
 msgid "Home dir for %s was created"
-msgstr "Diretório criado em Home para %s"
+msgstr "Diretório Home criado para %s"
 
 #: ajenti/plugins/users/main.py:108
 #, python-format
@@ -1378,11 +1378,11 @@ msgstr "Classe"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
-msgstr ""
+msgstr "Ligar"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bring down"
-msgstr ""
+msgstr "Derrubar"
 
 #: ajenti/plugins/network/layout/main.xml:5
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
@@ -1573,14 +1573,14 @@ msgstr "Endereço CNID"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Espaço livre em disco"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s livre"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "ou o caminho do socket UNIX"
 

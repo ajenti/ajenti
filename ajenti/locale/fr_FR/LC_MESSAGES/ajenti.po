@@ -591,7 +591,7 @@ msgstr "Echec de mount -a"
 
 #: ajenti/plugins/fstab/iops.py:61
 msgid "Immediate I/O"
-msgstr ""
+msgstr "Immédiate I/O"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
@@ -1378,19 +1378,19 @@ msgstr "Classe"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
-msgstr ""
+msgstr "Monter"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bring down"
-msgstr ""
+msgstr "Descendre"
 
 #: ajenti/plugins/network/layout/main.xml:5
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "La coupure de la connexion réseau principal va entraîner la coupure de tous les accès au serveur! Êtes-vous sûrs ?"
 
 #: ajenti/plugins/network/layout/main.xml:7
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Le redémarrage de la connexion réseau principal peut couper n'importe quel accès au serveur! Êtes-vous sûrs ?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
@@ -1582,5 +1582,5 @@ msgstr "%s libre"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "ou le chemin du socket UNIX"
 

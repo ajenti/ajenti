@@ -238,7 +238,7 @@ msgstr "Inne"
 #: ajenti/plugins/configurator/layout/main.xml:28
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Send feedback"
-msgstr "Prześlij sugestię"
+msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
@@ -299,7 +299,7 @@ msgstr "Proszę skonfigurować plugin %s !"
 #: ajenti/plugins/configurator/configurator.py:144
 #: ajenti/plugins/configurator/configurator.py:141
 msgid "Configuration"
-msgstr "Proszę skonfigurować plugin %s !"
+msgstr "Konfiguracja"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
@@ -603,7 +603,7 @@ msgstr "Temperatura HDD"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "Serwer DHCP"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
@@ -782,11 +782,11 @@ msgstr ""
 #: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Błąd: \"%s\""
 
 #: ajenti/plugins/users/main.py:113
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Hasło nie może być puste"
 
 #: ajenti/plugins/users/main.py:117
 #, python-format
@@ -817,7 +817,7 @@ msgstr "Załaduj ponownie"
 
 #: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
 msgid "Zone saved"
-msgstr ""
+msgstr "Strefa zapisana"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1251,15 +1251,15 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Wiadomości"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Sygnatura czasowa"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "Flagi"
 
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
@@ -1347,7 +1347,7 @@ msgstr "Powłoka"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Nowe hasło"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:30
@@ -1418,23 +1418,23 @@ msgstr "Zabij"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Strefy"
 
 #: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
-msgstr ""
+msgstr "Plik"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr ""
+msgstr "Strefa"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Plik strefy nie istnieje"
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
+msgstr "Zapisz strefę"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"

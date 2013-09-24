@@ -30,7 +30,7 @@
 #: ajenti/plugins/nsd/layout/main.xml:10
 #: ajenti/plugins/network/layout/main.xml:8 ajenti/plugins/fm/fm.py:51
 msgid "Save"
-msgstr "Lưu"
+msgstr "Shrani"
 
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/services/layout/bar.xml:3
@@ -39,59 +39,59 @@ msgstr "Lưu"
 #: ajenti/plugins/openvpn/layout/main.xml:1
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restart"
-msgstr "Khởi động lại"
+msgstr "Ponovno zaženi"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr "Khởi động lại Ajenti?"
+msgstr "Ponovno zaženi Ajenti?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
-msgstr "Tổng quát"
+msgstr "Splošno"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 msgid "HTTP Server"
-msgstr "Máy chủ HTTP"
+msgstr "HTTP strežnik"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
-msgstr "Máy chủ"
+msgstr "Gostitelj"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Port"
-msgstr "Cổng"
+msgstr "Vrata"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Use SSL"
-msgstr "Sử dụng SSL"
+msgstr "Uporabi SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "Path to certificate"
-msgstr "Đường dẫn đến chứng chỉ"
+msgstr "Pot do certifikata"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 #: ajenti/plugins/configurator/layout/main.xml:11
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "Generator SSL samopodpisanih potrdil"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Hostname"
-msgstr "Tên miền máy chủ"
+msgstr "Ime gostitelja"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 #: ajenti/plugins/configurator/layout/main.xml:13
 msgid "Generate"
-msgstr ""
+msgstr "Ustvari"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
@@ -99,12 +99,12 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Users"
-msgstr "Người dùng"
+msgstr "Uporabniki"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 #: ajenti/plugins/configurator/layout/main.xml:15
 msgid "Authentication"
-msgstr ""
+msgstr "Avtentikacija"
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -116,19 +116,19 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Enable"
-msgstr "Kích hoạt"
+msgstr "Omogoči"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Accounts"
-msgstr "Tài khoản"
+msgstr "Računi"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:18
 msgid "Delete"
-msgstr "Xóa"
+msgstr "Izbriši"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/cron/layout/main.xml:4
@@ -174,7 +174,7 @@ msgstr "Xóa"
 #: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Confirm deletion"
-msgstr "Xác nhận xóa"
+msgstr "Potrdi izbris"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
@@ -182,7 +182,7 @@ msgstr "Xác nhận xóa"
 #: ajenti/plugins/elements/layout/users-main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Change password"
-msgstr "Đổi mật khẩu"
+msgstr "Spremeni geslo"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:3
@@ -225,39 +225,39 @@ msgstr "Đổi mật khẩu"
 #: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Create"
-msgstr "Tạo"
+msgstr "Ustvari"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Other"
-msgstr "Khác"
+msgstr "Ostalo"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/configurator/layout/main.xml:28
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Send feedback"
-msgstr "Gửi phản hồi"
+msgstr "Pošlji povratne informacije"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 #: ajenti/plugins/configurator/layout/main.xml:25
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti bo na ajenti.org poslal anonimne podatke o nameščeni različici, imenu operacijskega sistema, ter seznam najbolj pogosto uporabljenih vtičnikov"
 
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Plugins"
-msgstr ""
+msgstr "Vtičniki"
 
 #: ajenti/plugins/configurator/configurator.py:31
 #: ajenti/plugins/munin/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:30
 msgid "Configure"
-msgstr "Đặt cấu hình"
+msgstr "Konfiguriraj"
 
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
@@ -273,45 +273,45 @@ msgstr "Đặt cấu hình"
 #: ajenti/plugins/configurator/configurator.py:53
 #: ajenti/plugins/notepad/notepad.py:100
 msgid "Saved"
-msgstr "Đã lưu"
+msgstr "Shranjeno"
 
 #: ajenti/plugins/configurator/configurator.py:106
 #: ajenti/plugins/configurator/configurator.py:108
 #: ajenti/plugins/configurator/configurator.py:105
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr ""
+msgstr "Shranjeno. Za uveljavitev sprememb ponovno zaženite Ajenti."
 
 #: ajenti/plugins/configurator/configurator.py:112
 #: ajenti/plugins/configurator/configurator.py:114
 #: ajenti/plugins/configurator/configurator.py:111
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Prosimo, navedite ime gostitelja"
 
 #: ajenti/plugins/configurator/configurator.py:128
 #: ajenti/plugins/configurator/configurator.py:130
 #: ajenti/plugins/configurator/configurator.py:127
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Potrebna konfiguracija %s vtičnika!"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:144
 #: ajenti/plugins/configurator/configurator.py:141
 msgid "Configuration"
-msgstr "Cấu hình"
+msgstr "Konfiguracija"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
 #: ajenti/plugins/configurator/configurator.py:145
 msgid "Modify Ajenti configuration"
-msgstr "Sửa đổi cấu hình Ajenti"
+msgstr "Spremenite konfiguracijo Ajenti"
 
 #: ajenti/plugins/configurator/configurator.py:147
 #: ajenti/plugins/configurator/configurator.py:149
 #: ajenti/plugins/configurator/configurator.py:146
 msgid "Restart Ajenti"
-msgstr "Khởi động lại Ajenti"
+msgstr "Ponovno zaženi Ajenti"
 
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
@@ -323,36 +323,36 @@ msgstr "Khởi động lại Ajenti"
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15
 msgid "System"
-msgstr "Hệ thống"
+msgstr "Sistem"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr "Chọn"
+msgstr "Izberi"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr "Bình thường"
+msgstr "Običajno"
 
 #: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
 msgid "Minute"
-msgstr "Phút"
+msgstr "Minuta"
 
 #: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
 msgid "Hour"
-msgstr "Giờ"
+msgstr "Ura"
 
 #: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
 msgid "Day"
-msgstr "Ngày"
+msgstr "Dan"
 
 #: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
 msgid "Month"
-msgstr "Tháng"
+msgstr "Mesec"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/cron/layout/main.xml:10
 msgid "DoW"
-msgstr ""
+msgstr "Dan v tednu"
 
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -362,17 +362,17 @@ msgstr ""
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
 msgid "Command"
-msgstr "Lệnh"
+msgstr "Ukaz"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 #: ajenti/plugins/cron/layout/main.xml:12
 msgid "Special"
-msgstr ""
+msgstr "Poseben"
 
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Schedule"
-msgstr ""
+msgstr "Urnik"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:19
@@ -380,7 +380,7 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Environment"
-msgstr ""
+msgstr "Okolje"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:22
@@ -404,7 +404,7 @@ msgstr ""
 #: ajenti/plugins/users/layout/main.xml:11
 #: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
 msgid "Name"
-msgstr "Tên"
+msgstr "ime"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:23
@@ -412,11 +412,11 @@ msgstr "Tên"
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:3
 msgid "Value"
-msgstr "Giá trị"
+msgstr "Vrednost"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr ""
+msgstr "Samba gruče"
 
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
@@ -430,74 +430,74 @@ msgstr ""
 #: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
 #: ajenti/plugins/nginx/main.py:48
 msgid "Software"
-msgstr "Phần mềm"
+msgstr "Programska oprema"
 
 #: ajenti/plugins/ctdb/main.py:65
 msgid "Failed to obtain CTDB status"
-msgstr ""
+msgstr "Neuspešna pridobitev CTDB statusa"
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:3
 msgid "Status"
-msgstr "Trạng thái"
+msgstr "Status"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "Javni IP naslovi"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr ""
+msgstr "Upravljanje Samba"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_('Na vsako uro'), _('Dnevno'), _('Tedensko'), _('Mesečno'), _('Letno'), _ (\"Ob ponovnem zagonu\")]"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr ""
+msgstr "Razrhoščevalni način"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr "Tập tin"
+msgstr "Datoteke"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Obnovitvena omejitvena datoteka"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "Datoteka z javnimi naslovi"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Datoteka vozlišča"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr ""
+msgstr "Dnevniška datoteka"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr "Mạng"
+msgstr "Omrežje"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "Javni vmesnik"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Javno omrežje"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Javni privzeti prehod"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "Vozlišča"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -505,199 +505,199 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
 msgid "Address"
-msgstr "Địa chỉ"
+msgstr "Naslov"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr "Địa chỉ công cộng"
+msgstr "Javni naslovi"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr "Điện"
+msgstr "Napajanje"
 
 #: ajenti/plugins/power/power.py:80
 msgid "Power control"
-msgstr "Quản lý nguồn điện"
+msgstr "Upravljanje napajanja"
 
 #: ajenti/plugins/power/power.py:84
 msgid "Reboot"
-msgstr "Khởi động lại"
+msgstr "Ponoven zagon"
 
 #: ajenti/plugins/power/power.py:85
 msgid "Shutdown"
-msgstr "Tắt máy"
+msgstr "Zaustavitev"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr "Điện AC"
+msgstr "AC napajanje"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr "Pin"
+msgstr "Baterija"
 
 #: ajenti/plugins/power/layout/widget.xml:3
 msgid "Reboot the system?"
-msgstr "Khởi động lại hệ thống?"
+msgstr "Ponoven zagon sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Shutdown the system?"
-msgstr "Tắt hệ thống?"
+msgstr "Zaustavitev sistema?"
 
 #: ajenti/plugins/main/main.py:197
 msgid "Section access"
-msgstr "Mục truy cập"
+msgstr "Dostop do področja"
 
 #: ajenti/plugins/main/main.py:214
 msgid "Feedback sent!"
-msgstr "Gửi thông tin phản hồi!"
+msgstr "Povratne informacije so bile poslane!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr "Tải trung bình"
+msgstr "Povprečna obremenitev"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr "Sử dụng CPU"
+msgstr "uporaba CPU"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr "Sử dụng bộ nhớ"
+msgstr "poraba spomina"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr "Sử dụng vùng trao đổi"
+msgstr "Poraba swap"
 
 #: ajenti/plugins/sensors/uptime.py:18
 msgid "Uptime"
-msgstr "Thời gian hoạt động"
+msgstr "Čas delovanja"
 
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 msgid "Variant"
-msgstr "Biến thể"
+msgstr "Različica"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
-msgstr "Tập tin hệ thống"
+msgstr "Datotečni sistem"
 
 #: ajenti/plugins/fstab/main.py:67
 msgid "Unmounted"
-msgstr "Ổ"
+msgstr "Odklopljen"
 
 #: ajenti/plugins/fstab/main.py:73 ajenti/plugins/fstab/main.py:74
 msgid "mount -a failed"
-msgstr ""
+msgstr "pripni -a ni uspelo"
 
 #: ajenti/plugins/fstab/iops.py:61
 msgid "Immediate I/O"
-msgstr ""
+msgstr "Takojšnji I/O"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr "Dung lượng đĩa"
+msgstr "Prostor na disku"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr "Nhiệt độ HDD"
+msgstr "Temperatura trdega diska"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "DHCP strežnik"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr "Truy vấn đã hoàn thành"
+msgstr "Konec poizvedbe"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr ""
+msgstr "Vrstice izhodnega toka od %i do 200"
 
 #: ajenti/plugins/iptables/main.py:55
 msgid "You can't disable firewall autostart on this platform"
-msgstr "Bạn không thể tắt tự khởi động tường lửa trên nền tảng này"
+msgstr "Ni možno onemogočiti samodejni zagon požarnega zidu"
 
 #: ajenti/plugins/iptables/main.py:63
 msgid "Firewall"
-msgstr "Tường lửa"
+msgstr "Požarni zid"
 
 #: ajenti/plugins/iptables/main.py:105
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
-msgstr "Thêm tùy chọn"
+msgstr "Dodaj možnost"
 
 #: ajenti/plugins/iptables/main.py:140
 msgid "Disable"
-msgstr "Vô hiệu hoá"
+msgstr "Onemogoči"
 
 #: ajenti/plugins/iptables/main.py:140
 msgid " autostart"
-msgstr " tự khởi động"
+msgstr " samodejni zagon"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr "Kịch bản"
+msgstr "Skripta"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr "Ra mắt"
+msgstr "Zagnano"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr "Kịch bản"
+msgstr "Skripte"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr "Chạy kịch bản"
+msgstr "Zagon skriptov"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr "Gói này có thể được cài đặt tự động"
+msgstr "Paket se lahko namesti samodejno"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
-msgstr "Gói"
+msgstr "Paketi"
 
 #: ajenti/plugins/packages/main.py:50
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "Vrsta za paketno namestitev"
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
-msgstr "Cài đặt hoàn tất!"
+msgstr "Namestitev končana!"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i najden 100 prikazanih"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr "%i tìm thấy"
+msgstr "%i najden"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
-msgstr "Cài đặt / gỡ bỏ"
+msgstr "Namesti / odstrani"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr "Làm mới danh sách"
+msgstr "Osveži seznam"
 
 #: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
-msgstr "Quản lý tập tin"
+msgstr "Raziskovalec"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/notepad/notepad.py:19
 msgid "Tools"
-msgstr "Công cụ"
+msgstr "Orodja"
 
 #: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/fm.py:52
 msgid "Cancel"
-msgstr "Hủy bỏ"
+msgstr "Prekliči"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -705,33 +705,33 @@ msgstr ""
 
 #: ajenti/plugins/squid/main.py:14
 msgid "Squid"
-msgstr ""
+msgstr "Squid"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr "Trình soạn thảo mã CodeMirror"
+msgstr "Urejevalnik kode CodeMirror"
 
 #: ajenti/plugins/terminal/terminal.py:97
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "Proces končan s statusom %i"
 
 #: ajenti/plugins/terminal/terminal.py:99
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Proces končan uspešno"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
 #: ajenti/plugins/terminal/main.py:183
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: ajenti/plugins/terminal/main.py:187
 msgid "Run shell"
-msgstr ""
+msgstr "Zaženi lupino"
 
 #: ajenti/plugins/terminal/main.py:188
 msgid "Run custom commands"
-msgstr ""
+msgstr "Zaženi poljubni ukaz"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -739,118 +739,118 @@ msgstr ""
 
 #: ajenti/plugins/memcache/widget.py:29
 msgid "Memcache memory usage"
-msgstr "Sử dụng bộ nhớ memcache"
+msgstr "Memcache poraba pomnilnika"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
-msgstr ""
+msgstr "Dnevniške datoteke"
 
 #: ajenti/plugins/services/main.py:12
 msgid "Services"
-msgstr "Dịch vụ"
+msgstr "Servisi"
 
 #: ajenti/plugins/services/main.py:39
 #, python-format
 msgid "%s started"
-msgstr "%s bắt đầu"
+msgstr "%s zagnan"
 
 #: ajenti/plugins/services/main.py:44
 #, python-format
 msgid "%s stopped"
-msgstr "%s đã ngừng"
+msgstr "%s ustavljen"
 
 #: ajenti/plugins/services/main.py:49
 #, python-format
 msgid "%s restarted"
-msgstr "%s khởi động lại"
+msgstr "%s ponovno zagnan"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr "Dịch vụ"
+msgstr "Servis"
 
 #: ajenti/plugins/users/main.py:99
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Domači imenik za %s ustvarjen"
 
 #: ajenti/plugins/users/main.py:108
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Geslo za %s je spremenjeno"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Error: \"%s\""
-msgstr "Lỗi: \"%s\""
+msgstr "Napaka: \"%s\""
 
 #: ajenti/plugins/users/main.py:113
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Geslo ne sme biti prazno polje"
 
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Geslo za %s je bilo odstranjeno"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr "Mạng"
+msgstr "Omrežje"
 
 #: ajenti/plugins/network/widget.py:85
 msgid "Immediate Traffic"
-msgstr ""
+msgstr "Trenutni promet"
 
 #: ajenti/plugins/network/widget.py:115
 msgid "Traffic"
-msgstr ""
+msgstr "Promet"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
-msgstr "Quy trình"
+msgstr "Procesi"
 
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
 #: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
 #: ajenti/plugins/openvpn/layout/main.xml:2
 msgid "Reload"
-msgstr "Tải lại"
+msgstr "Ponovno naloži"
 
 #: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
 msgid "Zone saved"
-msgstr ""
+msgstr "Zona shranjena"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
-msgstr "Máy chủ"
+msgstr "Gostitelji"
 
 #: ajenti/plugins/notepad/notepad.py:17
 msgid "Notepad"
-msgstr ""
+msgstr "Beležnica"
 
 #: ajenti/plugins/notepad/notepad.py:50 ajenti/plugins/notepad/notepad.py:52
 #, python-format
 msgid "Untitled %i"
-msgstr "Chưa có tiêu đề %i"
+msgstr "Neimenovan %i"
 
 #: ajenti/plugins/resolv/resolv.py:13 ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr "Tên máy chủ"
+msgstr "Imenski strežniki"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr "Tên máy chủ DNS"
+msgstr "DNS strežnik"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
-msgstr "Tên miền địa phương"
+msgstr "Ime lokalne domene"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "Search list"
-msgstr "Tìm danh sách"
+msgstr "Seznam za iskanje"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "Sort list"
-msgstr "Sắp xếp danh sách"
+msgstr "Razvrstitveni seznam"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/fstab/layout/main.xml:7
 #: ajenti/plugins/dhcpd/layout/main.xml:5
@@ -859,61 +859,61 @@ msgstr "Sắp xếp danh sách"
 #: ajenti/plugins/squid/layout/port-template.xml:3
 #: ajenti/plugins/exports/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
 msgid "Options"
-msgstr "Tùy chọn"
+msgstr "Možnosti"
 
 #: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
-msgstr "Không có dữ liệu"
+msgstr "Ni podatkov"
 
 #: ajenti/plugins/smartctl/widget.py:59 ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
-msgstr ""
+msgstr "FAILING"
 
 #: ajenti/plugins/smartctl/widget.py:60 ajenti/plugins/smartctl/widget.py:62
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "PRE-FAIL"
 
 #: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:63
 msgid "Unknown error"
-msgstr "Lỗi không xác định"
+msgstr "Neznana napaka"
 
 #: ajenti/plugins/smartctl/widget.py:62 ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr ""
+msgstr "Napake v dnevniški datoteki"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "NFS izvoz"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr ""
+msgstr "Ne morem povezati z Munin: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "Munin HTTP preverjanje pristnosti ni uspelo"
 
 #: ajenti/plugins/samba/main.py:47
 msgid "Password updated"
-msgstr "Mật khẩu Cập Nhật"
+msgstr "Geslo posodobljeno"
 
 #: ajenti/plugins/samba/main.py:50
 msgid "Password update failed"
-msgstr "Cập nhật mật khẩu thất bại"
+msgstr "Posodobitev gesla ni uspela"
 
 #: ajenti/plugins/dashboard/dash.py:18
 msgid "Dashboard"
-msgstr "Bảng điều khiển"
+msgstr "Nadzorna plošča"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr "Chào mừng"
+msgstr "Dobrodošli"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
-msgstr "Bộ điều hợp"
+msgstr "Adapter"
 
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:4
@@ -924,85 +924,85 @@ msgstr "Bộ điều hợp"
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 msgid "Device"
-msgstr "Thiết bị"
+msgstr "Naprava"
 
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Refresh"
-msgstr "Làm mới"
+msgstr "Osveži"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr "Gắn kết tất cả"
+msgstr "Pripni vse"
 
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "Točka priklopa"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 msgid "FS type"
-msgstr ""
+msgstr "Vrsta datotečnega sistema"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
-msgstr ""
+msgstr "Pogostost pregledovanja"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Iskanje"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "Priklopljen datotečni sistem"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr "Sử dụng"
+msgstr "Uporabljeno"
 
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr "Kích thước"
+msgstr "Velikost"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr "Sử dụng"
+msgstr "Poraba"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr ""
+msgstr "Odpni"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
-msgstr ""
+msgstr "[{ 'command': 'force-reload', 'text': _('Reload'), 'icon': 'step-forward', }]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr "Thư mục làm việc"
+msgstr "Delovni imenik"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
-msgstr "Tự khởi động"
+msgstr "Samodejni zagon"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
-msgstr ""
+msgstr "[_('Omogočeno'), _('Onemogočeno')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
-msgstr "Tự khởi động lại"
+msgstr "Samodejni ponovni zagon"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
-msgstr ""
+msgstr "[_('Omogočen'), _ (\"Ob sesutju\"), _('Onemogočen')]"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr ""
+msgstr "Časovna omejitev za začetek"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
-msgstr ""
+msgstr "Zaženi ponovne poskuse"
 
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:7
@@ -1011,40 +1011,40 @@ msgstr ""
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr "Tài khoản"
+msgstr "Uporabniško ime"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Podomrežja"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr "Đặc điểm kỹ thuật"
+msgstr "Specifikacija"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr "Phạm vi IP"
+msgstr "IP obseg"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Globalne nastavitve"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr "Chạy"
+msgstr "Zaženi"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr "Cơ sở dữ liệu"
+msgstr "Podatkovne baze"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Potrdi izbris podatkovne baze!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr "Tên cơ sở dữ liệu"
+msgstr "Ime podatkovne baze"
 
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/openvpn/layout/config.xml:3
@@ -1052,353 +1052,353 @@ msgstr "Tên cơ sở dữ liệu"
 #: ajenti/plugins/samba/layout/main.xml:29
 #: ajenti/plugins/netatalk/layout/main.xml:6
 msgid "Password"
-msgstr "Mật khẩu"
+msgstr "Geslo"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
 msgid "Interface"
-msgstr ""
+msgstr "Vmesnik"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Argumenti"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Argument"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr "Mô-đun"
+msgstr "Moduli"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "Stanja"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Neposredno urejanje"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr "Tình trạng tải hiện tại"
+msgstr "Nalaganje trenutnega stanja"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Điều này sẽ ghi đè lên cấu hình đã lưu với trạng thái tường lửa hiện tại! Tiếp tục?"
+msgstr "Prepisana bo konfiguracija s trenutnim stanjem požarnega zidu. Nadaljujem?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Nova veriga"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Dejanje"
 
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/users/layout/user-list.xml:3
 msgid "Comment"
-msgstr "Ghi chú"
+msgstr "Komentar"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr "Điều kiện"
+msgstr "Pogoji"
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr "Quy tắc mới"
+msgstr "Novo pravilo"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
 msgid "Apply"
-msgstr "Áp dụng"
+msgstr "Uporabi"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr "Giao thức"
+msgstr "Protokol"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:11
 msgid "Ports"
-msgstr "Cổng"
+msgstr "Vrata"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr "Lý do"
+msgstr "Razlog"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "Zaženi v ukazni lupini"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr "Phiên bản"
+msgstr "Različica"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Pridobi sezname"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "Nadgradljivi"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr "Nâng cấp tất cả"
+msgstr "Nadgradnja vseh"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr "Tìm"
+msgstr "Išči"
 
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr "Đang chờ"
+msgstr "Čakajoče"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr "Hủy bỏ tất cả"
+msgstr "Prekliči vse"
 
 #: ajenti/plugins/packages/layout/installer.xml:1
 msgid "Install"
-msgstr "Cài đặt"
+msgstr "Namestitev"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr "Đánh dấu để cài đặt/nâng cấp"
+msgstr "Označi za namestitev/nadgradnjo"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Označi za odstranitev"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Vrhnji imenik"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr "Đóng"
+msgstr "Zapri"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr "Tập tin mới"
+msgstr "Nova datoteka"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr "Thư mục mới"
+msgstr "Nov direktorij"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Upload"
-msgstr "Tải lên"
+msgstr "Naloži"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Clipboard"
-msgstr "Bảng ghi tạm"
+msgstr "Odložišče"
 
 #: ajenti/plugins/fm/layout/main.xml:9
 #: ajenti/plugins/users/layout/user-list.xml:9
 msgid "Remove"
-msgstr "Loại bỏ"
+msgstr "Odstrani"
 
 #: ajenti/plugins/fm/layout/main.xml:11
 msgid "Access"
-msgstr "Truy cập"
+msgstr "Dostop"
 
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Owner"
-msgstr "Chủ nhân"
+msgstr "Lastnik"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
-msgstr "Nhóm"
+msgstr "Skupina"
 
 #: ajenti/plugins/fm/layout/main.xml:14
 msgid "Others"
-msgstr ""
+msgstr "Ostali"
 
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
-msgstr "Cảm biến"
+msgstr "Senzor"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr ""
+msgstr "Naslov za upravljanje"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "gostitelj: vrata ali UNIX vtičnica"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr "IP từ xa"
+msgstr "Oddaljeni IP naslov"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr "Local IP"
+msgstr "Lokalni IP naslov"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Povezan od"
 
 #: ajenti/plugins/openvpn/layout/main.xml:7
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr "Ngắt kết nối"
+msgstr "Prekini"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr "khách hàng"
+msgstr "odjemalci"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr "Tin nhắn"
+msgstr "Sporočila"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Časovni žig"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "Zastavice"
 
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
-msgstr "Văn bản"
+msgstr "Besedilo"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr "Truy cập HTTP"
+msgstr "HTTP dostop"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr "Chế độ"
+msgstr "Način"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
-msgstr ""
+msgstr "[_('Dovoli'), _('Zavrni')]"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "Privzeta lupina"
 
 #: ajenti/plugins/terminal/layout/main.xml:2
 #: ajenti/plugins/notepad/layout/main.xml:1
 msgid "New"
-msgstr "Mới"
+msgstr "Novi"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "Ni aktivnih terminalov"
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Stanje"
 
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
-msgstr "Loại"
+msgstr "Vrsta"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr "Thiết bị"
+msgstr "Naprave"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr "Khối"
+msgstr "Bloki"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr "Phục hồi:"
+msgstr "Popravljanje:"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
-msgstr "Mở"
+msgstr "Odpri"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 msgid "Start"
-msgstr "Bắt đầu"
+msgstr "Zaženi"
 
 #: ajenti/plugins/services/layout/bar.xml:2
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 msgid "Stop"
-msgstr "Dừng"
+msgstr "Ustavi"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr "Nguồn"
+msgstr "Vir"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr "Hành động"
+msgstr "Dejanja"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr "Thư mục"
+msgstr "Domači imenik"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
-msgstr "Shell"
+msgstr "Lupina"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr "Mật khẩu mới"
+msgstr "Novo geslo"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "Set"
-msgstr "Thiết lập"
+msgstr "Nastavi"
 
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "User"
-msgstr "Người dùng"
+msgstr "Uporabnik"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr "Người sử dụng hệ thống"
+msgstr "Sistemski uporabniki"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr "Nhóm"
+msgstr "Skupine"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr "Thành viên"
+msgstr "Člani"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Class"
-msgstr "Lớp"
+msgstr "Razred"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
-msgstr "Đưa lên"
+msgstr "Omogoči"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bring down"
-msgstr "Đưa xuống"
+msgstr "Onemogoči"
 
 #: ajenti/plugins/network/layout/main.xml:5
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Izklop primarne omrežne povezave lahko onemogoči dostop do strežnika! Nadaljuj?"
 
 #: ajenti/plugins/network/layout/main.xml:7
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Ponoven zagon primarne omrežne povezave lahko onemogoči dostop do strežnika. Nadaljujem?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
-msgstr ""
+msgstr "[_('Lo'), _('Statičen'), _('Ročni'), \"DHCP\", \"BootP\", \"WVDial\", \"Zeroconf\"]"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr ""
+msgstr "PID (Starš)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "CPU"
@@ -1410,177 +1410,177 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "Terminate"
-msgstr ""
+msgstr "Prekini"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Kill"
-msgstr ""
+msgstr "Ubij"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr "Khu vực"
+msgstr "Območja"
 
 #: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
-msgstr "Tập tin"
+msgstr "Datoteka"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr "Khu vực"
+msgstr "Območje"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr "Khu vực tập tin không tồn tại"
+msgstr "Datoteka za zono ne obstaja"
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr "Lưu khu vực"
+msgstr "Shrani območje"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
-msgstr "Bí danh"
+msgstr "Psevdonimi"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr "Lưu như"
+msgstr "Shrani kot"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr "Dấu trang"
+msgstr "Zaznamek"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
-msgstr "Phụ thuộc"
+msgstr "Odvisnosti"
 
 #: ajenti/plugins/exports/layout/main.xml:2
 msgid "Directory"
-msgstr "Thư mục"
+msgstr "Imenik"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Clients"
-msgstr "Khách hàng"
+msgstr "Odjemalci"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr "Xem"
+msgstr "Pogled"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr "Chia sẻ"
+msgstr "Deljene mape"
 
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr "Hướng dẫn"
+msgstr "Pot"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 msgid "Guest access"
-msgstr "Khách truy cập"
+msgstr "Začasni dostop"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr "Có thể duyệt"
+msgstr "Možno brskanje"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
-msgstr "Tạo mặt nạ"
+msgstr "Ustvari masko"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Directory mask"
-msgstr "Mặt nạ thư mục"
+msgstr "Maska imenika"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Read only"
-msgstr "Chỉ đọc"
+msgstr "Samo za branje"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr "Cấu hình"
+msgstr "Konifugracija"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
-msgstr "Giao diện"
+msgstr "Vmesniki"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Veži samo na te vmesnike"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Identification"
-msgstr "Nhận dạng"
+msgstr "Identifikacija"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Workgroup"
-msgstr "Nhóm làm việc"
+msgstr "Delovna skupina"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr ""
+msgstr "Strežniški niz"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
-msgstr "Bảo mật"
+msgstr "Varnost"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Sessions"
-msgstr "Phiên"
+msgstr "Seje"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Share"
-msgstr "Chia sẻ"
+msgstr "Deli"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Machine"
-msgstr "Máy"
+msgstr "Naprava"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
-msgstr "Thêm"
+msgstr "Dodaj"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr "Thêm tiện ích"
+msgstr "Dodaj pripomoček"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr ""
+msgstr "[{'text': _('Prekliči'), 'id': \"prekliči\"}]"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr "Người dùng hợp lệ"
+msgstr "Veljavni uporabniki"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr "Tài nguyên forks"
+msgstr "Razcep vira"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Razširjeni atributi"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "CNID shema"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr "Cổng AFP"
+msgstr "AFP vrata"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr "Địa chỉ CNID"
+msgstr "CNID naslov"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr "Dung lượng đĩa trống"
+msgstr "Nezaseden prostor na disku"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr "%s trống"
+msgstr "%s prosto"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "ali pot do UNIX vtičnice"
 
