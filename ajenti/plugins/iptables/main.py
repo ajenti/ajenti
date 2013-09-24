@@ -29,6 +29,7 @@ class DebianFirewallManager (FirewallManager):
     platforms = ['debian']
     autostart_script_path = '/etc/network/if-up.d/iptables'
     config_path = '/etc/iptables.up.rules'
+    config_path_ajenti = '/etc/iptables.up.rules.ajenti'
 
     def get_autostart_state(self):
         return os.path.exists(self.autostart_script_path)
@@ -67,7 +68,7 @@ class Firewall (SectionPlugin):
         self.append(self.ui.inflate('iptables:main'))
 
         self.fw_mgr = FirewallManager.get()
-        self.config = IPTablesConfig(path=self.fw_mgr.config_path)
+        self.config = IPTablesConfig(path=self.fw_mgr.config_path_ajenti)
         self.binder = Binder(None, self.find('config'))
 
         self.find('tables').new_item = lambda c: TableData()
@@ -105,8 +106,9 @@ class Firewall (SectionPlugin):
         self.find('add-option').values = self.find('add-option').labels = [_('Add option')] + sorted(OptionData.templates.keys())
 
     def on_page_load(self):
-        if not os.path.exists(self.fw_mgr.config_path):
-            open(self.fw_mgr.config_path, 'w').write("""
+        if not os.path.exists(self.fw_mgr.config_path_ajenti):
+            if not os.path.exists(self.fw_mgr.config_path):
+                open(self.fw_mgr.config_path, 'w').write("""
 *mangle
 :PREROUTING ACCEPT [0:0]
 :INPUT ACCEPT [0:0]
@@ -126,7 +128,8 @@ COMMIT
 :OUTPUT ACCEPT [0:0]
 COMMIT
 
-            """)
+                """)
+            open(self.fw_mgr.config_path_ajenti, 'w').write(open(self.fw_mgr.config_path).read())
         self.config.load()
         self.refresh()
 
@@ -169,6 +172,14 @@ COMMIT
                     r.verify()
 
         self.config.save()
+
+        open(self.fw_mgr.config_path, 'w').write(
+            ''.join(
+                l.split('#')[0] + '\n'
+                for l in
+                open(self.fw_mgr.config_path_ajenti).read().splitlines()
+            )
+        )
         self.refresh()
         self.context.notify('info', _('Saved'))
 
@@ -179,11 +190,11 @@ COMMIT
     @on('apply', 'click')
     def apply(self):
         self.save()
-        cmd = 'cat /etc/iptables.up.rules | iptables-restore'
+        cmd = 'cat %s | iptables-restore' % self.fw_mgr.config_path
         if subprocess.call(cmd, shell=True) != 0:
             self.context.launch('terminal', command=cmd)
         else:
-            self.context.notify('info', _('Saved'))
+            self.context.notify('info', _('Applied successfully'))
 
 
 class OptionsBinding (CollectionAutoBinding):
