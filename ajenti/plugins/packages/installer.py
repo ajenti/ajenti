@@ -6,7 +6,6 @@ from ajenti.plugins import BinaryDependency, ModuleDependency
 
 
 @p('package', default='')
-@p('text', default=_('This package can be installed automatically'))
 @plugin
 class PackageInstaller (UIElement, BasePlugin):
     typeid = 'packages:installer'
@@ -70,7 +69,7 @@ db = {
         'apache2': 'httpd',
         'ctdb': 'ctdb',
         'mysql': 'mysql',
-        'mysqld': 'mysql',
+        'mysqld': 'mysql-server',
         'psql': 'postgresql',
         'mdadm': 'mdadm',
         'nginx': 'nginx',

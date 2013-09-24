@@ -383,7 +383,7 @@ class Binder (object):
         Cancels the binding and replaces Python object / UI root.
         """
         self.unpopulate()
-        if object:
+        if object is not None:
             self.object = object
         if ui:
             self.ui = ui

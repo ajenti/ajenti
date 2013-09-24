@@ -83,7 +83,6 @@ def compress_js(inpath):
 
 def compress_css(inpath):
     outpath = os.path.splitext(inpath)[0] + '.c.css'
-    print inpath, outpath
     return shutil.copy(inpath, outpath)
     #if not do_compress:
     #   return shutil.copy(inpath, outpath)

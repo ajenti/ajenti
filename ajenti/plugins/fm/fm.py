@@ -131,6 +131,15 @@ class FileManager (SectionPlugin):
         self.refresh_clipboard()
         self.refresh()
 
+    @on('select-all', 'click')
+    def on_select_all(self):
+        self.binder.update()
+        tab = self.controller.tabs[self.tabs.active]
+        for item in tab.items:
+            item.checked = True
+        self.binder.populate()
+        self.context.notify('info', _('Selected %i items') % len(tab.items)) 
+
     def _get_checked(self):
         self.binder.update()
         tab = self.controller.tabs[self.tabs.active]
@@ -221,7 +230,7 @@ class Tab (object):
         self.path = path
         self.shortpath = os.path.split(path)[1] or '/'
         self.items = []
-        for item in os.listdir(self.path):
+        for item in os.listdir(unicode(self.path)):
             itempath = os.path.join(self.path, item)
             if os.path.exists(itempath):
                 self.items.append(Item(itempath))

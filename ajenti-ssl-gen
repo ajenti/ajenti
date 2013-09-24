@@ -38,7 +38,9 @@ script = """
 subprocess.call(script, shell=True)
 
 conf['ssl']['enable'] = True
-conf['ssl']['certificate_path'] = os.path.join(path, 'ajenti.pem')
+certificate_path = os.path.join(path, 'ajenti.pem')
+conf['ssl']['certificate_path'] = certificate_path
+os.chmod(certificate_path, 0400)
 open(config_path, 'w').write(json.dumps(conf))
 
 open(marker_path, 'w').close()

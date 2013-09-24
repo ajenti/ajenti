@@ -1,12 +1,6 @@
 <well>
-    <right>
-        <button id="install" icon="gift" text="{Install}" />
-    </right>
     <hc>
-        <vc>
-            <label style="bold nopad" bind:text="pkg" />
-            <label bind:text="text" style="nopad" />
-        </vc>
-        <box width="20" height="1" />
+        <button id="install" icon="gift" text="{Install}" />
+        <label style="bold nopad" bind:text="pkg" />
     </hc>
 </well>

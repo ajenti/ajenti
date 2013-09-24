@@ -34,7 +34,7 @@ class window.Terminal
 
         $(document).keypress (event) =>
             ch = @filter_key(event, $.browser.mozilla)
-            if event.which != 13
+            if event.which != 13 && event.which != 8
                 @send(RawDeflate.Base64.encode(ch))
             event.preventDefault()
 
@@ -92,7 +92,7 @@ class window.Terminal
         for i in [0...row.length]
             cell = row[i]
             iidx = parseInt(idx)
-            if true || bg != cell[2] || fg != cell[1] || (iidx == @cursy && i == @cursx) || (iidx == @cursy && i == @cursx+1)
+            if true #|| bg != cell[2] || fg != cell[1] || (iidx == @cursy && i == @cursx) || (iidx == @cursy && i == @cursx+1)
                 misc = '';
                 sty = '';
                 if iidx == @cursy && i == @cursx
