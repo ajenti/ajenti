@@ -1390,7 +1390,7 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/main.xml:7
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Omstart av den primære nettverkstilkoblingen kan kutte all tilgang til serveren! Er du sikker?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
@@ -1573,14 +1573,14 @@ msgstr "CNID adresse"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Ledig diskplass"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s ledig"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "eller UNIX socket bane"
 

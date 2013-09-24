@@ -566,7 +566,7 @@ msgstr "Память"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr "Использование файла подкачки"
+msgstr "Файл подкачки"
 
 #: ajenti/plugins/sensors/uptime.py:18
 msgid "Uptime"
@@ -739,7 +739,7 @@ msgstr ""
 
 #: ajenti/plugins/memcache/widget.py:29
 msgid "Memcache memory usage"
-msgstr "Использование памяти memcache"
+msgstr "Использование memcache"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
