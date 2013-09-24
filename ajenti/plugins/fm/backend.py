@@ -83,7 +83,7 @@ class FMBackend (BasePlugin):
 
     def remove(self, items):
         if self._total_size(items) > self.FG_OPERATION_LIMIT:
-            command = 'rm -vf -- '
+            command = 'rm -vfr -- '
             for item in items:
                 command += self._escape(item)
             self.context.launch('terminal', command=command)
