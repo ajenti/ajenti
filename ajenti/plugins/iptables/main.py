@@ -48,6 +48,7 @@ class DebianFirewallManager (FirewallManager):
 class CentOSFirewallManager (FirewallManager, BasePlugin):
     platforms = ['centos']
     config_path = '/etc/sysconfig/iptables'
+    config_path_ajenti = '/etc/iptables.up.rules.ajenti'
 
     def get_autostart_state(self):
         return True
