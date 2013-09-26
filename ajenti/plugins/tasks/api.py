@@ -9,6 +9,7 @@ from ajenti.api import *
 class Task (object):
     name = '---'
     ui = None
+    hidden = False
 
     def __init__(self, **kwargs):
         self.params = kwargs

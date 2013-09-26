@@ -55,8 +55,9 @@ class Tasks (SectionPlugin):
         dd.labels = []
         dd.values = []
         for task in Task.get_classes():
-            dd.labels.append(task.name)
-            dd.values.append(task.classname)
+            if not task.hidden:
+                dd.labels.append(task.name)
+                dd.values.append(task.classname)
 
         dd = self.find('task-selector')
         dd.labels = [_.name for _ in self.manager.task_definitions]
