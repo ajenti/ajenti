@@ -25,6 +25,7 @@ class Tasks (SectionPlugin):
                 params_ui = self.ui.inflate(item.get_class().ui)
                 item.binder = DictAutoBinding(item, 'params', params_ui.find('bind'))
                 item.binder.populate()
+                ui.find('slot').empty()
                 ui.find('slot').append(params_ui)
 
         def post_td_update(object, collection, item, ui):
