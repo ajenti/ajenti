@@ -12,11 +12,23 @@ from ajenti.util import public
 @public
 @interface
 class IPCHandler (object):
+    """
+    Interface for custom IPC endpoints
+    """
+
     def get_name(self):
-        pass
+        """
+        Should return short identifier of IPC endpoint:
+
+        $ ajenti-ipc <endpoint-name> <args>
+        """
 
     def handle(self, args):
-        pass
+        """
+        Override to handle IPC requests
+
+        :param args: list of `str` parameters
+        """
 
 
 class Handler (BaseHTTPRequestHandler):

@@ -48,6 +48,7 @@ API Reference
    ref/ajenti.api
    ref/ajenti.api.http
    ref/ajenti.http
+   ref/ajenti.ipc
    ref/ajenti.middleware
    ref/ajenti.plugins
    ref/ajenti.profiler
@@ -68,6 +69,7 @@ Plugin API Reference
    ref/ajenti.plugins.webserver_common.api
    ref/ajenti.plugins.packages.api
    ref/ajenti.plugins.services.api
+   ref/ajenti.plugins.tasks.api
 
 
 Indices and tables

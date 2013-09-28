@@ -23,6 +23,14 @@ class TaskError (Exception):
 
 @interface
 class Task (object):
+    """
+    Base class for custom tasks
+    
+    :param name: display name
+    :param ui: full layout name for parameter editor, will be bound to parameter dictionary (so begin it with <bind:dict bind="params">)
+    :param hidden: if True, task won't be available for manual creation
+    """
+
     name = '---'
     ui = None
     hidden = False
@@ -66,7 +74,13 @@ class Task (object):
         self.callback(self)
 
     def run(**kwargs):
-        pass
+        """
+        Override with your task actions here.
+        Raise :class:`TaskError` in case of emergency.
+        Check `aborted` often and return if it's True
+
+        :param **kwargs: saved task parameters
+        """
 
     def abort(self):
         if not self.running:
