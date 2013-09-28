@@ -5,6 +5,22 @@ import uuid
 from ajenti.api import *
 
 
+class TaskResult (object):
+    SUCCESS = 0
+    ABORTED = 1
+    ERROR = 2
+    CRASH = 3
+
+    def __init__(self):
+        self.result = TaskResult.SUCCESS
+        self.output = ''
+        self.name = None
+
+
+class TaskError (Exception):
+    pass
+
+
 @interface
 class Task (object):
     name = '---'
@@ -23,6 +39,7 @@ class Task (object):
         self.aborted = False
         self.parallel = False
         self.message = ''
+        self.result = TaskResult()
         self.callback = lambda x: None
 
     def start(self):
@@ -32,9 +49,16 @@ class Task (object):
     def _run(self):
         logging.info('Starting task %s' % self.__class__.__name__)
         self.running = True
+        self.result.name = self.name
         try:
             self.run(**self.params)
+            self.result.result = TaskResult.SUCCESS
+        except TaskError, e:
+            self.result.result = TaskResult.ERROR
+            self.result.output = e.message
         except Exception, e:
+            self.result.result = TaskResult.CRASH
+            self.result.output = str(e)
             logging.exception(str(e))
         self.running = False
         self.complete = True 
@@ -48,6 +72,7 @@ class Task (object):
         if not self.running:
             return
         self.aborted = True
+        self.result.result = TaskResult.ABORTED
         self.thread.join()
         
     def set_progress(self, current, max):

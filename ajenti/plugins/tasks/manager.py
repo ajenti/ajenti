@@ -19,6 +19,7 @@ class TaskManager (BasePlugin):
         self.job_definitions = [JobDefinition(_) for _ in self.classconfig.get('job_definitions', [])]
         self.running_tasks = []
         self.pending_tasks = []
+        self.result_log = []
 
     @property
     def all_tasks(self):
@@ -61,6 +62,7 @@ class TaskManager (BasePlugin):
         if task.context:
             task.context.notify('info', _('Task %s finished') % task.name)
         if task in self.running_tasks:
+            self.result_log = [task.result] + self.result_log[:9] 
             self.running_tasks.remove(task)
         if not self.running_tasks:
             if self.pending_tasks:

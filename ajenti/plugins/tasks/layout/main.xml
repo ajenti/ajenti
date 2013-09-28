@@ -44,7 +44,48 @@
                                     </dtd>
                                 </dtr>
                             </bind:template>
-                        </bind:collection>      \
+                        </bind:collection>
+
+
+                        <label style="bold" text="{Completed tasks}" />
+
+                        <bind:collection bind="result_log">
+                            <dt bind="__items">
+                                <dtr>
+                                    <dth />
+                                    <dth text="{Name}" width="99%" />
+                                    <dth text="{Status}" />
+                                </dtr>
+                            </dt>
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <icon icon="ok" bind:visible="result" bindtransform="lambda x: x == 0" />
+                                        <icon icon="warning-sign" bind:visible="result" bindtransform="lambda x: x != 0" />
+                                    </dtd>
+                                    <dtd>
+                                        <vc>
+                                            <label bind="name" />
+                                            <box bind:visible="output" bindtransform="bool">
+                                                <label bind:text="output"/> 
+                                            </box>
+                                        </vc>
+                                    </dtd>
+                                    <dtd>
+                                        <vc style="nopad">
+                                            <label bind:visible="result" text="{Success}" 
+                                                bindtransform="lambda x: x == 0" />
+                                            <label bind:visible="result" text="{Aborted}" 
+                                                bindtransform="lambda x: x == 1" />
+                                            <label bind:visible="result" text="{Error}" 
+                                                bindtransform="lambda x: x == 2" />
+                                            <label bind:visible="result" text="{Crashed}" 
+                                                bindtransform="lambda x: x == 3" />
+                                        </vc>
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>     
 
                         <hc>
                             <dropdown id="run-task-selector" />
