@@ -14,3 +14,4 @@ prune ajenti/plugins/ltfs
 prune ajenti/plugins/vh
 prune ajenti/plugins/test
 prune ajenti/plugins/test*
+prune ajenti/plugins/custom

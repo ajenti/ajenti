@@ -12,6 +12,7 @@ exclusion = [
     'ajenti.plugins.ltfs',
     'ajenti.plugins.vh',
     'ajenti.plugins.vh*',
+    'ajenti.plugins.custom*',
     'ajenti.plugins.test*',
 ]
 

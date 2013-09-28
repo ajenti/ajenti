@@ -77,3 +77,6 @@ class MySQLDB (BasePlugin):
     def query_drop_user(self, user):
         self.query("DROP USER `%s`@`%s`" % (user.name, user.host))
 
+    def query_grant(self, user, db):
+        self.query("GRANT ALL PRIVILEGES ON `%s`.* TO `%s`@`%s`" % (db.name, user.name, user.host))
+        self.query("FLUSH PRIVILEGES")

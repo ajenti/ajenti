@@ -81,8 +81,11 @@ class FMBackend (BasePlugin):
     def _total_size(self, items):
         return sum(_.size for _ in items)
 
+    def _has_dirs(self, items):
+        return any(_.isdir for _ in items)
+
     def remove(self, items):
-        if self._total_size(items) > self.FG_OPERATION_LIMIT:
+        if self._total_size(items) > self.FG_OPERATION_LIMIT or _has_dirs(items):
             command = 'rm -vfr -- '
             for item in items:
                 command += self._escape(item)
@@ -95,7 +98,7 @@ class FMBackend (BasePlugin):
                     os.unlink(i.fullpath)
 
     def move(self, items, dest):
-        if self._total_size(items) > self.FG_OPERATION_LIMIT:
+        if self._total_size(items) > self.FG_OPERATION_LIMIT or _has_dirs(items):
             command = 'mv -v -- '
             for item in items:
                 command += self._escape(item)
@@ -106,7 +109,7 @@ class FMBackend (BasePlugin):
                 shutil.move(i.fullpath, dest)
 
     def copy(self, items, dest):
-        if self._total_size(items) > self.FG_OPERATION_LIMIT:
+        if self._total_size(items) > self.FG_OPERATION_LIMIT or _has_dirs(items):
             command = 'cp -rv -- '
             for item in items:
                 command += self._escape(item)

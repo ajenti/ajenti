@@ -58,6 +58,8 @@ class TaskManager (BasePlugin):
         CronManager.get().save_tab('root', tab)
 
     def task_done(self, task):
+        if task.context:
+            task.context.notify('info', _('Task %s finished') % task.name)
         if task in self.running_tasks:
             self.running_tasks.remove(task)
         if not self.running_tasks:
@@ -70,7 +72,7 @@ class TaskManager (BasePlugin):
         for task in complete_tasks:
             self.running_tasks.remove(task)
     
-    def run(self, task=None, task_definition=None, task_id=None):
+    def run(self, task=None, task_definition=None, task_id=None, context=None):
         if task_id is not None:
             for td in self.task_definitions:
                 if td.id == task_id:
@@ -81,13 +83,20 @@ class TaskManager (BasePlugin):
             task.definition = task_definition
             task.parallel = task_definition.parallel
 
+        if context:
+            task.context = context
+
         if not task.parallel and self.running_tasks:
             self.pending_tasks.append(task)
             task.pending = True
+            if task.context:
+                task.context.notify('info', _('Task %s queued') % task.name)
         else:
             self.running_tasks.append(task)
             task.pending = False
             task.callback = self.task_done
+            if task.context:
+                task.context.notify('info', _('Task %s started') % task.name)
             task.start()
 
 

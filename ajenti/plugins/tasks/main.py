@@ -70,7 +70,7 @@ class Tasks (SectionPlugin):
 
     @on('run-task', 'click')
     def on_run_task(self):
-        self.manager.run(task_id=self.find('run-task-selector').value)
+        self.manager.run(task_id=self.find('run-task-selector').value, context=self.context)
         self.refresh()
 
     @on('create-task', 'click')

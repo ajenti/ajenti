@@ -43,3 +43,6 @@ class MySQLPlugin (DBPlugin):
 
     def query_drop_user(self, user):
         return self.db.query_drop_user(user)
+
+    def query_grant(self, user, db):
+        return self.db.query_grant(user, db)
