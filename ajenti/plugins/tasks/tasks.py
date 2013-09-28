@@ -4,7 +4,25 @@ import subprocess
 
 from ajenti.api import *
 
-from api import Task
+from api import Task, TaskError
+
+
+
+@plugin
+class CommandTask (Task):
+    name = 'Execute command'
+    ui = 'tasks:params-execute'
+    default_params = {
+        'command': '',
+    }
+
+    def run(self, command=None):
+        p = subprocess.Popen(command, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        o,e = p.communicate()
+        if p.returncode:
+            raise TaskError(o + e)
+        else:
+            self.result.output = o
 
 
 @plugin

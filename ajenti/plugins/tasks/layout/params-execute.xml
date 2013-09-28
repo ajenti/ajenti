@@ -1,0 +1,7 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{Command}">
+            <textbox bind="command" />
+        </formline>
+    </vc>
+</bind:dict>
