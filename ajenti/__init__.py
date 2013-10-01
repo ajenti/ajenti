@@ -54,6 +54,7 @@ def detect_platform():
         'mandriva linux': 'mandriva',
         'elementary os': 'ubuntu',
         'trisquel': 'ubuntu',
+        'linaro': 'ubuntu',
         'linuxmint': 'ubuntu',
         'redhat enterprise linux': 'rhel',
         'red hat enterprise linux server': 'rhel',
