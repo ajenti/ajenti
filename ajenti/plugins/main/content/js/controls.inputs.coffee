@@ -2,6 +2,7 @@ class window.Controls.textbox extends window.Control
     createDom: () ->
         @dom = $$("""
             <input class="control textbox #{@properties.style}" 
+                    #{if @properties.readonly then 'readonly' else ''}
                     type="text" />
         """)
         @input = $(@dom)

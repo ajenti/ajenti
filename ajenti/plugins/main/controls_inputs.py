@@ -5,6 +5,7 @@ from ajenti.ui import p, UIElement, on
 
 
 @p('value', default='', bindtypes=[str, unicode, int])
+@p('readonly', type=bool, default=False)
 @p('type', default='text')
 @plugin
 class TextBox (UIElement):
