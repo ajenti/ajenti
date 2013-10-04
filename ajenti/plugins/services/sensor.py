@@ -15,4 +15,7 @@ class ServiceSensor (Sensor):
         return [x.name for x in self.sm.get_all()]
 
     def measure(self, variant):
-        return int(self.sm.get_one(variant).running)
+        s = self.sm.get_one(variant)
+        if not s:
+            return 0
+        return int(s.running)
