@@ -21,8 +21,8 @@ class PowerSensor (Sensor):
                 for s in ss:
                     if s.startswith('state:') and s.endswith('on-line'):
                         return 'ac'
-            else:
-                return 'ac'
+        else:
+            return 'ac'
         return 'battery'
 
 
@@ -62,6 +62,15 @@ class PowerWidget (DashboardWidget):
         self.find('battery').visible = self.sensor.value() == 'battery'
         charge = Sensor.find('battery').value()
         self.find('charge').value = charge[0] * 1.0 / charge[1]
+        try:
+            subprocess.call(['which', 'pm-suspend'])
+        except:
+            self.find('suspend').visible = False
+
+    @on('suspend', 'click')
+    @restrict('power:suspend')
+    def on_reboot(self):
+        subprocess.call(['pm-suspend'])
 
     @on('reboot', 'click')
     @restrict('power:reboot')
@@ -81,6 +90,7 @@ class PowerPermissionsProvider (PermissionProvider):
 
     def get_permissions(self):
         return [
+            ('power:suspend', _('Suspend')),
             ('power:reboot', _('Reboot')),
             ('power:shutdown', _('Shutdown')),
         ]
