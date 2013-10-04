@@ -29,6 +29,7 @@
 #: ajenti/plugins/squid/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10
 #: ajenti/plugins/network/layout/main.xml:8 ajenti/plugins/fm/fm.py:51
+#: ajenti/plugins/tasks/layout/main.xml:35
 msgid "Save"
 msgstr "Salva"
 
@@ -115,6 +116,7 @@ msgstr "Autenticazione"
 #: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/iptables/main.py:144
 msgid "Enable"
 msgstr "Abilita"
 
@@ -173,6 +175,8 @@ msgstr "Elimina"
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:32
 msgid "Confirm deletion"
 msgstr "Confema eliminazione"
 
@@ -224,6 +228,8 @@ msgstr "Modifica password"
 #: ajenti/plugins/squid/layout/main.xml:13
 #: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
 #: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/tasks/layout/main.xml:18
+#: ajenti/plugins/tasks/layout/main.xml:31
 msgid "Create"
 msgstr "Crea"
 
@@ -321,7 +327,7 @@ msgstr "Riavvia Ajenti"
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
 #: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
-#: ajenti/plugins/resolv/main.py:15
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/iptables/main.py:67
 msgid "System"
 msgstr "Sistema"
 
@@ -334,23 +340,28 @@ msgid "Normal"
 msgstr "Normale"
 
 #: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
+#: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Minute"
 msgstr "Minuto"
 
 #: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Hour"
 msgstr "Ora"
 
 #: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
+#: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Day"
 msgstr "Giorno"
 
 #: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Month"
 msgstr "Mese"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:29
 msgid "DoW"
 msgstr "Giorno della settimana"
 
@@ -361,6 +372,7 @@ msgstr "Giorno della settimana"
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/params-execute.xml:1
 msgid "Command"
 msgstr "Comando"
 
@@ -371,6 +383,7 @@ msgstr "Speciale"
 
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/tasks/layout/main.xml:22
 msgid "Schedule"
 msgstr "Agenda"
 
@@ -403,6 +416,10 @@ msgstr "Ambiente"
 #: ajenti/plugins/network/layout/main.xml:1
 #: ajenti/plugins/users/layout/main.xml:11
 #: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:33
 msgid "Name"
 msgstr "Nome"
 
@@ -428,7 +445,8 @@ msgstr "Cluster Samba"
 #: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
 #: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
-#: ajenti/plugins/nginx/main.py:48
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/psql/main.py:21
+#: ajenti/plugins/mysql/main.py:22 ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "Software"
 
@@ -438,6 +456,9 @@ msgstr "Non è stato possibile ottenere lo stato di CTDB"
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:4
+#: ajenti/plugins/tasks/layout/main.xml:11
+#: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Status"
 msgstr "Stato"
 
@@ -568,7 +589,7 @@ msgstr "Memoria in uso"
 msgid "Swap usage"
 msgstr "Swap in uso"
 
-#: ajenti/plugins/sensors/uptime.py:18
+#: ajenti/plugins/sensors/uptime.py:18 ajenti/plugins/sensors/uptime.py:74
 msgid "Uptime"
 msgstr "Uptime"
 
@@ -589,7 +610,7 @@ msgstr "Smontato"
 msgid "mount -a failed"
 msgstr "mount -a fallito"
 
-#: ajenti/plugins/fstab/iops.py:61
+#: ajenti/plugins/fstab/iops.py:61 ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
 msgstr "I / O immediato"
 
@@ -614,24 +635,25 @@ msgstr "Query finita"
 msgid "Output cut from %i rows to 200"
 msgstr "Visualizzo dalla riga %i alla riga 200"
 
-#: ajenti/plugins/iptables/main.py:55
+#: ajenti/plugins/iptables/main.py:55 ajenti/plugins/iptables/main.py:57
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Non è possibile disattivare l'avvio automatico del firewall su questa piattaforma"
 
-#: ajenti/plugins/iptables/main.py:63
+#: ajenti/plugins/iptables/main.py:63 ajenti/plugins/iptables/main.py:65
 msgid "Firewall"
 msgstr "Firewall"
 
 #: ajenti/plugins/iptables/main.py:105
 #: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/main.py:107
 msgid "Add option"
 msgstr "Aggiungi opzione"
 
-#: ajenti/plugins/iptables/main.py:140
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
 msgid "Disable"
 msgstr "Disabilita"
 
-#: ajenti/plugins/iptables/main.py:140
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
 msgid " autostart"
 msgstr " avvio automatico"
 
@@ -690,7 +712,7 @@ msgid "File Manager"
 msgstr "Gestione file"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/notepad/notepad.py:19
+#: ajenti/plugins/notepad/notepad.py:19 ajenti/plugins/tasks/main.py:16
 msgid "Tools"
 msgstr "Strumenti"
 
@@ -712,11 +734,13 @@ msgid "CodeMirror code editor"
 msgstr "Editor di codice CodeMirror"
 
 #: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:95
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "Processo è stato terminato con status %i"
 
 #: ajenti/plugins/terminal/terminal.py:99
+#: ajenti/plugins/terminal/terminal.py:97
 msgid "Process has exited successfully"
 msgstr "Il processo si è concluso correttamente"
 
@@ -811,7 +835,8 @@ msgstr "Processi"
 
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
 #: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
-#: ajenti/plugins/openvpn/layout/main.xml:2
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/mysql/main.py:15
+#: ajenti/plugins/apache/main.py:13
 msgid "Reload"
 msgstr "Ricarica"
 
@@ -928,6 +953,7 @@ msgstr "Periferica"
 
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:2
 msgid "Refresh"
 msgstr "Aggiorna"
 
@@ -1031,6 +1057,7 @@ msgstr "Opzioni generali"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:16
 msgid "Run"
 msgstr "Esegui"
 
@@ -1152,6 +1179,7 @@ msgid "Search"
 msgstr "Cerca"
 
 #: ajenti/plugins/packages/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:7
 msgid "Pending"
 msgstr "In attesa"
 
@@ -1262,6 +1290,8 @@ msgid "Flags"
 msgstr "Bandiere"
 
 #: ajenti/plugins/openvpn/layout/main.xml:12
+#: ajenti/plugins/dashboard/text.py:7
+#: ajenti/plugins/dashboard/layout/text.xml:1
 msgid "Text"
 msgstr "Testo"
 
@@ -1297,6 +1327,7 @@ msgstr "Stato"
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Type"
 msgstr "Tipo"
 
@@ -1453,6 +1484,8 @@ msgid "Dependencies"
 msgstr "Dipendenze"
 
 #: ajenti/plugins/exports/layout/main.xml:2
+#: ajenti/plugins/elements/layout/task-resequence.xml:1
+#: ajenti/plugins/elements/layout/task-params-proxy.xml:1
 msgid "Directory"
 msgstr "Directory"
 
@@ -1582,5 +1615,135 @@ msgstr "%s libero"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
+msgstr ""
+
+#: ajenti/plugins/elements/bin/dict.xml:1
+msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:2
+msgid "Use prefix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:3
+msgid "Prefix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:4
+msgid "Use suffix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:5
+msgid "Suffix"
+msgstr ""
+
+#: ajenti/plugins/iptables/main.py:198
+msgid "Applied successfully"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:141
+#, python-format
+msgid "Selected %i items"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:33
+#, python-format
+msgid "Copying %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:64
+#, python-format
+msgid "Moving %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:63
+#, python-format
+msgid "Task %s finished"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:95
+#, python-format
+msgid "Task %s queued"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:101
+#, python-format
+msgid "Task %s started"
+msgstr ""
+
+#: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
+msgid "Tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:1
+msgid "From directory"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:2
+msgid "Into directory"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:1
+msgid "Running tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:5
+msgid "Running"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:6
+msgid "Aborting"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:8
+msgid "Abort"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:9
+msgid "Completed tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:12
+msgid "Success"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:13
+msgid "Aborted"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:14
+msgid "Error"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:15
+msgid "Crashed"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:17
+msgid "Jobs"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:21
+msgid "Run task"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:23
+msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:24
+msgid "Manual entry"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:34
+msgid "Run in parallel"
+msgstr ""
+
+#: ajenti/plugins/plugins/layout/main.xml:3
+msgid "Depends on"
+msgstr ""
+
+#: ajenti/plugins/ltfs/archive/main.py:29
+msgid "LTFS"
 msgstr ""
 
