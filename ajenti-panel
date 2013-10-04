@@ -27,7 +27,6 @@ Options:
 
 if __name__ == '__main__':
     log_level = logging.INFO
-    ajenti.log.init(log_level)
     config_file = ''
 
     try:
@@ -51,6 +50,8 @@ if __name__ == '__main__':
         elif o in ('-d', '--start'):
             is_daemon = True
 
+    ajenti.log.init(log_level)
+    
     # Find default config file
     if not config_file:
         # Check for config file in /etc/ajenti/ajenti.conf
