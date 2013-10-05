@@ -1,3 +1,4 @@
+import os
 import socket
 
 from ajenti.api import plugin
@@ -12,8 +13,13 @@ class MemcacheSensor (Sensor):
     timeout = 5
 
     def measure(self, variant=None):
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect(('127.0.0.1', 11211))
+        sock_path = '/var/run/memcached.sock'
+        if os.path.exists(sock_path):
+            s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            s.connect(sock_path)
+        else:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect(('127.0.0.1', 11211))
         s.send('stats\r\n')
         data = s.recv(10240)
         s.close()
