@@ -66,11 +66,20 @@ class PowerWidget (DashboardWidget):
             subprocess.call(['which', 'pm-suspend'])
         except:
             self.find('suspend').visible = False
+        try:
+            subprocess.call(['which', 'pm-hibernate'])
+        except:
+            self.find('hibernate').visible = False
 
     @on('suspend', 'click')
     @restrict('power:suspend')
-    def on_reboot(self):
+    def on_suspend(self):
         subprocess.call(['pm-suspend'])
+
+    @on('hibernate', 'click')
+    @restrict('power:hibernate')
+    def on_hibernate(self):
+        subprocess.call(['pm-hibernate'])
 
     @on('reboot', 'click')
     @restrict('power:reboot')
@@ -91,6 +100,7 @@ class PowerPermissionsProvider (PermissionProvider):
     def get_permissions(self):
         return [
             ('power:suspend', _('Suspend')),
+            ('power:hibernate', _('Hibernate')),
             ('power:reboot', _('Reboot')),
             ('power:shutdown', _('Shutdown')),
         ]
