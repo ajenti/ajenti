@@ -14,7 +14,7 @@ class ImmediateWriteSensor (Sensor):
 
     @classmethod
     def verify(cls):
-        return os.path.exists('/proc/partitions')
+        return os.path.exists('/proc/diskstats')
 
     def init(self):
         self.last_write = {}
@@ -43,7 +43,7 @@ class ImmediateReadSensor (Sensor):
 
     @classmethod
     def verify(cls):
-        return os.path.exists('/proc/partitions')
+        return os.path.exists('/proc/diskstats')
 
     def init(self):
         self.last_read = {}
@@ -69,6 +69,10 @@ class ImmediateReadSensor (Sensor):
 class ImmediateIOWidget (ConfigurableWidget):
     name = _('Immediate I/O')
     icon = 'hdd'
+
+    @classmethod
+    def verify(cls):
+        return os.path.exists('/proc/diskstats')
 
     def on_prepare(self):
         self.sensor_write = Sensor.find('immediate-write')
