@@ -7,7 +7,8 @@ info = PluginInfo(
     icon='hdd',
     dependencies=[
         PluginDependency('main'),
-        BinaryDependency('mdadm')
+        BinaryDependency('mdadm'),
+        FileDependency('/proc/mdadm'),
     ],
 )
 
