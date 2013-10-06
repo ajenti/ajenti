@@ -4,7 +4,7 @@ import platform as pyplatform
 import random
 import signal
 
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 # Global state
 
