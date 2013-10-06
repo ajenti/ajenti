@@ -391,10 +391,18 @@ $.fn.safeRemove = () ->
 # SSL alert
 #---------------------
 
-$(() ->
+$ () ->
     if location.protocol == 'https:' or location.hostname == 'localhost'
         $('#ssl-alert').hide()
-)
+
+
+#---------------------
+# Detect tablets
+#---------------------
+
+if /Android|webOS|iPad|IEMobile/i.test(navigator.userAgent)
+    $ () ->
+        $('html').addClass('mode-tablet')
 
 
 #---------------------
