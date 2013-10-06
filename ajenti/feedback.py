@@ -65,7 +65,6 @@ def worker():
 
         while True:
             try:
-                print data
                 send('ping', data)
             except IOError:
                 pass
