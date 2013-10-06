@@ -1,0 +1,8 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="bolt" />
+    </box>
+    <progressbar id="charge" value="0.5" width="150" />
+    <box width="30" />
+    <label id="time" /> 
+</hc>
