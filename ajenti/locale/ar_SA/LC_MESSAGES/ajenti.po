@@ -1644,7 +1644,7 @@ msgstr ""
 #: ajenti/plugins/fm/fm.py:141
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "العناصر المحددة %i"
 
 #: ajenti/plugins/tasks/tasks.py:33
 #, python-format
@@ -1669,39 +1669,39 @@ msgstr ""
 #: ajenti/plugins/tasks/manager.py:101
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "بدأت المهمة %s"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
 msgid "Tasks"
-msgstr ""
+msgstr "المهام"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "من المجلد"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "إلى المجلد"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "مهام قيد التشغيل"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "قيد التشغيل"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "إلغاء"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "إلغاء"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "المهام المكتملة"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
@@ -1729,7 +1729,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_('يدوي  (إختر )'), _('ساعي'), _('يومي'), _('أسبوعي'), _('شهري'), _('سنوي'), _('آلي')]"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Manual entry"
