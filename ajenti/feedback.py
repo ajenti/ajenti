@@ -45,15 +45,15 @@ def worker():
     global enabled
     enabled = ajenti.config.tree.enable_feedback
     if enabled:
+        data = {
+            'version': ajenti.version,
+            'os': ajenti.platform,
+            'edition': ajenti.edition,
+        }
         if not ajenti.config.tree.installation_id:
             logging.debug('Registering installation')
             enabled = False
             try:
-                data = {
-                    'version': ajenti.version,
-                    'os': ajenti.platform,
-                    'edition': ajenti.edition,
-                }
                 resp = send('register', data)
                 if resp['status'] != 'ok':
                     return
@@ -65,7 +65,8 @@ def worker():
 
         while True:
             try:
-                send('ping', {})
+                print data
+                send('ping', data)
             except IOError:
                 pass
             gevent.sleep(3600 * 12)
