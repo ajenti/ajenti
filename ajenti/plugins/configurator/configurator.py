@@ -2,10 +2,12 @@ import subprocess
 
 import ajenti
 from ajenti.api import *
+from ajenti.plugins import manager
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 from ajenti.ui.binder import Binder, DictAutoBinding
 from ajenti.users import UserManager, PermissionProvider, restrict
+from ajenti.usersync import UserSyncProvider
 from reconfigure.items.ajenti import UserData
 
 
@@ -90,6 +92,11 @@ class Configurator (SectionPlugin):
 
     def refresh(self):
         self.binder.reset().autodiscover().populate()
+
+        self.find('sync-providers').labels = [x.title for x in UserSyncProvider.get_classes()]
+        self.find('sync-providers').values = [x.id    for x in UserSyncProvider.get_classes()]
+        self.find('sync-providers').value = UserManager.get(manager.context).get_sync_provider().id
+
         self.ccmgr.reload()
         self.classconfig_binding.reset().autodiscover().populate()
 
@@ -97,9 +104,13 @@ class Configurator (SectionPlugin):
     @restrict('configurator:configure')
     def save(self):
         self.binder.update()
+        
+        UserManager.get(manager.context).set_sync_provider(self.find('sync-providers').value)
+
         for user in ajenti.config.tree.users.values():
             if not '|' in user.password:
-                user.password = UserManager.get().hash_password(user.password)
+                user.password = UserManager.get(manager.context).hash_password(user.password)
+
         self.binder.populate()
         ajenti.config.save()
         self.context.notify('info', _('Saved. Please restart Ajenti for changes to take effect.'))

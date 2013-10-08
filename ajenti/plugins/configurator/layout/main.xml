@@ -47,6 +47,11 @@
                                 <formline text="{Authentication}">
                                     <checkbox text="{Enable}" bind="authentication" />
                                 </formline>
+                                <formline text="{Sync with}">
+                                    <hc>
+                                        <dropdown id="sync-providers" />
+                                    </hc>
+                                </formline>
                                 <formline text="{Accounts}">
                                     <bind:collection 
                                             id="users"

@@ -1,6 +1,8 @@
-import ajenti
-from ajenti.api import *
 from passlib.hash import sha512_crypt
+
+import ajenti
+import ajenti.usersync
+from ajenti.api import *
 
 
 def restrict(permission):
@@ -32,24 +34,16 @@ class SecurityError (Exception):
 
 
 @plugin
-class UserManager (object):
+class UserManager (BasePlugin):
+    default_classconfig = {'sync-provider': None}
+    classconfig_root = True
+
     def check_password(self, username, password):
         """
         Verifies the given username/password combo
         """
-
-        if not username in ajenti.config.tree.users:
-            return False
-        type = 'plain'
-        saved = ajenti.config.tree.users[username].password
-        if '|' in saved:
-            type, saved = saved.split('|')
-
-        if type == 'plain':
-            hash = password
-            return hash == saved
-        elif sha512_crypt.identify(saved):
-            return sha512_crypt.verify(password, saved)
+        self.get_sync_provider().sync()
+        return self.get_sync_provider().check_password(username, password)
 
     def hash_password(self, password):
         if not password.startswith('sha512|'):
@@ -66,6 +60,17 @@ class UserManager (object):
             return
         if not permission in context.user.permissions:
             raise SecurityError(permission)
+
+    def get_sync_provider(self):
+        for p in ajenti.usersync.UserSyncProvider.get_classes():
+            if p.id == self.classconfig['sync-provider']:
+                if not p.get().test():
+                    return ajenti.usersync.AjentiSyncProvider.get()
+                return p.get()
+
+    def set_sync_provider(self, provider_id):
+        self.classconfig['sync-provider'] = provider_id
+        self.save_classconfig()
 
 
 @interface
