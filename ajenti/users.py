@@ -63,6 +63,7 @@ class UserManager (BasePlugin):
 
     def get_sync_provider(self):
         for p in ajenti.usersync.UserSyncProvider.get_classes():
+            p.get()
             if p.id == self.classconfig['sync-provider']:
                 if not p.get().test():
                     return ajenti.usersync.AjentiSyncProvider.get()

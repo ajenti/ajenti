@@ -2,7 +2,7 @@ from ajenti.api import *
 
 
 @interface
-class UserSyncProvider (object):
+class UserSyncProvider (BasePlugin):
     def test(self):
         return False
 
