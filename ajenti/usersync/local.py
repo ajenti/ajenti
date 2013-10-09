@@ -8,7 +8,7 @@ from base import UserSyncProvider
 
 @plugin
 class AjentiSyncProvider (UserSyncProvider):
-    id = None
+    id = ''
     title = _('Off')
     
     def test(self):

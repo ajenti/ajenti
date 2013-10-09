@@ -35,7 +35,7 @@ class SecurityError (Exception):
 
 @plugin
 class UserManager (BasePlugin):
-    default_classconfig = {'sync-provider': None}
+    default_classconfig = {'sync-provider': ''}
     classconfig_root = True
 
     def check_password(self, username, password):

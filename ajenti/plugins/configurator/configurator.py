@@ -40,21 +40,12 @@ class Configurator (SectionPlugin):
 
         self.ccmgr = ClassConfigManager.get()
         self.classconfig_binding = Binder(self.ccmgr, self.find('classconfigs'))
-        self.classconfig_rows = {}
 
         def post_classconfig_bind(object, collection, item, ui):
-            self.classconfig_rows[item] = ui
-            editor = item.classconfig_editor.new(self.ui)
-            ui.find('container').append(editor)
-            binder = DictAutoBinding(item, 'classconfig', editor.find('bind'))
-            binder.populate()
+            def configure():
+                self.configure_plugin(item, notify=False)
 
-            def save():
-                binder.update()
-                item.save_classconfig()
-                self.context.notify('info', _('Saved'))
-
-            ui.find('save').on('click', save)
+            ui.find('configure').on('click', configure)
 
         self.find('classconfigs').find('classes').post_item_bind = post_classconfig_bind
 
@@ -90,13 +81,23 @@ class Configurator (SectionPlugin):
     def on_page_load(self):
         self.refresh()
 
+    @on('sync-users-button', 'click')
+    def on_sync_users(self):
+        self.save()
+        UserManager.get(manager.context).get_sync_provider().sync()
+        self.refresh()
+
     def refresh(self):
-        self.binder.reset().autodiscover().populate()
+        self.binder.reset()
 
         self.find('sync-providers').labels = [x.title for x in UserSyncProvider.get_classes()]
         self.find('sync-providers').values = [x.id    for x in UserSyncProvider.get_classes()]
         self.find('sync-providers').value = UserManager.get(manager.context).get_sync_provider().id
+        self.find('add-user-button').visible = UserManager.get(manager.context).get_sync_provider().id == ''
+        self.find('sync-users-button').visible = UserManager.get(manager.context).get_sync_provider().id != ''
+        self.find('password').visible = UserManager.get(manager.context).get_sync_provider().id == ''
 
+        self.binder.autodiscover().populate()
         self.ccmgr.reload()
         self.classconfig_binding.reset().autodiscover().populate()
 
@@ -128,15 +129,31 @@ class Configurator (SectionPlugin):
         ajenti.restart()
 
     @intent('configure-plugin')
-    def configure_plugin(self, plugin=None):
+    def configure_plugin(self, plugin=None, notify=True):
         self.find('tabs').active = 1
         self.refresh()
-        #if plugin in self.classconfig_rows:
-        #    self.classconfig_rows[plugin].children[0].expanded = True
-        #    print self.classconfig_rows[plugin].children[0]
-        if plugin:
+        
+        if plugin and notify:
             self.context.notify('info', _('Please configure %s plugin!') % plugin.classconfig_editor.title)
+        
         self.activate()
+
+        dialog = self.find('classconfigs').find('dialog')
+        dialog.find('container').empty()
+        dialog.visible = True
+
+        editor = plugin.classconfig_editor.new(self.ui)
+        dialog.find('container').append(editor)
+        binder = DictAutoBinding(plugin, 'classconfig', editor.find('bind'))
+        binder.populate()
+
+        def save(button=None):
+            dialog.visible = False
+            binder.update()
+            plugin.save_classconfig()
+            self.context.notify('info', _('Saved'))
+
+        dialog.on('button', save)
 
     @intent('setup-fake-ssl')
     def gen_ssl(self, host):
