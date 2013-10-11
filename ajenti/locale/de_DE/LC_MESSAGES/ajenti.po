@@ -1619,131 +1619,131 @@ msgstr "oder UNIX-Socket-Pfad"
 
 #: ajenti/plugins/elements/bin/dict.xml:1
 msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
-msgstr ""
+msgstr "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:2
 msgid "Use prefix"
-msgstr ""
+msgstr "Verwende Präfix"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:3
 msgid "Prefix"
-msgstr ""
+msgstr "Präfix"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:4
 msgid "Use suffix"
-msgstr ""
+msgstr "Verwende Suffix"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:5
 msgid "Suffix"
-msgstr ""
+msgstr "Suffix"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
-msgstr ""
+msgstr "Erfolgreich angewendet"
 
 #: ajenti/plugins/fm/fm.py:141
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "Ausgewählte %i Elemente"
 
 #: ajenti/plugins/tasks/tasks.py:33
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "Kopiere %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "Verschiebe %s"
 
 #: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Vorgang %s abgeschlossen"
 
 #: ajenti/plugins/tasks/manager.py:95
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Vorgang %s eingereiht"
 
 #: ajenti/plugins/tasks/manager.py:101
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Vorgang %s gestartet"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
 msgid "Tasks"
-msgstr ""
+msgstr "Vorgänge"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Aus Verzeichnis"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "In Verzeichnis"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Laufende Vorgänge"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "Aktiv"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Abbrechen"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "Abbruch"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Abgeschlossene Vorgänge"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Erfolg"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "Abgebrochen"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Abgestürzt"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Aufträge"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Starte Vorgang"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_ ('Manual (unten angeben)'), _('Stündlich'), _('Täglich'), _('Wöchentlich'), _('Monatlich'), _('Jährlich'), _ (\"beim Neustart\")]"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Manual entry"
-msgstr ""
+msgstr "Manueller Eintrag"
 
 #: ajenti/plugins/tasks/layout/main.xml:34
 msgid "Run in parallel"
-msgstr ""
+msgstr "Parallel laufen"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
-msgstr ""
+msgstr "Hängt ab von"
 
 #: ajenti/plugins/ltfs/archive/main.py:29
 msgid "LTFS"
-msgstr ""
+msgstr "LTFS"
 

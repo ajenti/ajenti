@@ -15,10 +15,10 @@ class SectionPlugin (BasePlugin, UIElement):
     """
 
     typeid = 'main:section'
-    _intents = {}
 
     def init(self):
         self._first_page_load = True
+        self._intents = {}
         for k, v in self.__class__.__dict__.iteritems():
             if hasattr(v, '_intent'):
                 self._intents[v._intent] = getattr(self, k)

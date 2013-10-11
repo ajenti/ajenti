@@ -22,6 +22,7 @@ class window.Stream
             console.group 'Welcome to Ajenti'
             console.log 'version', data.version
             console.log 'running on', data.platform
+            console.log 'your session:', data.session
             $('title').text(data.hostname)
             console.groupEnd()
 
