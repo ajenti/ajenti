@@ -124,6 +124,7 @@ class MainSocket (SocketPlugin):
             'version': ajenti.version,
             'platform': ajenti.platform,
             'hostname': Sensor.find('hostname').value(),
+            'session': self.context.session.id,
         }
         self.emit('init', json.dumps(data))
 
