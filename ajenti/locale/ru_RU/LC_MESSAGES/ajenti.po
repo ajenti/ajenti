@@ -1623,7 +1623,7 @@ msgstr "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:2
 msgid "Use prefix"
-msgstr "Использовать префикс"
+msgstr "Use prefix"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:3
 msgid "Prefix"
