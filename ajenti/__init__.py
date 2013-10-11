@@ -58,6 +58,9 @@ def detect_platform():
         'linuxmint': 'ubuntu',
         'redhat enterprise linux': 'rhel',
         'red hat enterprise linux server': 'rhel',
+        'fedora': 'rhel',
+        'olpc': 'rhel',
+        'xo-system': 'rhel',
     }
 
     platform_mapping = {

@@ -9,7 +9,14 @@ class YumPackageManager (PackageManager):
     platforms = ['centos']
 
     def refresh(self):
-        out_u = subprocess.check_output(['yum', '-C', '-q', '-d0', '-e0', 'check-update'])
+        try:
+            out_u = subprocess.check_output(['yum', '-C', '-q', '-d0', '-e0', 'check-update'])
+        except subprocess.CalledProcessError as e:
+            # yum check-update returns 100 if there are packages available for an update
+            if e.returncode == 100:
+                out_u = e.output
+            else:
+                raise e
         out_a = subprocess.check_output(['yum', '-C', '-d0', '-e0', 'list', 'installed', '-q'])
         self.all = self._parse_yum(out_a)
         self.all_dict = dict((x.name, x) for x in self.all)
