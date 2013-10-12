@@ -54,17 +54,20 @@ class Item (object):
                 for i in range(0, 9)
             ]
 
-    def write(self):
+    @property
+    def mode(self):
         mods = [
             self.mod_ur, self.mod_uw, self.mod_ux,
             self.mod_gr, self.mod_gw, self.mod_gx,
             self.mod_ar, self.mod_aw, self.mod_ax
         ]
-        chmod = sum(
+        return sum(
             Item.stat_bits[i] * (1 if mods[i] else 0)
             for i in range(0, 9)
         )
-        os.chmod(self.fullpath, chmod)
+
+    def write(self):
+        os.chmod(self.fullpath, self.mode)
         os.chown(self.fullpath, pwd.getpwnam(self.owner)[2], grp.getgrnam(self.group)[2])
         os.rename(self.fullpath, os.path.join(self.path, self.name))
 

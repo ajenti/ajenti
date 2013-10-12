@@ -47,10 +47,6 @@ class FileManager (SectionPlugin):
 
         self.clipboard = []
         self.tabs = self.find('tabs')
-        self.find('dialog').buttons = [
-            {'id': 'save', 'text': _('Save')},
-            {'id': 'cancel', 'text': _('Cancel')},
-        ]
 
     def on_first_page_load(self):
         self.controller.new_tab(self.classconfig['root'])
@@ -178,6 +174,15 @@ class FileManager (SectionPlugin):
             self.binder_d.update()
             self.item.write()
             self.refresh()
+
+            if self.find('chmod-recursive').value:
+                cmd = 'chown -Rv "%s:%s" "%s"; chmod -Rv %o "%s"' % (
+                    self.item.owner, self.item.group,
+                    self.item.fullpath,
+                    self.item.mode,
+                    self.item.fullpath,
+                )
+                self.context.launch('terminal', command=cmd)
 
     def on_bc_click(self, tab, item):
         if not item.path.startswith(self.classconfig['root']):
