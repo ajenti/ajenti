@@ -81,7 +81,9 @@ class FileManager (SectionPlugin):
 
     @on('new-dir', 'click')
     def on_new_directory(self):
-        os.mkdir(os.path.join(self.controller.tabs[self.tabs.active].path, 'new directory'))
+        path = os.path.join(self.controller.tabs[self.tabs.active].path, 'new directory')
+        if not os.path.exists(path):
+            os.mkdir(path)
         self.refresh()
 
     @on('mass-cut', 'click')
