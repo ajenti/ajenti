@@ -22,12 +22,10 @@
                         <tab bind="shortpath">
                             <vc>
                                 <bind:collection id="breadcrumbs" bind="breadcrumbs">
-                                    <hc bind="__items">
-                                    </hc>
+                                    <hc bind="__items" />
                                     <bind:template>
                                         <hc>
-                                            <button id="name" style="link" bind="name" />
-                                            <icon icon="chevron-right" />
+                                            <button id="name" style="mini" bind="name" icon="folder-open" />
                                         </hc>
                                     </bind:template>
                                 </bind:collection>
