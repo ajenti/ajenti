@@ -1,10 +1,8 @@
-.control-inset {
-	.size(@controlHeight - 2px, @controlWidth2 - 10px);
-	.border-radius(3px);
-	.box-shadow(@controlInputShadowHighlight);
-	background: white;
-	border-bottom: 1px solid white;
-}
+@import "mixins.i.less";
+@import "vars.i.less";
+@import "lib.i.less";
+
+
 
 .control-textinput {
 	color: @controlText;
@@ -41,9 +39,21 @@
 		color: lighten(@controlText, 10%);
 		border-bottom: 1px dotted lighten(@controlText, 25%);
 	}
+}
 
-	i {
-		
+
+.changed-badge {
+	position: relative;
+
+	span {
+		position: absolute;
+		display: block;
+		z-index: 3;
+		right: 2px;
+		top: -5px;
+		font-size: 24px;
+		font-weight: bold;
+		color: @orange;
 	}
 }
 
@@ -51,6 +61,10 @@
 	display: block;
 	overflow: hidden;
 	margin: 1px;
+
+	&.changed {
+		box-shadow: 0 0 2px @orange !important;
+	}
 
 	// ------------------
 

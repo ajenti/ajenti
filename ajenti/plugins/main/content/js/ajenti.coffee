@@ -264,6 +264,7 @@ class window.Control
         @childContainer = null
         @dom = null
         @children = []
+        @changed = false
 
         profiler.start('Generating DOM')
         @createDom()
@@ -288,6 +289,16 @@ class window.Control
 
     detectUpdates: () ->
         return {}
+
+    markChanged: () ->
+        if not @changed
+            $(@dom).before("""
+                <div class="changed-badge">
+                    <span title="Not saved yet">*</span>
+                </div>
+            """)
+        @changed = true
+        $(@dom).addClass('changed')
 
     wrapChild: (child) ->
         return child.dom
