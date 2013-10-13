@@ -42,8 +42,9 @@ class UserManager (BasePlugin):
         """
         Verifies the given username/password combo
         """
-        self.get_sync_provider().sync()
-        return self.get_sync_provider().check_password(username, password)
+        provider = self.get_sync_provider(fallback=True)
+        provider.sync()
+        return provider.check_password(username, password)
 
     def hash_password(self, password):
         if not password.startswith('sha512|'):
@@ -61,11 +62,11 @@ class UserManager (BasePlugin):
         if not permission in context.user.permissions:
             raise SecurityError(permission)
 
-    def get_sync_provider(self):
+    def get_sync_provider(self, fallback=False):
         for p in ajenti.usersync.UserSyncProvider.get_classes():
             p.get()
             if p.id == self.classconfig['sync-provider']:
-                if not p.get().test():
+                if not p.get().test() and fallback:
                     return ajenti.usersync.AjentiSyncProvider.get()
                 return p.get()
 

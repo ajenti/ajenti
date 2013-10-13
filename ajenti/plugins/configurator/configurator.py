@@ -87,15 +87,28 @@ class Configurator (SectionPlugin):
         UserManager.get(manager.context).get_sync_provider().sync()
         self.refresh()
 
+    @on('configure-sync-button', 'click')
+    def on_configure_sync(self):
+        self.save()
+        self.configure_plugin(UserManager.get(manager.context).get_sync_provider(), notify=False)
+        self.refresh()
+
     def refresh(self):
         self.binder.reset()
 
         self.find('sync-providers').labels = [x.title for x in UserSyncProvider.get_classes()]
         self.find('sync-providers').values = [x.id    for x in UserSyncProvider.get_classes()]
-        self.find('sync-providers').value = UserManager.get(manager.context).get_sync_provider().id
-        self.find('add-user-button').visible = UserManager.get(manager.context).get_sync_provider().id == ''
-        self.find('sync-users-button').visible = UserManager.get(manager.context).get_sync_provider().id != ''
-        self.find('password').visible = UserManager.get(manager.context).get_sync_provider().id == ''
+
+        provider = UserManager.get(manager.context).get_sync_provider()
+        self.find('sync-providers').value = provider.id
+        self.find('add-user-button').visible = provider.id == ''
+        self.find('sync-users-button').visible = provider.id != ''
+        self.find('password').visible = provider.id == ''
+        self.find('configure-sync-button').visible = provider.classconfig_editor is not None
+
+        sync_ok = provider.test()
+        self.find('sync-status-ok').visible = sync_ok
+        self.find('sync-status-fail').visible = not sync_ok
 
         self.binder.autodiscover().populate()
         self.ccmgr.reload()
@@ -112,7 +125,7 @@ class Configurator (SectionPlugin):
             if not '|' in user.password:
                 user.password = UserManager.get(manager.context).hash_password(user.password)
 
-        self.binder.populate()
+        self.refresh()
         ajenti.config.save()
         self.context.notify('info', _('Saved. Please restart Ajenti for changes to take effect.'))
 
@@ -151,7 +164,7 @@ class Configurator (SectionPlugin):
             dialog.visible = False
             binder.update()
             plugin.save_classconfig()
-            self.context.notify('info', _('Saved'))
+            self.save()
 
         dialog.on('button', save)
 
