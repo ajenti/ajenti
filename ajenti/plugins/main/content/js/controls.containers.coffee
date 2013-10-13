@@ -22,7 +22,7 @@ class window.Controls.box extends window.Control
         h = @_int_to_px(@properties.height)
         @dom = $$("""
             <div class="control container box" style="width: #{w}; height: #{h}; 
-                overflow: #{if @properties.scroll then 'auto' else 'visible'}">
+                overflow: #{if @properties.scroll then 'auto' else 'hidden'}">
             </div>
         """)
         @childContainer = @dom

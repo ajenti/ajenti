@@ -2,15 +2,17 @@
     <body>
         <pad>
             <bind:collection bind="processes" id="processes">
-                <dt bind="__items">
+                <dt bind="__items" style="compressed">
                     <dtr>
                         <dth text="" />
                         <dth>
-                            <button id="sort-by-pid" style="link" text="{PID (Parent)}" />
+                            <button id="sort-by-pid" style="link" text="PID" />
                         </dth>
+                        <dth text="{Parent}" />
                         <dth>
                             <button id="sort-by-_sort_name" style="link" text="{Name}" />
                         </dth>
+                        <dth text="{Command}" />
                         <dth>
                             <button id="sort-by-_cpu" style="link" text="{CPU}" />
                         </dth>
@@ -27,18 +29,18 @@
                             <icon icon="cog" />
                         </dtd>
                         <dtd>
-                            <vc>
-                                <label bind="pid" style="bold" />
-                                <label bind="_ppid" />
-                            </vc>
+                            <label bind="pid" style="bold" />
                         </dtd>
                         <dtd>
-                            <vc>
-                                <label bind="_name" style="bold" />
-                                <box width="200">
-                                    <label bind="_cmd" />
-                                </box>
-                            </vc>
+                            <label bind="_ppid" />
+                        </dtd>
+                        <dtd>
+                            <label bind="_name" style="bold" />
+                        </dtd>
+                        <dtd>
+                            <box width="250">
+                                <label bind="_cmd" />
+                            </box>
                         </dtd>
                         <dtd>
                             <label bind="_cpu" />
