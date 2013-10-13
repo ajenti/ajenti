@@ -43,7 +43,9 @@ class AvailabilitySymlinks (object):
             return
         e = self.find_link(entry)
         if not e:
-            os.symlink(self.get_path(entry), os.path.join(self.dir_e, entry))
+            link_path = os.path.join(self.dir_e, entry)
+            if not os.path.exitst(link_path):
+                os.symlink(self.get_path(entry), link_path)
 
     def disable(self, entry):
         if not self.supports_activation:
