@@ -34,7 +34,7 @@ ajenti.log.init()
 
 
 def dirname():
-    return str(uuid.uuid4())
+    return 'tmp/' + str(uuid.uuid4())
 
 def compile_coffeescript(inpath):
     outpath = '%s.js' % inpath
@@ -144,6 +144,8 @@ do_compress = True
 if len(sys.argv) > 1 and sys.argv[1] == 'nocompress':
     do_compress = False
 
+if not os.path.exists('tmp'):
+    os.mkdir('tmp')
 
 greenlets = []
 traverse(compile)

@@ -61,17 +61,25 @@ class Terminals (SectionPlugin):
 
     @on('new-button', 'click')
     @restrict('terminal:shell')
-    def on_new(self, command=None, autoopen=False, **kwargs):
+    def on_new(self, command=None, autoopen=False, autoclose=False, callback=None, **kwargs):
         if not command:
             command = self.classconfig['shell']
         if self.terminals:
             key = sorted(self.terminals.keys())[-1] + 1
         else:
             key = 0
-        self.terminals[key] = Terminal(command, **kwargs)
+        url = '/ajenti:terminal/%i' % key
+
+        def _callback(exitcode=None):
+            if callback:
+                callback()
+            if autoclose and exitcode == 0:
+                self.context.endpoint.send_close_tab(url)
+
+        self.terminals[key] = Terminal(command, autoclose=autoclose, callback=_callback, **kwargs)
         self.refresh()
         if autoopen:
-            self.context.endpoint.send_url('/ajenti:terminal/%i' % key, 'Terminal %i' % key)
+            self.context.endpoint.send_open_tab(url, 'Terminal %i' % key)
         return key
 
     @on('run-button', 'click')

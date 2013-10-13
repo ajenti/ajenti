@@ -14,7 +14,13 @@ import sys
 import time
 import tempfile
 
+
 import ajenti
+localedir = os.path.abspath(os.path.join(os.path.split(ajenti.__file__)[0], 'locale'))
+gettext.textdomain('ajenti')
+gettext.install('ajenti', localedir, unicode=True)  
+
+
 import ajenti.feedback
 import ajenti.ipc
 import ajenti.plugins
@@ -89,9 +95,6 @@ def run():
         locale.setlocale(locale.LC_ALL, '')
     except:
         logging.warning('Couldn\'t set default locale')
-    localedir = os.path.abspath(os.path.join(os.path.split(ajenti.core.__file__)[0], 'locale'))
-    gettext.textdomain('ajenti')
-    gettext.install('ajenti', localedir, unicode=True)
 
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
 

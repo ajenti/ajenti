@@ -2,6 +2,7 @@
 @import "mixins.i.less";
 @import "vars.i.less";
 @import "icons.i.less";
+@import "lib.i.less";
 
 
 @font-face {
@@ -102,34 +103,6 @@ body {
     #gradient > .vertical(#fff, #f0f0f0);
 }
 
-.button-style(@g1) {
-	#gradient > .vertical(lighten(@g1, 5%), @g1);
-	color: rgba(0,0,0,.5);
-	border: none;
-
-	&:hover {
-		#gradient > .vertical(lighten(@g1, 10%), lighten(@g1, 5%));
-	}
-
-	&:active {
-		#gradient > .vertical(@g1, darken(@g1, 5%));	
-		//padding: 2px 0 0;
-		.box-shadow(@controlShadowHighlightPressed);
-	}
-
-	font-size: @fontSizeSmaller;
-	font-weight: bold;
-	text-align: center;
-	text-shadow: @controlTextShadowInset;
-	text-transform: uppercase;
-
-	.border-radius(3px);
-    border: 1px solid rgba(0,0,0,.15);
-	.box-shadow(@controlShadowHighlight);
-
-	position: relative;
-	top: -1px;
-}
 
 
 .clear {
@@ -467,7 +440,6 @@ body {
 }
 
 @import "controls.index.i.less";
-@import "controls.standard.i.less";
 @import "controls.dialogs.i.less";
 @import "controls.select2.i.less";
 

@@ -1,0 +1,16 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{Server URL}">
+            <textbox bind="url" />
+        </formline>
+        <formline text="{Admin DN}">
+            <textbox bind="admin_dn" />
+        </formline>
+        <formline text="{Auth DN suffix}">
+            <textbox bind="auth_dn" />
+        </formline>
+        <formline text="{Secret}">
+            <passwordbox bind="secret" />
+        </formline>
+    </vc>
+</bind:dict>

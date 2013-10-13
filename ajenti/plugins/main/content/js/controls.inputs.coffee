@@ -7,6 +7,7 @@ class window.Controls.textbox extends window.Control
         """)
         @input = $(@dom)
         @input.val(@properties.value)
+        @input.change () => @markChanged()
 
     detectUpdates: () ->
         r = {}
@@ -28,6 +29,7 @@ class window.Controls.passwordbox extends window.Controls.textbox
         """)
         @input = $(@dom)
         @input.val(@properties.value)
+        @input.change () => @markChanged()
 
 
 class window.Controls.editable extends window.Control
@@ -42,6 +44,7 @@ class window.Controls.editable extends window.Control
         @label = @dom.find('.label')
         @input = @dom.find('input')
         @input.hide()
+        @input.change () => @markChanged()
         @editmode = false
         @label.click @goEditMode
         @input.blur @goViewMode
@@ -94,6 +97,7 @@ class window.Controls.checkbox extends window.Control
             </div>
         """)
         @input = @dom.find('input')
+        @input.change () => @markChanged()
 
     detectUpdates: () ->
         r = {}
@@ -116,6 +120,7 @@ class window.Controls.dropdown extends window.Control
                 @input.append("""<option value="#{@properties.values[i]}" #{if @properties.values[i] == @properties.value then 'selected' else ''}>#{@properties.labels[i]}</option>""")
 
         @input.select2()
+        @input.change () => @markChanged()
         
         if @properties.server
             @input.change (e) =>
@@ -140,6 +145,7 @@ class window.Controls.combobox extends window.Control
             <input class="control combobox" type="text" value="#{@properties.value}" />
         """)
         @input = $(@dom)
+        @input.change () => @markChanged()
         @data = []
         for i in [0...@properties.labels.length]
             do (i) =>

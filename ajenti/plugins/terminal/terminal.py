@@ -96,7 +96,10 @@ class PTYProtocol():
         else:
             self.stream.feed('\n\n * ' + _('Process has exited successfully'))
         if self.callback:
-            self.callback()
+            try:
+                self.callback(exitcode=code)
+            except TypeError:
+                self.callback()
 
     def history(self):
         return self.format(full=True)

@@ -69,9 +69,13 @@ class window.Stream
             data = JSON.parse(data)
             Notificator.notify(data.type, data.text)
 
-        @socket.on 'url', (data) ->
+        @socket.on 'openTab', (data) ->
             data = JSON.parse(data)
             Tabs.addTab(data.url, data.title)
+
+        @socket.on 'closeTab', (data) ->
+            data = JSON.parse(data)
+            Tabs.closeTab(data.url)
 
         @socket.on 'debug', (data) ->
             data = JSON.parse(data)
@@ -264,6 +268,7 @@ class window.Control
         @childContainer = null
         @dom = null
         @children = []
+        @changed = false
 
         profiler.start('Generating DOM')
         @createDom()
@@ -288,6 +293,16 @@ class window.Control
 
     detectUpdates: () ->
         return {}
+
+    markChanged: () ->
+        if not @changed
+            $(@dom).before("""
+                <div class="changed-badge">
+                    <span title="Not saved yet">*</span>
+                </div>
+            """)
+        @changed = true
+        $(@dom).addClass('changed')
 
     wrapChild: (child) ->
         return child.dom

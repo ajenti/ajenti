@@ -1,5 +1,6 @@
 gevent
 gevent-socketio
+ldap
 lxml>=2.2.4
 passlib
 psutil>=0.6.0
