@@ -144,8 +144,11 @@ class MainSocket (SocketPlugin):
     def send_security_error(self):
         self.emit('security-error', '')
 
-    def send_url(self, url, title='new tab'):
-        self.emit('url', json.dumps({'url': url, 'title': title}))
+    def send_open_tab(self, url, title='new tab'):
+        self.emit('openTab', json.dumps({'url': url, 'title': title}))
+
+    def send_close_tab(self, url):
+        self.emit('closeTab', json.dumps({'url': url}))
 
     def send_debug(self):
         data = {
