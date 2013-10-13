@@ -31,7 +31,7 @@
 #: ajenti/plugins/network/layout/main.xml:8 ajenti/plugins/fm/fm.py:51
 #: ajenti/plugins/tasks/layout/main.xml:35
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/services/layout/bar.xml:3
@@ -40,26 +40,26 @@ msgstr ""
 #: ajenti/plugins/openvpn/layout/main.xml:1
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restart"
-msgstr ""
+msgstr "Újraindítás"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr ""
+msgstr "Ajenti újraindítás?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "Általános"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 msgid "HTTP Server"
-msgstr ""
+msgstr "HTTP Szerver"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
-msgstr ""
+msgstr "Hoszt"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/option-port.xml:1
@@ -71,28 +71,28 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL használata"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "Path to certificate"
-msgstr ""
+msgstr "Tanúsítvány útvonal"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 #: ajenti/plugins/configurator/layout/main.xml:11
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "SSL Önálló-aláírás tanúsítvány Generátor"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Hostname"
-msgstr ""
+msgstr "Hosztnév"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 #: ajenti/plugins/configurator/layout/main.xml:13
 msgid "Generate"
-msgstr ""
+msgstr "Generálás"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
@@ -100,12 +100,12 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Users"
-msgstr ""
+msgstr "Felhasználók"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 #: ajenti/plugins/configurator/layout/main.xml:15
 msgid "Authentication"
-msgstr ""
+msgstr "Hitelesítés"
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -118,19 +118,21 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/iptables/main.py:144
 msgid "Enable"
-msgstr ""
+msgstr "Engedélyezés"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Accounts"
-msgstr ""
+msgstr "Fiókok"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Delete"
-msgstr ""
+msgstr "Tőrlés"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/cron/layout/main.xml:4
@@ -177,16 +179,18 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Tőrlés megerősítése"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/elements/layout/projects-main.xml:1
 #: ajenti/plugins/elements/layout/users-main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/configurator/layout/main.xml:25
 msgid "Change password"
-msgstr ""
+msgstr "Jelszó változtatás"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:3
@@ -230,40 +234,45 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:31
+#: ajenti/plugins/elements/layout/users-main.xml:4
+#: ajenti/plugins/elements/layout/users-main.xml:5
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Other"
-msgstr ""
+msgstr "Egyéb"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/configurator/layout/main.xml:28
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Send feedback"
-msgstr ""
+msgstr "Visszajelzés küldése"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 #: ajenti/plugins/configurator/layout/main.xml:25
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "A rendszer automatikusan névtelenül küld az ajenti.org -ra információkat a verziószámról, operációs rendszerről és a használt bővítményekről."
 
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Plugins"
-msgstr ""
+msgstr "Bővítmények"
 
 #: ajenti/plugins/configurator/configurator.py:31
 #: ajenti/plugins/munin/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:30
+#: ajenti/plugins/configurator/configurator.py:32
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:32
 msgid "Configure"
-msgstr ""
+msgstr "Beállítások"
 
 #: ajenti/plugins/configurator/configurator.py:54
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
@@ -279,45 +288,51 @@ msgstr ""
 #: ajenti/plugins/configurator/configurator.py:53
 #: ajenti/plugins/notepad/notepad.py:100
 msgid "Saved"
-msgstr ""
+msgstr "Mentve"
 
 #: ajenti/plugins/configurator/configurator.py:106
 #: ajenti/plugins/configurator/configurator.py:108
 #: ajenti/plugins/configurator/configurator.py:105
+#: ajenti/plugins/configurator/configurator.py:130
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr ""
+msgstr "Mentve. Indítsuk újra az Ajentit a változások életbe léptetéséhez."
 
 #: ajenti/plugins/configurator/configurator.py:112
 #: ajenti/plugins/configurator/configurator.py:114
 #: ajenti/plugins/configurator/configurator.py:111
+#: ajenti/plugins/configurator/configurator.py:136
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Adjuk meg a hosztnevet"
 
 #: ajenti/plugins/configurator/configurator.py:128
 #: ajenti/plugins/configurator/configurator.py:130
 #: ajenti/plugins/configurator/configurator.py:127
+#: ajenti/plugins/configurator/configurator.py:150
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Állítsuk be a %s bővítményt!"
 
 #: ajenti/plugins/configurator/configurator.py:142
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:144
 #: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:182
 msgid "Configuration"
-msgstr ""
+msgstr "Beállítások"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
 #: ajenti/plugins/configurator/configurator.py:145
+#: ajenti/plugins/configurator/configurator.py:186
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Ajenti beállítások módosítása"
 
 #: ajenti/plugins/configurator/configurator.py:147
 #: ajenti/plugins/configurator/configurator.py:149
 #: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:187
 msgid "Restart Ajenti"
-msgstr ""
+msgstr "Ajenti újraindítás"
 
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
@@ -329,35 +344,35 @@ msgstr ""
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/iptables/main.py:67
 msgid "System"
-msgstr ""
+msgstr "Rendszer"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr ""
+msgstr "Kiválasztás"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr ""
+msgstr "Normál"
 
 #: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Minute"
-msgstr ""
+msgstr "Perc"
 
 #: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Hour"
-msgstr ""
+msgstr "Óra"
 
 #: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Day"
-msgstr ""
+msgstr "Nap"
 
 #: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Month"
-msgstr ""
+msgstr "Hónap"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/cron/layout/main.xml:10
@@ -373,19 +388,20 @@ msgstr ""
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "Command"
-msgstr ""
+msgstr "Parancs"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 #: ajenti/plugins/cron/layout/main.xml:12
 msgid "Special"
-msgstr ""
+msgstr "Speciális"
 
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:22
 msgid "Schedule"
-msgstr ""
+msgstr "Ütemterv"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:19
@@ -393,7 +409,7 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Environment"
-msgstr ""
+msgstr "Környezet"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/cron/layout/main.xml:22
@@ -421,7 +437,7 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:33
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/cron/layout/main.xml:23
@@ -429,11 +445,11 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:3
 msgid "Value"
-msgstr ""
+msgstr "Érték"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr ""
+msgstr "Szamba kluszter"
 
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
@@ -448,11 +464,11 @@ msgstr ""
 #: ajenti/plugins/nginx/main.py:48 ajenti/plugins/psql/main.py:21
 #: ajenti/plugins/mysql/main.py:22 ajenti/plugins/apache/main.py:49
 msgid "Software"
-msgstr ""
+msgstr "Szoftver"
 
 #: ajenti/plugins/ctdb/main.py:65
 msgid "Failed to obtain CTDB status"
-msgstr ""
+msgstr "Nem lehet megszerezni a CTDB státuszt"
 
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:3
@@ -460,15 +476,15 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:11
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Status"
-msgstr ""
+msgstr "Státusz"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "Publikus IP címek"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr ""
+msgstr "Szamba kezelése"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
@@ -476,49 +492,49 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr ""
+msgstr "Hibakeresés szint"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr ""
+msgstr "Fájlok"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr ""
+msgstr "Lock fájl javítás"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr ""
+msgstr "Publikus cím fájl"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Tartalom fájlok"
 
 #: ajenti/plugins/ctdb/layout/main.xml:11
 #: ajenti/plugins/samba/layout/main.xml:19
 msgid "Log file"
-msgstr ""
+msgstr "Napló fájl"
 
 #: ajenti/plugins/ctdb/layout/main.xml:12
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "Hálózat"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "Publikus felület"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Publikus hálózat"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Publikus átjáró"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr ""
+msgstr "Tartalmak"
 
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -526,51 +542,53 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
 msgid "Address"
-msgstr ""
+msgstr "Cím"
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr ""
+msgstr "Publikus címek"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr ""
+msgstr "Bekapcsolás"
 
-#: ajenti/plugins/power/power.py:80
+#: ajenti/plugins/power/power.py:80 ajenti/plugins/power/power.py:98
 msgid "Power control"
-msgstr ""
+msgstr "Teljesítményszabályozás"
 
-#: ajenti/plugins/power/power.py:84
+#: ajenti/plugins/power/power.py:84 ajenti/plugins/power/power.py:104
 msgid "Reboot"
-msgstr ""
+msgstr "Újraindítás"
 
-#: ajenti/plugins/power/power.py:85
+#: ajenti/plugins/power/power.py:85 ajenti/plugins/power/power.py:105
 msgid "Shutdown"
-msgstr ""
+msgstr "Leállítás"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "Újraindítás / Leállítás"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "Akkumulátor"
 
 #: ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/layout/widget.xml:5
 msgid "Reboot the system?"
-msgstr ""
+msgstr "Rendszer újraindítása?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
+#: ajenti/plugins/power/layout/widget.xml:6
 msgid "Shutdown the system?"
-msgstr ""
+msgstr "Rendszer leállítása?"
 
-#: ajenti/plugins/main/main.py:197
+#: ajenti/plugins/main/main.py:197 ajenti/plugins/main/main.py:201
 msgid "Section access"
-msgstr ""
+msgstr "Szekció hozzáférés"
 
-#: ajenti/plugins/main/main.py:214
+#: ajenti/plugins/main/main.py:214 ajenti/plugins/main/main.py:218
 msgid "Feedback sent!"
-msgstr ""
+msgstr "Visszajelzés elküldve!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
@@ -579,36 +597,36 @@ msgstr ""
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU használat"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr ""
+msgstr "Memória használat"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr ""
+msgstr "Swap használat"
 
 #: ajenti/plugins/sensors/uptime.py:18 ajenti/plugins/sensors/uptime.py:74
 msgid "Uptime"
-msgstr ""
+msgstr "Üzemidő"
 
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 msgid "Variant"
-msgstr ""
+msgstr "Változat"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
-msgstr ""
+msgstr "Fájlrendszer"
 
 #: ajenti/plugins/fstab/main.py:67
 msgid "Unmounted"
-msgstr ""
+msgstr "Lecsatolva"
 
 #: ajenti/plugins/fstab/main.py:73 ajenti/plugins/fstab/main.py:74
 msgid "mount -a failed"
-msgstr ""
+msgstr "mount -a sikertelen"
 
 #: ajenti/plugins/fstab/iops.py:61 ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
@@ -616,19 +634,19 @@ msgstr ""
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr ""
+msgstr "Lemezhasználat"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "HDD hőmérséklet"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "DHCP Szerver"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
-msgstr ""
+msgstr "Query befejezve"
 
 #: ajenti/plugins/db_common/api.py:54
 #, python-format
@@ -637,89 +655,89 @@ msgstr ""
 
 #: ajenti/plugins/iptables/main.py:55 ajenti/plugins/iptables/main.py:57
 msgid "You can't disable firewall autostart on this platform"
-msgstr ""
+msgstr "Nem lehet kikapcsolni automatikusan a tűzfalat ezen a platformon"
 
 #: ajenti/plugins/iptables/main.py:63 ajenti/plugins/iptables/main.py:65
 msgid "Firewall"
-msgstr ""
+msgstr "Tűzfal"
 
 #: ajenti/plugins/iptables/main.py:105
 #: ajenti/plugins/iptables/layout/main.xml:10
 #: ajenti/plugins/iptables/main.py:107
 msgid "Add option"
-msgstr ""
+msgstr "Új opció"
 
 #: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
 msgid "Disable"
-msgstr ""
+msgstr "Letíltás"
 
 #: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
 msgid " autostart"
-msgstr ""
+msgstr " automatikus indítás"
 
 #: ajenti/plugins/scripts/widget.py:11
 msgid "Script"
-msgstr ""
+msgstr "Szkript"
 
 #: ajenti/plugins/scripts/widget.py:41
 msgid "Launched"
-msgstr ""
+msgstr "Elindított"
 
 #: ajenti/plugins/scripts/widget.py:47
 msgid "Scripts"
-msgstr ""
+msgstr "Szkriptek"
 
 #: ajenti/plugins/scripts/widget.py:51
 msgid "Run scripts"
-msgstr ""
+msgstr "Szkript futtatása"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr ""
+msgstr "Ez a csomag is telepíthető automatikusan"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
-msgstr ""
+msgstr "Csomagok"
 
 #: ajenti/plugins/packages/main.py:50
 msgid "Enqueueing package installation"
-msgstr ""
+msgstr "Enqueueing csomag telepítés"
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
-msgstr ""
+msgstr "Telepítés befejeződött!"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i találat, 100 mutatás"
 
 #: ajenti/plugins/packages/main.py:137
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "%i találat"
 
 #: ajenti/plugins/packages/main.py:150
 msgid "Install / remove"
-msgstr ""
+msgstr "Telepítés / tőrlés"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr ""
+msgstr "Lista frissítés"
 
 #: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
-msgstr ""
+msgstr "Fájlkezelő"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/notepad/notepad.py:19 ajenti/plugins/tasks/main.py:16
 msgid "Tools"
-msgstr ""
+msgstr "Eszközök"
 
 #: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/fm.py:52
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -731,95 +749,95 @@ msgstr ""
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "CodeMirror kód szerkesztő"
 
 #: ajenti/plugins/terminal/terminal.py:97
 #: ajenti/plugins/terminal/terminal.py:95
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "A(z) %i folyamat sikeresen befejeződött"
 
 #: ajenti/plugins/terminal/terminal.py:99
 #: ajenti/plugins/terminal/terminal.py:97
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "A folyamat sikeresen befejeződött"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:183
+#: ajenti/plugins/terminal/main.py:183 ajenti/plugins/terminal/main.py:191
 msgid "Terminal"
-msgstr ""
+msgstr "Terminál"
 
-#: ajenti/plugins/terminal/main.py:187
+#: ajenti/plugins/terminal/main.py:187 ajenti/plugins/terminal/main.py:195
 msgid "Run shell"
-msgstr ""
+msgstr "Shell indítása"
 
-#: ajenti/plugins/terminal/main.py:188
+#: ajenti/plugins/terminal/main.py:188 ajenti/plugins/terminal/main.py:196
 msgid "Run custom commands"
-msgstr ""
+msgstr "Egyedi parancsok futtatása"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
 msgstr ""
 
-#: ajenti/plugins/memcache/widget.py:29
+#: ajenti/plugins/memcache/widget.py:29 ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcach memória használat"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
-msgstr ""
+msgstr "Naplók"
 
 #: ajenti/plugins/services/main.py:12
 msgid "Services"
-msgstr ""
+msgstr "Szolgáltatások"
 
 #: ajenti/plugins/services/main.py:39
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s elindítva"
 
 #: ajenti/plugins/services/main.py:44
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s leállítva"
 
 #: ajenti/plugins/services/main.py:49
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s újraindítva"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr ""
+msgstr "Szolgáltatások"
 
 #: ajenti/plugins/users/main.py:99
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "A(z) %s kezdő könyvtár létrejött"
 
 #: ajenti/plugins/users/main.py:108
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "A(z) %s jelszó módosításra került"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Hiba: \"%s\""
 
 #: ajenti/plugins/users/main.py:113
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "A jelszó mező nem lehet üres"
 
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "A(z) %s jelszó eltávolításra került"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "Hálózat"
 
 #: ajenti/plugins/network/widget.py:85
 msgid "Immediate Traffic"
@@ -827,26 +845,26 @@ msgstr ""
 
 #: ajenti/plugins/network/widget.py:115
 msgid "Traffic"
-msgstr ""
+msgstr "Adatforgalom"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
-msgstr ""
+msgstr "Folyamatok"
 
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
 #: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/mysql/main.py:15
 #: ajenti/plugins/apache/main.py:13
 msgid "Reload"
-msgstr ""
+msgstr "Újratöltés"
 
 #: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
 msgid "Zone saved"
-msgstr ""
+msgstr "Zóna mentve"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Hosztok"
 
 #: ajenti/plugins/notepad/notepad.py:17
 msgid "Notepad"
@@ -855,15 +873,15 @@ msgstr ""
 #: ajenti/plugins/notepad/notepad.py:50 ajenti/plugins/notepad/notepad.py:52
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "Névtelen %i"
 
 #: ajenti/plugins/resolv/resolv.py:13 ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr ""
+msgstr "Névszerverek"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr ""
+msgstr "DNS névszerver"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
@@ -871,7 +889,7 @@ msgstr ""
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "Search list"
-msgstr ""
+msgstr "Keresés lista"
 
 #: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
 msgid "Sort list"
@@ -884,15 +902,15 @@ msgstr ""
 #: ajenti/plugins/squid/layout/port-template.xml:3
 #: ajenti/plugins/exports/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
 msgid "Options"
-msgstr ""
+msgstr "Beállítások"
 
 #: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
-msgstr ""
+msgstr "Nincs adat"
 
 #: ajenti/plugins/smartctl/widget.py:59 ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
-msgstr ""
+msgstr "HIBA"
 
 #: ajenti/plugins/smartctl/widget.py:60 ajenti/plugins/smartctl/widget.py:62
 msgid "PRE-FAIL"
@@ -900,15 +918,15 @@ msgstr ""
 
 #: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:63
 msgid "Unknown error"
-msgstr ""
+msgstr "Ismeretlen hiba"
 
 #: ajenti/plugins/smartctl/widget.py:62 ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr ""
+msgstr "Hibák a naplóban"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr ""
+msgstr "NFS exportok"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
@@ -917,23 +935,23 @@ msgstr ""
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "HTTP hitelesítés hiba"
 
 #: ajenti/plugins/samba/main.py:47
 msgid "Password updated"
-msgstr ""
+msgstr "Jelszó frissítve"
 
 #: ajenti/plugins/samba/main.py:50
 msgid "Password update failed"
-msgstr ""
+msgstr "Jelszó frissítés hiba"
 
 #: ajenti/plugins/dashboard/dash.py:18
 msgid "Dashboard"
-msgstr ""
+msgstr "Vezérlőpult"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "Üdvözlet"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
@@ -949,54 +967,54 @@ msgstr ""
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "Eszköz"
 
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 #: ajenti/plugins/tasks/layout/main.xml:2
 msgid "Refresh"
-msgstr ""
+msgstr "Frissítés"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr ""
+msgstr "Összes csatolása"
 
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "Csatolási pont"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 msgid "FS type"
-msgstr ""
+msgstr "FS típus"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
-msgstr ""
+msgstr "Frekvencia keresés"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Engedélyek keresése"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "Csatolt fájlrendszerek"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr ""
+msgstr "Használt"
 
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr ""
+msgstr "Méret"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr ""
+msgstr "Használat"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr ""
+msgstr "Lecsatolás"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
@@ -1004,11 +1022,11 @@ msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr ""
+msgstr "Munka könyvtár"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
-msgstr ""
+msgstr "Automatikus indítás"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "[_('Enabled'), _('Disabled')]"
@@ -1016,7 +1034,7 @@ msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autorestart"
-msgstr ""
+msgstr "Automatikus újraindítás"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
@@ -1024,11 +1042,11 @@ msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Start timeout"
-msgstr ""
+msgstr "Indulási idő"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Start retries"
-msgstr ""
+msgstr "Indítás próbálkozás"
 
 #: ajenti/plugins/supervisor/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:7
@@ -1037,41 +1055,41 @@ msgstr ""
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr ""
+msgstr "Felhasználónév"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Alhálózatok"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "Specifikációk"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr ""
+msgstr "IP tartományok"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Globális beállítások"
 
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 #: ajenti/plugins/tasks/layout/main.xml:16
 msgid "Run"
-msgstr ""
+msgstr "Indítás"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr ""
+msgstr "Adatbázisok"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr ""
+msgstr "Adatbázis tőrlés megerősítése!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr ""
+msgstr "Adatbázis név"
 
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/openvpn/layout/config.xml:3
@@ -1079,24 +1097,24 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:29
 #: ajenti/plugins/netatalk/layout/main.xml:6
 msgid "Password"
-msgstr ""
+msgstr "Jelszó"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
 msgid "Interface"
-msgstr ""
+msgstr "Felület"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Argumentumok"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Argumentum"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr ""
+msgstr "Modulok"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
@@ -1104,7 +1122,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr ""
+msgstr "Raw szerkesztés"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
@@ -1116,80 +1134,80 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Új lánc"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Művelet"
 
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/users/layout/user-list.xml:3
 msgid "Comment"
-msgstr ""
+msgstr "Hozzászólás"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "Körülmények"
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "Új szabály"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
 msgid "Apply"
-msgstr ""
+msgstr "Alkalmaz"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "Protokoll"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:11
 msgid "Ports"
-msgstr ""
+msgstr "Portok"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Okok"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "Terminál indítása"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr ""
+msgstr "Verzió"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Listák"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "Bővíthető"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "Össes frissítése"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr ""
+msgstr "Keresés"
 
 #: ajenti/plugins/packages/layout/main.xml:7
 #: ajenti/plugins/tasks/layout/main.xml:7
 msgid "Pending"
-msgstr ""
+msgstr "Függőben levő"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr ""
+msgstr "Összes elvetése"
 
 #: ajenti/plugins/packages/layout/installer.xml:1
 msgid "Install"
-msgstr ""
+msgstr "Telepítés"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
@@ -1201,89 +1219,90 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "Legfelső könyvtár"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr ""
+msgstr "Bezárás"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr ""
+msgstr "Új fájl"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr ""
+msgstr "Új mappa"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Upload"
-msgstr ""
+msgstr "Feltötlés"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Clipboard"
-msgstr ""
+msgstr "Vágólap"
 
 #: ajenti/plugins/fm/layout/main.xml:9
 #: ajenti/plugins/users/layout/user-list.xml:9
 msgid "Remove"
-msgstr ""
+msgstr "Tődlés"
 
-#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/fm/layout/main.xml:11 ajenti/plugins/fm/layout/main.xml:12
 msgid "Access"
-msgstr ""
+msgstr "Hozzáférés"
 
-#: ajenti/plugins/fm/layout/main.xml:12
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:13
 msgid "Owner"
-msgstr ""
+msgstr "Tulajdonos"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
-msgid "Group"
-msgstr ""
-
 #: ajenti/plugins/fm/layout/main.xml:14
+msgid "Group"
+msgstr "Csoport"
+
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
 msgid "Others"
-msgstr ""
+msgstr "Egyebek"
 
 #: ajenti/plugins/lm-sensors/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "Szenzor"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr ""
+msgstr "Címek kezelése"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "hoszt:port vagy UNIX socket útvonal"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr ""
+msgstr "Távoli IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr ""
+msgstr "Lokális IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Kapcsolódva"
 
 #: ajenti/plugins/openvpn/layout/main.xml:7
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr ""
+msgstr "Lecsatlakozás"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "ügyfelek"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Levelek"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Időbélyeg"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
@@ -1293,15 +1312,15 @@ msgstr ""
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 msgid "Text"
-msgstr ""
+msgstr "Szöveg"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "HTTP Hozzáférés"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "Mód"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
@@ -1309,68 +1328,68 @@ msgstr ""
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "Alapértelmezett shell"
 
 #: ajenti/plugins/terminal/layout/main.xml:2
 #: ajenti/plugins/notepad/layout/main.xml:1
 msgid "New"
-msgstr ""
+msgstr "Új"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "Nincs elérhető terminál"
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Állapot"
 
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Type"
-msgstr ""
+msgstr "Típus"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Eszközök"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Tömbök"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr ""
+msgstr "Javítás:"
 
 #: ajenti/plugins/logs/layout/main.xml:1
 #: ajenti/plugins/notepad/layout/main.xml:2
 msgid "Open"
-msgstr ""
+msgstr "Nyílt"
 
 #: ajenti/plugins/services/layout/bar.xml:1
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 msgid "Start"
-msgstr ""
+msgstr "Elindítás"
 
 #: ajenti/plugins/services/layout/bar.xml:2
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "Megállítás"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "Eredeti"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "Műveletek"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr ""
+msgstr "Home mappa"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
@@ -1378,42 +1397,43 @@ msgstr ""
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Új jelszó"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "Set"
-msgstr ""
+msgstr "Használat"
 
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
+#: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "User"
-msgstr ""
+msgstr "Felhasználó"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Rendszer felhasználók"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr ""
+msgstr "Csoportok"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr ""
+msgstr "Felhasználók"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Class"
-msgstr ""
+msgstr "Osztály"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
-msgstr ""
+msgstr "Fel"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bring down"
-msgstr ""
+msgstr "Le"
 
 #: ajenti/plugins/network/layout/main.xml:5
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
@@ -1429,132 +1449,136 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr ""
+msgstr "PID (Szülő)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
+#: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
 msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
+#: ajenti/plugins/taskmgr/layout/main.xml:5
 msgid "RAM"
 msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
+#: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Terminate"
-msgstr ""
+msgstr "Befejezés"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
+#: ajenti/plugins/taskmgr/layout/main.xml:8
 msgid "Kill"
 msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Zónák"
 
 #: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
-msgstr ""
+msgstr "Fájl"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr ""
+msgstr "Zóna"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "A zóna fájl nem található"
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
+msgstr "Zóna mentés"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
-msgstr ""
+msgstr "Aliasok"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr ""
+msgstr "Mentés"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr ""
+msgstr "Könyvjelző"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
-msgstr ""
+msgstr "Függőségek"
 
 #: ajenti/plugins/exports/layout/main.xml:2
 #: ajenti/plugins/elements/layout/task-resequence.xml:1
 #: ajenti/plugins/elements/layout/task-params-proxy.xml:1
 msgid "Directory"
-msgstr ""
+msgstr "Könyvtár"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Clients"
-msgstr ""
+msgstr "Ügyfelek"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr ""
+msgstr "Megtekintés"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "Megosztások"
 
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "Útvonal"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 msgid "Guest access"
-msgstr ""
+msgstr "Vendég hozzáférés"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Browseable"
-msgstr ""
+msgstr "Böngészhető"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Create mask"
-msgstr ""
+msgstr "Maszk létrehozása"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Directory mask"
-msgstr ""
+msgstr "Könyvtár maszk"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Read only"
-msgstr ""
+msgstr "Csak olvasható"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "Beállítás"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Interfaces"
-msgstr ""
+msgstr "Felületek"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Bind csak ezeket a kapcsolódási pontokat ismeri fel"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Identification"
-msgstr ""
+msgstr "Azonosítás"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Workgroup"
-msgstr ""
+msgstr "Munkacsoport"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Server string"
-msgstr ""
+msgstr "Szerver sztring"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Security"
-msgstr ""
+msgstr "Biztonság"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Sessions"
@@ -1562,19 +1586,19 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Share"
-msgstr ""
+msgstr "MEgosztás"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Machine"
-msgstr ""
+msgstr "Készülék"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Add"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Add widget"
-msgstr ""
+msgstr "Widget hozzáadás"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
@@ -1582,19 +1606,19 @@ msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr ""
+msgstr "Érvényes felhasználók"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Erőforrás elágazás"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr ""
+msgstr "Kiterjesztett attribútumok"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "CNID séma"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
@@ -1602,20 +1626,20 @@ msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr ""
+msgstr "CNID cím"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Elérhető tárhely"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s ingyenes"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "vagy UNIX socket útvonal"
 
 #: ajenti/plugins/elements/bin/dict.xml:1
 msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
@@ -1641,7 +1665,7 @@ msgstr ""
 msgid "Applied successfully"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:141
+#: ajenti/plugins/fm/fm.py:141 ajenti/plugins/fm/fm.py:139
 #, python-format
 msgid "Selected %i items"
 msgstr ""
@@ -1745,5 +1769,81 @@ msgstr ""
 
 #: ajenti/plugins/ltfs/archive/main.py:29
 msgid "LTFS"
+msgstr ""
+
+#: ajenti/usersync/unix.py:16
+msgid "OS users"
+msgstr ""
+
+#: ajenti/usersync/local.py:12
+msgid "Off"
+msgstr ""
+
+#: ajenti/usersync/ldapsync.py:15
+msgid "LDAP User Syncronization"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:102
+msgid "Suspend"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:103
+msgid "Hibernate"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:3
+msgid "Suspend the system?"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:4
+msgid "Hibernate the system?"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
+msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+msgid "Sync with"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+msgid "Sync now"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+msgid "Configured correctly"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+msgid "Failed to sync"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
+msgid "Server URL"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
+msgid "Admin DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
+msgid "Auth DN suffix"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
+msgid "Secret"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:10
+msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:16
+msgid "Set recursively"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "Parent"
 msgstr ""
 

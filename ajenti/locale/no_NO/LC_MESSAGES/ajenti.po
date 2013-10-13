@@ -122,6 +122,7 @@ msgstr "Aktiverer"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Accounts"
 msgstr "Kontoer"
 
@@ -129,6 +130,7 @@ msgstr "Kontoer"
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Delete"
 msgstr "Slette"
 
@@ -177,6 +179,7 @@ msgstr "Slette"
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Confirm deletion"
 msgstr "Bekreft sletting"
 
@@ -185,6 +188,7 @@ msgstr "Bekreft sletting"
 #: ajenti/plugins/elements/layout/projects-main.xml:1
 #: ajenti/plugins/elements/layout/users-main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/configurator/layout/main.xml:25
 msgid "Change password"
 msgstr "Endre passord"
 
@@ -230,6 +234,8 @@ msgstr "Endre passord"
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:31
+#: ajenti/plugins/elements/layout/users-main.xml:4
+#: ajenti/plugins/elements/layout/users-main.xml:5
 msgid "Create"
 msgstr "Opprette"
 
@@ -262,6 +268,9 @@ msgstr "Plugins"
 #: ajenti/plugins/configurator/configurator.py:31
 #: ajenti/plugins/munin/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:30
+#: ajenti/plugins/configurator/configurator.py:32
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:32
 msgid "Configure"
 msgstr "Konfigurer"
 
@@ -284,18 +293,21 @@ msgstr "Lagret"
 #: ajenti/plugins/configurator/configurator.py:106
 #: ajenti/plugins/configurator/configurator.py:108
 #: ajenti/plugins/configurator/configurator.py:105
+#: ajenti/plugins/configurator/configurator.py:130
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Lagret. Start Ajenti på nytt for at endringene skal tre i kraft."
 
 #: ajenti/plugins/configurator/configurator.py:112
 #: ajenti/plugins/configurator/configurator.py:114
 #: ajenti/plugins/configurator/configurator.py:111
+#: ajenti/plugins/configurator/configurator.py:136
 msgid "Please supply hostname"
 msgstr "Angi vertsnavnet"
 
 #: ajenti/plugins/configurator/configurator.py:128
 #: ajenti/plugins/configurator/configurator.py:130
 #: ajenti/plugins/configurator/configurator.py:127
+#: ajenti/plugins/configurator/configurator.py:150
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Konfigurer %s plugin!"
@@ -304,18 +316,21 @@ msgstr "Konfigurer %s plugin!"
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:144
 #: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:182
 msgid "Configuration"
 msgstr "Konfigurasjon"
 
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:148
 #: ajenti/plugins/configurator/configurator.py:145
+#: ajenti/plugins/configurator/configurator.py:186
 msgid "Modify Ajenti configuration"
 msgstr "Endre Ajenti konfigurasjonen"
 
 #: ajenti/plugins/configurator/configurator.py:147
 #: ajenti/plugins/configurator/configurator.py:149
 #: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:187
 msgid "Restart Ajenti"
 msgstr "Start Ajenti på nytt"
 
@@ -373,6 +388,7 @@ msgstr "DoW"
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:3
 msgid "Command"
 msgstr "Kommandoen"
 
@@ -536,15 +552,15 @@ msgstr "Offentlige adresser"
 msgid "Power"
 msgstr "Strøm"
 
-#: ajenti/plugins/power/power.py:80
+#: ajenti/plugins/power/power.py:80 ajenti/plugins/power/power.py:98
 msgid "Power control"
 msgstr "Strømkontroll"
 
-#: ajenti/plugins/power/power.py:84
+#: ajenti/plugins/power/power.py:84 ajenti/plugins/power/power.py:104
 msgid "Reboot"
 msgstr "Omstart"
 
-#: ajenti/plugins/power/power.py:85
+#: ajenti/plugins/power/power.py:85 ajenti/plugins/power/power.py:105
 msgid "Shutdown"
 msgstr "Slå av"
 
@@ -557,18 +573,20 @@ msgid "Battery"
 msgstr "Batteri"
 
 #: ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/layout/widget.xml:5
 msgid "Reboot the system?"
 msgstr "Starte systemet på nytt?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
+#: ajenti/plugins/power/layout/widget.xml:6
 msgid "Shutdown the system?"
 msgstr "Slå av systemet?"
 
-#: ajenti/plugins/main/main.py:197
+#: ajenti/plugins/main/main.py:197 ajenti/plugins/main/main.py:201
 msgid "Section access"
 msgstr "Delen tilgang"
 
-#: ajenti/plugins/main/main.py:214
+#: ajenti/plugins/main/main.py:214 ajenti/plugins/main/main.py:218
 msgid "Feedback sent!"
 msgstr "Tilbakemelding sendt!"
 
@@ -745,15 +763,15 @@ msgid "Process has exited successfully"
 msgstr "Prosessen har avsluttet vellykket"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:183
+#: ajenti/plugins/terminal/main.py:183 ajenti/plugins/terminal/main.py:191
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ajenti/plugins/terminal/main.py:187
+#: ajenti/plugins/terminal/main.py:187 ajenti/plugins/terminal/main.py:195
 msgid "Run shell"
 msgstr "Kjøre skallet"
 
-#: ajenti/plugins/terminal/main.py:188
+#: ajenti/plugins/terminal/main.py:188 ajenti/plugins/terminal/main.py:196
 msgid "Run custom commands"
 msgstr "Kjøre egendefinerte kommandoer"
 
@@ -761,7 +779,7 @@ msgstr "Kjøre egendefinerte kommandoer"
 msgid "RAID"
 msgstr ""
 
-#: ajenti/plugins/memcache/widget.py:29
+#: ajenti/plugins/memcache/widget.py:29 ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
 msgstr "Memcache minnebruk"
 
@@ -1228,19 +1246,20 @@ msgstr "Utklippstavlen"
 msgid "Remove"
 msgstr "Fjern"
 
-#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/fm/layout/main.xml:11 ajenti/plugins/fm/layout/main.xml:12
 msgid "Access"
 msgstr "Tilgang"
 
-#: ajenti/plugins/fm/layout/main.xml:12
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:13
 msgid "Owner"
 msgstr "Eier"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:14
 msgid "Group"
 msgstr "Gruppe"
 
-#: ajenti/plugins/fm/layout/main.xml:14
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
 msgid "Others"
 msgstr "Andre"
 
@@ -1388,6 +1407,7 @@ msgstr "Sett"
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:23
+#: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "User"
 msgstr "Bruker"
 
@@ -1432,18 +1452,22 @@ msgid "PID (Parent)"
 msgstr "PID (overordnet)"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
+#: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
 msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
+#: ajenti/plugins/taskmgr/layout/main.xml:5
 msgid "RAM"
 msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
+#: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Terminate"
 msgstr "Avslutte"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
+#: ajenti/plugins/taskmgr/layout/main.xml:8
 msgid "Kill"
 msgstr "Drepe"
 
@@ -1641,7 +1665,7 @@ msgstr ""
 msgid "Applied successfully"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:141
+#: ajenti/plugins/fm/fm.py:141 ajenti/plugins/fm/fm.py:139
 #, python-format
 msgid "Selected %i items"
 msgstr ""
@@ -1745,5 +1769,81 @@ msgstr ""
 
 #: ajenti/plugins/ltfs/archive/main.py:29
 msgid "LTFS"
+msgstr ""
+
+#: ajenti/usersync/unix.py:16
+msgid "OS users"
+msgstr ""
+
+#: ajenti/usersync/local.py:12
+msgid "Off"
+msgstr ""
+
+#: ajenti/usersync/ldapsync.py:15
+msgid "LDAP User Syncronization"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:102
+msgid "Suspend"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:103
+msgid "Hibernate"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:3
+msgid "Suspend the system?"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:4
+msgid "Hibernate the system?"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
+msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+msgid "Sync with"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+msgid "Sync now"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+msgid "Configured correctly"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+msgid "Failed to sync"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
+msgid "Server URL"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
+msgid "Admin DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
+msgid "Auth DN suffix"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
+msgid "Secret"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:10
+msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:16
+msgid "Set recursively"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "Parent"
 msgstr ""
 
