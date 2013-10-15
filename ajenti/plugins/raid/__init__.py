@@ -8,7 +8,7 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('main'),
         BinaryDependency('mdadm'),
-        FileDependency('/proc/mdadm'),
+        FileDependency('/proc/mdstat'),
     ],
 )
 
