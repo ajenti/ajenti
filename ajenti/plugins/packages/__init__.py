@@ -17,4 +17,5 @@ def init():
     import pm_apt
     import pm_bsd
     import pm_yum
+    import pm_pacman
     import installer
