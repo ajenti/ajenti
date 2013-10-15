@@ -92,6 +92,8 @@ class MainSocket (SocketPlugin):
                         # Property change
                         profile_start('Handling updates')
                         el = self.ui.find_uid(update['uid'])
+                        if el is None:
+                            continue
                         for k, v in update['properties'].iteritems():
                             el.properties[k] = v
                             el.properties_dirty[k] = False
