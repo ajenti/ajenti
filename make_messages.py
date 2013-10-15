@@ -33,6 +33,7 @@ if subprocess.call(['which', 'xgettext']) != 0:
     sys.exit(0)
 
 if sys.argv[1] == 'extract':
+    os.unlink(pot_path)
     for (dirpath, dirnames, filenames) in os.walk('ajenti'):
         for f in filenames:
             path = os.path.join(dirpath, f)
