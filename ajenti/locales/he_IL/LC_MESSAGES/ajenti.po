@@ -1,0 +1,1849 @@
+#: ajenti/plugins/configurator/layout/main.xml:1
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/ctdb/layout/main.xml:25
+#: ajenti/plugins/cron/layout/main.xml:24
+#: ajenti/plugins/cron/layout/main.xml:22 ajenti/plugins/fm/fm.py:55
+#: ajenti/plugins/exports/layout/main.xml:8
+#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/fstab/layout/main.xml:18
+#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/users/layout/main.xml:16
+#: ajenti/plugins/hosts/layout/main.xml:7
+#: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:31
+#: ajenti/plugins/netatalk/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
+#: ajenti/plugins/iptables/layout/main.xml:12
+#: ajenti/plugins/network/layout/main.xml:3
+#: ajenti/plugins/dhcpd/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/bind9/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:14
+#: ajenti/plugins/nsd/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:8 ajenti/plugins/fm/fm.py:51
+#: ajenti/plugins/tasks/layout/main.xml:35
+msgid "Save"
+msgstr "שמור"
+
+#: ajenti/plugins/configurator/layout/main.xml:2
+#: ajenti/plugins/services/layout/bar.xml:3
+#: ajenti/plugins/services/layout/main.xml:5
+#: ajenti/plugins/services/layout/widget.xml:3
+#: ajenti/plugins/openvpn/layout/main.xml:1
+#: ajenti/plugins/network/layout/main.xml:6
+msgid "Restart"
+msgstr "הפעל מחדש"
+
+#: ajenti/plugins/configurator/layout/main.xml:3
+msgid "Restart Ajenti?"
+msgstr "להפעיל מחדש את Ajenti?"
+
+#: ajenti/plugins/configurator/layout/main.xml:4
+#: ajenti/plugins/ctdb/layout/main.xml:4
+msgid "General"
+msgstr "כללי"
+
+#: ajenti/plugins/configurator/layout/main.xml:5
+msgid "HTTP Server"
+msgstr "שרת HTTP"
+
+#: ajenti/plugins/configurator/layout/main.xml:6
+#: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/mysql/layout/config.xml:1
+msgid "Host"
+msgstr "מארח"
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/option-port.xml:1
+#: ajenti/plugins/squid/layout/port-template.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:8
+msgid "Port"
+msgstr "פורט"
+
+#: ajenti/plugins/configurator/layout/main.xml:8
+#: ajenti/plugins/configurator/layout/main.xml:9
+msgid "Use SSL"
+msgstr "השתמש ב- SSL"
+
+#: ajenti/plugins/configurator/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:10
+msgid "Path to certificate"
+msgstr "נתיב לאישור"
+
+#: ajenti/plugins/configurator/layout/main.xml:10
+#: ajenti/plugins/configurator/layout/main.xml:11
+msgid "SSL Self-Signed Certificate Generator"
+msgstr "SSL גנרטור של אישור בחתימה עצמית"
+
+#: ajenti/plugins/configurator/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:13
+#: ajenti/plugins/configurator/layout/main.xml:12
+msgid "Hostname"
+msgstr "שם מחשב מארח"
+
+#: ajenti/plugins/configurator/layout/main.xml:12
+#: ajenti/plugins/configurator/layout/main.xml:13
+msgid "Generate"
+msgstr "צור"
+
+#: ajenti/plugins/configurator/layout/main.xml:13
+#: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
+#: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
+#: ajenti/plugins/configurator/layout/main.xml:14
+msgid "Users"
+msgstr "משתמשים"
+
+#: ajenti/plugins/configurator/layout/main.xml:14
+#: ajenti/plugins/configurator/layout/main.xml:15
+msgid "Authentication"
+msgstr "אימות"
+
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
+#: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
+#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/iptables/main.py:144
+msgid "Enable"
+msgstr "לאפשר"
+
+#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:22
+msgid "Accounts"
+msgstr "חשבונות"
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:23
+msgid "Delete"
+msgstr "מחק"
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/cron/layout/main.xml:4
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/exports/layout/main.xml:1
+#: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/iptables/layout/main.xml:3
+#: ajenti/plugins/iptables/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option.xml:1
+#: ajenti/plugins/squid/layout/main.xml:2
+#: ajenti/plugins/squid/layout/main.xml:7
+#: ajenti/plugins/squid/layout/options-editor.xml:2
+#: ajenti/plugins/squid/layout/port-template.xml:1
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/hosts/layout/main.xml:1
+#: ajenti/plugins/resolv/layout/main.xml:1
+#: ajenti/plugins/samba/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:28
+#: ajenti/plugins/netatalk/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/elements/layout/projects-main.xml:2
+#: ajenti/plugins/dhcpd/layout/ranges.xml:1
+#: ajenti/plugins/dhcpd/layout/options.xml:1
+#: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/elements/layout/users-main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/users/layout/main.xml:10
+#: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:24
+msgid "Confirm deletion"
+msgstr "אישור מחיקה"
+
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/elements/layout/projects-main.xml:1
+#: ajenti/plugins/elements/layout/users-main.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/configurator/layout/main.xml:25
+msgid "Change password"
+msgstr "שינוי סיסמה"
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:12
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/db_common/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:10
+#: ajenti/plugins/exports/layout/main.xml:6
+#: ajenti/plugins/exports/layout/main.xml:7
+#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:10
+#: ajenti/plugins/supervisor/layout/main.xml:12
+#: ajenti/plugins/squid/layout/main.xml:1
+#: ajenti/plugins/squid/layout/main.xml:6
+#: ajenti/plugins/squid/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:12
+#: ajenti/plugins/squid/layout/options-editor.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:5
+#: ajenti/plugins/hosts/layout/main.xml:6
+#: ajenti/plugins/resolv/layout/main.xml:4
+#: ajenti/plugins/samba/layout/main.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+#: ajenti/plugins/elements/layout/projects-main.xml:3
+#: ajenti/plugins/dhcpd/layout/ranges.xml:2
+#: ajenti/plugins/dhcpd/layout/options.xml:2
+#: ajenti/plugins/dhcpd/layout/main.xml:6
+#: ajenti/plugins/elements/layout/users-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/bind9/layout/main.xml:8
+#: ajenti/plugins/bind9/layout/main.xml:10
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/tasks/layout/main.xml:18
+#: ajenti/plugins/tasks/layout/main.xml:31
+#: ajenti/plugins/elements/layout/users-main.xml:4
+#: ajenti/plugins/elements/layout/users-main.xml:5
+msgid "Create"
+msgstr "צור"
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:27
+#: ajenti/plugins/samba/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:22
+msgid "Other"
+msgstr "אחרים"
+
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:23
+msgid "Send feedback"
+msgstr "שלח משוב"
+
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/configurator/layout/main.xml:25
+msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
+msgstr "Ajenti בעילום שם ישלח את הגירסה שלה, שם מערכת ההפעלה שלך, ואילו תוספים השימוש בהם רב יותר ל ajenti.org"
+
+#: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/plugins/plugins.py:10
+#: ajenti/plugins/configurator/layout/main.xml:26
+msgid "Plugins"
+msgstr "תוספים"
+
+#: ajenti/plugins/configurator/configurator.py:31
+#: ajenti/plugins/munin/layout/main.xml:2
+#: ajenti/plugins/configurator/configurator.py:30
+#: ajenti/plugins/configurator/configurator.py:32
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:32
+msgid "Configure"
+msgstr "הגדר"
+
+#: ajenti/plugins/configurator/configurator.py:54
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
+#: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
+#: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
+#: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
+#: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
+#: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/bind9/main.py:70 ajenti/plugins/bind9/main.py:81
+#: ajenti/plugins/iptables/main.py:173 ajenti/plugins/iptables/main.py:186
+#: ajenti/plugins/network/main.py:73 ajenti/plugins/fstab/main.py:94
+#: ajenti/plugins/configurator/configurator.py:53
+#: ajenti/plugins/notepad/notepad.py:100
+msgid "Saved"
+msgstr "נשמר"
+
+#: ajenti/plugins/configurator/configurator.py:106
+#: ajenti/plugins/configurator/configurator.py:108
+#: ajenti/plugins/configurator/configurator.py:105
+#: ajenti/plugins/configurator/configurator.py:130
+msgid "Saved. Please restart Ajenti for changes to take effect."
+msgstr "נשמר. נא הפעל מחדש Ajenti בכדי שהשינויים ייכנסו לתוקף."
+
+#: ajenti/plugins/configurator/configurator.py:112
+#: ajenti/plugins/configurator/configurator.py:114
+#: ajenti/plugins/configurator/configurator.py:111
+#: ajenti/plugins/configurator/configurator.py:136
+msgid "Please supply hostname"
+msgstr "בבקשה לספק שם מחשב המארח"
+
+#: ajenti/plugins/configurator/configurator.py:128
+#: ajenti/plugins/configurator/configurator.py:130
+#: ajenti/plugins/configurator/configurator.py:127
+#: ajenti/plugins/configurator/configurator.py:150
+#, python-format
+msgid "Please configure %s plugin!"
+msgstr "בבקשה לקבוע את התצורה של התוסף %s !"
+
+#: ajenti/plugins/configurator/configurator.py:142
+#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:144
+#: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:182
+msgid "Configuration"
+msgstr "הגדרות"
+
+#: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:148
+#: ajenti/plugins/configurator/configurator.py:145
+#: ajenti/plugins/configurator/configurator.py:186
+msgid "Modify Ajenti configuration"
+msgstr "לשנות הגדרות של Ajenti"
+
+#: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:187
+msgid "Restart Ajenti"
+msgstr "לאתחל את Ajenti"
+
+#: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
+#: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
+#: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/iptables/main.py:67
+msgid "System"
+msgstr "מערכת"
+
+#: ajenti/plugins/cron/layout/main.xml:1
+msgid "Select"
+msgstr "בחר"
+
+#: ajenti/plugins/cron/layout/main.xml:2
+msgid "Normal"
+msgstr "רגיל"
+
+#: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
+#: ajenti/plugins/tasks/layout/main.xml:25
+msgid "Minute"
+msgstr "דקה"
+
+#: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:26
+msgid "Hour"
+msgstr "שעה"
+
+#: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
+#: ajenti/plugins/tasks/layout/main.xml:27
+msgid "Day"
+msgstr "יום"
+
+#: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/tasks/layout/main.xml:28
+msgid "Month"
+msgstr "חודש"
+
+#: ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:29
+msgid "DoW"
+msgstr "ימי השבוע"
+
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/cron/layout/main.xml:15
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/scripts/layout/widget.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/params-execute.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+msgid "Command"
+msgstr "פקודה"
+
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:12
+msgid "Special"
+msgstr "מיוחד"
+
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/tasks/layout/main.xml:22
+msgid "Schedule"
+msgstr "תיזמון"
+
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:12
+msgid "Environment"
+msgstr "סביבה"
+
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:14
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/samba/layout/main.xml:4
+#: ajenti/plugins/netatalk/layout/main.xml:4
+#: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:33
+msgid "Name"
+msgstr "שם"
+
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:23
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+#: ajenti/plugins/resolv/layout/main.xml:3
+msgid "Value"
+msgstr "ערך"
+
+#: ajenti/plugins/ctdb/main.py:20
+msgid "Samba Cluster"
+msgstr "אשכול סמבה"
+
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
+#: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
+#: ajenti/plugins/services/main.py:14 ajenti/plugins/psql/main.py:20
+#: ajenti/plugins/mysql/main.py:33 ajenti/plugins/nginx/main.py:39
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
+#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
+#: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/psql/main.py:21
+#: ajenti/plugins/mysql/main.py:22 ajenti/plugins/apache/main.py:49
+msgid "Software"
+msgstr "תוכנה"
+
+#: ajenti/plugins/ctdb/main.py:65
+msgid "Failed to obtain CTDB status"
+msgstr "נכשל בקבלת סטטוס CTDB"
+
+#: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
+#: ajenti/plugins/openvpn/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:4
+#: ajenti/plugins/tasks/layout/main.xml:11
+#: ajenti/plugins/plugins/layout/main.xml:4
+msgid "Status"
+msgstr "סטטוס"
+
+#: ajenti/plugins/ctdb/layout/main.xml:3
+msgid "Public IPs"
+msgstr "כתובות IP ציבוריות"
+
+#: ajenti/plugins/ctdb/layout/main.xml:5
+msgid "Manage Samba"
+msgstr "ניהול סמבה"
+
+#: ajenti/plugins/cron/layout/main.xml:16
+msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr "[_('שעתי'), _('יומי'), _('שבוע'), _('חודשי'), _('שנתי'), _ (\"בזמן איתחול')]"
+
+#: ajenti/plugins/ctdb/layout/main.xml:6
+msgid "Debug level"
+msgstr "רמת איתור באגים"
+
+#: ajenti/plugins/ctdb/layout/main.xml:7
+msgid "Files"
+msgstr "קבצים"
+
+#: ajenti/plugins/ctdb/layout/main.xml:8
+msgid "Recovery lock file"
+msgstr "שחזור קובץ הנעול"
+
+#: ajenti/plugins/ctdb/layout/main.xml:9
+msgid "Public addresses file"
+msgstr "קובץ כתובות ציבוריות"
+
+#: ajenti/plugins/ctdb/layout/main.xml:10
+msgid "Nodes file"
+msgstr "קובץ צמתים"
+
+#: ajenti/plugins/ctdb/layout/main.xml:11
+#: ajenti/plugins/samba/layout/main.xml:19
+msgid "Log file"
+msgstr "קובץ לוגים"
+
+#: ajenti/plugins/ctdb/layout/main.xml:12
+#: ajenti/plugins/samba/layout/main.xml:12
+msgid "Networking"
+msgstr "רשתות וציוד רשת"
+
+#: ajenti/plugins/ctdb/layout/main.xml:13
+msgid "Public interface"
+msgstr "ממשק ציבורי"
+
+#: ajenti/plugins/ctdb/layout/main.xml:14
+msgid "Public network"
+msgstr "רשת ציבורית"
+
+#: ajenti/plugins/ctdb/layout/main.xml:15
+msgid "Public gateway"
+msgstr "שער ציבורית"
+
+#: ajenti/plugins/ctdb/layout/main.xml:16
+msgid "Nodes"
+msgstr "צמתים"
+
+#: ajenti/plugins/ctdb/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/exports/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option-address.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:3
+msgid "Address"
+msgstr "כתובת"
+
+#: ajenti/plugins/ctdb/layout/main.xml:20
+msgid "Public addresses"
+msgstr "כתובות ציבוריות"
+
+#: ajenti/plugins/power/power.py:55
+msgid "Power"
+msgstr "צריכת חשמל"
+
+#: ajenti/plugins/power/power.py:80 ajenti/plugins/power/power.py:98
+msgid "Power control"
+msgstr "בקרת צריכת חשמל"
+
+#: ajenti/plugins/power/power.py:84 ajenti/plugins/power/power.py:104
+msgid "Reboot"
+msgstr "אתחל מחדש"
+
+#: ajenti/plugins/power/power.py:85 ajenti/plugins/power/power.py:105
+msgid "Shutdown"
+msgstr "כיבוי"
+
+#: ajenti/plugins/power/layout/widget.xml:1
+msgid "AC power"
+msgstr "מתח AC"
+
+#: ajenti/plugins/power/layout/widget.xml:2
+msgid "Battery"
+msgstr "סוללה"
+
+#: ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/layout/widget.xml:5
+msgid "Reboot the system?"
+msgstr "לאתחל את המערכת?"
+
+#: ajenti/plugins/power/layout/widget.xml:4
+#: ajenti/plugins/power/layout/widget.xml:6
+msgid "Shutdown the system?"
+msgstr "לכבות את המערכת?"
+
+#: ajenti/plugins/main/main.py:197 ajenti/plugins/main/main.py:201
+msgid "Section access"
+msgstr "סעיף גישה"
+
+#: ajenti/plugins/main/main.py:214 ajenti/plugins/main/main.py:218
+msgid "Feedback sent!"
+msgstr "משוב נשלח!"
+
+#: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
+msgid "Load average"
+msgstr "לטעון ממוצע"
+
+#: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
+#: ajenti/plugins/sensors/layout/cpu-widget.xml:1
+msgid "CPU usage"
+msgstr "ניצול CPU"
+
+#: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
+msgid "Memory usage"
+msgstr "ניצול זיכרון"
+
+#: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
+msgid "Swap usage"
+msgstr "להחליף שימוש"
+
+#: ajenti/plugins/sensors/uptime.py:18 ajenti/plugins/sensors/uptime.py:74
+msgid "Uptime"
+msgstr "זמן ריצה"
+
+#: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
+#: ajenti/plugins/sensors/layout/value-widget.xml:1
+msgid "Variant"
+msgstr "משתנה"
+
+#: ajenti/plugins/fstab/main.py:43
+msgid "Filesystems"
+msgstr "מערכות קבצים"
+
+#: ajenti/plugins/fstab/main.py:67
+msgid "Unmounted"
+msgstr "מנותק"
+
+#: ajenti/plugins/fstab/main.py:73 ajenti/plugins/fstab/main.py:74
+msgid "mount -a failed"
+msgstr "ניתוק a- נכשל"
+
+#: ajenti/plugins/fstab/iops.py:61 ajenti/plugins/fstab/iops.py:70
+msgid "Immediate I/O"
+msgstr "I/O מיידי"
+
+#: ajenti/plugins/fstab/widget.py:9
+msgid "Disk space"
+msgstr "שטח דיסק"
+
+#: ajenti/plugins/hddtemp/widget.py:9
+msgid "HDD Temperature"
+msgstr "טמפרטורת HDD"
+
+#: ajenti/plugins/dhcpd/main.py:13
+msgid "DHCP Server"
+msgstr "שרת DHCP"
+
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "השאילתה היסתיימה"
+
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr "הפלט חתוך מ %i שורות ל-200"
+
+#: ajenti/plugins/iptables/main.py:55 ajenti/plugins/iptables/main.py:57
+msgid "You can't disable firewall autostart on this platform"
+msgstr "לא ניתן לבטל אתחול אוטומטי של חומת האש בפלטפורמה זו"
+
+#: ajenti/plugins/iptables/main.py:63 ajenti/plugins/iptables/main.py:65
+msgid "Firewall"
+msgstr "חומת אש"
+
+#: ajenti/plugins/iptables/main.py:105
+#: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/main.py:107
+msgid "Add option"
+msgstr "הוסף אפשרות"
+
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
+msgid "Disable"
+msgstr "בטל"
+
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
+msgid " autostart"
+msgstr " אתחול אוטומטי"
+
+#: ajenti/plugins/scripts/widget.py:11
+msgid "Script"
+msgstr "סקריפט"
+
+#: ajenti/plugins/scripts/widget.py:41
+msgid "Launched"
+msgstr "הושק"
+
+#: ajenti/plugins/scripts/widget.py:47
+msgid "Scripts"
+msgstr "סקריפטים"
+
+#: ajenti/plugins/scripts/widget.py:51
+msgid "Run scripts"
+msgstr "הפעל סקריפט"
+
+#: ajenti/plugins/packages/installer.py:9
+msgid "This package can be installed automatically"
+msgstr "ניתן להתקין חבילה זו באופן אוטומטי"
+
+#: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
+msgid "Packages"
+msgstr "חבילות"
+
+#: ajenti/plugins/packages/main.py:50
+msgid "Enqueueing package installation"
+msgstr "התקנת החבילה הוספה לתור"
+
+#: ajenti/plugins/packages/main.py:61
+msgid "Installation complete!"
+msgstr "התקנה הושלמה!"
+
+#: ajenti/plugins/packages/main.py:134
+#, python-format
+msgid "%i found, 100 shown"
+msgstr "%i נמצאו, 100 מוצגים"
+
+#: ajenti/plugins/packages/main.py:137
+#, python-format
+msgid "%i found"
+msgstr "%i נמצאו"
+
+#: ajenti/plugins/packages/main.py:150
+msgid "Install / remove"
+msgstr "התקן / הסר"
+
+#: ajenti/plugins/packages/main.py:151
+msgid "Refresh lists"
+msgstr "רענון רשימות"
+
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+msgid "File Manager"
+msgstr "מנהל קבצים"
+
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/notepad/notepad.py:19 ajenti/plugins/tasks/main.py:16
+msgid "Tools"
+msgstr "כלים"
+
+#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/fm.py:52
+msgid "Cancel"
+msgstr "בטל"
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr ""
+
+#: ajenti/plugins/squid/main.py:14
+msgid "Squid"
+msgstr "Squid"
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr "עורך הקוד CodeMirror"
+
+#: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:95
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "התהליך הסתיים עם המצב %i"
+
+#: ajenti/plugins/terminal/terminal.py:99
+#: ajenti/plugins/terminal/terminal.py:97
+msgid "Process has exited successfully"
+msgstr "התהליך בוצע בהצלחה"
+
+#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
+#: ajenti/plugins/terminal/main.py:183 ajenti/plugins/terminal/main.py:191
+msgid "Terminal"
+msgstr "טרמינל"
+
+#: ajenti/plugins/terminal/main.py:187 ajenti/plugins/terminal/main.py:195
+msgid "Run shell"
+msgstr "הפעל מעטפת פקודה"
+
+#: ajenti/plugins/terminal/main.py:188 ajenti/plugins/terminal/main.py:196
+msgid "Run custom commands"
+msgstr "להפעיל פקודות מותאמות אישית"
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/memcache/widget.py:29 ajenti/plugins/memcache/widget.py:35
+msgid "Memcache memory usage"
+msgstr "שימוש בזיכרון memcache"
+
+#: ajenti/plugins/logs/main.py:12
+msgid "Logs"
+msgstr "לוגים"
+
+#: ajenti/plugins/services/main.py:12
+msgid "Services"
+msgstr "שירותים"
+
+#: ajenti/plugins/services/main.py:39
+#, python-format
+msgid "%s started"
+msgstr "%s התחיל"
+
+#: ajenti/plugins/services/main.py:44
+#, python-format
+msgid "%s stopped"
+msgstr "%s הפסיק"
+
+#: ajenti/plugins/services/main.py:49
+#, python-format
+msgid "%s restarted"
+msgstr "%s אותחל"
+
+#: ajenti/plugins/services/widget.py:10
+#: ajenti/plugins/services/layout/widget.xml:4
+msgid "Service"
+msgstr "שירות"
+
+#: ajenti/plugins/users/main.py:99
+#, python-format
+msgid "Home dir for %s was created"
+msgstr "תיקית בית עבור %s נוצרה"
+
+#: ajenti/plugins/users/main.py:108
+#, python-format
+msgid "Password for %s was changed"
+msgstr "הסיסמה עבור %s שונתה"
+
+#: ajenti/plugins/users/main.py:111
+#, python-format
+msgid "Error: \"%s\""
+msgstr "שגיאה: \"%s\""
+
+#: ajenti/plugins/users/main.py:113
+msgid "Password shouldn't be empty"
+msgstr "הסיסמה לא צריכה להיות ריקה"
+
+#: ajenti/plugins/users/main.py:117
+#, python-format
+msgid "Password for %s was removed"
+msgstr "הסיסמה עבור %s הוסרה"
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr "רשת"
+
+#: ajenti/plugins/network/widget.py:85
+msgid "Immediate Traffic"
+msgstr "תנועה מיידית"
+
+#: ajenti/plugins/network/widget.py:115
+msgid "Traffic"
+msgstr "תעבורת נתונים"
+
+#: ajenti/plugins/taskmgr/main.py:14
+msgid "Processes"
+msgstr "תהליכים"
+
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
+#: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/mysql/main.py:15
+#: ajenti/plugins/apache/main.py:13
+msgid "Reload"
+msgstr "טען מחדש"
+
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+msgid "Zone saved"
+msgstr "אזור נשמר"
+
+#: ajenti/plugins/hosts/hosts.py:13
+msgid "Hosts"
+msgstr "מארחים"
+
+#: ajenti/plugins/notepad/notepad.py:17
+msgid "Notepad"
+msgstr "פנקס רשימות"
+
+#: ajenti/plugins/notepad/notepad.py:50 ajenti/plugins/notepad/notepad.py:52
+#, python-format
+msgid "Untitled %i"
+msgstr "%i ללא כותרת"
+
+#: ajenti/plugins/resolv/resolv.py:13 ajenti/plugins/resolv/main.py:13
+msgid "Nameservers"
+msgstr "שרתי DNS"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "DNS nameserver"
+msgstr "שרתי DNS"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Local domain name"
+msgstr "שם הדומיין המקומי"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Search list"
+msgstr "רשימת חיפוש"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Sort list"
+msgstr "מיון הרשימה"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:5
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/exports/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
+msgid "Options"
+msgstr "אפשרויות"
+
+#: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
+msgid "No data"
+msgstr "אין נתונים"
+
+#: ajenti/plugins/smartctl/widget.py:59 ajenti/plugins/smartctl/widget.py:61
+msgid "FAILING"
+msgstr "נכשל"
+
+#: ajenti/plugins/smartctl/widget.py:60 ajenti/plugins/smartctl/widget.py:62
+msgid "PRE-FAIL"
+msgstr "כשל קדם"
+
+#: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:63
+msgid "Unknown error"
+msgstr "שגיאה לא ידועה"
+
+#: ajenti/plugins/smartctl/widget.py:62 ajenti/plugins/smartctl/widget.py:64
+msgid "Errors in log"
+msgstr "שגיאות בלוג"
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "יצוא NFS"
+
+#: ajenti/plugins/munin/main.py:43
+#, python-format
+msgid "Couldn't connect to Munin: %s"
+msgstr "לא ניתן להתחבר Munin: %s"
+
+#: ajenti/plugins/munin/main.py:47
+msgid "Munin HTTP authentication failed"
+msgstr "אימות ל Munin HTTP נכשל"
+
+#: ajenti/plugins/samba/main.py:47
+msgid "Password updated"
+msgstr "הסיסמה עודכנה"
+
+#: ajenti/plugins/samba/main.py:50
+msgid "Password update failed"
+msgstr "עדכן הסיסמה נכשל"
+
+#: ajenti/plugins/dashboard/dash.py:18
+msgid "Dashboard"
+msgstr "לוח מחוונים"
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr "ברוך הבא"
+
+#: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr "מתאם"
+
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/free-widget.xml:1
+msgid "Device"
+msgstr "התקן"
+
+#: ajenti/plugins/fstab/layout/main.xml:1
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:2
+msgid "Refresh"
+msgstr "רענון"
+
+#: ajenti/plugins/fstab/layout/main.xml:2
+msgid "Mount all"
+msgstr "טען הכל"
+
+#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:13
+msgid "Mountpoint"
+msgstr "נקודת טעינה"
+
+#: ajenti/plugins/fstab/layout/main.xml:6
+msgid "FS type"
+msgstr "סוג FS"
+
+#: ajenti/plugins/fstab/layout/main.xml:8
+msgid "Scan frequency"
+msgstr "תדר סריקה"
+
+#: ajenti/plugins/fstab/layout/main.xml:9
+msgid "Scan pass"
+msgstr "מעבר סריקה"
+
+#: ajenti/plugins/fstab/layout/main.xml:11
+msgid "Mounted filesystems"
+msgstr "מערכות קבצים שנטענו"
+
+#: ajenti/plugins/fstab/layout/main.xml:14
+msgid "Used"
+msgstr "בשימוש"
+
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "גודל"
+
+#: ajenti/plugins/fstab/layout/main.xml:16
+msgid "Usage"
+msgstr "שימוש"
+
+#: ajenti/plugins/fstab/layout/main.xml:17
+msgid "Unmount"
+msgstr "ניתוק"
+
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{ 'command': 'force-reload', 'text': _('לטעון מחדש'), 'icon': 'step-forward', }]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:4
+msgid "Working directory"
+msgstr "ספריית עבודה"
+
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Autostart"
+msgstr "אתחול אוטומטי"
+
+#: ajenti/plugins/supervisor/layout/main.xml:6
+msgid "[_('Enabled'), _('Disabled')]"
+msgstr "[_('להפעיל'), _('לכבות')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:7
+msgid "Autorestart"
+msgstr "אתחול מחדש אוטומטית"
+
+#: ajenti/plugins/supervisor/layout/main.xml:8
+msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
+msgstr "[_('להפעיל'), _ (\"רק בחירום\"), _('לכבות')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:9
+msgid "Start timeout"
+msgstr "התחל פסק זמן"
+
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "Start retries"
+msgstr "התחיל נסיונות חוזרים"
+
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "שם משתמש"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:1
+msgid "Subnetworks"
+msgstr "רשתות משנה"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:3
+msgid "Specification"
+msgstr "מפרט"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:4
+msgid "IP ranges"
+msgstr "טווחי IP"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:7
+msgid "Global options"
+msgstr "אפשרויות כלליות"
+
+#: ajenti/plugins/db_common/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:16
+msgid "Run"
+msgstr "הרץ"
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "מסדי נתונים"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "לאשר שחרור מסד נתונים!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "שם מסד הנתונים"
+
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/openvpn/layout/config.xml:3
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/samba/layout/main.xml:29
+#: ajenti/plugins/netatalk/layout/main.xml:6
+msgid "Password"
+msgstr "סיסמה"
+
+#: ajenti/plugins/iptables/layout/option-interface.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr "ממשק"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr "ארגומנטים"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr "הארגומנט"
+
+#: ajenti/plugins/iptables/layout/option-match.xml:1
+msgid "Modules"
+msgstr "מודולים"
+
+#: ajenti/plugins/iptables/layout/option-state.xml:1
+msgid "States"
+msgstr "מצבים"
+
+#: ajenti/plugins/iptables/layout/main.xml:1
+msgid "Raw edit"
+msgstr "עריכה ידנית"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr "לטעון את המצב הנוכחי"
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr "פעולה זו תחליף תצורה ששמורה עם תצורת מצב חומת האש הנוכחי! האם להמשיך?"
+
+#: ajenti/plugins/iptables/layout/main.xml:4
+msgid "New Chain"
+msgstr "שרשרת חדשה"
+
+#: ajenti/plugins/iptables/layout/main.xml:7
+msgid "Action"
+msgstr "פעולה"
+
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/users/layout/user-list.xml:3
+msgid "Comment"
+msgstr "תגובה"
+
+#: ajenti/plugins/iptables/layout/main.xml:9
+msgid "Conditions"
+msgstr "תנאים"
+
+#: ajenti/plugins/iptables/layout/main.xml:11
+msgid "New Rule"
+msgstr "חוק חדש"
+
+#: ajenti/plugins/iptables/layout/main.xml:13
+#: ajenti/plugins/packages/layout/main.xml:2
+msgid "Apply"
+msgstr "החל"
+
+#: ajenti/plugins/iptables/layout/option-protocol.xml:1
+msgid "Protocol"
+msgstr "פרוטוקול"
+
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:11
+msgid "Ports"
+msgstr "פורטים"
+
+#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
+msgid "Reason"
+msgstr "סיבה"
+
+#: ajenti/plugins/scripts/layout/widget.xml:3
+msgid "Run in terminal"
+msgstr "להפעיל בטרמינל"
+
+#: ajenti/plugins/packages/layout/headers.xml:2
+msgid "Version"
+msgstr "גירסה"
+
+#: ajenti/plugins/packages/layout/main.xml:1
+msgid "Get lists"
+msgstr "לקבל רשימות"
+
+#: ajenti/plugins/packages/layout/main.xml:3
+msgid "Upgradeable"
+msgstr "לשדרוג"
+
+#: ajenti/plugins/packages/layout/main.xml:4
+msgid "Upgrade all"
+msgstr "לשדרג הכל"
+
+#: ajenti/plugins/packages/layout/main.xml:5
+#: ajenti/plugins/packages/layout/main.xml:6
+msgid "Search"
+msgstr "חיפוש"
+
+#: ajenti/plugins/packages/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:7
+msgid "Pending"
+msgstr "ממתין"
+
+#: ajenti/plugins/packages/layout/main.xml:8
+msgid "Cancel all"
+msgstr "לבטל את הכל"
+
+#: ajenti/plugins/packages/layout/installer.xml:1
+msgid "Install"
+msgstr "התקן"
+
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr "סמן לשדרוג/התקנה"
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr "סמן להסרה"
+
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "תיקיה עליונה"
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "סגור"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "New File"
+msgstr "קובץ חדש"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New Folder"
+msgstr "תיקיה חדשה"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Upload"
+msgstr "העלה"
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Clipboard"
+msgstr "לוח"
+
+#: ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:9
+msgid "Remove"
+msgstr "הסר"
+
+#: ajenti/plugins/fm/layout/main.xml:11 ajenti/plugins/fm/layout/main.xml:12
+msgid "Access"
+msgstr "גישה"
+
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:13
+msgid "Owner"
+msgstr "בעלים"
+
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:14
+msgid "Group"
+msgstr "קבוצה"
+
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
+msgid "Others"
+msgstr "אחרים"
+
+#: ajenti/plugins/lm-sensors/layout/widget.xml:1
+msgid "Sensor"
+msgstr "חיישן"
+
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr "ניהול כתובת"
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr "מארח: שקע לנתיב של פורט או UNIX"
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr "IP מרוחק"
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr "IP מקומי"
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr "מחובר מאז"
+
+#: ajenti/plugins/openvpn/layout/main.xml:7
+#: ajenti/plugins/samba/layout/main.xml:25
+msgid "Disconnect"
+msgstr "להתנתק"
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr "לקוחות"
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr "הודעות"
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr "זמן"
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr "דגלים"
+
+#: ajenti/plugins/openvpn/layout/main.xml:12
+#: ajenti/plugins/dashboard/text.py:7
+#: ajenti/plugins/dashboard/layout/text.xml:1
+msgid "Text"
+msgstr "טקסט"
+
+#: ajenti/plugins/squid/layout/main.xml:5
+msgid "HTTP Access"
+msgstr "גישת HTTP"
+
+#: ajenti/plugins/squid/layout/main.xml:8
+msgid "Mode"
+msgstr "מצב"
+
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "[_('Allow'), _('Deny')]"
+msgstr "[_('להרשות'), _('למנוע')]"
+
+#: ajenti/plugins/terminal/layout/config.xml:1
+msgid "Default shell"
+msgstr "מעטפת פקודה ברירת מחדל"
+
+#: ajenti/plugins/terminal/layout/main.xml:2
+#: ajenti/plugins/notepad/layout/main.xml:1
+msgid "New"
+msgstr "חדש"
+
+#: ajenti/plugins/terminal/layout/main.xml:3
+msgid "No active terminals"
+msgstr "אין מסוף פעיל"
+
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr "מצב"
+
+#: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:2
+msgid "Type"
+msgstr "סוג"
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr "התקנים"
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr "חסימות"
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr "שחזור:"
+
+#: ajenti/plugins/logs/layout/main.xml:1
+#: ajenti/plugins/notepad/layout/main.xml:2
+msgid "Open"
+msgstr "פתח"
+
+#: ajenti/plugins/services/layout/bar.xml:1
+#: ajenti/plugins/services/layout/main.xml:3
+#: ajenti/plugins/services/layout/widget.xml:1
+msgid "Start"
+msgstr "התחל"
+
+#: ajenti/plugins/services/layout/bar.xml:2
+#: ajenti/plugins/services/layout/main.xml:4
+#: ajenti/plugins/services/layout/widget.xml:2
+msgid "Stop"
+msgstr "עצור"
+
+#: ajenti/plugins/services/layout/main.xml:1
+msgid "Origin"
+msgstr "מקור"
+
+#: ajenti/plugins/services/layout/main.xml:2
+msgid "Actions"
+msgstr "פעולות"
+
+#: ajenti/plugins/users/layout/user-list.xml:4
+msgid "Home directory"
+msgstr "ספריית הבית"
+
+#: ajenti/plugins/users/layout/user-list.xml:6
+msgid "Shell"
+msgstr "מעטפת פקודה"
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "סיסמה חדשה"
+
+#: ajenti/plugins/users/layout/user-list.xml:8
+#: ajenti/plugins/samba/layout/main.xml:30
+msgid "Set"
+msgstr "הגדר"
+
+#: ajenti/plugins/users/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:23
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+msgid "User"
+msgstr "משתמש"
+
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr "משתמשי מערכת"
+
+#: ajenti/plugins/users/layout/main.xml:9
+msgid "Groups"
+msgstr "קבוצות"
+
+#: ajenti/plugins/users/layout/main.xml:12
+msgid "Members"
+msgstr "חברים"
+
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr "מחלקה"
+
+#: ajenti/plugins/network/layout/main.xml:3
+msgid "Bring up"
+msgstr "להעלות"
+
+#: ajenti/plugins/network/layout/main.xml:4
+msgid "Bring down"
+msgstr "להוריד"
+
+#: ajenti/plugins/network/layout/main.xml:5
+msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
+msgstr "הורדה של חיבור הרשת הראשית יכול לנתק כל גישה לשרת! האם אתה בטוח?"
+
+#: ajenti/plugins/network/layout/main.xml:7
+msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
+msgstr "הפעלה מחדש של חיבור הרשת הראשית יכול לנתק כל גישה לשרת! האם אתה בטוח?"
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+msgstr "[_('Loopback'), _('סטטי'), _('ידני'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "PID (Parent)"
+msgstr "PID (האב)"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+msgid "CPU"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+msgid "RAM"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+msgid "Terminate"
+msgstr "סיים"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+#: ajenti/plugins/taskmgr/layout/main.xml:8
+msgid "Kill"
+msgstr "להרוג"
+
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr "אזורים"
+
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr "קובץ"
+
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr "אזור"
+
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr "אזור הקובץ אינו קיים"
+
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
+msgstr "שמור את האזור"
+
+#: ajenti/plugins/hosts/layout/main.xml:4
+msgid "Aliases"
+msgstr "כינויים"
+
+#: ajenti/plugins/notepad/layout/main.xml:4
+msgid "Save As"
+msgstr "שמירה בשם"
+
+#: ajenti/plugins/notepad/layout/main.xml:5
+msgid "Bookmark"
+msgstr "הוסף לסימניות"
+
+#: ajenti/plugins/plugins/layout/main.xml:1
+msgid "Dependencies"
+msgstr "תלות"
+
+#: ajenti/plugins/exports/layout/main.xml:2
+#: ajenti/plugins/elements/layout/task-resequence.xml:1
+#: ajenti/plugins/elements/layout/task-params-proxy.xml:1
+msgid "Directory"
+msgstr "ספריה"
+
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr "לקוחות"
+
+#: ajenti/plugins/munin/layout/main.xml:1
+msgid "View"
+msgstr "תצוגה"
+
+#: ajenti/plugins/samba/layout/main.xml:1
+#: ajenti/plugins/netatalk/layout/main.xml:1
+msgid "Shares"
+msgstr "תיקיות משוטפות"
+
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/netatalk/layout/main.xml:5
+msgid "Path"
+msgstr "נתיב"
+
+#: ajenti/plugins/samba/layout/main.xml:6
+msgid "Guest access"
+msgstr "כניסת אורחים"
+
+#: ajenti/plugins/samba/layout/main.xml:7
+msgid "Browseable"
+msgstr "לעיין בו"
+
+#: ajenti/plugins/samba/layout/main.xml:8
+msgid "Create mask"
+msgstr "יצירת מסיכה"
+
+#: ajenti/plugins/samba/layout/main.xml:9
+msgid "Directory mask"
+msgstr "מסכת ספרייה"
+
+#: ajenti/plugins/samba/layout/main.xml:10
+msgid "Read only"
+msgstr "לקריאה בלבד"
+
+#: ajenti/plugins/samba/layout/main.xml:11
+#: ajenti/plugins/netatalk/layout/main.xml:11
+msgid "Config"
+msgstr "הגדרות"
+
+#: ajenti/plugins/samba/layout/main.xml:13
+msgid "Interfaces"
+msgstr "ממשקים"
+
+#: ajenti/plugins/samba/layout/main.xml:14
+msgid "Bind only to these interfaces"
+msgstr "להישתמש רק בממשקים אלה"
+
+#: ajenti/plugins/samba/layout/main.xml:15
+msgid "Identification"
+msgstr "זיהוי"
+
+#: ajenti/plugins/samba/layout/main.xml:16
+msgid "Workgroup"
+msgstr "קבוצת עבודה"
+
+#: ajenti/plugins/samba/layout/main.xml:17
+msgid "Server string"
+msgstr "מחרוזת שרת"
+
+#: ajenti/plugins/samba/layout/main.xml:20
+msgid "Security"
+msgstr "אבטחה"
+
+#: ajenti/plugins/samba/layout/main.xml:21
+msgid "Sessions"
+msgstr "הפעלות"
+
+#: ajenti/plugins/samba/layout/main.xml:22
+msgid "Share"
+msgstr "שתף"
+
+#: ajenti/plugins/samba/layout/main.xml:24
+msgid "Machine"
+msgstr "מכונה"
+
+#: ajenti/plugins/samba/layout/main.xml:27
+msgid "Add"
+msgstr "להוסיף"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Add widget"
+msgstr "הוסף ווידג'ט"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
+msgstr "[{'טקסט': _('Cancel'), 'id': 'ביטול'}]"
+
+#: ajenti/plugins/netatalk/layout/main.xml:7
+msgid "Valid users"
+msgstr "משתמשים חוקיים"
+
+#: ajenti/plugins/netatalk/layout/main.xml:8
+msgid "Resource forks"
+msgstr "משאבים של פורקים"
+
+#: ajenti/plugins/netatalk/layout/main.xml:9
+msgid "Extended attributes"
+msgstr "תכונות מורחבות"
+
+#: ajenti/plugins/netatalk/layout/main.xml:10
+msgid "CNID scheme"
+msgstr "ערכת CNID"
+
+#: ajenti/plugins/netatalk/layout/main.xml:12
+msgid "AFP port"
+msgstr "פורט AFP"
+
+#: ajenti/plugins/netatalk/layout/main.xml:13
+msgid "CNID address"
+msgstr "כתובת CNID"
+
+#: ajenti/plugins/fstab/widget.py:38
+msgid "Free disk space"
+msgstr "שטח דיסק פנוי"
+
+#: ajenti/plugins/fstab/widget.py:48
+#, python-format
+msgid "%s free"
+msgstr "%s פנוי"
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+msgid "or UNIX socket path"
+msgstr "או נתיב שקה של UNIX"
+
+#: ajenti/plugins/elements/bin/dict.xml:1
+msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:2
+msgid "Use prefix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:3
+msgid "Prefix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:4
+msgid "Use suffix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:5
+msgid "Suffix"
+msgstr ""
+
+#: ajenti/plugins/iptables/main.py:198
+msgid "Applied successfully"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:141 ajenti/plugins/fm/fm.py:139
+#, python-format
+msgid "Selected %i items"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:33
+#, python-format
+msgid "Copying %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:64
+#, python-format
+msgid "Moving %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:63
+#, python-format
+msgid "Task %s finished"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:95
+#, python-format
+msgid "Task %s queued"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:101
+#, python-format
+msgid "Task %s started"
+msgstr ""
+
+#: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
+msgid "Tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:1
+msgid "From directory"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:2
+msgid "Into directory"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:1
+msgid "Running tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:5
+msgid "Running"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:6
+msgid "Aborting"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:8
+msgid "Abort"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:9
+msgid "Completed tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:12
+msgid "Success"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:13
+msgid "Aborted"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:14
+msgid "Error"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:15
+msgid "Crashed"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:17
+msgid "Jobs"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:21
+msgid "Run task"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:23
+msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:24
+msgid "Manual entry"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:34
+msgid "Run in parallel"
+msgstr ""
+
+#: ajenti/plugins/plugins/layout/main.xml:3
+msgid "Depends on"
+msgstr ""
+
+#: ajenti/plugins/ltfs/archive/main.py:29
+msgid "LTFS"
+msgstr ""
+
+#: ajenti/usersync/unix.py:16
+msgid "OS users"
+msgstr ""
+
+#: ajenti/usersync/local.py:12
+msgid "Off"
+msgstr ""
+
+#: ajenti/usersync/ldapsync.py:15
+msgid "LDAP User Syncronization"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:102
+msgid "Suspend"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:103
+msgid "Hibernate"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:3
+msgid "Suspend the system?"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:4
+msgid "Hibernate the system?"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
+msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+msgid "Sync with"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+msgid "Sync now"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+msgid "Configured correctly"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+msgid "Failed to sync"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
+msgid "Server URL"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
+msgid "Admin DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
+msgid "Auth DN suffix"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
+msgid "Secret"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:10
+msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:16
+msgid "Set recursively"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "Parent"
+msgstr ""
+

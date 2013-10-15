@@ -1,0 +1,1849 @@
+#: ajenti/plugins/configurator/layout/main.xml:1
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/ctdb/layout/main.xml:25
+#: ajenti/plugins/cron/layout/main.xml:24
+#: ajenti/plugins/cron/layout/main.xml:22 ajenti/plugins/fm/fm.py:55
+#: ajenti/plugins/exports/layout/main.xml:8
+#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/fstab/layout/main.xml:18
+#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/users/layout/main.xml:16
+#: ajenti/plugins/hosts/layout/main.xml:7
+#: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:31
+#: ajenti/plugins/netatalk/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
+#: ajenti/plugins/iptables/layout/main.xml:12
+#: ajenti/plugins/network/layout/main.xml:3
+#: ajenti/plugins/dhcpd/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/bind9/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:14
+#: ajenti/plugins/nsd/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:8 ajenti/plugins/fm/fm.py:51
+#: ajenti/plugins/tasks/layout/main.xml:35
+msgid "Save"
+msgstr "Salvează"
+
+#: ajenti/plugins/configurator/layout/main.xml:2
+#: ajenti/plugins/services/layout/bar.xml:3
+#: ajenti/plugins/services/layout/main.xml:5
+#: ajenti/plugins/services/layout/widget.xml:3
+#: ajenti/plugins/openvpn/layout/main.xml:1
+#: ajenti/plugins/network/layout/main.xml:6
+msgid "Restart"
+msgstr "Restartează"
+
+#: ajenti/plugins/configurator/layout/main.xml:3
+msgid "Restart Ajenti?"
+msgstr "Restartează Ajenti?"
+
+#: ajenti/plugins/configurator/layout/main.xml:4
+#: ajenti/plugins/ctdb/layout/main.xml:4
+msgid "General"
+msgstr "Generală"
+
+#: ajenti/plugins/configurator/layout/main.xml:5
+msgid "HTTP Server"
+msgstr "Server HTTP"
+
+#: ajenti/plugins/configurator/layout/main.xml:6
+#: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/mysql/layout/config.xml:1
+msgid "Host"
+msgstr "Server"
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/option-port.xml:1
+#: ajenti/plugins/squid/layout/port-template.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:8
+msgid "Port"
+msgstr "poarta"
+
+#: ajenti/plugins/configurator/layout/main.xml:8
+#: ajenti/plugins/configurator/layout/main.xml:9
+msgid "Use SSL"
+msgstr "Folosește SSL"
+
+#: ajenti/plugins/configurator/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:10
+msgid "Path to certificate"
+msgstr "Calea certificatului"
+
+#: ajenti/plugins/configurator/layout/main.xml:10
+#: ajenti/plugins/configurator/layout/main.xml:11
+msgid "SSL Self-Signed Certificate Generator"
+msgstr "Generator de certificate SSL Self-Signed"
+
+#: ajenti/plugins/configurator/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:13
+#: ajenti/plugins/configurator/layout/main.xml:12
+msgid "Hostname"
+msgstr "Nume server"
+
+#: ajenti/plugins/configurator/layout/main.xml:12
+#: ajenti/plugins/configurator/layout/main.xml:13
+msgid "Generate"
+msgstr "Generează"
+
+#: ajenti/plugins/configurator/layout/main.xml:13
+#: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
+#: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
+#: ajenti/plugins/configurator/layout/main.xml:14
+msgid "Users"
+msgstr "Utilizatori"
+
+#: ajenti/plugins/configurator/layout/main.xml:14
+#: ajenti/plugins/configurator/layout/main.xml:15
+msgid "Authentication"
+msgstr "Autentificare"
+
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
+#: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
+#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/iptables/main.py:144
+msgid "Enable"
+msgstr "Activează"
+
+#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:22
+msgid "Accounts"
+msgstr "Account-uri"
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:23
+msgid "Delete"
+msgstr "Șterge"
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/cron/layout/main.xml:4
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/exports/layout/main.xml:1
+#: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/iptables/layout/main.xml:3
+#: ajenti/plugins/iptables/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option.xml:1
+#: ajenti/plugins/squid/layout/main.xml:2
+#: ajenti/plugins/squid/layout/main.xml:7
+#: ajenti/plugins/squid/layout/options-editor.xml:2
+#: ajenti/plugins/squid/layout/port-template.xml:1
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/hosts/layout/main.xml:1
+#: ajenti/plugins/resolv/layout/main.xml:1
+#: ajenti/plugins/samba/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:28
+#: ajenti/plugins/netatalk/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/elements/layout/projects-main.xml:2
+#: ajenti/plugins/dhcpd/layout/ranges.xml:1
+#: ajenti/plugins/dhcpd/layout/options.xml:1
+#: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/elements/layout/users-main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/users/layout/main.xml:10
+#: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:24
+msgid "Confirm deletion"
+msgstr "Confirmă ștergerea"
+
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/elements/layout/projects-main.xml:1
+#: ajenti/plugins/elements/layout/users-main.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/configurator/layout/main.xml:25
+msgid "Change password"
+msgstr "Schimbă parola"
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:12
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/db_common/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:10
+#: ajenti/plugins/exports/layout/main.xml:6
+#: ajenti/plugins/exports/layout/main.xml:7
+#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:10
+#: ajenti/plugins/supervisor/layout/main.xml:12
+#: ajenti/plugins/squid/layout/main.xml:1
+#: ajenti/plugins/squid/layout/main.xml:6
+#: ajenti/plugins/squid/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:12
+#: ajenti/plugins/squid/layout/options-editor.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:5
+#: ajenti/plugins/hosts/layout/main.xml:6
+#: ajenti/plugins/resolv/layout/main.xml:4
+#: ajenti/plugins/samba/layout/main.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+#: ajenti/plugins/elements/layout/projects-main.xml:3
+#: ajenti/plugins/dhcpd/layout/ranges.xml:2
+#: ajenti/plugins/dhcpd/layout/options.xml:2
+#: ajenti/plugins/dhcpd/layout/main.xml:6
+#: ajenti/plugins/elements/layout/users-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/bind9/layout/main.xml:8
+#: ajenti/plugins/bind9/layout/main.xml:10
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/tasks/layout/main.xml:18
+#: ajenti/plugins/tasks/layout/main.xml:31
+#: ajenti/plugins/elements/layout/users-main.xml:4
+#: ajenti/plugins/elements/layout/users-main.xml:5
+msgid "Create"
+msgstr "Creează"
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:27
+#: ajenti/plugins/samba/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:22
+msgid "Other"
+msgstr "Altele"
+
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:23
+msgid "Send feedback"
+msgstr "Transmite un feedback"
+
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/configurator/layout/main.xml:25
+msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
+msgstr "Ajenti va transmite anonim informația despre versiunea folosită, sistemul de operare, și ce module utilizați mai des din ajenti.org"
+
+#: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/plugins/plugins.py:10
+#: ajenti/plugins/configurator/layout/main.xml:26
+msgid "Plugins"
+msgstr "Module"
+
+#: ajenti/plugins/configurator/configurator.py:31
+#: ajenti/plugins/munin/layout/main.xml:2
+#: ajenti/plugins/configurator/configurator.py:30
+#: ajenti/plugins/configurator/configurator.py:32
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:32
+msgid "Configure"
+msgstr "Configurare"
+
+#: ajenti/plugins/configurator/configurator.py:54
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
+#: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
+#: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
+#: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
+#: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
+#: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/bind9/main.py:70 ajenti/plugins/bind9/main.py:81
+#: ajenti/plugins/iptables/main.py:173 ajenti/plugins/iptables/main.py:186
+#: ajenti/plugins/network/main.py:73 ajenti/plugins/fstab/main.py:94
+#: ajenti/plugins/configurator/configurator.py:53
+#: ajenti/plugins/notepad/notepad.py:100
+msgid "Saved"
+msgstr "Salvat"
+
+#: ajenti/plugins/configurator/configurator.py:106
+#: ajenti/plugins/configurator/configurator.py:108
+#: ajenti/plugins/configurator/configurator.py:105
+#: ajenti/plugins/configurator/configurator.py:130
+msgid "Saved. Please restart Ajenti for changes to take effect."
+msgstr "Salvat. Vă rugăm să restartați Ajenti pentru ca schimbările să intre in vigoare."
+
+#: ajenti/plugins/configurator/configurator.py:112
+#: ajenti/plugins/configurator/configurator.py:114
+#: ajenti/plugins/configurator/configurator.py:111
+#: ajenti/plugins/configurator/configurator.py:136
+msgid "Please supply hostname"
+msgstr "Introduceți hostname-ul"
+
+#: ajenti/plugins/configurator/configurator.py:128
+#: ajenti/plugins/configurator/configurator.py:130
+#: ajenti/plugins/configurator/configurator.py:127
+#: ajenti/plugins/configurator/configurator.py:150
+#, python-format
+msgid "Please configure %s plugin!"
+msgstr "Vă rugam sa configurați modulul %s"
+
+#: ajenti/plugins/configurator/configurator.py:142
+#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:144
+#: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:182
+msgid "Configuration"
+msgstr "Configurare"
+
+#: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:148
+#: ajenti/plugins/configurator/configurator.py:145
+#: ajenti/plugins/configurator/configurator.py:186
+msgid "Modify Ajenti configuration"
+msgstr "Schimbă configurația Ajenti"
+
+#: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:187
+msgid "Restart Ajenti"
+msgstr "Restartează Ajenti"
+
+#: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
+#: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
+#: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/iptables/main.py:67
+msgid "System"
+msgstr "Sistem"
+
+#: ajenti/plugins/cron/layout/main.xml:1
+msgid "Select"
+msgstr "Alege"
+
+#: ajenti/plugins/cron/layout/main.xml:2
+msgid "Normal"
+msgstr "Normal"
+
+#: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
+#: ajenti/plugins/tasks/layout/main.xml:25
+msgid "Minute"
+msgstr "Minut"
+
+#: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:26
+msgid "Hour"
+msgstr "Ore"
+
+#: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
+#: ajenti/plugins/tasks/layout/main.xml:27
+msgid "Day"
+msgstr "Zi"
+
+#: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/tasks/layout/main.xml:28
+msgid "Month"
+msgstr "Luni"
+
+#: ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:29
+msgid "DoW"
+msgstr "Zi a săptăminii"
+
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/cron/layout/main.xml:15
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/scripts/layout/widget.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/params-execute.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+msgid "Command"
+msgstr "Comanda"
+
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:12
+msgid "Special"
+msgstr "Special"
+
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/tasks/layout/main.xml:22
+msgid "Schedule"
+msgstr "Plan"
+
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:12
+msgid "Environment"
+msgstr "Mediu"
+
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:14
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/samba/layout/main.xml:4
+#: ajenti/plugins/netatalk/layout/main.xml:4
+#: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:33
+msgid "Name"
+msgstr "Nume"
+
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:23
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+#: ajenti/plugins/resolv/layout/main.xml:3
+msgid "Value"
+msgstr "Valoare"
+
+#: ajenti/plugins/ctdb/main.py:20
+msgid "Samba Cluster"
+msgstr "Cluster Samba"
+
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
+#: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
+#: ajenti/plugins/services/main.py:14 ajenti/plugins/psql/main.py:20
+#: ajenti/plugins/mysql/main.py:33 ajenti/plugins/nginx/main.py:39
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
+#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
+#: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/psql/main.py:21
+#: ajenti/plugins/mysql/main.py:22 ajenti/plugins/apache/main.py:49
+msgid "Software"
+msgstr "Software"
+
+#: ajenti/plugins/ctdb/main.py:65
+msgid "Failed to obtain CTDB status"
+msgstr "N-am reușit să obținem status-ul CTDB"
+
+#: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
+#: ajenti/plugins/openvpn/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:4
+#: ajenti/plugins/tasks/layout/main.xml:11
+#: ajenti/plugins/plugins/layout/main.xml:4
+msgid "Status"
+msgstr "Stat"
+
+#: ajenti/plugins/ctdb/layout/main.xml:3
+msgid "Public IPs"
+msgstr "IP-uri publice"
+
+#: ajenti/plugins/ctdb/layout/main.xml:5
+msgid "Manage Samba"
+msgstr "Modifică Samba"
+
+#: ajenti/plugins/cron/layout/main.xml:16
+msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr "[_('Ore'), _('Zilnic'), _('Săptăminal'), _('Lunar'), _('Anual'), _('La restartare')]"
+
+#: ajenti/plugins/ctdb/layout/main.xml:6
+msgid "Debug level"
+msgstr "Nivelul debug-ului"
+
+#: ajenti/plugins/ctdb/layout/main.xml:7
+msgid "Files"
+msgstr "File-uri"
+
+#: ajenti/plugins/ctdb/layout/main.xml:8
+msgid "Recovery lock file"
+msgstr "File-ul de restabilire lock"
+
+#: ajenti/plugins/ctdb/layout/main.xml:9
+msgid "Public addresses file"
+msgstr "File-ul adreselor publice"
+
+#: ajenti/plugins/ctdb/layout/main.xml:10
+msgid "Nodes file"
+msgstr "File-ul de noduri"
+
+#: ajenti/plugins/ctdb/layout/main.xml:11
+#: ajenti/plugins/samba/layout/main.xml:19
+msgid "Log file"
+msgstr "File-ul de log"
+
+#: ajenti/plugins/ctdb/layout/main.xml:12
+#: ajenti/plugins/samba/layout/main.xml:12
+msgid "Networking"
+msgstr "Rețele"
+
+#: ajenti/plugins/ctdb/layout/main.xml:13
+msgid "Public interface"
+msgstr "Interfață publică"
+
+#: ajenti/plugins/ctdb/layout/main.xml:14
+msgid "Public network"
+msgstr "Rețea Publică"
+
+#: ajenti/plugins/ctdb/layout/main.xml:15
+msgid "Public gateway"
+msgstr "Portal public"
+
+#: ajenti/plugins/ctdb/layout/main.xml:16
+msgid "Nodes"
+msgstr "Noduri"
+
+#: ajenti/plugins/ctdb/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/exports/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option-address.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:3
+msgid "Address"
+msgstr "Adresă"
+
+#: ajenti/plugins/ctdb/layout/main.xml:20
+msgid "Public addresses"
+msgstr "Adresă publică"
+
+#: ajenti/plugins/power/power.py:55
+msgid "Power"
+msgstr "Energie"
+
+#: ajenti/plugins/power/power.py:80 ajenti/plugins/power/power.py:98
+msgid "Power control"
+msgstr "Controlul energiei"
+
+#: ajenti/plugins/power/power.py:84 ajenti/plugins/power/power.py:104
+msgid "Reboot"
+msgstr "Restartează"
+
+#: ajenti/plugins/power/power.py:85 ajenti/plugins/power/power.py:105
+msgid "Shutdown"
+msgstr "Stinge"
+
+#: ajenti/plugins/power/layout/widget.xml:1
+msgid "AC power"
+msgstr "Energia AC"
+
+#: ajenti/plugins/power/layout/widget.xml:2
+msgid "Battery"
+msgstr "Bateria"
+
+#: ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/layout/widget.xml:5
+msgid "Reboot the system?"
+msgstr "Restartează sistemul?"
+
+#: ajenti/plugins/power/layout/widget.xml:4
+#: ajenti/plugins/power/layout/widget.xml:6
+msgid "Shutdown the system?"
+msgstr "Stinge sistemul?"
+
+#: ajenti/plugins/main/main.py:197 ajenti/plugins/main/main.py:201
+msgid "Section access"
+msgstr "Accesul la secția"
+
+#: ajenti/plugins/main/main.py:214 ajenti/plugins/main/main.py:218
+msgid "Feedback sent!"
+msgstr "Feedback transmis!"
+
+#: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
+msgid "Load average"
+msgstr "Media încărcarii"
+
+#: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
+#: ajenti/plugins/sensors/layout/cpu-widget.xml:1
+msgid "CPU usage"
+msgstr "CPU folosit"
+
+#: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
+msgid "Memory usage"
+msgstr "Memorie utilizată"
+
+#: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
+msgid "Swap usage"
+msgstr "Swap utilzat"
+
+#: ajenti/plugins/sensors/uptime.py:18 ajenti/plugins/sensors/uptime.py:74
+msgid "Uptime"
+msgstr "Timp de funcționare"
+
+#: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
+#: ajenti/plugins/sensors/layout/value-widget.xml:1
+msgid "Variant"
+msgstr "Variantă"
+
+#: ajenti/plugins/fstab/main.py:43
+msgid "Filesystems"
+msgstr "Sistemul filurilor"
+
+#: ajenti/plugins/fstab/main.py:67
+msgid "Unmounted"
+msgstr "Nu e montat"
+
+#: ajenti/plugins/fstab/main.py:73 ajenti/plugins/fstab/main.py:74
+msgid "mount -a failed"
+msgstr "mount -a a eșuat"
+
+#: ajenti/plugins/fstab/iops.py:61 ajenti/plugins/fstab/iops.py:70
+msgid "Immediate I/O"
+msgstr "I/O imediat"
+
+#: ajenti/plugins/fstab/widget.py:9
+msgid "Disk space"
+msgstr "Spațiu pe disc"
+
+#: ajenti/plugins/hddtemp/widget.py:9
+msgid "HDD Temperature"
+msgstr "Temperatura HDD-ului"
+
+#: ajenti/plugins/dhcpd/main.py:13
+msgid "DHCP Server"
+msgstr "Server DHCP"
+
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "Cererea a fost terminata"
+
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr "Rezultatul a fost tăiat de la %i rînduri pînă la 200"
+
+#: ajenti/plugins/iptables/main.py:55 ajenti/plugins/iptables/main.py:57
+msgid "You can't disable firewall autostart on this platform"
+msgstr "Nu poți stinge autostart-ul firewall-ului la această platformă"
+
+#: ajenti/plugins/iptables/main.py:63 ajenti/plugins/iptables/main.py:65
+msgid "Firewall"
+msgstr ""
+
+#: ajenti/plugins/iptables/main.py:105
+#: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/main.py:107
+msgid "Add option"
+msgstr "Adaugă opțiune"
+
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
+msgid "Disable"
+msgstr "Dezactivează"
+
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
+msgid " autostart"
+msgstr ""
+
+#: ajenti/plugins/scripts/widget.py:11
+msgid "Script"
+msgstr ""
+
+#: ajenti/plugins/scripts/widget.py:41
+msgid "Launched"
+msgstr "Aprins"
+
+#: ajenti/plugins/scripts/widget.py:47
+msgid "Scripts"
+msgstr ""
+
+#: ajenti/plugins/scripts/widget.py:51
+msgid "Run scripts"
+msgstr "Pornește script"
+
+#: ajenti/plugins/packages/installer.py:9
+msgid "This package can be installed automatically"
+msgstr "Acest pachet poate fi instalat automat"
+
+#: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
+msgid "Packages"
+msgstr "Pachete"
+
+#: ajenti/plugins/packages/main.py:50
+msgid "Enqueueing package installation"
+msgstr "Atașarea instalația pachetelor"
+
+#: ajenti/plugins/packages/main.py:61
+msgid "Installation complete!"
+msgstr "Instalare completă!"
+
+#: ajenti/plugins/packages/main.py:134
+#, python-format
+msgid "%i found, 100 shown"
+msgstr "%i găsite, 100 arătate"
+
+#: ajenti/plugins/packages/main.py:137
+#, python-format
+msgid "%i found"
+msgstr "%i găsite"
+
+#: ajenti/plugins/packages/main.py:150
+msgid "Install / remove"
+msgstr "Instalează / Șterge"
+
+#: ajenti/plugins/packages/main.py:151
+msgid "Refresh lists"
+msgstr "Înnoiește lista"
+
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+msgid "File Manager"
+msgstr "Manager fișiere"
+
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/notepad/notepad.py:19 ajenti/plugins/tasks/main.py:16
+msgid "Tools"
+msgstr "Instrumente"
+
+#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/fm.py:52
+msgid "Cancel"
+msgstr "Anulează"
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr ""
+
+#: ajenti/plugins/squid/main.py:14
+msgid "Squid"
+msgstr ""
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr "Editor-ul de cod CodeMirror"
+
+#: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:95
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "Procesul s-a terminat cu statusul %i"
+
+#: ajenti/plugins/terminal/terminal.py:99
+#: ajenti/plugins/terminal/terminal.py:97
+msgid "Process has exited successfully"
+msgstr "Procesul s-a terminat cu succes"
+
+#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
+#: ajenti/plugins/terminal/main.py:183 ajenti/plugins/terminal/main.py:191
+msgid "Terminal"
+msgstr ""
+
+#: ajenti/plugins/terminal/main.py:187 ajenti/plugins/terminal/main.py:195
+msgid "Run shell"
+msgstr "Pornește terminalul"
+
+#: ajenti/plugins/terminal/main.py:188 ajenti/plugins/terminal/main.py:196
+msgid "Run custom commands"
+msgstr "Execută comenzi proprii"
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/memcache/widget.py:29 ajenti/plugins/memcache/widget.py:35
+msgid "Memcache memory usage"
+msgstr ""
+
+#: ajenti/plugins/logs/main.py:12
+msgid "Logs"
+msgstr "Log-uri"
+
+#: ajenti/plugins/services/main.py:12
+msgid "Services"
+msgstr "Servicii"
+
+#: ajenti/plugins/services/main.py:39
+#, python-format
+msgid "%s started"
+msgstr "%s începute"
+
+#: ajenti/plugins/services/main.py:44
+#, python-format
+msgid "%s stopped"
+msgstr "%s oprite"
+
+#: ajenti/plugins/services/main.py:49
+#, python-format
+msgid "%s restarted"
+msgstr "%s restartate"
+
+#: ajenti/plugins/services/widget.py:10
+#: ajenti/plugins/services/layout/widget.xml:4
+msgid "Service"
+msgstr "Servicii"
+
+#: ajenti/plugins/users/main.py:99
+#, python-format
+msgid "Home dir for %s was created"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:108
+#, python-format
+msgid "Password for %s was changed"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:111
+#, python-format
+msgid "Error: \"%s\""
+msgstr ""
+
+#: ajenti/plugins/users/main.py:113
+msgid "Password shouldn't be empty"
+msgstr ""
+
+#: ajenti/plugins/users/main.py:117
+#, python-format
+msgid "Password for %s was removed"
+msgstr ""
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr "Rețea"
+
+#: ajenti/plugins/network/widget.py:85
+msgid "Immediate Traffic"
+msgstr "Trafic imediat"
+
+#: ajenti/plugins/network/widget.py:115
+msgid "Traffic"
+msgstr "Trafic"
+
+#: ajenti/plugins/taskmgr/main.py:14
+msgid "Processes"
+msgstr "Procese"
+
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
+#: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/mysql/main.py:15
+#: ajenti/plugins/apache/main.py:13
+msgid "Reload"
+msgstr "Restart"
+
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+msgid "Zone saved"
+msgstr ""
+
+#: ajenti/plugins/hosts/hosts.py:13
+msgid "Hosts"
+msgstr ""
+
+#: ajenti/plugins/notepad/notepad.py:17
+msgid "Notepad"
+msgstr ""
+
+#: ajenti/plugins/notepad/notepad.py:50 ajenti/plugins/notepad/notepad.py:52
+#, python-format
+msgid "Untitled %i"
+msgstr "Fară nume %i"
+
+#: ajenti/plugins/resolv/resolv.py:13 ajenti/plugins/resolv/main.py:13
+msgid "Nameservers"
+msgstr "Servere name"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "DNS nameserver"
+msgstr "DNS server name"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Local domain name"
+msgstr "Numele domenului local"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Search list"
+msgstr "Caută lista"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Sort list"
+msgstr "Sortează lista"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:5
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/exports/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
+msgid "Options"
+msgstr "Opțiuni"
+
+#: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
+msgid "No data"
+msgstr "Nu sunt date"
+
+#: ajenti/plugins/smartctl/widget.py:59 ajenti/plugins/smartctl/widget.py:61
+msgid "FAILING"
+msgstr "Eșec"
+
+#: ajenti/plugins/smartctl/widget.py:60 ajenti/plugins/smartctl/widget.py:62
+msgid "PRE-FAIL"
+msgstr "PRE-EȘEC"
+
+#: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:63
+msgid "Unknown error"
+msgstr "Eroare necunoscută"
+
+#: ajenti/plugins/smartctl/widget.py:62 ajenti/plugins/smartctl/widget.py:64
+msgid "Errors in log"
+msgstr ""
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "Export NFS"
+
+#: ajenti/plugins/munin/main.py:43
+#, python-format
+msgid "Couldn't connect to Munin: %s"
+msgstr "Nu s-a conectat la Munin: %s"
+
+#: ajenti/plugins/munin/main.py:47
+msgid "Munin HTTP authentication failed"
+msgstr "Munin HTTP autorizația a eșuat"
+
+#: ajenti/plugins/samba/main.py:47
+msgid "Password updated"
+msgstr "Parola a fost schimbată"
+
+#: ajenti/plugins/samba/main.py:50
+msgid "Password update failed"
+msgstr "Schimbarea parolei a eșuat"
+
+#: ajenti/plugins/dashboard/dash.py:18
+msgid "Dashboard"
+msgstr "Panou de administrare"
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr "Bun venit"
+
+#: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr ""
+
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/free-widget.xml:1
+msgid "Device"
+msgstr "Dispozitiv"
+
+#: ajenti/plugins/fstab/layout/main.xml:1
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:2
+msgid "Refresh"
+msgstr "Reînnoește"
+
+#: ajenti/plugins/fstab/layout/main.xml:2
+msgid "Mount all"
+msgstr "Montează toate"
+
+#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:13
+msgid "Mountpoint"
+msgstr "Punct de montare"
+
+#: ajenti/plugins/fstab/layout/main.xml:6
+msgid "FS type"
+msgstr "tipul sistemul file-urilor"
+
+#: ajenti/plugins/fstab/layout/main.xml:8
+msgid "Scan frequency"
+msgstr "Frecvența de scanare"
+
+#: ajenti/plugins/fstab/layout/main.xml:9
+msgid "Scan pass"
+msgstr "Scanarea a trecut"
+
+#: ajenti/plugins/fstab/layout/main.xml:11
+msgid "Mounted filesystems"
+msgstr "Sisteme de file-uri montate"
+
+#: ajenti/plugins/fstab/layout/main.xml:14
+msgid "Used"
+msgstr "Utilizat"
+
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "Mărime"
+
+#: ajenti/plugins/fstab/layout/main.xml:16
+msgid "Usage"
+msgstr "Folosit"
+
+#: ajenti/plugins/fstab/layout/main.xml:17
+msgid "Unmount"
+msgstr "De montează"
+
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{                 'command': 'force-reload',                 'text': _('Restartează'),                 'icon': 'step-forward',             }]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:4
+msgid "Working directory"
+msgstr "Mapa de lucru"
+
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Autostart"
+msgstr "Pornire automata"
+
+#: ajenti/plugins/supervisor/layout/main.xml:6
+msgid "[_('Enabled'), _('Disabled')]"
+msgstr "[_('Activ'), _('Ne Activ')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:7
+msgid "Autorestart"
+msgstr ""
+
+#: ajenti/plugins/supervisor/layout/main.xml:8
+msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
+msgstr "[_('Activ'), _('La eșuare'), _('Ne activ')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:9
+msgid "Start timeout"
+msgstr ""
+
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "Start retries"
+msgstr "Start încercări"
+
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "Utilizator"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:1
+msgid "Subnetworks"
+msgstr "Sub rețele"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:3
+msgid "Specification"
+msgstr "Specificații"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:4
+msgid "IP ranges"
+msgstr "Șiruri de  IP"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:7
+msgid "Global options"
+msgstr "Opțiuni globale"
+
+#: ajenti/plugins/db_common/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:16
+msgid "Run"
+msgstr "Execută"
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Baze de date"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "Confirmă ștergerea bazei de date"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Numele bazie de date"
+
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/openvpn/layout/config.xml:3
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/samba/layout/main.xml:29
+#: ajenti/plugins/netatalk/layout/main.xml:6
+msgid "Password"
+msgstr "Parolă"
+
+#: ajenti/plugins/iptables/layout/option-interface.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr "Interfață"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr "Argumente"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/option-match.xml:1
+msgid "Modules"
+msgstr "Module"
+
+#: ajenti/plugins/iptables/layout/option-state.xml:1
+msgid "States"
+msgstr "Stări"
+
+#: ajenti/plugins/iptables/layout/main.xml:1
+msgid "Raw edit"
+msgstr "Editeză crud"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr "Încarcă starea curentă"
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr "Acum se va rescrie configrația salvata cu firewall-ul în starea curent! Continuă ?"
+
+#: ajenti/plugins/iptables/layout/main.xml:4
+msgid "New Chain"
+msgstr "Reacție nouă"
+
+#: ajenti/plugins/iptables/layout/main.xml:7
+msgid "Action"
+msgstr "Acțiune"
+
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/users/layout/user-list.xml:3
+msgid "Comment"
+msgstr "Comentariu"
+
+#: ajenti/plugins/iptables/layout/main.xml:9
+msgid "Conditions"
+msgstr "Condiții"
+
+#: ajenti/plugins/iptables/layout/main.xml:11
+msgid "New Rule"
+msgstr "Regulă nouă"
+
+#: ajenti/plugins/iptables/layout/main.xml:13
+#: ajenti/plugins/packages/layout/main.xml:2
+msgid "Apply"
+msgstr "Aplică"
+
+#: ajenti/plugins/iptables/layout/option-protocol.xml:1
+msgid "Protocol"
+msgstr ""
+
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:11
+msgid "Ports"
+msgstr "Port-uri"
+
+#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
+msgid "Reason"
+msgstr "Motiv"
+
+#: ajenti/plugins/scripts/layout/widget.xml:3
+msgid "Run in terminal"
+msgstr "Pornește în terminal"
+
+#: ajenti/plugins/packages/layout/headers.xml:2
+msgid "Version"
+msgstr "Versiune"
+
+#: ajenti/plugins/packages/layout/main.xml:1
+msgid "Get lists"
+msgstr "Arată listele"
+
+#: ajenti/plugins/packages/layout/main.xml:3
+msgid "Upgradeable"
+msgstr "Actualizabile"
+
+#: ajenti/plugins/packages/layout/main.xml:4
+msgid "Upgrade all"
+msgstr "Actualizează toate"
+
+#: ajenti/plugins/packages/layout/main.xml:5
+#: ajenti/plugins/packages/layout/main.xml:6
+msgid "Search"
+msgstr "Caută"
+
+#: ajenti/plugins/packages/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:7
+msgid "Pending"
+msgstr "În așteptare"
+
+#: ajenti/plugins/packages/layout/main.xml:8
+msgid "Cancel all"
+msgstr "Anulează toate"
+
+#: ajenti/plugins/packages/layout/installer.xml:1
+msgid "Install"
+msgstr "Instalează"
+
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr "Selectează pentru instalare/înnoire"
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr "Selectează pentru ștergere"
+
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "Celemai folosite măpi"
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "Închide"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "New File"
+msgstr "Fișier nou"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New Folder"
+msgstr "Mapă nouă"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Upload"
+msgstr "Încarcă"
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Clipboard"
+msgstr "Memoria temporară"
+
+#: ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:9
+msgid "Remove"
+msgstr "Șterge"
+
+#: ajenti/plugins/fm/layout/main.xml:11 ajenti/plugins/fm/layout/main.xml:12
+msgid "Access"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:13
+msgid "Owner"
+msgstr "Proprietar"
+
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:14
+msgid "Group"
+msgstr "Grupa"
+
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
+msgid "Others"
+msgstr "Altele"
+
+#: ajenti/plugins/lm-sensors/layout/widget.xml:1
+msgid "Sensor"
+msgstr "Senzor"
+
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:7
+#: ajenti/plugins/samba/layout/main.xml:25
+msgid "Disconnect"
+msgstr "Deconectează"
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:12
+#: ajenti/plugins/dashboard/text.py:7
+#: ajenti/plugins/dashboard/layout/text.xml:1
+msgid "Text"
+msgstr ""
+
+#: ajenti/plugins/squid/layout/main.xml:5
+msgid "HTTP Access"
+msgstr "Access HTTP"
+
+#: ajenti/plugins/squid/layout/main.xml:8
+msgid "Mode"
+msgstr "Mod"
+
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "[_('Allow'), _('Deny')]"
+msgstr ""
+
+#: ajenti/plugins/terminal/layout/config.xml:1
+msgid "Default shell"
+msgstr "Terminalul de bază"
+
+#: ajenti/plugins/terminal/layout/main.xml:2
+#: ajenti/plugins/notepad/layout/main.xml:1
+msgid "New"
+msgstr "Nou"
+
+#: ajenti/plugins/terminal/layout/main.xml:3
+msgid "No active terminals"
+msgstr "Nici un terminal activ"
+
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr "Stare"
+
+#: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:2
+msgid "Type"
+msgstr "Tip"
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr "Dispozitive"
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr "Blocuri"
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr "Restabilire:"
+
+#: ajenti/plugins/logs/layout/main.xml:1
+#: ajenti/plugins/notepad/layout/main.xml:2
+msgid "Open"
+msgstr "Deschide"
+
+#: ajenti/plugins/services/layout/bar.xml:1
+#: ajenti/plugins/services/layout/main.xml:3
+#: ajenti/plugins/services/layout/widget.xml:1
+msgid "Start"
+msgstr "Pornește"
+
+#: ajenti/plugins/services/layout/bar.xml:2
+#: ajenti/plugins/services/layout/main.xml:4
+#: ajenti/plugins/services/layout/widget.xml:2
+msgid "Stop"
+msgstr "Oprește"
+
+#: ajenti/plugins/services/layout/main.xml:1
+msgid "Origin"
+msgstr "Origine"
+
+#: ajenti/plugins/services/layout/main.xml:2
+msgid "Actions"
+msgstr "Acțiuni"
+
+#: ajenti/plugins/users/layout/user-list.xml:4
+msgid "Home directory"
+msgstr "Directoria de acasă"
+
+#: ajenti/plugins/users/layout/user-list.xml:6
+msgid "Shell"
+msgstr ""
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr ""
+
+#: ajenti/plugins/users/layout/user-list.xml:8
+#: ajenti/plugins/samba/layout/main.xml:30
+msgid "Set"
+msgstr ""
+
+#: ajenti/plugins/users/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:23
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+msgid "User"
+msgstr "Utilizatori"
+
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr ""
+
+#: ajenti/plugins/users/layout/main.xml:9
+msgid "Groups"
+msgstr "Grupe"
+
+#: ajenti/plugins/users/layout/main.xml:12
+msgid "Members"
+msgstr "Membri"
+
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr "Clasă"
+
+#: ajenti/plugins/network/layout/main.xml:3
+msgid "Bring up"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:4
+msgid "Bring down"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:5
+msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:7
+msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "PID (Parent)"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+msgid "CPU"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+msgid "RAM"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+msgid "Terminate"
+msgstr "Termină"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+#: ajenti/plugins/taskmgr/layout/main.xml:8
+msgid "Kill"
+msgstr "Oprește"
+
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr ""
+
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
+msgstr ""
+
+#: ajenti/plugins/hosts/layout/main.xml:4
+msgid "Aliases"
+msgstr "Pseudonim"
+
+#: ajenti/plugins/notepad/layout/main.xml:4
+msgid "Save As"
+msgstr "Salvează ca"
+
+#: ajenti/plugins/notepad/layout/main.xml:5
+msgid "Bookmark"
+msgstr ""
+
+#: ajenti/plugins/plugins/layout/main.xml:1
+msgid "Dependencies"
+msgstr "Dependențe"
+
+#: ajenti/plugins/exports/layout/main.xml:2
+#: ajenti/plugins/elements/layout/task-resequence.xml:1
+#: ajenti/plugins/elements/layout/task-params-proxy.xml:1
+msgid "Directory"
+msgstr "Mapă"
+
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr "Clienți"
+
+#: ajenti/plugins/munin/layout/main.xml:1
+msgid "View"
+msgstr "Perspectivă"
+
+#: ajenti/plugins/samba/layout/main.xml:1
+#: ajenti/plugins/netatalk/layout/main.xml:1
+msgid "Shares"
+msgstr "Cotă"
+
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/netatalk/layout/main.xml:5
+msgid "Path"
+msgstr "Cale"
+
+#: ajenti/plugins/samba/layout/main.xml:6
+msgid "Guest access"
+msgstr "Accessul anonim"
+
+#: ajenti/plugins/samba/layout/main.xml:7
+msgid "Browseable"
+msgstr "Răsfoibilă"
+
+#: ajenti/plugins/samba/layout/main.xml:8
+msgid "Create mask"
+msgstr "Crează o mască"
+
+#: ajenti/plugins/samba/layout/main.xml:9
+msgid "Directory mask"
+msgstr "Masca mapei"
+
+#: ajenti/plugins/samba/layout/main.xml:10
+msgid "Read only"
+msgstr "Doar citire"
+
+#: ajenti/plugins/samba/layout/main.xml:11
+#: ajenti/plugins/netatalk/layout/main.xml:11
+msgid "Config"
+msgstr "Configurare"
+
+#: ajenti/plugins/samba/layout/main.xml:13
+msgid "Interfaces"
+msgstr "Interfețe"
+
+#: ajenti/plugins/samba/layout/main.xml:14
+msgid "Bind only to these interfaces"
+msgstr "Aplică doar la aceste interfețe"
+
+#: ajenti/plugins/samba/layout/main.xml:15
+msgid "Identification"
+msgstr "Identificare"
+
+#: ajenti/plugins/samba/layout/main.xml:16
+msgid "Workgroup"
+msgstr ""
+
+#: ajenti/plugins/samba/layout/main.xml:17
+msgid "Server string"
+msgstr ""
+
+#: ajenti/plugins/samba/layout/main.xml:20
+msgid "Security"
+msgstr "Securitate"
+
+#: ajenti/plugins/samba/layout/main.xml:21
+msgid "Sessions"
+msgstr "Sesiuni"
+
+#: ajenti/plugins/samba/layout/main.xml:22
+msgid "Share"
+msgstr "Împarte"
+
+#: ajenti/plugins/samba/layout/main.xml:24
+msgid "Machine"
+msgstr "Mașină"
+
+#: ajenti/plugins/samba/layout/main.xml:27
+msgid "Add"
+msgstr "Adaugă"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Add widget"
+msgstr "Adaugă Widget"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
+msgstr "[{'text': _('Anulează'), 'id': 'cancel'}]"
+
+#: ajenti/plugins/netatalk/layout/main.xml:7
+msgid "Valid users"
+msgstr "Utilizatori valizi"
+
+#: ajenti/plugins/netatalk/layout/main.xml:8
+msgid "Resource forks"
+msgstr ""
+
+#: ajenti/plugins/netatalk/layout/main.xml:9
+msgid "Extended attributes"
+msgstr "Extinde atributele"
+
+#: ajenti/plugins/netatalk/layout/main.xml:10
+msgid "CNID scheme"
+msgstr "Schemă CNID"
+
+#: ajenti/plugins/netatalk/layout/main.xml:12
+msgid "AFP port"
+msgstr "AFP"
+
+#: ajenti/plugins/netatalk/layout/main.xml:13
+msgid "CNID address"
+msgstr "Adresa CNID"
+
+#: ajenti/plugins/fstab/widget.py:38
+msgid "Free disk space"
+msgstr ""
+
+#: ajenti/plugins/fstab/widget.py:48
+#, python-format
+msgid "%s free"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+msgid "or UNIX socket path"
+msgstr ""
+
+#: ajenti/plugins/elements/bin/dict.xml:1
+msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:2
+msgid "Use prefix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:3
+msgid "Prefix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:4
+msgid "Use suffix"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:5
+msgid "Suffix"
+msgstr ""
+
+#: ajenti/plugins/iptables/main.py:198
+msgid "Applied successfully"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:141 ajenti/plugins/fm/fm.py:139
+#, python-format
+msgid "Selected %i items"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:33
+#, python-format
+msgid "Copying %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:64
+#, python-format
+msgid "Moving %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:63
+#, python-format
+msgid "Task %s finished"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:95
+#, python-format
+msgid "Task %s queued"
+msgstr ""
+
+#: ajenti/plugins/tasks/manager.py:101
+#, python-format
+msgid "Task %s started"
+msgstr ""
+
+#: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
+msgid "Tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:1
+msgid "From directory"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:2
+msgid "Into directory"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:1
+msgid "Running tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:5
+msgid "Running"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:6
+msgid "Aborting"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:8
+msgid "Abort"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:9
+msgid "Completed tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:12
+msgid "Success"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:13
+msgid "Aborted"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:14
+msgid "Error"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:15
+msgid "Crashed"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:17
+msgid "Jobs"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:21
+msgid "Run task"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:23
+msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:24
+msgid "Manual entry"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:34
+msgid "Run in parallel"
+msgstr ""
+
+#: ajenti/plugins/plugins/layout/main.xml:3
+msgid "Depends on"
+msgstr ""
+
+#: ajenti/plugins/ltfs/archive/main.py:29
+msgid "LTFS"
+msgstr ""
+
+#: ajenti/usersync/unix.py:16
+msgid "OS users"
+msgstr ""
+
+#: ajenti/usersync/local.py:12
+msgid "Off"
+msgstr ""
+
+#: ajenti/usersync/ldapsync.py:15
+msgid "LDAP User Syncronization"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:102
+msgid "Suspend"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:103
+msgid "Hibernate"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:3
+msgid "Suspend the system?"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:4
+msgid "Hibernate the system?"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
+msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+msgid "Sync with"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+msgid "Sync now"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+msgid "Configured correctly"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+msgid "Failed to sync"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
+msgid "Server URL"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
+msgid "Admin DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
+msgid "Auth DN suffix"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
+msgid "Secret"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:10
+msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:16
+msgid "Set recursively"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "Parent"
+msgstr ""
+

@@ -22,6 +22,7 @@ Options:
     -v                  - Debug/verbose logging
     -d, --daemon        - Run in background (daemon mode)
     -h, --help          - This help
+    --set-platform <id> - Override OS detection
     """
 
 
@@ -30,7 +31,7 @@ if __name__ == '__main__':
     config_file = ''
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon'])
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'set-platform='])
     except getopt.GetoptError, e:
         print str(e)
         usage()
@@ -49,6 +50,8 @@ if __name__ == '__main__':
             config_file = a
         elif o in ('-d', '--start'):
             is_daemon = True
+        elif o == '--set-platform':
+            ajenti.platform = a
 
     ajenti.log.init(log_level)
     

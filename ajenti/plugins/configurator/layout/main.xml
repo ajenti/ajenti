@@ -9,6 +9,13 @@
             <tabs id="tabs">
                 <tab title="{General}">
                     <vc id="ajenti-config">
+                        <formgroup text="{General}">
+                            <vc>
+                                <formline text="{Language}">
+                                    <dropdown bind="language" id="language" />
+                                </formline>
+                            </vc>
+                        </formgroup>
                         <formgroup text="{HTTP Server}" binder:context="http_binding">
                             <vc>
                                 <formline text="{Host}">
@@ -47,6 +54,23 @@
                                 <formline text="{Authentication}">
                                     <checkbox text="{Enable}" bind="authentication" />
                                 </formline>
+                                <formline text="{Sync with}">
+                                    <vc>
+                                        <hc>
+                                            <dropdown id="sync-providers" />
+                                            <button icon="refresh" text="{Sync now}" id="sync-users-button" />
+                                            <button icon="cog" text="{Configure}" id="configure-sync-button" />
+                                        </hc>
+                                        <hc id="sync-status-ok">  
+                                            <icon icon="ok" />
+                                            <label text="{Configured correctly}" />
+                                        </hc>
+                                        <hc id="sync-status-fail">  
+                                            <icon icon="remove" />
+                                            <label text="{Failed to sync}" />
+                                        </hc>
+                                    </vc>
+                                </formline>
                                 <formline text="{Accounts}">
                                     <bind:collection 
                                             id="users"
@@ -74,7 +98,7 @@
                                                     <tabs id="permissions" client="True" />
                                                 </collapserow>
                                             </bind:template>
-                                            <button bind="__add" icon="plus" text="{Create}" />
+                                            <button bind="__add" icon="plus" text="{Create}" id="add-user-button" />
                                         </vc>
                                     </bind:collection>
                                 </formline>
@@ -92,24 +116,25 @@
                 </tab>
 
                 <tab title="{Plugins}" id="classconfigs">
+                    <dialog id="dialog" visible="False">
+                        <pad id="container" />
+                    </dialog>
+
                     <bind:collection bind="classes" id="classes">
                         <dt bind="__items" />
 
                         <bind:template>
-                            <collapserow expanded="True">
-                                <hc binder:context="classconfig_editor">
+                            <dtr binder:context="classconfig_editor">
+                                <dtd width="1">
                                     <icon bind="icon" />
+                                </dtd>
+                                <dtd>
                                     <label style="bold" bind="title" />
-                                </hc>
-                                <pad>
-                                    <vc>
-                                        <vc id="container" />
-                                        <formline>
-                                            <button id="save" icon="ok" text="Save" />
-                                        </formline>
-                                    </vc>
-                                </pad>
-                            </collapserow>
+                                </dtd>
+                                <dtd width="1">
+                                    <button id="configure" icon="cog" text="{Configure}" />
+                                </dtd>
+                            </dtr>
                         </bind:template>
                     </bind:collection> 
                 </tab>

@@ -92,6 +92,8 @@ class MainSocket (SocketPlugin):
                         # Property change
                         profile_start('Handling updates')
                         el = self.ui.find_uid(update['uid'])
+                        if el is None:
+                            continue
                         for k, v in update['properties'].iteritems():
                             el.properties[k] = v
                             el.properties_dirty[k] = False
@@ -144,8 +146,11 @@ class MainSocket (SocketPlugin):
     def send_security_error(self):
         self.emit('security-error', '')
 
-    def send_url(self, url, title='new tab'):
-        self.emit('url', json.dumps({'url': url, 'title': title}))
+    def send_open_tab(self, url, title='new tab'):
+        self.emit('openTab', json.dumps({'url': url, 'title': title}))
+
+    def send_close_tab(self, url):
+        self.emit('closeTab', json.dumps({'url': url}))
 
     def send_debug(self):
         data = {

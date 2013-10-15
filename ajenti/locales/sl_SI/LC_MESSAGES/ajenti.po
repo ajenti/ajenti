@@ -1,0 +1,1849 @@
+#: ajenti/plugins/configurator/layout/main.xml:1
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/ctdb/layout/main.xml:25
+#: ajenti/plugins/cron/layout/main.xml:24
+#: ajenti/plugins/cron/layout/main.xml:22 ajenti/plugins/fm/fm.py:55
+#: ajenti/plugins/exports/layout/main.xml:8
+#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/fstab/layout/main.xml:18
+#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/users/layout/main.xml:16
+#: ajenti/plugins/hosts/layout/main.xml:7
+#: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:31
+#: ajenti/plugins/netatalk/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/iptables/layout/main.xml:9
+#: ajenti/plugins/iptables/layout/main.xml:11
+#: ajenti/plugins/iptables/layout/main.xml:12
+#: ajenti/plugins/network/layout/main.xml:3
+#: ajenti/plugins/dhcpd/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:8
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/bind9/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:14
+#: ajenti/plugins/nsd/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:8 ajenti/plugins/fm/fm.py:51
+#: ajenti/plugins/tasks/layout/main.xml:35
+msgid "Save"
+msgstr "Shrani"
+
+#: ajenti/plugins/configurator/layout/main.xml:2
+#: ajenti/plugins/services/layout/bar.xml:3
+#: ajenti/plugins/services/layout/main.xml:5
+#: ajenti/plugins/services/layout/widget.xml:3
+#: ajenti/plugins/openvpn/layout/main.xml:1
+#: ajenti/plugins/network/layout/main.xml:6
+msgid "Restart"
+msgstr "Ponovno zaženi"
+
+#: ajenti/plugins/configurator/layout/main.xml:3
+msgid "Restart Ajenti?"
+msgstr "Ponovno zaženi Ajenti?"
+
+#: ajenti/plugins/configurator/layout/main.xml:4
+#: ajenti/plugins/ctdb/layout/main.xml:4
+msgid "General"
+msgstr "Splošno"
+
+#: ajenti/plugins/configurator/layout/main.xml:5
+msgid "HTTP Server"
+msgstr "HTTP strežnik"
+
+#: ajenti/plugins/configurator/layout/main.xml:6
+#: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/mysql/layout/config.xml:1
+msgid "Host"
+msgstr "Gostitelj"
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/option-port.xml:1
+#: ajenti/plugins/squid/layout/port-template.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:8
+msgid "Port"
+msgstr "Vrata"
+
+#: ajenti/plugins/configurator/layout/main.xml:8
+#: ajenti/plugins/configurator/layout/main.xml:9
+msgid "Use SSL"
+msgstr "Uporabi SSL"
+
+#: ajenti/plugins/configurator/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:10
+msgid "Path to certificate"
+msgstr "Pot do certifikata"
+
+#: ajenti/plugins/configurator/layout/main.xml:10
+#: ajenti/plugins/configurator/layout/main.xml:11
+msgid "SSL Self-Signed Certificate Generator"
+msgstr "Generator samopodpisanih potrdil SSL"
+
+#: ajenti/plugins/configurator/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:13
+#: ajenti/plugins/configurator/layout/main.xml:12
+msgid "Hostname"
+msgstr "Ime gostitelja"
+
+#: ajenti/plugins/configurator/layout/main.xml:12
+#: ajenti/plugins/configurator/layout/main.xml:13
+msgid "Generate"
+msgstr "Ustvari"
+
+#: ajenti/plugins/configurator/layout/main.xml:13
+#: ajenti/plugins/db_common/layout/main.xml:6 ajenti/plugins/users/main.py:14
+#: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
+#: ajenti/plugins/configurator/layout/main.xml:14
+msgid "Users"
+msgstr "Uporabniki"
+
+#: ajenti/plugins/configurator/layout/main.xml:14
+#: ajenti/plugins/configurator/layout/main.xml:15
+msgid "Authentication"
+msgstr "Avtentikacija"
+
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/iptables/main.py:114 ajenti/plugins/iptables/main.py:111
+#: ajenti/plugins/iptables/main.py:112 ajenti/plugins/iptables/main.py:113
+#: ajenti/plugins/iptables/main.py:139 ajenti/plugins/iptables/main.py:140
+#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/iptables/main.py:144
+msgid "Enable"
+msgstr "Omogoči"
+
+#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:22
+msgid "Accounts"
+msgstr "Računi"
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:23
+msgid "Delete"
+msgstr "Izbriši"
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/cron/layout/main.xml:4
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/exports/layout/main.xml:1
+#: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/iptables/layout/main.xml:3
+#: ajenti/plugins/iptables/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option.xml:1
+#: ajenti/plugins/squid/layout/main.xml:2
+#: ajenti/plugins/squid/layout/main.xml:7
+#: ajenti/plugins/squid/layout/options-editor.xml:2
+#: ajenti/plugins/squid/layout/port-template.xml:1
+#: ajenti/plugins/users/layout/main.xml:6
+#: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/hosts/layout/main.xml:1
+#: ajenti/plugins/resolv/layout/main.xml:1
+#: ajenti/plugins/samba/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:28
+#: ajenti/plugins/netatalk/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:5
+#: ajenti/plugins/iptables/layout/main.xml:6
+#: ajenti/plugins/elements/layout/projects-main.xml:2
+#: ajenti/plugins/dhcpd/layout/ranges.xml:1
+#: ajenti/plugins/dhcpd/layout/options.xml:1
+#: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/elements/layout/users-main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/users/layout/main.xml:10
+#: ajenti/plugins/bind9/layout/main.xml:2 ajenti/plugins/nsd/layout/main.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:24
+msgid "Confirm deletion"
+msgstr "Potrdi izbris"
+
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/elements/layout/projects-main.xml:1
+#: ajenti/plugins/elements/layout/users-main.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/configurator/layout/main.xml:25
+msgid "Change password"
+msgstr "Spremeni geslo"
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:12
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:18
+#: ajenti/plugins/db_common/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:10
+#: ajenti/plugins/exports/layout/main.xml:6
+#: ajenti/plugins/exports/layout/main.xml:7
+#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:10
+#: ajenti/plugins/supervisor/layout/main.xml:12
+#: ajenti/plugins/squid/layout/main.xml:1
+#: ajenti/plugins/squid/layout/main.xml:6
+#: ajenti/plugins/squid/layout/main.xml:11
+#: ajenti/plugins/squid/layout/main.xml:12
+#: ajenti/plugins/squid/layout/options-editor.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:5
+#: ajenti/plugins/hosts/layout/main.xml:6
+#: ajenti/plugins/resolv/layout/main.xml:4
+#: ajenti/plugins/samba/layout/main.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+#: ajenti/plugins/elements/layout/projects-main.xml:3
+#: ajenti/plugins/dhcpd/layout/ranges.xml:2
+#: ajenti/plugins/dhcpd/layout/options.xml:2
+#: ajenti/plugins/dhcpd/layout/main.xml:6
+#: ajenti/plugins/elements/layout/users-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/bind9/layout/main.xml:8
+#: ajenti/plugins/bind9/layout/main.xml:10
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/tasks/layout/main.xml:18
+#: ajenti/plugins/tasks/layout/main.xml:31
+#: ajenti/plugins/elements/layout/users-main.xml:4
+#: ajenti/plugins/elements/layout/users-main.xml:5
+msgid "Create"
+msgstr "Ustvari"
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:27
+#: ajenti/plugins/samba/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:22
+msgid "Other"
+msgstr "Ostalo"
+
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:23
+msgid "Send feedback"
+msgstr "Pošlji povratne informacije"
+
+#: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/configurator/layout/main.xml:25
+msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
+msgstr "Ajenti bo na ajenti.org poslal anonimne podatke o nameščeni različici, imenu operacijskega sistema, ter seznam najbolj pogosto uporabljenih vtičnikov"
+
+#: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/plugins/plugins.py:10
+#: ajenti/plugins/configurator/layout/main.xml:26
+msgid "Plugins"
+msgstr "Vtičniki"
+
+#: ajenti/plugins/configurator/configurator.py:31
+#: ajenti/plugins/munin/layout/main.xml:2
+#: ajenti/plugins/configurator/configurator.py:30
+#: ajenti/plugins/configurator/configurator.py:32
+#: ajenti/plugins/configurator/layout/main.xml:19
+#: ajenti/plugins/configurator/layout/main.xml:32
+msgid "Configure"
+msgstr "Konfiguriraj"
+
+#: ajenti/plugins/configurator/configurator.py:54
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/exports/main.py:38
+#: ajenti/plugins/iptables/main.py:144 ajenti/plugins/notepad/notepad.py:95
+#: ajenti/plugins/iptables/main.py:156 ajenti/plugins/iptables/main.py:157
+#: ajenti/plugins/iptables/main.py:158 ajenti/plugins/iptables/main.py:184
+#: ajenti/plugins/notepad/notepad.py:96 ajenti/plugins/notepad/notepad.py:98
+#: ajenti/plugins/network/main.py:68 ajenti/plugins/bind9/main.py:73
+#: ajenti/plugins/iptables/main.py:185 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/bind9/main.py:70 ajenti/plugins/bind9/main.py:81
+#: ajenti/plugins/iptables/main.py:173 ajenti/plugins/iptables/main.py:186
+#: ajenti/plugins/network/main.py:73 ajenti/plugins/fstab/main.py:94
+#: ajenti/plugins/configurator/configurator.py:53
+#: ajenti/plugins/notepad/notepad.py:100
+msgid "Saved"
+msgstr "Shranjeno"
+
+#: ajenti/plugins/configurator/configurator.py:106
+#: ajenti/plugins/configurator/configurator.py:108
+#: ajenti/plugins/configurator/configurator.py:105
+#: ajenti/plugins/configurator/configurator.py:130
+msgid "Saved. Please restart Ajenti for changes to take effect."
+msgstr "Shranjeno. Za uveljavitev sprememb ponovno zaženite Ajenti."
+
+#: ajenti/plugins/configurator/configurator.py:112
+#: ajenti/plugins/configurator/configurator.py:114
+#: ajenti/plugins/configurator/configurator.py:111
+#: ajenti/plugins/configurator/configurator.py:136
+msgid "Please supply hostname"
+msgstr "Prosimo, navedite ime gostitelja"
+
+#: ajenti/plugins/configurator/configurator.py:128
+#: ajenti/plugins/configurator/configurator.py:130
+#: ajenti/plugins/configurator/configurator.py:127
+#: ajenti/plugins/configurator/configurator.py:150
+#, python-format
+msgid "Please configure %s plugin!"
+msgstr "Potrebna konfiguracija %s vtičnika!"
+
+#: ajenti/plugins/configurator/configurator.py:142
+#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:144
+#: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:182
+msgid "Configuration"
+msgstr "Konfiguracija"
+
+#: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:148
+#: ajenti/plugins/configurator/configurator.py:145
+#: ajenti/plugins/configurator/configurator.py:186
+msgid "Modify Ajenti configuration"
+msgstr "Spremeni Ajentijevo konfiguracijo"
+
+#: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:146
+#: ajenti/plugins/configurator/configurator.py:187
+msgid "Restart Ajenti"
+msgstr "Ponovno zaženi Ajenti"
+
+#: ajenti/plugins/cron/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:62
+#: ajenti/plugins/packages/main.py:14 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/users/main.py:16 ajenti/plugins/hosts/hosts.py:15
+#: ajenti/plugins/resolv/resolv.py:15 ajenti/plugins/iptables/main.py:64
+#: ajenti/plugins/raid/main.py:17 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/iptables/main.py:65 ajenti/plugins/network/main.py:17
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/megaraid/main.py:17
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/iptables/main.py:67
+msgid "System"
+msgstr "Sistem"
+
+#: ajenti/plugins/cron/layout/main.xml:1
+msgid "Select"
+msgstr "Izberi"
+
+#: ajenti/plugins/cron/layout/main.xml:2
+msgid "Normal"
+msgstr "Običajno"
+
+#: ajenti/plugins/cron/layout/main.xml:5 ajenti/plugins/cron/layout/main.xml:6
+#: ajenti/plugins/tasks/layout/main.xml:25
+msgid "Minute"
+msgstr "Minuta"
+
+#: ajenti/plugins/cron/layout/main.xml:6 ajenti/plugins/cron/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:26
+msgid "Hour"
+msgstr "Ura"
+
+#: ajenti/plugins/cron/layout/main.xml:7 ajenti/plugins/cron/layout/main.xml:8
+#: ajenti/plugins/tasks/layout/main.xml:27
+msgid "Day"
+msgstr "Dan"
+
+#: ajenti/plugins/cron/layout/main.xml:8 ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/tasks/layout/main.xml:28
+msgid "Month"
+msgstr "Mesec"
+
+#: ajenti/plugins/cron/layout/main.xml:9
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:29
+msgid "DoW"
+msgstr "Dan v tednu"
+
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/cron/layout/main.xml:15
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/scripts/layout/widget.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/params-execute.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+msgid "Command"
+msgstr "Ukaz"
+
+#: ajenti/plugins/cron/layout/main.xml:11
+#: ajenti/plugins/cron/layout/main.xml:12
+msgid "Special"
+msgstr "Poseben"
+
+#: ajenti/plugins/cron/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/tasks/layout/main.xml:22
+msgid "Schedule"
+msgstr "Urnik"
+
+#: ajenti/plugins/cron/layout/main.xml:16
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:12
+msgid "Environment"
+msgstr "Okolje"
+
+#: ajenti/plugins/cron/layout/main.xml:19
+#: ajenti/plugins/cron/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:14
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/samba/layout/main.xml:4
+#: ajenti/plugins/netatalk/layout/main.xml:4
+#: ajenti/plugins/raid/layout/main.xml:1 ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/bind9/layout/main.xml:3 ajenti/plugins/nsd/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:33
+msgid "Name"
+msgstr "Ime"
+
+#: ajenti/plugins/cron/layout/main.xml:20
+#: ajenti/plugins/cron/layout/main.xml:23
+#: ajenti/plugins/cron/layout/main.xml:21
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+#: ajenti/plugins/resolv/layout/main.xml:3
+msgid "Value"
+msgstr "Vrednost"
+
+#: ajenti/plugins/ctdb/main.py:20
+msgid "Samba Cluster"
+msgstr "Samba gruče"
+
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/apache/main.py:39
+#: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/squid/main.py:15
+#: ajenti/plugins/services/main.py:14 ajenti/plugins/psql/main.py:20
+#: ajenti/plugins/mysql/main.py:33 ajenti/plugins/nginx/main.py:39
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/samba/main.py:19
+#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/apache/main.py:40 ajenti/plugins/dhcpd/main.py:15
+#: ajenti/plugins/bind9/main.py:17 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/nginx/main.py:40 ajenti/plugins/bind9/main.py:28
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/psql/main.py:21
+#: ajenti/plugins/mysql/main.py:22 ajenti/plugins/apache/main.py:49
+msgid "Software"
+msgstr "Programska oprema"
+
+#: ajenti/plugins/ctdb/main.py:65
+msgid "Failed to obtain CTDB status"
+msgstr "Neuspešna pridobitev CTDB statusa"
+
+#: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
+#: ajenti/plugins/openvpn/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:4
+#: ajenti/plugins/tasks/layout/main.xml:11
+#: ajenti/plugins/plugins/layout/main.xml:4
+msgid "Status"
+msgstr "Status"
+
+#: ajenti/plugins/ctdb/layout/main.xml:3
+msgid "Public IPs"
+msgstr "Javni IP naslovi"
+
+#: ajenti/plugins/ctdb/layout/main.xml:5
+msgid "Manage Samba"
+msgstr "Upravljanje Sambe"
+
+#: ajenti/plugins/cron/layout/main.xml:16
+msgid "[_('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr "[_('Na vsako uro'), _('Dnevno'), _('Tedensko'), _('Mesečno'), _('Letno'), _ (\"Ob ponovnem zagonu\")]"
+
+#: ajenti/plugins/ctdb/layout/main.xml:6
+msgid "Debug level"
+msgstr "Razhroščevalni način"
+
+#: ajenti/plugins/ctdb/layout/main.xml:7
+msgid "Files"
+msgstr "Datoteke"
+
+#: ajenti/plugins/ctdb/layout/main.xml:8
+msgid "Recovery lock file"
+msgstr "Obnovitvena omejitvena datoteka"
+
+#: ajenti/plugins/ctdb/layout/main.xml:9
+msgid "Public addresses file"
+msgstr "Datoteka z javnimi naslovi"
+
+#: ajenti/plugins/ctdb/layout/main.xml:10
+msgid "Nodes file"
+msgstr "Datoteka vozlišča"
+
+#: ajenti/plugins/ctdb/layout/main.xml:11
+#: ajenti/plugins/samba/layout/main.xml:19
+msgid "Log file"
+msgstr "Dnevniška datoteka"
+
+#: ajenti/plugins/ctdb/layout/main.xml:12
+#: ajenti/plugins/samba/layout/main.xml:12
+msgid "Networking"
+msgstr "Omrežje"
+
+#: ajenti/plugins/ctdb/layout/main.xml:13
+msgid "Public interface"
+msgstr "Javni vmesnik"
+
+#: ajenti/plugins/ctdb/layout/main.xml:14
+msgid "Public network"
+msgstr "Javno omrežje"
+
+#: ajenti/plugins/ctdb/layout/main.xml:15
+msgid "Public gateway"
+msgstr "Javni privzeti prehod"
+
+#: ajenti/plugins/ctdb/layout/main.xml:16
+msgid "Nodes"
+msgstr "Vozlišča"
+
+#: ajenti/plugins/ctdb/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/exports/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option-address.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:3
+msgid "Address"
+msgstr "Naslov"
+
+#: ajenti/plugins/ctdb/layout/main.xml:20
+msgid "Public addresses"
+msgstr "Javni naslovi"
+
+#: ajenti/plugins/power/power.py:55
+msgid "Power"
+msgstr "Napajanje"
+
+#: ajenti/plugins/power/power.py:80 ajenti/plugins/power/power.py:98
+msgid "Power control"
+msgstr "Upravljanje napajanja"
+
+#: ajenti/plugins/power/power.py:84 ajenti/plugins/power/power.py:104
+msgid "Reboot"
+msgstr "Ponoven zagon"
+
+#: ajenti/plugins/power/power.py:85 ajenti/plugins/power/power.py:105
+msgid "Shutdown"
+msgstr "Zaustavitev"
+
+#: ajenti/plugins/power/layout/widget.xml:1
+msgid "AC power"
+msgstr "AC napajanje"
+
+#: ajenti/plugins/power/layout/widget.xml:2
+msgid "Battery"
+msgstr "Baterija"
+
+#: ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/layout/widget.xml:5
+msgid "Reboot the system?"
+msgstr "Ponoven zagon sistema?"
+
+#: ajenti/plugins/power/layout/widget.xml:4
+#: ajenti/plugins/power/layout/widget.xml:6
+msgid "Shutdown the system?"
+msgstr "Zaustavitev sistema?"
+
+#: ajenti/plugins/main/main.py:197 ajenti/plugins/main/main.py:201
+msgid "Section access"
+msgstr "Dostop do področja"
+
+#: ajenti/plugins/main/main.py:214 ajenti/plugins/main/main.py:218
+msgid "Feedback sent!"
+msgstr "Povratne informacije so bile poslane!"
+
+#: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
+msgid "Load average"
+msgstr "Povprečna obremenitev"
+
+#: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
+#: ajenti/plugins/sensors/layout/cpu-widget.xml:1
+msgid "CPU usage"
+msgstr "uporaba CPU"
+
+#: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
+msgid "Memory usage"
+msgstr "poraba spomina"
+
+#: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
+msgid "Swap usage"
+msgstr "Poraba swap"
+
+#: ajenti/plugins/sensors/uptime.py:18 ajenti/plugins/sensors/uptime.py:74
+msgid "Uptime"
+msgstr "Čas delovanja"
+
+#: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
+#: ajenti/plugins/sensors/layout/value-widget.xml:1
+msgid "Variant"
+msgstr "Različica"
+
+#: ajenti/plugins/fstab/main.py:43
+msgid "Filesystems"
+msgstr "Datotečni sistemi"
+
+#: ajenti/plugins/fstab/main.py:67
+msgid "Unmounted"
+msgstr "Odklopljen"
+
+#: ajenti/plugins/fstab/main.py:73 ajenti/plugins/fstab/main.py:74
+msgid "mount -a failed"
+msgstr "pripni -a ni uspelo"
+
+#: ajenti/plugins/fstab/iops.py:61 ajenti/plugins/fstab/iops.py:70
+msgid "Immediate I/O"
+msgstr "Takojšnji I/O"
+
+#: ajenti/plugins/fstab/widget.py:9
+msgid "Disk space"
+msgstr "Diskovni prostor"
+
+#: ajenti/plugins/hddtemp/widget.py:9
+msgid "HDD Temperature"
+msgstr "Temperatura trdega diska"
+
+#: ajenti/plugins/dhcpd/main.py:13
+msgid "DHCP Server"
+msgstr "DHCP strežnik"
+
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "Konec poizvedbe"
+
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr "Vrstice izhodnega toka od %i do 200"
+
+#: ajenti/plugins/iptables/main.py:55 ajenti/plugins/iptables/main.py:57
+msgid "You can't disable firewall autostart on this platform"
+msgstr "Ni možno onemogočiti samodejnega zagona požarnega zidu"
+
+#: ajenti/plugins/iptables/main.py:63 ajenti/plugins/iptables/main.py:65
+msgid "Firewall"
+msgstr "Požarni zid"
+
+#: ajenti/plugins/iptables/main.py:105
+#: ajenti/plugins/iptables/layout/main.xml:10
+#: ajenti/plugins/iptables/main.py:107
+msgid "Add option"
+msgstr "Dodaj možnost"
+
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
+msgid "Disable"
+msgstr "Onemogoči"
+
+#: ajenti/plugins/iptables/main.py:140 ajenti/plugins/iptables/main.py:144
+msgid " autostart"
+msgstr " samodejni zagon"
+
+#: ajenti/plugins/scripts/widget.py:11
+msgid "Script"
+msgstr "Skripta"
+
+#: ajenti/plugins/scripts/widget.py:41
+msgid "Launched"
+msgstr "Zagnano"
+
+#: ajenti/plugins/scripts/widget.py:47
+msgid "Scripts"
+msgstr "Skripte"
+
+#: ajenti/plugins/scripts/widget.py:51
+msgid "Run scripts"
+msgstr "Zaženi skripte"
+
+#: ajenti/plugins/packages/installer.py:9
+msgid "This package can be installed automatically"
+msgstr "Paket se lahko namesti samodejno"
+
+#: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
+msgid "Packages"
+msgstr "Paketi"
+
+#: ajenti/plugins/packages/main.py:50
+msgid "Enqueueing package installation"
+msgstr "Vrsta za paketno namestitev"
+
+#: ajenti/plugins/packages/main.py:61
+msgid "Installation complete!"
+msgstr "Namestitev končana!"
+
+#: ajenti/plugins/packages/main.py:134
+#, python-format
+msgid "%i found, 100 shown"
+msgstr "%i najden 100 prikazanih"
+
+#: ajenti/plugins/packages/main.py:137
+#, python-format
+msgid "%i found"
+msgstr "%i najden"
+
+#: ajenti/plugins/packages/main.py:150
+msgid "Install / remove"
+msgstr "Namesti / odstrani"
+
+#: ajenti/plugins/packages/main.py:151
+msgid "Refresh lists"
+msgstr "Osveži seznam"
+
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+msgid "File Manager"
+msgstr "Raziskovalec"
+
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/notepad/notepad.py:19 ajenti/plugins/tasks/main.py:16
+msgid "Tools"
+msgstr "Orodja"
+
+#: ajenti/plugins/fm/fm.py:56 ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/fm.py:52
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr ""
+
+#: ajenti/plugins/squid/main.py:14
+msgid "Squid"
+msgstr "Squid"
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr "Urejevalnik kode CodeMirror"
+
+#: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:95
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "Proces končan s statusom %i"
+
+#: ajenti/plugins/terminal/terminal.py:99
+#: ajenti/plugins/terminal/terminal.py:97
+msgid "Process has exited successfully"
+msgstr "Proces uspešno zaključen"
+
+#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
+#: ajenti/plugins/terminal/main.py:183 ajenti/plugins/terminal/main.py:191
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ajenti/plugins/terminal/main.py:187 ajenti/plugins/terminal/main.py:195
+msgid "Run shell"
+msgstr "Zaženi lupino"
+
+#: ajenti/plugins/terminal/main.py:188 ajenti/plugins/terminal/main.py:196
+msgid "Run custom commands"
+msgstr "Zaženi poljubne ukaze"
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/memcache/widget.py:29 ajenti/plugins/memcache/widget.py:35
+msgid "Memcache memory usage"
+msgstr "Memcache poraba pomnilnika"
+
+#: ajenti/plugins/logs/main.py:12
+msgid "Logs"
+msgstr "Dnevniške datoteke"
+
+#: ajenti/plugins/services/main.py:12
+msgid "Services"
+msgstr "Servisi"
+
+#: ajenti/plugins/services/main.py:39
+#, python-format
+msgid "%s started"
+msgstr "%s zagnan"
+
+#: ajenti/plugins/services/main.py:44
+#, python-format
+msgid "%s stopped"
+msgstr "%s ustavljen"
+
+#: ajenti/plugins/services/main.py:49
+#, python-format
+msgid "%s restarted"
+msgstr "%s ponovno zagnan"
+
+#: ajenti/plugins/services/widget.py:10
+#: ajenti/plugins/services/layout/widget.xml:4
+msgid "Service"
+msgstr "Servis"
+
+#: ajenti/plugins/users/main.py:99
+#, python-format
+msgid "Home dir for %s was created"
+msgstr "Domači imenik za %s ustvarjen"
+
+#: ajenti/plugins/users/main.py:108
+#, python-format
+msgid "Password for %s was changed"
+msgstr "Geslo za %s je spremenjeno"
+
+#: ajenti/plugins/users/main.py:111
+#, python-format
+msgid "Error: \"%s\""
+msgstr "Napaka: \"%s\""
+
+#: ajenti/plugins/users/main.py:113
+msgid "Password shouldn't be empty"
+msgstr "Geslo ne sme biti prazno polje"
+
+#: ajenti/plugins/users/main.py:117
+#, python-format
+msgid "Password for %s was removed"
+msgstr "Geslo za %s je bilo odstranjeno"
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr "Omrežje"
+
+#: ajenti/plugins/network/widget.py:85
+msgid "Immediate Traffic"
+msgstr "Trenutni promet"
+
+#: ajenti/plugins/network/widget.py:115
+msgid "Traffic"
+msgstr "Promet"
+
+#: ajenti/plugins/taskmgr/main.py:14
+msgid "Processes"
+msgstr "Procesi"
+
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:26
+#: ajenti/plugins/apache/main.py:12 ajenti/plugins/nginx/main.py:12
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/mysql/main.py:15
+#: ajenti/plugins/apache/main.py:13
+msgid "Reload"
+msgstr "Ponovno naloži"
+
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+msgid "Zone saved"
+msgstr "Zona shranjena"
+
+#: ajenti/plugins/hosts/hosts.py:13
+msgid "Hosts"
+msgstr "Gostitelji"
+
+#: ajenti/plugins/notepad/notepad.py:17
+msgid "Notepad"
+msgstr "Beležnica"
+
+#: ajenti/plugins/notepad/notepad.py:50 ajenti/plugins/notepad/notepad.py:52
+#, python-format
+msgid "Untitled %i"
+msgstr "Neimenovan %i"
+
+#: ajenti/plugins/resolv/resolv.py:13 ajenti/plugins/resolv/main.py:13
+msgid "Nameservers"
+msgstr "Imenski strežniki"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "DNS nameserver"
+msgstr "DNS strežnik"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Local domain name"
+msgstr "Ime lokalne domene"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Search list"
+msgstr "Seznam za iskanje"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/resolv/main.py:18
+msgid "Sort list"
+msgstr "Razvrstitveni seznam"
+
+#: ajenti/plugins/resolv/resolv.py:18 ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:5
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/squid/layout/port-template.xml:3
+#: ajenti/plugins/exports/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
+msgid "Options"
+msgstr "Možnosti"
+
+#: ajenti/plugins/smartctl/widget.py:58 ajenti/plugins/smartctl/widget.py:60
+msgid "No data"
+msgstr "Ni podatkov"
+
+#: ajenti/plugins/smartctl/widget.py:59 ajenti/plugins/smartctl/widget.py:61
+msgid "FAILING"
+msgstr "FAILING"
+
+#: ajenti/plugins/smartctl/widget.py:60 ajenti/plugins/smartctl/widget.py:62
+msgid "PRE-FAIL"
+msgstr "PRE-FAIL"
+
+#: ajenti/plugins/smartctl/widget.py:61 ajenti/plugins/smartctl/widget.py:63
+msgid "Unknown error"
+msgstr "Neznana napaka"
+
+#: ajenti/plugins/smartctl/widget.py:62 ajenti/plugins/smartctl/widget.py:64
+msgid "Errors in log"
+msgstr "Napake v dnevniški datoteki"
+
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "NFS izvoz"
+
+#: ajenti/plugins/munin/main.py:43
+#, python-format
+msgid "Couldn't connect to Munin: %s"
+msgstr "Ne morem povezati z Munin: %s"
+
+#: ajenti/plugins/munin/main.py:47
+msgid "Munin HTTP authentication failed"
+msgstr "Munin HTTP preverjanje pristnosti ni uspelo"
+
+#: ajenti/plugins/samba/main.py:47
+msgid "Password updated"
+msgstr "Geslo posodobljeno"
+
+#: ajenti/plugins/samba/main.py:50
+msgid "Password update failed"
+msgstr "Posodobitev gesla ni uspela"
+
+#: ajenti/plugins/dashboard/dash.py:18
+msgid "Dashboard"
+msgstr "Nadzorna plošča"
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr "Dobrodošli"
+
+#: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr "Adapter"
+
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/free-widget.xml:1
+msgid "Device"
+msgstr "Naprava"
+
+#: ajenti/plugins/fstab/layout/main.xml:1
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:2
+msgid "Refresh"
+msgstr "Osveži"
+
+#: ajenti/plugins/fstab/layout/main.xml:2
+msgid "Mount all"
+msgstr "Pripni vse"
+
+#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:13
+msgid "Mountpoint"
+msgstr "Točka priklopa"
+
+#: ajenti/plugins/fstab/layout/main.xml:6
+msgid "FS type"
+msgstr "Vrsta datotečnega sistema"
+
+#: ajenti/plugins/fstab/layout/main.xml:8
+msgid "Scan frequency"
+msgstr "Pogostost pregledovanja"
+
+#: ajenti/plugins/fstab/layout/main.xml:9
+msgid "Scan pass"
+msgstr "Iskanje"
+
+#: ajenti/plugins/fstab/layout/main.xml:11
+msgid "Mounted filesystems"
+msgstr "Priklopljen datotečni sistem"
+
+#: ajenti/plugins/fstab/layout/main.xml:14
+msgid "Used"
+msgstr "Uporabljeno"
+
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "Velikost"
+
+#: ajenti/plugins/fstab/layout/main.xml:16
+msgid "Usage"
+msgstr "Poraba"
+
+#: ajenti/plugins/fstab/layout/main.xml:17
+msgid "Unmount"
+msgstr "Odpni"
+
+#: ajenti/plugins/supervisor/layout/main.xml:1
+msgid "[{                 'command': 'force-reload',                 'text': _('Reload'),                 'icon': 'step-forward',             }]"
+msgstr "[{ 'command': 'force-reload', 'text': _('Reload'), 'icon': 'step-forward', }]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:4
+msgid "Working directory"
+msgstr "Delovni imenik"
+
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Autostart"
+msgstr "Samodejni zagon"
+
+#: ajenti/plugins/supervisor/layout/main.xml:6
+msgid "[_('Enabled'), _('Disabled')]"
+msgstr "[_('Omogočeno'), _('Onemogočeno')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:7
+msgid "Autorestart"
+msgstr "Samodejni ponovni zagon"
+
+#: ajenti/plugins/supervisor/layout/main.xml:8
+msgid "[_('Enabled'), _('On crash'), _('Disabled')]"
+msgstr "[_('Omogočen'), _ (\"Ob sesutju\"), _('Onemogočen')]"
+
+#: ajenti/plugins/supervisor/layout/main.xml:9
+msgid "Start timeout"
+msgstr "Časovna omejitev za začetek"
+
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "Start retries"
+msgstr "Zaženi ponovne poskuse"
+
+#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "Uporabniško ime"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:1
+msgid "Subnetworks"
+msgstr "Podomrežja"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:3
+msgid "Specification"
+msgstr "Specifikacija"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:4
+msgid "IP ranges"
+msgstr "IP obseg"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:7
+msgid "Global options"
+msgstr "Globalne nastavitve"
+
+#: ajenti/plugins/db_common/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:1
+#: ajenti/plugins/tasks/layout/main.xml:16
+msgid "Run"
+msgstr "Zaženi"
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Podatkovne baze"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "Potrdi izbris podatkovne baze!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Ime podatkovne baze"
+
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/openvpn/layout/config.xml:3
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/samba/layout/main.xml:29
+#: ajenti/plugins/netatalk/layout/main.xml:6
+msgid "Password"
+msgstr "Geslo"
+
+#: ajenti/plugins/iptables/layout/option-interface.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr "Vmesnik"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr "Argumenti"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr "Argument"
+
+#: ajenti/plugins/iptables/layout/option-match.xml:1
+msgid "Modules"
+msgstr "Moduli"
+
+#: ajenti/plugins/iptables/layout/option-state.xml:1
+msgid "States"
+msgstr "Stanja"
+
+#: ajenti/plugins/iptables/layout/main.xml:1
+msgid "Raw edit"
+msgstr "Neposredno urejanje"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr "Nalaganje trenutnega stanja"
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr "Prepisana bo konfiguracija s trenutnim stanjem požarnega zidu. Nadaljujem?"
+
+#: ajenti/plugins/iptables/layout/main.xml:4
+msgid "New Chain"
+msgstr "Nova veriga"
+
+#: ajenti/plugins/iptables/layout/main.xml:7
+msgid "Action"
+msgstr "Dejanje"
+
+#: ajenti/plugins/iptables/layout/main.xml:8
+#: ajenti/plugins/users/layout/user-list.xml:3
+msgid "Comment"
+msgstr "Komentar"
+
+#: ajenti/plugins/iptables/layout/main.xml:9
+msgid "Conditions"
+msgstr "Pogoji"
+
+#: ajenti/plugins/iptables/layout/main.xml:11
+msgid "New Rule"
+msgstr "Novo pravilo"
+
+#: ajenti/plugins/iptables/layout/main.xml:13
+#: ajenti/plugins/packages/layout/main.xml:2
+msgid "Apply"
+msgstr "Uporabi"
+
+#: ajenti/plugins/iptables/layout/option-protocol.xml:1
+msgid "Protocol"
+msgstr "Protokol"
+
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:11
+msgid "Ports"
+msgstr "Vrata"
+
+#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
+msgid "Reason"
+msgstr "Razlog"
+
+#: ajenti/plugins/scripts/layout/widget.xml:3
+msgid "Run in terminal"
+msgstr "Zaženi v ukazni lupini"
+
+#: ajenti/plugins/packages/layout/headers.xml:2
+msgid "Version"
+msgstr "Različica"
+
+#: ajenti/plugins/packages/layout/main.xml:1
+msgid "Get lists"
+msgstr "Pridobi sezname"
+
+#: ajenti/plugins/packages/layout/main.xml:3
+msgid "Upgradeable"
+msgstr "Nadgradljivi"
+
+#: ajenti/plugins/packages/layout/main.xml:4
+msgid "Upgrade all"
+msgstr "Nadgradnja vseh"
+
+#: ajenti/plugins/packages/layout/main.xml:5
+#: ajenti/plugins/packages/layout/main.xml:6
+msgid "Search"
+msgstr "Išči"
+
+#: ajenti/plugins/packages/layout/main.xml:7
+#: ajenti/plugins/tasks/layout/main.xml:7
+msgid "Pending"
+msgstr "Čakajoče"
+
+#: ajenti/plugins/packages/layout/main.xml:8
+msgid "Cancel all"
+msgstr "Prekliči vse"
+
+#: ajenti/plugins/packages/layout/installer.xml:1
+msgid "Install"
+msgstr "Namestitev"
+
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr "Označi za namestitev/nadgradnjo"
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr "Označi za odstranitev"
+
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "Vrhnji imenik"
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "Zapri"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "New File"
+msgstr "Nova datoteka"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New Folder"
+msgstr "Nov direktorij"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Upload"
+msgstr "Naloži"
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Clipboard"
+msgstr "Odložišče"
+
+#: ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/users/layout/user-list.xml:9
+msgid "Remove"
+msgstr "Odstrani"
+
+#: ajenti/plugins/fm/layout/main.xml:11 ajenti/plugins/fm/layout/main.xml:12
+msgid "Access"
+msgstr "Dostop"
+
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:13
+msgid "Owner"
+msgstr "Lastnik"
+
+#: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:14
+msgid "Group"
+msgstr "Skupina"
+
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
+msgid "Others"
+msgstr "Ostali"
+
+#: ajenti/plugins/lm-sensors/layout/widget.xml:1
+msgid "Sensor"
+msgstr "Senzor"
+
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr "Naslov za upravljanje"
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr "gostitelj: vrata ali UNIX vtičnica"
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr "Oddaljeni IP naslov"
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr "Lokalni IP naslov"
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr "Povezan od"
+
+#: ajenti/plugins/openvpn/layout/main.xml:7
+#: ajenti/plugins/samba/layout/main.xml:25
+msgid "Disconnect"
+msgstr "Prekini"
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr "odjemalci"
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr "Sporočila"
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr "Časovni žig"
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr "Zastavice"
+
+#: ajenti/plugins/openvpn/layout/main.xml:12
+#: ajenti/plugins/dashboard/text.py:7
+#: ajenti/plugins/dashboard/layout/text.xml:1
+msgid "Text"
+msgstr "Besedilo"
+
+#: ajenti/plugins/squid/layout/main.xml:5
+msgid "HTTP Access"
+msgstr "HTTP dostop"
+
+#: ajenti/plugins/squid/layout/main.xml:8
+msgid "Mode"
+msgstr "Način"
+
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "[_('Allow'), _('Deny')]"
+msgstr "[_('Dovoli'), _('Zavrni')]"
+
+#: ajenti/plugins/terminal/layout/config.xml:1
+msgid "Default shell"
+msgstr "Privzeta lupina"
+
+#: ajenti/plugins/terminal/layout/main.xml:2
+#: ajenti/plugins/notepad/layout/main.xml:1
+msgid "New"
+msgstr "Novi"
+
+#: ajenti/plugins/terminal/layout/main.xml:3
+msgid "No active terminals"
+msgstr "Ni aktivnih terminalov"
+
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr "Stanje"
+
+#: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:2
+msgid "Type"
+msgstr "Vrsta"
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr "Naprave"
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr "Bloki"
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr "Popravljanje:"
+
+#: ajenti/plugins/logs/layout/main.xml:1
+#: ajenti/plugins/notepad/layout/main.xml:2
+msgid "Open"
+msgstr "Odpri"
+
+#: ajenti/plugins/services/layout/bar.xml:1
+#: ajenti/plugins/services/layout/main.xml:3
+#: ajenti/plugins/services/layout/widget.xml:1
+msgid "Start"
+msgstr "Zaženi"
+
+#: ajenti/plugins/services/layout/bar.xml:2
+#: ajenti/plugins/services/layout/main.xml:4
+#: ajenti/plugins/services/layout/widget.xml:2
+msgid "Stop"
+msgstr "Ustavi"
+
+#: ajenti/plugins/services/layout/main.xml:1
+msgid "Origin"
+msgstr "Vir"
+
+#: ajenti/plugins/services/layout/main.xml:2
+msgid "Actions"
+msgstr "Dejanja"
+
+#: ajenti/plugins/users/layout/user-list.xml:4
+msgid "Home directory"
+msgstr "Domači imenik"
+
+#: ajenti/plugins/users/layout/user-list.xml:6
+msgid "Shell"
+msgstr "Lupina"
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "Novo geslo"
+
+#: ajenti/plugins/users/layout/user-list.xml:8
+#: ajenti/plugins/samba/layout/main.xml:30
+msgid "Set"
+msgstr "Nastavi"
+
+#: ajenti/plugins/users/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:23
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+msgid "User"
+msgstr "Uporabnik"
+
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr "Sistemski uporabniki"
+
+#: ajenti/plugins/users/layout/main.xml:9
+msgid "Groups"
+msgstr "Skupine"
+
+#: ajenti/plugins/users/layout/main.xml:12
+msgid "Members"
+msgstr "Člani"
+
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Class"
+msgstr "Razred"
+
+#: ajenti/plugins/network/layout/main.xml:3
+msgid "Bring up"
+msgstr "Omogoči"
+
+#: ajenti/plugins/network/layout/main.xml:4
+msgid "Bring down"
+msgstr "Onemogoči"
+
+#: ajenti/plugins/network/layout/main.xml:5
+msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
+msgstr "Izklop primarne omrežne povezave lahko onemogoči dostop do strežnika! Nadaljuj?"
+
+#: ajenti/plugins/network/layout/main.xml:7
+msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
+msgstr "Ponoven zagon primarne omrežne povezave lahko onemogoči dostop do strežnika. Nadaljujem?"
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "[_('Loopback'), _('Static'), _('Manual'), 'DHCP', 'BootP', 'WVDial', 'Zeroconf']"
+msgstr "[_('Lo'), _('Statičen'), _('Ročni'), \"DHCP\", \"BootP\", \"WVDial\", \"Zeroconf\"]"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "PID (Parent)"
+msgstr "PID (Starš)"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+msgid "CPU"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+msgid "RAM"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+msgid "Terminate"
+msgstr "Prekini"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+#: ajenti/plugins/taskmgr/layout/main.xml:8
+msgid "Kill"
+msgstr "Ubij"
+
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr "Zone"
+
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr "Datoteka"
+
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr "Zona"
+
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr "Datoteka za zono ne obstaja"
+
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
+msgstr "Shrani zono"
+
+#: ajenti/plugins/hosts/layout/main.xml:4
+msgid "Aliases"
+msgstr "Psevdonimi"
+
+#: ajenti/plugins/notepad/layout/main.xml:4
+msgid "Save As"
+msgstr "Shrani kot"
+
+#: ajenti/plugins/notepad/layout/main.xml:5
+msgid "Bookmark"
+msgstr "Zaznamek"
+
+#: ajenti/plugins/plugins/layout/main.xml:1
+msgid "Dependencies"
+msgstr "Odvisnosti"
+
+#: ajenti/plugins/exports/layout/main.xml:2
+#: ajenti/plugins/elements/layout/task-resequence.xml:1
+#: ajenti/plugins/elements/layout/task-params-proxy.xml:1
+msgid "Directory"
+msgstr "Imenik"
+
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr "Odjemalci"
+
+#: ajenti/plugins/munin/layout/main.xml:1
+msgid "View"
+msgstr "Pogled"
+
+#: ajenti/plugins/samba/layout/main.xml:1
+#: ajenti/plugins/netatalk/layout/main.xml:1
+msgid "Shares"
+msgstr "Deljene mape"
+
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/netatalk/layout/main.xml:5
+msgid "Path"
+msgstr "Pot"
+
+#: ajenti/plugins/samba/layout/main.xml:6
+msgid "Guest access"
+msgstr "Začasni dostop"
+
+#: ajenti/plugins/samba/layout/main.xml:7
+msgid "Browseable"
+msgstr "Možno brskanje"
+
+#: ajenti/plugins/samba/layout/main.xml:8
+msgid "Create mask"
+msgstr "Ustvari masko"
+
+#: ajenti/plugins/samba/layout/main.xml:9
+msgid "Directory mask"
+msgstr "Maska imenika"
+
+#: ajenti/plugins/samba/layout/main.xml:10
+msgid "Read only"
+msgstr "Samo za branje"
+
+#: ajenti/plugins/samba/layout/main.xml:11
+#: ajenti/plugins/netatalk/layout/main.xml:11
+msgid "Config"
+msgstr "Konifugracija"
+
+#: ajenti/plugins/samba/layout/main.xml:13
+msgid "Interfaces"
+msgstr "Vmesniki"
+
+#: ajenti/plugins/samba/layout/main.xml:14
+msgid "Bind only to these interfaces"
+msgstr "Veži samo na te vmesnike"
+
+#: ajenti/plugins/samba/layout/main.xml:15
+msgid "Identification"
+msgstr "Identifikacija"
+
+#: ajenti/plugins/samba/layout/main.xml:16
+msgid "Workgroup"
+msgstr "Delovna skupina"
+
+#: ajenti/plugins/samba/layout/main.xml:17
+msgid "Server string"
+msgstr "Strežniški niz"
+
+#: ajenti/plugins/samba/layout/main.xml:20
+msgid "Security"
+msgstr "Varnost"
+
+#: ajenti/plugins/samba/layout/main.xml:21
+msgid "Sessions"
+msgstr "Seje"
+
+#: ajenti/plugins/samba/layout/main.xml:22
+msgid "Share"
+msgstr "Deli"
+
+#: ajenti/plugins/samba/layout/main.xml:24
+msgid "Machine"
+msgstr "Naprava"
+
+#: ajenti/plugins/samba/layout/main.xml:27
+msgid "Add"
+msgstr "Dodaj"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Add widget"
+msgstr "Dodaj pripomoček"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
+msgstr "[{'text': _('Prekliči'), 'id': \"prekliči\"}]"
+
+#: ajenti/plugins/netatalk/layout/main.xml:7
+msgid "Valid users"
+msgstr "Veljavni uporabniki"
+
+#: ajenti/plugins/netatalk/layout/main.xml:8
+msgid "Resource forks"
+msgstr "Razcep vira"
+
+#: ajenti/plugins/netatalk/layout/main.xml:9
+msgid "Extended attributes"
+msgstr "Razširjeni atributi"
+
+#: ajenti/plugins/netatalk/layout/main.xml:10
+msgid "CNID scheme"
+msgstr "CNID shema"
+
+#: ajenti/plugins/netatalk/layout/main.xml:12
+msgid "AFP port"
+msgstr "AFP vrata"
+
+#: ajenti/plugins/netatalk/layout/main.xml:13
+msgid "CNID address"
+msgstr "CNID naslov"
+
+#: ajenti/plugins/fstab/widget.py:38
+msgid "Free disk space"
+msgstr "Nezaseden prostor na disku"
+
+#: ajenti/plugins/fstab/widget.py:48
+#, python-format
+msgid "%s free"
+msgstr "%s prosto"
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+msgid "or UNIX socket path"
+msgstr "ali pot do UNIX vtičnice"
+
+#: ajenti/plugins/elements/bin/dict.xml:1
+msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
+msgstr "0,0} {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0}, {0,0"
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:2
+msgid "Use prefix"
+msgstr "Uporabi predpono"
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:3
+msgid "Prefix"
+msgstr "Predpona"
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:4
+msgid "Use suffix"
+msgstr "Uporabi pripono"
+
+#: ajenti/plugins/elements/layout/task-resequence.xml:5
+msgid "Suffix"
+msgstr "Pripona"
+
+#: ajenti/plugins/iptables/main.py:198
+msgid "Applied successfully"
+msgstr "Uspešno podano"
+
+#: ajenti/plugins/fm/fm.py:141 ajenti/plugins/fm/fm.py:139
+#, python-format
+msgid "Selected %i items"
+msgstr "Izbranih %i predmetov"
+
+#: ajenti/plugins/tasks/tasks.py:33
+#, python-format
+msgid "Copying %s"
+msgstr "Kopiranje %s"
+
+#: ajenti/plugins/tasks/tasks.py:64
+#, python-format
+msgid "Moving %s"
+msgstr "Premikanje %s"
+
+#: ajenti/plugins/tasks/manager.py:63
+#, python-format
+msgid "Task %s finished"
+msgstr "Naloga %s dokončana"
+
+#: ajenti/plugins/tasks/manager.py:95
+#, python-format
+msgid "Task %s queued"
+msgstr "Opravilo %s v čakalni vrsti"
+
+#: ajenti/plugins/tasks/manager.py:101
+#, python-format
+msgid "Task %s started"
+msgstr "Opravilo %s zagnano"
+
+#: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
+msgid "Tasks"
+msgstr "Naloga"
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:1
+msgid "From directory"
+msgstr "Iz datoteke"
+
+#: ajenti/plugins/tasks/layout/params-copydir.xml:2
+msgid "Into directory"
+msgstr "V imenik"
+
+#: ajenti/plugins/tasks/layout/main.xml:1
+msgid "Running tasks"
+msgstr "Izvajajoče naloge"
+
+#: ajenti/plugins/tasks/layout/main.xml:5
+msgid "Running"
+msgstr "V teku"
+
+#: ajenti/plugins/tasks/layout/main.xml:6
+msgid "Aborting"
+msgstr "Opuščanje"
+
+#: ajenti/plugins/tasks/layout/main.xml:8
+msgid "Abort"
+msgstr "Opusti"
+
+#: ajenti/plugins/tasks/layout/main.xml:9
+msgid "Completed tasks"
+msgstr "Dokončane naloge"
+
+#: ajenti/plugins/tasks/layout/main.xml:12
+msgid "Success"
+msgstr "Uspeh"
+
+#: ajenti/plugins/tasks/layout/main.xml:13
+msgid "Aborted"
+msgstr "Prekinjeno"
+
+#: ajenti/plugins/tasks/layout/main.xml:14
+msgid "Error"
+msgstr "Napaka"
+
+#: ajenti/plugins/tasks/layout/main.xml:15
+msgid "Crashed"
+msgstr "Sesul"
+
+#: ajenti/plugins/tasks/layout/main.xml:17
+msgid "Jobs"
+msgstr "Naloge"
+
+#: ajenti/plugins/tasks/layout/main.xml:21
+msgid "Run task"
+msgstr "Poženi nalogo"
+
+#: ajenti/plugins/tasks/layout/main.xml:23
+msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
+msgstr "[_ (\"Navodila (navedite spodaj)\"), _('Urni'), _('Dnevni'), _('Tedenski'), _('Mesečni'), _('Letni'), _ (\"Ob vnovičnem zagonu\")]"
+
+#: ajenti/plugins/tasks/layout/main.xml:24
+msgid "Manual entry"
+msgstr "Ročni vnos"
+
+#: ajenti/plugins/tasks/layout/main.xml:34
+msgid "Run in parallel"
+msgstr "Zaženi vzporedno"
+
+#: ajenti/plugins/plugins/layout/main.xml:3
+msgid "Depends on"
+msgstr "Odvisno od"
+
+#: ajenti/plugins/ltfs/archive/main.py:29
+msgid "LTFS"
+msgstr "LTFS"
+
+#: ajenti/usersync/unix.py:16
+msgid "OS users"
+msgstr ""
+
+#: ajenti/usersync/local.py:12
+msgid "Off"
+msgstr ""
+
+#: ajenti/usersync/ldapsync.py:15
+msgid "LDAP User Syncronization"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:102
+msgid "Suspend"
+msgstr ""
+
+#: ajenti/plugins/power/power.py:103
+msgid "Hibernate"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:3
+msgid "Suspend the system?"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:4
+msgid "Hibernate the system?"
+msgstr ""
+
+#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
+msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+msgid "Sync with"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:18
+msgid "Sync now"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+msgid "Configured correctly"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+msgid "Failed to sync"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
+msgid "Server URL"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
+msgid "Admin DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
+msgid "Auth DN suffix"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
+msgid "Secret"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:10
+msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:16
+msgid "Set recursively"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "Parent"
+msgstr ""
+

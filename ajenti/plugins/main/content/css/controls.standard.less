@@ -1,0 +1,536 @@
+@import "mixins.i.less";
+@import "vars.i.less";
+@import "lib.i.less";
+
+
+
+.control-textinput {
+	color: @controlText;
+	font-family: @fontFamily; 
+	font-size: @fontSize;
+	
+	padding: 1px 4px;
+	.control-inset();
+	border: none;
+
+	&:hover {
+		border: 1px solid #eee;
+		padding: 0 3px;
+	}
+
+	&:focus {
+		border: 1px solid @orange;
+		padding: 0 3px;
+	} 
+}
+
+.actionlink {
+	display: inline-block;
+	color: @controlText;
+	height: auto;
+	line-height: normal;
+	padding: 4px 0 0px;
+	border-bottom: 1px dotted lighten(@controlText, 10%);
+	margin: 1px 0 3px;
+	cursor: pointer;
+	width: auto;
+	
+	&:hover {
+		color: lighten(@controlText, 10%);
+		border-bottom: 1px dotted lighten(@controlText, 25%);
+	}
+}
+
+
+.changed-badge {
+	position: relative;
+
+	span {
+		position: absolute;
+		display: block;
+		z-index: 3;
+		right: 2px;
+		top: -5px;
+		font-size: 24px;
+		font-weight: bold;
+		color: @orange;
+	}
+}
+
+.control {
+	display: block;
+	overflow: hidden;
+	margin: 1px;
+
+	&.changed {
+		box-shadow: 0 0 2px @orange !important;
+	}
+
+	// ------------------
+
+	&.mini {
+		width: 50px !important;
+	}
+
+	&.big {
+		width: @controlWidth * 2 !important;
+	}
+
+	// ------------------
+
+	&.container {
+		margin: 0;
+	}
+
+	&.pad {
+		padding: 10px;
+	}
+
+	&.indent {
+		padding: 0 10px;
+	}
+
+	&.center {
+		text-align: center;
+		
+		>div {
+			display: inline-block;
+			margin: auto;
+		}
+	}
+
+	&.right {
+		float: right;
+	}
+
+	&.box {
+		overflow: visible;
+	}
+
+	&.hc {
+		white-space: nowrap;
+
+		&>tbody>tr>td {
+			vertical-align: top;
+			padding: 0;
+		}
+	}
+
+	&.vc {
+		&> div {
+			padding-bottom: 5px;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+
+		&.nopad > div {
+			padding-bottom: 0;
+		}
+	}
+
+	&.label {
+		text-decoration: none;
+		color: @controlText;
+		line-height: @controlHeight;
+		.size(@controlHeight, auto);
+		display: inline-block;
+		word-wrap: break-word;
+
+		&.bold {
+			font-weight: bold;
+		}
+
+		&.small {
+			font-size: @fontSize * 0.9;
+			height: auto;	
+		}
+	}
+
+	&.tooltip {
+		position: relative;
+		display: inline-block;
+		overflow: visible;
+		margin: 0;
+
+		&.body {
+			position: relative;
+
+			>:last-child {
+				display: block;
+				width: 1px;
+				margin-left: 10px;
+				border-style: solid;
+				border-color: rgba(0,0,0,.75) transparent;
+				border-width: 5px 5px 0 5px;
+			}
+
+			>:first-child {
+				display: block;
+				background: rgba(0,0,0,.75);
+				color: white;
+				padding: 3px 8px;
+				.border-radius(3px);
+			}
+		}
+
+		&:hover > .tip {
+			display: block;
+			opacity: 1;
+		}
+	}
+
+	&.icon {
+		.size(@controlHeight, 16px);
+		display: inline-block;
+		line-height: @controlHeight - 5px;
+
+		i {
+			display: block;
+		}
+
+		&.style-yellow {
+			i:before { color: @orange; }
+		}
+	}
+
+	&.button {
+		.size(auto, @controlWidth);
+		padding: 6px 0 5px;
+		text-decoration: none;
+		color: @controlText;
+
+		&.style-normal {
+			.button-style(#eee);
+		}
+
+		&.style-orange {
+			.button-style(@orange);
+		}
+
+		&.style-green {
+			.button-style(@green);
+		}
+
+		&.style-blue {
+			.button-style(@blue);
+		}
+
+		&.style-link {
+			.actionlink();
+			.box-shadow(none);
+		}
+
+		&.style-mini {
+			.button-style(#eee);
+			min-width: @controlHeight - 10px;
+			width: auto;
+			padding: 6px 5px;
+
+			&:active {
+			}
+		}
+
+		i {
+			top: 1px;
+			position: relative;
+			color: black;
+		}
+
+		&.style-icon {
+			background: transparent !important;
+			border: none;
+			.box-shadow(none);
+			.square(14px);
+			padding: 2px;
+			opacity: .5;
+			line-height: normal;
+
+			&:hover {
+				opacity: 0.75;
+			}
+
+			&:active {
+				padding: 3px 2px 1px;
+			}
+		}
+	}
+
+	&.textbox {
+		.control-textinput();
+	}
+
+	&.editable {
+		i:before {
+			top: 1px;
+		}
+
+		>.label {
+			.actionlink();
+		}
+	}
+
+	&.checkbox {
+		white-space: nowrap;
+		
+		>.label {
+			float: left;
+		}
+
+		>input {
+			float: left;
+			display: none;
+		}
+
+		>input+label {
+			float: left;
+			margin: 6px 7px 0 1px;
+			.square(@controlHeight - 12px);
+			padding: 1px;
+			.button-style(#eee);
+
+			&:active {
+				padding: 2px 1px 0;
+			}
+
+			.tick {
+				.transition(0.5s);
+				opacity: 0;
+			}
+		}
+
+		>input:checked+label {
+			#gradient > .vertical(lighten(@orange, 25%), @orange);
+			.box-shadow(@controlShadowHighlightPressed);
+
+			.tick {
+				opacity: .5;
+			}
+		}
+
+		.label {
+			margin: 0;
+		}
+	}
+
+	&.dropdown {
+		/*line-height: @controlHeight;
+		padding: 1px 5px 1px !important;
+		text-decoration: none;
+		color: @controlText;
+		.button-style(#ddd);*/
+		.size(@controlHeight + 2px, @controlWidth2);
+		/*text-transform: none;
+    	-webkit-appearance: none;*/
+	}
+
+	&.combobox {
+		.control-textinput();
+	}
+
+	&.formline {
+		>div:first-child {
+			width: @controlWidth;
+			text-align: right;
+			padding-right: 20px;
+			float: left;
+		}
+
+		>div:last-child {
+			float: left;
+		}
+
+		>div {
+			padding: 1px;
+		}
+	}
+
+	&.formgroup {
+		>div:first-child {
+			color: @controlTextLighter;
+			text-transform: uppercase;
+			font-weight: bold;
+			border-bottom: 1px solid @controlTextLighter;
+		}
+
+		>div:last-child {
+			padding: 10px 0;
+		}
+	}
+
+	&.collapse {
+		//.border-radius(5px);
+		//.box-shadow(@mainPaneShadow);
+
+		>.header {
+			cursor: pointer;
+			//height: @controlHeight + 2px;
+
+			//background: #eee;
+			//padding: 0 5px;
+
+			//&:hover { background: #f5f5f5; }
+		}
+	}
+
+	&.collapserow {
+		padding: 0 !important;
+		
+		>.header {
+			padding: 5px;
+			&:hover { background: #fff; }
+		}
+
+		>.children, >*>.children {
+			background: white !important;
+			padding: 5px;
+		}
+	}
+
+	&.list {
+		.control-inset();
+		.square(auto);
+
+		&> div {
+			border-bottom: 1px solid #eee;
+
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+
+	&.listitem {
+		padding: 0 5px;
+
+		&:active {
+			#gradient > .vertical(lighten(@orange, 15%), @orange);
+			color: darken(@orange, 20%);
+
+			* {
+				color: white;
+				text-shadow: 0 1px 0px rgba(255,255,255,.60);
+			}
+		}
+	}
+
+	&.table {
+		display: table;
+		margin: 1px;
+		width: 99%;
+		border-spacing: 0;
+		.box-shadow(@mainPaneShadow);
+		.border-radius(3px);
+			
+		&.compressed > tbody > tr > td {
+			padding: 0 5px;	
+		}
+
+		&>tbody {
+			margin: 0;
+
+			&>tr {
+				margin: 0;
+				
+				&>th {
+					color: #7c8c99;
+				}
+
+				&>td {
+					background: @tableCell;
+					border: 1px solid @tableBorder;
+					border-width: 1px 0 0 1px;
+					padding: 5px;
+					vertical-align: top;
+				}
+
+				&:first-child td {
+					border-top: none;
+				}
+
+				&>*:first-child {
+					border-left: none !important;
+				}
+
+				&>th {
+					background: @tableCell;
+					padding: 10px 7px; 	
+					border: 1px solid darken(@tableBorder, 5%);
+					border-width: 1px 0 1px 1px;
+					#gradient > .vertical(#f8f8f8,#f0f0f0);
+					font-weight: bold;
+					text-shadow: 0 1px 0 white;
+					text-align: left;
+
+					&:last-child {
+						border-right-width: 0px;
+					}
+				}
+			}
+		}
+	}
+
+	&.layout-table {
+		&>tbody>tr>td {
+			padding: 0 5px;
+		}
+	}
+
+	&.progressbar {
+		margin: 7px 1px;
+		height: @controlHeight - 13px;
+		border-right: 1px solid #c8c8c8;
+		border-bottom: 1px solid #fff;
+		padding: 0 0 0 1px; 
+		.border-radius(5px);
+		.box-shadow(~"0 -1px 0 #ddd inset, 0 1px 0 #aaa inset");
+		#gradient > .vertical(#bbb, #ddd);
+
+		div.fill {
+			height: @controlHeight - 14px;
+			margin: 1px 0 -1px;
+			.border-radius(4px);
+			#gradient > .vertical(lighten(@orange, 15%), @orange);
+			position: relative;
+			overflow: hidden;
+			//.box-shadow(0 1px 0 #aaa inset);
+
+			div.tip { 
+				position: absolute;
+				right: 0;
+				width: 20px;
+				height: @controlHeight - 13px;
+
+				//border-right: 1px solid rgba(0,0,0,.25);
+				.border-radius(4px);
+				background-color: transparent;
+			}
+		}
+	}
+
+	&.paging {
+		overflow: hidden;
+		padding: 5px 0;
+		
+		* {
+			float: left;
+		}
+
+		.select2-container {
+			margin: 0 5px;
+
+			.select2-choice {
+				width: 70px;
+			}
+		}
+	}
+
+	&.pathbox {
+		overflow: hidden;
+
+		&>* {
+			float: left;
+		}
+	}
+}
