@@ -1773,71 +1773,71 @@ msgstr "LTFS"
 
 #: ajenti/usersync/unix.py:16
 msgid "OS users"
-msgstr ""
+msgstr "Пользователи OS"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Выключить"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Синхронизация пользователей LDAP"
 
 #: ajenti/plugins/power/power.py:102
 msgid "Suspend"
-msgstr ""
+msgstr "Приостановить"
 
 #: ajenti/plugins/power/power.py:103
 msgid "Hibernate"
-msgstr ""
+msgstr "Отправить в спящий режим"
 
 #: ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Приостановить работу системы?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Отправить систему в спящий режим?"
 
 #: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
 msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
-msgstr ""
+msgstr "[ {'id': 'ok', 'text': _('Продолжить')}, {'id': 'cancel', 'text': _('Отменить')}, ]"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync with"
-msgstr ""
+msgstr "Синхронизировать с"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 msgid "Sync now"
-msgstr ""
+msgstr "Синхронизироваться"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Configured correctly"
-msgstr ""
+msgstr "Настроен правильно"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Failed to sync"
-msgstr ""
+msgstr "Не удалось синхронизировать"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "URL-адрес сервера"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Администратор DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Суффикс DN авторизации"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Секрет"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
-msgstr ""
+msgstr "[ {'id': 'save', 'text': _('Сохранить')}, {'id': 'cancel', 'text': _('Отменить')}, ]"
 
 #: ajenti/plugins/fm/layout/main.xml:16
 msgid "Set recursively"
@@ -1845,5 +1845,5 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Родитель"
 

@@ -1312,7 +1312,7 @@ msgstr "Flagi"
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
@@ -1737,7 +1737,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Błąd"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"

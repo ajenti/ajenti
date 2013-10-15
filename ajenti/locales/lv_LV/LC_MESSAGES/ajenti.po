@@ -1285,7 +1285,7 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Savienots no"
 
 #: ajenti/plugins/openvpn/layout/main.xml:7
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -1294,7 +1294,7 @@ msgstr "Atvienot"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "klienti"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
@@ -1306,13 +1306,13 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "Karogi"
 
 #: ajenti/plugins/openvpn/layout/main.xml:12
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 msgid "Text"
-msgstr ""
+msgstr "Teksts"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
@@ -1651,7 +1651,7 @@ msgstr ""
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:3
 msgid "Prefix"
-msgstr ""
+msgstr "Prefikss"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:4
 msgid "Use suffix"
@@ -1659,7 +1659,7 @@ msgstr ""
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:5
 msgid "Suffix"
-msgstr ""
+msgstr "Sufikss"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
@@ -1737,7 +1737,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Kļūda"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
@@ -1773,7 +1773,7 @@ msgstr ""
 
 #: ajenti/usersync/unix.py:16
 msgid "OS users"
-msgstr ""
+msgstr "OS lietotāji"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
@@ -1801,15 +1801,15 @@ msgstr ""
 
 #: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
 msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
-msgstr ""
+msgstr "[ {'id': 'ok', 'text': _('Turpināt')}, {'id': 'cancel', 'text': _('Atcelt')}, ]"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync with"
-msgstr ""
+msgstr "Sinhronizēt ar"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
 msgid "Sync now"
-msgstr ""
+msgstr "Sinhronizēt"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Configured correctly"
@@ -1821,7 +1821,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Servera URL-adrese"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
