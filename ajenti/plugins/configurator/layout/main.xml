@@ -9,6 +9,13 @@
             <tabs id="tabs">
                 <tab title="{General}">
                     <vc id="ajenti-config">
+                        <formgroup text="{General}">
+                            <vc>
+                                <formline text="{Language}">
+                                    <dropdown bind="language" id="language" />
+                                </formline>
+                            </vc>
+                        </formgroup>
                         <formgroup text="{HTTP Server}" binder:context="http_binding">
                             <vc>
                                 <formline text="{Host}">

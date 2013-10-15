@@ -1,6 +1,7 @@
 import subprocess
 
 import ajenti
+import ajenti.locales
 from ajenti.api import *
 from ajenti.plugins import manager
 from ajenti.plugins.main.api import SectionPlugin, intent
@@ -109,6 +110,10 @@ class Configurator (SectionPlugin):
         sync_ok = provider.test()
         self.find('sync-status-ok').visible = sync_ok
         self.find('sync-status-fail').visible = not sync_ok
+
+        languages = sorted(ajenti.locales.list_locales())
+        self.find('language').labels = [_('Auto')] + languages
+        self.find('language').values = [''] + languages
 
         self.binder.autodiscover().populate()
         self.ccmgr.reload()
