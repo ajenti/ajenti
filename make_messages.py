@@ -19,7 +19,7 @@ def check_call(*args):
 
 ajenti.log.init()
 
-LOCALEDIR = 'ajenti/locale'
+LOCALEDIR = 'ajenti/locales'
 LANGUAGES = [x for x in os.listdir(LOCALEDIR) if not '.' in x]
 
 pot_path = os.path.join(LOCALEDIR, 'ajenti.po')
