@@ -1,8 +1,9 @@
-import subprocess
+import logging
 import os
 import platform as pyplatform
 import random
 import signal
+import subprocess
 
 __version__ = '1.1.6'
 
@@ -118,7 +119,11 @@ def check_uid():
 def init():
     import ajenti
     ajenti.version = detect_version()
-    ajenti.platform_unmapped, ajenti.platform = detect_platform()
+    if ajenti.platform is None:
+        ajenti.platform_unmapped, ajenti.platform = detect_platform()
+    else:
+        logging.warn('Platform ID was enforced by commandline!')
+        ajenti.platform_unmapped = ajenti.platform
     ajenti.platform_string = detect_platform_string()
     ajenti.installation_uid = check_uid()
 
