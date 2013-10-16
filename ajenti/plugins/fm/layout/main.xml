@@ -4,12 +4,20 @@
             <button id="close" icon="remove-sign" text="{Close}" />
         </right>
         <hc>
-            <button icon="check" style="mini" id="select-all" />
+            <tooltip text="{Select all}">
+                <button icon="check" style="mini" id="select-all" />
+            </tooltip>
             <button id="new-file" icon="file" text="{New File}" />
             <button id="new-dir" icon="folder-close" text="{New Folder}" />
-            <button id="mass-cut" icon="cut" style="mini" />
-            <button id="mass-copy" icon="copy" style="mini" />
-            <button id="paste" icon="paste" style="mini" />
+            <tooltip text="{Cut}">
+                <button id="mass-cut" icon="cut" style="mini" />
+            </tooltip>
+            <tooltip text="{Copy}">
+                <button id="mass-copy" icon="copy" style="mini" />
+            </tooltip>
+            <tooltip text="{Paste}">
+                <button id="paste" icon="paste" style="mini" />
+            </tooltip>
             <button id="mass-delete" icon="trash" text="{Delete}" warning="{Confirm deletion}" />
         </hc>
     </box>
