@@ -150,7 +150,7 @@ class UsersBackend (object):
 
 @plugin
 class LinuxUsersBackend (UsersBackend):
-    platforms = ['debian', 'centos']
+    platforms = ['debian', 'centos', 'arch']
 
     def add_user(self, name):
         subprocess.call(['useradd', '-s', '/bin/false', name])
