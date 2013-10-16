@@ -48,16 +48,19 @@ msgstr "Ajenti újraindítás?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
+#: ajenti/plugins/configurator/layout/main.xml:5
 msgid "General"
 msgstr "Általános"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
+#: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
 msgstr "HTTP Szerver"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/mysql/layout/config.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Host"
 msgstr "Hoszt"
 
@@ -65,32 +68,38 @@ msgstr "Hoszt"
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:8
+#: ajenti/plugins/configurator/layout/main.xml:10
 msgid "Port"
 msgstr "Port"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:9
+#: ajenti/plugins/configurator/layout/main.xml:11
 msgid "Use SSL"
 msgstr "SSL használata"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 #: ajenti/plugins/configurator/layout/main.xml:10
+#: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Path to certificate"
 msgstr "Tanúsítvány útvonal"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 #: ajenti/plugins/configurator/layout/main.xml:11
+#: ajenti/plugins/configurator/layout/main.xml:13
 msgid "SSL Self-Signed Certificate Generator"
 msgstr "SSL Önálló-aláírás tanúsítvány Generátor"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 #: ajenti/plugins/configurator/layout/main.xml:12
+#: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Hostname"
 msgstr "Hosztnév"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 #: ajenti/plugins/configurator/layout/main.xml:13
+#: ajenti/plugins/configurator/layout/main.xml:15
 msgid "Generate"
 msgstr "Generálás"
 
@@ -99,11 +108,13 @@ msgstr "Generálás"
 #: ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:26 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/configurator/layout/main.xml:14
+#: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Users"
 msgstr "Felhasználók"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 #: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Authentication"
 msgstr "Hitelesítés"
 
@@ -117,12 +128,15 @@ msgstr "Hitelesítés"
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Enable"
 msgstr "Engedélyezés"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Accounts"
 msgstr "Fiókok"
 
@@ -131,6 +145,8 @@ msgstr "Fiókok"
 #: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/fm/layout/main.xml:8
 msgid "Delete"
 msgstr "Tőrlés"
 
@@ -180,6 +196,8 @@ msgstr "Tőrlés"
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:32
 #: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/fm/layout/main.xml:9
 msgid "Confirm deletion"
 msgstr "Tőrlés megerősítése"
 
@@ -189,6 +207,7 @@ msgstr "Tőrlés megerősítése"
 #: ajenti/plugins/elements/layout/users-main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:20
 #: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Change password"
 msgstr "Jelszó változtatás"
 
@@ -236,6 +255,7 @@ msgstr "Jelszó változtatás"
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/elements/layout/users-main.xml:4
 #: ajenti/plugins/elements/layout/users-main.xml:5
+#: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Create"
 msgstr "Létrehozás"
 
@@ -243,18 +263,21 @@ msgstr "Létrehozás"
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/configurator/layout/main.xml:29
 msgid "Other"
 msgstr "Egyéb"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/configurator/layout/main.xml:28
 #: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Send feedback"
 msgstr "Visszajelzés küldése"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/configurator/layout/main.xml:30
 #: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:32
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
 msgstr "A rendszer automatikusan névtelenül küld az ajenti.org -ra információkat a verziószámról, operációs rendszerről és a használt bővítményekről."
 
@@ -262,6 +285,7 @@ msgstr "A rendszer automatikusan névtelenül küld az ajenti.org -ra informáci
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/configurator/layout/main.xml:33
 msgid "Plugins"
 msgstr "Bővítmények"
 
@@ -271,6 +295,9 @@ msgstr "Bővítmények"
 #: ajenti/plugins/configurator/configurator.py:32
 #: ajenti/plugins/configurator/layout/main.xml:19
 #: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:34
 msgid "Configure"
 msgstr "Beállítások"
 
@@ -294,6 +321,7 @@ msgstr "Mentve"
 #: ajenti/plugins/configurator/configurator.py:108
 #: ajenti/plugins/configurator/configurator.py:105
 #: ajenti/plugins/configurator/configurator.py:130
+#: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Mentve. Indítsuk újra az Ajentit a változások életbe léptetéséhez."
 
@@ -301,6 +329,7 @@ msgstr "Mentve. Indítsuk újra az Ajentit a változások életbe léptetéséhe
 #: ajenti/plugins/configurator/configurator.py:114
 #: ajenti/plugins/configurator/configurator.py:111
 #: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:141
 msgid "Please supply hostname"
 msgstr "Adjuk meg a hosztnevet"
 
@@ -308,6 +337,7 @@ msgstr "Adjuk meg a hosztnevet"
 #: ajenti/plugins/configurator/configurator.py:130
 #: ajenti/plugins/configurator/configurator.py:127
 #: ajenti/plugins/configurator/configurator.py:150
+#: ajenti/plugins/configurator/configurator.py:155
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Állítsuk be a %s bővítményt!"
@@ -317,6 +347,7 @@ msgstr "Állítsuk be a %s bővítményt!"
 #: ajenti/plugins/configurator/configurator.py:144
 #: ajenti/plugins/configurator/configurator.py:141
 #: ajenti/plugins/configurator/configurator.py:182
+#: ajenti/plugins/configurator/configurator.py:187
 msgid "Configuration"
 msgstr "Beállítások"
 
@@ -324,6 +355,7 @@ msgstr "Beállítások"
 #: ajenti/plugins/configurator/configurator.py:148
 #: ajenti/plugins/configurator/configurator.py:145
 #: ajenti/plugins/configurator/configurator.py:186
+#: ajenti/plugins/configurator/configurator.py:191
 msgid "Modify Ajenti configuration"
 msgstr "Ajenti beállítások módosítása"
 
@@ -331,6 +363,7 @@ msgstr "Ajenti beállítások módosítása"
 #: ajenti/plugins/configurator/configurator.py:149
 #: ajenti/plugins/configurator/configurator.py:146
 #: ajenti/plugins/configurator/configurator.py:187
+#: ajenti/plugins/configurator/configurator.py:192
 msgid "Restart Ajenti"
 msgstr "Ajenti újraindítás"
 
@@ -436,6 +469,7 @@ msgstr "Környezet"
 #: ajenti/plugins/tasks/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:33
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:15
 msgid "Name"
 msgstr "Név"
 
@@ -583,10 +617,12 @@ msgid "Shutdown the system?"
 msgstr "Rendszer leállítása?"
 
 #: ajenti/plugins/main/main.py:197 ajenti/plugins/main/main.py:201
+#: ajenti/plugins/main/main.py:203
 msgid "Section access"
 msgstr "Szekció hozzáférés"
 
 #: ajenti/plugins/main/main.py:214 ajenti/plugins/main/main.py:218
+#: ajenti/plugins/main/main.py:220
 msgid "Feedback sent!"
 msgstr "Visszajelzés elküldve!"
 
@@ -693,7 +729,7 @@ msgstr "Szkript futtatása"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr "Ez a csomag is telepíthető automatikusan"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1225,41 +1261,45 @@ msgstr "Legfelső könyvtár"
 msgid "Close"
 msgstr "Bezárás"
 
-#: ajenti/plugins/fm/layout/main.xml:2
+#: ajenti/plugins/fm/layout/main.xml:2 ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
 msgstr "Új fájl"
 
-#: ajenti/plugins/fm/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:4
 msgid "New Folder"
 msgstr "Új mappa"
 
-#: ajenti/plugins/fm/layout/main.xml:6
+#: ajenti/plugins/fm/layout/main.xml:6 ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "Feltötlés"
 
-#: ajenti/plugins/fm/layout/main.xml:7
+#: ajenti/plugins/fm/layout/main.xml:7 ajenti/plugins/fm/layout/main.xml:11
 msgid "Clipboard"
 msgstr "Vágólap"
 
 #: ajenti/plugins/fm/layout/main.xml:9
 #: ajenti/plugins/users/layout/user-list.xml:9
+#: ajenti/plugins/fm/layout/main.xml:13
 msgid "Remove"
 msgstr "Tődlés"
 
 #: ajenti/plugins/fm/layout/main.xml:11 ajenti/plugins/fm/layout/main.xml:12
+#: ajenti/plugins/fm/layout/main.xml:16
 msgid "Access"
 msgstr "Hozzáférés"
 
 #: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:13
+#: ajenti/plugins/fm/layout/main.xml:17
 msgid "Owner"
 msgstr "Tulajdonos"
 
 #: ajenti/plugins/fm/layout/main.xml:13 ajenti/plugins/users/layout/main.xml:3
-#: ajenti/plugins/fm/layout/main.xml:14
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:18
 msgid "Group"
 msgstr "Csoport"
 
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:15
+#: ajenti/plugins/fm/layout/main.xml:19
 msgid "Others"
 msgstr "Egyebek"
 
@@ -1449,7 +1489,7 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "PID (Parent)"
-msgstr "PID (Szülő)"
+msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/taskmgr/layout/main.xml:4
@@ -1638,6 +1678,7 @@ msgid "%s free"
 msgstr "%s ingyenes"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/configurator/layout/main.xml:9
 msgid "or UNIX socket path"
 msgstr "vagy UNIX socket útvonal"
 
@@ -1647,11 +1688,11 @@ msgstr "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:2
 msgid "Use prefix"
-msgstr "Előtag használata"
+msgstr ""
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:3
 msgid "Prefix"
-msgstr "Előtag"
+msgstr ""
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:4
 msgid "Use suffix"
@@ -1659,7 +1700,7 @@ msgstr ""
 
 #: ajenti/plugins/elements/layout/task-resequence.xml:5
 msgid "Suffix"
-msgstr "Utótag"
+msgstr ""
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
@@ -1804,18 +1845,22 @@ msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text':
 msgstr "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Mégse')},     ]"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
+#: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Sync with"
 msgstr "Szinkronizálás"
 
 #: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Sync now"
 msgstr "Szinkronizálás indítása"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
+#: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Configured correctly"
 msgstr "Megfelelő beállítás"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
+#: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Failed to sync"
 msgstr "Nem sikerült szinkronizálni"
 
@@ -1835,15 +1880,39 @@ msgstr "Auth DN utótag"
 msgid "Secret"
 msgstr "Titkos"
 
-#: ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:14
 msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
 msgstr "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
 
-#: ajenti/plugins/fm/layout/main.xml:16
+#: ajenti/plugins/fm/layout/main.xml:16 ajenti/plugins/fm/layout/main.xml:20
 msgid "Set recursively"
 msgstr "Rekurzív használat"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
 msgstr "Szülő"
+
+#: ajenti/plugins/configurator/configurator.py:115
+msgid "Auto"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:6
+msgid "Language"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "Select all"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:5
+msgid "Cut"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Copy"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Paste"
+msgstr ""
 
