@@ -100,7 +100,7 @@ class PropertyBinding (Binding):
     def update(self):
         if self.oneway:
             return
-        new_value = self.ui.properties[self.property]
+        new_value = getattr(self.ui, self.property)
         # avoid unnecessary sets
         if new_value != self.old_value:
             self.set(new_value)

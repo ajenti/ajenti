@@ -34,12 +34,21 @@ class CheckBox (UIElement):
 
 
 @p('labels', default=[], type=list)
-@p('values', default=[], type=list)
-@p('value', default='', bindtypes=[str, int, unicode])
+@p('values', default=[], type=list, public=False)
+@p('value')
+@p('index', default=0, type=int)
 @p('server', default=False, type=bool)
 @plugin
 class Dropdown (UIElement):
     typeid = 'dropdown'
+
+    def value_get(self):
+        return self.values[self.index]
+        
+    def value_set(self, value):
+        self.index = self.values.index(value)
+
+    value = property(value_get, value_set)
 
 
 @p('labels', default=[], type=list)

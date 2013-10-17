@@ -38,7 +38,8 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
             self.properties[prop] = value
 
         _property = property(get, set, None, doc)
-        setattr(cls, prop, _property)
+        if not hasattr(cls, prop):
+            setattr(cls, prop, _property)
         return cls
     return decorator
 
