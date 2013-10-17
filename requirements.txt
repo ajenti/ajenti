@@ -1,12 +1,12 @@
 gevent
 gevent-socketio
-ldap
 lxml>=2.2.4
 passlib
 psutil>=0.6.0
 python-catcher
 python-daemon
 python-exconsole
+python-ldap
 requests>=0.12.0
 reconfigure>=0.1.34
 pyOpenSSL
