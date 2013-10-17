@@ -1,6 +1,3 @@
-import copy
-import cPickle
-
 from ajenti.api import *
 from ajenti.util import *
 
