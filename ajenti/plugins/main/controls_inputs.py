@@ -46,7 +46,10 @@ class Dropdown (UIElement):
         return self.values[self.index]
         
     def value_set(self, value):
-        self.index = self.values.index(value)
+        if value in self.values:
+            self.index = self.values.index(value)
+        else:
+            self.index = 0
 
     value = property(value_get, value_set)
 
