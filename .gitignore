@@ -28,6 +28,7 @@ crowdin.zip
 *.c.js
 *.c.css
 
+ajenti/plugins/custom*
 ajenti/plugins/ltfs*
 ajenti/plugins/elements*
 ajenti/plugins/test*
