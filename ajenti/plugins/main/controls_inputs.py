@@ -41,6 +41,14 @@ class CheckBox (UIElement):
 @plugin
 class Dropdown (UIElement):
     typeid = 'dropdown'
+    
+    def value_get(self):
+        return self.values[self.index]
+        
+    def value_set(self, value):
+        self.index = self.values.index(value)
+
+    value = property(value_get, value_set)
 
 
 @p('labels', default=[], type=list)
