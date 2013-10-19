@@ -35,7 +35,7 @@ class CheckBox (UIElement):
 
 @p('labels', default=[], type=list)
 @p('values', default=[], type=list, public=False)
-@p('value')
+@p('value', bindtypes=[object])
 @p('index', default=0, type=int)
 @p('server', default=False, type=bool)
 @plugin

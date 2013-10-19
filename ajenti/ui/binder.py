@@ -73,19 +73,19 @@ class PropertyBinding (Binding):
     :param property: UI property name. If ``None``, property is deduced from ``bindtypes``
     """
 
-    def __init__(self, object, attribute, ui, property=None):
-        Binding.__init__(self, object, attribute, ui)
+    def __init__(self, obj, attribute, ui, property=None):
+        Binding.__init__(self, obj, attribute, ui)
         if property is None:
             # find a property with matching bindtypes
             v = self.__get_transformed()
             for prop in ui.property_definitions.values():
                 if prop.bindtypes:
                     # nb: we can't guess the type for None
-                    if type(v) in prop.bindtypes or v is None:
+                    if type(v) in prop.bindtypes or (v is None) or (object in prop.bindtypes):
                         self.property = prop.name
                         break
             else:
-                raise Exception('Cannot bind %s.%s (%s, = %s) to %s' % (repr(object), attribute, repr(type(v)), repr(v), ui))
+                raise Exception('Cannot bind %s.%s (%s, = %s) to %s' % (repr(obj), attribute, repr(type(v)), repr(v), ui))
         else:
             self.property = property
         self.oneway = ui.bindtransform is not None
