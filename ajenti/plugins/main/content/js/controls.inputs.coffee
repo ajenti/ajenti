@@ -117,7 +117,7 @@ class window.Controls.dropdown extends window.Control
         @data = []
         for i in [0...@properties.labels.length]
             do (i) =>
-                @input.append("""<option value="#{@properties.values[i]}" #{if @properties.values[i] == @properties.value then 'selected' else ''}>#{@properties.labels[i]}</option>""")
+                @input.append("""<option value="#{i}" #{if i == @properties.index then 'selected' else ''}>#{@properties.labels[i]}</option>""")
 
         @input.select2()
         @input.change () => @markChanged()
@@ -129,13 +129,10 @@ class window.Controls.dropdown extends window.Control
 
     detectUpdates: () ->
         r = {}
-        value = @input.val()
-        if @properties.type == 'integer'
-            value = parseInt(value)
-        if value != @properties.value
-            console.log value, @properties.value
-            r.value = value
-        @properties.value = value
+        index = parseInt(@input.val())
+        if index != @properties.index
+            r.index = index
+        @properties.index = index
         return r
 
 
