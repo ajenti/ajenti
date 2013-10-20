@@ -8,7 +8,7 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('db_common'),
         BinaryDependency('mysql'),
-        BinaryDependency('mysqld'),
+        BinaryDependency('mysqld_safe'),
     ],
 )
 
