@@ -85,7 +85,7 @@ db = {
         'squid3': 'squid',
         'apache2': 'apache',
         'mysql': 'mariadb-clients',
-        'mysqld': 'mariadb',
+        'mysqld_safe': 'mariadb',
         'psql': 'postgresql',
         'mdadm': 'mdadm',
         'nginx': 'nginx',
