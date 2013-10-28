@@ -30,7 +30,7 @@ class SMARTSensor (Sensor):
         """
         if not path:
             return -1
-        r = subprocess.call(['smartctl', '-a', '/dev/' + path])
+        r = subprocess.call(['smartctl', '-H', '/dev/' + path])
         if r & 2:
             return -1
         if r & 8:
