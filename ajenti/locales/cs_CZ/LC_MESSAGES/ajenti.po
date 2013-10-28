@@ -729,7 +729,7 @@ msgstr "Spustit skripty"
 
 #: ajenti/plugins/packages/installer.py:9
 msgid "This package can be installed automatically"
-msgstr ""
+msgstr "Tento balíček lze nainstalovat automaticky"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1364,7 +1364,7 @@ msgstr "Mód"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
-msgstr ""
+msgstr "[_('Povolit'), _('Zakázat')]"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
