@@ -1,0 +1,17 @@
+<hc>
+    <icon icon="dashboard" />
+    <box width="120">
+        <label id="variant" style="bold" text="---" />
+    </box>
+    <label id="value" />
+    <box width="5" />
+    <label id="unit" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="{Sensor}">
+                <dropdown id="variant" bind="variant" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>

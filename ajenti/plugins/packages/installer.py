@@ -56,6 +56,7 @@ db = {
         'nfsstat': 'nfs-kernel-server',
         'mdadm': 'mdadm',
         'nginx': 'nginx',
+        'ipmitool': 'ipmitool',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',
@@ -73,6 +74,7 @@ db = {
         'psql': 'postgresql',
         'mdadm': 'mdadm',
         'nginx': 'nginx',
+        'ipmitool': 'ipmitool',
     },
     'arch': {
         'python-module-BeautifulSoup': 'python2-beautifulsoup3',
@@ -96,5 +98,6 @@ db = {
         'nfsstat': 'nfs-utils',
         'dhcpd': 'dhcp',
         'named': 'bind',
+        'ipmitool': 'ipmitool',
     },
 }
