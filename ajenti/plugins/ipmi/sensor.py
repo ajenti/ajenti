@@ -13,7 +13,7 @@ class IPMISensor (Sensor):
     @cache_value(2)
     def _get_data(self):
         r = {}
-        for l in subprocess.check_output('ipmitool sensor').splitlines():
+        for l in subprocess.check_output(['ipmitool', 'sensor']).splitlines():
             l = l.split('|')
             if len(l) > 2:
                 r[l[0].strip()] = (l[1].strip(), l[2].strip())
