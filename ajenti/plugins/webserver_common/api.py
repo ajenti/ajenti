@@ -120,6 +120,8 @@ class WebserverPlugin (SectionPlugin):
 
         def new_host(c):
             name = 'untitled'
+            while os.path.exists(self.hosts_dir.get_path(name)):
+                name += '_'
             self.hosts_dir.open(name, 'w').write(self.template)
             return WebserverHost(self, self.hosts_dir, name)
 
