@@ -1,4 +1,3 @@
-import gevent
 import os
 import threading
 from SocketServer import UnixStreamServer
@@ -37,9 +36,15 @@ class Handler (BaseHTTPRequestHandler):
         args = args.decode('base64').splitlines()
         for h in IPCHandler.get_all(manager.context):
             if h.get_name() == name:
-                self.send_response(200, 'OK')
-                self.end_headers()
-                self.wfile.write(h.handle(args))
+                try:
+                    result = h.handle(args)
+                    self.send_response(200, 'OK')
+                    self.end_headers()
+                    self.wfile.write(result)
+                except Exception, e:
+                    self.send_response(500, 'Error')
+                    self.end_headers()
+                    self.wfile.write(str(e))
                 break
         else:
             self.send_response(404, 'Handler not found')
