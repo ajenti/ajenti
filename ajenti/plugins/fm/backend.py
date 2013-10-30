@@ -68,7 +68,17 @@ class Item (object):
 
     def write(self):
         os.chmod(self.fullpath, self.mode)
-        os.chown(self.fullpath, pwd.getpwnam(self.owner)[2], grp.getgrnam(self.group)[2])
+        
+        try:
+            uid = int(self.owner)
+        except:
+            uid = pwd.getpwnam(self.owner)[2]
+        try:
+            gid = int(self.group)
+        except:
+            gid = grp.getgrnam(self.group)[2]
+
+        os.chown(self.fullpath, uid, gid)
         os.rename(self.fullpath, os.path.join(self.path, self.name))
 
 
