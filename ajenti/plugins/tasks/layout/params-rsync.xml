@@ -1,0 +1,22 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{From directory}">
+            <pathbox directory="True" bind="source" />
+        </formline>
+        <formline text="{Into directory}">
+            <pathbox directory="True" bind="destination" />
+        </formline>
+        <formline text="{Preserve file times}">
+            <checkbox bind="times" />
+        </formline>
+        <formline text="{Preserve ext. attributes}">
+            <checkbox bind="xattrs" />
+        </formline>
+        <formline text="{Delete in destination dir}">
+            <checkbox bind="delete" />
+        </formline>
+        <formline text="{Preserve permissions}">
+            <checkbox bind="perms" />
+        </formline>
+    </vc>
+</bind:dict>

@@ -43,7 +43,7 @@ class Dropdown (UIElement):
     typeid = 'dropdown'
     
     def value_get(self):
-        if index < len(self.values):
+        if self.index < len(self.values):
             return self.values[self.index]
         return None
         
