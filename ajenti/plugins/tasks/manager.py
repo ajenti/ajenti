@@ -33,10 +33,10 @@ class TaskManager (BasePlugin):
         prefix = 'ajenti-ipc tasks run '
 
         tab = CronManager.get().load_tab('root')
-        for item in tab.tree.normal_tasks:
+        for item in list(tab.tree.normal_tasks):
             if item.command.startswith(prefix):
                 tab.tree.normal_tasks.remove(item)
-        for item in tab.tree.special_tasks:
+        for item in list(tab.tree.special_tasks):
             if item.command.startswith(prefix):
                 tab.tree.special_tasks.remove(item)
 
@@ -44,7 +44,7 @@ class TaskManager (BasePlugin):
             if job.schedule_special:
                 e = CrontabSpecialTaskData()
                 e.special = job.schedule_special
-                e.command = prefix + job.id
+                e.command = prefix + job.task_id
                 tab.tree.special_tasks.append(e)
             else:
                 e = CrontabNormalTaskData()
@@ -53,14 +53,14 @@ class TaskManager (BasePlugin):
                 e.day_of_month = job.schedule_day_of_month
                 e.month = job.schedule_month
                 e.day_of_week = job.schedule_day_of_week
-                e.command = prefix + job.id
+                e.command = prefix + job.task_id
                 tab.tree.normal_tasks.append(e)
 
         CronManager.get().save_tab('root', tab)
 
     def task_done(self, task):
-        if task.context:
-            task.context.notify('info', _('Task %s finished') % task.name)
+        if task.execution_context:
+            task.execution_context.notify('info', _('Task %s finished') % task.name)
         if task in self.running_tasks:
             self.result_log = [task.result] + self.result_log[:9] 
             self.running_tasks.remove(task)
@@ -80,25 +80,27 @@ class TaskManager (BasePlugin):
                 if td.id == task_id:
                     task_definition = td
                     break
+            else:
+                raise IndexError('Task not found')
+
         if task_definition is not None:
             task = task_definition.get_class().new(**task_definition.params)
             task.definition = task_definition
             task.parallel = task_definition.parallel
 
-        if context:
-            task.context = context
+        task.execution_context = context
 
         if not task.parallel and self.running_tasks:
             self.pending_tasks.append(task)
             task.pending = True
-            if task.context:
-                task.context.notify('info', _('Task %s queued') % task.name)
+            if task.execution_context:
+                task.execution_context.notify('info', _('Task %s queued') % task.name)
         else:
             self.running_tasks.append(task)
             task.pending = False
             task.callback = self.task_done
-            if task.context:
-                task.context.notify('info', _('Task %s started') % task.name)
+            if task.execution_context:
+                task.execution_context.notify('info', _('Task %s started') % task.name)
             task.start()
 
 
