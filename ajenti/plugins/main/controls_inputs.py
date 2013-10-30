@@ -43,7 +43,9 @@ class Dropdown (UIElement):
     typeid = 'dropdown'
     
     def value_get(self):
-        return self.values[self.index]
+        if index < len(self.values):
+            return self.values[self.index]
+        return None
         
     def value_set(self, value):
         if value in self.values:
