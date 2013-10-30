@@ -1,6 +1,7 @@
-import time
+import logging
 import os
 import subprocess
+import time
 
 from ajenti.api import *
 
@@ -62,3 +63,30 @@ class MoveFilesTask (CopyFilesTask):
     name = 'Move files'
     command = ['mv']
     message_template = _('Moving %s')
+
+
+
+@plugin
+class RSyncTask (Task):
+    name = 'RSync'
+    ui = 'tasks:params-rsync'
+    default_params = {
+        'source': '',
+        'destination': '',
+        'times': True,
+        'xattrs': True,
+        'delete': False,
+        'perms': True,
+    }
+
+    def run(self, source=None, destination=None, **kwargs):
+        cmd = ['rsync']
+        for opt in ['times', 'xattrs', 'delete', 'perms']:
+            if kwargs.get(opt, self.default_params[opt]):
+                cmd += ['--' + opt]
+        cmd += [source, destination]
+        logging.info('RSync: ' + ' '.join(cmd))
+        p = subprocess.Popen(cmd, stderr=subprocess.PIPE, stdout=subprocess.PIPE)  
+        o, e = p.communicate()
+        if p.returncode:
+            raise TaskError(o + e)
