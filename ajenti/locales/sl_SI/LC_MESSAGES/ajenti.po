@@ -777,7 +777,7 @@ msgstr "Prekliči"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
-msgstr ""
+msgstr "OpenVPN"
 
 #: ajenti/plugins/squid/main.py:14
 msgid "Squid"
@@ -813,7 +813,7 @@ msgstr "Zaženi poljubne ukaze"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
-msgstr ""
+msgstr "RAID"
 
 #: ajenti/plugins/memcache/widget.py:29 ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
@@ -1494,12 +1494,12 @@ msgstr "PID (Starš)"
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 #: ajenti/plugins/taskmgr/layout/main.xml:5
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 #: ajenti/plugins/taskmgr/layout/main.xml:7
@@ -1642,7 +1642,7 @@ msgstr "Dodaj pripomoček"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "[{'text': _('Cancel'), 'id': 'cancel'}]"
-msgstr "[{'text': _('Prekliči'), 'id': \"prekliči\"}]"
+msgstr "[{'text': _('Prekliči'), 'id': \"cancel\"}]"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
@@ -1842,7 +1842,7 @@ msgstr "Mirovanje sistema?"
 
 #: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
 msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
-msgstr "[{'id': »v redu« , »besedilo« : _('OK')}, {»id« : »prekliči« , »besedilo« : _('Prekliči')},]"
+msgstr "[{'id': 'ok' , 'text' : _('OK')}, {'id' : 'cancel' , 'text' : _('Prekliči')},]"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 #: ajenti/plugins/configurator/layout/main.xml:19
@@ -1882,7 +1882,7 @@ msgstr "Zaupno"
 
 #: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:14
 msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
-msgstr "[{'id': \"shrani\", \"besedilo\": _('Shrani')}, {»id« : »prekliči« , »besedilo« : _('Prekliči')},]"
+msgstr "[{'id': 'save', \"text\": _('Shrani')}, {'id': 'cancel', 'text': _('Prekliči')},]"
 
 #: ajenti/plugins/fm/layout/main.xml:16 ajenti/plugins/fm/layout/main.xml:20
 msgid "Set recursively"
