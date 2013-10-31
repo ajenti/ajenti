@@ -44,12 +44,25 @@ class window.Controls.main__sections_root extends window.Control
                 </div>
                 <div class="main">
                     <div class="--child-container"></div>
+                    <div class="no-sections">
+                        <div>
+                            <div class="control label bold">No plugins are allowed for this user</div>
+                        </div>
+                        <div>
+                            <div class="control label">
+                                Please ask your administrator to go to Configuration plugin and give you permissions to access some plugins.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         """)
         @tabsContainer = @dom.find('.--tabs-container')
         @childContainer = @dom.find('.--child-container')
         @categories = {}
+
+        if not @properties.is_empty
+            @dom.find('.no-sections').hide()
 
     append: (child) ->
         if not @categories[child.properties.category]

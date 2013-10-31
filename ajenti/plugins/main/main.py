@@ -222,6 +222,7 @@ class SectionsCategory (UIElement):
     typeid = 'main:sections_category'
 
 
+@p('is_empty', type=bool)
 @plugin
 class SectionsRoot (UIElement):
     typeid = 'main:sections_root'
@@ -240,6 +241,7 @@ class SectionsRoot (UIElement):
 
         profile_start('Starting plugins')
 
+        self.is_empty = True
         for cls in SectionPlugin.get_classes():
             try:
                 UserManager.get().require_permission('section:%s' % cls.__name__)
@@ -249,6 +251,7 @@ class SectionsRoot (UIElement):
                     cat = cls.new(self.ui)
                     profile_end()
                     self.append(cat)
+                    self.is_empty = False
                 except SecurityError:
                     pass
                 except Exception, e:
