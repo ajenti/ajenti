@@ -73,6 +73,8 @@ class RSyncTask (Task):
     default_params = {
         'source': '',
         'destination': '',
+        'archive': True,
+        'recursive': True,
         'times': True,
         'xattrs': True,
         'delete': False,
@@ -81,7 +83,7 @@ class RSyncTask (Task):
 
     def run(self, source=None, destination=None, **kwargs):
         cmd = ['rsync']
-        for opt in ['times', 'xattrs', 'delete', 'perms']:
+        for opt in ['archive', 'recursive', 'times', 'xattrs', 'delete', 'perms']:
             if kwargs.get(opt, self.default_params[opt]):
                 cmd += ['--' + opt]
         cmd += [source, destination]

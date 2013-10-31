@@ -6,6 +6,12 @@
         <formline text="{Into directory}">
             <pathbox directory="True" bind="destination" />
         </formline>
+        <formline text="{Archive}">
+            <checkbox bind="archive" />
+        </formline>
+        <formline text="{Recursive}">
+            <checkbox bind="recursive" />
+        </formline>
         <formline text="{Preserve file times}">
             <checkbox bind="times" />
         </formline>
