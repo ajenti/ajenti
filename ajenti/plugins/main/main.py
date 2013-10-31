@@ -215,10 +215,6 @@ class SectionPermissions (PermissionProvider):
 class MainPage (UIElement, BasePlugin):
     typeid = 'main:page'
 
-    def on_feedback(self, email, text):
-        ajenti.feedback.send_feedback(email, text)
-        self.context.notify('info', _('Feedback sent!'))
-
 
 @p('name')
 @plugin

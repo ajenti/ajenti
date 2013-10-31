@@ -36,11 +36,6 @@ def send(url, data):
     return json.loads(response.content)
 
 
-@public
-def send_feedback(email, text):
-    send('feedback', {'email': email, 'text': text})
-
-
 def worker():
     global enabled
     enabled = ajenti.config.tree.enable_feedback
