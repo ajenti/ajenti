@@ -4,7 +4,7 @@ from ajenti.api import *
 from ajenti.ui import p, UIElement, on
 
 
-@p('value', default='', bindtypes=[str, unicode, int])
+@p('value', default='', bindtypes=[str, unicode, int, long])
 @p('readonly', type=bool, default=False)
 @p('type', default='text')
 @plugin
@@ -12,7 +12,7 @@ class TextBox (UIElement):
     typeid = 'textbox'
 
 
-@p('value', default='', bindtypes=[str, unicode, int])
+@p('value', default='', bindtypes=[str, unicode, int, long])
 @plugin
 class PasswordBox (UIElement):
     typeid = 'passwordbox'
@@ -78,7 +78,7 @@ class Paging (UIElement):
     typeid = 'paging'
 
 
-@p('value', default='', bindtypes=[str, unicode, int])
+@p('value', default='', bindtypes=[str, unicode])
 @p('directory', default=False, type=bool)
 @p('type', default='text')
 @plugin
