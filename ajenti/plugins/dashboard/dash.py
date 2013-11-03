@@ -1,4 +1,5 @@
 import random
+import traceback
 
 import ajenti
 from ajenti.api import *
@@ -78,12 +79,23 @@ class Dash (SectionPlugin):
         for widget in self.classconfig['widgets']:
             for cls in DashboardWidget.get_classes():
                 if cls.classname == widget['class']:
-                    instance = cls.new(
-                        self.ui,
-                        container=widget['container'],
-                        index=widget['index'],
-                        config=widget['config'],
-                    )
+                    try:
+                        instance = cls.new(
+                            self.ui,
+                            container=widget['container'],
+                            index=widget['index'],
+                            config=widget['config'],
+                        )
+                    except Exception, e:
+                        traceback.print_exc()
+                        instance = CrashedWidget.new(
+                            self.ui,
+                            container=widget['container'],
+                            index=widget['index'],
+                            config=widget['config'],
+                        )
+                        instance.classname = cls.classname
+                        instance.set(e)
                     instance.on('save-config', self.on_widget_config, widget, instance)
                     self.dash.append(instance)
 
@@ -123,3 +135,12 @@ class DashboardDash (UIElement):
 @plugin
 class DashboardHeader (UIElement):
     typeid = 'dashboard:header'
+
+
+@plugin
+class CrashedWidget (DashboardWidget):
+    def init(self):
+        self.append(self.ui.create('label', id='text'))
+
+    def set(self, e):
+        self.find('text').text = 'Widget crashed: ' + str(e)
