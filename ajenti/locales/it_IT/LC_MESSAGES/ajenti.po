@@ -523,7 +523,7 @@ msgstr " avvio automatico"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
-msgstr ""
+msgstr "Applicato con successo"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
@@ -1414,21 +1414,21 @@ msgstr "Spostando %s"
 #: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Task %s finito"
 
-#: ajenti/plugins/tasks/manager.py:95
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Attività %s in coda"
 
-#: ajenti/plugins/tasks/manager.py:101
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr ""
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
 msgid "Tasks"
-msgstr ""
+msgstr "Attività"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
@@ -1441,24 +1441,32 @@ msgid "Into directory"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
+msgid "Archive"
+msgstr "Archivio"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:4
+msgid "Recursive"
+msgstr "Ricorsivo"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
 msgstr ""
 
-#: ajenti/plugins/tasks/layout/params-rsync.xml:4
+#: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
 msgstr ""
 
-#: ajenti/plugins/tasks/layout/params-rsync.xml:5
+#: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
 msgstr ""
 
-#: ajenti/plugins/tasks/layout/params-rsync.xml:6
+#: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Attività in esecuzione"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
@@ -1474,7 +1482,7 @@ msgstr "Abort"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Attività completate"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"

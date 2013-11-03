@@ -1,14 +1,14 @@
 #: ajenti/usersync/unix.py:16
 msgid "OS users"
-msgstr ""
+msgstr "Usuarios del sistema"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Desactivado"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Sincronización de usuarios con LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -177,7 +177,7 @@ msgstr "Crear"
 
 #: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
 msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
-msgstr ""
+msgstr "[ {'id': 'ok', 'text': _('OK')}, {'id': 'cancel', 'text': _('Cancelar')}, ]"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
@@ -620,7 +620,7 @@ msgstr "Configurar"
 
 #: ajenti/plugins/configurator/configurator.py:115
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 #: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -664,7 +664,7 @@ msgstr "General"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
@@ -743,15 +743,15 @@ msgstr "Dirección URL del servidor"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Administrador DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Sufijo de autentificación DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Secreto"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -924,7 +924,7 @@ msgstr "Cerrar pestaña"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Seleccionar todo"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -936,15 +936,15 @@ msgstr "Nueva carpeta"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Cortar"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Pegar"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -961,7 +961,7 @@ msgstr "Eliminar"
 
 #: ajenti/plugins/fm/layout/main.xml:14
 msgid "[                 {'id': 'save', 'text': _('Save')},                 {'id': 'cancel', 'text': _('Cancel')},             ]"
-msgstr ""
+msgstr "[ {'id': 'save', 'text': _('Guardar')}, {'id': 'cancel', 'text': _('Cancelar')}, ]"
 
 #: ajenti/plugins/fm/layout/main.xml:16
 msgid "Access"
@@ -1050,7 +1050,7 @@ msgstr "Texto"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "Sensor IPMI"
 
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
@@ -1414,17 +1414,17 @@ msgstr "Moviendo %s"
 #: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Tarea terminada: %s"
 
-#: ajenti/plugins/tasks/manager.py:95
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Tarea %s en cola"
 
-#: ajenti/plugins/tasks/manager.py:101
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Tarea en cola: %s"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:30
 msgid "Tasks"
@@ -1433,40 +1433,48 @@ msgstr "Tareas"
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Desde el directorio"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "Al directorio"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
-msgid "Preserve file times"
-msgstr ""
+msgid "Archive"
+msgstr "Archivo"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
-msgid "Preserve ext. attributes"
-msgstr ""
+msgid "Recursive"
+msgstr "Recursivo"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
-msgid "Delete in destination dir"
-msgstr ""
+msgid "Preserve file times"
+msgstr "Conservar tiempos de archivo"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
+msgid "Preserve ext. attributes"
+msgstr "Conservar atributos de extensión"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:7
+msgid "Delete in destination dir"
+msgstr "Borrar en el directorio de destino"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Conservar permisos"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Tareas en ejecución"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "En ejecución"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Cancelando"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
@@ -1494,7 +1502,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Trabajos"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
@@ -1502,7 +1510,7 @@ msgstr "Ejecutar tarea"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "[_('Manual (specify below)'), _('Hourly'), _('Daily'), _('Weekly'), _('Monthly'), _('Yearly'), _('On reboot')]"
-msgstr ""
+msgstr "[_('Manual (especificar abajo)'), _('Horario'), _('Diario'), _('Semanal'), _('Mensual'), _('Anual'), _('En el reinicio')]"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Manual entry"
@@ -1543,7 +1551,7 @@ msgstr "Dependencias"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
-msgstr ""
+msgstr "Depende de"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"

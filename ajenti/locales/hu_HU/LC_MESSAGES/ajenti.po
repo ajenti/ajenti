@@ -1416,12 +1416,12 @@ msgstr "%s áthelyezés"
 msgid "Task %s finished"
 msgstr "%s feladat kész"
 
-#: ajenti/plugins/tasks/manager.py:95
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
 msgstr "Várólista: %s feladat"
 
-#: ajenti/plugins/tasks/manager.py:101
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr "%s feladat elindítva"
@@ -1441,18 +1441,26 @@ msgid "Into directory"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
-msgid "Preserve file times"
+msgid "Archive"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
-msgid "Preserve ext. attributes"
+msgid "Recursive"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
-msgid "Delete in destination dir"
+msgid "Preserve file times"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
+msgid "Preserve ext. attributes"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:7
+msgid "Delete in destination dir"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
 msgstr ""
 

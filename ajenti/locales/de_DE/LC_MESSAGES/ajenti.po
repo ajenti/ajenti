@@ -1416,12 +1416,12 @@ msgstr "Verschiebe %s"
 msgid "Task %s finished"
 msgstr "Vorgang %s abgeschlossen"
 
-#: ajenti/plugins/tasks/manager.py:95
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
 msgstr "Vorgang %s eingereiht"
 
-#: ajenti/plugins/tasks/manager.py:101
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr "Vorgang %s gestartet"
@@ -1441,18 +1441,26 @@ msgid "Into directory"
 msgstr "In Verzeichnis"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
+msgid "Archive"
+msgstr "Archiv"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:4
+msgid "Recursive"
+msgstr "Rekursiv"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
 msgstr "Behalte Dateizeitstempel"
 
-#: ajenti/plugins/tasks/layout/params-rsync.xml:4
+#: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
 msgstr "Behalte erweiterte Attribute"
 
-#: ajenti/plugins/tasks/layout/params-rsync.xml:5
+#: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
 msgstr "Im Zielverzeichnis löschen"
 
-#: ajenti/plugins/tasks/layout/params-rsync.xml:6
+#: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
 msgstr "Berechtigungen beibehalten"
 

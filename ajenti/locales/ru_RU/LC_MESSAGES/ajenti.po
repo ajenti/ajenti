@@ -68,7 +68,7 @@ msgstr "Отзыв отправлен!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr "Средняя загрузка"
+msgstr "Загрузка CPU"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
@@ -620,7 +620,7 @@ msgstr "Настройки"
 
 #: ajenti/plugins/configurator/configurator.py:115
 msgid "Auto"
-msgstr ""
+msgstr "Авто"
 
 #: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -664,7 +664,7 @@ msgstr "Общие"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
@@ -924,7 +924,7 @@ msgstr "Закрыть"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Выбрать все"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -936,15 +936,15 @@ msgstr "Новая папка"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Вырезать"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Копировать"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Вставить"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -1050,7 +1050,7 @@ msgstr "Текст"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "Сенсоры IPMI"
 
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
@@ -1416,12 +1416,12 @@ msgstr "Перемещается %s"
 msgid "Task %s finished"
 msgstr "Задача %s завершена"
 
-#: ajenti/plugins/tasks/manager.py:95
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
 msgstr "Задача %s помещена в очередь"
 
-#: ajenti/plugins/tasks/manager.py:101
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr "Задача %s запущена"
@@ -1441,20 +1441,28 @@ msgid "Into directory"
 msgstr "В каталог"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
-msgid "Preserve file times"
-msgstr ""
+msgid "Archive"
+msgstr "Архивировать"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
-msgid "Preserve ext. attributes"
-msgstr ""
+msgid "Recursive"
+msgstr "Рекурсивно"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
-msgid "Delete in destination dir"
-msgstr ""
+msgid "Preserve file times"
+msgstr "Сохранить время изменения"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
+msgid "Preserve ext. attributes"
+msgstr "Сохранить расш. атрибуты"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:7
+msgid "Delete in destination dir"
+msgstr "Удалять в месте назначения"
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Сохранить разрешения"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"

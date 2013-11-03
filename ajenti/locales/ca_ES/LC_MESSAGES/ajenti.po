@@ -1,14 +1,14 @@
 #: ajenti/usersync/unix.py:16
 msgid "OS users"
-msgstr ""
+msgstr "Usuaris del sistema"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Apagat"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Sincronització d'usuaris amb LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -20,72 +20,72 @@ msgstr ""
 
 #: ajenti/plugins/power/power.py:102
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendre"
 
 #: ajenti/plugins/power/power.py:103
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 #: ajenti/plugins/power/power.py:104
 msgid "Reboot"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ajenti/plugins/power/power.py:105
 msgid "Shutdown"
-msgstr ""
+msgstr "Apagar"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "Corrent alterna"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "Bateria"
 
 #: ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Suspendre sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Hiberni sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:5
 msgid "Reboot the system?"
-msgstr ""
+msgstr "Reiniciar sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Shutdown the system?"
-msgstr ""
+msgstr "Apagar sistema?"
 
 #: ajenti/plugins/main/main.py:203
 msgid "Section access"
-msgstr ""
+msgstr "Accés de secció"
 
 #: ajenti/plugins/main/main.py:220
 msgid "Feedback sent!"
-msgstr ""
+msgstr "Opinió enviada!"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr ""
+msgstr "Mitjana de càrrega"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr ""
+msgstr "Ús de CPU"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr ""
+msgstr "Ús de memòria"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr ""
+msgstr "Ús d'intercanvi"
 
 #: ajenti/plugins/sensors/uptime.py:74
 msgid "Uptime"
-msgstr ""
+msgstr "Temps en funcionament"
 
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
@@ -99,7 +99,7 @@ msgstr ""
 #: ajenti/plugins/elements/layout/users-main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Change password"
-msgstr ""
+msgstr "Canvia la contrasenya"
 
 #: ajenti/plugins/elements/layout/users-main.xml:2
 #: ajenti/plugins/webserver_common/layout/main.xml:1
@@ -135,7 +135,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:28
 #: ajenti/plugins/netatalk/layout/main.xml:3
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Confirma l'eliminació"
 
 #: ajenti/plugins/elements/layout/users-main.xml:3
 #: ajenti/plugins/elements/layout/users-main.xml:4
@@ -173,11 +173,11 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
 msgid "[         {'id': 'ok', 'text': _('OK')},         {'id': 'cancel', 'text': _('Cancel')},     ]"
-msgstr ""
+msgstr "[ {'id': 'ok', 'text': _('Acceptar')}, {'id': 'cancel', 'text': _('Cancel·lar')}, ]"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
@@ -206,19 +206,19 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:4
 #: ajenti/plugins/netatalk/layout/main.xml:4
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:144
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:187
 msgid "Configuration"
-msgstr ""
+msgstr "Configuració"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:18
@@ -243,11 +243,11 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:31
 #: ajenti/plugins/netatalk/layout/main.xml:14
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
-msgstr ""
+msgstr "Sistema de fitxers"
 
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:67
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/packages/main.py:14
@@ -256,39 +256,39 @@ msgstr ""
 #: ajenti/plugins/taskmgr/main.py:16 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/resolv/main.py:15
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: ajenti/plugins/fstab/main.py:67
 msgid "Unmounted"
-msgstr ""
+msgstr "Desmuntat"
 
 #: ajenti/plugins/fstab/main.py:74
 msgid "mount -a failed"
-msgstr ""
+msgstr "mount -a ha fracassat"
 
 #: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:73
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:100
 #: ajenti/plugins/bind9/main.py:81 ajenti/plugins/exports/main.py:38
 msgid "Saved"
-msgstr ""
+msgstr "Guardat"
 
 #: ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
-msgstr ""
+msgstr "I/O Inmediat"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr ""
+msgstr "Espai en disc"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Espai lliure en disc"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s lliure"
 
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
@@ -299,26 +299,26 @@ msgstr ""
 #: ajenti/plugins/network/layout/widget.xml:1
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "Dispositiu"
 
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/tasks/layout/main.xml:2
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Refresh"
-msgstr ""
+msgstr "Actualitzar"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr ""
+msgstr "Muntar totes"
 
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "Punt de muntatge"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 msgid "FS type"
-msgstr ""
+msgstr "Tipus de sistema de fitxers"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 #: ajenti/plugins/dhcpd/layout/main.xml:5
@@ -327,19 +327,19 @@ msgstr ""
 #: ajenti/plugins/squid/layout/port-template.xml:3
 #: ajenti/plugins/resolv/main.py:18 ajenti/plugins/exports/layout/main.xml:5
 msgid "Options"
-msgstr ""
+msgstr "Opcions"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
-msgstr ""
+msgstr "Freqüència d''exploració"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan pass"
-msgstr ""
+msgstr "Passades"
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "Sistemes de fitxers muntats"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
@@ -570,78 +570,78 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr ""
+msgstr "Açò sobreescriurà la configuració guardada amb l'estat actual del tallafocs! Vols continuar?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr ""
+msgstr "Nova cadena"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Acció"
 
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/users/layout/user-list.xml:3
 msgid "Comment"
-msgstr ""
+msgstr "Comentari"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "Condicions"
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "Nova norma"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "Protocol"
 
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:11
 msgid "Ports"
-msgstr ""
+msgstr "Ports"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Raó"
 
 #: ajenti/plugins/configurator/configurator.py:33
 #: ajenti/plugins/configurator/layout/main.xml:21
 #: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr ""
+msgstr "Configurar"
 
 #: ajenti/plugins/configurator/configurator.py:115
 msgid "Auto"
-msgstr ""
+msgstr "Automàtic"
 
 #: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr ""
+msgstr "Guardat. Si us plau reinicieu Ajenti per a que els canvis prenguin efecte."
 
 #: ajenti/plugins/configurator/configurator.py:141
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Si us plau, doneu un nom d'amfitrió"
 
 #: ajenti/plugins/configurator/configurator.py:155
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Si us plau, configura el plugin %s!"
 
 #: ajenti/plugins/configurator/configurator.py:191
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Modificar la configuració d'Ajenti"
 
 #: ajenti/plugins/configurator/configurator.py:192
 msgid "Restart Ajenti"
-msgstr ""
+msgstr "Reiniciar Ajenti"
 
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:1
@@ -650,37 +650,37 @@ msgstr ""
 #: ajenti/plugins/services/layout/widget.xml:3
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Restart Ajenti?"
-msgstr ""
+msgstr "Reiniciar Ajenti?"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:5
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Language"
-msgstr ""
+msgstr "Llengua"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
-msgstr ""
+msgstr "Servidor HTTP"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "o ruta del socket UNIX"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 msgid "Use SSL"
-msgstr ""
+msgstr "Utilitzar SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Path to certificate"
-msgstr ""
+msgstr "Ruta al certificat"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 msgid "SSL Self-Signed Certificate Generator"
@@ -688,31 +688,31 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:15
 msgid "Generate"
-msgstr ""
+msgstr "Generar"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Authentication"
-msgstr ""
+msgstr "Autentificació"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Sync with"
-msgstr ""
+msgstr "Sincronitzar amb"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Sync now"
-msgstr ""
+msgstr "Sincronitzar ara"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Configured correctly"
-msgstr ""
+msgstr "Configurat correctament"
 
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Failed to sync"
-msgstr ""
+msgstr "Ha fallat al sincronitzar"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Accounts"
-msgstr ""
+msgstr "Comptes"
 
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -722,24 +722,24 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/samba/layout/main.xml:18
 msgid "Other"
-msgstr ""
+msgstr "Altres"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Send feedback"
-msgstr ""
+msgstr "Enviar opinió"
 
 #: ajenti/plugins/configurator/layout/main.xml:32
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti enviarà anònimament la seva versió, el nom del teu sistema operatiu i les extensions que més utilitzes a ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 #: ajenti/plugins/plugins/plugins.py:10
 msgid "Plugins"
-msgstr ""
+msgstr "Extensions"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Adreça del servidor"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
@@ -755,31 +755,31 @@ msgstr ""
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ajenti/plugins/cron/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Minute"
-msgstr ""
+msgstr "Minut"
 
 #: ajenti/plugins/cron/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: ajenti/plugins/cron/layout/main.xml:7
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 #: ajenti/plugins/cron/layout/main.xml:8
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Month"
-msgstr ""
+msgstr "Mes"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/tasks/layout/main.xml:29
@@ -969,15 +969,15 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:17
 msgid "Owner"
-msgstr ""
+msgstr "Propietari"
 
 #: ajenti/plugins/fm/layout/main.xml:18 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
-msgstr ""
+msgstr "Grup"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Others"
-msgstr ""
+msgstr "Altres"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Set recursively"
@@ -999,7 +999,7 @@ msgstr ""
 #: ajenti/plugins/mysql/main.py:15 ajenti/plugins/apache/main.py:13
 #: ajenti/plugins/nginx/main.py:12
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #: ajenti/plugins/openvpn/layout/main.xml:3
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
@@ -1007,7 +1007,7 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:11
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
@@ -1019,12 +1019,12 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Connectat des de"
 
 #: ajenti/plugins/openvpn/layout/main.xml:7
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Disconnect"
-msgstr ""
+msgstr "Desconnectat"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
@@ -1032,7 +1032,7 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Missatges"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
@@ -1046,7 +1046,7 @@ msgstr ""
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
@@ -1067,7 +1067,7 @@ msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "[_('Allow'), _('Deny')]"
-msgstr ""
+msgstr "[_('Permitir'), _('Denegar')]"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1079,7 +1079,7 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "IPs públiques"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
@@ -1168,11 +1168,11 @@ msgstr ""
 #: ajenti/plugins/terminal/layout/main.xml:2
 #: ajenti/plugins/notepad/layout/main.xml:1
 msgid "New"
-msgstr ""
+msgstr "Nou"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "No hi ha terminals actius"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1180,18 +1180,18 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr ""
+msgstr "Estat"
 
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/plugins/layout/main.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Dispositius"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
@@ -1271,7 +1271,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Error: \"%s\""
 
 #: ajenti/plugins/users/main.py:113
 msgid "Password shouldn't be empty"
@@ -1416,12 +1416,12 @@ msgstr ""
 msgid "Task %s finished"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:95
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:101
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr ""
@@ -1441,18 +1441,26 @@ msgid "Into directory"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
-msgid "Preserve file times"
+msgid "Archive"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
-msgid "Preserve ext. attributes"
+msgid "Recursive"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
-msgid "Delete in destination dir"
+msgid "Preserve file times"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
+msgid "Preserve ext. attributes"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:7
+msgid "Delete in destination dir"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
 msgstr ""
 
