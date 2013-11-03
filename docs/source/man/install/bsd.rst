@@ -8,6 +8,7 @@ Prerequisites::
     cd /usr/ports/devel/py-gevent;  make install clean;
     cd /usr/ports/devel/py-lxml;    make install clean;
     cd /usr/ports/devel/py-pip;     make install clean;
+    cd /usr/ports/net/py-ldap2;     make install clean;
     cd /usr/ports/security/stunnel; make install clean;
 
 Download and install latest Ajenti build from PYPI::
