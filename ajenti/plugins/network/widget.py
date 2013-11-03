@@ -61,6 +61,7 @@ class ImmediateRXSensor (Sensor):
 
     def init(self):
         self.last_rx = {}
+        self.last_time = {}
 
     def get_variants(self):
         return psutil.network_io_counters(pernic=True).keys()
@@ -73,10 +74,12 @@ class ImmediateRXSensor (Sensor):
         r = (v.bytes_sent, v.bytes_recv)
         if not self.last_rx.get(device, None):
             self.last_rx[device] = r[1]
+            self.last_time[device] = time.time()
             return 0
         else:
-            d = r[1] - self.last_rx[device]
+            d = (r[1] - self.last_rx[device]) / (1.0 * time.time() - self.last_time[device])
             self.last_rx[device] = r[1]
+            self.last_time[device] = time.time()
             return d
 
 
