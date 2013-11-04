@@ -305,6 +305,8 @@ class UIElement (object):
         """
         Dispatches an event to an element with given UID
         """
+        if not self.visible:
+            return False
         if self.uid == uid:
             self.event(event, params)
             return True
