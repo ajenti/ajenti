@@ -17,6 +17,7 @@ class window.Controls.main__sections_tab extends window.Control
     createDom: () ->
         @dom = $$("""
             <a href="#" class="tab #{if @properties.active then 'active' else ''}">
+                <i class="loader pull-right hide-when-loaded icon icon-spinner icon-spin"></i>
                 <i class="icon-#{@properties.icon}"></i>&nbsp;#{@properties.title}
             </a>
         """)
@@ -72,6 +73,7 @@ class window.Controls.main__sections_root extends window.Control
 
         tab = new Controls.main__sections_tab(@ui, $.extend(child.properties, { visible: true }))
         $(tab.dom).click (e) =>
+            $(tab.dom).find('.loader').show()
             @event('switch', uid:child.uid)
             e.preventDefault()
 
