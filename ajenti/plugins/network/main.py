@@ -54,19 +54,22 @@ class NetworkPlugin (SectionPlugin):
         return
 
     def on_up(self, iface=None):
+        self.save()
         self.net_config.up(iface)
         self.refresh()
 
     def on_down(self, iface=None):
+        self.save()
         self.net_config.down(iface)
         self.refresh()
 
     def on_restart(self, iface=None):
+        self.save()
         self.on_down(iface)
         self.on_up(iface)
 
     @on('save', 'click')
-    def on_save(self):
+    def save(self):
         self.binder.update()
         self.net_config.save()
         self.refresh()
