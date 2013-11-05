@@ -1,4 +1,3 @@
-import time
 import os
 import subprocess
 
@@ -61,6 +60,7 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
                     e = NetworkInterface()
                     e.name = ifcn
                     self.interfaces[ifcn] = e
+                    self.interfaces[ifcn].auto = 'yes' in d.get('ONBOOT', 'no')
                     e.type = c
                     e.addressing = m
                     for k in d:
@@ -85,6 +85,7 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
         return
 
     def save_iface(self, iface, f):
+        iface.params['ONBOOT'] = 'yes' if iface.auto else 'no'
         for x in self.classes:
             if self.classes[x] == (iface.type, iface.addressing):
                 f.write('BOOTPROTO="' + x + '"\n')

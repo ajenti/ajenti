@@ -7,8 +7,8 @@
                         <dth width="1" />
                         <dth text="{Name}" />
                         <dth text="{Class}" width="50" />
-                        <dth text="TX" width="100" />
-                        <dth text="RX" width="100" />
+                        <dth text="TX" width="60" />
+                        <dth text="RX" width="60" />
                         <dth width="1" />
                     </dtr>
                 </dt>
