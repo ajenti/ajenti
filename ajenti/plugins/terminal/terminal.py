@@ -92,9 +92,9 @@ class PTYProtocol():
             return
         self.dead = True
         if code:
-            self.stream.feed('\n\n * ' + _('Process has exited with status %i') % code)
+            self.stream.feed('\n\n * ' + unicode(_('Process has exited with status %i') % code))
         else:
-            self.stream.feed('\n\n * ' + _('Process has exited successfully'))
+            self.stream.feed('\n\n * ' + unicode(_('Process has exited successfully')))
         if self.callback:
             try:
                 self.callback(exitcode=code)
