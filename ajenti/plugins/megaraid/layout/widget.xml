@@ -1,0 +1,15 @@
+<hc>
+    <icon icon="hdd" />
+    <box width="120">
+        <label id="variant" style="bold" text="---" />
+    </box>
+    <label id="value" />
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="{Array}">
+                <dropdown id="variant" bind="variant" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>

@@ -67,3 +67,14 @@ class RAIDManager (BasePlugin):
                 v = v.strip()
                 o = current_disk or current_array or current_adapter
                 setattr(o, k, v)
+
+    def find_array(self, name):
+        for a in self.adapters:
+            for arr in self.arrays:
+                if arr.name == name:
+                    return arr
+
+    def list_arrays(self):
+        for a in self.adapters:
+            for arr in self.arrays:
+                yield arr.name
