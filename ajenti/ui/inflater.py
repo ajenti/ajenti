@@ -5,7 +5,7 @@ import logging
 import ajenti
 from ajenti.api import plugin, BasePlugin
 from ajenti.plugins import manager
-from ajenti.ui.element import UIProperty, UIElement
+from ajenti.ui.element import UIProperty, UIElement, NullElement
 from ajenti.util import *
 #from ajenti.profiler import *
 
@@ -54,7 +54,7 @@ class Inflater (BasePlugin):
                 self._element_cache[typeid] = cls
                 return cls
         else:
-            self._element_cache[typeid] = UIElement
+            self._element_cache[typeid] = NullElement
             return UIElement
 
     def inflate(self, ui, layout):

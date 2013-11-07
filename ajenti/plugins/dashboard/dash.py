@@ -139,6 +139,8 @@ class DashboardHeader (UIElement):
 
 @plugin
 class CrashedWidget (DashboardWidget):
+    hidden = True
+    
     def init(self):
         self.append(self.ui.create('label', id='text'))
 

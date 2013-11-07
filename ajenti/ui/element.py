@@ -101,7 +101,6 @@ class UIProperty (object):
     doc='Element ID')
 @p('style', default='normal',
     doc='Additional CSS class')
-@plugin
 @interface
 class UIElement (object):
     """ Base UI element class """
@@ -365,3 +364,10 @@ class UIElement (object):
         self.children.remove(child)
         child.parent = None
         self.children_changed = True
+
+
+@public
+@plugin
+class NullElement (UIElement):
+    pass
+    
