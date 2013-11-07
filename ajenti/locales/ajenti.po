@@ -18,15 +18,15 @@ msgstr ""
 msgid "Power control"
 msgstr ""
 
-#: ajenti/plugins/power/power.py:102
+#: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
 msgstr ""
 
-#: ajenti/plugins/power/power.py:103
+#: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
 msgstr ""
 
-#: ajenti/plugins/power/power.py:104
+#: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
 msgstr ""
 
@@ -42,19 +42,23 @@ msgstr ""
 msgid "Battery"
 msgstr ""
 
-#: ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
 msgstr ""
 
-#: ajenti/plugins/power/layout/widget.xml:4
+#: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
 msgstr ""
 
-#: ajenti/plugins/power/layout/widget.xml:5
+#: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
 msgstr ""
 
-#: ajenti/plugins/power/layout/widget.xml:6
+#: ajenti/plugins/power/layout/widget.xml:9
+msgid "Power off"
+msgstr ""
+
+#: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
 msgstr ""
 
