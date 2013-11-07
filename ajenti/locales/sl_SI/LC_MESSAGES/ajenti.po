@@ -267,9 +267,9 @@ msgid "mount -a failed"
 msgstr "pripni -a ni uspelo"
 
 #: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:73
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:76
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:100
-#: ajenti/plugins/bind9/main.py:81 ajenti/plugins/exports/main.py:38
+#: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
 msgstr "Shranjeno"
 
@@ -1321,11 +1321,11 @@ msgstr "Člani"
 msgid "Network"
 msgstr "Omrežje"
 
-#: ajenti/plugins/network/widget.py:85
+#: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
 msgstr "Trenutni promet"
 
-#: ajenti/plugins/network/widget.py:115
+#: ajenti/plugins/network/widget.py:118
 msgid "Traffic"
 msgstr "Promet"
 
@@ -1377,7 +1377,7 @@ msgstr "Prekini"
 msgid "Kill"
 msgstr "Ubij"
 
-#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
 msgid "Zone saved"
 msgstr "Zona shranjena"
 
@@ -1701,7 +1701,7 @@ msgstr "Naprava"
 msgid "Add"
 msgstr "Dodaj"
 
-#: ajenti/plugins/dashboard/dash.py:18
+#: ajenti/plugins/dashboard/dash.py:19
 msgid "Dashboard"
 msgstr "Nadzorna plošča"
 

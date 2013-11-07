@@ -267,9 +267,9 @@ msgid "mount -a failed"
 msgstr "mount -a fehlgeschlagen"
 
 #: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:73
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:76
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:100
-#: ajenti/plugins/bind9/main.py:81 ajenti/plugins/exports/main.py:38
+#: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
 msgstr "Gespeichert"
 
@@ -1321,11 +1321,11 @@ msgstr "Mitglieder"
 msgid "Network"
 msgstr "Netzwerk"
 
-#: ajenti/plugins/network/widget.py:85
+#: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
 msgstr "Derzeitiger Netzwerkverkehr"
 
-#: ajenti/plugins/network/widget.py:115
+#: ajenti/plugins/network/widget.py:118
 msgid "Traffic"
 msgstr "Netzwerkverkehr"
 
@@ -1377,7 +1377,7 @@ msgstr "Beenden"
 msgid "Kill"
 msgstr "Beenden erzwingen"
 
-#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:48
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
 msgid "Zone saved"
 msgstr "Zone gespeichert"
 
@@ -1701,7 +1701,7 @@ msgstr "Maschine"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: ajenti/plugins/dashboard/dash.py:18
+#: ajenti/plugins/dashboard/dash.py:19
 msgid "Dashboard"
 msgstr "Dashboard"
 
