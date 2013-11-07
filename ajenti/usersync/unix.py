@@ -27,7 +27,7 @@ class UNIXSyncProvider (UserSyncProvider):
             l = l.split()
             if len(l) >= 2:
                 username, state = l[:2]
-                if state == 'P':
+                if 'P' in state:
                     found_names.append(username)
                     if not username in ajenti.config.tree.users:
                         u = UserData()
