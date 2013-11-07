@@ -50,7 +50,7 @@ class TempWidget (ConfigurableWidget):
 
     def on_prepare(self):
         self.sensor = Sensor.find('lm-sensors')
-        self.append(self.ui.inflate('lm-sensors:widget'))
+        self.append(self.ui.inflate('lm_sensors:widget'))
 
     def on_start(self):
         value = self.sensor.value(self.config['sensor'])
