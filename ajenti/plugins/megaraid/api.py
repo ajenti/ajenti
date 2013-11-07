@@ -70,11 +70,11 @@ class RAIDManager (BasePlugin):
 
     def find_array(self, name):
         for a in self.adapters:
-            for arr in self.arrays:
+            for arr in a.arrays:
                 if arr.name == name:
                     return arr
 
     def list_arrays(self):
         for a in self.adapters:
-            for arr in self.arrays:
+            for arr in a.arrays:
                 yield arr.name
