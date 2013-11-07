@@ -28,33 +28,60 @@
                                     </hc>
                                 </box>
                                 <pad>
-                                    <hc>
-                                        <vc>
-                                            <formline text="{Name}">
-                                                <textbox bind="name" />
-                                            </formline>
-                                            <formline text="{Path}">
-                                                <pathbox directory="True" bind="path" />
-                                            </formline>
-                                            <formline>
-                                                <checkbox bind="guest_ok" text="{Guest access}" />
-                                            </formline>
-                                            <formline>
-                                                <checkbox bind="browseable" text="{Browseable}" />
-                                            </formline>
-                                        </vc>
-                                        <vc>
-                                            <formline text="{Create mask}">
-                                                <textbox bind="create_mask" />
-                                            </formline>
-                                            <formline text="{Directory mask}">
-                                                <textbox bind="directory_mask" />
-                                            </formline>
-                                            <formline>
-                                                <checkbox bind="read_only" text="{Read only}" />
-                                            </formline>
-                                        </vc>
-                                    </hc>
+                                    <tabs>
+                                        <tab title="{General}">
+                                            <hc>
+                                                <vc>
+                                                    <formline text="{Name}">
+                                                        <textbox bind="name" />
+                                                    </formline>
+                                                    <formline text="{Path}">
+                                                        <pathbox directory="True" bind="path" />
+                                                    </formline>
+                                                    <formline>
+                                                        <checkbox bind="guest_ok" text="{Guest access}" />
+                                                    </formline>
+                                                    <formline>
+                                                        <checkbox bind="browseable" text="{Browseable}" />
+                                                    </formline>
+                                                </vc>
+                                                <vc>
+                                                    <formline text="{Create mask}">
+                                                        <textbox bind="create_mask" />
+                                                    </formline>
+                                                    <formline text="{Directory mask}">
+                                                        <textbox bind="directory_mask" />
+                                                    </formline>
+                                                    <formline>
+                                                        <checkbox bind="read_only" text="{Read only}" />
+                                                    </formline>
+                                                </vc>
+                                            </hc>
+                                        </tab>
+                                        <tab title="{Advanced}">
+                                            <hc>
+                                                <vc>
+                                                    <formline text="{Allowed users}">
+                                                        <textbox bind="valid_users" />
+                                                    </formline>
+                                                    <formline text="{R/W users}">
+                                                        <textbox bind="write_list" />
+                                                    </formline>
+                                                    <formline text="{Veto files}">
+                                                        <textbox bind="veto_files" />
+                                                    </formline>
+                                                </vc>
+                                                <vc>
+                                                    <formline text="{Force file umask}">
+                                                        <textbox bind="force_create_mode" />
+                                                    </formline>
+                                                    <formline text="{Force dir umask}">
+                                                        <textbox bind="force_directory_mode" />
+                                                    </formline>
+                                                </vc>
+                                            </hc>
+                                        </tab>
+                                    </tabs>
                                 </pad>
                             </collapserow>
                         </bind:template>

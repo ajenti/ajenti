@@ -3,21 +3,6 @@ class window.Controls.main__page extends window.Control
         @dom = $("""
             <div class="control container main-page"> 
                 <div class="content-wr">
-                    <!--div class="feedback">
-                        <a class="activate">Leave Feedback</a>
-                        <div class="box">
-                            <label>Email (optional)</label>
-                            <br/>
-                            <input class="control textbox" />
-                            <br/>
-                            <label>Text</label>
-                            <br/>
-                            <textarea class="control textbox"></textarea>
-                            <br/>
-                            <a href="#" class="control button style-normal">Submit</a>
-                        </div>
-                    </div-->
-
                     <div class="content">
                         <div class="--child-container"></div>
                     </div>
@@ -25,24 +10,14 @@ class window.Controls.main__page extends window.Control
             </div>
         """)
         @childContainer = @dom.find('.--child-container')
-        @feedback = @dom.find('.feedback')
-        @feedback.find('.box').hide()
-        
-        @feedback.find('.activate').click () =>
-            @feedback.find('.box').toggle()
 
-        @feedback.find('.box a').click () =>
-            @feedback.find('.box').hide()
-            @event('feedback', 
-                email: @feedback.find('input').val()
-                text: @feedback.find('textarea').val()
-            )
 
 
 class window.Controls.main__sections_tab extends window.Control
     createDom: () ->
         @dom = $$("""
             <a href="#" class="tab #{if @properties.active then 'active' else ''}">
+                <i class="loader pull-right hide-when-loaded icon icon-spinner icon-spin"></i>
                 <i class="icon-#{@properties.icon}"></i>&nbsp;#{@properties.title}
             </a>
         """)
@@ -70,12 +45,25 @@ class window.Controls.main__sections_root extends window.Control
                 </div>
                 <div class="main">
                     <div class="--child-container"></div>
+                    <div class="no-sections">
+                        <div>
+                            <div class="control label bold">No plugins are allowed for this user</div>
+                        </div>
+                        <div>
+                            <div class="control label">
+                                Please ask your administrator to go to Configuration plugin and give you permissions to access some plugins.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         """)
         @tabsContainer = @dom.find('.--tabs-container')
         @childContainer = @dom.find('.--child-container')
         @categories = {}
+
+        if not @properties.is_empty
+            @dom.find('.no-sections').hide()
 
     append: (child) ->
         if not @categories[child.properties.category]
@@ -85,6 +73,7 @@ class window.Controls.main__sections_root extends window.Control
 
         tab = new Controls.main__sections_tab(@ui, $.extend(child.properties, { visible: true }))
         $(tab.dom).click (e) =>
+            $(tab.dom).find('.loader').show()
             @event('switch', uid:child.uid)
             e.preventDefault()
 
