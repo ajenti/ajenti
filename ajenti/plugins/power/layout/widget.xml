@@ -13,19 +13,19 @@
         </hc>
     </box>
 
-    <tooltip text="Suspend">
+    <tooltip text="{Suspend}">
         <button style="mini" id="suspend" icon="pause" warning="{Suspend the system?}" />
     </tooltip>
 
-    <tooltip text="Hibernate">
+    <tooltip text="{Hibernate}">
         <button style="mini" id="hibernate" icon="asterisk" warning="{Hibernate the system?}" />
     </tooltip>
 
-    <tooltip text="Reboot">
+    <tooltip text="{Reboot}">
         <button style="mini" id="reboot" icon="undo" warning="{Reboot the system?}" />
     </tooltip>
     
-    <tooltip text="Power off">
+    <tooltip text="{Power off}">
         <button style="mini" id="shutdown" icon="off" warning="{Shutdown the system?}" />
     </tooltip>
 </hc>
