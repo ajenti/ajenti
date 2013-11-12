@@ -1,5 +1,3 @@
-import subprocess
-
 import ajenti
 from ajenti.api import *
 
@@ -23,11 +21,11 @@ class UNIXSyncProvider (UserSyncProvider):
 
     def sync(self):
         found_names = []
-        for l in subprocess.check_output(['passwd', '-Sa']).splitlines():
-            l = l.split()
+        for l in open('/etc/shadow').read().splitlines():
+            l = l.split(':')
             if len(l) >= 2:
-                username, state = l[:2]
-                if 'P' in state:
+                username, pwd = l[:2]
+                if len(pwd) > 1:
                     found_names.append(username)
                     if not username in ajenti.config.tree.users:
                         u = UserData()
