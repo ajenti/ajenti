@@ -31,6 +31,6 @@ class SambaUsers (object):
         subprocess.call(['pdbedit', '-x', '-u', un])
 
     def set_password(self, un, p):
-        p = subprocess.Popen(['smbpasswd', '-s', un])
+        p = subprocess.Popen(['smbpasswd', '-a', '-s', un])
         p.communicate('%s\n%s\n' % (p, p))
         return p.returncode == 0
