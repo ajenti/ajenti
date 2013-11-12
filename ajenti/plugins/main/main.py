@@ -127,6 +127,8 @@ class MainSocket (SocketPlugin):
             'platform': ajenti.platform,
             'hostname': Sensor.find('hostname').value(),
             'session': self.context.session.id,
+            'feedback': ajenti.config.tree.enable_feedback,
+            'edition': ajenti.edition,
         }
         self.emit('init', json.dumps(data))
 
@@ -249,6 +251,7 @@ class SectionsRoot (UIElement):
                 try:
                     profile_start('Starting %s' % cls.__name__)
                     cat = cls.new(self.ui)
+                    cat.clsname = cls.classname
                     profile_end()
                     self.append(cat)
                     self.is_empty = False

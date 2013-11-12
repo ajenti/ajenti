@@ -44,7 +44,10 @@ class Dropdown (UIElement):
     
     def value_get(self):
         if self.index < len(self.values):
-            return self.values[self.index]
+            try:
+                return self.values[self.index]
+            except TypeError:
+                return None
         return None
         
     def value_set(self, value):

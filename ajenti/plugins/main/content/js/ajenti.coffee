@@ -25,6 +25,8 @@ class window.Stream
             console.log 'your session:', data.session
             $('title').text(data.hostname)
             console.groupEnd()
+            Feedback.configure(data.feedback, data.platform, data.version, data.edition)
+            Feedback.emit('Login')
 
         @socket.on 'ui', (ui) ->
             console.group 'Received update'
