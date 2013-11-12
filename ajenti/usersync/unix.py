@@ -25,7 +25,7 @@ class UNIXSyncProvider (UserSyncProvider):
             l = l.split(':')
             if len(l) >= 2:
                 username, pwd = l[:2]
-                if len(pwd) > 1:
+                if len(pwd) > 2:
                     found_names.append(username)
                     if not username in ajenti.config.tree.users:
                         u = UserData()
