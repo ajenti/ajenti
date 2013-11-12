@@ -1,9 +1,4 @@
 <vc>
-    <hc>
-        <button text="{Save}" id="save-button" icon="ok" />
-        <button text="{Restart}" id="restart-button" icon="refresh" warning="{Restart Ajenti?}" />
-    </hc>
-
     <body>
         <pad>
             <tabs id="tabs">
@@ -141,4 +136,9 @@
             </tabs>
         </pad>
     </body>
+
+    <hc>
+        <button text="{Save}" id="save-button" icon="ok" />
+        <button text="{Restart}" id="restart-button" icon="refresh" warning="{Restart Ajenti?}" />
+    </hc>
 </vc>
