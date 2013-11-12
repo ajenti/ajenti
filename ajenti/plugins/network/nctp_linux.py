@@ -46,9 +46,9 @@ class LinuxIfconfig (object):
         return r
 
     def up(self, iface):
-        subprocess.call(['ifconfig', iface.name, 'up'])
+        subprocess.call(['ifup', iface.name])
         time.sleep(1)
 
     def down(self, iface):
-        subprocess.call(['ifconfig', iface.name, 'down'])
+        subprocess.call(['ifdown', iface.name])
         time.sleep(1)
