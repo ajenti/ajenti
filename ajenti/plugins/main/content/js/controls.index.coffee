@@ -74,6 +74,7 @@ class window.Controls.main__sections_root extends window.Control
         tab = new Controls.main__sections_tab(@ui, $.extend(child.properties, { visible: true }))
         $(tab.dom).click (e) =>
             $(tab.dom).find('.loader').show()
+            Feedback.emit('Section activated', Class: child.properties.clsname)
             @event('switch', uid:child.uid)
             e.preventDefault()
 

@@ -8,6 +8,7 @@ from ajenti.ui import *
 @p('category', default='Other', doc='Section category name')
 @p('active', default=False)
 @p('plain', default=False)
+@p('clsname', default='')
 @interface
 class SectionPlugin (BasePlugin, UIElement):
     """
