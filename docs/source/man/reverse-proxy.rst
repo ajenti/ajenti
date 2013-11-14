@@ -12,7 +12,9 @@ All Ajenti URLs are absolute and start with ``/ajenti:``, which makes it easy to
         listen 80;
 
         location /ajenti {
+            rewrite (/ajenti)$ / break;
             rewrite /ajenti/(.*) /$1 break;
+
             proxy_pass  http://127.0.0.1:8000;
             proxy_redirect / /ajenti/;
             proxy_set_header Host $host;
