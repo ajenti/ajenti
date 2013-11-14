@@ -10,6 +10,7 @@ info = PluginInfo(
         PluginDependency('webserver_common'),
         BinaryDependency(platform_select(
             centos='httpd',
+            freebsd='apachectl',
             default='apache2',
         )),
     ],
