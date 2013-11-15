@@ -61,8 +61,7 @@ if sys.argv[1] == 'extract':
                                 msgs.append(v[1:-1])
                             try:
                                 if "_('" in v:
-                                    eval(v, {'_': lambda x: x})
-                                    msgs.append(v.strip())
+                                    eval(v, {'_': msgs.append})
                             except:
                                 pass
                         for c in n:

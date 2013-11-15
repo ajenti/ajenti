@@ -91,11 +91,9 @@ class Inflater (BasePlugin):
                 value = _(value[1:-1])
             for prop in cls._properties.values():
                 if prop.name == key:
-                    if prop.type in [eval, list, dict]:
-                        value = _(value)
-                    if prop.type in [int, float, unicode, eval, dict]:
+                    if prop.type in [int, float, unicode, eval]:
                         value = prop.type(value)
-                    elif prop.type in [list]:
+                    elif prop.type in [list, dict]:
                         value = eval(value)
                     elif prop.type == bool:
                         value = value == 'True'
