@@ -89,7 +89,3 @@ l.prototype.sa;l.prototype.increment=l.prototype.ia;l.prototype.append=l.prototy
 else if(1.1>z)s.T("Version mismatch; please ensure you're using the latest version of the Mixpanel code snippet.");else{var y={};c.a(t._i,function(a){var b;a&&c.isArray(a)&&(b=a[a.length-1],a=E.apply(this,a),y[b]=a)});var Q=function(){c.a(y,function(a,b){"mixpanel"!==b&&(t[b]=a)});t._=c};t.init=function(a,b,c){c?t[c]||(t[c]=y[c]=E(a,b,c),t[c].O()):(c=t,y.mixpanel?c=y.mixpanel:a&&(c=E(a,b,"mixpanel")),window.mixpanel=t=c,Q())};t.init();c.a(y,function(a){a.O()});if(r.addEventListener)"complete"==r.readyState?
 x():r.addEventListener("DOMContentLoaded",x,v);else if(r.attachEvent){r.attachEvent("onreadystatechange",x);z=v;try{z=window.frameElement==q}catch(R){}if(r.documentElement.doScroll&&z){var N=function(){try{r.documentElement.doScroll("left")}catch(a){setTimeout(N,1);return}x()};N()}}c.pa(window,"load",x,o)}})(window.mixpanel);
 })();
-
-
-
-mixpanel.init("b5e6ddf58b2d02245a7a19005d1cec48");

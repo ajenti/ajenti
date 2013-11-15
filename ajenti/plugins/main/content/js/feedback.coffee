@@ -1,5 +1,6 @@
 class Feedback
     configure: (@enabled, @os, @version, @edition) ->
+        mixpanel.init(@token)
 
     emit: (evt, params) ->
         if @enabled
@@ -11,3 +12,4 @@ class Feedback
 
 
 window.Feedback = new Feedback()        
+window.Feedback.token = "b5e6ddf58b2d02245a7a19005d1cec48"
