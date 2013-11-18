@@ -68,6 +68,7 @@ class Item (object):
 
     def write(self):
         os.rename(self.fullpath, os.path.join(self.path, self.name))
+        self.fullpath = os.path.join(self.path, self.name)
         os.chmod(self.fullpath, self.mode)
         
         try:
