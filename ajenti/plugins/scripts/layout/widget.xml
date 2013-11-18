@@ -3,6 +3,7 @@
         <label id="name" style="bold" text="---" />
     </box>
 
+    <button style="mini" id="edit" icon="edit" />
     <button style="mini" id="start" icon="play" />
 
     <dialog id="config-dialog" visible="False">

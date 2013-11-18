@@ -1,3 +1,4 @@
+import gevent
 import subprocess
 
 from ajenti.api import plugin
@@ -21,10 +22,16 @@ class ScriptWidget (ConfigurableWidget):
         self.find('name').text = self.config['title']
 
     def create_config(self):
-        return {'service': ''}
+        return {'command': '', 'title': '', 'terminal': False}
 
     def on_config_start(self):
-        pass
+        self.dialog.find('command').value = self.config['command']
+        self.dialog.find('title').value = self.config['title']
+        self.dialog.find('terminal').value = self.config['terminal']
+
+    @on('edit', 'click')
+    def on_edit(self):
+        self.begin_configuration()
 
     def on_config_save(self):
         self.config['command'] = self.dialog.find('command').value
@@ -37,8 +44,14 @@ class ScriptWidget (ConfigurableWidget):
         if self.config['terminal']:
             self.context.launch('terminal', command=self.config['command'])
         else:
-            subprocess.Popen(self.config['command'], shell=True)
+            p = subprocess.Popen(self.config['command'], shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             self.context.notify('info', _('Launched'))
+
+            def worker():
+                o, e = p.communicate()
+                self.context.notify('info', o + e)
+
+            gevent.spawn(worker)
 
 
 @plugin

@@ -32,11 +32,14 @@ class ConfigurableWidget (DashboardWidget):
         self.dialog = self.find('config-dialog')
         if not self.config and self.dialog:
             self.config = self.create_config()
-            self.on_config_start()
-            self.dialog.on('button', self.on_config)
-            self.dialog.visible = True
+            self.begin_configuration()            
         else:
             self.on_start()
+
+    def begin_configuration(self):
+        self.on_config_start()
+        self.dialog.on('button', self.on_config)
+        self.dialog.visible = True
 
     def on_config(self, button):
         self.dialog.visible = False
