@@ -98,20 +98,21 @@ class FMBackend (BasePlugin):
     def _has_dirs(self, items):
         return any(_.isdir for _ in items)
 
-    def remove(self, items):
+    def remove(self, items, cb=lambda: None):
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
             command = 'rm -vfr -- '
             for item in items:
                 command += self._escape(item)
-            self.context.launch('terminal', command=command)
+            self.context.launch('terminal', command=command, callback=cb)
         else:
             for i in items:
                 if os.path.isdir(i.fullpath):
                     shutil.rmtree(i.fullpath)
                 else:
                     os.unlink(i.fullpath)
+            cb()
 
-    def move(self, items, dest):
+    def move(self, items, dest, cb=lambda: None):
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
             command = 'mv -v -- '
             for item in items:
@@ -120,9 +121,10 @@ class FMBackend (BasePlugin):
             self.context.launch('terminal', command=command)
         else:
             for i in items:
-                shutil.move(i.fullpath, dest)
+                shutil.move(i.fullpath, dest, callback=cb)
+            cb()
 
-    def copy(self, items, dest):
+    def copy(self, items, dest, cb=lambda: None):
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
             command = 'cp -rv -- '
             for item in items:
@@ -130,10 +132,11 @@ class FMBackend (BasePlugin):
             command += self._escape(dest)
             if subprocess.call(['which', 'vcp']) == 0:
                 command = 'v' + command
-            self.context.launch('terminal', command=command)
+            self.context.launch('terminal', command=command, callback=cb)
         else:
             for i in items:
                 if os.path.isdir(i.fullpath):
                     shutil.copytree(i.fullpath, os.path.join(dest, i.name))
                 else:
                     shutil.copy(i.fullpath, os.path.join(dest, i.name))
+            cb()

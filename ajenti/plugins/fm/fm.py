@@ -72,18 +72,27 @@ class FileManager (SectionPlugin):
 
     @on('new-file', 'click')
     def on_new_file(self):
-        open(os.path.join(self.controller.tabs[self.tabs.active].path, 'new file'), 'w').close()
+        try:
+            open(os.path.join(self.controller.tabs[self.tabs.active].path, 'new file'), 'w').close()
+        except OSError, e:
+            self.context.notify('error', str(e))
         self.refresh()
 
     def upload(self, name, file):
-        open(os.path.join(self.controller.tabs[self.tabs.active].path, name), 'w').write(file.read())
+        try:
+            open(os.path.join(self.controller.tabs[self.tabs.active].path, name), 'w').write(file.read())
+        except OSError, e:
+            self.context.notify('error', str(e))
         self.refresh()
 
     @on('new-dir', 'click')
     def on_new_directory(self):
         path = os.path.join(self.controller.tabs[self.tabs.active].path, 'new directory')
         if not os.path.exists(path):
-            os.mkdir(path)
+            try:
+                os.mkdir(path)
+            except OSError, e:
+                self.context.notify('error', str(e))
         self.refresh()
 
     @on('mass-cut', 'click')
@@ -104,8 +113,7 @@ class FileManager (SectionPlugin):
 
     @on('mass-delete', 'click')
     def on_delete(self):
-        self.backend.remove(self._get_checked())
-        self.refresh()
+        self.backend.remove(self._get_checked(), self.refresh)
 
     @on('paste', 'click')
     def on_paste(self):
@@ -120,14 +128,13 @@ class FileManager (SectionPlugin):
 
         try:
             if for_move:
-                self.backend.move(for_move, tab.path)
+                self.backend.move(for_move, tab.path, self.refresh)
             if for_copy:
-                self.backend.copy(for_copy, tab.path)
+                self.backend.copy(for_copy, tab.path, self.refresh)
             self.clipboard = []
         except Exception as e:
             self.context.notify('error', str(e))
         self.refresh_clipboard()
-        self.refresh()
 
     @on('select-all', 'click')
     def on_select_all(self):
