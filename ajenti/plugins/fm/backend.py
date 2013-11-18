@@ -67,6 +67,7 @@ class Item (object):
         )
 
     def write(self):
+        os.rename(self.fullpath, os.path.join(self.path, self.name))
         os.chmod(self.fullpath, self.mode)
         
         try:
@@ -79,7 +80,6 @@ class Item (object):
             gid = grp.getgrnam(self.group)[2]
 
         os.chown(self.fullpath, uid, gid)
-        os.rename(self.fullpath, os.path.join(self.path, self.name))
 
 
 @plugin
