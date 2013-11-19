@@ -56,7 +56,7 @@ msgstr "Sistem yeniden başlatmak istermisiniz ?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Güç kapalı"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -406,12 +406,12 @@ msgstr "Otomatik başlatma"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Etkin"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Etkisizleştirildi"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -815,32 +815,32 @@ msgstr "Zamanlamak"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "Saatlik"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "Günlük"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "Haftalık"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "Aylık"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "Yıllık"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
 msgid "On reboot"
-msgstr ""
+msgstr "Yeniden Başlat"
 
 #: ajenti/plugins/cron/layout/main.xml:26
 #: ajenti/plugins/resolv/layout/main.xml:3
@@ -1096,11 +1096,11 @@ msgstr "Modu"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "İzin ver"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Reddet"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1368,11 +1368,11 @@ msgstr "Sınıf"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
-msgstr ""
+msgstr "Yukarı çek"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bring down"
-msgstr ""
+msgstr "Aşağı indir"
 
 #: ajenti/plugins/network/layout/main.xml:5
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
@@ -1388,11 +1388,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Statik"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
@@ -1400,7 +1400,7 @@ msgstr "Süreçleri"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Üst"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1445,12 +1445,12 @@ msgstr "Bölge kaydetmek"
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "%S kopyalanıyor"
 
 #: ajenti/plugins/tasks/tasks.py:65
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "%S taşınıyor"
 
 #: ajenti/plugins/tasks/manager.py:63
 #, python-format
@@ -1469,25 +1469,25 @@ msgstr ""
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "Görevler"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Dizinden"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "Dizine"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Arşiv"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "Tekrar yenile"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
@@ -1499,7 +1499,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Hedef dizini silme"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
@@ -1519,23 +1519,23 @@ msgstr "İptal ediliyor"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "İptal"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Tamamlanan görevler"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Başarılı"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "İptal edildi"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Hata"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
@@ -1543,19 +1543,19 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "İşler"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Görevi çalıştır"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "Manuel (aşağıda belirtin)"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "El ile giriş"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
@@ -1563,7 +1563,7 @@ msgstr ""
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Dizi"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1703,11 +1703,11 @@ msgstr "Salt okunur"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Gelişmiş"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "İzin verilen kullanıcılar"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"

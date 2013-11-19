@@ -1,14 +1,14 @@
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "Użytkownicy systemu"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Poza"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Synchronizacja użytkowników LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -20,11 +20,11 @@ msgstr "Regulator mocy"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Wstrzymaj"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernuj"
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -44,11 +44,11 @@ msgstr "Bateria"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Czy chcesz przełączyć w stan wstrzymania ?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Czy chcesz zahibernować system?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -56,7 +56,7 @@ msgstr "Uruchomić system ponownie?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Wyłącz"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -189,7 +189,7 @@ msgstr "Anuluj"
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
-msgstr ""
+msgstr "Adapter"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:3
@@ -282,7 +282,7 @@ msgstr "Zapisano"
 
 #: ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
-msgstr ""
+msgstr "Natychmiastowe we/wy"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
@@ -290,12 +290,12 @@ msgstr "Miejsca na dysku"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Wolnego miejsca na dysku"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr " %s wolne"
 
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
@@ -406,12 +406,12 @@ msgstr "Autostart"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Włączone"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Wyłączone"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -419,7 +419,7 @@ msgstr "Automatyczny restart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "On crash"
-msgstr ""
+msgstr "W wypadku"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Start timeout"
@@ -449,19 +449,19 @@ msgstr "Serwer DHCP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "Podsieci"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "Specyfikacja"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
-msgstr ""
+msgstr "Zakresy adresów IP"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Opcje globalne"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
@@ -539,7 +539,7 @@ msgstr " Autostart"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
-msgstr ""
+msgstr "Zastosowano z powodzeniem"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
@@ -636,11 +636,11 @@ msgstr "Konfiguracja"
 
 #: ajenti/plugins/configurator/configurator.py:115
 msgid "Auto"
-msgstr ""
+msgstr "Automatycznie"
 
 #: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr "Zapisano. Uruchom ponownie Ajenti, aby zmiany zaczęły działać."
+msgstr "Zapisano. Uruchom ponownie Ajenti, aby wprowadzić zmiany."
 
 #: ajenti/plugins/configurator/configurator.py:141
 msgid "Please supply hostname"
@@ -681,7 +681,7 @@ msgstr "Ogólne"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Language"
-msgstr ""
+msgstr "Język"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
@@ -689,7 +689,7 @@ msgstr "Serwer HTTP"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "lub ścieżką do gniazda UNIX"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 msgid "Use SSL"
@@ -713,19 +713,19 @@ msgstr "Uwierzytelnianie"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Sync with"
-msgstr ""
+msgstr "Synchronizacja z"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Sync now"
-msgstr ""
+msgstr "Synchronizuj teraz"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Configured correctly"
-msgstr ""
+msgstr "Poprawnie skonfigurowane"
 
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Failed to sync"
-msgstr ""
+msgstr "Nie można zsynchronizować"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Accounts"
@@ -743,7 +743,7 @@ msgstr "Inne"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Send feedback"
-msgstr ""
+msgstr "Prześlij opinię"
 
 #: ajenti/plugins/configurator/layout/main.xml:32
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
@@ -756,19 +756,19 @@ msgstr "Pluginy"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Adres URL serwera"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Admin DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Sufiks auth DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Sekret"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -815,32 +815,32 @@ msgstr "Harmonogram"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "Co godzinę"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "Dziennie"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "Tygodniowo"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "Miesięcznie"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "Rocznie"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
 msgid "On reboot"
-msgstr ""
+msgstr "Przy ponownym uruchomieniu"
 
 #: ajenti/plugins/cron/layout/main.xml:26
 #: ajenti/plugins/resolv/layout/main.xml:3
@@ -951,7 +951,7 @@ msgstr "Narzędzia"
 #: ajenti/plugins/fm/fm.py:139
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "%I wybranych elementów"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
@@ -963,7 +963,7 @@ msgstr "Zamknij"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Wybierz wszystkie"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -975,15 +975,15 @@ msgstr "Nowy folder"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Wytnij"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Kopiuj"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Wklej"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -1016,7 +1016,7 @@ msgstr "Inni"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Set recursively"
-msgstr ""
+msgstr "Zestaw rekurencyjnie"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -1024,11 +1024,11 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr ""
+msgstr "Zarządzaj adresami"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "Host: port lub ścieżką do gniazda UNIX"
 
 #: ajenti/plugins/openvpn/layout/main.xml:3
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
@@ -1040,15 +1040,15 @@ msgstr "Stan"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr ""
+msgstr "Zdalny adres IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr ""
+msgstr "Lokalne IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Połączone od"
 
 #: ajenti/plugins/openvpn/layout/main.xml:7
 #: ajenti/plugins/samba/layout/main.xml:32
@@ -1057,7 +1057,7 @@ msgstr "Rozłącz"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "klientów"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
@@ -1079,7 +1079,7 @@ msgstr "Tekst"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "czujnik IPMI"
 
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
@@ -1096,11 +1096,11 @@ msgstr "Tryb"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Pozwalaj"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Odmów"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1236,7 +1236,7 @@ msgstr "Odzyskiwanie:"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Użycie pamięci cache"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
@@ -1294,12 +1294,12 @@ msgstr "Akcje"
 #: ajenti/plugins/users/main.py:99
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Katalog domowy został utworzony %s "
 
 #: ajenti/plugins/users/main.py:108
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Hasło zostało dla %s zostało zmienione"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
@@ -1313,7 +1313,7 @@ msgstr "Hasło nie może być puste"
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Hasło zostało dla %s zostało usunięte"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
@@ -1340,7 +1340,7 @@ msgstr "Użytkownik"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Użytkownicy systemu"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
@@ -1368,19 +1368,19 @@ msgstr "Klasa"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
-msgstr ""
+msgstr "Włącz"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bring down"
-msgstr ""
+msgstr "Wyłącz"
 
 #: ajenti/plugins/network/layout/main.xml:5
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Wyłączenie głównego połączenia może odciąć dostęp do tego serwera ! Czy na pewno mam to zrobić ?"
 
 #: ajenti/plugins/network/layout/main.xml:7
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Uruchamiając ponownie główne połączenie może odciąć dostęp do serwera. Czy na pewno mam to zrobić?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "Loopback"
@@ -1388,11 +1388,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Statyczne"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Ręcznie"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
@@ -1400,7 +1400,7 @@ msgstr "Procesy"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Rodzic"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1445,93 +1445,93 @@ msgstr "Zapisz strefę"
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "Kopiowanie %s"
 
 #: ajenti/plugins/tasks/tasks.py:65
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "Przenoszenie %s"
 
 #: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Zadanie %s zakończone"
 
 #: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "W kolejce %s zadań oczekujących"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Rozpoczętych %s zadań"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "Zadania"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Z katalogu"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "Do katalogu"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Archiwum"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursywnie"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "Zachowaj znacznik czasu"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Zachowanie atrybutów wew."
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Usunąć w katalogu docelowym"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Zachować uprawnienia"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Uruchomionych zadań"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "Uruchomionych"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Przerwanie"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "Przerwanie"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Zakończone zadania"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Powodzenie"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "Anulowano"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
@@ -1539,31 +1539,31 @@ msgstr "Błąd"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Zawieszonych"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Zadania"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Uruchom zadanie"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "Podręcznik (opis poniżej)"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "Ręczne wprowadzanie"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Uruchom równolegle"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Tablica"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1596,7 +1596,7 @@ msgstr "Zależności"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
-msgstr ""
+msgstr "Zależy od"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -1636,7 +1636,7 @@ msgstr "Nieznany błąd"
 
 #: ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr ""
+msgstr "Błędy w dzienniku logów"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
@@ -1703,27 +1703,27 @@ msgstr "Tylko do odczytu"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Zaawansowane"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "Dopuszczeni użytkownicy"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "Użytkownicy R/W"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
-msgstr ""
+msgstr "Pliki Veto"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Przymuszone umask pliku"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "Przymuszone umask folderu"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -1788,7 +1788,7 @@ msgstr "Ważni użytkownicy"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr ""
+msgstr "Rozwidlenia zasobów"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"

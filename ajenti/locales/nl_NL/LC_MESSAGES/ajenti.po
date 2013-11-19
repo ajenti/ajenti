@@ -1,14 +1,14 @@
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "OS gebruikers"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Uit"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "LDAP Gebruiker Synchronisatie"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -20,11 +20,11 @@ msgstr "Power controle"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Onderbreken"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Slaapstand"
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -44,11 +44,11 @@ msgstr "Batterij"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Zet het systeem in slaapstand?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Zet het systeem in slaapstand?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -56,7 +56,7 @@ msgstr "Systeem herstarten?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Uitschakelen"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -189,7 +189,7 @@ msgstr "Annuleren"
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
-msgstr ""
+msgstr "Adapter"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:3
@@ -290,12 +290,12 @@ msgstr "Schijfruimte"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Vrije schijfruimte"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s gratis"
 
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
@@ -406,12 +406,12 @@ msgstr "Autostart"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Uitgeschakeld"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -419,7 +419,7 @@ msgstr "Auto herstart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "On crash"
-msgstr ""
+msgstr "Op crash"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Start timeout"
@@ -539,7 +539,7 @@ msgstr " Automatisch starten"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
-msgstr ""
+msgstr "Met succes toegepast"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
@@ -636,7 +636,7 @@ msgstr "Configureren"
 
 #: ajenti/plugins/configurator/configurator.py:115
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -681,7 +681,7 @@ msgstr "Algemeen"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
@@ -689,7 +689,7 @@ msgstr "HTTP Server"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "of UNIX socket pad"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 msgid "Use SSL"
@@ -713,19 +713,19 @@ msgstr "Authenticatie"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Sync with"
-msgstr ""
+msgstr "Synchroniseren met"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Sync now"
-msgstr ""
+msgstr "Sync nu"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Configured correctly"
-msgstr ""
+msgstr "Correct geconfigureerd"
 
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Failed to sync"
-msgstr ""
+msgstr "Synchroniseren is mislukt"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Accounts"
@@ -756,19 +756,19 @@ msgstr "Plug-ins"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Server URL"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Admin DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Auth DN suffix"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Geheim"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -815,7 +815,7 @@ msgstr "Schema"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "Per uur"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
