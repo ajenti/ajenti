@@ -139,12 +139,12 @@ class HttpContext:
         self.respond('302 Found')
         return ''
 
-    def gzip(self, content):
+    def gzip(self, content, compression=9):
         """
         Returns a GZip compressed response with given ``content`` and correct headers
         """
         io = StringIO()
-        gz = gzip.GzipFile('', 'wb', 9, io)
+        gz = gzip.GzipFile('', 'wb', compression, io)
         gz.write(content)
         gz.close()
         compressed = io.getvalue()

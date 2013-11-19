@@ -1,11 +1,13 @@
-<body xmlns:dashboard="dashboard">
+<box xmlns:dashboard="dashboard">
     <vc>
-        <dashboard:header id="header">
-            <hc>
-                <button text="{Refresh}" icon="refresh" id="refresh-button" />
-                <button text="{Add widget}" icon="plus" id="add-button" />
-            </hc>
-        </dashboard:header>
+        <body>
+            <dashboard:header id="header">
+                <hc>
+                    <button text="{Add widget}" icon="plus" id="add-button" />
+                    <button icon="refresh" style="mini" id="refresh-button" />
+                </hc>
+            </dashboard:header>
+        </body>
 
         <dashboard:dash id="dash" />
 
@@ -25,4 +27,4 @@
             </bind:collection>
         </dialog>
     </vc>
-</body>
+</box>

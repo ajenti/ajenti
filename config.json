@@ -2,23 +2,13 @@
     "users": {
         "root": {
             "configs": {
-                "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/\"}", 
-                "ajenti.plugins.terminal.main.Terminals": "{\"shell\": \"sh -c $SHELL\"}", 
-                "ajenti.plugins.openvpn.backend.OpenVPNBackend": "{\"password\": \"\", \"addr\": \"\"}", 
+                "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": null}", 
                 "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}", 
-                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}]}", 
-                "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": \"123\"}", 
-                "ajenti.plugins.mysql.main.MySQLPlugin": "{\"password\": \"123\", \"user\": \"root\"}", 
-                "ajenti.plugins.mysql.api.MySQLDB": "{\"password\": \"123\", \"user\": \"root\", \"hostname\": \"localhost\"}", 
-                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [\"/etc/logrotate.conf\"]}", 
-                "ajenti.plugins.tasks.manager.TaskManager": "{\"job_definitions\": [{\"schedule_hour\": \"*\", \"name\": \"unnamed\", \"task_id\": \"b815338e-be6e-409d-bb71-c53074128e5e\", \"schedule_special\": \"@yearly\", \"schedule_minute\": \"0\", \"schedule_day_of_month\": \"*\", \"id\": \"d8d3848a-78a3-4eb6-b4ac-bb51988ea1a8\", \"schedule_month\": \"*\", \"schedule_day_of_week\": \"*\"}], \"task_definitions\": [{\"task_class\": \"ajenti.plugins.tasks.tasks.CopyFilesTask\", \"params\": {\"source\": \"/home/eugeny/source\", \"destination\": \"/home/eugeny/dest\"}, \"name\": \"Copy files\", \"id\": \"b815338e-be6e-409d-bb71-c53074128e5e\"}, {\"task_class\": \"ajenti.plugins.elements.tasks.MakeProxyTask\", \"params\": {\"source\": \"/home/eugeny/source\"}, \"name\": \"Update proxy files\", \"id\": \"326dab5d-0c65-4fc9-908a-2b7ee5ea0b34\"}]}", 
-                "ajenti.plugins.ltfs.archive.main.LTFSArchivePlugin": "{\"hide-files-from-offline-tapes\": false}", 
-                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\nccopy_reg\\n_reconstructor\\np2\\n(cajenti.plugins.elements.projects.main\\nElementsProject\\np3\\nc__builtin__\\nobject\\np4\\nNtRp5\\n(dp6\\nS'quota_size_soft'\\np7\\nI0\\nsS'description'\\np8\\nS''\\nsS'name'\\np9\\nVtest\\np10\\nsS'quota_size_hard'\\np11\\nI0\\nsS'lock'\\np12\\nNsS'long_description'\\np13\\nS''\\nsS'emulate_avid'\\np14\\nI00\\nsS'affinity'\\np15\\nNsS'directory'\\np16\\nS'test'\\np17\\nsS'path'\\np18\\nV/home/eugeny/Documents\\np19\\nsS'share_afp'\\np20\\nI00\\nsS'share_smb'\\np21\\nI00\\nsS'share_nfs'\\np22\\nI00\\nsS'permissions'\\np23\\n(lp24\\ng2\\n(cajenti.plugins.elements.projects.main\\nElementsProjectPermission\\np25\\ng4\\nNtRp26\\n(dp27\\nS'project'\\np28\\nNsS'user'\\np29\\nS'root'\\np30\\nsbasba.\"}"
+                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"\"}", 
+                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.SwapWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.uptime.UptimeWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}]}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
-            "permissions": [
-                "section:Dash"
-            ]
+            "permissions": []
         }
     }, 
     "bind": {
@@ -28,11 +18,8 @@
     "authentication": false, 
     "ssl": {
         "enable": false, 
-        "certificate_path": "/home/eugeny/ajenti.pem"
+        "certificate_path": ""
     }, 
     "enable_feedback": true, 
-    "configs": {
-        "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": \"123\"}"
-    }, 
-    "installation_id": 4548
+    "installation_id": 12354
 }

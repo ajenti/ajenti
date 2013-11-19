@@ -5,11 +5,12 @@
     &.dashboard-dash {
         >.container {
             float: left;
-            border-top: 1px solid #ddd;
-            width: 50%;
+            padding-top: 10px;
+            width: 394px;
             min-height: 200px;
 
             &.container-1 {
+                padding-left: 10px;
                 margin: 0 -1px 0 0;
             }
 
@@ -18,45 +19,57 @@
                 height: 40px;
                 width: 100%;
                 padding: 10px 5px;
+                margin: 5px 0;
                 box-sizing: border-box;
             }
 
             &.trash {
                 display: none;
-                #gradient > .vertical(#ddd, #eee);
+                
                 border: 1px dashed #a86;
-                box-shadow: 0 0 10px rgba(0,0,0,.5) inset;
+                box-sizing: border-box;
+
                 width: 100%;
-                border: 1px solid #ddd;
                 font-weight: bold;
                 padding: 20px 0;
-                color: #bbb;
-                text-shadow: 0 1px 0 rgba(255,255,255,.5);
                 text-align: center;
                 float: none;
                 clear: both;
                 min-height: 0;
 
                 i:before {
+                    color: #a86;
                     font-size: 60px;
                 }
+
+                .placeholder {
+                    display: none;
+                }
+
             }
         }
     }
 
     &.dashboard-widget {
-        //width: 100%;
         padding: 10px 5px 10px 4px;
         box-sizing: border-box;
-        border: 1px solid #ddd;
-        border-width: 0 1px 1px 0;
+        //border: 1px solid #ddd;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.25);
+        background: white;
+        margin: 0 0 10px;
 
         >.handle {
             width: 8px;
             height: 30px;
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH2wkeCyEzNuGfhQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXYzh9+vR/BnyAeAXUMwoAFlwUQUDbs/QAAAAASUVORK5CYII=') repeat;
             float: left;
-            margin: 0 15px 0 5px;
+            margin: 0 5px 0 5px;
+            opacity: 0;
+            cursor: move;
+        }
+
+        &:hover>.handle {
             opacity: .75;
         }
 

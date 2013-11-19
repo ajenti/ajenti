@@ -2,7 +2,7 @@
     "users": {
         "root": {
             "configs": {
-                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}]}"
+                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.SwapWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.uptime.UptimeWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}]}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
             "permissions": [
