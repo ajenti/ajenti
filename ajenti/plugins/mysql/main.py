@@ -8,7 +8,7 @@ from api import MySQLDB
 class MySQLPlugin (DBPlugin):
     config_class = MySQLDB
 
-    service_name = 'mysql'
+    service_name = 'mysqld'
     service_buttons = [
         {
             'command': 'reload',
