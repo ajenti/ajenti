@@ -6,6 +6,7 @@ from ajenti.api import *
 from ajenti.api.sensors import Sensor
 from ajenti.ui.binder import CollectionAutoBinding
 from ajenti.ui import on, UIElement, p
+from ajenti.users import UserManager, PermissionProvider
 from ajenti.plugins.main.api import SectionPlugin, intent
 
 from api import DashboardWidget
@@ -33,7 +34,12 @@ class Dash (SectionPlugin):
 
         self.find('add-widgets').post_item_bind = post_widget_bind
 
-        classes = [x for x in DashboardWidget.get_classes() if not x.hidden]
+        classes = [
+            x for x in DashboardWidget.get_classes() 
+            if not x.hidden and 
+            UserManager.get().has_permission(WidgetPermissions.name_for(x))
+        ]
+
         CollectionAutoBinding(
             sorted(classes, key=lambda x: x.name),
             None, self.find('add-widgets')).populate()
@@ -79,6 +85,8 @@ class Dash (SectionPlugin):
         for widget in self.classconfig['widgets']:
             for cls in DashboardWidget.get_classes():
                 if cls.classname == widget['class']:
+                    if not UserManager.get().has_permission(WidgetPermissions.name_for(cls)):
+                        continue
                     try:
                         instance = cls.new(
                             self.ui,
@@ -146,3 +154,21 @@ class CrashedWidget (DashboardWidget):
 
     def set(self, e):
         self.find('text').text = 'Widget crashed: ' + str(e)
+
+
+@plugin
+class WidgetPermissions (PermissionProvider):
+    def get_name(self):
+        return _('Widgets')
+
+    @staticmethod
+    def name_for(widget):
+        return 'widget:%s' % widget.__name__
+
+    def get_permissions(self):
+        # Generate permission set on-the-fly
+        return sorted([
+            (WidgetPermissions.name_for(x), _(x.name))
+            for x in DashboardWidget.get_classes()
+            if not x.hidden
+        ], key=lambda x: x[1])
