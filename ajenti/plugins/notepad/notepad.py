@@ -2,15 +2,28 @@ import mimetypes
 import os
 
 from ajenti.api import *
+from ajenti.plugins.configurator.api import ClassConfigEditor
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 
 
 @plugin
+class NotepadConfigEditor (ClassConfigEditor):
+    title = _('Notepad')
+    icon = 'edit'
+
+    def init(self):
+        self.append(self.ui.inflate('notepad:config'))
+
+
+@plugin
 class Notepad (SectionPlugin):
     default_classconfig = {
-        'bookmarks': []
+        'bookmarks': [],
+        'root': '/',
     }
+    classconfig_editor = NotepadConfigEditor
+    classconfig_root = True
     SIZE_LIMIT = 1024 * 1024 * 5
 
     def init(self):
@@ -24,6 +37,10 @@ class Notepad (SectionPlugin):
         self.list = self.find('list')
         self.opendialog = self.find('opendialog')
         self.savedialog = self.find('savedialog')
+
+        self.opendialog.root = self.savedialog.root = self.classconfig.get('root', '/')
+        self.opendialog.navigate(self.opendialog.root)
+        self.savedialog.navigate(self.savedialog.root)
 
         self.controller = Controller()
 

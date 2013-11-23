@@ -79,7 +79,7 @@ class OpenFileDialog (UIElement, BaseFileDialog):
         self._files = []
         if len(self.path) > 1:
             self._dirs.append('..')
-        for item in sorted(os.listdir(self.path)):
+        for item in sorted(os.listdir(unicode(self.path))):
             if os.path.isdir(os.path.join(self.path, item)):
                 self._dirs.append(item)
             else:
@@ -113,7 +113,7 @@ class OpenDirDialog (UIElement, BaseFileDialog):
         self._dirs = []
         if len(self.path) > 1:
             self._dirs.append('..')
-        for item in sorted(os.listdir(self.path)):
+        for item in sorted(os.listdir(unicode(self.path))):
             if os.path.isdir(os.path.join(self.path, item)):
                 self._dirs.append(item)
 
@@ -149,6 +149,6 @@ class SaveFileDialog (UIElement, BaseFileDialog):
         self._files = []
         if len(self.path) > 1:
             self._dirs.append('..')
-        for item in sorted(os.listdir(self.path)):
+        for item in sorted(os.listdir(unicode(self.path))):
             if os.path.isdir(os.path.join(self.path, item)):
                 self._dirs.append(item)

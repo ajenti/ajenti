@@ -35,7 +35,7 @@ class Cron (SectionPlugin):
     def refresh(self):
         users_select = self.find('users')
         users_select.value = self.current_user
-        users = [x.name for x in PasswdConfig(path='/etc/passwd').load().tree.users]
+        users = [x.name for x in PasswdConfig(path='/etc/passwd').load().tree.users if int(x.uid) >= 500 or x.name == 'root']
         users_select.values = users_select.labels = users
 
         self.config = CronManager.get().load_tab(self.current_user)

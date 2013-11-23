@@ -1,0 +1,7 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{Topmost directory}">
+            <textbox bind="root" />
+        </formline>
+    </vc>
+</bind:dict>

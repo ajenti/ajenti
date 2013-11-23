@@ -51,17 +51,25 @@ class UserManager (BasePlugin):
             password = 'sha512|%s' % sha512_crypt.encrypt(password)
         return password
 
-    def require_permission(self, permission):
+    def has_permission(self, permission):
         """
-        Checks current user for given permissing and raises :class:`SecurityError` if he doesn't have one
+        Checks whether the current user has a permission
         """
-
         context = extract_context()
         if context.user.name == 'root':
-            return
+            return True
         if not permission in context.user.permissions:
+            return False
+        return True
+
+    def require_permission(self, permission):
+        """
+        Checks current user for given permission and raises :class:`SecurityError` if he doesn't have one
+        """
+        if not self.has_permission(permission):
             raise SecurityError(permission)
 
+        
     def get_sync_provider(self, fallback=False):
         for p in ajenti.usersync.UserSyncProvider.get_classes():
             p.get()
