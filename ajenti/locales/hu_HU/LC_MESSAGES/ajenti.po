@@ -187,6 +187,7 @@ msgid "Cancel"
 msgstr "Mégse"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/elements/layout/areca-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
 msgstr "Adapter"
@@ -847,19 +848,19 @@ msgstr ""
 msgid "Value"
 msgstr "Érték"
 
-#: ajenti/plugins/scripts/widget.py:11
+#: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
 msgstr "Szkript"
 
-#: ajenti/plugins/scripts/widget.py:41
+#: ajenti/plugins/scripts/widget.py:48
 msgid "Launched"
 msgstr "Elindított"
 
-#: ajenti/plugins/scripts/widget.py:47
+#: ajenti/plugins/scripts/widget.py:60
 msgid "Scripts"
 msgstr "Szkriptek"
 
-#: ajenti/plugins/scripts/widget.py:51
+#: ajenti/plugins/scripts/widget.py:64
 msgid "Run scripts"
 msgstr "Szkript futtatása"
 
@@ -948,7 +949,7 @@ msgstr "Fájlkezelő"
 msgid "Tools"
 msgstr "Eszközök"
 
-#: ajenti/plugins/fm/fm.py:139
+#: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
 msgstr "%i kijelölt elemek"

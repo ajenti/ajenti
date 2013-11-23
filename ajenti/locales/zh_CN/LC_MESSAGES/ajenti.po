@@ -187,6 +187,7 @@ msgid "Cancel"
 msgstr "取消"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/elements/layout/areca-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
 msgstr ""
@@ -847,19 +848,19 @@ msgstr ""
 msgid "Value"
 msgstr "值"
 
-#: ajenti/plugins/scripts/widget.py:11
+#: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
 msgstr "脚本"
 
-#: ajenti/plugins/scripts/widget.py:41
+#: ajenti/plugins/scripts/widget.py:48
 msgid "Launched"
 msgstr "运行成功"
 
-#: ajenti/plugins/scripts/widget.py:47
+#: ajenti/plugins/scripts/widget.py:60
 msgid "Scripts"
 msgstr "脚本"
 
-#: ajenti/plugins/scripts/widget.py:51
+#: ajenti/plugins/scripts/widget.py:64
 msgid "Run scripts"
 msgstr "运行脚本"
 
@@ -948,7 +949,7 @@ msgstr "文件管理器"
 msgid "Tools"
 msgstr "工具"
 
-#: ajenti/plugins/fm/fm.py:139
+#: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
 msgstr ""

@@ -1,14 +1,14 @@
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "Utilizadores do SO"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Desactivar"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Sincronização de Utilizadores LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -20,11 +20,11 @@ msgstr "Controle de energia"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -44,11 +44,11 @@ msgstr "Bateria"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Deseja suspender o sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Deseja hibernar o sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -56,7 +56,7 @@ msgstr "Reiniciar o sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Desligar"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -77,11 +77,11 @@ msgstr "Uso do CPU"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr "Uso da Memória"
+msgstr "Memória em uso"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr "Uso da swap"
+msgstr "Swap em uso"
 
 #: ajenti/plugins/sensors/uptime.py:74
 msgid "Uptime"
@@ -135,7 +135,7 @@ msgstr "Alterar senha"
 #: ajenti/plugins/samba/layout/main.xml:35
 #: ajenti/plugins/netatalk/layout/main.xml:3
 msgid "Confirm deletion"
-msgstr "Confirmar eliminação"
+msgstr "Confirmar remoção"
 
 #: ajenti/plugins/elements/layout/users-main.xml:3
 #: ajenti/plugins/elements/layout/users-main.xml:4
@@ -187,6 +187,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/elements/layout/areca-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
 msgstr "Adaptador"
@@ -220,7 +221,7 @@ msgstr "Nome"
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Enable"
-msgstr "Ativar"
+msgstr "Activar"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/configurator.py:187
@@ -250,7 +251,7 @@ msgstr "Configuração"
 #: ajenti/plugins/samba/layout/main.xml:38
 #: ajenti/plugins/netatalk/layout/main.xml:14
 msgid "Save"
-msgstr "Guardar"
+msgstr "Salvar"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
@@ -282,7 +283,7 @@ msgstr "Salvo"
 
 #: ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
-msgstr ""
+msgstr "Desligar"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
@@ -290,12 +291,12 @@ msgstr "Espaço em disco"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "Espaço de disco livre"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s livre"
 
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
@@ -384,7 +385,7 @@ msgstr "Software"
 #: ajenti/plugins/mysql/main.py:15 ajenti/plugins/apache/main.py:13
 #: ajenti/plugins/nginx/main.py:12
 msgid "Reload"
-msgstr "Atualizar"
+msgstr "Actualizar"
 
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:10
@@ -397,21 +398,21 @@ msgstr "Comando"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
-msgstr "Diretório de trabalho"
+msgstr "Pasta de trabalho"
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Autostart"
-msgstr "Autoiniciar"
+msgstr "Iniciar automático"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Activo"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Desactivo"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -491,7 +492,7 @@ msgstr "Confirmar remoção da base de dados!"
 #: ajenti/plugins/users/main.py:15 ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:33
 msgid "Users"
-msgstr "Usuários"
+msgstr "Utilizadores"
 
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:8
@@ -594,7 +595,7 @@ msgstr "Nova cadeia"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Acção"
 
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/users/layout/user-list.xml:3
@@ -681,7 +682,7 @@ msgstr "Geral"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "Language"
-msgstr ""
+msgstr "Língua"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 msgid "HTTP Server"
@@ -713,15 +714,15 @@ msgstr "Autenticação"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Sync with"
-msgstr ""
+msgstr "Sincronizar com"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Sync now"
-msgstr ""
+msgstr "Sincronizar agora"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Configured correctly"
-msgstr ""
+msgstr "Correctamente configurado"
 
 #: ajenti/plugins/configurator/layout/main.xml:23
 msgid "Failed to sync"
@@ -756,7 +757,7 @@ msgstr "Plugins"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "URL do servidor"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
@@ -815,27 +816,27 @@ msgstr "Agenda"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "A cada hora(s)"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "Diariamente"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "Semanalmente"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "Mensalmente"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "Anualmente"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
@@ -847,19 +848,19 @@ msgstr ""
 msgid "Value"
 msgstr "Valor"
 
-#: ajenti/plugins/scripts/widget.py:11
+#: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
 msgstr "Script"
 
-#: ajenti/plugins/scripts/widget.py:41
+#: ajenti/plugins/scripts/widget.py:48
 msgid "Launched"
 msgstr "Iniciado"
 
-#: ajenti/plugins/scripts/widget.py:47
+#: ajenti/plugins/scripts/widget.py:60
 msgid "Scripts"
 msgstr "Scripts"
 
-#: ajenti/plugins/scripts/widget.py:51
+#: ajenti/plugins/scripts/widget.py:64
 msgid "Run scripts"
 msgstr "Iniciar scripts"
 
@@ -948,7 +949,7 @@ msgstr "Gestor ficheiros"
 msgid "Tools"
 msgstr "Ferramentas"
 
-#: ajenti/plugins/fm/fm.py:139
+#: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
 msgstr ""
@@ -963,7 +964,7 @@ msgstr "Fechar"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Seleccionar todos"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -975,15 +976,15 @@ msgstr "Nova pasta"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Cortar"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Colar"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -1096,11 +1097,11 @@ msgstr "Modo"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Permitir"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Recusar"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1175,11 +1176,11 @@ msgstr "Editor de código CodeMirror"
 #: ajenti/plugins/terminal/terminal.py:95
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "Processo encerrado como estado %i"
 
 #: ajenti/plugins/terminal/terminal.py:97
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "Processo encerrado com êxito"
 
 #: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
 #: ajenti/plugins/terminal/main.py:191
@@ -1224,7 +1225,7 @@ msgstr "Tipo"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
@@ -1294,12 +1295,12 @@ msgstr "Ações"
 #: ajenti/plugins/users/main.py:99
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Pasta pessoal para %s, foi criada"
 
 #: ajenti/plugins/users/main.py:108
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Senha de %s foi alterada"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
@@ -1308,16 +1309,16 @@ msgstr "Erro: \"%s\""
 
 #: ajenti/plugins/users/main.py:113
 msgid "Password shouldn't be empty"
-msgstr "Password não pode estar vazia"
+msgstr "Senha não pode estar vazia"
 
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Password for %s was removed"
-msgstr "Password para %s foi removida"
+msgstr "Senha para %s foi removida"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr "Diretório pessoal"
+msgstr "Pasta pessoal"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
@@ -1325,7 +1326,7 @@ msgstr "Shell"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr "Nova password"
+msgstr "Nova senha"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:37
@@ -1392,7 +1393,7 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
@@ -1535,7 +1536,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
@@ -1744,7 +1745,7 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr ""
+msgstr "Grupo de trabalho"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"

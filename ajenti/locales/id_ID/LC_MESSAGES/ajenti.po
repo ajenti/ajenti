@@ -187,6 +187,7 @@ msgid "Cancel"
 msgstr "Batalkan"
 
 #: ajenti/plugins/elements/layout/megaraid-main.xml:1
+#: ajenti/plugins/elements/layout/areca-main.xml:1
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
 msgstr "Adapter"
@@ -847,19 +848,19 @@ msgstr "Pada nyala ulang"
 msgid "Value"
 msgstr "Nilai"
 
-#: ajenti/plugins/scripts/widget.py:11
+#: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
 msgstr "Skrip"
 
-#: ajenti/plugins/scripts/widget.py:41
+#: ajenti/plugins/scripts/widget.py:48
 msgid "Launched"
 msgstr "Luncurkan"
 
-#: ajenti/plugins/scripts/widget.py:47
+#: ajenti/plugins/scripts/widget.py:60
 msgid "Scripts"
 msgstr "Skrip"
 
-#: ajenti/plugins/scripts/widget.py:51
+#: ajenti/plugins/scripts/widget.py:64
 msgid "Run scripts"
 msgstr "Jalankan skrip"
 
@@ -948,7 +949,7 @@ msgstr "Manajer berkas"
 msgid "Tools"
 msgstr "Peralatan"
 
-#: ajenti/plugins/fm/fm.py:139
+#: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
 msgstr "%i item dipilih"
