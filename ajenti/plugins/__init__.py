@@ -219,14 +219,19 @@ class PluginManager:
 
     def load_all(self):
         path = os.path.split(__file__)[0]
-        items = os.listdir(path)
+
+        locations = [path]
         if os.path.exists(self.extra_location):
-            items += os.listdir(self.extra_location)
+            locations += [self.extra_location]
+        
+        items = []
+        for location in locations:
+            items += [(x, os.path.join(location, x)) for x in os.listdir(location)]
 
         for item in items:
-            if not '.' in item:
-                if not item in self.__plugins:
-                    self.load_recursive(item)
+            if os.path.exists(os.path.join(item[1], '__init__.py')):
+                if not item[0] in self.__plugins:
+                    self.load_recursive(item[0])
 
     def get_plugins_root(self):
         return os.path.split(__file__)[0]
