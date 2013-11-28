@@ -1,3 +1,4 @@
+import gevent
 import random
 import traceback
 
@@ -43,6 +44,14 @@ class Dash (SectionPlugin):
         CollectionAutoBinding(
             sorted(classes, key=lambda x: x.name),
             None, self.find('add-widgets')).populate()
+
+        self.context.session.spawn(self.worker)
+
+    def worker(self):
+        while True:
+            if self.active:
+                self.refresh()
+            gevent.sleep(5)
 
     def on_page_load(self):
         self.refresh()

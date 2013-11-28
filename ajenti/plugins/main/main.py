@@ -51,6 +51,14 @@ class MainSocket (SocketPlugin):
     ui = None
 
     def on_connect(self):
+        # Inject into session
+        self.request.session.endpoint = self
+
+        # Inject the context methods
+        self.context.notify = self.send_notify
+        self.context.launch = self.launch
+        self.context.endpoint = self
+
         if not 'ui' in self.request.session.data:
             # This is a newly created session
             ui = UI.new()
@@ -71,14 +79,6 @@ class MainSocket (SocketPlugin):
         self.send_init()
         self.send_ui()
         self.spawn(self.ui_watcher)
-
-        # Inject into session
-        self.request.session.endpoint = self
-
-        # Inject the context methods
-        self.context.notify = self.send_notify
-        self.context.launch = self.launch
-        self.context.endpoint = self
 
     def on_message(self, message):
         if not self.ui:
