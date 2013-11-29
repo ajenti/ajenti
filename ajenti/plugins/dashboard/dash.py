@@ -27,6 +27,8 @@ class Dash (SectionPlugin):
         self.dash = self.find('dash')
         self.dash.on('reorder', self.on_reorder)
 
+        self.autorefresh = False
+        
         self.find('header').platform = ajenti.platform_unmapped
         self.find('header').distro = ajenti.platform_string
 
@@ -49,7 +51,7 @@ class Dash (SectionPlugin):
 
     def worker(self):
         while True:
-            if self.active:
+            if self.active and self.autorefresh:
                 self.refresh()
             gevent.sleep(5)
 
@@ -58,6 +60,8 @@ class Dash (SectionPlugin):
 
     @on('refresh-button', 'click')
     def on_refresh(self):
+        self.autorefresh = not self.autorefresh
+        self.find('refresh-button').pressed = self.autorefresh
         self.refresh()
 
     @on('add-button', 'click')

@@ -47,7 +47,6 @@ class window.Controls.icon extends window.Control
         @dom = $$("""<div class="control icon style-#{@properties.style}">#{icon}</div>""")
 
 
-
 class window.Controls.button extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
@@ -56,6 +55,15 @@ class window.Controls.button extends window.Control
             if not @properties.warning or confirm(@properties.warning)
                 if @event 'click'
                     @cancel(e)
+
+
+class window.Controls.togglebutton extends window.Control
+    createDom: () ->
+        icon = _make_icon(@properties.icon)
+        @dom = $("""<a href="#" class="control button style-#{@properties.style} #{if @properties.pressed then 'pressed' else ''}">#{icon} #{@properties.text}</a>""")
+        @dom.click (e) =>
+            if @event 'click'
+                @cancel(e)
 
 
 class window.Controls.list extends window.Control

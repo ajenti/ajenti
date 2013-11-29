@@ -28,6 +28,14 @@ class Button (UIElement):
     typeid = 'button'
 
 
+@p('text', default='', bindtypes=[str, unicode])
+@p('icon', default=None)
+@p('pressed', default=False, type=bool)
+@plugin
+class ToggleButton (UIElement):
+    typeid = 'togglebutton'
+
+
 @p('width', default=None)
 @p('value', default=0, type=float, bindtypes=[int, float])
 @plugin
