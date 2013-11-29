@@ -101,7 +101,7 @@ class TaskDefinition (object):
         self.name = j.get('name', 'unnamed')
         self.parallel = j.get('parallel', False)
         self.task_class = j.get('task_class', task_class)
-        self.params = j.get('params', self.get_class().default_params if self.get_class() else {})
+        self.params = j.get('params', self.get_class().default_params.copy() if self.get_class() else {})
         self.id = j.get('id', str(uuid.uuid4()))
 
     def get_class(self):

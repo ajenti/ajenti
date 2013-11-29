@@ -90,6 +90,9 @@ class PropertyBinding (Binding):
             self.property = property
         self.oneway = ui.bindtransform is not None
 
+    def __repr__(self):
+        return u'[%s.%s <-> %s.%s]' % (self.object, self.attribute, self.ui, self.property)
+
     def __get_transformed(self):
         return self.ui.bindtransform(self.get()) if self.ui.bindtransform else self.get()
 
