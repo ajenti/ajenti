@@ -24,7 +24,7 @@ class BSDUptimeSensor (Sensor):
     platforms = ['freebsd']
     timeout = 1
 
-    def measure(self):
+    def measure(self, variant):
         """
         by Koen Crolla
         https://github.com/Cairnarvon/uptime/blob/master/src/__init__.py

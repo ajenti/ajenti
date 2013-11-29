@@ -1,3 +1,8 @@
+.button-active(@g1) {
+    #gradient > .vertical(@g1, darken(@g1, 5%));    
+    .box-shadow(@controlShadowHighlightPressed);
+}
+
 .button-style(@g1) {
     #gradient > .vertical(lighten(@g1, 5%), @g1);
     color: rgba(0,0,0,.5);
@@ -8,9 +13,7 @@
     }
 
     &:active {
-        #gradient > .vertical(@g1, darken(@g1, 5%));    
-        //padding: 2px 0 0;
-        .box-shadow(@controlShadowHighlightPressed);
+        .button-active(@g1);
     }
 
     font-size: @fontSizeSmaller;
