@@ -97,7 +97,7 @@ msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
 msgstr ""
 
 #: ajenti/plugins/elements/layout/users-main.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:27
+#: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
 msgstr "Alterar senha"
 
@@ -112,7 +112,7 @@ msgstr "Alterar senha"
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/cron/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:13
 #: ajenti/plugins/cron/layout/main.xml:24 ajenti/plugins/fm/layout/main.xml:9
@@ -148,7 +148,7 @@ msgstr "Confirmar remoção"
 #: ajenti/plugins/dhcpd/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:10
-#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:12
 #: ajenti/plugins/cron/layout/main.xml:23
@@ -218,8 +218,8 @@ msgstr "Nome"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/iptables/main.py:144
-#: ajenti/plugins/configurator/layout/main.xml:18
-#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Enable"
 msgstr "Activar"
 
@@ -233,7 +233,7 @@ msgstr "Configuração"
 #: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/iptables/layout/main.xml:12
-#: ajenti/plugins/configurator/layout/main.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:32
 #: ajenti/plugins/cron/layout/main.xml:27 ajenti/plugins/fm/layout/main.xml:14
 #: ajenti/plugins/squid/layout/main.xml:15
 #: ajenti/plugins/ctdb/layout/main.xml:25
@@ -276,7 +276,7 @@ msgstr "mount -a falhou"
 
 #: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:76
-#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:100
+#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
 msgstr "Salvo"
@@ -311,7 +311,6 @@ msgstr "Dispositivo"
 
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/tasks/layout/main.xml:2
-#: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Refresh"
 msgstr "Atualizar"
 
@@ -488,14 +487,14 @@ msgid "Confirm database drop!"
 msgstr "Confirmar remoção da base de dados!"
 
 #: ajenti/plugins/db_common/layout/main.xml:6
-#: ajenti/plugins/configurator/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/users/main.py:15 ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:33
 msgid "Users"
 msgstr "Utilizadores"
 
 #: ajenti/plugins/db_common/layout/main.xml:8
-#: ajenti/plugins/configurator/layout/main.xml:8
+#: ajenti/plugins/configurator/layout/main.xml:5
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
 msgstr "Host"
@@ -505,7 +504,7 @@ msgid "Database name"
 msgstr "Nome da Base Dados"
 
 #: ajenti/plugins/db_common/layout/main.xml:13
-#: ajenti/plugins/configurator/layout/main.xml:14
+#: ajenti/plugins/configurator/layout/main.xml:11
 msgid "Hostname"
 msgstr "Nome terminal"
 
@@ -556,7 +555,7 @@ msgid "Argument"
 msgstr ""
 
 #: ajenti/plugins/iptables/layout/option-port.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:10
+#: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
 msgstr "Porta"
@@ -629,8 +628,8 @@ msgid "Reason"
 msgstr "Razão"
 
 #: ajenti/plugins/configurator/configurator.py:33
-#: ajenti/plugins/configurator/layout/main.xml:21
-#: ajenti/plugins/configurator/layout/main.xml:34
+#: ajenti/plugins/configurator/layout/main.xml:18
+#: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Configurar"
@@ -660,7 +659,89 @@ msgstr "Modificar as configurações do Ajenti"
 msgid "Restart Ajenti"
 msgstr "Reiniciar Ajenti"
 
+#: ajenti/plugins/configurator/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:2
+#: ajenti/plugins/ctdb/layout/main.xml:4
+#: ajenti/plugins/samba/layout/main.xml:4
+msgid "General"
+msgstr "Geral"
+
+#: ajenti/plugins/configurator/layout/main.xml:3
+msgid "Language"
+msgstr "Língua"
+
+#: ajenti/plugins/configurator/layout/main.xml:4
+msgid "HTTP Server"
+msgstr "Servidor HTTP"
+
+#: ajenti/plugins/configurator/layout/main.xml:6
+msgid "or UNIX socket path"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:8
+msgid "Use SSL"
+msgstr "Usar SSL"
+
+#: ajenti/plugins/configurator/layout/main.xml:9
+msgid "Path to certificate"
+msgstr "Caminho para o certificado"
+
+#: ajenti/plugins/configurator/layout/main.xml:10
+msgid "SSL Self-Signed Certificate Generator"
+msgstr "Gerador de certificado SSL auto-assinado"
+
+#: ajenti/plugins/configurator/layout/main.xml:12
+msgid "Generate"
+msgstr "Gerar"
+
+#: ajenti/plugins/configurator/layout/main.xml:14
+msgid "Authentication"
+msgstr "Autenticação"
+
+#: ajenti/plugins/configurator/layout/main.xml:16
+msgid "Sync with"
+msgstr "Sincronizar com"
+
+#: ajenti/plugins/configurator/layout/main.xml:17
+msgid "Sync now"
+msgstr "Sincronizar agora"
+
+#: ajenti/plugins/configurator/layout/main.xml:19
+msgid "Configured correctly"
+msgstr "Correctamente configurado"
+
+#: ajenti/plugins/configurator/layout/main.xml:20
+msgid "Failed to sync"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:21
+msgid "Accounts"
+msgstr "Contas"
+
+#: ajenti/plugins/configurator/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ajenti/plugins/configurator/layout/main.xml:26
+#: ajenti/plugins/samba/layout/main.xml:25
+msgid "Other"
+msgstr "Outro"
+
+#: ajenti/plugins/configurator/layout/main.xml:27
+msgid "Send feedback"
+msgstr "Enviar feedback"
+
+#: ajenti/plugins/configurator/layout/main.xml:29
+msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
+msgstr "Ajenti anonimamente enviará sua versão, seu nome do sistema operacional e quais plugins você usar a maioria para ajenti.org"
+
+#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/plugins/plugins.py:10
+msgid "Plugins"
+msgstr "Plugins"
+
+#: ajenti/plugins/configurator/layout/main.xml:33
 #: ajenti/plugins/openvpn/layout/main.xml:1
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
@@ -669,91 +750,9 @@ msgstr "Reiniciar Ajenti"
 msgid "Restart"
 msgstr "Reiniciar"
 
-#: ajenti/plugins/configurator/layout/main.xml:3
+#: ajenti/plugins/configurator/layout/main.xml:34
 msgid "Restart Ajenti?"
 msgstr "Reiniciar Ajenti?"
-
-#: ajenti/plugins/configurator/layout/main.xml:4
-#: ajenti/plugins/configurator/layout/main.xml:5
-#: ajenti/plugins/ctdb/layout/main.xml:4
-#: ajenti/plugins/samba/layout/main.xml:4
-msgid "General"
-msgstr "Geral"
-
-#: ajenti/plugins/configurator/layout/main.xml:6
-msgid "Language"
-msgstr "Língua"
-
-#: ajenti/plugins/configurator/layout/main.xml:7
-msgid "HTTP Server"
-msgstr "Servidor HTTP"
-
-#: ajenti/plugins/configurator/layout/main.xml:9
-msgid "or UNIX socket path"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/main.xml:11
-msgid "Use SSL"
-msgstr "Usar SSL"
-
-#: ajenti/plugins/configurator/layout/main.xml:12
-msgid "Path to certificate"
-msgstr "Caminho para o certificado"
-
-#: ajenti/plugins/configurator/layout/main.xml:13
-msgid "SSL Self-Signed Certificate Generator"
-msgstr "Gerador de certificado SSL auto-assinado"
-
-#: ajenti/plugins/configurator/layout/main.xml:15
-msgid "Generate"
-msgstr "Gerar"
-
-#: ajenti/plugins/configurator/layout/main.xml:17
-msgid "Authentication"
-msgstr "Autenticação"
-
-#: ajenti/plugins/configurator/layout/main.xml:19
-msgid "Sync with"
-msgstr "Sincronizar com"
-
-#: ajenti/plugins/configurator/layout/main.xml:20
-msgid "Sync now"
-msgstr "Sincronizar agora"
-
-#: ajenti/plugins/configurator/layout/main.xml:22
-msgid "Configured correctly"
-msgstr "Correctamente configurado"
-
-#: ajenti/plugins/configurator/layout/main.xml:23
-msgid "Failed to sync"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/main.xml:24
-msgid "Accounts"
-msgstr "Contas"
-
-#: ajenti/plugins/configurator/layout/main.xml:25
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Eliminar"
-
-#: ajenti/plugins/configurator/layout/main.xml:29
-#: ajenti/plugins/samba/layout/main.xml:25
-msgid "Other"
-msgstr "Outro"
-
-#: ajenti/plugins/configurator/layout/main.xml:30
-msgid "Send feedback"
-msgstr "Enviar feedback"
-
-#: ajenti/plugins/configurator/layout/main.xml:32
-msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr "Ajenti anonimamente enviará sua versão, seu nome do sistema operacional e quais plugins você usar a maioria para ajenti.org"
-
-#: ajenti/plugins/configurator/layout/main.xml:33
-#: ajenti/plugins/plugins/plugins.py:10
-msgid "Plugins"
-msgstr "Plugins"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
@@ -945,7 +944,7 @@ msgid "File Manager"
 msgstr "Gestor ficheiros"
 
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:19
+#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "Ferramentas"
 
@@ -955,6 +954,7 @@ msgid "Selected %i items"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:1
+#: ajenti/plugins/notepad/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "Diretório de nível superior"
 
@@ -1574,11 +1574,11 @@ msgstr ""
 msgid "Aliases"
 msgstr ""
 
-#: ajenti/plugins/notepad/notepad.py:17
+#: ajenti/plugins/notepad/notepad.py:12 ajenti/plugins/notepad/notepad.py:30
 msgid "Notepad"
 msgstr "Bloco de notas"
 
-#: ajenti/plugins/notepad/notepad.py:52
+#: ajenti/plugins/notepad/notepad.py:69
 #, python-format
 msgid "Untitled %i"
 msgstr ""
@@ -1771,17 +1771,25 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:19
+#: ajenti/plugins/dashboard/dash.py:21
 msgid "Dashboard"
 msgstr "Painel de controle"
+
+#: ajenti/plugins/dashboard/dash.py:175
+msgid "Widgets"
+msgstr ""
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
 msgstr "Bem-vindo"
 
-#: ajenti/plugins/dashboard/layout/dash.xml:2
+#: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"
 msgstr "Adicionar widget"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Automatic refresh"
+msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
