@@ -95,7 +95,27 @@ def run():
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
 
     if ajenti.debug:
-        exconsole.register()
+        def cmd_list_instances(ctx=None):
+            import pprint
+            if not ctx:
+                from ajenti.plugins import manager
+                ctx = manager.context
+            pprint.pprint(ctx._get_all_instances())
+
+        def cmd_sessions():
+            import pprint
+            sessions = SessionMiddleware.get(manager.context).sessions
+            return sessions
+            
+        def cmd_list_instances_session():
+            cmd_list_instances(cmd_sessions().values()[0].appcontext)
+
+        exconsole.register(commands=[
+            ('_manager', 'PluginManager', ajenti.plugins.manager),
+            ('_instances', 'return all @plugin instances', cmd_list_instances),
+            ('_sessions', 'return all Sessions', cmd_sessions),
+            ('_instances_session', 'return all @plugin instances in session #0', cmd_list_instances_session),
+        ])
 
     # Load plugins
     ajenti.plugins.manager.load_all()
@@ -149,7 +169,12 @@ def run():
             sys.exit(1)
         listener.listen(10)
 
-    stack = [SessionMiddleware(), AuthenticationMiddleware(), CentralDispatcher()]
+    stack = [
+        SessionMiddleware.get(manager.context), 
+        AuthenticationMiddleware.get(manager.context), 
+        CentralDispatcher.get(manager.context)
+    ]
+
     ajenti.server = SocketIOServer(
         listener,
         log=open(os.devnull, 'w'),

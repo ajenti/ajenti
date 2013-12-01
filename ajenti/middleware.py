@@ -11,16 +11,17 @@ from ajenti.http import HttpHandler
 from ajenti.users import UserManager
 
 
-class Session:
+class Session (object):
     """
     Holds the HTTP session data
     """
 
-    def __init__(self, id):
+    def __init__(self, manager, id):
         self.touch()
         self.id = id
         self.data = {}
         self.active = True
+        self.manager = manager
         self.greenlets = []
 
     def destroy(self):
@@ -30,6 +31,7 @@ class Session:
         self.active = False
         for g in self.greenlets:
             g.kill()
+        self.manager.vacuum()
 
     def touch(self):
         """
@@ -57,6 +59,7 @@ class Session:
 
 
 @plugin
+@persistent
 class SessionMiddleware (HttpHandler):
     def __init__(self):
         self.sessions = {}
@@ -81,7 +84,7 @@ class SessionMiddleware (HttpHandler):
         Creates a new session for the :class:`ajenti.http.HttpContext`
         """
         session_id = self.generate_session_id(context)
-        session = Session(session_id)
+        session = Session(self, session_id)
         self.sessions[session_id] = session
         return session
 
@@ -107,6 +110,7 @@ class SessionMiddleware (HttpHandler):
 
 
 @plugin
+@persistent
 class AuthenticationMiddleware (HttpHandler):
     def handle(self, context):
         if not hasattr(context.session, 'identity'):

@@ -4,6 +4,7 @@ from ajenti.api import *
 
 
 @interface
+@persistent
 class Sensor (object):
     id = None
     timeout = 0

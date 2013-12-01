@@ -57,7 +57,9 @@ class Configurator (SectionPlugin):
             box.empty()
             ui.find('name-edit').visible = item.name != 'root'
             ui.find('name-label').visible = item.name == 'root'
-            for prov in PermissionProvider.get_all():
+
+            p = PermissionProvider.get_all()
+            for prov in p:
                 line = self.ui.create('tab', title=prov.get_name())
                 box.append(line)
                 for perm in prov.get_permissions():

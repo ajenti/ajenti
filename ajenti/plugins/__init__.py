@@ -4,6 +4,7 @@ import logging
 import traceback
 import subprocess
 import sys
+import weakref
 
 from ajenti.util import *
 
@@ -154,17 +155,36 @@ class FileDependency (Dependency):
 class PluginContext (object):
     def __init__(self):
         self.__instances = {}
+        self.__hardrefs = []
 
     def __str__(self):
         return 'Root context'
 
+    def _get_all_instances(self):
+        return self.__instances
+
+    def vacuum_instances(self):
+        dead_ifaces = []
+        for iface, lst in self.__instances.iteritems():
+            for ref in list(lst):
+                if ref() is None:
+                    lst.remove(ref)
+            if len(lst) == 0:
+                dead_ifaces.append(iface)
+        for iface in dead_ifaces:
+            del self.__instances[iface]
+
     def get_instances(self, cls):
-        return self.__instances.setdefault(cls, [])
+        return filter(None, [_() for _ in self.__instances.setdefault(cls, [])])
 
     def get_instance(self, cls):
+        self.vacuum_instances()
         if not cls in self.__instances:
             return self.instantiate(cls)
-        return self.__instances[cls][0]
+        inst = list(self.__instances[cls])[0]()
+        if inst is None:
+            return self.instantiate(cls)
+        return inst
 
     def instantiate(self, cls, *args, **kwargs):
         instance = cls(*args, **kwargs)
@@ -177,8 +197,14 @@ class PluginContext (object):
                     init(instance)
                     last_init = init
 
-        for iface in cls._implements + [cls]:
-            self.__instances.setdefault(iface, []).append(instance)
+        nit = getattr(cls, '_no_instance_tracking', None)
+        if nit is not True and nit != cls:
+            for iface in cls._implements + [cls]:
+                if not getattr(iface, '_no_instance_tracking', None) in [True, iface]:
+                    self.__instances.setdefault(iface, set()).add(weakref.ref(instance))
+
+        if hasattr(cls, '_instance_hardref'):
+            self.__hardrefs.append(instance)
 
         return instance
 

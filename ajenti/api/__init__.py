@@ -94,6 +94,31 @@ def plugin(cls):
     return cls
 
 
+def persistent(cls):
+    """
+    Makes this plugin non-GCable
+    """
+    cls._instance_hardref = True
+    return cls
+
+
+def notrack(cls):
+    """
+    Disables instance tracking of plugin (and derivative) instances within PluginContext via get/get_all and similar methods.
+    """
+    cls._no_instance_tracking = True
+    return cls
+
+
+def notrack_this(cls):
+    """
+    Disables instance tracking of plugin instances within PluginContext via get/get_all and similar methods.
+    """
+    if not hasattr(cls, '_no_instance_tracking'):
+        cls._no_instance_tracking = cls
+    return cls
+
+
 def _check_plugin(cls):
     if not hasattr(cls, '_plugin'):
         raise Exception('Class %s must be decorated with @plugin' % cls)
@@ -188,6 +213,7 @@ def extract_context():
 
 
 @interface
+@notrack_this
 class BasePlugin (object):
     """
     A base plugin class that provides :class:`AppContext` and ``classconfig`` functionality.
@@ -295,6 +321,9 @@ __all__ = [
     'BasePlugin',
     'AppContext',
     'plugin',
+    'notrack',
+    'notrack_this',
+    'persistent',
     'extract_context',
     'interface',
 ]

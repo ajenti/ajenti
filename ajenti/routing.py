@@ -1,7 +1,7 @@
 import socketio
 
 from ajenti.http import HttpHandler
-from ajenti.api import BasePlugin
+from ajenti.api import BasePlugin, plugin
 from ajenti.api.http import HttpPlugin, SocketPlugin
 from ajenti.plugins import manager
 from ajenti.profiler import *
@@ -23,6 +23,7 @@ class InvalidRouteHandler (HttpHandler):
         return 'Invalid URL'
 
 
+@plugin
 class CentralDispatcher (BasePlugin, HttpHandler):
     def __init__(self):
         self.invalid = InvalidRouteHandler()

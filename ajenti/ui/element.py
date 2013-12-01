@@ -102,6 +102,7 @@ class UIProperty (object):
 @p('style', default='normal',
     doc='Additional CSS class')
 @interface
+@notrack
 class UIElement (object):
     """ Base UI element class """
 

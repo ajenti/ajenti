@@ -3,6 +3,7 @@ from ajenti.util import cache_value
 
 
 @plugin
+@persistent
 class ServiceMultiplexor (object):
     """
     Merges together output of all available ServiceManagers.
@@ -32,6 +33,7 @@ class ServiceMultiplexor (object):
 
 
 @interface
+@persistent
 class ServiceManager (object):
     def get_all(self):
         return []
