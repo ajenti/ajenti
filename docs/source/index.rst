@@ -47,6 +47,7 @@ API Reference
    ref/ajenti
    ref/ajenti.api
    ref/ajenti.api.http
+   ref/ajenti.api.sensors
    ref/ajenti.http
    ref/ajenti.ipc
    ref/ajenti.middleware

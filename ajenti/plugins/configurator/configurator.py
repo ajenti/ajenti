@@ -114,8 +114,8 @@ class Configurator (SectionPlugin):
         self.find('sync-status-fail').visible = not sync_ok
 
         languages = sorted(ajenti.locales.list_locales())
-        self.find('language').labels = [_('Auto')] + languages
-        self.find('language').values = [''] + languages
+        self.find('language').labels = [_('Auto'), 'en_US'] + languages
+        self.find('language').values = ['', 'en_US'] + languages
 
         self.binder.autodiscover().populate()
         self.ccmgr.reload()

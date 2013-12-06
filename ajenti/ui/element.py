@@ -14,10 +14,16 @@ def p(prop, default=None, bindtypes=[], type=unicode, public=True, doc=None):
             typeid = 'main:section'
 
     :param default: Default value
+    :type  default: object
     :param bindtypes: List of Python types that can be bound to this property
+    :type  bindtypes: list
     :param type: expected Python type for this value
+    :type  type: object
     :param public: whether this property is rendered and sent to client
+    :type  public: bool
     :param doc: docstring
+    :type  doc: str, None
+    :rtype: function
     """
 
     def decorator(cls):
@@ -57,7 +63,10 @@ def on(id, event):
                 self.config.save()
 
     :param id: element ID
+    :type  id: str
     :param event: event name
+    :type  event: str
+    :rtype: function
     """
 
     def decorator(fx):
@@ -130,6 +139,14 @@ class UIElement (object):
         self.context = None
 
     def __init__(self, ui, typeid=None, children=[], **kwargs):
+        """
+        :param ui: UI
+        :type  ui: :class:`ajenti.ui.UI`
+        :param typeid: type ID
+        :type  typeid: str
+        :param children:
+        :type  children: list
+        """
         self.ui = ui
         self._prepare()
 
@@ -158,6 +175,7 @@ class UIElement (object):
     def clone(self, set_ui=None, set_context=None):
         """
         :returns: a deep copy of the element and its children. Property values are shallow copies.
+        :rtype: :class:`UIElement`
         """
         o = self.__class__.__new__(self.__class__)
         o._prepare()
@@ -186,8 +204,11 @@ class UIElement (object):
         Returns the nearest child which matches an arbitrary predicate lambda
 
         :param predicate: ``lambda element: bool``
+        :type  predicate: function
         :param exclude: ``lambda element: bool`` - excludes matching branches from search
-        :param descend: ``lambda element: bool``
+        :type  exclude: function, None
+        :param descend: whether to descend inside matching elements
+        :type  descend: bool
         """
         r = []
         q = [self]
@@ -204,14 +225,20 @@ class UIElement (object):
 
     def find(self, id):
         """
+        :param id: element ID
+        :type  id: str
         :returns: the nearest child with given ID or ``None``
+        :rtype: :class:`UIElement`, None
         """
         r = self.nearest(lambda x: x.id == id)
         return r[0] if len(r) > 0 else None
 
     def find_uid(self, uid):
         """
+        :param uid: element UID
+        :type  uid: str
         :returns: the nearest child with given UID or ``None``
+        :rtype: :class:`UIElement`, None
         """
         r = self.nearest(lambda x: x.uid == uid)
         return r[0] if len(r) > 0 else None
@@ -219,6 +246,7 @@ class UIElement (object):
     def find_type(self, typeid):
         """
         :returns: the nearest child with given type ID or ``None``
+        :rtype: :class:`UIElement`, None
         """
         r = self.nearest(lambda x: x.typeid == typeid)
         return r[0] if len(r) > 0 else None
@@ -226,12 +254,16 @@ class UIElement (object):
     def contains(self, element):
         """
         Checks if the ``element`` is in the subtree of ``self``
+
+        :param element: element
+        :type  element: :class:`UIElement`
         """
         return len(self.nearest(lambda x: x == element)) > 0
 
     def path_to(self, element):
         """
         :returns: a list of elements forming a path from ``self`` to ``element``
+        :rtype: list
         """
         r = []
         while element != self:
@@ -242,6 +274,8 @@ class UIElement (object):
     def render(self):
         """
         Renders this element and its subtree to JSON
+
+        :rtype: dict
         """
         result = {
             #'id': self.id,
@@ -258,6 +292,10 @@ class UIElement (object):
     def on(self, event, handler, *args):
         """
         Binds event with ID ``event`` to ``handler``. ``*args`` will be passed to the ``handler``.
+        :param event: event
+        :type  event: str
+        :param handler: handler
+        :type  handler: function
         """
         self.events[event] = handler
         self.event_args[event] = args
@@ -294,6 +332,9 @@ class UIElement (object):
     def broadcast(self, method, *args, **kwargs):
         """
         Calls ``method`` on every member of the subtree
+
+        :param method: method
+        :type  method: str
         """
         if hasattr(self, method):
             getattr(self, method)(*args, **kwargs)
@@ -304,6 +345,13 @@ class UIElement (object):
     def dispatch_event(self, uid, event, params=None):
         """
         Dispatches an event to an element with given UID
+
+        :param uid: element UID
+        :type  uid: str
+        :param event: event name
+        :type  event: str
+        :param params: event arguments
+        :type  params: dict, None
         """
         if not self.visible:
             return False
@@ -324,6 +372,11 @@ class UIElement (object):
     def event(self, event, params=None):
         """
         Invokes handler for ``event`` on this element with given ``**params``
+
+        :param event: event name
+        :type  event: str
+        :param params: event arguments
+        :type  params: dict
         """
         self_event = event.replace('-', '_')
         if hasattr(self, 'on_%s' % self_event):
@@ -334,6 +387,11 @@ class UIElement (object):
     def reverse_event(self, event, params=None):
         """
         Raises the event on this element by feeding it to the UI root (so that ``@on`` methods in ancestors will work).
+
+        :param event: event name
+        :type  event: str
+        :param params: event arguments
+        :type  params: dict
         """
         self.ui.dispatch_event(self.uid, event, params)
 
@@ -347,6 +405,9 @@ class UIElement (object):
     def append(self, child):
         """
         Appends a ``child``
+
+        :param child: child
+        :type  child: :class:`UIElement`
         """
         if child in self.children:
             return
@@ -363,6 +424,9 @@ class UIElement (object):
     def remove(self, child):
         """
         Detaches the ``child``
+
+        :param child: child
+        :type  child: :class:`UIElement`
         """
         self.children.remove(child)
         child.parent = None

@@ -57,6 +57,8 @@ def plugin(cls):
 
         :returns: a new instance. Use this method instead of constructor, since it invokes the proper initialization chain and registers the instance
 
+    :type cls: class
+    :rtype: class, None
     """
 
     # Run custom verificator if any
@@ -97,6 +99,9 @@ def plugin(cls):
 def persistent(cls):
     """
     Makes this plugin non-GCable
+
+    :type cls: class
+    :rtype: class
     """
     cls._instance_hardref = True
     return cls
@@ -105,6 +110,9 @@ def persistent(cls):
 def notrack(cls):
     """
     Disables instance tracking of plugin (and derivative) instances within PluginContext via get/get_all and similar methods.
+
+    :type cls: class
+    :rtype: class
     """
     cls._no_instance_tracking = True
     return cls
@@ -113,6 +121,9 @@ def notrack(cls):
 def notrack_this(cls):
     """
     Disables instance tracking of plugin instances within PluginContext via get/get_all and similar methods.
+
+    :type cls: class
+    :rtype: class
     """
     if not hasattr(cls, '_no_instance_tracking'):
         cls._no_instance_tracking = cls
@@ -155,6 +166,8 @@ def interface(cls):
 
         :returns: list of all existing instances
 
+    :type cls: class
+    :rtype: class
     """
 
     # Inject methods
@@ -197,6 +210,8 @@ def interface(cls):
 def extract_context():
     """
     An utility function that extracts and returns the nearest :class:`AppContext` from the current call stack.
+
+    :rtype: :class:`ajenti.plugins.PluginContext`, None
     """
     for frame in inspect.stack():
         # Traverse the call stack
@@ -264,7 +279,10 @@ class BasePlugin (object):
 
         :param path: path relative to package's ``/content``
         :param mode: Python file access mode
+        :type  path: str
+        :type  mode: str
         :returns: An open file object
+        :rtype: file
         """
         _check_plugin(self.__class__)
 

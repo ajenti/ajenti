@@ -152,7 +152,12 @@ class FileDependency (Dependency):
         return self.file_name
 
 
+@public
 class PluginContext (object):
+    """
+    Container of interfaces and plugins
+    """
+
     def __init__(self):
         self.__instances = {}
         self.__hardrefs = []

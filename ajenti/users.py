@@ -42,12 +42,20 @@ class UserManager (BasePlugin):
     def check_password(self, username, password):
         """
         Verifies the given username/password combo
+
+        :type username: str
+        :type password: str
+        :rtype: bool
         """
         provider = self.get_sync_provider(fallback=True)
         provider.sync()
         return provider.check_password(username, password)
 
     def hash_password(self, password):
+        """
+        :type password: str
+        :rtype: str
+        """
         if not password.startswith('sha512|'):
             password = 'sha512|%s' % sha512_crypt.encrypt(password)
         return password
@@ -55,6 +63,9 @@ class UserManager (BasePlugin):
     def has_permission(self, permission):
         """
         Checks whether the current user has a permission
+        
+        :type permission: str
+        :rtype: bool
         """
         context = extract_context()
         if context.user.name == 'root':
@@ -66,12 +77,18 @@ class UserManager (BasePlugin):
     def require_permission(self, permission):
         """
         Checks current user for given permission and raises :class:`SecurityError` if he doesn't have one
+        :type permission: str
+        :raises: SecurityError
         """
         if not self.has_permission(permission):
             raise SecurityError(permission)
 
         
     def get_sync_provider(self, fallback=False):
+        """
+        :type fallback: bool
+        :rtype: ajenti.usersync.UserSyncProvider
+        """
         for p in ajenti.usersync.UserSyncProvider.get_classes():
             p.get()
             if p.id == self.classconfig['sync-provider']:
@@ -91,11 +108,18 @@ class PermissionProvider (object):
     """
 
     def get_permissions(self):
-        """ Should return a list of permission names """
+        """ 
+        Should return a list of permission names 
+
+        :rtype: list
+        """
         return []
 
     def get_name(self):
-        """ Should return a human-friendly name for this set of permissions (displayed in Configurator) """
+        """
+        Should return a human-friendly name for this set of permissions (displayed in Configurator) 
+        :rtype: str
+        """
         return ''
 
 

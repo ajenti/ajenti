@@ -20,6 +20,8 @@ class IPCHandler (object):
         Should return short identifier of IPC endpoint:
 
         $ ajenti-ipc <endpoint-name> <args>
+
+        :rtype str:
         """
 
     def handle(self, args):
@@ -27,6 +29,7 @@ class IPCHandler (object):
         Override to handle IPC requests
 
         :param args: list of `str` parameters
+        :type  args: list
         """
 
 

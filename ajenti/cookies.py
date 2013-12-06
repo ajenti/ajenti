@@ -956,7 +956,7 @@ class Cookie(object):
     }
 
 
-class Cookies(dict):
+class Cookies(dict, object):
     """Represent a set of cookies indexed by name.
 
     This class bundles together a set of Cookie objects and provides

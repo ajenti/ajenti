@@ -15,45 +15,68 @@ class UI (BasePlugin):
     def init(self):
         self.inflater = Inflater.get(manager.context)
 
-    def create(self, *args, **kwargs):
+    def create(self, typeid, *args, **kwargs):
         """
         Creates an element by its type ID.
+
+        :param typeid: type ID
+        :type typeid: str
         """
-        return self.inflater.create_element(self, *args, **kwargs)
+        return self.inflater.create_element(self, typeid, *args, **kwargs)
 
     def inflate(self, layout):
         """
+        :param layout: layout spec: "<plugin id>:<layout file name without extension>"
+        :type  layout: str
         :returns: an inflated element tree of the given layout XML name
+        :rtype: UIElement
         """
         return self.inflater.inflate(self, layout)
 
     def render(self):
         """
         Renders the UI into JSON
+
+        :rtype: dict
         """
         return self.root.render()
 
     def find(self, id):
         """
+        :param id: element ID
+        :type  id: str
         :returns: nearest element with given ID
+        :rtype: UIElement, None
         """
         return self.root.find(id)
 
     def find_uid(self, uid):
         """
+        :param uid: element UID
+        :type  uid: str
         :returns: nearest element with given unique ID
+        :rtype: UIElement, None
         """
         return self.root.find_uid(uid)
 
     def dispatch_event(self, uid, event, params=None):
         """
         Dispatches an event to an element with given UID
+        
+        :param uid: element UID
+        :type  uid: str
+        :param event: event name
+        :type  event: str
+        :param params: event arguments
+        :type  params: dict, None
         """
         self.root.dispatch_event(uid, event, params)
 
     def has_updates(self):
         """
         Checks for pending UI updates
+
+        :rtype: bool
         """
         return self.root.has_updates()
 

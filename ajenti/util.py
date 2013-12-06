@@ -66,6 +66,7 @@ def cache_value(duration):
     Makes a function lazy.
 
     :param duration: cache duration in seconds
+    :type  duration: int
     """
     def decorator(fx):
         fx.__cached = None

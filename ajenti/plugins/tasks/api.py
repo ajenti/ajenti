@@ -78,8 +78,6 @@ class Task (object):
         Override with your task actions here.
         Raise :class:`TaskError` in case of emergency.
         Check `aborted` often and return if it's True
-
-        :param **kwargs: saved task parameters
         """
 
     def abort(self):

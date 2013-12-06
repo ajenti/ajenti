@@ -11,8 +11,11 @@ def url(pattern):
     Exposes the decorated method of your :class:`HttpPlugin` via HTTP
 
     :param pattern: URL regex (no ``^`` and ``$`` required)
+    :type  pattern: str
+    :rtype: function
 
         Named capture groups will be fed to function as ``**kwargs``
+
     """
 
     def decorator(f):
@@ -41,6 +44,9 @@ class HttpPlugin (object):
     def handle(self, context):
         """
         Finds and executes the handler for given request context (handlers are methods decorated with :func:`url` )
+
+        :param context: HTTP context
+        :type  context: :class:`ajenti.http.HttpContext`
         """
 
         for name, method in self.__class__.__dict__.iteritems():
@@ -109,16 +115,14 @@ class SocketPlugin (BasePlugin, BaseNamespace, RoomsMixin, BroadcastMixin):
 
     def on_connect(self):
         """ Called when a socket is connected """
-        pass
 
     def on_disconnect(self):
         """ Called when a socket disconnects """
-        pass
 
     def on_message(self, message):
         """
         Called when a message from browser arrives
 
         :param message: a message object (parsed JSON)
+        :type  message: str
         """
-        pass

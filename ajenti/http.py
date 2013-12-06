@@ -7,7 +7,7 @@ from StringIO import StringIO
 from datetime import datetime
 
 
-class HttpRoot:
+class HttpRoot (object):
     """
     A root middleware object that creates the :class:`HttpContext` and dispatches it to other registered middleware
     """
@@ -32,7 +32,7 @@ class HttpRoot:
                 return output
 
 
-class HttpContext:
+class HttpContext (object):
     """
     Instance of :class:`HttpContext` is passed to all HTTP handler methods
 
@@ -78,12 +78,17 @@ class HttpContext:
     def add_header(self, key, value):
         """
         Adds a given HTTP header to the response
+
+        :type key: str
+        :type value: str
         """
         self.headers += [(key, value)]
 
     def remove_header(self, key):
         """
         Removed a given HTTP header from the response
+
+        :type key: str
         """
         for k in self.headers:
             if k == key:
@@ -93,6 +98,7 @@ class HttpContext:
         """
         Executes a ``handler`` in this context
 
+        :rtype: str, file        
         :returns: handler-supplied output
         """
         return handler.handle(self)
@@ -100,6 +106,7 @@ class HttpContext:
     def respond(self, status):
         """
         Creates a response with given HTTP status line
+        :type status: str
         """
         self.start_response(status, self.headers)
         self.response_ready = True
@@ -134,6 +141,7 @@ class HttpContext:
     def redirect(self, url):
         """
         Returns a ``HTTP 302 Found`` redirect response with given ``url``
+        :type url: str
         """
         self.add_header('Location', url)
         self.respond('302 Found')
@@ -142,6 +150,9 @@ class HttpContext:
     def gzip(self, content, compression=9):
         """
         Returns a GZip compressed response with given ``content`` and correct headers
+        :type content: str
+        :type compression: int
+        :rtype: str
         """
         io = StringIO()
         gz = gzip.GzipFile('', 'wb', compression, io)
@@ -158,6 +169,8 @@ class HttpContext:
     def file(self, path, stream=False):
         """
         Returns a GZip compressed response with content of file located in ``path`` and correct headers
+        :type path: str
+        :type stream: bool
         """
 
         # Block path traversal
@@ -241,5 +254,7 @@ class HttpHandler (object):
     def handle(self, context):
         """
         Should create a HTTP response in the given ``context`` and return the plain output
+
+        :param context: HTTP context
+        :type  context: :class:`ajenti.http.HttpContext`
         """
-        pass

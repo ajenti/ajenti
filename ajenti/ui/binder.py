@@ -6,10 +6,18 @@ from ajenti.util import *
 
 
 def is_bound_context(el):
-    return '{binder}context' in el.properties and el.properties['{binder}context']
+    """
+    :type el: UIElement
+    :rtype: bool
+    """
+    return ('{binder}context' in el.properties) and el.properties['{binder}context'] is not None
 
 
 def is_bound(el):
+    """
+    :type el: UIElement
+    :rtype: bool
+    """
     if el.typeid.startswith('bind:'):
         return True
     for prop in el.properties.keys():
@@ -30,6 +38,11 @@ class Binding (object):
     """
 
     def __init__(self, object, attribute, ui):
+        """
+        :type object: object
+        :type attribute: str
+        :type ui: UIElement
+        """
         self.object = object
         self.attribute = attribute
         self.ui = ui
@@ -74,6 +87,11 @@ class PropertyBinding (Binding):
     """
 
     def __init__(self, obj, attribute, ui, property=None):
+        """
+        :type attribute: str
+        :type ui: UIElement
+        :type property: str, None
+        """
         Binding.__init__(self, obj, attribute, ui)
         if property is None:
             # find a property with matching bindtypes
@@ -222,14 +240,26 @@ class DictAutoBinding (Binding):
 
 
 def _element_in_child_binder(root, e):
-    # detect if the element is trapped inside a nested bind: tag
-    # relative to e
+    """
+    detect if the element is trapped inside a nested bind: tag
+    relative to e
+
+    :type root: UIElement
+    :type e: UIElement
+    :rtype: bool
+    """
     return any(x.typeid.startswith('bind:') for x in root.path_to(e))
 
 
 def _element_in_child_template(root, e):
-    # detect if the element is trapped inside a nested bind: tag
-    # relative to e
+    """
+    detect if the element is trapped inside a nested bind: tag
+    relative to e
+
+    :type root: UIElement
+    :type e: UIElement
+    :rtype: bool
+    """
     return any(x.typeid.startswith('bind:template') for x in root.path_to(e))
 
 
@@ -411,6 +441,9 @@ class Binder (object):
     def reset(self, object=None, ui=None):
         """
         Cancels the binding and replaces Python object / UI root.
+
+        :type object: object
+        :type ui: UIElement, None
         """
         self.unpopulate()
         if object is not None:
