@@ -188,7 +188,6 @@ class window.UIManager
             setCookie('ajenti-theme', 'light')
 
 
-
 class window.LoadingDim 
     constructor: (@dom) ->
         @dom.show()
@@ -196,7 +195,7 @@ class window.LoadingDim
     hide: () ->
         $('.hide-when-loaded').hide()
         $('body').removeClass('loading')
-        @dom.stop().fadeTo(500, 0, () => @dom.hide())
+        @dom.stop().fadeTo(125, 0, () => @dom.hide())
 
     show: () ->
         $('body').addClass('loading')
@@ -433,45 +432,3 @@ window.$$ = (html, container) ->
     div.innerHTML = html
     return div.childNodes[0]
 
-
-#---------------------
-# Touch support
-#---------------------
-
-clickms = 100
-lastTouchDown = -1
-
-touchHandler = (event) ->
-    touches = event.changedTouches
-    first = touches[0]
-    type = ""
-    
-    d = new Date()
-    switch event.type
-        when "touchstart"
-            type = "mousedown"
-            lastTouchDown = d.getTime()
-        when "touchmove"
-            type="mousemove"
-            lastTouchDown = -1
-        when "touchend"
-            if lastTouchDown > -1 and (d.getTime() - lastTouchDown) < clickms
-                lastTouchDown = -1
-                type="click"
-            else
-                type="mouseup"
-        else return
-
-    simulatedEvent = document.createEvent("MouseEvent")
-    simulatedEvent.initMouseEvent(type, true, true, window, 1,
-                              first.screenX, first.screenY,
-                              first.clientX, first.clientY, false,
-                              false, false, false, 0, null)
-
-    first.target.dispatchEvent(simulatedEvent)
-    event.preventDefault()
-
-#document.addEventListener("touchstart", touchHandler, true)
-#document.addEventListener("touchmove", touchHandler, true)
-#document.addEventListener("touchend", touchHandler, true)
-#document.addEventListener("touchcancel", touchHandler, true)
