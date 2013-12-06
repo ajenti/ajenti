@@ -98,7 +98,6 @@ class HttpContext (object):
         """
         Executes a ``handler`` in this context
 
-        :rtype: str, file        
         :returns: handler-supplied output
         """
         return handler.handle(self)

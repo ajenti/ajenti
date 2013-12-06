@@ -236,7 +236,7 @@ class UIElement (object):
     def find_uid(self, uid):
         """
         :param uid: element UID
-        :type  uid: str
+        :type  uid: int
         :returns: the nearest child with given UID or ``None``
         :rtype: :class:`UIElement`, None
         """
@@ -347,7 +347,7 @@ class UIElement (object):
         Dispatches an event to an element with given UID
 
         :param uid: element UID
-        :type  uid: str
+        :type  uid: int
         :param event: event name
         :type  event: str
         :param params: event arguments
@@ -376,7 +376,7 @@ class UIElement (object):
         :param event: event name
         :type  event: str
         :param params: event arguments
-        :type  params: dict
+        :type  params: dict, None
         """
         self_event = event.replace('-', '_')
         if hasattr(self, 'on_%s' % self_event):

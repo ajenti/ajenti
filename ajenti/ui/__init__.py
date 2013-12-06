@@ -53,7 +53,7 @@ class UI (BasePlugin):
     def find_uid(self, uid):
         """
         :param uid: element UID
-        :type  uid: str
+        :type  uid: int
         :returns: nearest element with given unique ID
         :rtype: UIElement, None
         """
@@ -64,7 +64,7 @@ class UI (BasePlugin):
         Dispatches an event to an element with given UID
         
         :param uid: element UID
-        :type  uid: str
+        :type  uid: int
         :param event: event name
         :type  event: str
         :param params: event arguments
