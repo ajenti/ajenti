@@ -1777,7 +1777,7 @@ msgstr "Dashboard"
 
 #: ajenti/plugins/dashboard/dash.py:175
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
@@ -1789,7 +1789,7 @@ msgstr "Widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Automatische Aktualisierung"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"

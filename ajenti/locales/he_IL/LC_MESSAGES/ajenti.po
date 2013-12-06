@@ -1,14 +1,14 @@
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "משתמש מערכת"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "כבה"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "סנכרון משתמש LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -20,11 +20,11 @@ msgstr "בקרת צריכת חשמל"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "השהה"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "מצב שינה"
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -44,11 +44,11 @@ msgstr "סוללה"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "להשהות את המערכת?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "לעבור למצב שינה?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -56,7 +56,7 @@ msgstr "לאתחל את המערכת?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "כיבוי"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -406,12 +406,12 @@ msgstr "אתחול אוטומטי"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "אפשר"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "בטל"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -419,7 +419,7 @@ msgstr "אתחול מחדש אוטומטית"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "On crash"
-msgstr ""
+msgstr "בקריסה"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Start timeout"
@@ -539,7 +539,7 @@ msgstr " אתחול אוטומטי"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
-msgstr ""
+msgstr "הוחל בהצלחה"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
@@ -636,7 +636,7 @@ msgstr "הגדר"
 
 #: ajenti/plugins/configurator/configurator.py:115
 msgid "Auto"
-msgstr ""
+msgstr "אוטומטי"
 
 #: ajenti/plugins/configurator/configurator.py:135
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -668,7 +668,7 @@ msgstr "כללי"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "שפה"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -700,19 +700,19 @@ msgstr "אימות"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "סנכרן עם"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "סנכרן עכשיו"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "הוגדר כראוי"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "הסנכרון נכשל"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -756,7 +756,7 @@ msgstr "להפעיל מחדש את Ajenti?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "כתובת url של השרת"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
@@ -768,7 +768,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "סוד"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -815,32 +815,32 @@ msgstr "תיזמון"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "שעתי"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "יומי"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "שבועי"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "חודשי"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "שנתי"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
 msgid "On reboot"
-msgstr ""
+msgstr "בהפעלה"
 
 #: ajenti/plugins/cron/layout/main.xml:26
 #: ajenti/plugins/resolv/layout/main.xml:3
@@ -951,7 +951,7 @@ msgstr "כלים"
 #: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "נבחרו %i פריטים"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/notepad/layout/config.xml:1
@@ -964,7 +964,7 @@ msgstr "סגור"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "בחר הכל"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -976,15 +976,15 @@ msgstr "תיקיה חדשה"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "גזור"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "העתק"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "הדבק"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -1017,7 +1017,7 @@ msgstr "אחרים"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Set recursively"
-msgstr ""
+msgstr "הגדר באופן רקורסיבי"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -1080,7 +1080,7 @@ msgstr "טקסט"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "חיישן ה-IPMI"
 
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
@@ -1097,11 +1097,11 @@ msgstr "מצב"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "אפשר"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "דחה"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1389,11 +1389,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "קבוע"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "ידני"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
@@ -1401,7 +1401,7 @@ msgstr "תהליכים"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "אב"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1446,53 +1446,53 @@ msgstr "שמור את האזור"
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "מעתיק %s"
 
 #: ajenti/plugins/tasks/tasks.py:65
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "מעביר %s"
 
 #: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "משימה %s הושלמה"
 
 #: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "משימה %s בתור"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "משימה %s התחילה"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "משימות"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "מתיקייה"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "לתיקייה"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "ארכיון"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "רקורסיבית"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "שמור על זמני קבצי"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
@@ -1500,55 +1500,55 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "למחוק בתיקיית היעד"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "לשמר את הרשאות"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "משימות הפועלות"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "פועל"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "מבטל"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "בטל"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "משימות שהושלמו"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "הצלחה"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "בוטל"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "שגיאה"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "קרס"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "עבודות"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "הרץ משימה"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
@@ -1556,7 +1556,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "הפעלה ידנית"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
@@ -1564,7 +1564,7 @@ msgstr ""
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "מערך"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1597,7 +1597,7 @@ msgstr "תלות"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
-msgstr ""
+msgstr "תלוי"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -1704,11 +1704,11 @@ msgstr "לקריאה בלבד"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "מתקדם"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "משתמשים מורשים"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
@@ -1720,11 +1720,11 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "הכרח umask לקבצים"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "הכרח umask לתיקיות"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -1777,7 +1777,7 @@ msgstr "לוח מחוונים"
 
 #: ajenti/plugins/dashboard/dash.py:175
 msgid "Widgets"
-msgstr ""
+msgstr "ווידג'טים"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
@@ -1789,7 +1789,7 @@ msgstr "הוסף ווידג'ט"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "רענון אוטומטי"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"

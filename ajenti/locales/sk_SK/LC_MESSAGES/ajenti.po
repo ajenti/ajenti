@@ -582,7 +582,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Načítanie aktuálneho stavu"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
@@ -599,7 +599,7 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/main.xml:8
 #: ajenti/plugins/users/layout/user-list.xml:3
 msgid "Comment"
-msgstr ""
+msgstr "Komentár"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
@@ -612,7 +612,7 @@ msgstr "Nové pravidlo"
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
 msgid "Apply"
-msgstr ""
+msgstr "Použiť"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
@@ -625,7 +625,7 @@ msgstr "Porty"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "Dôvod"
 
 #: ajenti/plugins/configurator/configurator.py:33
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -664,15 +664,15 @@ msgstr "Reštart Ajenti"
 #: ajenti/plugins/ctdb/layout/main.xml:4
 #: ajenti/plugins/samba/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "Hlavné"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
-msgstr ""
+msgstr "HTTP Server"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
@@ -680,11 +680,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr ""
+msgstr "Použiť SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "Cesta k certifikátu"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
@@ -692,11 +692,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Generovať"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "Overovanie"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
@@ -704,29 +704,29 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Synchronizovať teraz"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Správne nakonfigurovaný"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Nepodarilo sa synchronizovať"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
-msgstr ""
+msgstr "Účty"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 #: ajenti/plugins/fm/layout/main.xml:8
 msgid "Delete"
-msgstr ""
+msgstr "Odstrániť"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
-msgstr ""
+msgstr "Ostatné"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Send feedback"
@@ -937,7 +937,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Označiť na odstránenie"
 
 #: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
@@ -946,7 +946,7 @@ msgstr "Správca súborov"
 #: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
-msgstr ""
+msgstr "Nástroje"
 
 #: ajenti/plugins/fm/fm.py:146
 #, python-format
@@ -964,15 +964,15 @@ msgstr "Zatvoriť"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Vybrať všetko"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
-msgstr ""
+msgstr "Nový súbor"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "New Folder"
-msgstr ""
+msgstr "Nový priečinok"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
@@ -980,36 +980,36 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Vložiť"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
-msgstr ""
+msgstr "Nahrať"
 
 #: ajenti/plugins/fm/layout/main.xml:11
 msgid "Clipboard"
-msgstr ""
+msgstr "Schránka"
 
 #: ajenti/plugins/fm/layout/main.xml:13
 #: ajenti/plugins/users/layout/user-list.xml:9
 msgid "Remove"
-msgstr ""
+msgstr "Odstrániť"
 
 #: ajenti/plugins/fm/layout/main.xml:17
 msgid "Access"
-msgstr ""
+msgstr "Prístup"
 
 #: ajenti/plugins/fm/layout/main.xml:18
 msgid "Owner"
-msgstr ""
+msgstr "Vlastník"
 
 #: ajenti/plugins/fm/layout/main.xml:19 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
-msgstr ""
+msgstr "Skupina"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Others"
@@ -1017,7 +1017,7 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Set recursively"
-msgstr ""
+msgstr "Nastaviť rekurzívne"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -1037,24 +1037,24 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:11
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr ""
+msgstr "Vzdialená IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr ""
+msgstr "Lokálna IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr ""
+msgstr "Pripojené od"
 
 #: ajenti/plugins/openvpn/layout/main.xml:7
 #: ajenti/plugins/samba/layout/main.xml:32
 msgid "Disconnect"
-msgstr ""
+msgstr "Odpojiť"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
@@ -1062,7 +1062,7 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Správy"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
@@ -1326,18 +1326,18 @@ msgstr ""
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Nové heslo"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:37
 msgid "Set"
-msgstr ""
+msgstr "Nastaviť"
 
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "User"
-msgstr ""
+msgstr "Používateľ"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
@@ -1345,15 +1345,15 @@ msgstr ""
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr ""
+msgstr "Skupiny"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr ""
+msgstr "Členovia"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "Sieť"
 
 #: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
@@ -1389,7 +1389,7 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Statická"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
@@ -1397,7 +1397,7 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
-msgstr ""
+msgstr "Procesy"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
@@ -1548,7 +1548,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Spustiť úlohu"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
@@ -1572,11 +1572,11 @@ msgstr ""
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
-msgstr ""
+msgstr "Aliasy"
 
 #: ajenti/plugins/notepad/notepad.py:12 ajenti/plugins/notepad/notepad.py:30
 msgid "Notepad"
-msgstr ""
+msgstr "Poznámkový blok"
 
 #: ajenti/plugins/notepad/notepad.py:69
 #, python-format
@@ -1585,27 +1585,27 @@ msgstr ""
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr ""
+msgstr "Uložiť ako"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr ""
+msgstr "Záložka"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
-msgstr ""
+msgstr "Závislosti"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
-msgstr ""
+msgstr "Závisí od"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr ""
+msgstr "Nameservery"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr ""
+msgstr "DNS nameserver"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
@@ -1680,7 +1680,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "Cesta"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
@@ -1704,7 +1704,7 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Rozšírené"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
@@ -1733,7 +1733,7 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
-msgstr ""
+msgstr "Rozhrania"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
@@ -1741,11 +1741,11 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
-msgstr ""
+msgstr "Identifikácia"
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr ""
+msgstr "Pracovná skupina"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"

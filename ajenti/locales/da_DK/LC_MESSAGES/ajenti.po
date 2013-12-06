@@ -1675,7 +1675,7 @@ msgstr "Adgangskode opdatering mislykkedes"
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "Delte mapper"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/netatalk/layout/main.xml:5
@@ -1777,7 +1777,7 @@ msgstr "Instrumentbræt"
 
 #: ajenti/plugins/dashboard/dash.py:175
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
@@ -1789,7 +1789,7 @@ msgstr "Tilføj widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Automatisk opdatering"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
