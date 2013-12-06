@@ -62,10 +62,12 @@ class window.Stream
             data = JSON.parse(data)
             console.log 'CRASH:', data
             ajentiCrash(data)
+            Loading.hide()
 
         @socket.on 'security-error', () ->
             console.log 'SECURITY ERROR'
             ajentiSecurityError()
+            Loading.hide()
 
         @socket.on 'notify', (data) ->
             data = JSON.parse(data)
