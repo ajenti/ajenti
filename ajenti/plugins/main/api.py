@@ -9,6 +9,7 @@ from ajenti.ui import *
 @p('active', default=False)
 @p('plain', default=False)
 @p('clsname', default='')
+@track
 @interface
 class SectionPlugin (BasePlugin, UIElement):
     """

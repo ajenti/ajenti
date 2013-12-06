@@ -130,6 +130,17 @@ def notrack_this(cls):
     return cls
 
 
+def track(cls):
+    """
+    Enables previously disabled instance tracking of plugin.
+
+    :type cls: class
+    :rtype: class
+    """
+    cls._no_instance_tracking = False
+    return cls
+
+
 def _check_plugin(cls):
     if not hasattr(cls, '_plugin'):
         raise Exception('Class %s must be decorated with @plugin' % cls)
@@ -228,7 +239,6 @@ def extract_context():
 
 
 @interface
-@notrack_this
 class BasePlugin (object):
     """
     A base plugin class that provides :class:`AppContext` and ``classconfig`` functionality.
@@ -341,6 +351,7 @@ __all__ = [
     'plugin',
     'notrack',
     'notrack_this',
+    'track',
     'persistent',
     'extract_context',
     'interface',
