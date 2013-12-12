@@ -6,8 +6,8 @@
                     <dtr>
                         <dth width="16" />
                         <dth width="16" />
-                        <dth text="Name" />
-                        <dth text="Author" />
+                        <dth text="{Name}" />
+                        <dth text="ID" width="1" />
                     </dtr>
                 </dt>
 
@@ -24,10 +24,9 @@
                         <dtd>
                             <collapse>
                                 <hc>
-                                    <label  debug="1" bind:text="title" style="bold"/>
-                                    <label  debug="2" bind:text="name" />
+                                    <label bind:text="title" style="bold"/>
                                 </hc>
-                                <indent>
+                                <pad>
                                     <label text="{Dependencies}" style="bold" />
                                     
                                     <bind:collection bind="dependencies" id="dependencies">
@@ -61,11 +60,11 @@
                                             </dtr>
                                         </bind:template>
                                     </bind:collection>
-                                </indent>
+                                </pad>
                             </collapse>
                         </dtd>
                         <dtd>
-                            <label bind:text="author" />
+                            <label bind:text="name" />
                         </dtd>
                     </dtr>
                 </bind:template>
