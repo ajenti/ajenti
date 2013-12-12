@@ -83,6 +83,9 @@ class MainSocket (SocketPlugin):
     def on_message(self, message):
         if not self.ui:
             return
+        self.spawn(self.handle_message, message)
+
+    def handle_message(self, message):
         try:
             if message['type'] == 'ui_update':
                 # UI updates arrived
