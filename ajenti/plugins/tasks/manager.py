@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from ajenti.api import *
 from ajenti.ipc import IPCHandler
 from ajenti.plugins import manager
@@ -59,6 +61,9 @@ class TaskManager (BasePlugin):
         CronManager.get().save_tab('root', tab)
 
     def task_done(self, task):
+        task.time_completed = datetime.now()
+        task.result.time_started = task.time_started
+        task.result.duration = task.time_completed - task.time_started
         if task.execution_context:
             task.execution_context.notify('info', _('Task %s finished') % task.name)
         if task in self.running_tasks:
@@ -88,6 +93,7 @@ class TaskManager (BasePlugin):
             task.definition = task_definition
             task.parallel = task_definition.parallel
 
+        task.time_started = datetime.now()
         task.execution_context = context
 
         if not task.parallel and self.running_tasks:
