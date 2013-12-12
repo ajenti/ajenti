@@ -127,6 +127,8 @@
                         </hc>
                     </pad>
                     
+                    <button id="unpack" icon="dropbox" text="{Unpack}" />
+                    
                     <label text="{Access}" style="bold" />
                     
                     <pad>
