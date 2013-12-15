@@ -65,12 +65,12 @@ class Packages (SectionPlugin):
     @intent('install-package')
     @restrict('packages:modify')
     def intent_install(self, package):
-        #self.activate()
         p = PackageInfo()
         p.name, p.action = package, 'i'
         self.run([p])
 
     def on_page_load(self):
+        self.context.endpoint.send_progress(_('Querying package manager'))
         self.mgr.refresh()
         self.refresh()
 

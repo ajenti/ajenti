@@ -145,6 +145,9 @@ class MainSocket (SocketPlugin):
     def send_ack(self):
         self.emit('ack')
 
+    def send_progress(self, msg=''):
+        self.emit('progress-message', msg)
+
     def send_update_request(self):
         self.emit('update-request')
 

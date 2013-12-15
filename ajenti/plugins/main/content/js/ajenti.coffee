@@ -58,6 +58,10 @@ class window.Stream
             UI.sendUpdates(true)
             Loading.show()
 
+        @socket.on 'progress-message', (m) ->
+            console.log '...', m
+            Loading.setMessage(m)
+
         @socket.on 'crash', (data) ->
             data = JSON.parse(data)
             console.log 'CRASH:', data
@@ -200,8 +204,12 @@ class window.LoadingDim
         @dom.stop().fadeTo(125, 0, () => @dom.hide())
 
     show: () ->
+        @setMessage('')
         $('body').addClass('loading')
         @dom.show().stop().fadeTo(500, 1)
+
+    setMessage: (m) ->
+        @dom.find('.message').text(m)
 
 
 class TabManager

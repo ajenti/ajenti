@@ -34,5 +34,7 @@ class PluginsPlugin (SectionPlugin):
         self.binder = Binder(self, self.find('bind-root'))
 
     def on_page_load(self):
+        print 1
+        self.context.endpoint.send_progress(_('Gathering plugin list'))
         self.plugins = sorted(manager.get_all().values())
         self.binder.reset().autodiscover().populate()
