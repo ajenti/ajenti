@@ -53,11 +53,14 @@ class UserManager (BasePlugin):
         else:
             provider = self.get_sync_provider(fallback=True)
 
+        if not username in ajenti.config.tree.users:
+            return False
+            
         try:
             provider.sync()
         except Exception as e:
             logging.error(str(e))
-            
+
         return provider.check_password(username, password)
 
     def hash_password(self, password):

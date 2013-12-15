@@ -55,14 +55,14 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
             self.classconfig['base'], 
             ldap.SCOPE_SUBTREE, 
             '(|(objectClass=user)(objectClass=simpleSecurityObject))', 
-            ['cn']
+            ['sAMAccountName']
         ) 
 
     def sync(self):
         found_names = []
         users = self.__search()
         for u in users:
-            username = u[1]['cn'][0]
+            username = u[1]['sAMAccountName'][0]
             found_names.append(username)
             if not username in ajenti.config.tree.users:
                 u = UserData()
