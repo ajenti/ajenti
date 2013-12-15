@@ -165,3 +165,12 @@ class TarUnpacker (Unpacker):
 
     def unpack(self, fn, cb=lambda: None):
         self.context.launch('terminal', command='cd "%s"; tar xvf "%s"' % os.path.split(fn), callback=cb)
+
+
+@plugin
+class ZipUnpacker (Unpacker):
+    def match(self, fn):
+        return any(re.match(x, fn) for x in [r'.+\.zip'])
+
+    def unpack(self, fn, cb=lambda: None):
+        self.context.launch('terminal', command='cd "%s"; unzip "%s"' % os.path.split(fn), callback=cb)
