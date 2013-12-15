@@ -87,7 +87,9 @@ class Configurator (SectionPlugin):
     @on('sync-users-button', 'click')
     def on_sync_users(self):
         self.save()
-        UserManager.get(manager.context).get_sync_provider().sync()
+        prov = UserManager.get(manager.context).get_sync_provider()
+        if prov.test():
+            prov.sync()
         self.refresh()
 
     @on('configure-sync-button', 'click')
