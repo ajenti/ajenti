@@ -95,7 +95,6 @@ class OpenDirDialog (UIElement, BaseFileDialog):
 
     def init(self):
         self.verify_path()
-        self.on('item-click', self.on_item_click)
         self.refresh()
 
     def on_item_click(self, item):
@@ -126,7 +125,6 @@ class SaveFileDialog (UIElement, BaseFileDialog):
     typeid = 'savefiledialog'
 
     def init(self):
-        self.on('item-click', self.on_item_click)
         self.refresh()
 
     def on_item_click(self, item):
