@@ -1,4 +1,5 @@
 from base import UserSyncProvider
+from adsync import ActiveDirectorySyncProvider
 from local import AjentiSyncProvider
 from unix import UNIXSyncProvider
 from ldapsync import LDAPSyncProvider

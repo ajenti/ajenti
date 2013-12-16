@@ -259,41 +259,38 @@ body {
         -moz-animation: spinner 3s @interpolator infinite;
         animation: spinner 3s @interpolator infinite;
 
-        i::before { 
-            font-size: 47px; 
-            color: white;
-            top: -3px;
-        }
-
-        margin: -10px 0 0 -10px;
+        margin: -20px 0 0 -20px;
         position: absolute;
         left: 50%;
         top: 50%;
         opacity: .5;
 
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QwPFQcx+5WvYAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAANkSURBVFjDxZhfiFVVFMZ/+94xHZ1GjTAaoR5CBUshLAcfAvsDYRRB0dtU9CZiEKmB70KCL0LRQ5BRPgaJQS/WUL6ID5HkkBlF9g8Ne3Acm6aZO86vh9kHzlzOmXvOPXfOfHC5956zzzrfXnuvb629oCDU9O816g51RD2p/qBOO49XqBsJOXWz+o46qbbMxqjaKGCrpwQH1ffVKTtjTF2RYyfE79fU4Z4RVXdbHH+oa/I8pn6YGrsvawt1S3K2IMGWukldnWHjzYzxp3u1zO9ZDtfUz9S31G3qU4tM8pw6WMmT6sMlvJjGXIzwVodxX3QdwfHTVG+5tHi3lBdTG7uhnrIePJLnpfXqozme+8r6MKNuzPLS8TjguvqGel+8ftJ6cUVdm/BLhPMe4DKwLuXYaWASuKvGpHUeeDyE8F9yIUlJe9vIAayskVwLOBJC2JUmBxDUVcB14E6WD78DW4HJEMKCGw1gE7Cqhy+71cUzQ8DWdnIJwQeBFRVJ/QS8FOYxGObftB+4VvD5PuDZTA1UP6gYdefUvpy6cZ36W0E7Z/LE+FIFcuPqvR3E/umCtv5OyrEFk1VvVyA4qjYLZKLxEja/VF9Xh9Q7qLi8HxVMmZ90af/nBnAAuAhcBaZKBkf/Yok9dW+oy+B7IEQjfcBAFOstwOdAs2D0PgTMZElEJNkEZrskOJ4VeX3qjyVqvZez5CG1/6rk8vMNgGT2KiGEWeCbgjMMwMfqi3EV0uSa6kFgpIK+ng05y/IqcCKVqzthDvgOGAUmgLuBJ2MSqIJnQs7Gvh+4BKxexvw8A2xutJOLyz0B/MPyYgz4s5GqnkMIAfUJ4FtgwzITPBpCuN2+vPutH7vUY+rNqAqq3y9QhujBPTUTm1F3ppwzoD6mHlF351U2l2si11JHihwx26uHtcAVYP0S7q1pYGcI4WKRwQuiOIRwE3gh6tpSYQ64WvRwniUzXwPPxYPMYhLwaSwuZoEyDZV+YDgvd5fpJuzJ6aeMJRV07LRuU59X344bvwguVG0UJd/b1V9ShifULW3FRbo98muJQKmms6kXr1QPxQ7VhryZxxbJhRIENy5pvzqrvaue6UBqSj2RnGN62qcu2KY71KZ10+oN9ax6WO0vSyz0mOQAMBz//gX8Gw/y47HOLI3/ARBEhivJ41EhAAAAAElFTkSuQmCC');
+
         &.one {
-            margin-left: -30px;
-            margin-top: -20px;
+            margin-left: -35px;
+            margin-top: 0px;
         }
 
         &.two {
-            margin-left: 8px;
+            margin-left: -4px;
             animation-direction: reverse;
             -moz-animation-direction: reverse;
             -webkit-animation-direction: reverse;
         }
+    }
 
-        &.three {
-            margin-left: -6px;
-            margin-top: 22px;
-            width: 30px;
-            height: 30px;
-
-            i::before {
-                font-size: 33px;
-                top: -1px;
-            }
-        }
+    >.message {
+        width: 300px;
+        text-align: center;
+        margin-left: -150px;
+        margin-top: 50px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        color: #ccc;
+        font-size: 16px;
+        font-weight: bold;
     }
 
     >.content {

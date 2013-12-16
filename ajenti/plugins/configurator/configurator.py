@@ -87,7 +87,13 @@ class Configurator (SectionPlugin):
     @on('sync-users-button', 'click')
     def on_sync_users(self):
         self.save()
-        UserManager.get(manager.context).get_sync_provider().sync()
+        prov = UserManager.get(manager.context).get_sync_provider()
+        try:
+            prov.test()
+            prov.sync()
+        except Exception as e:
+            self.context.notify('error', str(e))
+            
         self.refresh()
 
     @on('configure-sync-button', 'click')
@@ -109,7 +115,13 @@ class Configurator (SectionPlugin):
         self.find('password').visible = provider.id == ''
         self.find('configure-sync-button').visible = provider.classconfig_editor is not None
 
-        sync_ok = provider.test()
+        try:
+            provider.test()
+            sync_ok = True
+        except Exception as e:
+            self.context.notify('error', str(e))
+            sync_ok = False
+
         self.find('sync-status-ok').visible = sync_ok
         self.find('sync-status-fail').visible = not sync_ok
 

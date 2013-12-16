@@ -11,54 +11,58 @@ from base import UserSyncProvider
 
 
 @plugin
-class LDAPSyncClassConfigEditor (ClassConfigEditor):
-    title = _('LDAP User Syncronization')
+class ADSyncClassConfigEditor (ClassConfigEditor):
+    title = _('Active Directory Syncronization')
     icon = 'refresh'
 
     def init(self):
-        self.append(self.ui.inflate('configurator:ldap-sync-config'))
+        self.append(self.ui.inflate('configurator:ad-sync-config'))
 
 
 @plugin
-class LDAPSyncProvider (UserSyncProvider):
-    id = 'ldap'
-    title = 'LDAP'
+class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
+    id = 'ad'
+    title = 'Active Directory'
     default_classconfig = {
-        'url': 'ldap://localhost',
-        'admin_dn': 'cn=admin,dc=nodomain',
-        'auth_dn': 'dc=nodomain',
-        'secret': '',
+        'address': 'localhost',
+        'domain': 'DOMAIN',
+        'password': '',
+        'base': 'cn=Users,dc=DOMAIN',
     }
     classconfig_root = True
-    classconfig_editor = LDAPSyncClassConfigEditor
+    classconfig_editor = ADSyncClassConfigEditor
 
     def __get_ldap(self):
-        c = ldap.initialize(self.classconfig['url'])
-        c.bind_s(self.classconfig['admin_dn'], self.classconfig['secret'])
+        c = ldap.initialize('ldap://' + self.classconfig['address'])
+        c.bind_s('%s\\Administrator' % self.classconfig['domain'], self.classconfig['password'])
+        c.set_option(ldap.OPT_REFERRALS, 0)
         return c
 
     def test(self):
-        return self.__get_ldap() is not None
+        self.__search()
 
     def check_password(self, username, password):
         l = self.__get_ldap()
         try:
-            return bool(l.bind_s('cn=%s,' % username + self.classconfig['auth_dn'], password))
+            return bool(l.bind_s('%s\\%s' % (self.classconfig['domain'], username), password))
         except Exception, e:
             print e
             return False
 
-    def sync(self):
-        found_names = []
+    def __search(self):
         l = self.__get_ldap()
-        users = l.search_s(
-            self.classconfig['auth_dn'], 
+        return l.search_s(
+            self.classconfig['base'], 
             ldap.SCOPE_SUBTREE, 
             '(|(objectClass=user)(objectClass=simpleSecurityObject))', 
-            ['cn']
+            ['sAMAccountName']
         ) 
+
+    def sync(self):
+        found_names = []
+        users = self.__search()
         for u in users:
-            username = u[1]['cn'][0]
+            username = u[1]['sAMAccountName'][0]
             found_names.append(username)
             if not username in ajenti.config.tree.users:
                 u = UserData()
@@ -70,4 +74,3 @@ class LDAPSyncProvider (UserSyncProvider):
                 ajenti.config.tree.users.pop(user.name)
 
         ajenti.config.save()
-    

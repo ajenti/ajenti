@@ -1,0 +1,16 @@
+<bind:dict id="bind">
+    <vc>
+        <formline text="{Server address}">
+            <textbox bind="address" />
+        </formline>
+        <formline text="{Domain name}">
+            <textbox bind="domain" />
+        </formline>
+        <formline text="{Base DN}">
+            <textbox bind="base" />
+        </formline>
+        <formline text="{Admin password}">
+            <passwordbox bind="password" />
+        </formline>
+    </vc>
+</bind:dict>

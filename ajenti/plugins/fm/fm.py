@@ -1,5 +1,4 @@
 import os
-import shutil
 
 from ajenti.api import *
 from ajenti.api.http import *
@@ -8,7 +7,7 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
-from backend import FMBackend, Item
+from backend import FMBackend, Item, Unpacker
 
 
 @plugin
@@ -53,6 +52,8 @@ class FileManager (SectionPlugin):
         self.binder = Binder(self.controller, self.find('filemanager')).autodiscover().populate()
         self.binder_c = Binder(self, self.find('bind-clipboard')).autodiscover().populate()
 
+    def on_page_load(self):
+        self.refresh()
 
     def refresh_clipboard(self):
         self.binder_c.reset().autodiscover().populate()
@@ -175,6 +176,17 @@ class FileManager (SectionPlugin):
         self.item = Item(path)
         self.item.read()
         self.binder_d = Binder(self.item, self.find('dialog')).autodiscover().populate()
+
+        # Unpack
+        u = Unpacker.find(self.item.fullpath.lower())
+        unpack_btn = self.find('dialog').find('unpack')
+        unpack_btn.visible = u is not None
+
+        def cb():
+            self.context.notify('info', _('Unpacked'))
+            self.refresh()
+
+        unpack_btn.on('click', lambda: u.unpack(self.item.fullpath, cb=cb))
 
     @on('dialog', 'button')
     def on_close_dialog(self, button):

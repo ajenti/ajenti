@@ -8,7 +8,10 @@ class Feedback
             params.os = @os
             params.version = @version
             params.edition = @edition
-            mixpanel.track evt, params
+            try
+                mixpanel.track evt, params
+            catch e
+                ;
 
 
 window.Feedback = new Feedback()        

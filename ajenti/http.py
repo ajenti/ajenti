@@ -214,19 +214,22 @@ class HttpContext (object):
             rfrom, rto = range.split('=')[1].split('-')
             rfrom = int(rfrom) if rfrom else 0
             rto = int(rto) if rto else (rsize - 1)
-
+        else:
+            rfrom = 0
+            rto = 999999999
+            
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         self.add_header('Accept-Ranges', 'bytes')
 
         if stream:
-            self.add_header('Content-Length', str(rto - rfrom + 1))
             if rfrom:
+                self.add_header('Content-Length', str(rto - rfrom + 1))
                 self.add_header('Content-Range', 'bytes %i-%i/%i' % (rfrom, rto, rsize))
                 self.respond('206 Partial Content')
             else:
                 self.respond_ok()
             fd = os.open(path, os.O_RDONLY)# | os.O_NONBLOCK)
-            os.lseek(fd, rfrom, os.SEEK_SET)
+            os.lseek(fd, rfrom or 0, os.SEEK_SET)
             bufsize = 100 * 1024
             read = rfrom
             buf = 1

@@ -23,7 +23,9 @@
                                     <dtd binder:context="definition">
                                         <vc style="nopad">
                                             <label style="bold" bind="name" />
-                                            <label bind:text="message" />
+                                            <box bind:visible="message" bindtransform="bool">
+                                                <label bind:text="message" />
+                                            </box>
                                             <progressbar 
                                                 bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
                                                 width="200"
@@ -64,8 +66,12 @@
                                         <icon icon="warning-sign" bind:visible="result" bindtransform="lambda x: x != 0" />
                                     </dtd>
                                     <dtd>
-                                        <vc>
-                                            <label bind="name" />
+                                        <vc style="nopad">
+                                            <hc>
+                                                <label bind="name" style="bold" />
+                                                <label text="on" />
+                                                <label bind="time_started" bindtransform="str" />
+                                            </hc>
                                             <box bind:visible="output" bindtransform="bool">
                                                 <label bind:text="output"/> 
                                             </box>
@@ -81,6 +87,7 @@
                                                 bindtransform="lambda x: x == 2" />
                                             <label bind:visible="result" text="{Crashed}" 
                                                 bindtransform="lambda x: x == 3" />
+                                            <label bind="duration" bindtransform="lambda x: '(%s)' % x" />
                                         </vc>
                                     </dtd>
                                 </dtr>

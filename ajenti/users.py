@@ -1,3 +1,4 @@
+import logging
 from passlib.hash import sha512_crypt
 
 import ajenti
@@ -47,8 +48,19 @@ class UserManager (BasePlugin):
         :type password: str
         :rtype: bool
         """
-        provider = self.get_sync_provider(fallback=True)
-        provider.sync()
+        if username == 'root':
+            provider = ajenti.usersync.AjentiSyncProvider.get()
+        else:
+            provider = self.get_sync_provider(fallback=True)
+
+        if not username in ajenti.config.tree.users:
+            return False
+            
+        try:
+            provider.sync()
+        except Exception as e:
+            logging.error(str(e))
+
         return provider.check_password(username, password)
 
     def hash_password(self, password):
@@ -92,8 +104,11 @@ class UserManager (BasePlugin):
         for p in ajenti.usersync.UserSyncProvider.get_classes():
             p.get()
             if p.id == self.classconfig['sync-provider']:
-                if not p.get().test() and fallback:
-                    return ajenti.usersync.AjentiSyncProvider.get()
+                try:
+                    p.get().test()
+                except:
+                    if fallback:
+                        return ajenti.usersync.AjentiSyncProvider.get()
                 return p.get()
 
     def set_sync_provider(self, provider_id):

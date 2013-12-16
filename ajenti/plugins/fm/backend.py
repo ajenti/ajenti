@@ -1,7 +1,8 @@
-import shutil
 import os
+import re
 import subprocess
 import stat
+import shutil
 import pwd
 import grp
 
@@ -140,3 +141,36 @@ class FMBackend (BasePlugin):
                 else:
                     shutil.copy(i.fullpath, os.path.join(dest, i.name))
             cb()
+
+
+@interface
+class Unpacker (BasePlugin):
+    @staticmethod
+    def find(fn):
+        for u in Unpacker.get_all():
+            if u.match(fn):
+                return u
+
+    def match(self, fn):
+        pass
+
+    def unpack(self, path, cb=lambda: None):
+        pass
+
+
+@plugin
+class TarUnpacker (Unpacker):
+    def match(self, fn):
+        return any(re.match(x, fn) for x in [r'.+\.tar.gz', r'.+\.tgz', r'.+\.tar'])
+
+    def unpack(self, fn, cb=lambda: None):
+        self.context.launch('terminal', command='cd "%s"; tar xvf "%s"' % os.path.split(fn), callback=cb)
+
+
+@plugin
+class ZipUnpacker (Unpacker):
+    def match(self, fn):
+        return any(re.match(x, fn) for x in [r'.+\.zip'])
+
+    def unpack(self, fn, cb=lambda: None):
+        self.context.launch('terminal', command='cd "%s"; unzip "%s"' % os.path.split(fn), callback=cb)
