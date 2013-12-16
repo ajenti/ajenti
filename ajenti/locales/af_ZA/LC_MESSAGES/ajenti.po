@@ -1,26 +1,30 @@
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
+msgstr "bedryfstelsel gebruikers"
+
+#: ajenti/usersync/adsync.py:15
+msgid "Active Directory Syncronization"
 msgstr ""
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "afgeskakel"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "LDAP gebruiker sinchronisasie"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
-msgstr ""
+msgstr "krag"
 
 #: ajenti/plugins/power/power.py:98
 msgid "Power control"
-msgstr ""
+msgstr "krag beheer"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Slaap"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
@@ -36,11 +40,11 @@ msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "AC krag"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "battery"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
@@ -62,26 +66,26 @@ msgstr ""
 msgid "Shutdown the system?"
 msgstr ""
 
-#: ajenti/plugins/main/main.py:205
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr ""
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr ""
+msgstr "gemiddelde lading"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU gebruik"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr ""
+msgstr "geheue gebruik"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr ""
+msgstr "uitruil gebruik"
 
 #: ajenti/plugins/sensors/uptime.py:74
 msgid "Uptime"
@@ -92,16 +96,6 @@ msgstr ""
 msgid "Variant"
 msgstr ""
 
-#: ajenti/plugins/elements/bin/dict.xml:1
-msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/users-main.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:24
-msgid "Change password"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/users-main.xml:2
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
@@ -135,11 +129,45 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:35
 #: ajenti/plugins/netatalk/layout/main.xml:3
 msgid "Confirm deletion"
+msgstr "bevestig skrapping"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/cron/layout/main.xml:25
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:16
+#: ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/raid/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:39
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/bind9/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/netatalk/layout/main.xml:4
+msgid "Name"
+msgstr "Naam"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:28
+msgid "Enable"
+msgstr "aktiveer"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:201
+msgid "Configuration"
 msgstr ""
 
-#: ajenti/plugins/elements/layout/users-main.xml:3
-#: ajenti/plugins/elements/layout/users-main.xml:4
-#: ajenti/plugins/elements/layout/users-main.xml:5
 #: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:10
 #: ajenti/plugins/supervisor/layout/main.xml:16
@@ -173,60 +201,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
 msgid "Create"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
-msgid "OK"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:2
-#: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:15
-#: ajenti/plugins/dashboard/layout/dash.xml:3
-msgid "Cancel"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/megaraid-main.xml:1
-#: ajenti/plugins/elements/layout/areca-main.xml:1
-#: ajenti/plugins/megaraid/layout/main.xml:1
-msgid "Adapter"
-msgstr ""
-
-#: ajenti/plugins/webserver_common/layout/main.xml:2
-#: ajenti/plugins/db_common/layout/main.xml:3
-#: ajenti/plugins/iptables/layout/option-custom.xml:1
-#: ajenti/plugins/cron/layout/main.xml:25
-#: ajenti/plugins/scripts/layout/widget.xml:1
-#: ajenti/plugins/packages/layout/headers.xml:1
-#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/squid/layout/main.xml:3
-#: ajenti/plugins/raid/layout/main.xml:1
-#: ajenti/plugins/users/layout/main.xml:4
-#: ajenti/plugins/users/layout/main.xml:11
-#: ajenti/plugins/network/layout/main.xml:1
-#: ajenti/plugins/taskmgr/layout/main.xml:2
-#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
-#: ajenti/plugins/tasks/layout/main.xml:10
-#: ajenti/plugins/tasks/layout/main.xml:20
-#: ajenti/plugins/tasks/layout/main.xml:39
-#: ajenti/plugins/hosts/layout/main.xml:2
-#: ajenti/plugins/bind9/layout/main.xml:3
-#: ajenti/plugins/samba/layout/main.xml:5
-#: ajenti/plugins/netatalk/layout/main.xml:4
-msgid "Name"
-msgstr ""
-
-#: ajenti/plugins/webserver_common/layout/main.xml:3
-#: ajenti/plugins/iptables/main.py:144
-#: ajenti/plugins/configurator/layout/main.xml:15
-#: ajenti/plugins/configurator/layout/main.xml:28
-msgid "Enable"
-msgstr ""
-
-#: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:187
-msgid "Configuration"
-msgstr ""
+msgstr "skep"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:18
@@ -251,11 +226,11 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:38
 #: ajenti/plugins/netatalk/layout/main.xml:14
 msgid "Save"
-msgstr ""
+msgstr "stoor"
 
 #: ajenti/plugins/fstab/main.py:43
 msgid "Filesystems"
-msgstr ""
+msgstr "lêer stelsels"
 
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:67
 #: ajenti/plugins/cron/main.py:17 ajenti/plugins/packages/main.py:14
@@ -264,11 +239,11 @@ msgstr ""
 #: ajenti/plugins/taskmgr/main.py:16 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/resolv/main.py:15
 msgid "System"
-msgstr ""
+msgstr "stelsel"
 
 #: ajenti/plugins/fstab/main.py:67
 msgid "Unmounted"
-msgstr ""
+msgstr "ongemonteer"
 
 #: ajenti/plugins/fstab/main.py:74
 msgid "mount -a failed"
@@ -287,11 +262,11 @@ msgstr ""
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr ""
+msgstr "spasie op die hardeskyf"
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr ""
+msgstr "vry spasie op die hardeskyf"
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
@@ -307,12 +282,12 @@ msgstr ""
 #: ajenti/plugins/network/layout/widget.xml:1
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "toestel"
 
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/tasks/layout/main.xml:2
 msgid "Refresh"
-msgstr ""
+msgstr "verfris"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
@@ -321,7 +296,7 @@ msgstr ""
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr ""
+msgstr "hegpunt"
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 msgid "FS type"
@@ -334,7 +309,7 @@ msgstr ""
 #: ajenti/plugins/squid/layout/port-template.xml:3
 #: ajenti/plugins/resolv/main.py:18 ajenti/plugins/exports/layout/main.xml:5
 msgid "Options"
-msgstr ""
+msgstr "opsies"
 
 #: ajenti/plugins/fstab/layout/main.xml:8
 msgid "Scan frequency"
@@ -346,27 +321,27 @@ msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr ""
+msgstr "gemonteerde lêerstelsels"
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr ""
+msgstr "gebruik"
 
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr ""
+msgstr "grootte"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr ""
+msgstr "verbruik"
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr ""
+msgstr "ontheg"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "hardeskyf temperatuur"
 
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/squid/main.py:16
@@ -377,14 +352,14 @@ msgstr ""
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/munin/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/netatalk/main.py:19
 msgid "Software"
-msgstr ""
+msgstr "sagteware"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/psql/main.py:13
 #: ajenti/plugins/mysql/main.py:15 ajenti/plugins/apache/main.py:13
 #: ajenti/plugins/nginx/main.py:12
 msgid "Reload"
-msgstr ""
+msgstr "herlaai"
 
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:10
@@ -393,7 +368,7 @@ msgstr ""
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 msgid "Command"
-msgstr ""
+msgstr "bevel"
 
 #: ajenti/plugins/supervisor/layout/main.xml:4
 msgid "Working directory"
@@ -436,20 +411,20 @@ msgstr ""
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr ""
+msgstr "gebruikersnaam"
 
 #: ajenti/plugins/supervisor/layout/main.xml:15
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
-msgstr ""
+msgstr "omgewing"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
-msgstr ""
+msgstr "DHCP-bediener"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "subnetwerke"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
@@ -480,7 +455,7 @@ msgstr ""
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr ""
+msgstr "databasisse"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
@@ -491,7 +466,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:15 ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:33
 msgid "Users"
-msgstr ""
+msgstr "gebruikers"
 
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:5
@@ -501,7 +476,7 @@ msgstr ""
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr ""
+msgstr "databasis naam"
 
 #: ajenti/plugins/db_common/layout/main.xml:13
 #: ajenti/plugins/configurator/layout/main.xml:11
@@ -514,7 +489,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/netatalk/layout/main.xml:6
 msgid "Password"
-msgstr ""
+msgstr "Wagwoord"
 
 #: ajenti/plugins/iptables/main.py:57
 msgid "You can't disable firewall autostart on this platform"
@@ -558,7 +533,7 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
-msgstr ""
+msgstr "poort"
 
 #: ajenti/plugins/iptables/layout/option-address.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:18
@@ -607,7 +582,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "nuwe reël"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
@@ -625,7 +600,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr ""
+msgstr "rede"
 
 #: ajenti/plugins/configurator/configurator.py:33
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -634,28 +609,28 @@ msgstr ""
 msgid "Configure"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:115
+#: ajenti/plugins/configurator/configurator.py:129
 msgid "Auto"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:135
+#: ajenti/plugins/configurator/configurator.py:149
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:155
 msgid "Please supply hostname"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:169
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:191
+#: ajenti/plugins/configurator/configurator.py:205
 msgid "Modify Ajenti configuration"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:192
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Restart Ajenti"
 msgstr ""
 
@@ -664,11 +639,11 @@ msgstr ""
 #: ajenti/plugins/ctdb/layout/main.xml:4
 #: ajenti/plugins/samba/layout/main.xml:4
 msgid "General"
-msgstr ""
+msgstr "algemene"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "taal"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -684,7 +659,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "roete na sertifikaat"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
@@ -692,7 +667,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Genereer"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
@@ -700,11 +675,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "sinchroniseer met"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "sinchroniseer nou"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
@@ -712,7 +687,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "versuim om te sinchroniseer"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -723,18 +698,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+#: ajenti/plugins/configurator/layout/main.xml:24
+msgid "Change password"
+msgstr "Verander wagwoord"
+
 #: ajenti/plugins/configurator/layout/main.xml:26
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
-msgstr ""
+msgstr "ander"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Send feedback"
-msgstr ""
+msgstr "stuur terugvoer"
 
 #: ajenti/plugins/configurator/layout/main.xml:29
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti sal anoniem sy weergawe, jou bedryfstelsel se naam en watter uitbreidings jy die meeste gebruik stuur na ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 #: ajenti/plugins/plugins/plugins.py:10
@@ -770,6 +749,22 @@ msgstr ""
 msgid "Secret"
 msgstr ""
 
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
+msgid "Server address"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
+msgid "Domain name"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
+msgid "Base DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin password"
+msgstr ""
+
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
 msgstr ""
@@ -786,17 +781,17 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:32
 msgid "Hour"
-msgstr ""
+msgstr "uur"
 
 #: ajenti/plugins/cron/layout/main.xml:7
 #: ajenti/plugins/tasks/layout/main.xml:33
 msgid "Day"
-msgstr ""
+msgstr "dag"
 
 #: ajenti/plugins/cron/layout/main.xml:8
 #: ajenti/plugins/tasks/layout/main.xml:34
 msgid "Month"
-msgstr ""
+msgstr "maand"
 
 #: ajenti/plugins/cron/layout/main.xml:9
 #: ajenti/plugins/tasks/layout/main.xml:35
@@ -810,32 +805,32 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:14
 #: ajenti/plugins/tasks/layout/main.xml:22
 msgid "Schedule"
-msgstr ""
+msgstr "skedule"
 
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "uurliks"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "daagliks"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "weekliks"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "maandeliks"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "jaarliks"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
@@ -877,6 +872,10 @@ msgstr ""
 
 #: ajenti/plugins/packages/main.py:61
 msgid "Installation complete!"
+msgstr ""
+
+#: ajenti/plugins/packages/main.py:73
+msgid "Querying package manager"
 msgstr ""
 
 #: ajenti/plugins/packages/main.py:134
@@ -939,18 +938,28 @@ msgstr ""
 msgid "Mark for removal"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+#: ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/layout/main.xml:15
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "Cancel"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
 msgid "File Manager"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:146
+#: ajenti/plugins/fm/fm.py:147
 #, python-format
 msgid "Selected %i items"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:186
+msgid "Unpacked"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:1
@@ -1000,22 +1009,26 @@ msgid "Remove"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:17
-msgid "Access"
+msgid "Unpack"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:18
+msgid "Access"
+msgstr "toegang"
+
+#: ajenti/plugins/fm/layout/main.xml:19
 msgid "Owner"
-msgstr ""
+msgstr "eienaar"
 
-#: ajenti/plugins/fm/layout/main.xml:19 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:20 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
-msgstr ""
-
-#: ajenti/plugins/fm/layout/main.xml:20
-msgid "Others"
-msgstr ""
+msgstr "groep"
 
 #: ajenti/plugins/fm/layout/main.xml:21
+msgid "Others"
+msgstr "ander"
+
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Set recursively"
 msgstr ""
 
@@ -1035,7 +1048,7 @@ msgstr ""
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/tasks/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:11
-#: ajenti/plugins/plugins/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Status"
 msgstr ""
 
@@ -1217,7 +1230,7 @@ msgid "State"
 msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/plugins/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
@@ -1237,7 +1250,7 @@ msgstr ""
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcache geheue gebruik"
 
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
@@ -1276,17 +1289,17 @@ msgstr ""
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 msgid "Start"
-msgstr ""
+msgstr "begin"
 
 #: ajenti/plugins/services/layout/bar.xml:2
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "stop"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "oorsprong"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
@@ -1300,7 +1313,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:108
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Wagwoord vir %s was verander"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
@@ -1314,7 +1327,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Wagwoord vir %s was verwyder"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
@@ -1326,7 +1339,7 @@ msgstr ""
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "nuwe wagwoord"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:37
@@ -1337,15 +1350,15 @@ msgstr ""
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 #: ajenti/plugins/samba/layout/main.xml:30
 msgid "User"
-msgstr ""
+msgstr "gebruiker"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "stelsel gebruikers"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr ""
+msgstr "groepe"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
@@ -1401,7 +1414,7 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "ouer"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1453,17 +1466,17 @@ msgstr ""
 msgid "Moving %s"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:63
+#: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:97
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:103
+#: ajenti/plugins/tasks/manager.py:109
 #, python-format
 msgid "Task %s started"
 msgstr ""
@@ -1562,6 +1575,10 @@ msgstr ""
 msgid "Run in parallel"
 msgstr ""
 
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr ""
+
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
 msgstr ""
@@ -1591,11 +1608,15 @@ msgstr ""
 msgid "Bookmark"
 msgstr ""
 
-#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/plugins/plugins.py:37
+msgid "Gathering plugin list"
+msgstr ""
+
+#: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
 msgstr ""
 
-#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
 msgstr ""
 
@@ -1680,15 +1701,15 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "roete"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
-msgstr ""
+msgstr "gas gebruikers"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Browseable"
-msgstr ""
+msgstr "soekbare"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Create mask"
@@ -1700,7 +1721,7 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:11
 msgid "Read only"
-msgstr ""
+msgstr "slegs lees"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
@@ -1708,11 +1729,11 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "gebruikers toegelaat"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "lees en skryf gebruikers"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -1733,7 +1754,7 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
-msgstr ""
+msgstr "koppelvlakke"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
@@ -1745,7 +1766,7 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr ""
+msgstr "werkgroep"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"
@@ -1753,11 +1774,11 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
-msgstr ""
+msgstr "sekuriteit"
 
 #: ajenti/plugins/samba/layout/main.xml:28
 msgid "Sessions"
-msgstr ""
+msgstr "sessies"
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
@@ -1773,7 +1794,7 @@ msgstr ""
 
 #: ajenti/plugins/dashboard/dash.py:21
 msgid "Dashboard"
-msgstr ""
+msgstr "paneelbord"
 
 #: ajenti/plugins/dashboard/dash.py:175
 msgid "Widgets"
@@ -1781,7 +1802,7 @@ msgstr ""
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr ""
+msgstr "Welkom"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"

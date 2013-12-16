@@ -2,6 +2,10 @@
 msgid "OS users"
 msgstr "مستخدمي نظام التشغيل"
 
+#: ajenti/usersync/adsync.py:15
+msgid "Active Directory Syncronization"
+msgstr ""
+
 #: ajenti/usersync/local.py:12
 msgid "Off"
 msgstr ""
@@ -62,7 +66,7 @@ msgstr "توقيف"
 msgid "Shutdown the system?"
 msgstr "إيقاف تشغيل النظام؟"
 
-#: ajenti/plugins/main/main.py:205
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "الوصول إلى الباب"
 
@@ -92,16 +96,6 @@ msgstr "الجهوزية"
 msgid "Variant"
 msgstr "البديل"
 
-#: ajenti/plugins/elements/bin/dict.xml:1
-msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/users-main.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:24
-msgid "Change password"
-msgstr "تغيير كلمة المرور"
-
-#: ajenti/plugins/elements/layout/users-main.xml:2
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
@@ -137,9 +131,43 @@ msgstr "تغيير كلمة المرور"
 msgid "Confirm deletion"
 msgstr "تأكيد عملية الحذف"
 
-#: ajenti/plugins/elements/layout/users-main.xml:3
-#: ajenti/plugins/elements/layout/users-main.xml:4
-#: ajenti/plugins/elements/layout/users-main.xml:5
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/cron/layout/main.xml:25
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:16
+#: ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/raid/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:39
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/bind9/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/netatalk/layout/main.xml:4
+msgid "Name"
+msgstr "الاسم"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:28
+msgid "Enable"
+msgstr "تفعيل"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:201
+msgid "Configuration"
+msgstr "إعدادات"
+
 #: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:10
 #: ajenti/plugins/supervisor/layout/main.xml:16
@@ -174,59 +202,6 @@ msgstr "تأكيد عملية الحذف"
 #: ajenti/plugins/netatalk/layout/main.xml:2
 msgid "Create"
 msgstr "انشاء"
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
-msgid "OK"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:2
-#: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:15
-#: ajenti/plugins/dashboard/layout/dash.xml:3
-msgid "Cancel"
-msgstr "إلغاء الأمر"
-
-#: ajenti/plugins/elements/layout/megaraid-main.xml:1
-#: ajenti/plugins/elements/layout/areca-main.xml:1
-#: ajenti/plugins/megaraid/layout/main.xml:1
-msgid "Adapter"
-msgstr "محول"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:2
-#: ajenti/plugins/db_common/layout/main.xml:3
-#: ajenti/plugins/iptables/layout/option-custom.xml:1
-#: ajenti/plugins/cron/layout/main.xml:25
-#: ajenti/plugins/scripts/layout/widget.xml:1
-#: ajenti/plugins/packages/layout/headers.xml:1
-#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/squid/layout/main.xml:3
-#: ajenti/plugins/raid/layout/main.xml:1
-#: ajenti/plugins/users/layout/main.xml:4
-#: ajenti/plugins/users/layout/main.xml:11
-#: ajenti/plugins/network/layout/main.xml:1
-#: ajenti/plugins/taskmgr/layout/main.xml:2
-#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
-#: ajenti/plugins/tasks/layout/main.xml:10
-#: ajenti/plugins/tasks/layout/main.xml:20
-#: ajenti/plugins/tasks/layout/main.xml:39
-#: ajenti/plugins/hosts/layout/main.xml:2
-#: ajenti/plugins/bind9/layout/main.xml:3
-#: ajenti/plugins/samba/layout/main.xml:5
-#: ajenti/plugins/netatalk/layout/main.xml:4
-msgid "Name"
-msgstr "الاسم"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:3
-#: ajenti/plugins/iptables/main.py:144
-#: ajenti/plugins/configurator/layout/main.xml:15
-#: ajenti/plugins/configurator/layout/main.xml:28
-msgid "Enable"
-msgstr "تفعيل"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:187
-msgid "Configuration"
-msgstr "إعدادات"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:18
@@ -634,28 +609,28 @@ msgstr "السبب"
 msgid "Configure"
 msgstr "الإعدادات"
 
-#: ajenti/plugins/configurator/configurator.py:115
+#: ajenti/plugins/configurator/configurator.py:129
 msgid "Auto"
 msgstr "تلقائي"
 
-#: ajenti/plugins/configurator/configurator.py:135
+#: ajenti/plugins/configurator/configurator.py:149
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "تم الحفظ. رجاءا قم بإعادة تشغبل البرنامج حتى يتم العمل بالتغييرات. "
 
-#: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:155
 msgid "Please supply hostname"
 msgstr "من فضلك! أدخل اسم المستضيف"
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:169
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "فضلا، قم بإعداد الإضافة %s"
 
-#: ajenti/plugins/configurator/configurator.py:191
+#: ajenti/plugins/configurator/configurator.py:205
 msgid "Modify Ajenti configuration"
 msgstr "تغير إعدادات Ajenti "
 
-#: ajenti/plugins/configurator/configurator.py:192
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Restart Ajenti"
 msgstr "إعادة تشغيل Ajenti"
 
@@ -723,6 +698,10 @@ msgstr "الحسابات"
 msgid "Delete"
 msgstr "حذف"
 
+#: ajenti/plugins/configurator/layout/main.xml:24
+msgid "Change password"
+msgstr "تغيير كلمة المرور"
+
 #: ajenti/plugins/configurator/layout/main.xml:26
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
@@ -769,6 +748,22 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
 msgstr "سر"
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
+msgid "Server address"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
+msgid "Domain name"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
+msgid "Base DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin password"
+msgstr ""
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -879,6 +874,10 @@ msgstr "تثبيت حزم في الإنتظار"
 msgid "Installation complete!"
 msgstr "إنتهى التثبيت"
 
+#: ajenti/plugins/packages/main.py:73
+msgid "Querying package manager"
+msgstr ""
+
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
@@ -939,19 +938,29 @@ msgstr "التأشير للتثبيت/الترقية"
 msgid "Mark for removal"
 msgstr "التأشير لإزالة"
 
-#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+#: ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/layout/main.xml:15
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "Cancel"
+msgstr "إلغاء الأمر"
+
+#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
 msgid "File Manager"
 msgstr "إدارة الملفات"
 
-#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "الأدوات"
 
-#: ajenti/plugins/fm/fm.py:146
+#: ajenti/plugins/fm/fm.py:147
 #, python-format
 msgid "Selected %i items"
 msgstr "العناصر المحددة %i"
+
+#: ajenti/plugins/fm/fm.py:186
+msgid "Unpacked"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/notepad/layout/config.xml:1
@@ -1000,22 +1009,26 @@ msgid "Remove"
 msgstr "إزالة"
 
 #: ajenti/plugins/fm/layout/main.xml:17
+msgid "Unpack"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
 msgstr "الوصول"
 
-#: ajenti/plugins/fm/layout/main.xml:18
+#: ajenti/plugins/fm/layout/main.xml:19
 msgid "Owner"
 msgstr "المالك"
 
-#: ajenti/plugins/fm/layout/main.xml:19 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:20 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
 msgstr "المجموعة"
 
-#: ajenti/plugins/fm/layout/main.xml:20
+#: ajenti/plugins/fm/layout/main.xml:21
 msgid "Others"
 msgstr "إعدادات اخرى"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Set recursively"
 msgstr ""
 
@@ -1035,7 +1048,7 @@ msgstr "المضيف:المنفذ أو مسار مأخذ UNIX"
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/tasks/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:11
-#: ajenti/plugins/plugins/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Status"
 msgstr "الحالة"
 
@@ -1217,7 +1230,7 @@ msgid "State"
 msgstr "الحالة"
 
 #: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/plugins/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
@@ -1453,17 +1466,17 @@ msgstr ""
 msgid "Moving %s"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:63
+#: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:97
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:103
+#: ajenti/plugins/tasks/manager.py:109
 #, python-format
 msgid "Task %s started"
 msgstr "بدأت المهمة %s"
@@ -1562,6 +1575,10 @@ msgstr "الإدخال اليدوي"
 msgid "Run in parallel"
 msgstr "بالتوازي"
 
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr "محول"
+
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
 msgstr "صفيفه"
@@ -1591,11 +1608,15 @@ msgstr "حفظ باسم"
 msgid "Bookmark"
 msgstr "التأشير"
 
-#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/plugins/plugins.py:37
+msgid "Gathering plugin list"
+msgstr ""
+
+#: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
 msgstr "التبعيات"
 
-#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
 msgstr "يعتمد على"
 

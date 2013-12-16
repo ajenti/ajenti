@@ -2,6 +2,10 @@
 msgid "OS users"
 msgstr "Пользователи OS"
 
+#: ajenti/usersync/adsync.py:15
+msgid "Active Directory Syncronization"
+msgstr "Синхронизация с Active Directory"
+
 #: ajenti/usersync/local.py:12
 msgid "Off"
 msgstr "Отключить"
@@ -62,7 +66,7 @@ msgstr "Отключить питание"
 msgid "Shutdown the system?"
 msgstr "Выключить систему?"
 
-#: ajenti/plugins/main/main.py:205
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Доступ к плагинам"
 
@@ -92,16 +96,6 @@ msgstr "Аптайм"
 msgid "Variant"
 msgstr "Вариант"
 
-#: ajenti/plugins/elements/bin/dict.xml:1
-msgid "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
-msgstr "0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0"
-
-#: ajenti/plugins/elements/layout/users-main.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:24
-msgid "Change password"
-msgstr "Изменить пароль"
-
-#: ajenti/plugins/elements/layout/users-main.xml:2
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:3
 #: ajenti/plugins/supervisor/layout/main.xml:2
@@ -137,9 +131,43 @@ msgstr "Изменить пароль"
 msgid "Confirm deletion"
 msgstr "Удалить?"
 
-#: ajenti/plugins/elements/layout/users-main.xml:3
-#: ajenti/plugins/elements/layout/users-main.xml:4
-#: ajenti/plugins/elements/layout/users-main.xml:5
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/cron/layout/main.xml:25
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:16
+#: ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/raid/layout/main.xml:1
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:39
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/bind9/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/netatalk/layout/main.xml:4
+msgid "Name"
+msgstr "Имя"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/configurator/layout/main.xml:15
+#: ajenti/plugins/configurator/layout/main.xml:28
+msgid "Enable"
+msgstr "Включить"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/configurator/configurator.py:201
+msgid "Configuration"
+msgstr "Настройки"
+
 #: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:10
 #: ajenti/plugins/supervisor/layout/main.xml:16
@@ -174,59 +202,6 @@ msgstr "Удалить?"
 #: ajenti/plugins/netatalk/layout/main.xml:2
 msgid "Create"
 msgstr "Создать"
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
-msgid "OK"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:2
-#: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:15
-#: ajenti/plugins/dashboard/layout/dash.xml:3
-msgid "Cancel"
-msgstr "Отмена"
-
-#: ajenti/plugins/elements/layout/megaraid-main.xml:1
-#: ajenti/plugins/elements/layout/areca-main.xml:1
-#: ajenti/plugins/megaraid/layout/main.xml:1
-msgid "Adapter"
-msgstr "Адаптер"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:2
-#: ajenti/plugins/db_common/layout/main.xml:3
-#: ajenti/plugins/iptables/layout/option-custom.xml:1
-#: ajenti/plugins/cron/layout/main.xml:25
-#: ajenti/plugins/scripts/layout/widget.xml:1
-#: ajenti/plugins/packages/layout/headers.xml:1
-#: ajenti/plugins/fm/layout/main.xml:12 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/squid/layout/main.xml:3
-#: ajenti/plugins/raid/layout/main.xml:1
-#: ajenti/plugins/users/layout/main.xml:4
-#: ajenti/plugins/users/layout/main.xml:11
-#: ajenti/plugins/network/layout/main.xml:1
-#: ajenti/plugins/taskmgr/layout/main.xml:2
-#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
-#: ajenti/plugins/tasks/layout/main.xml:10
-#: ajenti/plugins/tasks/layout/main.xml:20
-#: ajenti/plugins/tasks/layout/main.xml:39
-#: ajenti/plugins/hosts/layout/main.xml:2
-#: ajenti/plugins/bind9/layout/main.xml:3
-#: ajenti/plugins/samba/layout/main.xml:5
-#: ajenti/plugins/netatalk/layout/main.xml:4
-msgid "Name"
-msgstr "Имя"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:3
-#: ajenti/plugins/iptables/main.py:144
-#: ajenti/plugins/configurator/layout/main.xml:15
-#: ajenti/plugins/configurator/layout/main.xml:28
-msgid "Enable"
-msgstr "Включить"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:187
-msgid "Configuration"
-msgstr "Настройки"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:18
@@ -634,28 +609,28 @@ msgstr "Причина"
 msgid "Configure"
 msgstr "Настройки"
 
-#: ajenti/plugins/configurator/configurator.py:115
+#: ajenti/plugins/configurator/configurator.py:129
 msgid "Auto"
 msgstr "Авто"
 
-#: ajenti/plugins/configurator/configurator.py:135
+#: ajenti/plugins/configurator/configurator.py:149
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Сохранено. Пожалуйста, перезапустите Ajenti для применения изменений."
 
-#: ajenti/plugins/configurator/configurator.py:141
+#: ajenti/plugins/configurator/configurator.py:155
 msgid "Please supply hostname"
 msgstr "Пожалуйста, введите имя хоста"
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:169
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Пожалуйста, настройте плагин \"%s\"!"
 
-#: ajenti/plugins/configurator/configurator.py:191
+#: ajenti/plugins/configurator/configurator.py:205
 msgid "Modify Ajenti configuration"
 msgstr "Изменять настройки Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:192
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Restart Ajenti"
 msgstr "Перезапускать Ajenti"
 
@@ -723,6 +698,10 @@ msgstr "Учетные записи"
 msgid "Delete"
 msgstr "Удалить"
 
+#: ajenti/plugins/configurator/layout/main.xml:24
+msgid "Change password"
+msgstr "Изменить пароль"
+
 #: ajenti/plugins/configurator/layout/main.xml:26
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
@@ -769,6 +748,22 @@ msgstr "DN-суффикс при авторизации"
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
 msgstr "Секрет"
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
+msgid "Server address"
+msgstr "Адрес сервера"
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
+msgid "Domain name"
+msgstr "Домен"
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
+msgid "Base DN"
+msgstr "Корневой DN"
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin password"
+msgstr "Пароль администратора"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -879,6 +874,10 @@ msgstr "Установка пакета добавлена в очередь"
 msgid "Installation complete!"
 msgstr "Установка завершена!"
 
+#: ajenti/plugins/packages/main.py:73
+msgid "Querying package manager"
+msgstr "Запрашивается менеджер пакетов"
+
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
@@ -939,19 +938,29 @@ msgstr "Отметить для установки/обновления"
 msgid "Mark for removal"
 msgstr "Отметить для удаления"
 
-#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
+#: ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/layout/main.xml:15
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
 msgid "File Manager"
 msgstr "Менеджер файлов"
 
-#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "Инструменты"
 
-#: ajenti/plugins/fm/fm.py:146
+#: ajenti/plugins/fm/fm.py:147
 #, python-format
 msgid "Selected %i items"
 msgstr "Выбрано %i элементов"
+
+#: ajenti/plugins/fm/fm.py:186
+msgid "Unpacked"
+msgstr "Распаковано"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/notepad/layout/config.xml:1
@@ -1000,22 +1009,26 @@ msgid "Remove"
 msgstr "Убрать"
 
 #: ajenti/plugins/fm/layout/main.xml:17
+msgid "Unpack"
+msgstr "Распаковать"
+
+#: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
 msgstr "Доступ"
 
-#: ajenti/plugins/fm/layout/main.xml:18
+#: ajenti/plugins/fm/layout/main.xml:19
 msgid "Owner"
 msgstr "Владелец"
 
-#: ajenti/plugins/fm/layout/main.xml:19 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:20 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
 msgstr "Группа"
 
-#: ajenti/plugins/fm/layout/main.xml:20
+#: ajenti/plugins/fm/layout/main.xml:21
 msgid "Others"
 msgstr "Другие"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Set recursively"
 msgstr "Установить рекурсивно"
 
@@ -1035,7 +1048,7 @@ msgstr "хост:порт или путь к UNIX-сокету"
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/tasks/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:11
-#: ajenti/plugins/plugins/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Status"
 msgstr "Статус"
 
@@ -1217,7 +1230,7 @@ msgid "State"
 msgstr "Состояние"
 
 #: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/plugins/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
@@ -1453,17 +1466,17 @@ msgstr "Копируется %s"
 msgid "Moving %s"
 msgstr "Перемещается %s"
 
-#: ajenti/plugins/tasks/manager.py:63
+#: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
 msgstr "Задача %s завершена"
 
-#: ajenti/plugins/tasks/manager.py:97
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
 msgstr "Задача %s помещена в очередь"
 
-#: ajenti/plugins/tasks/manager.py:103
+#: ajenti/plugins/tasks/manager.py:109
 #, python-format
 msgid "Task %s started"
 msgstr "Задача %s запущена"
@@ -1562,6 +1575,10 @@ msgstr "Ручной ввод"
 msgid "Run in parallel"
 msgstr "Выполнять параллельно"
 
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr "Адаптер"
+
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
 msgstr "Массив"
@@ -1591,11 +1608,15 @@ msgstr "Сохранить как"
 msgid "Bookmark"
 msgstr "Закладка"
 
-#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/plugins/plugins.py:37
+msgid "Gathering plugin list"
+msgstr "Составляется список плагинов"
+
+#: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
 msgstr "Зависимости"
 
-#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
 msgstr "Зависит от"
 
@@ -1777,7 +1798,7 @@ msgstr "Главная"
 
 #: ajenti/plugins/dashboard/dash.py:175
 msgid "Widgets"
-msgstr ""
+msgstr "Виджеты"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
@@ -1789,7 +1810,7 @@ msgstr "Виджет"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Автообновление"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
