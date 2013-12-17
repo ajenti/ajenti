@@ -10,6 +10,7 @@ from base import UserSyncProvider
 class AjentiSyncProvider (UserSyncProvider):
     id = ''
     title = _('Off')
+    allows_renaming = True
     
     def test(self):
         return True

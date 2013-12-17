@@ -53,10 +53,17 @@ class Configurator (SectionPlugin):
         self.find('users').new_item = lambda c: UserData()
 
         def post_user_bind(object, collection, item, ui):
+            provider = UserManager.get(manager.context).get_sync_provider()
+            editable = item.name != 'root'
+            renameable = editable and provider.allows_renaming
+            deletable = renameable
+
+            ui.find('name-edit').visible = renameable 
+            ui.find('name-label').visible = not renameable 
+            ui.find('delete').visible = deletable
+            
             box = ui.find('permissions')
             box.empty()
-            ui.find('name-edit').visible = item.name != 'root'
-            ui.find('name-label').visible = item.name == 'root'
 
             p = PermissionProvider.get_all()
             for prov in p:
