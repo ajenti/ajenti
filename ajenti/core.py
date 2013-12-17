@@ -28,7 +28,13 @@ from ajenti.ui import Inflater
 
 import gevent
 from gevent import monkey
-monkey.patch_all(select=False, thread=False)
+
+try:
+    monkey.patch_all(select=False, thread=False) # old gevent
+except:
+    monkey.patch_all(select=False, thread=False, subprocess=True)
+
+
 from socketio.server import SocketIOServer
 
 

@@ -60,6 +60,7 @@ class window.Stream
 
         @socket.on 'progress-message', (m) ->
             console.log '...', m
+            Loading.show()
             Loading.setMessage(m)
 
         @socket.on 'crash', (data) ->
@@ -199,12 +200,12 @@ class window.LoadingDim
         @dom.show()
 
     hide: () ->
+        @setMessage('')
         $('.hide-when-loaded').hide()
         $('body').removeClass('loading')
         @dom.stop().fadeTo(125, 0, () => @dom.hide())
 
     show: () ->
-        @setMessage('')
         $('body').addClass('loading')
         @dom.show().stop().fadeTo(500, 1)
 
