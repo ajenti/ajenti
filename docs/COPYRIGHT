@@ -1,5 +1,5 @@
-Copyright (c) 2010-2011 The Ajenti Team
-* Eugeny Pankov <john.pankov@gmail.com>
+Copyright (c) 2010-2014 The Ajenti Team
+* Eugene Pankov <john.pankov@gmail.com>
 
 Contributors:
 * Dmitry Zamaruev <dmitry.zamaruev@gmail.com>
@@ -17,5 +17,5 @@ FEEDBACK:
 If you use Ajenti, we would be happy if you drop us a message about your experiences.
 
 
-LICENSED UNDER LGPLv3
-See LICENSE.
+LICENSED UNDER LGPLv3 WITH SPECIAL CLAUSES
+See docs/LICENSE.
