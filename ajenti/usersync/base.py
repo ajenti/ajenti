@@ -4,6 +4,7 @@ from ajenti.api import *
 @interface
 class UserSyncProvider (BasePlugin):
     allows_renaming = False
+    syncs_root = False
     
     def test(self):
         return False

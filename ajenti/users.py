@@ -48,10 +48,9 @@ class UserManager (BasePlugin):
         :type password: str
         :rtype: bool
         """
-        if username == 'root':
+        provider = self.get_sync_provider(fallback=True)
+        if username == 'root' and not provider.syncs_root:
             provider = ajenti.usersync.AjentiSyncProvider.get()
-        else:
-            provider = self.get_sync_provider(fallback=True)
 
         if not username in ajenti.config.tree.users:
             return False
