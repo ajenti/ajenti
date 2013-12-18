@@ -43,9 +43,13 @@ class window.Terminal
             @send(RawDeflate.Base64.encode(ch))
             event.preventDefault()
 
+        @socket.on 'connect', () ->
+            console.log 'Terminal connected'
+
         @socket.on 'set', (data) =>
             Loading.hide()
             @draw(data)
+            @socket.send(JSON.stringify(type: 'read'))
 
         @socket.on 're-select', (data) =>
             @select()
@@ -58,7 +62,9 @@ class window.Terminal
 
     draw: (data) ->
         data = RawDeflate.inflate(RawDeflate.Base64.decode(data))
+        console.log 'Payload size', data.length
         data = JSON.parse(data)
+        console.log 'Payload', data
 
         $('#term pre.cursor').removeClass('cursor');
 
@@ -92,7 +98,8 @@ class window.Terminal
         for i in [0...row.length]
             cell = row[i]
             iidx = parseInt(idx)
-            if true #|| bg != cell[2] || fg != cell[1] || (iidx == @cursy && i == @cursx) || (iidx == @cursy && i == @cursx+1)
+            #if i == 0 || bg != cell[2] || fg != cell[1] || (iidx == @cursy && i == @cursx) || (iidx == @cursy && i == @cursx+1)
+            if true
                 misc = '';
                 sty = '';
                 if iidx == @cursy && i == @cursx

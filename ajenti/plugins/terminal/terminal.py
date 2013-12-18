@@ -2,6 +2,7 @@ import os
 import fcntl
 import pty
 import gevent
+from gevent.select import select
 
 import pyte
 
@@ -46,7 +47,6 @@ class Terminal (object):
 
 class PTYProtocol():
     def __init__(self, pid, master, term, callback=None):
-        self.data = ''
         self.pid = pid
         self.master = master
         self.dead = False
@@ -63,27 +63,32 @@ class PTYProtocol():
         self.stream.attach(self.term)
         self.data = ''
 
-    def read(self):
-        for i in range(0, 45):
-            try:
-                d = self.mstream.read()
-                self.data += d
-                if len(self.data) > 0:
-                    u = unicode(str(self.data))
-                    self.stream.feed(u)
-                    self.data = ''
-                break
-            except IOError:
-                pass
-            except UnicodeDecodeError:
-                pass
-            gevent.sleep(0.33)
+    def read(self, timeout=1):
+        select([self.master], [], [], timeout=timeout)
+        
+        try:
+            d = self.mstream.read()
+        except IOError:
+            d = ''
+
+        try:
+            self.data += d
+            if len(self.data) > 0:
+                u = unicode(str(self.data))
+                self.stream.feed(u)
+                self.data = ''
+                return None
+        except UnicodeDecodeError:
+            return None
 
         self._check()
-        return self.format()
 
     def _check(self):
-        pid, status = os.waitpid(self.pid, os.WNOHANG)
+        try:
+            pid, status = os.waitpid(self.pid, os.WNOHANG)
+        except OSError:
+            self.on_died(code=-1)
+            return
         if pid:
             self.on_died(code=status)
 
@@ -103,6 +108,9 @@ class PTYProtocol():
 
     def history(self):
         return self.format(full=True)
+
+    def has_updates(self):
+        return len(self.term.dirty) > 0
 
     def format(self, full=False):
         l = {}
