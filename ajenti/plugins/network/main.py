@@ -30,6 +30,7 @@ class NetworkPlugin (SectionPlugin):
             u.find('up').on('click', self.on_up, i)
             u.find('down').on('click', self.on_down, i)
             u.find('restart').on('click', self.on_restart, i)
+            u.find('ip').text = self.net_config.get_ip(i)
 
         def post_interface_update(o, c, i, u):
             for bit in i.bits:

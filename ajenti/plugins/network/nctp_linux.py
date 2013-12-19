@@ -1,5 +1,8 @@
-import time
+import fcntl
+import gevent
 import subprocess
+import socket
+import struct
 
 from ajenti.api import *
 from ajenti.ui import *
@@ -47,8 +50,12 @@ class LinuxIfconfig (object):
 
     def up(self, iface):
         subprocess.call(['ifup', iface.name])
-        time.sleep(1)
+        gevent.sleep(1)
 
     def down(self, iface):
         subprocess.call(['ifdown', iface.name])
-        time.sleep(1)
+        gevent.sleep(1)
+
+    def get_ip(self, iface):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        return socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s', iface.name[:15]))[20:24])

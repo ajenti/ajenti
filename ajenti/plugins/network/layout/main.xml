@@ -6,7 +6,7 @@
                     <dtr>
                         <dth width="1" />
                         <dth text="{Name}" />
-                        <dth text="{Class}" width="50" />
+                        <dth text="IP" width="50" />
                         <dth text="TX" width="60" />
                         <dth text="RX" width="60" />
                         <dth width="1" />
@@ -25,7 +25,7 @@
                                 </pad>
                             </collapse>
                         </dtd>
-                        <dtd><label bind="devclass" /></dtd>
+                        <dtd><label id="ip" /></dtd>
                         <dtd><label bind="tx" bindtransform="str_fsize" /></dtd>
                         <dtd><label bind="rx" bindtransform="str_fsize" /></dtd>
                         <dtd>
