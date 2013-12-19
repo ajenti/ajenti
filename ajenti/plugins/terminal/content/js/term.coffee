@@ -58,7 +58,8 @@ class window.Terminal
         @socket.send(JSON.stringify(type: 'select', tid: @id))
 
     send: (ch) =>
-        @socket.send(JSON.stringify(type: 'key', key: ch, tid: @id))
+        if ch
+            @socket.send(JSON.stringify(type: 'key', key: ch, tid: @id))
 
     draw: (data) ->
         data = RawDeflate.inflate(RawDeflate.Base64.decode(data))
