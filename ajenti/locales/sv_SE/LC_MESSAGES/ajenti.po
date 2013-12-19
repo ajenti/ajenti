@@ -2,10 +2,6 @@
 msgid "OS users"
 msgstr ""
 
-#: ajenti/usersync/adsync.py:15
-msgid "Active Directory Syncronization"
-msgstr ""
-
 #: ajenti/usersync/local.py:12
 msgid "Off"
 msgstr ""
@@ -66,7 +62,7 @@ msgstr ""
 msgid "Shutdown the system?"
 msgstr "Stäng av systemet?"
 
-#: ajenti/plugins/main/main.py:211
+#: ajenti/plugins/main/main.py:205
 msgid "Section access"
 msgstr ""
 
@@ -149,7 +145,6 @@ msgstr "Bekräfta radering"
 #: ajenti/plugins/tasks/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:39
 #: ajenti/plugins/hosts/layout/main.xml:2
-#: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:3
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:4
@@ -164,7 +159,7 @@ msgid "Enable"
 msgstr "Aktivera"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:189
 msgid "Configuration"
 msgstr "Konfiguration"
 
@@ -609,28 +604,28 @@ msgstr ""
 msgid "Configure"
 msgstr "Konfigurera"
 
-#: ajenti/plugins/configurator/configurator.py:129
+#: ajenti/plugins/configurator/configurator.py:117
 msgid "Auto"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:137
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Sparade. Starta om Ajenti för att ändringarna ska börja gälla."
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:143
 msgid "Please supply hostname"
 msgstr "Skriv in hostname"
 
-#: ajenti/plugins/configurator/configurator.py:169
+#: ajenti/plugins/configurator/configurator.py:157
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Konfigurera %s plugin!"
 
-#: ajenti/plugins/configurator/configurator.py:205
+#: ajenti/plugins/configurator/configurator.py:193
 msgid "Modify Ajenti configuration"
 msgstr "Ändra Ajenti konfiguration"
 
-#: ajenti/plugins/configurator/configurator.py:206
+#: ajenti/plugins/configurator/configurator.py:194
 msgid "Restart Ajenti"
 msgstr "Starta om Ajenti"
 
@@ -749,22 +744,6 @@ msgstr ""
 msgid "Secret"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
-msgid "Server address"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
-msgid "Domain name"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
-msgid "Base DN"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
-msgid "Admin password"
-msgstr ""
-
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
 msgstr "Välja"
@@ -874,10 +853,6 @@ msgstr ""
 msgid "Installation complete!"
 msgstr ""
 
-#: ajenti/plugins/packages/main.py:73
-msgid "Querying package manager"
-msgstr ""
-
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
@@ -944,22 +919,18 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:147
+#: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
-msgstr ""
-
-#: ajenti/plugins/fm/fm.py:186
-msgid "Unpacked"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:1
@@ -1009,26 +980,22 @@ msgid "Remove"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:17
-msgid "Unpack"
-msgstr ""
-
-#: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:19
+#: ajenti/plugins/fm/layout/main.xml:18
 msgid "Owner"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:20 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:19 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:20
 msgid "Others"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:21
 msgid "Set recursively"
 msgstr ""
 
@@ -1048,7 +1015,7 @@ msgstr ""
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/tasks/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:11
-#: ajenti/plugins/plugins/layout/main.xml:5
+#: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Status"
 msgstr "Status"
 
@@ -1230,7 +1197,7 @@ msgid "State"
 msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/plugins/layout/main.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
@@ -1466,17 +1433,17 @@ msgstr ""
 msgid "Moving %s"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:68
+#: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:103
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
 msgstr ""
 
-#: ajenti/plugins/tasks/manager.py:109
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr ""
@@ -1608,15 +1575,11 @@ msgstr ""
 msgid "Bookmark"
 msgstr ""
 
-#: ajenti/plugins/plugins/plugins.py:37
-msgid "Gathering plugin list"
-msgstr ""
-
-#: ajenti/plugins/plugins/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
 msgstr ""
 
-#: ajenti/plugins/plugins/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
 msgstr ""
 
