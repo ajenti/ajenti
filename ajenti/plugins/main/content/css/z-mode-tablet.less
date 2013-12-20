@@ -1,6 +1,6 @@
 html.mode-tablet {
     #header .container {
-    //    margin: 0;
+        margin: 0;
     }
 
     .control.main-sections-root > .sidebar .tab {
@@ -10,7 +10,31 @@ html.mode-tablet {
         border-radius: 3px;
     }
 
-    .control.main-page > .content-wr > .content {
-    //    margin: 0 0 60px;
+    .control.main-page > .content-wr {
+        padding: 0;
+
+        &>.content {
+            margin: 0 0 60px;
+
+            .sidebar {
+                border-right: 1px solid #ccc;
+                width: 149px;
+                padding: 0;
+
+                a {
+                    border-radius: 0;
+                }
+
+                .main-sections-category > div:first-child {
+                    margin: 10px 0 0 8px;
+                    font-size: 14px;
+                    border-bottom: 1px solid #ddd;
+                }
+            }
+
+            .main {
+                padding-top: 10px;
+            }
+        }
     }
 }

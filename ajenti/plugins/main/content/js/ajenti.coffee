@@ -432,7 +432,7 @@ $ () ->
 if /Android|webOS|iPad|IEMobile/i.test(navigator.userAgent)
     $ () ->
         $('html').addClass('mode-tablet')
-
+        FastClick.attach(document.body)
 
 #---------------------
 # Fast DOM
