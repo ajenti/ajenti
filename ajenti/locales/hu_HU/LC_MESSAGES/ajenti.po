@@ -2,10 +2,6 @@
 msgid "OS users"
 msgstr "OS-felhasználók"
 
-#: ajenti/usersync/adsync.py:15
-msgid "Active Directory Syncronization"
-msgstr ""
-
 #: ajenti/usersync/local.py:12
 msgid "Off"
 msgstr "Kikapcsolás"
@@ -66,7 +62,7 @@ msgstr "Kikapcsolás"
 msgid "Shutdown the system?"
 msgstr "Rendszer leállítása?"
 
-#: ajenti/plugins/main/main.py:211
+#: ajenti/plugins/main/main.py:205
 msgid "Section access"
 msgstr "Szekció hozzáférés"
 
@@ -149,7 +145,6 @@ msgstr "Tőrlés megerősítése"
 #: ajenti/plugins/tasks/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:39
 #: ajenti/plugins/hosts/layout/main.xml:2
-#: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:3
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:4
@@ -164,7 +159,7 @@ msgid "Enable"
 msgstr "Engedélyezés"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:189
 msgid "Configuration"
 msgstr "Beállítások"
 
@@ -271,7 +266,7 @@ msgstr "Elérhető tárhely"
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr "%s ingyenes"
+msgstr "%s szabad"
 
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
@@ -609,28 +604,28 @@ msgstr "Okok"
 msgid "Configure"
 msgstr "Beállítások"
 
-#: ajenti/plugins/configurator/configurator.py:129
+#: ajenti/plugins/configurator/configurator.py:117
 msgid "Auto"
 msgstr "Automatikus"
 
-#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:137
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Mentve. Indítsuk újra az Ajentit a változások életbe léptetéséhez."
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:143
 msgid "Please supply hostname"
 msgstr "Adjuk meg a hosztnevet"
 
-#: ajenti/plugins/configurator/configurator.py:169
+#: ajenti/plugins/configurator/configurator.py:157
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Állítsuk be a %s bővítményt!"
 
-#: ajenti/plugins/configurator/configurator.py:205
+#: ajenti/plugins/configurator/configurator.py:193
 msgid "Modify Ajenti configuration"
 msgstr "Ajenti beállítások módosítása"
 
-#: ajenti/plugins/configurator/configurator.py:206
+#: ajenti/plugins/configurator/configurator.py:194
 msgid "Restart Ajenti"
 msgstr "Ajenti újraindítás"
 
@@ -749,22 +744,6 @@ msgstr "Auth DN utótag"
 msgid "Secret"
 msgstr "Titkos"
 
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
-msgid "Server address"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
-msgid "Domain name"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
-msgid "Base DN"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
-msgid "Admin password"
-msgstr ""
-
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
 msgstr "Kiválasztás"
@@ -874,10 +853,6 @@ msgstr "Enqueueing csomag telepítés"
 msgid "Installation complete!"
 msgstr "Telepítés befejeződött!"
 
-#: ajenti/plugins/packages/main.py:73
-msgid "Querying package manager"
-msgstr ""
-
 #: ajenti/plugins/packages/main.py:134
 #, python-format
 msgid "%i found, 100 shown"
@@ -944,23 +919,19 @@ msgstr "Kijelöltek törlése"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
+#: ajenti/plugins/fm/fm.py:16 ajenti/plugins/fm/fm.py:30
 msgid "File Manager"
 msgstr "Fájlkezelő"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:31 ajenti/plugins/terminal/main.py:34
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "Eszközök"
 
-#: ajenti/plugins/fm/fm.py:147
+#: ajenti/plugins/fm/fm.py:146
 #, python-format
 msgid "Selected %i items"
 msgstr "%i kijelölt elemek"
-
-#: ajenti/plugins/fm/fm.py:186
-msgid "Unpacked"
-msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/notepad/layout/config.xml:1
@@ -1009,26 +980,22 @@ msgid "Remove"
 msgstr "Tődlés"
 
 #: ajenti/plugins/fm/layout/main.xml:17
-msgid "Unpack"
-msgstr ""
-
-#: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
 msgstr "Hozzáférés"
 
-#: ajenti/plugins/fm/layout/main.xml:19
+#: ajenti/plugins/fm/layout/main.xml:18
 msgid "Owner"
 msgstr "Tulajdonos"
 
-#: ajenti/plugins/fm/layout/main.xml:20 ajenti/plugins/users/layout/main.xml:3
+#: ajenti/plugins/fm/layout/main.xml:19 ajenti/plugins/users/layout/main.xml:3
 msgid "Group"
 msgstr "Csoport"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:20
 msgid "Others"
 msgstr "Egyebek"
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:21
 msgid "Set recursively"
 msgstr "Rekurzív használat"
 
@@ -1048,7 +1015,7 @@ msgstr "hoszt:port vagy UNIX socket útvonal"
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/tasks/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:11
-#: ajenti/plugins/plugins/layout/main.xml:5
+#: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Status"
 msgstr "Státusz"
 
@@ -1230,7 +1197,7 @@ msgid "State"
 msgstr "Állapot"
 
 #: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/plugins/layout/main.xml:2
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
@@ -1466,17 +1433,17 @@ msgstr "%s másolás"
 msgid "Moving %s"
 msgstr "%s áthelyezés"
 
-#: ajenti/plugins/tasks/manager.py:68
+#: ajenti/plugins/tasks/manager.py:63
 #, python-format
 msgid "Task %s finished"
 msgstr "%s feladat kész"
 
-#: ajenti/plugins/tasks/manager.py:103
+#: ajenti/plugins/tasks/manager.py:97
 #, python-format
 msgid "Task %s queued"
 msgstr "Várólista: %s feladat"
 
-#: ajenti/plugins/tasks/manager.py:109
+#: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s started"
 msgstr "%s feladat elindítva"
@@ -1608,15 +1575,11 @@ msgstr "Mentés"
 msgid "Bookmark"
 msgstr "Könyvjelző"
 
-#: ajenti/plugins/plugins/plugins.py:37
-msgid "Gathering plugin list"
-msgstr ""
-
-#: ajenti/plugins/plugins/layout/main.xml:2
+#: ajenti/plugins/plugins/layout/main.xml:1
 msgid "Dependencies"
 msgstr "Függőségek"
 
-#: ajenti/plugins/plugins/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Depends on"
 msgstr "Attól függ"
 
