@@ -58,4 +58,7 @@ class LinuxIfconfig (object):
 
     def get_ip(self, iface):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        return socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s', iface.name[:15]))[20:24])
+        try:
+            return socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s', iface.name[:15]))[20:24])
+        except IOError:
+            return None
