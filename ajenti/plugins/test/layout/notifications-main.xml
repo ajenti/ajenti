@@ -1,0 +1,18 @@
+<body>
+    <pad>
+        <vc>
+            <formline text="Text">
+                <textbox id="text" />
+            </formline>
+            <formline text="Style">
+                <dropdown id="style" 
+                    labels="['Info', 'Warning', 'Error']"
+                    values="['info', 'warn', 'error']"
+                    />
+            </formline>
+            <formline>
+                <button icon="ok" id="show" text="Show" />
+            </formline>
+        </vc>
+    </pad>
+</body>

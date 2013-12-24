@@ -1,0 +1,5 @@
+<body>
+    <pad>
+        <button id="btn" text="Button" />   
+    </pad>
+</body>
