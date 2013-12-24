@@ -114,13 +114,17 @@ def run():
         CentralDispatcher.get(manager.context)
     ]
 
+    ssl_args = {}
+    if ajenti.config.tree.ssl.enable:
+        ssl_args['certfile'] = ajenti.config.tree.ssl.certificate_path
+        
     ajenti.server = SocketIOServer(
         listener,
         log=open(os.devnull, 'w'),
         application=HttpRoot(stack).dispatch,
         policy_server=False,
         resource='ajenti:socket',
-        certfile=ajenti.config.tree.ssl.certificate_path if ajenti.config.tree.ssl.enable else None
+        **ssl_args
     )
 
     # auth.log
