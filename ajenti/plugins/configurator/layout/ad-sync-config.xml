@@ -9,6 +9,9 @@
         <formline text="{Base DN}">
             <textbox bind="base" />
         </formline>
+        <formline text="{Admin user}">
+            <passwordbox bind="user" />
+        </formline>
         <formline text="{Admin password}">
             <passwordbox bind="password" />
         </formline>
