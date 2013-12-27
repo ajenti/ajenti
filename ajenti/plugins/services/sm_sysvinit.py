@@ -57,4 +57,4 @@ class SysVInitService (Service):
         self.command('restart')
 
     def command(self, cmd):
-        subprocess.call([self.script, cmd])
+        subprocess.Popen([self.script, cmd], close_fds=True).wait()
