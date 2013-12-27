@@ -8,7 +8,6 @@ from ajenti.api import *
 from ajenti.ui import *
 
 
-@plugin
 class LinuxIfconfig (object):
     platforms = ['debian', 'centos']
 
