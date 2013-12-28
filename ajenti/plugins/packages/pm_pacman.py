@@ -1,4 +1,5 @@
 import subprocess
+import logging
 
 from ajenti.api import *
 from api import PackageInfo, PackageManager
@@ -16,8 +17,14 @@ class ArchPackageManager (PackageManager):
         self.context.launch('terminal', command='pacman -Sy')
 
     def refresh(self):
-        out_u = subprocess.check_output(['pacman', '-Qu'])
+        try:
+            out_u = subprocess.check_output(['pacman', '-Qu'])
+        except subprocess.CalledProcessError as cpe:
+            logging.error('No updates available %s' % cpe)
+            out_u = ''
+
         out_a = subprocess.check_output(['pacman', '-Qs'])
+
         self.upgradeable = self._parse_upgradeable(out_u)
 
         self.all = self._parse_all_installed(out_a)
