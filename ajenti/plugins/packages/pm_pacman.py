@@ -31,7 +31,26 @@ class ArchPackageManager (PackageManager):
         self.all_dict = dict((x.name, x) for x in self.all)
 
     def search(self, query):
-        return []
+        out_s = subprocess.check_output(['pacman', '-Ss', query])
+
+        r = []
+        for l in out_s.split('\n'):
+            s = l.split('/')
+            if len(s) == 2 and not(s[0].startswith('  ')):
+                logging.debug('len(s): %i' % len(s))
+                logging.debug('s: %s' % s)
+                sn = s[1].split(' ')
+                pkg = sn[0]
+                logging.debug('pkg: %s' % pkg)
+
+                p = PackageInfo()
+                p.state = 'i'
+
+                p.name = sn[0]
+                p.version = sn[1]
+                r.append(p)
+
+        return r
 
     def do(self, actions):
         to_install = [a for a in actions if a.action == 'i']
