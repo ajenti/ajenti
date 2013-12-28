@@ -52,7 +52,7 @@ class ArchPackageManager (PackageManager):
 
         return r
 
-    def do(self, actions):
+    def do(self, actions, callback=lambda: 0):
         to_install = [a for a in actions if a.action == 'i']
         to_remove = [a for a in actions if a.action == 'r']
         cmd = ''
