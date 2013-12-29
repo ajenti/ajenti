@@ -5,6 +5,7 @@ import json
 from PIL import Image, ImageDraw
 import StringIO
 import zlib
+import logging
 
 from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
@@ -169,7 +170,12 @@ class TerminalSocket (SocketPlugin):
     def on_message(self, message):
         if message['type'] == 'select':
             self.id = int(message['tid'])
-            self.terminal = self.context.session.terminals.get(self.id)
+            try:
+                self.terminal = self.context.session.terminals.get(self.id)
+            except AttributeError:
+                logging.error('Cannot assign terminal')
+                self.terminal = None
+
             if self.terminal is None:
                 url = '/ajenti:terminal/%i' % self.id
                 self.context.endpoint.send_close_tab(url)
