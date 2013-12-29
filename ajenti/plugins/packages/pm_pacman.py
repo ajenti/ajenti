@@ -31,22 +31,32 @@ class ArchPackageManager (PackageManager):
         self.all_dict = dict((x.name, x) for x in self.all)
 
     def search(self, query):
-        out_s = subprocess.check_output(['pacman', '-Ss', query])
+        try:
+            out_s = subprocess.check_output(['pacman', '-Ss', query])
+        except subprocess.CalledProcessError as cpe:
+            logging.error('No search result found')
+            out_s = ''
 
         r = []
         for l in out_s.split('\n'):
             s = l.split('/')
             if len(s) == 2 and not(s[0].startswith('  ')):
-                logging.debug('len(s): %i' % len(s))
-                logging.debug('s: %s' % s)
                 sn = s[1].split(' ')
                 pkg = sn[0]
-                logging.debug('pkg: %s' % pkg)
 
                 p = PackageInfo()
-                p.state = 'i'
-
                 p.name = sn[0]
+
+                pkg_installed = True
+                try:
+                    out_i = subprocess.check_output(['pacman', '-Q', p.name])
+                except subprocess.CalledProcessError as cpe:
+                    p.state = 'r'
+                    pkg_installed = False
+
+                if pkg_installed:
+                    p.state = 'i'
+
                 p.version = sn[1]
                 r.append(p)
 
@@ -57,11 +67,14 @@ class ArchPackageManager (PackageManager):
         to_remove = [a for a in actions if a.action == 'r']
         cmd = ''
         if len(to_install) > 0:
-            cmd += 'pacman -S ' + ' '.join(a.name for a in to_install)
+            cmd += 'pacman -S --noconfirm ' + ' '.join(a.name for a in to_install)
             if len(to_remove) > 0:
                 cmd += ' && '
+
         if len(to_remove) > 0:
-            cmd += 'pacman -R ' + ' '.join(a.name for a in to_remove)
+            cmd += 'pacman -R --noconfirm ' + ' '.join(a.name for a in to_remove)
+
+        logging.debug('launching terminal with command %s' % cmd)
         self.context.launch('terminal', command=cmd, callback=callback)
 
 
