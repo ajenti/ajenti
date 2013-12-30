@@ -20,7 +20,8 @@ class ArchPackageManager (PackageManager):
         try:
             out_u = subprocess.check_output(['pacman', '-Qu'])
         except subprocess.CalledProcessError as cpe:
-            logging.error('No updates available %s' % cpe)
+            self.context.notify('info', _('Failed to update lists %s') % cpe)
+            logging.info('Failed to update lists %s' % cpe)
             out_u = ''
 
         out_a = subprocess.check_output(['pacman', '-Qs'])
@@ -34,7 +35,8 @@ class ArchPackageManager (PackageManager):
         try:
             out_s = subprocess.check_output(['pacman', '-Ss', query])
         except subprocess.CalledProcessError as cpe:
-            logging.error('No search result found')
+            self.context.notify('info', _('No search results found'))
+            logging.info('No search results found')
             out_s = ''
 
         r = []
