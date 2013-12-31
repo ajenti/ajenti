@@ -15,6 +15,7 @@ info = PluginInfo(
 def init():
     import api
     import sm_upstart
+    import sm_systemd
     import sm_sysvinit
     import sm_centos
     import sm_freebsd

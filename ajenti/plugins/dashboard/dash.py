@@ -131,15 +131,16 @@ class Dash (SectionPlugin):
             idx = 0
             for item in items:
                 item = self.dash.find_uid(item)
-                item.container = container
-                item.index = idx
-                idx += 1
-                cfg['widgets'].append({
-                    'class': item.classname,
-                    'container': item.container,
-                    'index': item.index,
-                    'config': item.config,
-                })
+                if item:
+                    item.container = container
+                    item.index = idx
+                    idx += 1
+                    cfg['widgets'].append({
+                        'class': item.classname,
+                        'container': item.container,
+                        'index': item.index,
+                        'config': item.config,
+                    })
         self.classconfig = cfg
         self.save_classconfig()
         self.refresh()
