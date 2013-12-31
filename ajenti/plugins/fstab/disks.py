@@ -41,8 +41,7 @@ class PSUtilDiskUsageSensor (Sensor):
     @classmethod
     def verify(cls):
         try:
-            psutil.disk_partitions()
-            return True
+            return len(psutil.disk_partitions()) > 0
         except:
             return False
 
