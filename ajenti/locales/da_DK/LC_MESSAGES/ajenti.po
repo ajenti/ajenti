@@ -762,6 +762,10 @@ msgid "Base DN"
 msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
 msgstr "Admin kodeord"
 

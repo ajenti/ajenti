@@ -4,7 +4,7 @@ msgstr "OS-Benutzer"
 
 #: ajenti/usersync/adsync.py:15
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Active Directory-Synchronisierung"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
@@ -751,19 +751,23 @@ msgstr "Geheim"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Server-Adresse"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Domänen-Name"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Basis-DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
-msgid "Admin password"
+msgid "Admin user"
 msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
+msgid "Admin password"
+msgstr "Admin-Passwort"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -876,7 +880,7 @@ msgstr "Installation abgeschlossen!"
 
 #: ajenti/plugins/packages/main.py:73
 msgid "Querying package manager"
-msgstr ""
+msgstr "Abfragen des Paket-Managers"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
@@ -960,7 +964,7 @@ msgstr "Ausgewählte %i Elemente"
 
 #: ajenti/plugins/fm/fm.py:186
 msgid "Unpacked"
-msgstr ""
+msgstr "Entpackt"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/notepad/layout/config.xml:1
@@ -1010,7 +1014,7 @@ msgstr "Entfernen"
 
 #: ajenti/plugins/fm/layout/main.xml:17
 msgid "Unpack"
-msgstr ""
+msgstr "Entpacken"
 
 #: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
@@ -1606,7 +1610,7 @@ msgstr "Lesezeichen"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Sammeln der Plugin-Liste"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"

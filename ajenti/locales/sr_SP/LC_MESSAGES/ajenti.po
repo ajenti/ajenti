@@ -32,11 +32,11 @@ msgstr ""
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
-msgstr ""
+msgstr "Pестарт"
 
 #: ajenti/plugins/power/power.py:105
 msgid "Shutdown"
-msgstr ""
+msgstr "Гашење"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
@@ -762,6 +762,10 @@ msgid "Base DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
 msgstr ""
 

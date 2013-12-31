@@ -32,7 +32,7 @@ msgstr "Hibernacija"
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
-msgstr "Ponoven zagon"
+msgstr "Ponovni zagon"
 
 #: ajenti/plugins/power/power.py:105
 msgid "Shutdown"
@@ -762,6 +762,10 @@ msgid "Base DN"
 msgstr "Osnovna DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
 msgstr "Admin geslo"
 
@@ -1577,7 +1581,7 @@ msgstr "Adapter"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Polje"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1737,11 +1741,11 @@ msgstr "Veto datoteke"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Vsili datoteki ukaz umask"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "Vsili mapi ukaz umask"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11

@@ -60,7 +60,7 @@ msgstr "Riavviare il sistema?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Spegni"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -381,12 +381,12 @@ msgstr "Avvio automatico"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Disabilitato"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -751,19 +751,23 @@ msgstr "Segreto"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Indirizzo server"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Nome dominio"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
-msgid "Admin password"
+msgid "Admin user"
 msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
+msgid "Admin password"
+msgstr "Password Admin"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -810,17 +814,17 @@ msgstr "Agenda"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "ogni ora"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "giornalmente"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "ogni settimana"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
@@ -830,7 +834,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "annualmente"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
@@ -1110,11 +1114,11 @@ msgstr "Modo"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Permetti"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Nega"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1398,11 +1402,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Statico"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Manuale"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
@@ -1484,7 +1488,7 @@ msgstr "Attività"
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Dalla directory"
 
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
@@ -1501,7 +1505,7 @@ msgstr "Ricorsivo"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "alla directory"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
@@ -1513,7 +1517,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Conserva permessi"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -1721,11 +1725,11 @@ msgstr "Sola lettura"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzato"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "Utenti abilitati"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
@@ -1806,7 +1810,7 @@ msgstr "Aggiungi widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "refresh automatico"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"

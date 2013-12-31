@@ -455,7 +455,7 @@ msgstr "Uruchom"
 
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr "Baza danych"
+msgstr "Bazy danych"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
@@ -762,6 +762,10 @@ msgid "Base DN"
 msgstr "Bazowa nazwa wyróżniająca"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
 msgstr "Hasło administratora"
 

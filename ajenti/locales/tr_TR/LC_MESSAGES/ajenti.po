@@ -56,7 +56,7 @@ msgstr "Sistem hazırda bekletilsin mi?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
-msgstr "Sistem yeniden başlatmak istermisiniz ?"
+msgstr "Sistem yeniden başlatmak ister misiniz ?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
@@ -64,11 +64,11 @@ msgstr "Güç kapalı"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
-msgstr "Sistemi kapatmak istermisiniz ?"
+msgstr "Sistemi kapatmak ister misiniz ?"
 
 #: ajenti/plugins/main/main.py:211
 msgid "Section access"
-msgstr "Bölüm erişim"
+msgstr "Bölüm erişimi"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
@@ -201,7 +201,7 @@ msgstr "Yapılandırma"
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
 msgid "Create"
-msgstr "Oluşturmak"
+msgstr "Oluştur"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:18
@@ -291,7 +291,7 @@ msgstr "Yenile"
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr "Tüm mount"
+msgstr "Hepsini Bağla"
 
 #: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:13
@@ -459,7 +459,7 @@ msgstr "Veritabanları"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr "Veritabanı bırak onaylayın!"
+msgstr "Veritabanı silmeyi onaylayın!"
 
 #: ajenti/plugins/db_common/layout/main.xml:6
 #: ajenti/plugins/configurator/layout/main.xml:13
@@ -489,7 +489,7 @@ msgstr "Ana makine adı"
 #: ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/netatalk/layout/main.xml:6
 msgid "Password"
-msgstr "Şifre"
+msgstr "Parola"
 
 #: ajenti/plugins/iptables/main.py:57
 msgid "You can't disable firewall autostart on this platform"
@@ -549,7 +549,7 @@ msgstr "Modüller"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr "Birleşik"
+msgstr "Durumlar"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
@@ -600,7 +600,7 @@ msgstr "Bağlantı noktaları"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr "Neden"
+msgstr "Sebep"
 
 #: ajenti/plugins/configurator/configurator.py:33
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -731,7 +731,7 @@ msgstr "Yeniden Başlat"
 
 #: ajenti/plugins/configurator/layout/main.xml:34
 msgid "Restart Ajenti?"
-msgstr "Ajenti yi yeniden başlat istermisiniz ?"
+msgstr "Ajenti'yi yeniden başlatmak ister misiniz ?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
@@ -762,8 +762,12 @@ msgid "Base DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
-msgid "Admin password"
+msgid "Admin user"
 msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
+msgid "Admin password"
+msgstr "Yönetici parolası"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -1687,7 +1691,7 @@ msgstr "Şifre güncelleme"
 
 #: ajenti/plugins/samba/main.py:50
 msgid "Password update failed"
-msgstr "Parola güncelleştirme başarısız oldu"
+msgstr "Parola güncellenmedi"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
@@ -1806,7 +1810,7 @@ msgstr "Widget ekle"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Otomatik yenile"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
