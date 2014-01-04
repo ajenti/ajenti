@@ -31,7 +31,7 @@ pygments_style = 'sphinx'
 
 
 # -- Options for HTML output ---------------------------------------------------
-html_theme = 'nature'
+#html_theme = 'nature'
 #html_theme_options = {}
 #html_theme_path = []
 
