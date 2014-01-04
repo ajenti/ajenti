@@ -72,6 +72,8 @@ class HttpContext (object):
                 self.query = cgi.FieldStorage(fp=self.env['wsgi.input'],
                                        environ=self.env,
                                        keep_blank_values=1)
+            else:
+                self.body = self.env['wsgi.input'].read()
         else:
             self.query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
 
