@@ -43,7 +43,10 @@ def str_fsize(sz):
     if sz < 1024:
         return '%.1f Mb' % sz
     sz /= 1024.0
-    return '%.1f Gb' % sz
+    if sz < 1024:
+        return '%.1f Gb' % sz
+    sz /= 1024.0
+    return '%.1f Tb' % sz
 
 
 @public
