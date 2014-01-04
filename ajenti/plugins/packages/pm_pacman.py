@@ -20,7 +20,7 @@ class ArchPackageManager (PackageManager):
         try:
             out_u = subprocess.check_output(['pacman', '-Qu'])
         except subprocess.CalledProcessError as cpe:
-            self.context.notify('info', _('Failed to update lists %s') % cpe)
+            self.context.notify('info', _('Failed to update lists: %s') % cpe)
             logging.info('Failed to update lists %s' % cpe)
             out_u = ''
 
@@ -44,14 +44,13 @@ class ArchPackageManager (PackageManager):
             s = l.split('/')
             if len(s) == 2 and not(s[0].startswith('  ')):
                 sn = s[1].split(' ')
-                pkg = sn[0]
 
                 p = PackageInfo()
                 p.name = sn[0]
 
                 pkg_installed = True
                 try:
-                    out_i = subprocess.check_output(['pacman', '-Q', p.name])
+                    subprocess.check_output(['pacman', '-Q', p.name])
                 except subprocess.CalledProcessError as cpe:
                     p.state = 'r'
                     pkg_installed = False
