@@ -47,18 +47,9 @@ class ArchPackageManager (PackageManager):
 
                 p = PackageInfo()
                 p.name = sn[0]
-
-                pkg_installed = True
-                try:
-                    subprocess.check_output(['pacman', '-Q', p.name])
-                except subprocess.CalledProcessError as cpe:
-                    p.state = 'r'
-                    pkg_installed = False
-
-                if pkg_installed:
-                    p.state = 'i'
-
+                p.state = 'i' if subprocess.call(['pacman', '-Q', p.name]) == 0 else 'r'
                 p.version = sn[1]
+
                 r.append(p)
 
         return r
