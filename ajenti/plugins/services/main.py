@@ -85,17 +85,21 @@ class ServiceControlBar (UIElement):
     def on_start(self):
         self.service.start()
         self.on_page_load()
+        self.reverse_event('command', {'command': 'start'})
 
     @on('restart', 'click')
     def on_restart(self):
         self.service.restart()
         self.on_page_load()
+        self.reverse_event('command', {'command': 'restart'})
 
     @on('stop', 'click')
     def on_stop(self):
         self.service.stop()
         self.on_page_load()
+        self.reverse_event('command', {'command': 'stop'})
 
     def on_command(self, cmd):
         self.service.command(cmd)
         self.on_page_load()
+        self.reverse_event('command', {'command': cmd})
