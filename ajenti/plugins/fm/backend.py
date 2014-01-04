@@ -119,10 +119,10 @@ class FMBackend (BasePlugin):
             for item in items:
                 command += self._escape(item)
             command += self._escape(dest)
-            self.context.launch('terminal', command=command)
+            self.context.launch('terminal', command=command, callback=cb)
         else:
             for i in items:
-                shutil.move(i.fullpath, dest, callback=cb)
+                shutil.move(i.fullpath, dest)
             cb()
 
     def copy(self, items, dest, cb=lambda: None):

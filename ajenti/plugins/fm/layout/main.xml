@@ -102,7 +102,7 @@
                                 </dtd>
                                 <dtd>
                                     <hc>
-                                        <button id="remove" icon="remove-sign" text="{Remove}" />
+                                        <button bind="__delete" icon="remove-sign" text="{Remove}" />
                                     </hc>
                                 </dtd>
                             </dtr>
