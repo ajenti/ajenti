@@ -1,0 +1,5 @@
+<body>
+    <pad>
+        <label text="Welcome to Ajenti plugin development" />
+    </pad>
+</body>

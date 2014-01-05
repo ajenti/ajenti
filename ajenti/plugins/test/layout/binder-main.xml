@@ -1,0 +1,38 @@
+<body>
+    <pad>
+        <hc>
+            <vc>
+                <label text="Bound UI" />
+                <box id="bindroot">
+                    <bind:collection bind="data">
+                        <dt bind="__items" width="300">
+                            <dtr>
+                                <dth text="Name" />
+                                <dth text="Phone" />
+                            </dtr>
+                        </dt>
+
+                        <bind:template>
+                            <dtr>
+                                <dtd><textbox bind="name" /></dtd>
+                                <dtd><textbox bind="phone" /></dtd>
+                            </dtr>
+                        </bind:template>
+                    </bind:collection>
+                </box>
+            </vc>
+            <box width="20" />
+            <vc>
+                <label />
+                <button id="populate" icon="arrow-left" text="Populate" />
+                <button id="update" icon="arrow-right" text="Update" />
+                <button id="unpopulate" icon="remove" text="Unpopulate" />
+            </vc>
+            <box width="20" />
+            <vc>
+                <label text="Data" />
+                <label id="data" />
+            </vc>
+        </hc>
+    </pad>
+</body>

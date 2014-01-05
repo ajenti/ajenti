@@ -1,0 +1,35 @@
+<body xmlns:bind="bind">
+    <pad id="addressbook">
+        <bind:collection bind="persons" id="persons-collection">
+            <vc>
+                <dt bind="__items" width="1" />
+                <button bind="__add" icon="plus" text="Create" />
+            </vc>
+
+            <bind:template>
+                <dtr>
+                    <dtd>
+                        <textbox bind="name" />
+                    </dtd>
+                    <dtd>
+                        <bind:collection bind="phones" id="phones-collection">
+                            <vc>
+                                <vc bind="__items" />
+                                <button bind="__add" icon="plus" text="Create" />
+                            </vc>
+                            <bind:template>
+                                <hc>
+                                    <textbox bind="number" />
+                                    <button bind="__delete" icon="remove" style="mini" />
+                                </hc>
+                            </bind:template>
+                        </bind:collection>
+                    </dtd>
+                    <dtd width="1">
+                        <button bind="__delete" icon="remove" style="mini" />
+                    </dtd>
+                </dtr>
+            </bind:template>
+        </bind:collection>
+    </pad>
+</body>

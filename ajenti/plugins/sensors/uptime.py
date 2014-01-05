@@ -11,7 +11,7 @@ from ajenti.util import str_timedelta
 @plugin
 class LinuxUptimeSensor (Sensor):
     id = 'uptime'
-    platforms = ['debian', 'centos']
+    platforms = ['debian', 'centos', 'arch']
     timeout = 1
 
     def measure(self, variant):

@@ -63,13 +63,13 @@ class UpstartService (Service):
         self.running = 'running' in subprocess.check_output(['status', self.name])
 
     def start(self):
-        subprocess.call(['start', self.name])
+        subprocess.Popen(['start', self.name], close_fds=True).wait()
 
     def stop(self):
-        subprocess.call(['stop', self.name])
+        subprocess.Popen(['stop', self.name], close_fds=True).wait()
 
     def restart(self):
-        subprocess.call(['restart', self.name])
+        subprocess.Popen(['restart', self.name], close_fds=True).wait()
 
     def command(self, cmd):
-        subprocess.call(['/etc/init.d/%s' % self.name, 'cmd'])
+        subprocess.Popen(['/etc/init.d/%s' % self.name, 'cmd'], close_fds=True).wait()

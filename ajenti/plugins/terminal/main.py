@@ -1,8 +1,11 @@
 from base64 import b64decode, b64encode
-import zlib
+import gevent
+import gevent.event
 import json
 from PIL import Image, ImageDraw
 import StringIO
+import zlib
+import logging
 
 from ajenti.api import *
 from ajenti.api.http import HttpPlugin, url, SocketPlugin
@@ -161,28 +164,57 @@ class TerminalSocket (SocketPlugin):
     def on_connect(self):
         self.emit('re-select')
         self.terminal = None
+        self.ready_to_send = gevent.event.Event()
+        self.have_data = gevent.event.Event()
 
     def on_message(self, message):
         if message['type'] == 'select':
             self.id = int(message['tid'])
-            self.terminal = self.context.session.terminals[self.id]
+            try:
+                self.terminal = self.context.session.terminals.get(self.id)
+            except AttributeError:
+                logging.error('Cannot assign terminal')
+                self.terminal = None
+
+            if self.terminal is None:
+                url = '/ajenti:terminal/%i' % self.id
+                self.context.endpoint.send_close_tab(url)
+                return
             self.send_data(self.terminal.protocol.history())
             self.spawn(self.worker)
+            self.spawn(self.sender)
         if message['type'] == 'key':
             if self.terminal:
                 ch = b64decode(message['key'])
                 self.terminal.write(ch)
+                self.ready_to_send.set()
+        if message['type'] == 'read':
+            self.ready_to_send.set()
 
     def worker(self):
         while True:
-            self.send_data(self.terminal.protocol.read())
+            self.terminal.protocol.read(timeout=1)
+            if self.terminal.protocol.has_updates():
+                self.have_data.set()
             if self.terminal.dead():
                 del self.context.session.terminals[self.id]
                 self.context.launch('terminals:refresh')
                 return
 
+    def sender(self):
+        while True:
+            self.ready_to_send.wait()
+            self.have_data.wait()
+            data = self.terminal.protocol.format()
+            self.have_data.clear()
+            self.send_data(data)
+            self.ready_to_send.clear()
+            if self.terminal.dead():
+                return
+        
     def send_data(self, data):
-        self.emit('set', b64encode(zlib.compress(json.dumps(data))[2:-4]))
+        data = b64encode(zlib.compress(json.dumps(data))[2:-4])
+        self.emit('set', data)
 
 
 @plugin

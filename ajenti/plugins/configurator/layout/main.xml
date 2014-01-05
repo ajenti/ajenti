@@ -79,7 +79,7 @@
                                                 <collapserow>
                                                     <box>
                                                         <right>
-                                                            <button bind="__delete" icon="remove" text="{Delete}" style="icon" warning="{Confirm deletion}" />
+                                                            <button id="delete" bind="__delete" icon="remove" text="{Delete}" style="icon" warning="{Confirm deletion}" />
                                                         </right>
                                                         <hc>
                                                             <icon icon="user" />

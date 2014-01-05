@@ -1,6 +1,8 @@
 import os
 import re
 import psutil
+import shutil
+import statvfs
 
 from ajenti.api import *
 from ajenti.api.sensors import Sensor
@@ -32,9 +34,16 @@ def list_devices(by_name=True, by_uuid=False, by_id=False, by_label=False):
 
 
 @plugin
-class DiskUsageSensor (Sensor):
+class PSUtilDiskUsageSensor (Sensor):
     id = 'disk-usage'
     timeout = 5
+
+    @classmethod
+    def verify(cls):
+        try:
+            return len(psutil.disk_partitions()) > 0
+        except:
+            return False
 
     def get_variants(self):
         return sorted([x.mountpoint for x in psutil.disk_partitions()])
@@ -48,3 +57,26 @@ class DiskUsageSensor (Sensor):
         except OSError:
             return (0, 1)
         return (v.used, v.total)
+
+
+@plugin
+class MTabDiskUsageSensor (Sensor):
+    """
+    Useful for procfs-less virtualization containers
+    """
+    id = 'disk-usage'
+    timeout = 5
+
+    @classmethod
+    def verify(cls):
+        return os.path.exists('/etc/mtab')
+
+    def get_variants(self):
+        return filter(lambda x: x != 'none', sorted(l.split()[1] for l in open('/etc/mtab')))
+
+    def measure(self, path):
+        s = os.statvfs(path)
+        total = s[statvfs.F_FRSIZE] * s[statvfs.F_BLOCKS]
+        free = s[statvfs.F_BFREE] * s[statvfs.F_BSIZE]
+        return (total - free, total)
+        

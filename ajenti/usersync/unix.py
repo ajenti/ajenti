@@ -12,6 +12,7 @@ from pam import authenticate
 class UNIXSyncProvider (UserSyncProvider):
     id = 'unix'
     title = _('OS users')
+    syncs_root = True
 
     def test(self):
         return True

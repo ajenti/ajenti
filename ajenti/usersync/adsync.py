@@ -26,6 +26,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
     default_classconfig = {
         'address': 'localhost',
         'domain': 'DOMAIN',
+        'user': 'Administrator',
         'password': '',
         'base': 'cn=Users,dc=DOMAIN',
     }
@@ -34,7 +35,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
 
     def __get_ldap(self):
         c = ldap.initialize('ldap://' + self.classconfig['address'])
-        c.bind_s('%s\\Administrator' % self.classconfig['domain'], self.classconfig['password'])
+        c.bind_s('%s\\%s' % (self.classconfig['domain'], self.classconfig.get('user', 'Administrator')), self.classconfig['password'])
         c.set_option(ldap.OPT_REFERRALS, 0)
         return c
 

@@ -72,13 +72,16 @@ class DBPlugin (SectionPlugin):
         self.find('add-user-dialog').visible = True
 
     def refresh(self):
+        self.databases = []
+        self.users = []
         try:
             self.databases = self.query_databases()
             self.users = self.query_users()
         except Exception, e:
             import traceback; traceback.print_exc();
             self.context.notify('error', str(e))
-            self.context.launch('configure-plugin', plugin=self.config_class.get())
+            if hasattr(self, 'config_class'):
+                self.context.launch('configure-plugin', plugin=self.config_class.get())
             return
 
         self.find('sql-db').labels = self.find('sql-db').values = [x.name for x in self.databases]

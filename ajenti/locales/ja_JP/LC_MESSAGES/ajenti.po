@@ -164,7 +164,7 @@ msgid "Enable"
 msgstr "有効"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:208
 msgid "Configuration"
 msgstr "設定"
 
@@ -215,7 +215,7 @@ msgstr "作成"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/network/layout/main.xml:8
+#: ajenti/plugins/network/layout/main.xml:7
 #: ajenti/plugins/nsd/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/hosts/layout/main.xml:7
@@ -250,7 +250,7 @@ msgid "mount -a failed"
 msgstr "マウントに失敗しました。"
 
 #: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:76
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
@@ -609,28 +609,28 @@ msgstr "理由"
 msgid "Configure"
 msgstr "設定"
 
-#: ajenti/plugins/configurator/configurator.py:129
+#: ajenti/plugins/configurator/configurator.py:136
 msgid "Auto"
 msgstr "自動"
 
-#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:156
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "保存しました。任意の変更を反映させるには、Ajentiを再起動してください。"
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:162
 msgid "Please supply hostname"
 msgstr "ホスト名を入力してください。"
 
-#: ajenti/plugins/configurator/configurator.py:169
+#: ajenti/plugins/configurator/configurator.py:176
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "%s プラグインを設定してください ！"
 
-#: ajenti/plugins/configurator/configurator.py:205
+#: ajenti/plugins/configurator/configurator.py:212
 msgid "Modify Ajenti configuration"
 msgstr "Ajentiの設定を変更します"
 
-#: ajenti/plugins/configurator/configurator.py:206
+#: ajenti/plugins/configurator/configurator.py:213
 msgid "Restart Ajenti"
 msgstr "Ajenti を再起動します。"
 
@@ -725,7 +725,7 @@ msgstr "プラグイン"
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
-#: ajenti/plugins/network/layout/main.xml:6
+#: ajenti/plugins/network/layout/main.xml:5
 msgid "Restart"
 msgstr "再起動"
 
@@ -762,6 +762,10 @@ msgid "Base DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
 msgstr ""
 
@@ -948,7 +952,7 @@ msgstr "キャンセル"
 msgid "File Manager"
 msgstr "ファイル マネージャー"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:36
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "ツール"
@@ -1186,25 +1190,25 @@ msgstr "パブリック アドレス"
 msgid "CodeMirror code editor"
 msgstr "CodeMirror コード エディター"
 
-#: ajenti/plugins/terminal/terminal.py:95
+#: ajenti/plugins/terminal/terminal.py:100
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "プロセス %i の状態で終了しています"
 
-#: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:102
 msgid "Process has exited successfully"
 msgstr "プロセスは正常に終了しました"
 
-#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:191
+#: ajenti/plugins/terminal/main.py:21 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/terminal/main.py:217
 msgid "Terminal"
 msgstr "ターミナル"
 
-#: ajenti/plugins/terminal/main.py:195
+#: ajenti/plugins/terminal/main.py:221
 msgid "Run shell"
 msgstr "シェルを実行します"
 
-#: ajenti/plugins/terminal/main.py:196
+#: ajenti/plugins/terminal/main.py:222
 msgid "Run custom commands"
 msgstr "カスタム コマンドを実行します"
 
@@ -1377,22 +1381,18 @@ msgid "Traffic"
 msgstr "トラフィック"
 
 #: ajenti/plugins/network/layout/main.xml:2
-msgid "Class"
-msgstr ""
-
-#: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
 msgstr ""
 
-#: ajenti/plugins/network/layout/main.xml:4
+#: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
 msgstr ""
 
-#: ajenti/plugins/network/layout/main.xml:5
+#: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
 msgstr ""
 
-#: ajenti/plugins/network/layout/main.xml:7
+#: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
 msgstr ""
 

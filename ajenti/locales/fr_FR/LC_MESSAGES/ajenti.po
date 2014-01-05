@@ -8,11 +8,11 @@ msgstr ""
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "off"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Synchronisation utilisateur LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -24,7 +24,7 @@ msgstr "Contrôle d'alimentation"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Suspendre"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
@@ -164,7 +164,7 @@ msgid "Enable"
 msgstr "Activer"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:208
 msgid "Configuration"
 msgstr "Configuration"
 
@@ -215,7 +215,7 @@ msgstr "Créer"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/network/layout/main.xml:8
+#: ajenti/plugins/network/layout/main.xml:7
 #: ajenti/plugins/nsd/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/hosts/layout/main.xml:7
@@ -250,7 +250,7 @@ msgid "mount -a failed"
 msgstr "Echec de mount -a"
 
 #: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:76
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
@@ -381,12 +381,12 @@ msgstr "Démarrage automatique"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Activé"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Désactivé"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -514,7 +514,7 @@ msgstr " démarrage automatique"
 
 #: ajenti/plugins/iptables/main.py:198
 msgid "Applied successfully"
-msgstr ""
+msgstr "Appliqué avec succès"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
@@ -609,28 +609,28 @@ msgstr "Motif"
 msgid "Configure"
 msgstr "Configurer"
 
-#: ajenti/plugins/configurator/configurator.py:129
+#: ajenti/plugins/configurator/configurator.py:136
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
-#: ajenti/plugins/configurator/configurator.py:149
+#: ajenti/plugins/configurator/configurator.py:156
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Enregistrement effectué. Veuillez redémarrer Ajenti pour que les changements soient pris en compte."
 
-#: ajenti/plugins/configurator/configurator.py:155
+#: ajenti/plugins/configurator/configurator.py:162
 msgid "Please supply hostname"
 msgstr "Veuillez fournir le nom d'hôte"
 
-#: ajenti/plugins/configurator/configurator.py:169
+#: ajenti/plugins/configurator/configurator.py:176
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Veuillez configurer le plugin %s !"
 
-#: ajenti/plugins/configurator/configurator.py:205
+#: ajenti/plugins/configurator/configurator.py:212
 msgid "Modify Ajenti configuration"
 msgstr "Modifier la configuration d'Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:206
+#: ajenti/plugins/configurator/configurator.py:213
 msgid "Restart Ajenti"
 msgstr "Redémarrer Ajenti"
 
@@ -643,7 +643,7 @@ msgstr "Général"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -675,19 +675,19 @@ msgstr "Authentification"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Synchroniser avec"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Synchroniser  maintenant"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Correctement configuré"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Échec de synchronisation"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -725,7 +725,7 @@ msgstr "Extensions"
 #: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
-#: ajenti/plugins/network/layout/main.xml:6
+#: ajenti/plugins/network/layout/main.xml:5
 msgid "Restart"
 msgstr "Redémarrer"
 
@@ -735,7 +735,7 @@ msgstr "Redémarrer Ajenti ?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "URL du serveur"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
@@ -762,6 +762,10 @@ msgid "Base DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
 msgstr ""
 
@@ -810,27 +814,27 @@ msgstr "Horaire"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "Toutes les heures"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "Tous les jours"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "Toutes les semaines"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "Tous les mois"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "Tous les ans"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
@@ -948,7 +952,7 @@ msgstr "Annuler"
 msgid "File Manager"
 msgstr "Fichiers"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:36
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "Outils"
@@ -973,7 +977,7 @@ msgstr "Fermer"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Sélectionner tout"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -985,15 +989,15 @@ msgstr "Nouveau dossier"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Couper"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Copier"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Coller"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -1030,7 +1034,7 @@ msgstr "Autres"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Set recursively"
-msgstr ""
+msgstr "Appliquer de manière récursive"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -1093,7 +1097,7 @@ msgstr "Texte"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "Capteur IPMI"
 
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
@@ -1110,11 +1114,11 @@ msgstr "Mode"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Authoriser"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Refuser"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1186,25 +1190,25 @@ msgstr "Adresses publiques"
 msgid "CodeMirror code editor"
 msgstr "Éditeur CodeMirror"
 
-#: ajenti/plugins/terminal/terminal.py:95
+#: ajenti/plugins/terminal/terminal.py:100
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "Le processus a quitté avec l'état %i"
 
-#: ajenti/plugins/terminal/terminal.py:97
+#: ajenti/plugins/terminal/terminal.py:102
 msgid "Process has exited successfully"
 msgstr "La processus a quitté sans erreur"
 
-#: ajenti/plugins/terminal/main.py:19 ajenti/plugins/terminal/main.py:32
-#: ajenti/plugins/terminal/main.py:191
+#: ajenti/plugins/terminal/main.py:21 ajenti/plugins/terminal/main.py:34
+#: ajenti/plugins/terminal/main.py:217
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ajenti/plugins/terminal/main.py:195
+#: ajenti/plugins/terminal/main.py:221
 msgid "Run shell"
 msgstr "Démarrer un shell"
 
-#: ajenti/plugins/terminal/main.py:196
+#: ajenti/plugins/terminal/main.py:222
 msgid "Run custom commands"
 msgstr "Exécuter des commandes personnalisées"
 
@@ -1377,22 +1381,18 @@ msgid "Traffic"
 msgstr "Trafic"
 
 #: ajenti/plugins/network/layout/main.xml:2
-msgid "Class"
-msgstr "Classe"
-
-#: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring up"
 msgstr "Monter"
 
-#: ajenti/plugins/network/layout/main.xml:4
+#: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
 msgstr "Descendre"
 
-#: ajenti/plugins/network/layout/main.xml:5
+#: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
 msgstr "La coupure de la connexion réseau principal va entraîner la coupure de tous les accès au serveur! Êtes-vous sûrs ?"
 
-#: ajenti/plugins/network/layout/main.xml:7
+#: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
 msgstr "Le redémarrage de la connexion réseau principal peut couper n'importe quel accès au serveur! Êtes-vous sûrs ?"
 
@@ -1402,11 +1402,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Statique"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Manuelle"
 
 #: ajenti/plugins/taskmgr/main.py:14
 msgid "Processes"
@@ -1414,7 +1414,7 @@ msgstr "Processus"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Parent"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
