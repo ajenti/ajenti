@@ -1,41 +1,25 @@
-.. Ajenti documentation master file, created by
-   sphinx-quickstart on Mon Aug 15 15:18:35 2011.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Ajenti's documentation!
-==================================
+Ajenti documentation
+====================
 
 Documentation
 -------------
 
 .. toctree::
-   :maxdepth: 1
 
-   man/faq
-   man/install/general
-   man/install/debian
-   man/install/ubuntu
-   man/install/rpm
-   man/install/bsd
-   man/reverse-proxy
+   man/faq.rst
+   man/install.rst
+   man/run.rst
 
 
 Developers
 ----------
 
 .. toctree::
-   :maxdepth: 1
    
-   dev/contributing.rst
    dev/intro.rst
-   dev/examples.rst
-   dev/plugins.rst
    dev/ui.rst
    dev/notifications.rst
-   dev/simple-binding.rst
-   dev/collection-binding.rst
-   dev/ui-elements.rst
+   dev/binding.rst
    dev/custom-controls.rst
    dev/http.rst
 

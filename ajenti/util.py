@@ -91,7 +91,9 @@ def cache_value(duration):
 @public
 def platform_select(**values):
     """
-    Selects a value from **kwargs depending on runtime platform::
+    Selects a value from **kwargs** depending on runtime platform
+
+    ::
 
         service = platform_select(
             debian='samba',
@@ -99,6 +101,7 @@ def platform_select(**values):
             centos='smbd',
             default='samba',
         )
+
     """
     if ajenti.platform_unmapped in values:
         return values[ajenti.platform_unmapped]    

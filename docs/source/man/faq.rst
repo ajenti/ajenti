@@ -4,7 +4,7 @@ FAQ
 How do I add domains/PHP/email accounts/websites?
 -------------------------------------------------
 
-Ajenti is a **server control** panel, not a **hosting control** panel. Please take a look at Virtualmin instead.
+Pure Ajenti is a **server control** panel, not a **hosting control** panel. Please take a look at Ajenti V instead: http://ajenti.org.
 
 I forgot my password
 --------------------
@@ -17,8 +17,3 @@ My OS isn't supported, but I'm a brave adventurer
 ::
 
     pip install ajenti
-
-How do I change interface language?
------------------------------------
-
-Ajenti follows system locale. Change system language and restart Ajenti.
