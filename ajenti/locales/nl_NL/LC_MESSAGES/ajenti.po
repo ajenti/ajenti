@@ -751,11 +751,11 @@ msgstr "Geheim"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Server Adres"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Domein naam"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -763,11 +763,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "Administrator Gebruikersnaam"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
-msgstr ""
+msgstr "Administrator Wachtwoord"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -960,11 +960,11 @@ msgstr "Gereedschap"
 #: ajenti/plugins/fm/fm.py:147
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "%i Items geselecteerd"
 
 #: ajenti/plugins/fm/fm.py:186
 msgid "Unpacked"
-msgstr ""
+msgstr "Uitgepakt"
 
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/notepad/layout/config.xml:1
@@ -977,7 +977,7 @@ msgstr "Sluiten"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Alles selecteren"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -1014,7 +1014,7 @@ msgstr "Verwijderen"
 
 #: ajenti/plugins/fm/layout/main.xml:17
 msgid "Unpack"
-msgstr ""
+msgstr "Uitpakken"
 
 #: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
@@ -1046,7 +1046,7 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "host:poort of UNIX socket pad"
 
 #: ajenti/plugins/openvpn/layout/main.xml:3
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
@@ -1058,7 +1058,7 @@ msgstr "Status"
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr ""
+msgstr "Extern IP-adres"
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
@@ -1075,7 +1075,7 @@ msgstr "Verbreken"
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "klanten"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
@@ -1087,7 +1087,7 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "Vlaggen"
 
 #: ajenti/plugins/openvpn/layout/main.xml:12
 #: ajenti/plugins/dashboard/text.py:7

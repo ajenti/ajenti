@@ -561,7 +561,7 @@ msgstr "Lade aktuellen Status"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Dies überschreibt die aktuell gespeicherte Konfiguration mit dem aktuellem Firewall-Staus! Fortfahren?"
+msgstr "Dies überschreibt die aktuell gespeicherte Konfiguration mit dem aktuellen Firewall-Status! Fortfahren?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
@@ -763,7 +763,7 @@ msgstr "Basis-DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "Admin-Benutzer"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
@@ -1450,7 +1450,7 @@ msgstr "Zone"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr "Zone-Datei ist nicht vorhanden."
+msgstr "Zonen-Datei ist nicht vorhanden."
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"

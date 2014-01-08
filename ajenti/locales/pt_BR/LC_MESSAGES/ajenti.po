@@ -763,7 +763,7 @@ msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "Usuário admin"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
@@ -1525,55 +1525,55 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "Em execução"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Cancelando"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "Cancelar"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Tarefas concluídas"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Sucesso"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "Cancelado"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Caiu"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Tarefas"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Executar a tarefa"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "Manual (especificar abaixo)"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "Entrada manual"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Executar em paralelo"
 
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
@@ -1581,7 +1581,7 @@ msgstr "Adaptador"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Matriz"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1610,7 +1610,7 @@ msgstr "Favoritar"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Lista de plugin de recolhimento"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
@@ -1618,7 +1618,7 @@ msgstr "Dependências"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "Depende de"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -1725,15 +1725,15 @@ msgstr "Somente leitura"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "Usuários permitidos"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "Usuários de R/W"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -1798,7 +1798,7 @@ msgstr "Painel"
 
 #: ajenti/plugins/dashboard/dash.py:175
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
@@ -1810,7 +1810,7 @@ msgstr "Add widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Atualização automática"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"

@@ -814,32 +814,32 @@ msgstr "Plánovač"
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "Každou hodinu"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "Denně"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "Týdně"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "Měsíčně"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "Ročně"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
 msgid "On reboot"
-msgstr ""
+msgstr "Při restartu"
 
 #: ajenti/plugins/cron/layout/main.xml:26
 #: ajenti/plugins/resolv/layout/main.xml:3
@@ -1014,7 +1014,7 @@ msgstr "Odstranit"
 
 #: ajenti/plugins/fm/layout/main.xml:17
 msgid "Unpack"
-msgstr ""
+msgstr "Extrahovat"
 
 #: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
@@ -1114,11 +1114,11 @@ msgstr "Mód"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Povolit"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Zakázat"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"

@@ -8,7 +8,7 @@ msgstr ""
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "关闭"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
@@ -1331,7 +1331,7 @@ msgstr "密码不能为空"
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "%s 的密码已经移除"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
