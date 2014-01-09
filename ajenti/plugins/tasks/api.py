@@ -1,5 +1,6 @@
 import logging
 import threading
+import traceback
 import uuid
 
 from ajenti.api import *
@@ -65,6 +66,7 @@ class Task (object):
             self.result.result = TaskResult.ERROR
             self.result.output = e.message
         except Exception, e:
+            traceback.print_exc()
             self.result.result = TaskResult.CRASH
             self.result.output = str(e)
             logging.exception(str(e))

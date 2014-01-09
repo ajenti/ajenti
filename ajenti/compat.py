@@ -1,3 +1,4 @@
+import logging
 import subprocess
 import os
 import sys
@@ -17,6 +18,7 @@ old_Popen = subprocess.Popen.__init__
 
 
 def Popen(*args, **kwargs):
+    logging.debug('Popen: %s' % (args[1],))
     __null = open(os.devnull, 'w')
     return old_Popen(
         stdin=kwargs.pop('stdin', subprocess.PIPE),
@@ -51,8 +53,6 @@ threading.Thread._Thread__block = property(tbget, tbset, tbdel)
 
 
 # suppress Requests logging
-import logging
-
 logging.getLogger("requests").setLevel(logging.WARNING)
 
 # suppress simplejson

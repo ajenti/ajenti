@@ -40,12 +40,10 @@ NAME=Ajenti
 DAEMON=/usr/bin/ajenti-panel
 PIDFILE=/var/run/ajenti.pid
 
-#test -x $DAEMON || exit 5
-
-
 case "$1" in
-	start)
-		echo "Starting $NAME:"
+    start)
+        echo "Starting $NAME:"
+        export LC_CTYPE=en_US.UTF8
 
         if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
             log_failure "already running"
