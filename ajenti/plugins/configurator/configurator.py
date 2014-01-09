@@ -1,4 +1,5 @@
 import subprocess
+from copy import deepcopy
 
 import ajenti
 import ajenti.locales
@@ -73,6 +74,16 @@ class Configurator (SectionPlugin):
                     line.append(
                         self.ui.create('checkbox', id=perm[0], text=perm[1], value=(perm[0] in item.permissions))
                     )
+
+            def copy():
+                self.save()
+                newuser = deepcopy(item)
+                newuser.name += '_'
+                collection[newuser.name] = newuser
+                self.refresh()
+
+            ui.find('copy').on('click', copy)
+
         self.find('users').post_item_bind = post_user_bind
 
         def post_user_update(object, collection, item, ui):

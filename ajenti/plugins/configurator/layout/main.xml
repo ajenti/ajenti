@@ -79,7 +79,12 @@
                                                 <collapserow>
                                                     <box>
                                                         <right>
-                                                            <button id="delete" bind="__delete" icon="remove" text="{Delete}" style="icon" warning="{Confirm deletion}" />
+                                                            <hc>
+                                                                <tooltip text="{Duplicate}">
+                                                                    <button id="copy" icon="copy" style="mini" />
+                                                                </tooltip>
+                                                                <button id="delete" bind="__delete" icon="remove" style="mini" warning="{Confirm deletion}" />
+                                                            </hc>
                                                         </right>
                                                         <hc>
                                                             <icon icon="user" />
