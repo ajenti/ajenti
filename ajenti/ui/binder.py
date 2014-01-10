@@ -300,6 +300,8 @@ class CollectionAutoBinding (Binding):
         self.item_ui = {}
         self.binders = {}
 
+        self.last_template_hash = None
+
     def unpopulate(self):
         if self.template:
             self.template_parent.append(self.template)
@@ -346,10 +348,6 @@ class CollectionAutoBinding (Binding):
             except IndexError:
                 pass
 
-        # remember old template instances and binders
-        old_item_ui = self.item_ui
-        old_binders = self.binders
-
         self.item_ui = {}
         self.binders = {}
         for value in self.values:
@@ -357,22 +355,13 @@ class CollectionAutoBinding (Binding):
             if not self.ui.filter(value):
                 continue
 
-            if value in old_item_ui:
-                # reuse old template
-                template = old_item_ui[value]
-            else:
-                # create new one
-                template = self.get_template(value, self.ui)
-                template.visible = True
+            template = self.get_template(value, self.ui)
+            template.visible = True
             self.items_ui.append(template)
             self.item_ui[value] = template
-            if value in old_binders:
-                # reuse binder
-                binder = old_binders[value]
-            else:
-                # create new one
-                binder = Binder(value, template)
-                binder.autodiscover()
+            
+            binder = Binder(value, template)
+            binder.autodiscover()
             binder.populate()
             self.binders[value] = binder
 
