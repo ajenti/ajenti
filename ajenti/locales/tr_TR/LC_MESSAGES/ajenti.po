@@ -755,7 +755,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Alanadı"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -900,6 +900,15 @@ msgstr "Yükle / Kaldır"
 msgid "Refresh lists"
 msgstr "Listeleri Yenile"
 
+#: ajenti/plugins/packages/pm_pacman.py:23
+#, python-format
+msgid "Failed to update lists: %s"
+msgstr ""
+
+#: ajenti/plugins/packages/pm_pacman.py:38
+msgid "No search results found"
+msgstr "Arama sonucu bulunamadı"
+
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
 msgstr "Sürüm"
@@ -952,7 +961,7 @@ msgstr "İptal"
 msgid "File Manager"
 msgstr "Dosya Yöneticisi"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:36
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:37
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "Araçlar"
@@ -1199,16 +1208,16 @@ msgstr "İşlem durumu %i ile çıkıldı"
 msgid "Process has exited successfully"
 msgstr "İşlem başarıyla çıkıldı"
 
-#: ajenti/plugins/terminal/main.py:21 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/terminal/main.py:217
+#: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
+#: ajenti/plugins/terminal/main.py:223
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ajenti/plugins/terminal/main.py:221
+#: ajenti/plugins/terminal/main.py:227
 msgid "Run shell"
 msgstr "Kabuk çalıştırmak"
 
-#: ajenti/plugins/terminal/main.py:222
+#: ajenti/plugins/terminal/main.py:228
 msgid "Run custom commands"
 msgstr "Özel komutları çalıştırmak"
 
@@ -1394,7 +1403,7 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Ana ağ bağlantısını yeniden başlatmak sunuya olan bağlantıyı kesebilir. Emin misiniz?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "Loopback"
@@ -1469,17 +1478,17 @@ msgstr "%S taşınıyor"
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Görev %s tamamlandı"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Görev %s sırada"
 
 #: ajenti/plugins/tasks/manager.py:109
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Görev %s başlatıldı"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
@@ -1796,7 +1805,7 @@ msgstr "Ekle"
 msgid "Dashboard"
 msgstr "Kontrol paneli"
 
-#: ajenti/plugins/dashboard/dash.py:175
+#: ajenti/plugins/dashboard/dash.py:176
 msgid "Widgets"
 msgstr ""
 

@@ -900,6 +900,15 @@ msgstr "Inštalovať alebo odstrániť"
 msgid "Refresh lists"
 msgstr "Obnoviť zoznam"
 
+#: ajenti/plugins/packages/pm_pacman.py:23
+#, python-format
+msgid "Failed to update lists: %s"
+msgstr ""
+
+#: ajenti/plugins/packages/pm_pacman.py:38
+msgid "No search results found"
+msgstr ""
+
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
 msgstr "Verzia"
@@ -952,7 +961,7 @@ msgstr "Zrušiť"
 msgid "File Manager"
 msgstr "Správca súborov"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:36
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:37
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "Nástroje"
@@ -1199,16 +1208,16 @@ msgstr ""
 msgid "Process has exited successfully"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:21 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/terminal/main.py:217
+#: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
+#: ajenti/plugins/terminal/main.py:223
 msgid "Terminal"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:221
+#: ajenti/plugins/terminal/main.py:227
 msgid "Run shell"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:222
+#: ajenti/plugins/terminal/main.py:228
 msgid "Run custom commands"
 msgstr ""
 
@@ -1796,7 +1805,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:175
+#: ajenti/plugins/dashboard/dash.py:176
 msgid "Widgets"
 msgstr ""
 

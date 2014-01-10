@@ -8,7 +8,7 @@ msgstr ""
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "إطفاء"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
@@ -271,7 +271,7 @@ msgstr "مساحة حرة على القرص"
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s مجاني"
 
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
@@ -687,7 +687,7 @@ msgstr "تكوين بشكل صحيح"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "فشل المزامنة"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -900,6 +900,15 @@ msgstr "تثبيت/إزالة"
 msgid "Refresh lists"
 msgstr "تحديث القوائم"
 
+#: ajenti/plugins/packages/pm_pacman.py:23
+#, python-format
+msgid "Failed to update lists: %s"
+msgstr ""
+
+#: ajenti/plugins/packages/pm_pacman.py:38
+msgid "No search results found"
+msgstr ""
+
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
 msgstr "الإصدار"
@@ -952,7 +961,7 @@ msgstr "إلغاء الأمر"
 msgid "File Manager"
 msgstr "إدارة الملفات"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:36
+#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:37
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
 msgid "Tools"
 msgstr "الأدوات"
@@ -1199,16 +1208,16 @@ msgstr "أنهيت العملية وهي بوضع %i"
 msgid "Process has exited successfully"
 msgstr "تمت العملية بنجاح"
 
-#: ajenti/plugins/terminal/main.py:21 ajenti/plugins/terminal/main.py:34
-#: ajenti/plugins/terminal/main.py:217
+#: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
+#: ajenti/plugins/terminal/main.py:223
 msgid "Terminal"
 msgstr "الطرفية"
 
-#: ajenti/plugins/terminal/main.py:221
+#: ajenti/plugins/terminal/main.py:227
 msgid "Run shell"
 msgstr "تشغيل shell"
 
-#: ajenti/plugins/terminal/main.py:222
+#: ajenti/plugins/terminal/main.py:228
 msgid "Run custom commands"
 msgstr "تشغيل أوامر مخصصة"
 
@@ -1414,7 +1423,7 @@ msgstr "العمليات"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "السابق"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1796,7 +1805,7 @@ msgstr "إضافة"
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: ajenti/plugins/dashboard/dash.py:175
+#: ajenti/plugins/dashboard/dash.py:176
 msgid "Widgets"
 msgstr ""
 
