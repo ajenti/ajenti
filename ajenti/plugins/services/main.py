@@ -67,7 +67,7 @@ class ServiceControlBar (UIElement):
             for btn in self.buttons:
                 b = self.ui.create('button')
                 b.text, b.icon = btn['text'], btn['icon']
-                b.on('click', self.on_command, btn['command'])
+                b.on('click', self.on_command_button, btn['command'])
                 self.find('buttons').append(b)
             self.refresh()
 
@@ -99,7 +99,7 @@ class ServiceControlBar (UIElement):
         self.on_page_load()
         self.reverse_event('command', {'command': 'stop'})
 
-    def on_command(self, cmd):
+    def on_command_button(self, cmd):
         self.service.command(cmd)
         self.on_page_load()
         self.reverse_event('command', {'command': cmd})
