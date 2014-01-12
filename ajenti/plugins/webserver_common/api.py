@@ -21,7 +21,7 @@ class AvailabilitySymlinks (object):
         self.supports_activation = supports_activation
 
     def list_available(self):
-        return os.listdir(self.dir_a)
+        return [x for x in os.listdir(self.dir_a) if not os.path.isdir(os.path.join(self.dir_a, x))]
 
     def is_enabled(self, entry):
         if not self.supports_activation:
