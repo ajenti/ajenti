@@ -186,7 +186,7 @@ COMMIT
 
     @on('edit', 'click')
     def raw_edit(self):
-        self.context.launch('notepad', path='/etc/iptables.up.rules')
+        self.context.launch('notepad', path=self.fw_mgr.config_path_ajenti)
 
     @on('apply', 'click')
     def apply(self):
