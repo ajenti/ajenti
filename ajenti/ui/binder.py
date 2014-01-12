@@ -434,7 +434,7 @@ class Binder (object):
     def __warn_new_binder(self, s):
         import traceback; traceback.print_stack();
         warnings.warn(s, DeprecationWarning)
-        print 'Binding syntax has been changed: see'
+        print 'Binding syntax has been changed: see http://docs.ajenti.org/en/latest/dev/binding.html'
 
     def setup(self, object=None):
         """

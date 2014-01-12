@@ -3,6 +3,8 @@ Bindings
 
 Binding mechanism lets you bind your Python objects directly to UI elements and build CRUD interfaces in minutes.
 
+Example: https://github.com/Eugeny/ajenti/blob/dev/ajenti/plugins/test/binder/main.py
+
 Simple bindings
 ===============
 
@@ -34,7 +36,7 @@ Code::
 
             # Bind the settings object to the section UI element (self)
             self.binder = Binder(self.settings, self)
-            self.binder.autodiscover().populate()
+            self.binder.populate()
 
         @on('apply', 'click')
         def on_apply(self):
@@ -124,7 +126,7 @@ Code::
         def refresh(self):
             self.binder.update()
             self.raw_data = repr(self.obj_collection)
-            self.binder.reset().autodiscover().populate()
+            self.binder.populate()
 
         @on('apply', 'click')
         def on_apply(self):
