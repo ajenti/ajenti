@@ -31,7 +31,7 @@ class Services (SectionPlugin):
 
     def refresh(self):
         self.services = sorted(self.mgr.get_all(), key=lambda x: x.name)
-        self.binder.reset(self).autodiscover().populate()
+        self.binder.setup(self).populate()
 
     def on_start(self, item):
         item.start()

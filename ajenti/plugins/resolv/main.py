@@ -24,7 +24,7 @@ class Resolv (SectionPlugin):
 
     def on_page_load(self):
         self.config.load()
-        self.binder.reset(self.config.tree).autodiscover().populate()
+        self.binder.setup(self.config.tree).populate()
 
     @on('save', 'click')
     def save(self):

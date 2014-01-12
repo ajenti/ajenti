@@ -39,7 +39,7 @@ class Cron (SectionPlugin):
         users_select.values = users_select.labels = users
 
         self.config = CronManager.get().load_tab(self.current_user)
-        self.binder.reset(self.config.tree).autodiscover().populate()
+        self.binder.setup(self.config.tree).populate()
 
     @on('save', 'click')
     def on_save(self):

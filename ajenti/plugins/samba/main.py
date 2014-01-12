@@ -69,9 +69,9 @@ class Samba (SectionPlugin):
         self.config.load()
         self.monitor.refresh()
         self.usermgr.load()
-        self.binder.reset(self.config.tree).autodiscover().populate()
-        self.binder_m.reset(self.monitor).autodiscover().populate()
-        self.binder_u.reset(self.usermgr).autodiscover().populate()
+        self.binder.setup(self.config.tree).populate()
+        self.binder_m.setup(self.monitor).populate()
+        self.binder_u.setup(self.usermgr).populate()
 
         users_dropdown = self.find('add-user-list')
         users = [x.name for x in PasswdConfig(path='/etc/passwd').load().tree.users]

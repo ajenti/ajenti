@@ -49,14 +49,14 @@ class FileManager (SectionPlugin):
 
     def on_first_page_load(self):
         self.controller.new_tab(self.classconfig['root'])
-        self.binder = Binder(self.controller, self.find('filemanager')).autodiscover().populate()
-        self.binder_c = Binder(self, self.find('bind-clipboard')).autodiscover().populate()
+        self.binder = Binder(self.controller, self.find('filemanager')).populate()
+        self.binder_c = Binder(self, self.find('bind-clipboard')).populate()
 
     def on_page_load(self):
         self.refresh()
 
     def refresh_clipboard(self):
-        self.binder_c.reset().autodiscover().populate()
+        self.binder_c.setup().populate()
 
     @on('tabs', 'switch')
     def on_tab_switch(self):
@@ -175,7 +175,7 @@ class FileManager (SectionPlugin):
         self.find('dialog').visible = True
         self.item = Item(path)
         self.item.read()
-        self.binder_d = Binder(self.item, self.find('dialog')).autodiscover().populate()
+        self.binder_d = Binder(self.item, self.find('dialog')).populate()
 
         # Unpack
         u = Unpacker.find(self.item.fullpath.lower())

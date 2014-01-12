@@ -56,7 +56,7 @@ class TaskManager (SectionPlugin):
                 p._username = '?'
 
         self.processes = sorted(self.processes, key=lambda x: getattr(x, self.sorting), reverse=self.sorting_reverse)
-        self.binder.reset(self).autodiscover().populate()
+        self.binder.setup(self).populate()
 
     def on_term(self, p):
         os.kill(p.pid, 15)

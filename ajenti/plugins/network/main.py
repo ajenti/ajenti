@@ -39,7 +39,7 @@ class NetworkPlugin (SectionPlugin):
         self.find('interfaces').post_item_bind = post_interface_bind
         self.find('interfaces').post_item_update = post_interface_update
 
-        self.binder = Binder(self.net_config, self)
+        self.binder = Binder(None, self)
 
     def on_page_load(self):
         self.refresh()
@@ -51,7 +51,7 @@ class NetworkPlugin (SectionPlugin):
         for i in self.net_config.interface_list:
             i.tx, i.rx = sensor.value(i.name)
 
-        self.binder.reset().autodiscover().populate()
+        self.binder.setup(self.net_config).populate()
         return
 
     def on_up(self, iface=None):

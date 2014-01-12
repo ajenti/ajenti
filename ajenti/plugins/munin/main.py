@@ -47,7 +47,7 @@ class Munin (SectionPlugin):
                 self.context.notify('error', _('Munin HTTP authentication failed'))
             else:
                 raise
-        self.binder.reset(self.munin_client).autodiscover().populate()
+        self.binder.setup(self.munin_client).populate()
 
     @on('save-button', 'click')
     def save(self):

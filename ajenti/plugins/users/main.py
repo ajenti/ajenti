@@ -60,9 +60,9 @@ class Users (SectionPlugin):
         self.config.load()
         self.config_g.load()
 
-        self.binder.reset(self.config.tree).autodiscover().populate()
-        self.binder_system.reset(self.config.tree).autodiscover().populate()
-        self.binder_g.reset(self.config_g.tree).autodiscover().populate()
+        self.binder.setup(self.config.tree).populate()
+        self.binder_system.setup(self.config.tree).populate()
+        self.binder_g.setup(self.config_g.tree).populate()
 
     @on('add-user', 'click')
     def on_add_user(self):

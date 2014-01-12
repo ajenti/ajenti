@@ -84,8 +84,9 @@ class DBPlugin (SectionPlugin):
                 self.context.launch('configure-plugin', plugin=self.config_class.get())
             return
 
+        self.binder.unpopulate()
         self.find('sql-db').labels = self.find('sql-db').values = [x.name for x in self.databases]
-        self.binder.reset(self).autodiscover().populate()
+        self.binder.setup(self).populate()
         self.find_type('servicebar').reload()
 
     @on('db-name-dialog', 'submit')

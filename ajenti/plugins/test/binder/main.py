@@ -29,7 +29,6 @@ class SimpleDemo (SectionPlugin):
         self.find('data').text = repr(self.data)
 
         self.binder = Binder(self, self.find('bindroot'))
-        self.binder.autodiscover()
 
     @on('populate', 'click')
     def on_populate(self):

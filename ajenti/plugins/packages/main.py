@@ -39,10 +39,10 @@ class Packages (SectionPlugin):
 
     def refresh(self):
         self.fill(self.mgr.upgradeable)
-        self.binder.reset(self.mgr).autodiscover().populate()
+        self.binder.setup(self.mgr).populate()
         self.binder_s.unpopulate().populate()
         self._pending = self.pending.values()
-        self.binder_p.reset(self).autodiscover().populate()
+        self.binder_p.setup(self).populate()
 
     def run(self, tasks):
         if self.installation_running:

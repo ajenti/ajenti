@@ -24,11 +24,11 @@ class RAID (SectionPlugin):
         self.find('arrays').post_item_bind = post_array_bind
 
         self.mgr = RAIDManager.get()
-        self.binder = Binder(self.mgr, self)
+        self.binder = Binder(None, self)
 
     def on_page_load(self):
         self.refresh()
 
     def refresh(self):
         self.mgr.refresh()
-        self.binder.reset().autodiscover().populate()
+        self.binder.setup(self.mgr).populate()

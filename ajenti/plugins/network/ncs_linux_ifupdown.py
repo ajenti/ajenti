@@ -11,10 +11,10 @@ class LinuxIfUpDownNetworkConfigSet (NetworkConfigBit):
 
     def init(self):
         self.append(self.ui.inflate('network:bit-linux-ifupdown'))
-        self.binder = Binder(self.iface, self)
+        self.binder = Binder(None, self)
 
     def refresh(self):
-        self.binder.reset(self.iface).autodiscover().populate()
+        self.binder.setup(self.iface).populate()
 
     def apply(self):
         self.binder.update()

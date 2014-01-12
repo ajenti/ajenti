@@ -49,8 +49,9 @@ class Tasks (SectionPlugin):
 
     @on('refresh', 'click')
     def refresh(self):
-        self.binder.reset(self.manager)
         self.manager.refresh()
+
+        self.binder.unpopulate()
 
         dd = self.find('task-classes')
         dd.labels = []
@@ -66,7 +67,7 @@ class Tasks (SectionPlugin):
         self.find('run-task-selector').labels = dd.labels
         self.find('run-task-selector').values = dd.values
 
-        self.binder.autodiscover().populate()
+        self.binder.setup(self.manager).populate()
 
     @on('run-task', 'click')
     def on_run_task(self):

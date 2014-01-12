@@ -83,4 +83,4 @@ class OpenVPN (SectionPlugin):
         except Exception, e:
             self.context.notify('error', e.message)
 
-        self.binder.reset(self.state).autodiscover().populate()
+        self.binder.setup(self.state).populate()

@@ -1,4 +1,5 @@
 import copy
+import warnings
 
 from ajenti.api import *
 from ajenti.ui.element import p, UIElement
@@ -144,6 +145,7 @@ class ListAutoBinding (Binding):
     def __init__(self, object, attribute, ui):
         Binding.__init__(self, object, attribute, ui)
         self.binders = {}
+        self.values = []
 
     def unpopulate(self):
         for binder in self.binders.values():
@@ -168,7 +170,6 @@ class ListAutoBinding (Binding):
             template = self.ui.children[index]
             index += 1
             binder = Binder(value, template)
-            binder.autodiscover()
             binder.populate()
             self.binders[value] = binder
             self.ui.post_item_bind(self.object, self.collection, value, template)
@@ -299,6 +300,7 @@ class CollectionAutoBinding (Binding):
 
         self.item_ui = {}
         self.binders = {}
+        self.values = []
 
         self.last_template_hash = None
 
@@ -361,7 +363,6 @@ class CollectionAutoBinding (Binding):
             self.item_ui[value] = template
             
             binder = Binder(value, template)
-            binder.autodiscover()
             binder.populate()
             self.binders[value] = binder
 
@@ -418,6 +419,7 @@ class CollectionAutoBinding (Binding):
 class Binder (object):
     """
     An automatic object-to-ui-hierarchy binder. Uses ``bind`` UI property to find what and where to bind.
+    If ``object`` is not None, the Binder is also initialized (see ``setup(object)``) with this data object.
 
     :param object: Python object
     :param ui: UI hierarchy root
@@ -425,7 +427,25 @@ class Binder (object):
 
     def __init__(self, object=None, ui=None):
         self.bindings = []
-        self.reset(object, ui)
+        self.ui = ui
+        if object is not None:
+            self.setup(object)
+
+    def __warn_new_binder(self, s):
+        import traceback; traceback.print_stack();
+        warnings.warn(s, DeprecationWarning)
+        print 'Binding syntax has been changed: see'
+
+    def setup(self, object=None):
+        """
+        Initializes the Binder with a data object.
+        :type object: object
+        """
+        self.unpopulate()
+        if object is not None:
+            self.object = object
+        self.__autodiscover()
+        return self
 
     def reset(self, object=None, ui=None):
         """
@@ -434,6 +454,7 @@ class Binder (object):
         :type object: object
         :type ui: UIElement, None
         """
+        self.__warn_new_binder('Binder.reset(object, ui)')
         self.unpopulate()
         if object is not None:
             self.object = object
@@ -442,6 +463,11 @@ class Binder (object):
         return self
 
     def autodiscover(self, object=None, ui=None):
+        self.__warn_new_binder('Binder.autodiscover(object, ui)')
+        self.__autodiscover(object, ui)
+        return self
+
+    def __autodiscover(self, object=None, ui=None):
         """
         Recursively scans UI tree for ``bind`` properties, and creates bindings.
         """
@@ -484,7 +510,7 @@ class Binder (object):
                 # Nested binder context
                 if prop == '{binder}context':
                     if bindable is not ui and k:
-                        self.autodiscover(getattr(object, k), bindable)
+                        self.__autodiscover(getattr(object, k), bindable)
 
                 # Property binding
                 if prop.startswith('{bind}'):

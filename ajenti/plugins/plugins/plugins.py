@@ -31,9 +31,9 @@ class PluginsPlugin (SectionPlugin):
         self.find('plugins').post_item_bind = post_plugin_bind
         self.find('dependencies').post_item_bind = post_dep_bind
 
-        self.binder = Binder(self, self.find('bind-root'))
+        self.binder = Binder(None, self.find('bind-root'))
 
     def on_page_load(self):
         self.context.endpoint.send_progress(_('Gathering plugin list'))
         self.plugins = sorted(manager.get_all().values())
-        self.binder.reset().autodiscover().populate()
+        self.binder.setup(self).populate()

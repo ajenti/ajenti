@@ -36,5 +36,5 @@ class Test (SectionPlugin):
         self.find('persons-collection').new_item = lambda c: Person('New person', [])
         self.find('phones-collection').new_item = lambda c: Phone('123')
 
-        self.binder = Binder(book, self.find('addressbook'))
-        self.binder.autodiscover().populate()
+        self.binder = Binder(None, self.find('addressbook'))
+        self.binder.setup(book).populate()

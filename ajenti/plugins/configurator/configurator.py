@@ -121,7 +121,7 @@ class Configurator (SectionPlugin):
         self.refresh()
 
     def refresh(self):
-        self.binder.reset()
+        self.binder.unpopulate()
 
         self.find('sync-providers').labels = [x.title for x in UserSyncProvider.get_classes()]
         self.find('sync-providers').values = [x.id    for x in UserSyncProvider.get_classes()]
@@ -147,9 +147,9 @@ class Configurator (SectionPlugin):
         self.find('language').labels = [_('Auto'), 'en_US'] + languages
         self.find('language').values = ['', 'en_US'] + languages
 
-        self.binder.autodiscover().populate()
+        self.binder.setup().populate()
         self.ccmgr.reload()
-        self.classconfig_binding.reset().autodiscover().populate()
+        self.classconfig_binding.setup().populate()
 
     @on('save-button', 'click')
     @restrict('configurator:configure')

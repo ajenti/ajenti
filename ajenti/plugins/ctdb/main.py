@@ -51,9 +51,9 @@ class CTDB (SectionPlugin):
         self.addresses_config.load()
 
         self.config.load()
-        self.binder.reset(self.config.tree).autodiscover().populate()
-        self.n_binder.reset(self.nodes_config.tree).autodiscover().populate()
-        self.a_binder.reset(self.addresses_config.tree).autodiscover().populate()
+        self.binder.setup(self.config.tree).populate()
+        self.n_binder.setup(self.nodes_config.tree).populate()
+        self.a_binder.setup(self.addresses_config.tree).populate()
         self.refresh()
 
     @on('refresh', 'click')

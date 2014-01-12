@@ -143,14 +143,13 @@ COMMIT
     def refresh(self):
         self.find('autostart').text = (_('Disable') if self.fw_mgr.get_autostart_state() else _('Enable')) + _(' autostart')
 
-        self.binder.reset(self.config.tree)
         actions = ['ACCEPT', 'DROP', 'REJECT', 'LOG', 'MASQUERADE', 'DNAT', 'SNAT'] + \
             list(set(itertools.chain.from_iterable([[c.name for c in t.chains] for t in self.config.tree.tables])))
         self.find('action-select').labels = actions
         self.find('action-select').values = actions
         self.find('chain-action-select').labels = actions
         self.find('chain-action-select').values = actions
-        self.binder.autodiscover().populate()
+        self.binder.setup(self.config.tree).populate()
 
     @on('autostart', 'click')
     def on_autostart_change(self):

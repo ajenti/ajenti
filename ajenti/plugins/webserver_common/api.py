@@ -144,5 +144,5 @@ class WebserverPlugin (SectionPlugin):
 
     def refresh(self):
         self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
-        self.binder.reset(self).autodiscover().populate()
+        self.binder.setup(self).populate()
         self.find_type('servicebar').reload()

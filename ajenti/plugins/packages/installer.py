@@ -24,7 +24,7 @@ class PackageInstaller (UIElement, BasePlugin):
             if self.package in apps:
                 self.pkg = db[ajenti.platform][self.package]
                 self.visible = True
-                Binder(self, self).autodiscover().populate()
+                Binder(self, self).populate()
             if self.package.startswith('python-module-'):
                 d = ModuleDependency(self.package[len('python-module-')])
             else:

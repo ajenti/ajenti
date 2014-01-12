@@ -76,11 +76,12 @@ class Filesystems (SectionPlugin):
 
     @on('refresh', 'click')
     def refresh(self):
+        self.binder.unpopulate()
         self.reload_disks()
         self.fstab_config.load()
         self.fstab = self.fstab_config.tree
         self.mounts.reload()
-        self.binder.reset(self).autodiscover().populate()
+        self.binder.setup(self).populate()
 
     def reload_disks(self):
         lst = disks.list_devices(by_uuid=True, by_id=True, by_label=True)
