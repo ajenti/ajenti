@@ -1,104 +1,103 @@
 class window.Controls.pad extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container pad">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.indent extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container indent">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.box extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         h = @_int_to_px(@properties.height)
-        @dom = $$("""
+        """
             <div class="control container box" style="width: #{w}; height: #{h}; 
                 overflow: #{if @properties.scroll then 'auto' else 'hidden'}">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.well extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container well">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.center extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container center">
+            
             </div>
-        """)
-        @childContainer = @dom
-
+        """
+        
 
 class window.Controls.right extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container right">
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.hc extends window.Control
     createDom: () ->
-        @dom = $$("""
-            <table class="control container hc #{@properties.style}"><tr></tr></table>
-        """)
-        @childContainer = @dom.getElementsByTagName('tr')[0]
+        """
+            <table class="control container hc #{@s(@properties.style)}">
+                <tr>
+                    <children>
+                </tr>
+            </table>
+        """
 
     wrapChild: (child) ->
-        return $('<td></td>').append(child.dom)[0]
+        "<td>#{child.html}</td>"
 
 
 class window.Controls.vc extends window.Control
     createDom: () ->
-        @dom = $$("""
-            <div class="control container vc #{@properties.style}"></div>
-        """)
-        @childContainer = @dom
+        """
+            <div class="control container vc #{@s(@properties.style)}">
+                <children>
+            </div>
+        """
 
     wrapChild: (child) ->
-        return $('<div></div>').append(child.dom)[0]
+        "<div>#{child.html}</div>"
 
 
 class window.Controls.formline extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control formline">
-                <div class="control label">#{@properties.text}</div>
-                <div class="--child-container">
-                </div>
+                <div class="control label">#{@s(@properties.text)}</div>
+                <children>
             </div>
-        """)
-        @childContainer = @dom.getElementsByClassName('--child-container')
+        """
 
 
 class window.Controls.formgroup extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control formgroup">
-                <div>#{@properties.text}</div>
-                <div class="--child-container">
-                </div>
+                <div>#{@s(@properties.text)}</div>
+                <children>
             </div>
-        """)
-        @childContainer = @dom.find('.--child-container')
+        """
 
 
 class window.Controls.toolbar extends window.Control
@@ -113,24 +112,32 @@ class window.Controls.toolbar extends window.Control
 class window.Controls.dt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $$("""<table cellspacing="0" cellpadding="0" class="control table #{@properties.style}" style="width: #{w}">
-                <tbody></tbody>
-            </table>""")
-        @childContainer = @dom.getElementsByTagName('tbody')[0]
-
-    wrapChild: (child) ->
-        return child.dom
-
+        """
+            <table cellspacing="0" cellpadding="0" class="control table #{@s(@properties.style)}" style="width: #{w}">
+                <tbody>
+                    <children>
+                </tbody>
+            </table>
+        """
+        
 
 class window.Controls.sortabledt extends window.Controls.dt
     createDom: () ->
         super()
+
+    setupDom: (@dom) ->
+        super(@dom)
         @tbody = $(@dom).find('tbody')
         @tbody.sortable(
             distance: 5
             cancel: 'input,button,a'
         )
         @order = []
+        i = 1
+        for child in @children
+            @order.push i
+            $(child.dom).attr('data-order', i)
+            i += 1
 
     detectUpdates: () ->
         @newOrder = []
@@ -154,92 +161,65 @@ class window.Controls.sortabledt extends window.Controls.dt
         @order = @newOrder
         return r
 
-    wrapChild: (child) ->
-        $(child.dom).attr('data-order', @children.length)
-        return child.dom
-
-    append: (child) ->
-        super(child)
-        @order.push @children.length
-
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        @dom = $$("""<tr></tr>""", 'tbody')
-        @childContainer = @dom
-
-    wrapChild: (child) ->
-        return child.dom
-
+        """<tr><children></tr>"""
+        
 
 class window.Controls.dtd extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         fw = @_int_to_px(@properties.forcewidth)
-        @dom = $$("""<td style="width: #{w}; max-width: #{fw}"></td>""", 'tr')
-        @childContainer = @dom
-
-    wrapChild: (child) ->
-        return child.dom
+        """<td style="width: #{w}; max-width: #{fw}"></td>"""
 
 
 class window.Controls.dth extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $$("""<th style="width: #{w}">#{@properties.text}</th>""", 'tr')
-        @childContainer = @dom
-
-    wrapChild: (child) ->
-        return child.dom
-
+        """<th style="width: #{w}">#{@s(@properties.text)}</th>"""
+        
 
 class window.Controls.lt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $$("""<table cellspacing="0" cellpadding="0" class="control layout-table" style="width: #{w}">
-                <tbody></tbody>
-            </table>""")
-        @childContainer = @dom.getElementsByTagName('tbody')[0]
-
-    wrapChild: (child) ->
-        return child.dom
-
+        """
+            <table cellspacing="0" cellpadding="0" class="control layout-table" style="width: #{w}">
+                <tbody><children></tbody>
+            </table>
+        """
 
 class window.Controls.ltr extends window.Control
     createDom: () ->
-        @dom = $$("""<tr></tr>""", 'tbody')
-        @childContainer = @dom
-
-    wrapChild: (child) ->
-        return child.dom
+        """<tr><children></tr>"""
 
 
 class window.Controls.ltd extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $$("""<td style="width: #{w}"></td>""", 'tr')
-        @childContainer = @dom
-
-    wrapChild: (child) ->
-        return child.dom
+        """<td style="width: #{w}"><children></td>"""
 
 
 class window.Controls.collapserow extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <tr>
                 <td colspan="999" class="control container collapserow">
                     <div class="header"></div>
-                    <div class="children"></div>
+                    <div class="children"><children></div>
                 </td>
             </tr>
-        """)
-        @container = @dom.find('.children')[0]
-        @header = @dom.find('.header')[0]
-        @hasHeader = false
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        @container = $(@dom).find('.children')[0]
         @expanded = @properties.expanded
         if not @properties.expanded
             $(@container).hide()
+
+        $(@dom).find('.header').append(@dom.find('.children>*:first'))
+        @header = $(@dom).find('.header')[0]
 
         $(@header).click (e) =>
             @expanded = not @expanded
@@ -256,26 +236,33 @@ class window.Controls.collapserow extends window.Control
         @properties.expanded = @expanded
         return r
 
-    append: (child) ->
-        if @hasHeader
-            $(@container).append(child.dom)
-        else
-            $(@header).append(child.dom)
-            @hasHeader = true
-        @children.push child
-
 
 class window.Controls.tabs extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control tabs">
-                <ul></ul>
+                <ul><children></ul>
             </div>
-        """)
-        @childContainer = @dom
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
         @active = @properties.active
-        @headers = @dom.find('ul')
-        @dom.tabs()
+        @headers = $(@dom).find('ul')
+        $(@dom).tabs()
+        for child in children
+            do (child) =>
+                header = $$("""<li><a href="#uid-#{child.uid}">#{child.properties.title}</a></li>""")
+                @headers.append(header)
+                $(@dom).tabs('destroy')
+                $(@dom).tabs({
+                    beforeActivate: (e, ui) =>
+                        @active = parseInt $(ui.newPanel).attr('data-index')
+                        @event('switch', {})
+                        if not @properties.client
+                            e.preventDefault()
+                    selected: @active
+                })
 
     detectUpdates: () ->
         r = {}
@@ -284,22 +271,8 @@ class window.Controls.tabs extends window.Control
         @properties.active = @active
         return r
 
-    append: (child) ->
-        super(child)
-        header = $$("""<li><a href="##{child.uid}">#{child.properties.title}</a></li>""")
-        @headers.append(header)
-        @dom.tabs('destroy')
-        @dom.tabs({
-            beforeActivate: (e, ui) =>
-                @active = parseInt $(ui.newPanel).attr('data-index')
-                @event('switch', {})
-                if not @properties.client
-                    e.preventDefault()
-            selected: @active
-        })
-
     wrapChild: (child) ->
-        return $("""<div data-index="#{@children.length-1}" id="#{child.uid}"></div>""").append(child.dom)[0]
+        """<div data-index="#{@children.length-1}">#{child.html}</div>"""
 
 
 class window.Controls.collapse extends window.Control

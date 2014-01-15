@@ -1,10 +1,13 @@
 class window.Controls.textbox extends window.Control
     createDom: () ->
-        @dom = $$("""
-            <input class="control textbox #{@properties.style}" 
+        """
+            <input class="control textbox #{@s(@properties.style)}" 
                     #{if @properties.readonly then 'readonly' else ''}
                     type="text" />
-        """)
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
         @input = $(@dom)
         @input.val(@properties.value)
         @input.change () => @markChanged()
@@ -23,10 +26,13 @@ class window.Controls.textbox extends window.Control
 
 class window.Controls.passwordbox extends window.Controls.textbox
     createDom: () ->
-        @dom = $$("""
+        """
             <input class="control textbox #{@properties.style}" 
                     type="password" />
-        """)
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
         @input = $(@dom)
         @input.val(@properties.value)
         @input.change () => @markChanged()
@@ -35,14 +41,18 @@ class window.Controls.passwordbox extends window.Controls.textbox
 class window.Controls.editable extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $("""
+        """
             <div class="control editable">
-                <div class="control label">#{icon} <span>#{@properties.placeholder ? @properties.value}</span></div>
-                <input class="control textbox #{@properties.style}" type="text" value="#{@properties.value or ''}" />
+                <div class="control label">#{icon} <span>#{@s(@properties.placeholder ? @properties.value)}</span></div>
+                <input class="control textbox #{@properties.style}" type="text" />
             </div>
-        """)
-        @label = @dom.find('.label')
-        @input = @dom.find('input')
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        @label = $(@dom).find('.label')
+        @input = $(@dom).find('input')
+        @input.val(@properties.value or '')
         @input.hide()
         @input.change () => @markChanged()
         @editmode = false
@@ -81,7 +91,7 @@ class window.Controls.editable extends window.Control
 
 class window.Controls.checkbox extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control checkbox">
                 <input 
                     id="#{@properties.uid}"
@@ -93,10 +103,13 @@ class window.Controls.checkbox extends window.Control
                         <i class="icon-ok"></i>
                     </div>
                 </label>
-                <div class="control label">#{@properties.text}</div>
+                <div class="control label">#{@s(@properties.text)}</div>
             </div>
-        """)
-        @input = @dom.find('input')
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        @input = $(@dom).find('input')
         @input.change () => @markChanged()
 
     detectUpdates: () ->
@@ -110,14 +123,17 @@ class window.Controls.checkbox extends window.Control
 
 class window.Controls.dropdown extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div><select class="control dropdown"></select></div>
-        """)
-        @input = @dom.find('select')
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        @input = $(@dom).find('select')
         @data = []
         for i in [0...@properties.labels.length]
             do (i) =>
-                @input.append("""<option value="#{i}" #{if i == @properties.index then 'selected' else ''}>#{@properties.labels[i]}</option>""")
+                @input.append("""<option value="#{i}" #{if i == @properties.index then 'selected' else ''}>#{@s(@properties.labels[i])}</option>""")
 
         @input.select2()
         @input.change () => @markChanged()
@@ -138,9 +154,12 @@ class window.Controls.dropdown extends window.Control
 
 class window.Controls.combobox extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <input class="control combobox" type="text" value="#{@properties.value}" />
-        """)
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)        
         @input = $(@dom)
         @input.change () => @markChanged()
         @data = []
@@ -185,7 +204,7 @@ class window.Controls.combobox extends window.Control
 
 class window.Controls.fileupload extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control fileupload">
                 <input type="file" />
                 
@@ -198,9 +217,12 @@ class window.Controls.fileupload extends window.Control
                     </div>
                 </div>  
             </div>
-        """)
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)        
         @progress = new window.Controls.progressbar(@ui, {}, [])
-        @dom.find('.pb').append($(@progress.dom))
+        $(@dom).find('.pb').append($(@progress.dom))
         @input = @dom.find('input')[0]
         @input.addEventListener 'change', (e) =>
             file = @input.files[0]
@@ -221,35 +243,38 @@ class window.Controls.fileupload extends window.Control
             xhr.send(d)
             $(@dom).find('.full-overlay').show()
         , false
-        @dom.find('.full-overlay').hide()
+        $(@dom).find('.full-overlay').hide()
 
 
 class window.Controls.paging extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control paging">
                 <div class="control label">Page:&nbsp;</div>
                 <a class="prev control button style-mini"><i class="icon-arrow-left"></i></a>
                 <select />
                 <a class="next control button style-mini"><i class="icon-arrow-right"></i></a>
             </div>
-        """)
-        @select = @dom.find('select')
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        @select = $(@dom).find('select')
         for i in [0...@properties.length]
             @select.append($$("""
                 <option value="#{i+1}">#{i+1}</option>
             """))
         @select.val(@properties.active + 1)
         @select.select2(width: '80px')
-        @prev = @dom.find('.prev')
-        @next = @dom.find('.next')
+        @prev = $(@dom).find('.prev')
+        @next = $(@dom).find('.next')
 
         if @properties.active == 0
             @prev.hide()
         if @properties.active == @properties.length - 1
             @next.hide()
         if !@properties.length
-            @dom.hide()
+            $(@dom).hide()
 
         @prev.click () =>
             @set(@properties.active - 1)
@@ -267,12 +292,16 @@ class window.Controls.paging extends window.Control
 
 class window.Controls.pathbox extends window.Control
     createDom: () ->
-        @dom = $$("""
-            <div class="control container pathbox">
+        """
+            <div class="control container pathbox --child-container">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
         @textbox = new Controls.textbox(@ui, value: @properties.value)
+        @textbox.setupDom()
         @button = new Controls.button(
             @ui, 
             style: 'mini'

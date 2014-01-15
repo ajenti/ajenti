@@ -4,31 +4,35 @@ window._make_icon = (icon) ->
 
 class window.Controls.default extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div>
+                <children>
             </div>
-        """)
-        @childContainer = @dom
-
+        """
 
 
 class window.Controls.label extends window.Control
     createDom: () ->
-        @dom = $$("""<span class="control label #{@properties.style}">#{@properties.text}</span>""")
+        """<span class="control label #{@s(@properties.style)}">#{@s(@properties.text)}</span>"""
 
 
 class window.Controls.tooltip extends window.Control
     createDom: () ->
-        @dom = $("""
-            <div class="control tooltip #{@properties.style}">
-                <div class="container" title=""></div>
+        """
+            <div class="control tooltip #{@s(@properties.style)}">
+                <div class="container" title="">
+                    <children>
+                </div>
             </div>
-        """)
-        @dom.find('.container').tooltip({
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        $(@dom).find('.container').tooltip({
             content: () => """
                 <div class="control tooltip body">
                     <div>
-                        #{@properties.text}
+                        #{@s(@properties.text)}
                     </div>
                     <div>
                     </div>
@@ -38,51 +42,58 @@ class window.Controls.tooltip extends window.Control
                 my: "left-15 bottom"
                 at: "center top"
         })
-        @childContainer = @dom.find('.container')
 
 
 class window.Controls.icon extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $$("""<div class="control icon style-#{@properties.style}">#{icon}</div>""")
+        """<div class="control icon style-#{@s(@properties.style)}">#{icon}</div>"""
 
 
 class window.Controls.button extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $("""<a href="#" class="control button style-#{@properties.style}">#{icon} #{@properties.text}</a>""")
-        @dom.click (e) =>
+        """<a href="#" class="control button style-#{@s(@properties.style)}">#{icon} #{@s(@properties.text)}</a>"""
+
+    setupDom: (@dom) ->
+        super(@dom)
+        $(@dom).click (e) =>
             if not @properties.warning or confirm(@properties.warning)
                 if @event 'click'
                     @cancel(e)
 
-
 class window.Controls.togglebutton extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
-        @dom = $("""<a href="#" class="control button style-#{@properties.style} #{if @properties.pressed then 'pressed' else ''}">#{icon} #{@properties.text}</a>""")
-        @dom.click (e) =>
+        """<a href="#" class="control button style-#{@s(@properties.style)} #{if @properties.pressed then 'pressed' else ''}">#{icon} #{@s(@properties.text)}</a>"""
+
+    setupDom: (@dom) ->
+        super(@dom)
+        $(@dom).click (e) =>
             if @event 'click'
                 @cancel(e)
 
 
 class window.Controls.list extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container list">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.listitem extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control container listitem">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
-        @dom.click (e) =>
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
+        $(@dom).click (e) =>
             if @event 'click'
                 @cancel(e)
 
@@ -90,15 +101,17 @@ class window.Controls.listitem extends window.Control
 class window.Controls.progressbar extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        @dom = $$("""
-            <div class="control progressbar #{@properties.style}" style="width: #{w}">
+        """
+            <div class="control progressbar #{@s(@properties.style)}" style="width: #{w}">
                 <div class="fill">
                     <div class="tip"></div>
                 </div>
             </div>
-        """)
+        """
+
+    setupDom: (@dom) ->
+        super(@dom)
         @setProgress(@properties.value)
-        @childContainer = @dom
 
     setProgress: (p) ->
         pw = @_int_to_px(Math.round(@properties.width * p))

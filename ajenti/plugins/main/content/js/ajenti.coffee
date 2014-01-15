@@ -137,7 +137,11 @@ class window.UIManager
     replace: (ui) ->
         $('.ui-tooltip').remove()
         @ui = ui
-        $('.root').append(@ui.dom)
+
+        dom = $$(ui.html)
+        $('.root').append(dom)
+        ui.setupDom(dom)
+
         aoConnector.reportHeight($('body')[0].scrollHeight)
 
     extractUpdates: (control, target) ->
@@ -278,30 +282,43 @@ class window.Control
         @properties.visible ?= true
         
         @uid = @properties.uid    
-        @childContainer = null
         @dom = null
         @children = []
         @changed = false
 
         profiler.start('Generating DOM')
-        @createDom()
+        @html = @createDom()
+        if not @html.trim
+            @html = ''
+            return
+        @html = @html.trim()
+        @html = @html.insert(@html.indexOf(' '), " id=\"uid-#{@properties.uid}\" ")
         profiler.stop()
 
+        children_html = ''
         if children
             for child in children
-                do (child) =>
-                    @append(child)
+                @children.push child
+                children_html += @wrapChild(child)
         
-        if @dom and @dom.length
-            @dom = @dom[0]
-        if @properties.visible != true and @dom
-            @dom.style.display = 'none'
-        if @childContainer and @childContainer.length
-            @childContainer = @childContainer[0]
+        @html = @html.replace('<children>', children_html)
+        
+        
+    s: (value) ->
+        # TODO SANITIZE!
+        value
 
     createDom: () ->
         ""
 
+    setupDom: (dom) ->
+        dom ?= $$(@html)
+        @dom = dom
+        if @properties.visible != true and @dom and @dom.style
+            @dom.style.display = 'none'
+        for child in @children
+            child.setupDom(document.getElementById('uid-' + child.properties.uid))
+        
     destruct: () ->
 
     detectUpdates: () ->
@@ -318,7 +335,10 @@ class window.Control
         $(@dom).addClass('changed')
 
     wrapChild: (child) ->
-        return child.dom
+        if child.dom
+            return child.dom
+        else
+            return child.html
 
     onBroadcast: (msg) ->
 
@@ -338,16 +358,11 @@ class window.Control
         return type: 'update', uid: @uid, properties: updates
         
     append: (child) ->
-        @children.push child
         wrapper = @wrapChild(child)
         if wrapper and wrapper.length
             wrapper = wrapper[0]
         if wrapper
-            if not @childContainer
-                notcc = 1
-            if @childContainer.length
-                @childContainer = @childContainer[0]
-            @childContainer.appendChild(wrapper)
+            $(@dom).find('.--child-container').append(wrapper)
 
     publish: () ->
         @ui.checkForUpdates()
@@ -414,6 +429,13 @@ $.fn.safeRemove = () ->
         if e.parentNode
             e.parentNode.removeChild(e)
 
+
+String.prototype.trim = () -> String(this).replace(/^\s+|\s+$/g, '')
+String.prototype.insert = (index, string) ->
+    if index > 0
+        return @substring(0, index) + string + @substring(index, @length)
+    else
+        return string + this
 
 
 #---------------------
