@@ -79,10 +79,18 @@ class Tab (UIElement):
     typeid = 'tab'
 
 
-@p('active', default=0)
+@p('active', type=int, default=0)
 @plugin
 class Tabs (UIElement):
     typeid = 'tabs'
 
+    def init(self):
+        self.refresh()
+
     def on_switch(self):
         self.children_changed = True  # force update
+        self.refresh()
+    
+    def refresh(self):
+        for i, child in enumerate(self.children):
+            child.visible = int(self.active) == i

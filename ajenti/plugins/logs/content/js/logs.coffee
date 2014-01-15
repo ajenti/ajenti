@@ -1,9 +1,12 @@
 class window.Controls.logs__log extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <textarea class="control textbox log">
             </textarea>
-        """)
+        """
+
+    setupDom: (dom) ->
+        super(dom)
         if @properties.path
             @socket = ajentiConnectSocket('/log')
             @socket.send(JSON.stringify(type: 'select', path: @properties.path))

@@ -140,7 +140,12 @@ class window.UIManager
 
         dom = $$(ui.html)
         $('.root').append(dom)
+
+        profiler.start('DOM setup')
+        profiler.setupDomStats = {}
         ui.setupDom(dom)
+        console.log profiler.setupDomStats
+        profiler.stop()
 
         aoConnector.reportHeight($('body')[0].scrollHeight)
 
@@ -278,28 +283,40 @@ window.Controls = { }
 
 class window.Control
     constructor: (@ui, @properties, children) ->
+        window.Control.lastUID ?= -1
+
         @properties ?= {}
         @properties.visible ?= true
         
-        @uid = @properties.uid    
+        if @properties.uid
+            @uid = @properties.uid    
+        else
+            @uid = (window.Control.lastUID--)
+
         @dom = null
         @children = []
         @changed = false
 
         profiler.start('Generating DOM')
         @html = @createDom()
+        if @dom
+            console.log 'Bad control:', this #TODO
         if not @html.trim
             @html = ''
             return
         @html = @html.trim()
-        @html = @html.insert(@html.indexOf(' '), " id=\"uid-#{@properties.uid}\" ")
+
+        if not @noUID
+            @html = @html.insert(@html.indexOf('>'), " id=\"uid-#{@uid}\"")
+
         profiler.stop()
 
         children_html = ''
         if children
             for child in children
                 @children.push child
-                children_html += @wrapChild(child)
+                if not child.dom
+                    children_html += @wrapChild(child)
         
         @html = @html.replace('<children>', children_html)
         
@@ -312,12 +329,23 @@ class window.Control
         ""
 
     setupDom: (dom) ->
-        dom ?= $$(@html)
+        if @dom
+            return
+        if not dom
+            dom = $$(@html)
         @dom = dom
         if @properties.visible != true and @dom and @dom.style
             @dom.style.display = 'none'
         for child in @children
-            child.setupDom(document.getElementById('uid-' + child.properties.uid))
+            if child.dom
+                @append(child)
+            else
+                if Control.prototype.setupDom != child.constructor.prototype.setupDom
+                    key = child.constructor.name
+                    profiler.setupDomStats[key] ?= 0
+                    profiler.setupDomStats[key] += 1
+                child.setupDom(document.getElementById('uid-' + child.properties.uid))
+        return this
         
     destruct: () ->
 
@@ -335,10 +363,10 @@ class window.Control
         $(@dom).addClass('changed')
 
     wrapChild: (child) ->
-        if child.dom
-            return child.dom
-        else
-            return child.html
+        return child.html
+
+    wrapChildLive: (child) ->
+        return child.dom
 
     onBroadcast: (msg) ->
 
@@ -358,11 +386,13 @@ class window.Control
         return type: 'update', uid: @uid, properties: updates
         
     append: (child) ->
-        wrapper = @wrapChild(child)
-        if wrapper and wrapper.length
+        if not @childContainer
+            @childContainer = $($(@dom).find2('.--child-container')[0])
+        wrapper = @wrapChildLive(child)
+        if wrapper instanceof jQuery
             wrapper = wrapper[0]
         if wrapper
-            $(@dom).find('.--child-container').append(wrapper)
+            @childContainer.append(wrapper)
 
     publish: () ->
         @ui.checkForUpdates()
@@ -428,6 +458,9 @@ $.fn.safeRemove = () ->
     this.each (i,e) ->
         if e.parentNode
             e.parentNode.removeChild(e)
+
+$.fn.find2 = (selector) ->
+    @find(selector).add(@filter(selector))
 
 
 String.prototype.trim = () -> String(this).replace(/^\s+|\s+$/g, '')

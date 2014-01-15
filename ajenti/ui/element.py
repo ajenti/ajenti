@@ -166,7 +166,7 @@ class UIElement (object):
             self.properties[key] = kwargs[key]
 
     def __str__(self):
-        return '<%s @ %s>' % (self.typeid, id(self))
+        return '<%s # %s>' % (self.typeid, self.uid)
 
     @property
     def property_definitions(self):

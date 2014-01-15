@@ -1,14 +1,17 @@
 class window.Controls.terminal__thumbnail extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control terminal-thumbnail">
                 <img src="/ajenti:terminal/#{@properties.tid}/thumbnail" />
                 <a class="close">&#x2715;</a>
             </div>
-        """)
-        @dom.click () =>
+        """
+
+    setupDom: (dom) ->
+        super(dom)
+        $(@dom).click () =>
             Tabs.addTab "/ajenti:terminal/#{@properties.tid}", "Terminal #{@properties.tid}"
-        @dom.find('a').click (e) =>
+        $(@dom).find('a').click (e) =>
             @event('close')
             e.stopPropagation()
 

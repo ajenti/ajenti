@@ -19,7 +19,7 @@ class Logs (SectionPlugin):
 
     @on('open-button', 'click')
     def on_open(self):
-        self.opendialog.visible = True
+        self.opendialog.show()
 
     @on('opendialog', 'button')
     def on_open_dialog(self, button):

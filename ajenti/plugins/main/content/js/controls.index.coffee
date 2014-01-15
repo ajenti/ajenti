@@ -60,8 +60,8 @@ class window.Controls.main__sections_root extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @tabsContainer = $(@dom).find('.--tabs-container')
         @categories = {}
 

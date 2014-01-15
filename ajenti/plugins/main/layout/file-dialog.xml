@@ -1,0 +1,5 @@
+<pad>
+    <box width="auto" height="300" scroll="True">
+        <list id="list" />
+    </box>
+</pad>

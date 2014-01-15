@@ -41,7 +41,7 @@ class window.Controls.center extends window.Control
     createDom: () ->
         """
             <div class="control container center">
-            
+                <children>
             </div>
         """
         
@@ -50,6 +50,7 @@ class window.Controls.right extends window.Control
     createDom: () ->
         """
             <div class="control container right">
+                <children>
             </div>
         """
 
@@ -58,7 +59,7 @@ class window.Controls.hc extends window.Control
     createDom: () ->
         """
             <table class="control container hc #{@s(@properties.style)}">
-                <tr>
+                <tr class="--child-container">
                     <children>
                 </tr>
             </table>
@@ -67,17 +68,23 @@ class window.Controls.hc extends window.Control
     wrapChild: (child) ->
         "<td>#{child.html}</td>"
 
+    wrapChildLive: (child) ->
+        return $('<td></td>').append(child.dom)[0]
+
 
 class window.Controls.vc extends window.Control
     createDom: () ->
         """
-            <div class="control container vc #{@s(@properties.style)}">
+            <div class="control container vc #{@s(@properties.style)} --child-container">
                 <children>
             </div>
         """
 
     wrapChild: (child) ->
         "<div>#{child.html}</div>"
+
+    wrapChildLive: (child) ->
+        return $('<div></div>').append(child.dom)[0]
 
 
 class window.Controls.formline extends window.Control
@@ -102,18 +109,18 @@ class window.Controls.formgroup extends window.Control
 
 class window.Controls.toolbar extends window.Control
     createDom: () ->
-        @dom = $$("""
+        """
             <div class="control container toolbar">
+                <children>
             </div>
-        """)
-        @childContainer = @dom
+        """
 
 
 class window.Controls.dt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         """
-            <table cellspacing="0" cellpadding="0" class="control table #{@s(@properties.style)}" style="width: #{w}">
+            <table cellspacing="0" cellpadding="0" class="control table #{@s(@properties.style)} --child-container" style="width: #{w}">
                 <tbody>
                     <children>
                 </tbody>
@@ -122,12 +129,9 @@ class window.Controls.dt extends window.Control
         
 
 class window.Controls.sortabledt extends window.Controls.dt
-    createDom: () ->
-        super()
-
-    setupDom: (@dom) ->
-        super(@dom)
-        @tbody = $(@dom).find('tbody')
+    setupDom: (dom) ->
+        super(dom)
+        @tbody = $(@dom).find('>tbody')
         @tbody.sortable(
             distance: 5
             cancel: 'input,button,a'
@@ -158,20 +162,21 @@ class window.Controls.sortabledt extends window.Controls.dt
                 r.order = @newOrder
                 break
 
+        r.order = @newOrder
         @order = @newOrder
         return r
 
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        """<tr><children></tr>"""
+        """<tr class="--child-container"><children></tr>"""
         
 
 class window.Controls.dtd extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         fw = @_int_to_px(@properties.forcewidth)
-        """<td style="width: #{w}; max-width: #{fw}"></td>"""
+        """<td style="width: #{w}; max-width: #{fw}"><children></td>"""
 
 
 class window.Controls.dth extends window.Control
@@ -191,7 +196,7 @@ class window.Controls.lt extends window.Control
 
 class window.Controls.ltr extends window.Control
     createDom: () ->
-        """<tr><children></tr>"""
+        """<tr class="--child-container"><children></tr>"""
 
 
 class window.Controls.ltd extends window.Control
@@ -211,23 +216,26 @@ class window.Controls.collapserow extends window.Control
             </tr>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @container = $(@dom).find('.children')[0]
         @expanded = @properties.expanded
         if not @properties.expanded
             $(@container).hide()
 
-        $(@dom).find('.header').append(@dom.find('.children>*:first'))
+        $(@dom).find('.header').append($(@dom).find('.children>*:first'))
         @header = $(@dom).find('.header')[0]
 
-        $(@header).click (e) =>
+        @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
             @publish()
             $(@container).toggle('blind')
             if @expanded
                 @broadcast('visible')
             @cancel(e)
+        , false
+
+        return this
 
     detectUpdates: () ->
         r = {}
@@ -239,30 +247,31 @@ class window.Controls.collapserow extends window.Control
 
 class window.Controls.tabs extends window.Control
     createDom: () ->
+        @lastTabIndex = 0
         """
             <div class="control tabs">
-                <ul><children></ul>
+                <ul></ul>
+                <children>
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @active = @properties.active
         @headers = $(@dom).find('ul')
-        $(@dom).tabs()
-        for child in children
+        for child in @children
             do (child) =>
-                header = $$("""<li><a href="#uid-#{child.uid}">#{child.properties.title}</a></li>""")
+                header = $$("""<li data-index="#{child.tabIndex}"><a href="#uid-#{child.uid}">#{child.properties.title}</a></li>""")
                 @headers.append(header)
-                $(@dom).tabs('destroy')
-                $(@dom).tabs({
-                    beforeActivate: (e, ui) =>
-                        @active = parseInt $(ui.newPanel).attr('data-index')
-                        @event('switch', {})
-                        if not @properties.client
-                            e.preventDefault()
-                    selected: @active
-                })
+        $(@dom).tabs({
+            beforeActivate: (e, ui) =>
+                @active = ui.newTab.attr('data-index')
+                @event('switch', {})
+                if not @properties.client
+                    e.preventDefault()
+            selected: @active
+        })
+        return this
 
     detectUpdates: () ->
         r = {}
@@ -272,17 +281,22 @@ class window.Controls.tabs extends window.Control
         return r
 
     wrapChild: (child) ->
-        """<div data-index="#{@children.length-1}">#{child.html}</div>"""
+        child.tabIndex = @lastTabIndex
+        @lastTabIndex += 1
+        """<div data-index="#{child.tabIndex}">#{child.html}</div>"""
 
 
 class window.Controls.collapse extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control collapse">
                 <div class="header"></div>
                 <div class="children"></div>
             </div>
-        """)
+        """
+
+    setupDom: (dom) ->
+        super(dom)
         @container = @dom.find('>.children')
         @header = @dom.find('>.header')
         @hasHeader = false

@@ -1,18 +1,21 @@
 class window.Controls.codearea extends window.Control
     createDom: () ->
-        @dom = $("""
+        """
             <div class="control control-inset codearea"> 
             </div>
-        """)
-        @cm = CodeMirror @dom[0],
+        """
+
+    setupDom: (dom) ->
+        super(dom)
+        @cm = CodeMirror @dom,
             value: @properties.value
             mode: @properties.mode
             lineNumbers: true
             matchBrackets: true
-        @dom.find('>*').css(
+        $(@dom).find('>*').css(
             width:  @_int_to_px(@properties.width)
         )
-        @dom.find('.CodeMirror-scroll').css(
+        $(@dom).find('.CodeMirror-scroll').css(
             height: @_int_to_px(@properties.height)
         )
 

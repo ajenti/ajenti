@@ -5,7 +5,7 @@ window._make_icon = (icon) ->
 class window.Controls.default extends window.Control
     createDom: () ->
         """
-            <div>
+            <div >
                 <children>
             </div>
         """
@@ -26,8 +26,8 @@ class window.Controls.tooltip extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         $(@dom).find('.container').tooltip({
             content: () => """
                 <div class="control tooltip body">
@@ -55,20 +55,22 @@ class window.Controls.button extends window.Control
         icon = _make_icon(@properties.icon)
         """<a href="#" class="control button style-#{@s(@properties.style)}">#{icon} #{@s(@properties.text)}</a>"""
 
-    setupDom: (@dom) ->
-        super(@dom)
-        $(@dom).click (e) =>
+    setupDom: (dom) ->
+        super(dom)
+        @dom.addEventListener 'click', (e) =>
             if not @properties.warning or confirm(@properties.warning)
                 if @event 'click'
                     @cancel(e)
+        return this
+
 
 class window.Controls.togglebutton extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)
         """<a href="#" class="control button style-#{@s(@properties.style)} #{if @properties.pressed then 'pressed' else ''}">#{icon} #{@s(@properties.text)}</a>"""
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         $(@dom).click (e) =>
             if @event 'click'
                 @cancel(e)
@@ -77,7 +79,7 @@ class window.Controls.togglebutton extends window.Control
 class window.Controls.list extends window.Control
     createDom: () ->
         """
-            <div class="control container list">
+            <div class="control container list --child-container">
                 <children>
             </div>
         """
@@ -86,16 +88,17 @@ class window.Controls.list extends window.Control
 class window.Controls.listitem extends window.Control
     createDom: () ->
         """
-            <div class="control container listitem">
+            <div class="control container listitem --child-container">
                 <children>
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         $(@dom).click (e) =>
             if @event 'click'
                 @cancel(e)
+        return this
 
 
 class window.Controls.progressbar extends window.Control
@@ -109,8 +112,8 @@ class window.Controls.progressbar extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @setProgress(@properties.value)
 
     setProgress: (p) ->

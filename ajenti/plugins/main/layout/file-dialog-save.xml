@@ -1,0 +1,11 @@
+<pad>
+    <vc>
+        <box width="auto" height="300" scroll="True">
+            <list id="list" />
+        </box>
+        <hc>
+            <label text="{File name}" />
+            <textbox />
+        </hc>
+    </vc>
+</pad>

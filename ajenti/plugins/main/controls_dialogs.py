@@ -39,6 +39,9 @@ class InputDialog (UIElement):
 
 
 class BaseFileDialog (object):
+    shows_files = True
+    layout = 'main:file-dialog'
+
     def navigate(self, path):
         self.path = path
         self.verify_path()
@@ -48,12 +51,31 @@ class BaseFileDialog (object):
         if not self.path.startswith(self.root):
             self.path = self.root
 
+    def show(self):
+        self.visible = True
+        self.refresh()
+        
     def refresh(self):
-        pass
+        self.empty()
+        self.append(self.ui.inflate(self.layout))
+        list = self.find('list')
+        _dirs = []
+        if len(self.path) > 1:
+            _dirs.append('..')
+        for item in _dirs + sorted(os.listdir(unicode(self.path))):
+            isdir = os.path.isdir(os.path.join(self.path, item))
+            if not self.shows_files and not isdir:
+                continue
+            itemui = self.ui.create('listitem', children=[
+                self.ui.create('hc', children=[
+                    self.ui.create('icon', icon='folder-open' if isdir else 'file'),
+                    self.ui.create('label', text=item),
+                ])
+            ])
+            itemui.on('click', self.on_item_click, item)
+            list.append(itemui)
 
 
-@p('_files', default=[], type=list)
-@p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)
 @p('root', default='/', type=unicode)
 @plugin
@@ -74,24 +96,13 @@ class OpenFileDialog (UIElement, BaseFileDialog):
     def on_button(self, button=None):
         self.reverse_event('select', {'path': None})
 
-    def refresh(self):
-        self._dirs = []
-        self._files = []
-        if len(self.path) > 1:
-            self._dirs.append('..')
-        for item in sorted(os.listdir(unicode(self.path))):
-            if os.path.isdir(os.path.join(self.path, item)):
-                self._dirs.append(item)
-            else:
-                self._files.append(item)
 
-
-@p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)
 @p('root', default='/', type=unicode)
 @plugin
 class OpenDirDialog (UIElement, BaseFileDialog):
     typeid = 'opendirdialog'
+    shows_files = False
 
     def init(self):
         self.verify_path()
@@ -108,21 +119,14 @@ class OpenDirDialog (UIElement, BaseFileDialog):
         else:
             self.reverse_event('select', {'path': None})
 
-    def refresh(self):
-        self._dirs = []
-        if len(self.path) > 1:
-            self._dirs.append('..')
-        for item in sorted(os.listdir(unicode(self.path))):
-            if os.path.isdir(os.path.join(self.path, item)):
-                self._dirs.append(item)
 
-
-@p('_dirs', default=[], type=list)
 @p('path', default='/', type=unicode)
 @p('root', default='/', type=unicode)
 @plugin
 class SaveFileDialog (UIElement, BaseFileDialog):
     typeid = 'savefiledialog'
+    shows_files = False
+    layout = 'main:file-dialog-save'
 
     def init(self):
         self.refresh()
@@ -141,12 +145,3 @@ class SaveFileDialog (UIElement, BaseFileDialog):
 
     def on_button(self, button=None):
         self.reverse_event('select', {'path': None})
-
-    def refresh(self):
-        self._dirs = []
-        self._files = []
-        if len(self.path) > 1:
-            self._dirs.append('..')
-        for item in sorted(os.listdir(unicode(self.path))):
-            if os.path.isdir(os.path.join(self.path, item)):
-                self._dirs.append(item)

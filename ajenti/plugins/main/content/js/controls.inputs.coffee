@@ -6,15 +6,18 @@ class window.Controls.textbox extends window.Control
                     type="text" />
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
-        @input = $(@dom)
-        @input.val(@properties.value)
-        @input.change () => @markChanged()
+    setupDom: (dom) ->
+        super(dom)
+        @input = @dom
+        @input.value = @properties.value
+        @input.addEventListener 'change', () => 
+            @markChanged()
+        , false
+        return this
 
     detectUpdates: () ->
         r = {}
-        value = @input.val()
+        value = $(@input).val()
         oldvalue = @properties.value || ""
         if @properties.type == 'integer'
             value = parseInt(value)
@@ -31,11 +34,12 @@ class window.Controls.passwordbox extends window.Controls.textbox
                     type="password" />
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @input = $(@dom)
         @input.val(@properties.value)
         @input.change () => @markChanged()
+        return this
 
 
 class window.Controls.editable extends window.Control
@@ -48,8 +52,8 @@ class window.Controls.editable extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @label = $(@dom).find('.label')
         @input = $(@dom).find('input')
         @input.val(@properties.value or '')
@@ -62,6 +66,7 @@ class window.Controls.editable extends window.Control
             if e.which == 13
                 @goViewMode()
             @cancel(e)
+        return this
 
     goViewMode: () =>
         @editmode = false
@@ -107,10 +112,11 @@ class window.Controls.checkbox extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @input = $(@dom).find('input')
         @input.change () => @markChanged()
+        return this
 
     detectUpdates: () ->
         r = {}
@@ -127,8 +133,8 @@ class window.Controls.dropdown extends window.Control
             <div><select class="control dropdown"></select></div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @input = $(@dom).find('select')
         @data = []
         for i in [0...@properties.labels.length]
@@ -142,6 +148,7 @@ class window.Controls.dropdown extends window.Control
             @input.change (e) =>
                 @event('change', {})
                 @cancel(e)
+        return this
 
     detectUpdates: () ->
         r = {}
@@ -158,8 +165,8 @@ class window.Controls.combobox extends window.Control
             <input class="control combobox" type="text" value="#{@properties.value}" />
         """
 
-    setupDom: (@dom) ->
-        super(@dom)        
+    setupDom: (dom) ->
+        super(dom)        
         @input = $(@dom)
         @input.change () => @markChanged()
         @data = []
@@ -186,6 +193,7 @@ class window.Controls.combobox extends window.Control
             @input.autocomplete source: @data, minLength: 0
         @input.click () =>
             @input.autocomplete 'search', ''
+        return this
 
     getVals: () ->
         return @input.val().split(@properties.separator)
@@ -219,8 +227,8 @@ class window.Controls.fileupload extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)        
+    setupDom: (dom) ->
+        super(dom)        
         @progress = new window.Controls.progressbar(@ui, {}, [])
         $(@dom).find('.pb').append($(@progress.dom))
         @input = @dom.find('input')[0]
@@ -252,13 +260,13 @@ class window.Controls.paging extends window.Control
             <div class="control paging">
                 <div class="control label">Page:&nbsp;</div>
                 <a class="prev control button style-mini"><i class="icon-arrow-left"></i></a>
-                <select />
+                <select></select>
                 <a class="next control button style-mini"><i class="icon-arrow-right"></i></a>
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
+    setupDom: (dom) ->
+        super(dom)
         @select = $(@dom).find('select')
         for i in [0...@properties.length]
             @select.append($$("""
@@ -285,6 +293,7 @@ class window.Controls.paging extends window.Control
             console.log idx, @properties.active
             if idx != @properties.active
                 @set(idx)
+        return this
 
     set: (page) ->
         @event('switch', page: page)
@@ -298,21 +307,21 @@ class window.Controls.pathbox extends window.Control
             </div>
         """
 
-    setupDom: (@dom) ->
-        super(@dom)
-        @textbox = new Controls.textbox(@ui, value: @properties.value)
-        @textbox.setupDom()
+    setupDom: (dom) ->
+        super(dom)
+        @textbox = new Controls.textbox(@ui, value: @properties.value).setupDom()
         @button = new Controls.button(
             @ui, 
             style: 'mini'
             icon: if @properties.directory then 'folder-close' else 'file'
             text: ''
-        )
+        ).setupDom()
         @append(@textbox)
         @append(@button)
 
         @button.on_click = () =>
             @event('start', {})
+        return this
 
     detectUpdates: () ->
         return @textbox.detectUpdates()
