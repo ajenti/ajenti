@@ -231,7 +231,7 @@ class window.Controls.fileupload extends window.Control
         super(dom)        
         @progress = new window.Controls.progressbar(@ui, {}, [])
         $(@dom).find('.pb').append($(@progress.dom))
-        @input = @dom.find('input')[0]
+        @input = $(@dom).find('input')[0]
         @input.addEventListener 'change', (e) =>
             file = @input.files[0]
             xhr = new XMLHttpRequest()
