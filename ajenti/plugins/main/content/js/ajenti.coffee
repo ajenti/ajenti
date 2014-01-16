@@ -322,9 +322,9 @@ class window.Control
         
         
     s: (value) ->
-        ('' + value) /* Forces the conversion to string. */
-        .replace(/&/g, '&amp;') /* This MUST be the 1st replacement. */
-            .replace(/'/g, '&apos;') /* The 4 other predefined entities, required. */
+        ('' + value)
+        .replace(/&/g, '&amp;')
+            .replace(/'/g, '&apos;')
             .replace(/"/g, '&quot;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
