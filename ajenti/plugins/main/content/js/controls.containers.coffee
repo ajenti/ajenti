@@ -291,15 +291,16 @@ class window.Controls.collapse extends window.Control
         """
             <div class="control collapse">
                 <div class="header"></div>
-                <div class="children"></div>
+                <div class="children">
+                    <children>
+                </div>
             </div>
         """
 
     setupDom: (dom) ->
         super(dom)
-        @container = @dom.find('>.children')
-        @header = @dom.find('>.header')
-        @hasHeader = false
+        @container = $(@dom).find('>.children')
+        @header = $(@dom).find('>.header')
         @expanded = @properties.expanded
         if not @properties.expanded
             @container.hide()
@@ -312,18 +313,11 @@ class window.Controls.collapse extends window.Control
                 @broadcast('visible')
             @cancel(e)
 
+        @header.append($(@dom).find('.children > *')[0])
+
     detectUpdates: () ->
         r = {}
         if @expanded != @properties.expanded
             r.expanded = @expanded
         @properties.expanded = @expanded
         return r
-
-    append: (child) ->
-        if @hasHeader
-            @container.append(child.dom)
-        else
-            @header.append(child.dom)
-            @hasHeader = true
-        @children.push child
-
