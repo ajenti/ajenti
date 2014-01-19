@@ -1,7 +1,7 @@
 class window.Controls.dialog extends window.Control
     createDom: () ->
         """
-            <div class="control container dialog">
+            <div class="control container dialog #{@s(@properties.style)}">
                 <div class="backdrop">
                     <div class="content">
                         <div class="--child-container">
