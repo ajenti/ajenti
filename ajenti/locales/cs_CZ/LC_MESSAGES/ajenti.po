@@ -4,15 +4,15 @@ msgstr "Uživatelé OS"
 
 #: ajenti/usersync/adsync.py:15
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Synchronizace Active Directory"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Vypnuto"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "Synchronizace uživatelů LDAP"
 
 #: ajenti/plugins/power/power.py:55
 msgid "Power"
@@ -24,11 +24,11 @@ msgstr "Kontrola napájení"
 
 #: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Pozastavit"
 
 #: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Režim spánku"
 
 #: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -48,11 +48,11 @@ msgstr "Baterie"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Pozastavit systém?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Uspat systém?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -60,7 +60,7 @@ msgstr "Restartovat systém?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Vypnout"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -69,6 +69,10 @@ msgstr "Vypnout systém?"
 #: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Přístup k sekci"
+
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "Zapnout"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "Konfigurace"
 
@@ -249,7 +253,7 @@ msgstr "Nepřipojené"
 msgid "mount -a failed"
 msgstr "mount -a failed"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -381,12 +385,12 @@ msgstr "Automatické spuštění"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Zapnuto"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Vypnuto"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -493,11 +497,11 @@ msgstr "Heslo"
 
 #: ajenti/plugins/iptables/main.py:57
 msgid "You can't disable firewall autostart on this platform"
-msgstr "Na této platformě nelze automatické spuštění brány firewall zakázat"
+msgstr "Automatické spuštění brány firewall nelze zakázat"
 
 #: ajenti/plugins/iptables/main.py:65
 msgid "Firewall"
-msgstr "Brána firewall"
+msgstr "Firewall"
 
 #: ajenti/plugins/iptables/main.py:107
 #: ajenti/plugins/iptables/layout/main.xml:10
@@ -512,7 +516,7 @@ msgstr "Vypnout"
 msgid " autostart"
 msgstr " automatické spuštění"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr "Úspěšně nastaveno"
 
@@ -602,35 +606,35 @@ msgstr "Porty"
 msgid "Reason"
 msgstr "Důvod"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Nastavení"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr "Automaticky"
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Uloženo. K provedení změn restartujte Ajenti."
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "Zadejte název hostitele"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Plugin %s je třeba nastavit!"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "Změnit nastavení Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "Restartovat Ajenti"
 
@@ -675,28 +679,27 @@ msgstr "Přihlášení"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Synchronizovat s"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Synchronizovat"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Správně nastaveno"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Synchronizace se nezdařila"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
 msgstr "Účty"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Odstranit"
+msgid "Duplicate"
+msgstr "Duplikovat"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -735,7 +738,7 @@ msgstr "Restartovat Ajenti?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "URL serveru"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
@@ -751,11 +754,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Adresa serveru"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Název domény"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -1007,6 +1010,10 @@ msgstr "Kopírovat"
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
 msgstr "Vložit"
+
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Odstranit"
 
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
@@ -1318,26 +1325,26 @@ msgstr "Origin"
 msgid "Actions"
 msgstr "Akce"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "Domovský adresář %s byl vytvořen"
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr "Heslo %s bylo změněno"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr "Chyba: \"%s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr "Heslo nesmí být prázdné"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr "Heslo %s bylo odstraněno"
@@ -1807,7 +1814,7 @@ msgstr "Přehled"
 
 #: ajenti/plugins/dashboard/dash.py:176
 msgid "Widgets"
-msgstr ""
+msgstr "Widgety"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
@@ -1819,7 +1826,7 @@ msgstr "Přidat widget"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Automatická aktualizace"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"

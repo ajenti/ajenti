@@ -70,6 +70,10 @@ msgstr "Sistemi kapatmak ister misiniz ?"
 msgid "Section access"
 msgstr "Bölüm erişimi"
 
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
+
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
 msgstr "Yük ortalama"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "Etkinleştir"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "Yapılandırma"
 
@@ -249,7 +253,7 @@ msgstr "Monte edilmemiş"
 msgid "mount -a failed"
 msgstr "-başarısız bir mount"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr "Devre Dışı Bırak"
 msgid " autostart"
 msgstr " otomatik başlatma"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr "Başarıyla uygulandı"
 
@@ -602,35 +606,35 @@ msgstr "Bağlantı noktaları"
 msgid "Reason"
 msgstr "Sebep"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr "Otomatik"
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Kaydedildi. Değişiklerin etkin olması için lütfen Ajentiyi yeniden başlatın !"
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "Lütfen ana bilgisayar adı girin"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Lütfen %s eklenti yapılandırın!"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "Ajenti yapılandırmasını değiştirin"
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "Ajenti yi yeniden başlat istermisiniz"
 
@@ -694,9 +698,8 @@ msgid "Accounts"
 msgstr "Hesaplar"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Silme"
+msgid "Duplicate"
+msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -1008,6 +1011,10 @@ msgstr "Kopyala"
 msgid "Paste"
 msgstr "Yapıştır"
 
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Silme"
+
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "Yükle"
@@ -1318,26 +1325,26 @@ msgstr "Köken"
 msgid "Actions"
 msgstr "Eylemler"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "%S için giriş dizini oluşturuldu"
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr "%S için parola değiştirildi"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr "Hata: \"% s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr "Parola boş olmamalıdır"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr "%S için parola kaldırıldı"

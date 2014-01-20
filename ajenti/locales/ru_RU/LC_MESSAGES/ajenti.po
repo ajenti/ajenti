@@ -70,6 +70,10 @@ msgstr "Выключить систему?"
 msgid "Section access"
 msgstr "Доступ к плагинам"
 
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
+
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
 msgstr "Загрузка CPU"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "Включить"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "Настройки"
 
@@ -249,7 +253,7 @@ msgstr "Отмонтировано"
 msgid "mount -a failed"
 msgstr "Не удалось выполнить mount -a"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr "Отключить"
 msgid " autostart"
 msgstr " автозапуск"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr "Успешно применено"
 
@@ -602,35 +606,35 @@ msgstr "Порты"
 msgid "Reason"
 msgstr "Причина"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Настройки"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr "Авто"
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Сохранено. Пожалуйста, перезапустите Ajenti для применения изменений."
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "Пожалуйста, введите имя хоста"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Пожалуйста, настройте плагин \"%s\"!"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "Изменять настройки Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "Перезапускать Ajenti"
 
@@ -694,9 +698,8 @@ msgid "Accounts"
 msgstr "Учетные записи"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Удалить"
+msgid "Duplicate"
+msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -1008,6 +1011,10 @@ msgstr "Копировать"
 msgid "Paste"
 msgstr "Вставить"
 
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Удалить"
+
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "Загрузить"
@@ -1318,26 +1325,26 @@ msgstr "Источник"
 msgid "Actions"
 msgstr "Действия"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "Был создан домашний каталог для %s"
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr "Пароль для %s был изменен"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr "Ошибка: \"%s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr "Пароль не может быть пустым"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr "Пароль для %s был удален"

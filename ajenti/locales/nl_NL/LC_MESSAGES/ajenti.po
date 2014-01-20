@@ -4,7 +4,7 @@ msgstr "OS gebruikers"
 
 #: ajenti/usersync/adsync.py:15
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Active Directory synchronisatie"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
@@ -69,6 +69,10 @@ msgstr "Systeem afsluiten?"
 #: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Deel toegang"
+
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "Activeren"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "Configuratie"
 
@@ -249,7 +253,7 @@ msgstr "Unmounted"
 msgid "mount -a failed"
 msgstr "mount -a mislukt"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr "Uit"
 msgid " autostart"
 msgstr " Automatisch starten"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr "Met succes toegepast"
 
@@ -602,35 +606,35 @@ msgstr "Poorten"
 msgid "Reason"
 msgstr "Reden"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Configureren"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr "Auto"
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Opgeslagen. Om wijzigingen door te voeren herstart Ajenti."
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "Voer de hostnaam in"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Configureer de %s plugin a.u.b!"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "Wijzigen van de Ajenti configuratie"
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "Herstart Ajenti"
 
@@ -694,9 +698,8 @@ msgid "Accounts"
 msgstr "Accounts"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Verwijderen"
+msgid "Duplicate"
+msgstr "Dupliceer"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -759,7 +762,7 @@ msgstr "Domein naam"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
@@ -903,11 +906,11 @@ msgstr "Vernieuw lijsten"
 #: ajenti/plugins/packages/pm_pacman.py:23
 #, python-format
 msgid "Failed to update lists: %s"
-msgstr ""
+msgstr "Bijwerken van lijsten mislukt: %s"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "Geen zoekresultaten gevonden"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
@@ -1008,6 +1011,10 @@ msgstr "Kopiëren"
 msgid "Paste"
 msgstr "Plakken"
 
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Verwijderen"
+
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "Upload"
@@ -1092,7 +1099,7 @@ msgstr "Berichten"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Timestamp"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
@@ -1102,7 +1109,7 @@ msgstr "Vlaggen"
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
@@ -1123,11 +1130,11 @@ msgstr "Modus"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Toestaan"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Weigeren"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1318,29 +1325,29 @@ msgstr "Oorsprong"
 msgid "Actions"
 msgstr "Acties"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
-
-#: ajenti/plugins/users/main.py:108
-#, python-format
-msgid "Password for %s was changed"
-msgstr ""
+msgstr "Home directory voor %s is gemaakt"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
+msgid "Password for %s was changed"
+msgstr "Wachtwoord voor %s is gewijzigd"
+
+#: ajenti/plugins/users/main.py:114
+#, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Fout: \"%s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Wachtwoord mag niet leeg zijn"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Wachtwoord voor %s is verwijderd"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
@@ -1352,7 +1359,7 @@ msgstr "Shell"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Nieuw wachtwoord"
 
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/samba/layout/main.xml:37
@@ -1443,11 +1450,11 @@ msgstr "Afbreken"
 
 #: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
 msgid "Zone saved"
-msgstr ""
+msgstr "Zone opgeslagen"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Zones"
 
 #: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
@@ -1455,15 +1462,15 @@ msgstr "Bestand"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr ""
+msgstr "Zone"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Zonebestand bestaat niet"
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
+msgstr "Zone opslaan"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -1478,7 +1485,7 @@ msgstr ""
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Taak %s is voltooid"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
@@ -1506,7 +1513,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Archiveren"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
@@ -1522,7 +1529,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Verwijderen in bestemming dir"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
@@ -1530,7 +1537,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Lopende taken"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
@@ -1538,7 +1545,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Afbreken"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
@@ -1550,7 +1557,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Gelukt"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
@@ -1558,7 +1565,7 @@ msgstr "Afgebroken"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
@@ -1566,11 +1573,11 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Taken"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Taak uitvoeren"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
@@ -1578,7 +1585,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "Handmatige invoer"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
@@ -1734,7 +1741,7 @@ msgstr "Alleen lezen"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Geavanceerd"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
@@ -1807,7 +1814,7 @@ msgstr "Dashboard"
 
 #: ajenti/plugins/dashboard/dash.py:176
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"

@@ -70,6 +70,10 @@ msgstr "Izslēgt sistēmu?"
 msgid "Section access"
 msgstr "Sadaļa piekļuve"
 
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
+
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
 msgstr "Vidējā slodze"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "Iespējot"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "Konfigurācija"
 
@@ -249,7 +253,7 @@ msgstr "Nav uzmontēts"
 msgid "mount -a failed"
 msgstr "mount -a neizdevās izpildīt"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr "Atslēgt"
 msgid " autostart"
 msgstr " automātiska palaišana"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr ""
 
@@ -602,35 +606,35 @@ msgstr "Porti"
 msgid "Reason"
 msgstr "Iemesls"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Konfigurēt"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Saglabāts. Lūdzu, restartējiet Ajenti lai izmaiņas stātos spēkā."
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "Lūdzu, norādiet servera nosaukumu"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Lūdzu, konfigurējiet spraudni %s!"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "Modificēt Ajenti konfigurāciju"
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "Pārstartēt Ajenti"
 
@@ -694,9 +698,8 @@ msgid "Accounts"
 msgstr "Konti"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Dzēst"
+msgid "Duplicate"
+msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -1008,6 +1011,10 @@ msgstr ""
 msgid "Paste"
 msgstr ""
 
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Dzēst"
+
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "Augšupielādēt"
@@ -1318,26 +1325,26 @@ msgstr "Izcelsme"
 msgid "Actions"
 msgstr "Darbības"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "Mājas direktorija %s ir izveidota"
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr "%s parole ir nomainīta"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr "Kļūda: \"%s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr "Parole nedrīkst būt tukša"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr "%s parole tika noņemta"

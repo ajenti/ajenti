@@ -70,6 +70,10 @@ msgstr ""
 msgid "Section access"
 msgstr ""
 
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
+
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
 msgstr ""
@@ -249,7 +253,7 @@ msgstr ""
 msgid "mount -a failed"
 msgstr ""
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr ""
 msgid " autostart"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr ""
 
@@ -1325,26 +1329,26 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr ""
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr ""
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr ""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr ""
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr ""

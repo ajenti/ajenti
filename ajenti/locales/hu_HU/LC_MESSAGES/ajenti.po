@@ -70,6 +70,10 @@ msgstr "Rendszer leállítása?"
 msgid "Section access"
 msgstr "Szekció hozzáférés"
 
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
+
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
 msgstr "Átlagos terhelés"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "Engedélyezés"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "Beállítások"
 
@@ -249,7 +253,7 @@ msgstr "Lecsatolva"
 msgid "mount -a failed"
 msgstr "mount -a sikertelen"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr "Letíltás"
 msgid " autostart"
 msgstr " automatikus indítás"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr "Sikeres mentés"
 
@@ -602,35 +606,35 @@ msgstr "Portok"
 msgid "Reason"
 msgstr "Okok"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Beállítások"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr "Automatikus"
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Mentve. Indítsuk újra az Ajentit a változások életbe léptetéséhez."
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "Adjuk meg a hosztnevet"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Állítsuk be a %s bővítményt!"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "Ajenti beállítások módosítása"
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "Ajenti újraindítás"
 
@@ -694,9 +698,8 @@ msgid "Accounts"
 msgstr "Fiókok"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Tőrlés"
+msgid "Duplicate"
+msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -1008,6 +1011,10 @@ msgstr "Másolás"
 msgid "Paste"
 msgstr "Beillesztés"
 
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Tőrlés"
+
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "Feltötlés"
@@ -1318,26 +1325,26 @@ msgstr "Eredeti"
 msgid "Actions"
 msgstr "Műveletek"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "A(z) %s kezdő könyvtár létrejött"
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr "A(z) %s jelszó módosításra került"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr "Hiba: \"%s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr "A jelszó mező nem lehet üres"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr "A(z) %s jelszó eltávolításra került"

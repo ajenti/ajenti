@@ -70,6 +70,10 @@ msgstr "إيقاف تشغيل النظام؟"
 msgid "Section access"
 msgstr "الوصول إلى الباب"
 
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr ""
+
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
 msgstr "التحميل المتوسط"
@@ -164,7 +168,7 @@ msgid "Enable"
 msgstr "تفعيل"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:219
 msgid "Configuration"
 msgstr "إعدادات"
 
@@ -249,7 +253,7 @@ msgstr "صاعد"
 msgid "mount -a failed"
 msgstr "mount -a فشلت"
 
-#: ajenti/plugins/fstab/main.py:94 ajenti/plugins/iptables/main.py:185
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
@@ -512,7 +516,7 @@ msgstr "تعطيل"
 msgid " autostart"
 msgstr " تشغيل تلقائي"
 
-#: ajenti/plugins/iptables/main.py:198
+#: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
 msgstr ""
 
@@ -602,35 +606,35 @@ msgstr "منافذ"
 msgid "Reason"
 msgstr "السبب"
 
-#: ajenti/plugins/configurator/configurator.py:33
+#: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "الإعدادات"
 
-#: ajenti/plugins/configurator/configurator.py:136
+#: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
 msgstr "تلقائي"
 
-#: ajenti/plugins/configurator/configurator.py:156
+#: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "تم الحفظ. رجاءا قم بإعادة تشغبل البرنامج حتى يتم العمل بالتغييرات. "
 
-#: ajenti/plugins/configurator/configurator.py:162
+#: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
 msgstr "من فضلك! أدخل اسم المستضيف"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "فضلا، قم بإعداد الإضافة %s"
 
-#: ajenti/plugins/configurator/configurator.py:212
+#: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
 msgstr "تغير إعدادات Ajenti "
 
-#: ajenti/plugins/configurator/configurator.py:213
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Restart Ajenti"
 msgstr "إعادة تشغيل Ajenti"
 
@@ -694,9 +698,8 @@ msgid "Accounts"
 msgstr "الحسابات"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "حذف"
+msgid "Duplicate"
+msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -1008,6 +1011,10 @@ msgstr "نسخ"
 msgid "Paste"
 msgstr "لصق"
 
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "حذف"
+
 #: ajenti/plugins/fm/layout/main.xml:10
 msgid "Upload"
 msgstr "رفع"
@@ -1318,26 +1325,26 @@ msgstr "الأصل"
 msgid "Actions"
 msgstr "الإجراءات"
 
-#: ajenti/plugins/users/main.py:99
+#: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "تم إنشاء الدليل الرئيسي الخاص بـ %s"
 
-#: ajenti/plugins/users/main.py:108
+#: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
 msgstr "تم تغيير كلمة المرور الخاصة بـ %s"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
 msgstr "خطأ: \"%s\""
 
-#: ajenti/plugins/users/main.py:113
+#: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr "لا ينبغي أن تكون كلمة المرور فارغة"
 
-#: ajenti/plugins/users/main.py:117
+#: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
 msgstr "تمت إزالة كلمة السر الخاصة بـ %s"
