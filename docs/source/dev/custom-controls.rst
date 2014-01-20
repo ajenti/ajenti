@@ -58,14 +58,18 @@ CoffeeScript::
 
     class window.Controls.slider extends window.Control
         createDom: () ->
-            # createDom() must set this.dom and (optional) this.childContainer to jQuery DOM elements
-            # use this.properties hash to populate control with its current state
-            @dom = $("""
+            # createDom() must return HTML
+            """
                 <div>
                     <input type="range" min="0" max="10" />
                 </div>
-            """)
-            @input = @dom.find('input')
+            """
+
+        setupDom: (dom) ->
+            # setupDom may attach event handler and perform other DOM manipulations
+            # use this.properties hash to populate control with its current state
+            super(dom)
+            @input = $(@dom).find('input')
             @input.val(@properties.value)
 
         detectUpdates: () ->
@@ -76,7 +80,7 @@ CoffeeScript::
             if value != @properties.value
                 r.value = value
             return r
-
+        
 .. image:: /_static/dev/control.png
 
 `Download this example </_static/dev/test_controls.tar.gz>`_
