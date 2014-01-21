@@ -38,15 +38,15 @@ def str_fsize(sz):
         return '%.1f bytes' % sz
     sz /= 1024.0
     if sz < 1024:
-        return '%.1f Kb' % sz
+        return '%.1f KB' % sz
     sz /= 1024.0
     if sz < 1024:
-        return '%.1f Mb' % sz
+        return '%.1f MB' % sz
     sz /= 1024.0
     if sz < 1024:
-        return '%.1f Gb' % sz
+        return '%.1f GB' % sz
     sz /= 1024.0
-    return '%.1f Tb' % sz
+    return '%.1f TB' % sz
 
 
 @public
