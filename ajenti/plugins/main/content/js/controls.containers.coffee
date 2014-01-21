@@ -265,7 +265,7 @@ class window.Controls.tabs extends window.Control
                 @headers.append(header)
         $(@dom).tabs({
             beforeActivate: (e, ui) =>
-                @active = ui.newTab.attr('data-index')
+                @active = parseInt(ui.newTab.attr('data-index'))
                 @event('switch', {})
                 if not @properties.client
                     e.preventDefault()
