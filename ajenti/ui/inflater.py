@@ -56,7 +56,7 @@ class Inflater (BasePlugin):
                 return cls
         else:
             self._element_cache[typeid] = NullElement
-            return UIElement
+            return NullElement
 
     def inflate(self, ui, layout):
         if not layout in self.cache or ajenti.debug:
