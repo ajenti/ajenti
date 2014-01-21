@@ -193,7 +193,10 @@ class FileManager (SectionPlugin):
         self.find('dialog').visible = False
         if button == 'save':
             self.binder_d.update()
-            self.item.write()
+            try:
+                self.item.write()
+            except Exception, e:
+                self.context.notify('error', str(e))
             self.refresh()
 
             if self.find('chmod-recursive').value:

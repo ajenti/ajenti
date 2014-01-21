@@ -120,79 +120,76 @@
                 <vc>
                     <label text="{Name}" style="bold" />
                     
-                    <pad>
+                    <indent>
                         <hc>
                             <icon bind="icon" />
                             <textbox bind="name" />
                         </hc>
-                    </pad>
+                    </indent>
                     
                     <button id="unpack" icon="dropbox" text="{Unpack}" />
                     
                     <label text="{Access}" style="bold" />
                     
-                    <pad>
-                        <lt>
-                            <ltr>
-                                <ltd>
-                                </ltd>
-                                <ltd>
-                                </ltd>
-                                <ltd>
-                                </ltd>
-                            </ltr>
-                            <ltr>
-                                <ltd>
-                                    <label text="{Owner}" />
-                                </ltd>
-                                <ltd>
-                                    <editable bind="owner" />
-                                </ltd>
-                                <ltd>
-                                    <hc>
-                                        <checkbox text="R" bind="mod_ur" />
-                                        <checkbox text="W" bind="mod_uw" />
-                                        <checkbox text="X" bind="mod_ux" />
-                                    </hc>
-                                </ltd>
-                            </ltr>
-                            <ltr>
-                                <ltd>
-                                    <label text="{Group}" />
-                                </ltd>
-                                <ltd>
-                                    <editable bind="group" />
-                                </ltd>
-                                <ltd>
-                                    <hc>
-                                        <checkbox text="R" bind="mod_gr" />
-                                        <checkbox text="W" bind="mod_gw" />
-                                        <checkbox text="X" bind="mod_gx" />
-                                    </hc>
-                                </ltd>
-                            </ltr>
-                            <ltr>
-                                <ltd>
-                                    <label text="{Others}" />
-                                </ltd>
-                                <ltd>
-                                </ltd>
-                                <ltd>
-                                    <hc>
-                                        <checkbox text="R" bind="mod_ar" />
-                                        <checkbox text="W" bind="mod_aw" />
-                                        <checkbox text="X" bind="mod_ax" />
-                                    </hc>
-                                </ltd>
-                            </ltr>
-                            
-                            <ltr>
-                                <ltd>
-                                    <checkbox id="chmod-recursive" text="{Set recursively}" />
-                                </ltd>
-                             </ltr>
-                        </lt>
-                    </pad>
+                    <indent>
+                        <vc>
+                            <lt>
+                                <ltr>
+                                    <ltd>
+                                    </ltd>
+                                    <ltd>
+                                    </ltd>
+                                    <ltd>
+                                    </ltd>
+                                </ltr>
+                                <ltr>
+                                    <ltd>
+                                        <label text="{Owner}" />
+                                    </ltd>
+                                    <ltd>
+                                        <hc>
+                                            <checkbox text="R" bind="mod_ur" />
+                                            <checkbox text="W" bind="mod_uw" />
+                                            <checkbox text="X" bind="mod_ux" />
+                                        </hc>
+                                    </ltd>
+                                    <ltd>
+                                        <editable bind="owner" />
+                                    </ltd>
+                                </ltr>
+                                <ltr>
+                                    <ltd>
+                                        <label text="{Group}" />
+                                    </ltd>
+                                    <ltd>
+                                        <hc>
+                                            <checkbox text="R" bind="mod_gr" />
+                                            <checkbox text="W" bind="mod_gw" />
+                                            <checkbox text="X" bind="mod_gx" />
+                                        </hc>
+                                    </ltd>
+                                    <ltd>
+                                        <editable bind="group" />
+                                    </ltd>
+                                </ltr>
+                                <ltr>
+                                    <ltd>
+                                        <label text="{Others}" />
+                                    </ltd>
+                                    <ltd>
+                                        <hc>
+                                            <checkbox text="R" bind="mod_ar" />
+                                            <checkbox text="W" bind="mod_aw" />
+                                            <checkbox text="X" bind="mod_ax" />
+                                        </hc>
+                                    </ltd>
+                                    <ltd>
+                                    </ltd>
+                                </ltr>
+                            </lt>
+                            <checkbox id="chmod-recursive" text="{Set recursively}" />
+                        </vc>
+                    </indent>
                 </vc>
             </pad>
         </dialog>

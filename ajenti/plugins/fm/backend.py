@@ -72,16 +72,28 @@ class Item (object):
         self.fullpath = os.path.join(self.path, self.name)
         os.chmod(self.fullpath, self.mode)
         
+        err = None
+
         try:
             uid = int(self.owner)
         except:
-            uid = pwd.getpwnam(self.owner)[2]
+            try:
+                uid = pwd.getpwnam(self.owner)[2]
+            except KeyError:
+                uid = -1
+                err = Exception('Invalid owner')
         try:
             gid = int(self.group)
         except:
-            gid = grp.getgrnam(self.group)[2]
+            try:
+                gid = grp.getgrnam(self.group)[2]
+            except KeyError:
+                gid = -1
+                err = Exception('Invalid group')
 
         os.chown(self.fullpath, uid, gid)
+        if err:
+            raise err
 
 
 @plugin
