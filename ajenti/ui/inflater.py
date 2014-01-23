@@ -31,9 +31,11 @@ class Inflater (BasePlugin):
             layout_dir = os.path.join(manager.resolve_path(plugin), 'layout')
             if os.path.exists(layout_dir):
                 for layout in os.listdir(layout_dir):
-                    layout = '%s:%s' % (plugin, layout.split('.')[0])
-                    logging.debug('Precaching layout %s' % layout)
-                    self.inflate(temp_ui, layout)
+                    layout_name = os.path.splitext(layout)[0]
+                    if layout_name:
+                        layout = '%s:%s' % (plugin, layout_name)
+                        logging.debug('Precaching layout %s' % layout)
+                        self.inflate(temp_ui, layout)
 
     def create_element(self, ui, typeid, *args, **kwargs):
         """
