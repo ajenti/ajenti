@@ -1,3 +1,4 @@
+import logging
 import os
 
 from ajenti.api import *
@@ -73,22 +74,28 @@ class FileManager (SectionPlugin):
 
     @on('new-file', 'click')
     def on_new_file(self):
+        destination = self.controller.tabs[self.tabs.active].path
+        logging.info('[fm] new file in %s' % destination)
         try:
-            open(os.path.join(self.controller.tabs[self.tabs.active].path, 'new file'), 'w').close()
+            open(os.path.join(destination, 'new file'), 'w').close()
         except OSError, e:
             self.context.notify('error', str(e))
         self.refresh()
 
     def upload(self, name, file):
+        destination = self.controller.tabs[self.tabs.active].path
+        logging.info('[fm] uploading %s to %s' % (name, destination))
         try:
-            open(os.path.join(self.controller.tabs[self.tabs.active].path, name), 'w').write(file.read())
+            open(os.path.join(destination, name), 'w').write(file.read())
         except OSError, e:
             self.context.notify('error', str(e))
         self.refresh()
 
     @on('new-dir', 'click')
     def on_new_directory(self):
-        path = os.path.join(self.controller.tabs[self.tabs.active].path, 'new directory')
+        destination = self.controller.tabs[self.tabs.active].path
+        logging.info('[fm] new directory in %s' % destination)
+        path = os.path.join(destination, 'new directory')
         if not os.path.exists(path):
             try:
                 os.mkdir(path)
@@ -208,6 +215,8 @@ class FileManager (SectionPlugin):
                     self.item.fullpath,
                 )
                 self.context.launch('terminal', command=cmd)
+
+            logging.info('[fm] modifying %s: %o %s:%s' % (self.item.fullpath, self.item.mode, self.item.owner, self.item.group))
 
     def on_bc_click(self, tab, item):
         if not item.path.startswith(self.classconfig['root']):

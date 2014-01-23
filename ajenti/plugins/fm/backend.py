@@ -1,10 +1,11 @@
+import grp
+import logging
 import os
+import pwd
 import re
 import subprocess
 import stat
 import shutil
-import pwd
-import grp
 
 from ajenti.api import *
 from ajenti.util import str_fsize
@@ -68,7 +69,10 @@ class Item (object):
         )
 
     def write(self):
-        os.rename(self.fullpath, os.path.join(self.path, self.name))
+        newpath = os.path.join(self.path, self.name)
+        if self.fullpath != newpath:
+            logging.info('[fm] renaming %s -> %s' % (self.fullpath, newpath))
+            os.rename(self.fullpath, newpath)
         self.fullpath = os.path.join(self.path, self.name)
         os.chmod(self.fullpath, self.mode)
         
@@ -112,6 +116,7 @@ class FMBackend (BasePlugin):
         return any(_.isdir for _ in items)
 
     def remove(self, items, cb=lambda: None):
+        logging.info('[fm] removing %s' % ', '.join(x.fullpath for x in items))
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
             command = 'rm -vfr -- '
             for item in items:
@@ -126,6 +131,7 @@ class FMBackend (BasePlugin):
             cb()
 
     def move(self, items, dest, cb=lambda: None):
+        logging.info('[fm] moving %s to %s' % (', '.join(x.fullpath for x in items), dest))
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
             command = 'mv -v -- '
             for item in items:
@@ -138,6 +144,7 @@ class FMBackend (BasePlugin):
             cb()
 
     def copy(self, items, dest, cb=lambda: None):
+        logging.info('[fm] copying %s to %s' % (', '.join(x.fullpath for x in items), dest))
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
             command = 'cp -rv -- '
             for item in items:
