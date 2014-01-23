@@ -34,6 +34,17 @@ class window.Controls.dialog extends window.Control
 
         
 class window.Controls.inputdialog extends Controls.dialog
+    createDom: () ->
+        @input = new Controls.textbox(@ui, { value: @properties.value }, [])
+        body = new Controls.pad(@ui, {}, [
+            new Controls.hc(@ui, {}, [
+                new Controls.label(@ui, { text: @properties.text }, []),
+                @input
+            ])
+        ])
+        #@children.push body
+        super()
+
     setupDom: (dom) ->
         @properties.buttons = [
             {
@@ -46,19 +57,10 @@ class window.Controls.inputdialog extends Controls.dialog
             },
         ]
         super(dom)
-        @input = new Controls.textbox(@ui, { value: @properties.value }, [])
-        body = new Controls.pad(@ui, {}, [
-            new Controls.hc(@ui, {}, [
-                new Controls.label(@ui, { text: @properties.text }, []),
-                @input
-            ])
-        ])
-        body.setupDom()
-        @append body
 
     detectUpdates: () ->
         r = {}
-        value = @input.properties.value
+        value = @input.getValue()
         if value != @properties.value
             r.value = value
         @properties.value = value

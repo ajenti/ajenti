@@ -30,7 +30,12 @@ class Dialog (UIElement):
 class InputDialog (UIElement):
     typeid = 'inputdialog'
 
+    def init(self):
+        self.append(self.ui.inflate('main:input-dialog'))
+        self.find('text').text = self.text
+
     def on_button(self, button):
+        self.value = self.find('input').value
         if button == 'ok':
             self.reverse_event('submit', {'value': self.value})
         else:

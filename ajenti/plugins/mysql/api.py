@@ -1,3 +1,4 @@
+import logging
 import subprocess
 
 from ajenti.api import *
@@ -38,7 +39,9 @@ class MySQLDB (BasePlugin):
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        o, e = p.communicate((('USE %s; ' % db) if db else '') + sql)
+        sql = (('USE %s; ' % db) if db else '') + sql
+        logging.debug(sql)
+        o, e = p.communicate(sql)
         if p.returncode:
             raise Exception(e)
         return filter(None, o.splitlines()[1:])

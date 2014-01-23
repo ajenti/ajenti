@@ -15,9 +15,12 @@ class window.Controls.textbox extends window.Control
         , false
         return this
 
+    getValue: () ->
+        $(@input).val()
+        
     detectUpdates: () ->
         r = {}
-        value = $(@input).val()
+        value = @getValue()
         oldvalue = @properties.value || ""
         if @properties.type == 'integer'
             value = parseInt(value)

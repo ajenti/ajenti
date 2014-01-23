@@ -1,0 +1,5 @@
+<pad>
+    <formline id="text">
+        <textbox id="input" />
+    </formline>
+</pad>
