@@ -92,6 +92,7 @@ class FileManager (SectionPlugin):
         if not os.path.exists(path):
             try:
                 os.mkdir(path)
+                os.chmod(path, 0755)
             except OSError, e:
                 self.context.notify('error', str(e))
         self.refresh()
