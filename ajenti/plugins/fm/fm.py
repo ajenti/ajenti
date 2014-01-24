@@ -194,7 +194,11 @@ class FileManager (SectionPlugin):
             self.context.notify('info', _('Unpacked'))
             self.refresh()
 
-        unpack_btn.on('click', lambda: u.unpack(self.item.fullpath, cb=cb))
+        def unpack():
+            u.unpack(self.item.fullpath, cb=cb)
+            logging.info('[fm] unpacking %s' % self.item.fullpath)
+
+        unpack_btn.on('click', lambda: unpack)
 
     @on('dialog', 'button')
     def on_close_dialog(self, button):
