@@ -232,7 +232,8 @@ class window.Controls.fileupload extends window.Control
 
     setupDom: (dom) ->
         super(dom)        
-        @progress = new window.Controls.progressbar(@ui, {}, [])
+        @progress = new window.Controls.progressbar(@ui, {width: 750}, [])
+        @progress.setupDom()
         $(@dom).find('.pb').append($(@progress.dom))
         @input = $(@dom).find('input')[0]
         @input.addEventListener 'change', (e) =>
@@ -244,7 +245,7 @@ class window.Controls.fileupload extends window.Control
                 xhr.upload.onprogress = (e) =>
                     done = e.position || e.loaded
                     total = e.totalSize || e.total
-                    progress = 1.0 * done / total / 2
+                    progress = 1.0 * done / total
                     @progress.setProgress(progress)
 
             d = new FormData()
