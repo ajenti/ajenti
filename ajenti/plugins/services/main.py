@@ -1,3 +1,5 @@
+import logging
+
 from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.ui import p, UIElement, on
@@ -86,20 +88,24 @@ class ServiceControlBar (UIElement):
         self.service.start()
         self.on_page_load()
         self.reverse_event('command', {'command': 'start'})
+        logging.info('[services] starting %s' % self.service.name)
 
     @on('restart', 'click')
     def on_restart(self):
         self.service.restart()
         self.on_page_load()
         self.reverse_event('command', {'command': 'restart'})
+        logging.info('[services] restarting %s' % self.service.name)
 
     @on('stop', 'click')
     def on_stop(self):
         self.service.stop()
         self.on_page_load()
         self.reverse_event('command', {'command': 'stop'})
+        logging.info('[services] stopping %s' % self.service.name)
 
     def on_command_button(self, cmd):
         self.service.command(cmd)
         self.on_page_load()
         self.reverse_event('command', {'command': cmd})
+        logging.info('[services] %s %s' % (cmd, self.service.name))
