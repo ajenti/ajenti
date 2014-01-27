@@ -43,4 +43,4 @@ class LoadWidget (DashboardWidget):
         self.append(self.ui.inflate('sensors:value-widget'))
         self.find('icon').icon = 'signal'
         self.find('name').text = _('Load average')
-        self.find('value').text = '&nbsp;&nbsp;'.join(str(self.sensor.value(x)) for x in self.sensor.get_variants())
+        self.find('value').text = ' / '.join(str(self.sensor.value(x)) for x in self.sensor.get_variants())
