@@ -29,6 +29,7 @@
                     <bind:template>
                         <tab bind="shortpath">
                             <vc>
+                                <box height="5" />
                                 <bind:collection id="breadcrumbs" bind="breadcrumbs">
                                     <hc bind="__items" />
                                     <bind:template>

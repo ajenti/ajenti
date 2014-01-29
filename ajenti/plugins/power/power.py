@@ -1,3 +1,4 @@
+import logging
 import subprocess
 import os
 
@@ -74,21 +75,25 @@ class PowerWidget (DashboardWidget):
     @on('suspend', 'click')
     @restrict('power:suspend')
     def on_suspend(self):
+        logging.info('[power] suspend')
         subprocess.call(['pm-suspend'])
 
     @on('hibernate', 'click')
     @restrict('power:hibernate')
     def on_hibernate(self):
+        logging.info('[power] hibernate')
         subprocess.call(['pm-hibernate'])
 
     @on('reboot', 'click')
     @restrict('power:reboot')
     def on_reboot(self):
+        logging.info('[power] reboot')
         subprocess.call(['reboot'])
 
     @on('shutdown', 'click')
     @restrict('power:shutdown')
     def on_shutdown(self):
+        logging.info('[power] poweroff')
         subprocess.call(['poweroff'])
 
 

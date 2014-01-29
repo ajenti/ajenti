@@ -2,6 +2,8 @@ import logging
 import sys
 from datetime import datetime
 
+from ajenti.api import extract_context
+
 
 class DebugHandler (logging.StreamHandler):
     """
@@ -47,6 +49,11 @@ class ConsoleHandler (logging.StreamHandler):
         if record.levelname == 'ERROR':
             l = '\033[31mERROR\033[0m '
         s += l.ljust(9)
+
+        context = extract_context()
+        if hasattr(context, 'session') and hasattr(context.session, 'identity'):
+            s += '[%s] ' % context.session.identity
+
         try:
             s += record.msg % record.args
         except:

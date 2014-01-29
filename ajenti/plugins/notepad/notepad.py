@@ -1,3 +1,4 @@
+import logging
 import mimetypes
 import os
 
@@ -82,7 +83,7 @@ class Notepad (SectionPlugin):
 
     @on('open-button', 'click')
     def on_open(self):
-        self.opendialog.visible = True
+        self.opendialog.show()
 
     @on('save-button', 'click')
     def on_save(self):
@@ -94,7 +95,7 @@ class Notepad (SectionPlugin):
 
     @on('save-as-button', 'click')
     def on_save_as(self):
-        self.savedialog.visible = True
+        self.savedialog.show()
 
     @intent('notepad')
     @on('opendialog', 'select')
@@ -111,6 +112,7 @@ class Notepad (SectionPlugin):
     def on_save_dialog_select(self, path):
         self.savedialog.visible = False
         if path:
+            logging.info('[notepad] saving %s' % path)
             self.select(self.selected)
             self.controller.save(self.selected, path)
             self.select(self.selected)

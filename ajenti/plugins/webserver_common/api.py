@@ -1,3 +1,4 @@
+import logging
 import os
 
 from ajenti.plugins.main.api import SectionPlugin
@@ -96,6 +97,9 @@ class WebserverPlugin (SectionPlugin):
     template = ''
     supports_host_activation = True
 
+    def log(self, msg):
+        logging.info('[%s] %s' % (self.service_name, msg))
+
     def init(self):
         self.append(self.ui.inflate('webserver_common:main'))
         self.binder = Binder(None, self)
@@ -107,6 +111,7 @@ class WebserverPlugin (SectionPlugin):
         )
 
         def delete_host(host, c):
+            self.log('removed host %s' % host.name)
             c.remove(host)
             self.hosts_dir.delete(host.name)
 
@@ -115,6 +120,7 @@ class WebserverPlugin (SectionPlugin):
 
         def on_host_update(o, c, host, u):
             if host.__old_name != host.name:
+                self.log('renamed host %s to %s' % (host.__old_name, host.name))
                 self.hosts_dir.rename(host.__old_name, host.name)
             host.save()
 
@@ -122,6 +128,7 @@ class WebserverPlugin (SectionPlugin):
             name = 'untitled'
             while os.path.exists(self.hosts_dir.get_path(name)):
                 name += '_'
+            self.log('created host %s' % name)
             self.hosts_dir.open(name, 'w').write(self.template)
             return WebserverHost(self, self.hosts_dir, name)
 
@@ -138,6 +145,7 @@ class WebserverPlugin (SectionPlugin):
 
     @on('save-button', 'click')
     def save(self):
+        self.log('saving hosts')
         self.binder.update()
         self.refresh()
         self.context.notify('info', 'Saved')

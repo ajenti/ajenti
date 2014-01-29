@@ -1,4 +1,5 @@
 import logging
+import syslog
 from passlib.hash import sha512_crypt
 
 import ajenti
@@ -60,7 +61,18 @@ class UserManager (BasePlugin):
         except Exception as e:
             logging.error(str(e))
 
-        return provider.check_password(username, password)
+        result = provider.check_password(username, password)
+
+        provider_name = type(provider).__name__
+        if not result:
+            msg = 'failed login attempt for %s ("%s") through %s' % (username, password, provider_name)
+            syslog.syslog(syslog.LOG_WARNING, msg)
+            logging.warn(msg)
+        else:
+            msg = 'user %s logged in through %s' % (username, provider_name)
+            syslog.syslog(syslog.LOG_INFO, msg)
+            logging.info(msg)
+        return result
 
     def hash_password(self, password):
         """
