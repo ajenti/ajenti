@@ -23,10 +23,17 @@ class Cron (SectionPlugin):
             logging.info('[cron] created a %s' % cls.__name__)
             return cls()
 
+        def remove_task(i, c):
+            c.remove(i)
+            logging.info('[cron] removed %s' % i.command)
+
         self.binder = Binder(None, self.find('config'))
         self.find('normal_tasks').new_item = lambda c: create_task(CrontabNormalTaskData)
         self.find('special_tasks').new_item = lambda c: create_task(CrontabSpecialTaskData)
         self.find('env_settings').new_item = lambda c: create_task(CrontabEnvSettingData)
+        self.find('normal_tasks').delete_item = remove_task
+        self.find('special_tasks').delete_item = remove_task
+        self.find('env_settings').delete_item = remove_task
 
         self.current_user = 'root'
 
