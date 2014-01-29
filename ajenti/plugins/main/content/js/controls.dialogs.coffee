@@ -16,7 +16,7 @@ class window.Controls.dialog extends window.Control
         super(dom)
         if @properties.buttons
             @buttons = $("""<div class="buttons"></div>""")
-            $(@dom).find('.content').append(@buttons)
+            $(@dom).find('>.backdrop>.content').append(@buttons)
             container = new Controls.hc(@ui)
             container.setupDom()
             @buttons.append container.dom

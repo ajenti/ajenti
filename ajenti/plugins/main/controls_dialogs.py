@@ -17,7 +17,7 @@ class Dialog (UIElement):
         }
         new_buttons = []
         for button in self.buttons:
-            if type(button) == str and button in presets:
+            if isinstance(button, basestring) and button in presets:
                 new_buttons.append(presets[button])
             else:
                 new_buttons.append(button)
