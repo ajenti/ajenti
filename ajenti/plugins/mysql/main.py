@@ -1,5 +1,6 @@
 from ajenti.api import *
 from ajenti.plugins.db_common.api import DBPlugin
+from ajenti.util import platform_select
 
 from api import MySQLDB
 
@@ -8,7 +9,11 @@ from api import MySQLDB
 class MySQLPlugin (DBPlugin):
     config_class = MySQLDB
 
-    service_name = 'mysqld'
+    service_name = platform_select(
+        debian='mysql',
+        default='mysqld'
+    )
+
     service_buttons = [
         {
             'command': 'reload',
