@@ -213,7 +213,7 @@ class SectionPermissions (PermissionProvider):
     def get_permissions(self):
         # Generate permission set on-the-fly
         return sorted([
-            ('section:%s' % x.__class__.__name__, _(x.title))
+            ('section:%s' % x.__class__.__name__, (_(x.category) or 'Ajenti') + ' | ' + _(x.title))
             for x in SectionPlugin.get_instances()
         ], key=lambda x: x[1])
 

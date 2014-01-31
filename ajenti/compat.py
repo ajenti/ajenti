@@ -1,7 +1,6 @@
 import logging
 import subprocess
 import os
-import sys
 
 
 # add subprocess.check_output to Python < 2.6

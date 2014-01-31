@@ -83,6 +83,9 @@ def make_log(debug=False, log_level=logging.INFO):
 
     log.addHandler(stdout)
 
+
+def init_log_rotation():
+    log = logging.getLogger()
     if not os.path.exists(LOG_DIR):
         os.mkdir(LOG_DIR)
 
