@@ -1,6 +1,6 @@
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "Hệ điều hành"
 
 #: ajenti/usersync/adsync.py:15
 msgid "Active Directory Syncronization"
@@ -8,33 +8,33 @@ msgstr ""
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Tắt"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
 msgstr ""
 
-#: ajenti/plugins/power/power.py:55
+#: ajenti/plugins/power/power.py:56
 msgid "Power"
 msgstr "Điện"
 
-#: ajenti/plugins/power/power.py:98
+#: ajenti/plugins/power/power.py:103
 msgid "Power control"
 msgstr "Quản lý nguồn điện"
 
-#: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Đình chỉ"
 
-#: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
+#: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Ngủ đông"
 
-#: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
+#: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
 msgstr "Khởi động lại"
 
-#: ajenti/plugins/power/power.py:105
+#: ajenti/plugins/power/power.py:110
 msgid "Shutdown"
 msgstr "Tắt máy"
 
@@ -48,11 +48,11 @@ msgstr "Pin"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Đình chỉ hệ thống?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Ngủ đông hệ thống?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -60,7 +60,7 @@ msgstr "Khởi động lại hệ thống?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Tắt nguồn"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -72,7 +72,7 @@ msgstr "Mục truy cập"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "Tên tập tin"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
@@ -237,7 +237,7 @@ msgid "Filesystems"
 msgstr "Tập tin hệ thống"
 
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:67
-#: ajenti/plugins/cron/main.py:17 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/packages/main.py:14
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/logs/main.py:14
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/network/main.py:17
 #: ajenti/plugins/taskmgr/main.py:16 ajenti/plugins/megaraid/main.py:17
@@ -255,7 +255,7 @@ msgstr ""
 
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
+#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:119
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
 msgstr "Đã lưu"
@@ -349,8 +349,8 @@ msgstr "Nhiệt độ HDD"
 
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/services/main.py:14
-#: ajenti/plugins/psql/main.py:20 ajenti/plugins/mysql/main.py:22
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/services/main.py:16
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/apache/main.py:49
 #: ajenti/plugins/bind9/main.py:28 ajenti/plugins/nginx/main.py:48
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/munin/main.py:19
@@ -360,7 +360,7 @@ msgstr "Phần mềm"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/psql/main.py:13
-#: ajenti/plugins/mysql/main.py:15 ajenti/plugins/apache/main.py:13
+#: ajenti/plugins/mysql/main.py:20 ajenti/plugins/apache/main.py:13
 #: ajenti/plugins/nginx/main.py:12
 msgid "Reload"
 msgstr "Tải lại"
@@ -385,12 +385,12 @@ msgstr "Tự khởi động"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Cho phép"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Vô hiệu hóa"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -523,7 +523,7 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:23
 msgid "Interface"
-msgstr ""
+msgstr "Giao diện"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
@@ -553,7 +553,7 @@ msgstr "Mô-đun"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "Trạng thái"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
@@ -615,7 +615,7 @@ msgstr "Đặt cấu hình"
 
 #: ajenti/plugins/configurator/configurator.py:147
 msgid "Auto"
-msgstr ""
+msgstr "Tự động"
 
 #: ajenti/plugins/configurator/configurator.py:167
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -623,12 +623,12 @@ msgstr ""
 
 #: ajenti/plugins/configurator/configurator.py:173
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Tên miền máy chủ"
 
 #: ajenti/plugins/configurator/configurator.py:187
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Hãy cấu hình %s plugin!"
 
 #: ajenti/plugins/configurator/configurator.py:223
 msgid "Modify Ajenti configuration"
@@ -647,7 +647,7 @@ msgstr "Tổng quát"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -671,27 +671,27 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "Tạo"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "Xác thực"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Đồng bộ với"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Đồng bộ bây giờ"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Cấu hình hiện tại"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Không thể đồng bộ"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -721,7 +721,7 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:30
 #: ajenti/plugins/plugins/plugins.py:10
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 #: ajenti/plugins/openvpn/layout/main.xml:1
@@ -754,11 +754,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Địa chỉ máy chủ"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Tên miền"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -766,11 +766,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "Người dùng admin"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
-msgstr ""
+msgstr "Mật khẩu quản trị"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -817,27 +817,27 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:16
 #: ajenti/plugins/tasks/layout/main.xml:24
 msgid "Hourly"
-msgstr ""
+msgstr "Hàng giờ"
 
 #: ajenti/plugins/cron/layout/main.xml:17
 #: ajenti/plugins/tasks/layout/main.xml:25
 msgid "Daily"
-msgstr ""
+msgstr "Hàng ngày"
 
 #: ajenti/plugins/cron/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:26
 msgid "Weekly"
-msgstr ""
+msgstr "Hàng Tuần"
 
 #: ajenti/plugins/cron/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:27
 msgid "Monthly"
-msgstr ""
+msgstr "Hàng Tháng"
 
 #: ajenti/plugins/cron/layout/main.xml:20
 #: ajenti/plugins/tasks/layout/main.xml:28
 msgid "Yearly"
-msgstr ""
+msgstr "Hàng Năm"
 
 #: ajenti/plugins/cron/layout/main.xml:21
 #: ajenti/plugins/tasks/layout/main.xml:29
@@ -906,11 +906,11 @@ msgstr "Làm mới danh sách"
 #: ajenti/plugins/packages/pm_pacman.py:23
 #, python-format
 msgid "Failed to update lists: %s"
-msgstr ""
+msgstr "Cập nhật danh sách thất bại: %s"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "Không có kết quả nào được tìm thấy"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
@@ -918,11 +918,11 @@ msgstr "Phiên bản"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Lấy danh sách"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "Nâng cấp"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
@@ -960,21 +960,21 @@ msgstr ""
 msgid "Cancel"
 msgstr "Hủy bỏ"
 
-#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
+#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
 msgid "File Manager"
 msgstr "Quản lý tập tin"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:37
-#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
+#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
+#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 msgid "Tools"
 msgstr "Công cụ"
 
-#: ajenti/plugins/fm/fm.py:147
+#: ajenti/plugins/fm/fm.py:163
 #, python-format
 msgid "Selected %i items"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:186
+#: ajenti/plugins/fm/fm.py:202
 msgid "Unpacked"
 msgstr ""
 
@@ -989,7 +989,7 @@ msgstr "Đóng"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Chọn tất cả"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -1001,15 +1001,15 @@ msgstr "Thư mục mới"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Cắt"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Sao chép"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Dán"
 
 #: ajenti/plugins/fm/layout/main.xml:8
 msgid "Delete"
@@ -1030,7 +1030,7 @@ msgstr "Loại bỏ"
 
 #: ajenti/plugins/fm/layout/main.xml:17
 msgid "Unpack"
-msgstr ""
+msgstr "Giải nén"
 
 #: ajenti/plugins/fm/layout/main.xml:18
 msgid "Access"
@@ -1046,7 +1046,7 @@ msgstr "Nhóm"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Others"
-msgstr ""
+msgstr "Khác"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Set recursively"
@@ -1130,11 +1130,11 @@ msgstr "Chế độ"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Cho phép"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Từ chối"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1184,15 +1184,15 @@ msgstr "Mạng"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr ""
+msgstr "Khu vực giao diện"
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr ""
+msgstr "Mạng công cộng"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr ""
+msgstr "Khu vực cổng"
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
@@ -1281,21 +1281,21 @@ msgstr ""
 msgid "Open"
 msgstr "Mở"
 
-#: ajenti/plugins/services/main.py:12
+#: ajenti/plugins/services/main.py:14
 msgid "Services"
 msgstr "Dịch vụ"
 
-#: ajenti/plugins/services/main.py:39
+#: ajenti/plugins/services/main.py:41
 #, python-format
 msgid "%s started"
 msgstr "%s bắt đầu"
 
-#: ajenti/plugins/services/main.py:44
+#: ajenti/plugins/services/main.py:46
 #, python-format
 msgid "%s stopped"
 msgstr "%s đã ngừng"
 
-#: ajenti/plugins/services/main.py:49
+#: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
 msgstr "%s khởi động lại"
@@ -1513,7 +1513,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Lưu trữ"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
@@ -1541,7 +1541,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "Đang chạy"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
@@ -1557,7 +1557,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Thành công"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
@@ -1565,7 +1565,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Lỗi"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
@@ -1607,11 +1607,11 @@ msgstr "Máy chủ"
 msgid "Aliases"
 msgstr "Bí danh"
 
-#: ajenti/plugins/notepad/notepad.py:12 ajenti/plugins/notepad/notepad.py:30
+#: ajenti/plugins/notepad/notepad.py:13 ajenti/plugins/notepad/notepad.py:31
 msgid "Notepad"
 msgstr ""
 
-#: ajenti/plugins/notepad/notepad.py:69
+#: ajenti/plugins/notepad/notepad.py:70
 #, python-format
 msgid "Untitled %i"
 msgstr "Chưa có tiêu đề %i"
@@ -1741,11 +1741,11 @@ msgstr "Chỉ đọc"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Cấu hình nâng cao"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "Cho phép người dùng"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
@@ -1826,7 +1826,7 @@ msgstr "Thêm tiện ích"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Tự động làm mới"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"

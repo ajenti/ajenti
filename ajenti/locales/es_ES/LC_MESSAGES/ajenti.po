@@ -14,27 +14,27 @@ msgstr "Desactivado"
 msgid "LDAP User Syncronization"
 msgstr "Sincronización de usuarios con LDAP"
 
-#: ajenti/plugins/power/power.py:55
+#: ajenti/plugins/power/power.py:56
 msgid "Power"
 msgstr "Energía"
 
-#: ajenti/plugins/power/power.py:98
+#: ajenti/plugins/power/power.py:103
 msgid "Power control"
 msgstr "Control de energía"
 
-#: ajenti/plugins/power/power.py:102 ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
 msgstr "Suspender"
 
-#: ajenti/plugins/power/power.py:103 ajenti/plugins/power/layout/widget.xml:5
+#: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: ajenti/plugins/power/power.py:104 ajenti/plugins/power/layout/widget.xml:7
+#: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
 msgstr "Reiniciar"
 
-#: ajenti/plugins/power/power.py:105
+#: ajenti/plugins/power/power.py:110
 msgid "Shutdown"
 msgstr "Apagar"
 
@@ -237,7 +237,7 @@ msgid "Filesystems"
 msgstr "Sistemas de archivos"
 
 #: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:67
-#: ajenti/plugins/cron/main.py:17 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/packages/main.py:14
 #: ajenti/plugins/raid/main.py:17 ajenti/plugins/logs/main.py:14
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/network/main.py:17
 #: ajenti/plugins/taskmgr/main.py:16 ajenti/plugins/megaraid/main.py:17
@@ -255,7 +255,7 @@ msgstr "mount -a falló"
 
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:117
+#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:119
 #: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
 msgid "Saved"
 msgstr "Guardado"
@@ -349,8 +349,8 @@ msgstr "Temperatura del disco duro"
 
 #: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/dhcpd/main.py:15
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/services/main.py:14
-#: ajenti/plugins/psql/main.py:20 ajenti/plugins/mysql/main.py:22
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/services/main.py:16
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/apache/main.py:49
 #: ajenti/plugins/bind9/main.py:28 ajenti/plugins/nginx/main.py:48
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/munin/main.py:19
@@ -360,7 +360,7 @@ msgstr "Software"
 
 #: ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/psql/main.py:13
-#: ajenti/plugins/mysql/main.py:15 ajenti/plugins/apache/main.py:13
+#: ajenti/plugins/mysql/main.py:20 ajenti/plugins/apache/main.py:13
 #: ajenti/plugins/nginx/main.py:12
 msgid "Reload"
 msgstr "Recargar"
@@ -960,21 +960,21 @@ msgstr "Marcar para eliminar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ajenti/plugins/fm/fm.py:15 ajenti/plugins/fm/fm.py:29
+#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
 msgid "File Manager"
 msgstr "Gestor de archivos"
 
-#: ajenti/plugins/fm/fm.py:30 ajenti/plugins/terminal/main.py:37
-#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:32
+#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
+#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 msgid "Tools"
 msgstr "Herramientas"
 
-#: ajenti/plugins/fm/fm.py:147
+#: ajenti/plugins/fm/fm.py:163
 #, python-format
 msgid "Selected %i items"
 msgstr "%i elementos seleccionados"
 
-#: ajenti/plugins/fm/fm.py:186
+#: ajenti/plugins/fm/fm.py:202
 msgid "Unpacked"
 msgstr "Desempaquetado"
 
@@ -1281,21 +1281,21 @@ msgstr "Registros"
 msgid "Open"
 msgstr "Abrir"
 
-#: ajenti/plugins/services/main.py:12
+#: ajenti/plugins/services/main.py:14
 msgid "Services"
 msgstr "Servicios"
 
-#: ajenti/plugins/services/main.py:39
+#: ajenti/plugins/services/main.py:41
 #, python-format
 msgid "%s started"
 msgstr "%s ha iniciado"
 
-#: ajenti/plugins/services/main.py:44
+#: ajenti/plugins/services/main.py:46
 #, python-format
 msgid "%s stopped"
 msgstr "%s se detuvo"
 
-#: ajenti/plugins/services/main.py:49
+#: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
 msgstr "%s se ha reiniciado"
@@ -1607,11 +1607,11 @@ msgstr "Hosts"
 msgid "Aliases"
 msgstr "Aliases"
 
-#: ajenti/plugins/notepad/notepad.py:12 ajenti/plugins/notepad/notepad.py:30
+#: ajenti/plugins/notepad/notepad.py:13 ajenti/plugins/notepad/notepad.py:31
 msgid "Notepad"
 msgstr "Bloc de notas"
 
-#: ajenti/plugins/notepad/notepad.py:69
+#: ajenti/plugins/notepad/notepad.py:70
 #, python-format
 msgid "Untitled %i"
 msgstr "Sin título %i"
