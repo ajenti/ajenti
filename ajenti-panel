@@ -80,8 +80,8 @@ if __name__ == '__main__':
     if is_daemon:
         context = daemon.DaemonContext(
             pidfile=PidFile('/var/run/ajenti.pid'),
-            stdout=open('/var/log/ajenti.log', 'w'),
-            stderr=open('/var/log/ajenti.err.log', 'w'),
+            stdout=open('/dev/null', 'w'),
+            stderr=open('/dev/null', 'w'),
         )
         with context:
             from ajenti import core

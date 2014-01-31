@@ -1,9 +1,14 @@
 import logging
+import logging.handlers
+import os
 import sys
 from datetime import datetime
 
 from ajenti.api import extract_context
 
+
+LOG_DIR = '/var/log/ajenti'
+LOG_NAME = 'ajenti.log'
 
 class DebugHandler (logging.StreamHandler):
     """
@@ -77,6 +82,21 @@ def make_log(debug=False, log_level=logging.INFO):
     log.addHandler(logging.blackbox)
 
     log.addHandler(stdout)
+
+    if not os.path.exists(LOG_DIR):
+        os.mkdir(LOG_DIR)
+
+    try:
+        handler = logging.handlers.TimedRotatingFileHandler(
+            os.path.join(LOG_DIR, LOG_NAME), 
+            when='midnight', 
+            backupCount=7
+        )
+        handler.setLevel(logging.INFO)
+        handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)-8s: %(message)s'))
+        log.addHandler(handler)
+    except IOError:
+        pass
 
     return log
 
