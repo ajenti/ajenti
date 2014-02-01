@@ -1,6 +1,5 @@
 <well>
     <hc>
-        <button id="install" icon="gift" text="{Install}" />
-        <label style="bold nopad" bind:text="pkg" />
+        <button id="install" icon="download-alt" bind:text="pkg" />
     </hc>
 </well>

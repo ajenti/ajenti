@@ -218,13 +218,13 @@ class window.Controls.collapserow extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @container = $(@dom).find('.children')[0]
+        @container = $(@dom).find('>td>.children')[0]
         @expanded = @properties.expanded
         if not @properties.expanded
             $(@container).hide()
 
-        $(@dom).find('.header').append($(@dom).find('.children>*:first'))
-        @header = $(@dom).find('.header')[0]
+        $(@dom).find('>td>.header').append($(@dom).find('>td>.children>*:first'))
+        @header = $(@dom).find('>td>.header')[0]
 
         @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
