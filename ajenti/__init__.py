@@ -57,6 +57,7 @@ def detect_platform():
         'trisquel': 'ubuntu',
         'linaro': 'ubuntu',
         'linuxmint': 'ubuntu',
+        'amazon': 'ubuntu',
         'redhat enterprise linux': 'rhel',
         'red hat enterprise linux server': 'rhel',
         'fedora': 'rhel',
