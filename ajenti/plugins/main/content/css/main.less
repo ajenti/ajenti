@@ -238,6 +238,60 @@ body {
     }
 }
 
+#loading {
+    position: fixed;
+    .square(100%);
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    display: none;
+    z-index: 9000;
+
+    > .wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        opacity: .5;
+    }
+
+    .spinner {
+        width: 16px;
+        height: 16px;
+        @interpolator: cubic-bezier(0.3, 0.5, 0.7, 0.5);
+        -webkit-animation: spinner 3s @interpolator infinite;
+        -moz-animation: spinner 3s @interpolator infinite;
+        animation: spinner 3s @interpolator infinite;
+
+        position: absolute;
+        margin: -8px 0 0 -8px;
+
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gIGCCgk1AbAgAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAFwSURBVDjLjdPPi41hFMDxz3vnYljZ2IitVzay8AewUKTD1GQnKyywmK2NUhrKLGSjrKSpSZp0ZmNmY2mBlM14lZXUlIUkNaPuHZt38vbMlXtWp3PO8z0/n0ohEXEQ13AKx3A8M9+2vj0YZOZGRMhM1QjAZmG6jbsYYAHfcCsz1yJCr/NwS31RAG7gJVYwhSt4EhH7tlUQEbvwEzv8X+7jZj8iDuALnmJ6zMewhmEfV1vDxRFBX/ELhwr7QmbOQQ9n/pHhOc7jLGYL3/6ImIBqxNS35FxmZme1Szja+ob4hMc9nMBD/CgAuzv6zmI2PRzGXNVm6GMZJztBb3CvBV/A5RFVvq46K1xq+y1lHZPYZNvhzVQRMYlHuDTm+lYxgzs43cdvvB8TsJqZR1p9GXqZOWwreNAJfIZ5NAXge3H2JtpfNajr+hU+4kNmXm+aZrGu63VEB7C3aZrZpvnL7WemFrKB+XYj3Y81hc9IvCt7+gMegXcEvXEnrQAAAABJRU5ErkJggg==');
+
+        &.one {
+            margin-left: -13px;
+            margin-top: 0px;
+        }
+
+        &.two {
+            margin-left: -1px;
+            animation-direction: reverse;
+            -moz-animation-direction: reverse;
+            -webkit-animation-direction: reverse;
+        }
+
+    }
+
+    .message {
+        width: 300px;
+        position: absolute;
+        left: 20px;
+        top: 3px;
+        color: #555;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
 
 .full-overlay {
     position: fixed;
@@ -249,49 +303,6 @@ body {
     z-index: 9000;
 
     background: rgba(0,0,0,.75);
-
-
-    >.spinner {
-        width: 40px;
-        height: 40px;
-        @interpolator: cubic-bezier(0.3, 0.5, 0.7, 0.5);
-        -webkit-animation: spinner 3s @interpolator infinite;
-        -moz-animation: spinner 3s @interpolator infinite;
-        animation: spinner 3s @interpolator infinite;
-
-        margin: -20px 0 0 -20px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        opacity: .5;
-
-        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QwPFQcx+5WvYAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAANkSURBVFjDxZhfiFVVFMZ/+94xHZ1GjTAaoR5CBUshLAcfAvsDYRRB0dtU9CZiEKmB70KCL0LRQ5BRPgaJQS/WUL6ID5HkkBlF9g8Ne3Acm6aZO86vh9kHzlzOmXvOPXfOfHC5956zzzrfXnuvb629oCDU9O816g51RD2p/qBOO49XqBsJOXWz+o46qbbMxqjaKGCrpwQH1ffVKTtjTF2RYyfE79fU4Z4RVXdbHH+oa/I8pn6YGrsvawt1S3K2IMGWukldnWHjzYzxp3u1zO9ZDtfUz9S31G3qU4tM8pw6WMmT6sMlvJjGXIzwVodxX3QdwfHTVG+5tHi3lBdTG7uhnrIePJLnpfXqozme+8r6MKNuzPLS8TjguvqGel+8ftJ6cUVdm/BLhPMe4DKwLuXYaWASuKvGpHUeeDyE8F9yIUlJe9vIAayskVwLOBJC2JUmBxDUVcB14E6WD78DW4HJEMKCGw1gE7Cqhy+71cUzQ8DWdnIJwQeBFRVJ/QS8FOYxGObftB+4VvD5PuDZTA1UP6gYdefUvpy6cZ36W0E7Z/LE+FIFcuPqvR3E/umCtv5OyrEFk1VvVyA4qjYLZKLxEja/VF9Xh9Q7qLi8HxVMmZ90af/nBnAAuAhcBaZKBkf/Yok9dW+oy+B7IEQjfcBAFOstwOdAs2D0PgTMZElEJNkEZrskOJ4VeX3qjyVqvZez5CG1/6rk8vMNgGT2KiGEWeCbgjMMwMfqi3EV0uSa6kFgpIK+ng05y/IqcCKVqzthDvgOGAUmgLuBJ2MSqIJnQs7Gvh+4BKxexvw8A2xutJOLyz0B/MPyYgz4s5GqnkMIAfUJ4FtgwzITPBpCuN2+vPutH7vUY+rNqAqq3y9QhujBPTUTm1F3ppwzoD6mHlF351U2l2si11JHihwx26uHtcAVYP0S7q1pYGcI4WKRwQuiOIRwE3gh6tpSYQ64WvRwniUzXwPPxYPMYhLwaSwuZoEyDZV+YDgvd5fpJuzJ6aeMJRV07LRuU59X344bvwguVG0UJd/b1V9ShifULW3FRbo98muJQKmms6kXr1QPxQ7VhryZxxbJhRIENy5pvzqrvaue6UBqSj2RnGN62qcu2KY71KZ10+oN9ax6WO0vSyz0mOQAMBz//gX8Gw/y47HOLI3/ARBEhivJ41EhAAAAAElFTkSuQmCC');
-
-        &.one {
-            margin-left: -35px;
-            margin-top: 0px;
-        }
-
-        &.two {
-            margin-left: -4px;
-            animation-direction: reverse;
-            -moz-animation-direction: reverse;
-            -webkit-animation-direction: reverse;
-        }
-    }
-
-    >.message {
-        width: 300px;
-        text-align: center;
-        margin-left: -150px;
-        margin-top: 50px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        color: #ccc;
-        font-size: 16px;
-        font-weight: bold;
-    }
 
     >.content {
         margin: 60px auto;

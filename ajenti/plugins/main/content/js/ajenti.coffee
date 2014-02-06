@@ -207,6 +207,9 @@ class window.UIManager
 class window.LoadingDim 
     constructor: (@dom) ->
         @dom.show()
+        @follow = @dom.find('.wrapper')
+        @dom.mousemove (e) =>
+            @follow.css left: (e.clientX + 20) + 'px', top: (e.clientY + 20) + 'px'
 
     hide: () ->
         @setMessage('')
