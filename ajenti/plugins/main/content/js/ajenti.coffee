@@ -39,10 +39,10 @@ class window.Stream
             console.log 'JSON data:', ui
 
             UI.clear()
-            profiler.start('UI inflating')
+            profiler.start('Cumulative UI inflating')
             ui = UI.inflate(ui)
             profiler.stop()
-            profiler.start('UI replacement')
+            profiler.start('Cumulative UI update')
             UI.replace(ui)
             profiler.stop()
             
@@ -88,9 +88,9 @@ class window.Stream
 
         @socket.on 'debug', (data) ->
             data = JSON.parse(data)
-            console.group 'Profiling'
+            console.group 'Server-side profiling'
             for d of data.profiles
-                console.log d, data.profiles[d]
+                console.log d, data.profiles[d].toFixed(3), 's'
             console.groupEnd()
 
         $('#connection-error').hide()
@@ -215,11 +215,11 @@ class window.LoadingDim
         @setMessage('')
         $('.hide-when-loaded').hide()
         $('body').removeClass('loading')
-        @dom.stop().fadeTo(125, 0, () => @dom.hide())
+        @dom.hide()
 
     show: () ->
         $('body').addClass('loading')
-        @dom.show().stop().fadeTo(500, 1)
+        @dom.show()
 
     setMessage: (m) ->
         @dom.find('.message').text(m)
@@ -318,8 +318,9 @@ class window.Control
         if children
             for child in children
                 @children.push child
-                if not child.dom
-                    children_html += @wrapChild(child)
+                if child.properties.visible
+                    if not child.dom
+                        children_html += @wrapChild(child)
         
         @html = @html.replace('<children>', children_html)
         
@@ -338,20 +339,26 @@ class window.Control
     setupDom: (dom) ->
         if @dom
             return
-        if not dom
+        if not dom and not @noUID
+            #console.error 'Manually inflating HTML for', this
             dom = $$(@html)
         @dom = dom
         if @properties.visible != true and @dom and @dom.style
             @dom.style.display = 'none'
+            return this
         for child in @children
-            if child.dom
-                @append(child)
-            else
-                if Control.prototype.setupDom != child.constructor.prototype.setupDom
-                    key = child.constructor.name
-                    profiler.setupDomStats[key] ?= 0
-                    profiler.setupDomStats[key] += 1
-                child.setupDom(document.getElementById('uid-' + child.properties.uid))
+            if child.properties.visible
+                if child.dom
+                    @append(child)
+                else
+                    if Control.prototype.setupDom != child.constructor.prototype.setupDom
+                        key = child.constructor.name
+                        profiler.setupDomStats[key] ?= 0
+                        profiler.setupDomStats[key] += 1
+                    childDom = document.getElementById('uid-' + child.properties.uid)
+                    if not childDom and not child.noUID
+                        console.error 'Pre-generated DOM not found for', child
+                    child.setupDom(childDom)
         return this
         
     destruct: () ->

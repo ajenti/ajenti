@@ -19,6 +19,8 @@ class PackageInstaller (UIElement, BasePlugin):
         self.recheck()
 
     def recheck(self):
+        if not self.package:
+            return
         if ajenti.platform in db:
             apps = db[ajenti.platform]
             if self.package in apps:
