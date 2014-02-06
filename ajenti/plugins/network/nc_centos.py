@@ -42,8 +42,8 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
                     d = {}
                     for s in ss:
                         try:
-                            k = s.split('=')[0].strip('\t "\'')
-                            v = s.split('=')[1].strip('\t "\'')
+                            k = s.split('=', 1)[0].strip('\t "\'')
+                            v = s.split('=', 1)[1].strip('\t "\'')
                             d[k] = v
                         except:
                             pass

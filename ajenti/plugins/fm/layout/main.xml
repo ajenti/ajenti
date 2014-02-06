@@ -42,8 +42,8 @@
                             		<dt bind="__items" style="compressed">
                                         <dtr>
                                             <dth width="1%" />
-                                            <dth text="Name" />
-                                            <dth text="Size" width="100" />
+                                            <dth text="{Name}" />
+                                            <dth text="{Size}" width="100" />
                                             <dth width="1%" />
                                         </dtr>
                                     </dt>
