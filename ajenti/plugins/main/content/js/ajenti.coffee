@@ -318,7 +318,7 @@ class window.Control
         if children
             for child in children
                 @children.push child
-                if child.properties.visible
+                if child.properties.visible or @requiresAllChildren
                     if not child.dom
                         children_html += @wrapChild(child)
         
@@ -347,7 +347,7 @@ class window.Control
             @dom.style.display = 'none'
             return this
         for child in @children
-            if child.properties.visible
+            if child.properties.visible or @requiresAllChildren
                 if child.dom
                     @append(child)
                 else

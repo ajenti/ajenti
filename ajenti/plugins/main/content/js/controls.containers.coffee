@@ -228,7 +228,7 @@ class window.Controls.collapserow extends window.Control
 
         @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
-            @publish()
+            #@publish()
             $(@container).toggle('blind')
             if @expanded
                 @broadcast('visible')
@@ -247,6 +247,8 @@ class window.Controls.collapserow extends window.Control
 
 class window.Controls.tabs extends window.Control
     createDom: () ->
+        @requiresAllChildren = true
+        
         @lastTabIndex = 0
         """
             <div class="control tabs">
