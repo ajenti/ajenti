@@ -30,6 +30,7 @@ class BSDUptimeSensor (Sensor):
         https://github.com/Cairnarvon/uptime/blob/master/src/__init__.py
         """
 
+
         try:
             libc = ctypes.CDLL('libc.so')
         except AttributeError:
@@ -80,4 +81,7 @@ class UptimeWidget (DashboardWidget):
 
         self.find('icon').text = 'off'
         self.find('name').text = 'Uptime'
-        self.find('value').text = str_timedelta(self.sensor.value())
+        if not self.sensor.value() is None:
+            self.find('value').text = str_timedelta()
+        else:
+            self.find('value').text = "Error gathering System Uptime."
