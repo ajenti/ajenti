@@ -41,7 +41,7 @@ conf['ssl']['enable'] = True
 certificate_path = os.path.join(path, 'ajenti.pem')
 conf['ssl']['certificate_path'] = certificate_path
 os.chmod(certificate_path, 0400)
-open(config_path, 'w').write(json.dumps(conf))
+open(config_path, 'w').write(json.dumps(conf, indent=4))
 
 open(marker_path, 'w').close()
 
