@@ -134,7 +134,7 @@ class window.Controls.sortabledt extends window.Controls.dt
         @tbody = $(@dom).find('>tbody')
         @tbody.sortable(
             distance: 5
-            cancel: 'input,button,a'
+            cancel: 'input,button,a,.CodeMirror'
         )
         @order = []
         i = 1
