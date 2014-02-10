@@ -1,5 +1,7 @@
 import re
 import json
+import types
+
 from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 
@@ -55,7 +57,11 @@ class HttpPlugin (object):
                 match = method._url_pattern.match(context.path)
                 if match:
                     context.route_data = match.groupdict()
-                    return method(context, **context.route_data)
+                    data = method(context, **context.route_data)
+                    if type(data) is types.GeneratorType:
+                        return data
+                    else:
+                        return [data]
 
 
 @interface

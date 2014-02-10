@@ -28,6 +28,7 @@ class ContentServer (HttpPlugin):
             'css': 'text/css',
             'js': 'application/javascript',
         }
+        context.respond_ok()
         context.add_header('Content-Type', types[type])
         return context.gzip(content)
 
@@ -38,6 +39,7 @@ class ContentServer (HttpPlugin):
             context.respond_not_found()
             return 'Not Found'
         path = os.path.join(plugin_path, 'content/static', path)
+        context.respond_ok()
         return context.file(path)
 
 
