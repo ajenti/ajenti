@@ -317,8 +317,8 @@ class window.Control
         children_html = ''
         if children
             for child in children
-                @children.push child
                 if child.properties.visible or @requiresAllChildren
+                    @children.push child
                     if not child.dom
                         children_html += @wrapChild(child)
         

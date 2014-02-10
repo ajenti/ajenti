@@ -37,6 +37,7 @@ class window.Controls.main__sections_category extends window.Control
 
 class window.Controls.main__sections_root extends window.Control
     createDom: () ->
+        @requiresAllChildren = true
         """
             <div class="control container main-sections-root">
                 <div class="sidebar">
