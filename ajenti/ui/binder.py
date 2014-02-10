@@ -135,6 +135,11 @@ class DictValueBinding (PropertyBinding):
     def set(self, value):
         self.object[self.attribute] = value
 
+    def update(self):
+        if self.oneway:
+            return
+        self.set(getattr(self.ui, self.property))
+
 
 @public
 class ListAutoBinding (Binding):
