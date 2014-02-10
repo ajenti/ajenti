@@ -7,6 +7,8 @@ VERSION=`python -c "from ajenti import __version__; print __version__"`
 PREFIX=/usr
 DATE=`date -R`
 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
