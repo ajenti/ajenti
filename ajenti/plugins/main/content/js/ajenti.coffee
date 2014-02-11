@@ -206,18 +206,24 @@ class window.UIManager
 
 class window.LoadingDim 
     constructor: (@dom) ->
+        @visible = true
         @dom.show()
         @follow = @dom.find('.wrapper')
         @dom.mousemove (e) =>
-            @follow.css left: (e.clientX + 20) + 'px', top: (e.clientY + 20) + 'px'
+            if @visible
+                @follow.show()
+                @follow.css left: (e.clientX + 20) + 'px', top: (e.clientY + 20) + 'px'
 
     hide: () ->
+        @visible = false
         @setMessage('')
         $('.hide-when-loaded').hide()
         $('body').removeClass('loading')
         @dom.hide()
+        @follow.hide()
 
     show: () ->
+        @visible = true
         $('body').addClass('loading')
         @dom.show()
 
