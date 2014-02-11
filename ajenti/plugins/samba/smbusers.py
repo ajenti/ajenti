@@ -30,7 +30,7 @@ class SambaUsers (object):
     def delete(self, un):
         subprocess.call(['pdbedit', '-x', '-u', un])
 
-    def set_password(self, un, p):
+    def set_password(self, un, pw):
         p = subprocess.Popen(['pdbedit', '-at', '-u', un])
-        p.communicate('%s\n%s\n' % (p, p))
+        p.communicate('%s\n%s\n' % (pw, pw))
         return p.returncode == 0
