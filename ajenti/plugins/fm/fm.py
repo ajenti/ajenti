@@ -145,9 +145,15 @@ class FileManager (SectionPlugin):
 
         try:
             if for_move:
-                self.backend.move(for_move, tab.path, self.refresh)
+                def callback(task):
+                    self.context.notify('info', _('Files moved'))
+                    self.refresh()
+                self.backend.move(for_move, tab.path, callback)
             if for_copy:
-                self.backend.copy(for_copy, tab.path, self.refresh)
+                def callback(task):
+                    self.context.notify('info', _('Files copied'))
+                    self.refresh()
+                self.backend.copy(for_copy, tab.path, callback)
             self.clipboard = []
         except Exception as e:
             self.context.notify('error', str(e))

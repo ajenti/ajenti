@@ -515,7 +515,8 @@ class Binder (object):
                 # Nested binder context
                 if prop == '{binder}context':
                     if bindable is not ui and k:
-                        self.__autodiscover(getattr(object, k), bindable)
+                        if hasattr(object, k):
+                            self.__autodiscover(getattr(object, k), bindable)
 
                 # Property binding
                 if prop.startswith('{bind}'):

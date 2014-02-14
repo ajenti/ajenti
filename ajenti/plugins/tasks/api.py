@@ -1,5 +1,5 @@
+import gevent
 import logging
-import threading
 import traceback
 import uuid
 
@@ -52,8 +52,7 @@ class Task (object):
         self.callback = lambda x: None
 
     def start(self):
-        self.thread = threading.Thread(target=self._run)
-        self.thread.start()
+        self.thread = gevent.spawn(self._run)
 
     def _run(self):
         logging.info('Starting task %s' % self.__class__.__name__)

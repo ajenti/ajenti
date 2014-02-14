@@ -1,7 +1,7 @@
 import logging
 import os
+import gevent
 import subprocess
-import time
 
 from ajenti.api import *
 
@@ -39,23 +39,24 @@ class CopyFilesTask (Task):
 
     def run(self, source=None, destination=None):
         index = 0
-        files = os.listdir(source)
+        if isinstance(source, basestring):
+            source = [source]
+
         if not os.path.exists(destination):
             os.makedirs(destination)
         if not destination.endswith('/'):
             destination += '/'
 
-        for file in files:
+        for file in source:
             self.message = self.message_template % file
-            srcpath = os.path.join(source, file)
-            p = subprocess.Popen(self.command + [srcpath, destination])
+            p = subprocess.Popen(self.command + [file, destination])
             while p.poll() is None:
-                time.sleep(1)
+                gevent.sleep(1)
                 if self.aborted:
                     p.terminate()
                     return
             index += 1
-            self.set_progress(index, len(files))
+            self.set_progress(index, len(source))
 
 
 @plugin
@@ -63,7 +64,6 @@ class MoveFilesTask (CopyFilesTask):
     name = 'Move files'
     command = ['mv']
     message_template = _('Moving %s')
-
 
 
 @plugin

@@ -7,6 +7,7 @@ info = PluginInfo(
     icon='folder-open',
     dependencies=[
         PluginDependency('main'),
+        PluginDependency('tasks'),
     ],
 )
 

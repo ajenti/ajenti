@@ -104,7 +104,13 @@ class TaskManager (BasePlugin):
         else:
             self.running_tasks.append(task)
             task.pending = False
-            task.callback = self.task_done
+
+            old_callback = task.callback
+            def new_callback(task):
+                old_callback(task)
+                self.task_done(task)
+            task.callback = new_callback
+
             if task.execution_context:
                 task.execution_context.notify('info', _('Task %s started') % task.name)
             task.start()
