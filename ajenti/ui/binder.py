@@ -415,7 +415,7 @@ class CollectionAutoBinding (Binding):
                 self.collection.append(e)
             self.items_ui.order = []
         for value in self.values:
-            if self.ui.filter(value):
+            if self.ui.filter(value) and value in self.binders:
                 self.binders[value].update()
                 self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
 
