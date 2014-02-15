@@ -85,7 +85,8 @@ class window.Controls.main__sections_root extends window.Control
                     @event('switch', uid:child.uid)
                     e.preventDefault()
 
-                @categories[child.properties.category].append(tab)
+                if not child.properties.hidden
+                    @categories[child.properties.category].append(tab)
             
 
 

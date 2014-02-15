@@ -7,8 +7,8 @@ from ajenti.ui import *
 @p('order', default=99, doc='Sorting weight, light plugins end up higher')
 @p('category', default='Other', doc='Section category name')
 @p('active', default=False)
-@p('plain', default=False)
 @p('clsname', default='')
+@p('hidden', default=False, type=bool, doc='Hide this section in sidebar')
 @track
 @interface
 class SectionPlugin (BasePlugin, UIElement):

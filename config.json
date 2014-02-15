@@ -2,24 +2,35 @@
     "users": {
         "root": {
             "configs": {
-                "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": null}", 
+                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [], \"root\": \"/\"}", 
+                "ajenti.plugins.terminal.main.Terminals": "{\"shell\": \"sh -c $SHELL || sh\"}", 
+                "ajenti.plugins.elements.ipmap.ElementsIPMapper": "{\"users\": {}}", 
                 "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}", 
-                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\n.\"}", 
-                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.SwapWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.uptime.UptimeWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}]}"
+                "ajenti.plugins.dashboard.dash.Dash": "{\"widgets\": [{\"index\": 0, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.MemoryWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.sensors.memory.SwapWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"1\", \"class\": \"ajenti.plugins.dashboard.welcome.WelcomeWidget\"}, {\"index\": 0, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.uptime.UptimeWidget\"}, {\"index\": 1, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.power.power.PowerWidget\"}, {\"index\": 2, \"config\": null, \"container\": \"0\", \"class\": \"ajenti.plugins.sensors.cpu.CPUWidget\"}]}", 
+                "ajenti.plugins.elements.shaper.main.Shaper": "{\"rules\": []}", 
+                "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": null}", 
+                "ajenti.users.UserManager": "{\"sync-provider\": \"\"}", 
+                "ajenti.plugins.mysql.api.MySQLDB": "{\"password\": \"\", \"user\": \"root\", \"hostname\": \"localhost\"}", 
+                "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/\"}", 
+                "ajenti.plugins.tasks.manager.TaskManager": "{\"task_definitions\": []}", 
+                "ajenti.usersync.adsync.ActiveDirectorySyncProvider": "{\"domain\": \"DOMAIN\", \"password\": \"\", \"user\": \"Administrator\", \"base\": \"cn=Users,dc=DOMAIN\", \"address\": \"localhost\"}", 
+                "ajenti.plugins.elements.usermgr.ElementsUserManager": "{\"groups\": []}", 
+                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\n.\"}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
             "permissions": []
         }
     }, 
+    "language": "", 
     "bind": {
         "host": "0.0.0.0", 
         "port": 8000
     }, 
-    "authentication": false, 
+    "enable_feedback": true, 
     "ssl": {
         "enable": false, 
         "certificate_path": ""
     }, 
-    "enable_feedback": true, 
+    "authentication": false, 
     "installation_id": 12354
 }

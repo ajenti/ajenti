@@ -260,7 +260,7 @@ class window.Controls.tabs extends window.Control
     setupDom: (dom) ->
         super(dom)
         @active = @properties.active
-        @headers = $(@dom).find('ul')
+        @headers = $(@dom).find('>ul')
         for child in @children
             do (child) =>
                 header = $$("""<li data-index="#{child.tabIndex}"><a href="#uid-#{child.uid}">#{child.properties.title}</a></li>""")
