@@ -8,6 +8,6 @@ python-daemon
 python-exconsole>=0.1.5
 python-ldap
 requests>=0.12.0
-reconfigure>=0.1.38
+reconfigure>=0.1.41
 pyOpenSSL
 Pillow

@@ -1,4 +1,4 @@
-<bind:collection bind="options">
+<bind:collection bind="options" id="options">
     <vc>
         <lt bind="__items" />
         <button bind="__add" icon="plus" text="{Create}" />

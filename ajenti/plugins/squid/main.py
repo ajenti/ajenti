@@ -5,7 +5,7 @@ from ajenti.ui import on
 from ajenti.util import platform_select
 
 from reconfigure.configs import SquidConfig
-from reconfigure.items.squid import ACLData, HTTPAccessData, HTTPPortData, HTTPSPortData
+from reconfigure.items.squid import ACLData, HTTPAccessData, HTTPPortData, HTTPSPortData, ArgumentData
 
 
 @plugin
@@ -28,6 +28,8 @@ class Squid (SectionPlugin):
         self.find('http_access').new_item = lambda c: HTTPAccessData()
         self.find('http_port').new_item = lambda c: HTTPPortData()
         self.find('https_port').new_item = lambda c: HTTPSPortData()
+        for e in self.nearest(lambda x: x.id == 'options'):
+            e.new_item = lambda c: ArgumentData()
         self.config = SquidConfig(path='/etc/squid3/squid.conf')
 
     def on_page_load(self):
