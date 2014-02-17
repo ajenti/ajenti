@@ -18,5 +18,8 @@
         <formline text="MTU">
             <textbox bind="mtu" />
         </formline>
+        <formline text="MAC Address">
+            <textbox bind="hwaddress" />
+        </formline>
     </vc>
 </bind:dict>
