@@ -21,7 +21,7 @@ exclusion = [
 
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
-if on_rtd:
+if not on_rtd:
     data_files=[
         ('/etc/ajenti', ['packaging/files/config.json']),
         ('/etc/init.d', ['packaging/files/ajenti']),
