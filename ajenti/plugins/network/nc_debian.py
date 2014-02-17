@@ -81,5 +81,6 @@ class DebianNetworkConfig (LinuxIfconfig, INetworkConfig):
             f.write('auto ' + iface.name + '\n')
         f.write('iface %s %s %s\n' % (iface.name, iface.type, iface.addressing))
         for x in iface.params:
-            f.write('\t%s %s\n' % (x, iface.params[x]))
+            if iface.params[x]:
+                f.write('\t%s %s\n' % (x, iface.params[x]))
         f.write('\n')
