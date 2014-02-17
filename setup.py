@@ -2,6 +2,7 @@
 
 from distutils.core import setup
 from setuptools import find_packages
+import os
 
 import ajenti
 
@@ -17,6 +18,19 @@ exclusion = [
     'ajenti.plugins.test*',
 ]
 
+
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
+if on_rtd:
+    data_files=[
+        ('/etc/ajenti', ['packaging/files/config.json']),
+        ('/etc/init.d', ['packaging/files/ajenti']),
+        ('/var/lib/ajenti/plugins', ['packaging/files/.placeholder']),
+    ]
+else:
+    data_files = []
+
+
 setup(
     name='ajenti',
     version=ajenti.__version__,
@@ -28,9 +42,5 @@ setup(
     packages=find_packages(exclude=['reconfigure', 'reconfigure.*'] + exclusion),
     package_data={'': ['content/*.*', 'content/*/*.*', 'content/*/*/*.*', 'layout/*.*', 'locales/*/*/*.mo']},
     scripts=['ajenti-panel', 'ajenti-ssl-gen', 'ajenti-ipc'],
-    data_files=[
-        ('/etc/ajenti', ['packaging/files/config.json']),
-        ('/etc/init.d', ['packaging/files/ajenti']),
-        ('/var/lib/ajenti/plugins', ['packaging/files/.placeholder']),
-    ],
+    data_files=data_files,
 )
