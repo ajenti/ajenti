@@ -275,7 +275,7 @@ class BasePlugin (object):
         config = ConfigData()
         config.name = self.classname
         config.data = copy.deepcopy(self.default_classconfig)
-        if self.default_classconfig:
+        if self.default_classconfig is not None:
             self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
 
     def __get_config_store(self):
