@@ -1,6 +1,8 @@
 import gevent
+import grp
 import logging
 import os
+import pwd
 
 from ajenti.api import *
 from ajenti.api.http import *
@@ -77,11 +79,40 @@ class FileManager (SectionPlugin):
     def on_new_file(self):
         destination = self.controller.tabs[self.tabs.active].path
         logging.info('[fm] new file in %s' % destination)
+        path = os.path.join(destination, 'new file')
         try:
-            open(os.path.join(destination, 'new file'), 'w').close()
+            open(path, 'w').close()
+            self._chown_new(path)
         except OSError, e:
             self.context.notify('error', str(e))
         self.refresh()
+
+    @on('new-dir', 'click')
+    def on_new_directory(self):
+        destination = self.controller.tabs[self.tabs.active].path
+        logging.info('[fm] new directory in %s' % destination)
+        path = os.path.join(destination, 'new directory')
+        if not os.path.exists(path):
+            try:
+                os.mkdir(path)
+                os.chmod(path, 0755)
+                self._chown_new(path)
+            except OSError, e:
+                self.context.notify('error', str(e))
+        self.refresh()
+
+    def _chown_new(self, path):
+        uid = self.classconfig.get('new_owner', 'root')
+        gid = self.classconfig.get('new_group', 'root')
+        try:
+            uid = int(uid)
+        except:
+            uid = pwd.getpwnam(uid)[2]
+        try:
+            gid = int(gid)
+        except:
+            gid = grp.getgrnam(gid)[2]
+        os.chown(path, uid, gid)
 
     def upload(self, name, file):
         destination = self.controller.tabs[self.tabs.active].path
@@ -97,19 +128,6 @@ class FileManager (SectionPlugin):
             output.close()
         except OSError, e:
             self.context.notify('error', str(e))
-        self.refresh()
-
-    @on('new-dir', 'click')
-    def on_new_directory(self):
-        destination = self.controller.tabs[self.tabs.active].path
-        logging.info('[fm] new directory in %s' % destination)
-        path = os.path.join(destination, 'new directory')
-        if not os.path.exists(path):
-            try:
-                os.mkdir(path)
-                os.chmod(path, 0755)
-            except OSError, e:
-                self.context.notify('error', str(e))
         self.refresh()
 
     @on('mass-cut', 'click')

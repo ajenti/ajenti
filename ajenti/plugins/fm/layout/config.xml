@@ -3,5 +3,11 @@
         <formline text="{Topmost directory}">
             <textbox bind="root" />
         </formline>
+        <formline text="{Owner for new files}">
+            <textbox bind="new_owner" />
+        </formline>
+        <formline text="{Group for new files}">
+            <textbox bind="new_group" />
+        </formline>
     </vc>
 </bind:dict>
