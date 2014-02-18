@@ -102,11 +102,11 @@ class Notepad (SectionPlugin):
     def on_open_dialog_select(self, path=None):
         self.opendialog.visible = False
         if path:
+            self.activate()
             if os.stat(path).st_size > self.SIZE_LIMIT:
                 self.context.notify('error', 'File is too big')
                 return
             self.select(self.controller.open(path))
-            self.activate()
 
     @on('savedialog', 'select')
     def on_save_dialog_select(self, path):

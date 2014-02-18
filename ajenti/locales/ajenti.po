@@ -374,7 +374,7 @@ msgid "Tasks"
 msgstr ""
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
-#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
+#: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
 msgid "Tools"
 msgstr ""
 
@@ -1284,24 +1284,24 @@ msgstr ""
 msgid "Save zone"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
+#: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:149
+#: ajenti/plugins/fm/fm.py:167
 msgid "Files moved"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:154
+#: ajenti/plugins/fm/fm.py:172
 msgid "Files copied"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:169
+#: ajenti/plugins/fm/fm.py:187
 #, python-format
 msgid "Selected %i items"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:208
+#: ajenti/plugins/fm/fm.py:226
 msgid "Unpacked"
 msgstr ""
 
@@ -1368,6 +1368,14 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:24
 msgid "Set recursively"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:2
+msgid "Owner for new files"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:3
+msgid "Group for new files"
 msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:100

@@ -128,7 +128,10 @@
                         </hc>
                     </indent>
                     
-                    <button id="unpack" icon="dropbox" text="{Unpack}" />
+                    <hc>
+                        <button id="edit" icon="edit" text="{Edit}" />
+                        <button id="unpack" icon="dropbox" text="{Unpack}" />
+                    </hc>
                     
                     <label text="{Access}" style="bold" />
                     

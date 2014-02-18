@@ -232,6 +232,16 @@ class FileManager (SectionPlugin):
 
         unpack_btn.on('click', lambda: unpack())
 
+        # Edit
+        edit_btn = self.find('dialog').find('edit')
+        if self.item.size > 1024 * 1024 * 5:
+            edit_btn.visible = False
+
+        def edit():
+            self.context.launch('notepad', path=self.item.fullpath)
+
+        edit_btn.on('click', lambda: edit())
+
     @on('dialog', 'button')
     def on_close_dialog(self, button):
         self.find('dialog').visible = False
