@@ -1,169 +1,100 @@
-#: ajenti/usersync/unix.py:14
-msgid "OS users"
-msgstr "İS kullanıcıları"
+#: ajenti/plugins/plugins/plugins.py:10
+#: ajenti/plugins/configurator/layout/main.xml:30
+msgid "Plugins"
+msgstr "Pluginler"
 
-#: ajenti/usersync/adsync.py:15
-msgid "Active Directory Syncronization"
+#: ajenti/plugins/plugins/plugins.py:37
+msgid "Gathering plugin list"
 msgstr ""
 
-#: ajenti/usersync/local.py:12
-msgid "Off"
-msgstr "Kapalı"
+#: ajenti/plugins/plugins/layout/main.xml:1
+#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/tasks/layout/main.xml:3
+#: ajenti/plugins/tasks/layout/main.xml:10
+#: ajenti/plugins/tasks/layout/main.xml:20
+#: ajenti/plugins/tasks/layout/main.xml:39
+#: ajenti/plugins/scripts/layout/widget.xml:1
+#: ajenti/plugins/samba/layout/main.xml:5
+#: ajenti/plugins/users/layout/main.xml:4
+#: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/raid/layout/main.xml:1
+#: ajenti/plugins/iptables/layout/option-custom.xml:1
+#: ajenti/plugins/netatalk/layout/main.xml:4
+#: ajenti/plugins/packages/layout/headers.xml:1
+#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:18
+#: ajenti/plugins/network/layout/main.xml:1
+#: ajenti/plugins/hosts/layout/main.xml:2
+#: ajenti/plugins/taskmgr/layout/main.xml:2
+#: ajenti/plugins/squid/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:25
+#: ajenti/plugins/bind9/layout/main.xml:3
+msgid "Name"
+msgstr "Adı"
 
-#: ajenti/usersync/ldapsync.py:15
-msgid "LDAP User Syncronization"
-msgstr "LDAP Kullanıcı Eşzamanlaması"
+#: ajenti/plugins/plugins/layout/main.xml:2
+msgid "Dependencies"
+msgstr "Bağımlılıklar"
 
-#: ajenti/plugins/power/power.py:56
-msgid "Power"
-msgstr "Güç"
+#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/raid/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:4
+msgid "Type"
+msgstr "Türü"
 
-#: ajenti/plugins/power/power.py:103
-msgid "Power control"
-msgstr "Güç kontrolü"
+#: ajenti/plugins/plugins/layout/main.xml:4
+msgid "Depends on"
+msgstr ""
 
-#: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
-msgid "Suspend"
-msgstr "Askıya Al"
-
-#: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
-msgid "Hibernate"
-msgstr "Hazırda Beklet"
-
-#: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
-msgid "Reboot"
-msgstr "Yeniden başlat"
-
-#: ajenti/plugins/power/power.py:110
-msgid "Shutdown"
-msgstr "Kapatma"
-
-#: ajenti/plugins/power/layout/widget.xml:1
-msgid "AC power"
-msgstr "AC güç"
-
-#: ajenti/plugins/power/layout/widget.xml:2
-msgid "Battery"
-msgstr "Pil"
-
-#: ajenti/plugins/power/layout/widget.xml:4
-msgid "Suspend the system?"
-msgstr "Sistem askıya alınsın mı?"
-
-#: ajenti/plugins/power/layout/widget.xml:6
-msgid "Hibernate the system?"
-msgstr "Sistem hazırda bekletilsin mi?"
-
-#: ajenti/plugins/power/layout/widget.xml:8
-msgid "Reboot the system?"
-msgstr "Sistem yeniden başlatmak ister misiniz ?"
-
-#: ajenti/plugins/power/layout/widget.xml:9
-msgid "Power off"
-msgstr "Güç kapalı"
-
-#: ajenti/plugins/power/layout/widget.xml:10
-msgid "Shutdown the system?"
-msgstr "Sistemi kapatmak ister misiniz ?"
-
-#: ajenti/plugins/main/main.py:211
-msgid "Section access"
-msgstr "Bölüm erişimi"
-
-#: ajenti/plugins/main/layout/file-dialog-save.xml:1
-msgid "File name"
-msgstr "Dosya adı"
-
-#: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
-msgid "Load average"
-msgstr "Yük ortalama"
-
-#: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
-#: ajenti/plugins/sensors/layout/cpu-widget.xml:1
-msgid "CPU usage"
-msgstr "CPU kullanımı"
-
-#: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
-msgid "Memory usage"
-msgstr "Bellek kullanımı"
-
-#: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
-msgid "Swap usage"
-msgstr "Takas belleği kullanımı"
-
-#: ajenti/plugins/sensors/uptime.py:74
-msgid "Uptime"
-msgstr "Çalışma süresi"
-
-#: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
-#: ajenti/plugins/sensors/layout/value-widget.xml:1
-msgid "Variant"
-msgstr "Varyant"
+#: ajenti/plugins/plugins/layout/main.xml:5
+#: ajenti/plugins/tasks/layout/main.xml:4
+#: ajenti/plugins/tasks/layout/main.xml:11
+#: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
+#: ajenti/plugins/openvpn/layout/main.xml:3
+msgid "Status"
+msgstr "Durumu"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:3
-#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:23
+#: ajenti/plugins/tasks/layout/main.xml:19
+#: ajenti/plugins/tasks/layout/main.xml:38
+#: ajenti/plugins/exports/layout/main.xml:1
+#: ajenti/plugins/samba/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:35
+#: ajenti/plugins/users/layout/main.xml:10
+#: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
-#: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:23
-#: ajenti/plugins/cron/layout/main.xml:4
-#: ajenti/plugins/cron/layout/main.xml:13
-#: ajenti/plugins/cron/layout/main.xml:24 ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/netatalk/layout/main.xml:3
+#: ajenti/plugins/nsd/layout/main.xml:2 ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/ctdb/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:21
+#: ajenti/plugins/resolv/layout/main.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/hosts/layout/main.xml:1
 #: ajenti/plugins/squid/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:7
 #: ajenti/plugins/squid/layout/options-editor.xml:2
 #: ajenti/plugins/squid/layout/port-template.xml:1
-#: ajenti/plugins/ctdb/layout/main.xml:17
-#: ajenti/plugins/ctdb/layout/main.xml:21
-#: ajenti/plugins/users/layout/user-list.xml:1
-#: ajenti/plugins/users/layout/main.xml:10
-#: ajenti/plugins/nsd/layout/main.xml:2
-#: ajenti/plugins/tasks/layout/main.xml:19
-#: ajenti/plugins/tasks/layout/main.xml:38
-#: ajenti/plugins/hosts/layout/main.xml:1
-#: ajenti/plugins/resolv/layout/main.xml:1
+#: ajenti/plugins/cron/layout/main.xml:4
+#: ajenti/plugins/cron/layout/main.xml:13
+#: ajenti/plugins/cron/layout/main.xml:24
 #: ajenti/plugins/bind9/layout/main.xml:2
-#: ajenti/plugins/exports/layout/main.xml:1
-#: ajenti/plugins/samba/layout/main.xml:3
-#: ajenti/plugins/samba/layout/main.xml:35
-#: ajenti/plugins/netatalk/layout/main.xml:3
 msgid "Confirm deletion"
 msgstr "Silmeyi Onayla"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:2
-#: ajenti/plugins/db_common/layout/main.xml:3
-#: ajenti/plugins/iptables/layout/option-custom.xml:1
-#: ajenti/plugins/cron/layout/main.xml:25
-#: ajenti/plugins/scripts/layout/widget.xml:1
-#: ajenti/plugins/packages/layout/headers.xml:1
-#: ajenti/plugins/fm/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:14
-#: ajenti/plugins/fm/layout/main.xml:18 ajenti/plugins/squid/layout/main.xml:3
-#: ajenti/plugins/raid/layout/main.xml:1
-#: ajenti/plugins/users/layout/main.xml:4
-#: ajenti/plugins/users/layout/main.xml:11
-#: ajenti/plugins/network/layout/main.xml:1
-#: ajenti/plugins/taskmgr/layout/main.xml:2
-#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/tasks/layout/main.xml:3
-#: ajenti/plugins/tasks/layout/main.xml:10
-#: ajenti/plugins/tasks/layout/main.xml:20
-#: ajenti/plugins/tasks/layout/main.xml:39
-#: ajenti/plugins/hosts/layout/main.xml:2
-#: ajenti/plugins/plugins/layout/main.xml:1
-#: ajenti/plugins/bind9/layout/main.xml:3
-#: ajenti/plugins/samba/layout/main.xml:5
-#: ajenti/plugins/netatalk/layout/main.xml:4
-msgid "Name"
-msgstr "Adı"
-
 #: ajenti/plugins/webserver_common/layout/main.xml:3
-#: ajenti/plugins/iptables/main.py:144
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/iptables/main.py:144
 msgid "Enable"
 msgstr "Etkinleştir"
 
@@ -173,439 +104,68 @@ msgid "Configuration"
 msgstr "Yapılandırma"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/fstab/layout/main.xml:10
-#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/tasks/layout/main.xml:18
+#: ajenti/plugins/tasks/layout/main.xml:37
+#: ajenti/plugins/exports/layout/main.xml:6
+#: ajenti/plugins/exports/layout/main.xml:7
+#: ajenti/plugins/samba/layout/main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/dhcpd/layout/main.xml:6
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
-#: ajenti/plugins/dhcpd/layout/main.xml:6
 #: ajenti/plugins/db_common/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:10
-#: ajenti/plugins/configurator/layout/main.xml:25
-#: ajenti/plugins/cron/layout/main.xml:3
-#: ajenti/plugins/cron/layout/main.xml:12
-#: ajenti/plugins/cron/layout/main.xml:23
+#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
+#: ajenti/plugins/ctdb/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:24
+#: ajenti/plugins/resolv/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:10
+#: ajenti/plugins/hosts/layout/main.xml:5
+#: ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/main.xml:1
 #: ajenti/plugins/squid/layout/main.xml:6
 #: ajenti/plugins/squid/layout/main.xml:13
 #: ajenti/plugins/squid/layout/main.xml:14
 #: ajenti/plugins/squid/layout/options-editor.xml:1
-#: ajenti/plugins/ctdb/layout/main.xml:19
-#: ajenti/plugins/ctdb/layout/main.xml:24
-#: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
-#: ajenti/plugins/tasks/layout/main.xml:18
-#: ajenti/plugins/tasks/layout/main.xml:37
-#: ajenti/plugins/hosts/layout/main.xml:5
-#: ajenti/plugins/hosts/layout/main.xml:6
-#: ajenti/plugins/resolv/layout/main.xml:4
+#: ajenti/plugins/cron/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:12
+#: ajenti/plugins/cron/layout/main.xml:23
 #: ajenti/plugins/bind9/layout/main.xml:8
 #: ajenti/plugins/bind9/layout/main.xml:10
-#: ajenti/plugins/exports/layout/main.xml:6
-#: ajenti/plugins/exports/layout/main.xml:7
-#: ajenti/plugins/samba/layout/main.xml:2
-#: ajenti/plugins/netatalk/layout/main.xml:2
 msgid "Create"
 msgstr "Oluştur"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
-#: ajenti/plugins/fstab/layout/main.xml:18
-#: ajenti/plugins/supervisor/layout/main.xml:17
-#: ajenti/plugins/dhcpd/layout/main.xml:8
-#: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/configurator/layout/main.xml:32
-#: ajenti/plugins/cron/layout/main.xml:27 ajenti/plugins/fm/layout/main.xml:16
-#: ajenti/plugins/squid/layout/main.xml:15
-#: ajenti/plugins/ctdb/layout/main.xml:25
+#: ajenti/plugins/tasks/layout/main.xml:41
+#: ajenti/plugins/exports/layout/main.xml:8
+#: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/samba/layout/main.xml:38
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/network/layout/main.xml:7
-#: ajenti/plugins/nsd/layout/main.xml:10
-#: ajenti/plugins/tasks/layout/main.xml:41
-#: ajenti/plugins/hosts/layout/main.xml:7
-#: ajenti/plugins/notepad/layout/main.xml:3
-#: ajenti/plugins/resolv/layout/main.xml:5
-#: ajenti/plugins/bind9/layout/main.xml:11
-#: ajenti/plugins/exports/layout/main.xml:8
-#: ajenti/plugins/samba/layout/main.xml:38
+#: ajenti/plugins/dhcpd/layout/main.xml:8
+#: ajenti/plugins/supervisor/layout/main.xml:17
+#: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/netatalk/layout/main.xml:14
+#: ajenti/plugins/nsd/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:16
+#: ajenti/plugins/network/layout/main.xml:7
+#: ajenti/plugins/ctdb/layout/main.xml:25
+#: ajenti/plugins/resolv/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:18
+#: ajenti/plugins/hosts/layout/main.xml:7
+#: ajenti/plugins/squid/layout/main.xml:15
+#: ajenti/plugins/cron/layout/main.xml:27
+#: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save"
 msgstr "Kaydet"
 
-#: ajenti/plugins/fstab/main.py:43
-msgid "Filesystems"
-msgstr "Dosya sistemleri"
-
-#: ajenti/plugins/fstab/main.py:45 ajenti/plugins/iptables/main.py:67
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/packages/main.py:14
-#: ajenti/plugins/raid/main.py:17 ajenti/plugins/logs/main.py:14
-#: ajenti/plugins/users/main.py:17 ajenti/plugins/network/main.py:17
-#: ajenti/plugins/taskmgr/main.py:16 ajenti/plugins/megaraid/main.py:17
-#: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/resolv/main.py:15
-msgid "System"
-msgstr "Sistem"
-
-#: ajenti/plugins/fstab/main.py:67
-msgid "Unmounted"
-msgstr "Monte edilmemiş"
-
-#: ajenti/plugins/fstab/main.py:74
-msgid "mount -a failed"
-msgstr "-başarısız bir mount"
-
-#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/iptables/main.py:184
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/nsd/main.py:70 ajenti/plugins/notepad/notepad.py:119
-#: ajenti/plugins/bind9/main.py:84 ajenti/plugins/exports/main.py:38
-msgid "Saved"
-msgstr "Kaydedildi"
-
-#: ajenti/plugins/fstab/iops.py:70
-msgid "Immediate I/O"
-msgstr "Hemen g/ç"
-
-#: ajenti/plugins/fstab/widget.py:9
-msgid "Disk space"
-msgstr "Disk alanı"
-
-#: ajenti/plugins/fstab/widget.py:38
-msgid "Free disk space"
-msgstr "Boş disk alanı"
-
-#: ajenti/plugins/fstab/widget.py:48
-#, python-format
-msgid "%s free"
-msgstr "%s boş"
-
-#: ajenti/plugins/fstab/layout/free-widget.xml:1
-#: ajenti/plugins/fstab/layout/iio-widget.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:4
-#: ajenti/plugins/fstab/layout/main.xml:12
-#: ajenti/plugins/fstab/layout/widget.xml:1
-#: ajenti/plugins/hddtemp/layout/widget.xml:1
-#: ajenti/plugins/network/layout/widget.xml:1
-#: ajenti/plugins/smartctl/layout/widget.xml:1
-msgid "Device"
-msgstr "Aygıt"
-
-#: ajenti/plugins/fstab/layout/main.xml:1
-#: ajenti/plugins/tasks/layout/main.xml:2
-msgid "Refresh"
-msgstr "Yenile"
-
-#: ajenti/plugins/fstab/layout/main.xml:2
-msgid "Mount all"
-msgstr "Hepsini Bağla"
-
-#: ajenti/plugins/fstab/layout/main.xml:5
-#: ajenti/plugins/fstab/layout/main.xml:13
-msgid "Mountpoint"
-msgstr "Mountpoint"
-
-#: ajenti/plugins/fstab/layout/main.xml:6
-msgid "FS type"
-msgstr "FS türü"
-
-#: ajenti/plugins/fstab/layout/main.xml:7
-#: ajenti/plugins/dhcpd/layout/main.xml:5
-#: ajenti/plugins/squid/layout/main.xml:4
-#: ajenti/plugins/squid/layout/main.xml:11
-#: ajenti/plugins/squid/layout/port-template.xml:3
-#: ajenti/plugins/resolv/main.py:18 ajenti/plugins/exports/layout/main.xml:5
-msgid "Options"
-msgstr "Seçenekler"
-
-#: ajenti/plugins/fstab/layout/main.xml:8
-msgid "Scan frequency"
-msgstr "Frekans tarama"
-
-#: ajenti/plugins/fstab/layout/main.xml:9
-msgid "Scan pass"
-msgstr "Pass tarama"
-
-#: ajenti/plugins/fstab/layout/main.xml:11
-msgid "Mounted filesystems"
-msgstr "Bağlı dosya sistemleri"
-
-#: ajenti/plugins/fstab/layout/main.xml:14
-msgid "Used"
-msgstr "Kullanılan"
-
-#: ajenti/plugins/fstab/layout/main.xml:15
-#: ajenti/plugins/fm/layout/main.xml:11
-msgid "Size"
-msgstr "Boyutu"
-
-#: ajenti/plugins/fstab/layout/main.xml:16
-msgid "Usage"
-msgstr "Kullanım"
-
-#: ajenti/plugins/fstab/layout/main.xml:17
-msgid "Unmount"
-msgstr "Unmount"
-
-#: ajenti/plugins/hddtemp/widget.py:9
-msgid "HDD Temperature"
-msgstr "HDD sıcaklık"
-
-#: ajenti/plugins/supervisor/main.py:17 ajenti/plugins/dhcpd/main.py:15
-#: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/services/main.py:16
-#: ajenti/plugins/psql/main.py:20 ajenti/plugins/mysql/main.py:27
-#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/apache/main.py:49
-#: ajenti/plugins/bind9/main.py:28 ajenti/plugins/nginx/main.py:48
-#: ajenti/plugins/exports/main.py:19 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/samba/main.py:19 ajenti/plugins/netatalk/main.py:19
-msgid "Software"
-msgstr "Yazılım"
-
-#: ajenti/plugins/supervisor/layout/main.xml:1
-#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/psql/main.py:13
-#: ajenti/plugins/mysql/main.py:20 ajenti/plugins/apache/main.py:13
-#: ajenti/plugins/nginx/main.py:12
-msgid "Reload"
-msgstr "Yenidenyükleme"
-
-#: ajenti/plugins/supervisor/layout/main.xml:3
-#: ajenti/plugins/cron/layout/main.xml:10
-#: ajenti/plugins/cron/layout/main.xml:15
-#: ajenti/plugins/scripts/layout/widget.xml:2
-#: ajenti/plugins/taskmgr/layout/main.xml:3
-#: ajenti/plugins/tasks/layout/params-execute.xml:1
-msgid "Command"
-msgstr "Komut"
-
-#: ajenti/plugins/supervisor/layout/main.xml:4
-msgid "Working directory"
-msgstr "Çalışma dizini"
-
-#: ajenti/plugins/supervisor/layout/main.xml:5
-msgid "Autostart"
-msgstr "Otomatik başlatma"
-
-#: ajenti/plugins/supervisor/layout/main.xml:6
-#: ajenti/plugins/supervisor/layout/main.xml:9
-msgid "Enabled"
-msgstr "Etkin"
-
-#: ajenti/plugins/supervisor/layout/main.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:11
-msgid "Disabled"
-msgstr "Etkisizleştirildi"
-
-#: ajenti/plugins/supervisor/layout/main.xml:8
-msgid "Autorestart"
-msgstr "Otomatik Yeniden başlat"
-
-#: ajenti/plugins/supervisor/layout/main.xml:10
-msgid "On crash"
-msgstr ""
-
-#: ajenti/plugins/supervisor/layout/main.xml:12
-msgid "Start timeout"
-msgstr "Başlangıç zaman aşımı"
-
-#: ajenti/plugins/supervisor/layout/main.xml:13
-msgid "Start retries"
-msgstr "Başlangıç yeniden deneme"
-
-#: ajenti/plugins/supervisor/layout/main.xml:14
-#: ajenti/plugins/db_common/layout/main.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:12
-#: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/users/layout/main.xml:2
-#: ajenti/plugins/mysql/layout/config.xml:2
-msgid "Username"
-msgstr "Kullanıcı adı"
-
-#: ajenti/plugins/supervisor/layout/main.xml:15
-#: ajenti/plugins/cron/layout/main.xml:22
-msgid "Environment"
-msgstr "Çevre"
-
-#: ajenti/plugins/dhcpd/main.py:13
-msgid "DHCP Server"
-msgstr "DHCP sunucusu"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:1
-msgid "Subnetworks"
-msgstr "Alt"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:3
-msgid "Specification"
-msgstr "Belirtimi"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:4
-msgid "IP ranges"
-msgstr "IP aralıkları"
-
-#: ajenti/plugins/dhcpd/layout/main.xml:7
-msgid "Global options"
-msgstr "Genel seçenekleri"
-
-#: ajenti/plugins/db_common/api.py:45
-msgid "Query finished"
-msgstr "Sorgu tamamlandı"
-
-#: ajenti/plugins/db_common/api.py:54
-#, python-format
-msgid "Output cut from %i rows to 200"
-msgstr "Çıkış %i satırlarından 200 için kesmek."
-
-#: ajenti/plugins/db_common/layout/main.xml:1
-#: ajenti/plugins/terminal/layout/main.xml:1
-#: ajenti/plugins/tasks/layout/main.xml:16
-msgid "Run"
-msgstr "Çalıştır"
-
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "Veritabanları"
-
-#: ajenti/plugins/db_common/layout/main.xml:4
-msgid "Confirm database drop!"
-msgstr "Veritabanı silmeyi onaylayın!"
-
-#: ajenti/plugins/db_common/layout/main.xml:6
-#: ajenti/plugins/configurator/layout/main.xml:13
-#: ajenti/plugins/users/main.py:15 ajenti/plugins/users/layout/main.xml:5
-#: ajenti/plugins/samba/layout/main.xml:33
-msgid "Users"
-msgstr "Kullanıcılar"
-
-#: ajenti/plugins/db_common/layout/main.xml:8
-#: ajenti/plugins/configurator/layout/main.xml:5
-#: ajenti/plugins/mysql/layout/config.xml:1
-msgid "Host"
-msgstr "Host"
-
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "Veritabanı adı"
-
-#: ajenti/plugins/db_common/layout/main.xml:13
-#: ajenti/plugins/configurator/layout/main.xml:11
-msgid "Hostname"
-msgstr "Ana makine adı"
-
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/openvpn/layout/config.xml:3
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/netatalk/layout/main.xml:6
-msgid "Password"
-msgstr "Parola"
-
-#: ajenti/plugins/iptables/main.py:57
-msgid "You can't disable firewall autostart on this platform"
-msgstr "Güvenlik Duvarı autostart bu platformda devre dışı bırakılamıyor"
-
-#: ajenti/plugins/iptables/main.py:65
-msgid "Firewall"
-msgstr "Güvenlik Duvarı"
-
-#: ajenti/plugins/iptables/main.py:107
-#: ajenti/plugins/iptables/layout/main.xml:10
-msgid "Add option"
-msgstr "Seçenek Ekle"
-
-#: ajenti/plugins/iptables/main.py:144
-msgid "Disable"
-msgstr "Devre Dışı Bırak"
-
-#: ajenti/plugins/iptables/main.py:144
-msgid " autostart"
-msgstr " otomatik başlatma"
-
-#: ajenti/plugins/iptables/main.py:197
-msgid "Applied successfully"
-msgstr "Başarıyla uygulandı"
-
-#: ajenti/plugins/iptables/layout/option-interface.xml:1
-#: ajenti/plugins/ctdb/layout/main.xml:23
-msgid "Interface"
-msgstr "Arayüz"
-
-#: ajenti/plugins/iptables/layout/option-custom.xml:2
-msgid "Arguments"
-msgstr "Bağımsız değişkenler"
-
-#: ajenti/plugins/iptables/layout/option-custom.xml:3
-msgid "Argument"
-msgstr "Bağımsız değişken"
-
-#: ajenti/plugins/iptables/layout/option-port.xml:1
-#: ajenti/plugins/configurator/layout/main.xml:7
-#: ajenti/plugins/squid/layout/port-template.xml:2
-msgid "Port"
-msgstr "Port"
-
-#: ajenti/plugins/iptables/layout/option-address.xml:1
-#: ajenti/plugins/ctdb/layout/main.xml:18
-#: ajenti/plugins/ctdb/layout/main.xml:22
-#: ajenti/plugins/hosts/layout/main.xml:3
-#: ajenti/plugins/exports/layout/main.xml:4
-msgid "Address"
-msgstr "Adres"
-
-#: ajenti/plugins/iptables/layout/option-match.xml:1
-msgid "Modules"
-msgstr "Modüller"
-
-#: ajenti/plugins/iptables/layout/option-state.xml:1
-msgid "States"
-msgstr "Durumlar"
-
-#: ajenti/plugins/iptables/layout/main.xml:1
-msgid "Raw edit"
-msgstr "Ham Düzenle"
-
-#: ajenti/plugins/iptables/layout/main.xml:2
-msgid "Load current state"
-msgstr "Yük mevcut durumu"
-
-#: ajenti/plugins/iptables/layout/main.xml:3
-msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Bu mevcut güvenlik duvarı durumu ile kaydedilmiş olan yapılandırmayı üzerine yazar. Devam edilsin mi?"
-
-#: ajenti/plugins/iptables/layout/main.xml:4
-msgid "New Chain"
-msgstr "Yeni zinciri"
-
-#: ajenti/plugins/iptables/layout/main.xml:7
-msgid "Action"
-msgstr "Eylem"
-
-#: ajenti/plugins/iptables/layout/main.xml:8
-#: ajenti/plugins/users/layout/user-list.xml:3
-msgid "Comment"
-msgstr "Yorum"
-
-#: ajenti/plugins/iptables/layout/main.xml:9
-msgid "Conditions"
-msgstr "Koşullar"
-
-#: ajenti/plugins/iptables/layout/main.xml:11
-msgid "New Rule"
-msgstr "Yeni kural"
-
-#: ajenti/plugins/iptables/layout/main.xml:13
-#: ajenti/plugins/packages/layout/main.xml:2
-msgid "Apply"
-msgstr "Uygula"
-
-#: ajenti/plugins/iptables/layout/option-protocol.xml:1
-msgid "Protocol"
-msgstr "İletişim kuralı"
-
-#: ajenti/plugins/iptables/layout/option-ports.xml:1
-#: ajenti/plugins/squid/layout/main.xml:12
-msgid "Ports"
-msgstr "Bağlantı noktaları"
-
-#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
-msgid "Reason"
-msgstr "Sebep"
+#: ajenti/plugins/memcache/widget.py:35
+msgid "Memcache memory usage"
+msgstr "Memcache bellek kullanımı"
 
 #: ajenti/plugins/configurator/configurator.py:34
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -641,8 +201,8 @@ msgstr "Ajenti yi yeniden başlat istermisiniz"
 
 #: ajenti/plugins/configurator/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:2
-#: ajenti/plugins/ctdb/layout/main.xml:4
 #: ajenti/plugins/samba/layout/main.xml:4
+#: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
 msgstr "Genel"
 
@@ -654,9 +214,21 @@ msgstr "Dil"
 msgid "HTTP Server"
 msgstr "HTTP sunucusu"
 
+#: ajenti/plugins/configurator/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/mysql/layout/config.xml:1
+msgid "Host"
+msgstr "Host"
+
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
 msgstr "veya UNIX soket yolu"
+
+#: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/iptables/layout/option-port.xml:1
+#: ajenti/plugins/squid/layout/port-template.xml:2
+msgid "Port"
+msgstr "Port"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
@@ -670,9 +242,21 @@ msgstr "Sertifika yolu"
 msgid "SSL Self-Signed Certificate Generator"
 msgstr "İmzalı SSL Sertifikası Oluşturma"
 
+#: ajenti/plugins/configurator/layout/main.xml:11
+#: ajenti/plugins/db_common/layout/main.xml:13
+msgid "Hostname"
+msgstr "Ana makine adı"
+
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
 msgstr "Oluştur"
+
+#: ajenti/plugins/configurator/layout/main.xml:13
+#: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
+#: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:6
+msgid "Users"
+msgstr "Kullanıcılar"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
@@ -719,17 +303,12 @@ msgstr "Geri bildirim yolla"
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
 msgstr " "
 
-#: ajenti/plugins/configurator/layout/main.xml:30
-#: ajenti/plugins/plugins/plugins.py:10
-msgid "Plugins"
-msgstr "Pluginler"
-
 #: ajenti/plugins/configurator/layout/main.xml:33
+#: ajenti/plugins/network/layout/main.xml:5
 #: ajenti/plugins/openvpn/layout/main.xml:1
-#: ajenti/plugins/services/layout/bar.xml:3
 #: ajenti/plugins/services/layout/main.xml:5
 #: ajenti/plugins/services/layout/widget.xml:3
-#: ajenti/plugins/network/layout/main.xml:5
+#: ajenti/plugins/services/layout/bar.xml:3
 msgid "Restart"
 msgstr "Yeniden Başlat"
 
@@ -773,712 +352,6 @@ msgstr ""
 msgid "Admin password"
 msgstr "Yönetici parolası"
 
-#: ajenti/plugins/cron/layout/main.xml:1
-msgid "Select"
-msgstr "Seçin"
-
-#: ajenti/plugins/cron/layout/main.xml:2
-msgid "Normal"
-msgstr "Normal"
-
-#: ajenti/plugins/cron/layout/main.xml:5
-#: ajenti/plugins/tasks/layout/main.xml:31
-msgid "Minute"
-msgstr "Dakika"
-
-#: ajenti/plugins/cron/layout/main.xml:6
-#: ajenti/plugins/tasks/layout/main.xml:32
-msgid "Hour"
-msgstr "Saat"
-
-#: ajenti/plugins/cron/layout/main.xml:7
-#: ajenti/plugins/tasks/layout/main.xml:33
-msgid "Day"
-msgstr "Gün"
-
-#: ajenti/plugins/cron/layout/main.xml:8
-#: ajenti/plugins/tasks/layout/main.xml:34
-msgid "Month"
-msgstr "Ay"
-
-#: ajenti/plugins/cron/layout/main.xml:9
-#: ajenti/plugins/tasks/layout/main.xml:35
-msgid "DoW"
-msgstr "DoW"
-
-#: ajenti/plugins/cron/layout/main.xml:11
-msgid "Special"
-msgstr "Özel"
-
-#: ajenti/plugins/cron/layout/main.xml:14
-#: ajenti/plugins/tasks/layout/main.xml:22
-msgid "Schedule"
-msgstr "Zamanlamak"
-
-#: ajenti/plugins/cron/layout/main.xml:16
-#: ajenti/plugins/tasks/layout/main.xml:24
-msgid "Hourly"
-msgstr "Saatlik"
-
-#: ajenti/plugins/cron/layout/main.xml:17
-#: ajenti/plugins/tasks/layout/main.xml:25
-msgid "Daily"
-msgstr "Günlük"
-
-#: ajenti/plugins/cron/layout/main.xml:18
-#: ajenti/plugins/tasks/layout/main.xml:26
-msgid "Weekly"
-msgstr "Haftalık"
-
-#: ajenti/plugins/cron/layout/main.xml:19
-#: ajenti/plugins/tasks/layout/main.xml:27
-msgid "Monthly"
-msgstr "Aylık"
-
-#: ajenti/plugins/cron/layout/main.xml:20
-#: ajenti/plugins/tasks/layout/main.xml:28
-msgid "Yearly"
-msgstr "Yıllık"
-
-#: ajenti/plugins/cron/layout/main.xml:21
-#: ajenti/plugins/tasks/layout/main.xml:29
-msgid "On reboot"
-msgstr "Yeniden Başlat"
-
-#: ajenti/plugins/cron/layout/main.xml:26
-#: ajenti/plugins/resolv/layout/main.xml:3
-msgid "Value"
-msgstr "Değer"
-
-#: ajenti/plugins/scripts/widget.py:12
-msgid "Script"
-msgstr "Komut dosyası"
-
-#: ajenti/plugins/scripts/widget.py:48
-msgid "Launched"
-msgstr "Başlattı"
-
-#: ajenti/plugins/scripts/widget.py:60
-msgid "Scripts"
-msgstr "Komut dosyaları"
-
-#: ajenti/plugins/scripts/widget.py:64
-msgid "Run scripts"
-msgstr "Komut dosyası çalıştır"
-
-#: ajenti/plugins/scripts/layout/widget.xml:3
-msgid "Run in terminal"
-msgstr "Terminal çalıştırmak"
-
-#: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
-msgid "Packages"
-msgstr "Paketleri"
-
-#: ajenti/plugins/packages/main.py:50
-msgid "Enqueueing package installation"
-msgstr "Enqueueing paket yükleme"
-
-#: ajenti/plugins/packages/main.py:61
-msgid "Installation complete!"
-msgstr "Kurulum tamamlandı!"
-
-#: ajenti/plugins/packages/main.py:73
-msgid "Querying package manager"
-msgstr ""
-
-#: ajenti/plugins/packages/main.py:134
-#, python-format
-msgid "%i found, 100 shown"
-msgstr "buldum, gösterilen 100 %i"
-
-#: ajenti/plugins/packages/main.py:137
-#, python-format
-msgid "%i found"
-msgstr "%i bulundu"
-
-#: ajenti/plugins/packages/main.py:150
-msgid "Install / remove"
-msgstr "Yükle / Kaldır"
-
-#: ajenti/plugins/packages/main.py:151
-msgid "Refresh lists"
-msgstr "Listeleri Yenile"
-
-#: ajenti/plugins/packages/pm_pacman.py:23
-#, python-format
-msgid "Failed to update lists: %s"
-msgstr ""
-
-#: ajenti/plugins/packages/pm_pacman.py:38
-msgid "No search results found"
-msgstr "Arama sonucu bulunamadı"
-
-#: ajenti/plugins/packages/layout/headers.xml:2
-msgid "Version"
-msgstr "Sürüm"
-
-#: ajenti/plugins/packages/layout/main.xml:1
-msgid "Get lists"
-msgstr "Listeleri"
-
-#: ajenti/plugins/packages/layout/main.xml:3
-msgid "Upgradeable"
-msgstr "Yükseltilebilir"
-
-#: ajenti/plugins/packages/layout/main.xml:4
-msgid "Upgrade all"
-msgstr "Tüm yükseltin"
-
-#: ajenti/plugins/packages/layout/main.xml:5
-#: ajenti/plugins/packages/layout/main.xml:6
-msgid "Search"
-msgstr "Arama"
-
-#: ajenti/plugins/packages/layout/main.xml:7
-#: ajenti/plugins/tasks/layout/main.xml:7
-msgid "Pending"
-msgstr "Bekliyor"
-
-#: ajenti/plugins/packages/layout/main.xml:8
-msgid "Cancel all"
-msgstr "Tümünü iptal et"
-
-#: ajenti/plugins/packages/layout/row.xml:1
-msgid "Mark for installation/upgrade"
-msgstr "Yükleme/yükseltme için işaretle"
-
-#: ajenti/plugins/packages/layout/row.xml:2
-msgid "Mark for removal"
-msgstr "Kaldırma için işaretle"
-
-#: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:17
-#: ajenti/plugins/dashboard/layout/dash.xml:3
-msgid "Cancel"
-msgstr "İptal"
-
-#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
-msgid "File Manager"
-msgstr "Dosya Yöneticisi"
-
-#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
-#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
-msgid "Tools"
-msgstr "Araçlar"
-
-#: ajenti/plugins/fm/fm.py:163
-#, python-format
-msgid "Selected %i items"
-msgstr "%i öğe seçildi"
-
-#: ajenti/plugins/fm/fm.py:202
-msgid "Unpacked"
-msgstr ""
-
-#: ajenti/plugins/fm/layout/config.xml:1
-#: ajenti/plugins/notepad/layout/config.xml:1
-msgid "Topmost directory"
-msgstr "En üst dizin"
-
-#: ajenti/plugins/fm/layout/main.xml:1
-msgid "Close"
-msgstr "Kapat"
-
-#: ajenti/plugins/fm/layout/main.xml:2
-msgid "Select all"
-msgstr "Tümünü Seç"
-
-#: ajenti/plugins/fm/layout/main.xml:3
-msgid "New File"
-msgstr "Yeni dosya"
-
-#: ajenti/plugins/fm/layout/main.xml:4
-msgid "New Folder"
-msgstr "Yeni klasör"
-
-#: ajenti/plugins/fm/layout/main.xml:5
-msgid "Cut"
-msgstr "Kes"
-
-#: ajenti/plugins/fm/layout/main.xml:6
-msgid "Copy"
-msgstr "Kopyala"
-
-#: ajenti/plugins/fm/layout/main.xml:7
-msgid "Paste"
-msgstr "Yapıştır"
-
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "Silme"
-
-#: ajenti/plugins/fm/layout/main.xml:12
-msgid "Upload"
-msgstr "Yükle"
-
-#: ajenti/plugins/fm/layout/main.xml:13
-msgid "Clipboard"
-msgstr "Pano"
-
-#: ajenti/plugins/fm/layout/main.xml:15
-#: ajenti/plugins/users/layout/user-list.xml:9
-msgid "Remove"
-msgstr "Kaldır"
-
-#: ajenti/plugins/fm/layout/main.xml:19
-msgid "Unpack"
-msgstr ""
-
-#: ajenti/plugins/fm/layout/main.xml:20
-msgid "Access"
-msgstr "Erişim"
-
-#: ajenti/plugins/fm/layout/main.xml:21
-msgid "Owner"
-msgstr "Sahibi"
-
-#: ajenti/plugins/fm/layout/main.xml:22 ajenti/plugins/users/layout/main.xml:3
-msgid "Group"
-msgstr "Grup"
-
-#: ajenti/plugins/fm/layout/main.xml:23
-msgid "Others"
-msgstr "Diğerleri"
-
-#: ajenti/plugins/fm/layout/main.xml:24
-msgid "Set recursively"
-msgstr "Yinelemeli olarak ayarla"
-
-#: ajenti/plugins/openvpn/main.py:26
-msgid "OpenVPN"
-msgstr ""
-
-#: ajenti/plugins/openvpn/layout/config.xml:1
-msgid "Management address"
-msgstr "Yönetim adresi"
-
-#: ajenti/plugins/openvpn/layout/config.xml:2
-msgid "host:port or UNIX socket path"
-msgstr "ana bilgisayar: bağlantı noktası veya UNIX soket yolu"
-
-#: ajenti/plugins/openvpn/layout/main.xml:3
-#: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
-#: ajenti/plugins/tasks/layout/main.xml:4
-#: ajenti/plugins/tasks/layout/main.xml:11
-#: ajenti/plugins/plugins/layout/main.xml:5
-msgid "Status"
-msgstr "Durumu"
-
-#: ajenti/plugins/openvpn/layout/main.xml:4
-msgid "Remote IP"
-msgstr "Uzak IP"
-
-#: ajenti/plugins/openvpn/layout/main.xml:5
-msgid "Local IP"
-msgstr "Yerel IP"
-
-#: ajenti/plugins/openvpn/layout/main.xml:6
-msgid "Connected since"
-msgstr "Beri bağlı"
-
-#: ajenti/plugins/openvpn/layout/main.xml:7
-#: ajenti/plugins/samba/layout/main.xml:32
-msgid "Disconnect"
-msgstr "Bağlantıyı Kes"
-
-#: ajenti/plugins/openvpn/layout/main.xml:8
-msgid "clients"
-msgstr "istemciler"
-
-#: ajenti/plugins/openvpn/layout/main.xml:9
-msgid "Messages"
-msgstr "İletileri"
-
-#: ajenti/plugins/openvpn/layout/main.xml:10
-msgid "Timestamp"
-msgstr "Zaman damgası"
-
-#: ajenti/plugins/openvpn/layout/main.xml:11
-msgid "Flags"
-msgstr "Bayraklar"
-
-#: ajenti/plugins/openvpn/layout/main.xml:12
-#: ajenti/plugins/dashboard/text.py:7
-#: ajenti/plugins/dashboard/layout/text.xml:1
-msgid "Text"
-msgstr "Metin"
-
-#: ajenti/plugins/ipmi/widget.py:9
-msgid "IPMI Sensor"
-msgstr "IPMI sensörü"
-
-#: ajenti/plugins/ipmi/layout/widget.xml:1
-#: ajenti/plugins/lm_sensors/layout/widget.xml:1
-msgid "Sensor"
-msgstr "Sensör"
-
-#: ajenti/plugins/squid/layout/main.xml:5
-msgid "HTTP Access"
-msgstr "HTTP erişim"
-
-#: ajenti/plugins/squid/layout/main.xml:8
-msgid "Mode"
-msgstr "Modu"
-
-#: ajenti/plugins/squid/layout/main.xml:9
-msgid "Allow"
-msgstr "İzin ver"
-
-#: ajenti/plugins/squid/layout/main.xml:10
-msgid "Deny"
-msgstr "Reddet"
-
-#: ajenti/plugins/ctdb/main.py:20
-msgid "Samba Cluster"
-msgstr "Samba küme"
-
-#: ajenti/plugins/ctdb/main.py:65
-msgid "Failed to obtain CTDB status"
-msgstr "CTDB statü etmek başarısız oldu"
-
-#: ajenti/plugins/ctdb/layout/main.xml:3
-msgid "Public IPs"
-msgstr "Genel IP'leri"
-
-#: ajenti/plugins/ctdb/layout/main.xml:5
-msgid "Manage Samba"
-msgstr "Samba yönetmek"
-
-#: ajenti/plugins/ctdb/layout/main.xml:6
-msgid "Debug level"
-msgstr "Hata derecesi"
-
-#: ajenti/plugins/ctdb/layout/main.xml:7
-msgid "Files"
-msgstr "Dosyaları"
-
-#: ajenti/plugins/ctdb/layout/main.xml:8
-msgid "Recovery lock file"
-msgstr "Kurtarma kilit dosyası"
-
-#: ajenti/plugins/ctdb/layout/main.xml:9
-msgid "Public addresses file"
-msgstr "Genel adresler dosya"
-
-#: ajenti/plugins/ctdb/layout/main.xml:10
-msgid "Nodes file"
-msgstr "Düğümleri dosya"
-
-#: ajenti/plugins/ctdb/layout/main.xml:11
-#: ajenti/plugins/samba/layout/main.xml:26
-msgid "Log file"
-msgstr "Günlük dosyası"
-
-#: ajenti/plugins/ctdb/layout/main.xml:12
-#: ajenti/plugins/samba/layout/main.xml:19
-msgid "Networking"
-msgstr "Ağ iletişimi"
-
-#: ajenti/plugins/ctdb/layout/main.xml:13
-msgid "Public interface"
-msgstr "Ortak arabirim"
-
-#: ajenti/plugins/ctdb/layout/main.xml:14
-msgid "Public network"
-msgstr "Genel ağ"
-
-#: ajenti/plugins/ctdb/layout/main.xml:15
-msgid "Public gateway"
-msgstr "Genel ağ geçidi"
-
-#: ajenti/plugins/ctdb/layout/main.xml:16
-msgid "Nodes"
-msgstr "Düğümleri"
-
-#: ajenti/plugins/ctdb/layout/main.xml:20
-msgid "Public addresses"
-msgstr "Genel adresleri"
-
-#: ajenti/plugins/codemirror/__init__.py:7
-msgid "CodeMirror code editor"
-msgstr "CodeMirror Kod Düzenleyicisi"
-
-#: ajenti/plugins/terminal/terminal.py:100
-#, python-format
-msgid "Process has exited with status %i"
-msgstr "İşlem durumu %i ile çıkıldı"
-
-#: ajenti/plugins/terminal/terminal.py:102
-msgid "Process has exited successfully"
-msgstr "İşlem başarıyla çıkıldı"
-
-#: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
-#: ajenti/plugins/terminal/main.py:223
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ajenti/plugins/terminal/main.py:227
-msgid "Run shell"
-msgstr "Kabuk çalıştırmak"
-
-#: ajenti/plugins/terminal/main.py:228
-msgid "Run custom commands"
-msgstr "Özel komutları çalıştırmak"
-
-#: ajenti/plugins/terminal/layout/config.xml:1
-msgid "Default shell"
-msgstr "Varsayılan kabuk"
-
-#: ajenti/plugins/terminal/layout/main.xml:2
-#: ajenti/plugins/notepad/layout/main.xml:1
-msgid "New"
-msgstr "Yeni"
-
-#: ajenti/plugins/terminal/layout/main.xml:3
-msgid "No active terminals"
-msgstr "Hiçbir etkin terminalleri"
-
-#: ajenti/plugins/raid/main.py:15
-msgid "RAID"
-msgstr ""
-
-#: ajenti/plugins/raid/layout/main.xml:2
-msgid "State"
-msgstr "İlçe"
-
-#: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/plugins/layout/main.xml:3
-#: ajenti/plugins/resolv/layout/main.xml:2
-#: ajenti/plugins/bind9/layout/main.xml:4
-msgid "Type"
-msgstr "Türü"
-
-#: ajenti/plugins/raid/layout/main.xml:4
-msgid "Devices"
-msgstr "Aygıtları"
-
-#: ajenti/plugins/raid/layout/main.xml:5
-msgid "Blocks"
-msgstr "Bloklar"
-
-#: ajenti/plugins/raid/layout/main.xml:6
-msgid "Recovery:"
-msgstr "Kurtarma:"
-
-#: ajenti/plugins/memcache/widget.py:35
-msgid "Memcache memory usage"
-msgstr "Memcache bellek kullanımı"
-
-#: ajenti/plugins/logs/main.py:12
-msgid "Logs"
-msgstr "Günlükleri"
-
-#: ajenti/plugins/logs/layout/main.xml:1
-#: ajenti/plugins/notepad/layout/main.xml:2
-msgid "Open"
-msgstr "Açık"
-
-#: ajenti/plugins/services/main.py:14
-msgid "Services"
-msgstr "Servisler"
-
-#: ajenti/plugins/services/main.py:41
-#, python-format
-msgid "%s started"
-msgstr "%s başladı"
-
-#: ajenti/plugins/services/main.py:46
-#, python-format
-msgid "%s stopped"
-msgstr "%s durduruldu"
-
-#: ajenti/plugins/services/main.py:51
-#, python-format
-msgid "%s restarted"
-msgstr "%s yeniden"
-
-#: ajenti/plugins/services/widget.py:10
-#: ajenti/plugins/services/layout/widget.xml:4
-msgid "Service"
-msgstr "Hizmet"
-
-#: ajenti/plugins/services/layout/bar.xml:1
-#: ajenti/plugins/services/layout/main.xml:3
-#: ajenti/plugins/services/layout/widget.xml:1
-msgid "Start"
-msgstr "Başlat"
-
-#: ajenti/plugins/services/layout/bar.xml:2
-#: ajenti/plugins/services/layout/main.xml:4
-#: ajenti/plugins/services/layout/widget.xml:2
-msgid "Stop"
-msgstr "Durdurmak"
-
-#: ajenti/plugins/services/layout/main.xml:1
-msgid "Origin"
-msgstr "Köken"
-
-#: ajenti/plugins/services/layout/main.xml:2
-msgid "Actions"
-msgstr "Eylemler"
-
-#: ajenti/plugins/users/main.py:102
-#, python-format
-msgid "Home dir for %s was created"
-msgstr "%S için giriş dizini oluşturuldu"
-
-#: ajenti/plugins/users/main.py:111
-#, python-format
-msgid "Password for %s was changed"
-msgstr "%S için parola değiştirildi"
-
-#: ajenti/plugins/users/main.py:114
-#, python-format
-msgid "Error: \"%s\""
-msgstr "Hata: \"% s\""
-
-#: ajenti/plugins/users/main.py:116
-msgid "Password shouldn't be empty"
-msgstr "Parola boş olmamalıdır"
-
-#: ajenti/plugins/users/main.py:120
-#, python-format
-msgid "Password for %s was removed"
-msgstr "%S için parola kaldırıldı"
-
-#: ajenti/plugins/users/layout/user-list.xml:4
-msgid "Home directory"
-msgstr "Giriş dizini"
-
-#: ajenti/plugins/users/layout/user-list.xml:6
-msgid "Shell"
-msgstr "Kabuk"
-
-#: ajenti/plugins/users/layout/user-list.xml:7
-msgid "New password"
-msgstr "Yeni parola"
-
-#: ajenti/plugins/users/layout/user-list.xml:8
-#: ajenti/plugins/samba/layout/main.xml:37
-msgid "Set"
-msgstr "Ayarla"
-
-#: ajenti/plugins/users/layout/main.xml:1
-#: ajenti/plugins/taskmgr/layout/main.xml:6
-#: ajenti/plugins/samba/layout/main.xml:30
-msgid "User"
-msgstr "Kullanıcı"
-
-#: ajenti/plugins/users/layout/main.xml:7
-msgid "System Users"
-msgstr "Sistem kullanıcıları"
-
-#: ajenti/plugins/users/layout/main.xml:9
-msgid "Groups"
-msgstr "Gruplar"
-
-#: ajenti/plugins/users/layout/main.xml:12
-msgid "Members"
-msgstr "Üyeler"
-
-#: ajenti/plugins/network/main.py:15
-msgid "Network"
-msgstr "Ağ"
-
-#: ajenti/plugins/network/widget.py:88
-msgid "Immediate Traffic"
-msgstr "Acil trafik"
-
-#: ajenti/plugins/network/widget.py:118
-msgid "Traffic"
-msgstr "Trafik"
-
-#: ajenti/plugins/network/layout/main.xml:2
-msgid "Bring up"
-msgstr "Yukarı çek"
-
-#: ajenti/plugins/network/layout/main.xml:3
-msgid "Bring down"
-msgstr "Aşağı indir"
-
-#: ajenti/plugins/network/layout/main.xml:4
-msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
-
-#: ajenti/plugins/network/layout/main.xml:6
-msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr "Ana ağ bağlantısını yeniden başlatmak sunuya olan bağlantıyı kesebilir. Emin misiniz?"
-
-#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
-msgid "Loopback"
-msgstr ""
-
-#: ajenti/plugins/network/layout/bit-linux-basic.xml:2
-msgid "Static"
-msgstr "Statik"
-
-#: ajenti/plugins/network/layout/bit-linux-basic.xml:3
-msgid "Manual"
-msgstr "Manuel"
-
-#: ajenti/plugins/taskmgr/main.py:14
-msgid "Processes"
-msgstr "Süreçleri"
-
-#: ajenti/plugins/taskmgr/layout/main.xml:1
-msgid "Parent"
-msgstr "Üst"
-
-#: ajenti/plugins/taskmgr/layout/main.xml:4
-msgid "CPU"
-msgstr ""
-
-#: ajenti/plugins/taskmgr/layout/main.xml:5
-msgid "RAM"
-msgstr ""
-
-#: ajenti/plugins/taskmgr/layout/main.xml:7
-msgid "Terminate"
-msgstr "Sonlandır"
-
-#: ajenti/plugins/taskmgr/layout/main.xml:8
-msgid "Kill"
-msgstr "Öldür"
-
-#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
-msgid "Zone saved"
-msgstr "Kaydedilen bölge"
-
-#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
-msgid "Zones"
-msgstr "Bölgeler"
-
-#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
-msgid "File"
-msgstr "Dosya"
-
-#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
-msgid "Zone"
-msgstr "Bölge"
-
-#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
-msgid "Zone file does not exist"
-msgstr "Bölge dosyası yok"
-
-#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
-msgid "Save zone"
-msgstr "Bölge kaydetmek"
-
-#: ajenti/plugins/tasks/tasks.py:34
-#, python-format
-msgid "Copying %s"
-msgstr "%S kopyalanıyor"
-
-#: ajenti/plugins/tasks/tasks.py:65
-#, python-format
-msgid "Moving %s"
-msgstr "%S taşınıyor"
-
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
@@ -1489,7 +362,7 @@ msgstr "Görev %s tamamlandı"
 msgid "Task %s queued"
 msgstr "Görev %s sırada"
 
-#: ajenti/plugins/tasks/manager.py:109
+#: ajenti/plugins/tasks/manager.py:115
 #, python-format
 msgid "Task %s started"
 msgstr "Görev %s başlatıldı"
@@ -1498,13 +371,160 @@ msgstr "Görev %s başlatıldı"
 msgid "Tasks"
 msgstr "Görevler"
 
-#: ajenti/plugins/tasks/layout/params-copydir.xml:1
+#: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
+#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
+msgid "Tools"
+msgstr "Araçlar"
+
+#: ajenti/plugins/tasks/tasks.py:34
+#, python-format
+msgid "Copying %s"
+msgstr "%S kopyalanıyor"
+
+#: ajenti/plugins/tasks/tasks.py:66
+#, python-format
+msgid "Moving %s"
+msgstr "%S taşınıyor"
+
+#: ajenti/plugins/tasks/layout/main.xml:1
+msgid "Running tasks"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:2
+#: ajenti/plugins/fstab/layout/main.xml:1
+msgid "Refresh"
+msgstr "Yenile"
+
+#: ajenti/plugins/tasks/layout/main.xml:5
+msgid "Running"
+msgstr "Çalışıyor"
+
+#: ajenti/plugins/tasks/layout/main.xml:6
+msgid "Aborting"
+msgstr "İptal ediliyor"
+
+#: ajenti/plugins/tasks/layout/main.xml:7
+#: ajenti/plugins/packages/layout/main.xml:7
+msgid "Pending"
+msgstr "Bekliyor"
+
+#: ajenti/plugins/tasks/layout/main.xml:8
+msgid "Abort"
+msgstr "İptal"
+
+#: ajenti/plugins/tasks/layout/main.xml:9
+msgid "Completed tasks"
+msgstr "Tamamlanan görevler"
+
+#: ajenti/plugins/tasks/layout/main.xml:12
+msgid "Success"
+msgstr "Başarılı"
+
+#: ajenti/plugins/tasks/layout/main.xml:13
+msgid "Aborted"
+msgstr "İptal edildi"
+
+#: ajenti/plugins/tasks/layout/main.xml:14
+msgid "Error"
+msgstr "Hata"
+
+#: ajenti/plugins/tasks/layout/main.xml:15
+msgid "Crashed"
+msgstr ""
+
+#: ajenti/plugins/tasks/layout/main.xml:16
+#: ajenti/plugins/db_common/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:1
+msgid "Run"
+msgstr "Çalıştır"
+
+#: ajenti/plugins/tasks/layout/main.xml:17
+msgid "Jobs"
+msgstr "İşler"
+
+#: ajenti/plugins/tasks/layout/main.xml:21
+msgid "Run task"
+msgstr "Görevi çalıştır"
+
+#: ajenti/plugins/tasks/layout/main.xml:22
+#: ajenti/plugins/cron/layout/main.xml:14
+msgid "Schedule"
+msgstr "Zamanlamak"
+
+#: ajenti/plugins/tasks/layout/main.xml:23
+msgid "Manual (specify below)"
+msgstr "Manuel (aşağıda belirtin)"
+
+#: ajenti/plugins/tasks/layout/main.xml:24
+#: ajenti/plugins/cron/layout/main.xml:16
+msgid "Hourly"
+msgstr "Saatlik"
+
+#: ajenti/plugins/tasks/layout/main.xml:25
+#: ajenti/plugins/cron/layout/main.xml:17
+msgid "Daily"
+msgstr "Günlük"
+
+#: ajenti/plugins/tasks/layout/main.xml:26
+#: ajenti/plugins/cron/layout/main.xml:18
+msgid "Weekly"
+msgstr "Haftalık"
+
+#: ajenti/plugins/tasks/layout/main.xml:27
+#: ajenti/plugins/cron/layout/main.xml:19
+msgid "Monthly"
+msgstr "Aylık"
+
+#: ajenti/plugins/tasks/layout/main.xml:28
+#: ajenti/plugins/cron/layout/main.xml:20
+msgid "Yearly"
+msgstr "Yıllık"
+
+#: ajenti/plugins/tasks/layout/main.xml:29
+#: ajenti/plugins/cron/layout/main.xml:21
+msgid "On reboot"
+msgstr "Yeniden Başlat"
+
+#: ajenti/plugins/tasks/layout/main.xml:30
+msgid "Manual entry"
+msgstr "El ile giriş"
+
+#: ajenti/plugins/tasks/layout/main.xml:31
+#: ajenti/plugins/cron/layout/main.xml:5
+msgid "Minute"
+msgstr "Dakika"
+
+#: ajenti/plugins/tasks/layout/main.xml:32
+#: ajenti/plugins/cron/layout/main.xml:6
+msgid "Hour"
+msgstr "Saat"
+
+#: ajenti/plugins/tasks/layout/main.xml:33
+#: ajenti/plugins/cron/layout/main.xml:7
+msgid "Day"
+msgstr "Gün"
+
+#: ajenti/plugins/tasks/layout/main.xml:34
+#: ajenti/plugins/cron/layout/main.xml:8
+msgid "Month"
+msgstr "Ay"
+
+#: ajenti/plugins/tasks/layout/main.xml:35
+#: ajenti/plugins/cron/layout/main.xml:9
+msgid "DoW"
+msgstr "DoW"
+
+#: ajenti/plugins/tasks/layout/main.xml:40
+msgid "Run in parallel"
+msgstr ""
+
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
+#: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
 msgstr "Dizinden"
 
-#: ajenti/plugins/tasks/layout/params-copydir.xml:2
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
+#: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
 msgstr "Dizine"
 
@@ -1532,77 +552,61 @@ msgstr "Hedef dizini silme"
 msgid "Preserve permissions"
 msgstr ""
 
-#: ajenti/plugins/tasks/layout/main.xml:1
-msgid "Running tasks"
-msgstr ""
+#: ajenti/plugins/tasks/layout/params-execute.xml:1
+#: ajenti/plugins/scripts/layout/widget.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/taskmgr/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:10
+#: ajenti/plugins/cron/layout/main.xml:15
+msgid "Command"
+msgstr "Komut"
 
-#: ajenti/plugins/tasks/layout/main.xml:5
-msgid "Running"
-msgstr "Çalışıyor"
+#: ajenti/plugins/exports/main.py:17
+msgid "NFS Exports"
+msgstr "NFS ihracat"
 
-#: ajenti/plugins/tasks/layout/main.xml:6
-msgid "Aborting"
-msgstr "İptal ediliyor"
+#: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
+#: ajenti/plugins/dhcpd/main.py:15 ajenti/plugins/munin/main.py:19
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:17
+#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
+#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
+#: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/bind9/main.py:28 ajenti/plugins/apache/main.py:49
+msgid "Software"
+msgstr "Yazılım"
 
-#: ajenti/plugins/tasks/layout/main.xml:8
-msgid "Abort"
-msgstr "İptal"
+#: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:119
+#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
+msgid "Saved"
+msgstr "Kaydedildi"
 
-#: ajenti/plugins/tasks/layout/main.xml:9
-msgid "Completed tasks"
-msgstr "Tamamlanan görevler"
+#: ajenti/plugins/exports/layout/main.xml:2
+msgid "Directory"
+msgstr "Dizin"
 
-#: ajenti/plugins/tasks/layout/main.xml:12
-msgid "Success"
-msgstr "Başarılı"
+#: ajenti/plugins/exports/layout/main.xml:3
+msgid "Clients"
+msgstr "İstemciler"
 
-#: ajenti/plugins/tasks/layout/main.xml:13
-msgid "Aborted"
-msgstr "İptal edildi"
+#: ajenti/plugins/exports/layout/main.xml:4
+#: ajenti/plugins/iptables/layout/option-address.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/hosts/layout/main.xml:3
+msgid "Address"
+msgstr "Adres"
 
-#: ajenti/plugins/tasks/layout/main.xml:14
-msgid "Error"
-msgstr "Hata"
-
-#: ajenti/plugins/tasks/layout/main.xml:15
-msgid "Crashed"
-msgstr ""
-
-#: ajenti/plugins/tasks/layout/main.xml:17
-msgid "Jobs"
-msgstr "İşler"
-
-#: ajenti/plugins/tasks/layout/main.xml:21
-msgid "Run task"
-msgstr "Görevi çalıştır"
-
-#: ajenti/plugins/tasks/layout/main.xml:23
-msgid "Manual (specify below)"
-msgstr "Manuel (aşağıda belirtin)"
-
-#: ajenti/plugins/tasks/layout/main.xml:30
-msgid "Manual entry"
-msgstr "El ile giriş"
-
-#: ajenti/plugins/tasks/layout/main.xml:40
-msgid "Run in parallel"
-msgstr ""
-
-#: ajenti/plugins/megaraid/layout/main.xml:1
-msgid "Adapter"
-msgstr "Bağdaştırıcı"
-
-#: ajenti/plugins/megaraid/layout/widget.xml:1
-msgid "Array"
-msgstr "Dizi"
-
-#: ajenti/plugins/hosts/hosts.py:13
-msgid "Hosts"
-msgstr "Ana bilgisayarlar"
-
-#: ajenti/plugins/hosts/layout/main.xml:4
-msgid "Aliases"
-msgstr "Diğer adlar"
+#: ajenti/plugins/exports/layout/main.xml:5
+#: ajenti/plugins/dhcpd/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
+#: ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/squid/layout/main.xml:4
+#: ajenti/plugins/squid/layout/main.xml:11
+#: ajenti/plugins/squid/layout/port-template.xml:3
+msgid "Options"
+msgstr "Seçenekler"
 
 #: ajenti/plugins/notepad/notepad.py:13 ajenti/plugins/notepad/notepad.py:31
 msgid "Notepad"
@@ -1613,6 +617,16 @@ msgstr "Not defteri"
 msgid "Untitled %i"
 msgstr "Adsız %i"
 
+#: ajenti/plugins/notepad/layout/main.xml:1
+#: ajenti/plugins/terminal/layout/main.xml:2
+msgid "New"
+msgstr "Yeni"
+
+#: ajenti/plugins/notepad/layout/main.xml:2
+#: ajenti/plugins/logs/layout/main.xml:1
+msgid "Open"
+msgstr "Açık"
+
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
 msgstr "Farklı Kaydet"
@@ -1621,82 +635,64 @@ msgstr "Farklı Kaydet"
 msgid "Bookmark"
 msgstr "Yer işareti"
 
-#: ajenti/plugins/plugins/plugins.py:37
-msgid "Gathering plugin list"
-msgstr ""
+#: ajenti/plugins/notepad/layout/config.xml:1
+#: ajenti/plugins/fm/layout/config.xml:1
+msgid "Topmost directory"
+msgstr "En üst dizin"
 
-#: ajenti/plugins/plugins/layout/main.xml:2
-msgid "Dependencies"
-msgstr "Bağımlılıklar"
+#: ajenti/plugins/main/main.py:211
+msgid "Section access"
+msgstr "Bölüm erişimi"
 
-#: ajenti/plugins/plugins/layout/main.xml:4
-msgid "Depends on"
-msgstr ""
+#: ajenti/plugins/main/layout/file-dialog-save.xml:1
+msgid "File name"
+msgstr "Dosya adı"
 
-#: ajenti/plugins/resolv/main.py:13
-msgid "Nameservers"
-msgstr "Nameservers"
+#: ajenti/plugins/scripts/widget.py:12
+msgid "Script"
+msgstr "Komut dosyası"
 
-#: ajenti/plugins/resolv/main.py:18
-msgid "DNS nameserver"
-msgstr "DNS nameserver"
+#: ajenti/plugins/scripts/widget.py:48
+msgid "Launched"
+msgstr "Başlattı"
 
-#: ajenti/plugins/resolv/main.py:18
-msgid "Local domain name"
-msgstr "Yerel etki alanı adı"
+#: ajenti/plugins/scripts/widget.py:60
+msgid "Scripts"
+msgstr "Komut dosyaları"
 
-#: ajenti/plugins/resolv/main.py:18
-msgid "Search list"
-msgstr "Arama listesi"
+#: ajenti/plugins/scripts/widget.py:64
+msgid "Run scripts"
+msgstr "Komut dosyası çalıştır"
 
-#: ajenti/plugins/resolv/main.py:18
-msgid "Sort list"
-msgstr "Sıralama listesi"
+#: ajenti/plugins/scripts/layout/widget.xml:3
+msgid "Run in terminal"
+msgstr "Terminal çalıştırmak"
 
-#: ajenti/plugins/smartctl/widget.py:60
-msgid "No data"
-msgstr "Veri yok"
+#: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
+msgid "Memory usage"
+msgstr "Bellek kullanımı"
 
-#: ajenti/plugins/smartctl/widget.py:61
-msgid "FAILING"
-msgstr "BAŞARISIZ"
+#: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
+msgid "Swap usage"
+msgstr "Takas belleği kullanımı"
 
-#: ajenti/plugins/smartctl/widget.py:62
-msgid "PRE-FAIL"
-msgstr "PRE-FAIL"
+#: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
+msgid "Load average"
+msgstr "Yük ortalama"
 
-#: ajenti/plugins/smartctl/widget.py:63
-msgid "Unknown error"
-msgstr "Bilinmeyen hata"
+#: ajenti/plugins/sensors/uptime.py:74
+msgid "Uptime"
+msgstr "Çalışma süresi"
 
-#: ajenti/plugins/smartctl/widget.py:64
-msgid "Errors in log"
-msgstr "Günlüğündeki hataları"
+#: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
+#: ajenti/plugins/sensors/layout/cpu-widget.xml:1
+msgid "CPU usage"
+msgstr "CPU kullanımı"
 
-#: ajenti/plugins/exports/main.py:17
-msgid "NFS Exports"
-msgstr "NFS ihracat"
-
-#: ajenti/plugins/exports/layout/main.xml:2
-msgid "Directory"
-msgstr "Dizin"
-
-#: ajenti/plugins/exports/layout/main.xml:3
-msgid "Clients"
-msgstr "İstemciler"
-
-#: ajenti/plugins/munin/main.py:43
-#, python-format
-msgid "Couldn't connect to Munin: %s"
-msgstr "Munin için bağlanamadı: %s"
-
-#: ajenti/plugins/munin/main.py:47
-msgid "Munin HTTP authentication failed"
-msgstr "Munin HTTP kimlik doğrulaması başarısız oldu"
-
-#: ajenti/plugins/munin/layout/main.xml:1
-msgid "View"
-msgstr "Görünüm"
+#: ajenti/plugins/sensors/layout/value-widget.xml:1
+#: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
+msgid "Variant"
+msgstr "Varyant"
 
 #: ajenti/plugins/samba/main.py:47
 msgid "Password updated"
@@ -1765,6 +761,11 @@ msgstr ""
 msgid "Config"
 msgstr "ayar"
 
+#: ajenti/plugins/samba/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:12
+msgid "Networking"
+msgstr "Ağ iletişimi"
+
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
 msgstr "Arabirimleri"
@@ -1785,6 +786,11 @@ msgstr "Çalışmagrubu"
 msgid "Server string"
 msgstr "Sunucu dize"
 
+#: ajenti/plugins/samba/layout/main.xml:26
+#: ajenti/plugins/ctdb/layout/main.xml:11
+msgid "Log file"
+msgstr "Günlük dosyası"
+
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
 msgstr "Güvenlik"
@@ -1797,33 +803,332 @@ msgstr "Oturumları"
 msgid "Share"
 msgstr "Paylaş"
 
+#: ajenti/plugins/samba/layout/main.xml:30
+#: ajenti/plugins/users/layout/main.xml:1
+#: ajenti/plugins/taskmgr/layout/main.xml:6
+msgid "User"
+msgstr "Kullanıcı"
+
 #: ajenti/plugins/samba/layout/main.xml:31
 msgid "Machine"
 msgstr "Makine"
+
+#: ajenti/plugins/samba/layout/main.xml:32
+#: ajenti/plugins/openvpn/layout/main.xml:7
+msgid "Disconnect"
+msgstr "Bağlantıyı Kes"
 
 #: ajenti/plugins/samba/layout/main.xml:34
 msgid "Add"
 msgstr "Ekle"
 
-#: ajenti/plugins/dashboard/dash.py:21
-msgid "Dashboard"
-msgstr "Kontrol paneli"
+#: ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
+msgid "Password"
+msgstr "Parola"
 
-#: ajenti/plugins/dashboard/dash.py:176
-msgid "Widgets"
-msgstr "Widgetler"
+#: ajenti/plugins/samba/layout/main.xml:37
+#: ajenti/plugins/users/layout/user-list.xml:8
+msgid "Set"
+msgstr "Ayarla"
 
-#: ajenti/plugins/dashboard/welcome.py:13
-msgid "Welcome"
-msgstr "Hoş geldiniz"
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
+#: ajenti/plugins/iptables/main.py:67 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
+#: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+msgid "System"
+msgstr "Sistem"
 
-#: ajenti/plugins/dashboard/layout/dash.xml:1
-msgid "Add widget"
-msgstr "Widget ekle"
+#: ajenti/plugins/users/main.py:102
+#, python-format
+msgid "Home dir for %s was created"
+msgstr "%S için giriş dizini oluşturuldu"
 
-#: ajenti/plugins/dashboard/layout/dash.xml:2
-msgid "Automatic refresh"
-msgstr "Otomatik yenile"
+#: ajenti/plugins/users/main.py:111
+#, python-format
+msgid "Password for %s was changed"
+msgstr "%S için parola değiştirildi"
+
+#: ajenti/plugins/users/main.py:114
+#, python-format
+msgid "Error: \"%s\""
+msgstr "Hata: \"% s\""
+
+#: ajenti/plugins/users/main.py:116
+msgid "Password shouldn't be empty"
+msgstr "Parola boş olmamalıdır"
+
+#: ajenti/plugins/users/main.py:120
+#, python-format
+msgid "Password for %s was removed"
+msgstr "%S için parola kaldırıldı"
+
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:22
+msgid "Group"
+msgstr "Grup"
+
+#: ajenti/plugins/users/layout/main.xml:7
+msgid "System Users"
+msgstr "Sistem kullanıcıları"
+
+#: ajenti/plugins/users/layout/main.xml:9
+msgid "Groups"
+msgstr "Gruplar"
+
+#: ajenti/plugins/users/layout/main.xml:12
+msgid "Members"
+msgstr "Üyeler"
+
+#: ajenti/plugins/users/layout/user-list.xml:3
+#: ajenti/plugins/iptables/layout/main.xml:8
+msgid "Comment"
+msgstr "Yorum"
+
+#: ajenti/plugins/users/layout/user-list.xml:4
+msgid "Home directory"
+msgstr "Giriş dizini"
+
+#: ajenti/plugins/users/layout/user-list.xml:6
+msgid "Shell"
+msgstr "Kabuk"
+
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "Yeni parola"
+
+#: ajenti/plugins/users/layout/user-list.xml:9
+#: ajenti/plugins/fm/layout/main.xml:15
+msgid "Remove"
+msgstr "Kaldır"
+
+#: ajenti/plugins/dhcpd/main.py:13
+msgid "DHCP Server"
+msgstr "DHCP sunucusu"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:1
+msgid "Subnetworks"
+msgstr "Alt"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:3
+msgid "Specification"
+msgstr "Belirtimi"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:4
+msgid "IP ranges"
+msgstr "IP aralıkları"
+
+#: ajenti/plugins/dhcpd/layout/main.xml:7
+msgid "Global options"
+msgstr "Genel seçenekleri"
+
+#: ajenti/plugins/munin/main.py:43
+#, python-format
+msgid "Couldn't connect to Munin: %s"
+msgstr "Munin için bağlanamadı: %s"
+
+#: ajenti/plugins/munin/main.py:47
+msgid "Munin HTTP authentication failed"
+msgstr "Munin HTTP kimlik doğrulaması başarısız oldu"
+
+#: ajenti/plugins/munin/layout/main.xml:1
+msgid "View"
+msgstr "Görünüm"
+
+#: ajenti/plugins/nginx/main.py:12 ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
+msgid "Reload"
+msgstr "Yenidenyükleme"
+
+#: ajenti/plugins/db_common/api.py:45
+msgid "Query finished"
+msgstr "Sorgu tamamlandı"
+
+#: ajenti/plugins/db_common/api.py:54
+#, python-format
+msgid "Output cut from %i rows to 200"
+msgstr "Çıkış %i satırlarından 200 için kesmek."
+
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Veritabanları"
+
+#: ajenti/plugins/db_common/layout/main.xml:4
+msgid "Confirm database drop!"
+msgstr "Veritabanı silmeyi onaylayın!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Veritabanı adı"
+
+#: ajenti/plugins/supervisor/layout/main.xml:4
+msgid "Working directory"
+msgstr "Çalışma dizini"
+
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Autostart"
+msgstr "Otomatik başlatma"
+
+#: ajenti/plugins/supervisor/layout/main.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:9
+msgid "Enabled"
+msgstr "Etkin"
+
+#: ajenti/plugins/supervisor/layout/main.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:11
+msgid "Disabled"
+msgstr "Etkisizleştirildi"
+
+#: ajenti/plugins/supervisor/layout/main.xml:8
+msgid "Autorestart"
+msgstr "Otomatik Yeniden başlat"
+
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "On crash"
+msgstr ""
+
+#: ajenti/plugins/supervisor/layout/main.xml:12
+msgid "Start timeout"
+msgstr "Başlangıç zaman aşımı"
+
+#: ajenti/plugins/supervisor/layout/main.xml:13
+msgid "Start retries"
+msgstr "Başlangıç yeniden deneme"
+
+#: ajenti/plugins/supervisor/layout/main.xml:15
+#: ajenti/plugins/cron/layout/main.xml:22
+msgid "Environment"
+msgstr "Çevre"
+
+#: ajenti/plugins/raid/main.py:15
+msgid "RAID"
+msgstr ""
+
+#: ajenti/plugins/raid/layout/main.xml:2
+msgid "State"
+msgstr "İlçe"
+
+#: ajenti/plugins/raid/layout/main.xml:4
+msgid "Devices"
+msgstr "Aygıtları"
+
+#: ajenti/plugins/raid/layout/main.xml:5
+msgid "Blocks"
+msgstr "Bloklar"
+
+#: ajenti/plugins/raid/layout/main.xml:6
+msgid "Recovery:"
+msgstr "Kurtarma:"
+
+#: ajenti/plugins/iptables/main.py:57
+msgid "You can't disable firewall autostart on this platform"
+msgstr "Güvenlik Duvarı autostart bu platformda devre dışı bırakılamıyor"
+
+#: ajenti/plugins/iptables/main.py:65
+msgid "Firewall"
+msgstr "Güvenlik Duvarı"
+
+#: ajenti/plugins/iptables/main.py:107
+#: ajenti/plugins/iptables/layout/main.xml:10
+msgid "Add option"
+msgstr "Seçenek Ekle"
+
+#: ajenti/plugins/iptables/main.py:144
+msgid "Disable"
+msgstr "Devre Dışı Bırak"
+
+#: ajenti/plugins/iptables/main.py:144
+msgid " autostart"
+msgstr " otomatik başlatma"
+
+#: ajenti/plugins/iptables/main.py:197
+msgid "Applied successfully"
+msgstr "Başarıyla uygulandı"
+
+#: ajenti/plugins/iptables/layout/main.xml:1
+msgid "Raw edit"
+msgstr "Ham Düzenle"
+
+#: ajenti/plugins/iptables/layout/main.xml:2
+msgid "Load current state"
+msgstr "Yük mevcut durumu"
+
+#: ajenti/plugins/iptables/layout/main.xml:3
+msgid "This will overwrite the saved configuration with current firewall state! Continue?"
+msgstr "Bu mevcut güvenlik duvarı durumu ile kaydedilmiş olan yapılandırmayı üzerine yazar. Devam edilsin mi?"
+
+#: ajenti/plugins/iptables/layout/main.xml:4
+msgid "New Chain"
+msgstr "Yeni zinciri"
+
+#: ajenti/plugins/iptables/layout/main.xml:7
+msgid "Action"
+msgstr "Eylem"
+
+#: ajenti/plugins/iptables/layout/main.xml:9
+msgid "Conditions"
+msgstr "Koşullar"
+
+#: ajenti/plugins/iptables/layout/main.xml:11
+msgid "New Rule"
+msgstr "Yeni kural"
+
+#: ajenti/plugins/iptables/layout/main.xml:13
+#: ajenti/plugins/packages/layout/main.xml:2
+msgid "Apply"
+msgstr "Uygula"
+
+#: ajenti/plugins/iptables/layout/option-reject-with.xml:1
+msgid "Reason"
+msgstr "Sebep"
+
+#: ajenti/plugins/iptables/layout/option-match.xml:1
+msgid "Modules"
+msgstr "Modüller"
+
+#: ajenti/plugins/iptables/layout/option-state.xml:1
+msgid "States"
+msgstr "Durumlar"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:2
+msgid "Arguments"
+msgstr "Bağımsız değişkenler"
+
+#: ajenti/plugins/iptables/layout/option-custom.xml:3
+msgid "Argument"
+msgstr "Bağımsız değişken"
+
+#: ajenti/plugins/iptables/layout/option-protocol.xml:1
+msgid "Protocol"
+msgstr "İletişim kuralı"
+
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:12
+msgid "Ports"
+msgstr "Bağlantı noktaları"
+
+#: ajenti/plugins/iptables/layout/option-interface.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:23
+msgid "Interface"
+msgstr "Arayüz"
+
+#: ajenti/plugins/codemirror/__init__.py:7
+msgid "CodeMirror code editor"
+msgstr "CodeMirror Kod Düzenleyicisi"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
@@ -1848,4 +1153,707 @@ msgstr "AFP bağlantı noktası"
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
 msgstr "CNID adresi"
+
+#: ajenti/plugins/packages/pm_pacman.py:23
+#, python-format
+msgid "Failed to update lists: %s"
+msgstr ""
+
+#: ajenti/plugins/packages/pm_pacman.py:38
+msgid "No search results found"
+msgstr "Arama sonucu bulunamadı"
+
+#: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
+msgid "Packages"
+msgstr "Paketleri"
+
+#: ajenti/plugins/packages/main.py:50
+msgid "Enqueueing package installation"
+msgstr "Enqueueing paket yükleme"
+
+#: ajenti/plugins/packages/main.py:61
+msgid "Installation complete!"
+msgstr "Kurulum tamamlandı!"
+
+#: ajenti/plugins/packages/main.py:73
+msgid "Querying package manager"
+msgstr ""
+
+#: ajenti/plugins/packages/main.py:134
+#, python-format
+msgid "%i found, 100 shown"
+msgstr "buldum, gösterilen 100 %i"
+
+#: ajenti/plugins/packages/main.py:137
+#, python-format
+msgid "%i found"
+msgstr "%i bulundu"
+
+#: ajenti/plugins/packages/main.py:150
+msgid "Install / remove"
+msgstr "Yükle / Kaldır"
+
+#: ajenti/plugins/packages/main.py:151
+msgid "Refresh lists"
+msgstr "Listeleri Yenile"
+
+#: ajenti/plugins/packages/layout/main.xml:1
+msgid "Get lists"
+msgstr "Listeleri"
+
+#: ajenti/plugins/packages/layout/main.xml:3
+msgid "Upgradeable"
+msgstr "Yükseltilebilir"
+
+#: ajenti/plugins/packages/layout/main.xml:4
+msgid "Upgrade all"
+msgstr "Tüm yükseltin"
+
+#: ajenti/plugins/packages/layout/main.xml:5
+#: ajenti/plugins/packages/layout/main.xml:6
+msgid "Search"
+msgstr "Arama"
+
+#: ajenti/plugins/packages/layout/main.xml:8
+msgid "Cancel all"
+msgstr "Tümünü iptal et"
+
+#: ajenti/plugins/packages/layout/headers.xml:2
+msgid "Version"
+msgstr "Sürüm"
+
+#: ajenti/plugins/packages/layout/row.xml:1
+msgid "Mark for installation/upgrade"
+msgstr "Yükleme/yükseltme için işaretle"
+
+#: ajenti/plugins/packages/layout/row.xml:2
+msgid "Mark for removal"
+msgstr "Kaldırma için işaretle"
+
+#: ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/layout/main.xml:17
+#: ajenti/plugins/dashboard/layout/dash.xml:3
+msgid "Cancel"
+msgstr "İptal"
+
+#: ajenti/plugins/hddtemp/widget.py:9
+msgid "HDD Temperature"
+msgstr "HDD sıcaklık"
+
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/free-widget.xml:1
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+msgid "Device"
+msgstr "Aygıt"
+
+#: ajenti/plugins/lm_sensors/layout/widget.xml:1
+#: ajenti/plugins/ipmi/layout/widget.xml:1
+msgid "Sensor"
+msgstr "Sensör"
+
+#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
+msgid "Zone saved"
+msgstr "Kaydedilen bölge"
+
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+msgid "Zones"
+msgstr "Bölgeler"
+
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
+msgid "File"
+msgstr "Dosya"
+
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+msgid "Zone"
+msgstr "Bölge"
+
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+msgid "Zone file does not exist"
+msgstr "Bölge dosyası yok"
+
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
+msgid "Save zone"
+msgstr "Bölge kaydetmek"
+
+#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
+msgid "File Manager"
+msgstr "Dosya Yöneticisi"
+
+#: ajenti/plugins/fm/fm.py:149
+msgid "Files moved"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:154
+msgid "Files copied"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:169
+#, python-format
+msgid "Selected %i items"
+msgstr "%i öğe seçildi"
+
+#: ajenti/plugins/fm/fm.py:208
+msgid "Unpacked"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:1
+msgid "Close"
+msgstr "Kapat"
+
+#: ajenti/plugins/fm/layout/main.xml:2
+msgid "Select all"
+msgstr "Tümünü Seç"
+
+#: ajenti/plugins/fm/layout/main.xml:3
+msgid "New File"
+msgstr "Yeni dosya"
+
+#: ajenti/plugins/fm/layout/main.xml:4
+msgid "New Folder"
+msgstr "Yeni klasör"
+
+#: ajenti/plugins/fm/layout/main.xml:5
+msgid "Cut"
+msgstr "Kes"
+
+#: ajenti/plugins/fm/layout/main.xml:6
+msgid "Copy"
+msgstr "Kopyala"
+
+#: ajenti/plugins/fm/layout/main.xml:7
+msgid "Paste"
+msgstr "Yapıştır"
+
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "Silme"
+
+#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "Boyutu"
+
+#: ajenti/plugins/fm/layout/main.xml:12
+msgid "Upload"
+msgstr "Yükle"
+
+#: ajenti/plugins/fm/layout/main.xml:13
+msgid "Clipboard"
+msgstr "Pano"
+
+#: ajenti/plugins/fm/layout/main.xml:19
+msgid "Unpack"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:20
+msgid "Access"
+msgstr "Erişim"
+
+#: ajenti/plugins/fm/layout/main.xml:21
+msgid "Owner"
+msgstr "Sahibi"
+
+#: ajenti/plugins/fm/layout/main.xml:23
+msgid "Others"
+msgstr "Diğerleri"
+
+#: ajenti/plugins/fm/layout/main.xml:24
+msgid "Set recursively"
+msgstr "Yinelemeli olarak ayarla"
+
+#: ajenti/plugins/terminal/terminal.py:100
+#, python-format
+msgid "Process has exited with status %i"
+msgstr "İşlem durumu %i ile çıkıldı"
+
+#: ajenti/plugins/terminal/terminal.py:102
+msgid "Process has exited successfully"
+msgstr "İşlem başarıyla çıkıldı"
+
+#: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
+#: ajenti/plugins/terminal/main.py:223
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ajenti/plugins/terminal/main.py:227
+msgid "Run shell"
+msgstr "Kabuk çalıştırmak"
+
+#: ajenti/plugins/terminal/main.py:228
+msgid "Run custom commands"
+msgstr "Özel komutları çalıştırmak"
+
+#: ajenti/plugins/terminal/layout/main.xml:3
+msgid "No active terminals"
+msgstr "Hiçbir etkin terminalleri"
+
+#: ajenti/plugins/terminal/layout/config.xml:1
+msgid "Default shell"
+msgstr "Varsayılan kabuk"
+
+#: ajenti/plugins/network/widget.py:88
+msgid "Immediate Traffic"
+msgstr "Acil trafik"
+
+#: ajenti/plugins/network/widget.py:118
+msgid "Traffic"
+msgstr "Trafik"
+
+#: ajenti/plugins/network/main.py:15
+msgid "Network"
+msgstr "Ağ"
+
+#: ajenti/plugins/network/layout/main.xml:2
+msgid "Bring up"
+msgstr "Yukarı çek"
+
+#: ajenti/plugins/network/layout/main.xml:3
+msgid "Bring down"
+msgstr "Aşağı indir"
+
+#: ajenti/plugins/network/layout/main.xml:4
+msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
+msgstr ""
+
+#: ajenti/plugins/network/layout/main.xml:6
+msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
+msgstr "Ana ağ bağlantısını yeniden başlatmak sunuya olan bağlantıyı kesebilir. Emin misiniz?"
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:1
+msgid "Loopback"
+msgstr ""
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:2
+msgid "Static"
+msgstr "Statik"
+
+#: ajenti/plugins/network/layout/bit-linux-basic.xml:3
+msgid "Manual"
+msgstr "Manuel"
+
+#: ajenti/plugins/ctdb/main.py:20
+msgid "Samba Cluster"
+msgstr "Samba küme"
+
+#: ajenti/plugins/ctdb/main.py:65
+msgid "Failed to obtain CTDB status"
+msgstr "CTDB statü etmek başarısız oldu"
+
+#: ajenti/plugins/ctdb/layout/main.xml:3
+msgid "Public IPs"
+msgstr "Genel IP'leri"
+
+#: ajenti/plugins/ctdb/layout/main.xml:5
+msgid "Manage Samba"
+msgstr "Samba yönetmek"
+
+#: ajenti/plugins/ctdb/layout/main.xml:6
+msgid "Debug level"
+msgstr "Hata derecesi"
+
+#: ajenti/plugins/ctdb/layout/main.xml:7
+msgid "Files"
+msgstr "Dosyaları"
+
+#: ajenti/plugins/ctdb/layout/main.xml:8
+msgid "Recovery lock file"
+msgstr "Kurtarma kilit dosyası"
+
+#: ajenti/plugins/ctdb/layout/main.xml:9
+msgid "Public addresses file"
+msgstr "Genel adresler dosya"
+
+#: ajenti/plugins/ctdb/layout/main.xml:10
+msgid "Nodes file"
+msgstr "Düğümleri dosya"
+
+#: ajenti/plugins/ctdb/layout/main.xml:13
+msgid "Public interface"
+msgstr "Ortak arabirim"
+
+#: ajenti/plugins/ctdb/layout/main.xml:14
+msgid "Public network"
+msgstr "Genel ağ"
+
+#: ajenti/plugins/ctdb/layout/main.xml:15
+msgid "Public gateway"
+msgstr "Genel ağ geçidi"
+
+#: ajenti/plugins/ctdb/layout/main.xml:16
+msgid "Nodes"
+msgstr "Düğümleri"
+
+#: ajenti/plugins/ctdb/layout/main.xml:20
+msgid "Public addresses"
+msgstr "Genel adresleri"
+
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
+msgstr "Bağdaştırıcı"
+
+#: ajenti/plugins/megaraid/layout/widget.xml:1
+msgid "Array"
+msgstr "Dizi"
+
+#: ajenti/plugins/resolv/main.py:13
+msgid "Nameservers"
+msgstr "Nameservers"
+
+#: ajenti/plugins/resolv/main.py:18
+msgid "DNS nameserver"
+msgstr "DNS nameserver"
+
+#: ajenti/plugins/resolv/main.py:18
+msgid "Local domain name"
+msgstr "Yerel etki alanı adı"
+
+#: ajenti/plugins/resolv/main.py:18
+msgid "Search list"
+msgstr "Arama listesi"
+
+#: ajenti/plugins/resolv/main.py:18
+msgid "Sort list"
+msgstr "Sıralama listesi"
+
+#: ajenti/plugins/resolv/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:26
+msgid "Value"
+msgstr "Değer"
+
+#: ajenti/plugins/fstab/widget.py:9
+msgid "Disk space"
+msgstr "Disk alanı"
+
+#: ajenti/plugins/fstab/widget.py:38
+msgid "Free disk space"
+msgstr "Boş disk alanı"
+
+#: ajenti/plugins/fstab/widget.py:48
+#, python-format
+msgid "%s free"
+msgstr "%s boş"
+
+#: ajenti/plugins/fstab/iops.py:70
+msgid "Immediate I/O"
+msgstr "Hemen g/ç"
+
+#: ajenti/plugins/fstab/main.py:43
+msgid "Filesystems"
+msgstr "Dosya sistemleri"
+
+#: ajenti/plugins/fstab/main.py:67
+msgid "Unmounted"
+msgstr "Monte edilmemiş"
+
+#: ajenti/plugins/fstab/main.py:74
+msgid "mount -a failed"
+msgstr "-başarısız bir mount"
+
+#: ajenti/plugins/fstab/layout/main.xml:2
+msgid "Mount all"
+msgstr "Hepsini Bağla"
+
+#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:13
+msgid "Mountpoint"
+msgstr "Mountpoint"
+
+#: ajenti/plugins/fstab/layout/main.xml:6
+msgid "FS type"
+msgstr "FS türü"
+
+#: ajenti/plugins/fstab/layout/main.xml:8
+msgid "Scan frequency"
+msgstr "Frekans tarama"
+
+#: ajenti/plugins/fstab/layout/main.xml:9
+msgid "Scan pass"
+msgstr "Pass tarama"
+
+#: ajenti/plugins/fstab/layout/main.xml:11
+msgid "Mounted filesystems"
+msgstr "Bağlı dosya sistemleri"
+
+#: ajenti/plugins/fstab/layout/main.xml:14
+msgid "Used"
+msgstr "Kullanılan"
+
+#: ajenti/plugins/fstab/layout/main.xml:16
+msgid "Usage"
+msgstr "Kullanım"
+
+#: ajenti/plugins/fstab/layout/main.xml:17
+msgid "Unmount"
+msgstr "Unmount"
+
+#: ajenti/plugins/dashboard/welcome.py:13
+msgid "Welcome"
+msgstr "Hoş geldiniz"
+
+#: ajenti/plugins/dashboard/dash.py:21
+msgid "Dashboard"
+msgstr "Kontrol paneli"
+
+#: ajenti/plugins/dashboard/dash.py:176
+msgid "Widgets"
+msgstr "Widgetler"
+
+#: ajenti/plugins/dashboard/text.py:7
+#: ajenti/plugins/dashboard/layout/text.xml:1
+#: ajenti/plugins/openvpn/layout/main.xml:12
+msgid "Text"
+msgstr "Metin"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:1
+msgid "Add widget"
+msgstr "Widget ekle"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:2
+msgid "Automatic refresh"
+msgstr "Otomatik yenile"
+
+#: ajenti/plugins/openvpn/main.py:26
+msgid "OpenVPN"
+msgstr ""
+
+#: ajenti/plugins/openvpn/layout/main.xml:4
+msgid "Remote IP"
+msgstr "Uzak IP"
+
+#: ajenti/plugins/openvpn/layout/main.xml:5
+msgid "Local IP"
+msgstr "Yerel IP"
+
+#: ajenti/plugins/openvpn/layout/main.xml:6
+msgid "Connected since"
+msgstr "Beri bağlı"
+
+#: ajenti/plugins/openvpn/layout/main.xml:8
+msgid "clients"
+msgstr "istemciler"
+
+#: ajenti/plugins/openvpn/layout/main.xml:9
+msgid "Messages"
+msgstr "İletileri"
+
+#: ajenti/plugins/openvpn/layout/main.xml:10
+msgid "Timestamp"
+msgstr "Zaman damgası"
+
+#: ajenti/plugins/openvpn/layout/main.xml:11
+msgid "Flags"
+msgstr "Bayraklar"
+
+#: ajenti/plugins/openvpn/layout/config.xml:1
+msgid "Management address"
+msgstr "Yönetim adresi"
+
+#: ajenti/plugins/openvpn/layout/config.xml:2
+msgid "host:port or UNIX socket path"
+msgstr "ana bilgisayar: bağlantı noktası veya UNIX soket yolu"
+
+#: ajenti/plugins/power/power.py:56
+msgid "Power"
+msgstr "Güç"
+
+#: ajenti/plugins/power/power.py:103
+msgid "Power control"
+msgstr "Güç kontrolü"
+
+#: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
+msgid "Suspend"
+msgstr "Askıya Al"
+
+#: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
+msgid "Hibernate"
+msgstr "Hazırda Beklet"
+
+#: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
+msgid "Reboot"
+msgstr "Yeniden başlat"
+
+#: ajenti/plugins/power/power.py:110
+msgid "Shutdown"
+msgstr "Kapatma"
+
+#: ajenti/plugins/power/layout/widget.xml:1
+msgid "AC power"
+msgstr "AC güç"
+
+#: ajenti/plugins/power/layout/widget.xml:2
+msgid "Battery"
+msgstr "Pil"
+
+#: ajenti/plugins/power/layout/widget.xml:4
+msgid "Suspend the system?"
+msgstr "Sistem askıya alınsın mı?"
+
+#: ajenti/plugins/power/layout/widget.xml:6
+msgid "Hibernate the system?"
+msgstr "Sistem hazırda bekletilsin mi?"
+
+#: ajenti/plugins/power/layout/widget.xml:8
+msgid "Reboot the system?"
+msgstr "Sistem yeniden başlatmak ister misiniz ?"
+
+#: ajenti/plugins/power/layout/widget.xml:9
+msgid "Power off"
+msgstr "Güç kapalı"
+
+#: ajenti/plugins/power/layout/widget.xml:10
+msgid "Shutdown the system?"
+msgstr "Sistemi kapatmak ister misiniz ?"
+
+#: ajenti/plugins/services/widget.py:10
+#: ajenti/plugins/services/layout/widget.xml:4
+msgid "Service"
+msgstr "Hizmet"
+
+#: ajenti/plugins/services/main.py:14
+msgid "Services"
+msgstr "Servisler"
+
+#: ajenti/plugins/services/main.py:41
+#, python-format
+msgid "%s started"
+msgstr "%s başladı"
+
+#: ajenti/plugins/services/main.py:46
+#, python-format
+msgid "%s stopped"
+msgstr "%s durduruldu"
+
+#: ajenti/plugins/services/main.py:51
+#, python-format
+msgid "%s restarted"
+msgstr "%s yeniden"
+
+#: ajenti/plugins/services/layout/main.xml:1
+msgid "Origin"
+msgstr "Köken"
+
+#: ajenti/plugins/services/layout/main.xml:2
+msgid "Actions"
+msgstr "Eylemler"
+
+#: ajenti/plugins/services/layout/main.xml:3
+#: ajenti/plugins/services/layout/widget.xml:1
+#: ajenti/plugins/services/layout/bar.xml:1
+msgid "Start"
+msgstr "Başlat"
+
+#: ajenti/plugins/services/layout/main.xml:4
+#: ajenti/plugins/services/layout/widget.xml:2
+#: ajenti/plugins/services/layout/bar.xml:2
+msgid "Stop"
+msgstr "Durdurmak"
+
+#: ajenti/plugins/ipmi/widget.py:9
+msgid "IPMI Sensor"
+msgstr "IPMI sensörü"
+
+#: ajenti/plugins/hosts/hosts.py:13
+msgid "Hosts"
+msgstr "Ana bilgisayarlar"
+
+#: ajenti/plugins/hosts/layout/main.xml:4
+msgid "Aliases"
+msgstr "Diğer adlar"
+
+#: ajenti/plugins/taskmgr/main.py:14
+msgid "Processes"
+msgstr "Süreçleri"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:1
+msgid "Parent"
+msgstr "Üst"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:4
+msgid "CPU"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:5
+msgid "RAM"
+msgstr ""
+
+#: ajenti/plugins/taskmgr/layout/main.xml:7
+msgid "Terminate"
+msgstr "Sonlandır"
+
+#: ajenti/plugins/taskmgr/layout/main.xml:8
+msgid "Kill"
+msgstr "Öldür"
+
+#: ajenti/plugins/squid/layout/main.xml:5
+msgid "HTTP Access"
+msgstr "HTTP erişim"
+
+#: ajenti/plugins/squid/layout/main.xml:8
+msgid "Mode"
+msgstr "Modu"
+
+#: ajenti/plugins/squid/layout/main.xml:9
+msgid "Allow"
+msgstr "İzin ver"
+
+#: ajenti/plugins/squid/layout/main.xml:10
+msgid "Deny"
+msgstr "Reddet"
+
+#: ajenti/plugins/cron/layout/main.xml:1
+msgid "Select"
+msgstr "Seçin"
+
+#: ajenti/plugins/cron/layout/main.xml:2
+msgid "Normal"
+msgstr "Normal"
+
+#: ajenti/plugins/cron/layout/main.xml:11
+msgid "Special"
+msgstr "Özel"
+
+#: ajenti/plugins/logs/main.py:12
+msgid "Logs"
+msgstr "Günlükleri"
+
+#: ajenti/plugins/smartctl/widget.py:60
+msgid "No data"
+msgstr "Veri yok"
+
+#: ajenti/plugins/smartctl/widget.py:61
+msgid "FAILING"
+msgstr "BAŞARISIZ"
+
+#: ajenti/plugins/smartctl/widget.py:62
+msgid "PRE-FAIL"
+msgstr "PRE-FAIL"
+
+#: ajenti/plugins/smartctl/widget.py:63
+msgid "Unknown error"
+msgstr "Bilinmeyen hata"
+
+#: ajenti/plugins/smartctl/widget.py:64
+msgid "Errors in log"
+msgstr "Günlüğündeki hataları"
+
+#: ajenti/usersync/adsync.py:15
+msgid "Active Directory Syncronization"
+msgstr ""
+
+#: ajenti/usersync/ldapsync.py:15
+msgid "LDAP User Syncronization"
+msgstr "LDAP Kullanıcı Eşzamanlaması"
+
+#: ajenti/usersync/local.py:12
+msgid "Off"
+msgstr "Kapalı"
+
+#: ajenti/usersync/unix.py:14
+msgid "OS users"
+msgstr "İS kullanıcıları"
 
