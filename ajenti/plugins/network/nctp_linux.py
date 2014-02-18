@@ -3,6 +3,7 @@ import gevent
 import subprocess
 import socket
 import struct
+import re
 
 from ajenti.api import *
 from ajenti.ui import *
@@ -12,17 +13,18 @@ class LinuxIfconfig (object):
     platforms = ['debian', 'centos']
 
     def detect_dev_class(self, iface):
-        if iface.name[:-1] in ['ppp', 'wvdial']:
+        ifname = re.compile('[a-z]+').findall(iface.name)
+        if ifname in ['ppp', 'wvdial']:
             return 'ppp'
-        if iface.name[:-1] in ['wlan', 'ra', 'wifi', 'ath']:
+        if ifname in ['wlan', 'ra', 'wifi', 'ath']:
             return 'wireless'
-        if iface.name[:-1] == 'br':
+        if ifname == 'br':
             return 'bridge'
-        if iface.name[:-1] == 'tun':
+        if ifname == 'tun':
             return 'tunnel'
-        if iface.name == 'lo':
+        if ifname == 'lo':
             return 'loopback'
-        if iface.name[:-1] == 'eth':
+        if ifname == 'eth':
             return 'ethernet'
         return 'ethernet'
 
