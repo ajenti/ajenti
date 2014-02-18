@@ -177,11 +177,11 @@ class HttpContext (object):
         # Block path traversal
         if '..' in path:
             self.respond_forbidden()
-            yield ''
+            return
 
         if not os.path.isfile(path):
             self.respond_not_found()
-            yield ''
+            return
 
         content_types = {
             '.css': 'text/css',
@@ -205,7 +205,7 @@ class HttpContext (object):
                 rtime = datetime.strptime(rtime, '%a, %b %d %Y %H:%M:%S GMT')
                 if mtime <= rtime:
                     self.respond('304 Not Modified')
-                    yield ''
+                    return
             except:
                 pass
 
