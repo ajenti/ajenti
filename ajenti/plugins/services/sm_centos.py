@@ -14,6 +14,7 @@ class CentOSServiceManager (ServiceManager):
     @cache_value(1)
     def get_all(self):
         r = []
+        pending = {}
         for line in subprocess.check_output(['chkconfig', '--list']).splitlines():
             tokens = line.split()
             if len(tokens) < 3:
@@ -21,6 +22,9 @@ class CentOSServiceManager (ServiceManager):
 
             name = tokens[0]
             s = SysVInitService(name)
-            s.refresh()
+            pending[s] = s._begin_refresh()
             r.append(s)
+      
+        for s,v in pending.iteritems():
+            s._end_refresh(v)
         return r

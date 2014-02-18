@@ -47,6 +47,13 @@ class SysVInitService (Service):
     def refresh(self):
         self.running = subprocess.call([self.script, 'status']) == 0
 
+    def _begin_refresh(self):
+        return subprocess.Popen([self.script, 'status'])
+
+    def _end_refresh(self, v):
+        v.wait()
+        self.running = v.returncode == 0
+
     def start(self):
         self.command('start')
 
