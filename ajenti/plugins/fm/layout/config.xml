@@ -3,6 +3,9 @@
         <formline text="{Topmost directory}">
             <textbox bind="root" />
         </formline>
+        <formline text="{Startup directory}">
+            <textbox bind="start" />
+        </formline>
         <formline text="{Owner for new files}">
             <textbox bind="new_owner" />
         </formline>

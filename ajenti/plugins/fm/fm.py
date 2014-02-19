@@ -7,7 +7,7 @@ import pwd
 from ajenti.api import *
 from ajenti.api.http import *
 from ajenti.plugins.configurator.api import ClassConfigEditor
-from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
@@ -25,7 +25,7 @@ class FileManagerConfigEditor (ClassConfigEditor):
 
 @plugin
 class FileManager (SectionPlugin):
-    default_classconfig = {'root': '/'}
+    default_classconfig = {'root': '/', 'start': '/'}
     classconfig_editor = FileManagerConfigEditor
     classconfig_root = True
 
@@ -52,7 +52,7 @@ class FileManager (SectionPlugin):
         self.tabs = self.find('tabs')
 
     def on_first_page_load(self):
-        self.controller.new_tab(self.classconfig['root'])
+        self.new_tab()
         self.binder = Binder(self.controller, self.find('filemanager')).populate()
         self.binder_c = Binder(self, self.find('bind-clipboard')).populate()
 
@@ -65,8 +65,17 @@ class FileManager (SectionPlugin):
     @on('tabs', 'switch')
     def on_tab_switch(self):
         if self.tabs.active == (len(self.controller.tabs) - 1):
-            self.controller.new_tab(self.classconfig['root'])
+            self.new_tab()
         self.refresh()
+
+    @intent('fm:browse')
+    def new_tab(self, path=None):
+        dir = path or self.classconfig.get('start', '/')
+        if not dir.startswith(self.classconfig['root']):
+            dir = self.classconfig['root']
+        self.controller.new_tab(dir)
+        if not self.active:
+            self.activate()
 
     @on('close', 'click')
     def on_tab_close(self):
