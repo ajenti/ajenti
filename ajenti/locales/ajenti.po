@@ -99,7 +99,7 @@ msgid "Enable"
 msgstr ""
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:219
+#: ajenti/plugins/configurator/configurator.py:220
 msgid "Configuration"
 msgstr ""
 
@@ -167,35 +167,35 @@ msgstr ""
 msgid "Memcache memory usage"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:34
+#: ajenti/plugins/configurator/configurator.py:35
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:148
 msgid "Auto"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:167
+#: ajenti/plugins/configurator/configurator.py:168
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:173
+#: ajenti/plugins/configurator/configurator.py:174
 msgid "Please supply hostname"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:187
+#: ajenti/plugins/configurator/configurator.py:188
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:223
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Modify Ajenti configuration"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:225
 msgid "Restart Ajenti"
 msgstr ""
 
@@ -879,7 +879,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
 msgid "Group"
 msgstr ""
 
@@ -1288,20 +1288,20 @@ msgstr ""
 msgid "File Manager"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:167
+#: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:172
+#: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:187
+#: ajenti/plugins/fm/fm.py:196
 #, python-format
 msgid "Selected %i items"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:226
+#: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
 msgstr ""
 
@@ -1351,30 +1351,38 @@ msgid "Clipboard"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:19
-msgid "Unpack"
+msgid "Edit"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:20
-msgid "Access"
+msgid "Unpack"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:21
+msgid "Access"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Owner"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Others"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Set recursively"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:2
-msgid "Owner for new files"
+msgid "Startup directory"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:3
+msgid "Owner for new files"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
 msgstr ""
 

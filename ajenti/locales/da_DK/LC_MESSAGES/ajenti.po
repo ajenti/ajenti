@@ -99,7 +99,7 @@ msgid "Enable"
 msgstr "Aktiver"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:219
+#: ajenti/plugins/configurator/configurator.py:220
 msgid "Configuration"
 msgstr "Konfiguration"
 
@@ -167,35 +167,35 @@ msgstr "Gem"
 msgid "Memcache memory usage"
 msgstr "Memcache hukommelses forbrug"
 
-#: ajenti/plugins/configurator/configurator.py:34
+#: ajenti/plugins/configurator/configurator.py:35
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Konfigurer"
 
-#: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:148
 msgid "Auto"
 msgstr "Auto"
 
-#: ajenti/plugins/configurator/configurator.py:167
+#: ajenti/plugins/configurator/configurator.py:168
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Gemt. Genstart Ajenti for ændringerne træder i kraft."
 
-#: ajenti/plugins/configurator/configurator.py:173
+#: ajenti/plugins/configurator/configurator.py:174
 msgid "Please supply hostname"
 msgstr "Opgiv venligst værtsnavn"
 
-#: ajenti/plugins/configurator/configurator.py:187
+#: ajenti/plugins/configurator/configurator.py:188
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Konfigurer %s plugin!"
 
-#: ajenti/plugins/configurator/configurator.py:223
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Modify Ajenti configuration"
 msgstr "Ændre Ajenti konfiguration"
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:225
 msgid "Restart Ajenti"
 msgstr "Genstart Ajenti"
 
@@ -372,7 +372,7 @@ msgid "Tasks"
 msgstr "Opgaver"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
-#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
+#: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
 msgid "Tools"
 msgstr "Værktøjer"
 
@@ -877,7 +877,7 @@ msgstr "Adgangskode for %s blev fjernet"
 msgid "Username"
 msgstr "Brugernavn"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
 msgid "Group"
 msgstr "Gruppe"
 
@@ -1280,24 +1280,24 @@ msgstr "Zone-fil findes ikke"
 msgid "Save zone"
 msgstr "Gem zone"
 
-#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
+#: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
 msgstr "Filhåndtering"
 
-#: ajenti/plugins/fm/fm.py:149
+#: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:154
+#: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:169
+#: ajenti/plugins/fm/fm.py:196
 #, python-format
 msgid "Selected %i items"
 msgstr "Valgte %i elementer"
 
-#: ajenti/plugins/fm/fm.py:208
+#: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
 msgstr "Udpakket"
 
@@ -1347,24 +1347,40 @@ msgid "Clipboard"
 msgstr "Udklipsholder"
 
 #: ajenti/plugins/fm/layout/main.xml:19
+msgid "Edit"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
 msgstr "Pak ud"
 
-#: ajenti/plugins/fm/layout/main.xml:20
+#: ajenti/plugins/fm/layout/main.xml:21
 msgid "Access"
 msgstr "Adgang"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Owner"
 msgstr "Ejer"
 
-#: ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Others"
 msgstr "Andre"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Set recursively"
 msgstr "Sæt rekursivt"
+
+#: ajenti/plugins/fm/layout/config.xml:2
+msgid "Startup directory"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:3
+msgid "Owner for new files"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:4
+msgid "Group for new files"
+msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:100
 #, python-format

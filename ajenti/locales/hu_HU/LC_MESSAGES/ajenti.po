@@ -54,7 +54,7 @@ msgstr "Attól függ"
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:3
 msgid "Status"
-msgstr "Státusz"
+msgstr "Állapot"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -89,7 +89,7 @@ msgstr "Státusz"
 #: ajenti/plugins/cron/layout/main.xml:24
 #: ajenti/plugins/bind9/layout/main.xml:2
 msgid "Confirm deletion"
-msgstr "Tőrlés megerősítése"
+msgstr "Törlés megerősítése"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:15
@@ -99,7 +99,7 @@ msgid "Enable"
 msgstr "Engedélyezés"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:219
+#: ajenti/plugins/configurator/configurator.py:220
 msgid "Configuration"
 msgstr "Beállítások"
 
@@ -167,35 +167,35 @@ msgstr "Mentés"
 msgid "Memcache memory usage"
 msgstr "Memcach memória használat"
 
-#: ajenti/plugins/configurator/configurator.py:34
+#: ajenti/plugins/configurator/configurator.py:35
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Beállítások"
 
-#: ajenti/plugins/configurator/configurator.py:147
+#: ajenti/plugins/configurator/configurator.py:148
 msgid "Auto"
 msgstr "Automatikus"
 
-#: ajenti/plugins/configurator/configurator.py:167
+#: ajenti/plugins/configurator/configurator.py:168
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Mentve. Indítsuk újra az Ajentit a változások életbe léptetéséhez."
 
-#: ajenti/plugins/configurator/configurator.py:173
+#: ajenti/plugins/configurator/configurator.py:174
 msgid "Please supply hostname"
 msgstr "Adjuk meg a hosztnevet"
 
-#: ajenti/plugins/configurator/configurator.py:187
+#: ajenti/plugins/configurator/configurator.py:188
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Állítsuk be a %s bővítményt!"
 
-#: ajenti/plugins/configurator/configurator.py:223
+#: ajenti/plugins/configurator/configurator.py:224
 msgid "Modify Ajenti configuration"
 msgstr "Ajenti beállítások módosítása"
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:225
 msgid "Restart Ajenti"
 msgstr "Ajenti újraindítás"
 
@@ -284,7 +284,7 @@ msgstr "Fiókok"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "Ismétlődés"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -334,11 +334,11 @@ msgstr "Titkos"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Szerver cím"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Domain név"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -346,11 +346,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "Admin felhasználó"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
-msgstr ""
+msgstr "Admin jelszó"
 
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
@@ -372,7 +372,7 @@ msgid "Tasks"
 msgstr "Feladatok"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
-#: ajenti/plugins/fm/fm.py:32 ajenti/plugins/terminal/main.py:37
+#: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
 msgid "Tools"
 msgstr "Eszközök"
 
@@ -646,7 +646,7 @@ msgstr "Szekció hozzáférés"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "Fájl név"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -742,7 +742,7 @@ msgstr "Engedélyezett felhasználók"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "R/W felhasználók"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -877,7 +877,7 @@ msgstr "A(z) %s jelszó eltávolításra került"
 msgid "Username"
 msgstr "Felhasználónév"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
 msgid "Group"
 msgstr "Csoport"
 
@@ -1161,7 +1161,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "Nincs keresési találat"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1280,26 +1280,26 @@ msgstr "A zóna fájl nem található"
 msgid "Save zone"
 msgstr "Zóna mentés"
 
-#: ajenti/plugins/fm/fm.py:17 ajenti/plugins/fm/fm.py:31
+#: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
 msgstr "Fájlkezelő"
 
-#: ajenti/plugins/fm/fm.py:149
+#: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "Áthelyezett fájlok"
 
-#: ajenti/plugins/fm/fm.py:154
+#: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "Átmásolt fájlok"
 
-#: ajenti/plugins/fm/fm.py:169
+#: ajenti/plugins/fm/fm.py:196
 #, python-format
 msgid "Selected %i items"
 msgstr "%i kijelölt elemek"
 
-#: ajenti/plugins/fm/fm.py:208
+#: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
-msgstr ""
+msgstr "Kicsomagolt"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1319,7 +1319,7 @@ msgstr "Új mappa"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Vágott"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
@@ -1347,24 +1347,40 @@ msgid "Clipboard"
 msgstr "Vágólap"
 
 #: ajenti/plugins/fm/layout/main.xml:19
-msgid "Unpack"
+msgid "Edit"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:20
+msgid "Unpack"
+msgstr "Kicsomagolás"
+
+#: ajenti/plugins/fm/layout/main.xml:21
 msgid "Access"
 msgstr "Hozzáférés"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Owner"
 msgstr "Tulajdonos"
 
-#: ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Others"
 msgstr "Egyebek"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Set recursively"
 msgstr "Rekurzív használat"
+
+#: ajenti/plugins/fm/layout/config.xml:2
+msgid "Startup directory"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:3
+msgid "Owner for new files"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/config.xml:4
+msgid "Group for new files"
+msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:100
 #, python-format
