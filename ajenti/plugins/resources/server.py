@@ -56,13 +56,14 @@ class ContentCompressor (object):
             'js': r'.+\.[cm]\.js$',
             'css': r'.+\.[cm]\.css$'
         }
-        self.scan()
+        self.scan('js')
+        self.scan('css')
         self.compress()
 
-    def scan(self):
+    def scan(self, dir):
         for plugin in manager.get_order():
             pfiles = {}
-            path = os.path.join(manager.resolve_path(plugin), 'content')
+            path = os.path.join(manager.resolve_path(plugin), 'content', dir)
             if not os.path.exists(path):
                 continue
             for (dp, dn, fn) in os.walk(path):
