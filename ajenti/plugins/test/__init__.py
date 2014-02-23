@@ -16,4 +16,5 @@ def init():
     import events.main
     import notifications.main
     import binder.main
+    import http.http
 
