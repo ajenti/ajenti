@@ -1,4 +1,5 @@
 import socketio
+import traceback
 
 from ajenti.http import HttpHandler
 from ajenti.api import BasePlugin, plugin
@@ -44,7 +45,44 @@ class CentralDispatcher (BasePlugin, HttpHandler):
             return context.fallthrough(self.io)
 
         for instance in HttpPlugin.get_all():
-            output = instance.handle(context)
+            try:
+                output = instance.handle(context)  
+            except Exception, e:
+                return [self.respond_error(context, e)]
             if output is not None:
                 return output
         return context.fallthrough(self.invalid)
+
+    def respond_error(self, context, exception):
+        context.respond_server_error()
+        stack = traceback.format_exc()
+        return """
+        <html>
+            <body>
+
+                <style>
+                    body {
+                        font-family: sans-serif;
+                        color: #888;
+                        text-align: center;
+                    }
+
+                    body pre {
+                        width: 600px;
+                        text-align: left;
+                        margin: auto;
+                        font-family: monospace; 
+                    }
+                </style>
+                
+                <img src="/ajenti:static/main/error.jpeg" />
+                <br/>
+                <p>
+                    Server error
+                </p>
+                <pre>
+%s
+                </pre>
+            </body>
+        </html>
+        """ % stack

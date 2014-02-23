@@ -5,6 +5,15 @@
 @import "lib.i.less";
 
 
+#content-root {
+    display: block !important;
+}
+
+#content-root-no-css {
+    display: none;
+}
+
+
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
@@ -376,10 +385,7 @@ body {
             text-align: center;
 
             .icon {
-                font-family: FontAwesome;
-                font-size: 100px;
-                color: rgba(255,255,255,.5);
-                text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+                opacity: .5;
             }
         }
     }

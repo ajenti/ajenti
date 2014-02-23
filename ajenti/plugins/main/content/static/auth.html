@@ -9,42 +9,70 @@
     </head>
     
     <body>
-        <div id="ssl-alert">
-            <i class="icon-white icon-unlock"></i>
-            &nbsp;<b>Insecure communication</b>
-            &nbsp;<span>Your credentials will be transmitted in plain text!</span>
-        </div>
-
-        <div class="page auth">
-            <div class="content">
-                <form action="/ajenti:auth" method="POST">
-                    <div class="control vc">
-                        <div class="control hc">
-                            <div class="l control label">Username</div>
-                            <div><input class="control textbox" name="username" /></div>
-                        </div>
-                        <div class="control hc">
-                            <div class="l control label">Password</div>
-                            <div><input class="control textbox" type="password" name="password" /></div>
-                        </div>
-                        <a class="control button style-normal" href="#" id="login">
-                            <i class="icon-chevron-right"></i> Log in
-                        </a>
-                        <input style="display:none" type="submit" />
-                    </div>
-                </form>
+        <div id="content-root">
+            <div id="ssl-alert">
+                <i class="icon-white icon-unlock"></i>
+                &nbsp;<b>Insecure communication</b>
+                &nbsp;<span>Your credentials will be transmitted in plain text!</span>
             </div>
+
+            <div class="page auth">
+                <div class="content">
+                    <form action="/ajenti:auth" method="POST">
+                        <div class="control vc">
+                            <div class="control hc">
+                                <div class="l control label">Username</div>
+                                <div><input class="control textbox" name="username" /></div>
+                            </div>
+                            <div class="control hc">
+                                <div class="l control label">Password</div>
+                                <div><input class="control textbox" type="password" name="password" /></div>
+                            </div>
+                            <a class="control button style-normal" href="#" id="login">
+                                <i class="icon-chevron-right"></i> Log in
+                            </a>
+                            <input style="display:none" type="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                $($('input')[0]).focus();
+                $('input').keyup(function (e) {
+                    if (e.which == 13)
+                        $('form')[0].submit();
+                });
+                $('#login').click(function () {
+                    $('form')[0].submit();
+                });
+            </script>
         </div>
 
-        <script>
-            $($('input')[0]).focus();
-            $('input').keyup(function (e) {
-                if (e.which == 13)
-                    $('form')[0].submit();
-            });
-            $('#login').click(function () {
-                $('form')[0].submit();
-            });
-        </script>
+        <style>
+            #content-root-no-css {
+                font-family: sans-serif;
+                color: #888;
+                text-align: center;
+            }
+
+            #content-root-no-css code {
+                font-family: monospace; 
+            }
+        </style>
+                
+        <div id="content-root-no-css">
+            <img src="/ajenti:static/main/error.jpeg" />
+            <br/>
+            <p>
+                Your Ajenti instance is missing compiled CSS files.
+            </p>
+            <p>
+                If you are running Ajenti in a development environment, run <code>make run</code>.
+            </p>
+            <p>
+                If not, your installation package was probably broken.
+            </p>
+        </div>
     </body>
 </html>
