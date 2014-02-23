@@ -7,9 +7,12 @@
     :manpage:`console_codes(4)` and
     http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html.
 
-    :copyright: (c) 2011 by Selectel, see AUTHORS for more details.
+    :copyright: (c) 2011-2013 by Selectel, see AUTHORS for details.
     :license: LGPL, see LICENSE for more details.
 """
+
+import itertools
+
 
 #: A mapping of ANSI text style codes to style names, "+" means the:
 #: attribute is set, "-" -- reset; example:
@@ -69,4 +72,6 @@ BG = {
 }
 
 # Reverse mapping of all available attributes -- keep this private!
-_SGR = dict((v, k) for k, v in BG.items() + FG.items() + TEXT.items())
+_SGR = dict((v, k) for k, v in itertools.chain(BG.items(),
+                                               FG.items(),
+                                               TEXT.items()))

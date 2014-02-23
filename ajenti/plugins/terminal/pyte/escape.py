@@ -6,7 +6,7 @@
     This module defines bot CSI and non-CSI escape sequences, recognized
     by :class:`~pyte.streams.Stream` and subclasses.
 
-    :copyright: (c) 2011 by Selectel, see AUTHORS for more details.
+    :copyright: (c) 2011-2013 by Selectel, see AUTHORS for details.
     :license: LGPL, see LICENSE for more details.
 """
 

@@ -127,19 +127,19 @@ class TerminalHttp (BasePlugin, HttpPlugin):
 
         for y in range(0, terminal.height):
             for x in range(0, terminal.width):
-                fc = terminal.screen[y][x][1]
+                fc = terminal.screen.buffer[y][x][1]
                 if fc == 'default':
                     fc = 'lightgray'
                 if fc in self.colors:
                     fc = self.colors[fc]
                 fc = ImageDraw.ImageColor.getcolor(fc, 'RGB')
-                bc = terminal.screen[y][x][2]
+                bc = terminal.screen.buffer[y][x][2]
                 if bc == 'default':
                     bc = 'black'
                 if bc in self.colors:
                     bc = self.colors[bc]
                 bc = ImageDraw.ImageColor.getcolor(bc, 'RGB')
-                ch = terminal.screen[y][x][0]
+                ch = terminal.screen.buffer[y][x][0]
                 draw.point((x, 10 + y * 2 + 1), fill=(fc if ord(ch) > 32 else bc))
                 draw.point((x, 10 + y * 2), fill=bc)
 

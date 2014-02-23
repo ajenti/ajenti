@@ -12,14 +12,16 @@
     maintains a buffer of strings representing the screen of a
     terminal.
 
-    .. warning:: From ``xterm/main.c`` «If you think you know what all
+    .. warning:: From ``xterm/main.c`` "If you think you know what all
                  of this code is doing, you are probably very mistaken.
-                 There be serious and nasty dragons here» -- nothing
+                 There be serious and nasty dragons here" -- nothing
                  has changed.
 
-    :copyright: (c) 2011 by Selectel, see AUTHORS for more details.
+    :copyright: (c) 2011-2013 by Selectel, see AUTHORS for details.
     :license: LGPL, see LICENSE for more details.
 """
+
+from __future__ import absolute_import
 
 __all__ = ("Screen", "DiffScreen", "HistoryScreen",
            "Stream", "ByteStream", "DebugStream",
@@ -32,11 +34,18 @@ from . import (
     graphics as g,
     modes as mo
 )
+
 from .screens import Screen, DiffScreen, HistoryScreen
 from .streams import Stream, ByteStream, DebugStream
 
 
 if __debug__:
+    import sys
+
+    if sys.version_info[0] == 2:
+        str = unicode
+
+
     def dis(chars):
         """A :func:`dis.dis` for terminals.
 
@@ -45,7 +54,7 @@ if __debug__:
         >>> dis(u"\x9b20m")
         SELECT-GRAPHIC-RENDITION 20
         """
-        if isinstance(chars, unicode):
+        if isinstance(chars, str):
             chars = chars.encode("utf-8")
 
         return DebugStream().feed(chars)

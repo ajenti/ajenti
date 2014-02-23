@@ -9,16 +9,14 @@
         | |_) || |_| || |_|  __/
         | .__/  \__, | \__|\___|
         | |      __/ |
-        |_|     |___/      0.4.2
-
-        -- chicks dig dudes with terminals (c) @samfoo
+        |_|     |___/      0.4.8
 
 
 What is ``pyte``?
 -----------------
 
-What is ``pyte``? It's an in memory VTXXX-compatible terminal emulator.
-*XXX* stands for a series video terminals, developed by
+It's an in memory VTXXX-compatible terminal emulator.
+*XXX* stands for a series of video terminals, developed by
 `DEC <http://en.wikipedia.org/wiki/Digital_Equipment_Corporation>`_ between
 1970 and 1995. The first, and probably the most famous one, was VT100
 terminal, which is now a de-facto standard for all virtual terminal
@@ -45,59 +43,13 @@ you can use ``easy_install -U pyte``. Otherwise, you can download the source
 from `GitHub <http://github.com/selectel/pyte>`_ and run ``python setup.py install``.
 
 
-Quick example
--------------
-
-There are two important classes in ``pyte``: ``Screen`` and ``Stream``. The
-``Screen`` is the terminal screen emulator. It maintains an in-memory
-buffer of text and text-attributes to display on screen. The ``Stream``
-is the stream processor. It manages the state of the input and dispatches
-events to anything that's listening about things that are going on.
-Events are things like ``LINEFEED``, ``DRAW "a"``, or ``CURSOR_POSITION 10 10``.
-See the `API documentation` for more details.
-
-In general, if you just want to know what's being displayed on screen you
-can do something like the following:
-
-    >>> import pyte
-    >>> screen = pyte.Screen(80, 24)
-    >>> stream = pyte.Stream()
-    >>> stream.attach(screen)
-    >>> stream.feed("Hello World!")
-    >>> screen.display
-        ['Hello World!                                                                    ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ',
-         '                                                                                ']
-
-
-Alternatives
-------------
+Similar projects
+----------------
 
 ``pyte`` is not alone in the weird world of terminal emulator libraries,
 here's a few other options worth checking out:
 `Termemulator <http://sourceforge.net/projects/termemulator/>`_,
 `pyqonsole <http://hg.logilab.org/pyqonsole/>`_,
-`webtty <http://code.google.com/p/webtty/>`_
+`webtty <http://code.google.com/p/webtty/>`_,
 `AjaxTerm <http://antony.lesuisse.org/software/ajaxterm/>`_ and of course
 `vt102 <http://github.com/samfoo/vt102>`_.

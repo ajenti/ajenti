@@ -23,16 +23,21 @@
     >>> dummy.y
     5
 
-    :copyright: (c) 2011 by Selectel, see AUTHORS for more details.
+    :copyright: (c) 2011-2013 by Selectel, see AUTHORS for details.
     :license: LGPL, see LICENSE for more details.
 """
 
 from __future__ import absolute_import, unicode_literals
 
+import os
 import codecs
 import sys
 
 from . import control as ctrl, escape as esc
+
+
+if sys.version_info[0] == 2:
+    str = unicode
 
 
 class Stream(object):
@@ -41,8 +46,8 @@ class Stream(object):
 
     .. note::
 
-       Stream only accepts unicode strings as input, but if, for some
-       reason, you need to feed it with byte strings, consider using
+       Stream only accepts  strings as input, but if, for some reason,
+       you need to feed it with bytes, consider using
        :class:`~pyte.streams.ByteStream` instead.
 
     .. seealso::
@@ -130,14 +135,13 @@ class Stream(object):
         self.current = ""
 
     def consume(self, char):
-        """Consume a single unicode character and advance the state as
+        """Consume a single string character and advance the state as
         necessary.
 
-        :param unicode char: a unicode character to consume.
+        :param str char: a character to consume.
         """
-        if not isinstance(char, unicode):
-            raise TypeError(
-                "%s requires unicode input" % self.__class__.__name__)
+        if not isinstance(char, str):
+            raise TypeError("%s requires str input" % self.__class__.__name__)
 
         try:
             self.handlers.get(self.state)(char)
@@ -153,13 +157,12 @@ class Stream(object):
                 raise
 
     def feed(self, chars):
-        """Consume a unicode string and advance the state as necessary.
+        """Consume a string and advance the state as necessary.
 
-        :param unicode chars: a unicode string to feed from.
+        :param str chars: a string to feed from.
         """
-        if not isinstance(chars, unicode):
-            raise TypeError(
-                "%s requires unicode input" % self.__class__.__name__)
+        if not isinstance(chars, str):
+            raise TypeError("%s requires str input" % self.__class__.__name__)
 
         for char in chars: self.consume(char)
 
@@ -196,7 +199,7 @@ class Stream(object):
            If any of the attached listeners throws an exception, the
            subsequent callbacks are be aborted.
 
-        :param unicode event: event to dispatch.
+        :param str event: event to dispatch.
         :param list args: arguments to pass to event handlers.
         """
         for listener, only in self.listeners:
@@ -256,7 +259,7 @@ class Stream(object):
 
     def _charset(self, char):
         """Parse ``G0`` or ``G1`` charset code."""
-        self.dispatch("set-charset", char)
+        self.dispatch("set_charset", char)
 
     def _arguments(self, char):
         """Parse arguments of an escape sequence.
@@ -302,7 +305,7 @@ class Stream(object):
 
 
 class ByteStream(Stream):
-    """A stream, which takes bytes strings (instead of unicode) as input
+    """A stream, which takes bytes (instead of strings) as input
     and tries to decode them using a given list of possible encodings.
     It uses :class:`codecs.IncrementalDecoder` internally, so broken
     bytes is not an issue.
@@ -382,23 +385,25 @@ class DebugStream(ByteStream):
     def __init__(self, to=sys.stdout, only=(), *args, **kwargs):
         super(DebugStream, self).__init__(*args, **kwargs)
 
+        def safe_str(chunk):
+            if isinstance(chunk, bytes):
+                chunk = chunk.decode("utf-8")
+            elif not isinstance(chunk, str):
+                chunk = str(chunk)
+
+            return chunk
+
         class Bugger(object):
-            def fixup(self, arg):
-                if isinstance(arg, str):
-                    return arg.encode("utf-8")
-                elif not isinstance(arg, unicode):
-                    return str(arg)
-                else:
-                    return arg
+            __before__ = __after__ = lambda *args: None
 
             def __getattr__(self, event):
                 def inner(*args, **flags):
                     to.write(event.upper() + " ")
-                    to.write("; ".join(map(self.fixup, args)))
+                    to.write("; ".join(map(safe_str, args)))
                     to.write(" ")
-                    to.write(", ".join("{0}: {1}".format(name, self.fixup(arg))
-                                       for name, arg in flags.iteritems()))
-                    to.write("\n")
+                    to.write(", ".join("{0}: {1}".format(name, safe_str(arg))
+                                       for name, arg in flags.items()))
+                    to.write(os.linesep)
                 return inner
 
         self.attach(Bugger(), only=only)

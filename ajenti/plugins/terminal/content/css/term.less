@@ -9,6 +9,7 @@ body.terminal {
         -moz-user-select: text;
         overflow: hidden;
         display: inline-block;
+        border-radius: 10px;
 
         * {
             margin: 0;
@@ -21,6 +22,10 @@ body.terminal {
         }
 
         pre {
+            &:first-child {
+                display: none;
+            }
+
             font-family: "Ubuntu Mono", monospace;
             color: white;
             font-size: 11px;
@@ -45,19 +50,19 @@ body.terminal {
     padding: 5px;
 
     img {
-        border-radius: 5px;
-        box-shadow: 0 1px 1px rgba(0,0,0,.75), 0 1px 1px rgba(255,255,255,.5) inset;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.25);
         &:hover {
-            opacity: .75;
+            opacity: .9;
         }
     }
 
     a {
         position: absolute;
-        top: 15px;
-        right: 15px;
-        background: rgba(255,255,255,0.5);
-        border-radius: 50%;
+        top: 5px;
+        right: 5px;
+        background: rgba(255,255,255,0.75);
+        border-radius: 0 0 0 2px;
         width: 14px;
         height: 14px;
         text-align: center;

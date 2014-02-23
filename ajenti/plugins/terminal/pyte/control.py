@@ -7,11 +7,12 @@
     :class:`~pyte.streams.Stream`, the set of codes here is for
     ``TERM=linux`` which is a superset of VT102.
 
-    :copyright: (c) 2011 by Selectel, see AUTHORS for more details.
+    :copyright: (c) 2011-2013 by Selectel, see AUTHORS for details.
     :license: LGPL, see LICENSE for more details.
 """
 
 from __future__ import unicode_literals
+
 
 #: *Space*: Not suprisingly -- ``" "``.
 SP = " "

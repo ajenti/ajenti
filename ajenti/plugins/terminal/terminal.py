@@ -63,6 +63,8 @@ class PTYProtocol():
         self.stream.attach(self.term)
         self.data = ''
 
+        self.last_cursor_position = None
+
     def read(self, timeout=1):
         select([self.master], [], [], timeout=timeout)
         
@@ -110,20 +112,25 @@ class PTYProtocol():
         return self.format(full=True)
 
     def has_updates(self):
+        if self.last_cursor_position != (self.term.cursor.x, self.term.cursor.y):
+            return True
         return len(self.term.dirty) > 0
 
     def format(self, full=False):
         l = {}
         self.term.dirty.add(self.term.cursor.y)
         for k in self.term.dirty:
-            l[k] = self.term[k]
+            l[k] = self.term.buffer[k]
         self.term.dirty.clear()
+
         r = {
-            'lines': self.term if full else l,
+            'lines': self.term.buffer if full else l,
             'cx': self.term.cursor.x,
             'cy': self.term.cursor.y,
             'cursor': not self.term.cursor.hidden,
         }
+
+        self.last_cursor_position = (self.term.cursor.x, self.term.cursor.y)
         return r
 
     def write(self, data):
