@@ -28,7 +28,7 @@ class TerminalClassConfigEditor (ClassConfigEditor):
 
 @plugin
 class Terminals (SectionPlugin):
-    default_classconfig = {'shell': 'sh -c $SHELL || sh'}
+    default_classconfig = {'shell': 'sh -c $SHELL || bash'}
     classconfig_editor = TerminalClassConfigEditor
 
     def init(self):

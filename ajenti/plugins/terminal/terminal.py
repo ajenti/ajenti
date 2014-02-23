@@ -21,7 +21,7 @@ class Terminal (object):
         env['LINES'] = str(self.height)
         env['LC_ALL'] = 'en_US.UTF8'
 
-        command = ['sh', '-c', command or 'sh']
+        command = ['sh', '-c', command or 'bash']
 
         pid, master = pty.fork()
         if pid == 0:
