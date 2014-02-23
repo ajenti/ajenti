@@ -27,9 +27,11 @@ import gevent.ssl
 from gevent import monkey
 
 try:
-    monkey.patch_all(select=False, thread=False) # old gevent
-except:
     monkey.patch_all(select=False, thread=False, subprocess=True)
+except:
+    monkey.patch_all(select=False, thread=False) # old gevent
+
+import ajenti.compat
 
 from socketio.server import SocketIOServer
 
@@ -137,6 +139,7 @@ def run():
         syslog.openlog(b'ajenti')
 
     try:
+        gevent.signal(signal.SIGINT, lambda: sys.exit(0))
         gevent.signal(signal.SIGTERM, lambda: sys.exit(0))
     except:
         pass
