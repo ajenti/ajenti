@@ -5,7 +5,7 @@
     <box width="90">
         <label id="device" style="bold" text="---" />
     </box>
-    <box width="50">
+    <box width="150">
         <label id="value" text="---" />
     </box>
 

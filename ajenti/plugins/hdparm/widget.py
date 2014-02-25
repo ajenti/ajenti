@@ -25,11 +25,11 @@ class HDPARMSensor (Sensor):
         """
         if not path:
             return -1
-        output = re.split("\n", subprocess.check_output(['hdparm', '-C', '/dev/' + path]))
-        r = re.match("(\s).*:(\s)+(.*)$", output[2])
-        if r is None:
-            return 0
-        return r.group(3)
+        output = subprocess.check_output(['hdparm', '-C', '/dev/' + path]).splitlines()
+        if len(output) < 3:
+            return None
+        r = output[-1].split(':')[-1].strip()
+        return r
 
 
 @plugin
@@ -39,18 +39,12 @@ class HDPARMWidget (ConfigurableWidget):
 
     def on_prepare(self):
         self.sensor = Sensor.find('hdparm_state')
-        self.append(self.ui.inflate('smartctl:widget'))
+        self.append(self.ui.inflate('hdparm:widget'))
 
     def on_start(self):
         self.find('device').text = self.config['device']
         v = self.sensor.value(self.config['device'])
-
-        if v == 0:
-            v = _('No data')
-
-        self.find('value').text = v
-
-
+        self.find('value').text = v or _('No data')
 
     def create_config(self):
         return {'device': ''}
