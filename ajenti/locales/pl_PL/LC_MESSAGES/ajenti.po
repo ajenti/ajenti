@@ -835,6 +835,26 @@ msgstr "Hasło"
 msgid "Set"
 msgstr "Ustaw"
 
+#: ajenti/plugins/hdparm/widget.py:37
+msgid "HDD drive state"
+msgstr ""
+
+#: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
+msgid "No data"
+msgstr "Brak danych"
+
+#: ajenti/plugins/hdparm/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/free-widget.xml:1
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+msgid "Device"
+msgstr "Urządzenie"
+
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
 #: ajenti/plugins/iptables/main.py:67 ajenti/plugins/packages/main.py:14
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
@@ -1240,17 +1260,6 @@ msgstr "Anuluj"
 msgid "HDD Temperature"
 msgstr "Temperatura HDD"
 
-#: ajenti/plugins/hddtemp/layout/widget.xml:1
-#: ajenti/plugins/network/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:4
-#: ajenti/plugins/fstab/layout/main.xml:12
-#: ajenti/plugins/fstab/layout/free-widget.xml:1
-#: ajenti/plugins/fstab/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/iio-widget.xml:1
-#: ajenti/plugins/smartctl/layout/widget.xml:1
-msgid "Device"
-msgstr "Urządzenie"
-
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
@@ -1382,12 +1391,12 @@ msgstr ""
 msgid "Group for new files"
 msgstr ""
 
-#: ajenti/plugins/terminal/terminal.py:100
+#: ajenti/plugins/terminal/terminal.py:102
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "Proces zakończył się stanem %i"
 
-#: ajenti/plugins/terminal/terminal.py:102
+#: ajenti/plugins/terminal/terminal.py:104
 msgid "Process has exited successfully"
 msgstr "Proces zakończył się"
 
@@ -1836,10 +1845,6 @@ msgstr "Specjalne"
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
 msgstr "Logi"
-
-#: ajenti/plugins/smartctl/widget.py:60
-msgid "No data"
-msgstr "Brak danych"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"

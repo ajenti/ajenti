@@ -5,7 +5,7 @@ msgstr "プラグイン"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "プラグイン一覧の取得"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:2
@@ -46,7 +46,7 @@ msgstr "タイプ"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "以下に依存："
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -165,7 +165,7 @@ msgstr "保存"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcacheのメモリ使用量"
 
 #: ajenti/plugins/configurator/configurator.py:35
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -264,11 +264,11 @@ msgstr "認証"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "以下と同期："
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "今すぐ同期"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
@@ -334,11 +334,11 @@ msgstr "シークレット"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "サーバーのアドレス"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "ドメイン名"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -346,30 +346,30 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "管理者ユーザ"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
-msgstr ""
+msgstr "管理者のパスワード"
 
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "タスク %s が完了"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "タスク %s がキューに入っています"
 
 #: ajenti/plugins/tasks/manager.py:115
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "タスク %s を開始"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "タスク"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 #: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
@@ -379,16 +379,16 @@ msgstr "ツール"
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "%s をコピーしています"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "%s を移動しています"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "実行中のタスク"
 
 #: ajenti/plugins/tasks/layout/main.xml:2
 #: ajenti/plugins/fstab/layout/main.xml:1
@@ -430,7 +430,7 @@ msgstr "エラー"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "クラッシュしました"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -453,7 +453,7 @@ msgstr "スケジュール"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "手動 (以下で指定)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
@@ -483,11 +483,11 @@ msgstr "毎年"
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "再起動時"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "手動のエントリ"
 
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/cron/layout/main.xml:5
@@ -516,29 +516,29 @@ msgstr "DoW"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "並列実行"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "ディレクトリから"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "ディレクトリへ"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "アーカイブ"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "再帰"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "ファイル時刻を保持"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
@@ -646,7 +646,7 @@ msgstr "セクションへのアクセス"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "ファイル名"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -734,7 +734,7 @@ msgstr "読み取り専用"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "高度な設定"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
@@ -835,6 +835,26 @@ msgstr "パスワード"
 msgid "Set"
 msgstr "セット"
 
+#: ajenti/plugins/hdparm/widget.py:37
+msgid "HDD drive state"
+msgstr ""
+
+#: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
+msgid "No data"
+msgstr "データがありません。"
+
+#: ajenti/plugins/hdparm/layout/widget.xml:1
+#: ajenti/plugins/hddtemp/layout/widget.xml:1
+#: ajenti/plugins/network/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:12
+#: ajenti/plugins/fstab/layout/free-widget.xml:1
+#: ajenti/plugins/fstab/layout/widget.xml:1
+#: ajenti/plugins/fstab/layout/iio-widget.xml:1
+#: ajenti/plugins/smartctl/layout/widget.xml:1
+msgid "Device"
+msgstr "デバイス"
+
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
 #: ajenti/plugins/iptables/main.py:67 ajenti/plugins/packages/main.py:14
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
@@ -847,17 +867,17 @@ msgstr "システム"
 #: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "%s のホーム ディレクトリが作成されました"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "%s のパスワードが変更されました"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "エラー:\"%s\""
 
 #: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
@@ -866,7 +886,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "%s のパスワードが削除されました"
 
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
@@ -883,7 +903,7 @@ msgstr "グループ"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "システム ユーザー"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
@@ -908,7 +928,7 @@ msgstr "シェル"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "新規パスワード"
 
 #: ajenti/plugins/users/layout/user-list.xml:9
 #: ajenti/plugins/fm/layout/main.xml:15
@@ -925,7 +945,7 @@ msgstr "サブネットワーク"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
-msgstr ""
+msgstr "仕様"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "IP ranges"
@@ -999,7 +1019,7 @@ msgstr "自動再起動"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "On crash"
-msgstr ""
+msgstr "クラッシュ時"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Start timeout"
@@ -1240,17 +1260,6 @@ msgstr "キャンセル"
 msgid "HDD Temperature"
 msgstr "HDD温度"
 
-#: ajenti/plugins/hddtemp/layout/widget.xml:1
-#: ajenti/plugins/network/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:4
-#: ajenti/plugins/fstab/layout/main.xml:12
-#: ajenti/plugins/fstab/layout/free-widget.xml:1
-#: ajenti/plugins/fstab/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/iio-widget.xml:1
-#: ajenti/plugins/smartctl/layout/widget.xml:1
-msgid "Device"
-msgstr "デバイス"
-
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
@@ -1262,15 +1271,15 @@ msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "ゾーン"
 
 #: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
-msgstr ""
+msgstr "ファイル"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr ""
+msgstr "ゾーン"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
@@ -1278,7 +1287,7 @@ msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
+msgstr "ゾーンを保存"
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
@@ -1286,11 +1295,11 @@ msgstr "ファイル マネージャー"
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "ファイルは移動されました"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "ファイルはコピーされました"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
@@ -1299,7 +1308,7 @@ msgstr "選択した %i アイテム"
 
 #: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
-msgstr ""
+msgstr "展開されました"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1348,11 +1357,11 @@ msgstr "クリップボード"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
-msgstr ""
+msgstr "展開"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Access"
@@ -1372,22 +1381,22 @@ msgstr "再帰的に設定"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "開始ディレクトリ"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "新しいファイルの所有者"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "新しいファイルのグループ"
 
-#: ajenti/plugins/terminal/terminal.py:100
+#: ajenti/plugins/terminal/terminal.py:102
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "プロセス %i の状態で終了しています"
 
-#: ajenti/plugins/terminal/terminal.py:102
+#: ajenti/plugins/terminal/terminal.py:104
 msgid "Process has exited successfully"
 msgstr "プロセスは正常に終了しました"
 
@@ -1422,7 +1431,7 @@ msgstr "トラフィック"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
@@ -1446,11 +1455,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "静的"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "手動"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1514,7 +1523,7 @@ msgstr "アダプター"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "配列"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -1623,7 +1632,7 @@ msgstr "ウィジェット"
 #: ajenti/plugins/dashboard/layout/text.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
-msgstr ""
+msgstr "テキスト"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"
@@ -1659,11 +1668,11 @@ msgstr "メッセージ"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "タイムスタンプ"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "フラグ"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
@@ -1787,7 +1796,7 @@ msgstr "プロセス"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "親"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1815,11 +1824,11 @@ msgstr "モード"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "許可"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "拒否"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -1836,10 +1845,6 @@ msgstr "専用"
 #: ajenti/plugins/logs/main.py:12
 msgid "Logs"
 msgstr "ログ"
-
-#: ajenti/plugins/smartctl/widget.py:60
-msgid "No data"
-msgstr "データがありません。"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
