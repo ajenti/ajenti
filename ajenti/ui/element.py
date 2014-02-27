@@ -278,15 +278,13 @@ class UIElement (object):
         :rtype: dict
         """
         result = {
-            #'id': self.id,
             'uid': self.uid,
             'typeid': self.typeid,
-            #'events': self.events.keys(),
             'children': [c.render() for c in self.children if self.visible],
         }
         for prop in self.properties:
             if self.property_definitions[prop].public:
-                result[prop] = self.properties[prop]
+                result[prop] = getattr(self, prop)
         return result
 
     def on(self, event, handler, *args):

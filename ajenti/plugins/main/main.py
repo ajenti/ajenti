@@ -98,8 +98,7 @@ class MainSocket (SocketPlugin):
                         if el is None:
                             continue
                         for k, v in update['properties'].iteritems():
-                            el.properties[k] = v
-                            el.properties_dirty[k] = False
+                            setattr(el, k, v)
                         profile_end('Handling updates')
                     if update['type'] == 'event':
                         # Element event emitted

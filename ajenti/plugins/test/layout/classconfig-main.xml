@@ -1,0 +1,8 @@
+<body>
+    <pad>
+        <vc>
+            <label id="value" />
+            <button id="config" icon="cog" text="Configure this plugin" style="normal big" />
+        </vc>
+    </pad>
+</body>

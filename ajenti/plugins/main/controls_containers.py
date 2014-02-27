@@ -85,7 +85,21 @@ class Tabs (UIElement):
     typeid = 'tabs'
 
     def init(self):
+        self._active = 0
         self.refresh()
+
+    #---
+
+    def active_get(self):
+        return getattr(self, '_active', 0)
+        
+    def active_set(self, active):
+        self._active = active
+        self.on_switch()
+
+    active = property(active_get, active_set)
+
+    #---
 
     def on_switch(self):
         self.children_changed = True  # force update
