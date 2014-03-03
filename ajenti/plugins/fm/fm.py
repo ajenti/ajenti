@@ -70,7 +70,7 @@ class FileManager (SectionPlugin):
 
     @intent('fm:browse')
     def new_tab(self, path=None):
-        dir = path or self.classconfig.get('start', '/')
+        dir = path or self.classconfig.get('start', None) or '/'
         if not dir.startswith(self.classconfig['root']):
             dir = self.classconfig['root']
         self.controller.new_tab(dir)
