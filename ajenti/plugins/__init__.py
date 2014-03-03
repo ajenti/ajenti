@@ -204,6 +204,7 @@ class PluginContext (object):
 
         nit = getattr(cls, '_no_instance_tracking', None)
         if nit is not True and nit != cls:
+            logging.debug('%s instantiated [%s] %s' % (self, type(instance).__name__, instance))
             for iface in cls._implements + [cls]:
                 if not getattr(iface, '_no_instance_tracking', None) in [True, iface]:
                     self.__instances.setdefault(iface, set()).add(weakref.ref(instance))
