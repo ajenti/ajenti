@@ -72,6 +72,7 @@ def run():
 
     # Load plugins
     ajenti.plugins.manager.load_all()
+    Inflater.get(manager.context).precache()
 
     bind_spec = (ajenti.config.tree.http_binding.host, ajenti.config.tree.http_binding.port)
     if ':' in bind_spec[0]:
@@ -147,7 +148,6 @@ def run():
     ajenti.feedback.start()
     ajenti.ipc.IPCServer.get(manager.context).start()
 
-    Inflater.get(manager.context).precache()
     ajenti.server.serve_forever()
 
     if hasattr(ajenti.server, 'restart_marker'):
