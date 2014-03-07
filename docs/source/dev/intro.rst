@@ -12,6 +12,8 @@ The following are the absolutely minimal set of software required to build and r
   * coffee-script (use NPM)
   * lessc (use NPM)
 
+If you don't have CoffeeScript or LESS compiler, you won't be able to make changes to Ajenti CSS/JS files. In this case, download sources from PyPI, which includes compiled CSS/JS resources.
+
 Debian/Ubuntu extras:
 
   * apt-show-versions
@@ -24,6 +26,8 @@ Setting up
 Download the source::
 
     git clone git://github.com/Eugeny/ajenti.git
+
+(or download them from PyPI: https://pypi.python.org/pypi/ajenti)
 
 Install the dependencies::
   
