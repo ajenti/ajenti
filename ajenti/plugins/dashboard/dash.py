@@ -60,8 +60,12 @@ class Dash (SectionPlugin):
 
     @on('refresh-button', 'click')
     def on_refresh(self):
+        self.refresh()
+
+    @on('auto-refresh-button', 'click')
+    def on_auto_refresh(self):
         self.autorefresh = not self.autorefresh
-        self.find('refresh-button').pressed = self.autorefresh
+        self.find('auto-refresh-button').pressed = self.autorefresh
         self.refresh()
 
     @on('add-button', 'click')

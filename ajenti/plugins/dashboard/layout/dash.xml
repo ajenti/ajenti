@@ -4,8 +4,11 @@
             <dashboard:header id="header">
                 <hc>
                     <button text="{Add widget}" icon="plus" id="add-button" />
-                    <tooltip text="{Automatic refresh}">
+                    <tooltip text="{Refresh}">
                         <togglebutton icon="refresh" style="mini" id="refresh-button" />
+                    </tooltip>
+                    <tooltip text="{Automatic refresh}">
+                        <togglebutton icon="time" style="mini" id="auto-refresh-button" />
                     </tooltip>
                 </hc>
             </dashboard:header>
