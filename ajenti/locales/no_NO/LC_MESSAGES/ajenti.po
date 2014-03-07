@@ -5,7 +5,7 @@ msgstr "Plugins"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Samler plugin listen"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:2
@@ -46,7 +46,7 @@ msgstr "Type"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "Avhenger av"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -176,7 +176,7 @@ msgstr "Konfigurer"
 
 #: ajenti/plugins/configurator/configurator.py:148
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: ajenti/plugins/configurator/configurator.py:168
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -208,7 +208,7 @@ msgstr "Generelt"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -264,19 +264,19 @@ msgstr "Autentisering"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Synkroniser med"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Synkroniser nå"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Riktig konfigurert"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Kunne ikke synkronisere"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -284,7 +284,7 @@ msgstr "Kontoer"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "Dupliser"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -318,19 +318,19 @@ msgstr "Start Ajenti på nytt?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Server URL"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Admin DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Auth DN suffiks"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Secret"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
@@ -342,34 +342,34 @@ msgstr "Domenenavn"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "Administrator bruker"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
-msgstr ""
+msgstr "Administratorpassord"
 
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "Oppgaven %s fullført"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "Oppgaven %s i kø"
 
 #: ajenti/plugins/tasks/manager.py:115
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Oppgaven %s startet"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "Oppgaver"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 #: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
@@ -379,29 +379,30 @@ msgstr "Verktøy"
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "Kopierer %s"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "Flytter %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "Kjørende oppgaver"
 
 #: ajenti/plugins/tasks/layout/main.xml:2
 #: ajenti/plugins/fstab/layout/main.xml:1
+#: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Refresh"
 msgstr "Last inn på nytt"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "Kjører"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Avbryter"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
@@ -410,27 +411,27 @@ msgstr "Pågår"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "Avbryt"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Fullførte oppgaver"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Suksess"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "Avbrutt"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Krasjet"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -440,11 +441,11 @@ msgstr "Kjøre"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Jobber"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Kjør oppgaven"
 
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
@@ -453,7 +454,7 @@ msgstr "Tidsplan"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "Manuelt (angi nedenfor)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
@@ -483,11 +484,11 @@ msgstr "Årlig"
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "Ved omstart"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "Manuell registrering"
 
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/cron/layout/main.xml:5
@@ -516,41 +517,41 @@ msgstr "DoW"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Kjør i parallell"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Fra katalogen"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "I katalogen"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursiv"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "Behold filnavn"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Behold ext. attributter"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Slett i målmappen"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Behold tillatelser"
 
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
@@ -640,13 +641,13 @@ msgstr "Bokmerke"
 msgid "Topmost directory"
 msgstr "Øverste katalog"
 
-#: ajenti/plugins/main/main.py:211
+#: ajenti/plugins/main/main.py:210
 msgid "Section access"
 msgstr "Delen tilgang"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "Filnavn"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -718,7 +719,7 @@ msgstr "Gjestetilgang"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Browseable"
-msgstr ""
+msgstr "Søkbar"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Create mask"
@@ -734,15 +735,15 @@ msgstr "Skrivebeskyttet"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "Avansert"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "Tillatte brukere"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "R/W brukere"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -1006,12 +1007,12 @@ msgstr "Autostart"
 #: ajenti/plugins/supervisor/layout/main.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Enabled"
-msgstr ""
+msgstr "Aktivert"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktivert"
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 msgid "Autorestart"
@@ -1252,7 +1253,7 @@ msgstr "Marker for fjerning"
 
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17
-#: ajenti/plugins/dashboard/layout/dash.xml:3
+#: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -1289,26 +1290,34 @@ msgstr "Zone-filen finnes ikke"
 msgid "Save zone"
 msgstr "Lagre sone"
 
+#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:1
+msgid "Option 1"
+msgstr ""
+
+#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:2
+msgid "Option 2"
+msgstr ""
+
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
 msgstr "Filbehandling"
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "Flyttede filer"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "Kopierte filer"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "%i Elementer valgt"
 
 #: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
-msgstr ""
+msgstr "Pakket ut"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1316,7 +1325,7 @@ msgstr "Lukk"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "Velg alle"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
@@ -1328,15 +1337,15 @@ msgstr "Ny mappe"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
-msgstr ""
+msgstr "Kutt"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "Lim inn"
 
 #: ajenti/plugins/fm/layout/main.xml:8
 msgid "Delete"
@@ -1357,11 +1366,11 @@ msgstr "Utklippstavlen"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
-msgstr ""
+msgstr "Pakk ut"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Access"
@@ -1377,19 +1386,19 @@ msgstr "Andre"
 
 #: ajenti/plugins/fm/layout/main.xml:25
 msgid "Set recursively"
-msgstr ""
+msgstr "Angi rekursivt"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "Oppstartsmappe"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Eier for nye filer"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "Gruppe for nye filer"
 
 #: ajenti/plugins/terminal/terminal.py:102
 #, python-format
@@ -1435,11 +1444,11 @@ msgstr "Nettverk"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
-msgstr ""
+msgstr "Bring opp"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
-msgstr ""
+msgstr "Ta ned"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
@@ -1455,7 +1464,7 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "Statisk"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
@@ -1523,7 +1532,7 @@ msgstr "Adapter"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr ""
+msgstr "Matrise"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -1624,9 +1633,9 @@ msgstr "Velkommen"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: ajenti/plugins/dashboard/dash.py:176
+#: ajenti/plugins/dashboard/dash.py:180
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
@@ -1638,9 +1647,9 @@ msgstr "Tekst"
 msgid "Add widget"
 msgstr "Legg til modul"
 
-#: ajenti/plugins/dashboard/layout/dash.xml:2
+#: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
-msgstr ""
+msgstr "Automatisk oppdatering"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -1696,7 +1705,7 @@ msgstr ""
 
 #: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Dvalemodus"
 
 #: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -1728,7 +1737,7 @@ msgstr "Starte systemet på nytt?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Slå av"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -1780,7 +1789,7 @@ msgstr "Stopp"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "IPMI-Sensor"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
@@ -1876,5 +1885,5 @@ msgstr "Av"
 
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "OS-brukere"
 
