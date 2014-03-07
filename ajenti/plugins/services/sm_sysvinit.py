@@ -1,3 +1,4 @@
+import logging
 import os
 import subprocess
 
@@ -64,4 +65,7 @@ class SysVInitService (Service):
         self.command('restart')
 
     def command(self, cmd):
-        subprocess.Popen([self.script, cmd], close_fds=True).wait()
+        try:
+            subprocess.Popen([self.script, cmd], close_fds=True).wait()
+        except OSError, e:
+            logging.warn('service script failed: %s - %s' % (self.script, e))
