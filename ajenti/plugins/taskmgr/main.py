@@ -43,17 +43,20 @@ class TaskManager (SectionPlugin):
     def refresh(self):
         self.processes = list(psutil.process_iter())
         for p in self.processes:
-            p._name = p.name
-            p._cmd = ' '.join(p.cmdline)
-            p._cpu = p.get_cpu_percent(interval=0)
-            p._ram = '%i K' % int(p.get_memory_info()[0] / 1024)
-            p._ppid = p.ppid
-            p._sort_ram = p.get_memory_info()[0]
-            p._sort_name = p.name.lower()
             try:
-                p._username = p.username
-            except:
-                p._username = '?'
+                p._name = p.name
+                p._cmd = ' '.join(p.cmdline)
+                p._cpu = p.get_cpu_percent(interval=0)
+                p._ram = '%i K' % int(p.get_memory_info()[0] / 1024)
+                p._ppid = p.ppid
+                p._sort_ram = p.get_memory_info()[0]
+                p._sort_name = p.name.lower()
+                try:
+                    p._username = p.username
+                except:
+                    p._username = '?'
+            except psutil.NoSuchProcess:
+                self.processes.remove(p)
 
         self.processes = sorted(self.processes, key=lambda x: getattr(x, self.sorting), reverse=self.sorting_reverse)
         self.binder.setup(self).populate()
