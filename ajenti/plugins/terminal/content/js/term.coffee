@@ -102,20 +102,18 @@ class window.Terminal
         for i in [0...row.length]
             cell = row[i]
             iidx = parseInt(idx)
-            #if i == 0 || bg != cell[2] || fg != cell[1] || (iidx == @cursy && i == @cursx) || (iidx == @cursy && i == @cursx+1)
-            if true
+            #if true
+            if i == 0 || bg != cell[2] || fg != cell[1] || bold != cell[3] || (iidx == @cursy && i == @cursx) || (iidx == @cursy && i == @cursx+1)
                 misc = '';
                 sty = '';
                 if iidx == @cursy && i == @cursx
                     misc = ' class="cursor" '
-                if cell[3] || cell[4] || cell[5]
-                    # bold fonts in Firefox on Linux are TOTALLY BROKEN
-                    #if cell[3]
-                    #    sty += 'font-weight: bold;'
-                    if cell[4]
-                        sty += 'font-style: italic;'
-                    if cell[5]
-                        sty += 'text-decoration: underline;'
+                if cell[3]
+                    sty += 'font-weight: bold;'
+                if cell[4]
+                    sty += 'font-style: italic;'
+                if cell[5]
+                    sty += 'text-decoration: underline;'
 
                 color = cell[1]
                 if color == 'default'

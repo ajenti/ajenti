@@ -117,14 +117,20 @@ class PTYProtocol():
         return len(self.term.dirty) > 0
 
     def format(self, full=False):
+        def compress(line):
+            return [[tok or 0 for tok in ch] for ch in line]
+
         l = {}
         self.term.dirty.add(self.term.cursor.y)
         for k in self.term.dirty:
-            l[k] = self.term.buffer[k]
+            l[k] = compress(self.term.buffer[k])
         self.term.dirty.clear()
 
+        if full:
+            l = [compress(x) for x in self.term.buffer]
+
         r = {
-            'lines': self.term.buffer if full else l,
+            'lines': l,
             'cx': self.term.cursor.x,
             'cy': self.term.cursor.y,
             'cursor': not self.term.cursor.hidden,

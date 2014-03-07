@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "SourceCodePro";
+    src: url('terminal/SourceCodePro-Regular.otf') format('opentype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "SourceCodePro";
+    src: url('terminal/SourceCodePro-Bold.otf') format('opentype');
+    font-weight: bold;
+}
+
 body.terminal {
     background: black;
     width: 100%;
@@ -26,14 +38,12 @@ body.terminal {
                 display: none;
             }
 
-            font-family: "Ubuntu Mono", monospace;
+        font-family: "SourceCodePro", monospace;
             color: white;
-            font-size: 11px;
+            font-size: 12px;
             padding: 0;
             margin: 0;
             display: inline-block;
-            line-height: 17px;
-            width: 5px;
 
             &.cursor {
                 text-decoration: underline;
