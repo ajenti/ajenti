@@ -148,6 +148,7 @@ class UsersBackend (object):
     def make_home_dir(self, user):
         subprocess.call(['mkdir', '-p', user.home])
         subprocess.call(['chown', '%s:%s' % (user.uid, user.gid), user.home])
+        subprocess.call(['chmod', '755', user.home])
         self.set_home(user)
 
 
