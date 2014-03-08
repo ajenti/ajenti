@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 from ajenti.api import *
@@ -13,23 +14,26 @@ class FreeBSDServiceManager (ServiceManager):
     @cache_value(1)
     def get_all(self):
         r = []
+        dirs = ['/etc/rc.d', '/usr/local/etc/rc.d']
         for line in subprocess.check_output(['service', '-l']).splitlines():
             if line:
-                s = FreeBSDService(line)
-                try:
-                    s.refresh()
-                    r.append(s)
-                except OSError:
-                    pass
+                for d in dirs:
+                    if os.path.exists(os.path.join(d, line)):
+                        s = FreeBSDService(line, d)
+                        try:
+                            s.refresh()
+                            r.append(s)
+                        except OSError:
+                            pass
         return r
 
 
 class FreeBSDService (Service):
     source = 'rc.d'
 
-    def __init__(self, name):
+    def __init__(self, name, dir):
         self.name = name
-        self.script = '/etc/rc.d/%s' % self.name
+        self.script = os.path.join(dir, self.name)
 
     def refresh(self):
         self.running = subprocess.call([self.script, 'status']) == 0
