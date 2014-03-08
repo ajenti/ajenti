@@ -1,9 +1,9 @@
 <bind:dict id="bind">
     <vc>
-        <formline text="{Option 1}">
+        <formline text="Option 1">
             <textbox bind="option1" />
         </formline>
-        <formline text="{Option 2}">
+        <formline text="Option 2">
             <textbox bind="option2" type="integer" />
         </formline>
     </vc>
