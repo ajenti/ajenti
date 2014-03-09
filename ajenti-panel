@@ -72,7 +72,6 @@ if __name__ == '__main__':
     os.chmod(config_file, stat.S_IRWXU)
     ajenti.config = AjentiConfig(path=config_file)
     ajenti.config.load()
-    ajenti.init()
 
     logging.basicConfig(level=log_level)
 

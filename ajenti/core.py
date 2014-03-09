@@ -37,6 +37,8 @@ from socketio.server import SocketIOServer
 
 
 def run():
+    ajenti.init()
+    
     reload(sys)
     sys.setdefaultencoding('utf8')
     
