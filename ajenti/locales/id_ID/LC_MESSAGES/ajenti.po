@@ -1290,14 +1290,6 @@ msgstr "Berkas zona tidak ada"
 msgid "Save zone"
 msgstr "Simpan zona"
 
-#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:1
-msgid "Option 1"
-msgstr ""
-
-#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:2
-msgid "Option 2"
-msgstr ""
-
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
 msgstr "Manajer berkas"

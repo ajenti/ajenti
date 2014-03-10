@@ -35,7 +35,7 @@ msgstr "Ім’я"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
-msgstr ""
+msgstr "Залежності"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 #: ajenti/plugins/raid/layout/main.xml:3
@@ -46,7 +46,7 @@ msgstr "Тип"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "Залежить від"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -208,7 +208,7 @@ msgstr "Загальні"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr ""
+msgstr "Мова"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -264,19 +264,19 @@ msgstr "Авторизація"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Синхронізувати з"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "Синхронізувати зараз"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Налаштовано правильно"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Не вдалося синхронізувати"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -459,32 +459,32 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr ""
+msgstr "Погодинно"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
 msgid "Daily"
-msgstr ""
+msgstr "Щоденно"
 
 #: ajenti/plugins/tasks/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:18
 msgid "Weekly"
-msgstr ""
+msgstr "Потижнево"
 
 #: ajenti/plugins/tasks/layout/main.xml:27
 #: ajenti/plugins/cron/layout/main.xml:19
 msgid "Monthly"
-msgstr ""
+msgstr "Щомісяця"
 
 #: ajenti/plugins/tasks/layout/main.xml:28
 #: ajenti/plugins/cron/layout/main.xml:20
 msgid "Yearly"
-msgstr ""
+msgstr "Щороку"
 
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "При перезавантаженні"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
@@ -1288,14 +1288,6 @@ msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
-
-#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:1
-msgid "Option 1"
-msgstr ""
-
-#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:2
-msgid "Option 2"
 msgstr ""
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33

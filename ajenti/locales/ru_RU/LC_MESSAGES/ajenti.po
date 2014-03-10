@@ -1182,7 +1182,7 @@ msgstr "Не удалось обновить списки: %s"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr "Ничего не найдено"
+msgstr "Поиск не дал результатов"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1289,14 +1289,6 @@ msgstr "Файл зоны не существует"
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
 msgstr "Сохранить зону"
-
-#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:1
-msgid "Option 1"
-msgstr ""
-
-#: ajenti/plugins/test/layout/classconfig-simple-editor.xml:2
-msgid "Option 2"
-msgstr ""
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
