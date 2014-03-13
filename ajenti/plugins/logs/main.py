@@ -47,6 +47,9 @@ class LogView (UIElement):
 class LogsSocket (SocketPlugin):
     name = '/log'
 
+    def init(self):
+        self.reader = None
+
     def on_message(self, message):
         if message['type'] == 'select':
             self.path = message['path']
@@ -55,7 +58,8 @@ class LogsSocket (SocketPlugin):
             self.emit('add', self.reader.data)
 
     def on_disconnect(self):
-        self.reader.kill()
+        if self.reader:
+            self.reader.kill()
 
     def worker(self):
         while True:
@@ -74,7 +78,7 @@ class Reader():
         l = self.file.readline()
         d = ''
         while not l:
-            gevent.sleep(0)
+            gevent.sleep(0.33)
             l = self.file.readline()
         while l:
             gevent.sleep(0)
