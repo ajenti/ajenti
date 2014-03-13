@@ -431,7 +431,7 @@ msgstr "Error"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr "A bajo"
+msgstr "Falló"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -488,7 +488,7 @@ msgstr "Al reiniciar"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr "Entrada Manual"
+msgstr "Entrada manual"
 
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/cron/layout/main.xml:5
@@ -990,7 +990,7 @@ msgstr "Bases de datos"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr "Confirmar eliminación de la base de datos!"
+msgstr "¡Confirmar eliminación de la base de datos!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
@@ -1020,7 +1020,7 @@ msgstr "Reinicio automático"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "On crash"
-msgstr "En falla"
+msgstr "Ante un fallo"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Start timeout"
@@ -1115,7 +1115,7 @@ msgstr "Aplicar"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr "Razón"
+msgstr "Motivo"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"

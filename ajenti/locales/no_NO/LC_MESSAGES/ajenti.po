@@ -747,15 +747,15 @@ msgstr "R/W brukere"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
-msgstr ""
+msgstr "Veto filer"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Tving fil umask"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "Tving dir umask"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -838,7 +838,7 @@ msgstr "Sett"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "Harddisk stasjonstilstand"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -1020,7 +1020,7 @@ msgstr "Autorestart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "On crash"
-msgstr ""
+msgstr "hvis krasj"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Start timeout"
@@ -1078,7 +1078,7 @@ msgstr " autostart"
 
 #: ajenti/plugins/iptables/main.py:197
 msgid "Applied successfully"
-msgstr ""
+msgstr "Aktivert uten feil"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
@@ -1178,11 +1178,11 @@ msgstr "CNID adresse"
 #: ajenti/plugins/packages/pm_pacman.py:23
 #, python-format
 msgid "Failed to update lists: %s"
-msgstr ""
+msgstr "Kan ikke oppdatere listene: %s"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "Ingen resultater funnet"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1198,7 +1198,7 @@ msgstr "Installasjonen er ferdig!"
 
 #: ajenti/plugins/packages/main.py:73
 msgid "Querying package manager"
-msgstr ""
+msgstr "Spør pakkebehandler"
 
 #: ajenti/plugins/packages/main.py:134
 #, python-format
@@ -1444,7 +1444,7 @@ msgstr "Ta ned"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "Å bringe ned den primære nettverkstilkoblingen kan kutte av tilgang til serveren! er du sikker?"
 
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
@@ -1460,7 +1460,7 @@ msgstr "Statisk"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "Manuelt"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -1693,7 +1693,7 @@ msgstr "Strømkontroll"
 
 #: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
@@ -1717,11 +1717,11 @@ msgstr "Batteri"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Suspender systemet?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "Sett systemet i dvalemodus?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
@@ -1797,7 +1797,7 @@ msgstr "Prosesser"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr ""
+msgstr "Forelder"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -1813,7 +1813,7 @@ msgstr "Avslutte"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:8
 msgid "Kill"
-msgstr "Drepe"
+msgstr "Avslutt"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
@@ -1825,11 +1825,11 @@ msgstr "Modus"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "Tillat"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "Nekt"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -1853,7 +1853,7 @@ msgstr "SVIKTENDE"
 
 #: ajenti/plugins/smartctl/widget.py:62
 msgid "PRE-FAIL"
-msgstr ""
+msgstr "PRE-FAIL"
 
 #: ajenti/plugins/smartctl/widget.py:63
 msgid "Unknown error"
@@ -1865,11 +1865,11 @@ msgstr "Feiler i logg"
 
 #: ajenti/usersync/adsync.py:15
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Active Directory-synkronisering"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "LDAP-bruker synkronisering"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
