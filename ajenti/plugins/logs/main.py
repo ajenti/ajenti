@@ -1,4 +1,5 @@
 import gevent
+import time
 
 from ajenti.api import *
 from ajenti.api.http import SocketPlugin
@@ -73,12 +74,16 @@ class Reader():
         l = self.file.readline()
         d = ''
         while not l:
-            gevent.sleep(0.1)
+            gevent.sleep(0)
             l = self.file.readline()
+        ts = time.time()
         while l:
+            gevent.sleep(0)
             self.data += l
             d += l
             l = self.file.readline()
+            if time.time() - ts > 0.5:
+                break
         return d
 
     def kill(self):
