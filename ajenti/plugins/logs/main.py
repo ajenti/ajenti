@@ -76,13 +76,12 @@ class Reader():
         while not l:
             gevent.sleep(0)
             l = self.file.readline()
-        ts = time.time()
         while l:
             gevent.sleep(0)
             self.data += l
             d += l
             l = self.file.readline()
-            if time.time() - ts > 0.5:
+            if len(d) > 1024 * 64:
                 break
         return d
 
