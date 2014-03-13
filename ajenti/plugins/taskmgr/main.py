@@ -58,7 +58,7 @@ class TaskManager (SectionPlugin):
             except psutil.NoSuchProcess:
                 self.processes.remove(p)
 
-        self.processes = sorted(self.processes, key=lambda x: getattr(x, self.sorting), reverse=self.sorting_reverse)
+        self.processes = sorted(self.processes, key=lambda x: getattr(x, self.sorting, None), reverse=self.sorting_reverse)
         self.binder.setup(self).populate()
 
     def on_term(self, p):
