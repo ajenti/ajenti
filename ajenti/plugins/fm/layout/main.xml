@@ -142,6 +142,13 @@
                                     <ltd>
                                     </ltd>
                                     <ltd>
+                                        <label text="R" />
+                                    </ltd>
+                                    <ltd>
+                                        <label text="W" />
+                                    </ltd>
+                                    <ltd>
+                                        <label text="X" />
                                     </ltd>
                                     <ltd>
                                     </ltd>
@@ -151,11 +158,13 @@
                                         <label text="{Owner}" />
                                     </ltd>
                                     <ltd>
-                                        <hc>
-                                            <checkbox text="R" bind="mod_ur" />
-                                            <checkbox text="W" bind="mod_uw" />
-                                            <checkbox text="X" bind="mod_ux" />
-                                        </hc>
+                                        <checkbox bind="mod_ur" />
+                                    </ltd>
+                                    <ltd>
+                                        <checkbox bind="mod_uw" />
+                                    </ltd>
+                                    <ltd>
+                                        <checkbox bind="mod_ux" />
                                     </ltd>
                                     <ltd>
                                         <editable bind="owner" />
@@ -166,11 +175,13 @@
                                         <label text="{Group}" />
                                     </ltd>
                                     <ltd>
-                                        <hc>
-                                            <checkbox text="R" bind="mod_gr" />
-                                            <checkbox text="W" bind="mod_gw" />
-                                            <checkbox text="X" bind="mod_gx" />
-                                        </hc>
+                                        <checkbox bind="mod_gr" />
+                                    </ltd>
+                                    <ltd>
+                                        <checkbox bind="mod_gw" />
+                                    </ltd>
+                                    <ltd>
+                                        <checkbox bind="mod_gx" />
                                     </ltd>
                                     <ltd>
                                         <editable bind="group" />
@@ -181,11 +192,13 @@
                                         <label text="{Others}" />
                                     </ltd>
                                     <ltd>
-                                        <hc>
-                                            <checkbox text="R" bind="mod_ar" />
-                                            <checkbox text="W" bind="mod_aw" />
-                                            <checkbox text="X" bind="mod_ax" />
-                                        </hc>
+                                        <checkbox bind="mod_ar" />
+                                    </ltd>
+                                    <ltd>
+                                        <checkbox bind="mod_aw" />
+                                    </ltd>
+                                    <ltd>
+                                        <checkbox bind="mod_ax" />
                                     </ltd>
                                     <ltd>
                                     </ltd>
