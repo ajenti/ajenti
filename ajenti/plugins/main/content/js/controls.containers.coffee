@@ -92,7 +92,9 @@ class window.Controls.formline extends window.Control
         """
             <div class="control formline">
                 <div class="control label">#{@s(@properties.text)}</div>
-                <children>
+                <div>
+                    <children>
+                </div>
             </div>
         """
 
