@@ -65,7 +65,6 @@ class LogsSocket (SocketPlugin):
         while True:
             data = self.reader.read()
             if data is not None:
-                print 'data', len(data)
                 self.send_data(data)
 
     def send_data(self, data):
