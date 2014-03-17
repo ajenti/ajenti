@@ -641,7 +641,7 @@ msgstr "Favorito"
 msgid "Topmost directory"
 msgstr "Diretório de nível superior"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Acesso à secção"
 
@@ -681,7 +681,7 @@ msgstr "Uso da swap"
 msgid "Load average"
 msgstr "Carga Média"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Uptime"
 
@@ -861,7 +861,7 @@ msgstr "Dispositivo"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Sistema"
 
@@ -1843,7 +1843,7 @@ msgstr "Normal"
 msgid "Special"
 msgstr "Especial"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Registos"
 

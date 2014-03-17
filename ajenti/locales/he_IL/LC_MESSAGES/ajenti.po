@@ -641,7 +641,7 @@ msgstr "הוסף לסימניות"
 msgid "Topmost directory"
 msgstr "תיקיה עליונה"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "סעיף גישה"
 
@@ -681,7 +681,7 @@ msgstr "להחליף שימוש"
 msgid "Load average"
 msgstr "לטעון ממוצע"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "זמן ריצה"
 
@@ -861,7 +861,7 @@ msgstr "התקן"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "מערכת"
 
@@ -1843,7 +1843,7 @@ msgstr "רגיל"
 msgid "Special"
 msgstr "מיוחד"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "לוגים"
 

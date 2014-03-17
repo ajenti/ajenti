@@ -284,7 +284,7 @@ msgstr "Учетные записи"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr "Дубликат"
+msgstr "Копировать"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -641,7 +641,7 @@ msgstr "Закладка"
 msgid "Topmost directory"
 msgstr "Верхний каталог"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Доступ к плагинам"
 
@@ -681,7 +681,7 @@ msgstr "Файл подкачки"
 msgid "Load average"
 msgstr "Загрузка CPU"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Аптайм"
 
@@ -861,7 +861,7 @@ msgstr "Устройство"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Система"
 
@@ -1382,7 +1382,7 @@ msgstr "Установить рекурсивно"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr "Папка запуска"
+msgstr "Начальная папка"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
@@ -1843,7 +1843,7 @@ msgstr "Обычные"
 msgid "Special"
 msgstr "Особые"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Журналы"
 

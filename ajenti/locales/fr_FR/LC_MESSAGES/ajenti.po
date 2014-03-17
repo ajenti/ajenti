@@ -268,7 +268,7 @@ msgstr "Synchroniser avec"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr "Synchroniser  maintenant"
+msgstr "Synchroniser maintenant"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
@@ -531,7 +531,7 @@ msgstr "Dans le répertoire"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr "Archive"
+msgstr "Archiver"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
@@ -641,7 +641,7 @@ msgstr "Signet"
 msgid "Topmost directory"
 msgstr "Répertoire de premier niveau"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Accès section"
 
@@ -681,7 +681,7 @@ msgstr "Utilisation swap"
 msgid "Load average"
 msgstr "Charge moyenne"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Uptime"
 
@@ -861,7 +861,7 @@ msgstr "Périphérique"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Système"
 
@@ -1037,11 +1037,11 @@ msgstr "Environnement"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
-msgstr "RAID"
+msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr "Statut"
+msgstr "État"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
@@ -1382,7 +1382,7 @@ msgstr "Appliquer de manière récursive"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr "Répertoire de démarrage"
+msgstr "Répertoire initiale"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
@@ -1395,7 +1395,7 @@ msgstr "Groupe pour les nouveaux fichiers"
 #: ajenti/plugins/terminal/terminal.py:102
 #, python-format
 msgid "Process has exited with status %i"
-msgstr "Le processus a quitté avec l'état %i"
+msgstr "Le processus a quitté avec le code %i"
 
 #: ajenti/plugins/terminal/terminal.py:104
 msgid "Process has exited successfully"
@@ -1436,11 +1436,11 @@ msgstr "Réseau"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
-msgstr "Monter"
+msgstr "Brancher"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
-msgstr "Descendre"
+msgstr "Débrancher"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
@@ -1524,7 +1524,7 @@ msgstr "Contrôleur"
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr "Déployer"
+msgstr "Matrice"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
@@ -1645,7 +1645,7 @@ msgstr "Actualisation automatique"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
-msgstr "OpenVPN"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
@@ -1843,7 +1843,7 @@ msgstr "Normal"
 msgid "Special"
 msgstr "Spéciaux"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Journaux"
 
@@ -1873,7 +1873,7 @@ msgstr "Synchronisation utilisateur LDAP"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr "off"
+msgstr "Off"
 
 #: ajenti/usersync/unix.py:14
 msgid "OS users"

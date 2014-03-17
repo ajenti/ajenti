@@ -641,7 +641,7 @@ msgstr "书签"
 msgid "Topmost directory"
 msgstr "顶层目录"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "节点访问"
 
@@ -681,7 +681,7 @@ msgstr "SWAP使用情况"
 msgid "Load average"
 msgstr "平均负载"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "正常运行时间"
 
@@ -861,7 +861,7 @@ msgstr "设备"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "系统"
 
@@ -1844,7 +1844,7 @@ msgstr "普通"
 msgid "Special"
 msgstr "特殊"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "日志"
 

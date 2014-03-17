@@ -543,7 +543,7 @@ msgstr "Conservar tiempos de archivo"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr "Conservar atributos de extensión"
+msgstr "Conservar atributos extendidos"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
@@ -641,7 +641,7 @@ msgstr "Favorito"
 msgid "Topmost directory"
 msgstr "Directorio superior"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Acceso a sección"
 
@@ -681,7 +681,7 @@ msgstr "Uso de swap"
 msgid "Load average"
 msgstr "Promedio de carga"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Uptime"
 
@@ -751,11 +751,11 @@ msgstr "Archivos prohibidos"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr "Forzar archivo sin mascara"
+msgstr "Forzar umask de archivo"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr "Forzar directorio sin mascara"
+msgstr "Forzar umask de directorio"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -861,14 +861,14 @@ msgstr "Dispositivo"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Sistema"
 
 #: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
-msgstr "Directorio Home para %s fue creado"
+msgstr "Directorio Home para %s creado"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
@@ -1436,11 +1436,11 @@ msgstr "Red"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
-msgstr "Subir"
+msgstr "Activar"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
-msgstr "Bajar"
+msgstr "Desactivar"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
@@ -1627,7 +1627,7 @@ msgstr "Panel de control"
 
 #: ajenti/plugins/dashboard/dash.py:180
 msgid "Widgets"
-msgstr "Accesorios"
+msgstr "Widgets"
 
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
@@ -1677,7 +1677,7 @@ msgstr "Señales"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr "Administración de direcciones"
+msgstr "Direccion de administración"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
@@ -1843,7 +1843,7 @@ msgstr "Normal"
 msgid "Special"
 msgstr "Especial"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Registros"
 

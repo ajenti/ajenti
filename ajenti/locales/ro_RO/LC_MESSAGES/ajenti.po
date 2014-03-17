@@ -641,7 +641,7 @@ msgstr "Marcaj"
 msgid "Topmost directory"
 msgstr "Celemai folosite măpi"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Accesul la secția"
 
@@ -681,7 +681,7 @@ msgstr "Swap utilzat"
 msgid "Load average"
 msgstr "Media încărcarii"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Timp de funcționare"
 
@@ -861,7 +861,7 @@ msgstr "Dispozitiv"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Sistem"
 
@@ -1843,7 +1843,7 @@ msgstr "Normal"
 msgid "Special"
 msgstr "Special"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Log-uri"
 

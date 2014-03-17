@@ -642,7 +642,7 @@ msgstr "書籤"
 msgid "Topmost directory"
 msgstr "最頂層目錄"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "區段存取"
 
@@ -682,7 +682,7 @@ msgstr "Swap使用率"
 msgid "Load average"
 msgstr "平均負載"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "在線時間"
 
@@ -862,7 +862,7 @@ msgstr "裝置"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "系統"
 
@@ -1844,7 +1844,7 @@ msgstr "標準"
 msgid "Special"
 msgstr "特別"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "日誌"
 

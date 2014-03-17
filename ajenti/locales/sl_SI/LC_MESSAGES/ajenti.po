@@ -641,7 +641,7 @@ msgstr "Zaznamek"
 msgid "Topmost directory"
 msgstr "Vrhnji imenik"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Dostop do področja"
 
@@ -681,7 +681,7 @@ msgstr "Poraba swap"
 msgid "Load average"
 msgstr "Povprečna obremenitev"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Čas delovanja"
 
@@ -861,7 +861,7 @@ msgstr "Naprava"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Sistem"
 
@@ -1843,7 +1843,7 @@ msgstr "Običajno"
 msgid "Special"
 msgstr "Poseben"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Dnevniške datoteke"
 

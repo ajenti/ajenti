@@ -641,7 +641,7 @@ msgstr "Zakładka"
 msgid "Topmost directory"
 msgstr "Katalog najwyższego poziomu"
 
-#: ajenti/plugins/main/main.py:210
+#: ajenti/plugins/main/main.py:211
 msgid "Section access"
 msgstr "Dostęp do sekcji"
 
@@ -681,7 +681,7 @@ msgstr "Użycie swap"
 msgid "Load average"
 msgstr "Średnie obciążenie"
 
-#: ajenti/plugins/sensors/uptime.py:74
+#: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
 msgstr "Czas działania"
 
@@ -838,7 +838,7 @@ msgstr "Ustaw"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "stan HDD"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -861,7 +861,7 @@ msgstr "Urządzenie"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:14
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "System"
 
@@ -1296,11 +1296,11 @@ msgstr "Menedżer plików"
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "Przeniesione pliki"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "Skopiowane pliki"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
@@ -1358,7 +1358,7 @@ msgstr "Schowek"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
@@ -1382,15 +1382,15 @@ msgstr "Zestaw rekurencyjnie"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "Katalog domowy"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Właściciel nowych plików"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "Grupa dla nowych plików"
 
 #: ajenti/plugins/terminal/terminal.py:102
 #, python-format
@@ -1843,7 +1843,7 @@ msgstr "Normalny"
 msgid "Special"
 msgstr "Specjalne"
 
-#: ajenti/plugins/logs/main.py:12
+#: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "Logi"
 
