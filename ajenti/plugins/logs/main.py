@@ -63,6 +63,7 @@ class LogsSocket (SocketPlugin):
 
     def worker(self):
         while True:
+            print '+read'
             data = self.reader.read()
             if data is not None:
                 self.send_data(data)
@@ -77,6 +78,7 @@ class Reader():
         self.file = open(path, 'r')
 
     def read(self):
+        ctr = 0
         try:
             l = self.file.readline()
         except:
@@ -84,12 +86,15 @@ class Reader():
         d = ''
         while not l:
             gevent.sleep(0.33)
+            print '+wait'
             l = self.file.readline()
         while l:
             gevent.sleep(0)
             d += l
+            ctr += 1
+            print '+line', ctr, len(l)
             l = self.file.readline()
-            if len(d) > 1024 * 64:
+            if len(d) > 1024 * 128:
                 break
         return d
 

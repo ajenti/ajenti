@@ -13,7 +13,10 @@ class window.Controls.logs__log extends window.Control
             @socket.on 'add', @add
 
     add: (data) =>
-        $(@dom).val($(@dom).val() + data)
+        console.log 'Received: +' + data.length + ', total ' + $(@dom)[0].value.length
+        $(@dom)[0].value += data
+        if ($(@dom)[0].value.length > 128 * 1024)
+            $(@dom)[0].value = $(@dom)[0].value.slice($(@dom)[0].value.length - 128 * 1024)
         @dom.scrollTop = @dom.scrollHeight;
 
     onBroadcast: (msg) ->
