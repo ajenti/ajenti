@@ -123,6 +123,9 @@ def make_report(e):
     logging.blackbox.stop()
 
     tb = traceback.format_exc(e)
+    tb = '\n'.join('    ' + x for x in tb.splitlines())
+    log = logging.blackbox.buffer
+    log = '\n'.join('    ' + x for x in log.splitlines())
     
     catcher_url = None
     try:
@@ -132,34 +135,37 @@ def make_report(e):
     except:
         pass
 
-    return """Ajenti %s bug report
+    return """Ajenti bug report
 --------------------
-Detected platform: %s / %s / %s
-Architecture: %s
-Python: %s
-Installation: %s
-Debug: %s
-Locale: %s
-Loaded plugins:
-%s
 
-%s
+
+Info | Value
+----- | -----
+Ajenti | %s
+Platform | %s / %s / %s
+Architecture | %s
+Python | %s
+Installation | %s
+Debug | %s
+Catcher report | %s
+Loaded plugins | %s
+
 %s
 
 Log content:
+
 %s
             """ % (
         version,
-        platform, platform_unmapped, platform_string,
-        subprocess.check_output(['uname', '-mp']),
+        platform, platform_unmapped, platform_string.strip(),
+        subprocess.check_output(['uname', '-mp']).strip(),
         '.'.join([str(x) for x in _platform.python_version_tuple()]),
         installation_uid,
         debug,
-        locale.getlocale(locale.LC_MESSAGES),
-        ' '.join(manager.get_order()),
-        tb,
         catcher_url or 'Failed to upload traceback',
-        logging.blackbox.buffer,
+        ', '.join(sorted(manager.get_order())),
+        tb,
+        log,
     )
 
 

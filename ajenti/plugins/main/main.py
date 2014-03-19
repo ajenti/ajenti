@@ -146,6 +146,7 @@ class MainSocket (SocketPlugin):
 
     def send_progress(self, msg=''):
         self.emit('progress-message', msg)
+        gevent.sleep(0)
 
     def send_update_request(self):
         self.emit('update-request')
