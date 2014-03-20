@@ -63,6 +63,7 @@ def detect_platform():
         'fedora': 'rhel',
         'olpc': 'rhel',
         'xo-system': 'rhel',
+        'kali linux': 'debian',
     }
 
     platform_mapping = {
