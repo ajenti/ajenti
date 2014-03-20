@@ -337,6 +337,9 @@ class UIElement (object):
         if hasattr(self, method):
             getattr(self, method)(*args, **kwargs)
 
+        if not self.visible:
+            return
+
         for child in self.children:
             child.broadcast(method, *args, **kwargs)
 

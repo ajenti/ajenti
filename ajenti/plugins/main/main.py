@@ -94,9 +94,14 @@ class MainSocket (SocketPlugin):
                     if update['type'] == 'update':
                         # Property change
                         profile_start('Handling updates')
-                        el = self.ui.find_uid(update['uid'])
-                        if el is None:
+                        els = self.ui.root.nearest(
+                            lambda x: x.uid == update['uid'],
+                            exclude=lambda x: x.parent and not x.parent.visible,
+                            descend=False,
+                        )
+                        if len(els) == 0:
                             continue
+                        el = els[0]
                         for k, v in update['properties'].iteritems():
                             setattr(el, k, v)
                         profile_end('Handling updates')
@@ -282,15 +287,14 @@ class SectionsRoot (UIElement):
         self.children = sorted(self.children, key=category_order)
         if len(self.children) > 0:
             self.on_switch(self.children[0].uid)
-        #self.on('switch', self.on_switch)
 
     def on_switch(self, uid):
         for child in self.children:
             child.active = child.uid == uid
+            child.visible = child.active
             if child.active:
                 if child._first_page_load:
                     child.broadcast('on_first_page_load')
                     child._first_page_load = False
                 child.broadcast('on_page_load')
-            child.visible = child.active
         self.invalidate()
