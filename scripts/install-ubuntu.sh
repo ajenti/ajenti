@@ -14,6 +14,6 @@ echo ':: Updating lists'
 apt-get update
 
 echo ':: Installing package'
-apt-get install ajenti
+apt-get install -y ajenti
 
 echo ':: Done! Open https://<address>:8000 in browser'
