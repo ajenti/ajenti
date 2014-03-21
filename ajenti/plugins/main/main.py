@@ -1,6 +1,7 @@
 from base64 import b64encode
 import catcher
 import gevent
+import gevent.coros
 import json
 import traceback
 import zlib
@@ -51,6 +52,9 @@ class MainSocket (SocketPlugin):
     ui = None
 
     def on_connect(self):
+        self.compression = 'zlib'
+        self.__updater_lock = gevent.coros.RLock()
+
         # Inject into session
         self.request.session.endpoint = self
 
@@ -87,39 +91,40 @@ class MainSocket (SocketPlugin):
 
     def handle_message(self, message):
         try:
-            if message['type'] == 'ui_update':
-                # UI updates arrived
-                profile_start('Total')
-                for update in message['content']:
-                    if update['type'] == 'update':
-                        # Property change
-                        profile_start('Handling updates')
-                        els = self.ui.root.nearest(
-                            lambda x: x.uid == update['uid'],
-                            exclude=lambda x: x.parent and not x.parent.visible,
-                            descend=False,
-                        )
-                        if len(els) == 0:
-                            continue
-                        el = els[0]
-                        for k, v in update['properties'].iteritems():
-                            setattr(el, k, v)
-                        profile_end('Handling updates')
-                    if update['type'] == 'event':
-                        # Element event emitted
-                        profile_start('Handling event')
-                        self.ui.dispatch_event(update['uid'], update['event'], update['params'])
-                        profile_end('Handling event')
-                if self.ui.has_updates():
-                    # If any updates happened due to event handlers, send these immediately
-                    self.ui.clear_updates()
-                    self.send_ui()
-                else:
-                    # Otherwise just ACK
-                    self.send_ack()
-                profile_end('Total')
-                if ajenti.debug:
-                    self.send_debug()
+            with self.__updater_lock:
+                if message['type'] == 'ui_update':
+                    # UI updates arrived
+                    profile_start('Total')
+                    for update in message['content']:
+                        if update['type'] == 'update':
+                            # Property change
+                            profile_start('Handling updates')
+                            els = self.ui.root.nearest(
+                                lambda x: x.uid == update['uid'],
+                                exclude=lambda x: x.parent and not x.parent.visible,
+                                descend=False,
+                            )
+                            if len(els) == 0:
+                                continue
+                            el = els[0]
+                            for k, v in update['properties'].iteritems():
+                                setattr(el, k, v)
+                            profile_end('Handling updates')
+                        if update['type'] == 'event':
+                            # Element event emitted
+                            profile_start('Handling event')
+                            self.ui.dispatch_event(update['uid'], update['event'], update['params'])
+                            profile_end('Handling event')
+                    if self.ui.has_updates():
+                        # If any updates happened due to event handlers, send these immediately
+                        self.ui.clear_updates()
+                        self.send_ui()
+                    else:
+                        # Otherwise just ACK
+                        self.send_ack()
+                    profile_end('Total')
+                    if ajenti.debug:
+                        self.send_debug()
         except SecurityError, e:
             self.send_security_error()
         except Exception, e:
@@ -136,6 +141,7 @@ class MainSocket (SocketPlugin):
             'session': self.context.session.id,
             'feedback': ajenti.config.tree.enable_feedback,
             'edition': ajenti.edition,
+            'compression': self.compression,
         }
         self.emit('init', json.dumps(data))
 
@@ -143,8 +149,34 @@ class MainSocket (SocketPlugin):
         profile_start('Rendering')
         data = json.dumps(self.ui.render())
         profile_end('Rendering')
-        data = b64encode(zlib.compress(data)[2:-4])
+        if self.compression == 'zlib':
+            data = b64encode(zlib.compress(data, 4)[2:-4])
+        if self.compression == 'lzw':
+            data = b64encode(self.__compress_lzw(data))
         self.emit('ui', data)
+
+    def __compress_lzw(self, data):
+        dict = { }
+        out = []
+        phrase = data[0]
+        code = 256
+        for i in range(1, len(data)):
+            currChar = data[i]
+            if dict.get(phrase + currChar, None):
+                phrase += currChar
+            else:
+                out.append(dict[phrase] if (len(phrase) > 1) else ord(phrase[0]))
+                dict[phrase + currChar] = code
+                code += 1
+                phrase = currChar
+        out.append(dict[phrase] if (len(phrase) > 1) else ord(phrase[0]))
+        res = ''
+        for code in out:
+            if code >= 256:
+                res += chr(0)
+                res += chr(code / 256)
+            res += chr(code % 256)
+        return res
 
     def send_ack(self):
         self.emit('ack')
@@ -204,9 +236,10 @@ class MainSocket (SocketPlugin):
     def ui_watcher(self):
         # Sends UI updates periodically
         while True:
-            if self.ui.has_updates():
-                self.send_update_request()
-                gevent.sleep(0.5)
+            if self.__updater_lock:
+                if self.ui.has_updates():
+                    self.send_update_request()
+                    gevent.sleep(0.5)
             gevent.sleep(0.2)
 
 

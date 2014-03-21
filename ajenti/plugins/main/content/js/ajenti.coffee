@@ -19,6 +19,7 @@ class window.Stream
 
         @socket.on 'init', (data) ->
             data = JSON.parse(data)
+            @serverInfo = data
             console.group 'Welcome to Ajenti'
             console.log 'version', data.version
             console.log 'running on', data.platform
@@ -31,10 +32,14 @@ class window.Stream
         @socket.on 'ui', (ui) ->
             console.group 'Received update'
             console.log 'Transfer size', ui.length
-            profiler.start('Decompressing')
-            ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
-            profiler.stop()
-            console.log 'Payload size', ui.length
+            if @serverInfo.compression
+                profiler.start('Decompressing')
+                if @serverInfo.compression == 'zlib'
+                    ui = RawDeflate.inflate(RawDeflate.Base64.decode(ui))
+                if @serverInfo.compression == 'lzw'
+                    ui = lzw_decode(RawDeflate.Base64.decode(ui))
+                profiler.stop()
+                console.log 'Payload size', ui.length
             ui = JSON.parse(ui)
             console.log 'JSON data:', ui
 
@@ -111,18 +116,34 @@ class window.UIManager
         @updaterTimeout = null
 
     inflate: (json) ->
+        properties = {}
+        attr_defaults = {
+            visible: true,
+            client: false,
+        }
+        attr_map = {
+            _c: 'children',
+            _t: 'typeid',
+            _s: 'style',
+        }
+        for k,v of json
+            properties[attr_map[k] ? k] = v
+        for k,v of attr_defaults
+            if properties[k] == undefined
+                properties[k] = v
+
         children = []
         @_total_elements += 1
-        if json.visible == true
-            for child in json.children
+        if properties.visible == true
+            for child in properties.children
                 do (child) =>
                     children.push @inflate(child)
-        typeid = json.typeid.replace(':', '__')
+        typeid = properties.typeid.replace(':', '__')
         cls = Controls[typeid]
         if not cls
             cls = Controls.default
 
-        return new cls(this, json, children)
+        return new cls(this, properties, children)
 
     clear: () ->
         @_total_elements = 0
@@ -308,11 +329,6 @@ class window.Control
 
         profiler.start('Generating DOM')
         @html = @createDom()
-        if @dom
-            console.log 'Bad control:', this #TODO
-        if not @html.trim
-            @html = ''
-            return
         @html = @html.trim()
 
         if not @noUID

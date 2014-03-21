@@ -277,14 +277,32 @@ class UIElement (object):
 
         :rtype: dict
         """
-        result = {
+        attributes = {
             'uid': self.uid,
             'typeid': self.typeid,
             'children': [c.render() for c in self.children if self.visible],
         }
+
+        attr_defaults = {
+            'visible': True,
+            'client': False,
+        }
+        attr_map = {
+            'children': '_c',
+            'typeid': '_t',
+            'style': '_s',
+        }
+
+        result = {}
+        for key, value in attributes.iteritems():
+            if attr_defaults.get(key, None) != value:
+                result[attr_map.get(key, key)] = value
+
         for prop in self.properties:
             if self.property_definitions[prop].public:
-                result[prop] = getattr(self, prop)
+                value = getattr(self, prop)
+                if attr_defaults.get(prop, None) != value:
+                    result[attr_map.get(prop, prop)] = value
         return result
 
     def on(self, event, handler, *args):

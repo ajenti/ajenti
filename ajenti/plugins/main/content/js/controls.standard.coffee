@@ -28,7 +28,7 @@ class window.Controls.tooltip extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        $(@dom).find('.container').tooltip({
+        $(@dom.querySelector('.container')).tooltip({
             content: () => """
                 <div class="control tooltip body">
                     <div>

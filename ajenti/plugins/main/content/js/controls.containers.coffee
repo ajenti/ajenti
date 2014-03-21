@@ -220,13 +220,17 @@ class window.Controls.collapserow extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @container = $(@dom).find('>td>.children')[0]
+        dom_header = @dom.children[0].children[0]
+        dom_children = @dom.children[0].children[1]
+        dom_child_first = dom_children.children[0]
+
+        @container = dom_children
         @expanded = @properties.expanded
         if not @properties.expanded
-            $(@container).hide()
+            @container.style.display = 'none'
 
-        $(@dom).find('>td>.header').append($(@dom).find('>td>.children>*:first'))
-        @header = $(@dom).find('>td>.header')[0]
+        dom_header.appendChild(dom_child_first)
+        @header = dom_header
 
         @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
@@ -303,21 +307,21 @@ class window.Controls.collapse extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @container = $(@dom).find('>.children')
-        @header = $(@dom).find('>.header')
+        @header = @dom.children[0]
+        @container = @dom.children[1]
         @expanded = @properties.expanded
         if not @properties.expanded
-            @container.hide()
+            @container.style.display = 'none'
 
-        @header.click (e) =>
+        @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
-            @publish()
-            @container.toggle('blind')
+            $(@container).toggle('blind')
             if @expanded
                 @broadcast('visible')
             @cancel(e)
+        , false
 
-        @header.append($(@dom).find('.children > *')[0])
+        @header.appendChild(@container.children[0])
 
     detectUpdates: () ->
         r = {}
