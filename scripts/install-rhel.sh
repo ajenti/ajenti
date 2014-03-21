@@ -10,6 +10,6 @@ rpm -ivh ajenti-repo-1.0-1.noarch.rpm
 rm ajenti-repo-1.0-1.noarch.rpm
 
 echo ':: Installing package'
-yum install ajenti
+yum install ajenti -y
 
 echo ':: Done! Open https://<address>:8000 in browser'
