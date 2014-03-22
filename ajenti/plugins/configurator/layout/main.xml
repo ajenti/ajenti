@@ -95,7 +95,7 @@
                                                             <editable id="password" placeholder="{Change password}" icon="lock" />
                                                         </hc>
                                                     </box>
-                                                    <tabs id="permissions" client="True" />
+                                                    <tabs id="permissions" client="True" bind:visible="name" bindtransform="lambda x: x != 'root'" />
                                                 </collapserow>
                                             </bind:template>
                                             <button bind="__add" icon="plus" text="{Create}" id="add-user-button" />

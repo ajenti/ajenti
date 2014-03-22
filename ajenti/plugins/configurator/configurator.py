@@ -23,10 +23,16 @@ class ClassConfigManager (BasePlugin):
             self.classes = BasePlugin.get_instances(self.context)
             self.classes += BasePlugin.get_instances(self.context.parent)
         else:
-            self.classes = filter(lambda x: not x.classconfig_root, BasePlugin.get_instances())
+            self.classes = filter(
+                lambda x: not x.classconfig_root,
+                BasePlugin.get_instances()
+            )
         self.classes = filter(lambda x: x.classconfig_editor, self.classes)
         self.classes = list(set(self.classes))
-        self.classes = sorted(self.classes, key=lambda x: x.classconfig_editor.title)
+        self.classes = sorted(
+            self.classes,
+            key=lambda x: x.classconfig_editor.title
+        )
 
 
 @plugin
@@ -42,7 +48,10 @@ class Configurator (SectionPlugin):
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
 
         self.ccmgr = ClassConfigManager.get()
-        self.classconfig_binding = Binder(self.ccmgr, self.find('classconfigs'))
+        self.classconfig_binding = Binder(
+            self.ccmgr,
+            self.find('classconfigs')
+        )
 
         def post_classconfig_bind(object, collection, item, ui):
             def configure():
@@ -50,7 +59,8 @@ class Configurator (SectionPlugin):
 
             ui.find('configure').on('click', configure)
 
-        self.find('classconfigs').find('classes').post_item_bind = post_classconfig_bind
+        self.find('classconfigs').find('classes') \
+            .post_item_bind = post_classconfig_bind
 
         self.find('users').new_item = lambda c: UserData()
 
@@ -60,10 +70,10 @@ class Configurator (SectionPlugin):
             renameable = editable and provider.allows_renaming
             deletable = renameable
 
-            ui.find('name-edit').visible = renameable 
-            ui.find('name-label').visible = not renameable 
+            ui.find('name-edit').visible = renameable
+            ui.find('name-label').visible = not renameable
             ui.find('delete').visible = deletable
-            
+
             box = ui.find('permissions')
             box.empty()
 
@@ -73,7 +83,10 @@ class Configurator (SectionPlugin):
                 box.append(line)
                 for perm in prov.get_permissions():
                     line.append(
-                        self.ui.create('checkbox', id=perm[0], text=perm[1], value=(perm[0] in item.permissions))
+                        self.ui.create(
+                            'checkbox', id=perm[0],
+                            text=perm[1], value=(perm[0] in item.permissions)
+                        )
                     )
 
             def copy():
@@ -112,27 +125,34 @@ class Configurator (SectionPlugin):
             prov.sync()
         except Exception as e:
             self.context.notify('error', str(e))
-            
         self.refresh()
 
     @on('configure-sync-button', 'click')
     def on_configure_sync(self):
         self.save()
-        self.configure_plugin(UserManager.get(manager.context).get_sync_provider(), notify=False)
+        self.configure_plugin(
+            UserManager.get(manager.context).get_sync_provider(),
+            notify=False
+        )
         self.refresh()
 
     def refresh(self):
         self.binder.unpopulate()
 
-        self.find('sync-providers').labels = [x.title for x in UserSyncProvider.get_classes()]
-        self.find('sync-providers').values = [x.id    for x in UserSyncProvider.get_classes()]
+        self.find('sync-providers').labels = [
+            x.title for x in UserSyncProvider.get_classes()
+        ]
+        self.find('sync-providers').values = [
+            x.id for x in UserSyncProvider.get_classes()
+        ]
 
         provider = UserManager.get(manager.context).get_sync_provider()
         self.find('sync-providers').value = provider.id
         self.find('add-user-button').visible = provider.id == ''
         self.find('sync-users-button').visible = provider.id != ''
         self.find('password').visible = provider.id == ''
-        self.find('configure-sync-button').visible = provider.classconfig_editor is not None
+        self.find('configure-sync-button').visible = \
+            provider.classconfig_editor is not None
 
         try:
             provider.test()
@@ -156,16 +176,22 @@ class Configurator (SectionPlugin):
     @restrict('configurator:configure')
     def save(self):
         self.binder.update()
-        
-        UserManager.get(manager.context).set_sync_provider(self.find('sync-providers').value)
+
+        UserManager.get(manager.context).set_sync_provider(
+            self.find('sync-providers').value
+        )
 
         for user in ajenti.config.tree.users.values():
             if not '|' in user.password:
-                user.password = UserManager.get(manager.context).hash_password(user.password)
+                user.password = UserManager.get(manager.context) \
+                    .hash_password(user.password)
 
         self.refresh()
         ajenti.config.save()
-        self.context.notify('info', _('Saved. Please restart Ajenti for changes to take effect.'))
+        self.context.notify(
+            'info',
+            _('Saved. Please restart Ajenti for changes to take effect.')
+        )
 
     @on('fake-ssl', 'click')
     def on_gen_ssl(self):
@@ -183,10 +209,14 @@ class Configurator (SectionPlugin):
     def configure_plugin(self, plugin=None, notify=True):
         self.find('tabs').active = 1
         self.refresh()
-        
+
         if plugin and notify:
-            self.context.notify('info', _('Please configure %s plugin!') % plugin.classconfig_editor.title)
-        
+            self.context.notify(
+                'info',
+                _('Please configure %s plugin!') %
+                plugin.classconfig_editor.title
+            )
+
         self.activate()
 
         dialog = self.find('classconfigs').find('dialog')

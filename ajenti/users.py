@@ -9,7 +9,8 @@ from ajenti.api import *
 
 def restrict(permission):
     """
-    Marks a decorated function as requiring ``permission``. If the invoking user doesn't have one, :class:`SecurityError` is raised.
+    Marks a decorated function as requiring ``permission``.
+    If the invoking user doesn't have one, :class:`SecurityError` is raised.
     """
     def decorator(fx):
         def wrapper(*args, **kwargs):
@@ -55,7 +56,7 @@ class UserManager (BasePlugin):
 
         if not username in ajenti.config.tree.users:
             return False
-            
+
         try:
             provider.sync()
         except Exception as e:
@@ -65,7 +66,8 @@ class UserManager (BasePlugin):
 
         provider_name = type(provider).__name__
         if not result:
-            msg = 'failed login attempt for %s ("%s") through %s' % (username, password, provider_name)
+            msg = 'failed login attempt for %s ("%s") through %s' % \
+                (username, password, provider_name)
             syslog.syslog(syslog.LOG_WARNING, msg)
             logging.warn(msg)
         else:
@@ -86,7 +88,7 @@ class UserManager (BasePlugin):
     def has_permission(self, permission):
         """
         Checks whether the current user has a permission
-        
+
         :type permission: str
         :rtype: bool
         """
@@ -99,14 +101,14 @@ class UserManager (BasePlugin):
 
     def require_permission(self, permission):
         """
-        Checks current user for given permission and raises :class:`SecurityError` if he doesn't have one
+        Checks current user for given permission and
+        raises :class:`SecurityError` if he doesn't have one
         :type permission: str
         :raises: SecurityError
         """
         if not self.has_permission(permission):
             raise SecurityError(permission)
 
-        
     def get_sync_provider(self, fallback=False):
         """
         :type fallback: bool
@@ -134,8 +136,8 @@ class PermissionProvider (object):
     """
 
     def get_permissions(self):
-        """ 
-        Should return a list of permission names 
+        """
+        Should return a list of permission names
 
         :rtype: list
         """
@@ -143,7 +145,8 @@ class PermissionProvider (object):
 
     def get_name(self):
         """
-        Should return a human-friendly name for this set of permissions (displayed in Configurator) 
+        Should return a human-friendly name for this set
+        of permissions (displayed in Configurator)
         :rtype: str
         """
         return ''
