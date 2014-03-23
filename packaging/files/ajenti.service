@@ -1,0 +1,10 @@
+[Unit]
+Description=Ajenti - an easy server administration frontend
+
+[Service]
+Type=forking
+PIDFile=/var/run/ajenti.pid
+ExecStart=/usr/bin/ajenti-panel -d
+
+[Install]
+WantedBy=multi-user.target
