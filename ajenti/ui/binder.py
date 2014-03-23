@@ -499,7 +499,7 @@ class Binder (object):
             # Custom/collection binding
             if bindable.typeid.startswith('bind:'):
                 k = bindable.bind
-                if k in dir(object):
+                if k and hasattr(object, k):
                     self.add(bindable.binding(object, k, bindable))
                 continue
 
@@ -509,7 +509,7 @@ class Binder (object):
                 k = bindable.properties[prop]
 
                 if prop == 'bind':
-                    if k in dir(object):
+                    if k and hasattr(object, k):
                         self.add(PropertyBinding(object, k, bindable))
 
                 # Nested binder context
@@ -520,7 +520,7 @@ class Binder (object):
 
                 # Property binding
                 if prop.startswith('{bind}'):
-                    if k in dir(object):
+                    if k and hasattr(object, k):
                         self.add(PropertyBinding(object, k, bindable, prop.split('}')[1]))
 
         return self
