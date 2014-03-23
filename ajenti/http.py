@@ -92,9 +92,7 @@ class HttpContext (object):
 
         :type key: str
         """
-        for k in self.headers:
-            if k == key:
-                del self.headers[key]
+        self.headers = filter(lambda h: h[0] != key, self.headers)
 
     def fallthrough(self, handler):
         """
@@ -246,7 +244,6 @@ class HttpContext (object):
                     break
             os.close(fd)
         else:
-            self.respond_ok()
             yield self.gzip(open(path).read())
 
 
