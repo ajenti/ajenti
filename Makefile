@@ -18,11 +18,11 @@ ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) 
 
 all: build
 
-build: 
+build:
 	./compile_resources.py || true
 	./make_messages.py compile
-	
-run: 
+
+run:
 	./ajenti-panel -v -c ./config.json
 
 doc:
@@ -55,7 +55,7 @@ rpm: build tgz
 	mkdir -p build/SOURCES || true
 	cp dist/ajenti*.tar.gz build/SOURCES
 
-	rpmbuild --define '_topdir $(RPMTOPDIR)' -bb ajenti.spec 
+	rpmbuild --define '_topdir $(RPMTOPDIR)' -bb ajenti.spec
 
 	mv build/RPMS/noarch/$(PROJECT)*.rpm dist
 
@@ -71,14 +71,14 @@ deb: build tgz
 	dpkg-buildpackage -b -rfakeroot -us -uc
 
 	mv ../$(PROJECT)*.deb dist/
-	
+
 	rm ../$(PROJECT)*.orig.tar.gz
 	rm ../$(PROJECT)*.changes
 	rm debian/changelog
 
 tgz: build
 	rm dist/*.tar.gz || true
-	$(PYTHON) setup.py sdist 
+	$(PYTHON) setup.py sdist
 
 upload-deb: deb
 	scp dist/*.deb root@ajenti.org:/srv/repo/ng/debian
