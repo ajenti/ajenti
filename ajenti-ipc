@@ -8,7 +8,7 @@ class UHTTPConnection (httplib.HTTPConnection):
     def __init__(self, path):
         httplib.HTTPConnection.__init__(self, 'localhost')
         self.path = path
- 
+
     def connect(self):
         sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         try:
@@ -29,7 +29,7 @@ if len(sys.argv) < 2:
 
 conn = UHTTPConnection('/var/run/ajenti-ipc.sock')
 conn.request(
-    'GET', 
+    'GET',
     sys.argv[1] + '/' + '\n'.join(sys.argv[2:]).encode('base64').strip(),
 )
 

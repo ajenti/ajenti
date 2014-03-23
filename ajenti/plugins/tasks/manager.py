@@ -67,7 +67,7 @@ class TaskManager (BasePlugin):
         if task.execution_context:
             task.execution_context.notify('info', _('Task %s finished') % task.name)
         if task in self.running_tasks:
-            self.result_log = [task.result] + self.result_log[:9] 
+            self.result_log = [task.result] + self.result_log[:9]
             self.running_tasks.remove(task)
         if not self.running_tasks:
             if self.pending_tasks:
@@ -78,7 +78,7 @@ class TaskManager (BasePlugin):
         complete_tasks = [task for task in self.running_tasks if task.complete]
         for task in complete_tasks:
             self.running_tasks.remove(task)
-    
+
     def run(self, task=None, task_definition=None, task_id=None, context=None):
         if task_id is not None:
             for td in self.task_definitions:
@@ -120,7 +120,7 @@ class TaskManager (BasePlugin):
 class TasksIPC (IPCHandler):
     def init(self):
         self.manager = TaskManager.get(manager.context)
-    
+
     def get_name(self):
         return 'tasks'
 

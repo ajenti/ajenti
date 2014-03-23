@@ -26,7 +26,7 @@ class TaskError (Exception):
 class Task (object):
     """
     Base class for custom tasks
-    
+
     :param name: display name
     :param ui: full layout name for parameter editor, will be bound to parameter dictionary (so begin it with <bind:dict bind="params">)
     :param hidden: if True, task won't be available for manual creation
@@ -70,7 +70,7 @@ class Task (object):
             self.result.output = str(e)
             logging.exception(str(e))
         self.running = False
-        self.complete = True 
+        self.complete = True
         logging.info('Task %s complete (%s)' % (self.__class__.__name__, 'aborted' if self.aborted else 'success'))
         self.callback(self)
 
@@ -87,7 +87,7 @@ class Task (object):
         self.aborted = True
         self.result.result = TaskResult.ABORTED
         self.thread.join()
-        
+
     def set_progress(self, current, max):
         self._progress, self._progress_max = current, max
 

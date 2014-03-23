@@ -99,7 +99,7 @@ msgid "Enable"
 msgstr "Abilita"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:220
+#: ajenti/plugins/configurator/configurator.py:250
 msgid "Configuration"
 msgstr "Configurazione"
 
@@ -167,35 +167,35 @@ msgstr "Salva"
 msgid "Memcache memory usage"
 msgstr "Utilizzo della memoria Memcache"
 
-#: ajenti/plugins/configurator/configurator.py:35
+#: ajenti/plugins/configurator/configurator.py:41
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Configura"
 
-#: ajenti/plugins/configurator/configurator.py:148
+#: ajenti/plugins/configurator/configurator.py:168
 msgid "Auto"
 msgstr "Automatico"
 
-#: ajenti/plugins/configurator/configurator.py:168
+#: ajenti/plugins/configurator/configurator.py:193
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Salvato. Si prega di arrivare Ajenti affinché le modifiche abbiano effetto."
 
-#: ajenti/plugins/configurator/configurator.py:174
+#: ajenti/plugins/configurator/configurator.py:200
 msgid "Please supply hostname"
 msgstr "Si prega di fornire l'hostname"
 
-#: ajenti/plugins/configurator/configurator.py:188
+#: ajenti/plugins/configurator/configurator.py:216
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Si prega di configurare il plugin %s!"
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:254
 msgid "Modify Ajenti configuration"
 msgstr "Modificare la configurazione di Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:225
+#: ajenti/plugins/configurator/configurator.py:255
 msgid "Restart Ajenti"
 msgstr "Riavvia Ajenti"
 
@@ -578,7 +578,7 @@ msgid "Software"
 msgstr "Software"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:119
-#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:77
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
@@ -641,7 +641,7 @@ msgstr "Segnalibro"
 msgid "Topmost directory"
 msgstr "Directory di livello superiore"
 
-#: ajenti/plugins/main/main.py:211
+#: ajenti/plugins/main/main.py:249
 msgid "Section access"
 msgstr "Accesso sezione"
 
@@ -1266,9 +1266,14 @@ msgstr "Temperatura dell'hard disk"
 msgid "Sensor"
 msgstr "Sensore"
 
-#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
+#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:51
 msgid "Zone saved"
 msgstr "Zone salvate"
+
+#: ajenti/plugins/nsd/main.py:66
+#, python-format
+msgid "%s does not exist"
+msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"

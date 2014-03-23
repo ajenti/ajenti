@@ -41,9 +41,14 @@ class Handler (BaseHTTPRequestHandler):
             if h.get_name() == name:
                 try:
                     result = h.handle(args)
-                    self.send_response(200, 'OK')
-                    self.end_headers()
-                    self.wfile.write(result)
+                    if result is None:
+                        self.send_response(404, 'Not found')
+                        self.end_headers()
+                        self.wfile.write('')
+                    else:
+                        self.send_response(200, 'OK')
+                        self.end_headers()
+                        self.wfile.write(result)
                 except Exception, e:
                     self.send_response(500, 'Error')
                     self.end_headers()

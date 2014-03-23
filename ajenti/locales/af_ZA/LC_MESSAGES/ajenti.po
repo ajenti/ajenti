@@ -99,7 +99,7 @@ msgid "Enable"
 msgstr "aktiveer"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:220
+#: ajenti/plugins/configurator/configurator.py:250
 msgid "Configuration"
 msgstr ""
 
@@ -167,35 +167,35 @@ msgstr "stoor"
 msgid "Memcache memory usage"
 msgstr "Memcache geheue gebruik"
 
-#: ajenti/plugins/configurator/configurator.py:35
+#: ajenti/plugins/configurator/configurator.py:41
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:148
+#: ajenti/plugins/configurator/configurator.py:168
 msgid "Auto"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:168
+#: ajenti/plugins/configurator/configurator.py:193
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:174
+#: ajenti/plugins/configurator/configurator.py:200
 msgid "Please supply hostname"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:188
+#: ajenti/plugins/configurator/configurator.py:216
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:254
 msgid "Modify Ajenti configuration"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:225
+#: ajenti/plugins/configurator/configurator.py:255
 msgid "Restart Ajenti"
 msgstr ""
 
@@ -578,7 +578,7 @@ msgid "Software"
 msgstr "sagteware"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:119
-#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:70
+#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:77
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
@@ -641,7 +641,7 @@ msgstr ""
 msgid "Topmost directory"
 msgstr ""
 
-#: ajenti/plugins/main/main.py:211
+#: ajenti/plugins/main/main.py:249
 msgid "Section access"
 msgstr ""
 
@@ -1266,8 +1266,13 @@ msgstr "hardeskyf temperatuur"
 msgid "Sensor"
 msgstr ""
 
-#: ajenti/plugins/nsd/main.py:37 ajenti/plugins/bind9/main.py:51
+#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:51
 msgid "Zone saved"
+msgstr ""
+
+#: ajenti/plugins/nsd/main.py:66
+#, python-format
+msgid "%s does not exist"
 msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
