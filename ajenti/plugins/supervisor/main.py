@@ -2,6 +2,7 @@ from ajenti.api import *
 from ajenti.ui.binder import Binder
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
+from ajenti.util import platform_select
 
 from reconfigure.configs import SupervisorConfig
 from reconfigure.items.supervisor import ProgramData
@@ -19,7 +20,10 @@ class Supervisor (SectionPlugin):
         self.mgr = SupervisorServiceManager.get()
         self.binder = Binder(None, self.find('main'))
         self.find('programs').new_item = lambda c: ProgramData()
-        self.config = SupervisorConfig(path='/etc/supervisor/supervisord.conf')
+        self.config = SupervisorConfig(path=platform_select(
+            default='/etc/supervisor/supervisord.conf',
+            centos='/etc/supervisor.conf',
+        ))
 
     def on_page_load(self):
         self.refresh()
