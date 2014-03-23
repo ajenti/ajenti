@@ -80,6 +80,7 @@ if __name__ == '__main__':
             pidfile=PidFile('/var/run/ajenti.pid'),
             stdout=open('/dev/null', 'w+'),
             stderr=open('/dev/null', 'w+'),
+            detach_process=True
         )
         with context:
             ajenti.log.init_log_rotation()
