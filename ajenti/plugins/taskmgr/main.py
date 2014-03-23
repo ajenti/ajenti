@@ -7,6 +7,11 @@ from ajenti.ui.binder import Binder
 
 from ajenti.profiler import *
 
+def get(value):
+    '''
+    psutil 2 compatibility layer
+    '''
+    return value() if callable(value) else value
 
 @plugin
 class TaskManager (SectionPlugin):
@@ -44,15 +49,15 @@ class TaskManager (SectionPlugin):
         self.processes = list(psutil.process_iter())
         for p in self.processes:
             try:
-                p._name = p.name
-                p._cmd = ' '.join(p.cmdline)
+                p._name = get(p.name)
+                p._cmd = ' '.join(get(p.cmdline))
                 p._cpu = p.get_cpu_percent(interval=0)
                 p._ram = '%i K' % int(p.get_memory_info()[0] / 1024)
-                p._ppid = p.ppid
+                p._ppid = get(p.ppid)
                 p._sort_ram = p.get_memory_info()[0]
-                p._sort_name = p.name.lower()
+                p._sort_name = get(p.name).lower()
                 try:
-                    p._username = p.username
+                    p._username = get(p.username)
                 except:
                     p._username = '?'
             except psutil.NoSuchProcess:

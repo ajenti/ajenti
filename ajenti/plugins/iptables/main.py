@@ -56,10 +56,15 @@ class CentOSFirewallManager (FirewallManager, BasePlugin):
     def set_autostart_state(self, state):
         self.context.notify('info', _('You can\'t disable firewall autostart on this platform'))
 
+@plugin
+class ArchFirewallManager (FirewallManager, BasePlugin):
+    platforms = ['arch']
+    config_path = '/etc/iptables/iptables.rules'
+    config_path_ajenti = '/etc/iptables/iptables-ajenti.rules'
 
 @plugin
 class Firewall (SectionPlugin):
-    platforms = ['centos', 'debian']
+    platforms = ['centos', 'debian', 'arch']
 
     def init(self):
         self.title = _('Firewall')
