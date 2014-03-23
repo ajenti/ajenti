@@ -19,6 +19,7 @@ class NSDPlugin (SectionPlugin):
         self.append(self.ui.inflate('nsd:main'))
 
         self.config = NSDConfig(path='/etc/nsd3/nsd.conf')
+
         self.binder = Binder(None, self)
         self.find('zones').new_item = lambda c: ZoneData()
 
@@ -59,6 +60,12 @@ example.com.        IN      AAAA    ::1
         self.refresh()
 
     def refresh(self):
+        if not os.path.exists(self.config.origin):
+            self.context.notify(
+                'error',
+                _('%s does not exist') % self.config.origin
+            )
+            return
         self.config.load()
         self.binder.setup(self.config.tree).populate()
 

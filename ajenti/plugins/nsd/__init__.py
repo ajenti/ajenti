@@ -9,6 +9,7 @@ info = PluginInfo(
         PluginDependency('main'),
         PluginDependency('services'),
         BinaryDependency('nsd'),
+        FileDependency('/etc/nsd3/nsd.conf'),
     ],
 )
 

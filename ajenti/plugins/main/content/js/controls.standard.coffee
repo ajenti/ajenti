@@ -38,7 +38,7 @@ class window.Controls.tooltip extends window.Control
                     </div>
                 </div>
             """
-            position: 
+            position:
                 my: "left-15 bottom"
                 at: "center top"
         })

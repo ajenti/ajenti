@@ -1,7 +1,7 @@
 class window.Controls.textbox extends window.Control
     createDom: () ->
         """
-            <input class="control textbox #{@s(@properties.style)}" 
+            <input class="control textbox #{@s(@properties.style)}"
                     #{if @properties.readonly then 'readonly' else ''}
                     type="text" />
         """
@@ -9,15 +9,15 @@ class window.Controls.textbox extends window.Control
     setupDom: (dom) ->
         super(dom)
         @input = @dom
-        @input.value = @properties.value
-        @input.addEventListener 'change', () => 
+        @input.value = @properties.value ? ''
+        @input.addEventListener 'change', () =>
             @markChanged()
         , false
         return this
 
     getValue: () ->
         $(@input).val()
-        
+
     detectUpdates: () ->
         r = {}
         value = @getValue()
@@ -33,7 +33,7 @@ class window.Controls.textbox extends window.Control
 class window.Controls.passwordbox extends window.Controls.textbox
     createDom: () ->
         """
-            <input class="control textbox #{@properties.style}" 
+            <input class="control textbox #{@properties.style}"
                     type="password" />
         """
 
