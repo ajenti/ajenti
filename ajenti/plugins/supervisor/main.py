@@ -22,7 +22,7 @@ class Supervisor (SectionPlugin):
         self.find('programs').new_item = lambda c: ProgramData()
         self.config = SupervisorConfig(path=platform_select(
             default='/etc/supervisor/supervisord.conf',
-            centos='/etc/supervisor.conf',
+            centos='/etc/supervisord.conf',
         ))
 
     def on_page_load(self):
