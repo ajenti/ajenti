@@ -36,13 +36,19 @@ debug = False
 edition = 'vanilla'
 
 
-__all__ = ['config', 'platform', 'platform_string', 'platform_unmapped', 'installation_uid', 'version', 'server', 'debug', 'init', 'exit', 'restart']
+__all__ = [
+    'config', 'platform', 'platform_string', 'platform_unmapped',
+    'installation_uid', 'version', 'server', 'debug', 'init',
+    'exit', 'restart'
+]
 
 
 def detect_version():
-    p = subprocess.Popen('git describe --tags 2> /dev/null',
-            shell=True,
-            stdout=subprocess.PIPE)
+    p = subprocess.Popen(
+        'git describe --tags 2> /dev/null',
+        shell=True,
+        stdout=subprocess.PIPE
+    )
     if p.wait() != 0:
         return __version__
     return p.stdout.read().strip('\n ')
