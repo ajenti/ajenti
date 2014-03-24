@@ -39,7 +39,8 @@ class Notepad (SectionPlugin):
         self.opendialog = self.find('opendialog')
         self.savedialog = self.find('savedialog')
 
-        self.opendialog.root = self.savedialog.root = self.classconfig.get('root', '/')
+        self.opendialog.root = self.savedialog.root = \
+            self.classconfig.get('root', None) or '/'
         self.opendialog.navigate(self.opendialog.root)
         self.savedialog.navigate(self.savedialog.root)
 
@@ -120,15 +121,20 @@ class Notepad (SectionPlugin):
 
     def on_close(self, id):
         if self.controller.files[id]['path'] in self.classconfig['bookmarks']:
-            self.classconfig['bookmarks'].remove(self.controller.files[id]['path'])
+            self.classconfig['bookmarks'].remove(
+                self.controller.files[id]['path']
+            )
             self.save_classconfig()
         self.controller.close(id)
         self.select(self.controller.files.keys()[0])
 
     @on('bookmark-button', 'click')
     def on_bookmark(self):
-        if not self.controller.files[self.selected]['path'] in self.classconfig['bookmarks']:
-            self.classconfig['bookmarks'].append(self.controller.files[self.selected]['path'])
+        if not self.controller.files[self.selected]['path'] \
+                in self.classconfig['bookmarks']:
+            self.classconfig['bookmarks'].append(
+                self.controller.files[self.selected]['path']
+            )
             self.save_classconfig()
         self.select(self.selected)
 
