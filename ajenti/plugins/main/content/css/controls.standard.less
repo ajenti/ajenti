@@ -6,9 +6,9 @@
 
 .control-textinput {
 	color: @controlText;
-	font-family: @fontFamily; 
+	font-family: @fontFamily;
 	font-size: @fontSize;
-	
+
 	padding: 1px 4px;
 	.control-inset();
 	border: none;
@@ -21,7 +21,7 @@
 	&:focus {
 		border: 1px solid @orange;
 		padding: 0 3px;
-	} 
+	}
 }
 
 .actionlink {
@@ -34,7 +34,7 @@
 	margin: 1px 0 3px;
 	cursor: pointer;
 	width: auto;
-	
+
 	&:hover {
 		color: lighten(@controlText, 10%);
 		border-bottom: 1px dotted lighten(@controlText, 25%);
@@ -92,7 +92,7 @@
 
 	&.center {
 		text-align: center;
-		
+
 		>div {
 			display: inline-block;
 			margin: auto;
@@ -144,7 +144,7 @@
 
 		&.small {
 			font-size: @fontSize * 0.9;
-			height: auto;	
+			height: auto;
 		}
 	}
 
@@ -194,7 +194,7 @@
 			i:before { color: @orange; }
 		}
 	}
- 
+
 	&.button {
 		.size(auto, @controlWidth);
 		padding: 6px 0 5px;
@@ -226,6 +226,7 @@
 			.button-style(#f8f8f8);
 			min-width: @controlHeight - 10px;
 			width: auto;
+			display: inline-block;
 			padding: 6px 5px 5px;
 
 			&:active {
@@ -277,7 +278,7 @@
 
 	&.checkbox {
 		white-space: nowrap;
-		
+
 		>.label {
 			float: left;
 		}
@@ -380,7 +381,7 @@
 
 	&.collapserow {
 		padding: 0 !important;
-		
+
 		>.header {
 			padding: 5px;
 			&:hover { background: #fff; }
@@ -427,9 +428,9 @@
 		border-spacing: 0;
 		.box-shadow(@mainPaneShadow);
 		.border-radius(1px);
-			
+
 		&.compressed > tbody > tr > td {
-			padding: 0 5px;	
+			padding: 0 5px;
 		}
 
 		&>tbody {
@@ -437,7 +438,7 @@
 
 			&>tr {
 				margin: 0;
-				
+
 				&>th {
 					color: #7c8c99;
 				}
@@ -459,11 +460,11 @@
 				}
 
 				&>th {
-					background: @tableCell;
-					padding: 10px 7px; 	
+					background: #f6f6f6;
+					padding: 10px 7px;
 					border-top: 1px solid @tableBorder;
 					border-left: 1px solid darken(@tableBorder, 5%);
-					#gradient > .vertical(#f6f6f6, #f0f0f0);
+					border-bottom: 1px solid #ddd;
 					font-weight: bold;
 					text-shadow: 0 1px 0 white;
 					text-align: left;
@@ -500,7 +501,7 @@
 	&.paging {
 		overflow: hidden;
 		padding: 5px 0;
-		
+
 		* {
 			float: left;
 		}
