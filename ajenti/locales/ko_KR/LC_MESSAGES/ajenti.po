@@ -1,11 +1,11 @@
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Plugins"
-msgstr ""
+msgstr "플러그인"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "플러그인 목록 수집"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:2
@@ -35,18 +35,18 @@ msgstr "이름"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
-msgstr ""
+msgstr "의존"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Type"
-msgstr ""
+msgstr "타입"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "의존한다"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -54,7 +54,7 @@ msgstr ""
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
 #: ajenti/plugins/openvpn/layout/main.xml:3
 msgid "Status"
-msgstr ""
+msgstr "진행상태"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -89,12 +89,12 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:24
 #: ajenti/plugins/bind9/layout/main.xml:2
 msgid "Confirm deletion"
-msgstr ""
+msgstr "삭제 요청 확인"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:28
-#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/iptables/main.py:149
 msgid "Enable"
 msgstr "활성화"
 
@@ -165,7 +165,7 @@ msgstr "저장"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcache 메모리 사용량"
 
 #: ajenti/plugins/configurator/configurator.py:41
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -176,24 +176,24 @@ msgstr "구성"
 
 #: ajenti/plugins/configurator/configurator.py:168
 msgid "Auto"
-msgstr ""
+msgstr "자동"
 
 #: ajenti/plugins/configurator/configurator.py:193
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr ""
+msgstr "저장되었습니다. 변경 내용을 적용하기 위해 Ajenti를 다시 시작하여 주십시오."
 
 #: ajenti/plugins/configurator/configurator.py:200
 msgid "Please supply hostname"
-msgstr ""
+msgstr "호스트 네임을 제공해 주십시오"
 
 #: ajenti/plugins/configurator/configurator.py:216
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "%s 플러그인을 설정해 주십시오!"
 
 #: ajenti/plugins/configurator/configurator.py:254
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Ajenti 설정 변경"
 
 #: ajenti/plugins/configurator/configurator.py:255
 msgid "Restart Ajenti"
@@ -222,7 +222,7 @@ msgstr "호스트"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "또는 UNIX 소켓 경로"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/iptables/layout/option-port.xml:1
@@ -236,11 +236,11 @@ msgstr "SSL 사용"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr ""
+msgstr "인증서의 저장 위치"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "SSL 자체 서명 인증서 생성기"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
@@ -249,7 +249,7 @@ msgstr "호스트 이름"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr ""
+msgstr "생성"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
@@ -260,31 +260,31 @@ msgstr "사용자"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr ""
+msgstr "권한 인증"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "동기화 대상"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr ""
+msgstr "지금 동기화"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "올바르게 구성됨"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "동기화 실패"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
-msgstr ""
+msgstr "계정들"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "복제"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 msgid "Change password"
@@ -297,11 +297,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Send feedback"
-msgstr ""
+msgstr "피드백 전송"
 
 #: ajenti/plugins/configurator/layout/main.xml:29
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti는 당신의 OS 명칭, 버전 정보, 플러그인 사용 정보를 익명으로 ajenti.org로 전송할 것입니다"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 #: ajenti/plugins/network/layout/main.xml:5
@@ -318,77 +318,77 @@ msgstr "Ajenti 다시 시작하시겠습니까?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "서버 주소(URL)"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "관리자 DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "인증 DN 접미사"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "비밀"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "서버 주소"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "도메인 주소"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "베이스 DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Admin user"
-msgstr ""
+msgstr "관리자"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
-msgstr ""
+msgstr "관리자 비밀번호"
 
 #: ajenti/plugins/tasks/manager.py:68
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "%s 작업 완료"
 
 #: ajenti/plugins/tasks/manager.py:103
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "%s 작업 대기중"
 
 #: ajenti/plugins/tasks/manager.py:115
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "%s 작업 시작됨"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr ""
+msgstr "작업"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 #: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
 msgid "Tools"
-msgstr ""
+msgstr "도구"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "%s 복사중"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
 msgid "Moving %s"
-msgstr ""
+msgstr "%s 이동중"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "실행중인 작업들"
 
 #: ajenti/plugins/tasks/layout/main.xml:2
 #: ajenti/plugins/fstab/layout/main.xml:1
@@ -398,36 +398,36 @@ msgstr "새로고침"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "실행중"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "중단"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr ""
+msgstr "대기중"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "중지"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "완료된 작업들"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "성공"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "취소됨"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
@@ -441,74 +441,74 @@ msgstr "실행"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "작업들"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "작업 실행"
 
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
 msgid "Schedule"
-msgstr ""
+msgstr "일정"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "수동 설정 (아래에서 지정)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr ""
+msgstr "매시간"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
 msgid "Daily"
-msgstr ""
+msgstr "매일"
 
 #: ajenti/plugins/tasks/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:18
 msgid "Weekly"
-msgstr ""
+msgstr "매주"
 
 #: ajenti/plugins/tasks/layout/main.xml:27
 #: ajenti/plugins/cron/layout/main.xml:19
 msgid "Monthly"
-msgstr ""
+msgstr "매달"
 
 #: ajenti/plugins/tasks/layout/main.xml:28
 #: ajenti/plugins/cron/layout/main.xml:20
 msgid "Yearly"
-msgstr ""
+msgstr "매년"
 
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "재부팅"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr ""
+msgstr "수동 입력"
 
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/cron/layout/main.xml:5
 msgid "Minute"
-msgstr ""
+msgstr "분"
 
 #: ajenti/plugins/tasks/layout/main.xml:32
 #: ajenti/plugins/cron/layout/main.xml:6
 msgid "Hour"
-msgstr ""
+msgstr "시간"
 
 #: ajenti/plugins/tasks/layout/main.xml:33
 #: ajenti/plugins/cron/layout/main.xml:7
 msgid "Day"
-msgstr ""
+msgstr "하루"
 
 #: ajenti/plugins/tasks/layout/main.xml:34
 #: ajenti/plugins/cron/layout/main.xml:8
 msgid "Month"
-msgstr ""
+msgstr "월"
 
 #: ajenti/plugins/tasks/layout/main.xml:35
 #: ajenti/plugins/cron/layout/main.xml:9
@@ -517,21 +517,21 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "병렬로 실행"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "디렉터리에서"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "디렉터리에"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "보관"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
@@ -568,7 +568,7 @@ msgstr ""
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/dhcpd/main.py:15 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:17
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:18
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
 #: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
@@ -578,7 +578,7 @@ msgid "Software"
 msgstr "소프트웨어"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:119
-#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:77
+#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/nsd/main.py:77
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
@@ -667,7 +667,7 @@ msgstr ""
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr ""
+msgstr "터미널에서 실행"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
@@ -693,53 +693,53 @@ msgstr "CPU 사용"
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 msgid "Variant"
-msgstr ""
+msgstr "변수"
 
 #: ajenti/plugins/samba/main.py:47
 msgid "Password updated"
-msgstr ""
+msgstr "암호 변경됨"
 
 #: ajenti/plugins/samba/main.py:50
 msgid "Password update failed"
-msgstr ""
+msgstr "암호 변경 실패"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr ""
+msgstr "공유"
 
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr ""
+msgstr "경로"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
-msgstr ""
+msgstr "방문자 액세스"
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Browseable"
-msgstr ""
+msgstr "탐색가능"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Create mask"
-msgstr ""
+msgstr "마스크 생성"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Directory mask"
-msgstr ""
+msgstr "디렉터리 마스크"
 
 #: ajenti/plugins/samba/layout/main.xml:11
 msgid "Read only"
-msgstr ""
+msgstr "읽기 전용"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 msgid "Advanced"
-msgstr ""
+msgstr "고급"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr ""
+msgstr "허용된 사용자"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
@@ -747,81 +747,81 @@ msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
-msgstr ""
+msgstr "파일들을 거부"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "강제로 파일 마스크 제거"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "강제로 디렉터리 마스크 제거"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "구성설정"
 
 #: ajenti/plugins/samba/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:12
 msgid "Networking"
-msgstr ""
+msgstr "네트워킹"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
-msgstr ""
+msgstr "인터페이스"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "이러한 인터페이스에만 묶는다"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
-msgstr ""
+msgstr "식별"
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr ""
+msgstr "워크그룹"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"
-msgstr ""
+msgstr "서버 문자열"
 
 #: ajenti/plugins/samba/layout/main.xml:26
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
-msgstr ""
+msgstr "로그 파일"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
-msgstr ""
+msgstr "보안"
 
 #: ajenti/plugins/samba/layout/main.xml:28
 msgid "Sessions"
-msgstr ""
+msgstr "세션들"
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
-msgstr ""
+msgstr "공유"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "User"
-msgstr ""
+msgstr "사용자"
 
 #: ajenti/plugins/samba/layout/main.xml:31
 msgid "Machine"
-msgstr ""
+msgstr "기계"
 
 #: ajenti/plugins/samba/layout/main.xml:32
 #: ajenti/plugins/openvpn/layout/main.xml:7
 msgid "Disconnect"
-msgstr ""
+msgstr "연결 종료"
 
 #: ajenti/plugins/samba/layout/main.xml:34
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 #: ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/db_common/layout/main.xml:14
@@ -834,15 +834,15 @@ msgstr "비밀 번호"
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 msgid "Set"
-msgstr ""
+msgstr "설정"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "하드 디스크 상태"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
-msgstr ""
+msgstr "데이터 없음"
 
 #: ajenti/plugins/hdparm/layout/widget.xml:1
 #: ajenti/plugins/hddtemp/layout/widget.xml:1
@@ -857,10 +857,10 @@ msgid "Device"
 msgstr "장치"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:67 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:14
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
-#: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "시스템"
@@ -868,26 +868,26 @@ msgstr "시스템"
 #: ajenti/plugins/users/main.py:102
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "%s의 홈 디렉터리가 생성되었습니다"
 
 #: ajenti/plugins/users/main.py:111
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "%s의 비밀번호가 변경되었습니다"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "오류 : \"%s\""
 
 #: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "비밀번호 입력란을 비워둘 수 없습니다"
 
 #: ajenti/plugins/users/main.py:120
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "%s의 비밀번호가 제거되었습니다"
 
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
@@ -900,41 +900,41 @@ msgstr "사용자명"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
 msgid "Group"
-msgstr ""
+msgstr "그룹"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "시스템 사용자들"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr ""
+msgstr "그룹들"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr ""
+msgstr "사용자들"
 
 #: ajenti/plugins/users/layout/user-list.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
-msgstr ""
+msgstr "코멘트"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr ""
+msgstr "홈 디렉터리"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
-msgstr ""
+msgstr "쉘"
 
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "새로운 비밀번호"
 
 #: ajenti/plugins/users/layout/user-list.xml:9
 #: ajenti/plugins/fm/layout/main.xml:15
 msgid "Remove"
-msgstr ""
+msgstr "제거"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
@@ -942,7 +942,7 @@ msgstr "DHCP 서버"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr ""
+msgstr "서브 네트워크"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 msgid "Specification"
@@ -1059,24 +1059,24 @@ msgstr ""
 msgid "You can't disable firewall autostart on this platform"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:65
+#: ajenti/plugins/iptables/main.py:70
 msgid "Firewall"
 msgstr "방화벽"
 
-#: ajenti/plugins/iptables/main.py:107
+#: ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "옵션 추가"
 
-#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/iptables/main.py:149
 msgid "Disable"
 msgstr "사용 안 함"
 
-#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/iptables/main.py:149
 msgid " autostart"
 msgstr " 자동 시작"
 
-#: ajenti/plugins/iptables/main.py:197
+#: ajenti/plugins/iptables/main.py:202
 msgid "Applied successfully"
 msgstr ""
 
@@ -1224,113 +1224,113 @@ msgstr ""
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "업그레이드가 가능"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "모두 업그레이드"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr ""
+msgstr "검색"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr ""
+msgstr "모두 취소"
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr ""
+msgstr "버전"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "설치/업그레이드를 위해 선택"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "제거를 위해 선택"
 
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "하드 디스크 온도"
 
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "센서"
 
 #: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:51
 msgid "Zone saved"
-msgstr ""
+msgstr "영역 저장됨"
 
 #: ajenti/plugins/nsd/main.py:66
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s가 존재하지 않습니다"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "영역들"
 
 #: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:5
 msgid "File"
-msgstr ""
+msgstr "파일"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "Zone"
-msgstr ""
+msgstr "영역"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "영역 파일이 존재하지 않습니다"
 
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Save zone"
-msgstr ""
+msgstr "DNS영역을 저장"
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
-msgstr ""
+msgstr "파일 관리자"
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "파일들이 이동됨"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "파일들이 복사됨"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "선택된 %i 항목들"
 
 #: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
-msgstr ""
+msgstr "압축이 풀린"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "Select all"
-msgstr ""
+msgstr "전체 선택"
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
-msgstr ""
+msgstr "새 파일"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "New Folder"
-msgstr ""
+msgstr "새 폴더"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Cut"
@@ -1338,15 +1338,15 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
-msgstr ""
+msgstr "붙여넣기"
 
 #: ajenti/plugins/fm/layout/main.xml:8
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #: ajenti/plugins/fm/layout/main.xml:11
 #: ajenti/plugins/fstab/layout/main.xml:15
@@ -1355,27 +1355,27 @@ msgstr "크기"
 
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Upload"
-msgstr ""
+msgstr "업로드"
 
 #: ajenti/plugins/fm/layout/main.xml:13
 msgid "Clipboard"
-msgstr ""
+msgstr "클립보드"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Edit"
-msgstr ""
+msgstr "편집"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
-msgstr ""
+msgstr "압축 풀기"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Access"
-msgstr ""
+msgstr "액세스"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Owner"
-msgstr ""
+msgstr "소유자"
 
 #: ajenti/plugins/fm/layout/main.xml:24
 msgid "Others"
@@ -1387,45 +1387,45 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "시작 디렉터리"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "새 파일들의 소유자"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "새 파일들의 그룹"
 
 #: ajenti/plugins/terminal/terminal.py:102
 #, python-format
 msgid "Process has exited with status %i"
-msgstr ""
+msgstr "%i 상태로 프로세스가 시작되었습니다"
 
 #: ajenti/plugins/terminal/terminal.py:104
 msgid "Process has exited successfully"
-msgstr ""
+msgstr "프로세스가 성공적으로 종료되었습니다"
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
 #: ajenti/plugins/terminal/main.py:223
 msgid "Terminal"
-msgstr ""
+msgstr "터미널"
 
 #: ajenti/plugins/terminal/main.py:227
 msgid "Run shell"
-msgstr ""
+msgstr "쉘 실행"
 
 #: ajenti/plugins/terminal/main.py:228
 msgid "Run custom commands"
-msgstr ""
+msgstr "사용자 지정 명령 실행"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr ""
+msgstr "활성화된 터미널이 없습니다"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr ""
+msgstr "기본 쉘"
 
 #: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
@@ -1658,7 +1658,7 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr ""
+msgstr "로컬 IP"
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
@@ -1666,43 +1666,43 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr ""
+msgstr "고객"
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "메시지"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "타임 스탬프"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr ""
+msgstr "플래그"
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr ""
+msgstr "관리 주소"
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr ""
+msgstr "호스트:포트 또는 UNIX소켓 경로"
 
 #: ajenti/plugins/power/power.py:56
 msgid "Power"
-msgstr ""
+msgstr "전원"
 
 #: ajenti/plugins/power/power.py:103
 msgid "Power control"
-msgstr ""
+msgstr "전원 관리"
 
 #: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "차단"
 
 #: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "절전"
 
 #: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -1714,91 +1714,91 @@ msgstr "시스템 종료"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "AC전원"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "배터리"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "시스템을 일시 차단하시겠습니까?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr ""
+msgstr "시스템을 절전시키겠습니까?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
-msgstr ""
+msgstr "시스템을 재부팅 하시겠습니까?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "시스템 종료"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
-msgstr ""
+msgstr "시스템을 종료하겠습니까?"
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr ""
+msgstr "서비스"
 
 #: ajenti/plugins/services/main.py:14
 msgid "Services"
-msgstr ""
+msgstr "서비스들"
 
 #: ajenti/plugins/services/main.py:41
 #, python-format
 msgid "%s started"
-msgstr ""
+msgstr "%s가 시작되었습니다"
 
 #: ajenti/plugins/services/main.py:46
 #, python-format
 msgid "%s stopped"
-msgstr ""
+msgstr "%s가 멈췄습니다"
 
 #: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
-msgstr ""
+msgstr "%s가 재시작되었습니다"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr ""
+msgstr "근원"
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "동작"
 
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 #: ajenti/plugins/services/layout/bar.xml:1
 msgid "Start"
-msgstr ""
+msgstr "시작"
 
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 #: ajenti/plugins/services/layout/bar.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "중지"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "IPMI 센서"
 
 #: ajenti/plugins/hosts/hosts.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "호스트"
 
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Aliases"
 msgstr ""
 
-#: ajenti/plugins/taskmgr/main.py:14
+#: ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
-msgstr ""
+msgstr "프로세스들"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
@@ -1814,47 +1814,47 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Terminate"
-msgstr ""
+msgstr "강제 종료"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:8
 msgid "Kill"
-msgstr ""
+msgstr "종료"
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr ""
+msgstr "HTTP 액세스"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "모드"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 msgid "Allow"
-msgstr ""
+msgstr "허용"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 msgid "Deny"
-msgstr ""
+msgstr "거부"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr ""
+msgstr "선택"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr ""
+msgstr "보통"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 msgid "Special"
-msgstr ""
+msgstr "특별한"
 
 #: ajenti/plugins/logs/main.py:13
 msgid "Logs"
-msgstr ""
+msgstr "로그"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
-msgstr ""
+msgstr "실패"
 
 #: ajenti/plugins/smartctl/widget.py:62
 msgid "PRE-FAIL"
@@ -1862,25 +1862,25 @@ msgstr ""
 
 #: ajenti/plugins/smartctl/widget.py:63
 msgid "Unknown error"
-msgstr ""
+msgstr "알수없는 오류"
 
 #: ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr ""
+msgstr "로그 내 오류"
 
 #: ajenti/usersync/adsync.py:15
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "동적 디렉터리 동기화"
 
 #: ajenti/usersync/ldapsync.py:15
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "LDAP 사용자 동기화"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "꺼짐"
 
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr ""
+msgstr "운영체제 사용자"
 

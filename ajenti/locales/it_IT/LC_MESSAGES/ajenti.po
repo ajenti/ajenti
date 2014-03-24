@@ -94,7 +94,7 @@ msgstr "Confema eliminazione"
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:28
-#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/iptables/main.py:149
 msgid "Enable"
 msgstr "Abilita"
 
@@ -568,7 +568,7 @@ msgstr "Esportazioni NFS"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/dhcpd/main.py:15 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:17
+#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:18
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
 #: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
@@ -578,7 +578,7 @@ msgid "Software"
 msgstr "Software"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:119
-#: ajenti/plugins/iptables/main.py:184 ajenti/plugins/nsd/main.py:77
+#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/nsd/main.py:77
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
@@ -857,10 +857,10 @@ msgid "Device"
 msgstr "Periferica"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:67 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:14
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
-#: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:16
+#: ajenti/plugins/hosts/hosts.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Sistema"
@@ -1059,24 +1059,24 @@ msgstr "Recupero:"
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Non è possibile disattivare l'avvio automatico del firewall su questa piattaforma"
 
-#: ajenti/plugins/iptables/main.py:65
+#: ajenti/plugins/iptables/main.py:70
 msgid "Firewall"
 msgstr "Firewall"
 
-#: ajenti/plugins/iptables/main.py:107
+#: ajenti/plugins/iptables/main.py:112
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "Aggiungi opzione"
 
-#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/iptables/main.py:149
 msgid "Disable"
 msgstr "Disabilita"
 
-#: ajenti/plugins/iptables/main.py:144
+#: ajenti/plugins/iptables/main.py:149
 msgid " autostart"
 msgstr " avvio automatico"
 
-#: ajenti/plugins/iptables/main.py:197
+#: ajenti/plugins/iptables/main.py:202
 msgid "Applied successfully"
 msgstr "Applicato con successo"
 
@@ -1796,7 +1796,7 @@ msgstr "Host"
 msgid "Aliases"
 msgstr "Alias"
 
-#: ajenti/plugins/taskmgr/main.py:14
+#: ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
 msgstr "Processi"
 
