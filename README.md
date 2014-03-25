@@ -7,9 +7,11 @@ http://ajenti.org/
 
 Ajenti is a Linux & BSD web admin panel.
 
-!(http://ajenti.org/static/home/img/screens/ajenti/1.png)
-!(http://ajenti.org/static/home/img/screens/ajenti/2.png)
-!(http://ajenti.org/static/home/img/screens/ajenti/3.png)
+![](http://ajenti.org/static/home/img/screens/ajenti/1.png)
+
+![](http://ajenti.org/static/home/img/screens/ajenti/2.png)
+
+![](http://ajenti.org/static/home/img/screens/ajenti/3.png)
 
 Feature highlights
 ------------------
