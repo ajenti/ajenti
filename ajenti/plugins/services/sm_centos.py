@@ -24,7 +24,14 @@ class CentOSServiceManager (ServiceManager):
             s = SysVInitService(name)
             pending[s] = s._begin_refresh()
             r.append(s)
-      
+
         for s,v in pending.iteritems():
             s._end_refresh(v)
         return r
+
+    def get_one(self, name):
+        s = SysVInitService(name)
+        if os.path.exists(s.script):
+            s.refresh()
+            return s
+        return None
