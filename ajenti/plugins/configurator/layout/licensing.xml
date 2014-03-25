@@ -1,0 +1,27 @@
+<box>
+    <pad id="license-active">
+        <vc>
+            <formline text="{License status}">
+                <label id="license-current-status" />
+            </formline>
+            <formline text="{License type}">
+                <label id="license-current-type" />
+            </formline>
+            <formline text="{License expires on}">
+                <label id="license-current-expires" />
+            </formline>
+            <formline>
+                <button icon="remove" id="license-remove" text="{Remove}" />
+            </formline>
+        </vc>
+    </pad>
+    <pad id="license-inactive">
+        <vc>
+            <label text="{No commercial license installed}" style="bold" />
+            <hc>
+                <textbox id="license-key" />
+                <button id="license-install" icon="ok" text="{Install}" />
+            </hc>
+        </vc>
+    </pad>
+</box>

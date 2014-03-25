@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: 'Open Sans';
-    font-style: normal; 
+    font-style: normal;
     font-weight: 700;
     src: local('Open Sans Bold'), local('OpenSans-Bold'), url(main/OpenSans-Bold.woff) format('woff');
 }
@@ -34,7 +34,7 @@
   font-style: normal;
   font-weight: 700;
   src: local('PT Sans Bold'), local('PTSans-Bold'), url(main/PS-Bold.woff) format('woff');
-} 
+}
 
 @font-face {
     font-family: 'FontAwesome';
@@ -68,7 +68,7 @@ body {
     .ui-light & {
         background: #eee;
     }
-    
+
     padding: 0;
     margin: 0;
 
@@ -82,15 +82,56 @@ body {
 }
 
 
+body.auth {
+    background: #333;
+}
+
 .page.auth {
-	.content {
-		background: white;
-		.border-radius(5px);
-		.box-shadow(@mainPaneShadow);
-		overflow: hidden;
-		margin: 50px auto;
-		width: 255px;
-		padding: 10px 20px;
+	padding: 50px 0;
+
+    .content {
+        text-align: center;
+
+        img {
+            margin: 20px 0 20px;
+        }
+
+        .control {
+            margin: 0;
+        }
+
+        .border-radius(3px);
+        .box-shadow(@mainPaneShadow);
+        overflow: hidden;
+        margin: auto;
+		width: 285px;
+
+        .form-upper {
+            padding: 10px 20px;
+
+            .row {
+                >* {
+                    float: left;
+                }
+
+                padding: 5px 0;
+                overflow: hidden;
+            }
+        }
+
+        .form-lower {
+            padding: 10px 20px;
+            overflow: hidden;
+        }
+
+        .licensebar {
+            background: #9c0;
+            color: white;
+            padding: 5px 0;
+            text-shadow: 0 1px 1px rgba(0,0,0,.5);
+            font-weight: bold;
+            box-shadow: 0 0 5px rgba(0,0,0,.25) inset;
+        }
 
 		.textbox {
 			width: 155px;
@@ -125,7 +166,7 @@ body {
     height: @headerHeight;
     .box-shadow(0 0 5px rgba(0,0,0,0.5));
     overflow: hidden;
-    
+
     .container {
         width: 960px;
         margin: auto;
@@ -228,11 +269,11 @@ body {
         &.info {
             border-left: 5px solid #0d0;
         }
-        
+
         &.error {
             border-left: 5px solid #d00;
         }
-        
+
         #gradient > .vertical(#eee, #fff);
         opacity: .9;
         border-radius: 3px;
@@ -244,7 +285,7 @@ body {
         text-transform: none !important;
         text-align: left !important;
         position: absolute !important;
-        padding: 10px !important;    
+        padding: 10px !important;
     }
 }
 

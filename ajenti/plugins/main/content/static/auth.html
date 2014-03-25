@@ -7,8 +7,8 @@
         <link rel="icon" type="image/png" href="/ajenti:static/main/favicon.png" />
         <script src="/ajenti:static/resources.js"></script>
     </head>
-    
-    <body>
+
+    <body class="auth">
         <div id="content-root">
             <div id="ssl-alert">
                 <i class="icon-white icon-unlock"></i>
@@ -17,36 +17,30 @@
             </div>
 
             <div class="page auth">
-                <div class="content">
+                <div class="content content-gradient">
+                    <img src="/ajenti:static/main/icon.png" />
                     <form action="/ajenti:auth" method="POST">
-                        <div class="control vc">
-                            <div class="control hc">
+                        <div class="form-upper">
+                            <div class="row">
                                 <div class="l control label">Username</div>
                                 <div><input class="control textbox" name="username" /></div>
                             </div>
-                            <div class="control hc">
+                            <div class="row">
                                 <div class="l control label">Password</div>
                                 <div><input class="control textbox" type="password" name="password" /></div>
                             </div>
-                            <a class="control button style-normal" href="#" id="login">
+                        </div>
+                        <div class="control licensebar">
+                            <span id="license-product">Ajenti Panel</span>: <span id="license-type">Personal license</span>
+                        </div>
+                        <div class="form-lower">
+                            <button class="control button style-normal" href="#" id="login">
                                 <i class="icon-chevron-right"></i> Log in
-                            </a>
-                            <input style="display:none" type="submit" />
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
-
-            <script>
-                $($('input')[0]).focus();
-                $('input').keyup(function (e) {
-                    if (e.which == 13)
-                        $('form')[0].submit();
-                });
-                $('#login').click(function () {
-                    $('form')[0].submit();
-                });
-            </script>
         </div>
 
         <style>
@@ -57,10 +51,39 @@
             }
 
             #content-root-no-css code {
-                font-family: monospace; 
+                font-family: monospace;
             }
         </style>
-                
+
+        <script>
+            licenseStatus = %(license)s;
+            license = licenseStatus.license;
+            $($('input')[0]).focus();
+            $(function () {
+                if (licenseStatus.status) {
+                    if (license) {
+                        $('#license-type').text({
+                            'hosting': 'Hosting license',
+                            'hosting-custom': 'Hosting license',
+                            'appliance': 'Appliance license',
+                            'appliance-lifetime': 'Appliance license',
+                        }[license.type]);
+                        $('.licensebar').css({background: '#6c0'});
+                    } else {
+                        var status = {
+                            'invalid-key': 'Invalid license',
+                            'invalid-ip': 'Invalid license',
+                            'expired': 'License expired',
+                        }[licenseStatus.status];
+                        $('#license-type').text(status);
+                        $('.licensebar').css({background: '#f00'});
+                    }
+                } else {
+                    $('.licensebar').css({background: '#f90'});
+                }
+            });
+        </script>
+
         <div id="content-root-no-css">
             <img src="/ajenti:static/main/error.jpeg" />
             <br/>

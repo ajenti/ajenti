@@ -4,13 +4,17 @@ from copy import deepcopy
 import ajenti
 import ajenti.locales
 from ajenti.api import *
+from ajenti.licensing import Licensing
 from ajenti.plugins import manager
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import on
 from ajenti.ui.binder import Binder, DictAutoBinding
 from ajenti.users import UserManager, PermissionProvider, restrict
 from ajenti.usersync import UserSyncProvider
+
 from reconfigure.items.ajenti import UserData
+
+from licensing import LicensingUI
 
 
 @plugin
@@ -48,6 +52,8 @@ class Configurator (SectionPlugin):
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
 
         self.ccmgr = ClassConfigManager.get()
+        self.find('licensing').append(LicensingUI.new(self.ui))
+
         self.classconfig_binding = Binder(
             self.ccmgr,
             self.find('classconfigs')

@@ -14,7 +14,7 @@ import ajenti
 import ajenti.locales  # importing locale before everything else!
 
 import ajenti.feedback
-import ajenti.ipc
+import ajenti.licensing
 import ajenti.plugins
 from ajenti.http import HttpRoot
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
@@ -25,6 +25,8 @@ from ajenti.ui import Inflater
 import gevent
 import gevent.ssl
 from gevent import monkey
+
+import ajenti.ipc
 
 try:
     monkey.patch_all(select=False, thread=False, subprocess=True)
@@ -38,10 +40,10 @@ from socketio.server import SocketIOServer
 
 def run():
     ajenti.init()
-    
+
     reload(sys)
     sys.setdefaultencoding('utf8')
-    
+
     try:
         locale.setlocale(locale.LC_ALL, '')
     except:
@@ -61,7 +63,7 @@ def run():
             import pprint
             sessions = SessionMiddleware.get(manager.context).sessions
             return sessions
-            
+
         def cmd_list_instances_session():
             cmd_list_instances(cmd_sessions().values()[0].appcontext)
 
@@ -114,15 +116,15 @@ def run():
         listener.listen(10)
 
     stack = [
-        SessionMiddleware.get(manager.context), 
-        AuthenticationMiddleware.get(manager.context), 
+        SessionMiddleware.get(manager.context),
+        AuthenticationMiddleware.get(manager.context),
         CentralDispatcher.get(manager.context)
     ]
 
     ssl_args = {}
     if ajenti.config.tree.ssl.enable:
         ssl_args['certfile'] = ajenti.config.tree.ssl.certificate_path
-        
+
     ajenti.server = SocketIOServer(
         listener,
         log=open(os.devnull, 'w'),
@@ -149,6 +151,7 @@ def run():
 
     ajenti.feedback.start()
     ajenti.ipc.IPCServer.get(manager.context).start()
+    ajenti.licensing.Licensing.get(manager.context)
 
     ajenti.server.serve_forever()
 

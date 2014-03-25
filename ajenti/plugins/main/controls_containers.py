@@ -92,7 +92,7 @@ class Tabs (UIElement):
 
     def active_get(self):
         return getattr(self, '_active', 0)
-        
+
     def active_set(self, active):
         self._active = active
         self.on_switch()
@@ -104,7 +104,9 @@ class Tabs (UIElement):
     def on_switch(self):
         self.children_changed = True  # force update
         self.refresh()
-    
+
     def refresh(self):
         for i, child in enumerate(self.children):
             child.visible = int(self.active) == i
+            if child.visible:
+                child.broadcast('on_tab_shown')

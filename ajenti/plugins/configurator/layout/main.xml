@@ -56,20 +56,20 @@
                                             <button icon="refresh" text="{Sync now}" id="sync-users-button" />
                                             <button icon="cog" text="{Configure}" id="configure-sync-button" />
                                         </hc>
-                                        <hc id="sync-status-ok">  
+                                        <hc id="sync-status-ok">
                                             <icon icon="ok" />
                                             <label text="{Configured correctly}" />
                                         </hc>
-                                        <hc id="sync-status-fail">  
+                                        <hc id="sync-status-fail">
                                             <icon icon="remove" />
                                             <label text="{Failed to sync}" />
                                         </hc>
                                     </vc>
                                 </formline>
                                 <formline text="{Accounts}">
-                                    <bind:collection 
+                                    <bind:collection
                                             id="users"
-                                            bind="users" 
+                                            bind="users"
                                             values="lambda c: c.values()"
                                             add_item="lambda i,c: c.update({i.name: i})"
                                             delete_item="lambda i,c: c.pop(i.name) if i.name != 'root' else None">
@@ -115,6 +115,9 @@
                     </vc>
                 </tab>
 
+                <tab title="{License}" id="licensing">
+                </tab>
+
                 <tab title="{Plugins}" id="classconfigs">
                     <dialog id="dialog" visible="False">
                         <pad id="container" />
@@ -136,7 +139,7 @@
                                 </dtd>
                             </dtr>
                         </bind:template>
-                    </bind:collection> 
+                    </bind:collection>
                 </tab>
             </tabs>
         </pad>

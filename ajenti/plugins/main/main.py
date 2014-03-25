@@ -10,7 +10,9 @@ import ajenti
 from ajenti.api import *
 from ajenti.api.http import *
 from ajenti.api.sensors import Sensor
+from ajenti.licensing import Licensing
 from ajenti.middleware import AuthenticationMiddleware
+from ajenti.plugins import manager
 from ajenti.profiler import *
 from ajenti.users import PermissionProvider, UserManager, SecurityError
 from ajenti.ui import *
@@ -27,7 +29,10 @@ class MainServer (BasePlugin, HttpPlugin):
         context.add_header('Content-Type', 'text/html')
         if context.session.identity is None:
             context.respond_ok()
-            return self.open_content('static/auth.html').read()
+            html = self.open_content('static/auth.html').read()
+            return html % {
+                'license': json.dumps(Licensing.get(manager.context).get_license_status())
+            }
         context.respond_ok()
         return self.open_content('static/index.html').read()
 
@@ -35,7 +40,9 @@ class MainServer (BasePlugin, HttpPlugin):
     def handle_auth(self, context):
         username = context.query.getvalue('username', '')
         password = context.query.getvalue('password', '')
-        if not AuthenticationMiddleware.get().try_login(context, username, password):
+        if not AuthenticationMiddleware.get().try_login(
+            context, username, password
+        ):
             gevent.sleep(3)
         return context.redirect('/')
 

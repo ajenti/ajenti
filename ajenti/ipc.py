@@ -1,7 +1,10 @@
+import gevent
+from gevent.pywsgi import WSGIServer, WSGIHandler
+import logging
 import os
+import socket
 import threading
-from SocketServer import UnixStreamServer
-from BaseHTTPServer import BaseHTTPRequestHandler
+import traceback
 
 from ajenti.api import *
 from ajenti.plugins import manager
@@ -33,49 +36,57 @@ class IPCHandler (object):
         """
 
 
-class Handler (BaseHTTPRequestHandler):
-    def do_GET(self):
-        name, args = self.path.split('/')
-        args = args.decode('base64').splitlines()
-        for h in IPCHandler.get_all(manager.context):
-            if h.get_name() == name:
-                try:
-                    result = h.handle(args)
-                    if result is None:
-                        self.send_response(404, 'Not found')
-                        self.end_headers()
-                        self.wfile.write('')
-                    else:
-                        self.send_response(200, 'OK')
-                        self.end_headers()
-                        self.wfile.write(result)
-                except Exception, e:
-                    self.send_response(500, 'Error')
-                    self.end_headers()
-                    self.wfile.write(str(e))
-                break
-        else:
-            self.send_response(404, 'Handler not found')
-            self.end_headers()
-        self.wfile.close()
+class IPCWSGIHandler (WSGIHandler):
+    def __init__(self, *args, **kwargs):
+        WSGIHandler.__init__(self, *args, **kwargs)
+        self.client_address = ('ipc', 0)
 
-    def log_request(self, *args):
+    def log_request(self):
         pass
+
+
+class IPCSocketServer (WSGIServer):
+    pass
+
+
+def ipc_application(environment, start_response):
+    name, args = environment['PATH_INFO'].split('/')
+    args = args.decode('base64').splitlines()
+    logging.info('IPC: %s %s' % (name, args))
+
+    for h in IPCHandler.get_all(manager.context):
+        if h.get_name() == name:
+            try:
+                result = h.handle(args)
+                if result is None:
+                    start_response('404 Not found', [])
+                    return ''
+                else:
+                    start_response('200 OK', [])
+                    return result
+            except Exception, e:
+                traceback.print_exc()
+                start_response('500 Error', [])
+                return str(e)
+            break
+    else:
+        start_response('404 Handler not found', [])
 
 
 @public
 @plugin
 class IPCServer (BasePlugin):
     def start(self):
-        t = threading.Thread(target=self.run)
-        t.daemon = True
-        t.start()
+        gevent.spawn(self.run)
 
     def run(self):
         socket_path = '/var/run/ajenti-ipc.sock'
+        sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         if os.path.exists(socket_path):
             os.unlink(socket_path)
-
-        server = UnixStreamServer(socket_path, Handler)
+        sock.bind(socket_path)
+        sock.listen(5)
         os.chmod(socket_path, 0700)
+
+        server = IPCSocketServer(sock, application=ipc_application, handler_class=IPCWSGIHandler)
         server.serve_forever()
