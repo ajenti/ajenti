@@ -1,4 +1,3 @@
-import ajenti
 import gevent
 import json
 import logging
@@ -40,7 +39,8 @@ class Licensing (BasePlugin):
         self.__license_status = {}
 
     def write_license(self, key):
-        return open(LICENSE_PATH, 'w').write(key)
+        open(LICENSE_PATH, 'w').write(key)
+        os.chmod(LICENSE_PATH, 0600)
 
     def activate(self):
         response = requests.post(URL + 'activate?key=' + self.read_license())

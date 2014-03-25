@@ -53,7 +53,7 @@ if __name__ == '__main__':
             ajenti.platform = a
 
     ajenti.log.init(log_level)
-    
+
     # Find default config file
     if not config_file:
         # Check for config file in /etc/ajenti/ajenti.conf
@@ -68,7 +68,7 @@ if __name__ == '__main__':
         sys.exit(1)
     else:
         logging.info('Using config file %s' % config_file)
-        
+
     os.chmod(config_file, stat.S_IRWXU)
     ajenti.config = AjentiConfig(path=config_file)
     ajenti.config.load()
