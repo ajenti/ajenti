@@ -52,8 +52,10 @@ class Configurator (SectionPlugin):
         self.binder = Binder(ajenti.config.tree, self.find('ajenti-config'))
 
         self.ccmgr = ClassConfigManager.get()
-        self.find('licensing').append(LicensingUI.new(self.ui))
-
+        if Licensing.licensing_active:
+            self.find('licensing').append(LicensingUI.new(self.ui))
+        else:
+            self.find('licensing').delete()
         self.classconfig_binding = Binder(
             self.ccmgr,
             self.find('classconfigs')
