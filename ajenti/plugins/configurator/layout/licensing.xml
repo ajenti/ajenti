@@ -4,6 +4,9 @@
             <formline text="{License status}">
                 <label id="license-current-status" />
             </formline>
+            <formline text="{Company}">
+                <label id="license-current-company" />
+            </formline>
             <formline text="{License type}">
                 <label id="license-current-type" />
             </formline>

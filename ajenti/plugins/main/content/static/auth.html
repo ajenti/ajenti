@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="control licensebar">
-                            <span id="license-product">Ajenti Panel</span>: <span id="license-type">Personal license</span>
+                            <span id="license-company">Ajenti</span>: <span id="license-type">Personal license</span>
                         </div>
                         <div class="form-lower">
                             <button class="control button style-normal" href="#" id="login">
@@ -69,6 +69,7 @@
                             'appliance': 'Appliance license',
                             'appliance-lifetime': 'Appliance license',
                         }[license.type]);
+                        $('#license-company').text(license.company);
                         $('.licensebar').css({background: '#6c0'});
                     } else {
                         var status = {

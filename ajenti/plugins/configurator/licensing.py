@@ -34,6 +34,7 @@ class LicensingUI (UIElement):
         license = license_status.get('license', {})
         self.find('license-current-expires').text = license.get('expires', '')
         self.find('license-current-type').text = license.get('type', '')
+        self.find('license-current-company').text = license.get('company', '')
 
     @on('license-install', 'click')
     def on_install(self):
