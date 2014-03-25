@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 from ajenti.api import *
@@ -25,7 +26,7 @@ class CentOSServiceManager (ServiceManager):
             pending[s] = s._begin_refresh()
             r.append(s)
 
-        for s,v in pending.iteritems():
+        for s, v in pending.iteritems():
             s._end_refresh(v)
         return r
 
