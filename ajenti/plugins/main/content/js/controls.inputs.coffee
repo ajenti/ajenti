@@ -111,7 +111,7 @@ class window.Controls.checkbox extends window.Control
                         <i class="icon-ok"></i>
                     </div>
                 </label>
-                <div class="control label">#{@s(@properties.text)}</div>
+                <label for="#{@properties.uid}" class="control label">#{@s(@properties.text)}</label>
             </div>
         """
 
