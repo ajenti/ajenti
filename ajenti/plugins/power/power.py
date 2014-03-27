@@ -2,11 +2,13 @@ import logging
 import subprocess
 import os
 
-from ajenti.api import plugin, interface
+from ajenti.api import plugin
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import DashboardWidget
 from ajenti.ui import on
 from ajenti.users import PermissionProvider, restrict
+
+from api import PowerController
 
 
 @plugin
@@ -26,79 +28,6 @@ class PowerSensor (Sensor):
             return 'ac'
         return 'battery'
 
-@interface
-class PowerController (object):
-    def shutdown(self):
-        pass
-
-    def suspend(self):
-        pass
-
-    def hibernate(self):
-        pass
-
-    def reboot(self):
-        pass
-
-    def capabilities(self):
-        pass
-
-@plugin
-class SystemdPowerController (PowerController):
-    def shutdown(self):
-        subprocess.call(['systemctl', 'poweroff'])
-
-    def reboot(self):
-        subprocess.call(['systemctl', 'reboot'])
-
-    def suspend(self):
-        subprocess.call(['systemctl', 'suspend'])
-
-    def hibernate(self):
-        subprocess.call(['systemctl', 'hibernate'])
-
-    def capabilities(self):
-        try:
-            subprocess.call(['which', 'systemctl'])
-            return ['reboot', 'suspend', 'hibernate', 'shutdown']
-        except:
-            return []
-
-    def verify(self):
-        return bool(self.capabilities())
-
-@plugin
-class PMUtilsPowerController (PowerController):
-    def shutdown(self):
-        subprocess.call(['poweroff'])
-
-    def suspend(self):
-        subprocess.call(['pm-suspend'])
-
-    def hibernate(self):
-        subprocess.call(['pm-hibernate'])
-
-    def reboot(self):
-        subprocess.call(['reboot'])
-
-    def capabilities(self):
-        result = ['shutdown', 'reboot']
-        try:
-            subprocess.call(['which', 'pm-suspend'])
-            result.append('suspend')
-        except:
-            pass
-
-        try:
-            subprocess.call(['which', 'pm-hibernate'])
-            result.append('hibernate')
-        except:
-            pass
-
-        return result
-
-    def verify(self):
-        return len(self.capabilities()) > 2
 
 @plugin
 class BatterySensor (Sensor):

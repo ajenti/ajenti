@@ -64,11 +64,11 @@ def str_timedelta(s):
 
 
 @public
-def cache_value(duration):
+def cache_value(duration=None):
     """
     Makes a function lazy.
 
-    :param duration: cache duration in seconds
+    :param duration: cache duration in seconds (default: infinite)
     :type  duration: int
     """
     def decorator(fx):
@@ -76,7 +76,9 @@ def cache_value(duration):
         fx.__cached_at = 0
 
         def wrapper(*args, **kwargs):
-            if time.time() - fx.__cached_at > duration:
+            dt = time.time() - fx.__cached_at
+            if (dt > duration and duration is not None) or \
+                    (fx.__cached_at == 0 and duration is None):
                 val = fx(*args, **kwargs)
                 fx.__cached = val
                 fx.__cached_at = time.time()
@@ -104,7 +106,7 @@ def platform_select(**values):
 
     """
     if ajenti.platform_unmapped in values:
-        return values[ajenti.platform_unmapped]    
+        return values[ajenti.platform_unmapped]
     if ajenti.platform in values:
         return values[ajenti.platform]
     return values.get('default', None)
@@ -126,7 +128,7 @@ def make_report(e):
     tb = '\n'.join('    ' + x for x in tb.splitlines())
     log = logging.blackbox.buffer
     log = '\n'.join('    ' + x for x in log.splitlines())
-    
+
     catcher_url = None
     try:
         report = catcher.collect(e)
