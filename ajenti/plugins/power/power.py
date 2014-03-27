@@ -2,7 +2,7 @@ import logging
 import subprocess
 import os
 
-from ajenti.api import plugin
+from ajenti.api import plugin, interface
 from ajenti.api.sensors import Sensor
 from ajenti.plugins.dashboard.api import DashboardWidget
 from ajenti.ui import on
@@ -26,6 +26,79 @@ class PowerSensor (Sensor):
             return 'ac'
         return 'battery'
 
+@interface
+class PowerController (object):
+    def shutdown(self):
+        pass
+
+    def suspend(self):
+        pass
+
+    def hibernate(self):
+        pass
+
+    def reboot(self):
+        pass
+
+    def capabilities(self):
+        pass
+
+@plugin
+class SystemdPowerController (PowerController):
+    def shutdown(self):
+        subprocess.call(['systemctl', 'poweroff'])
+
+    def reboot(self):
+        subprocess.call(['systemctl', 'reboot'])
+
+    def suspend(self):
+        subprocess.call(['systemctl', 'suspend'])
+
+    def hibernate(self):
+        subprocess.call(['systemctl', 'hibernate'])
+
+    def capabilities(self):
+        try:
+            subprocess.call(['which', 'systemctl'])
+            return ['reboot', 'suspend', 'hibernate', 'shutdown']
+        except:
+            return []
+
+    def verify(self):
+        return bool(self.capabilities())
+
+@plugin
+class PMUtilsPowerController (PowerController):
+    def shutdown(self):
+        subprocess.call(['poweroff'])
+
+    def suspend(self):
+        subprocess.call(['pm-suspend'])
+
+    def hibernate(self):
+        subprocess.call(['pm-hibernate'])
+
+    def reboot(self):
+        subprocess.call(['reboot'])
+
+    def capabilities(self):
+        result = ['shutdown', 'reboot']
+        try:
+            subprocess.call(['which', 'pm-suspend'])
+            result.append('suspend')
+        except:
+            pass
+
+        try:
+            subprocess.call(['which', 'pm-hibernate'])
+            result.append('hibernate')
+        except:
+            pass
+
+        return result
+
+    def verify(self):
+        return len(self.capabilities()) > 2
 
 @plugin
 class BatterySensor (Sensor):
@@ -63,38 +136,35 @@ class PowerWidget (DashboardWidget):
         self.find('battery').visible = self.sensor.value() == 'battery'
         charge = Sensor.find('battery').value()
         self.find('charge').value = charge[0] * 1.0 / charge[1]
-        try:
-            subprocess.call(['which', 'pm-suspend'])
-        except:
-            self.find('suspend').visible = False
-        try:
-            subprocess.call(['which', 'pm-hibernate'])
-        except:
-            self.find('hibernate').visible = False
+
+        self.powerctl = PowerController.get()
+        caps = self.powerctl.capabilities()
+        for cap in ('shutdown', 'suspend', 'hibernate', 'reboot'):
+            self.find(cap).visible = cap in caps
 
     @on('suspend', 'click')
     @restrict('power:suspend')
     def on_suspend(self):
         logging.info('[power] suspend')
-        subprocess.call(['pm-suspend'])
+        self.powerctl.suspend()
 
     @on('hibernate', 'click')
     @restrict('power:hibernate')
     def on_hibernate(self):
         logging.info('[power] hibernate')
-        subprocess.call(['pm-hibernate'])
+        self.powerctl.hibernate()
 
     @on('reboot', 'click')
     @restrict('power:reboot')
     def on_reboot(self):
         logging.info('[power] reboot')
-        subprocess.call(['reboot'])
+        self.powerctl.reboot()
 
     @on('shutdown', 'click')
     @restrict('power:shutdown')
     def on_shutdown(self):
         logging.info('[power] poweroff')
-        subprocess.call(['poweroff'])
+        self.powerctl.shutdown()
 
 
 @plugin
