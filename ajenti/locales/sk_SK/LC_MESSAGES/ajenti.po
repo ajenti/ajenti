@@ -1,5 +1,5 @@
 #: ajenti/plugins/plugins/plugins.py:10
-#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/configurator/layout/main.xml:34
 msgid "Plugins"
 msgstr ""
 
@@ -93,18 +93,18 @@ msgstr "Potvrdiť odstránenie"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:15
-#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:31
 #: ajenti/plugins/iptables/main.py:149
 msgid "Enable"
 msgstr "Povoliť"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
-#: ajenti/plugins/configurator/configurator.py:250
+#: ajenti/plugins/configurator/configurator.py:258
 msgid "Configuration"
 msgstr "Konfigurácia"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/layout/main.xml:25
+#: ajenti/plugins/configurator/layout/main.xml:28
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/exports/layout/main.xml:6
@@ -139,7 +139,7 @@ msgid "Create"
 msgstr "Vytvoriť"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
-#: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:36
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
 #: ajenti/plugins/notepad/layout/main.xml:3
@@ -167,40 +167,64 @@ msgstr "Uložiť"
 msgid "Memcache memory usage"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:41
+#: ajenti/plugins/configurator/licensing.py:29
+msgid "Invalid key"
+msgstr ""
+
+#: ajenti/plugins/configurator/licensing.py:30
+msgid "Invalid IP"
+msgstr ""
+
+#: ajenti/plugins/configurator/licensing.py:31
+msgid "Expired"
+msgstr ""
+
+#: ajenti/plugins/configurator/licensing.py:32
+msgid "Unknown"
+msgstr ""
+
+#: ajenti/plugins/configurator/licensing.py:45
+#: ajenti/plugins/configurator/licensing.py:54
+#: ajenti/plugins/users/main.py:114
+#, python-format
+msgid "Error: \"%s\""
+msgstr ""
+
+#: ajenti/plugins/configurator/configurator.py:45
 #: ajenti/plugins/configurator/layout/main.xml:18
-#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Konfigurovať"
 
-#: ajenti/plugins/configurator/configurator.py:168
+#: ajenti/plugins/configurator/configurator.py:176
 msgid "Auto"
 msgstr "Automaticky"
 
-#: ajenti/plugins/configurator/configurator.py:193
+#: ajenti/plugins/configurator/configurator.py:201
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Uložené. Prosím, reštartujte Ajenti, aby sa zmeny prejavili."
 
-#: ajenti/plugins/configurator/configurator.py:200
+#: ajenti/plugins/configurator/configurator.py:208
 msgid "Please supply hostname"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:216
+#: ajenti/plugins/configurator/configurator.py:224
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:254
+#: ajenti/plugins/configurator/configurator.py:262
 msgid "Modify Ajenti configuration"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:255
+#: ajenti/plugins/configurator/configurator.py:263
 msgid "Restart Ajenti"
 msgstr "Reštart Ajenti"
 
 #: ajenti/plugins/configurator/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:2
+#: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/samba/layout/main.xml:4
 #: ajenti/plugins/ctdb/layout/main.xml:4
 msgid "General"
@@ -291,19 +315,31 @@ msgid "Change password"
 msgstr "Zmeniť heslo"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
+msgid "E-mail"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:27
+msgid "Permissions"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
 msgstr "Ostatné"
 
-#: ajenti/plugins/configurator/layout/main.xml:27
+#: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Send feedback"
 msgstr "Odoslať odozvu"
 
-#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/configurator/layout/main.xml:32
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:33
+msgid "License"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/main.xml:37
 #: ajenti/plugins/network/layout/main.xml:5
 #: ajenti/plugins/openvpn/layout/main.xml:1
 #: ajenti/plugins/services/layout/main.xml:5
@@ -312,7 +348,7 @@ msgstr ""
 msgid "Restart"
 msgstr "Reštartovať"
 
-#: ajenti/plugins/configurator/layout/main.xml:34
+#: ajenti/plugins/configurator/layout/main.xml:38
 msgid "Restart Ajenti?"
 msgstr "Reštartovať Ajenti?"
 
@@ -350,6 +386,36 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin password"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/licensing.xml:1
+msgid "License status"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/licensing.xml:2
+msgid "Company"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/licensing.xml:3
+msgid "License type"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/licensing.xml:4
+msgid "License expires on"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/licensing.xml:5
+#: ajenti/plugins/users/layout/user-list.xml:9
+#: ajenti/plugins/fm/layout/main.xml:15
+msgid "Remove"
+msgstr "Odstrániť"
+
+#: ajenti/plugins/configurator/layout/licensing.xml:6
+msgid "No commercial license installed"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/licensing.xml:7
+msgid "Install"
 msgstr ""
 
 #: ajenti/plugins/tasks/manager.py:68
@@ -577,7 +643,7 @@ msgstr ""
 msgid "Software"
 msgstr "Softvér"
 
-#: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:119
+#: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/nsd/main.py:77
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
 #: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
@@ -613,7 +679,7 @@ msgstr "Možnosti"
 msgid "Notepad"
 msgstr "Poznámkový blok"
 
-#: ajenti/plugins/notepad/notepad.py:70
+#: ajenti/plugins/notepad/notepad.py:71
 #, python-format
 msgid "Untitled %i"
 msgstr ""
@@ -641,7 +707,20 @@ msgstr "Záložka"
 msgid "Topmost directory"
 msgstr ""
 
-#: ajenti/plugins/main/main.py:249
+#: ajenti/plugins/main/main.py:48
+msgid "Invalid login or password"
+msgstr ""
+
+#: ajenti/plugins/main/main.py:76
+#, python-format
+msgid "Email \"%s\" is not associated with any user"
+msgstr ""
+
+#: ajenti/plugins/main/main.py:78
+msgid "Login failed"
+msgstr ""
+
+#: ajenti/plugins/main/main.py:288
 msgid "Section access"
 msgstr ""
 
@@ -875,11 +954,6 @@ msgstr ""
 msgid "Password for %s was changed"
 msgstr ""
 
-#: ajenti/plugins/users/main.py:114
-#, python-format
-msgid "Error: \"%s\""
-msgstr ""
-
 #: ajenti/plugins/users/main.py:116
 msgid "Password shouldn't be empty"
 msgstr ""
@@ -930,11 +1004,6 @@ msgstr ""
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
 msgstr "Nové heslo"
-
-#: ajenti/plugins/users/layout/user-list.xml:9
-#: ajenti/plugins/fm/layout/main.xml:15
-msgid "Remove"
-msgstr "Odstrániť"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
@@ -1688,27 +1757,27 @@ msgstr ""
 msgid "host:port or UNIX socket path"
 msgstr ""
 
-#: ajenti/plugins/power/power.py:56
+#: ajenti/plugins/power/power.py:58
 msgid "Power"
 msgstr "Napájanie"
 
-#: ajenti/plugins/power/power.py:103
+#: ajenti/plugins/power/power.py:102
 msgid "Power control"
 msgstr "Ovládanie napájania"
 
-#: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:3
+#: ajenti/plugins/power/power.py:106 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
 msgstr "Pozastaviť"
 
-#: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:5
+#: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
 msgstr "Režim dlhodobého spánku"
 
-#: ajenti/plugins/power/power.py:109 ajenti/plugins/power/layout/widget.xml:7
+#: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
 msgstr "Reštart"
 
-#: ajenti/plugins/power/power.py:110
+#: ajenti/plugins/power/power.py:109
 msgid "Shutdown"
 msgstr "Vypnúť"
 
