@@ -78,11 +78,11 @@ class Item (object):
             os.rename(self.fullpath, newpath)
         self.fullpath = os.path.join(self.path, self.name)
         os.chmod(self.fullpath, self.mode)
-        
+
         err = None
 
         try:
-            uid = int(self.owner)
+            uid = int(self.owner or -1)
         except:
             try:
                 uid = pwd.getpwnam(self.owner)[2]
@@ -90,7 +90,7 @@ class Item (object):
                 uid = -1
                 err = Exception('Invalid owner')
         try:
-            gid = int(self.group)
+            gid = int(self.group or -1)
         except:
             try:
                 gid = grp.getgrnam(self.group)[2]
