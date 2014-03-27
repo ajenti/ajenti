@@ -1,4 +1,7 @@
-import ldap
+try:
+    import ldap
+except ImportError:
+    ldap = None
 
 import ajenti
 from ajenti.api import *
@@ -33,6 +36,9 @@ class LDAPSyncProvider (UserSyncProvider):
     classconfig_editor = LDAPSyncClassConfigEditor
 
     def __get_ldap(self):
+        if not ldap:
+            return None
+
         c = ldap.initialize(self.classconfig['url'])
         c.bind_s(self.classconfig['admin_dn'], self.classconfig['secret'])
         return c
