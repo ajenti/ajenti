@@ -37,7 +37,7 @@ def dirname():
     return 'tmp/' + str(uuid.uuid4())
 
 def compile_coffeescript(inpath):
-    outpath = '%s.js' % inpath
+    outpath = '%s.c.js' % inpath
 
     if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
         logging.info('Skipping %s' % inpath)
@@ -52,12 +52,12 @@ def compile_coffeescript(inpath):
 
 
 def compile_less(inpath):
-    outpath = '%s.css' % inpath
-    
+    outpath = '%s.c.css' % inpath
+
     if os.path.exists(outpath) and os.stat(outpath).st_mtime > os.stat(inpath).st_mtime:
         logging.info('Skipping %s' % inpath)
         #return
-        
+
     logging.info('Compiling LESS %s' % inpath)
     out = check_output('lessc "%s" "%s"' % (inpath, outpath), shell=True)
     if out:
@@ -69,30 +69,6 @@ compilers = {
     r'.+[^i]\.less$': compile_less,
 }
 
-
-def compress_js(inpath):
-    outpath = os.path.splitext(inpath)[0] + '.c.js'
-    if not do_compress:
-        return shutil.copy(inpath, outpath)
-    logging.info('Compressing JS: %s' % inpath)
-    cmd = 'yui-compressor "%s"' % inpath
-    out = check_output(cmd, shell=True)
-    if out:
-        open(outpath, 'w').write(out)
-
-
-def compress_css(inpath):
-    outpath = os.path.splitext(inpath)[0] + '.c.css'
-    return shutil.copy(inpath, outpath)
-    #if not do_compress:
-    #   return shutil.copy(inpath, outpath)
-    logging.info('Compressing CSS: %s' % inpath)
-    check_output('yui-compressor -o "%s" "%s"' % (outpath, inpath), shell=True)
-
-compressors = {
-    r'.+[^\.][^mci]\.js$': compress_js,
-    r'.+[^\.][^mci]\.css$': compress_css,
-}
 
 
 greenlets = []
@@ -111,7 +87,7 @@ def traverse(fx):
     done_gls = []
     length = 40
     total = len(greenlets)
-    print 
+    print
 
     while True:
         for gl in greenlets:
@@ -134,21 +110,9 @@ def compile(file_path):
             compilers[pattern](file_path)
 
 
-def compress(file_path):
-    for pattern in compressors:
-        if re.match(pattern, file_path):
-            compressors[pattern](file_path)
-
-
-do_compress = True
-if len(sys.argv) > 1 and sys.argv[1] == 'nocompress':
-    do_compress = False
 
 if not os.path.exists('tmp'):
     os.mkdir('tmp')
 
 greenlets = []
 traverse(compile)
-greenlets = []
-traverse(compress)
-

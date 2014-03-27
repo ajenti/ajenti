@@ -1,7 +1,7 @@
 window.WEB_SOCKET_SWF_LOCATION = '/static/main/WebSocketMain.swf'
 
 
-class window.Stream 
+class window.Stream
     constructor: () ->
 
     start: () ->
@@ -13,7 +13,7 @@ class window.Stream
         @socket.on 'auth-error', () ->
             console.log 'Authentication lost!'
             location.reload()
-            
+
         @socket.on 'disconnect', () ->
             $('#connection-error').show()
 
@@ -50,7 +50,7 @@ class window.Stream
             profiler.start('Cumulative UI update')
             UI.replace(ui)
             profiler.stop()
-            
+
             console.log 'Total elements:', UI._total_elements
             console.groupEnd()
             Loading.hide()
@@ -104,7 +104,7 @@ class window.Stream
         console.log 'Sending updates', message
         @socket.send JSON.stringify(message)
         Loading.show()
-    
+
     emit_ui_update: (updates) ->
         @send(type: 'ui_update', content: updates)
 
@@ -149,12 +149,12 @@ class window.UIManager
         @_total_elements = 0
         if @ui
             @ui.broadcast('destruct')
-        $('.root *').unbind() 
-        $.cleanData($('.root *')) 
+        $('.root *').unbind()
+        $.cleanData($('.root *'))
         $('.root *').safeRemove()
         #$.cache = {} # Breaks stuff
         delete @ui
-    
+
     replace: (ui) ->
         $('.ui-tooltip').remove()
         @ui = ui
@@ -201,8 +201,8 @@ class window.UIManager
 
     event: (control, event, params) ->
         @checkForUpdates()
-        
-        update = 
+
+        update =
             type: 'event'
             uid: control.uid,
             event: event,
@@ -218,14 +218,14 @@ class window.UIManager
     toggleTheme: () ->
         $('html').toggleClass('ui-dark')
         $('html').toggleClass('ui-light')
-        
+
         if $('html').hasClass('ui-dark')
             setCookie('ajenti-theme', 'dark')
         else
             setCookie('ajenti-theme', 'light')
 
 
-class window.LoadingDim 
+class window.LoadingDim
     constructor: (@dom) ->
         @visible = true
         @dom.show()
@@ -317,9 +317,9 @@ class window.Control
 
         @properties ?= {}
         @properties.visible ?= true
-        
+
         if @properties.uid
-            @uid = @properties.uid    
+            @uid = @properties.uid
         else
             @uid = (window.Control.lastUID--)
 
@@ -343,10 +343,10 @@ class window.Control
                     @children.push child
                     if not child.dom
                         children_html += @wrapChild(child)
-        
+
         @html = @html.replace('<children>', children_html)
-        
-        
+
+
     s: (value) ->
         ('' + value)
         .replace(/&/g, '&amp;')
@@ -382,7 +382,7 @@ class window.Control
                         console.error 'Pre-generated DOM not found for', child
                     child.setupDom(childDom)
         return this
-        
+
     destruct: () ->
 
     detectUpdates: () ->
@@ -411,7 +411,7 @@ class window.Control
         for c in @children
             do (c) =>
                 c.broadcast(msg)
-        
+
     extractUpdates: () ->
         updates = @detectUpdates()
         if not @uid or $.isEmptyObject(updates)
@@ -420,7 +420,7 @@ class window.Control
             do (k) =>
                 @properties[k] = updates[k]
         return type: 'update', uid: @uid, properties: updates
-        
+
     append: (child) ->
         if not @childContainer
             @childContainer = $($(@dom).find2('.--child-container')[0])
@@ -433,7 +433,7 @@ class window.Control
     publish: () ->
         @ui.checkForUpdates()
         @ui.sendUpdates()
-    
+
     event: (event, params) ->
         @ui.checkForUpdates()
         localHandler = this['on_' + event]
@@ -512,8 +512,8 @@ String.prototype.insert = (index, string) ->
 #---------------------
 
 $ () ->
-    if location.protocol == 'https:' or location.hostname == 'localhost'
-        $('#ssl-alert').hide()
+    if location.protocol == 'http:' and location.hostname != 'localhost'
+        $('#ssl-alert').show()
 
 
 #---------------------

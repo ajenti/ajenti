@@ -217,7 +217,7 @@ class HttpContext (object):
         else:
             rfrom = 0
             rto = 999999999
-            
+
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         self.add_header('Accept-Ranges', 'bytes')
 

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/ajenti:static/resources.css" />
         <link rel="icon" type="image/png" href="/ajenti:static/main/favicon.png" />
         <script src="/ajenti:static/resources.js"></script>
+        <script src="https://login.persona.org/include.js"></script>
     </head>
 
     <body class="auth">
@@ -16,7 +17,7 @@
                 &nbsp;<span>Your credentials will be transmitted in plain text!</span>
             </div>
 
-            <div class="page auth">
+            <div class="page auth login">
                 <div class="content content-gradient">
                     <img class="logo" src="/ajenti:static/main/icon.png" />
                     <form action="/ajenti:auth" method="POST">
@@ -34,8 +35,12 @@
                             <span id="license-company">Ajenti</span>: <span id="license-type">Personal license</span>
                         </div>
                         <div class="form-lower">
-                            <button class="control button style-normal" href="#" id="login">
-                                <i class="icon-chevron-right"></i> Log in
+                            <a class="control" href="#" id="persona-login">
+                                <img src="data:image/png;base64,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" />
+                            </a>
+
+                            <button class="control button style-normal" id="login">
+                                <i class="icon-arrow-right"></i> Log in
                             </button>
                         </div>
                     </form>
@@ -56,6 +61,9 @@
         </style>
 
         <script>
+            if (%(error)s != null)
+                alert(%(error)s);
+
             licenseStatus = %(license)s;
             license = licenseStatus.license;
             $($('input')[0]).focus();
@@ -83,6 +91,32 @@
                 } else {
                     $('.licensebar').css({background: '#f90'});
                 }
+
+                $('#persona-login').click(function () {
+                    navigator.id.watch({
+                        onlogin: function(assertion) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '/ajenti:auth-persona',
+                                data: {
+                                    assertion: assertion,
+                                    audience: location.href,
+                                },
+                                success: function(res, status, xhr) {
+                                    window.location.reload();
+                                },
+                                error: function(xhr, status, err) {
+                                    navigator.id.logout();
+                                    alert("Login failure: " + err);
+                                }
+                            });
+                        },
+                        onlogout: function () {}
+                    });
+                    navigator.id.request({
+                        siteName: $('title').text(),
+                    });
+                });
             });
         </script>
 

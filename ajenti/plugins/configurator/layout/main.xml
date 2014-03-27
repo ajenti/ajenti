@@ -67,10 +67,11 @@
                                     </vc>
                                 </formline>
                                 <formline text="{Accounts}">
+                                    <!-- magic: sort so that root is first -->
                                     <bind:collection
                                             id="users"
                                             bind="users"
-                                            values="lambda c: c.values()"
+                                            values="lambda c: sorted(c.values(), key=lambda x: {'root': ''}.get(x.name, x.name))"
                                             add_item="lambda i,c: c.update({i.name: i})"
                                             delete_item="lambda i,c: c.pop(i.name) if i.name != 'root' else None">
                                         <vc>
@@ -95,7 +96,16 @@
                                                             <editable id="password" placeholder="{Change password}" icon="lock" />
                                                         </hc>
                                                     </box>
-                                                    <tabs id="permissions" client="True" bind:visible="name" bindtransform="lambda x: x != 'root'" />
+                                                    <vc>
+                                                        <formgroup text="{General}">
+                                                            <formline text="{E-mail}">
+                                                                <textbox bind="email" />
+                                                            </formline>
+                                                        </formgroup>
+                                                        <formgroup text="{Permissions}" bind:visible="name" bindtransform="lambda x: x != 'root'">
+                                                            <tabs id="permissions" client="True" />
+                                                        </formgroup>
+                                                    </vc>
                                                 </collapserow>
                                             </bind:template>
                                             <button bind="__add" icon="plus" text="{Create}" id="add-user-button" />

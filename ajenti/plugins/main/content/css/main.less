@@ -87,12 +87,12 @@ body.auth {
 }
 
 .page.auth {
-	padding: 50px 0;
+    padding: 50px 0;
 
     .content {
         text-align: center;
 
-        img {
+        img.logo {
             margin: 20px 0 20px;
         }
 
@@ -138,15 +138,26 @@ body.auth {
 		}
 
 		.button {
-			display: block;
 			float: right;
-			margin: 5px;
+
+            i {
+                top: 0;
+            }
 		}
 
 		.l {
 			width: 80px;
             float: left;
 		}
+
+        #persona-login {
+            float: left;
+            cursor: pointer;
+
+            &:hover {
+                opacity: .75;
+            }
+        }
 	}
 }
 
@@ -407,6 +418,7 @@ body.auth {
 }
 
 #ssl-alert {
+    display: none;
     padding: 6px 10px;
     #gradient > .vertical(#f55, #c00);
     border-bottom: 1px solid #a00;

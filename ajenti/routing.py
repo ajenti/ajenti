@@ -46,7 +46,7 @@ class CentralDispatcher (BasePlugin, HttpHandler):
 
         for instance in HttpPlugin.get_all():
             try:
-                output = instance.handle(context)  
+                output = instance.handle(context)
             except Exception, e:
                 return [self.respond_error(context, e)]
             if output is not None:
@@ -71,10 +71,10 @@ class CentralDispatcher (BasePlugin, HttpHandler):
                         width: 600px;
                         text-align: left;
                         margin: auto;
-                        font-family: monospace; 
+                        font-family: monospace;
                     }
                 </style>
-                
+
                 <img src="/ajenti:static/main/error.jpeg" />
                 <br/>
                 <p>

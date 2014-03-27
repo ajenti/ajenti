@@ -16,7 +16,7 @@ BuildArch: noarch
 Vendor: Eugene Pankov <e@ajenti.org>
 Url: http://ajenti.org/
 
-requires: python-gevent, python-greenlet, python-lxml, openssl, python-gevent-socketio, python-gevent-websocket, python-psutil >= 0.6.0, python-imaging, python-daemon, python-passlib, python-requests, reconfigure >= 0.1.42, python-catcher, python-exconsole >= 0.1.5, python-ldap
+requires: python-gevent, python-greenlet, python-lxml, openssl, python-gevent-socketio, python-gevent-websocket, python-psutil >= 0.6.0, python-imaging, python-daemon, python-passlib, python-requests, reconfigure >= 0.1.43, python-catcher, python-exconsole >= 0.1.5, python-ldap
 
 
 %description
@@ -47,7 +47,7 @@ service ajenti restart
 echo ------------------------------------------------
 echo Now start Ajenti with \'service ajenti restart\'
 echo Ajenti will listen on HTTPS port 8000 by default
-echo 
+echo
 echo Default username : root
 echo Default password : admin
 echo ------------------------------------------------

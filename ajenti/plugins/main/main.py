@@ -3,6 +3,7 @@ import catcher
 import gevent
 import gevent.coros
 import json
+import requests
 import traceback
 import zlib
 
@@ -31,7 +32,8 @@ class MainServer (BasePlugin, HttpPlugin):
             context.respond_ok()
             html = self.open_content('static/auth.html').read()
             return html % {
-                'license': json.dumps(Licensing.get(manager.context).get_license_status())
+                'license': json.dumps(Licensing.get(manager.context).get_license_status()),
+                'error': json.dumps(context.session.data.pop('login-error', None)),
             }
         context.respond_ok()
         return self.open_content('static/index.html').read()
@@ -43,8 +45,38 @@ class MainServer (BasePlugin, HttpPlugin):
         if not AuthenticationMiddleware.get().try_login(
             context, username, password
         ):
+            context.session.data['login-error'] = _('Invalid login or password')
             gevent.sleep(3)
         return context.redirect('/')
+
+    @url('/ajenti:auth-persona')
+    def handle_persona_auth(self, context):
+        assertion = context.query.getvalue('assertion', None)
+        audience = context.query.getvalue('audience', None)
+        if not assertion:
+            return self.context.respond_forbidden()
+
+        data = {
+            'assertion': assertion,
+            'audience': audience,
+        }
+
+        resp = requests.post('https://verifier.login.persona.org/verify', data=data, verify=True)
+
+        if resp.ok:
+            verification_data = json.loads(resp.content)
+            if verification_data['status'] == 'okay':
+                context.respond_ok()
+                email = verification_data['email']
+                for user in ajenti.config.tree.users.values():
+                    if user.email == email:
+                        AuthenticationMiddleware.get().login(context, user.name)
+                        break
+                else:
+                    context.session.data['login-error'] = _('Email "%s" is not associated with any user') % email
+                return ''
+        context.session.data['login-error'] = _('Login failed')
+        return context.respond_not_found()
 
     @url('/ajenti:logout')
     def handle_logout(self, context):

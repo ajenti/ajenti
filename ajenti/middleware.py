@@ -122,16 +122,19 @@ class AuthenticationMiddleware (HttpHandler):
 
         if context.session.identity:
             context.add_header('X-Auth-Status', 'ok')
-            context.add_header('X-Auth-Identity', context.session.identity)
+            context.add_header('X-Auth-Identity', str(context.session.identity))
         else:
             context.add_header('X-Auth-Status', 'none')
 
     def try_login(self, context, username, password):
         if UserManager.get().check_password(username, password):
-            context.session.identity = username
-            context.session.appcontext = AppContext(manager.context, context)
+            self.login(context, username)
             return True
         return False
+
+    def login(self, context, username):
+        context.session.identity = username
+        context.session.appcontext = AppContext(manager.context, context)
 
     def logout(self, context):
         context.session.identity = None
