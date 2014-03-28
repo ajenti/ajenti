@@ -28,7 +28,7 @@ class Dash (SectionPlugin):
         self.dash.on('reorder', self.on_reorder)
 
         self.autorefresh = False
-        
+
         self.find('header').platform = ajenti.platform_unmapped
         self.find('header').distro = ajenti.platform_string
 
@@ -38,9 +38,9 @@ class Dash (SectionPlugin):
         self.find('add-widgets').post_item_bind = post_widget_bind
 
         classes = [
-            x for x in DashboardWidget.get_classes() 
-            if not x.hidden and 
-            UserManager.get().has_permission(WidgetPermissions.name_for(x))
+            x for x in DashboardWidget.get_classes()
+            if not x.hidden and
+            UserManager.get().has_permission(self.context, WidgetPermissions.name_for(x))
         ]
 
         CollectionAutoBinding(
@@ -102,7 +102,7 @@ class Dash (SectionPlugin):
         for widget in self.classconfig['widgets']:
             for cls in DashboardWidget.get_classes():
                 if cls.classname == widget['class']:
-                    if not UserManager.get().has_permission(WidgetPermissions.name_for(cls)):
+                    if not UserManager.get().has_permission(self.context, WidgetPermissions.name_for(cls)):
                         continue
                     try:
                         instance = cls.new(
@@ -166,7 +166,7 @@ class DashboardHeader (UIElement):
 @plugin
 class CrashedWidget (DashboardWidget):
     hidden = True
-    
+
     def init(self):
         self.append(self.ui.create('label', id='text'))
 

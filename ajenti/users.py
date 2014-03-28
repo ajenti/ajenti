@@ -14,7 +14,7 @@ def restrict(permission):
     """
     def decorator(fx):
         def wrapper(*args, **kwargs):
-            UserManager.get().require_permission(permission)
+            UserManager.get().require_permission(extract_context(), permission)
             return fx(*args, **kwargs)
         return wrapper
     return decorator
@@ -86,28 +86,27 @@ class UserManager (BasePlugin):
             password = 'sha512|%s' % sha512_crypt.encrypt(password)
         return password
 
-    def has_permission(self, permission):
+    def has_permission(self, context, permission):
         """
         Checks whether the current user has a permission
 
         :type permission: str
         :rtype: bool
         """
-        context = extract_context()
         if context.user.name == 'root':
             return True
         if not permission in context.user.permissions:
             return False
         return True
 
-    def require_permission(self, permission):
+    def require_permission(self, context, permission):
         """
         Checks current user for given permission and
         raises :class:`SecurityError` if he doesn't have one
         :type permission: str
         :raises: SecurityError
         """
-        if not self.has_permission(permission):
+        if not self.has_permission(context, permission):
             raise SecurityError(permission)
 
     def get_sync_provider(self, fallback=False):

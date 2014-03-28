@@ -329,7 +329,7 @@ class SectionsRoot (UIElement):
         self.is_empty = True
         for cls in SectionPlugin.get_classes():
             try:
-                UserManager.get().require_permission('section:%s' % cls.__name__)
+                UserManager.get().require_permission(self.context, 'section:%s' % cls.__name__)
 
                 try:
                     profile_start('Starting %s' % cls.__name__)

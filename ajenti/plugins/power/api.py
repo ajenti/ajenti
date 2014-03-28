@@ -38,6 +38,7 @@ class SystemdPowerController (PowerController):
         subprocess.call(['systemctl', 'hibernate'])
 
     @classmethod
+    @cache_value()
     def capabilities(cls):
         if subprocess.call(['which', 'systemctl']) == 0:
             return ['reboot', 'suspend', 'hibernate', 'shutdown']
@@ -45,7 +46,6 @@ class SystemdPowerController (PowerController):
             return []
 
     @classmethod
-    @cache_value()
     def verify(cls):
         return subprocess.call(['which', 'systemctl']) == 0
 
@@ -65,15 +65,23 @@ class PMUtilsPowerController (PowerController):
         subprocess.call(['reboot'])
 
     @classmethod
+    @cache_value()
     def capabilities(cls):
-        result = ['shutdown', 'reboot']
-        if subprocess.call(['which', 'pm-suspend']) == 0:
-            result.append('suspend')
-        if subprocess.call(['which', 'pm-hibernate']) == 0:
-            result.append('hibernate')
-        return result
+        return ['shutdown', 'reboot', 'suspend', 'hibernate']
 
     @classmethod
-    @cache_value()
     def verify(cls):
-        return len(cls.capabilities()) > 2
+        return subprocess.call(['which', 'pm-hibernate']) == 0
+
+
+@plugin
+class BasicLinuxPowerController (PowerController):
+    def shutdown(self):
+        subprocess.call(['poweroff'])
+
+    def reboot(self):
+        subprocess.call(['reboot'])
+
+    @classmethod
+    def capabilities(cls):
+        return ['shutdown', 'reboot']
