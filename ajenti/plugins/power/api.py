@@ -39,16 +39,15 @@ class SystemdPowerController (PowerController):
 
     @classmethod
     def capabilities(cls):
-        try:
-            subprocess.call(['which', 'systemctl'])
+        if subprocess.call(['which', 'systemctl']) == 0:
             return ['reboot', 'suspend', 'hibernate', 'shutdown']
-        except:
+        else:
             return []
 
     @classmethod
     @cache_value()
     def verify(cls):
-        return bool(cls.capabilities())
+        return subprocess.call(['which', 'systemctl']) == 0
 
 
 @plugin
@@ -68,18 +67,10 @@ class PMUtilsPowerController (PowerController):
     @classmethod
     def capabilities(cls):
         result = ['shutdown', 'reboot']
-        try:
-            subprocess.call(['which', 'pm-suspend'])
+        if subprocess.call(['which', 'pm-suspend']) == 0:
             result.append('suspend')
-        except:
-            pass
-
-        try:
-            subprocess.call(['which', 'pm-hibernate'])
+        if subprocess.call(['which', 'pm-hibernate']) == 0:
             result.append('hibernate')
-        except:
-            pass
-
         return result
 
     @classmethod
