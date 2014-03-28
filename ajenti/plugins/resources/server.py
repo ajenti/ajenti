@@ -44,6 +44,8 @@ class ContentServer (HttpPlugin):
 
 
 @plugin
+@persistent
+@rootcontext
 class ContentCompressor (object):
     def __init__(self):
         self.files = {}

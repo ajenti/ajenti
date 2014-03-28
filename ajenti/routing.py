@@ -46,7 +46,10 @@ class CentralDispatcher (BasePlugin, HttpHandler):
         if context.path.startswith('/ajenti:socket'):
             return context.fallthrough(self.io)
 
-        for instance in HttpPlugin.get_all():
+        if not hasattr(self.context, 'http_handlers'):
+            self.context.http_handlers = HttpPlugin.get_all()
+
+        for instance in self.context.http_handlers:
             try:
                 output = instance.handle(context)
             except Exception, e:
