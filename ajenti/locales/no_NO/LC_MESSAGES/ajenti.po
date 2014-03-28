@@ -8,7 +8,7 @@ msgid "Gathering plugin list"
 msgstr "Samler plugin listen"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
-#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:20
@@ -17,13 +17,12 @@ msgstr "Samler plugin listen"
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
-#: ajenti/plugins/ufw/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/raid/layout/main.xml:1
 #: ajenti/plugins/iptables/layout/option-custom.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:4
 #: ajenti/plugins/packages/layout/headers.xml:1
-#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:10
+#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/fm/layout/main.xml:10
 #: ajenti/plugins/fm/layout/main.xml:14 ajenti/plugins/fm/layout/main.xml:18
 #: ajenti/plugins/network/layout/main.xml:1
 #: ajenti/plugins/hosts/layout/main.xml:3
@@ -40,7 +39,7 @@ msgstr "Avhengigheter"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 #: ajenti/plugins/raid/layout/main.xml:3
-#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/resolv/layout/main.xml:3
 #: ajenti/plugins/bind9/layout/main.xml:5
 msgid "Type"
 msgstr "Type"
@@ -58,29 +57,54 @@ msgid "Status"
 msgstr "Status"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/configurator/configurator.py:159
+#: ajenti/plugins/tasks/layout/main.xml:18
+#: ajenti/plugins/exports/layout/main.xml:1
+#: ajenti/plugins/exports/layout/main.xml:5
+#: ajenti/plugins/samba/layout/main.xml:2
+#: ajenti/plugins/samba/layout/main.xml:34
+#: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/nsd/layout/main.xml:2 ajenti/plugins/ctdb/layout/main.xml:17
+#: ajenti/plugins/ctdb/layout/main.xml:21
+#: ajenti/plugins/resolv/layout/main.xml:1
+#: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/hosts/layout/main.xml:1
+#: ajenti/plugins/squid/layout/main.xml:1
+#: ajenti/plugins/squid/layout/main.xml:6
+#: ajenti/plugins/squid/layout/main.xml:13
+#: ajenti/plugins/squid/layout/main.xml:14
+#: ajenti/plugins/cron/layout/main.xml:3
+#: ajenti/plugins/cron/layout/main.xml:12
+#: ajenti/plugins/cron/layout/main.xml:23
+#: ajenti/plugins/bind9/layout/main.xml:2
+msgid "Add"
+msgstr "Legg til"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:38
-#: ajenti/plugins/exports/layout/main.xml:1
+#: ajenti/plugins/exports/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:3
 #: ajenti/plugins/samba/layout/main.xml:35
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/users/layout/user-list.xml:1
-#: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/dhcpd/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
-#: ajenti/plugins/ufw/layout/main.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:9
-#: ajenti/plugins/supervisor/layout/main.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:3
-#: ajenti/plugins/nsd/layout/main.xml:2 ajenti/plugins/fm/layout/main.xml:9
-#: ajenti/plugins/ctdb/layout/main.xml:17
-#: ajenti/plugins/ctdb/layout/main.xml:21
-#: ajenti/plugins/resolv/layout/main.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/ctdb/layout/main.xml:18
+#: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/resolv/layout/main.xml:2
+#: ajenti/plugins/fstab/layout/main.xml:4
 #: ajenti/plugins/hosts/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:7
@@ -93,51 +117,17 @@ msgstr "Status"
 msgid "Confirm deletion"
 msgstr "Bekreft sletting"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:30
 #: ajenti/plugins/iptables/main.py:149
 msgid "Enable"
 msgstr "Aktivere"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/configurator.py:257
 msgid "Configuration"
 msgstr "Konfigurasjon"
-
-#: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/tasks/layout/main.xml:18
-#: ajenti/plugins/tasks/layout/main.xml:37
-#: ajenti/plugins/exports/layout/main.xml:6
-#: ajenti/plugins/exports/layout/main.xml:7
-#: ajenti/plugins/samba/layout/main.xml:2
-#: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/dhcpd/layout/main.xml:6
-#: ajenti/plugins/dhcpd/layout/ranges.xml:2
-#: ajenti/plugins/dhcpd/layout/options.xml:2
-#: ajenti/plugins/ufw/layout/main.xml:5 ajenti/plugins/ufw/layout/main.xml:6
-#: ajenti/plugins/db_common/layout/main.xml:5
-#: ajenti/plugins/db_common/layout/main.xml:10
-#: ajenti/plugins/supervisor/layout/main.xml:16
-#: ajenti/plugins/netatalk/layout/main.xml:2
-#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/nsd/layout/main.xml:9
-#: ajenti/plugins/ctdb/layout/main.xml:19
-#: ajenti/plugins/ctdb/layout/main.xml:24
-#: ajenti/plugins/resolv/layout/main.xml:4
-#: ajenti/plugins/fstab/layout/main.xml:10
-#: ajenti/plugins/hosts/layout/main.xml:6
-#: ajenti/plugins/hosts/layout/main.xml:7
-#: ajenti/plugins/squid/layout/main.xml:1
-#: ajenti/plugins/squid/layout/main.xml:6
-#: ajenti/plugins/squid/layout/main.xml:13
-#: ajenti/plugins/squid/layout/main.xml:14
-#: ajenti/plugins/squid/layout/options-editor.xml:1
-#: ajenti/plugins/cron/layout/main.xml:3
-#: ajenti/plugins/cron/layout/main.xml:12
-#: ajenti/plugins/cron/layout/main.xml:23
-#: ajenti/plugins/bind9/layout/main.xml:9
-msgid "Create"
-msgstr "Opprette"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/layout/main.xml:35
@@ -148,7 +138,7 @@ msgstr "Opprette"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/dhcpd/layout/main.xml:8 ajenti/plugins/ufw/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/netatalk/layout/main.xml:14
@@ -157,7 +147,7 @@ msgstr "Opprette"
 #: ajenti/plugins/ctdb/layout/main.xml:25
 #: ajenti/plugins/resolv/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:18
-#: ajenti/plugins/hosts/layout/main.xml:8
+#: ajenti/plugins/hosts/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:15
 #: ajenti/plugins/cron/layout/main.xml:27
 #: ajenti/plugins/bind9/layout/main.xml:11
@@ -197,13 +187,6 @@ msgstr "Feilmelding: \"%s\""
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Konfigurer"
-
-#: ajenti/plugins/configurator/configurator.py:159
-#: ajenti/plugins/samba/layout/main.xml:34
-#: ajenti/plugins/hosts/layout/main.xml:1
-#: ajenti/plugins/bind9/layout/main.xml:2
-msgid "Add"
-msgstr "Legg til"
 
 #: ajenti/plugins/configurator/configurator.py:176
 msgid "Auto"
@@ -589,6 +572,18 @@ msgstr "Måned"
 msgid "DoW"
 msgstr "DoW"
 
+#: ajenti/plugins/tasks/layout/main.xml:37
+#: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/dhcpd/layout/ranges.xml:2
+#: ajenti/plugins/dhcpd/layout/options.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:10
+#: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
+#: ajenti/plugins/squid/layout/options-editor.xml:1
+#: ajenti/plugins/bind9/layout/main.xml:9
+msgid "Create"
+msgstr "Opprette"
+
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
 msgstr "Kjør i parallell"
@@ -629,7 +624,7 @@ msgstr "Behold tillatelser"
 
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
-#: ajenti/plugins/supervisor/layout/main.xml:3
+#: ajenti/plugins/supervisor/layout/main.xml:4
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -658,26 +653,25 @@ msgstr "Programvare"
 msgid "Saved"
 msgstr "Lagret"
 
-#: ajenti/plugins/exports/layout/main.xml:2
+#: ajenti/plugins/exports/layout/main.xml:3
 msgid "Directory"
 msgstr "Katalog"
 
-#: ajenti/plugins/exports/layout/main.xml:3
+#: ajenti/plugins/exports/layout/main.xml:4
 msgid "Clients"
 msgstr "Klienter"
 
-#: ajenti/plugins/exports/layout/main.xml:4
-#: ajenti/plugins/ufw/layout/main.xml:3
+#: ajenti/plugins/exports/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option-address.xml:1
-#: ajenti/plugins/ctdb/layout/main.xml:18
-#: ajenti/plugins/ctdb/layout/main.xml:22
+#: ajenti/plugins/ctdb/layout/main.xml:19
+#: ajenti/plugins/ctdb/layout/main.xml:23
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Address"
 msgstr "Adresse"
 
-#: ajenti/plugins/exports/layout/main.xml:5
-#: ajenti/plugins/dhcpd/layout/main.xml:5 ajenti/plugins/resolv/main.py:18
-#: ajenti/plugins/fstab/layout/main.xml:7
+#: ajenti/plugins/exports/layout/main.xml:7
+#: ajenti/plugins/dhcpd/layout/main.xml:6 ajenti/plugins/resolv/main.py:18
+#: ajenti/plugins/fstab/layout/main.xml:8
 #: ajenti/plugins/squid/layout/main.xml:4
 #: ajenti/plugins/squid/layout/main.xml:11
 #: ajenti/plugins/squid/layout/port-template.xml:3
@@ -935,7 +929,7 @@ msgstr "Ingen data"
 #: ajenti/plugins/hdparm/layout/widget.xml:1
 #: ajenti/plugins/hddtemp/layout/widget.xml:1
 #: ajenti/plugins/network/layout/widget.xml:1
-#: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/fstab/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:12
 #: ajenti/plugins/fstab/layout/free-widget.xml:1
 #: ajenti/plugins/fstab/layout/widget.xml:1
@@ -944,13 +938,12 @@ msgstr "Ingen data"
 msgid "Device"
 msgstr "Enheten"
 
-#: ajenti/plugins/users/main.py:17 ajenti/plugins/ufw/main.py:12
-#: ajenti/plugins/raid/main.py:17 ajenti/plugins/iptables/main.py:72
-#: ajenti/plugins/packages/main.py:14 ajenti/plugins/network/main.py:17
-#: ajenti/plugins/megaraid/main.py:17 ajenti/plugins/resolv/main.py:15
-#: ajenti/plugins/fstab/main.py:45 ajenti/plugins/hosts/main.py:15
-#: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
+#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
+#: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Systemet"
 
@@ -977,7 +970,7 @@ msgstr "Passordet for %s ble fjernet"
 #: ajenti/plugins/users/layout/user-list.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
-#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:15
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
 msgstr "Brukernavn"
@@ -1023,11 +1016,11 @@ msgstr "DHCP-serveren"
 msgid "Subnetworks"
 msgstr "subnett"
 
-#: ajenti/plugins/dhcpd/layout/main.xml:3
+#: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
 msgstr "Spesifikasjon"
 
-#: ajenti/plugins/dhcpd/layout/main.xml:4
+#: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
 msgstr "IP-serier"
 
@@ -1047,14 +1040,6 @@ msgstr "Munin HTTP-godkjenning mislyktes"
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
 msgstr "Vis"
-
-#: ajenti/plugins/ufw/__init__.py:6 ajenti/plugins/ufw/main.py:10
-msgid "UFW Firewall"
-msgstr ""
-
-#: ajenti/plugins/ufw/layout/main.xml:4 ajenti/plugins/hosts/layout/main.xml:5
-msgid "Aliases"
-msgstr "Aliaser"
 
 #: ajenti/plugins/nginx/main.py:12 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
@@ -1083,41 +1068,41 @@ msgstr "Bekrefte databasen slipp!"
 msgid "Database name"
 msgstr "Databasenavn"
 
-#: ajenti/plugins/supervisor/layout/main.xml:4
+#: ajenti/plugins/supervisor/layout/main.xml:5
 msgid "Working directory"
 msgstr "Arbeidsmappen"
 
-#: ajenti/plugins/supervisor/layout/main.xml:5
+#: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Autostart"
 msgstr "Autostart"
 
-#: ajenti/plugins/supervisor/layout/main.xml:6
-#: ajenti/plugins/supervisor/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Enabled"
 msgstr "Aktivert"
 
-#: ajenti/plugins/supervisor/layout/main.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:8
+#: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Disabled"
 msgstr "Deaktivert"
 
-#: ajenti/plugins/supervisor/layout/main.xml:8
+#: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Autorestart"
 msgstr "Autorestart"
 
-#: ajenti/plugins/supervisor/layout/main.xml:10
+#: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "On crash"
 msgstr "hvis krasj"
 
-#: ajenti/plugins/supervisor/layout/main.xml:12
+#: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Start timeout"
 msgstr "Starte tidsavbrudd"
 
-#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/supervisor/layout/main.xml:14
 msgid "Start retries"
 msgstr "Starte nye forsøk"
 
-#: ajenti/plugins/supervisor/layout/main.xml:15
+#: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
 msgstr "Miljø"
@@ -1230,7 +1215,7 @@ msgid "Ports"
 msgstr "Porter"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
-#: ajenti/plugins/ctdb/layout/main.xml:23
+#: ajenti/plugins/ctdb/layout/main.xml:24
 msgid "Interface"
 msgstr "Grensesnitt"
 
@@ -1366,19 +1351,19 @@ msgstr ""
 msgid "Zones"
 msgstr "Soner"
 
-#: ajenti/plugins/nsd/layout/main.xml:4 ajenti/plugins/bind9/layout/main.xml:6
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "File"
 msgstr "Fil"
 
-#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:7
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone"
 msgstr "Sone"
 
-#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:8
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/bind9/layout/main.xml:8
 msgid "Zone file does not exist"
 msgstr "Zone-filen finnes ikke"
 
-#: ajenti/plugins/nsd/layout/main.xml:8
+#: ajenti/plugins/nsd/layout/main.xml:9
 #: ajenti/plugins/bind9/layout/main.xml:10
 msgid "Save zone"
 msgstr "Lagre sone"
@@ -1639,7 +1624,7 @@ msgstr "Søk-listen"
 msgid "Sort list"
 msgstr "Sorter liste"
 
-#: ajenti/plugins/resolv/layout/main.xml:3
+#: ajenti/plugins/resolv/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:26
 msgid "Value"
 msgstr "Verdi"
@@ -1677,20 +1662,20 @@ msgstr "montere -a mislyktes"
 msgid "Mount all"
 msgstr "Montere alle"
 
-#: ajenti/plugins/fstab/layout/main.xml:5
+#: ajenti/plugins/fstab/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
 msgstr "Monteringspunkt"
 
-#: ajenti/plugins/fstab/layout/main.xml:6
+#: ajenti/plugins/fstab/layout/main.xml:7
 msgid "FS type"
 msgstr "FS-type"
 
-#: ajenti/plugins/fstab/layout/main.xml:8
+#: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan frequency"
 msgstr "Skanne frekvens"
 
-#: ajenti/plugins/fstab/layout/main.xml:9
+#: ajenti/plugins/fstab/layout/main.xml:10
 msgid "Scan pass"
 msgstr "Skanne pass"
 
@@ -1879,6 +1864,10 @@ msgstr "IPMI-Sensor"
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"
 msgstr "Verter"
+
+#: ajenti/plugins/hosts/layout/main.xml:5
+msgid "Aliases"
+msgstr "Aliaser"
 
 #: ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
