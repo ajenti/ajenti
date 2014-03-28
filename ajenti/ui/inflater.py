@@ -92,6 +92,7 @@ class Inflater (BasePlugin):
             value = node.attrib[key]
             if value.startswith('{') and value.endswith('}'):
                 value = _(value[1:-1])
+            value = value.replace('\\n', '\n')
             for prop in cls._properties.values():
                 if prop.name == key:
                     if prop.type in [int, float, unicode, eval]:

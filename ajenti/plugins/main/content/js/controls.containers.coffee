@@ -186,6 +186,11 @@ class window.Controls.dth extends window.Control
         w = @_int_to_px(@properties.width)
         """<th style="width: #{w}">#{@s(@properties.text)}<children></th>"""
 
+    setupDom: (dom) ->
+        super(dom)
+        if @children.length > 0
+            $(@dom).addClass('nopad')
+
 
 class window.Controls.lt extends window.Control
     createDom: () ->
