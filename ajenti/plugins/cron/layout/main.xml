@@ -9,10 +9,7 @@
             <tabs id="config">
                 <tab title="{Normal}">
                     <bind:collection bind="normal_tasks" id="normal_tasks">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>
@@ -66,10 +63,7 @@
 
                 <tab title="{Special}">
                     <bind:collection bind="special_tasks" id="special_tasks">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>
@@ -114,10 +108,7 @@
 
                 <tab title="{Environment}">
                     <bind:collection bind="env_settings" id="env_settings">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>

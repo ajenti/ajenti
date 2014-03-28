@@ -35,6 +35,8 @@ class CollapseRow (UIElement):
 
 
 @p('width', default='99%')
+@p('emptytext', type=[str, unicode], default=_('Empty'))
+@p('addrow', type=[str, unicode], default=None)
 @plugin
 class Table (UIElement):
     typeid = 'dt'

@@ -325,6 +325,7 @@ class window.Control
 
         @dom = null
         @children = []
+        @childCount = if children then children.length else 0
         @changed = false
 
         profiler.start('Generating DOM')
@@ -341,8 +342,7 @@ class window.Control
             for child in children
                 if child.properties.visible or @requiresAllChildren
                     @children.push child
-                    if not child.dom
-                        children_html += @wrapChild(child)
+                    children_html += @wrapChild(child)
 
         @html = @html.replace('<children>', children_html)
 

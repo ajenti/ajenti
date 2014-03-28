@@ -122,12 +122,31 @@ class window.Controls.dt extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
         """
-            <table cellspacing="0" cellpadding="0" class="control table #{@s(@properties.style)} --child-container" style="width: #{w}">
+            <table cellspacing="0" cellpadding="0"
+                class="control table #{@s(@properties.style)} #{if (!!@properties.addrow) then 'has-addrow' else ''} #{if (@childCount == 0) then 'empty' else ''}"
+                style="width: #{w}">
                 <tbody>
                     <children>
+                    <tr class="emptyrow">
+                        <td colspan="999">
+                            #{@properties.emptytext}
+                        </td>
+                    </tr>
+                    <tr class="addrow">
+                        <td colspan="999">
+                            <a>
+                                <i class="icon-plus"></i> #{@properties.addrow}
+                            </a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         """
+
+    setupDom: (dom) ->
+        super(dom)
+        $(@dom).find('>tbody>tr.addrow>td>a').click () =>
+            @event 'add'
 
 
 class window.Controls.sortabledt extends window.Controls.dt

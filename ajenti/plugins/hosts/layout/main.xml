@@ -3,7 +3,7 @@
         <pad id="hosts-config">
             <bind:collection bind="hosts" id="hosts">
                 <vc>
-                    <dt bind="__items" />
+                    <dt bind="__items" addrow="{Add}" />
                     <bind:template>
                         <collapserow>
                             <box>
@@ -13,9 +13,9 @@
                                 <hc>
                                     <icon icon="globe" />
                                     <label bind="name" />
-                                </hc>   
+                                </hc>
                             </box>
-                            
+
                             <indent>
                                 <hc>
                                     <vc>
@@ -42,7 +42,7 @@
                                                     <hc>
                                                         <icon icon="tags" />
                                                         <textbox bind="name" />
-                                                    </hc>   
+                                                    </hc>
                                                 </box>
                                             </vc>
                                         </bind:template>
@@ -51,11 +51,11 @@
                             </indent>
                         </collapserow>
                     </bind:template>
-                        
+
                     <button bind="__add" icon="plus" text="{Create}" />
                 </vc>
             </bind:collection>
-        </pad> 
+        </pad>
     </body>
 
     <button id="save" text="{Save}" icon="ok" />

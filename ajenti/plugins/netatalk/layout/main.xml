@@ -6,10 +6,7 @@
             <tabs id="config">
                 <tab title="{Shares}">
                     <bind:collection bind="shares" id="shares">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>

@@ -1,5 +1,5 @@
 <vc>
-    <servicebar 
+    <servicebar
         bind="service_name" />
 
     <body>
@@ -39,7 +39,7 @@
             </bind:collection>
 
             <button icon="plus" text="{Create}" id="add-db" />
-     
+
 
             <label text="{Users}" style="bold" />
             <bind:collection bind="users" id="users">

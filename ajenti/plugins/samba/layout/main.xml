@@ -6,10 +6,7 @@
             <tabs id="config">
                 <tab title="{Shares}">
                     <bind:collection bind="shares" id="shares">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>
@@ -115,7 +112,7 @@
                                 <textbox bind="log_file" />
                             </formline>
                             <formline text="{Security}">
-                                <dropdown bind="security" 
+                                <dropdown bind="security"
                                     labels="['User-level', 'ADS Realm', 'NT Domain', 'Share-level', 'Another Server']"
                                     values="['user', 'ads', 'domain', 'share', 'server']"
                                     />

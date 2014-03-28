@@ -156,7 +156,7 @@ class Configurator (SectionPlugin):
 
         provider = UserManager.get().get_sync_provider()
         self.find('sync-providers').value = provider.id
-        self.find('add-user-button').visible = provider.id == ''
+        self.find('users-dt').addrow = _('Add') if provider.id == '' else None
         self.find('sync-users-button').visible = provider.id != ''
         self.find('password').visible = provider.id == ''
         self.find('configure-sync-button').visible = \

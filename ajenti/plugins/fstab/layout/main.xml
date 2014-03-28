@@ -8,54 +8,51 @@
         <pad id="fstab" binder:context="fstab">
             <label text="fstab" style="bold" />
             <bind:collection bind="filesystems" id="filesystems">
-                <vc>
-                    <dt bind="__items" />
-                    <bind:template>
-                        <collapserow>
-                            <box>
-                                <right>
-                                    <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
-                                </right>
-                                <hc>
-                                    <icon icon="hdd" />
-                                    <label bind="device" />
-                                    <label text=" → " />
-                                    <label bind="mountpoint" />
-                                </hc>   
-                            </box>
-                            
-                            <pad>
-                                <hc>
-                                    <vc>
-                                        <formline text="{Device}">
-                                            <combobox id="device" bind="device" />
-                                        </formline>
-                                        <formline text="{Mountpoint}">
-                                            <pathbox directory="True" bind="mountpoint" />
-                                        </formline>
-                                        <formline text="{FS type}">
-                                            <combobox id="type" bind="type" />
-                                        </formline>
-                                    </vc>
-                                    <vc>
-                                        <formline text="{Options}">
-                                            <textbox bind="options" />
-                                        </formline>
-                                        <formline text="{Scan frequency}">
-                                            <textbox bind="freq" />
-                                        </formline>
-                                        <formline text="{Scan pass}">
-                                            <textbox bind="passno" />
-                                        </formline>
-                                    </vc>
-                                </hc>
-                            </pad>
-                        </collapserow>
-                    </bind:template>
-                    <button bind="__add" icon="plus" text="{Create}" />
-                </vc>
+                <dt bind="__items" addrow="{Add}" />
+                <bind:template>
+                    <collapserow>
+                        <box>
+                            <right>
+                                <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                            </right>
+                            <hc>
+                                <icon icon="hdd" />
+                                <label bind="device" />
+                                <label text=" → " />
+                                <label bind="mountpoint" />
+                            </hc>
+                        </box>
+
+                        <pad>
+                            <hc>
+                                <vc>
+                                    <formline text="{Device}">
+                                        <combobox id="device" bind="device" />
+                                    </formline>
+                                    <formline text="{Mountpoint}">
+                                        <pathbox directory="True" bind="mountpoint" />
+                                    </formline>
+                                    <formline text="{FS type}">
+                                        <combobox id="type" bind="type" />
+                                    </formline>
+                                </vc>
+                                <vc>
+                                    <formline text="{Options}">
+                                        <textbox bind="options" />
+                                    </formline>
+                                    <formline text="{Scan frequency}">
+                                        <textbox bind="freq" />
+                                    </formline>
+                                    <formline text="{Scan pass}">
+                                        <textbox bind="passno" />
+                                    </formline>
+                                </vc>
+                            </hc>
+                        </pad>
+                    </collapserow>
+                </bind:template>
             </bind:collection>
-        </pad> 
+        </pad>
 
         <pad id="mounts" binder:context="mounts">
             <label text="{Mounted filesystems}" style="bold" />
@@ -96,7 +93,7 @@
                         </dtr>
                     </bind:template>
                 </vc>
-            </bind:collection>  
+            </bind:collection>
         </pad>
     </body>
     <button id="save" text="{Save}" icon="ok" />

@@ -433,11 +433,47 @@
 			padding: 0 5px;
 		}
 
+		&.has-addrow > tbody > tr.addrow,
+		&.empty > tbody > tr.emptyrow, {
+			display: table-row !important;
+		}
+
 		&>tbody {
 			margin: 0;
 
 			&>tr {
 				margin: 0;
+
+				&.emptyrow, &.addrow {
+					display: none;
+				}
+
+				&.emptyrow td {
+					padding: 10px;
+					text-align: center;
+					color: #888;
+				}
+
+				&.addrow td {
+					padding: 0;
+					a {
+						line-height: 17px;
+						display: block;
+						padding: 10px;
+						text-align: center;
+						color: rgba(0,0,0,.75);
+						text-shadow: 0 1px 0 rgba(255,255,255,.5);
+						text-transform: uppercase;
+						font-weight: bold;
+						opacity: .5;
+						background: @tableCell;
+
+						&:hover {
+							opacity: 1;
+							background: white;
+						}
+					}
+				}
 
 				&>th {
 					color: #7c8c99;

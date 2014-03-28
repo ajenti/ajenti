@@ -222,8 +222,8 @@ class DictAutoBinding (Binding):
         for bindable in bindables:
             if bindable == self.ui:
                 continue
-    
-            for prop in bindable.properties:            
+
+            for prop in bindable.properties:
                 if not bindable.properties[prop]:
                     continue
                 if prop.startswith('{bind}'):
@@ -337,6 +337,8 @@ class CollectionAutoBinding (Binding):
         self.unpopulate()
 
         # Do it before DOM becomes huge
+        self.items_ui.on('add', self.on_add)
+
         try:
             add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
             if not _element_in_child_binder(self.ui, add_button):
@@ -366,7 +368,7 @@ class CollectionAutoBinding (Binding):
             template.visible = True
             self.items_ui.append(template)
             self.item_ui[value] = template
-            
+
             binder = Binder(value, template)
             binder.populate()
             self.binders[value] = binder

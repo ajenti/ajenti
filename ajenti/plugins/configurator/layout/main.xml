@@ -75,7 +75,7 @@
                                             add_item="lambda i,c: c.update({i.name: i})"
                                             delete_item="lambda i,c: c.pop(i.name) if i.name != 'root' else None">
                                         <vc>
-                                            <dt bind="__items" width="500" />
+                                            <dt id="users-dt" bind="__items" width="500" />
                                             <bind:template>
                                                 <collapserow>
                                                     <box>
@@ -108,7 +108,6 @@
                                                     </vc>
                                                 </collapserow>
                                             </bind:template>
-                                            <button bind="__add" icon="plus" text="{Create}" id="add-user-button" />
                                         </vc>
                                     </bind:collection>
                                 </formline>

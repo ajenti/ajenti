@@ -1,6 +1,6 @@
 <dtr>
     <dtd width="150">
-        <label bind="cmdline" style="bold" />   
+        <label bind="cmdline" style="bold" />
     </dtd>
     <dtd>
         <checkbox bind="negative" text="Invert" />

@@ -26,7 +26,7 @@
                                             <box bind:visible="message" bindtransform="bool">
                                                 <label bind:text="message" />
                                             </box>
-                                            <progressbar 
+                                            <progressbar
                                                 bind:value="get_progress" bindtransform="lambda x: x()[0] * 1.0 / x()[1]"
                                                 width="200"
                                             />
@@ -73,40 +73,37 @@
                                                 <label bind="time_started" bindtransform="str" />
                                             </hc>
                                             <box bind:visible="output" bindtransform="bool">
-                                                <label bind:text="output"/> 
+                                                <label bind:text="output"/>
                                             </box>
                                         </vc>
                                     </dtd>
                                     <dtd>
                                         <vc style="nopad">
-                                            <label bind:visible="result" text="{Success}" 
+                                            <label bind:visible="result" text="{Success}"
                                                 bindtransform="lambda x: x == 0" />
-                                            <label bind:visible="result" text="{Aborted}" 
+                                            <label bind:visible="result" text="{Aborted}"
                                                 bindtransform="lambda x: x == 1" />
-                                            <label bind:visible="result" text="{Error}" 
+                                            <label bind:visible="result" text="{Error}"
                                                 bindtransform="lambda x: x == 2" />
-                                            <label bind:visible="result" text="{Crashed}" 
+                                            <label bind:visible="result" text="{Crashed}"
                                                 bindtransform="lambda x: x == 3" />
                                             <label bind="duration" bindtransform="lambda x: '(%s)' % x" />
                                         </vc>
                                     </dtd>
                                 </dtr>
                             </bind:template>
-                        </bind:collection>     
+                        </bind:collection>
 
                         <hc>
                             <dropdown id="run-task-selector" />
                             <button id="run-task" icon="play" text="{Run}" />
-                        </hc>                  
+                        </hc>
                     </vc>
                 </tab>
 
                 <tab title="{Jobs}">
                     <bind:collection bind="job_definitions" id="job_definitions">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>

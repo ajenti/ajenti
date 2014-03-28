@@ -6,10 +6,7 @@
             <tabs id="config">
                 <tab title="ACL">
                     <bind:collection bind="acl" id="acl">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>
@@ -42,10 +39,7 @@
 
                 <tab title="{HTTP Access}">
                     <bind:collection bind="http_access" id="http_access">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
 
                         <bind:template>
                             <collapserow>
@@ -81,19 +75,13 @@
                 <tab title="{Ports}">
                     <label style="bold" text="HTTP" />
                     <bind:collection bind="http_port" id="http_port">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
                         <include layout="squid:port-template" />
                     </bind:collection>
 
                     <label style="bold" text="HTTPS" />
                     <bind:collection bind="https_port" id="https_port">
-                        <vc>
-                            <dt bind="__items" />
-                            <button bind="__add" icon="plus" text="{Create}" />
-                        </vc>
+                        <dt bind="__items" addrow="{Add}" />
                         <include layout="squid:port-template" />
                     </bind:collection>
                 </tab>
@@ -101,7 +89,5 @@
         </pad>
     </body>
 
-    <hc>
-        <button id="save" text="{Save}" />
-    </hc>
+    <button id="save" icon="ok" text="{Save}" />
 </vc>
