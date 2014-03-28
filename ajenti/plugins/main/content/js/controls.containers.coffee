@@ -59,7 +59,7 @@ class window.Controls.hc extends window.Control
     createDom: () ->
         """
             <table class="control container hc #{@s(@properties.style)}">
-                <tr class="--child-container">
+                <tr>
                     <children>
                 </tr>
             </table>
@@ -75,7 +75,7 @@ class window.Controls.hc extends window.Control
 class window.Controls.vc extends window.Control
     createDom: () ->
         """
-            <div class="control container vc #{@s(@properties.style)} --child-container">
+            <div class="control container vc #{@s(@properties.style)}">
                 <children>
             </div>
         """
@@ -167,7 +167,7 @@ class window.Controls.sortabledt extends window.Controls.dt
     detectUpdates: () ->
         @newOrder = []
         hasChanges = false
-        @tbody.find('>*').each (i, e) =>
+        @tbody.find('>.row').each (i, e) =>
             idx = parseInt($(e).attr('data-order'))
             if (i+1) != idx
                 hasChanges = true
@@ -179,7 +179,6 @@ class window.Controls.sortabledt extends window.Controls.dt
 
         for i in [0..@order.length]
             if @newOrder[i] != @order[i]
-                #console.log @newOrder , @order
                 r.order = @newOrder
                 break
 
@@ -190,7 +189,7 @@ class window.Controls.sortabledt extends window.Controls.dt
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        """<tr class="--child-container"><children></tr>"""
+        """<tr class="row"><children></tr>"""
 
 
 class window.Controls.dtd extends window.Control
@@ -222,7 +221,7 @@ class window.Controls.lt extends window.Control
 
 class window.Controls.ltr extends window.Control
     createDom: () ->
-        """<tr class="--child-container"><children></tr>"""
+        """<tr><children></tr>"""
 
 
 class window.Controls.ltd extends window.Control
@@ -235,7 +234,7 @@ class window.Controls.collapserow extends window.Control
     createDom: () ->
         """
             <tr>
-                <td colspan="999" class="control container collapserow">
+                <td colspan="999" class="control container collapserow row">
                     <div class="header"></div>
                     <div class="children"><children></div>
                 </td>
