@@ -17,7 +17,7 @@ class window.Controls.terminal__thumbnail extends window.Control
 
 
 
-colors = 
+colors =
     black: '#073642'
     green: '#859900'
     white: '#eee8d5'
@@ -35,8 +35,12 @@ class window.Terminal
         @term = $('#term')
         @socket = ajentiConnectSocket('/terminal')
 
+        $(document).keydown (event) =>
+            if [32, 37, 38, 39, 40].indexOf(event.keyCode) > -1
+                event.preventDefault()
+
         $(document).keypress (event) =>
-            ch = @filter_key(event, $.browser.mozilla)
+            ch = @filter_key(event, !!(/Firefox/.exec(navigator.userAgent)))
             if event.which != 13 && event.which != 8
                 @send(RawDeflate.Base64.encode(ch))
             event.preventDefault()
@@ -56,7 +60,7 @@ class window.Terminal
 
         @socket.on 're-select', (data) =>
             @select()
-        
+
     select: () =>
         @socket.send(JSON.stringify(type: 'select', tid: @id))
 
@@ -153,10 +157,10 @@ class window.Terminal
             ch = '\x1b' + (event.keyCode - 111)
             return ch
 
-        if ch 
+        if ch
             if event.ctrlKey
                 ch = String.fromCharCode(ch - 96)
-            else 
+            else
                 ch = String.fromCharCode(ch)
                 if ch == '\r'
                     ch = '\n'
