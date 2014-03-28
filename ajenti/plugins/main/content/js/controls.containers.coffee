@@ -21,7 +21,7 @@ class window.Controls.box extends window.Control
         w = @_int_to_px(@properties.width)
         h = @_int_to_px(@properties.height)
         """
-            <div class="control container box" style="width: #{w}; height: #{h}; 
+            <div class="control container box" style="width: #{w}; height: #{h};
                 overflow: #{if @properties.scroll then 'auto' else 'hidden'}">
                 <children>
             </div>
@@ -44,7 +44,7 @@ class window.Controls.center extends window.Control
                 <children>
             </div>
         """
-        
+
 
 class window.Controls.right extends window.Control
     createDom: () ->
@@ -128,7 +128,7 @@ class window.Controls.dt extends window.Control
                 </tbody>
             </table>
         """
-        
+
 
 class window.Controls.sortabledt extends window.Controls.dt
     setupDom: (dom) ->
@@ -172,7 +172,7 @@ class window.Controls.sortabledt extends window.Controls.dt
 class window.Controls.dtr extends window.Control
     createDom: () ->
         """<tr class="--child-container"><children></tr>"""
-        
+
 
 class window.Controls.dtd extends window.Control
     createDom: () ->
@@ -184,8 +184,8 @@ class window.Controls.dtd extends window.Control
 class window.Controls.dth extends window.Control
     createDom: () ->
         w = @_int_to_px(@properties.width)
-        """<th style="width: #{w}">#{@s(@properties.text)}</th>"""
-        
+        """<th style="width: #{w}">#{@s(@properties.text)}<children></th>"""
+
 
 class window.Controls.lt extends window.Control
     createDom: () ->
@@ -254,7 +254,7 @@ class window.Controls.collapserow extends window.Control
 class window.Controls.tabs extends window.Control
     createDom: () ->
         @requiresAllChildren = true
-        
+
         @lastTabIndex = 0
         """
             <div class="control tabs">

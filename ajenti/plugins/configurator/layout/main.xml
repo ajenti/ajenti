@@ -125,9 +125,6 @@
                     </vc>
                 </tab>
 
-                <tab title="{License}" id="licensing">
-                </tab>
-
                 <tab title="{Plugins}" id="classconfigs">
                     <dialog id="dialog" visible="False">
                         <pad id="container" />
@@ -150,6 +147,9 @@
                             </dtr>
                         </bind:template>
                     </bind:collection>
+                </tab>
+
+                <tab title="{License}" id="licensing">
                 </tab>
             </tabs>
         </pad>

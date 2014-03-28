@@ -215,7 +215,7 @@ class Configurator (SectionPlugin):
 
     @intent('configure-plugin')
     def configure_plugin(self, plugin=None, notify=True):
-        self.find('tabs').active = 2
+        self.find('tabs').active = 1
         self.refresh()
 
         if plugin and notify:
