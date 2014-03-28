@@ -32,7 +32,7 @@ class MainServer (BasePlugin, HttpPlugin):
             context.respond_ok()
             html = self.open_content('static/auth.html').read()
             return html % {
-                'license': json.dumps(Licensing.get(manager.context).get_license_status()),
+                'license': json.dumps(Licensing.get().get_license_status()),
                 'error': json.dumps(context.session.data.pop('login-error', None)),
             }
         context.respond_ok()

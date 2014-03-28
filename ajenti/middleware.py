@@ -60,6 +60,7 @@ class Session (object):
 
 @plugin
 @persistent
+@rootcontext
 class SessionMiddleware (HttpHandler):
     def __init__(self):
         self.sessions = {}
@@ -111,6 +112,7 @@ class SessionMiddleware (HttpHandler):
 
 @plugin
 @persistent
+@rootcontext
 class AuthenticationMiddleware (HttpHandler):
     def handle(self, context):
         if not hasattr(context.session, 'identity'):

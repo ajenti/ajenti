@@ -10,7 +10,7 @@ class LicensingUI (UIElement):
 
     def init(self):
         self.append(self.ui.inflate('configurator:licensing'))
-        self.mgr = Licensing.get(manager.context)
+        self.mgr = Licensing.get()
 
     def on_page_load(self):
         self.refresh()

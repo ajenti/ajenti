@@ -16,8 +16,9 @@ LICENSE_PATH = '/var/lib/ajenti/license'
 
 
 @public
-@persistent
 @plugin
+@persistent
+@rootcontext
 class Licensing (BasePlugin):
     licensing_active = True
 
@@ -68,7 +69,7 @@ class Licensing (BasePlugin):
 @plugin
 class LicensingIPC (IPCHandler):
     def init(self):
-        self.manager = Licensing.get(manager.context)
+        self.manager = Licensing.get()
 
     def get_name(self):
         return 'license'

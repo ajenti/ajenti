@@ -61,7 +61,7 @@ def run():
 
         def cmd_sessions():
             import pprint
-            sessions = SessionMiddleware.get(manager.context).sessions
+            sessions = SessionMiddleware.get().sessions
             return sessions
 
         def cmd_list_instances_session():
@@ -76,7 +76,7 @@ def run():
 
     # Load plugins
     ajenti.plugins.manager.load_all()
-    Inflater.get(manager.context).precache()
+    Inflater.get().precache()
 
     bind_spec = (ajenti.config.tree.http_binding.host, ajenti.config.tree.http_binding.port)
     if ':' in bind_spec[0]:
@@ -116,9 +116,9 @@ def run():
         listener.listen(10)
 
     stack = [
-        SessionMiddleware.get(manager.context),
-        AuthenticationMiddleware.get(manager.context),
-        CentralDispatcher.get(manager.context)
+        SessionMiddleware.get(),
+        AuthenticationMiddleware.get(),
+        CentralDispatcher.get()
     ]
 
     ssl_args = {}
@@ -150,8 +150,8 @@ def run():
         pass
 
     ajenti.feedback.start()
-    ajenti.ipc.IPCServer.get(manager.context).start()
-    ajenti.licensing.Licensing.get(manager.context)
+    ajenti.ipc.IPCServer.get().start()
+    ajenti.licensing.Licensing.get()
 
     ajenti.server.serve_forever()
 

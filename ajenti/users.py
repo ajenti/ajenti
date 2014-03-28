@@ -38,6 +38,7 @@ class SecurityError (Exception):
 
 @plugin
 @persistent
+@rootcontext
 class UserManager (BasePlugin):
     default_classconfig = {'sync-provider': ''}
     classconfig_root = True

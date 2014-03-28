@@ -17,7 +17,7 @@ class Tasks (SectionPlugin):
 
         self.append(self.ui.inflate('tasks:main'))
 
-        self.manager = TaskManager.get(manager.context)
+        self.manager = TaskManager.get()
         self.binder = Binder(None, self)
 
         def post_td_bind(object, collection, item, ui):
@@ -37,11 +37,11 @@ class Tasks (SectionPlugin):
                 item.abort()
                 self.refresh()
             ui.find('abort').on('click', abort)
-        
+
         self.find('task_definitions').post_item_bind = post_td_bind
         self.find('task_definitions').post_item_update = post_td_update
         self.find('running_tasks').post_item_bind = post_rt_bind
-        
+
         self.find('job_definitions').new_item = lambda c: JobDefinition()
 
     def on_page_load(self):
@@ -79,7 +79,7 @@ class Tasks (SectionPlugin):
         cls = self.find('task-classes').value
         td = TaskDefinition(task_class=cls)
         td.name = td.get_class().name
-        
+
         self.manager.task_definitions.append(td)
         self.refresh()
 

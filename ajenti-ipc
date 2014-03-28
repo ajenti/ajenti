@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import httplib
 import socket
+from urllib import quote
 import sys
 
 
@@ -26,11 +27,12 @@ if len(sys.argv) < 2:
     print 'Usage: ajenti-ipc <endpoint> [arguments]'
     sys.exit(1)
 
-
+url = sys.argv[1] + '/' + '\n'.join(sys.argv[2:]).encode('base64').strip()
+print url, len(url)
 conn = UHTTPConnection('/var/run/ajenti-ipc.sock')
 conn.request(
     'GET',
-    sys.argv[1] + '/' + '\n'.join(sys.argv[2:]).encode('base64').strip(),
+    quote(url),
 )
 
 resp = conn.getresponse()

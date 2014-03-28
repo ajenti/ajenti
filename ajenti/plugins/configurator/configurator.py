@@ -73,7 +73,7 @@ class Configurator (SectionPlugin):
         self.find('users').new_item = lambda c: UserData()
 
         def post_user_bind(object, collection, item, ui):
-            provider = UserManager.get(manager.context).get_sync_provider()
+            provider = UserManager.get().get_sync_provider()
             editable = item.name != 'root'
             renameable = editable and provider.allows_renaming
             deletable = renameable
@@ -127,7 +127,7 @@ class Configurator (SectionPlugin):
     @on('sync-users-button', 'click')
     def on_sync_users(self):
         self.save()
-        prov = UserManager.get(manager.context).get_sync_provider()
+        prov = UserManager.get().get_sync_provider()
         try:
             prov.test()
             prov.sync()
@@ -139,7 +139,7 @@ class Configurator (SectionPlugin):
     def on_configure_sync(self):
         self.save()
         self.configure_plugin(
-            UserManager.get(manager.context).get_sync_provider(),
+            UserManager.get().get_sync_provider(),
             notify=False
         )
         self.refresh()
@@ -154,7 +154,7 @@ class Configurator (SectionPlugin):
             x.id for x in UserSyncProvider.get_classes()
         ]
 
-        provider = UserManager.get(manager.context).get_sync_provider()
+        provider = UserManager.get().get_sync_provider()
         self.find('sync-providers').value = provider.id
         self.find('add-user-button').visible = provider.id == ''
         self.find('sync-users-button').visible = provider.id != ''
@@ -185,14 +185,13 @@ class Configurator (SectionPlugin):
     def save(self):
         self.binder.update()
 
-        UserManager.get(manager.context).set_sync_provider(
+        UserManager.get().set_sync_provider(
             self.find('sync-providers').value
         )
 
         for user in ajenti.config.tree.users.values():
             if not '|' in user.password:
-                user.password = UserManager.get(manager.context) \
-                    .hash_password(user.password)
+                user.password = UserManager.get().hash_password(user.password)
 
         self.refresh()
         ajenti.config.save()

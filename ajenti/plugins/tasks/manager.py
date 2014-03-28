@@ -10,6 +10,7 @@ from reconfigure.items.crontab import CrontabNormalTaskData, CrontabSpecialTaskD
 
 
 @plugin
+@rootcontext
 class TaskManager (BasePlugin):
     classconfig_root = True
     default_classconfig = {
@@ -119,7 +120,7 @@ class TaskManager (BasePlugin):
 @plugin
 class TasksIPC (IPCHandler):
     def init(self):
-        self.manager = TaskManager.get(manager.context)
+        self.manager = TaskManager.get()
 
     def get_name(self):
         return 'tasks'

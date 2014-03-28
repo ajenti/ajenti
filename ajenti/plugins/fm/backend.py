@@ -119,7 +119,7 @@ class FMBackend (BasePlugin):
         return any(_.isdir for _ in items)
 
     def init(self):
-        self.task_manager = TaskManager.get(manager.context)
+        self.task_manager = TaskManager.get()
 
     def remove(self, items, cb=lambda: None):
         logging.info('[fm] removing %s' % ', '.join(x.fullpath for x in items))

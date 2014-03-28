@@ -3,7 +3,7 @@ import os
 import logging
 
 import ajenti
-from ajenti.api import plugin, BasePlugin, persistent
+from ajenti.api import plugin, BasePlugin, persistent, rootcontext
 from ajenti.plugins import manager
 from ajenti.ui.element import UIProperty, UIElement, NullElement
 from ajenti.util import *
@@ -17,6 +17,7 @@ class TemplateNotFoundError (Exception):
 
 @public
 @persistent
+@rootcontext
 @plugin
 class Inflater (BasePlugin):
     def init(self):

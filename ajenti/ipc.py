@@ -12,6 +12,7 @@ from ajenti.util import public
 
 
 @public
+@rootcontext
 @interface
 class IPCHandler (object):
     """
@@ -75,6 +76,8 @@ def ipc_application(environment, start_response):
 
 @public
 @plugin
+@persistent
+@rootcontext
 class IPCServer (BasePlugin):
     def start(self):
         gevent.spawn(self.run)

@@ -1,5 +1,4 @@
 from ajenti.api import *
-from ajenti.plugins import manager
 
 import binder
 from inflater import Inflater
@@ -13,7 +12,7 @@ class UI (BasePlugin):
     """
 
     def init(self):
-        self.inflater = Inflater.get(manager.context)
+        self.inflater = Inflater.get()
 
     def create(self, typeid, *args, **kwargs):
         """
@@ -62,7 +61,7 @@ class UI (BasePlugin):
     def dispatch_event(self, uid, event, params=None):
         """
         Dispatches an event to an element with given UID
-        
+
         :param uid: element UID
         :type  uid: int
         :param event: event name

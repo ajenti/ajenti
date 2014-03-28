@@ -79,14 +79,14 @@ def plugin(cls):
 
     def get(cls, context=None):
         if not context:
-            context = extract_context()
+            context = getattr(cls, '_enforce_context', extract_context())
         return context.get_instance(cls)
     cls.get = get.__get__(cls)
 
     def new(cls, *args, **kwargs):
         context = kwargs.pop('context', None)
         if not context:
-            context = extract_context()
+            context = getattr(cls, '_enforce_context', extract_context())
         return context.instantiate(cls, *args, **kwargs)
     cls.new = new.__get__(cls)
 
@@ -104,6 +104,14 @@ def persistent(cls):
     :rtype: class
     """
     cls._instance_hardref = True
+    return cls
+
+
+def rootcontext(cls):
+    """
+    Enforces use of root PluginContext by default for .get() and .new() classmethods.
+    """
+    cls._enforce_context = manager.context
     return cls
 
 
@@ -349,6 +357,7 @@ __all__ = [
     'BasePlugin',
     'AppContext',
     'plugin',
+    'rootcontext',
     'notrack',
     'notrack_this',
     'track',
