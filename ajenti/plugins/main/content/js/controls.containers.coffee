@@ -59,7 +59,7 @@ class window.Controls.hc extends window.Control
     createDom: () ->
         """
             <table class="control container hc #{@s(@properties.style)}">
-                <tr>
+                <tr class="--child-container">
                     <children>
                 </tr>
             </table>
@@ -75,7 +75,7 @@ class window.Controls.hc extends window.Control
 class window.Controls.vc extends window.Control
     createDom: () ->
         """
-            <div class="control container vc #{@s(@properties.style)}">
+            <div class="control container vc #{@s(@properties.style)} --child-container">
                 <children>
             </div>
         """
@@ -189,7 +189,7 @@ class window.Controls.sortabledt extends window.Controls.dt
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        """<tr class="row"><children></tr>"""
+        """<tr class="row --child-container"><children></tr>"""
 
 
 class window.Controls.dtd extends window.Control
@@ -221,7 +221,7 @@ class window.Controls.lt extends window.Control
 
 class window.Controls.ltr extends window.Control
     createDom: () ->
-        """<tr><children></tr>"""
+        """<tr class="--child-container"><children></tr>"""
 
 
 class window.Controls.ltd extends window.Control
