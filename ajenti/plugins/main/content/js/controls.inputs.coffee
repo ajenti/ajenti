@@ -313,7 +313,7 @@ class window.Controls.pathbox extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @textbox = new Controls.textbox(@ui, value: @properties.value).setupDom()
+        @textbox = new Controls.textbox(@ui, style: @properties.style, value: @properties.value).setupDom()
         @button = new Controls.button(
             @ui, 
             style: 'mini'
