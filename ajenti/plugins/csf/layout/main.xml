@@ -1,0 +1,116 @@
+<vc>
+    <body>
+        <pad>
+            <tabs>
+                <tab title="{General}">
+                    <vc>
+                        <formline text="{Testing mode}">
+                            <checkbox bind="testing" />
+                        </formline>
+                        <formline text="{Network device}">
+                            <textbox bind="eth_device" />
+                        </formline>
+                        <formline text="{Network device (IPv6)}">
+                            <textbox bind="eth6_device" />
+                        </formline>
+                    </vc>
+                </tab>
+                <tab title="{Allowed ports}">
+                    <formgroup text="IPv4">
+                        <vc>
+                            <formline text="{Incoming TCP}">
+                                <textbox bind="tcp_in" />
+                            </formline>
+                            <formline text="{Outgoing TCP}">
+                                <textbox bind="tcp_out" />
+                            </formline>
+                            <formline text="{Incoming UDP}">
+                                <textbox bind="udp_in" />
+                            </formline>
+                            <formline text="{Outgoing UDP}">
+                                <textbox bind="udp_out" />
+                            </formline>
+                        </vc>
+                    </formgroup>
+                    <formgroup text="IPv6">
+                        <vc>
+                            <formline text="{Enable IPv6}">
+                                <checkbox bind="ipv6" />
+                            </formline>
+                            <formline text="{Incoming TCP}">
+                                <textbox bind="tcp6_in" />
+                            </formline>
+                            <formline text="{Outgoing TCP}">
+                                <textbox bind="tcp6_out" />
+                            </formline>
+                            <formline text="{Incoming UDP}">
+                                <textbox bind="udp6_in" />
+                            </formline>
+                            <formline text="{Outgoing UDP}">
+                                <textbox bind="udp6_out" />
+                            </formline>
+                        </vc>
+                    </formgroup>
+                </tab>
+            </tabs>
+        </pad>
+
+        <pad id="config">
+            <!--bind:collection bind="hosts" id="hosts">
+                <dt bind="__items" addrow="{Add}" />
+                <bind:template>
+                    <collapserow>
+                        <box>
+                            <right>
+                                <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                            </right>
+                            <hc>
+                                <icon icon="globe" />
+                                <label bind="name" />
+                            </hc>
+                        </box>
+
+                        <indent>
+                            <hc>
+                                <vc>
+                                    <formline text="{Name}">
+                                        <textbox bind="name" />
+                                    </formline>
+                                    <formline text="{Address}">
+                                        <textbox bind="address" />
+                                    </formline>
+                                </vc>
+                                <bind:collection id="aliases" bind="aliases">
+                                    <formline text="{Aliases}">
+                                        <vc>
+                                            <vc bind="__items" />
+                                            <button bind="__add" icon="plus" text="{Create}" />
+                                        </vc>
+                                    </formline>
+                                    <bind:template>
+                                        <vc>
+                                            <box>
+                                                <right>
+                                                    <button bind="__delete" icon="remove" style="icon" />
+                                                </right>
+                                                <hc>
+                                                    <icon icon="tags" />
+                                                    <textbox bind="name" />
+                                                </hc>
+                                            </box>
+                                        </vc>
+                                    </bind:template>
+                                </bind:collection>
+                            </hc>
+                        </indent>
+                    </collapserow>
+                </bind:template>
+            </bind:collection-->
+        </pad>
+    </body>
+
+    <hc>
+        <button id="save" text="{Save}" icon="ok" />
+        <button id="apply" text="{Apply}" icon="arrow-right" />
+    </hc>
+</vc>
