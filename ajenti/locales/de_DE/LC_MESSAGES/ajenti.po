@@ -160,19 +160,19 @@ msgstr "Memcache-Speicherauslastung"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Ungültiger Schlüssel"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Ungültige IP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Abgelaufen"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -307,11 +307,11 @@ msgstr "Passwort ändern"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "E-mail"
-msgstr ""
+msgstr "E-Mail"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Permissions"
-msgstr ""
+msgstr "Berechtigungen"
 
 #: ajenti/plugins/configurator/layout/main.xml:28
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -328,7 +328,7 @@ msgstr "Ajenti wird vollkommen anonym die Versionsnummer, das Betriebssystem und
 
 #: ajenti/plugins/configurator/layout/main.xml:34
 msgid "License"
-msgstr ""
+msgstr "Lizenz"
 
 #: ajenti/plugins/configurator/layout/main.xml:36
 #: ajenti/plugins/network/layout/main.xml:5
@@ -381,19 +381,19 @@ msgstr "Admin-Passwort"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Lizenz status"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Lizenztyp"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "Lizenz gültig bis"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -403,11 +403,11 @@ msgstr "Entfernen"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Keine kommerzielle Lizenz installiert"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -712,20 +712,20 @@ msgstr "Oberste Verzeichnis"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Leer"
 
 #: ajenti/plugins/main/main.py:48
 msgid "Invalid login or password"
-msgstr ""
+msgstr "Ungültiger Benutzername oder Passwort"
 
 #: ajenti/plugins/main/main.py:76
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "E-Mail \"%s\" ist keiner Benutzer zugeordnet"
 
 #: ajenti/plugins/main/main.py:78
 msgid "Login failed"
-msgstr ""
+msgstr "Login fehlgeschlagen"
 
 #: ajenti/plugins/main/main.py:288
 msgid "Section access"
