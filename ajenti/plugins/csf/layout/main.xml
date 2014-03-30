@@ -52,6 +52,54 @@
                         </vc>
                     </formgroup>
                 </tab>
+                <tab title="{IP lists}" id="lists">
+                    <formgroup text="{Permanent rules}">
+                        <vc>
+                            <formline text="{Allowed addresses}">
+                                <bind:collection bind="list_allow" id="list_allow">
+                                    <dt bind="__items" width="400" />
+                                    <include layout="csf:list-template" />
+                                </bind:collection>
+                            </formline>
+                            <formline text="{Denied addresses}">
+                                <bind:collection bind="list_deny" id="list_deny">
+                                    <dt bind="__items" width="400" />
+                                    <include layout="csf:list-template" />
+                                </bind:collection>
+                            </formline>
+                            <formline>
+                                <hc>
+                                    <textbox id="permanent-lists-add-address" />
+                                    <button icon="unlock" text="{Allow}" id="list_allow-add" />
+                                    <button icon="lock" text="{Deny}" id="list_deny-add" />
+                                </hc>
+                            </formline>
+                        </vc>
+                    </formgroup>
+                    <formgroup text="{Temporary rules}">
+                        <vc>
+                            <formline text="{Allowed addresses}">
+                                <bind:collection bind="list_tempallow" id="list_tempallow">
+                                    <dt bind="__items" width="400" />
+                                    <include layout="csf:list-template" />
+                                </bind:collection>
+                            </formline>
+                            <formline text="{Banned addresses}">
+                                <bind:collection bind="list_tempban" id="list_tempban">
+                                    <dt bind="__items" width="400" />
+                                    <include layout="csf:list-template" />
+                                </bind:collection>
+                            </formline>
+                            <formline>
+                                <hc>
+                                    <textbox id="temporary-lists-add-address" />
+                                    <button icon="unlock" text="{Allow}" id="list_tempallow-add" />
+                                    <button icon="lock" text="{Ban}" id="list_tempban-add" />
+                                </hc>
+                            </formline>
+                        </vc>
+                    </formgroup>
+                </tab>
             </tabs>
         </pad>
 

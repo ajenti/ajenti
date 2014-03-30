@@ -110,6 +110,7 @@ msgstr ""
 #: ajenti/plugins/squid/layout/main.xml:7
 #: ajenti/plugins/squid/layout/options-editor.xml:2
 #: ajenti/plugins/squid/layout/port-template.xml:1
+#: ajenti/plugins/csf/layout/list-template.xml:1
 #: ajenti/plugins/cron/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:13
 #: ajenti/plugins/cron/layout/main.xml:24
@@ -149,6 +150,7 @@ msgstr ""
 #: ajenti/plugins/fstab/layout/main.xml:18
 #: ajenti/plugins/hosts/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:15
+#: ajenti/plugins/csf/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:27
 #: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save"
@@ -217,7 +219,7 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/samba/layout/main.xml:4
-#: ajenti/plugins/ctdb/layout/main.xml:4
+#: ajenti/plugins/ctdb/layout/main.xml:4 ajenti/plugins/csf/layout/main.xml:1
 msgid "General"
 msgstr ""
 
@@ -651,7 +653,8 @@ msgstr ""
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/nsd/main.py:77
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
-#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
+#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/csf/main.py:80
+#: ajenti/plugins/bind9/main.py:84
 msgid "Saved"
 msgstr ""
 
@@ -945,7 +948,8 @@ msgstr ""
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/csf/main.py:17 ajenti/plugins/cron/main.py:19
+#: ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr ""
 
@@ -1186,6 +1190,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
+#: ajenti/plugins/csf/layout/main.xml:27
 msgid "Apply"
 msgstr ""
 
@@ -1910,11 +1915,89 @@ msgid "Mode"
 msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:9
+#: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
 msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
+msgstr ""
+
+#: ajenti/plugins/csf/main.py:15
+msgid "CSF Firewall"
+msgstr ""
+
+#: ajenti/plugins/csf/main.py:68
+msgid "Applied"
+msgstr ""
+
+#: ajenti/plugins/csf/main.py:83
+msgid "Self-test OK"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:2
+msgid "Testing mode"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:3
+msgid "Network device"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:4
+msgid "Network device (IPv6)"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:5
+msgid "Allowed ports"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
+msgid "Incoming TCP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
+msgid "Outgoing TCP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
+msgid "Incoming UDP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
+msgid "Outgoing UDP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:10
+msgid "Enable IPv6"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:15
+msgid "IP lists"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:16
+msgid "Permanent rules"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
+msgid "Allowed addresses"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:18
+msgid "Denied addresses"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:21
+msgid "Temporary rules"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:23
+msgid "Banned addresses"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:25
+msgid "Ban"
 msgstr ""
 
 #: ajenti/plugins/cron/layout/main.xml:1

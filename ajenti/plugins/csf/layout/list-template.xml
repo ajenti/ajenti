@@ -1,0 +1,10 @@
+<bind:template>
+    <dtr>
+        <dtd>
+            <label bind="value" />
+        </dtd>
+        <dtd width="1">
+            <button bind="__delete" icon="remove" style="mini" warning="{Confirm deletion}" />
+        </dtd>
+    </dtr>
+</bind:template>
