@@ -28,7 +28,6 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 url = sys.argv[1] + '/' + '\n'.join(sys.argv[2:]).encode('base64').strip()
-print url, len(url)
 conn = UHTTPConnection('/var/run/ajenti-ipc.sock')
 conn.request(
     'GET',

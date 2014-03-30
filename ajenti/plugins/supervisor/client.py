@@ -5,12 +5,22 @@ from ajenti.plugins.services.api import Service, ServiceManager
 
 
 @plugin
+@persistent
+@rootcontext
 class SupervisorServiceManager (ServiceManager):
     def test(self):
         return subprocess.call(['supervisorctl', 'status']) == 0
 
     def run(self, *cmds):
         return subprocess.check_output(['supervisorctl'] + list(cmds))
+
+    def _parse_status_line(self, l):
+        l = l.split(None, 2)
+        s = SupervisorService()
+        s.name = l[0]
+        s.running = len(l) > 2 and l[1] == 'RUNNING'
+        s.status = l[2] if len(l) > 2 else ''
+        return s
 
     def get_all(self):
         r = []
@@ -21,13 +31,18 @@ class SupervisorServiceManager (ServiceManager):
 
         for l in lines:
             if l:
-                l = l.split(None, 2)
-                s = SupervisorService()
-                s.name = l[0]
-                s.running = len(l) > 2 and l[1] == 'RUNNING'
-                s.status = l[2] if len(l) > 2 else ''
-                r.append(s)
+                r.append(self._parse_status_line(l))
         return r
+
+    def get_one(self, name):
+        try:
+            lines = self.run('status', name).splitlines()
+        except:
+            return None
+
+        for l in lines:
+            if l:
+                return self._parse_status_line(l)
 
     def fill(self, programs):
         for p in programs:
