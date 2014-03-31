@@ -35,6 +35,10 @@ if subprocess.call(['which', 'xgettext']) != 0:
 if sys.argv[1] == 'extract':
     os.unlink(pot_path)
     for (dirpath, dirnames, filenames) in os.walk('ajenti', followlinks=True):
+        if '/custom_' in dirpath:
+            continue
+        if '/elements' in dirpath:
+            continue
         for f in filenames:
             path = os.path.join(dirpath, f)
             if f.endswith('.py'):

@@ -1,5 +1,5 @@
 #: ajenti/plugins/plugins/plugins.py:10
-#: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
 msgstr "플러그인"
 
@@ -18,6 +18,8 @@ msgstr "플러그인 목록 수집"
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:3
+#: ajenti/plugins/vh/layout/main.xml:4
+#: ajenti/plugins/vh/layout/main-website.xml:6
 #: ajenti/plugins/raid/layout/main.xml:1
 #: ajenti/plugins/iptables/layout/option-custom.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:4
@@ -64,8 +66,11 @@ msgstr "진행상태"
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:34
 #: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/vh/layout/main-website.xml:17
+#: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
+#: ajenti/plugins/vh-mail/layout/main.xml:10
 #: ajenti/plugins/nsd/layout/main.xml:2 ajenti/plugins/ctdb/layout/main.xml:17
 #: ajenti/plugins/ctdb/layout/main.xml:21
 #: ajenti/plugins/resolv/layout/main.xml:1
@@ -95,11 +100,17 @@ msgstr "추가"
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/vh/layout/main-website.xml:19
+#: ajenti/plugins/vh/layout/main-website.xml:22
+#: ajenti/plugins/vh/layout/main-website.xml:27
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:3
+#: ajenti/plugins/vh-mail/layout/main.xml:3
+#: ajenti/plugins/vh-mail/layout/main.xml:9
+#: ajenti/plugins/vh-mail/layout/main.xml:12
 #: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:9
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
@@ -110,6 +121,7 @@ msgstr "추가"
 #: ajenti/plugins/squid/layout/main.xml:7
 #: ajenti/plugins/squid/layout/options-editor.xml:2
 #: ajenti/plugins/squid/layout/port-template.xml:1
+#: ajenti/plugins/csf/layout/list-template.xml:1
 #: ajenti/plugins/cron/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:13
 #: ajenti/plugins/cron/layout/main.xml:24
@@ -119,8 +131,12 @@ msgstr "삭제 요청 확인"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:15
-#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/vh/layout/not-configured.xml:3
 #: ajenti/plugins/iptables/main.py:149
+#: ajenti/plugins/vh-mail/layout/main.xml:18
+#: ajenti/plugins/vh-mail/layout/main.xml:24
+#: ajenti/plugins/vh-mail/layout/not-configured.xml:3
 msgid "Enable"
 msgstr "활성화"
 
@@ -130,7 +146,7 @@ msgid "Configuration"
 msgstr "환경설정"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
-#: ajenti/plugins/configurator/layout/main.xml:35
+#: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
 #: ajenti/plugins/notepad/layout/main.xml:3
@@ -149,6 +165,7 @@ msgstr "환경설정"
 #: ajenti/plugins/fstab/layout/main.xml:18
 #: ajenti/plugins/hosts/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:15
+#: ajenti/plugins/csf/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:27
 #: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save"
@@ -183,7 +200,7 @@ msgstr "오류 : \"%s\""
 
 #: ajenti/plugins/configurator/configurator.py:45
 #: ajenti/plugins/configurator/layout/main.xml:18
-#: ajenti/plugins/configurator/layout/main.xml:33
+#: ajenti/plugins/configurator/layout/main.xml:32
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "구성"
@@ -217,7 +234,10 @@ msgstr "Ajenti 다시 시작"
 #: ajenti/plugins/configurator/layout/main.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:25
 #: ajenti/plugins/samba/layout/main.xml:4
-#: ajenti/plugins/ctdb/layout/main.xml:4
+#: ajenti/plugins/vh/layout/main-website.xml:2
+#: ajenti/plugins/vh/layout/main-website.xml:5
+#: ajenti/plugins/vh-mail/layout/main.xml:1
+#: ajenti/plugins/ctdb/layout/main.xml:4 ajenti/plugins/csf/layout/main.xml:1
 msgid "General"
 msgstr "일반 사항"
 
@@ -302,35 +322,32 @@ msgid "Duplicate"
 msgstr "복제"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
+#: ajenti/plugins/vh-mail/layout/main.xml:6
 msgid "Change password"
 msgstr "비밀번호 변경"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
-msgid "E-mail"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Permissions"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
 msgstr "피드백 전송"
 
-#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
 msgstr "Ajenti는 당신의 OS 명칭, 버전 정보, 플러그인 사용 정보를 익명으로 ajenti.org로 전송할 것입니다"
 
-#: ajenti/plugins/configurator/layout/main.xml:34
+#: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:36
+#: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
 #: ajenti/plugins/openvpn/layout/main.xml:1
 #: ajenti/plugins/services/layout/main.xml:5
@@ -339,7 +356,7 @@ msgstr ""
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ajenti/plugins/configurator/layout/main.xml:37
+#: ajenti/plugins/configurator/layout/main.xml:36
 msgid "Restart Ajenti?"
 msgstr "Ajenti 다시 시작하시겠습니까?"
 
@@ -574,10 +591,13 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
+#: ajenti/plugins/vh-mysql/layout/ext.xml:9
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:10
+#: ajenti/plugins/vh/layout/main.xml:5
+#: ajenti/plugins/vh/layout/main-website.xml:26
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/options-editor.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:9
@@ -647,9 +667,11 @@ msgid "Software"
 msgstr "소프트웨어"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/nsd/main.py:77
-#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
-#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/bind9/main.py:84
+#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:234
+#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
+#: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
+#: ajenti/plugins/csf/main.py:80 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
 msgstr "저장 완료"
 
@@ -663,6 +685,7 @@ msgstr ""
 
 #: ajenti/plugins/exports/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option-address.xml:1
+#: ajenti/plugins/vh-mail/layout/main.xml:14
 #: ajenti/plugins/ctdb/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:23
 #: ajenti/plugins/hosts/layout/main.xml:4
@@ -795,6 +818,7 @@ msgid "Shares"
 msgstr "공유"
 
 #: ajenti/plugins/samba/layout/main.xml:6
+#: ajenti/plugins/vh/layout/main-website.xml:10
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
 msgstr "경로"
@@ -820,6 +844,9 @@ msgid "Read only"
 msgstr "읽기 전용"
 
 #: ajenti/plugins/samba/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-website-location.xml:2
+#: ajenti/plugins/vh/layout/main-website.xml:28
+#: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
 msgstr "고급"
 
@@ -906,8 +933,11 @@ msgid "Disconnect"
 msgstr "연결 종료"
 
 #: ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/vh-mail/layout/main.xml:5
 #: ajenti/plugins/mysql/layout/config.xml:3
 #: ajenti/plugins/openvpn/layout/config.xml:3
 msgid "Password"
@@ -915,6 +945,7 @@ msgstr "비밀 번호"
 
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
+#: ajenti/plugins/vh/layout/main-website.xml:11
 msgid "Set"
 msgstr "설정"
 
@@ -943,7 +974,8 @@ msgstr "장치"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
-#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/csf/main.py:17 ajenti/plugins/cron/main.py:19
+#: ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "시스템"
 
@@ -968,9 +1000,13 @@ msgstr "%s의 비밀번호가 제거되었습니다"
 
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/supervisor/layout/main.xml:15
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
+#: ajenti/plugins/vh-mail/layout/main.xml:4
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
 msgstr "사용자명"
@@ -1007,6 +1043,36 @@ msgstr "쉘"
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
 msgstr "새로운 비밀번호"
+
+#: ajenti/plugins/vh-mysql/mysql.py:61
+msgid "This database name is already used"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/mysql.py:66
+msgid "This username is already used"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:1
+#: ajenti/plugins/vh-mysql/layout/ext.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:4
+msgid "Destroy"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:5
+msgid "Database contents will be deleted!"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:6
+msgid "No database created"
+msgstr ""
+
+#: ajenti/plugins/vh-puma/puma.py:19
+msgid "PUMA service"
+msgstr ""
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
@@ -1064,8 +1130,195 @@ msgstr "데이터베이스"
 msgid "Confirm database drop!"
 msgstr ""
 
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
+#: ajenti/plugins/vh/gate_static.py:8
+msgid "Static files"
+msgstr ""
+
+#: ajenti/plugins/vh/gate_fcgi.py:8
+msgid "Custom FCGI"
+msgstr ""
+
+#: ajenti/plugins/vh/gate_proxy.py:8
+msgid "Reverse proxy"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
+msgid "Websites"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:227
+msgid "Saving changes"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:229
+msgid "Applying changes"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:231
+msgid "Testing configuration"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:196
+msgid "Download complete"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main.xml:2
+msgid "Manage"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main.xml:3
+msgid "New website"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main.xml:6
+msgid "Configuration checks"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main.xml:7
+msgid "Restart websites"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
+msgid "Min processes"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
+msgid "Max processes"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
+msgid "Application module"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
+msgid "Virtualenv path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
+msgid "Script name"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
+msgid "Script's HTTP port"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
+msgid "Show directory content"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
+msgid "Use Bundler"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
+#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/cron/layout/main.xml:22
+msgid "Environment"
+msgstr "환경"
+
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
+msgid "Workers"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:1
+msgid "URL Pattern"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:3
+msgid "Custom path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:4
+#: ajenti/plugins/vh/layout/main-website.xml:29
+#: ajenti/plugins/vh-mail/layout/main.xml:29
+msgid "Custom configuration"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
+msgid "Use only custom configuration and don't include standard parameters"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/not-configured.xml:1
+msgid "Ajenti V is not enabled yet"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/not-configured.xml:2
+msgid "Enabling Ajenti V will overwrite configuration for the following software:"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:1
+msgid "Back"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:3
+#: ajenti/plugins/fm/layout/main.xml:8
+msgid "Delete"
+msgstr "삭제"
+
+#: ajenti/plugins/vh/layout/main-website.xml:4
+msgid "All website data will be lost. Continue?"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:10
+msgid "Enabled"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:8
+msgid "Maintenance mode"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:9
+msgid "Website files"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:12
+msgid "Create directory"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:13
+msgid "Automatic downloader"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:14
+msgid "From URL"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:15
+msgid "Download and unpack"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:16
+msgid "Domains"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:18
+msgid "Domain"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:20
+#: ajenti/plugins/iptables/layout/option-ports.xml:1
+#: ajenti/plugins/squid/layout/main.xml:12
+msgid "Ports"
+msgstr "포트"
+
+#: ajenti/plugins/vh/layout/main-website.xml:23
+msgid "SSL certificate path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:24
+msgid "SSL key path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:25
+msgid "Content"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:30
+#: ajenti/plugins/vh-mail/layout/main.xml:33
+msgid "Apply changes"
 msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:5
@@ -1075,11 +1328,6 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Autostart"
 msgstr "자동 시작"
-
-#: ajenti/plugins/supervisor/layout/main.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:10
-msgid "Enabled"
-msgstr ""
 
 #: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:12
@@ -1102,10 +1350,13 @@ msgstr ""
 msgid "Start retries"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:16
-#: ajenti/plugins/cron/layout/main.xml:22
-msgid "Environment"
-msgstr "환경"
+#: ajenti/plugins/vh-nginx/nginx.py:15
+msgid "NGINX config test"
+msgstr ""
+
+#: ajenti/plugins/vh-nginx/nginx.py:26
+msgid "NGINX service"
+msgstr ""
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1182,6 +1433,7 @@ msgstr "새 규칙"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
+#: ajenti/plugins/csf/layout/main.xml:27
 msgid "Apply"
 msgstr ""
 
@@ -1208,11 +1460,6 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
 msgstr "프로토콜"
-
-#: ajenti/plugins/iptables/layout/option-ports.xml:1
-#: ajenti/plugins/squid/layout/main.xml:12
-msgid "Ports"
-msgstr "포트"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:24
@@ -1245,6 +1492,110 @@ msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/main.py:18
+msgid "Mail"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/main.py:63
+msgid "Invalid mailbox name"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/main.py:67
+msgid "Invalid mailbox domain"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/main.py:74
+msgid "This address is already taken"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/main.py:119
+#: ajenti/plugins/vh-mail/layout/main.xml:15
+msgid "Custom domain"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/main.py:141
+msgid "No valid key exists"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:2
+msgid "Mailboxes"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:7
+#: ajenti/plugins/fm/layout/main.xml:11
+#: ajenti/plugins/fstab/layout/main.xml:15
+msgid "Size"
+msgstr "크기"
+
+#: ajenti/plugins/vh-mail/layout/main.xml:8
+#: ajenti/plugins/vh-mail/layout/main.xml:17
+msgid "Forwarding"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:11
+msgid "Target address"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:13
+msgid "New mailbox"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:16
+msgid "Mailbox"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:19
+msgid "Selector"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:20
+msgid "Private key"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:21
+msgid "DNS entry template"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:22
+msgid "Generate new DKIM key"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:25
+msgid "Certificate path"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:26
+msgid "Private key path"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:27
+msgid "Generate new certificate"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:28
+msgid "Custom MTA configuration"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:30
+msgid "Custom ACLs"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:31
+msgid "Custom routers"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:32
+msgid "Custom transports"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/not-configured.xml:1
+msgid "Ajenti V Mail is not enabled yet"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/not-configured.xml:2
+msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
 msgstr ""
 
 #: ajenti/plugins/packages/pm_pacman.py:23
@@ -1416,15 +1767,6 @@ msgstr "복사"
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Paste"
 msgstr "붙여넣기"
-
-#: ajenti/plugins/fm/layout/main.xml:8
-msgid "Delete"
-msgstr "삭제"
-
-#: ajenti/plugins/fm/layout/main.xml:11
-#: ajenti/plugins/fstab/layout/main.xml:15
-msgid "Size"
-msgstr "크기"
 
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Upload"
@@ -1902,12 +2244,98 @@ msgid "Mode"
 msgstr "모드"
 
 #: ajenti/plugins/squid/layout/main.xml:9
+#: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
 msgstr "허용"
 
 #: ajenti/plugins/squid/layout/main.xml:10
+#: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
 msgstr "거부"
+
+#: ajenti/plugins/vh-nodejs/nodejs.py:17
+msgid "Node.js service"
+msgstr ""
+
+#: ajenti/plugins/vh-gunicorn/gunicorn.py:28
+msgid "GUnicorn service"
+msgstr ""
+
+#: ajenti/plugins/csf/main.py:15
+msgid "CSF Firewall"
+msgstr ""
+
+#: ajenti/plugins/csf/main.py:68
+msgid "Applied"
+msgstr ""
+
+#: ajenti/plugins/csf/main.py:83
+msgid "Self-test OK"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:2
+msgid "Testing mode"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:3
+msgid "Network device"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:4
+msgid "Network device (IPv6)"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:5
+msgid "Allowed ports"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
+msgid "Incoming TCP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
+msgid "Outgoing TCP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
+msgid "Incoming UDP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
+msgid "Outgoing UDP"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:10
+msgid "Enable IPv6"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:15
+msgid "IP lists"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:16
+msgid "Permanent rules"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
+msgid "Allowed addresses"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:18
+msgid "Denied addresses"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:21
+msgid "Temporary rules"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:23
+msgid "Banned addresses"
+msgstr ""
+
+#: ajenti/plugins/csf/layout/main.xml:25
+msgid "Ban"
+msgstr ""
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -1924,6 +2352,10 @@ msgstr "특별한"
 #: ajenti/plugins/logs/main.py:13
 msgid "Logs"
 msgstr "로그"
+
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:53
+msgid "PHP-FPM service"
+msgstr ""
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"

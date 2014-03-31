@@ -1,5 +1,5 @@
 #: ajenti/plugins/plugins/plugins.py:10
-#: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
 msgstr ""
 
@@ -107,7 +107,6 @@ msgstr ""
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option.xml:1
-#: ajenti/plugins/custom_userhierarchy/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:3
 #: ajenti/plugins/vh-mail/layout/main.xml:3
 #: ajenti/plugins/vh-mail/layout/main.xml:9
@@ -122,8 +121,6 @@ msgstr ""
 #: ajenti/plugins/squid/layout/main.xml:7
 #: ajenti/plugins/squid/layout/options-editor.xml:2
 #: ajenti/plugins/squid/layout/port-template.xml:1
-#: ajenti/plugins/elements/layout/users-main.xml:2
-#: ajenti/plugins/elements/layout/shaper-main.xml:1
 #: ajenti/plugins/csf/layout/list-template.xml:1
 #: ajenti/plugins/cron/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:13
@@ -134,7 +131,7 @@ msgstr ""
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:15
-#: ajenti/plugins/configurator/layout/main.xml:30
+#: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
 #: ajenti/plugins/iptables/main.py:149
 #: ajenti/plugins/vh-mail/layout/main.xml:18
@@ -149,7 +146,7 @@ msgid "Configuration"
 msgstr ""
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
-#: ajenti/plugins/configurator/layout/main.xml:35
+#: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
 #: ajenti/plugins/notepad/layout/main.xml:3
@@ -160,7 +157,6 @@ msgstr ""
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/iptables/layout/main.xml:12
-#: ajenti/plugins/custom_userhierarchy/layout/main.xml:5
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:16
 #: ajenti/plugins/network/layout/main.xml:7
@@ -204,7 +200,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/configurator.py:45
 #: ajenti/plugins/configurator/layout/main.xml:18
-#: ajenti/plugins/configurator/layout/main.xml:33
+#: ajenti/plugins/configurator/layout/main.xml:32
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr ""
@@ -294,7 +290,6 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:6
-#: ajenti/plugins/custom_userhierarchy/layout/main.xml:1
 msgid "Users"
 msgstr ""
 
@@ -327,40 +322,34 @@ msgid "Duplicate"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:24
-#: ajenti/plugins/custom_userhierarchy/layout/main.xml:3
 #: ajenti/plugins/vh-mail/layout/main.xml:6
-#: ajenti/plugins/elements/layout/users-main.xml:1
 msgid "Change password"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:26
-msgid "E-mail"
-msgstr ""
-
-#: ajenti/plugins/configurator/layout/main.xml:27
 msgid "Permissions"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:28
+#: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:29
+#: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:31
+#: ajenti/plugins/configurator/layout/main.xml:30
 msgid ""
 "Ajenti will anonymously send its version, your OS name, and which plugins "
 "you use most to ajenti.org"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:34
+#: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:36
+#: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
 #: ajenti/plugins/openvpn/layout/main.xml:1
 #: ajenti/plugins/services/layout/main.xml:5
@@ -369,7 +358,7 @@ msgstr ""
 msgid "Restart"
 msgstr ""
 
-#: ajenti/plugins/configurator/layout/main.xml:37
+#: ajenti/plugins/configurator/layout/main.xml:36
 msgid "Restart Ajenti?"
 msgstr ""
 
@@ -611,12 +600,8 @@ msgstr ""
 #: ajenti/plugins/db_common/layout/main.xml:10
 #: ajenti/plugins/vh/layout/main.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:26
-#: ajenti/plugins/custom_userhierarchy/layout/main.xml:4
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/options-editor.xml:1
-#: ajenti/plugins/elements/layout/users-main.xml:3
-#: ajenti/plugins/elements/layout/users-main.xml:4
-#: ajenti/plugins/elements/layout/users-main.xml:5
 #: ajenti/plugins/bind9/layout/main.xml:9
 msgid "Create"
 msgstr ""
@@ -627,13 +612,11 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
-#: ajenti/plugins/custom_mxf_convert/layout/params-opatom.xml:1
 msgid "From directory"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
-#: ajenti/plugins/custom_mxf_convert/layout/params-opatom.xml:2
 msgid "Into directory"
 msgstr ""
 
@@ -687,12 +670,10 @@ msgstr ""
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:234
-#: ajenti/plugins/iptables/main.py:189
-#: ajenti/plugins/custom_userhierarchy/main.py:105
-#: ajenti/plugins/vh-mail/main.py:162 ajenti/plugins/nsd/main.py:77
-#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
-#: ajenti/plugins/fstab/main.py:95 ajenti/plugins/csf/main.py:80
-#: ajenti/plugins/bind9/main.py:84
+#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
+#: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
+#: ajenti/plugins/csf/main.py:80 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
 msgstr ""
 
@@ -1260,10 +1241,6 @@ msgstr ""
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-backend-params-proxy.xml:1
-msgid "URL"
-msgstr ""
-
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
 msgstr ""
@@ -1498,10 +1475,6 @@ msgstr ""
 msgid "CodeMirror code editor"
 msgstr ""
 
-#: ajenti/plugins/custom_mxf_convert/layout/params-opatom.xml:3
-msgid "Tape name"
-msgstr ""
-
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
 msgstr ""
@@ -1711,7 +1684,6 @@ msgstr ""
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17
 #: ajenti/plugins/dashboard/layout/dash.xml:4
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:2
 msgid "Cancel"
 msgstr ""
 
@@ -1722,12 +1694,6 @@ msgstr ""
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
-
-#: ajenti/plugins/custom_elements_raid/layout/megaraid-main.xml:1
-#: ajenti/plugins/custom_elements_raid/layout/areca-main.xml:1
-#: ajenti/plugins/megaraid/layout/main.xml:1
-msgid "Adapter"
 msgstr ""
 
 #: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:51
@@ -1981,6 +1947,10 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
+msgstr ""
+
+#: ajenti/plugins/megaraid/layout/main.xml:1
+msgid "Adapter"
 msgstr ""
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
@@ -2292,10 +2262,6 @@ msgstr ""
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
-msgstr ""
-
-#: ajenti/plugins/elements/layout/fm-cvmkdir-dialog.xml:1
-msgid "OK"
 msgstr ""
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:17

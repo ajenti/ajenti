@@ -98,7 +98,7 @@
                                                     </box>
                                                     <vc>
                                                         <formgroup text="{General}">
-                                                            <formline text="{E-mail}">
+                                                            <formline text="E-mail">
                                                                 <textbox bind="email" />
                                                             </formline>
                                                         </formgroup>
