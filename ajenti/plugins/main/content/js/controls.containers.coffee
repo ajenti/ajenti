@@ -233,8 +233,8 @@ class window.Controls.ltd extends window.Control
 class window.Controls.collapserow extends window.Control
     createDom: () ->
         """
-            <tr>
-                <td colspan="999" class="control container collapserow row">
+            <tr class="row">
+                <td colspan="999" class="control container collapserow">
                     <div class="header"></div>
                     <div class="children"><children></div>
                 </td>
