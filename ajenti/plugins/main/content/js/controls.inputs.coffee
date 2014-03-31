@@ -3,7 +3,7 @@ class window.Controls.textbox extends window.Control
         """
             <input class="control textbox #{@s(@properties.style)}"
                     #{if @properties.readonly then 'readonly' else ''}
-                    type="text" />
+                    type="#{@properties.type}" />
         """
 
     setupDom: (dom) ->
