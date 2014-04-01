@@ -15,7 +15,7 @@ class UNIXSyncProvider (UserSyncProvider):
     syncs_root = True
 
     def test(self):
-        return True
+        pass
 
     def check_password(self, username, password):
         return authenticate(username, password, 'passwd')
@@ -32,7 +32,7 @@ class UNIXSyncProvider (UserSyncProvider):
                         u = UserData()
                         u.name = username
                         ajenti.config.tree.users[username] = u
-        
+
         for user in list(ajenti.config.tree.users.values()):
             if not user.name in found_names and user.name != 'root':
                 ajenti.config.tree.users.pop(user.name)

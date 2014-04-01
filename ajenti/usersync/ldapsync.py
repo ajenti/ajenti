@@ -38,7 +38,7 @@ class LDAPSyncProvider (UserSyncProvider):
         return c
 
     def test(self):
-        return self.__get_ldap() is not None
+        self.__get_ldap()
 
     def check_password(self, username, password):
         l = self.__get_ldap()
@@ -52,11 +52,11 @@ class LDAPSyncProvider (UserSyncProvider):
         found_names = []
         l = self.__get_ldap()
         users = l.search_s(
-            self.classconfig['auth_dn'], 
-            ldap.SCOPE_SUBTREE, 
-            '(|(objectClass=user)(objectClass=simpleSecurityObject))', 
+            self.classconfig['auth_dn'],
+            ldap.SCOPE_SUBTREE,
+            '(|(objectClass=user)(objectClass=simpleSecurityObject))',
             ['cn']
-        ) 
+        )
         for u in users:
             username = u[1]['cn'][0]
             found_names.append(username)
@@ -64,10 +64,9 @@ class LDAPSyncProvider (UserSyncProvider):
                 u = UserData()
                 u.name = username
                 ajenti.config.tree.users[username] = u
-        
+
         for user in list(ajenti.config.tree.users.values()):
             if not user.name in found_names and user.name != 'root':
                 ajenti.config.tree.users.pop(user.name)
 
         ajenti.config.save()
-    

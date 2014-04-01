@@ -12,9 +12,9 @@ class AjentiSyncProvider (UserSyncProvider):
     title = _('Off')
     allows_renaming = True
     syncs_root = True
-    
+
     def test(self):
-        return True
+        pass
 
     def check_password(self, username, password):
         if not username in ajenti.config.tree.users:
