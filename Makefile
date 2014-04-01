@@ -16,10 +16,12 @@ DOCBUILDDIR   = docs/build
 DOCSOURCEDIR   = docs/source
 ALLSPHINXOPTS   = -d $(DOCBUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(DOCSOURCEDIR)
 
-all: build
+all: resources
 
-build:
+resources:
 	./compile_resources.py || true
+
+build: resources
 	./make_messages.py compile
 
 run:
@@ -101,4 +103,4 @@ clean:
 	find . -name '*.c.css' -delete
 	find . -name '*.less.css' -delete
 
-.PHONY: build
+.PHONY: build resources clean doc cdoc

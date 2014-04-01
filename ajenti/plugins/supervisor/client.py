@@ -42,6 +42,8 @@ class SupervisorServiceManager (ServiceManager):
 
         for l in lines:
             if l:
+                if l.strip().endswith(name):
+                    return None
                 return self._parse_status_line(l)
 
     def fill(self, programs):
@@ -81,3 +83,6 @@ class SupervisorService (Service):
 
     def tail(self, id):
         return self.run('tail', self.name)
+
+    def refresh(self):
+        self.running = SupervisorServiceManager.get().get_one(self.name).running
