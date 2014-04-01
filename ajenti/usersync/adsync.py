@@ -36,6 +36,9 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
     classconfig_root = True
     classconfig_editor = ADSyncClassConfigEditor
 
+    def verify(self):
+        return ldap is not None
+
     def __get_ldap(self):
         if not ldap:
             return None
@@ -46,10 +49,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
         return c
 
     def test(self):
-        try:
-            return bool(self.__search())
-        except:
-            return False
+        self.__search()
 
     def check_password(self, username, password):
         l = self.__get_ldap()

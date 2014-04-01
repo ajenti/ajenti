@@ -43,6 +43,9 @@ class LDAPSyncProvider (UserSyncProvider):
         c.bind_s(self.classconfig['admin_dn'], self.classconfig['secret'])
         return c
 
+    def verify(self):
+        return ldap is not None
+
     def test(self):
         return self.__get_ldap() is not None
 
