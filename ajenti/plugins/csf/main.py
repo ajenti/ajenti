@@ -111,6 +111,8 @@ class CSFBackend (object):
             raise Exception(e)
 
     def read_list(self, name):
+        if not os.path.exists(self.csf_files[name]):
+            return []
         return [
             CSFListItem(l.strip())
             for l in open(self.csf_files[name])

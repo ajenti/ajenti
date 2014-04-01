@@ -77,6 +77,7 @@ db = {
         'mdadm': 'mdadm',
         'nginx': 'nginx',
         'ipmitool': 'ipmitool',
+        'cron': 'cronie',
     },
     'arch': {
         'python-module-BeautifulSoup': 'python2-beautifulsoup3',
