@@ -35,13 +35,13 @@ class CheckBox (UIElement):
 
 @p('labels', default=[], type=list)
 @p('values', default=[], type=list, public=False)
-@p('value', bindtypes=[object])
+@p('value', bindtypes=[object], public=False)
 @p('index', default=0, type=int)
 @p('server', default=False, type=bool)
 @plugin
 class Dropdown (UIElement):
     typeid = 'dropdown'
-    
+
     def value_get(self):
         if self.index < len(self.values):
             try:
@@ -49,7 +49,7 @@ class Dropdown (UIElement):
             except TypeError:
                 return None
         return None
-        
+
     def value_set(self, value):
         if value in self.values:
             self.index = self.values.index(value)

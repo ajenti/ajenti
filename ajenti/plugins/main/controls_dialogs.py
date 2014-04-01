@@ -53,13 +53,13 @@ class BaseFileDialog (object):
         self.refresh()
 
     def verify_path(self):
-        if not self.path.startswith(self.root):
+        if not self.path.startswith(self.root) or not os.path.isdir(self.path):
             self.path = self.root
 
     def show(self):
         self.visible = True
         self.refresh()
-        
+
     def refresh(self):
         self.empty()
         self.append(self.ui.inflate(self.layout))
