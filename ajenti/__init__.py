@@ -5,7 +5,7 @@ import random
 import signal
 import subprocess
 
-__version__ = '1.2.20.1'
+__version__ = '1.2.20.2'
 
 # Global state
 
