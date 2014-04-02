@@ -171,12 +171,12 @@ class window.UIManager
         aoConnector.reportHeight($('body')[0].scrollHeight)
 
     extractUpdates: (control, target) ->
-        updates = control.extractUpdates()
-        if updates
-            target.push updates
         for child in control.children
             do (child) =>
                 @extractUpdates(child, target)
+        updates = control.extractUpdates()
+        if updates
+            target.push updates
 
     checkForUpdates: () ->
         updates = []

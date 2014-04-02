@@ -134,6 +134,7 @@ class MainSocket (SocketPlugin):
                 if message['type'] == 'ui_update':
                     # UI updates arrived
                     profile_start('Total')
+                    # handle content updates first, before events affect UI
                     for update in message['content']:
                         if update['type'] == 'update':
                             # Property change
@@ -149,6 +150,7 @@ class MainSocket (SocketPlugin):
                             for k, v in update['properties'].iteritems():
                                 setattr(el, k, v)
                             profile_end('Handling updates')
+                    for update in message['content']:
                         if update['type'] == 'event':
                             # Element event emitted
                             profile_start('Handling event')

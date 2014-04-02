@@ -38,4 +38,4 @@ resp = conn.getresponse()
 sys.stdout.write(resp.read())
 
 sys.stderr.write('%s %s\n' % (resp.status, resp.reason))
-sys.exit(0 if resp.status == '200' else 2)
+sys.exit(0 if resp.status == 200 else 2)
