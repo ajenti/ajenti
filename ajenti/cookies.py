@@ -353,7 +353,10 @@ def parse_string(data, unquote=default_unquote):
     # which will therefore not normalize as unicode and not compare to
     # the original.
     if isinstance(unquoted, bytes):
-        unquoted = unquoted.decode('utf-8')
+        try:
+            unquoted = unquoted.decode('utf-8')
+        except:
+            unquoted = '--invalid--'
     return unquoted
 
 
@@ -806,9 +809,10 @@ class Cookie(object):
             # raise error so users of __setattr__ can learn.
             if value is not None:
                 if not self.validate(name, value):
-                    raise InvalidCookieAttributeError(
-                        name, value, "did not validate with " +
-                        repr(self.attribute_validators.get(name)))
+                    pass # sorry, nope
+                    #raise InvalidCookieAttributeError(
+                    #    name, value, "did not validate with " +
+                    #    repr(self.attribute_validators.get(name)))
         object.__setattr__(self, name, value)
 
     def __getattr__(self, name):
