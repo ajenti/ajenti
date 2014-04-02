@@ -1,4 +1,7 @@
-import ldap
+try:
+    import ldap
+except ImportError:
+    ldap = None
 
 import ajenti
 from ajenti.api import *
@@ -33,7 +36,13 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
     classconfig_root = True
     classconfig_editor = ADSyncClassConfigEditor
 
+    def verify(self):
+        return ldap is not None
+
     def __get_ldap(self):
+        if not ldap:
+            return None
+
         c = ldap.initialize('ldap://' + self.classconfig['address'])
         c.bind_s('%s\\%s' % (self.classconfig['domain'], self.classconfig.get('user', 'Administrator')), self.classconfig['password'])
         c.set_option(ldap.OPT_REFERRALS, 0)
