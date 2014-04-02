@@ -174,8 +174,6 @@ class window.Controls.sortabledt extends window.Controls.dt
             @newOrder.push idx
 
         r = {}
-        if !hasChanges
-            return r
 
         for i in [0..@order.length]
             if @newOrder[i] != @order[i]

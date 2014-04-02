@@ -23,7 +23,7 @@ class window.Controls.textbox extends window.Control
         value = @getValue()
         oldvalue = @properties.value || ""
         if @properties.type == 'integer'
-            value = parseInt(value)
+            value = parseInt(value) || null
         if value != oldvalue
             r.value = value
         @properties.value = value
@@ -101,10 +101,10 @@ class window.Controls.checkbox extends window.Control
     createDom: () ->
         """
             <div class="control checkbox">
-                <input 
+                <input
                     id="#{@properties.uid}"
-                    type="checkbox" 
-                    #{if @properties.value then 'checked="checked"' else ''} 
+                    type="checkbox"
+                    #{if @properties.value then 'checked="checked"' else ''}
                 />
                 <label for="#{@properties.uid}">
                     <div class="tick">
@@ -146,7 +146,7 @@ class window.Controls.dropdown extends window.Control
 
         @input.select2()
         @input.change () => @markChanged()
-        
+
         if @properties.server
             @input.change (e) =>
                 @event('change', {})
@@ -169,7 +169,7 @@ class window.Controls.combobox extends window.Control
         """
 
     setupDom: (dom) ->
-        super(dom)        
+        super(dom)
         @input = $(@dom)
         @input.change () => @markChanged()
         @data = []
@@ -218,7 +218,7 @@ class window.Controls.fileupload extends window.Control
         """
             <div class="control fileupload">
                 <input type="file" />
-                
+
                 <div class="full-overlay">
                     <div class="content">
                         <div class="inner">
@@ -226,12 +226,12 @@ class window.Controls.fileupload extends window.Control
                             <div class="pb"></div>
                         </div>
                     </div>
-                </div>  
+                </div>
             </div>
         """
 
     setupDom: (dom) ->
-        super(dom)        
+        super(dom)
         @progress = new window.Controls.progressbar(@ui, {width: 750}, [])
         @progress.setupDom()
         $(@dom).find('.pb').append($(@progress.dom))
@@ -240,7 +240,7 @@ class window.Controls.fileupload extends window.Control
             file = @input.files[0]
             xhr = new XMLHttpRequest()
             xhr.file = file
-            
+
             if xhr.upload
                 xhr.upload.onprogress = (e) =>
                     done = e.position || e.loaded
@@ -315,7 +315,7 @@ class window.Controls.pathbox extends window.Control
         super(dom)
         @textbox = new Controls.textbox(@ui, style: @properties.style, value: @properties.value).setupDom()
         @button = new Controls.button(
-            @ui, 
+            @ui,
             style: 'mini'
             icon: if @properties.directory then 'folder-close' else 'file'
             text: ''
