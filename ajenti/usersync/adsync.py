@@ -36,7 +36,8 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
     classconfig_root = True
     classconfig_editor = ADSyncClassConfigEditor
 
-    def verify(self):
+    @classmethod
+    def verify(cls):
         return ldap is not None
 
     def __get_ldap(self):
@@ -62,11 +63,11 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
     def __search(self):
         l = self.__get_ldap()
         return l.search_s(
-            self.classconfig['base'], 
-            ldap.SCOPE_SUBTREE, 
-            '(|(objectClass=user)(objectClass=simpleSecurityObject))', 
+            self.classconfig['base'],
+            ldap.SCOPE_SUBTREE,
+            '(|(objectClass=user)(objectClass=simpleSecurityObject))',
             ['sAMAccountName']
-        ) 
+        )
 
     def sync(self):
         found_names = []
@@ -78,7 +79,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
                 u = UserData()
                 u.name = username
                 ajenti.config.tree.users[username] = u
-        
+
         for user in list(ajenti.config.tree.users.values()):
             if not user.name in found_names and user.name != 'root':
                 ajenti.config.tree.users.pop(user.name)
