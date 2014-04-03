@@ -28,7 +28,7 @@ class PackageInstaller (UIElement, BasePlugin):
                 self.visible = True
                 Binder(self, self).populate()
             if self.package.startswith('python-module-'):
-                d = ModuleDependency(self.package[len('python-module-')])
+                d = ModuleDependency(self.package[len('python-module-'):])
             else:
                 d = BinaryDependency(self.package)
             if d.satisfied():
