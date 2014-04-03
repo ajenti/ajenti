@@ -19,6 +19,7 @@ msgstr ""
 #: ajenti/plugins/users/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/vh/layout/main.xml:4
+#: ajenti/plugins/vh/layout/ext-processes.xml:3
 #: ajenti/plugins/vh/layout/main-website.xml:6
 #: ajenti/plugins/raid/layout/main.xml:1
 #: ajenti/plugins/iptables/layout/option-custom.xml:1
@@ -66,6 +67,7 @@ msgstr "Κατάσταση"
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:34
 #: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
 #: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/supervisor/layout/main.xml:2
@@ -100,6 +102,7 @@ msgstr "Προσθέστε"
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:9
+#: ajenti/plugins/vh/layout/ext-processes.xml:2
 #: ajenti/plugins/vh/layout/main-website.xml:19
 #: ajenti/plugins/vh/layout/main-website.xml:22
 #: ajenti/plugins/vh/layout/main-website.xml:27
@@ -465,7 +468,7 @@ msgstr "Μετακίνηση %s"
 msgid "Running tasks"
 msgstr ""
 
-#: ajenti/plugins/tasks/layout/main.xml:2
+#: ajenti/plugins/tasks/layout/main.xml:2 ajenti/plugins/vh/layout/main.xml:7
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Refresh"
@@ -645,6 +648,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
+#: ajenti/plugins/vh/layout/ext-processes.xml:4
 #: ajenti/plugins/supervisor/layout/main.xml:4
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:10
@@ -668,11 +672,11 @@ msgid "Software"
 msgstr "Λογισμικό"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:234
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:248
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
-#: ajenti/plugins/csf/main.py:80 ajenti/plugins/bind9/main.py:84
+#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:84
 msgid "Saved"
 msgstr "Αποθηκεύτηκε"
 
@@ -975,7 +979,7 @@ msgstr "Συσκευή"
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
-#: ajenti/plugins/csf/main.py:17 ajenti/plugins/cron/main.py:19
+#: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
 #: ajenti/plugins/logs/main.py:15
 msgid "System"
 msgstr "Σύστημα"
@@ -1005,6 +1009,7 @@ msgstr ""
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:15
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
 #: ajenti/plugins/vh-mail/layout/main.xml:4
@@ -1071,7 +1076,7 @@ msgstr ""
 msgid "No database created"
 msgstr ""
 
-#: ajenti/plugins/vh-puma/puma.py:19
+#: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
 msgstr ""
 
@@ -1143,23 +1148,37 @@ msgstr ""
 msgid "Reverse proxy"
 msgstr ""
 
+#: ajenti/plugins/vh/processes.py:40
+msgid "Process"
+msgstr ""
+
+#: ajenti/plugins/vh/processes.py:55 ajenti/plugins/taskmgr/main.py:19
+msgid "Processes"
+msgstr "Διαδικασίες"
+
 #: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:227
+#: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
+#: ajenti/plugins/vh/main.py:239
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:229
-msgid "Applying changes"
-msgstr ""
-
-#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:231
+#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:98
+#: ajenti/plugins/vh/main.py:245
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:196
+#: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:241
+msgid "Applying changes"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:243
+msgid "Restarting web services"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:207
 msgid "Download complete"
 msgstr ""
 
@@ -1175,7 +1194,7 @@ msgstr ""
 msgid "Configuration checks"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main.xml:7
+#: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
 msgstr ""
 
@@ -1212,6 +1231,7 @@ msgid "Use Bundler"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
+#: ajenti/plugins/vh/layout/ext-processes.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
@@ -1239,6 +1259,11 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
+
+#: ajenti/plugins/vh/layout/ext-processes.xml:5
+#: ajenti/plugins/supervisor/layout/main.xml:5
+msgid "Working directory"
+msgstr "Κατάλογος εργασίας"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
@@ -1321,10 +1346,6 @@ msgstr ""
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
 msgstr ""
-
-#: ajenti/plugins/supervisor/layout/main.xml:5
-msgid "Working directory"
-msgstr "Κατάλογος εργασίας"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Autostart"
@@ -2212,10 +2233,6 @@ msgstr "Υπολογιστές"
 msgid "Aliases"
 msgstr "Ψευδώνυμα"
 
-#: ajenti/plugins/taskmgr/main.py:19
-msgid "Processes"
-msgstr "Διαδικασίες"
-
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
 msgstr "Γονική"
@@ -2254,23 +2271,23 @@ msgstr ""
 msgid "Deny"
 msgstr "Απόριψη"
 
-#: ajenti/plugins/vh-nodejs/nodejs.py:17
+#: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
 msgstr ""
 
-#: ajenti/plugins/vh-gunicorn/gunicorn.py:28
+#: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
 msgstr ""
 
-#: ajenti/plugins/csf/main.py:15
+#: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
 msgstr ""
 
-#: ajenti/plugins/csf/main.py:68
+#: ajenti/plugins/csf/main.py:69
 msgid "Applied"
 msgstr ""
 
-#: ajenti/plugins/csf/main.py:83
+#: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
 msgstr ""
 
@@ -2354,7 +2371,7 @@ msgstr "Ιδιαίτερο"
 msgid "Logs"
 msgstr "Αρχεία καταγραφής"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:53
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:54
 msgid "PHP-FPM service"
 msgstr ""
 
@@ -2374,11 +2391,11 @@ msgstr "Άγνωστο σφάλμα"
 msgid "Errors in log"
 msgstr ""
 
-#: ajenti/usersync/adsync.py:15
+#: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
 msgstr ""
 
-#: ajenti/usersync/ldapsync.py:15
+#: ajenti/usersync/ldapsync.py:18
 msgid "LDAP User Syncronization"
 msgstr ""
 
