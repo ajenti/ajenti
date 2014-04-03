@@ -296,7 +296,7 @@ class CollectionAutoBinding (Binding):
 
     def __init__(self, object, attribute, ui):
         Binding.__init__(self, object, attribute, ui)
-        self.template = ui.find_type('bind:template')
+        self.template = ui.find_type('bind:template').children[0]
         if self.template:
             self.template_parent = self.template.parent
             self.template.visible = False
