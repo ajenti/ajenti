@@ -1,8 +1,10 @@
+import gevent
 import logging
 import os
 import subprocess
 
 from ajenti.api import *
+from ajenti.api.helpers import subprocess_call_background, subprocess_check_output_background
 from ajenti.util import cache_value
 
 from api import Service, ServiceManager
@@ -15,7 +17,7 @@ class SysVInitServiceManager (ServiceManager):
     @cache_value(1)
     def get_all(self):
         r = []
-        for line in subprocess.check_output(['service', '--status-all']).splitlines():
+        for line in subprocess_check_output_background(['service', '--status-all']).splitlines():
             tokens = line.split()
             if len(tokens) < 3:
                 continue
@@ -66,6 +68,8 @@ class SysVInitService (Service):
 
     def command(self, cmd):
         try:
-            subprocess.Popen([self.script, cmd], close_fds=True).wait()
+            p = subprocess.Popen([self.script, cmd], close_fds=True)
+            gevent.sleep(0)
+            p.wait()
         except OSError, e:
             logging.warn('service script failed: %s - %s' % (self.script, e))

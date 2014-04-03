@@ -2,6 +2,7 @@ import os
 import subprocess
 
 from ajenti.api import *
+from ajenti.api.helpers import subprocess_call_background, subprocess_check_output_background
 from ajenti.util import cache_value
 
 from api import ServiceManager
@@ -16,7 +17,7 @@ class CentOSServiceManager (ServiceManager):
     def get_all(self):
         r = []
         pending = {}
-        for line in subprocess.check_output(['chkconfig', '--list']).splitlines():
+        for line in subprocess_check_output_background(['chkconfig', '--list']).splitlines():
             tokens = line.split()
             if len(tokens) < 3:
                 continue

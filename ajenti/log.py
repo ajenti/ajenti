@@ -9,6 +9,8 @@ from ajenti.api import extract_context
 
 LOG_DIR = '/var/log/ajenti'
 LOG_NAME = 'ajenti.log'
+LOG_FILE = os.path.join(LOG_DIR, LOG_NAME)
+
 
 class DebugHandler (logging.StreamHandler):
     """
@@ -91,8 +93,8 @@ def init_log_rotation():
 
     try:
         handler = logging.handlers.TimedRotatingFileHandler(
-            os.path.join(LOG_DIR, LOG_NAME), 
-            when='midnight', 
+            os.path.join(LOG_DIR, LOG_NAME),
+            when='midnight',
             backupCount=7
         )
         handler.setLevel(logging.INFO)

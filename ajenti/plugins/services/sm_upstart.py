@@ -3,9 +3,11 @@ try:
 except ImportError:
     pass
 
+import gevent
 import subprocess
 
 from ajenti.api import *
+from ajenti.api.helpers import subprocess_call_background, subprocess_check_output_background
 from ajenti.util import cache_value
 
 from api import Service, ServiceManager
@@ -63,13 +65,19 @@ class UpstartService (Service):
         self.running = 'running' in subprocess.check_output(['status', self.name])
 
     def start(self):
-        subprocess.Popen(['start', self.name], close_fds=True).wait()
+        p = subprocess.Popen(['start', self.name], close_fds=True)
+        gevent.sleep(0)
+        p.wait()
 
     def stop(self):
-        subprocess.Popen(['stop', self.name], close_fds=True).wait()
+        p = subprocess.Popen(['stop', self.name], close_fds=True)
+        gevent.sleep(0)
+        p.wait()
 
     def restart(self):
-        subprocess.Popen(['restart', self.name], close_fds=True).wait()
+        p = subprocess.Popen(['restart', self.name], close_fds=True)
+        gevent.sleep(0)
+        p.wait()
 
     def command(self, cmd):
         subprocess.Popen(['/etc/init.d/%s' % self.name, 'cmd'], close_fds=True).wait()

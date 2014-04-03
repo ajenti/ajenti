@@ -3,6 +3,7 @@ import catcher
 import gevent
 import gevent.coros
 import json
+import logging
 import requests
 import traceback
 import zlib
@@ -197,7 +198,7 @@ class MainSocket (SocketPlugin):
         self.emit('ui', data)
 
     def __compress_lzw(self, data):
-        dict = { }
+        dict = {}
         out = []
         phrase = data[0]
         code = 256
@@ -239,8 +240,10 @@ class MainSocket (SocketPlugin):
         self.emit('closeTab', json.dumps({'url': url}))
 
     def send_debug(self):
+        profiles = get_profiles()
+        logging.debug(repr(profiles))
         data = {
-            'profiles': get_profiles()
+            'profiles': profiles
         }
         self.emit('debug', json.dumps(data))
 

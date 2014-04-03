@@ -1,6 +1,7 @@
 import subprocess
 
 from ajenti.api import *
+from ajenti.api.helpers import subprocess_check_output_background
 from ajenti.plugins.services.api import Service, ServiceManager
 
 
@@ -12,7 +13,7 @@ class SupervisorServiceManager (ServiceManager):
         return subprocess.call(['supervisorctl', 'status']) == 0
 
     def run(self, *cmds):
-        return subprocess.check_output(['supervisorctl'] + list(cmds))
+        return subprocess_check_output_background(['supervisorctl'] + list(cmds))
 
     def _parse_status_line(self, l):
         l = l.split(None, 2)
