@@ -1141,7 +1141,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "FCGI Customizado"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
@@ -1211,7 +1211,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Caminho Virtualenv"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
@@ -1270,7 +1270,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Permitir que o Ajenti V substituia a configuração para os seguintes softwares:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
@@ -1529,7 +1529,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
-msgstr ""
+msgstr "Este endereço já está sendo utilizado"
 
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
