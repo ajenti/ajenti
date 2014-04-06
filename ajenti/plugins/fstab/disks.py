@@ -39,14 +39,18 @@ class PSUtilDiskUsageSensor (Sensor):
     timeout = 5
 
     @classmethod
+    def __list_partitions(cls):
+        return filter(lambda p: p.device, psutil.disk_partitions(True))
+    
+    @classmethod
     def verify(cls):
         try:
-            return len(psutil.disk_partitions()) > 0
+            return len(cls.__list_partitions()) > 0
         except:
             return False
 
     def get_variants(self):
-        return sorted([x.mountpoint for x in psutil.disk_partitions()])
+        return sorted([x.mountpoint for x in self.__list_partitions()])
 
     def measure(self, path):
         try:
