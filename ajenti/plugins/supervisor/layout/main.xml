@@ -32,6 +32,9 @@
                         <pad>
                             <hc>
                                 <vc>
+                                    <formline text="{Name}">
+                                        <textbox bind="name" />
+                                    </formline>
                                     <formline text="{Command}">
                                         <pathbox bind="command" />
                                     </formline>
@@ -59,6 +62,9 @@
                                     </formline>
                                     <formline text="{Environment}">
                                         <textbox bind="environment" />
+                                    </formline>
+                                    <formline text="umask">
+                                        <textbox bind="umask" />
                                     </formline>
                                 </vc>
                             </hc>
