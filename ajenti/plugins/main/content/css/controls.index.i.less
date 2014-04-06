@@ -1,66 +1,63 @@
 .control {
 	&.main-page {
 		min-height: 100%;
-		//position: relative;
-
-		.feedback {
-			position: absolute;
-			left: -150px;
-			top: 30px;
-			background: rgba(0,0,0,.125);
-			border-radius: 5px;
-			margin: 0 0 0 150px;
-			width: 145px;
-
-			.activate {
-				display: inline-block;
-    			font-family: 'PT Sans', sans-serif;
-    			font-size: 14px;
-    			font-weight: bold;
-    			color: #555;
-    			padding: 0 20px;
-    			line-height: @headerHeight;
-
-    			&:hover {
-    				background: rgba(255,255,255,.25);
-    			}
-    		}
-
-    		.box {
-    			z-index: 99;
-    			overflow: hidden;
-    			box-shadow: 0 1px 2px black;
-    			padding: 5px 10px;
-    			position: absolute;
-    			top: @headerHeight;
-    			left: 0;
-    			background: white;
-    		}
-		}
-
-		&>.header {
-			#gradient > .vertical(#333, #222);
-			height: @headerHeight;
-		    .box-shadow(0 0 5px rgba(0,0,0,0.5));
-
-		    &>.container {
-				margin: 0 auto;
-		    	width: 960px;
-	    		position: relative;
-		    }
-		}
 
 		&>.content-wr {
 		    min-height: 100%;
 		    height: auto !important;
 		    overflow: hidden;
 		    position: relative;
-			padding: 10px 0;
-			//border-top: 1px solid rgba(255,255,255,.125);
+			margin: 0 0 60px;
+			padding: 40px 0 10px;
+			z-index: 2;
 
 			&>.content {
-				margin: 0 auto @footerHeight + 10px;
+				margin: 0 auto;
 		    	width: 960px;
+			}
+		}
+
+		footer {
+			background: #444;
+			position: fixed;
+			bottom: 0;
+			height: 34px;
+			width: 100%;
+			left: 0;
+			z-index: 0;
+
+			border-top: 1px solid #222;
+			box-shadow: 0 0 3px rgba(0,0,0,.5) inset;
+
+			.container {
+				width: 960px;
+				margin: auto;
+
+				.item {
+					float: left;
+					padding: 2px 10px;
+					
+					a {
+						display: inline-block;
+						color: #aaa;
+						cursor: pointer;
+						text-decoration: none;
+						.transition(0.5s all);
+
+						&:hover {
+							color: #ccc;
+						}
+
+						padding: 6px 0;
+					}
+
+					a.logo {
+						padding: 0;
+						font-family: "PT Sans";
+						font-size: 20px;
+						font-weight: bold;
+					}
+				}
 			}
 		}
 	}
@@ -87,11 +84,22 @@
 
 		&>.sidebar {
 			float: left;
+			position: fixed;
 			width: 150px;
 			line-height: @fontSize + 10px;
 			font-weight: bold;
+			overflow-x: hidden;
+			padding: 0 5px 5px 0;
+			border-radius: 0 0 5px 5px;
 			
+			.tabs-container {
+				.transition(0.5s all);
+				width: 170px;  // temporarily hide scrollbar
+				overflow-y: scroll;
+			}
+
 			.tab {
+				width: 126px;
 				display: block;
 				text-decoration: none;
 				color: #888;
@@ -132,19 +140,31 @@
 					}
 				}
 			}
+
+			.jspVerticalBar {
+				background: transparent;
+				width: 2px;
+			}
+
+			.jspTrack {
+				background: rgba(0,0,0,.025);
+			}
+
+			.jspDrag {
+				background: rgba(0,0,0,.125);
+			}
 		}
 
 		&>.main {
-			overflow: hidden;
+			overflow-x: hidden;
 
-			margin: 0 0 0 10px;
+			margin: 0 0 0 160px;
 			float: left;
+			z-index: 0;
 
 			.section {
 				display: none;
 
-				
-				
 				width: 798px;
 				margin: 0 1px 1px;
 			

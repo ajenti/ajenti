@@ -7,6 +7,38 @@ class window.Controls.main__page extends window.Control
                         <children>
                     </div>
                 </div>
+                <footer>
+                    <div class="container">
+                        <div class="item">
+                            <a class="logo" target="_blank" href="http://ajenti.org">ajenti</a>
+                        </div>
+                        <div class="item">
+                            <a href="http://support.ajenti.org/" target="_blank">
+                                Docs
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://github.com/Eugeny/ajenti/" target="_blank">
+                                Code
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://github.com/Eugeny/ajenti/issues/new" target="_blank">
+                                Report a bug
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="http://docs.ajenti.org/en/latest/" target="_blank">
+                                Developer docs
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="/licensing">
+                                Licensing
+                            </a>
+                        </div>
+                    </div>
+                </footer>
             </div>
         """
 
@@ -41,10 +73,10 @@ class window.Controls.main__sections_root extends window.Control
         """
             <div class="control container main-sections-root">
                 <div class="sidebar">
-                    <div class="--tabs-container"></div>
+                    <div class="tabs-container"></div>
                 </div>
                 <div class="main">
-                    <div class="--child-container">
+                    <div class="child-container">
                         <children>
                     </div>
                     <div class="no-sections">
@@ -63,8 +95,23 @@ class window.Controls.main__sections_root extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @tabsContainer = $(@dom).find('.--tabs-container')
+        @tabsContainer = $(@dom).find('.tabs-container')
         @categories = {}
+
+        
+        resizeSidebar = () => 
+            setTimeout () =>
+                h = ($(window).height() - 100) + 'px'
+                $(@dom).find('>.sidebar>.tabs-container').css(height: h)
+                $(@dom).find('>.sidebar>.tabs-container').jScrollPane()
+                setTimeout () =>
+                    $(@dom).find('>.sidebar>.tabs-container').css(width: '150px') # re-show scrollbar
+                    $(@dom).find('>.sidebar>.tabs-container .jspContainer').css(width: '150px') # re-show scrollbar
+                , 1
+            , 1
+
+        $(document).ready resizeSidebar
+        $(window).resize resizeSidebar
 
         if not @properties.is_empty
             $(@dom).find('.no-sections').remove()
