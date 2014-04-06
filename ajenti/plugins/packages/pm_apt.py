@@ -5,6 +5,8 @@ from api import PackageInfo, PackageManager
 
 
 @plugin
+@rootcontext
+@persistent
 class DebianPackageManager (PackageManager):
     platforms = ['debian']
 

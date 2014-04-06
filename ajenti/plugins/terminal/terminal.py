@@ -1,8 +1,9 @@
-import os
-import fcntl
-import pty
-import gevent
 from gevent.select import select
+import fcntl
+import gevent
+import logging
+import os
+import pty
 
 import pyte
 
@@ -22,6 +23,7 @@ class Terminal (object):
         env['LC_ALL'] = 'en_US.UTF8'
 
         command = ['sh', '-c', command or 'bash']
+        logging.info('Terminal: %s' % command)
 
         pid, master = pty.fork()
         if pid == 0:

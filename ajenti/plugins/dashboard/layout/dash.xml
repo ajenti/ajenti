@@ -14,6 +14,18 @@
             </dashboard:header>
         </body>
 
+        <body id="update-panel" visible="False">
+            <pad>
+                <right>
+                    <button id="update-ajenti" style="normal big" icon="refresh" text="{Update Ajenti}" />
+                </right>
+                <hc>
+                    <icon icon="warning-sign" style="yellow" />
+                    <label style="bold" text="{Ajenti update is available}" />
+                </hc>
+            </pad>
+        </body>
+
         <dashboard:dash id="dash" />
 
         <dialog id="add-dialog" buttons="[{'text': _('Cancel'), 'id': 'cancel'}]" visible="False">

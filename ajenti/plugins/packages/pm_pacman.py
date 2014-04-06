@@ -6,6 +6,8 @@ from api import PackageInfo, PackageManager
 
 
 @plugin
+@rootcontext
+@persistent
 class ArchPackageManager (PackageManager):
     platforms = ['arch']
 

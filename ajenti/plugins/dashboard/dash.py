@@ -1,4 +1,5 @@
 import gevent
+import logging
 import random
 import traceback
 
@@ -11,6 +12,7 @@ from ajenti.users import UserManager, PermissionProvider
 from ajenti.plugins.main.api import SectionPlugin, intent
 
 from api import DashboardWidget
+from updater import AjentiUpdater
 
 
 @plugin
@@ -48,12 +50,24 @@ class Dash (SectionPlugin):
             None, self.find('add-widgets')).populate()
 
         self.context.session.spawn(self.worker)
+        AjentiUpdater.get().check_for_updates(self.update_check_callback)
 
     def worker(self):
         while True:
             if self.active and self.autorefresh:
                 self.refresh()
             gevent.sleep(5)
+
+    def update_check_callback(self, updates):
+        logging.debug('Update availability: %s' % updates)
+        self.find('update-panel').visible = updates != []
+
+    def install_updates(self, updates):
+        AjentiUpdater.get().run_update(updates)
+
+    @on('update-ajenti', 'click')
+    def install_update(self):
+        AjentiUpdater.get().check_for_updates(self.install_updates)
 
     def on_page_load(self):
         self.refresh()

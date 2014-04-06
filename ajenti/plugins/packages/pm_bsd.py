@@ -3,6 +3,8 @@ from api import PackageInfo, PackageManager
 
 
 @plugin
+@rootcontext
+@persistent
 class BSDPackageManager (PackageManager):
     platforms = ['freebsd']
 
