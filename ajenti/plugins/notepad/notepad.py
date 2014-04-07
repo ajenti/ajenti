@@ -44,7 +44,7 @@ class Notepad (SectionPlugin):
         self.opendialog.navigate(self.opendialog.root)
         self.savedialog.navigate(self.savedialog.root)
 
-        self.controller = Controller()
+        self.controller = Controller.new()
 
         self.selected = None
 
@@ -80,7 +80,7 @@ class Notepad (SectionPlugin):
 
     @on('new-button', 'click')
     def on_new(self):
-        self.select(self.controller.new())
+        self.select(self.controller.new_item())
 
     @on('open-button', 'click')
     def on_open(self):
@@ -139,12 +139,13 @@ class Notepad (SectionPlugin):
         self.select(self.selected)
 
 
-class Controller (object):
+@plugin
+class Controller (BasePlugin):
     def __init__(self):
         self.files = {}
         self._id = 0
 
-    def new(self):
+    def new_item(self):
         id = self._id
         self._id += 1
         self.files[id] = {
@@ -156,12 +157,14 @@ class Controller (object):
         return id
 
     def open(self, path):
-        id = self.new()
+        id = self.new_item()
         self.files[id]['path'] = path
+        content = ''
         try:
-            self.files[id]['content'] = open(path).read()
-        except IOError:
-            self.files[id]['content'] = ''
+            content = open(path).read().decode('utf-8')
+        except Exception, e:
+            self.context.notify('error', str(e))
+        self.files[id]['content'] = content
         self.files[id]['mime'] = mimetypes.guess_type(path, strict=False)[0]
         return id
 

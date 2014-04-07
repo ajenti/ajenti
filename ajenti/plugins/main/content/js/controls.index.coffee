@@ -103,15 +103,16 @@ class window.Controls.main__sections_root extends window.Control
         @tabsContainer = $(@dom).find('.tabs-container')
         @categories = {}
 
-        
         resizeSidebar = () => 
+            console.log 'resize'
             setTimeout () =>
-                h = ($(window).height() - 100) + 'px'
+                h = ($(window).height() - 80) + 'px'
+                console.log h
                 $(@dom).find('>.sidebar>.tabs-container').css(height: h)
-                $(@dom).find('>.sidebar>.tabs-container').jScrollPane()
                 setTimeout () =>
+                    $(@dom).find('>.sidebar>.tabs-container').jScrollPane()
                     $(@dom).find('>.sidebar>.tabs-container').css(width: '150px') # re-show scrollbar
-                    $(@dom).find('>.sidebar>.tabs-container .jspContainer').css(width: '150px') # re-show scrollbar
+                    $(@dom).find('>.sidebar>.tabs-container .jspContainer').css(width: '150px', height: h) # re-show scrollbar
                 , 1
             , 1
 
