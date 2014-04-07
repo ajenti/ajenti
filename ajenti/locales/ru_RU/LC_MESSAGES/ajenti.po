@@ -1149,7 +1149,7 @@ msgstr "Прокси"
 
 #: ajenti/plugins/vh/processes.py:40
 msgid "Process"
-msgstr ""
+msgstr "Процесс"
 
 #: ajenti/plugins/vh/processes.py:55 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1175,7 +1175,7 @@ msgstr "Применяются изменения"
 
 #: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:243
 msgid "Restarting web services"
-msgstr ""
+msgstr "Перезапуск веб-служб"
 
 #: ajenti/plugins/vh/main.py:207
 msgid "Download complete"

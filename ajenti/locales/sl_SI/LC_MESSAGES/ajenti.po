@@ -1065,7 +1065,7 @@ msgstr "Ime podatkovne baze"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 msgid "Destroy"
-msgstr ""
+msgstr "Uniči"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Database contents will be deleted!"
@@ -1077,7 +1077,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "storitev PUMA"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
@@ -1137,11 +1137,11 @@ msgstr "Potrdi izbris podatkovne baze!"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Statične datoteke"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "FCGI po meri"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/processes.py:40
 msgid "Process"
-msgstr ""
+msgstr "Proces"
 
 #: ajenti/plugins/vh/processes.py:55 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1157,21 +1157,21 @@ msgstr "Procesi"
 
 #: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Spletne strani"
 
 #: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
 #: ajenti/plugins/vh/main.py:239
 msgid "Saving changes"
-msgstr ""
+msgstr "Shranjujem spremembe"
 
 #: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:98
 #: ajenti/plugins/vh/main.py:245
 msgid "Testing configuration"
-msgstr ""
+msgstr "Preizkušanje konfiguracije"
 
 #: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:241
 msgid "Applying changes"
-msgstr ""
+msgstr "Uveljavljam spremembe"
 
 #: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:243
 msgid "Restarting web services"
@@ -1179,31 +1179,31 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:207
 msgid "Download complete"
-msgstr ""
+msgstr "Prenos končan"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Upravljaj"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Nova spletna stran"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Preverjanje konfiguracije"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Ponovni zagon spletnih strani"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "Min procesov"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
-msgstr ""
+msgstr "Max procesov"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
@@ -1215,7 +1215,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Naziv skripte"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Prikaži vsebino imenika"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
@@ -1243,7 +1243,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "URL vzorec"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
@@ -1253,11 +1253,11 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:29
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Konfiguracija po meri"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr ""
+msgstr "Uporabi samo konfiguracijo po meri in ne vključuj standardnih parametrov"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:5
@@ -1266,7 +1266,7 @@ msgstr "Delovni imenik"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V še ni omogočen"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
@@ -1274,7 +1274,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Nazaj"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1283,7 +1283,7 @@ msgstr "Izbriši"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Vsi podatki spletne strani bodo izgubljeni. Ali želite nadaljevati?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:7
@@ -1293,7 +1293,7 @@ msgstr "Omogočeno"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Način vzdrževanja"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
@@ -1301,7 +1301,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Ustvari imenik"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
@@ -1309,7 +1309,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "Iz URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
@@ -1321,7 +1321,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Domena"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1339,12 +1339,12 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "Content"
-msgstr ""
+msgstr "Vsebina"
 
 #: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "Uveljavi spremembe"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Autostart"

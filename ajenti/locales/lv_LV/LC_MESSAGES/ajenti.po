@@ -49,7 +49,7 @@ msgstr "Tips"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "Ir atkarīgs no"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -180,19 +180,19 @@ msgstr "Memcache atmiņas lietojums"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Nederīga atslēga"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Nederīga IP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Beidzies derīguma termiņš"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Nezināms"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -210,7 +210,7 @@ msgstr "Konfigurēt"
 
 #: ajenti/plugins/configurator/configurator.py:176
 msgid "Auto"
-msgstr ""
+msgstr "Automātiski"
 
 #: ajenti/plugins/configurator/configurator.py:200
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -310,11 +310,11 @@ msgstr "Sinhronizēt"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Pareizi konfigurēts"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr ""
+msgstr "Neizdevās sinhronizēt"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
@@ -331,7 +331,7 @@ msgstr "Mainīt paroli"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Privilēģijas"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -348,7 +348,7 @@ msgstr "Ajenti anonīmi nosūtīs savu versiju, operētājsistēmas nosaukumu un
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -381,11 +381,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Servera adrese"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Domēna nosaukumu"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -401,19 +401,19 @@ msgstr "Administratora parole"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Licences statuss"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Uzņēmums"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Licences veids"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "Licences derīgums beidzas"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -423,11 +423,11 @@ msgstr "Noņemt"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Komerciāla licence nav instalēta"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "Instalēt"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -475,7 +475,7 @@ msgstr "Atjaunot"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr ""
+msgstr "Darbojas"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
@@ -488,7 +488,7 @@ msgstr "Gaida"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "Pārtraukt"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
@@ -536,17 +536,17 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr ""
+msgstr "Reizi stundā"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
 msgid "Daily"
-msgstr ""
+msgstr "Reizi dienā"
 
 #: ajenti/plugins/tasks/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:18
 msgid "Weekly"
-msgstr ""
+msgstr "Reizi nedēļā"
 
 #: ajenti/plugins/tasks/layout/main.xml:27
 #: ajenti/plugins/cron/layout/main.xml:19
@@ -614,12 +614,12 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "No direktorijas"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "Direktorijā"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
@@ -627,7 +627,7 @@ msgstr "Arhīvs"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursīvs"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
@@ -739,7 +739,7 @@ msgstr "Mājas direktorija"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Tukšs"
 
 #: ajenti/plugins/main/main.py:48
 msgid "Invalid login or password"
@@ -1051,11 +1051,11 @@ msgstr "Jaunā parole"
 
 #: ajenti/plugins/vh-mysql/mysql.py:61
 msgid "This database name is already used"
-msgstr ""
+msgstr "Šis datubāzes nosaukums jau eksistē"
 
 #: ajenti/plugins/vh-mysql/mysql.py:66
 msgid "This username is already used"
-msgstr ""
+msgstr "Šis lietotājvārds jau eksistē"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/vh-mysql/layout/ext.xml:7
@@ -1073,7 +1073,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:6
 msgid "No database created"
-msgstr ""
+msgstr "Nav izveidotas datubāzes"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1137,7 +1137,7 @@ msgstr "Apstiprinātu datu bāzes dzēšanu!"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Statiskie faili"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
@@ -1157,7 +1157,7 @@ msgstr "Procesi"
 
 #: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Mājaslapas"
 
 #: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
 #: ajenti/plugins/vh/main.py:239
@@ -1167,7 +1167,7 @@ msgstr ""
 #: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:98
 #: ajenti/plugins/vh/main.py:245
 msgid "Testing configuration"
-msgstr ""
+msgstr "Konfigurācijas testēšana"
 
 #: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:241
 msgid "Applying changes"
@@ -1179,11 +1179,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:207
 msgid "Download complete"
-msgstr ""
+msgstr "Lejupielāde pabeigta"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Pārvaldīt"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
@@ -1207,7 +1207,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Programmas modulis"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Radīt kataloga saturu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
@@ -1239,11 +1239,11 @@ msgstr "Vide"
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Darbinieki"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "URL Paraugs"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
@@ -1274,7 +1274,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Atpakaļ"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1289,11 +1289,11 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Enabled"
-msgstr ""
+msgstr "Ieslēgts"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Apkopes režīms"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
@@ -1301,7 +1301,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Izveidot direktoriju"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
@@ -1309,7 +1309,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "No URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
@@ -1317,11 +1317,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Domēni"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Domēns"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1339,7 +1339,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "Content"
-msgstr ""
+msgstr "Saturs"
 
 #: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/vh-mail/layout/main.xml:33
@@ -1353,7 +1353,7 @@ msgstr "Automātiska palaišana"
 #: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "Disabled"
-msgstr ""
+msgstr "Atslēgts"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 msgid "Autorestart"
@@ -1517,19 +1517,19 @@ msgstr "CNID adrese"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Pasts"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Nederīgs pastkastes nosaukums"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Nederīgs pastkastes domēns"
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
-msgstr ""
+msgstr "Šī adrese jau ir aizņemta"
 
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
@@ -1542,7 +1542,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Pastkastes"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1553,7 +1553,7 @@ msgstr "Izmērs"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Pāradresācija"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
@@ -1561,19 +1561,19 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Jauna pastkaste"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Pastkaste"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Selektors"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Privātā atslēga"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
@@ -1746,11 +1746,11 @@ msgstr "Failu pārvaldnieks"
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "Faili ir pārvietoti"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "Faili ir pārkopēti"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
@@ -2134,11 +2134,11 @@ msgstr "Barošanas pārvaldība"
 
 #: ajenti/plugins/power/power.py:106 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr ""
+msgstr "Apturēt"
 
 #: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernācija"
 
 #: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
@@ -2158,7 +2158,7 @@ msgstr "Akumulators"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr ""
+msgstr "Apturēt sistēmu?"
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
@@ -2170,7 +2170,7 @@ msgstr "Pārstartēt sistēmu?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr ""
+msgstr "Izslēgt"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -2263,12 +2263,12 @@ msgstr "Režīms"
 #: ajenti/plugins/squid/layout/main.xml:9
 #: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
-msgstr ""
+msgstr "Atļaut"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
-msgstr ""
+msgstr "Aizliegt"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
@@ -2296,11 +2296,11 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Tīkla ierīce"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Tīkla ierīce (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
@@ -2324,7 +2324,7 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Ieslēgts IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
@@ -2392,15 +2392,15 @@ msgstr ""
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Active Directory sinhronizācija"
 
 #: ajenti/usersync/ldapsync.py:18
 msgid "LDAP User Syncronization"
-msgstr ""
+msgstr "LDAP lietotāja sinhronizācija"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr ""
+msgstr "Izslēgts"
 
 #: ajenti/usersync/unix.py:14
 msgid "OS users"

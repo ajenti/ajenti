@@ -180,19 +180,19 @@ msgstr "Memcache využití paměti"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Neplatný klíč"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Neplatná IP adresa"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Platnost vypršela"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámé"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -331,7 +331,7 @@ msgstr "Změnit heslo"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Oprávnění"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -348,7 +348,7 @@ msgstr "Feedback bude odeslán anonymně na server ajenti.org včetně verze Aje
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -377,7 +377,8 @@ msgstr "Přípona autorizačního DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Tajemství\n"
+"Sekret"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
@@ -401,15 +402,15 @@ msgstr "Heslo administrátora"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Stav licence"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Společnost"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Typ licence"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
@@ -1297,11 +1298,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Soubory webových stránek"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Vytvořit adresář"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
