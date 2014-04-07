@@ -60,7 +60,7 @@ class Dash (SectionPlugin):
 
     def update_check_callback(self, updates):
         logging.debug('Update availability: %s' % updates)
-        self.find('update-panel').visible = updates != []
+        self.find('update-panel').visible = (updates != []) and self.context.session.identity == 'root'
 
     def install_updates(self, updates):
         AjentiUpdater.get().run_update(updates)
