@@ -5,7 +5,6 @@
 		&>.content-wr {
 		    min-height: 100%;
 		    height: auto !important;
-		    overflow: hidden;
 		    position: relative;
 			margin: 0 0 35px;
 			padding: 40px 0 10px;
@@ -89,12 +88,16 @@
 			line-height: @fontSize + 10px;
 			font-weight: bold;
 			overflow-x: hidden;
-			padding: 0 5px 5px 0;
+			padding: 0 0 5px 0;
+			margin: 0 5px 0 0;
 			border-radius: 0 0 5px 5px;
 			
 			.tabs-container {
-				.transition(0.5s width);
-				width: 170px;  // temporarily hide scrollbar
+				.transition(0.125s width);
+				width: 170px;
+				&:hover {
+					width: 150px; // un-hide the scrollbar
+				}
 				height: 10px;
 				overflow-y: scroll;
 			}
