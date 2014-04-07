@@ -51,6 +51,8 @@ class window.Stream
             UI.replace(ui)
             profiler.stop()
 
+            $('#version-number').text("v#{@serverInfo.version}")
+
             console.log 'Total elements:', UI._total_elements
             console.groupEnd()
             Loading.hide()

@@ -13,18 +13,23 @@ class window.Controls.main__page extends window.Control
                             <a class="logo" target="_blank" href="http://ajenti.org">ajenti</a>
                         </div>
                         <div class="item">
-                            <a href="http://support.ajenti.org/" target="_blank">
-                                Docs
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="https://github.com/Eugeny/ajenti/" target="_blank">
-                                Code
+                            <a href="https://github.com/Eugeny/ajenti/releases" target="_blank" id="version-number">
+                                v
                             </a>
                         </div>
                         <div class="item">
                             <a href="https://github.com/Eugeny/ajenti/issues/new" target="_blank">
                                 Report a bug
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="http://support.ajenti.org/" target="_blank">
+                                Help &amp; support
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="https://github.com/Eugeny/ajenti/" target="_blank">
+                                Code
                             </a>
                         </div>
                         <div class="item">

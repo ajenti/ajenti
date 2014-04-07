@@ -6,8 +6,9 @@ import logging
 import os
 import signal
 import socket
-import syslog
 import sys
+import syslog
+import traceback
 
 
 import ajenti
@@ -21,6 +22,7 @@ from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
 from ajenti.plugins import manager
 from ajenti.routing import CentralDispatcher
 from ajenti.ui import Inflater
+from ajenti.util import make_report
 
 import gevent
 import gevent.ssl
@@ -170,3 +172,20 @@ def run():
         os.execv(sys.argv[0], sys.argv)
     else:
         logging.info('Stopped by request')
+
+
+def handle_crash(exc):
+    logging.error('Fatal crash occured')
+    traceback.print_exc()
+    exc.traceback = traceback.format_exc(exc)
+    report_path = '/root/ajenti-crash.txt'
+    try:
+        report = open(report_path, 'w')
+    except:
+        report_path = './ajenti-crash.txt'
+        report = open(report_path, 'w')
+    report.write(make_report(exc))
+    report.close()
+    logging.error('Crash report written to %s' % report_path)
+    logging.error('Please submit it to https://github.com/Eugeny/ajenti/issues/new')
+

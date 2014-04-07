@@ -121,7 +121,10 @@ if __name__ == '__main__':
         with context:
             ajenti.log.init_log_rotation()
             from ajenti import core
-            core.run()
+            try:
+                core.run()
+            except Exception, e:
+                core.handle_crash(e)
     else:
         logging.info('Ajenti starting in foreground')
         try:
@@ -129,3 +132,6 @@ if __name__ == '__main__':
             core.run()
         except KeyboardInterrupt:
             pass
+        except Exception, e:
+            core.handle_crash(e)
+
