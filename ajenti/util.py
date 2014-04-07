@@ -130,6 +130,12 @@ def make_report(e):
     except:
         pass
 
+    import gevent
+    import greenlet
+    import reconfigure
+    import requests
+    import psutil
+
     return """Ajenti bug report
 --------------------
 
@@ -145,6 +151,15 @@ Debug | %s
 Catcher report | %s
 Loaded plugins | %s
 
+Library | Version
+------- | -------
+gevent | %s
+greenlet | %s
+reconfigure | %s
+requests | %s
+psutil | %s
+
+
 %s
 
 Log content:
@@ -159,6 +174,13 @@ Log content:
         debug,
         catcher_url or 'Failed to upload traceback',
         ', '.join(sorted(manager.get_order())),
+
+        gevent.__version__,
+        greenlet.__version__,
+        reconfigure.__version__,
+        requests.__version__,
+        psutil.__version__,
+
         tb,
         log,
     )
