@@ -297,9 +297,9 @@ class CollectionAutoBinding (Binding):
     def __init__(self, object, attribute, ui):
         Binding.__init__(self, object, attribute, ui)
         self.template = ui.find_type('bind:template')
-        if self.template.children:
-            self.template = self.template.children[0]
         if self.template:
+            if self.template.children:
+                self.template = self.template.children[0]
             self.template_parent = self.template.parent
             self.template.visible = False
         self.items_ui = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
@@ -409,10 +409,26 @@ class CollectionAutoBinding (Binding):
 
     def update(self):
         if hasattr(self.items_ui, 'sortable') and self.items_ui.order:
+            sortable_indexes = []
+            for i, e in enumerate(self.items_ui.children):
+                if e.visible:
+                    sortable_indexes.append(i)
+
+            absolute_order = [sortable_indexes[i - 1] for i in self.items_ui.order]
+            new_indexes = []
+            absolute_order_idx = 0
+            for i in range(len(self.values)):
+                if i in sortable_indexes:
+                    new_indexes.append(absolute_order[absolute_order_idx])
+                    absolute_order_idx += 1
+                else:
+                    new_indexes.append(i)
+
             new_values = []
-            for i in self.items_ui.order:
-                if i - 1 < len(self.collection):
-                    new_values.append(self.collection[i - 1])
+            for i in new_indexes:
+                if i < len(self.collection):
+                    new_values.append(self.values[i])
+
             while len(self.collection) > 0:
                 self.collection.pop(0)
             for e in new_values:
