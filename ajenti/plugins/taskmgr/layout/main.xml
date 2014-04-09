@@ -2,17 +2,17 @@
     <body>
         <pad>
             <bind:collection bind="processes" id="processes">
-                <dt bind="__items" style="compressed">
+                <dt bind="__items" style="compressed wide">
                     <dtr>
                         <dth text="" />
                         <dth>
                             <button id="sort-by-pid" style="link" text="PID" />
                         </dth>
                         <dth text="{Parent}" />
-                        <dth>
+                        <dth width="100">
                             <button id="sort-by-_sort_name" style="link" text="{Name}" />
                         </dth>
-                        <dth text="{Command}" />
+                        <dth width="250" text="{Command}" />
                         <dth>
                             <button id="sort-by-_cpu" style="link" text="{CPU}" />
                         </dth>
@@ -20,7 +20,7 @@
                             <button id="sort-by-_sort_ram" style="link" text="{RAM}" />
                         </dth>
                         <dth text="{User}" />
-                        <dth text="" />
+                        <dth width="60" />
                     </dtr>
                 </dt>
                 <bind:template>
@@ -38,9 +38,7 @@
                             <label bind="_name" style="bold" />
                         </dtd>
                         <dtd>
-                            <box width="250">
-                                <label bind="_cmd" />
-                            </box>
+                            <label bind="_cmd" />   
                         </dtd>
                         <dtd>
                             <label bind="_cpu" />

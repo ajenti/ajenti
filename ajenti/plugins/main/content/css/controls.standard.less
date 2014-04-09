@@ -430,6 +430,10 @@
 		.box-shadow(@mainPaneShadow);
 		.border-radius(1px);
 
+		&.wide {
+			table-layout: fixed;
+		}
+		
 		&.compressed > tbody > tr > td {
 			padding: 0 5px;
 		}
@@ -481,6 +485,7 @@
 				}
 
 				&>td {
+					overflow: hidden;
 					background: @tableCell;
 					border: 1px solid @tableBorder;
 					border-width: 1px 0 0 1px;
