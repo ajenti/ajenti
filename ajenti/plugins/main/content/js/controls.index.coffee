@@ -103,6 +103,10 @@ class window.Controls.main__sections_root extends window.Control
         @tabsContainer = $(@dom).find('.tabs-container')
         @categories = {}
 
+        setTimeout () =>
+            @restoreScroll()
+        , 1
+
         resizeSidebar = () => 
             setTimeout () =>
                 h = ($(window).height() - 80) + 'px'
@@ -133,7 +137,16 @@ class window.Controls.main__sections_root extends window.Control
 
                 if not child.properties.hidden
                     @categories[child.properties.category].append(tab)
-            
+    
+    saveScroll: () ->
+        @constructor._savedScroll = $(@dom).find('>.sidebar>.tabs-container').scrollTop()
+
+    restoreScroll: () ->
+        $(@dom).find('>.sidebar>.tabs-container').scrollTop(@constructor._savedScroll)
+
+    onBroadcast: (msg) ->
+        if msg == 'destruct'
+            @saveScroll()
 
 
 class window.Controls.main__section extends window.Control

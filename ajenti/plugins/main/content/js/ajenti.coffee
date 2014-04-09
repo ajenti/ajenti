@@ -14,6 +14,9 @@ class window.Stream
             console.log 'Authentication lost!'
             location.reload()
 
+        @socket.on 'error', (err) ->
+            console.error 'Socket error:', err
+
         @socket.on 'disconnect', () ->
             $('#connection-error').show()
 
@@ -536,3 +539,21 @@ window.$$ = (html, container) ->
     div.innerHTML = html
     return div.childNodes[0]
 
+
+#---------------------
+# IE
+#---------------------
+
+noop = () -> null
+methods = [
+    'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+    'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+    'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+    'timeStamp', 'trace', 'warn'
+]
+
+window.console = (window.console || {})
+
+for method in methods
+    if !console[method]
+        console[method] = noop

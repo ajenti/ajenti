@@ -33,7 +33,7 @@ import ajenti.ipc
 try:
     monkey.patch_all(select=False, thread=False, subprocess=True)
 except:
-    monkey.patch_all(select=False, thread=False) # old gevent
+    monkey.patch_all(select=False, thread=False)  # old gevent
 
 import ajenti.compat
 
@@ -133,6 +133,12 @@ def run():
         application=HttpRoot(stack).dispatch,
         policy_server=False,
         resource='ajenti:socket',
+        transports=[
+            'websocket',
+            'flashsocket',
+            'xhr-polling',
+            'jsonp-polling',
+        ],
         **ssl_args
     )
 
