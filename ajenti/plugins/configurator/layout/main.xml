@@ -133,11 +133,11 @@
                         <dt bind="__items" />
 
                         <bind:template>
-                            <dtr binder:context="classconfig_editor">
-                                <dtd width="1">
+                            <dtr>
+                                <dtd width="1" binder:context="classconfig_editor">
                                     <icon bind="icon" />
                                 </dtd>
-                                <dtd>
+                                <dtd binder:context="classconfig_editor">
                                     <label style="bold" bind="title" />
                                 </dtd>
                                 <dtd width="1">
