@@ -1,3 +1,4 @@
+from datetime import timedelta
 import catcher
 import locale
 import logging
@@ -47,14 +48,13 @@ def str_fsize(sz):
     return '%.1f TB' % sz
 
 
-from datetime import timedelta
-
 @public
 def str_timedelta(s):
     """
     Formats a time delta (i.e., "5 days, 5:06:07")
     """
-    return str(timedelta(0, s))
+    return str(timedelta(0, s)).split('.')[0]
+
 
 @public
 def cache_value(duration=None):
