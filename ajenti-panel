@@ -133,5 +133,6 @@ if __name__ == '__main__':
         except KeyboardInterrupt:
             pass
         except Exception, e:
+            from ajenti import core
             core.handle_crash(e)
 

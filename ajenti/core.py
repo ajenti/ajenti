@@ -30,10 +30,16 @@ from gevent import monkey
 
 import ajenti.ipc
 
+# Gevent monkeypatch ---------------------
 try:
-    monkey.patch_all(select=False, thread=False, subprocess=True)
+    monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
 except:
-    monkey.patch_all(select=False, thread=False)  # old gevent
+    monkey.patch_all(select=True, thread=True, aggressive=False)  # old gevent
+
+from gevent.event import Event
+import threading
+threading.Event = Event
+# ----------------------------------------
 
 import ajenti.compat
 
