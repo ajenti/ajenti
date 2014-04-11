@@ -140,10 +140,10 @@ def run():
         policy_server=False,
         resource='ajenti:socket',
         transports=[
-            'websocket',
-            'flashsocket',
-            'xhr-polling',
-            'jsonp-polling',
+            str('websocket'),
+            str('flashsocket'),
+            str('xhr-polling'),
+            str('jsonp-polling'),
         ],
         **ssl_args
     )

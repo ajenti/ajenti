@@ -15,7 +15,7 @@ class SocketIORouteHandler (HttpHandler):
             self.namespaces[cls.name] = cls
 
     def handle(self, context):
-        return socketio.socketio_manage(context.env, self.namespaces, context)
+        return str(socketio.socketio_manage(context.env, self.namespaces, context))
 
 
 class InvalidRouteHandler (HttpHandler):
