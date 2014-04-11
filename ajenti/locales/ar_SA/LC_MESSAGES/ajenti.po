@@ -188,7 +188,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "انتهى"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
@@ -385,7 +385,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "اسم النطاق"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -409,11 +409,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "نوع الرخصة"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "الرخصه تنتهى فى"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -427,7 +427,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "تنصيب"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -739,7 +739,7 @@ msgstr "الدليل الأعلى"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "فارغ"
 
 #: ajenti/plugins/main/main.py:48
 msgid "Invalid login or password"
@@ -1157,7 +1157,7 @@ msgstr "العمليات"
 
 #: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "مواقع الكترونية"
 
 #: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
 #: ajenti/plugins/vh/main.py:239
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "موقع جديد"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1195,7 +1195,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "إعادة تشغيل المواقع"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
@@ -1274,7 +1274,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "رجوع"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1317,11 +1317,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "نطاقات"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "نطاق"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1517,7 +1517,7 @@ msgstr "عنوان CNID"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "بريد"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
@@ -2263,7 +2263,7 @@ msgstr "الوضع"
 #: ajenti/plugins/squid/layout/main.xml:9
 #: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
-msgstr ""
+msgstr "سماح"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20

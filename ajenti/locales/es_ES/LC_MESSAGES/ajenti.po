@@ -743,7 +743,7 @@ msgstr "Vacío"
 
 #: ajenti/plugins/main/main.py:48
 msgid "Invalid login or password"
-msgstr ""
+msgstr "Nombre de usuario o contraseña incorrecto"
 
 #: ajenti/plugins/main/main.py:76
 #, python-format
@@ -1055,7 +1055,7 @@ msgstr "Este nombre de base de datos ya esta en uso"
 
 #: ajenti/plugins/vh-mysql/mysql.py:66
 msgid "This username is already used"
-msgstr ""
+msgstr "Ya se utiliza este nombre de usuario"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/vh-mysql/layout/ext.xml:7
@@ -1065,19 +1065,19 @@ msgstr "Nombre de la base de datos"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 msgid "Destroy"
-msgstr ""
+msgstr "Destruir"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Database contents will be deleted!"
-msgstr ""
+msgstr "El contenido de la base de datos será eliminado!"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:6
 msgid "No database created"
-msgstr ""
+msgstr "Ninguna base de datos creada"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "Servicio PUMA"
 
 #: ajenti/plugins/dhcpd/main.py:13
 msgid "DHCP Server"
@@ -1137,19 +1137,19 @@ msgstr "¡Confirmar eliminación de la base de datos!"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Archivos estáticos"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "FCGI Personalizado"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Proxy inverso"
 
 #: ajenti/plugins/vh/processes.py:40
 msgid "Process"
-msgstr ""
+msgstr "Proceso"
 
 #: ajenti/plugins/vh/processes.py:55 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1157,73 +1157,73 @@ msgstr "Procesos"
 
 #: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Sitios web"
 
 #: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
 #: ajenti/plugins/vh/main.py:239
 msgid "Saving changes"
-msgstr ""
+msgstr "Guardando Cambios"
 
 #: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:98
 #: ajenti/plugins/vh/main.py:245
 msgid "Testing configuration"
-msgstr ""
+msgstr "Probando la configuración"
 
 #: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:241
 msgid "Applying changes"
-msgstr ""
+msgstr "Aplicando cambios"
 
 #: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:243
 msgid "Restarting web services"
-msgstr ""
+msgstr "Reiniciando de servicios web"
 
 #: ajenti/plugins/vh/main.py:207
 msgid "Download complete"
-msgstr ""
+msgstr "Descarga completa"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Administrar"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Nuevo sitio web"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Chequeos de configuración"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Reiniciar sitios web"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "Minimo de procesos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
-msgstr ""
+msgstr "Maximo de procesos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Módulo de aplicación"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Ruta virtual"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Nombre del script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "Puerto HTTP del script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Mostrar el contenido del directorio"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
@@ -1239,25 +1239,25 @@ msgstr "Entorno"
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Trabajadores"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "Patrón de URL"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Ruta personalizada"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 #: ajenti/plugins/vh/layout/main-website.xml:29
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Configuración Personalizada"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr ""
+msgstr "Utilice la configuración sólo personalizado y no incluyen parámetros estándar"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:5
@@ -1266,15 +1266,15 @@ msgstr "Directorio de trabajo"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V todavía no está habilitado"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Habilitar Ajenti V sobrescribirá la configuración para el siguiente software:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Atrás"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1283,7 +1283,7 @@ msgstr "Eliminar"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Se perderán todos los datos de Web. ¿Continuar?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:7
@@ -1293,35 +1293,35 @@ msgstr "Habilitado"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Modo de mantenimiento"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Archivos de sitio web"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Crear directorio"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Descargador automático"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "Desde la URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "Descargar y descomprimir"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Dominios"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Dominio"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1331,20 +1331,20 @@ msgstr "Puertos"
 
 #: ajenti/plugins/vh/layout/main-website.xml:23
 msgid "SSL certificate path"
-msgstr ""
+msgstr "Ruta del certificado SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:24
 msgid "SSL key path"
-msgstr ""
+msgstr "Ruta llave SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "Content"
-msgstr ""
+msgstr "Contenido"
 
 #: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar cambios"
 
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Autostart"
@@ -1373,7 +1373,7 @@ msgstr "Reintentos de inicio"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Prueba de configuración NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"

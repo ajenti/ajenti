@@ -180,7 +180,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "کلید نامعتبر"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
@@ -188,11 +188,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "منقضی شده"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "ناشناخته"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -348,7 +348,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "مجوز"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -405,11 +405,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "شرکت"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "نوع مجوز"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
@@ -427,7 +427,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "نصب"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -518,7 +518,7 @@ msgstr "اجرا"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "مشاغل"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
@@ -739,7 +739,7 @@ msgstr ""
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "خالی"
 
 #: ajenti/plugins/main/main.py:48
 msgid "Invalid login or password"
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mysql/mysql.py:66
 msgid "This username is already used"
-msgstr ""
+msgstr "این نام کاربری قبلا استفاده شده است"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/vh-mysql/layout/ext.xml:7
