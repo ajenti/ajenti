@@ -25,7 +25,7 @@ class Cron (SectionPlugin):
 
         def remove_task(i, c):
             c.remove(i)
-            logging.info('[cron] removed %s' % i.getattr('command', None))
+            logging.info('[cron] removed %s' % getattr(i, 'command', None))
 
         self.binder = Binder(None, self.find('config'))
         self.find('normal_tasks').new_item = lambda c: create_task(CrontabNormalTaskData)
