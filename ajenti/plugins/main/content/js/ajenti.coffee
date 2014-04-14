@@ -59,6 +59,7 @@ class window.Stream
             console.log 'Total elements:', UI._total_elements
             console.groupEnd()
             Loading.hide()
+            ajentiCrashResume()
 
         @socket.on 'ack', () ->
             Loading.hide()
@@ -477,7 +478,7 @@ window.ajentiCrash = (info) ->
     $('#crash-traceback').html(_escape(info.message + "\n" + info.traceback))
     $('#crash-report textarea').val(info.report)
 
-window.ajentiCrashResume = (info) ->
+window.ajentiCrashResume = () ->
     $('#crash').fadeOut()
 
 window.ajentiCrashShowReport = () ->

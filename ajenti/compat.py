@@ -51,6 +51,14 @@ def tbdel(self):
 threading.Thread._Thread__block = property(tbget, tbset, tbdel)
 
 
+# fix AttributeError("'Event' object has no attribute '_reset_internal_locks'",)
+import threading
+if not hasattr(threading.Event, '_reset_internal_locks'):
+    def r_i_l(self):
+        pass
+    threading.Event._reset_internal_locks = r_i_l
+
+
 # suppress Requests logging
 logging.getLogger("requests").setLevel(logging.WARNING)
 
