@@ -31,6 +31,7 @@ class window.Stream
             console.groupEnd()
             Feedback.configure(data.feedback, data.platform, data.version, data.edition)
             Feedback.emit('Login')
+            ajentiCrashResume()
 
         @socket.on 'ui', (ui) ->
             console.group 'Received update'
@@ -59,7 +60,6 @@ class window.Stream
             console.log 'Total elements:', UI._total_elements
             console.groupEnd()
             Loading.hide()
-            ajentiCrashResume()
 
         @socket.on 'ack', () ->
             Loading.hide()
