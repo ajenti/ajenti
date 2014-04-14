@@ -24,6 +24,11 @@ class Supervisor (SectionPlugin):
             default='/etc/supervisor/supervisord.conf',
             centos='/etc/supervisord.conf',
         ))
+        self.find('servicebar').name = platform_select(
+            centos='supervisord',
+            default='supervisor',
+        )
+        self.find('servicebar').reload()
 
     def on_page_load(self):
         self.refresh()
