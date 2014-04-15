@@ -4,6 +4,7 @@ import gevent
 import logging
 import os
 import pty
+import subprocess
 
 import pyte
 
@@ -22,7 +23,16 @@ class Terminal (object):
         env['LINES'] = str(self.height)
         env['LC_ALL'] = 'en_US.UTF8'
 
-        command = ['sh', '-c', command or 'bash']
+        shell = os.environ.get('SHELL', None)
+        if not shell:
+            for sh in ['zsh', 'bash', 'sh']:
+                try:
+                    shell = subprocess.check_output(['which', sh])
+                    break
+                except:
+                    pass
+        command = ['sh', '-c', command or shell]
+
         logging.info('Terminal: %s' % command)
 
         pid, master = pty.fork()
