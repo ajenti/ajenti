@@ -12,7 +12,6 @@ from reconfigure.items.ajenti import UserData
 from base import UserSyncProvider
 
 
-
 @plugin
 class LDAPSyncClassConfigEditor (ClassConfigEditor):
     title = _('LDAP User Syncronization')

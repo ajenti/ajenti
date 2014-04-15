@@ -4,7 +4,7 @@ FAQ
 How do I add domains/PHP/email accounts/websites?
 -------------------------------------------------
 
-Pure Ajenti is a **server control** panel, not a **hosting control** panel. Please take a look at Ajenti V instead: http://ajenti.org.
+Pure Ajenti is a **server control** panel, not a **hosting control** panel. You need the Ajenti V add-on for web-hosting stuff: http://ajenti.org/#product-ajenti-v.
 
 I forgot my password
 --------------------
