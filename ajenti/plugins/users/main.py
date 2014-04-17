@@ -62,7 +62,10 @@ class Users (SectionPlugin):
 
         self.binder.setup(self.config.tree).populate()
         self.binder_system.setup(self.config.tree).populate()
-        self.binder_g.setup(self.config_g.tree).populate()
+
+        self.binder_g.setup(self.config_g.tree)
+        self.find('group-members').labels = self.find('group-members').values = [x.name for x in self.config.tree.users]
+        self.binder_g.populate()
 
     @on('add-user', 'click')
     def on_add_user(self):

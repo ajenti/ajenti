@@ -67,7 +67,7 @@
                                                 </vc>
                                                 <vc>
                                                     <formline text="{Members}">
-                                                        <textbox bind="users" />
+                                                        <combobox id="group-members" separator="," bind="users" />
                                                     </formline>
                                                 </vc>
                                             </hc>
