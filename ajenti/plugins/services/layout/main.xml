@@ -2,7 +2,7 @@
     <pad id="main">
         <bind:collection bind="services" id="services">
             <dt bind="__items">
-                <dtr>
+                <dtr header="True">
                     <dth width="1%" />
                     <dth text="Name" />
                     <dth width="10%" text="{Origin}" />

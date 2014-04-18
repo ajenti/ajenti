@@ -454,7 +454,7 @@ class window.Control
     _int_to_px: (i) ->
         if /^[0-9]+$/.test(i)
             return i + 'px'
-        if i == null or i == 'auto'
+        if not i or i == 'auto'
             return 'auto'
         return i + ''
 

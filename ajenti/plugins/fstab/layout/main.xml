@@ -59,7 +59,7 @@
             <bind:collection bind="filesystems" id="filesystems">
                 <vc>
                     <dt bind="__items">
-                        <dtr>
+                        <dtr header="True">
                             <dth text="{Device}" />
                             <dth text="{Mountpoint}" />
                             <dth text="{Used}" />

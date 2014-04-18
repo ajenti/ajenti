@@ -36,6 +36,9 @@ class CollapseRow (UIElement):
 
 @p('width', default='99%')
 @p('emptytext', type=[str, unicode], default=_('Empty'))
+@p('filtering', type=[bool], default=True)
+@p('filterrow', type=[str, unicode], default=_('Filter...'))
+@p('filter', type=[str, unicode], default='')
 @p('addrow', type=[str, unicode], default=None)
 @plugin
 class Table (UIElement):
@@ -47,6 +50,12 @@ class Table (UIElement):
 @plugin
 class SortableTable (Table):
     typeid = 'sortabledt'
+
+
+@p('header', default=False)
+@plugin
+class TableRow (UIElement):
+    typeid = 'dtr'
 
 
 @p('width', default=None)

@@ -3,7 +3,7 @@
         <pad>
             <bind:collection bind="interface_list" id="interfaces">
                 <dt bind="__items">
-                    <dtr>
+                    <dtr header="True">
                         <dth width="1" />
                         <dth text="{Name}" />
                         <dth text="IP" width="50" />

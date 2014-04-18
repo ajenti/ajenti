@@ -124,7 +124,7 @@
                 <tab title="{Sessions}" id="status">
                     <bind:collection bind="connections" id="connections">
                         <dt bind="__items">
-                            <dtr>
+                            <dtr header="True">
                                 <dth text="{Share}" />
                                 <dth text="{User}" />
                                 <dth text="{Machine}" />

@@ -3,7 +3,7 @@
         <pad>
             <bind:collection bind="arrays" id="arrays">
                 <dt bind="__items">
-                    <dtr>
+                    <dtr header="True">
                         <dth text="{Name}" />
                         <dth text="{State}" />
                         <dth text="{Type}" />

@@ -25,7 +25,7 @@
                                         <bind:collection id="clients" bind="clients">
                                             <formline text="{Clients}">
                                                 <dt bind="__items" addrow="{Add}">
-                                                    <dtr>
+                                                    <dtr header="True">
                                                         <dth width="1" />
                                                         <dth text="{Address}" />
                                                         <dth text="{Options}" />

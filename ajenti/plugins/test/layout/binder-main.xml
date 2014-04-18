@@ -6,7 +6,7 @@
                 <box>
                     <bind:collection bind="data">
                         <dt bind="__items" width="300">
-                            <dtr>
+                            <dtr header="True">
                                 <dth text="Name" />
                                 <dth text="Phone" />
                             </dtr>

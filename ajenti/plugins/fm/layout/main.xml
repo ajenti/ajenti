@@ -40,7 +40,7 @@
                                 </bind:collection>
                                 <bind:collection id="items" bind="items" pagesize="30">
                             		<dt bind="__items" style="compressed">
-                                        <dtr>
+                                        <dtr header="True">
                                             <dth width="1%" />
                                             <dth text="{Name}" />
                                             <dth text="{Size}" width="100" />
@@ -86,8 +86,8 @@
                     <label text="{Clipboard}" style="bold" />
                     <bind:collection bind="clipboard">
                         <pad>
-                            <dt bind="__items">
-                                <dtr>
+                            <dt bind="__items" filtering="False">
+                                <dtr header="True">
                                     <dth text="{Name}" />
                                     <dth width="1%" />
                                 </dtr>

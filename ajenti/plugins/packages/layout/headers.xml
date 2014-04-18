@@ -1,4 +1,4 @@
-<dtr>
+<dtr header="True">
     <dth width="1%" />
     <dth width="" text="{Name}" />
     <dth width="" text="{Version}" />

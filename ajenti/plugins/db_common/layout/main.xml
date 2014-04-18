@@ -20,7 +20,7 @@
             <bind:collection bind="databases" id="databases">
                 <vc>
                     <dt bind="__items">
-                        <dtr>
+                        <dtr header="True">
                             <dth text="{Name}" />
                             <dth />
                         </dtr>
@@ -45,7 +45,7 @@
             <bind:collection bind="users" id="users">
                 <vc>
                     <dt bind="__items">
-                        <dtr>
+                        <dtr header="True">
                             <dth text="{Username}" />
                             <dth text="{Host}" />
                             <dth />

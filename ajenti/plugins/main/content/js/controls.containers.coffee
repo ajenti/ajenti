@@ -123,9 +123,15 @@ class window.Controls.dt extends window.Control
         w = @_int_to_px(@properties.width)
         """
             <table cellspacing="0" cellpadding="0"
-                class="control table #{@s(@properties.style)} #{if (!!@properties.addrow) then 'has-addrow' else ''} #{if (@childCount == 0) then 'empty' else ''}"
+                class="control table #{@s(@properties.style)} #{if (!!@properties.addrow) then 'has-addrow' else ''} #{if (!!@properties.filtering) then 'has-filterrow' else ''} #{if (@childCount == 0) then 'empty' else ''}"
                 style="width: #{w}">
                 <tbody>
+                    <tr class="filterrow">
+                        <td colspan="999">
+                            <i class="icon-search"></i>
+                            <input type="text" placeholder="#{@s(@properties.filterrow)}" />
+                        </td>
+                    </tr>
                     <children>
                     <tr class="emptyrow">
                         <td colspan="999">
@@ -147,6 +153,43 @@ class window.Controls.dt extends window.Control
         super(dom)
         $(@dom).find('>tbody>tr.addrow>td>a').click () =>
             @event 'add'
+
+        @filterInput = $(@dom).find('>tbody>tr.filterrow>td>input')
+        @filterInput.keyup () =>
+            @filter @filterInput.val()
+        @filterInput.val @properties.filter
+        @filter @properties.filter
+
+    detectUpdates: () ->
+        r = {}
+        filter = $(@filterInput).val()
+        oldvalue = @properties.filter || ""
+        if @properties.type == 'integer'
+            filter = parseInt(filter) || null
+        if filter != oldvalue
+            r.filter = filter
+        @properties.filter = filter
+        return r
+
+    filter: (query) ->
+        _collect_strings = (el) ->
+            r = ''
+            for child in el.children
+                r += '|' + _collect_strings(child)
+            for p, v of el.properties
+                if p in ['name', 'title', 'text', 'value']
+                    r += '|' + v
+            return r
+
+        for child in @children
+            if not query or child.properties.header
+                $(child.dom).show()
+            else
+                if _collect_strings(child).indexOf(query) != -1
+                    $(child.dom).show()
+                else
+                    $(child.dom).hide()
+
 
 
 class window.Controls.sortabledt extends window.Controls.dt
@@ -187,7 +230,7 @@ class window.Controls.sortabledt extends window.Controls.dt
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        """<tr class="row --child-container"><children></tr>"""
+        """<tr class="row #{if @properties.header then 'header-row' else ''} --child-container"><children></tr>"""
 
 
 class window.Controls.dtd extends window.Control

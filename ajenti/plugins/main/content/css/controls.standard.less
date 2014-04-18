@@ -438,6 +438,7 @@
 			padding: 0 5px;
 		}
 
+		&.has-filterrow > tbody > tr.filterrow,
 		&.has-addrow > tbody > tr.addrow,
 		&.empty > tbody > tr.emptyrow, {
 			display: table-row !important;
@@ -449,8 +450,27 @@
 			&>tr {
 				margin: 0;
 
-				&.emptyrow, &.addrow {
+				&.emptyrow, &.addrow, &.filterrow {
 					display: none;
+				}
+
+				&.filterrow td {
+					background: #fefefe;
+					border-top: 1px solid #eee;
+					line-height: 18px;
+					padding: 5px !important;
+
+					i::before {
+						color: #888;
+					}
+
+					input {
+						background: transparent;
+						width: 75%;
+						color: #888;
+						border: none;
+						height: 20px;
+					}
 				}
 
 				&.emptyrow td {

@@ -3,7 +3,7 @@
         <pad id="bind-root">
             <bind:collection id="plugins" bind="plugins">
                 <dt bind="__items" style="compressed">
-                    <dtr>
+                    <dtr header="True"> 
                         <dth width="16" />
                         <dth width="16" />
                         <dth text="{Name}" />

@@ -8,7 +8,7 @@
 
                         <bind:collection bind="all_tasks" id="running_tasks">
                             <dt bind="__items">
-                                <dtr>
+                                <dtr header="True">
                                     <dth />
                                     <dth text="{Name}" width="99%" />
                                     <dth text="{Status}" />
