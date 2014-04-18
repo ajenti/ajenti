@@ -1,7 +1,7 @@
-<bind:dict id="bind">
-    <vc>
+<box>
+    <vc binder:context="classconfig">
         <formline text="{Default shell}">
-            <textbox bind="shell" />
+            <textbox bind="[shell]" />
         </formline>
     </vc>
-</bind:dict>
+</box>

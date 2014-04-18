@@ -1,16 +1,16 @@
-<bind:dict id="bind">
-    <vc>
+<box>
+    <vc binder:context="classconfig">
         <formline text="{Server URL}">
-            <textbox bind="url" />
+            <textbox bind="[url]" />
         </formline>
         <formline text="{Admin DN}">
-            <textbox bind="admin_dn" />
+            <textbox bind="[admin_dn]" />
         </formline>
         <formline text="{Auth DN suffix}">
-            <textbox bind="auth_dn" />
+            <textbox bind="[auth_dn]" />
         </formline>
         <formline text="{Secret}">
-            <passwordbox bind="secret" />
+            <passwordbox bind="[secret]" />
         </formline>
     </vc>
-</bind:dict>
+</box>

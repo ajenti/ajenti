@@ -1,13 +1,13 @@
-<bind:dict id="bind">
-    <vc>
+<box>
+    <vc binder:context="classconfig">
         <formline text="{Host}">
-            <textbox bind="hostname" />
+            <textbox bind="[hostname]" />
         </formline>
         <formline text="{Username}">
-            <textbox bind="user" />
+            <textbox bind="[user]" />
         </formline>
         <formline text="{Password}">
-            <passwordbox bind="password" />
+            <passwordbox bind="[password]" />
         </formline>
     </vc>
-</bind:dict>
+</box>

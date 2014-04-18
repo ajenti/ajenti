@@ -26,6 +26,12 @@ class SimpleDemo (SectionPlugin):
             Person('Alice', '123'),
             Person('Bob', '234'),
         ]
+
+        self.dict = {
+            'a': 1,
+            'b': 2,
+        }
+
         self.find('data').text = repr(self.data)
 
         self.binder = Binder(self, self.find('bindroot'))

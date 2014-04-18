@@ -1,7 +1,7 @@
-<bind:dict id="bind">
-    <vc>
+<box>
+    <vc binder:context="classconfig">
         <formline text="{Topmost directory}">
-            <textbox bind="root" />
+            <textbox bind="[root]" />
         </formline>
     </vc>
-</bind:dict>
+</box>

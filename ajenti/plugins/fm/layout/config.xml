@@ -1,16 +1,16 @@
-<bind:dict id="bind">
-    <vc>
+<box>
+    <vc binder:context="classconfig">
         <formline text="{Topmost directory}">
-            <textbox bind="root" />
+            <textbox bind="[root]" />
         </formline>
         <formline text="{Startup directory}">
-            <textbox bind="start" />
+            <textbox bind="[start]" />
         </formline>
         <formline text="{Owner for new files}">
-            <textbox bind="new_owner" />
+            <textbox bind="[new_owner]" />
         </formline>
         <formline text="{Group for new files}">
-            <textbox bind="new_group" />
+            <textbox bind="[new_group]" />
         </formline>
     </vc>
-</bind:dict>
+</box>

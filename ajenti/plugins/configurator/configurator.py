@@ -1,5 +1,6 @@
-import subprocess
 from copy import deepcopy
+import logging
+import subprocess
 
 import ajenti
 import ajenti.locales
@@ -232,7 +233,12 @@ class Configurator (SectionPlugin):
 
         editor = plugin.classconfig_editor.new(self.ui)
         dialog.find('container').append(editor)
-        binder = DictAutoBinding(plugin, 'classconfig', editor.find('bind'))
+
+        if editor.find('bind'):
+            logging.warn('%s uses old dictbinding classconfig editor layout')
+            binder = DictAutoBinding(plugin, 'classconfig', editor.find('bind'))
+        else:
+            binder = Binder(plugin, editor)
         binder.populate()
 
         def save(button=None):

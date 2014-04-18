@@ -1,10 +1,10 @@
-<bind:dict id="bind">
-    <vc>
+<box>
+    <vc binder:context="classconfig">
         <formline text="Option 1">
-            <textbox bind="option1" />
+            <textbox bind="[option1]" />
         </formline>
         <formline text="Option 2">
-            <textbox bind="option2" type="integer" />
+            <textbox bind="[option2]" type="integer" />
         </formline>
     </vc>
-</bind:dict>
+</box>

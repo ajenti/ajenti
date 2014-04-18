@@ -47,19 +47,47 @@ class Binding (object):
         self.object = object
         self.attribute = attribute
         self.ui = ui
+        self.dict_mode = False
+        if attribute and attribute.startswith('[') and attribute.endswith(']'):
+            self.dict_mode = True
+            self.attribute = self.attribute[1:-1]
+
+    @classmethod
+    def applicable(cls, object, attribute):
+        try:
+            cls.extract(object, attribute)
+            return True
+        except:
+            return False
+
+    @classmethod
+    def extract(cls, object, attribute, ignore_errors=True):
+        if attribute.startswith('[') and attribute.endswith(']'):
+            if ignore_errors:
+                return object.get(attribute[1:-1], None)
+            else:
+                return object.get[attribute[1:-1]]
+        else:
+            return getattr(object, attribute)
 
     def get(self):
         """
         :returns: value of the bound attribute
         """
-        return getattr(self.object, self.attribute)
+        if self.dict_mode:
+            return self.object.get(self.attribute, None)
+        else:
+            return getattr(self.object, self.attribute)
 
     def set(self, value):
         """
         Sets value of the bound attribute
         """
         try:
-            setattr(self.object, self.attribute, value)
+            if self.dict_mode:
+                self.object[self.attribute] = value
+            else:
+                setattr(self.object, self.attribute, value)
         except Exception:
             raise Exception('Binder set failed: %s.%s = %s' % (self.object, self.attribute, repr(value)))
 
@@ -505,7 +533,6 @@ class Binder (object):
         ui = ui or self.ui
         object = object or self.object
 
-
         bindables = ui.nearest(
             lambda x: is_bound(x),
             exclude=lambda x: (
@@ -527,22 +554,20 @@ class Binder (object):
             for prop in bindable.properties:
                 if not prop.startswith('{bind') and prop != 'bind':
                     continue
-                k = bindable.properties[prop]
 
-                if prop == 'bind':
-                    if k and hasattr(object, k):
-                        self.add(PropertyBinding(object, k, bindable))
+                k = bindable.properties[prop]
 
                 # Nested binder context
                 if prop == '{binder}context':
                     if bindable is not ui and k:
-                        if hasattr(object, k):
-                            self.__autodiscover(getattr(object, k), bindable)
+                        if Binding.applicable(object, k):
+                            self.__autodiscover(Binding.extract(object, k), bindable)
 
                 # Property binding
-                if prop.startswith('{bind}'):
-                    if k and hasattr(object, k):
-                        self.add(PropertyBinding(object, k, bindable, prop.split('}')[1]))
+                if prop.startswith('{bind}') or prop == 'bind':
+                    propname = None if prop == 'bind' else prop.split('}')[1]
+                    if k and Binding.applicable(object, k):
+                        self.add(PropertyBinding(object, k, bindable, propname))
 
         return self
 

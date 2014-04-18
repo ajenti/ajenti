@@ -1,9 +1,9 @@
 <body>
     <pad>
         <hc>
-            <vc>
+            <vc id="bindroot">
                 <label text="Bound UI" />
-                <box id="bindroot">
+                <box>
                     <bind:collection bind="data">
                         <dt bind="__items" width="300">
                             <dtr>
@@ -19,6 +19,10 @@
                             </dtr>
                         </bind:template>
                     </bind:collection>
+                </box>
+                <box binder:context="dict">
+                    <label bind="[a]" />
+                    <label bind="[b]" />
                 </box>
             </vc>
             <box width="20" />
