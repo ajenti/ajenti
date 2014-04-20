@@ -71,8 +71,11 @@ class window.Stream
 
         @socket.on 'progress-message', (m) ->
             console.log '...', m
-            Loading.show()
             Loading.setMessage(m)
+            if m
+                Loading.show()
+            else
+                Loading.hide()
 
         @socket.on 'crash', (data) ->
             data = JSON.parse(data)
