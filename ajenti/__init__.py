@@ -89,6 +89,12 @@ def detect_platform():
         dist = pyplatform.dist()[0]
 
     if dist == '':
+        if os.path.exists('/etc/os-release'):
+            release = open('/etc/os-release').read()
+            if 'Arch Linux' in release:
+                dist = 'arch'
+
+    if dist == '':
         try:
             dist = subprocess.check_output(['strings', '-4', '/etc/issue']).split()[0]
         except:
@@ -106,7 +112,7 @@ def detect_platform():
 
 def detect_platform_string():
     try:
-        return subprocess.check_output(['lsb_release',  '-sd'])
+        return subprocess.check_output(['lsb_release', '-sd'])
     except:
         return subprocess.check_output(['uname', '-mrs'])
 
