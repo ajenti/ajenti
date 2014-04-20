@@ -15,11 +15,12 @@ class BIND9Plugin (SectionPlugin):
     config_root = platform_select(
         debian='/etc/bind/',
         centos='/etc/named/',
+        arch='/var/named/',
     )
-    
+
     config_path = platform_select(
         debian='/etc/bind/named.conf',
-        centos='/etc/named.conf',
+        default='/etc/named.conf',
     )
 
     def init(self):
