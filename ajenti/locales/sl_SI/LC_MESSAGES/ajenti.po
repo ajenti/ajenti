@@ -21,6 +21,7 @@ msgstr "Zbiram seznam vričnikov"
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
 #: ajenti/plugins/vh/layout/main-website.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:1
 #: ajenti/plugins/iptables/layout/option-custom.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:4
@@ -60,7 +61,7 @@ msgid "Status"
 msgstr "Status"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
-#: ajenti/plugins/configurator/configurator.py:159
+#: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
 #: ajenti/plugins/exports/layout/main.xml:5
@@ -104,8 +105,8 @@ msgstr "Dodaj"
 #: ajenti/plugins/db_common/layout/main.xml:9
 #: ajenti/plugins/vh/layout/ext-processes.xml:2
 #: ajenti/plugins/vh/layout/main-website.xml:19
-#: ajenti/plugins/vh/layout/main-website.xml:22
-#: ajenti/plugins/vh/layout/main-website.xml:27
+#: ajenti/plugins/vh/layout/main-website.xml:24
+#: ajenti/plugins/vh/layout/main-website.xml:29
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
@@ -144,7 +145,7 @@ msgid "Enable"
 msgstr "Omogoči"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:257
+#: ajenti/plugins/configurator/configurator.py:263
 msgid "Configuration"
 msgstr "Konfiguracija"
 
@@ -158,7 +159,7 @@ msgstr "Konfiguracija"
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/dhcpd/layout/main.xml:8
-#: ajenti/plugins/supervisor/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:16
@@ -192,44 +193,44 @@ msgstr "Pretečeno"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Neznano"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
-#: ajenti/plugins/users/main.py:114
+#: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
 msgstr "Napaka: \"%s\""
 
-#: ajenti/plugins/configurator/configurator.py:45
+#: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:32
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Konfiguriraj"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
 msgstr "Avtomatsko"
 
-#: ajenti/plugins/configurator/configurator.py:200
+#: ajenti/plugins/configurator/configurator.py:201
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Shranjeno. Za uveljavitev sprememb ponovno zaženite Ajenti."
 
-#: ajenti/plugins/configurator/configurator.py:207
+#: ajenti/plugins/configurator/configurator.py:208
 msgid "Please supply hostname"
 msgstr "Prosimo, navedite ime gostitelja"
 
-#: ajenti/plugins/configurator/configurator.py:223
+#: ajenti/plugins/configurator/configurator.py:224
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Potrebna konfiguracija %s vtičnika!"
 
-#: ajenti/plugins/configurator/configurator.py:261
+#: ajenti/plugins/configurator/configurator.py:267
 msgid "Modify Ajenti configuration"
 msgstr "Spremeni Ajentijevo konfiguracijo"
 
-#: ajenti/plugins/configurator/configurator.py:262
+#: ajenti/plugins/configurator/configurator.py:268
 msgid "Restart Ajenti"
 msgstr "Ponovno zaženi Ajenti"
 
@@ -254,6 +255,7 @@ msgstr "HTTP strežnik"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/vh/layout/main-website.xml:22
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
 msgstr "Gostitelj"
@@ -263,6 +265,7 @@ msgid "or UNIX socket path"
 msgstr "ali pot do UNIX vtičnice"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/vh/layout/main-website.xml:23
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
@@ -600,7 +603,7 @@ msgstr "Dan v tednu"
 #: ajenti/plugins/db_common/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:10
 #: ajenti/plugins/vh/layout/main.xml:5
-#: ajenti/plugins/vh/layout/main-website.xml:26
+#: ajenti/plugins/vh/layout/main-website.xml:28
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/options-editor.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:9
@@ -648,7 +651,7 @@ msgstr "Ohrani dovoljenja"
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:4
-#: ajenti/plugins/supervisor/layout/main.xml:4
+#: ajenti/plugins/supervisor/layout/main.xml:5
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -666,16 +669,16 @@ msgstr "NFS izvoz"
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
 #: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
 #: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/bind9/main.py:28 ajenti/plugins/apache/main.py:49
+#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "Programska oprema"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:248
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:249
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
-#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:84
+#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "Shranjeno"
 
@@ -741,20 +744,24 @@ msgstr "Vrhnji imenik"
 msgid "Empty"
 msgstr "Izprazni"
 
-#: ajenti/plugins/main/main.py:48
+#: ajenti/plugins/main/controls_containers.py:40
+msgid "Filter..."
+msgstr ""
+
+#: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
 msgstr "Neveljavno uporabniško ime ali geslo"
 
-#: ajenti/plugins/main/main.py:76
+#: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
 msgstr "Elektronski naslov \"%s\" ni vezan na nobenega uporabnika"
 
-#: ajenti/plugins/main/main.py:78
+#: ajenti/plugins/main/main.py:79
 msgid "Login failed"
 msgstr "Prijava neuspešna"
 
-#: ajenti/plugins/main/main.py:288
+#: ajenti/plugins/main/main.py:293
 msgid "Section access"
 msgstr "Dostop do področja"
 
@@ -849,7 +856,7 @@ msgstr "Samo za branje"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-website-location.xml:2
-#: ajenti/plugins/vh/layout/main-website.xml:28
+#: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
 msgstr "Napredno"
@@ -983,21 +990,21 @@ msgstr "Naprava"
 msgid "System"
 msgstr "Sistem"
 
-#: ajenti/plugins/users/main.py:102
+#: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "Domači imenik za %s ustvarjen"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
 msgstr "Geslo za %s je spremenjeno"
 
-#: ajenti/plugins/users/main.py:116
+#: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
 msgstr "Geslo ne sme biti prazno polje"
 
-#: ajenti/plugins/users/main.py:120
+#: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
 msgstr "Geslo za %s je bilo odstranjeno"
@@ -1009,7 +1016,7 @@ msgstr "Geslo za %s je bilo odstranjeno"
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
-#: ajenti/plugins/supervisor/layout/main.xml:15
+#: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
 #: ajenti/plugins/vh-mail/layout/main.xml:4
 #: ajenti/plugins/mysql/layout/config.xml:2
@@ -1069,11 +1076,11 @@ msgstr "Uniči"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Database contents will be deleted!"
-msgstr ""
+msgstr "Vsebina podatkovne baze bo izbrisana!"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:6
 msgid "No database created"
-msgstr ""
+msgstr "Podatkovna baza ni bila ustvarjena"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1145,39 +1152,37 @@ msgstr "FCGI po meri"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Reverse proxy"
 
-#: ajenti/plugins/vh/processes.py:40
+#: ajenti/plugins/vh/processes.py:41
 msgid "Process"
 msgstr "Proces"
 
-#: ajenti/plugins/vh/processes.py:55 ajenti/plugins/taskmgr/main.py:19
+#: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
 msgstr "Procesi"
 
-#: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
+#: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
 msgstr "Spletne strani"
 
-#: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
-#: ajenti/plugins/vh/main.py:239
-msgid "Saving changes"
-msgstr "Shranjujem spremembe"
-
-#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:98
-#: ajenti/plugins/vh/main.py:245
+#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:230
 msgid "Testing configuration"
 msgstr "Preizkušanje konfiguracije"
 
-#: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:241
+#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:241
+msgid "Saving changes"
+msgstr "Shranjujem spremembe"
+
+#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:243
 msgid "Applying changes"
 msgstr "Uveljavljam spremembe"
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:243
+#: ajenti/plugins/vh/main.py:95 ajenti/plugins/vh/main.py:245
 msgid "Restarting web services"
-msgstr ""
+msgstr "Ponovni zagon spletnih servisov"
 
-#: ajenti/plugins/vh/main.py:207
+#: ajenti/plugins/vh/main.py:205
 msgid "Download complete"
 msgstr "Prenos končan"
 
@@ -1207,11 +1212,17 @@ msgstr "Max procesov"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Aplikacijski modul"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Virtualenv pot"
+
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
+msgid "Workers"
+msgstr "Vozlišče"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
@@ -1219,7 +1230,7 @@ msgstr "Naziv skripte"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "HTTP vrata skripte"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
@@ -1227,19 +1238,14 @@ msgstr "Prikaži vsebino imenika"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "Uporabite paket"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
 msgstr "Okolje"
-
-#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
-#: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
-msgid "Workers"
-msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
@@ -1247,10 +1253,10 @@ msgstr "URL vzorec"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Poljubna pot"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
-#: ajenti/plugins/vh/layout/main-website.xml:29
+#: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr "Konfiguracija po meri"
@@ -1260,7 +1266,7 @@ msgid "Use only custom configuration and don't include standard parameters"
 msgstr "Uporabi samo konfiguracijo po meri in ne vključuj standardnih parametrov"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
-#: ajenti/plugins/supervisor/layout/main.xml:5
+#: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Working directory"
 msgstr "Delovni imenik"
 
@@ -1270,7 +1276,7 @@ msgstr "Ajenti V še ni omogočen"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Če ga omogočite, bo Ajenti V prepisal konfiguracijo naslednjih programov:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
@@ -1286,8 +1292,8 @@ msgid "All website data will be lost. Continue?"
 msgstr "Vsi podatki spletne strani bodo izgubljeni. Ali želite nadaljevati?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:10
+#: ajenti/plugins/supervisor/layout/main.xml:8
+#: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Enabled"
 msgstr "Omogočeno"
 
@@ -1297,7 +1303,7 @@ msgstr "Način vzdrževanja"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Datoteke spletne strani"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
@@ -1305,7 +1311,7 @@ msgstr "Ustvari imenik"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Samodejni prenosi"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
@@ -1313,11 +1319,11 @@ msgstr "Iz URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "Prenesi in razpakiraj"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Domene"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
@@ -1329,55 +1335,55 @@ msgstr "Domena"
 msgid "Ports"
 msgstr "Vrata"
 
-#: ajenti/plugins/vh/layout/main-website.xml:23
-msgid "SSL certificate path"
-msgstr ""
-
-#: ajenti/plugins/vh/layout/main-website.xml:24
-msgid "SSL key path"
-msgstr ""
-
 #: ajenti/plugins/vh/layout/main-website.xml:25
+msgid "SSL certificate path"
+msgstr "Pot do SSL certifikata"
+
+#: ajenti/plugins/vh/layout/main-website.xml:26
+msgid "SSL key path"
+msgstr "Pot do SSL ključa"
+
+#: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
 msgstr "Vsebina"
 
-#: ajenti/plugins/vh/layout/main-website.xml:30
+#: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
 msgstr "Uveljavi spremembe"
 
-#: ajenti/plugins/supervisor/layout/main.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
 msgstr "Samodejni zagon"
 
-#: ajenti/plugins/supervisor/layout/main.xml:8
-#: ajenti/plugins/supervisor/layout/main.xml:12
+#: ajenti/plugins/supervisor/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
 msgstr "Onemogočeno"
 
-#: ajenti/plugins/supervisor/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
 msgstr "Samodejni ponovni zagon"
 
-#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "On crash"
 msgstr "Ob sesutju"
 
-#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/supervisor/layout/main.xml:14
 msgid "Start timeout"
 msgstr "Časovna omejitev za začetek"
 
-#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:15
 msgid "Start retries"
 msgstr "Zaženi ponovne poskuse"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "NGINX test konfiguracije"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "NGINX servis"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1517,32 +1523,32 @@ msgstr "CNID naslov"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Pošta"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Neveljavno ime predala"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Neveljavna domena predala"
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
-msgstr ""
+msgstr "Naslov že v uporabi"
 
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Poljubna domena"
 
 #: ajenti/plugins/vh-mail/main.py:141
 msgid "No valid key exists"
-msgstr ""
+msgstr "Veljavni ključ ne obstaja"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Poštni predali"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1553,80 +1559,80 @@ msgstr "Velikost"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Posredovanje"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Ciljni naslov"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nov poštni predal"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Poštni predal"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Izbrinik"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Privatni ključ"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Predloga za DNS vpis"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Ustvari nov ključ DKIM"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Pot do certifikata"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Pot do privatnega ključa"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Ustvari novo digitalno potrdilo"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "MTA konfiguracija po meri"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "ACL konfiguracija po meri"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Usmerjevalniki po meri"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "Transporti po meri"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail še ni na voljo"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Če ga omogočite, bo Ajenti V Mail prepisal konfiguracijo naslednjih programov:"
 
-#: ajenti/plugins/packages/pm_pacman.py:23
+#: ajenti/plugins/packages/pm_pacman.py:25
 #, python-format
 msgid "Failed to update lists: %s"
-msgstr ""
+msgstr "Seznamov ni bilo mogoče posodobiti: %s"
 
-#: ajenti/plugins/packages/pm_pacman.py:38
+#: ajenti/plugins/packages/pm_pacman.py:40
 msgid "No search results found"
-msgstr ""
+msgstr "Ni rezultatov iskanja"
 
 #: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
 msgid "Packages"
@@ -1697,7 +1703,7 @@ msgstr "Označi za odstranitev"
 
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17
-#: ajenti/plugins/dashboard/layout/dash.xml:4
+#: ajenti/plugins/dashboard/layout/dash.xml:6
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -1710,14 +1716,14 @@ msgstr "Temperatura trdega diska"
 msgid "Sensor"
 msgstr "Senzor"
 
-#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:51
+#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:52
 msgid "Zone saved"
 msgstr "Zona shranjena"
 
 #: ajenti/plugins/nsd/main.py:66
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s ne obstaja"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
@@ -1746,11 +1752,11 @@ msgstr "Raziskovalec"
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "Datoteke premaknjene"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "Datoteke kopirane"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
@@ -1799,7 +1805,7 @@ msgstr "Odložišče"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
@@ -1823,22 +1829,22 @@ msgstr "Nastavi rekurzivno"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "Zagonska mapa"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Lastnik za nove datoteke"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "Skupina za nove datoteke"
 
-#: ajenti/plugins/terminal/terminal.py:102
+#: ajenti/plugins/terminal/terminal.py:114
 #, python-format
 msgid "Process has exited with status %i"
 msgstr "Proces končan s statusom %i"
 
-#: ajenti/plugins/terminal/terminal.py:104
+#: ajenti/plugins/terminal/terminal.py:116
 msgid "Process has exited successfully"
 msgstr "Proces uspešno zaključen"
 
@@ -2062,11 +2068,11 @@ msgstr "Odpni"
 msgid "Welcome"
 msgstr "Dobrodošli"
 
-#: ajenti/plugins/dashboard/dash.py:21
+#: ajenti/plugins/dashboard/dash.py:23
 msgid "Dashboard"
 msgstr "Nadzorna plošča"
 
-#: ajenti/plugins/dashboard/dash.py:180
+#: ajenti/plugins/dashboard/dash.py:194
 msgid "Widgets"
 msgstr "Gradniki"
 
@@ -2083,6 +2089,14 @@ msgstr "Dodaj pripomoček"
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
 msgstr "Samodejno osveževanje"
+
+#: ajenti/plugins/dashboard/layout/dash.xml:4
+msgid "Update Ajenti"
+msgstr ""
+
+#: ajenti/plugins/dashboard/layout/dash.xml:5
+msgid "Ajenti update is available"
+msgstr ""
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2272,87 +2286,87 @@ msgstr "Onemogoči"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Node.js servis"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "GUnicorn servis"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF požarni zid"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Uporabljeno"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Samotestiranje OK"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "Testni način"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Omrežna naprava"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Omrežna naprava (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "Dovoljena vrata"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "Dohodni TCP"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "Odhodni TCP"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "Dohodni UDP"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "Odhodni UDP"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Omogoči IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "Seznam IP"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "Permanentna pravila"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Dovoljeni naslovi"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Zavrnjeni naslovi"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Začasna pravila"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Prepovedani naslovi"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Prepoved"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2370,9 +2384,9 @@ msgstr "Poseben"
 msgid "Logs"
 msgstr "Dnevniške datoteke"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:54
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:55
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPM storitev"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2394,7 +2408,7 @@ msgstr "Napake v dnevniški datoteki"
 msgid "Active Directory Syncronization"
 msgstr "Sinhronizacija - Active Directory"
 
-#: ajenti/usersync/ldapsync.py:18
+#: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
 msgstr "LDAP sinhronizacija uporabnika"
 

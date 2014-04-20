@@ -21,6 +21,7 @@ msgstr "جمع آوری لیست پلاگین"
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
 #: ajenti/plugins/vh/layout/main-website.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:1
 #: ajenti/plugins/iptables/layout/option-custom.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:4
@@ -60,7 +61,7 @@ msgid "Status"
 msgstr "وضعیت"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
-#: ajenti/plugins/configurator/configurator.py:159
+#: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
 #: ajenti/plugins/exports/layout/main.xml:5
@@ -104,8 +105,8 @@ msgstr "اضافه کردن"
 #: ajenti/plugins/db_common/layout/main.xml:9
 #: ajenti/plugins/vh/layout/ext-processes.xml:2
 #: ajenti/plugins/vh/layout/main-website.xml:19
-#: ajenti/plugins/vh/layout/main-website.xml:22
-#: ajenti/plugins/vh/layout/main-website.xml:27
+#: ajenti/plugins/vh/layout/main-website.xml:24
+#: ajenti/plugins/vh/layout/main-website.xml:29
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
@@ -144,7 +145,7 @@ msgid "Enable"
 msgstr "فعال سازی"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:257
+#: ajenti/plugins/configurator/configurator.py:263
 msgid "Configuration"
 msgstr "پیکربندی"
 
@@ -158,7 +159,7 @@ msgstr "پیکربندی"
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/dhcpd/layout/main.xml:8
-#: ajenti/plugins/supervisor/layout/main.xml:17
+#: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/netatalk/layout/main.xml:14
 #: ajenti/plugins/nsd/layout/main.xml:10 ajenti/plugins/fm/layout/main.xml:16
@@ -196,40 +197,40 @@ msgstr "ناشناخته"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
-#: ajenti/plugins/users/main.py:114
+#: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
 msgstr "خطا: \"%s\""
 
-#: ajenti/plugins/configurator/configurator.py:45
+#: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:32
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "پیکربندی"
 
-#: ajenti/plugins/configurator/configurator.py:176
+#: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
 msgstr "خودکار"
 
-#: ajenti/plugins/configurator/configurator.py:200
+#: ajenti/plugins/configurator/configurator.py:201
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:207
+#: ajenti/plugins/configurator/configurator.py:208
 msgid "Please supply hostname"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:223
+#: ajenti/plugins/configurator/configurator.py:224
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "لطفاافزونه   %s پیکربندی شود!"
 
-#: ajenti/plugins/configurator/configurator.py:261
+#: ajenti/plugins/configurator/configurator.py:267
 msgid "Modify Ajenti configuration"
 msgstr "تغییر تنظیمات Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:262
+#: ajenti/plugins/configurator/configurator.py:268
 msgid "Restart Ajenti"
 msgstr "راه اندازی مجدد Ajenti"
 
@@ -254,6 +255,7 @@ msgstr "سرور HTTP"
 
 #: ajenti/plugins/configurator/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/vh/layout/main-website.xml:22
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
 msgstr "میزبان"
@@ -263,6 +265,7 @@ msgid "or UNIX socket path"
 msgstr "یا مسیر سوکت یونیکس"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
+#: ajenti/plugins/vh/layout/main-website.xml:23
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
@@ -600,7 +603,7 @@ msgstr ""
 #: ajenti/plugins/db_common/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:10
 #: ajenti/plugins/vh/layout/main.xml:5
-#: ajenti/plugins/vh/layout/main-website.xml:26
+#: ajenti/plugins/vh/layout/main-website.xml:28
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/options-editor.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:9
@@ -648,7 +651,7 @@ msgstr "حفظ دسترسی"
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:4
-#: ajenti/plugins/supervisor/layout/main.xml:4
+#: ajenti/plugins/supervisor/layout/main.xml:5
 #: ajenti/plugins/taskmgr/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
@@ -666,16 +669,16 @@ msgstr ""
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
 #: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
 #: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/bind9/main.py:28 ajenti/plugins/apache/main.py:49
+#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "نرم افزار"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:248
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:249
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
-#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:84
+#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "ذخیره"
 
@@ -741,20 +744,24 @@ msgstr ""
 msgid "Empty"
 msgstr "خالی"
 
-#: ajenti/plugins/main/main.py:48
+#: ajenti/plugins/main/controls_containers.py:40
+msgid "Filter..."
+msgstr ""
+
+#: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
 msgstr ""
 
-#: ajenti/plugins/main/main.py:76
+#: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
 msgstr ""
 
-#: ajenti/plugins/main/main.py:78
+#: ajenti/plugins/main/main.py:79
 msgid "Login failed"
 msgstr ""
 
-#: ajenti/plugins/main/main.py:288
+#: ajenti/plugins/main/main.py:293
 msgid "Section access"
 msgstr "بخش دسترسی"
 
@@ -849,7 +856,7 @@ msgstr "فقط خواندن"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-website-location.xml:2
-#: ajenti/plugins/vh/layout/main-website.xml:28
+#: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
 msgstr "پیشرفته"
@@ -983,21 +990,21 @@ msgstr "دستگاه"
 msgid "System"
 msgstr "سیستم"
 
-#: ajenti/plugins/users/main.py:102
+#: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
 msgstr "صفحه اصلی شما برای %s ایجاد شده است"
 
-#: ajenti/plugins/users/main.py:111
+#: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
 msgstr "تغییر رمز عبور برای %s تغیر کرد"
 
-#: ajenti/plugins/users/main.py:116
+#: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
 msgstr "رمز عبور نباید خالی باشد"
 
-#: ajenti/plugins/users/main.py:120
+#: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
 msgstr "رمز عبور را برای %s حذف شد"
@@ -1009,7 +1016,7 @@ msgstr "رمز عبور را برای %s حذف شد"
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
-#: ajenti/plugins/supervisor/layout/main.xml:15
+#: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
 #: ajenti/plugins/vh-mail/layout/main.xml:4
 #: ajenti/plugins/mysql/layout/config.xml:2
@@ -1147,37 +1154,35 @@ msgstr ""
 msgid "Reverse proxy"
 msgstr ""
 
-#: ajenti/plugins/vh/processes.py:40
+#: ajenti/plugins/vh/processes.py:41
 msgid "Process"
 msgstr ""
 
-#: ajenti/plugins/vh/processes.py:55 ajenti/plugins/taskmgr/main.py:19
+#: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:18 ajenti/plugins/vh/layout/main.xml:1
+#: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:82 ajenti/plugins/vh/main.py:91
-#: ajenti/plugins/vh/main.py:239
-msgid "Saving changes"
-msgstr ""
-
-#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:98
-#: ajenti/plugins/vh/main.py:245
+#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:230
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:241
+#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:241
+msgid "Saving changes"
+msgstr ""
+
+#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:243
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:243
+#: ajenti/plugins/vh/main.py:95 ajenti/plugins/vh/main.py:245
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:207
+#: ajenti/plugins/vh/main.py:205
 msgid "Download complete"
 msgstr ""
 
@@ -1213,6 +1218,12 @@ msgstr ""
 msgid "Virtualenv path"
 msgstr ""
 
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
+msgid "Workers"
+msgstr ""
+
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
 msgstr ""
@@ -1231,14 +1242,9 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
-msgstr ""
-
-#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
-#: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
-msgid "Workers"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
@@ -1250,7 +1256,7 @@ msgid "Custom path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
-#: ajenti/plugins/vh/layout/main-website.xml:29
+#: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
@@ -1260,7 +1266,7 @@ msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
-#: ajenti/plugins/supervisor/layout/main.xml:5
+#: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Working directory"
 msgstr ""
 
@@ -1286,8 +1292,8 @@ msgid "All website data will be lost. Continue?"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:10
+#: ajenti/plugins/supervisor/layout/main.xml:8
+#: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Enabled"
 msgstr "فعال"
 
@@ -1329,45 +1335,45 @@ msgstr ""
 msgid "Ports"
 msgstr "پورت ها"
 
-#: ajenti/plugins/vh/layout/main-website.xml:23
+#: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "SSL certificate path"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website.xml:24
+#: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL key path"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website.xml:25
+#: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website.xml:30
+#: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
 msgstr "شروع خودکار"
 
-#: ajenti/plugins/supervisor/layout/main.xml:8
-#: ajenti/plugins/supervisor/layout/main.xml:12
+#: ajenti/plugins/supervisor/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
 msgstr "غیرفعال"
 
-#: ajenti/plugins/supervisor/layout/main.xml:9
+#: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:11
+#: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "On crash"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:13
+#: ajenti/plugins/supervisor/layout/main.xml:14
 msgid "Start timeout"
 msgstr ""
 
-#: ajenti/plugins/supervisor/layout/main.xml:14
+#: ajenti/plugins/supervisor/layout/main.xml:15
 msgid "Start retries"
 msgstr ""
 
@@ -1619,12 +1625,12 @@ msgstr ""
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
 msgstr ""
 
-#: ajenti/plugins/packages/pm_pacman.py:23
+#: ajenti/plugins/packages/pm_pacman.py:25
 #, python-format
 msgid "Failed to update lists: %s"
 msgstr "به روز رسانی لیست انجام نشد: %s"
 
-#: ajenti/plugins/packages/pm_pacman.py:38
+#: ajenti/plugins/packages/pm_pacman.py:40
 msgid "No search results found"
 msgstr "جستجو نتیجه ای نداشت"
 
@@ -1697,7 +1703,7 @@ msgstr "علامت گذاری برای حذف"
 
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17
-#: ajenti/plugins/dashboard/layout/dash.xml:4
+#: ajenti/plugins/dashboard/layout/dash.xml:6
 msgid "Cancel"
 msgstr "لغو"
 
@@ -1710,7 +1716,7 @@ msgstr "دمای هارد"
 msgid "Sensor"
 msgstr "سنسور"
 
-#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:51
+#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:52
 msgid "Zone saved"
 msgstr ""
 
@@ -1833,12 +1839,12 @@ msgstr ""
 msgid "Group for new files"
 msgstr ""
 
-#: ajenti/plugins/terminal/terminal.py:102
+#: ajenti/plugins/terminal/terminal.py:114
 #, python-format
 msgid "Process has exited with status %i"
 msgstr ""
 
-#: ajenti/plugins/terminal/terminal.py:104
+#: ajenti/plugins/terminal/terminal.py:116
 msgid "Process has exited successfully"
 msgstr ""
 
@@ -2062,11 +2068,11 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:21
+#: ajenti/plugins/dashboard/dash.py:23
 msgid "Dashboard"
 msgstr "پیشخوان"
 
-#: ajenti/plugins/dashboard/dash.py:180
+#: ajenti/plugins/dashboard/dash.py:194
 msgid "Widgets"
 msgstr "ﻭﻳﺪﺟﺖ ﻫﺎ"
 
@@ -2082,6 +2088,14 @@ msgstr ""
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
+msgstr ""
+
+#: ajenti/plugins/dashboard/layout/dash.xml:4
+msgid "Update Ajenti"
+msgstr ""
+
+#: ajenti/plugins/dashboard/layout/dash.xml:5
+msgid "Ajenti update is available"
 msgstr ""
 
 #: ajenti/plugins/openvpn/main.py:26
@@ -2370,7 +2384,7 @@ msgstr "ویژه"
 msgid "Logs"
 msgstr ""
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:54
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:55
 msgid "PHP-FPM service"
 msgstr ""
 
@@ -2394,7 +2408,7 @@ msgstr ""
 msgid "Active Directory Syncronization"
 msgstr ""
 
-#: ajenti/usersync/ldapsync.py:18
+#: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
 msgstr "همگام سازی کاربر LDAP"
 
