@@ -2,6 +2,7 @@ from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
+from ajenti.util import platform_select
 
 from reconfigure.configs import DHCPDConfig
 from reconfigure.items.dhcpd import SubnetData, OptionData, RangeData
@@ -16,7 +17,11 @@ class DHCPDPlugin (SectionPlugin):
 
         self.append(self.ui.inflate('dhcpd:main'))
 
-        self.config = DHCPDConfig(path='/etc/dhcp/dhcpd.conf')
+        self.config = DHCPDConfig(path=platform_select(
+            default='/etc/dhcp/dhcpd.conf',
+            arch='/etc/dhcpd.conf',
+        ))
+
         self.binder = Binder(None, self)
 
         for x in self.nearest(lambda x: x.bind == 'ranges'):
