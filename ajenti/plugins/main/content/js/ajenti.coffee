@@ -3,6 +3,7 @@ window.WEB_SOCKET_SWF_LOCATION = '/static/main/WebSocketMain.swf'
 
 class window.Stream
     constructor: () ->
+        $('#connection-error').hide()
 
     start: () ->
         @socket = ajentiConnectSocket('/stream')
@@ -13,6 +14,9 @@ class window.Stream
         @socket.on 'auth-error', () ->
             console.log 'Authentication lost!'
             location.reload()
+
+        @socket.on 'reconnect_failed', () ->
+            @start()
 
         @socket.on 'error', (err) ->
             console.error 'Socket error:', err
@@ -70,7 +74,7 @@ class window.Stream
             Loading.show()
 
         @socket.on 'progress-message', (m) ->
-            console.log '...', m
+            console.log 'Server progress update:', m
             Loading.setMessage(m)
             if m
                 Loading.show()
@@ -106,8 +110,6 @@ class window.Stream
             for d of data.profiles
                 console.log d, data.profiles[d].toFixed(3), 's'
             console.groupEnd()
-
-        $('#connection-error').hide()
 
     send: (message) ->
         console.log 'Sending updates', message
@@ -474,7 +476,7 @@ class window.Control
 _escape = (s) -> s.replace(/</g, '&lt;')
 
 window.ajentiConnectSocket = (uri) ->
-    return io.connect(uri, resource: 'ajenti:socket')
+    return io.connect(uri, resource: 'ajenti:socket', 'reconnection limit': 1, 'max reconnection attempts': 999999)
 
 window.ajentiCrash = (info) ->
     $('#crash').fadeIn()
