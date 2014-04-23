@@ -35,11 +35,11 @@ class CollapseRow (UIElement):
 
 
 @p('width', default='99%')
-@p('emptytext', type=[str, unicode], default=_('Empty'))
-@p('filtering', type=[bool], default=True)
-@p('filterrow', type=[str, unicode], default=_('Filter...'))
-@p('filter', type=[str, unicode], default='')
-@p('addrow', type=[str, unicode], default=None)
+@p('emptytext', type=unicode, default=_('Empty'))
+@p('filtering', type=bool, default=True)
+@p('filterrow', type=unicode, default=_('Filter...'))
+@p('filter', type=unicode, default='')
+@p('addrow', type=unicode, default=None)
 @plugin
 class Table (UIElement):
     typeid = 'dt'
