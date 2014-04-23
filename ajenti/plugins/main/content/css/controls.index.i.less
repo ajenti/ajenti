@@ -95,11 +95,27 @@
 			.tabs-container {
 				.transition(0.125s width);
 				width: 170px;
+				
 				&:hover {
 					width: 150px; // un-hide the scrollbar
+					&::-webkit-scrollbar {
+						opacity: 1;
+					}
 				}
+
 				height: 10px;
-				overflow-y: scroll;
+				overflow-y: auto;
+
+				&::-webkit-scrollbar {
+					.transition(0.125s opacity);
+					opacity: 0;
+					width: 2px;
+					background: #e8e8e8;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background: #ddd;
+				}
 			}
 
 			.tab {
