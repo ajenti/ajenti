@@ -190,10 +190,8 @@ class Configurator (SectionPlugin):
             self.find('sync-providers').value
         )
 
-        for user in ajenti.config.tree.users.values():
-            if not '|' in user.password:
-                user.password = UserManager.get().hash_password(user.password)
-
+        UserManager.get().hash_passwords()
+        
         self.refresh()
         ajenti.config.save()
         self.context.notify(

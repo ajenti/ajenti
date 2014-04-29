@@ -86,6 +86,11 @@ class UserManager (BasePlugin):
             password = 'sha512|%s' % sha512_crypt.encrypt(password)
         return password
 
+    def hash_passwords(self):
+        for user in ajenti.config.tree.users.values():
+            if not '|' in user.password:
+                user.password = self.hash_password(user.password)
+
     def has_permission(self, context, permission):
         """
         Checks whether the current user has a permission
@@ -127,6 +132,9 @@ class UserManager (BasePlugin):
     def set_sync_provider(self, provider_id):
         self.classconfig['sync-provider'] = provider_id
         self.save_classconfig()
+
+    def set_password(self, username, password):
+        ajenti.config.tree.users[username].password = self.hash_password(password)
 
 
 @interface

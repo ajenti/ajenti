@@ -10,7 +10,7 @@ class PluginsPlugin (SectionPlugin):
         self.title = _('Plugins')
         self.icon = 'cogs'
         self.category = ''
-        self.order = 50
+        self.order = 60
 
         # In case you didn't notice it yet, this is the Plugins Plugin Plugin
         self.append(self.ui.inflate('plugins:main'))

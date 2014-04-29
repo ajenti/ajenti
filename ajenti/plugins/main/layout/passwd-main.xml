@@ -1,0 +1,20 @@
+<vc>
+    <body>
+        <pad>
+            <formgroup text="{Password change}">
+                <vc>
+                    <formline text="{Old password}">
+                        <passwordbox id="old-password" />
+                    </formline>
+                    <formline text="{New password}">
+                        <passwordbox id="new-password" />
+                    </formline>
+                    <formline text="{Password confirmation}">
+                        <passwordbox id="new-password-2" />
+                    </formline>
+                </vc>
+            </formgroup>
+        </pad>
+    </body>
+    <button id="save" text="{Save}" icon="ok" />
+</vc>
