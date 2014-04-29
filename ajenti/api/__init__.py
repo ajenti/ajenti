@@ -276,15 +276,20 @@ class BasePlugin (object):
         if self.context:
             self.load_classconfig()
 
-    def load_classconfig(self):
-        """
-        Loads the content of ``classconfig`` attribute from the user's configuration section.
-        """
+    def create_classconfig(self):
         config = ConfigData()
         config.name = self.classname
         config.data = copy.deepcopy(self.default_classconfig)
         if self.default_classconfig is not None:
-            self.classconfig = self.__get_config_store().setdefault(self.classname, config).data
+            self.__get_config_store().setdefault(self.classname, config)
+
+    def load_classconfig(self):
+        """
+        Loads the content of ``classconfig`` attribute from the user's configuration section.
+        """
+        self.create_classconfig()
+        if self.default_classconfig is not None:
+            self.classconfig = self.__get_config_store()[self.classname].data
 
     def __get_config_store(self):
         if not self.classconfig_root:
@@ -315,6 +320,7 @@ class BasePlugin (object):
         """
         Saves the content of ``classconfig`` attribute into the user's configuration section.
         """
+        self.create_classconfig()
         self.__get_config_store()[self.classname].data = self.classconfig
         ajenti.config.save()
 
