@@ -69,9 +69,8 @@ class HttpContext (object):
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if ctype.startswith('application/x-www-form-urlencoded') \
                or ctype.startswith('multipart/form-data'):
-                self.query = cgi.FieldStorage(fp=self.env['wsgi.input'],
-                                       environ=self.env,
-                                       keep_blank_values=1)
+                sio = StringIO(self.env['wsgi.input'].read())
+                self.query = cgi.FieldStorage(fp=sio, environ=self.env, keep_blank_values=1)
             else:
                 self.body = self.env['wsgi.input'].read()
         else:
