@@ -145,7 +145,7 @@ msgid "Enable"
 msgstr "Ενεργοποίηση"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:263
+#: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "Ρύθμιση παραμέτρων"
 
@@ -154,6 +154,7 @@ msgstr "Ρύθμιση παραμέτρων"
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
 #: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/main/layout/passwd-main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:38
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
@@ -213,24 +214,24 @@ msgstr "Ρύθμιση παραμέτρων"
 msgid "Auto"
 msgstr "Αυτόματο"
 
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Αποθηκεύτηκε. Παρακαλώ κάντε επανεκκίνηση του Ajenti για να εφαρμοστούν οι αλλαγές."
 
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
 msgstr "Παρακαλείσθε να παρέχετε το όνομα κεντρικού υπολογιστή"
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Παρακαλώ ρυθμίστε το πρόσθετο %s!"
 
-#: ajenti/plugins/configurator/configurator.py:267
+#: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
 msgstr "Τροποποιήση ρύθμισης παραμέτρων του Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:268
+#: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
 msgstr "Επανεκκίνηση του Ajenti"
 
@@ -664,7 +665,7 @@ msgid "NFS Exports"
 msgstr "Εξαγωγές NFS"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/dhcpd/main.py:15 ajenti/plugins/munin/main.py:19
+#: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
 #: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:18
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
@@ -675,7 +676,7 @@ msgid "Software"
 msgstr "Λογισμικό"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:249
+#: ajenti/plugins/vh/main.py:102 ajenti/plugins/vh/main.py:256
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
@@ -741,6 +742,29 @@ msgstr "Δημιουργία σελιδοδείκτη"
 msgid "Topmost directory"
 msgstr "Αρχικό κατάλογο"
 
+#: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/vh-mail/layout/main.xml:5
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
+msgid "Password"
+msgstr "Κωδικός πρόσβασης"
+
+#: ajenti/plugins/main/passwd.py:21
+msgid "Passwords don't match"
+msgstr ""
+
+#: ajenti/plugins/main/passwd.py:25
+msgid "Incorrect password"
+msgstr ""
+
+#: ajenti/plugins/main/passwd.py:29
+msgid "Password changed"
+msgstr ""
+
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
 msgstr ""
@@ -765,6 +789,23 @@ msgstr ""
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
 msgstr "πρόσβαση στο τμήμα"
+
+#: ajenti/plugins/main/layout/passwd-main.xml:1
+msgid "Password change"
+msgstr ""
+
+#: ajenti/plugins/main/layout/passwd-main.xml:2
+msgid "Old password"
+msgstr ""
+
+#: ajenti/plugins/main/layout/passwd-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "Νέος κωδικός"
+
+#: ajenti/plugins/main/layout/passwd-main.xml:4
+msgid "Password confirmation"
+msgstr ""
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -944,17 +985,6 @@ msgstr "Μηχανή"
 msgid "Disconnect"
 msgstr "Αποσύνδεση"
 
-#: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/vh-mail/layout/main.xml:5
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
-msgstr "Κωδικός πρόσβασης"
-
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
@@ -1053,10 +1083,6 @@ msgstr "Κεντρικός κατάλογος"
 msgid "Shell"
 msgstr "Κέλυφος"
 
-#: ajenti/plugins/users/layout/user-list.xml:7
-msgid "New password"
-msgstr "Νέος κωδικός"
-
 #: ajenti/plugins/vh-mysql/mysql.py:61
 msgid "This database name is already used"
 msgstr ""
@@ -1087,7 +1113,7 @@ msgstr ""
 msgid "PUMA service"
 msgstr ""
 
-#: ajenti/plugins/dhcpd/main.py:13
+#: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
 msgstr "Διακομιστής DHCP"
 
@@ -1167,23 +1193,23 @@ msgstr "Διαδικασίες"
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:230
+#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:233
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:241
+#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:248
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:243
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:250
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:95 ajenti/plugins/vh/main.py:245
+#: ajenti/plugins/vh/main.py:98 ajenti/plugins/vh/main.py:252
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:205
+#: ajenti/plugins/vh/main.py:208
 msgid "Download complete"
 msgstr ""
 
@@ -1209,6 +1235,14 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "PHP flags"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
@@ -2385,7 +2419,7 @@ msgstr "Ιδιαίτερο"
 msgid "Logs"
 msgstr "Αρχεία καταγραφής"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:55
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
 msgid "PHP-FPM service"
 msgstr ""
 

@@ -145,7 +145,7 @@ msgid "Enable"
 msgstr "启用"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:263
+#: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "配置"
 
@@ -154,6 +154,7 @@ msgstr "配置"
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
 #: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/main/layout/passwd-main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:38
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
@@ -181,19 +182,19 @@ msgstr "Memcache 内存使用情况"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "无效的密钥"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "无效的 IP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "已过期"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "未知的"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -213,24 +214,24 @@ msgstr "配置"
 msgid "Auto"
 msgstr "自动"
 
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "保存成功，请重新启动 Ajenti 使改动生效。"
 
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
 msgstr "请先填写主机名"
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "请配置 %s 插件！"
 
-#: ajenti/plugins/configurator/configurator.py:267
+#: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
 msgstr "修改Ajenti配置"
 
-#: ajenti/plugins/configurator/configurator.py:268
+#: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
 msgstr "重启Ajenti"
 
@@ -334,7 +335,7 @@ msgstr "修改密码"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "权限"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -351,7 +352,7 @@ msgstr "Ajenti 将以匿名方式发送当前版本号、操作系统名称、�
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "许可证"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -404,19 +405,19 @@ msgstr "管理员密码"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "许可证状态"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "公司"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "许可证类型"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "许可证过期时间"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -426,11 +427,11 @@ msgstr "删除"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "没有安装商业许可"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "安装"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -491,7 +492,7 @@ msgstr "待定"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr "终止"
+msgstr "中止"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
@@ -663,7 +664,7 @@ msgid "NFS Exports"
 msgstr "NFS输出"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/dhcpd/main.py:15 ajenti/plugins/munin/main.py:19
+#: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
 #: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:18
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
@@ -674,7 +675,7 @@ msgid "Software"
 msgstr "软件"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:249
+#: ajenti/plugins/vh/main.py:102 ajenti/plugins/vh/main.py:256
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
@@ -740,30 +741,70 @@ msgstr "书签"
 msgid "Topmost directory"
 msgstr "顶层目录"
 
+#: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/vh-mail/layout/main.xml:5
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
+msgid "Password"
+msgstr "密码"
+
+#: ajenti/plugins/main/passwd.py:21
+msgid "Passwords don't match"
+msgstr ""
+
+#: ajenti/plugins/main/passwd.py:25
+msgid "Incorrect password"
+msgstr ""
+
+#: ajenti/plugins/main/passwd.py:29
+msgid "Password changed"
+msgstr ""
+
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "空"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "筛选器......"
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "无效的登录名或密码"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "电子邮件\"%s\"不与任何用户关联"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "登录失败！"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
 msgstr "节点访问"
+
+#: ajenti/plugins/main/layout/passwd-main.xml:1
+msgid "Password change"
+msgstr ""
+
+#: ajenti/plugins/main/layout/passwd-main.xml:2
+msgid "Old password"
+msgstr ""
+
+#: ajenti/plugins/main/layout/passwd-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "新密码"
+
+#: ajenti/plugins/main/layout/passwd-main.xml:4
+msgid "Password confirmation"
+msgstr ""
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -943,17 +984,6 @@ msgstr "机器"
 msgid "Disconnect"
 msgstr "断开连接"
 
-#: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/vh-mail/layout/main.xml:5
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
-msgstr "密码"
-
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
@@ -962,7 +992,7 @@ msgstr "设置"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "硬盘驱动器状态"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -1052,17 +1082,13 @@ msgstr "主目录"
 msgid "Shell"
 msgstr "Shell"
 
-#: ajenti/plugins/users/layout/user-list.xml:7
-msgid "New password"
-msgstr "新密码"
-
 #: ajenti/plugins/vh-mysql/mysql.py:61
 msgid "This database name is already used"
-msgstr ""
+msgstr "该数据库名称已经被使用"
 
 #: ajenti/plugins/vh-mysql/mysql.py:66
 msgid "This username is already used"
-msgstr ""
+msgstr "此用户名已被使用"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/vh-mysql/layout/ext.xml:7
@@ -1072,21 +1098,21 @@ msgstr "数据库名"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 msgid "Destroy"
-msgstr ""
+msgstr "销毁"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Database contents will be deleted!"
-msgstr ""
+msgstr "数据库的内容将被删除!"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:6
 msgid "No database created"
-msgstr ""
+msgstr "没有创建数据库"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "PUMA 服务"
 
-#: ajenti/plugins/dhcpd/main.py:13
+#: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
 msgstr "DHCP服务器"
 
@@ -1144,19 +1170,19 @@ msgstr "确认删除数据库 ！"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "静态文件"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "自定义 FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "反向代理"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "进程"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1164,81 +1190,89 @@ msgstr "进程"
 
 #: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "网站"
 
-#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:230
+#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:233
 msgid "Testing configuration"
-msgstr ""
+msgstr "测试配置"
 
-#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:241
+#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:248
 msgid "Saving changes"
-msgstr ""
+msgstr "保存更改"
 
-#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:243
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:250
 msgid "Applying changes"
-msgstr ""
+msgstr "应用更改"
 
-#: ajenti/plugins/vh/main.py:95 ajenti/plugins/vh/main.py:245
+#: ajenti/plugins/vh/main.py:98 ajenti/plugins/vh/main.py:252
 msgid "Restarting web services"
-msgstr ""
+msgstr "重新启动 web 服务"
 
-#: ajenti/plugins/vh/main.py:205
+#: ajenti/plugins/vh/main.py:208
 msgid "Download complete"
-msgstr ""
+msgstr "下载完毕。"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "管理"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "新的网站"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "配置检查"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "重新启动网站"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "最小进程数"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
+msgstr "最大进程数"
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "PHP flags"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "应用模块"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Virtualenv 路径"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "执行单元"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "脚本名称"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "脚本的 HTTP 端口"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "显示目录下的内容"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "使用打包程序"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:7
@@ -1249,21 +1283,21 @@ msgstr "环境变量"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "URL 模式"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "自定义路径"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "自定义配置"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr ""
+msgstr "仅使用自定义配置，不包括标准参数"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
@@ -1272,15 +1306,15 @@ msgstr "工作目录"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V 尚未启用"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "启用 Ajenti V 将覆盖以下软件的配置："
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1289,7 +1323,7 @@ msgstr "删除"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "网站的所有数据将都会丢失。是否继续?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1299,35 +1333,35 @@ msgstr "已启用"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "维护模式"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "web目录"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "创建目录"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
-msgstr ""
+msgstr "自动下载程序"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "从 URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "下载并解压缩"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "域名"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "域名"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1337,20 +1371,20 @@ msgstr "端口"
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "SSL certificate path"
-msgstr ""
+msgstr "SSL 证书路径"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL key path"
-msgstr ""
+msgstr "SSL 密钥路径"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
-msgstr ""
+msgstr "内容"
 
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "应用更改"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1379,11 +1413,11 @@ msgstr "尝试开始"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Nginx服务器配置测试"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "NGINX 服务"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1523,32 +1557,32 @@ msgstr "CNID 地址"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "邮件"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "无效的邮箱名称"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "邮箱域名不可用"
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
-msgstr ""
+msgstr "此地址已被使用"
 
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "自定义域名"
 
 #: ajenti/plugins/vh-mail/main.py:141
 msgid "No valid key exists"
-msgstr ""
+msgstr "没有可用的密钥"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "邮箱"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1559,71 +1593,71 @@ msgstr "大小"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "转发"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "目标地址"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "新邮箱"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "邮箱"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "选择器"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "私钥"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "DNS 条目模板"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "生成新的 DKIM 密钥"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "证书路径"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "私钥路径"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "生成新的证书"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "自定义 MTA 配置"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "自定义 Acl"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "自定义路由"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "自定义传输"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V 邮件未尚未启用"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "启用 Ajenti V 邮件将覆盖以下软件的配置："
 
 #: ajenti/plugins/packages/pm_pacman.py:25
 #, python-format
@@ -1723,7 +1757,7 @@ msgstr "已保存"
 #: ajenti/plugins/nsd/main.py:66
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s 不存在"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
@@ -2093,11 +2127,11 @@ msgstr "自动刷新"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "更新 Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "有可用的 Ajenti 更新"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2287,87 +2321,87 @@ msgstr "拒绝"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Node.js 服务"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "GUnicorn 服务"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF 防火墙"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "应用"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "自我测试通过"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "测试模式"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "网络设备"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "网络设备 (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "允许的端口"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "传入 TCP"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "传出 TCP"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "传入 UDP"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "传出 UDP"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "启用 IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "IP 列表"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "永久规则"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "允许的地址"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "被拒绝的地址"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "临时规则"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "禁止的地址"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "禁止"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2385,9 +2419,9 @@ msgstr "特殊"
 msgid "Logs"
 msgstr "日志"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:55
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPM 服务"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"

@@ -145,7 +145,7 @@ msgid "Enable"
 msgstr "Ativar"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:263
+#: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "Configuração"
 
@@ -154,6 +154,7 @@ msgstr "Configuração"
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
 #: ajenti/plugins/notepad/layout/main.xml:3
+#: ajenti/plugins/main/layout/passwd-main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:38
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
@@ -213,24 +214,24 @@ msgstr "Configurar"
 msgid "Auto"
 msgstr "Auto"
 
-#: ajenti/plugins/configurator/configurator.py:201
+#: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Salvo. Por favor reinicie o Ajenti para que as alterações tenham efeito."
 
-#: ajenti/plugins/configurator/configurator.py:208
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
 msgstr "Por favor, forneça o nome do host"
 
-#: ajenti/plugins/configurator/configurator.py:224
+#: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Por favor, configure o complemento %s!"
 
-#: ajenti/plugins/configurator/configurator.py:267
+#: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
 msgstr "Modificar as configurações do Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:268
+#: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
 msgstr "Reiniciar Ajenti"
 
@@ -663,7 +664,7 @@ msgid "NFS Exports"
 msgstr "Exportações de NFS"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/dhcpd/main.py:15 ajenti/plugins/munin/main.py:19
+#: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
 #: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:18
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
 #: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
@@ -674,7 +675,7 @@ msgid "Software"
 msgstr "Software"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:249
+#: ajenti/plugins/vh/main.py:102 ajenti/plugins/vh/main.py:256
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
@@ -740,13 +741,36 @@ msgstr "Favoritar"
 msgid "Topmost directory"
 msgstr "Diretório de nível superior"
 
+#: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/vh-mail/layout/main.xml:5
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
+msgid "Password"
+msgstr "Senha"
+
+#: ajenti/plugins/main/passwd.py:21
+msgid "Passwords don't match"
+msgstr ""
+
+#: ajenti/plugins/main/passwd.py:25
+msgid "Incorrect password"
+msgstr ""
+
+#: ajenti/plugins/main/passwd.py:29
+msgid "Password changed"
+msgstr ""
+
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
 msgstr "Vazio"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filtrar..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -764,6 +788,23 @@ msgstr "Login falhou"
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
 msgstr "Acesso de seção"
+
+#: ajenti/plugins/main/layout/passwd-main.xml:1
+msgid "Password change"
+msgstr ""
+
+#: ajenti/plugins/main/layout/passwd-main.xml:2
+msgid "Old password"
+msgstr ""
+
+#: ajenti/plugins/main/layout/passwd-main.xml:3
+#: ajenti/plugins/users/layout/user-list.xml:7
+msgid "New password"
+msgstr "Nova senha"
+
+#: ajenti/plugins/main/layout/passwd-main.xml:4
+msgid "Password confirmation"
+msgstr ""
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -943,17 +984,6 @@ msgstr "Máquina"
 msgid "Disconnect"
 msgstr "Desconectar"
 
-#: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/vh-mail/layout/main.xml:5
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
-msgstr "Senha"
-
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
@@ -1052,10 +1082,6 @@ msgstr "Diretório home"
 msgid "Shell"
 msgstr "Shell"
 
-#: ajenti/plugins/users/layout/user-list.xml:7
-msgid "New password"
-msgstr "Nova senha"
-
 #: ajenti/plugins/vh-mysql/mysql.py:61
 msgid "This database name is already used"
 msgstr "O nome deste banco de dados já esta sendo usado"
@@ -1086,7 +1112,7 @@ msgstr "Nenhum banco de dados criado"
 msgid "PUMA service"
 msgstr "Serviço PUMA"
 
-#: ajenti/plugins/dhcpd/main.py:13
+#: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
 msgstr "Servidor DHCP"
 
@@ -1166,23 +1192,23 @@ msgstr "Processos"
 msgid "Websites"
 msgstr "Websites"
 
-#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:230
+#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:233
 msgid "Testing configuration"
 msgstr "Testando a configuração"
 
-#: ajenti/plugins/vh/main.py:90 ajenti/plugins/vh/main.py:241
+#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:248
 msgid "Saving changes"
 msgstr "Salvando alterações"
 
-#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:243
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:250
 msgid "Applying changes"
 msgstr "Aplicar alterações"
 
-#: ajenti/plugins/vh/main.py:95 ajenti/plugins/vh/main.py:245
+#: ajenti/plugins/vh/main.py:98 ajenti/plugins/vh/main.py:252
 msgid "Restarting web services"
 msgstr "Reiniciando serviços web"
 
-#: ajenti/plugins/vh/main.py:205
+#: ajenti/plugins/vh/main.py:208
 msgid "Download complete"
 msgstr "Download concluído"
 
@@ -1196,7 +1222,7 @@ msgstr "Novo website"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Verificações de configuração"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
@@ -1208,6 +1234,14 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "PHP flags"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
@@ -1222,11 +1256,11 @@ msgstr "Caminho Virtualenv"
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Trabalhadores"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Nome do script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
@@ -1234,7 +1268,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Mostrar o conteúdo do diretório"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
@@ -1249,17 +1283,17 @@ msgstr "Ambiente"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "Padrão de URL"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Caminho personalizado"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Configuração personalizada"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 msgid "Use only custom configuration and don't include standard parameters"
@@ -1272,7 +1306,7 @@ msgstr "Diretório de trabalho"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V não está habilitado ainda"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
@@ -1280,7 +1314,7 @@ msgstr "Permitir que o Ajenti V substituia a configuração para os seguintes so
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1289,7 +1323,7 @@ msgstr "Excluir"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Todos os dados do site serão perdidos. Continuar?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1299,15 +1333,15 @@ msgstr "Habilitado"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Modo de manutenção"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Arquivos do site"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Criar diretório"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
@@ -1319,15 +1353,15 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "Baixar e descompactar"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Domínios"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Domínio"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1337,20 +1371,20 @@ msgstr "Portas"
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "SSL certificate path"
-msgstr ""
+msgstr "Caminho do certificado SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL key path"
-msgstr ""
+msgstr "Caminho da chave SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
-msgstr ""
+msgstr "Conteúdo"
 
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar as alterações"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1379,11 +1413,11 @@ msgstr "Iniciar retentativas"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Teste de configuração do NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "Serviço NGINX"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1527,7 +1561,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Nome de caixa de correio inválida"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
@@ -1559,7 +1593,7 @@ msgstr "Tamanho"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Encaminhamento"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
@@ -1567,11 +1601,11 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nova caixa de e-mail"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Caixa de E-mail"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
@@ -1579,35 +1613,35 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Chave Privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Modelo de entrada DNS"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Gerar nova chave DKIM"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Caminho do certificado"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Caminho de chave privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Gerar novo certificado"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "Configuração personalizada do MTA"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "ACLs personalizadas"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
@@ -1623,7 +1657,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Permitir que o Ajenti V substituia a configuração para os seguintes softwares:"
 
 #: ajenti/plugins/packages/pm_pacman.py:25
 #, python-format
@@ -2092,11 +2126,11 @@ msgstr "Atualização automática"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Atualizar Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "Uma atualização está disponível para o Ajenti"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2294,31 +2328,31 @@ msgstr ""
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "Firewall CSF"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Aplicado"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Auto-teste OK"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "Modalidade de teste"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Dispositivo de rede"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Dispositivo de rede (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "Portas permitidas"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
@@ -2358,15 +2392,15 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Regras temporárias"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Endereços banidos"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Banir"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2384,9 +2418,9 @@ msgstr "Especial"
 msgid "Logs"
 msgstr "Registros"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:55
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "Serviço PHP-FPM"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
