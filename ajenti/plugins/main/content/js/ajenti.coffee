@@ -476,7 +476,10 @@ class window.Control
 _escape = (s) -> s.replace(/</g, '&lt;')
 
 window.ajentiConnectSocket = (uri) ->
-    return io.connect(uri, resource: 'ajenti:socket', 'reconnection limit': 1, 'max reconnection attempts': 999999)
+    cfg = resource: 'ajenti:socket', 'reconnection limit': 1, 'max reconnection attempts': 999999
+    if /Apple Computer/.test(navigator.vendor) and location.protocol == 'https:'
+        cfg.transports = ['xhr-polling', 'jsonp-polling']
+    return io.connect(uri, cfg)
 
 window.ajentiCrash = (info) ->
     $('#crash').fadeIn()
