@@ -348,7 +348,7 @@ msgstr "Geri bildirim yolla"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr " "
+msgstr "Ajenti, anonim bir şekilde ajenti.org adresine, versiyonu, işletim sisteminiz ve sık kullandığınız eklentilerle ilgili bilgi gönderir"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
@@ -631,7 +631,7 @@ msgstr "Arşiv"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr "Tekrar yenile"
+msgstr "Tekrarlamalı"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
@@ -828,7 +828,7 @@ msgstr "Komut dosyası çalıştır"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr "Terminal çalıştırmak"
+msgstr "Uçbirimde çalıştır"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
@@ -858,7 +858,7 @@ msgstr "Varyant"
 
 #: ajenti/plugins/samba/main.py:47
 msgid "Password updated"
-msgstr "Şifre güncelleme"
+msgstr "Parola güncellendi"
 
 #: ajenti/plugins/samba/main.py:50
 msgid "Password update failed"
@@ -885,7 +885,7 @@ msgstr "Taranabilir"
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Create mask"
-msgstr "Maskesi oluşturma"
+msgstr "Maske oluşturma"
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Directory mask"
@@ -1182,7 +1182,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr "İşlem"
+msgstr "Süreç"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"

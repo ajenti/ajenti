@@ -754,15 +754,15 @@ msgstr "Passwort"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Passwörter stimmen nicht überein"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Falsches Passwort"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Passwort geändert"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -791,11 +791,11 @@ msgstr "Abschnitt-Zugriff"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Passwort ändern"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Altes Passwort"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -804,7 +804,7 @@ msgstr "Neues Passwort"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Passwort-Bestätigung"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -1238,11 +1238,11 @@ msgstr "Prozesse (max.)"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "PHP options"
-msgstr ""
+msgstr "PHP-Optionen"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "PHP flags"
-msgstr ""
+msgstr "PHP-Flags"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
