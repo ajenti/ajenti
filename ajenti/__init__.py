@@ -95,6 +95,12 @@ def detect_platform():
                 dist = 'arch'
 
     if dist == '':
+        if os.path.exists('/etc/system-release'):
+            release = open('/etc/system-release').read()
+            if 'Amazon Linux AMI' in release:
+                dist = 'centos'
+
+    if dist == '':
         try:
             dist = subprocess.check_output(['strings', '-4', '/etc/issue']).split()[0]
         except:
