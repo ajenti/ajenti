@@ -5,9 +5,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo ':: Installing repo info'
-wget http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
-rpm -ivh ajenti-repo-1.0-1.noarch.rpm
-rm ajenti-repo-1.0-1.noarch.rpm
+rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
 
 echo ':: Installing package'
 yum install ajenti -y
