@@ -1,4 +1,6 @@
+import datetime
 import os
+import time
 
 from ajenti.api import *
 from ajenti.ui import p, UIElement, on
@@ -16,6 +18,20 @@ class TextBox (UIElement):
 @plugin
 class PasswordBox (UIElement):
     typeid = 'passwordbox'
+
+
+@p('value', default='', bindtypes=[str, unicode])
+@plugin
+class DateTime (UIElement):
+    typeid = 'datetime'
+
+    @property
+    def dateobject(self):
+        return datetime.datetime(*time.strptime(self.value,"%Y%m%dT%H%M%S")[:6])
+
+    @dateobject.setter
+    def dateobject__set(self, value):
+        self.value = value.strftime("%Y%m%dT%H%M%S")
 
 
 @p('value', default='', bindtypes=[str, unicode])

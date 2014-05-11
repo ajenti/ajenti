@@ -45,6 +45,57 @@ class window.Controls.passwordbox extends window.Controls.textbox
         return this
 
 
+class window.Controls.datetime extends window.Control
+    createDom: () ->
+        """
+            <div class="control datetime">
+                <input class="control textbox date #{@s(@properties.style)}" />
+                <input class="control textbox time #{@s(@properties.style)}" />
+            </div>
+        """
+
+    setupDom: (dom) ->
+        super(dom)
+        value = null
+        if @properties.value
+            value = new Date(@properties.value)
+        
+        markChanged = @markChanged
+        @inputTime = $(@dom.children[1]).pickatime({
+            onClose: () ->
+                markChanged()
+        }).pickatime('picker')
+        @inputDate = $(@dom.children[0]).pickadate({
+            onClose: () ->
+                markChanged()
+        }).pickadate('picker')
+
+        if value
+            @inputDate.set('select', value)
+            @inputTime.set('select', value)
+
+        return this
+
+    getValue: () ->
+        date = @inputDate.get('select').obj
+        if not date
+            return null
+        time = @inputTime.get('select')
+        if time
+            date.setHours(time.hour)
+            date.setMinutes(time.mins)
+        return date.toISOString()
+
+    detectUpdates: () ->
+        r = {}
+        value = @getValue()
+        oldvalue = @properties.value || ""
+        if value != oldvalue
+            r.value = value
+        @properties.value = value
+        return r
+
+
 class window.Controls.editable extends window.Control
     createDom: () ->
         icon = _make_icon(@properties.icon)

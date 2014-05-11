@@ -18,7 +18,7 @@ class window.Controls.terminal__thumbnail extends window.Control
 
 
 colors =
-    black: '#073642'
+    black: '#000000'
     green: '#859900'
     white: '#eee8d5'
     yellow: '#b58900'

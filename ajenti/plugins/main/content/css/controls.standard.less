@@ -59,9 +59,17 @@
 
 .control {
 	display: block;
-	overflow: hidden;
 	margin: 1px;
 
+	&:after {
+	    content: ".";
+	    display: block;
+	    clear: both;
+	    visibility: hidden;
+	    line-height: 0;
+	    height: 0;
+	}
+	
 	&.changed {
 		box-shadow: 0 0 2px @orange !important;
 	}
@@ -265,6 +273,15 @@
 
 	&.textbox {
 		.control-textinput();
+	}
+
+	&.datetime {
+		position: relative;
+
+		&>.date, &>.time {
+			width: 125px;
+			display: inline-block;
+		}
 	}
 
 	&.editable {

@@ -134,6 +134,7 @@ def run():
     ssl_args = {}
     if ajenti.config.tree.ssl.enable:
         ssl_args['certfile'] = ajenti.config.tree.ssl.certificate_path
+        logging.info('SSL enabled: %s' % ssl_args['certfile'])
 
     ajenti.server = SocketIOServer(
         listener,

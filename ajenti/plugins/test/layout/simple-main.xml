@@ -1,5 +1,6 @@
 <body>
     <pad>
         <label text="Welcome to Ajenti plugin development" />
+        <datetime />
     </pad>
 </body>
