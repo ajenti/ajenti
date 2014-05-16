@@ -754,15 +754,15 @@ msgstr "密码"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "密码不匹配"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "密码不正确"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "密码已更改"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -791,11 +791,11 @@ msgstr "节点访问"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "更改密码"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "旧密码"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -804,7 +804,7 @@ msgstr "新密码"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "密码确认"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -1238,11 +1238,11 @@ msgstr "最大进程数"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "PHP options"
-msgstr ""
+msgstr "PHP 的选项"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "PHP flags"
-msgstr ""
+msgstr "PHP 的标志"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
@@ -1290,12 +1290,16 @@ msgid "Custom path"
 msgstr "自定义路径"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr "自定义配置"
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr "仅使用自定义配置，不包括标准参数"
 
@@ -1413,7 +1417,7 @@ msgstr "尝试开始"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr "Nginx服务器配置测试"
+msgstr "NGINX配置测试"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
@@ -1458,7 +1462,7 @@ msgstr "停用"
 
 #: ajenti/plugins/iptables/main.py:149
 msgid " autostart"
-msgstr "autostart"
+msgstr "自动启动"
 
 #: ajenti/plugins/iptables/main.py:202
 msgid "Applied successfully"
@@ -2419,7 +2423,7 @@ msgstr "特殊"
 msgid "Logs"
 msgstr "日志"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr "PHP-FPM 服务"
 

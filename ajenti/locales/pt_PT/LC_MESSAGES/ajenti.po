@@ -1290,12 +1290,16 @@ msgid "Custom path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
@@ -1349,19 +1353,19 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "De URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "Descarregue e descompacte"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Domínios"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Domínio"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1371,20 +1375,20 @@ msgstr "Portas"
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "SSL certificate path"
-msgstr ""
+msgstr "Caminho de certificado SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL key path"
-msgstr ""
+msgstr "Caminho da chave SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
-msgstr ""
+msgstr "Conteúdo"
 
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplicar alterações"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1413,11 +1417,11 @@ msgstr "Iniciar tentativas"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Teste de configuração do NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "Serviço NGINX"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1557,32 +1561,32 @@ msgstr "Endereço do CNID"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Correio"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Nome de caixa de correio inválida"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Domínio de correio inválido"
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
-msgstr ""
+msgstr "Este endereço já está existe."
 
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Domínio personalizado"
 
 #: ajenti/plugins/vh-mail/main.py:141
 msgid "No valid key exists"
-msgstr ""
+msgstr "Não existe nenhuma chave válida"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Caixas de correio"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1593,71 +1597,71 @@ msgstr "Tamanho"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Encaminhamento"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Endereço de destino"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nova caixa de correio"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Caixa de correio"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Seletor"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Chave Privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Modelo de entrada DNS"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Gerar nova chave DKIM"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Caminho do certificado"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Caminho de chave privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Gerar novo certificado"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "Configuração personalizada do MTA"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "ACLs personalizadas"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Roteadores personalizados"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "Transportes personalizados"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail não está ativado ainda"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Permitir que Ajenti V correio substitua a configuração para os seguintes softwares:"
 
 #: ajenti/plugins/packages/pm_pacman.py:25
 #, python-format
@@ -2126,11 +2130,11 @@ msgstr "Atualização automática"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Atualização Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "Atualização do Ajenti disponível"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2320,59 +2324,59 @@ msgstr "Recusar"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Serviço de Node. js"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "Serviço de GUnicorn"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "Firewall CSF"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Aplicado"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Auto-teste OK"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "Modalidade de teste"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Dispositivo de rede"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Dispositivo de rede (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "Portas permitidas"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "TCP de entrada"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "TCP de saída"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "UDP de entrada"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "UDP de saída"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Habilitar o IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
@@ -2418,7 +2422,7 @@ msgstr "Especial"
 msgid "Logs"
 msgstr "Registos"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr ""
 

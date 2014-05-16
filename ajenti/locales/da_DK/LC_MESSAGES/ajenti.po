@@ -182,19 +182,19 @@ msgstr "Memcache hukommelses forbrug"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Ugyldig nøgle"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Ugyldig IP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Udløbet"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Ukendt"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -335,7 +335,7 @@ msgstr "Skift adgangskode"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Tilladelser"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -352,7 +352,7 @@ msgstr "Ajenti sender anonymt sin version, dit OS navn samt hvilke plugins du br
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Licens"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -405,19 +405,19 @@ msgstr "Admin kodeord"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Licensstatus"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Licenstype"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "Licens udløber den"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -427,11 +427,11 @@ msgstr "Fjern"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Ingen kommerciel licens installeret"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "Installer"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -758,15 +758,15 @@ msgstr ""
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Forkert adgangskode"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Adgangskoden ændret"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Tom"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
@@ -1106,7 +1106,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:6
 msgid "No database created"
-msgstr ""
+msgstr "Ingen database oprettet"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1170,7 +1170,7 @@ msgstr "Bekræft database sletning!"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Statiske filer"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
@@ -1190,7 +1190,7 @@ msgstr "Processer"
 
 #: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Hjemmesider"
 
 #: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:233
 msgid "Testing configuration"
@@ -1210,15 +1210,15 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:208
 msgid "Download complete"
-msgstr ""
+msgstr "Download fuldført"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Administrere"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Ny hjemmeside"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1226,7 +1226,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Genstart hjemmesider"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
@@ -1290,12 +1290,16 @@ msgid "Custom path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
@@ -1314,7 +1318,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Tilbage"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:8
@@ -1345,23 +1349,23 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Automatisk downloader"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "Fra URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "Download og Udpak"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Domæner"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Domæne"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -2418,7 +2422,7 @@ msgstr "Speciel"
 msgid "Logs"
 msgstr "Logs"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr ""
 

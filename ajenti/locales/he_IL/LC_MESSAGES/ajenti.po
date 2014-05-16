@@ -1290,12 +1290,16 @@ msgid "Custom path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
@@ -2418,7 +2422,7 @@ msgstr "מיוחד"
 msgid "Logs"
 msgstr "לוגים"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr ""
 

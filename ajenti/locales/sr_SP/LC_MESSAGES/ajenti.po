@@ -1,7 +1,7 @@
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
-msgstr ""
+msgstr "Додаци"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
@@ -35,7 +35,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:25
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Dependencies"
@@ -88,7 +88,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:23
 #: ajenti/plugins/bind9/layout/main.xml:2
 msgid "Add"
-msgstr ""
+msgstr "Додај"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -131,7 +131,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:24
 #: ajenti/plugins/bind9/layout/main.xml:3
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Потврди брисанје"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/configurator/layout/main.xml:15
@@ -142,7 +142,7 @@ msgstr ""
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
 msgid "Enable"
-msgstr ""
+msgstr "Омогући"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/configurator.py:261
@@ -174,7 +174,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:27
 #: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save"
-msgstr ""
+msgstr "Сачувај"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
@@ -186,15 +186,15 @@ msgstr ""
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Неважећи ИП"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Истекло"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Непознат"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -212,7 +212,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
-msgstr ""
+msgstr "Аутоматско"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -322,29 +322,29 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
-msgstr ""
+msgstr "Рачуни"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "Дупликат"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
 msgid "Change password"
-msgstr ""
+msgstr "Промјени лозинку"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Дозволе"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
-msgstr ""
+msgstr "Остало"
 
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
-msgstr ""
+msgstr "Пошалји сугестију"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
@@ -352,7 +352,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Лиценца"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -431,7 +431,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "Инсталирај"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -455,12 +455,12 @@ msgstr ""
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 #: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
 msgid "Tools"
-msgstr ""
+msgstr "Алати"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr ""
+msgstr "Копиранје %s"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -475,7 +475,7 @@ msgstr ""
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Refresh"
-msgstr ""
+msgstr "Освјежи"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
@@ -483,16 +483,16 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Поништава се"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr ""
+msgstr "На чеканју"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr ""
+msgstr "Поништи"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
@@ -500,19 +500,19 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Успјешно"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "Поништено"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Срушено"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -750,23 +750,23 @@ msgstr ""
 #: ajenti/plugins/mysql/layout/config.xml:3
 #: ajenti/plugins/openvpn/layout/config.xml:3
 msgid "Password"
-msgstr ""
+msgstr "Лозинка"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Лозинке се не подударају"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Нетачна лозинка"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Лозинка промјенјена"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Празно"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
@@ -783,7 +783,7 @@ msgstr ""
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "Пријава неуспјешна"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
@@ -791,16 +791,16 @@ msgstr ""
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Лозинка промјенјена"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Стара лозинка"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr ""
+msgstr "Нова лозинка"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
@@ -808,7 +808,7 @@ msgstr ""
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "Назив фајла"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -1290,12 +1290,16 @@ msgid "Custom path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
@@ -2418,7 +2422,7 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr ""
 

@@ -216,7 +216,7 @@ msgstr "自動"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr "保存。請重新開機 Ajenti 的更改才能生效。"
+msgstr "已儲存。請重新啟動 Ajenti 使變更生效。"
 
 #: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
@@ -1291,12 +1291,16 @@ msgid "Custom path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
@@ -1414,11 +1418,11 @@ msgstr ""
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "測試 NGINX 設定值"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "NGINX 服務"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1558,15 +1562,15 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "信件"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "無效的信箱名稱"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "無效的信箱域名"
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
@@ -1575,7 +1579,7 @@ msgstr ""
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "自訂域名"
 
 #: ajenti/plugins/vh-mail/main.py:141
 msgid "No valid key exists"
@@ -1583,7 +1587,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "信箱"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1598,15 +1602,15 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "目標地址"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "新信箱"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "信箱"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
@@ -1614,7 +1618,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "私人鑰匙"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
@@ -1622,19 +1626,19 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "產生新的 DKIM 鑰匙"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "證書路徑"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "私人鑰匙路徑"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "產生新的證書"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
@@ -1646,7 +1650,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "自訂路由"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
@@ -1787,20 +1791,20 @@ msgstr ""
 
 #: ajenti/plugins/fm/fm.py:176
 msgid "Files moved"
-msgstr ""
+msgstr "檔案已移動"
 
 #: ajenti/plugins/fm/fm.py:181
 msgid "Files copied"
-msgstr ""
+msgstr "檔案已複製"
 
 #: ajenti/plugins/fm/fm.py:196
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "已選擇 %i 個項目"
 
 #: ajenti/plugins/fm/fm.py:235
 msgid "Unpacked"
-msgstr ""
+msgstr "已解壓"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1840,11 +1844,11 @@ msgstr "剪貼簿"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Edit"
-msgstr ""
+msgstr "編輯"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Unpack"
-msgstr ""
+msgstr "解壓縮"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Access"
@@ -1890,11 +1894,11 @@ msgstr "終端機"
 
 #: ajenti/plugins/terminal/main.py:227
 msgid "Run shell"
-msgstr ""
+msgstr "執行 shell"
 
 #: ajenti/plugins/terminal/main.py:228
 msgid "Run custom commands"
-msgstr ""
+msgstr "執行自訂命令"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
@@ -2419,7 +2423,7 @@ msgstr "特別"
 msgid "Logs"
 msgstr "日誌"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr ""
 

@@ -1290,12 +1290,16 @@ msgid "Custom path"
 msgstr "Caminho personalizado"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
+msgid "Append URL pattern to path"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr "Configuração personalizada"
 
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
 msgstr ""
 
@@ -1349,7 +1353,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "De URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
@@ -1557,7 +1561,7 @@ msgstr "Endereço CNID"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Correio"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
@@ -1565,7 +1569,7 @@ msgstr "Nome de caixa de correio inválida"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Domínio de correio inválido"
 
 #: ajenti/plugins/vh-mail/main.py:74
 msgid "This address is already taken"
@@ -1574,15 +1578,15 @@ msgstr "Este endereço já está sendo utilizado"
 #: ajenti/plugins/vh-mail/main.py:119
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Domínio personalizado"
 
 #: ajenti/plugins/vh-mail/main.py:141
 msgid "No valid key exists"
-msgstr ""
+msgstr "Não existe nenhuma chave válida"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Caixas de correio"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1597,7 +1601,7 @@ msgstr "Encaminhamento"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Endereço de destino"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
@@ -1609,7 +1613,7 @@ msgstr "Caixa de E-mail"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Seletor"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
@@ -1645,15 +1649,15 @@ msgstr "ACLs personalizadas"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Roteadores personalizados"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "Transportes personalizados"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail não está ativado ainda"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
@@ -2320,11 +2324,11 @@ msgstr "Negar"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Serviço de Node. js"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "Serviço de GUnicorn"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
@@ -2356,23 +2360,23 @@ msgstr "Portas permitidas"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "TCP de entrada"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "TCP de saída"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "UDP de entrada"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "UDP de saída"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Habilitar o IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
@@ -2418,7 +2422,7 @@ msgstr "Especial"
 msgid "Logs"
 msgstr "Registros"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:57
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
 msgstr "Serviço PHP-FPM"
 
