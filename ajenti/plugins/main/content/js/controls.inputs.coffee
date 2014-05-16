@@ -58,7 +58,7 @@ class window.Controls.datetime extends window.Control
         super(dom)
         value = null
         if @properties.value
-            value = new Date(@properties.value)
+            value = new Date(parseInt(@properties.value) * 1000)
         
         markChanged = @markChanged
         @inputTime = $(@dom.children[1]).pickatime({
@@ -77,14 +77,16 @@ class window.Controls.datetime extends window.Control
         return this
 
     getValue: () ->
-        date = @inputDate.get('select').obj
-        if not date
-            return null
-        time = @inputTime.get('select')
-        if time
-            date.setHours(time.hour)
-            date.setMinutes(time.mins)
-        return date.toISOString()
+        value = @inputDate.get('select')
+        if value
+            date = value.obj
+            if not date
+                return null
+            time = @inputTime.get('select')
+            if time
+                date.setHours(time.hour)
+                date.setMinutes(time.mins)
+            return Math.round(date.getTime() / 1000)
 
     detectUpdates: () ->
         r = {}

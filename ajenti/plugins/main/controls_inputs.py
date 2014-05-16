@@ -1,3 +1,4 @@
+import calendar
 import datetime
 import os
 import time
@@ -20,18 +21,22 @@ class PasswordBox (UIElement):
     typeid = 'passwordbox'
 
 
-@p('value', default='', bindtypes=[str, unicode])
+@p('value', default='', type=int, bindtypes=[str, unicode, int, long])
 @plugin
 class DateTime (UIElement):
     typeid = 'datetime'
 
     @property
     def dateobject(self):
-        return datetime.datetime(*time.strptime(self.value,"%Y%m%dT%H%M%S")[:6])
+        if self.value:
+            return datetime.fromtimestamp(self.value)
 
     @dateobject.setter
     def dateobject__set(self, value):
-        self.value = value.strftime("%Y%m%dT%H%M%S")
+        if value:
+            self.value = calendar.timegm(value.timetuple())
+        else:
+            self.value = None
 
 
 @p('value', default='', bindtypes=[str, unicode])
