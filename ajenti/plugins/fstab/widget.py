@@ -15,7 +15,7 @@ class DiskSpaceWidget (ConfigurableWidget):
 
     def on_start(self):
         self.find('device').text = self.config['device']
-        u, t = self.sensor.value(self.config['device'])
+        u, f, t = self.sensor.value(self.config['device'])
         self.find('percent').text = str_fsize(u)
         self.find('usage').value = float(1.0 * u / t)
 
@@ -44,5 +44,5 @@ class DiskFreeSpaceWidget (DiskSpaceWidget):
 
     def on_start(self):
         self.find('device').text = self.config['device']
-        u, t = self.sensor.value(self.config['device'])
-        self.find('value').text = _('%s free') % str_fsize(t - u)
+        u, f, t = self.sensor.value(self.config['device'])
+        self.find('value').text = _('%s free') % str_fsize(f)

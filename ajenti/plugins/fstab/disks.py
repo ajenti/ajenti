@@ -60,7 +60,7 @@ class PSUtilDiskUsageSensor (Sensor):
                 return (0, 1)
         except OSError:
             return (0, 1)
-        return (v.used, v.total)
+        return (v.used, v.free, v.total)
 
 
 @plugin
@@ -82,5 +82,5 @@ class MTabDiskUsageSensor (Sensor):
         s = os.statvfs(path)
         total = s[statvfs.F_FRSIZE] * s[statvfs.F_BLOCKS]
         free = s[statvfs.F_BFREE] * s[statvfs.F_BSIZE]
-        return (total - free, total)
+        return (total - free, free, total)
         
