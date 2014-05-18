@@ -91,6 +91,8 @@ class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
                 f.write('BOOTPROTO="' + x + '"\n')
 
         for x in iface.params:
+            if not iface.params[x]:
+                continue
             fnd = False
             for k in optionmap:
                 if optionmap[k] == x:
