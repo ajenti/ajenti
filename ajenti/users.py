@@ -43,7 +43,7 @@ class UserManager (BasePlugin):
     default_classconfig = {'sync-provider': ''}
     classconfig_root = True
 
-    def check_password(self, username, password):
+    def check_password(self, username, password, env=None):
         """
         Verifies the given username/password combo
 
@@ -66,13 +66,19 @@ class UserManager (BasePlugin):
         result = provider.check_password(username, password)
 
         provider_name = type(provider).__name__
+
+        ip_notion = ''
+        ip = env.get('REMOTE_ADDR', None) if env else None
+        if ip:
+            ip_notion = ' from %s' % ip
+
         if not result:
-            msg = 'failed login attempt for %s ("%s") through %s' % \
-                (username, password, provider_name)
+            msg = 'failed login attempt for %s ("%s") through %s%s' % \
+                (username, password, provider_name, ip_notion)
             syslog.syslog(syslog.LOG_WARNING, msg)
             logging.warn(msg)
         else:
-            msg = 'user %s logged in through %s' % (username, provider_name)
+            msg = 'user %s logged in through %s%s' % (username, provider_name, ip_notion)
             syslog.syslog(syslog.LOG_INFO, msg)
             logging.info(msg)
         return result

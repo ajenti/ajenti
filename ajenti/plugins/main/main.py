@@ -44,7 +44,7 @@ class MainServer (BasePlugin, HttpPlugin):
         username = context.query.getvalue('username', '')
         password = context.query.getvalue('password', '')
         if not AuthenticationMiddleware.get().try_login(
-            context, username, password
+            context, username, password, env=context.env,
         ):
             context.session.data['login-error'] = _('Invalid login or password')
             gevent.sleep(3)

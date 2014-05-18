@@ -128,8 +128,8 @@ class AuthenticationMiddleware (HttpHandler):
         else:
             context.add_header('X-Auth-Status', 'none')
 
-    def try_login(self, context, username, password):
-        if UserManager.get().check_password(username, password):
+    def try_login(self, context, username, password, env=None):
+        if UserManager.get().check_password(username, password, env=env):
             self.login(context, username)
             return True
         return False
