@@ -139,10 +139,11 @@ class Configurator (SectionPlugin):
     @on('configure-sync-button', 'click')
     def on_configure_sync(self):
         self.save()
-        self.configure_plugin(
-            UserManager.get().get_sync_provider(),
-            notify=False
-        )
+        if UserManager.get().get_sync_provider().classconfig_editor is not None:
+            self.configure_plugin(
+                UserManager.get().get_sync_provider(),
+                notify=False
+            )
         self.refresh()
 
     def refresh(self):
