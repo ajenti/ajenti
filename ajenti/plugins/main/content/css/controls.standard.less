@@ -9,18 +9,15 @@
 	font-family: @fontFamily;
 	font-size: @fontSize;
 
-	padding: 1px 4px;
+	padding: 0 4px;
 	.control-inset();
-	border: none;
 
 	&:hover {
-		border: 1px solid #eee;
-		padding: 0 3px;
+		border-color: @controlBorder;
 	}
 
 	&:focus {
-		border: 1px solid @orange;
-		padding: 0 3px;
+		border-color: @orange;
 	}
 }
 
@@ -28,8 +25,8 @@
 	display: inline-block;
 	color: @controlText;
 	min-height: 0;
+	padding: ((@controlHeight - 16)/2) 0 0px;
 	line-height: normal;
-	padding: 4px 0 0px;
 	border-bottom: 1px dotted lighten(@controlText, 10%);
 	margin: 1px 0 3px;
 	cursor: pointer;
@@ -68,10 +65,6 @@
 	    visibility: hidden;
 	    line-height: 0;
 	    height: 0;
-	}
-	
-	&.changed {
-		box-shadow: 0 0 2px @orange !important;
 	}
 
 	// ------------------
@@ -211,35 +204,19 @@
 		color: @controlText;
 
 		&.style-normal {
-			.button-style(#f8f8f8);
-		}
-
-		&.style-orange {
-			.button-style(@orange);
-		}
-
-		&.style-green {
-			.button-style(@green);
-		}
-
-		&.style-blue {
-			.button-style(@blue);
+			.button-style(@buttonColor);
 		}
 
 		&.style-link {
 			.actionlink();
-			.box-shadow(none);
 		}
 
 		&.style-mini {
-			.button-style(#f8f8f8);
+			.button-style(@buttonColor);
 			min-width: @controlHeight - 10px;
 			width: auto;
 			display: inline-block;
-			padding: 6px 5px 5px;
-
-			&:active {
-			}
+			padding: 5px 4px 6px;
 		}
 
 		&.style-raw {
@@ -247,7 +224,7 @@
 		}
 
 		&.pressed {
-			.button-active(#f8f8f8);
+			.button-active(@buttonColor);
 		}
 
 		i {
@@ -257,21 +234,11 @@
 		}
 
 		&.style-icon {
-			background: transparent !important;
-			border: none;
-			.box-shadow(none);
-			.square(14px);
-			padding: 2px;
-			opacity: .5;
-			line-height: normal;
-
-			&:hover {
-				opacity: 0.75;
-			}
-
-			&:active {
-				padding: 3px 2px 1px;
-			}
+			.button-style(@buttonColor);
+			min-width: @controlHeight - 10px;
+			width: auto;
+			padding: 5px 4px 6px;
+			opacity: .75;
 		}
 	}
 

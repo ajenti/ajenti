@@ -49,7 +49,7 @@ html {
 }
 
 a, a * {
-    .transition(all 0.5s);
+    .transition(all 0.125s);
     cursor: default;
 }
 
@@ -82,7 +82,7 @@ body {
     }
 
     html.ui-light & {
-        background: #eee;
+        background: #fff;
     }
 }
 
@@ -166,7 +166,9 @@ body.auth {
 }
 
 .content-gradient {
-    #gradient > .vertical(#fcfcfc, #f6f6f6);
+    // TODO
+    border: 1px solid #eee;
+    background: white;
 }
 
 
@@ -184,9 +186,9 @@ body.auth {
     height: @headerHeight;
     z-index: 3;
 
-    #gradient > .vertical(#333, #222);
-    .box-shadow(0 0 5px rgba(0,0,0,0.5));
-    overflow: hidden;
+    background: #333;
+    height: 30px;
+    border-bottom: 3px solid rgba(0,0,0,.25);
 
     .container {
         width: 960px;
@@ -202,12 +204,10 @@ body.auth {
                     font-size: 20px;
                     font-weight: bold;
                     color: @orange;
-                    text-shadow: 0 -2px 0 rgba(0,0,0,.5);//, 0 1px 0 rgba(255,255,255,.25);
                     text-decoration: none;
                 }
 
                 a:hover {
-                    text-shadow: 0 0 10px @orange;
                     cursor: pointer;
                 }
 
@@ -221,9 +221,9 @@ body.auth {
         .logout, #tab-headers a {
             display: inline-block;
             float: left;
-            padding: 8px 10px;
-            border-right: 1px solid rgba(0,0,0,.25);
+            padding: 9px 10px 6px;
             font-weight: bold;
+            border-bottom: 3px solid rgba(0,0,0,.25);
 
             &:hover {
                 background: rgba(255,255,255,0.125);
@@ -233,16 +233,15 @@ body.auth {
                 background: rgba(0,0,0,0.125);
             }
 
-            color: #666;
-            i:before { color: #666; }
+            color: #888;
+            i:before { color: #888; }
 
             text-decoration: none;
 
             &.active {
-                #gradient > .vertical(lighten(@orange, 15%), @orange);
+                background: lighten(@orange, 5%);
                 color: darken(@orange, 20%);
                 i:before { color: darken(@orange, 20%); }
-                text-shadow: 0 1px 0px rgba(255,255,255,.60);
             }
 
             .close {
@@ -287,18 +286,24 @@ body.auth {
     z-index: 100;
 
     .notification {
+        border: 1px solid rgba(0,0,0,.125);
+
         &.info {
             border-left: 5px solid #0d0;
+        }
+
+        &.warn {
+            border-left: 5px solid @orange;
         }
 
         &.error {
             border-left: 5px solid #d00;
         }
 
-        #gradient > .vertical(#eee, #fff);
-        opacity: .9;
+        font-size: 12px;
+        background: #f8f8f8;
+        opacity: .75;
         border-radius: 3px;
-        box-shadow: 0 1px 1px rgba(0,0,0,.5);
 
         width: 200px !important;
         max-height: auto !important;
@@ -416,7 +421,7 @@ body.auth {
     width: 20px;
     height: 20px;
     line-height: 18px;
-    border-radius: 5px;
+    border-radius: 3px;
 
     i::after {
         font-size: 48px;
@@ -439,14 +444,12 @@ body.auth {
     border-radius: 0 0 5px 5px;
 
     padding: 6px 10px;
-    #gradient > .vertical(#f55, #c00);
-    border-bottom: 1px solid #a00;
-    border-top: 1px solid #f88;
+    background: #d11;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.25);
 
     b, span, i:before {
         color: white;
         opacity: 1;
-        text-shadow: 0 -1px 0 rgba(0,0,0,.5);
     }
 }
 
@@ -487,7 +490,7 @@ body.auth {
 
     &:hover {
         opacity: 1;
-        left: -60px;
+        left: -65px;
         background: #fff;
     }
 }
