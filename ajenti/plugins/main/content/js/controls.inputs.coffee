@@ -317,7 +317,7 @@ class window.Controls.paging extends window.Control
             <div class="control paging">
                 <div class="control label">Page:&nbsp;</div>
                 <a class="prev control button style-mini"><i class="icon-arrow-left"></i></a>
-                <select></select>
+                <select class="control dropdown"></select>
                 <a class="next control button style-mini"><i class="icon-arrow-right"></i></a>
             </div>
         """

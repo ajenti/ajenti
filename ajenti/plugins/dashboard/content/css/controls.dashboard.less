@@ -15,7 +15,7 @@
             }
 
             >.placeholder {
-                border: 1px dashed #68a;
+                border: 2px dashed #68a;
                 height: 40px;
                 width: 100%;
                 padding: 10px 5px;
@@ -26,7 +26,7 @@
             &.trash {
                 display: none;
 
-                border: 1px dashed #a86;
+                border: 2px dashed #a86;
                 box-sizing: border-box;
 
                 width: 100%;
@@ -54,9 +54,7 @@
         padding: 10px 5px 10px 4px;
         box-sizing: border-box;
         border-radius: 3px;
-        box-shadow: 0 1px 1px rgba(0,0,0,.25);
-        background: #f0f0f0;
-        #gradient > .vertical(#fcfcfc, #f9f9f9);
+        border: 1px solid #eee;
         margin: 0 0 10px;
 
         >.handle {
@@ -78,8 +76,8 @@
         }
 
         &.ui-sortable-helper {
-            background: #f8f8f8;
-            box-shadow: 0 0 15px rgba(0,0,0,.25);
+            background: white;
+            box-shadow: 10px 10px 0 rgba(0,0,0,.0625);
         }
     }
 

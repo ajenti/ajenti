@@ -65,6 +65,7 @@
 	    visibility: hidden;
 	    line-height: 0;
 	    height: 0;
+	    font-size: 0;
 	}
 
 	// ------------------
@@ -186,7 +187,7 @@
 	&.icon {
 		.size(@controlHeight, 16px);
 		display: inline-block;
-		line-height: @controlHeight - 5px;
+		line-height: @controlHeight * 0.77;
 
 		i {
 			display: block;
@@ -279,27 +280,28 @@
 
 		>input+label {
 			float: left;
-			margin: 6px 7px 0 1px;
-			.square(@controlHeight - 12px);
+			margin: 4px 7px 0 1px;
+			.square(@controlHeight * 0.6);
 			padding: 1px;
-			.button-style(#f8f8f8);
-
-			&:active {
-				padding: 2px 1px 0;
-			}
+			.button-style(#ffffff);
 
 			.tick {
-				.transition(0.5s);
+				.transition(0.125s);
 				opacity: 0;
 			}
 		}
 
 		>input:checked+label {
-			#gradient > .vertical(lighten(@orange, 25%), @orange);
-			.box-shadow(@controlShadowHighlightPressed);
+			border-color: @orange;
+			background: lighten(@orange, 25%);
 
 			.tick {
-				opacity: .5;
+				opacity: 1;
+				padding-top: 1px;
+
+				&::before {
+					color: darken(@orange, 10%);
+				}
 			}
 		}
 
@@ -309,14 +311,7 @@
 	}
 
 	&.dropdown {
-		/*line-height: @controlHeight;
-		padding: 1px 5px 1px !important;
-		text-decoration: none;
-		color: @controlText;
-		.button-style(#ddd);*/
 		.size(@controlHeight + 2px, @controlWidth2);
-		/*text-transform: none;
-    	-webkit-appearance: none;*/
 	}
 
 	&.combobox {
@@ -345,7 +340,7 @@
 			color: @controlTextLighter;
 			text-transform: uppercase;
 			font-weight: bold;
-			border-bottom: 1px solid @controlTextLighter;
+			border-bottom: 2px solid #eee;
 		}
 
 		>div:last-child {
@@ -379,6 +374,7 @@
 		>.children, >*>.children {
 			background: white !important;
 			padding: 5px;
+			border-top: 1px solid @controlBorder
 		}
 	}
 
@@ -400,12 +396,10 @@
 		padding: 0 5px;
 
 		&:active {
-			#gradient > .vertical(lighten(@orange, 15%), @orange);
-			color: darken(@orange, 20%);
+			background: lighten(@orange, 15%);
 
-			* {
+			*, *:before {
 				color: white;
-				text-shadow: 0 1px 0px rgba(255,255,255,.60);
 			}
 		}
 	}
@@ -416,7 +410,7 @@
 		width: 99%;
 		border-spacing: 0;
 		border-collapse: collapse;
-		.box-shadow(@mainPaneShadow);
+		border: 1px solid @controlBorder;
 		.border-radius(1px);
 
 		&.wide {
@@ -514,11 +508,9 @@
 				&>th {
 					background: #f6f6f6;
 					padding: 10px 7px;
-					border-top: 1px solid @tableBorder;
 					border-left: 1px solid darken(@tableBorder, 5%);
-					border-bottom: 1px solid #ddd;
+					border-bottom: 2px solid #f0f0f0;
 					font-weight: bold;
-					text-shadow: 0 1px 0 white;
 					text-align: left;
 
 					&:last-child {
@@ -543,12 +535,12 @@
 		margin: 8px 1px;
 		height: @controlHeight - 13px;
 		.border-radius(3px);
-		background: #ccc;
+		background: @controlBorder;
 
 		div.fill {
 			height: @controlHeight - 13px;
 			.border-radius(3px);
-			#gradient > .vertical(lighten(@orange, 15%), @orange);
+			background: lighten(@orange, 15%);
 			position: relative;
 			overflow: hidden;
 		}
@@ -558,7 +550,7 @@
 		overflow: hidden;
 		padding: 5px 0;
 
-		* {
+		&>* {
 			float: left;
 		}
 
