@@ -144,6 +144,8 @@ class Dash (SectionPlugin):
         self.refresh()
 
     def on_reorder(self, indexes):
+        if len(indexes) == 0:
+            return
         cfg = {'widgets': []}
         for container, items in indexes.iteritems():
             idx = 0
