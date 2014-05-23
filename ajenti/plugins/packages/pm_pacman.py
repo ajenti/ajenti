@@ -22,8 +22,6 @@ class ArchPackageManager (PackageManager):
         try:
             out_u = subprocess.check_output(['pacman', '-Qu'])
         except subprocess.CalledProcessError as cpe:
-            self.context.notify('info', _('Failed to update lists: %s') % cpe)
-            logging.info('Failed to update lists %s' % cpe)
             out_u = ''
 
         out_a = subprocess.check_output(['pacman', '-Qs'])
