@@ -61,7 +61,7 @@ msgid "Status"
 msgstr ""
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
-#: ajenti/plugins/configurator/configurator.py:160
+#: ajenti/plugins/configurator/configurator.py:161
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
 #: ajenti/plugins/exports/layout/main.xml:5
@@ -145,7 +145,7 @@ msgid "Enable"
 msgstr ""
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:261
+#: ajenti/plugins/configurator/configurator.py:262
 msgid "Configuration"
 msgstr ""
 
@@ -210,28 +210,28 @@ msgstr ""
 msgid "Configure"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:177
+#: ajenti/plugins/configurator/configurator.py:178
 msgid "Auto"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:199
+#: ajenti/plugins/configurator/configurator.py:200
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:206
+#: ajenti/plugins/configurator/configurator.py:207
 msgid "Please supply hostname"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:222
+#: ajenti/plugins/configurator/configurator.py:223
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:265
+#: ajenti/plugins/configurator/configurator.py:266
 msgid "Modify Ajenti configuration"
 msgstr ""
 
-#: ajenti/plugins/configurator/configurator.py:266
+#: ajenti/plugins/configurator/configurator.py:267
 msgid "Restart Ajenti"
 msgstr ""
 
@@ -677,7 +677,7 @@ msgid "Software"
 msgstr ""
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:102 ajenti/plugins/vh/main.py:256
+#: ajenti/plugins/vh/main.py:102 ajenti/plugins/vh/main.py:254
 #: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
 #: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
@@ -749,6 +749,7 @@ msgstr ""
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:6
 #: ajenti/plugins/vh-mail/layout/main.xml:5
+#: ajenti/plugins/vh-pureftpd/layout/ext.xml:2
 #: ajenti/plugins/mysql/layout/config.xml:3
 #: ajenti/plugins/openvpn/layout/config.xml:3
 msgid "Password"
@@ -1051,6 +1052,7 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
 #: ajenti/plugins/vh-mail/layout/main.xml:4
+#: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
 msgstr ""
@@ -1194,23 +1196,23 @@ msgstr ""
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:233
+#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:231
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:248
+#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:246
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:250
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:248
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:98 ajenti/plugins/vh/main.py:252
+#: ajenti/plugins/vh/main.py:98 ajenti/plugins/vh/main.py:250
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:208
+#: ajenti/plugins/vh/main.py:206
 msgid "Download complete"
 msgstr ""
 
@@ -1670,12 +1672,7 @@ msgid ""
 "software:"
 msgstr ""
 
-#: ajenti/plugins/packages/pm_pacman.py:25
-#, python-format
-msgid "Failed to update lists: %s"
-msgstr ""
-
-#: ajenti/plugins/packages/pm_pacman.py:40
+#: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
 msgstr ""
 
@@ -2121,7 +2118,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:194
+#: ajenti/plugins/dashboard/dash.py:196
 msgid "Widgets"
 msgstr ""
 
