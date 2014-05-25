@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="/ajenti:static/resources.css" />
         <link rel="icon" type="image/png" href="/ajenti:static/main/favicon.png" />
         <script src="/ajenti:static/resources.js"></script>
-        <script src="https://login.persona.org/include.js"></script>
     </head>
 
     <body class="auth">
@@ -92,6 +91,10 @@
                 } else {
                     $('.licensebar').css({background: '#f90'});
                 }
+
+                s = document.createElement('script')
+                s.src = 'https://login.persona.org/include.js'
+                $('head').append(s)
 
                 $('#persona-login').click(function () {
                     navigator.id.watch({
