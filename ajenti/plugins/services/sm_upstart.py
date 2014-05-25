@@ -80,4 +80,4 @@ class UpstartService (Service):
         p.wait()
 
     def command(self, cmd):
-        subprocess.Popen(['/etc/init.d/%s' % self.name, 'cmd'], close_fds=True).wait()
+        subprocess.Popen(['/etc/init.d/%s' % self.name, cmd], close_fds=True).wait()
