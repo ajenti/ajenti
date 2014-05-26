@@ -5,7 +5,6 @@ from ajenti.util import platform_select
 
 @plugin
 class Nginx (WebserverPlugin):
-    platforms = ['debian', 'centos', 'freebsd']
     service_name = 'nginx'
     service_buttons = [
         {
@@ -18,10 +17,12 @@ class Nginx (WebserverPlugin):
         debian='/etc/nginx/sites-available',
         centos='/etc/nginx/conf.d',
         freebsd='/usr/local/etc/nginx/conf.d',
+        arch='/etc/nginx/sites-available',
     )
     hosts_enabled_dir = '/etc/nginx/sites-enabled'
     supports_host_activation = platform_select(
         debian=True,
+        arch=True,
         default=False,
     )
 
