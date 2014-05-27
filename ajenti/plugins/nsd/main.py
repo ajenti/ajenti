@@ -4,6 +4,7 @@ from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
+from ajenti.util import platform_select
 
 from reconfigure.configs import NSDConfig
 from reconfigure.items.nsd import ZoneData
@@ -18,7 +19,10 @@ class NSDPlugin (SectionPlugin):
 
         self.append(self.ui.inflate('nsd:main'))
 
-        self.config = NSDConfig(path='/etc/nsd3/nsd.conf')
+        self.config = NSDConfig(path=platform_select(
+            default='/etc/nsd3/nsd.conf',
+            arch='/etc/nsd/nsd.conf',
+        ))
 
         self.binder = Binder(None, self)
         self.find('zones').new_item = lambda c: ZoneData()
