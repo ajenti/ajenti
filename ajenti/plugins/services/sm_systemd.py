@@ -1,7 +1,4 @@
-try:
-    import dbus
-except ImportError:
-    pass
+import dbus
 
 import subprocess
 import logging
@@ -29,13 +26,13 @@ class SystemdServiceManager (ServiceManager):
             logging.debug('units size: %i' % len(units))
             for unit in units:
                 if (unit[0].endswith('.service')):
-                    logging.debug('================== service ==================')
-                    logging.debug('unit: %s' % unit[0])
-                    logging.debug('desc: %s' % unit[1])
-                    logging.debug('status: %s' % unit[2])
-                    logging.debug('isactive: %s' % unit[3])
-                    logging.debug('plugged: %s' % unit[4])
-                    logging.debug('path: %s' % unit[6])
+                    #logging.debug('================== service ==================')
+                    #logging.debug('unit: %s' % unit[0])
+                    #logging.debug('desc: %s' % unit[1])
+                    #logging.debug('status: %s' % unit[2])
+                    #logging.debug('isactive: %s' % unit[3])
+                    #logging.debug('plugged: %s' % unit[4])
+                    #logging.debug('path: %s' % unit[6])
 
                     s = SystemdService(str(unit[0]))
                     s.running = (str(unit[4]) == 'running')
