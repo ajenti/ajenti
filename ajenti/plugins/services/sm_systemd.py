@@ -21,15 +21,6 @@ class SystemdServiceManager (ServiceManager):
         self.systemd = self.bus.get_object("org.freedesktop.systemd1", "/org/freedesktop/systemd1")
         self.interface = dbus.Interface(self.systemd, 'org.freedesktop.systemd1.Manager')
 
-    @classmethod
-    def verify(cls):
-        try:
-            c = cls()
-            c.init()
-            return True
-        except:
-            return False
-
     @cache_value(1)
     def get_all(self):
         try:
@@ -38,13 +29,13 @@ class SystemdServiceManager (ServiceManager):
             logging.debug('units size: %i' % len(units))
             for unit in units:
                 if (unit[0].endswith('.service')):
-#                    logging.debug('================== service ==================')
-#                    logging.debug('unit: %s' % unit[0])
-#                    logging.debug('desc: %s' % unit[1])
-#                    logging.debug('status: %s' % unit[2])
-#                    logging.debug('isactive: %s' % unit[3])
-#                    logging.debug('plugged: %s' % unit[4])
-#                    logging.debug('path: %s' % unit[6])
+                    logging.debug('================== service ==================')
+                    logging.debug('unit: %s' % unit[0])
+                    logging.debug('desc: %s' % unit[1])
+                    logging.debug('status: %s' % unit[2])
+                    logging.debug('isactive: %s' % unit[3])
+                    logging.debug('plugged: %s' % unit[4])
+                    logging.debug('path: %s' % unit[6])
 
                     s = SystemdService(str(unit[0]))
                     s.running = (str(unit[4]) == 'running')
