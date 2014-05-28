@@ -1,4 +1,5 @@
 import dbus
+import os
 
 import subprocess
 import logging
@@ -34,7 +35,7 @@ class SystemdServiceManager (ServiceManager):
                     #logging.debug('plugged: %s' % unit[4])
                     #logging.debug('path: %s' % unit[6])
 
-                    s = SystemdService(str(unit[0]))
+                    s = SystemdService(os.path.splitext(str(unit[0]))[0])
                     s.running = (str(unit[4]) == 'running')
                     r.append(s)
 
