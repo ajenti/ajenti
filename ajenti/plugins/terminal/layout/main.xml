@@ -6,7 +6,9 @@
                 <button id="run-button" text="{Run}" icon="chevron-right" />
             </hc>
         </right>
-        <button id="new-button" text="{New}" icon="plus" />
+        <box>
+            <button id="new-button" text="{New}" icon="plus" />
+        </box>
     </box>
     <body>
         <pad>
