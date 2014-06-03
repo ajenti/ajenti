@@ -191,7 +191,7 @@ class FileManager (SectionPlugin):
         self.binder.update()
         tab = self.controller.tabs[self.tabs.active]
         for item in tab.items:
-            item.checked = True
+            item.checked = not item.checked
         self.binder.populate()
         self.context.notify('info', _('Selected %i items') % len(tab.items)) 
 

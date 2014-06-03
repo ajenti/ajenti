@@ -4,9 +4,6 @@
             <button id="close" icon="remove-sign" text="{Close}" />
         </right>
         <hc>
-            <tooltip text="{Select all}">
-                <button icon="check" style="mini" id="select-all" />
-            </tooltip>
             <button id="new-file" icon="file" text="{New File}" />
             <button id="new-dir" icon="folder-close" text="{New Folder}" />
             <tooltip text="{Cut}">
@@ -41,7 +38,11 @@
                                 <bind:collection id="items" bind="items" pagesize="30">
                             		<dt bind="__items" style="compressed">
                                         <dtr header="True">
-                                            <dth width="1%" />
+                                            <dth width="30">
+                                                <tooltip text="{Select all}">
+                                                    <button icon="check" style="raw" id="select-all" />
+                                                </tooltip>
+                                            </dth>
                                             <dth text="{Name}" />
                                             <dth text="{Size}" width="100" />
                                             <dth width="1%" />
