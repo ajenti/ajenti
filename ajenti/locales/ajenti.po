@@ -115,7 +115,7 @@ msgstr ""
 #: ajenti/plugins/vh-mail/layout/main.xml:3
 #: ajenti/plugins/vh-mail/layout/main.xml:9
 #: ajenti/plugins/vh-mail/layout/main.xml:12
-#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:9
+#: ajenti/plugins/nsd/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:8
 #: ajenti/plugins/ctdb/layout/main.xml:18
 #: ajenti/plugins/ctdb/layout/main.xml:22
 #: ajenti/plugins/resolv/layout/main.xml:2
@@ -667,9 +667,9 @@ msgstr ""
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
 #: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/nginx/main.py:48 ajenti/plugins/supervisor/main.py:18
+#: ajenti/plugins/nginx/main.py:50 ajenti/plugins/supervisor/main.py:18
 #: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
-#: ajenti/plugins/nsd/main.py:17 ajenti/plugins/ctdb/main.py:22
+#: ajenti/plugins/nsd/main.py:18 ajenti/plugins/ctdb/main.py:22
 #: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
 #: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
@@ -677,9 +677,9 @@ msgid "Software"
 msgstr ""
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:102 ajenti/plugins/vh/main.py:254
-#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:162
-#: ajenti/plugins/nsd/main.py:77 ajenti/plugins/network/main.py:77
+#: ajenti/plugins/vh/main.py:103 ajenti/plugins/vh/main.py:255
+#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
 #: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
 msgid "Saved"
@@ -1196,23 +1196,23 @@ msgstr ""
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:84 ajenti/plugins/vh/main.py:231
+#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:232
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:93 ajenti/plugins/vh/main.py:246
+#: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:247
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:248
+#: ajenti/plugins/vh/main.py:97 ajenti/plugins/vh/main.py:249
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:98 ajenti/plugins/vh/main.py:250
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:251
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:206
+#: ajenti/plugins/vh/main.py:207
 msgid "Download complete"
 msgstr ""
 
@@ -1326,7 +1326,7 @@ msgid "Back"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
-#: ajenti/plugins/fm/layout/main.xml:8
+#: ajenti/plugins/fm/layout/main.xml:7
 msgid "Delete"
 msgstr ""
 
@@ -1578,16 +1578,16 @@ msgstr ""
 msgid "Invalid mailbox domain"
 msgstr ""
 
-#: ajenti/plugins/vh-mail/main.py:74
+#: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
 msgstr ""
 
-#: ajenti/plugins/vh-mail/main.py:119
+#: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
 msgstr ""
 
-#: ajenti/plugins/vh-mail/main.py:141
+#: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
 msgstr ""
 
@@ -1758,11 +1758,11 @@ msgstr ""
 msgid "Sensor"
 msgstr ""
 
-#: ajenti/plugins/nsd/main.py:38 ajenti/plugins/bind9/main.py:52
+#: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:52
 msgid "Zone saved"
 msgstr ""
 
-#: ajenti/plugins/nsd/main.py:66
+#: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
 msgstr ""
@@ -1814,27 +1814,27 @@ msgid "Close"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:2
-msgid "Select all"
-msgstr ""
-
-#: ajenti/plugins/fm/layout/main.xml:3
 msgid "New File"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:4
+#: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:5
+#: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:6
+#: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
 msgstr ""
 
-#: ajenti/plugins/fm/layout/main.xml:7
+#: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:9
+msgid "Select all"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:12
