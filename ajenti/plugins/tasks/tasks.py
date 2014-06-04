@@ -11,7 +11,7 @@ from api import Task, TaskError
 
 @plugin
 class CommandTask (Task):
-    name = 'Execute command'
+    name = _('Execute command')
     ui = 'tasks:params-execute'
     default_params = {
         'command': '',
@@ -61,9 +61,36 @@ class CopyFilesTask (Task):
 
 @plugin
 class MoveFilesTask (CopyFilesTask):
-    name = 'Move files'
+    name = _('Move files')
     command = ['mv']
     message_template = _('Moving %s')
+
+
+@plugin
+class DeleteFilesTask (Task):
+    name = _('Delete files')
+    ui = 'tasks:params-deletedir'
+    command = ['rm', '-rf', '--']
+    message_template = _('Deleting %s')
+    default_params = {
+        'source': '',
+    }
+
+    def run(self, source=None):
+        index = 0
+        if isinstance(source, basestring):
+            source = [source]
+
+        for file in source:
+            self.message = self.message_template % file
+            p = subprocess.Popen(self.command + [file])
+            while p.poll() is None:
+                gevent.sleep(1)
+                if self.aborted:
+                    p.terminate()
+                    return
+            index += 1
+            self.set_progress(index, len(source))
 
 
 @plugin

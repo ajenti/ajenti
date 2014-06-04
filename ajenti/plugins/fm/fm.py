@@ -111,8 +111,8 @@ class FileManager (SectionPlugin):
         self.refresh()
 
     def _chown_new(self, path):
-        uid = self.classconfig.get('new_owner', 'root')
-        gid = self.classconfig.get('new_group', 'root')
+        uid = self.classconfig.get('new_owner', 'root') or 'root'
+        gid = self.classconfig.get('new_group', 'root') or 'root'
         try:
             uid = int(uid)
         except:
@@ -157,7 +157,10 @@ class FileManager (SectionPlugin):
 
     @on('mass-delete', 'click')
     def on_delete(self):
-        self.backend.remove(self._get_checked(), self.refresh)
+        def callback(task):
+            self.context.notify('info', _('Files deleted'))
+            self.refresh()
+        self.backend.remove(self._get_checked(), cb=callback)
 
     @on('paste', 'click')
     def on_paste(self):
@@ -279,7 +282,7 @@ class FileManager (SectionPlugin):
         tab.navigate(item.path)
         self.refresh()
 
-    def refresh(self):
+    def refresh(self, _=None):
         for tab in self.controller.tabs:
             tab.refresh()
         self.binder.populate()

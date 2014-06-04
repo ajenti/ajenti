@@ -15,7 +15,7 @@
                 "ajenti.plugins.tasks.manager.TaskManager": "{\"task_definitions\": []}", 
                 "ajenti.usersync.adsync.ActiveDirectorySyncProvider": "{\"domain\": \"DOMAIN\", \"password\": \"\", \"user\": \"Administrator\", \"base\": \"cn=Users,dc=DOMAIN\", \"address\": \"localhost\"}", 
                 "ajenti.plugins.elements.usermgr.ElementsUserManager": "{\"groups\": []}", 
-                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"(lp1\\n.\"}"
+                "ajenti.plugins.elements.projects.main.ElementsProjectManager": "{\"projects\": \"KGxwMQou\\n\"}"
             }, 
             "password": "sha512|$6$rounds=40000$nIVrqqz638rB8wOo$VbMv8y2lStgcsYxEuu7JfHiEd06eeiSoIbg7Hvivj9K1vPayaCbAiAqtpyOoIkNfIXFmMD0jK6Dd4WFnvywkY1", 
             "permissions": []

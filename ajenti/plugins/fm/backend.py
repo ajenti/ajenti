@@ -11,7 +11,7 @@ from ajenti.api import *
 from ajenti.util import str_fsize
 from ajenti.plugins import manager
 from ajenti.plugins.tasks.manager import TaskManager
-from ajenti.plugins.tasks.tasks import CopyFilesTask, MoveFilesTask
+from ajenti.plugins.tasks.tasks import CopyFilesTask, MoveFilesTask, DeleteFilesTask
 
 
 class Item (object):
@@ -121,13 +121,13 @@ class FMBackend (BasePlugin):
     def init(self):
         self.task_manager = TaskManager.get()
 
-    def remove(self, items, cb=lambda: None):
+    def remove(self, items, cb=lambda t: None):
         logging.info('[fm] removing %s' % ', '.join(x.fullpath for x in items))
         if self._total_size(items) > self.FG_OPERATION_LIMIT or self._has_dirs(items):
-            command = 'rm -vfr -- '
-            for item in items:
-                command += self._escape(item)
-            self.context.launch('terminal', command=command, callback=cb)
+            paths = [x.fullpath for x in items]
+            task = DeleteFilesTask.new(source=paths)
+            task.callback = cb
+            self.task_manager.run(task=task)
         else:
             for i in items:
                 if os.path.isdir(i.fullpath):
@@ -146,7 +146,7 @@ class FMBackend (BasePlugin):
         else:
             for i in items:
                 shutil.move(i.fullpath, dest)
-            cb()
+            cb(None)
 
     def copy(self, items, dest, cb=lambda t: None):
         logging.info('[fm] copying %s to %s' % (', '.join(x.fullpath for x in items), dest))
@@ -161,7 +161,7 @@ class FMBackend (BasePlugin):
                     shutil.copytree(i.fullpath, os.path.join(dest, i.name))
                 else:
                     shutil.copy(i.fullpath, os.path.join(dest, i.name))
-            cb()
+            cb(None)
 
 
 @interface
