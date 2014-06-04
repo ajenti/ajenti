@@ -457,14 +457,31 @@ msgstr ""
 msgid "Tools"
 msgstr "Rīki"
 
+#: ajenti/plugins/tasks/tasks.py:14
+msgid "Execute command"
+msgstr ""
+
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
 msgstr ""
 
+#: ajenti/plugins/tasks/tasks.py:64
+msgid "Move files"
+msgstr ""
+
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
 msgid "Moving %s"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:71
+msgid "Delete files"
+msgstr ""
+
+#: ajenti/plugins/tasks/tasks.py:74
+#, python-format
+msgid "Deleting %s"
 msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:1
@@ -617,6 +634,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
+#: ajenti/plugins/tasks/layout/params-deletedir.xml:1
 msgid "From directory"
 msgstr "No direktorijas"
 
@@ -1785,20 +1803,24 @@ msgstr "Saglabāt zonu"
 msgid "File Manager"
 msgstr "Failu pārvaldnieks"
 
-#: ajenti/plugins/fm/fm.py:176
+#: ajenti/plugins/fm/fm.py:161
+msgid "Files deleted"
+msgstr ""
+
+#: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
 msgstr "Faili ir pārvietoti"
 
-#: ajenti/plugins/fm/fm.py:181
+#: ajenti/plugins/fm/fm.py:184
 msgid "Files copied"
 msgstr "Faili ir pārkopēti"
 
-#: ajenti/plugins/fm/fm.py:196
+#: ajenti/plugins/fm/fm.py:199
 #, python-format
 msgid "Selected %i items"
 msgstr ""
 
-#: ajenti/plugins/fm/fm.py:235
+#: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
 msgstr "Izsaiņots"
 
