@@ -1,3 +1,4 @@
+import cgi
 import socketio
 import traceback
 
@@ -90,4 +91,4 @@ class CentralDispatcher (BasePlugin, HttpHandler):
                 </pre>
             </body>
         </html>
-        """ % stack
+        """ % cgi.escape(stack)
