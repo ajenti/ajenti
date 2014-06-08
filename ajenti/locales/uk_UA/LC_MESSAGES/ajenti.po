@@ -468,7 +468,7 @@ msgstr "Копіювання %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Переміщення файлів"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -477,12 +477,12 @@ msgstr "Переміщення %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Видалити файли"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Видалення %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -953,23 +953,23 @@ msgstr "Мережа"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
-msgstr ""
+msgstr "Інтерфейси"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
-msgstr ""
+msgstr "Зв'язати лише до цих інтерфейсів"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
-msgstr ""
+msgstr "Ідентифікація"
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr ""
+msgstr "Робоча Група"
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"
-msgstr ""
+msgstr "Рядок сервера"
 
 #: ajenti/plugins/samba/layout/main.xml:26
 #: ajenti/plugins/ctdb/layout/main.xml:11
@@ -978,11 +978,11 @@ msgstr "Log файли"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
-msgstr ""
+msgstr "Безпека"
 
 #: ajenti/plugins/samba/layout/main.xml:28
 msgid "Sessions"
-msgstr ""
+msgstr "Сесії"
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
@@ -996,7 +996,7 @@ msgstr "Користувач"
 
 #: ajenti/plugins/samba/layout/main.xml:31
 msgid "Machine"
-msgstr ""
+msgstr "Машина"
 
 #: ajenti/plugins/samba/layout/main.xml:32
 #: ajenti/plugins/openvpn/layout/main.xml:7
@@ -1011,7 +1011,7 @@ msgstr "Набір"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "Стан жорсткого диска"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -1027,7 +1027,7 @@ msgstr "Немає даних"
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 msgid "Device"
-msgstr ""
+msgstr "Пристрій"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
 #: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:14
@@ -1042,16 +1042,16 @@ msgstr "Система"
 #: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Головний каталог для %s був створений"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Пароль для %s був змінений"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
-msgstr ""
+msgstr "Пароль не повинен бути порожнім"
 
 #: ajenti/plugins/users/main.py:123
 #, python-format
@@ -1146,11 +1146,11 @@ msgstr ""
 
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
-msgstr ""
+msgstr "IP діапазони"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Глобальні параметри"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
@@ -1169,7 +1169,7 @@ msgstr "Дивитися"
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
 msgid "Reload"
-msgstr ""
+msgstr "Перезавантажити"
 
 #: ajenti/plugins/db_common/api.py:45
 msgid "Query finished"
@@ -1190,7 +1190,7 @@ msgstr "Підтвердити видалення бази даних!"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Статичні файли"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
@@ -1198,11 +1198,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Реверс-проксі"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Процес"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1210,7 +1210,7 @@ msgstr "Процеси"
 
 #: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Веб-сайти"
 
 #: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:232
 msgid "Testing configuration"
@@ -1338,7 +1338,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Назад"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
@@ -1347,33 +1347,33 @@ msgstr "Видалити"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Всі дані веб-сайту будуть втрачені. Продовжити?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Enabled"
-msgstr ""
+msgstr "Ввімкнено"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Режим обслуговування"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Файли веб-сайту"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Створити каталог"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Автоматичне завантажування"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "Від URL-адреси"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
@@ -1381,11 +1381,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Домени"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Домен"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1403,25 +1403,25 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
-msgstr ""
+msgstr "Зміст"
 
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "Застосувати зміни"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
-msgstr ""
+msgstr "Автозапуск"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
-msgstr ""
+msgstr "Вимкнено"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
-msgstr ""
+msgstr "Автоматичне оновлювання"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "On crash"
@@ -1437,11 +1437,11 @@ msgstr ""
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Тестування конфігурації NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "Служба NGINX"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1453,11 +1453,11 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr ""
+msgstr "Пристрої"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr ""
+msgstr "Блоки"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
@@ -1486,7 +1486,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/main.py:202
 msgid "Applied successfully"
-msgstr ""
+msgstr "Успішно застосовано"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
@@ -1494,7 +1494,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr ""
+msgstr "Завантажити поточний стан"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
@@ -1510,11 +1510,11 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr ""
+msgstr "Умови"
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr ""
+msgstr "Нові правила"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
@@ -1528,7 +1528,7 @@ msgstr "Причина"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr ""
+msgstr "Модулі"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
@@ -1536,15 +1536,15 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr ""
+msgstr "Аргументи"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "Аргумент"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:24
@@ -1719,11 +1719,11 @@ msgstr "Встановити / видалити"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Refresh lists"
-msgstr ""
+msgstr "Оновити списки"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "Отримати списки"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
@@ -1748,11 +1748,11 @@ msgstr "Версія"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr ""
+msgstr "Позначити для установки/оновлення"
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr ""
+msgstr "Позначити для видалення"
 
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17
@@ -1762,42 +1762,42 @@ msgstr "Скасувати"
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr ""
+msgstr "Температура жорсткого диску"
 
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
-msgstr ""
+msgstr "Датчик"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:52
 msgid "Zone saved"
-msgstr ""
+msgstr "Зони збережені"
 
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s Не існує"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
-msgstr ""
+msgstr "Зони"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
 msgid "File"
-msgstr ""
+msgstr "Файл"
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
 msgid "Zone"
-msgstr ""
+msgstr "Зона"
 
 #: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/bind9/layout/main.xml:8
 msgid "Zone file does not exist"
-msgstr ""
+msgstr "Файл зони не існує"
 
 #: ajenti/plugins/nsd/layout/main.xml:9
 #: ajenti/plugins/bind9/layout/main.xml:10
 msgid "Save zone"
-msgstr ""
+msgstr "Зберегти зони"
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
@@ -1805,7 +1805,7 @@ msgstr "Файловий менеджер"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Файли видалені"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"

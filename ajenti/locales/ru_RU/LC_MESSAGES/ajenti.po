@@ -459,7 +459,7 @@ msgstr "Инструменты"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Выполнение комманды"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -468,7 +468,7 @@ msgstr "Копируется %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Переместить файлы"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -477,12 +477,12 @@ msgstr "Перемещается %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Удалить файлы"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Удаление %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -1805,7 +1805,7 @@ msgstr "Менеджер файлов"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Файлов удалено"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"

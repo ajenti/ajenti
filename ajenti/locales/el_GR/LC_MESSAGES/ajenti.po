@@ -50,7 +50,7 @@ msgstr "Τύπος"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 msgid "Depends on"
-msgstr ""
+msgstr "Εξαρτάται από"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -201,7 +201,7 @@ msgstr "Άγνωστο"
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Σφάλμα: \"%s\""
 
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -314,7 +314,7 @@ msgstr "Συγχρονισμός τώρα"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "Έχει ρυθμιστεί σωστά"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
@@ -390,7 +390,7 @@ msgstr "Διεύθυνση διακομιστή"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Όνομα τομέα"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -460,7 +460,7 @@ msgstr "Εργαλεία"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Εκτέλεση εντολής"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -469,7 +469,7 @@ msgstr "Αντιγραφή %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Μετακινήσετε αρχεία"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -478,12 +478,12 @@ msgstr "Μετακίνηση %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Διαγραφή αρχείων"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Διαγραφή %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -501,7 +501,7 @@ msgstr "Εκτελείται"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr ""
+msgstr "Ματαίωση"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
@@ -514,7 +514,7 @@ msgstr "Ματαίωση"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "Εργασίες που έχουν ολοκληρωθεί"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
@@ -544,7 +544,7 @@ msgstr "Εργασίες"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "Εκτέλεση εργασίας"
 
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
@@ -583,7 +583,7 @@ msgstr "Ετήσια"
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "Κατά την επανεκκίνηση"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
@@ -631,18 +631,18 @@ msgstr "Δημιουργία"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Λειτουργούν παράλληλα"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-deletedir.xml:1
 msgid "From directory"
-msgstr ""
+msgstr "Από τον κατάλογο"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr ""
+msgstr "Στον κατάλογο"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
@@ -778,7 +778,7 @@ msgstr ""
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Εσφαλμένο συνθηματικό"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
@@ -786,11 +786,11 @@ msgstr ""
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Άδειο"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Φίλτρο..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -824,7 +824,7 @@ msgstr "Νέος κωδικός"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Επιβεβαίωση συνθηματικού"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -920,7 +920,7 @@ msgstr "Μόνο για ανάγνωση"
 #: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
-msgstr ""
+msgstr "Για προχωρημένους"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
@@ -1227,11 +1227,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:251
 msgid "Restarting web services"
-msgstr ""
+msgstr "Επανεκκίνηση των υπηρεσιών web"
 
 #: ajenti/plugins/vh/main.py:207
 msgid "Download complete"
-msgstr ""
+msgstr "Η λήψη ολοκληρώθηκε"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
@@ -1239,7 +1239,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Νέα ιστοσελίδα"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Επανεκκίνηση ιστοσελίδων"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
@@ -1259,11 +1259,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "PHP options"
-msgstr ""
+msgstr "Επιλογές PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "PHP flags"
-msgstr ""
+msgstr "Σημαίες PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
