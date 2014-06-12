@@ -759,6 +759,10 @@ msgstr "הוסף לסימניות"
 msgid "Topmost directory"
 msgstr "תיקיה עליונה"
 
+#: ajenti/plugins/main/controls_dialogs.py:72
+msgid "The directory does not exist anymore"
+msgstr ""
+
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/db_common/layout/main.xml:14

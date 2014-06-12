@@ -459,7 +459,7 @@ msgstr "Werkzeuge"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Befehl ausführen"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -468,7 +468,7 @@ msgstr "Kopiere %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Dateien verschieben"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -477,12 +477,12 @@ msgstr "Verschiebe %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Dateien löschen"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Lösche %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -758,6 +758,10 @@ msgstr "Lesezeichen"
 #: ajenti/plugins/fm/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "Oberste Verzeichnis"
+
+#: ajenti/plugins/main/controls_dialogs.py:72
+msgid "The directory does not exist anymore"
+msgstr ""
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -1805,7 +1809,7 @@ msgstr "Datei-Manager"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Dateien gelöscht"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
