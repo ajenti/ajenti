@@ -77,6 +77,9 @@ def detect_platform():
         'rhel': 'centos',
     }
 
+    if hasattr(pyplatform, 'mac_ver') and pyplatform.mac_ver()[0] != '':
+        return 'osx', 'osx'
+
     if pyplatform.system() != 'Linux':
         res = pyplatform.system().lower()
         return res, res

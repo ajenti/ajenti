@@ -109,10 +109,11 @@ def run():
         listener.listen(10)
     else:
         listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
-        except:
-            logging.warn('Could not set TCP_CORK')
+        if not ajenti.platform in ['freebsd', 'osx']:
+            try:
+                listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
+            except:
+                logging.warn('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         try:
             listener.bind(bind_spec)
