@@ -67,7 +67,13 @@ class BaseFileDialog (object):
         _dirs = []
         if len(self.path) > 1:
             _dirs.append('..')
-        for item in _dirs + sorted(os.listdir(unicode(self.path))):
+
+        if not os.path.exists(self.path):
+            self.context.notify('error', _('The directory does not exist anymore'))
+        else:
+            _dirs += sorted(os.listdir(unicode(self.path)))
+
+        for item in _dirs:
             isdir = os.path.isdir(os.path.join(self.path, item))
             if not self.shows_files and not isdir:
                 continue
