@@ -297,6 +297,7 @@ class SectionPermissions (PermissionProvider):
         return sorted([
             ('section:%s' % x.__class__.__name__, (_(x.category) or 'Ajenti') + ' | ' + _(x.title))
             for x in SectionPlugin.get_instances()
+            if not hasattr(cls, 'permissionless')
         ], key=lambda x: x[1])
 
 
@@ -334,7 +335,8 @@ class SectionsRoot (UIElement):
         self.is_empty = True
         for cls in SectionPlugin.get_classes():
             try:
-                UserManager.get().require_permission(self.context, 'section:%s' % cls.__name__)
+                if not hasattr(cls, 'permissionless'):
+                    UserManager.get().require_permission(self.context, 'section:%s' % cls.__name__)
 
                 try:
                     profile_start('Starting %s' % cls.__name__)
