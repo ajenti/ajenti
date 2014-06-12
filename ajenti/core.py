@@ -112,11 +112,7 @@ def run():
         try:
             listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
         except:
-            try:
-                socket.TCP_NOPUSH = 4
-                listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_NOPUSH, 1)
-            except:
-                logging.warn('Could not set TCP_CORK/TCP_NOPUSH')
+            logging.warn('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         try:
             listener.bind(bind_spec)

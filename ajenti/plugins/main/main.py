@@ -297,7 +297,7 @@ class SectionPermissions (PermissionProvider):
         return sorted([
             ('section:%s' % x.__class__.__name__, (_(x.category) or 'Ajenti') + ' | ' + _(x.title))
             for x in SectionPlugin.get_instances()
-            if not hasattr(cls, 'permissionless')
+            if not hasattr(x, 'permissionless')
         ], key=lambda x: x[1])
 
 
