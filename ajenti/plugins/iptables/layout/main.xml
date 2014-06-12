@@ -68,8 +68,9 @@
                                                 <right>
                                                     <paging bind="__paging" />
                                                 </right>
-                                                <box height="5" />
-                                                <button bind="__add" icon="plus" text="{New Rule}" />
+                                                <box>
+                                                    <button bind="__add" icon="plus" text="{New Rule}" />
+                                                </box>
                                             </bind:collection>
                                         </vc>
                                     </bind:template>
