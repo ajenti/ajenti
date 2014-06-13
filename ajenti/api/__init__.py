@@ -157,6 +157,7 @@ def _check_plugin(cls):
 class NoImplementationsError (Exception):
     pass
 
+
 def interface(cls):
     """
     A decorator to create plugin interfaces::
@@ -372,5 +373,6 @@ __all__ = [
     'track',
     'persistent',
     'extract_context',
+    'NoImplementationsError',
     'interface',
 ]
