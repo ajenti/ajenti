@@ -25,6 +25,7 @@ def init():
     import sm_sysvinit
     import sm_centos
     import sm_freebsd
+    import sm_osx
     import main
     import widget
     import sensor
