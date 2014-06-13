@@ -19,7 +19,10 @@ class AjentiUpdater (BasePlugin):
         mgr.do(actions)
 
     def check_for_updates(self, callback):
-        mgr = PackageManager.get()
+        try:
+            mgr = PackageManager.get()
+        except NoImplementationsError:
+            return
 
         def worker():
             mgr.refresh()
