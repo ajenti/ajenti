@@ -17,8 +17,8 @@ class OSXServiceManager (ServiceManager):
         for line in subprocess.check_output(['launchctl', 'list']).splitlines()[1]:
             tokens = line.split()
             if len(tokens) == 3:
-                s = OSXService(line[2])
-                s.running = line[0] != '-'
+                s = OSXService(tokens[2])
+                s.running = tokens[0] != '-'
                 r.append(s)
         return r
 
