@@ -14,7 +14,7 @@ class OSXServiceManager (ServiceManager):
     @cache_value(1)
     def get_all(self):
         r = []
-        for line in subprocess.check_output(['launchctl', 'list']).splitlines()[1]:
+        for line in subprocess.check_output(['launchctl', 'list']).splitlines()[1:]:
             tokens = line.split()
             if len(tokens) == 3:
                 s = OSXService(tokens[2])
