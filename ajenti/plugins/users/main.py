@@ -171,7 +171,7 @@ class LinuxUsersBackend (UsersBackend):
 
 @plugin
 class BSDUsersBackend (UsersBackend):
-    platforms = ['freebsd']
+    platforms = ['freebsd', 'osx']
 
     def add_user(self, name):
         subprocess.call(['pw', 'useradd', '-s', '/bin/false', name])
