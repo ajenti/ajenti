@@ -761,7 +761,7 @@ msgstr "Oberste Verzeichnis"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Das Verzeichnis existiert nicht mehr"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
