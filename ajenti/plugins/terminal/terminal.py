@@ -156,4 +156,7 @@ class PTYProtocol():
         self.mstream.flush()
 
     def kill(self):
-        os.kill(self.pid, 9)
+        try:
+            os.kill(self.pid, 9)
+        except OSError:
+            pass
