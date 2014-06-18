@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='RAID',
+    description='LSI MegaRAID status display',
     icon='hdd',
     dependencies=[
         PluginDependency('main'),

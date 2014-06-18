@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='HDD temperature',
+    description='Widget for the hddtemp daemon',
     icon='hdd',
     dependencies=[
         PluginDependency('main'),

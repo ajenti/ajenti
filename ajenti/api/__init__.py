@@ -15,6 +15,7 @@ class PluginInfo:
 
     def __init__(self, **kwargs):
         self.name = ''
+        self.description = ''
         self.icon = None
         self.author = ''
         self.homepage = ''

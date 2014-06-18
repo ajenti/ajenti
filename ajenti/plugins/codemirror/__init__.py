@@ -5,6 +5,7 @@ from ajenti.ui import *
 
 info = PluginInfo(
     title=_('CodeMirror code editor'),
+    description='Adds a rich code editor support to other plugins',
     icon='link',
     dependencies=[
         PluginDependency('main')
