@@ -4,6 +4,7 @@ import subprocess
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
+from ajenti.plugins.services.api import ServiceMultiplexor
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
 from ajenti.util import platform_select
@@ -93,3 +94,6 @@ class NTPDPlugin (SectionPlugin):
         self.config.save()
         self.refresh()
         self.context.notify('info', _('Saved'))
+        ServiceMultiplexor.get().get_one(platform_select(
+            default='ntp',
+        )).restart()

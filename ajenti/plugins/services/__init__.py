@@ -17,7 +17,6 @@ def init():
 
     try:
         import dbus
-        import sm_upstart
         import sm_systemd
     except ImportError:
         pass

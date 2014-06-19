@@ -1,4 +1,6 @@
 <vc>
+    <servicebar name="ntp" />
+    
     <body>
         <pad>
             <formgroup text="{Current time}">

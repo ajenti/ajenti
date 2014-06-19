@@ -43,6 +43,7 @@ class SysVInitServiceManager (ServiceManager):
                     continue
 
                 for token in tokens:
+                    token = token.strip().strip(',;.')
                     if '/' in token:
                         s = SysVInitService(name)
                         s.running = token == 'start/running'
