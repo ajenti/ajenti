@@ -62,6 +62,7 @@ class window.Controls.datetime extends window.Control
         
         markChanged = @markChanged
         @inputTime = $(@dom.children[1]).pickatime({
+            interval: 1
             onClose: () ->
                 markChanged()
         }).pickatime('picker')
