@@ -45,12 +45,20 @@ class NTPDConfig (Reconfig):
 
 @plugin
 class NTPDPlugin (SectionPlugin):
+    service_name = platform_select(
+        default='ntp',
+        centos='ntpd',
+    )
+
     def init(self):
         self.title = _('Date & Time')
         self.icon = 'time'
         self.category = _('Software')
 
         self.append(self.ui.inflate('ntpd:main'))
+
+        self.find('servicebar').name = self.service_name
+        self.find('servicebar').reload()
 
         self.config = NTPDConfig(path=platform_select(
             default='/etc/ntp.conf',
@@ -94,6 +102,4 @@ class NTPDPlugin (SectionPlugin):
         self.config.save()
         self.refresh()
         self.context.notify('info', _('Saved'))
-        ServiceMultiplexor.get().get_one(platform_select(
-            default='ntp',
-        )).restart()
+        ServiceMultiplexor.get().get_one(self.service_name).restart()

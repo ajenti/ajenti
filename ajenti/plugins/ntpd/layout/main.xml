@@ -1,5 +1,5 @@
 <vc>
-    <servicebar name="ntp" />
+    <servicebar id="servicebar" />
     
     <body>
         <pad>
