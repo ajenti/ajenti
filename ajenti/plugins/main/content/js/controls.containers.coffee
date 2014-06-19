@@ -185,7 +185,7 @@ class window.Controls.dt extends window.Control
             if not query or child.properties.header
                 $(child.dom).show()
             else
-                if _collect_strings(child).indexOf(query) != -1
+                if _collect_strings(child).toUpperCase().indexOf(query.toUpperCase()) != -1
                     $(child.dom).show()
                 else
                     $(child.dom).hide()
