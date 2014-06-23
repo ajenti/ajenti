@@ -3,6 +3,34 @@
     
     <body>
         <pad>
+            <formgroup text="Community strings">
+                <vc>
+                    <formline text="Read-only">
+                        <bind:collection bind="rocommunities" id="rocommunities">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                    <formline text="Read-write">
+                        <bind:collection bind="rwcommunities" id="rwcommunities">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                </vc>
+            </formgroup>
             <formgroup text="MIBs">
                 <bind:collection bind="mibs">
                     <dt bind="__items" />
