@@ -77,3 +77,15 @@ try:
     simplejson.loads = wrap(simplejson.loads)
 except:
     pass
+
+
+# Suppress CORS headers in Socket.IO
+from socketio.transports import BaseTransport
+
+old_init = BaseTransport.__init__
+
+def new_init(self, *args, **kwargs):
+    old_init(self, *args, **kwargs)
+    self.headers = []
+
+BaseTransport.__init__ = new_init
