@@ -71,6 +71,8 @@ msgstr "Durumu"
 #: ajenti/plugins/exports/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:34
+#: ajenti/plugins/snmpd/layout/main.xml:1
+#: ajenti/plugins/snmpd/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -82,6 +84,7 @@ msgstr "Durumu"
 #: ajenti/plugins/ctdb/layout/main.xml:21
 #: ajenti/plugins/resolv/layout/main.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/ntpd/layout/main.xml:5
 #: ajenti/plugins/hosts/layout/main.xml:1
 #: ajenti/plugins/squid/layout/main.xml:1
 #: ajenti/plugins/squid/layout/main.xml:6
@@ -124,6 +127,7 @@ msgstr "Ekle"
 #: ajenti/plugins/ctdb/layout/main.xml:22
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/ntpd/layout/main.xml:6
 #: ajenti/plugins/hosts/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:7
@@ -163,6 +167,7 @@ msgstr "Yapılandırma"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/snmpd/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -172,6 +177,7 @@ msgstr "Yapılandırma"
 #: ajenti/plugins/ctdb/layout/main.xml:25
 #: ajenti/plugins/resolv/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:18
+#: ajenti/plugins/ntpd/layout/main.xml:8
 #: ajenti/plugins/hosts/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:15
 #: ajenti/plugins/csf/layout/main.xml:26
@@ -686,21 +692,23 @@ msgid "NFS Exports"
 msgstr "NFS ihracat"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/nginx/main.py:51 ajenti/plugins/supervisor/main.py:18
-#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
-#: ajenti/plugins/nsd/main.py:18 ajenti/plugins/ctdb/main.py:22
-#: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/snmpd/main.py:97 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
+#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
 #: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "Yazılım"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:103 ajenti/plugins/vh/main.py:257
-#: ajenti/plugins/iptables/main.py:193 ajenti/plugins/vh-mail/main.py:171
-#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:98
+#: ajenti/plugins/snmpd/main.py:155 ajenti/plugins/vh/main.py:105
+#: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
+#: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
+#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
+#: ajenti/plugins/fstab/main.py:98 ajenti/plugins/ntpd/main.py:104
 #: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "Kaydedildi"
@@ -718,6 +726,7 @@ msgstr "İstemciler"
 #: ajenti/plugins/vh-mail/layout/main.xml:14
 #: ajenti/plugins/ctdb/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:23
+#: ajenti/plugins/ntpd/layout/main.xml:7
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Address"
 msgstr "Adres"
@@ -1014,6 +1023,7 @@ msgstr "Bağlantıyı Kes"
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
+#: ajenti/plugins/ntpd/layout/main.xml:2
 msgid "Set"
 msgstr "Ayarla"
 
@@ -1216,27 +1226,27 @@ msgstr "Süreç"
 msgid "Processes"
 msgstr "Süreçleri"
 
-#: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
+#: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
 msgstr "Web siteleri"
 
-#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:234
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:237
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:249
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:252
 msgid "Saving changes"
 msgstr "Değişiklikler kaydediliyor"
 
-#: ajenti/plugins/vh/main.py:97 ajenti/plugins/vh/main.py:251
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:254
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:253
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:256
 msgid "Restarting web services"
 msgstr "Web servisleri tekrar başlatılıyor"
 
-#: ajenti/plugins/vh/main.py:209
+#: ajenti/plugins/vh/main.py:212
 msgid "Download complete"
 msgstr "İndirme tamamlandı"
 
@@ -2161,6 +2171,30 @@ msgstr ""
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
+msgstr ""
+
+#: ajenti/plugins/ntpd/main.py:54
+msgid "Date & Time"
+msgstr ""
+
+#: ajenti/plugins/ntpd/main.py:91
+msgid "No servers defined"
+msgstr ""
+
+#: ajenti/plugins/ntpd/main.py:95
+msgid "Done"
+msgstr ""
+
+#: ajenti/plugins/ntpd/layout/main.xml:1
+msgid "Current time"
+msgstr ""
+
+#: ajenti/plugins/ntpd/layout/main.xml:3
+msgid "Sync"
+msgstr ""
+
+#: ajenti/plugins/ntpd/layout/main.xml:4
+msgid "Servers"
 msgstr ""
 
 #: ajenti/plugins/openvpn/main.py:26
