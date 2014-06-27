@@ -68,10 +68,41 @@ class RWCommunityData (BoundData):
         )
 
 
+class Sink1Data (BoundData):
+    def template(self):
+        return Node(
+            'line',
+            Node('token', PropertyNode('value', 'trapsink')),
+            Node('token', PropertyNode('value', 'localhost public')),
+        )
+
+
+class Sink2Data (BoundData):
+    def template(self):
+        return Node(
+            'line',
+            Node('token', PropertyNode('value', 'trap2sink')),
+            Node('token', PropertyNode('value', 'localhost public')),
+        )
+
+
+class Sink2cData (BoundData):
+    def template(self):
+        return Node(
+            'line',
+            Node('token', PropertyNode('value', 'informsink')),
+            Node('token', PropertyNode('value', 'localhost public')),
+        )
+
 SNMPDData.bind_collection('rocommunities', selector=lambda x: x.children[0].get('value').value == 'rocommunity', item_class=ROCommunityData)
 SNMPDData.bind_collection('rwcommunities', selector=lambda x: x.children[0].get('value').value == 'rwcommunity', item_class=RWCommunityData)
+SNMPDData.bind_collection('sinks1', selector=lambda x: x.children[0].get('value').value == 'trapsink', item_class=Sink1Data)
+SNMPDData.bind_collection('sinks2', selector=lambda x: x.children[0].get('value').value == 'trap2sink', item_class=Sink2Data)
+SNMPDData.bind_collection('sinks2c', selector=lambda x: x.children[0].get('value').value == 'informsink', item_class=Sink2cData)
 ROCommunityData.bind_property('value', 'value', path=lambda x: x.children[1])
 RWCommunityData.bind_property('value', 'value', path=lambda x: x.children[1])
+for s in [Sink1Data, Sink2Data, Sink2cData]:
+    s.bind_property('value', 'value', path=lambda x: x.children[1])
 
 
 class SNMPDConfig (Reconfig):
@@ -110,6 +141,9 @@ class SNMPDPlugin (SectionPlugin):
 
         self.find('rocommunities').new_item = lambda c: ROCommunityData()
         self.find('rwcommunities').new_item = lambda c: RWCommunityData()
+        self.find('sinks1').new_item = lambda c: Sink1Data()
+        self.find('sinks2').new_item = lambda c: Sink2Data()
+        self.find('sinks2c').new_item = lambda c: Sink2cData()
 
         self.binder = Binder(None, self)
 
@@ -122,6 +156,9 @@ class SNMPDPlugin (SectionPlugin):
 
         self.rocommunities = self.snmpd_config.tree.rocommunities
         self.rwcommunities = self.snmpd_config.tree.rwcommunities
+        self.sinks1 = self.snmpd_config.tree.sinks1
+        self.sinks2 = self.snmpd_config.tree.sinks2
+        self.sinks2c = self.snmpd_config.tree.sinks2c
 
         enabled_mibs = []
         for mib in self.snmp_config.tree.mibs:
