@@ -24,7 +24,7 @@ Ajenti is installed through your system's package manager. Installation only tak
 Existing configuration
 ----------------------
 
-Picks up your current configuration and and works on your existing system as-is, without any preparation.
+Picks up your current configuration and works on your existing system as-is, without any preparation.
 
 Caring
 ------
