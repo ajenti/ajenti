@@ -25,6 +25,12 @@ class HttpRoot (object):
         """
         Dispatches the WSGI request
         """
+        valid_origin = '%s://%s' % (env['wsgi.url_scheme'], env['HTTP_HOST'])
+        request_origin = env.get('HTTP_ORIGIN', '').strip('/')
+        if request_origin:
+            if request_origin != valid_origin:
+                start_response('403 Invalid Origin', [])
+                return ''
         context = HttpContext(env, start_response)
         for middleware in self.stack:
             output = middleware.handle(context)
