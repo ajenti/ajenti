@@ -17,7 +17,7 @@ import ajenti.locales  # importing locale before everything else!
 import ajenti.feedback
 import ajenti.licensing
 import ajenti.plugins
-from ajenti.http import HttpRoot
+from ajenti.http import HttpRoot, RootHttpHandler
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
 from ajenti.plugins import manager
 from ajenti.routing import CentralDispatcher
@@ -138,6 +138,7 @@ def run():
         log=open(os.devnull, 'w'),
         application=HttpRoot(stack).dispatch,
         policy_server=False,
+        handler_class=RootHttpHandler,
         resource='ajenti:socket',
         transports=[
             str('websocket'),
