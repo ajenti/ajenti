@@ -39,7 +39,7 @@ msgstr "Ime"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -73,6 +73,9 @@ msgstr "Status"
 #: ajenti/plugins/samba/layout/main.xml:34
 #: ajenti/plugins/snmpd/layout/main.xml:1
 #: ajenti/plugins/snmpd/layout/main.xml:2
+#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:4
+#: ajenti/plugins/snmpd/layout/main.xml:5
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -167,7 +170,7 @@ msgstr "Konfiguracija"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:6
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -469,7 +472,7 @@ msgstr "Orodja"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Izvedi ukaz"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -478,7 +481,7 @@ msgstr "Kopiranje %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Premakni datoteke"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -487,12 +490,12 @@ msgstr "Premikanje %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Izbriši datoteke"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Brisanje %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -692,7 +695,7 @@ msgid "NFS Exports"
 msgstr "NFS izvoz"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/snmpd/main.py:97 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/snmpd/main.py:128 ajenti/plugins/dhcpd/main.py:16
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
@@ -704,7 +707,7 @@ msgid "Software"
 msgstr "Programska oprema"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/snmpd/main.py:155 ajenti/plugins/vh/main.py:105
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
 #: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
 #: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
@@ -769,12 +772,13 @@ msgstr "Zaznamek"
 
 #: ajenti/plugins/notepad/layout/config.xml:1
 #: ajenti/plugins/fm/layout/config.xml:1
+#: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "Vrhnji imenik"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Imenik ne obstaja več"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -790,15 +794,15 @@ msgstr "Geslo"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Gesli se ne ujemata"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Nepravilno geslo"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Geslo je spremenjeno"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -806,7 +810,7 @@ msgstr "Izprazni"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filter ..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -827,11 +831,11 @@ msgstr "Dostop do področja"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Sprememba gesla"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Staro geslo"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -840,7 +844,7 @@ msgstr "Novo geslo"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Potrditev gesla"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -1053,7 +1057,7 @@ msgstr "Naprava"
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:48
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/logs/main.py:28
 msgid "System"
 msgstr "Sistem"
 
@@ -1276,11 +1280,11 @@ msgstr "Max procesov"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "PHP options"
-msgstr ""
+msgstr "Možnosti PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "PHP flags"
-msgstr ""
+msgstr "Zastavice PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
@@ -1329,7 +1333,7 @@ msgstr "Poljubna pot"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Pripni vzorec URL h poti"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
@@ -1823,7 +1827,7 @@ msgstr "Raziskovalec"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Datoteke izbrisane"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -2167,35 +2171,35 @@ msgstr "Samodejno osveževanje"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Posodobi Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "Na voljo je posodobitev za Ajenti"
 
 #: ajenti/plugins/ntpd/main.py:54
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum in čas"
 
 #: ajenti/plugins/ntpd/main.py:91
 msgid "No servers defined"
-msgstr ""
+msgstr "Ni določenih strežnikov"
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "Končano"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Trenutni čas"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Usklajevanje"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Strežniki"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2479,7 +2483,7 @@ msgstr "Običajno"
 msgid "Special"
 msgstr "Poseben"
 
-#: ajenti/plugins/logs/main.py:13
+#: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
 msgstr "Dnevniške datoteke"
 

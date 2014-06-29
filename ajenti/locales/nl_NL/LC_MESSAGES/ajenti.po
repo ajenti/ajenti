@@ -73,6 +73,9 @@ msgstr "Status"
 #: ajenti/plugins/samba/layout/main.xml:34
 #: ajenti/plugins/snmpd/layout/main.xml:1
 #: ajenti/plugins/snmpd/layout/main.xml:2
+#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:4
+#: ajenti/plugins/snmpd/layout/main.xml:5
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -167,7 +170,7 @@ msgstr "Configuratie"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:6
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -692,7 +695,7 @@ msgid "NFS Exports"
 msgstr "NFS uitvoer"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/snmpd/main.py:97 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/snmpd/main.py:128 ajenti/plugins/dhcpd/main.py:16
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
@@ -704,7 +707,7 @@ msgid "Software"
 msgstr "Software"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/snmpd/main.py:155 ajenti/plugins/vh/main.py:105
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
 #: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
 #: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
@@ -769,6 +772,7 @@ msgstr "Bladwijzer"
 
 #: ajenti/plugins/notepad/layout/config.xml:1
 #: ajenti/plugins/fm/layout/config.xml:1
+#: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "Hoofd folder"
 
@@ -1053,7 +1057,7 @@ msgstr "Apparaat"
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:48
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/logs/main.py:28
 msgid "System"
 msgstr "Systeem"
 
@@ -2479,7 +2483,7 @@ msgstr "Normaal"
 msgid "Special"
 msgstr "Speciaal"
 
-#: ajenti/plugins/logs/main.py:13
+#: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
 msgstr "Logboeken"
 

@@ -39,7 +39,7 @@ msgstr "名称"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -73,6 +73,9 @@ msgstr "状态"
 #: ajenti/plugins/samba/layout/main.xml:34
 #: ajenti/plugins/snmpd/layout/main.xml:1
 #: ajenti/plugins/snmpd/layout/main.xml:2
+#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:4
+#: ajenti/plugins/snmpd/layout/main.xml:5
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -167,7 +170,7 @@ msgstr "配置"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
-#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:6
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -451,7 +454,7 @@ msgstr "%s 完成"
 #: ajenti/plugins/tasks/manager.py:104
 #, python-format
 msgid "Task %s queued"
-msgstr "%s 执行中"
+msgstr "%s 在任务队列中"
 
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
@@ -469,7 +472,7 @@ msgstr "工具"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "执行命令"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -478,7 +481,7 @@ msgstr "正在复制 %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "移动文件"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -487,12 +490,12 @@ msgstr "移动 %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "删除文件"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "删除 %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -692,7 +695,7 @@ msgid "NFS Exports"
 msgstr "NFS输出"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/snmpd/main.py:97 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/snmpd/main.py:128 ajenti/plugins/dhcpd/main.py:16
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
@@ -704,7 +707,7 @@ msgid "Software"
 msgstr "软件"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/snmpd/main.py:155 ajenti/plugins/vh/main.py:105
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
 #: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
 #: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
 #: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
@@ -769,12 +772,13 @@ msgstr "书签"
 
 #: ajenti/plugins/notepad/layout/config.xml:1
 #: ajenti/plugins/fm/layout/config.xml:1
+#: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "顶层目录"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "目录不存在了"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -1053,7 +1057,7 @@ msgstr "设备"
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:48
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/logs/main.py:28
 msgid "System"
 msgstr "系统"
 
@@ -1823,7 +1827,7 @@ msgstr "文件管理器"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "文件已删除"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -2176,27 +2180,27 @@ msgstr "有可用的 Ajenti 更新"
 
 #: ajenti/plugins/ntpd/main.py:54
 msgid "Date & Time"
-msgstr ""
+msgstr "日期和时间"
 
 #: ajenti/plugins/ntpd/main.py:91
 msgid "No servers defined"
-msgstr ""
+msgstr "没有定义服务器"
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "当前时间"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "同步"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "服务器"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2480,7 +2484,7 @@ msgstr "普通"
 msgid "Special"
 msgstr "特殊"
 
-#: ajenti/plugins/logs/main.py:13
+#: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
 msgstr "日志"
 
