@@ -3,12 +3,25 @@ import time
 
 from ajenti.api import *
 from ajenti.api.http import SocketPlugin
+from ajenti.plugins.configurator.api import ClassConfigEditor
 from ajenti.plugins.main.api import SectionPlugin, intent
 from ajenti.ui import UIElement, p, on
 
 
 @plugin
+class LogsConfigEditor (ClassConfigEditor):
+    title = _('Logs')
+    icon = 'list'
+
+    def init(self):
+        self.append(self.ui.inflate('logs:config'))
+
+
+@plugin
 class Logs (SectionPlugin):
+    default_classconfig = {'root': '/var/log'}
+    classconfig_editor = LogsConfigEditor
+
     def init(self):
         self.title = _('Logs')
         self.icon = 'list'
@@ -17,6 +30,10 @@ class Logs (SectionPlugin):
         self.append(self.ui.inflate('logs:main'))
         self.opendialog = self.find('opendialog')
         self.log = self.find('log')
+
+    def on_page_load(self):
+        self.opendialog.root = self.classconfig['root']
+        self.opendialog.navigate(self.opendialog.root)
 
     @on('open-button', 'click')
     def on_open(self):
