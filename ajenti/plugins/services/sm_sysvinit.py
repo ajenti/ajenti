@@ -20,6 +20,20 @@ class SysVInitServiceManager (ServiceManager):
 
         found_names = []
 
+        if subprocess.call(['which', 'initctl']) == 0:
+            for line in subprocess_check_output_background(['initctl', 'list']).splitlines():
+                tokens = line.split()
+                name = tokens[0]
+                if name in found_names:
+                    continue
+
+                for token in tokens:
+                    token = token.strip().strip(',;.')
+                    if '/' in token:
+                        s = SysVInitService(name)
+                        s.running = token == 'start/running'
+                        r.append(s)
+
         for line in subprocess_check_output_background(['service', '--status-all']).splitlines():
             tokens = line.split()
             if len(tokens) < 3:
@@ -34,20 +48,6 @@ class SysVInitServiceManager (ServiceManager):
             found_names.append(name)
             s.running = status == '+'
             r.append(s)
-
-        if subprocess.call(['which', 'initctl']) == 0:
-            for line in subprocess_check_output_background(['initctl', 'list']).splitlines():
-                tokens = line.split()
-                name = tokens[0]
-                if name in found_names:
-                    continue
-
-                for token in tokens:
-                    token = token.strip().strip(',;.')
-                    if '/' in token:
-                        s = SysVInitService(name)
-                        s.running = token == 'start/running'
-                        r.append(s)
 
         return r
 
