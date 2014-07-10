@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='NSD',
+    description='NSD DNS server',
     icon='globe',
     dependencies=[
         PluginDependency('main'),

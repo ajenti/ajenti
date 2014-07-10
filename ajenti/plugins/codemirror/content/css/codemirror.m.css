@@ -1,6 +1,7 @@
 .control.codearea {
   width: auto;
   height: auto;
+  display: inline-block;
 }
 
 .CodeMirror {

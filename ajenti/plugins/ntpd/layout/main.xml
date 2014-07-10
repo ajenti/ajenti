@@ -1,0 +1,46 @@
+<vc>
+    <servicebar id="servicebar" />
+    
+    <body>
+        <pad>
+            <formgroup text="{Current time}">
+                <vc>
+                    <hc>
+                        <datetime bind="now" />
+                        <button icon="ok" text="{Set}" id="set" />
+                        <button icon="refresh" text="{Sync}" id="sync" />
+                    </hc>
+                </vc>
+            </formgroup>
+        </pad>
+
+        <pad binder:context="config">
+            <formgroup text="{Servers}" binder:context="tree">
+                <bind:collection bind="servers" id="servers">
+                    <dt bind="__items" addrow="{Add}" />
+                    <bind:template>
+                        <collapserow>
+                            <box>
+                                <right>
+                                    <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                                </right>
+                                <hc>
+                                    <icon icon="desktop" />
+                                    <label bind="address" />
+                                </hc>
+                            </box>
+
+                            <indent>
+                                <formline text="{Address}">
+                                    <textbox bind="address" />
+                                </formline>
+                            </indent>
+                        </collapserow>
+                    </bind:template>
+                </bind:collection>
+            </formgroup>
+        </pad>
+    </body>
+
+    <button id="save" text="{Save}" icon="ok" />
+</vc>

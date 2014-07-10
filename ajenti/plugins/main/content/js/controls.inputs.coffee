@@ -61,11 +61,12 @@ class window.Controls.datetime extends window.Control
             value = new Date(parseInt(@properties.value) * 1000)
         
         markChanged = @markChanged
-        @inputTime = $(@dom.children[1]).pickatime({
+        @inputTime = jQuery(@dom.children[1]).pickatime({
+            interval: 1
             onClose: () ->
                 markChanged()
         }).pickatime('picker')
-        @inputDate = $(@dom.children[0]).pickadate({
+        @inputDate = jQuery(@dom.children[0]).pickadate({
             onClose: () ->
                 markChanged()
         }).pickadate('picker')
@@ -126,7 +127,7 @@ class window.Controls.editable extends window.Control
 
     goViewMode: () =>
         @editmode = false
-        @label.find('>span').html(@properties.placeholder ? @input.val())
+        @label.find('span').html(@properties.placeholder ? @input.val())
         @input.hide()
         @label.show()
 
@@ -197,7 +198,11 @@ class window.Controls.dropdown extends window.Control
             do (i) =>
                 @input.append("""<option value="#{i}" #{if i == @properties.index then 'selected' else ''}>#{@s(@properties.labels[i])}</option>""")
 
-        @input.select2()
+        if not @properties.plain
+            setTimeout () => # wait for layout
+                jQuery(@input[0]).select2()
+            , 0
+
         @input.change () => @markChanged()
 
         if @properties.server
@@ -231,7 +236,7 @@ class window.Controls.combobox extends window.Control
                 @data.push {label: @properties.labels[i], value: @properties.values[i]}
 
         if @properties.separator != null
-            @input.autocomplete {
+            jQuery(@input[0]).autocomplete {
                 source: (request, response) =>
                     vals = @getVals()
                     response($.ui.autocomplete.filter(@data, vals.pop()))
@@ -330,7 +335,7 @@ class window.Controls.paging extends window.Control
                 <option value="#{i+1}">#{i+1}</option>
             """))
         @select.val(@properties.active + 1)
-        @select.select2(width: '80px')
+        jQuery(@select[0]).select2(width: '80px')
         @prev = $(@dom).find('.prev')
         @next = $(@dom).find('.next')
 
@@ -359,7 +364,7 @@ class window.Controls.paging extends window.Control
 class window.Controls.pathbox extends window.Control
     createDom: () ->
         """
-            <div class="control container pathbox --child-container">
+            <div class="control container pathbox __child-container">
                 <children>
             </div>
         """

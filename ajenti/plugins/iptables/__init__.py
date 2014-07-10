@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='Firewall',
+    description='Linux iptables firewall',
     icon='fire',
     dependencies=[
         PluginDependency('main')

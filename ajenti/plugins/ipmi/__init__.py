@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='IPMI',
+    description='Intel power management interface widgets',
     icon='dashboard',
     dependencies=[
         PluginDependency('main'),

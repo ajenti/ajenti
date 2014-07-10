@@ -17,7 +17,7 @@ import ajenti.locales  # importing locale before everything else!
 import ajenti.feedback
 import ajenti.licensing
 import ajenti.plugins
-from ajenti.http import HttpRoot
+from ajenti.http import HttpRoot, RootHttpHandler
 from ajenti.middleware import SessionMiddleware, AuthenticationMiddleware
 from ajenti.plugins import manager
 from ajenti.routing import CentralDispatcher
@@ -109,14 +109,11 @@ def run():
         listener.listen(10)
     else:
         listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
-        try:
-            listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
-        except:
+        if not ajenti.platform in ['freebsd', 'osx']:
             try:
-                socket.TCP_NOPUSH = 4
-                listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_NOPUSH, 1)
+                listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
             except:
-                logging.warn('Could not set TCP_CORK/TCP_NOPUSH')
+                logging.warn('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         try:
             listener.bind(bind_spec)
@@ -141,6 +138,7 @@ def run():
         log=open(os.devnull, 'w'),
         application=HttpRoot(stack).dispatch,
         policy_server=False,
+        handler_class=RootHttpHandler,
         resource='ajenti:socket',
         transports=[
             str('websocket'),

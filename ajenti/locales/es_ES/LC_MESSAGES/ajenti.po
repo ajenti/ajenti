@@ -38,21 +38,25 @@ msgid "Name"
 msgstr "Nombre"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
+msgid "Description"
+msgstr "Descripción"
+
+#: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
 msgstr "Dependencias"
 
-#: ajenti/plugins/plugins/layout/main.xml:3
+#: ajenti/plugins/plugins/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:3
 #: ajenti/plugins/bind9/layout/main.xml:5
 msgid "Type"
 msgstr "Tipo"
 
-#: ajenti/plugins/plugins/layout/main.xml:4
+#: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
 msgstr "Depende de"
 
-#: ajenti/plugins/plugins/layout/main.xml:5
+#: ajenti/plugins/plugins/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:11
 #: ajenti/plugins/ctdb/layout/main.xml:1 ajenti/plugins/ctdb/layout/main.xml:2
@@ -67,6 +71,11 @@ msgstr "Estado"
 #: ajenti/plugins/exports/layout/main.xml:5
 #: ajenti/plugins/samba/layout/main.xml:2
 #: ajenti/plugins/samba/layout/main.xml:34
+#: ajenti/plugins/snmpd/layout/main.xml:1
+#: ajenti/plugins/snmpd/layout/main.xml:2
+#: ajenti/plugins/snmpd/layout/main.xml:3
+#: ajenti/plugins/snmpd/layout/main.xml:4
+#: ajenti/plugins/snmpd/layout/main.xml:5
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -78,6 +87,7 @@ msgstr "Estado"
 #: ajenti/plugins/ctdb/layout/main.xml:21
 #: ajenti/plugins/resolv/layout/main.xml:1
 #: ajenti/plugins/fstab/layout/main.xml:3
+#: ajenti/plugins/ntpd/layout/main.xml:5
 #: ajenti/plugins/hosts/layout/main.xml:1
 #: ajenti/plugins/squid/layout/main.xml:1
 #: ajenti/plugins/squid/layout/main.xml:6
@@ -120,6 +130,7 @@ msgstr "Añadir"
 #: ajenti/plugins/ctdb/layout/main.xml:22
 #: ajenti/plugins/resolv/layout/main.xml:2
 #: ajenti/plugins/fstab/layout/main.xml:4
+#: ajenti/plugins/ntpd/layout/main.xml:6
 #: ajenti/plugins/hosts/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:7
@@ -137,7 +148,7 @@ msgstr "Confirmar eliminación"
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
-#: ajenti/plugins/iptables/main.py:149
+#: ajenti/plugins/iptables/main.py:153
 #: ajenti/plugins/vh-mail/layout/main.xml:18
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
@@ -159,6 +170,7 @@ msgstr "Configuración"
 #: ajenti/plugins/users/layout/main.xml:6
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
+#: ajenti/plugins/snmpd/layout/main.xml:6
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -168,6 +180,7 @@ msgstr "Configuración"
 #: ajenti/plugins/ctdb/layout/main.xml:25
 #: ajenti/plugins/resolv/layout/main.xml:5
 #: ajenti/plugins/fstab/layout/main.xml:18
+#: ajenti/plugins/ntpd/layout/main.xml:8
 #: ajenti/plugins/hosts/layout/main.xml:7
 #: ajenti/plugins/squid/layout/main.xml:15
 #: ajenti/plugins/csf/layout/main.xml:26
@@ -459,7 +472,7 @@ msgstr "Herramientas"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Ejecutar comando"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -468,7 +481,7 @@ msgstr "Copiando %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Mover archivos"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -477,12 +490,12 @@ msgstr "Moviendo %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Eliminar archivos"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Eliminando %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -682,21 +695,23 @@ msgid "NFS Exports"
 msgstr "Exportaciones NFS"
 
 #: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/nginx/main.py:50 ajenti/plugins/supervisor/main.py:18
-#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
-#: ajenti/plugins/nsd/main.py:18 ajenti/plugins/ctdb/main.py:22
-#: ajenti/plugins/mysql/main.py:27 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/snmpd/main.py:128 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
+#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
 #: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
 #: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "Software"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/vh/main.py:103 ajenti/plugins/vh/main.py:255
-#: ajenti/plugins/iptables/main.py:189 ajenti/plugins/vh-mail/main.py:171
-#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:95
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
+#: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
+#: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
+#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
+#: ajenti/plugins/fstab/main.py:98 ajenti/plugins/ntpd/main.py:104
 #: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "Guardado"
@@ -714,6 +729,7 @@ msgstr "Clientes"
 #: ajenti/plugins/vh-mail/layout/main.xml:14
 #: ajenti/plugins/ctdb/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:23
+#: ajenti/plugins/ntpd/layout/main.xml:7
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Address"
 msgstr "Dirección"
@@ -756,8 +772,13 @@ msgstr "Favorito"
 
 #: ajenti/plugins/notepad/layout/config.xml:1
 #: ajenti/plugins/fm/layout/config.xml:1
+#: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "Directorio superior"
+
+#: ajenti/plugins/main/controls_dialogs.py:72
+msgid "The directory does not exist anymore"
+msgstr "El directorio ya no existe"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -773,15 +794,15 @@ msgstr "Contraseña"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Las contraseñas no coinciden"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Contraseña incorrecta"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Contraseña actualizada"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -789,7 +810,7 @@ msgstr "Vacío"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filtrar..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -810,11 +831,11 @@ msgstr "Acceso a sección"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Cambio de contraseña"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Antigüa contraseña"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -823,7 +844,7 @@ msgstr "Nueva contraseña"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Confirmación de contraseña"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -875,11 +896,11 @@ msgstr "Uso de CPU"
 msgid "Variant"
 msgstr "Variante"
 
-#: ajenti/plugins/samba/main.py:47
+#: ajenti/plugins/samba/main.py:50
 msgid "Password updated"
 msgstr "Contraseña actualizada"
 
-#: ajenti/plugins/samba/main.py:50
+#: ajenti/plugins/samba/main.py:53
 msgid "Password update failed"
 msgstr "Falló actualización de contraseña"
 
@@ -1006,6 +1027,7 @@ msgstr "Desconectar"
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
+#: ajenti/plugins/ntpd/layout/main.xml:2
 msgid "Set"
 msgstr "Definir"
 
@@ -1030,12 +1052,12 @@ msgid "Device"
 msgstr "Dispositivo"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:14
+#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
-#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:45
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:48
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:15
+#: ajenti/plugins/logs/main.py:28
 msgid "System"
 msgstr "Sistema"
 
@@ -1165,7 +1187,7 @@ msgstr "Falló la autenticación HTTP de Munin"
 msgid "View"
 msgstr "Ver"
 
-#: ajenti/plugins/nginx/main.py:12 ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/nginx/main.py:13 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
 msgid "Reload"
@@ -1208,27 +1230,27 @@ msgstr "Proceso"
 msgid "Processes"
 msgstr "Procesos"
 
-#: ajenti/plugins/vh/main.py:19 ajenti/plugins/vh/layout/main.xml:1
+#: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
 msgstr "Sitios web"
 
-#: ajenti/plugins/vh/main.py:85 ajenti/plugins/vh/main.py:232
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:237
 msgid "Testing configuration"
 msgstr "Probando la configuración"
 
-#: ajenti/plugins/vh/main.py:94 ajenti/plugins/vh/main.py:247
+#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:252
 msgid "Saving changes"
 msgstr "Guardando Cambios"
 
-#: ajenti/plugins/vh/main.py:97 ajenti/plugins/vh/main.py:249
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:254
 msgid "Applying changes"
 msgstr "Aplicando cambios"
 
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:251
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:256
 msgid "Restarting web services"
 msgstr "Reiniciando de servicios web"
 
-#: ajenti/plugins/vh/main.py:207
+#: ajenti/plugins/vh/main.py:212
 msgid "Download complete"
 msgstr "Descarga completa"
 
@@ -1258,11 +1280,11 @@ msgstr "Maximo de procesos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "PHP options"
-msgstr ""
+msgstr "Opciones de PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "PHP flags"
-msgstr ""
+msgstr "Banderas PHP"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
@@ -1292,7 +1314,7 @@ msgstr "Mostrar el contenido del directorio"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "Usar Bundler"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:7
@@ -1311,7 +1333,7 @@ msgstr "Ruta personalizada"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Añadir patrón de URL a la ruta"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
@@ -1441,7 +1463,7 @@ msgstr "Prueba de configuración NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "Servicio de NGINX"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1476,15 +1498,15 @@ msgstr "Firewall"
 msgid "Add option"
 msgstr "Añadir opción"
 
-#: ajenti/plugins/iptables/main.py:149
+#: ajenti/plugins/iptables/main.py:153
 msgid "Disable"
 msgstr "Deshabilitar"
 
-#: ajenti/plugins/iptables/main.py:149
+#: ajenti/plugins/iptables/main.py:153
 msgid " autostart"
 msgstr " inicio automático"
 
-#: ajenti/plugins/iptables/main.py:202
+#: ajenti/plugins/iptables/main.py:206
 msgid "Applied successfully"
 msgstr "Aplicado exitosamente"
 
@@ -1581,32 +1603,32 @@ msgstr "Dirección CNID"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Correo"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Nombre de buzón de correo inválido"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Dominio de buzón de correo inválido"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "Esta dirección ya está registrada"
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Dominio personalizado"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
-msgstr ""
+msgstr "No existe llaves válidas"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Buzones"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1617,107 +1639,107 @@ msgstr "Tamaño"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Reenvío"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Dirección de destino"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nuevo buzón de correo"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Búzon de correo"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Seleccionador"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Llave privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Plantilla de entrada de DNS"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Generar nueva llave DKIM"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Ruta del certificado"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Ruta de la llave privada"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Generar nuevo certificado"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "Configuración personalizada MTA"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "ACLs personalizados"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Enrutadores personalizados"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "Transportadores personalizados"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail todavía no está actualizado"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Habilitar Ajenti V Mail sobreescribirá la configuración para el siguiente software:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
 msgstr "No se han encontrado resultados"
 
-#: ajenti/plugins/packages/main.py:12 ajenti/plugins/packages/main.py:146
+#: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
 msgstr "Paquetes"
 
-#: ajenti/plugins/packages/main.py:50
+#: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
 msgstr "Mandando a cola instalación de paquete"
 
-#: ajenti/plugins/packages/main.py:61
+#: ajenti/plugins/packages/main.py:62
 msgid "Installation complete!"
 msgstr "Instalación completa!"
 
-#: ajenti/plugins/packages/main.py:73
+#: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
 msgstr "Consultando el gestor de paquetes"
 
-#: ajenti/plugins/packages/main.py:134
+#: ajenti/plugins/packages/main.py:135
 #, python-format
 msgid "%i found, 100 shown"
 msgstr "%i encontrados, mostrando 100"
 
-#: ajenti/plugins/packages/main.py:137
+#: ajenti/plugins/packages/main.py:138
 #, python-format
 msgid "%i found"
 msgstr "%i encontrado"
 
-#: ajenti/plugins/packages/main.py:150
+#: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
 msgstr "Instalar / eliminar"
 
-#: ajenti/plugins/packages/main.py:151
+#: ajenti/plugins/packages/main.py:152
 msgid "Refresh lists"
 msgstr "Actualizar listas"
 
@@ -1776,7 +1798,7 @@ msgstr "Zona guardada"
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s no existe"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
@@ -1805,7 +1827,7 @@ msgstr "Gestor de archivos"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Archivos eliminados"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -2072,15 +2094,15 @@ msgstr "%s libre"
 msgid "Immediate I/O"
 msgstr "I/O inmediato"
 
-#: ajenti/plugins/fstab/main.py:43
+#: ajenti/plugins/fstab/main.py:46
 msgid "Filesystems"
 msgstr "Sistemas de archivos"
 
-#: ajenti/plugins/fstab/main.py:67
+#: ajenti/plugins/fstab/main.py:70
 msgid "Unmounted"
 msgstr "Desmontado"
 
-#: ajenti/plugins/fstab/main.py:74
+#: ajenti/plugins/fstab/main.py:77
 msgid "mount -a failed"
 msgstr "mount -a falló"
 
@@ -2149,10 +2171,34 @@ msgstr "Actualización automática"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Actualizar Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
+msgstr "Una actualización de Ajenti está disponible"
+
+#: ajenti/plugins/ntpd/main.py:54
+msgid "Date & Time"
+msgstr ""
+
+#: ajenti/plugins/ntpd/main.py:91
+msgid "No servers defined"
+msgstr ""
+
+#: ajenti/plugins/ntpd/main.py:95
+msgid "Done"
+msgstr ""
+
+#: ajenti/plugins/ntpd/layout/main.xml:1
+msgid "Current time"
+msgstr ""
+
+#: ajenti/plugins/ntpd/layout/main.xml:3
+msgid "Sync"
+msgstr ""
+
+#: ajenti/plugins/ntpd/layout/main.xml:4
+msgid "Servers"
 msgstr ""
 
 #: ajenti/plugins/openvpn/main.py:26
@@ -2343,87 +2389,87 @@ msgstr "Denegar"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Servicio Node.js"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "Servicio GUnicorn"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF Firewall"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "Aplicado"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "Auto prueba correcta"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "Modo de prueba"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "Dispositivo de red"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Dispositivo de red (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "Puertos permitidos"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "TCP entrante"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "TCP saliente"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "UDP entrante"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "UDP saliente"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Habilitar IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "Listas de IP"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "Reglas permanentes"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Direcciones permitidas"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Direcciones rechazadas"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Reglas temporales"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Direcciones prohibidas"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Prohibir"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2437,13 +2483,13 @@ msgstr "Normal"
 msgid "Special"
 msgstr "Especial"
 
-#: ajenti/plugins/logs/main.py:13
+#: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
 msgstr "Registros"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "Servicio PHP-FPM"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"

@@ -186,7 +186,7 @@ class ListAutoBinding (Binding):
 
     def populate(self):
         if self.attribute:
-            self.collection = getattr(self.object, self.attribute)
+            self.collection = Binding.extract(self.object, self.attribute)
         else:
             self.collection = self.object
         self.values = self.ui.values(self.collection)
@@ -232,7 +232,7 @@ class DictAutoBinding (Binding):
 
     def populate(self):
         if self.attribute:
-            self.collection = getattr(self.object, self.attribute)
+            self.collection = Binding.extract(self.object, self.attribute)
         else:
             self.collection = self.object
         self.values = self.ui.values(self.collection)
@@ -356,7 +356,7 @@ class CollectionAutoBinding (Binding):
             self.template_parent.remove(self.template)
 
         if self.attribute:
-            self.collection = getattr(self.object, self.attribute)
+            self.collection = self.get()
         else:
             self.collection = self.object
 
@@ -389,7 +389,7 @@ class CollectionAutoBinding (Binding):
 
         self.item_ui = {}
         self.binders = {}
-        for value in self.values:
+        for index, value in enumerate(self.values):
             # apply the filter property
             if not self.ui.filter(value):
                 continue
@@ -397,11 +397,11 @@ class CollectionAutoBinding (Binding):
             template = self.get_template(value, self.ui)
             template.visible = True
             self.items_ui.append(template)
-            self.item_ui[value] = template
+            self.item_ui[index] = template
 
             binder = Binder(value, template)
             binder.populate()
-            self.binders[value] = binder
+            self.binders[index] = binder
 
             try:
                 del_button = template.nearest(lambda x: x.bind == '__delete')[0]
@@ -418,10 +418,8 @@ class CollectionAutoBinding (Binding):
 
     def set_page(self, page=0):
         if self.ui.pagesize:
-            i = 0
-            for value in self.values:
-                self.item_ui[value].visible = int(i / self.ui.pagesize) == page
-                i += 1
+            for index, value in enumerate(self.values):
+                self.item_ui[index].visible = int(index / self.ui.pagesize) == page
             if self.paging:
                 self.paging.active = page
 
@@ -463,10 +461,10 @@ class CollectionAutoBinding (Binding):
                 self.collection.append(e)
             self.items_ui.order = []
 
-        for value in self.values:
-            if self.ui.filter(value) and value in self.binders:
-                self.binders[value].update()
-                self.ui.post_item_update(self.object, self.collection, value, self.binders[value].ui)
+        for index, value in enumerate(self.values):
+            if self.ui.filter(value) and index in self.binders:
+                self.binders[index].update()
+                self.ui.post_item_update(self.object, self.collection, value, self.binders[index].ui)
 
 
 @public
@@ -547,7 +545,7 @@ class Binder (object):
             # Custom/collection binding
             if bindable.typeid.startswith('bind:'):
                 k = bindable.bind
-                if k and hasattr(object, k):
+                if k and Binding.applicable(object, k):
                     self.add(bindable.binding(object, k, bindable))
                 continue
 

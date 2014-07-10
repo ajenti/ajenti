@@ -24,7 +24,7 @@ class LinuxLoadSensor (BaseLoadSensor):
 
 @plugin
 class BSDLoadSensor (BaseLoadSensor):
-    platforms = ['freebsd']
+    platforms = ['freebsd', 'osx']
 
     def measure(self, variant):
         idx = self.get_variants().index(variant)

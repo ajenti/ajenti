@@ -15,6 +15,7 @@ class PluginInfo:
 
     def __init__(self, **kwargs):
         self.name = ''
+        self.description = ''
         self.icon = None
         self.author = ''
         self.homepage = ''
@@ -154,6 +155,10 @@ def _check_plugin(cls):
         raise Exception('Class %s must be decorated with @plugin' % cls)
 
 
+class NoImplementationsError (Exception):
+    pass
+
+
 def interface(cls):
     """
     A decorator to create plugin interfaces::
@@ -196,7 +201,7 @@ def interface(cls):
             context = extract_context()
         impls = manager.get_implementations(cls)
         if len(impls) == 0:
-            raise Exception('Implementations for %s not found' % cls.__name__)
+            raise NoImplementationsError('Implementations for %s not found' % cls.__name__)
         return context.get_instance(impls[0])
     cls.get = get.__get__(cls)
 
@@ -369,5 +374,6 @@ __all__ = [
     'track',
     'persistent',
     'extract_context',
+    'NoImplementationsError',
     'interface',
 ]

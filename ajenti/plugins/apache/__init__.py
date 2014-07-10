@@ -5,6 +5,7 @@ from ajenti.util import platform_select
 
 info = PluginInfo(
     title='Apache',
+    description='Apache 2 web server',
     icon='globe',
     dependencies=[
         PluginDependency('webserver_common'),

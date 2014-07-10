@@ -6,6 +6,24 @@ import gevent
 from StringIO import StringIO
 from datetime import datetime
 
+from socketio.handler import SocketIOHandler
+
+
+def _validate_origin(env):
+    valid_origin = '%s://%s' % (env['wsgi.url_scheme'], env['HTTP_HOST'])
+    request_origin = env.get('HTTP_ORIGIN', '').strip('/')
+    if request_origin:
+        if request_origin != valid_origin:
+            return False
+    return True
+
+
+class RootHttpHandler (SocketIOHandler):
+    def handle_one_response(self):
+        if not _validate_origin(self.environ):
+            return super(SocketIOHandler, self).handle_one_response()
+        return SocketIOHandler.handle_one_response(self)
+
 
 class HttpRoot (object):
     """
@@ -25,6 +43,10 @@ class HttpRoot (object):
         """
         Dispatches the WSGI request
         """
+        if not _validate_origin(env):
+            start_response('403 Invalid Origin', [])
+            return ''
+
         context = HttpContext(env, start_response)
         for middleware in self.stack:
             output = middleware.handle(context)

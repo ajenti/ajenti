@@ -134,7 +134,7 @@ class FMBackend (BasePlugin):
                     shutil.rmtree(i.fullpath)
                 else:
                     os.unlink(i.fullpath)
-            cb()
+            cb(None)
 
     def move(self, items, dest, cb=lambda t: None):
         logging.info('[fm] moving %s to %s' % (', '.join(x.fullpath for x in items), dest))

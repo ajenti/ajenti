@@ -8,7 +8,7 @@ from ajenti.ui import *
 @p('category', default='Other', doc='Section category name')
 @p('active', default=False)
 @p('clsname', default='')
-@p('hidden', default=False, type=bool, doc='Hide this section in sidebar')
+@p('hidden', default=False)
 @track
 @interface
 class SectionPlugin (BasePlugin, UIElement):
@@ -17,6 +17,7 @@ class SectionPlugin (BasePlugin, UIElement):
     """
 
     typeid = 'main:section'
+    hidden = False
 
     def init(self):
         self._first_page_load = True

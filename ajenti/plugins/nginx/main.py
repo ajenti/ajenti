@@ -5,6 +5,7 @@ from ajenti.util import platform_select
 
 @plugin
 class Nginx (WebserverPlugin):
+    platforms = ['debian', 'centos', 'freebsd', 'arch']
     service_name = 'nginx'
     service_buttons = [
         {

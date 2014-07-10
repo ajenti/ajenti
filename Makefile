@@ -96,6 +96,7 @@ upload-tgz: tgz
 clean:
 	$(PYTHON) setup.py clean
 	rm -rf $(DOCBUILDDIR)/*
+	rm -rf ajenti-1.*
 	rm -rf build/ debian/$(PROJECT)* debian/*stamp* debian/files MANIFEST *.egg-info
 	find . -name '*.pyc' -delete
 	find . -name '*.c.js' -delete

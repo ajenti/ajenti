@@ -4,6 +4,7 @@ from ajenti.plugins import *
 
 info = PluginInfo(
     title='RAID',
+    description='mdadm status display',
     icon='hdd',
     dependencies=[
         PluginDependency('main'),

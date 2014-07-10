@@ -64,7 +64,7 @@ class window.Controls.main__sections_category extends window.Control
             <div class="control container main-sections-category"> 
                 <div>#{@s(@properties.name)}</div>
                 <div class="content">
-                    <div class="--child-container">
+                    <div class="__child-container">
                         <children>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ class window.Controls.main__sections_root extends window.Control
         resizeSidebar = () => 
             setTimeout () =>
                 h = ($(window).height() - 80) + 'px'
-                $(@dom).find('>.sidebar>.tabs-container').css(height: h)
+                $(@dom.children[0].children[0]).css(height: h)
             , 1
 
         $(document).ready resizeSidebar
@@ -139,10 +139,10 @@ class window.Controls.main__sections_root extends window.Control
                     @categories[child.properties.category].append(tab)
     
     saveScroll: () ->
-        @constructor._savedScroll = $(@dom).find('>.sidebar>.tabs-container').scrollTop()
+        @constructor._savedScroll = $(@dom.children[0].children[0]).scrollTop()
 
     restoreScroll: () ->
-        $(@dom).find('>.sidebar>.tabs-container').scrollTop(@constructor._savedScroll)
+        $(@dom.children[0].children[0]).scrollTop(@constructor._savedScroll)
 
     onBroadcast: (msg) ->
         if msg == 'destruct'

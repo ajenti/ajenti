@@ -1,5 +1,6 @@
 import subprocess
 
+import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
@@ -30,6 +31,8 @@ class MountsBackend (BasePlugin):
             f = Mount()
             l = l.split()
             f.device = l[0]
+            if f.device == 'map' and ajenti.platform == 'osx':
+                continue
             f.mountpoint = l[5]
             f.used = int(l[2]) * 1024
             f.size = int(l[1]) * 1024

@@ -13,9 +13,11 @@ class AjentiNotification
         setTimeout @remove, @timeout
 
     remove: () =>
-        @dom.fadeTo 500, 0, () =>
+        @dom.animate {left: '300px'}, 500, 'swing'
+        setTimeout () ->
             @notificator.notifications.pop this
             @dom.remove()
+        , 500
 
     moveUp: (dy) =>
         @position -= dy

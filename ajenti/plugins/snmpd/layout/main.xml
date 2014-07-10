@@ -1,0 +1,92 @@
+<vc>
+    <servicebar id="servicebar" />
+    
+    <body>
+        <pad>
+            <formgroup text="Sinks">
+                <vc>
+                    <formline text="SNMPv1">
+                        <bind:collection bind="sinks1" id="sinks1">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                    <formline text="SNMPv2">
+                        <bind:collection bind="sinks2" id="sinks2">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                    <formline text="SNMPv2c">
+                        <bind:collection bind="sinks2c" id="sinks2c">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                </vc>
+            </formgroup>
+            <formgroup text="Community strings">
+                <vc>
+                    <formline text="Read-only">
+                        <bind:collection bind="rocommunities" id="rocommunities">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                    <formline text="Read-write">
+                        <bind:collection bind="rwcommunities" id="rwcommunities">
+                            <dt bind="__items" addrow="{Add}" filtering="False" />
+                            <bind:template>
+                                <dtr>
+                                    <dtd>
+                                        <textbox style="big" bind="value" />
+                                    </dtd>
+                                </dtr>
+                            </bind:template>
+                        </bind:collection>
+                    </formline>
+                </vc>
+            </formgroup>
+            <formgroup text="MIBs">
+                <bind:collection bind="mibs">
+                    <box scroll="True" width="500" height="500">
+                        <dt bind="__items" />
+                    </box>
+                    <bind:template>
+                        <dtr>
+                            <dtd>
+                                <checkbox bind:value="selected" bind:text="name" />
+                            </dtd>
+                        </dtr>
+                    </bind:template>
+                </bind:collection>
+            </formgroup>
+        </pad>
+    </body>
+
+    <button id="save" text="{Save}" icon="ok" />
+</vc>

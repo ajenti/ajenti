@@ -17,7 +17,6 @@ def init():
 
     try:
         import dbus
-        import sm_upstart
         import sm_systemd
     except ImportError:
         pass
@@ -25,6 +24,7 @@ def init():
     import sm_sysvinit
     import sm_centos
     import sm_freebsd
+    import sm_osx
     import main
     import widget
     import sensor

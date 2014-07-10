@@ -29,7 +29,10 @@ class Samba (SectionPlugin):
 
         self.binder = Binder(None, self.find('config'))
         self.find('shares').new_item = lambda c: ShareData()
-        self.config = SambaConfig(path='/etc/samba/smb.conf')
+        self.config = SambaConfig(path=platform_select(
+            default='/etc/samba/smb.conf',
+            freebsd='/usr/local/etc/smb.conf',
+        ))
 
         def post_item_bind(object, collection, item, ui):
             ui.find('disconnect').on('click', self.on_disconnect, item)

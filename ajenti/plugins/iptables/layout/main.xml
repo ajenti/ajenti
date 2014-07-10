@@ -28,7 +28,7 @@
                                                 <label bind="name" style="bold" />
                                             </box>
 
-                                            <bind:collection bind="rules" id="rules" pagesize="10">
+                                            <bind:collection bind="rules" id="rules">
                                                 <sortabledt bind="__items" />
 
                                                 <bind:template>
@@ -65,12 +65,8 @@
                                                     </collapserow>
                                                 </bind:template>
 
-                                                <right>
-                                                    <paging bind="__paging" />
-                                                </right>
-                                                <box>
-                                                    <button bind="__add" icon="plus" text="{New Rule}" />
-                                                </box>
+                                                <box height="5" />
+                                                <button bind="__add" icon="plus" text="{New Rule}" />
                                             </bind:collection>
                                         </vc>
                                     </bind:template>

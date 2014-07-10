@@ -1,0 +1,7 @@
+<box>
+    <vc binder:context="classconfig">
+        <formline text="{Topmost directory}">
+            <textbox bind="[root]" />
+        </formline>
+    </vc>
+</box>

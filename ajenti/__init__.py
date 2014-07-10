@@ -5,7 +5,7 @@ import random
 import signal
 import subprocess
 
-__version__ = '1.2.21.7'
+__version__ = '1.2.21.13'
 
 # Global state
 
@@ -76,6 +76,9 @@ def detect_platform():
         'ubuntu': 'debian',
         'rhel': 'centos',
     }
+
+    if hasattr(pyplatform, 'mac_ver') and pyplatform.mac_ver()[0] != '':
+        return 'osx', 'osx'
 
     if pyplatform.system() != 'Linux':
         res = pyplatform.system().lower()
