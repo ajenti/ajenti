@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'set-platform='])
-    except getopt.GetoptError, e:
+    except getopt.GetoptError as e:
         print str(e)
         usage()
         sys.exit(2)
@@ -123,7 +123,7 @@ if __name__ == '__main__':
             from ajenti import core
             try:
                 core.run()
-            except Exception, e:
+            except Exception as e:
                 core.handle_crash(e)
     else:
         logging.info('Ajenti starting in foreground')
@@ -132,7 +132,7 @@ if __name__ == '__main__':
             core.run()
         except KeyboardInterrupt:
             pass
-        except Exception, e:
+        except Exception as e:
             from ajenti import core
             core.handle_crash(e)
 

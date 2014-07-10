@@ -92,7 +92,7 @@ class FileManager (SectionPlugin):
         try:
             open(path, 'w').close()
             self._chown_new(path)
-        except OSError, e:
+        except OSError as e:
             self.context.notify('error', str(e))
         self.refresh()
 
@@ -106,7 +106,7 @@ class FileManager (SectionPlugin):
                 os.mkdir(path)
                 os.chmod(path, 0755)
                 self._chown_new(path)
-            except OSError, e:
+            except OSError as e:
                 self.context.notify('error', str(e))
         self.refresh()
 
@@ -135,7 +135,7 @@ class FileManager (SectionPlugin):
                 gevent.sleep(0)
                 output.write(data)
             output.close()
-        except OSError, e:
+        except OSError as e:
             self.context.notify('error', str(e))
         self.refresh()
 
@@ -261,7 +261,7 @@ class FileManager (SectionPlugin):
             self.binder_d.update()
             try:
                 self.item.write()
-            except Exception, e:
+            except Exception as e:
                 self.context.notify('error', str(e))
             self.refresh()
 

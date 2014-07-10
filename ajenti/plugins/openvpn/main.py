@@ -33,7 +33,7 @@ class OpenVPN (SectionPlugin):
             try:
                 self.backend.killbyaddr(u.raddress)
                 time.sleep(1)
-            except Exception, e:
+            except Exception as e:
                 self.context.notify('error', e.message)
             self.refresh()
 
@@ -58,7 +58,7 @@ class OpenVPN (SectionPlugin):
     def refresh(self):
         try:
             self.backend.setup()
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', e.message)
             self.context.launch('configure-plugin', plugin=self.backend)
             return
@@ -80,7 +80,7 @@ class OpenVPN (SectionPlugin):
                 m.timestamp, m.flags, m.text = d[:3]
                 self.state.messages.append(m)
 
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', e.message)
 
         self.binder.setup(self.state).populate()

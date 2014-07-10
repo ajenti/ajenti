@@ -38,10 +38,10 @@ class Munin (SectionPlugin):
         self.munin_client.reset()
         try:
             self.munin_client.fetch_domains()
-        except requests.ConnectionError, e:
+        except requests.ConnectionError as e:
             self.find_type('tabs').active = 1
             self.context.notify('error', _('Couldn\'t connect to Munin: %s') % e.message)
-        except Exception, e:
+        except Exception as e:
             self.find_type('tabs').active = 1
             if e.message == 'auth':
                 self.context.notify('error', _('Munin HTTP authentication failed'))

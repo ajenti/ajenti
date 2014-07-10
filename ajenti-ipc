@@ -14,7 +14,7 @@ class UHTTPConnection (httplib.HTTPConnection):
         sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         try:
             sock.connect(self.path)
-        except socket.error, e:
+        except socket.error as e:
             if e.errno == 13:
                 sys.stderr.write('Permission denied\n')
                 sys.exit(4)

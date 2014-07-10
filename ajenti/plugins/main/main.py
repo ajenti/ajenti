@@ -167,9 +167,9 @@ class MainSocket (SocketPlugin):
                     profile_end('Total')
                     if ajenti.debug:
                         self.send_debug()
-        except SecurityError, e:
+        except SecurityError as e:
             self.send_security_error()
-        except Exception, e:
+        except Exception as e:
             catcher.backup(e)
             traceback.print_exc()
             e.traceback = traceback.format_exc(e)
@@ -350,7 +350,7 @@ class SectionsRoot (UIElement):
                     self.is_empty = False
                 except SecurityError:
                     pass
-                except Exception, e:
+                except Exception as e:
                     catcher.backup(e)
                     traceback.print_exc()
                     e.traceback = traceback.format_exc(e)

@@ -53,7 +53,7 @@ class LDAPSyncProvider (UserSyncProvider):
         l = self.__get_ldap()
         try:
             return bool(l.bind_s('cn=%s,' % username + self.classconfig['auth_dn'], password))
-        except Exception, e:
+        except Exception as e:
             print e
             return False
 
