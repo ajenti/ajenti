@@ -589,10 +589,9 @@
 	            float: left;
 	            position: relative;
 	            top: 0;
-	            margin: 1px .2em 0 0;
-	            border: 1px solid transparent;
-	            .border-radius(15px);
+	            margin: 1px .5em 0 0;
 	            white-space: nowrap;
+                border-bottom: 3px solid #eee;
 
 	            &:hover {
 	                background: rgba(0,0,0,0.1);
@@ -607,12 +606,11 @@
 	            }
 
 	            &.active {
-	                #gradient > .vertical(@orange, lighten(@orange, 15%));
-	                .box-shadow(0 2px 2px rgba(0,0,0,0.125) inset);
+	            	background: @orange;
+                	border-color: darken(@orange, 5%);
 
-	                >a {
+	                &>a {
 	                    color: white;
-	                    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	                }
 	            }
 	        }
