@@ -39,7 +39,7 @@ msgstr "Név"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -472,7 +472,7 @@ msgstr "Eszközök"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Parancs végrehajtás"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -481,7 +481,7 @@ msgstr "%s másolás"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Fájl áthelyezés"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -490,12 +490,12 @@ msgstr "%s áthelyezés"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Fájlok törlése"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "%s törlése"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -778,7 +778,7 @@ msgstr "Legfelső könyvtár"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "A könyvtár nem létezik"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -1827,7 +1827,7 @@ msgstr "Fájlkezelő"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Fájlok törölve"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -2179,27 +2179,27 @@ msgstr "Ajenti frissítés elérhető"
 
 #: ajenti/plugins/ntpd/main.py:54
 msgid "Date & Time"
-msgstr ""
+msgstr "Dátum & Idő"
 
 #: ajenti/plugins/ntpd/main.py:91
 msgid "No servers defined"
-msgstr ""
+msgstr "Nincs szerver meghatározva"
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "Kész"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Aktuális idő"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Szinkronizálás"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Szerverek"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"

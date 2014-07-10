@@ -472,7 +472,7 @@ msgstr "الأدوات"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "تنفيذ الأمر"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -490,12 +490,12 @@ msgstr "جاري نقل  %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "حذف الملفات"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "حذف %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -1430,7 +1430,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "تطبيق التغييرات"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1439,7 +1439,7 @@ msgstr "تشغيل تلقائي"
 #: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
-msgstr ""
+msgstr "معطل"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
@@ -1508,7 +1508,7 @@ msgstr " تشغيل تلقائي"
 
 #: ajenti/plugins/iptables/main.py:206
 msgid "Applied successfully"
-msgstr ""
+msgstr "طبقت بنجاح"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
@@ -1607,11 +1607,11 @@ msgstr "بريد"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "اسم علبة البريد غير صالح"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "مجال علبة البريد غير صالح"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
@@ -1831,11 +1831,11 @@ msgstr ""
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
-msgstr ""
+msgstr "الملفات المنقولة"
 
 #: ajenti/plugins/fm/fm.py:184
 msgid "Files copied"
-msgstr ""
+msgstr "الملفات المنسوخة"
 
 #: ajenti/plugins/fm/fm.py:199
 #, python-format
@@ -2187,11 +2187,11 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "إنتهت العملية"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "الوقت الحالي"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
@@ -2199,7 +2199,7 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "السرفرات"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2339,7 +2339,7 @@ msgstr "إيقاف"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "استشعار IPMI"
 
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"

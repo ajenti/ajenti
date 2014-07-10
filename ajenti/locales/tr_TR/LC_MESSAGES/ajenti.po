@@ -5,7 +5,7 @@ msgstr "Pluginler"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Eklenti listesini toplama"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:3
@@ -39,7 +39,7 @@ msgstr "Adı"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Açıklama"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -54,7 +54,7 @@ msgstr "Türü"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
-msgstr ""
+msgstr "Bağlı olan"
 
 #: ajenti/plugins/plugins/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -430,7 +430,7 @@ msgstr "Lisans türü"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "Lisans bitişi"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -440,7 +440,7 @@ msgstr "Kaldır"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Ticari olmayan lisans yüklü"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
@@ -472,7 +472,7 @@ msgstr "Araçlar"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Komut Çalıştır"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -481,7 +481,7 @@ msgstr "%S kopyalanıyor"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Dosyaları taşı"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -490,12 +490,12 @@ msgstr "%S taşınıyor"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Dosyaları sil"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "%s siliniyor"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -643,7 +643,7 @@ msgstr "Oluştur"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "Paralel olarak çalıştır"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
@@ -810,7 +810,7 @@ msgstr "Boş"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filitre ..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -831,11 +831,11 @@ msgstr "Bölüm erişimi"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Şifre değiştir"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Eski şifre"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -844,7 +844,7 @@ msgstr "Yeni parola"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Şifre onaylama"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -948,7 +948,7 @@ msgstr "İzin verilen kullanıcılar"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "R/W kullanıcıları"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -1212,15 +1212,15 @@ msgstr "Veritabanı silmeyi onaylayın!"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Statik dosyalar"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "Özel FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Reverse Proxy"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
@@ -1256,7 +1256,7 @@ msgstr "İndirme tamamlandı"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Yönet"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
@@ -1272,23 +1272,23 @@ msgstr "Websitelerini yeniden başlat"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "Min işlemler"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
-msgstr ""
+msgstr "Max işlemler"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "PHP options"
-msgstr ""
+msgstr "Php ayarları"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "PHP flags"
-msgstr ""
+msgstr "Php flags"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Uygulama modulü"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
@@ -1298,7 +1298,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Workers"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
@@ -1383,31 +1383,31 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Web sitesi dosyaları"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Dizin oluştur"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Otomatik indirme"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "From URL"
-msgstr ""
+msgstr "URL'den"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "Download and unpack"
-msgstr ""
+msgstr "İndir ve çıkart"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "Alan adları"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "Alan Adı"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1417,20 +1417,20 @@ msgstr "Bağlantı noktaları"
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "SSL certificate path"
-msgstr ""
+msgstr "SSL sertifika yolu"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL key path"
-msgstr ""
+msgstr "SSL anahtarı yolu"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "Content"
-msgstr ""
+msgstr "İçerik"
 
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "Değişiklileri onayla"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1459,11 +1459,11 @@ msgstr "Başlangıç yeniden deneme"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "NGINX ayar testi"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "NGINX servisi"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1603,7 +1603,7 @@ msgstr "CNID adresi"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "E-Posta"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
@@ -1687,23 +1687,23 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "Özel ACL"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Özel Yönlendiriciler"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "Özel taşımalar"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail, henüz aktif değil"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Ajenti V Mail aktif etmek, mevcut yazılımızın ayarlarının üzerine yazılacak:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
@@ -1723,7 +1723,7 @@ msgstr "Kurulum tamamlandı!"
 
 #: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
-msgstr ""
+msgstr "Paket yönetici sorgulama yöneticisi"
 
 #: ajenti/plugins/packages/main.py:135
 #, python-format
@@ -1798,7 +1798,7 @@ msgstr "Kaydedilen bölge"
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s mevcut değil"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
@@ -1827,7 +1827,7 @@ msgstr "Dosya Yöneticisi"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Dosyalar silinmiş"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -1844,7 +1844,7 @@ msgstr "%i öğe seçildi"
 
 #: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
-msgstr ""
+msgstr "Paketlenmemiş"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1912,11 +1912,11 @@ msgstr "Başlangıç dizini"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Yeni dosyaların sahibi"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "Yeni dosyaların grubu"
 
 #: ajenti/plugins/terminal/terminal.py:114
 #, python-format
@@ -2171,35 +2171,35 @@ msgstr "Otomatik yenile"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "Ajenti Güncelleme"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "Ajenti güncellemesi var"
 
 #: ajenti/plugins/ntpd/main.py:54
 msgid "Date & Time"
-msgstr ""
+msgstr "Tarih & Zaman"
 
 #: ajenti/plugins/ntpd/main.py:91
 msgid "No servers defined"
-msgstr ""
+msgstr "Server Tanımlı Değil"
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "Tamam"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Şimdiki zaman"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Sekron"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Sunucular"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2417,7 +2417,7 @@ msgstr "Ağ aygıtı"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "Ağ aygıtı (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
@@ -2489,7 +2489,7 @@ msgstr "Günlükleri"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPM servisi"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2509,7 +2509,7 @@ msgstr "Günlüğündeki hataları"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Active Directory senkronizasyonu"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
