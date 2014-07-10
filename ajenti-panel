@@ -49,7 +49,7 @@ class PidFile(object):
 
 
 def usage():
-    print """
+    print("""
 Usage: %s [options]
 Options:
     -c, --config <file> - Use given config file instead of default
@@ -57,7 +57,7 @@ Options:
     -d, --daemon        - Run in background (daemon mode)
     -h, --help          - This help
     --set-platform <id> - Override OS detection
-    """
+    """)
 
 
 if __name__ == '__main__':
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     try:
         opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'set-platform='])
     except getopt.GetoptError as e:
-        print str(e)
+        print(str(e))
         usage()
         sys.exit(2)
 

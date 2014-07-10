@@ -24,7 +24,7 @@ class UHTTPConnection (httplib.HTTPConnection):
 
 
 if len(sys.argv) < 2:
-    print 'Usage: ajenti-ipc <endpoint> [arguments]'
+    print('Usage: ajenti-ipc <endpoint> [arguments]')
     sys.exit(1)
 
 url = sys.argv[1] + '/' + '\n'.join(sys.argv[2:]).encode('base64').strip()

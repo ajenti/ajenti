@@ -54,7 +54,7 @@ class LDAPSyncProvider (UserSyncProvider):
         try:
             return bool(l.bind_s('cn=%s,' % username + self.classconfig['auth_dn'], password))
         except Exception as e:
-            print e
+            print(e)
             return False
 
     def sync(self):

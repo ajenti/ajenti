@@ -340,7 +340,7 @@ class PluginManager:
             logging.warn(' *** [%s] Plugin error: %s' % (name, e))
         except PluginCrashed as e:
             logging.warn(' *** [%s] Plugin crashed: %s' % (name, e))
-            print e.traceback
+            print(e.traceback)
             info.crash = e
         except Dependency.Unsatisfied as e:
             logging.warn(' *** [%s] skipping due to %s' % (name, e))

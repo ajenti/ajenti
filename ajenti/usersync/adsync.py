@@ -57,7 +57,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
         try:
             return bool(l.bind_s('%s\\%s' % (self.classconfig['domain'], username), password))
         except Exception as e:
-            print e
+            print(e)
             return False
 
     def __search(self):

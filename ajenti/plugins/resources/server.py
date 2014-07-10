@@ -18,7 +18,7 @@ class ContentServer (HttpPlugin):
         if ajenti.debug:
             if time.time() - self.last_query > 5:
                 try:
-                    print subprocess.check_output('./compile_resources.py nocompress', shell=True)
+                    print(subprocess.check_output('./compile_resources.py nocompress', shell=True))
                 except:
                     pass
                 ContentCompressor.get().compress()
