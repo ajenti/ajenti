@@ -59,7 +59,7 @@ class window.Controls.hc extends window.Control
     createDom: () ->
         """
             <table class="control container hc #{@s(@properties.style)}">
-                <tr class="--child-container">
+                <tr class="__child-container">
                     <children>
                 </tr>
             </table>
@@ -75,7 +75,7 @@ class window.Controls.hc extends window.Control
 class window.Controls.vc extends window.Control
     createDom: () ->
         """
-            <div class="control container vc #{@s(@properties.style)} --child-container">
+            <div class="control container vc #{@s(@properties.style)} __child-container">
                 <children>
             </div>
         """
@@ -151,10 +151,10 @@ class window.Controls.dt extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        $(@dom).find('>tbody>tr.addrow>td>a').click () =>
+        $(@dom).children('tbody').children('tr.addrow').find('td > a').click () =>
             @event 'add'
 
-        @filterInput = $(@dom).find('>tbody>tr.filterrow>td>input')
+        @filterInput = $(@dom).children('tbody').children('tr.filterrow').find('td > input')
         @filterInput.keyup () =>
             @filter @filterInput.val()
         @filterInput.val @properties.filter
@@ -182,20 +182,14 @@ class window.Controls.dt extends window.Control
             return r
 
         for child in @children
-            if not query or child.properties.header
-                $(child.dom).show()
-            else
-                if _collect_strings(child).toUpperCase().indexOf(query.toUpperCase()) != -1
-                    $(child.dom).show()
-                else
-                    $(child.dom).hide()
-
+            visible = not query or child.properties.header or _collect_strings(child).toUpperCase().indexOf(query.toUpperCase()) != -1
+            child.dom.style.display = if visible then 'table-row' else 'none'
 
 
 class window.Controls.sortabledt extends window.Controls.dt
     setupDom: (dom) ->
         super(dom)
-        @tbody = $(@dom).find('>tbody')
+        @tbody = jQuery(@dom).children('tbody')
         @tbody.sortable(
             distance: 5
             cancel: 'input,button,a,.CodeMirror'
@@ -210,7 +204,7 @@ class window.Controls.sortabledt extends window.Controls.dt
     detectUpdates: () ->
         @newOrder = []
         hasChanges = false
-        @tbody.find('>.row').each (i, e) =>
+        @tbody.children('.row').each (i, e) =>
             idx = parseInt($(e).attr('data-order'))
             if (i+1) != idx
                 hasChanges = true
@@ -230,7 +224,7 @@ class window.Controls.sortabledt extends window.Controls.dt
 
 class window.Controls.dtr extends window.Control
     createDom: () ->
-        """<tr class="row #{if @properties.header then 'header-row' else ''} --child-container"><children></tr>"""
+        """<tr class="row #{if @properties.header then 'header-row' else ''} __child-container"><children></tr>"""
 
 
 class window.Controls.dtd extends window.Control
@@ -262,7 +256,7 @@ class window.Controls.lt extends window.Control
 
 class window.Controls.ltr extends window.Control
     createDom: () ->
-        """<tr class="--child-container"><children></tr>"""
+        """<tr class="__child-container"><children></tr>"""
 
 
 class window.Controls.ltd extends window.Control
@@ -299,7 +293,7 @@ class window.Controls.collapserow extends window.Control
         @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
             #@publish()
-            $(@container).toggle('blind')
+            jQuery(@container).toggle('blind')
             if @expanded
                 @broadcast('visible')
             @cancel(e)
@@ -330,19 +324,30 @@ class window.Controls.tabs extends window.Control
     setupDom: (dom) ->
         super(dom)
         @active = @properties.active
-        @headers = $(@dom).find('>ul')
+        @headers = $(@dom).children('ul')
         for child in @children
             do (child) =>
-                header = $$("""<li data-index="#{child.tabIndex}"><a href="#uid-#{child.uid}">#{child.properties.title}</a></li>""")
+                header = $$("""<li><a href="#uid-#{child.uid}">#{child.properties.title}</a></li>""")
+                
+                $(header).click ((child) => (e) =>
+                    @active = child.tabIndex
+                    @event('switch', {})
+                    @headers.find('li').removeClass('active')
+                    $(header).addClass('active')
+                    if @properties.client
+                        for x in @children
+                            $(x.dom).hide()
+                        $(child.dom).show()
+                    @cancel(e)
+                )(child)
+
+                $(child.dom).hide()
+                if child.tabIndex == @active
+                    $(child.dom).show()
+                    $(header).addClass('active')
+                
                 @headers.append(header)
-        $(@dom).tabs({
-            beforeActivate: (e, ui) =>
-                @active = parseInt(ui.newTab.attr('data-index'))
-                @event('switch', {})
-                if not @properties.client
-                    e.preventDefault()
-            selected: @active
-        })
+
         return this
 
     detectUpdates: () ->
@@ -379,7 +384,7 @@ class window.Controls.collapse extends window.Control
 
         @header.addEventListener 'click', (e) =>
             @expanded = not @expanded
-            $(@container).toggle('blind')
+            jQuery(@container).toggle('blind')
             if @expanded
                 @broadcast('visible')
             @cancel(e)

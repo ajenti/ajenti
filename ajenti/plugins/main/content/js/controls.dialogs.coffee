@@ -4,7 +4,7 @@ class window.Controls.dialog extends window.Control
             <div class="control container dialog #{@s(@properties.style)}">
                 <div class="backdrop">
                     <div class="content">
-                        <div class="--child-container">
+                        <div class="__child-container">
                             <children>
                         </div>
                     </div>
@@ -16,7 +16,7 @@ class window.Controls.dialog extends window.Control
         super(dom)
         if @properties.buttons
             @buttons = $("""<div class="buttons"></div>""")
-            $(@dom).find('>.backdrop>.content').append(@buttons)
+            $(@dom.children[0].children[0]).append(@buttons)
             container = new Controls.hc(@ui)
             container.setupDom()
             @buttons.append container.dom

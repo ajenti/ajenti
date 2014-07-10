@@ -15,7 +15,7 @@ class window.Controls.dashboard__dash extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        $(@dom).find('>.container').sortable({
+        jQuery(@dom).children('.container').sortable({
             connectWith: '.dashboard-dash .container'
             handle: '.handle'
             revert: 200
@@ -27,10 +27,10 @@ class window.Controls.dashboard__dash extends window.Control
                 r = {}
                 $(@dom).find('.trash').hide()
                 $(@dom).find('.trash .control').remove()
-                $(@dom).find('>.widget-container').each (i, c) =>
+                $(@dom).children('.widget-container').each (i, c) =>
                     index = parseInt($(c).attr('data-index'))
                     r[index] = []
-                    $(c).find('>*').each (i, e) =>
+                    $(c).children().each (i, e) =>
                         r[index].push(parseInt($(e).attr('data-uid')))
                 @event('reorder', indexes: r)
         }).disableSelection()
@@ -44,7 +44,7 @@ class window.Controls.dashboard__widget extends window.Control
         """
             <div data-uid="#{@properties.uid}" data-container="#{@properties.container}" class="control dashboard-widget">
                 <div class="handle"></div>
-                <div class="content --child-container"><children></div>
+                <div class="content __child-container"><children></div>
             </div>
         """
 

@@ -611,4 +611,58 @@
 			float: left;
 		}
 	}
+
+
+	&.tabs {
+	    position: relative;
+	    padding: .2em;
+	    overflow: hidden;
+
+	    &>ul {
+	    	overflow: hidden;
+	        margin: 0;
+	        padding: .2em .2em 0;
+
+	        li {
+	            list-style: none;
+	            float: left;
+	            position: relative;
+	            top: 0;
+	            margin: 1px .2em 0 0;
+	            border: 1px solid transparent;
+	            .border-radius(15px);
+	            white-space: nowrap;
+
+	            &:hover {
+	                background: rgba(0,0,0,0.1);
+	            }
+
+	            a {
+	                float: left;
+	                font-weight: bold;
+	                padding: 4px 10px;
+	                color: @controlText;
+	                text-decoration: none;
+	            }
+
+	            &.active {
+	                #gradient > .vertical(@orange, lighten(@orange, 15%));
+	                .box-shadow(0 2px 2px rgba(0,0,0,0.125) inset);
+
+	                >a {
+	                    color: white;
+	                    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	                }
+	            }
+	        }
+	    }
+
+	    // Bodies
+	    &>div>div {
+	        display: block;
+	        border-width: 0;
+	        padding: 1em 0;
+	        background: none;
+	    }
+	} 
 }

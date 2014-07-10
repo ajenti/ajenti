@@ -28,7 +28,7 @@ class window.Controls.tooltip extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        $(@dom.querySelector('.container')).tooltip({
+        jQuery(@dom).children('.container').tooltip({
             content: () => """
                 <div class="control tooltip body">
                     <div>
@@ -79,7 +79,7 @@ class window.Controls.togglebutton extends window.Control
 class window.Controls.list extends window.Control
     createDom: () ->
         """
-            <div class="control container list --child-container">
+            <div class="control container list __child-container">
                 <children>
             </div>
         """
@@ -88,7 +88,7 @@ class window.Controls.list extends window.Control
 class window.Controls.listitem extends window.Control
     createDom: () ->
         """
-            <div class="control container listitem --child-container">
+            <div class="control container listitem __child-container">
                 <children>
             </div>
         """
