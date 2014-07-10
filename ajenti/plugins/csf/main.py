@@ -82,7 +82,7 @@ class CSFSection (SectionPlugin):
         try:
             self.backend.test_config()
             self.context.notify('info', _('Self-test OK'))
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', str(e))
 
 

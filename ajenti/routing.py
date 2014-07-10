@@ -53,7 +53,7 @@ class CentralDispatcher (BasePlugin, HttpHandler):
         for instance in self.context.http_handlers:
             try:
                 output = instance.handle(context)
-            except Exception, e:
+            except Exception as e:
                 return [self.respond_error(context, e)]
             if output is not None:
                 return output

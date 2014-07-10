@@ -43,7 +43,7 @@ class DBPlugin (SectionPlugin):
         try:
             result = self.query_sql(self.find('sql-db').value, self.find('sql-input').value)
             self.context.notify('info', _('Query finished'))
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', str(e))
             return
 
@@ -77,7 +77,7 @@ class DBPlugin (SectionPlugin):
         try:
             self.databases = self.query_databases()
             self.users = self.query_users()
-        except Exception, e:
+        except Exception as e:
             import traceback; traceback.print_exc();
             self.context.notify('error', str(e))
             if hasattr(self, 'config_class'):
@@ -93,7 +93,7 @@ class DBPlugin (SectionPlugin):
     def on_db_name_dialog_submit(self, value=None):
         try:
             self.query_create(value)
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', str(e))
             return
         self.refresh()
@@ -109,7 +109,7 @@ class DBPlugin (SectionPlugin):
             u.password = d.find('password').value
             try:
                 self.query_create_user(u)
-            except Exception, e:
+            except Exception as e:
                 self.context.notify('error', str(e))
                 return
 

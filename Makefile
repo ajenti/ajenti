@@ -3,7 +3,7 @@ DESTDIR=/
 BUILDIR=$(CURDIR)/debian/ajenti
 RPMTOPDIR=$(CURDIR)/build
 PROJECT=ajenti
-VERSION=`python -c "from ajenti import __version__; print __version__"`
+VERSION=`python -c "from ajenti import __version__; print(__version__)"`
 PREFIX=/usr
 DATE=`date -R`
 

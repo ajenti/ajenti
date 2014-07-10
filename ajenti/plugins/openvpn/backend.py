@@ -44,7 +44,7 @@ class OpenVPNBackend (BasePlugin):
                 self._m = manager.manager(path=addr, password=password)
             # Test connection
             self.getpid()
-        except Exception, e:
+        except Exception as e:
             raise Exception(str(e))
 
     def _execute(self, func, *args):

@@ -5,7 +5,7 @@ import json
 import subprocess
 
 if len(sys.argv) < 2:
-    print 'Usage: ajenti-ssl-gen <hostname> [-f]'
+    print('Usage: ajenti-ssl-gen <hostname> [-f]')
     sys.exit(1)
 
 host = sys.argv[1]
@@ -17,7 +17,7 @@ marker_path = '/etc/ajenti/.ssl-generated'
 conf = json.loads(open(config_path).read())
 if len(sys.argv) == 2:
     if os.path.exists(marker_path):
-        print ':: SSL is already configured'
+        print(':: SSL is already configured')
         sys.exit(1)
 
 
@@ -45,4 +45,4 @@ open(config_path, 'w').write(json.dumps(conf, indent=4))
 
 open(marker_path, 'w').close()
 
-print ':: SSL configured!'
+print(':: SSL configured!')

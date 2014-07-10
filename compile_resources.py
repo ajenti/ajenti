@@ -23,7 +23,7 @@ import ajenti.log
 def check_output(*args, **kwargs):
     try:
         return subprocess.check_output(*args, **kwargs)
-    except Exception, e:
+    except Exception as e:
         logging.error('Call failed')
         logging.error(' '.join(args[0]))
         logging.error(str(e))

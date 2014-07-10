@@ -41,7 +41,7 @@ class LicensingUI (UIElement):
         try:
             self.mgr.write_license(self.find('license-key').value)
             self.mgr.activate()
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', _('Error: "%s"') % str(e))
         self.refresh()
 
@@ -50,6 +50,6 @@ class LicensingUI (UIElement):
         try:
             self.mgr.deactivate()
             self.mgr.remove_license()
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', _('Error: "%s"') % str(e))
         self.refresh()

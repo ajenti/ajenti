@@ -162,7 +162,7 @@ class Controller (BasePlugin):
         content = ''
         try:
             content = open(path).read().decode('utf-8')
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', str(e))
         self.files[id]['content'] = content
         self.files[id]['mime'] = mimetypes.guess_type(path, strict=False)[0]
