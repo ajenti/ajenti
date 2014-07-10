@@ -62,5 +62,5 @@ class Cron (SectionPlugin):
         try:
             CronManager.get().save_tab(self.current_user, self.config)
             self.refresh()
-        except Exception, e:
+        except Exception as e:
             self.context.notify('error', e.message)

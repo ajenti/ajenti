@@ -66,7 +66,7 @@ class Inflater (BasePlugin):
             plugin, path = layout.split(':')
             try:
                 file = open(os.path.join(manager.resolve_path(plugin), 'layout', path + '.xml'), 'r')
-            except IOError, e:
+            except IOError as e:
                 raise TemplateNotFoundError(e)
             data = file.read()
             data = """<xml xmlns:bind="bind" xmlns:binder="binder">%s</xml>""" % data

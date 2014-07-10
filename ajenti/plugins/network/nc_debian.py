@@ -22,7 +22,7 @@ class DebianNetworkConfig (LinuxIfconfig, INetworkConfig):
             f = open('/etc/network/interfaces')
             ss = f.read().splitlines()
             f.close()
-        except IOError, e:
+        except IOError as e:
             return
 
         auto = []

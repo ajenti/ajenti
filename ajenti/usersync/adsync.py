@@ -56,8 +56,8 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
         l = self.__get_ldap()
         try:
             return bool(l.bind_s('%s\\%s' % (self.classconfig['domain'], username), password))
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
             return False
 
     def __search(self):

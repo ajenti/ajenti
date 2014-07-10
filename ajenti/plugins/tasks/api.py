@@ -61,10 +61,10 @@ class Task (object):
         try:
             self.run(**self.params)
             self.result.result = TaskResult.SUCCESS
-        except TaskError, e:
+        except TaskError as e:
             self.result.result = TaskResult.ERROR
             self.result.output = e.message
-        except Exception, e:
+        except Exception as e:
             traceback.print_exc()
             self.result.result = TaskResult.CRASH
             self.result.output = str(e)

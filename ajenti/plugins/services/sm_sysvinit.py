@@ -90,5 +90,5 @@ class SysVInitService (Service):
             p = subprocess.Popen([self.script, cmd], close_fds=True)
             gevent.sleep(0)
             p.wait()
-        except OSError, e:
+        except OSError as e:
             logging.warn('service script failed: %s - %s' % (self.script, e))

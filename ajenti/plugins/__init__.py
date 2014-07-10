@@ -275,7 +275,7 @@ class PluginManager:
         while True:
             try:
                 return self.load(name)
-            except PluginDependency.Unsatisfied, e:
+            except PluginDependency.Unsatisfied as e:
                 if e.dependency.plugin_name in manager.get_all():
                     if manager.get_all()[e.dependency.plugin_name].crash:
                         manager.get_all()[name].crash = e
@@ -303,7 +303,7 @@ class PluginManager:
                     raise PluginFormatError()
             except PluginFormatError:
                 raise
-            except Exception, e:
+            except Exception as e:
                 # TOTAL CRASH
                 from ajenti.api import PluginInfo
                 info = PluginInfo(name=name, crash=e)
@@ -326,7 +326,7 @@ class PluginManager:
 
             try:
                 info.init()
-            except Exception, e:
+            except Exception as e:
                 raise PluginCrashed(e)
 
             if name in self.__order:
@@ -334,18 +334,18 @@ class PluginManager:
             self.__order.append(name)
 
             return True
-        except PluginDependency.Unsatisfied, e:
+        except PluginDependency.Unsatisfied as e:
             raise
-        except PluginFormatError, e:
+        except PluginFormatError as e:
             logging.warn(' *** [%s] Plugin error: %s' % (name, e))
-        except PluginCrashed, e:
+        except PluginCrashed as e:
             logging.warn(' *** [%s] Plugin crashed: %s' % (name, e))
-            print e.traceback
+            print(e.traceback)
             info.crash = e
-        except Dependency.Unsatisfied, e:
+        except Dependency.Unsatisfied as e:
             logging.warn(' *** [%s] skipping due to %s' % (name, e))
             info.crash = e
-        except PluginLoadError, e:
+        except PluginLoadError as e:
             logging.warn(' *** [%s] Plugin failed to load: %s' % (name, e))
             info.crash = e
 

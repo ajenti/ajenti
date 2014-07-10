@@ -125,7 +125,7 @@ class Dash (SectionPlugin):
                             index=widget['index'],
                             config=widget['config'],
                         )
-                    except Exception, e:
+                    except Exception as e:
                         traceback.print_exc()
                         instance = CrashedWidget.new(
                             self.ui,

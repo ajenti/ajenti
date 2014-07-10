@@ -65,7 +65,7 @@ def ipc_application(environment, start_response):
                 else:
                     start_response('200 OK', [])
                     return result
-            except Exception, e:
+            except Exception as e:
                 traceback.print_exc()
                 start_response('500 Error', [])
                 return str(e)

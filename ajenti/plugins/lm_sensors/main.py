@@ -15,7 +15,7 @@ class LMSensors (BasePlugin):
     def get(self):
         try:
             lines = subprocess.check_output(['sensors']).splitlines()
-        except subprocess.CalledProcessError, e:
+        except subprocess.CalledProcessError as e:
             return {}  # sensors not configured
         r = {}
         for l in lines:
