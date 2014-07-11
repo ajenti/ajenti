@@ -120,14 +120,24 @@
             ]">
             <pad>
                 <vc>
-                    <label text="{Name}" style="bold" />
-                    
-                    <indent>
+                    <formline text="{Name}">
                         <hc>
                             <icon bind="icon" />
                             <textbox bind="name" />
                         </hc>
-                    </indent>
+                    </formline>
+
+                    <formline text="{Last access time}">
+                        <label bind="atime" bindtransform="str" />
+                    </formline>
+                    
+                    <formline text="{Modification time}">
+                        <label bind="mtime" bindtransform="str" />
+                    </formline>
+                    
+                    <formline text="{Creation time}">
+                        <label bind="ctime" bindtransform="str" />
+                    </formline>
                     
                     <hc>
                         <button id="edit" icon="edit" text="{Edit}" />
