@@ -9,18 +9,15 @@
 	font-family: @fontFamily;
 	font-size: @fontSize;
 
-	padding: 1px 4px;
+	padding: 0 4px;
 	.control-inset();
-	border: none;
 
 	&:hover {
-		border: 1px solid #eee;
-		padding: 0 3px;
+		border-color: @controlBorder;
 	}
 
 	&:focus {
-		border: 1px solid @orange;
-		padding: 0 3px;
+		border-color: @orange;
 	}
 }
 
@@ -28,8 +25,8 @@
 	display: inline-block;
 	color: @controlText;
 	min-height: 0;
+	padding: ((@controlHeight - 16)/2) 0 0px;
 	line-height: normal;
-	padding: 4px 0 0px;
 	border-bottom: 1px dotted lighten(@controlText, 10%);
 	margin: 1px 0 3px;
 	cursor: pointer;
@@ -68,10 +65,7 @@
 	    visibility: hidden;
 	    line-height: 0;
 	    height: 0;
-	}
-	
-	&.changed {
-		box-shadow: 0 0 2px @orange !important;
+	    font-size: 0;
 	}
 
 	// ------------------
@@ -193,7 +187,7 @@
 	&.icon {
 		.size(@controlHeight, 16px);
 		display: inline-block;
-		line-height: @controlHeight - 5px;
+		line-height: @controlHeight * 0.77;
 
 		i {
 			display: block;
@@ -211,35 +205,19 @@
 		color: @controlText;
 
 		&.style-normal {
-			.button-style(#f8f8f8);
-		}
-
-		&.style-orange {
-			.button-style(@orange);
-		}
-
-		&.style-green {
-			.button-style(@green);
-		}
-
-		&.style-blue {
-			.button-style(@blue);
+			.button-style(@buttonColor);
 		}
 
 		&.style-link {
 			.actionlink();
-			.box-shadow(none);
 		}
 
 		&.style-mini {
-			.button-style(#f8f8f8);
+			.button-style(@buttonColor);
 			min-width: @controlHeight - 10px;
 			width: auto;
 			display: inline-block;
-			padding: 6px 5px 5px;
-
-			&:active {
-			}
+			padding: 5px 4px 6px;
 		}
 
 		&.style-raw {
@@ -247,7 +225,7 @@
 		}
 
 		&.pressed {
-			.button-active(#f8f8f8);
+			.button-active(@buttonColor);
 		}
 
 		i {
@@ -257,21 +235,11 @@
 		}
 
 		&.style-icon {
-			background: transparent !important;
-			border: none;
-			.box-shadow(none);
-			.square(14px);
-			padding: 2px;
-			opacity: .5;
-			line-height: normal;
-
-			&:hover {
-				opacity: 0.75;
-			}
-
-			&:active {
-				padding: 3px 2px 1px;
-			}
+			.button-style(@buttonColor);
+			min-width: @controlHeight - 10px;
+			width: auto;
+			padding: 5px 4px 6px;
+			opacity: .75;
 		}
 	}
 
@@ -312,27 +280,28 @@
 
 		>input+label {
 			float: left;
-			margin: 6px 7px 0 1px;
-			.square(@controlHeight - 12px);
+			margin: 4px 7px 0 1px;
+			.square(@controlHeight * 0.6);
 			padding: 1px;
-			.button-style(#f8f8f8);
-
-			&:active {
-				padding: 2px 1px 0;
-			}
+			.button-style(#ffffff);
 
 			.tick {
-				.transition(0.5s);
+				.transition(0.125s);
 				opacity: 0;
 			}
 		}
 
 		>input:checked+label {
-			#gradient > .vertical(lighten(@orange, 25%), @orange);
-			.box-shadow(@controlShadowHighlightPressed);
+			border-color: @orange;
+			background: lighten(@orange, 25%);
 
 			.tick {
-				opacity: .5;
+				opacity: 1;
+				padding-top: 1px;
+
+				&::before {
+					color: darken(@orange, 10%);
+				}
 			}
 		}
 
@@ -342,14 +311,7 @@
 	}
 
 	&.dropdown {
-		/*line-height: @controlHeight;
-		padding: 1px 5px 1px !important;
-		text-decoration: none;
-		color: @controlText;
-		.button-style(#ddd);*/
 		.size(@controlHeight + 2px, @controlWidth2);
-		/*text-transform: none;
-    	-webkit-appearance: none;*/
 	}
 
 	&.combobox {
@@ -378,7 +340,7 @@
 			color: @controlTextLighter;
 			text-transform: uppercase;
 			font-weight: bold;
-			border-bottom: 1px solid @controlTextLighter;
+			border-bottom: 2px solid #eee;
 		}
 
 		>div:last-child {
@@ -412,6 +374,7 @@
 		>.children, >*>.children {
 			background: white !important;
 			padding: 5px;
+			border-top: 1px solid @controlBorder
 		}
 	}
 
@@ -433,12 +396,10 @@
 		padding: 0 5px;
 
 		&:active {
-			#gradient > .vertical(lighten(@orange, 15%), @orange);
-			color: darken(@orange, 20%);
+			background: lighten(@orange, 15%);
 
-			* {
+			*, *:before {
 				color: white;
-				text-shadow: 0 1px 0px rgba(255,255,255,.60);
 			}
 		}
 	}
@@ -448,8 +409,7 @@
 		margin: 1px;
 		width: 99%;
 		border-spacing: 0;
-		border-collapse: collapse;
-		.box-shadow(@mainPaneShadow);
+		border: 1px solid @controlBorder;
 		.border-radius(1px);
 
 		&.wide {
@@ -481,6 +441,7 @@
 					border-top: 1px solid #eee;
 					line-height: 18px;
 					padding: 5px !important;
+					border-bottom: 1px solid #eee;
 
 					i::before {
 						color: #888;
@@ -503,6 +464,8 @@
 
 				&.addrow td {
 					padding: 0;
+					border-top: 1px solid #eee;
+	
 					a {
 						line-height: 17px;
 						display: block;
@@ -547,11 +510,9 @@
 				&>th {
 					background: #f6f6f6;
 					padding: 10px 7px;
-					border-top: 1px solid @tableBorder;
 					border-left: 1px solid darken(@tableBorder, 5%);
-					border-bottom: 1px solid #ddd;
+					border-bottom: 2px solid #f0f0f0;
 					font-weight: bold;
-					text-shadow: 0 1px 0 white;
 					text-align: left;
 
 					&:last-child {
@@ -576,12 +537,12 @@
 		margin: 8px 1px;
 		height: @controlHeight - 13px;
 		.border-radius(3px);
-		background: #ccc;
+		background: @controlBorder;
 
 		div.fill {
 			height: @controlHeight - 13px;
 			.border-radius(3px);
-			#gradient > .vertical(lighten(@orange, 15%), @orange);
+			background: lighten(@orange, 15%);
 			position: relative;
 			overflow: hidden;
 		}
@@ -591,7 +552,7 @@
 		overflow: hidden;
 		padding: 5px 0;
 
-		* {
+		&>* {
 			float: left;
 		}
 
@@ -628,10 +589,9 @@
 	            float: left;
 	            position: relative;
 	            top: 0;
-	            margin: 1px .2em 0 0;
-	            border: 1px solid transparent;
-	            .border-radius(15px);
+	            margin: 1px .5em 0 0;
 	            white-space: nowrap;
+                border-bottom: 3px solid #eee;
 
 	            &:hover {
 	                background: rgba(0,0,0,0.1);
@@ -646,12 +606,11 @@
 	            }
 
 	            &.active {
-	                #gradient > .vertical(@orange, lighten(@orange, 15%));
-	                .box-shadow(0 2px 2px rgba(0,0,0,0.125) inset);
+	            	background: @orange;
+                	border-color: darken(@orange, 5%);
 
-	                >a {
+	                &>a {
 	                    color: white;
-	                    text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	                }
 	            }
 	        }

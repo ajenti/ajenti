@@ -1,3 +1,6 @@
+@import "vars.i.less";
+
+
 .ui-helper-hidden {
     display: none
 }
@@ -421,7 +424,6 @@ button.ui-button::-moz-focus-inner {
     outline: none;
     background: #fff;
     .border-radius(3px);
-    .box-shadow(@controlShadowHighlight);
 }
 .ui-menu .ui-menu {
     margin-top: -3px;
@@ -672,8 +674,6 @@ span.ui-spinner {
     background-position: -65px -16px;
 }
 
-// TABS
-
 .ui-tooltip {
     position: absolute;
     z-index: 9999;
@@ -715,11 +715,6 @@ body .ui-tooltip {
 }
 /* Interaction states
 ----------------------------------*/
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-    border: 1px solid #d3d3d3;
-}
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited {
@@ -736,11 +731,6 @@ body .ui-tooltip {
 .ui-state-hover a,
 .ui-state-hover a:hover {
     color: #212121; text-decoration: none;
-}
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active {
-    border: 1px solid #aaaaaa;
 }
 .ui-state-active a,
 .ui-state-active a:link,
@@ -859,3 +849,58 @@ body .ui-tooltip {
 .ui-widget-shadow {
     margin: -8px;
 }
+
+
+
+
+
+
+
+// TABS
+.ui-tabs {
+    position: relative;
+    padding: .2em;
+
+    &-hide {
+        display: none !important;
+    }    
+
+    .ui-tabs-nav {
+        margin: 0;
+        padding: .2em .2em 0;
+
+        li {
+            list-style: none;
+            float: left;
+            position: relative;
+            top: 0;
+            margin: 1px .2em 0 0;
+            white-space: nowrap;
+
+            &:hover {
+                background: #f8f8f8;
+            }
+
+            a {
+                float: left;
+                font-weight: bold;
+                padding: 4px 10px;
+                color: @controlText;
+                text-decoration: none;
+            }
+
+            border-bottom: 3px solid @controlBorder;
+
+            &.ui-tabs-active {
+                border-bottom: 3px solid lighten(@orange, 10%);
+            }
+        }
+    }
+
+    .ui-tabs-panel {
+        display: block;
+        border-width: 0;
+        padding: 1em 0;
+        background: none;
+    }
+} 

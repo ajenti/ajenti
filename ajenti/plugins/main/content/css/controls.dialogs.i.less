@@ -21,18 +21,16 @@
 
 				background: #fbfbfb;
 				.border-radius(5px);
-				.box-shadow(@mainPaneShadow);
+				border: 2px solid @controlBorder;
 
 				&>.buttons {
-					>* {
+					&>* {
 						float:right;
 					}
 
 					padding: 8px 10px;
 					overflow: hidden;
-					border-top: 1px solid @toolbarGradient2;
-					.box-shadow(0 1px 0 lighten(@toolbarGradient1, 5%) inset);
-					#gradient > .vertical(@toolbarGradient1, @toolbarGradient2);
+					border-top: 1px solid @controlBorder;
 				}
 			}
 		}
