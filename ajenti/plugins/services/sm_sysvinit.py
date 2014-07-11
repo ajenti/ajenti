@@ -14,13 +14,16 @@ from api import Service, ServiceManager
 class SysVInitServiceManager (ServiceManager):
     platforms = ['debian']
 
+    def init(self):
+        self.has_initctl = subprocess.call(['which', 'initctl']) == 0
+
     @cache_value(1)
     def get_all(self):
         r = []
 
         found_names = []
 
-        if subprocess.call(['which', 'initctl']) == 0:
+        if self.has_initctl:
             for line in subprocess_check_output_background(['initctl', 'list']).splitlines():
                 tokens = line.split()
                 name = tokens[0]
@@ -53,7 +56,7 @@ class SysVInitServiceManager (ServiceManager):
         return r
 
     def get_one(self, name):
-        if subprocess.call(['initctl', 'status', name]) == 0:
+        if self.has_initctl and subprocess.call(['initctl', 'status', name]) == 0:
             s = UpstartService(name)
             s.refresh()
             return s
