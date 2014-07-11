@@ -113,7 +113,7 @@ class Users (SectionPlugin):
                 self.mgr.change_password(user, new_password)
                 self.context.notify('info', _('Password for %s was changed') % user.name)
                 ui.find('new-password').value = ''
-            except Exception, e:
+            except Exception as e:
                 self.context.notify('error', _('Error: "%s"') % e.message)
         else:
             self.context.notify('error', _('Password shouldn\'t be empty'))

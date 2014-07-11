@@ -84,7 +84,7 @@ class AjentiOrgReporter (BasePlugin):
                 })
                 self.last_report = datetime.now()
                 self.last_error = None
-            except Exception, e:
+            except Exception as e:
                 self.last_error = e
 
 
