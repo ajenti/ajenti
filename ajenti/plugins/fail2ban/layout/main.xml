@@ -1,0 +1,40 @@
+<vc>
+    <body>
+        <vc>
+            <bind:collection bind="configs" id="collection">
+                <dt bind="__items" addrow="{Add}"/>
+
+                <bind:template>
+                    <collapserow>
+                        <box>
+                            <hc>
+                                <icon icon="folder-open"/>
+                                <label bind="name"/>
+                            </hc>
+                        </box>
+                        <pad>
+                            <bind:collection bind="config_list">
+                                <dt bind="__items" addrow="{Add}"/>
+                                <bind:template>
+                                    <collapserow>
+                                        <box>
+                                            <hc>
+                                                <icon icon="file-code-o "/>
+                                                <label bind="name"/>
+                                            </hc>
+                                        </box>
+                                        <pad>
+                                            <label bind="configfile"/>
+                                        </pad>
+
+                                    </collapserow>
+                                </bind:template>
+                            </bind:collection>
+                        </pad>
+                    </collapserow>
+                </bind:template>
+
+            </bind:collection>
+        </vc>
+    </body>
+</vc>
