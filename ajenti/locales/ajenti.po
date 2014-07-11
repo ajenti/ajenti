@@ -1088,6 +1088,7 @@ msgstr ""
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
@@ -2162,7 +2163,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:196
+#: ajenti/plugins/dashboard/dash.py:202
 msgid "Widgets"
 msgstr ""
 
