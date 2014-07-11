@@ -30,7 +30,7 @@ class SysVInitServiceManager (ServiceManager):
                 for token in tokens:
                     token = token.strip().strip(',;.')
                     if '/' in token:
-                        s = SysVInitService(name)
+                        s = UpstartService(name)
                         s.running = token == 'start/running'
                         r.append(s)
 
@@ -52,10 +52,16 @@ class SysVInitServiceManager (ServiceManager):
         return r
 
     def get_one(self, name):
+        if subprocess.call(['initctl', 'status', name]) == 0:
+            s = UpstartService(name)
+            s.refresh()
+            return s
+
         s = SysVInitService(name)
         if os.path.exists(s.script):
             s.refresh()
             return s
+
         return None
 
 
@@ -69,13 +75,6 @@ class SysVInitService (Service):
     def refresh(self):
         self.running = subprocess.call([self.script, 'status']) == 0
 
-    def _begin_refresh(self):
-        return subprocess.Popen([self.script, 'status'])
-
-    def _end_refresh(self, v):
-        v.wait()
-        self.running = v.returncode == 0
-
     def start(self):
         self.command('start')
 
@@ -88,6 +87,33 @@ class SysVInitService (Service):
     def command(self, cmd):
         try:
             p = subprocess.Popen([self.script, cmd], close_fds=True)
+            gevent.sleep(0)
+            p.wait()
+        except OSError as e:
+            logging.warn('service script failed: %s - %s' % (self.script, e))
+
+
+class UpstartService (Service):
+    source = 'sysvinit'
+
+    def __init__(self, name):
+        self.name = name
+
+    def refresh(self):
+        self.running = 'start/running' in subprocess.check_output(['initctl', 'status', self.name])
+
+    def start(self):
+        self.command('start')
+
+    def stop(self):
+        self.command('stop')
+
+    def restart(self):
+        self.command('restart')
+
+    def command(self, cmd):
+        try:
+            p = subprocess.Popen(['initctl', cmd, self.name], close_fds=True)
             gevent.sleep(0)
             p.wait()
         except OSError as e:
