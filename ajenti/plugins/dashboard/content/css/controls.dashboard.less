@@ -57,6 +57,7 @@
         border: 1px solid #eee;
         margin: 0 0 10px;
         background: white;
+        position: relative;
 
         &>.handle {
             width: 8px;
@@ -79,6 +80,36 @@
         &.ui-sortable-helper {
             background: white;
             box-shadow: 10px 10px 0 rgba(0,0,0,.0625);
+        }
+
+        &>.delete {
+            position: absolute;
+            right: 1px;
+            top: -10px;
+            color: white;
+            background: #F56D51;
+            width: 19px;
+            height: 19px;
+            text-align: center;
+            line-height: 17px;
+            border-radius: 10px;
+            opacity: 0;
+            .transition(0.25s opacity);
+            transition-delay: 0;
+
+            *::before {
+                color: white;
+            }
+
+            &:hover {
+                background: #FF3B12;
+            }
+        }
+
+        &:hover > .delete {
+            opacity: 1;
+            .transition(2s opacity);
+            transition-delay: 1s;
         }
     }
 

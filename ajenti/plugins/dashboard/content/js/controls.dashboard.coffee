@@ -21,12 +21,8 @@ class window.Controls.dashboard__dash extends window.Control
             revert: 200
             placeholder: 'placeholder'
             tolerance: 'pointer'
-            start: () =>
-                $(@dom).find('.trash').show()
             stop: () =>
                 r = {}
-                $(@dom).find('.trash').hide()
-                $(@dom).find('.trash .control').remove()
                 $(@dom).children('.widget-container').each (i, c) =>
                     index = parseInt($(c).attr('data-index'))
                     r[index] = []
@@ -45,8 +41,14 @@ class window.Controls.dashboard__widget extends window.Control
             <div data-uid="#{@properties.uid}" data-container="#{@properties.container}" class="control dashboard-widget">
                 <div class="handle"></div>
                 <div class="content __child-container"><children></div>
+                <a class="delete"><i class="icon-remove"></i></a>
             </div>
         """
+
+    setupDom: (dom) ->
+        super(dom)
+        $(@dom).children('a.delete').click () =>
+            @event('delete', {})
 
 
 class window.Controls.dashboard__header extends window.Control
