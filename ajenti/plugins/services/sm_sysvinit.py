@@ -24,14 +24,13 @@ class SysVInitServiceManager (ServiceManager):
             for line in subprocess_check_output_background(['initctl', 'list']).splitlines():
                 tokens = line.split()
                 name = tokens[0]
-                if name in found_names:
-                    continue
-
+            
                 for token in tokens:
                     token = token.strip().strip(',;.')
                     if '/' in token:
                         s = UpstartService(name)
                         s.running = token == 'start/running'
+                        found_names.append(name)
                         r.append(s)
 
         for line in subprocess_check_output_background(['service', '--status-all']).splitlines():
@@ -44,8 +43,10 @@ class SysVInitServiceManager (ServiceManager):
             if status == '?':
                 continue
 
+            if name in found_names:
+                continue
+
             s = SysVInitService(name)
-            found_names.append(name)
             s.running = status == '+'
             r.append(s)
 
