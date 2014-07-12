@@ -60,27 +60,14 @@ select.control.dropdown,
           -ms-user-select: none;
               user-select: none;
 
-    background-color: #fff;
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.5, #fff));
-    background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 50%);
-    background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 50%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#eeeeee', GradientType = 0);
-    background-image: linear-gradient(to top, #eee 0%, #fff 50%);
 
     .control-inset();
     margin: 1px;
 }
 
 .select2-container.select2-drop-above .select2-choice {
-    border-bottom-color: #aaa;
-
-    border-radius: 0 0 4px 4px;
-
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(0.9, #fff));
-    background-image: -webkit-linear-gradient(center bottom, #eee 0%, #fff 90%);
-    background-image: -moz-linear-gradient(center bottom, #eee 0%, #fff 90%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
-    background-image: linear-gradient(to bottom, #eee 0%, #fff 90%);
+    .control-inset();
+    margin: 1px;
 }
 
 .select2-container.select2-allowclear .select2-choice .select2-chosen {
@@ -169,7 +156,7 @@ select.control.dropdown,
 }
 
 .select2-drop.select2-drop-above.select2-drop-active {
-    border-top: 1px solid @orange;
+    border-top: 1px solid #eee;
 }
 
 .select2-drop-auto-width {
@@ -249,14 +236,6 @@ select.control.dropdown,
 
 .select2-dropdown-open.select2-drop-above .select2-choice,
 .select2-dropdown-open.select2-drop-above .select2-choices {
-    border: 1px solid @orange;
-    border-top-color: transparent;
-
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.5, #eee));
-    background-image: -webkit-linear-gradient(center top, #fff 0%, #eee 50%);
-    background-image: -moz-linear-gradient(center top, #fff 0%, #eee 50%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0);
-    background-image: linear-gradient(to bottom, #fff 0%, #eee 50%);
 }
 
 .select2-dropdown-open .select2-choice .select2-arrow {

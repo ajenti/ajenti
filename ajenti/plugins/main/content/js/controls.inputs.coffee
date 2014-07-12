@@ -192,7 +192,7 @@ class window.Controls.dropdown extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @input = $(@dom).find('select')
+        @input = jQuery(@dom).find('select')
         @data = []
         for i in [0...@properties.labels.length]
             do (i) =>
@@ -200,7 +200,7 @@ class window.Controls.dropdown extends window.Control
 
         if not @properties.plain
             setTimeout () => # wait for layout
-                jQuery(@input[0]).select2()
+                @input.select2()
             , 0
 
         @input.change () => @markChanged()
@@ -329,13 +329,13 @@ class window.Controls.paging extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @select = $(@dom).find('select')
+        @select = jQuery(@dom).find('select')
         for i in [0...@properties.length]
             @select.append($$("""
                 <option value="#{i+1}">#{i+1}</option>
             """))
         @select.val(@properties.active + 1)
-        jQuery(@select[0]).select2(width: '80px')
+        @select.select2(width: '80px')
         @prev = $(@dom).find('.prev')
         @next = $(@dom).find('.next')
 
