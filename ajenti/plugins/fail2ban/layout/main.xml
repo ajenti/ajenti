@@ -1,158 +1,48 @@
 <vc>
+    <servicebar name="fail2ban"/>
     <body>
         <vc>
-            <dt>
-                <dtr>
-                    <collapserow>
-                        <box>
-                            <hc>
-                                <icon icon="folder-open"/>
-                                <label text="Main"/>
-                            </hc>
-                        </box>
-                        <pad>
-                            <bind:collection bind="main" id="collection">
-                                <dt bind="__items" addrow="{Add}"/>
+            <bind:collection bind="configurations">
+                <dt bind="__items"/>
+                <bind:template>
+                    <dtr>
+                        <collapserow>
+                            <box>
+                                <hc>
+                                    <icon icon="folder-open"/>
+                                    <label style="bold" bind="name"/>
+                                </hc>
+                            </box>
+                            <pad>
+                                <bind:collection bind="configlist" id="configlist">
+                                    <dt bind="__items" addrow="{Add}"/>
 
-                                <bind:template>
-                                    <collapserow>
-                                        <box>
-                                            <hc>
-                                                <icon icon="folder-open"/>
-                                                <label bind="name"/>
-                                            </hc>
-                                        </box>
-                                        <pad>
-                                            <codearea height="480" width="720" bind="configtext"/>
-                                        </pad>
-                                    </collapserow>
-                                </bind:template>
+                                    <bind:template>
+                                        <collapserow>
+                                            <box>
+                                                <hc>
+                                                    <icon icon="list-alt"/>
+                                                    <label bind="name"/>
+                                                </hc>
+                                            </box>
+                                            <pad>
+                                                <vc>
+                                                    <label bind="configfile"/>
+                                                    <codearea height="480" width="720" bind="config"/>
+                                                </vc>
+                                            </pad>
+                                        </collapserow>
+                                    </bind:template>
 
-                            </bind:collection>
-                        </pad>
-                    </collapserow>
-                </dtr>
-                <dtr>
-                    <collapserow>
-                        <box>
-                            <hc>
-                                <icon icon="folder-open"/>
-                                <label text="Jails"/>
-                            </hc>
-                        </box>
-                        <pad>
-                            <bind:collection bind="jails" id="collection">
-                                <dt bind="__items" addrow="{Add}"/>
-
-                                <bind:template>
-                                    <collapserow>
-                                        <box>
-                                            <hc>
-                                                <icon icon="folder-open"/>
-                                                <label bind="name"/>
-                                            </hc>
-                                        </box>
-                                        <pad>
-                                            <codearea height="480" width="720" bind="configtext"/>
-                                        </pad>
-                                    </collapserow>
-                                </bind:template>
-
-                            </bind:collection>
-                        </pad>
-                    </collapserow>
-                </dtr>
-                <dtr>
-                    <collapserow>
-                        <box>
-                            <hc>
-                                <icon icon="folder-open"/>
-                                <label text="Filters"/>
-                            </hc>
-                        </box>
-                        <pad>
-                            <bind:collection bind="filters" id="collection">
-                                <dt bind="__items" addrow="{Add}"/>
-
-                                <bind:template>
-                                    <collapserow>
-                                        <box>
-                                            <hc>
-                                                <icon icon="folder-open"/>
-                                                <label bind="name"/>
-                                            </hc>
-                                        </box>
-                                        <pad>
-                                            <codearea height="480" width="720" bind="configtext"/>
-                                        </pad>
-                                    </collapserow>
-                                </bind:template>
-
-                            </bind:collection>
-                        </pad>
-                    </collapserow>
-                </dtr>
-                <dtr>
-                    <collapserow>
-                        <box>
-                            <hc>
-                                <icon icon="folder-open"/>
-                                <label text="Actions"/>
-                            </hc>
-                        </box>
-                        <pad>
-                            <bind:collection bind="actions" id="collection">
-                                <dt bind="__items" addrow="{Add}"/>
-
-                                <bind:template>
-                                    <collapserow>
-                                        <box>
-                                            <hc>
-                                                <icon icon="folder-open"/>
-                                                <label bind="name"/>
-                                            </hc>
-                                        </box>
-                                        <pad>
-                                            <codearea height="480" width="720" bind="configtext"/>
-                                        </pad>
-                                    </collapserow>
-                                </bind:template>
-
-                            </bind:collection>
-                        </pad>
-                    </collapserow>
-                </dtr>
-                <dtr>
-                    <collapserow>
-                        <box>
-                            <hc>
-                                <icon icon="folder-open"/>
-                                <label text="Extra"/>
-                            </hc>
-                        </box>
-                        <pad>
-                            <bind:collection bind="extra" id="collection">
-                                <dt bind="__items" addrow="{Add}"/>
-
-                                <bind:template>
-                                    <collapserow>
-                                        <box>
-                                            <hc>
-                                                <icon icon="folder-open"/>
-                                                <label bind="name"/>
-                                            </hc>
-                                        </box>
-                                        <pad>
-                                            <codearea height="480"   width="720" bind="configtext"/>
-                                        </pad>
-                                    </collapserow>
-                                </bind:template>
-
-                            </bind:collection>
-                        </pad>
-                    </collapserow>
-                </dtr>
-            </dt>
+                                </bind:collection>
+                            </pad>
+                        </collapserow>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
         </vc>
     </body>
+    <hc>
+        <button id="save-button" text="{Save}" icon="ok"/>
+    </hc>
 </vc>
