@@ -1086,6 +1086,7 @@ msgstr "Wagwoord vir %s was verwyder"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
@@ -1095,7 +1096,7 @@ msgstr "Wagwoord vir %s was verwyder"
 msgid "Username"
 msgstr "gebruikersnaam"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
 msgstr "groep"
 
@@ -1883,26 +1884,38 @@ msgid "Clipboard"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:19
-msgid "Edit"
+msgid "Last access time"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:20
-msgid "Unpack"
+msgid "Modification time"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:21
+msgid "Creation time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:22
+msgid "Edit"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:23
+msgid "Unpack"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
 msgstr "toegang"
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
 msgstr "eienaar"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
 msgstr "ander"
 
-#: ajenti/plugins/fm/layout/main.xml:25
+#: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
 msgstr ""
 
@@ -2151,7 +2164,7 @@ msgstr "Welkom"
 msgid "Dashboard"
 msgstr "paneelbord"
 
-#: ajenti/plugins/dashboard/dash.py:196
+#: ajenti/plugins/dashboard/dash.py:202
 msgid "Widgets"
 msgstr ""
 

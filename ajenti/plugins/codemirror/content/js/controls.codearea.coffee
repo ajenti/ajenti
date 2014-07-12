@@ -12,7 +12,7 @@ class window.Controls.codearea extends window.Control
             mode: @properties.mode
             lineNumbers: true
             matchBrackets: true
-        $(@dom).find('>*').css(
+        $(@dom).children().css(
             width:  @_int_to_px(@properties.width)
         )
         $(@dom).find('.CodeMirror-scroll').css(

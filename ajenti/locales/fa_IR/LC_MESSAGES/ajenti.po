@@ -39,7 +39,7 @@ msgstr "نام"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -199,7 +199,7 @@ msgstr "کلید نامعتبر"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "آی‌پی اشتباه"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
@@ -295,7 +295,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "تولید کننده‌ی گواهی Self-Signed SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
@@ -348,7 +348,7 @@ msgstr "تغییر رمز"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "دسترسی‌ها"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -643,7 +643,7 @@ msgstr "ایجاد کردن"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "اجرای موازی"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
@@ -774,11 +774,11 @@ msgstr "نشانه گذاری"
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "بالاترین پوشه‌ی درخواست شده"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "پوشه دیگر وجود ندارد"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -794,15 +794,15 @@ msgstr "رمز عبور"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "پسورد‌ها یکسان نیستند"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "پسورد اشتباه است"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "پسورد تغییر کرد"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -810,20 +810,20 @@ msgstr "خالی"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "فیلتر..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "نام کاربری یا پسورد اشتباه بود"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "ایمیل \"%s\" به هیچ کاربری متصل نیست"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "ورود به سیستم انجام نشد"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
@@ -831,11 +831,11 @@ msgstr "بخش دسترسی"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "تغییر پسورد"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "پسورد قبلی"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -844,7 +844,7 @@ msgstr "رمز عبور جدید"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "تأیید پسورد"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -948,7 +948,7 @@ msgstr "کاربران مجاز"
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr ""
+msgstr "کاربران با قدرت خواندن و نوشتن"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
@@ -1086,6 +1086,7 @@ msgstr "رمز عبور را برای %s حذف شد"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
@@ -1095,7 +1096,7 @@ msgstr "رمز عبور را برای %s حذف شد"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
 msgstr "گروه"
 
@@ -1140,7 +1141,7 @@ msgstr "نام پایگاه داده"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 msgid "Destroy"
-msgstr ""
+msgstr "نابود کردن"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Database contents will be deleted!"
@@ -1883,26 +1884,38 @@ msgid "Clipboard"
 msgstr "کلیپ بورد"
 
 #: ajenti/plugins/fm/layout/main.xml:19
+msgid "Last access time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:20
+msgid "Modification time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:21
+msgid "Creation time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
 msgstr "ویرایش"
 
-#: ajenti/plugins/fm/layout/main.xml:20
+#: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
 msgstr "باز کردن"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
 msgstr "دسترسی"
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
 msgstr "صاحب"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
 msgstr "دیگران"
 
-#: ajenti/plugins/fm/layout/main.xml:25
+#: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
 msgstr ""
 
@@ -2151,7 +2164,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr "پیشخوان"
 
-#: ajenti/plugins/dashboard/dash.py:196
+#: ajenti/plugins/dashboard/dash.py:202
 msgid "Widgets"
 msgstr "ﻭﻳﺪﺟﺖ ﻫﺎ"
 

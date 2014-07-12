@@ -39,7 +39,7 @@ msgstr "名前"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -195,19 +195,19 @@ msgstr "Memcacheのメモリ使用量"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "無効なキー"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "無効なIP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "期限切れ"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -339,7 +339,7 @@ msgstr "アカウント"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "重複"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
@@ -348,7 +348,7 @@ msgstr "パスワード変更"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "権限"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -365,7 +365,7 @@ msgstr "Ajentiはそのバージョン、ご利用のOS名、大抵使用する�
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "ライセンス"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -418,19 +418,19 @@ msgstr "管理者のパスワード"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "ライセンス状況"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "会社"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "ライセンスの種類"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "ライセンスの有効期限："
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -440,11 +440,11 @@ msgstr "削除"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "商業ライセンスがインストールされていません"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "インストール"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -472,7 +472,7 @@ msgstr "ツール"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "コマンドを実行"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -481,7 +481,7 @@ msgstr "%s をコピーしています"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "ファイルの移動"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -490,12 +490,12 @@ msgstr "%s を移動しています"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "ファイルの削除"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "%sを削除しています"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -806,11 +806,11 @@ msgstr ""
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "空"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "フィルタ…"
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -823,7 +823,7 @@ msgstr ""
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "ログイン失敗"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
@@ -831,11 +831,11 @@ msgstr "セクションへのアクセス"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "パスワードの変更"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "古いパスワード"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -844,7 +844,7 @@ msgstr "新規パスワード"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "パスワードの確認"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -1033,7 +1033,7 @@ msgstr "セット"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "ハードディスクドライブの状態"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -1086,6 +1086,7 @@ msgstr "%s のパスワードが削除されました"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
@@ -1095,7 +1096,7 @@ msgstr "%s のパスワードが削除されました"
 msgid "Username"
 msgstr "ユーザー名"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
 msgstr "グループ"
 
@@ -1212,19 +1213,19 @@ msgstr "データベースの削除を確認します ！"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "静的ファイル"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "カスタム FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "リバースプロキシ"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "プロセス"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1232,7 +1233,7 @@ msgstr "プロセス"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Webサイト"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:237
 msgid "Testing configuration"
@@ -1240,7 +1241,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:252
 msgid "Saving changes"
-msgstr ""
+msgstr "変更を保存しています"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:254
 msgid "Applying changes"
@@ -1252,15 +1253,15 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:212
 msgid "Download complete"
-msgstr ""
+msgstr "ダウンロード完了"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "管理"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "新しいWebサイト"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1325,11 +1326,11 @@ msgstr "環境"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "URLパターン"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "カスタムパス"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
@@ -1339,7 +1340,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "カスタム設定"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
@@ -1360,7 +1361,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "戻る"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
@@ -1379,7 +1380,7 @@ msgstr "有効"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "メンテナンスモード"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
@@ -1387,7 +1388,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "ディレクトリ作成"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Automatic downloader"
@@ -1403,11 +1404,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Domains"
-msgstr ""
+msgstr "ドメイン"
 
 #: ajenti/plugins/vh/layout/main-website.xml:18
 msgid "Domain"
-msgstr ""
+msgstr "ドメイン"
 
 #: ajenti/plugins/vh/layout/main-website.xml:20
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1417,7 +1418,7 @@ msgstr "ポート"
 
 #: ajenti/plugins/vh/layout/main-website.xml:25
 msgid "SSL certificate path"
-msgstr ""
+msgstr "SSL 証明書のパス"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL key path"
@@ -1603,11 +1604,11 @@ msgstr "CNIDアドレス"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "メール"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "無効なメールボックス名"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
@@ -1620,15 +1621,15 @@ msgstr ""
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "カスタムドメイン"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
-msgstr ""
+msgstr "有効なキーが存在しません"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "メールボックス"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1639,7 +1640,7 @@ msgstr "サイズ"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "転送"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
@@ -1647,19 +1648,19 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "新しいメールボックス"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "メールボックス"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "セレクター"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "秘密鍵"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
@@ -1671,15 +1672,15 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "証明書のパス"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "プライベートキーのパス"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "新しい証明書の生成"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
@@ -1883,26 +1884,38 @@ msgid "Clipboard"
 msgstr "クリップボード"
 
 #: ajenti/plugins/fm/layout/main.xml:19
+msgid "Last access time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:20
+msgid "Modification time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:21
+msgid "Creation time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
 msgstr "編集"
 
-#: ajenti/plugins/fm/layout/main.xml:20
+#: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
 msgstr "展開"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
 msgstr "アクセス"
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
 msgstr "所有者"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
 msgstr "その他"
 
-#: ajenti/plugins/fm/layout/main.xml:25
+#: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
 msgstr "再帰的に設定"
 
@@ -2151,7 +2164,7 @@ msgstr "ようこそ"
 msgid "Dashboard"
 msgstr "ダッシュ ボード"
 
-#: ajenti/plugins/dashboard/dash.py:196
+#: ajenti/plugins/dashboard/dash.py:202
 msgid "Widgets"
 msgstr "ウィジェット"
 
@@ -2187,19 +2200,19 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "完了"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "現在の時刻"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "同期"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "サーバー"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2389,39 +2402,39 @@ msgstr "拒否"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Node.js サービス"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "GUnicorn サービス"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF ファイアウォール"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "適用"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "セルフテスト OK"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "テストモード"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "ネットワークデバイス"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "ネットワークデバイス (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "許可ポート"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
@@ -2453,23 +2466,23 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "許可するアドレス"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "拒否するアドレス"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "一時的なルール"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "禁止されたアドレス"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "禁止"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2489,7 +2502,7 @@ msgstr "ログ"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:64
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPMサービス"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2509,7 +2522,7 @@ msgstr "ログ内のエラー"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "アクティブディレクトリの同期"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"

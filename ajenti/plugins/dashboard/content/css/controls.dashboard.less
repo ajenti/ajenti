@@ -15,7 +15,7 @@
             }
 
             >.placeholder {
-                border: 1px dashed #68a;
+                border: 2px dashed #68a;
                 height: 40px;
                 width: 100%;
                 padding: 10px 5px;
@@ -26,7 +26,7 @@
             &.trash {
                 display: none;
 
-                border: 1px dashed #a86;
+                border: 2px dashed #a86;
                 box-sizing: border-box;
 
                 width: 100%;
@@ -54,12 +54,12 @@
         padding: 10px 5px 10px 4px;
         box-sizing: border-box;
         border-radius: 3px;
-        box-shadow: 0 1px 1px rgba(0,0,0,.25);
-        background: #f0f0f0;
-        #gradient > .vertical(#fcfcfc, #f9f9f9);
+        border: 1px solid #eee;
         margin: 0 0 10px;
+        background: white;
+        position: relative;
 
-        >.handle {
+        &>.handle {
             width: 8px;
             height: 30px;
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH2wkeCyEzNuGfhQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAVSURBVAjXYzh9+vR/BnyAeAXUMwoAFlwUQUDbs/QAAAAASUVORK5CYII=') repeat;
@@ -73,13 +73,43 @@
             opacity: .75;
         }
 
-        >.content {
+        &>.content {
             float: left;
         }
 
         &.ui-sortable-helper {
-            background: #f8f8f8;
-            box-shadow: 0 0 15px rgba(0,0,0,.25);
+            background: white;
+            box-shadow: 10px 10px 0 rgba(0,0,0,.0625);
+        }
+
+        &>.delete {
+            position: absolute;
+            right: 1px;
+            top: -10px;
+            color: white;
+            background: #F56D51;
+            width: 19px;
+            height: 19px;
+            text-align: center;
+            line-height: 17px;
+            border-radius: 10px;
+            opacity: 0;
+            .transition(0.25s opacity);
+            transition-delay: 0;
+
+            *::before {
+                color: white;
+            }
+
+            &:hover {
+                background: #FF3B12;
+            }
+        }
+
+        &:hover > .delete {
+            opacity: 1;
+            .transition(2s opacity);
+            transition-delay: 1s;
         }
     }
 

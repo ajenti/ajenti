@@ -39,7 +39,7 @@ msgstr "Nome"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -472,7 +472,7 @@ msgstr "Ferramentas"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Executar comando"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -481,7 +481,7 @@ msgstr "Copiando %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Mover arquivos"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -490,12 +490,12 @@ msgstr "Movendo %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Excluir arquivos"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Apagando %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -778,7 +778,7 @@ msgstr "Diretório de nível superior"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "O diretório não existe mais"
 
 #: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
@@ -1086,6 +1086,7 @@ msgstr "Senha para %s foi removida"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
@@ -1095,7 +1096,7 @@ msgstr "Senha para %s foi removida"
 msgid "Username"
 msgstr "Nome de Usuário"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
 msgstr "Grupo"
 
@@ -1827,7 +1828,7 @@ msgstr "Gerenciador de Arquivos"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Arquivos excluídos"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -1883,26 +1884,38 @@ msgid "Clipboard"
 msgstr "Área de Transferência"
 
 #: ajenti/plugins/fm/layout/main.xml:19
+msgid "Last access time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:20
+msgid "Modification time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:21
+msgid "Creation time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
 msgstr "Editar"
 
-#: ajenti/plugins/fm/layout/main.xml:20
+#: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
 msgstr "Descompactar"
 
-#: ajenti/plugins/fm/layout/main.xml:21
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
 msgstr "Acesso"
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
 msgstr "Proprietário"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
 msgstr "Outros"
 
-#: ajenti/plugins/fm/layout/main.xml:25
+#: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
 msgstr "Colocar Recursivamente"
 
@@ -2151,7 +2164,7 @@ msgstr "Bem-vindo(a)"
 msgid "Dashboard"
 msgstr "Painel"
 
-#: ajenti/plugins/dashboard/dash.py:196
+#: ajenti/plugins/dashboard/dash.py:202
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -2179,27 +2192,27 @@ msgstr "Uma atualização está disponível para o Ajenti"
 
 #: ajenti/plugins/ntpd/main.py:54
 msgid "Date & Time"
-msgstr ""
+msgstr "Data & hora"
 
 #: ajenti/plugins/ntpd/main.py:91
 msgid "No servers defined"
-msgstr ""
+msgstr "Não há servidores definidos"
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "Feito"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Hora atual"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Sincronização"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Servidores"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"

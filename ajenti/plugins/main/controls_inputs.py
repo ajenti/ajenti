@@ -59,6 +59,7 @@ class CheckBox (UIElement):
 @p('value', bindtypes=[object], public=False)
 @p('index', default=0, type=int)
 @p('server', default=False, type=bool)
+@p('plain', default=False, type=bool)
 @plugin
 class Dropdown (UIElement):
     typeid = 'dropdown'
