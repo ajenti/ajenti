@@ -552,7 +552,7 @@ msgstr "Uruchom"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr "Zadania"
+msgstr "Zaplanowane zadania"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
@@ -1334,7 +1334,7 @@ msgstr "Niestandardowa ścieżka"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Dołącz wzór URL do ścieżki"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:31
@@ -1656,7 +1656,7 @@ msgstr "Skrzynka pocztowa"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Selektor"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
@@ -1696,7 +1696,7 @@ msgstr "Niestandardowe Rutery"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom transports"
-msgstr ""
+msgstr "Niestandardowy transport"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
@@ -1885,15 +1885,15 @@ msgstr "Schowek"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Ostatni czas dostępu"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Czas modyfikacji"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Czas utworzenia"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
