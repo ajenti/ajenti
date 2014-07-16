@@ -24,11 +24,9 @@ class CentOSServiceManager (ServiceManager):
 
             name = tokens[0]
             s = SysVInitService(name)
-            pending[s] = s._begin_refresh()
+            s.refresh()
             r.append(s)
 
-        for s, v in pending.iteritems():
-            s._end_refresh(v)
         return r
 
     def get_one(self, name):

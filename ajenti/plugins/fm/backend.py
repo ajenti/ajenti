@@ -6,6 +6,7 @@ import re
 import subprocess
 import stat
 import shutil
+from datetime import datetime
 
 from ajenti.api import *
 from ajenti.util import str_fsize
@@ -38,6 +39,9 @@ class Item (object):
         except OSError:
             self.size = 0
         self.sizestr = '' if self.isdir else str_fsize(self.size)
+        self.mtime = datetime.utcfromtimestamp(os.stat(path).st_mtime)
+        self.atime = datetime.utcfromtimestamp(os.stat(path).st_atime)
+        self.ctime = datetime.utcfromtimestamp(os.stat(path).st_ctime)
 
     def read(self):
         stat = os.stat(self.fullpath)

@@ -1,15 +1,17 @@
 .button-active(@g1) {
-    #gradient > .vertical(@g1, darken(@g1, 5%));    
-    .box-shadow(@controlShadowHighlightPressed);
+    background: lighten(@g1, 25%);
+    border-color: @orange;
 }
 
 .button-style(@g1) {
-    #gradient > .vertical(lighten(@g1, 5%), @g1);
-    color: rgba(0,0,0,.5);
-    border: none;
+    background: @g1;
+
+    &, & i::before {
+        color: rgba(0,0,0,.45);
+    }
 
     &:hover {
-        #gradient > .vertical(lighten(@g1, 10%), lighten(@g1, 5%));
+        background: lighten(@g1, 10%);
     }
 
     &:active {
@@ -22,17 +24,14 @@
     text-transform: uppercase;
 
     .border-radius(3px);
-    border: 1px solid rgba(0,0,0,.15);
-    .box-shadow(@controlShadowHighlight);
+    border: 2px solid @controlBorder;
 
     position: relative;
-    top: -1px;
 }
 
 .control-inset {
-    .size(@controlHeight - 2px, @controlWidth2 - 10px);
+    .size(@controlHeight - 4px, @controlWidth2 - 10px);
     .border-radius(3px);
-    .box-shadow(@controlInputShadowHighlight);
+    border: 2px solid #eee;
     background: white;
-    border-bottom: 1px solid white;
 }

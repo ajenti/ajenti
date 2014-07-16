@@ -38,6 +38,8 @@ class window.Stream
             ajentiCrashResume()
 
         @socket.on 'ui', (ui) ->
+            #console.profile 'UI update'
+
             console.group 'Received update'
             console.log 'Transfer size', ui.length
             if @serverInfo.compression
@@ -64,6 +66,8 @@ class window.Stream
             console.log 'Total elements:', UI._total_elements
             console.groupEnd()
             Loading.hide()
+
+            #console.profileEnd()
 
         @socket.on 'ack', () ->
             Loading.hide()
@@ -161,9 +165,9 @@ class window.UIManager
         if @ui
             @ui.broadcast('destruct')
         $('.root *').unbind()
-        $.cleanData($('.root *'))
-        $('.root *').safeRemove()
-        #$.cache = {} # Breaks stuff
+        #$.cleanData($('.root *'))
+        $('.root')[0].innerHTML = ''
+        #$('.root *').safeRemove()
         delete @ui
 
     replace: (ui) ->
@@ -179,7 +183,7 @@ class window.UIManager
         console.log profiler.setupDomStats
         profiler.stop()
 
-        aoConnector.reportHeight($('body')[0].scrollHeight)
+        #aoConnector.reportHeight($('body')[0].scrollHeight)
 
     extractUpdates: (control, target) ->
         for child in control.children
@@ -274,10 +278,10 @@ class TabManager
         @openTabs = {}
 
     goHome: () ->
-        @tabsDom.find('>*').hide()
+        @tabsDom.children().hide()
         @mainTab.show()
         @tabHeadersDom.find('a').removeClass('active')
-        @tabHeadersDom.find('a:first').addClass('active')
+        $(@tabHeadersDom.find('a')[0]).addClass('active')
 
     addTab: (url, title) ->
         if @openTabs[url]
@@ -294,18 +298,24 @@ class TabManager
         @openTabs[url] = headerDom
         @openTabs[url].dom = dom
         headerDom.click () =>
-            @tabsDom.find('>*').hide()
+            @tabsDom.children().hide()
             dom.show()
             setTimeout () =>
-                dom.find('iframe')[0].contentWindow.focus()
+                iframe = dom.find('iframe')[0]
+                cw = iframe.contentWindow
+                if cw
+                    cw.focus() 
             , 100
             @tabHeadersDom.find('a').removeClass('active')
             headerDom.addClass('active')
-        headerDom.find('.close').click () =>
+        headerDom.find('.close').click (e) =>
             @closeTab(url)
+            e.stopPropagation()
+            e.preventDefault()
         headerDom.click()
 
     closeTab: (url) ->
+        @openTabs[url].dom[0].innerHTML = ''
         @openTabs[url].dom.remove()
         @openTabs[url].remove()
         delete @openTabs[url]
@@ -434,7 +444,7 @@ class window.Control
 
     append: (child) ->
         if not @childContainer
-            @childContainer = $($(@dom).find2('.--child-container')[0])
+            @childContainer = $(@dom).find2('.__child-container').first()
         wrapper = @wrapChildLive(child)
         if wrapper instanceof jQuery
             wrapper = wrapper[0]
@@ -482,12 +492,12 @@ window.ajentiConnectSocket = (uri) ->
     return io.connect(uri, cfg)
 
 window.ajentiCrash = (info) ->
-    $('#crash').fadeIn()
+    $('#crash').show()
     $('#crash-traceback').html(_escape(info.message + "\n" + info.traceback))
     $('#crash-report textarea').val(info.report)
 
 window.ajentiCrashResume = () ->
-    $('#crash').fadeOut()
+    $('#crash').hide()
 
 window.ajentiCrashShowReport = () ->
     $('#crash-traceback').toggle('blind')
@@ -497,10 +507,10 @@ window.ajentiCrashShowReport = () ->
     , 1000
 
 window.ajentiSecurityError = () ->
-    $('#security-error').fadeIn()
+    $('#security-error').show()
 
 window.ajentiSecurityResume = (info) ->
-    $('#security-error').fadeOut()
+    $('#security-error').hide()
 
 
 

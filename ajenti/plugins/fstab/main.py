@@ -27,7 +27,12 @@ class MountsBackend (BasePlugin):
 
     def reload(self):
         self.filesystems = []
-        for l in subprocess.check_output(['df', '-P']).splitlines()[1:]:
+        try:
+            df_data = subprocess.check_output(['df', '-P'])
+        except:
+            return
+            
+        for l in df_data.splitlines()[1:]:
             f = Mount()
             l = l.split()
             f.device = l[0]

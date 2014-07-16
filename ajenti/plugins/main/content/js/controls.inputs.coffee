@@ -61,12 +61,12 @@ class window.Controls.datetime extends window.Control
             value = new Date(parseInt(@properties.value) * 1000)
         
         markChanged = @markChanged
-        @inputTime = $(@dom.children[1]).pickatime({
+        @inputTime = jQuery(@dom.children[1]).pickatime({
             interval: 1
             onClose: () ->
                 markChanged()
         }).pickatime('picker')
-        @inputDate = $(@dom.children[0]).pickadate({
+        @inputDate = jQuery(@dom.children[0]).pickadate({
             onClose: () ->
                 markChanged()
         }).pickadate('picker')
@@ -127,7 +127,7 @@ class window.Controls.editable extends window.Control
 
     goViewMode: () =>
         @editmode = false
-        @label.find('>span').html(@properties.placeholder ? @input.val())
+        @label.find('span').html(@properties.placeholder ? @input.val())
         @input.hide()
         @label.show()
 
@@ -192,13 +192,17 @@ class window.Controls.dropdown extends window.Control
 
     setupDom: (dom) ->
         super(dom)
-        @input = $(@dom).find('select')
+        @input = jQuery(@dom).find('select')
         @data = []
         for i in [0...@properties.labels.length]
             do (i) =>
                 @input.append("""<option value="#{i}" #{if i == @properties.index then 'selected' else ''}>#{@s(@properties.labels[i])}</option>""")
 
-        @input.select2()
+        if not @properties.plain
+            setTimeout () => # wait for layout
+                @input.select2()
+            , 0
+
         @input.change () => @markChanged()
 
         if @properties.server
@@ -232,7 +236,7 @@ class window.Controls.combobox extends window.Control
                 @data.push {label: @properties.labels[i], value: @properties.values[i]}
 
         if @properties.separator != null
-            @input.autocomplete {
+            jQuery(@input[0]).autocomplete {
                 source: (request, response) =>
                     vals = @getVals()
                     response($.ui.autocomplete.filter(@data, vals.pop()))
@@ -318,14 +322,14 @@ class window.Controls.paging extends window.Control
             <div class="control paging">
                 <div class="control label">Page:&nbsp;</div>
                 <a class="prev control button style-mini"><i class="icon-arrow-left"></i></a>
-                <select></select>
+                <select class="control dropdown"></select>
                 <a class="next control button style-mini"><i class="icon-arrow-right"></i></a>
             </div>
         """
 
     setupDom: (dom) ->
         super(dom)
-        @select = $(@dom).find('select')
+        @select = jQuery(@dom).find('select')
         for i in [0...@properties.length]
             @select.append($$("""
                 <option value="#{i+1}">#{i+1}</option>
@@ -360,7 +364,7 @@ class window.Controls.paging extends window.Control
 class window.Controls.pathbox extends window.Control
     createDom: () ->
         """
-            <div class="control container pathbox --child-container">
+            <div class="control container pathbox __child-container">
                 <children>
             </div>
         """

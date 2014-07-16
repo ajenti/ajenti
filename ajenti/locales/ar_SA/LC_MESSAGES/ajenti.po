@@ -472,7 +472,7 @@ msgstr "الأدوات"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "تنفيذ الأمر"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -490,12 +490,12 @@ msgstr "جاري نقل  %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "حذف الملفات"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "حذف %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -1086,6 +1086,7 @@ msgstr "تمت إزالة كلمة السر الخاصة بـ %s"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:6
 #: ajenti/plugins/supervisor/layout/main.xml:16
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
@@ -1095,7 +1096,7 @@ msgstr "تمت إزالة كلمة السر الخاصة بـ %s"
 msgid "Username"
 msgstr "اسم المستخدم"
 
-#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:23
+#: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
 msgstr "المجموعة"
 
@@ -1430,7 +1431,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
-msgstr ""
+msgstr "تطبيق التغييرات"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1439,7 +1440,7 @@ msgstr "تشغيل تلقائي"
 #: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
-msgstr ""
+msgstr "معطل"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
@@ -1508,7 +1509,7 @@ msgstr " تشغيل تلقائي"
 
 #: ajenti/plugins/iptables/main.py:206
 msgid "Applied successfully"
-msgstr ""
+msgstr "طبقت بنجاح"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
@@ -1607,11 +1608,11 @@ msgstr "بريد"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "اسم علبة البريد غير صالح"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "مجال علبة البريد غير صالح"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
@@ -1831,11 +1832,11 @@ msgstr ""
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
-msgstr ""
+msgstr "الملفات المنقولة"
 
 #: ajenti/plugins/fm/fm.py:184
 msgid "Files copied"
-msgstr ""
+msgstr "الملفات المنسوخة"
 
 #: ajenti/plugins/fm/fm.py:199
 #, python-format
@@ -1883,26 +1884,38 @@ msgid "Clipboard"
 msgstr "الحافظة"
 
 #: ajenti/plugins/fm/layout/main.xml:19
-msgid "Edit"
+msgid "Last access time"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:20
-msgid "Unpack"
+msgid "Modification time"
 msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:21
+msgid "Creation time"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:22
+msgid "Edit"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:23
+msgid "Unpack"
+msgstr ""
+
+#: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
 msgstr "الوصول"
 
-#: ajenti/plugins/fm/layout/main.xml:22
+#: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
 msgstr "المالك"
 
-#: ajenti/plugins/fm/layout/main.xml:24
+#: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
 msgstr "إعدادات اخرى"
 
-#: ajenti/plugins/fm/layout/main.xml:25
+#: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
 msgstr ""
 
@@ -2151,7 +2164,7 @@ msgstr "مرحباً"
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: ajenti/plugins/dashboard/dash.py:196
+#: ajenti/plugins/dashboard/dash.py:202
 msgid "Widgets"
 msgstr ""
 
@@ -2187,11 +2200,11 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "إنتهت العملية"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "الوقت الحالي"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
@@ -2199,7 +2212,7 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "السرفرات"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2339,7 +2352,7 @@ msgstr "إيقاف"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr ""
+msgstr "استشعار IPMI"
 
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"

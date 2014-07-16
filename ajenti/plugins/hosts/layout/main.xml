@@ -16,15 +16,13 @@
                         </box>
 
                         <indent>
-                            <hc>
-                                <vc>
-                                    <formline text="{Name}">
-                                        <textbox bind="name" />
-                                    </formline>
-                                    <formline text="{Address}">
-                                        <textbox bind="address" />
-                                    </formline>
-                                </vc>
+                            <vc>
+                                <formline text="{Name}">
+                                    <textbox bind="name" />
+                                </formline>
+                                <formline text="{Address}">
+                                    <textbox bind="address" />
+                                </formline>
                                 <bind:collection id="aliases" bind="aliases">
                                     <formline text="{Aliases}">
                                         <vc>
@@ -33,20 +31,14 @@
                                         </vc>
                                     </formline>
                                     <bind:template>
-                                        <vc>
-                                            <box>
-                                                <right>
-                                                    <button bind="__delete" icon="remove" style="icon" />
-                                                </right>
-                                                <hc>
-                                                    <icon icon="tags" />
-                                                    <textbox bind="name" />
-                                                </hc>
-                                            </box>
-                                        </vc>
+                                        <hc>
+                                            <icon icon="tags" />
+                                            <textbox bind="name" />
+                                            <button bind="__delete" icon="remove" style="mini" />
+                                        </hc>
                                     </bind:template>
                                 </bind:collection>
-                            </hc>
+                            </vc>
                         </indent>
                     </collapserow>
                 </bind:template>
