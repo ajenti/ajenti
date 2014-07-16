@@ -24,7 +24,7 @@ class f2b_Config(object):
         self.config = ''.join(config)
 
     def __repr__(self):
-        return json.dumps({'name': self.name, 'configfile': self.configfile, 'configtext': self.config})
+        return json.dumps({'name': self.name, 'configfile': self.configfile, 'config': self.config})
 
     def save(self):
         try:
@@ -34,12 +34,20 @@ class f2b_Config(object):
 
 
 class f2b_Configs(object):
-    def __init__(self, name, configlist):
+    def __init__(self, name, path, configlist):
         self.name = name
+        self.path = path
         self.configlist = configlist if isinstance(configlist, list) else []
 
+
+class f2b_list(list):
+    def __init__(self):
+        self.path = ''
+
+
 def listing_of_configs(path):
-    configs = []
+    configs = f2b_list()
+    configs.path = path
     for filename in os.listdir(path):
         try:
             cf = os.path.join(path, filename)
@@ -57,29 +65,37 @@ class fail2ban(SectionPlugin):
         self.icon = 'shield'
         self.category = _('Software')
 
-        self.configurations = [f2b_Configs(x, listing_of_configs(config_dirs[x])) for x in config_dirs.keys()]
+        self.configurations = [f2b_Configs(x, config_dirs[x], listing_of_configs(config_dirs[x])) for x in
+                               config_dirs.keys()]
 
         self.append(self.ui.inflate('fail2ban:main'))
         self.binder = Binder(self, self)
 
         def on_config_update(o, c, config, u):
-            if config.__old_name != config.name:
-                self.log('renamed host %s to %s' % (config.__old_name, config.name))
-                self.hosts_dir.rename(config.__old_name, config.name)
+            # if config.__old_name != config.name:
+            #    self.log('renamed config file %s to %s' % (config.__old_name, config.name))
+            #    self.hosts_dir.rename(config.__old_name, config.name)
             config.save()
 
         def on_config_bind(o, c, config, u):
             config.__old_name = config.name
 
+        def new_config(c):
+            name = 'untitled.conf'
+            open(os.path.join(c.path, name), 'w').write(' ')
+            return f2b_Config(name, os.path.join(c.path, name), '')
+
         self.find('configlist').post_item_update = on_config_update
         self.find('configlist').post_item_bind = on_config_bind
+        self.find('configlist').new_item = new_config
 
 
     def on_page_load(self):
         self.refresh()
 
     def refresh(self):
-        self.configurations = [f2b_Configs(x, listing_of_configs(config_dirs[x])) for x in config_dirs.keys()]
+        self.configurations = [f2b_Configs(x, config_dirs[x], listing_of_configs(config_dirs[x])) for x in
+                               config_dirs.keys()]
         self.binder.update()
         self.binder.populate()
 

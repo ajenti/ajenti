@@ -8,6 +8,11 @@
                     <dtr>
                         <collapserow>
                             <box>
+                                <right>
+                                    <hc>
+                                        <label bind="path"/>
+                                    </hc>
+                                </right>
                                 <hc>
                                     <icon icon="folder-open"/>
                                     <label style="bold" bind="name"/>
@@ -20,16 +25,18 @@
                                     <bind:template>
                                         <collapserow>
                                             <box>
+                                                <right>
+                                                    <hc>
+                                                        <label bind="configfile"/>
+                                                    </hc>
+                                                </right>
                                                 <hc>
                                                     <icon icon="list-alt"/>
                                                     <label bind="name"/>
                                                 </hc>
                                             </box>
                                             <pad>
-                                                <vc>
-                                                    <label bind="configfile"/>
-                                                    <codearea height="480" width="720" bind="config"/>
-                                                </vc>
+                                                <codearea height="480" width="720" bind="config"/>
                                             </pad>
                                         </collapserow>
                                     </bind:template>
