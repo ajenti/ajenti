@@ -73,7 +73,7 @@ class fail2ban(SectionPlugin):
 
         def on_config_update(o, c, config, u):
             # if config.__old_name != config.name:
-            #    self.log('renamed config file %s to %s' % (config.__old_name, config.name))
+            # self.log('renamed config file %s to %s' % (config.__old_name, config.name))
             #    self.hosts_dir.rename(config.__old_name, config.name)
             config.save()
 
@@ -81,13 +81,28 @@ class fail2ban(SectionPlugin):
             config.__old_name = config.name
 
         def new_config(c):
-            name = 'untitled.conf'
-            open(os.path.join(c.path, name), 'w').write(' ')
-            return f2b_Config(name, os.path.join(c.path, name), '')
+            new_fn = 'untitled{0}.conf'
+            s_fn = new_fn.format('')
+            filename = os.path.join(c.path, s_fn)
+            i = 1
+            while os.path.isfile(filename) or os.path.isdir(filename):
+                s_fn = new_fn.format('_' + str(i))
+                filename = os.path.join(c.path, s_fn)
+                i += 1
+            open(filename, 'w').write(' ')
+            logging.info('add config %s' % filename)
+            return f2b_Config(s_fn, filename, '')
+
+        def delete_config(config, c):
+            filename = config.configfile
+            logging.info('removed config %s' % config.configfile)
+            c.remove(config)
+            os.unlink(filename)
 
         self.find('configlist').post_item_update = on_config_update
         self.find('configlist').post_item_bind = on_config_bind
         self.find('configlist').new_item = new_config
+        self.find('configlist').delete_item = delete_config
 
 
     def on_page_load(self):

@@ -28,6 +28,7 @@
                                                 <right>
                                                     <hc>
                                                         <label bind="configfile"/>
+                                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}"/>
                                                     </hc>
                                                 </right>
                                                 <hc>
