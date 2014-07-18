@@ -89,9 +89,12 @@ class fail2ban(SectionPlugin):
                 s_fn = new_fn.format('_' + str(i))
                 filename = os.path.join(c.path, s_fn)
                 i += 1
-            open(filename, 'w').write(' ')
-            logging.info('add config %s' % filename)
-            return f2b_Config(s_fn, filename, '')
+            try:
+                open(filename, 'w').write(' ')
+                logging.info('add config %s' % filename)
+                return f2b_Config(s_fn, filename, '')
+            except IOError as e:
+                print('Error writing file {0} in {1}'.format(filename, c.path))
 
         def delete_config(config, c):
             filename = config.configfile
@@ -111,11 +114,9 @@ class fail2ban(SectionPlugin):
     def refresh(self):
         self.configurations = [f2b_Configs(x, config_dirs[x], listing_of_configs(config_dirs[x])) for x in
                                config_dirs.keys()]
-        self.binder.update()
         self.binder.populate()
 
     @on('save-button', 'click')
     def save(self):
         self.binder.update()
-        self.refresh()
         self.context.notify('info', 'Saved')
