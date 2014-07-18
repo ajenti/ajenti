@@ -1,0 +1,56 @@
+<vc>
+    <servicebar name="fail2ban"/>
+    <body>
+        <vc>
+            <bind:collection bind="configurations">
+                <dt bind="__items"/>
+                <bind:template>
+                    <dtr>
+                        <collapserow>
+                            <box>
+                                <right>
+                                    <hc>
+                                        <label bind="path"/>
+                                    </hc>
+                                </right>
+                                <hc>
+                                    <icon icon="folder-open"/>
+                                    <label style="bold" bind="name"/>
+                                </hc>
+                            </box>
+                            <pad>
+                                <bind:collection bind="configlist" id="configlist">
+                                    <dt bind="__items" addrow="{Add}"/>
+
+                                    <bind:template>
+                                        <collapserow>
+                                            <box>
+                                                <right>
+                                                    <hc>
+                                                        <label bind="configfile"/>
+                                                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}"/>
+                                                    </hc>
+                                                </right>
+                                                <hc>
+                                                    <icon icon="list-alt"/>
+                                                    <label bind="name"/>
+                                                </hc>
+                                            </box>
+                                            <pad>
+                                                <codearea height="480" width="720" bind="config"/>
+                                            </pad>
+                                        </collapserow>
+                                    </bind:template>
+
+                                </bind:collection>
+                            </pad>
+                        </collapserow>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
+        </vc>
+    </body>
+    <hc>
+        <button id="save-button" text="{Save}" icon="ok"/>
+    </hc>
+</vc>
