@@ -7,13 +7,11 @@
                 <bind:template>
                     <tab bind="name">
                         <box height="700" scroll="True">
-                            <box>
+                            <vc>
                                 <hc>
                                     <icon icon="folder-open"/>
                                     <label bind="path"/>
                                 </hc>
-                            </box>
-                            <box>
                                 <bind:collection bind="configlist" id="configlist">
                                     <dt bind="__items" addrow="{Add}"/>
 
@@ -23,6 +21,7 @@
                                                 <right>
                                                     <hc>
                                                         <label bind="configfile"/>
+                                                        <box width="5" />
                                                         <button bind="__delete" icon="remove" style="icon"
                                                                 warning="{Confirm deletion}"/>
                                                     </hc>
@@ -37,9 +36,8 @@
                                             </pad>
                                         </collapserow>
                                     </bind:template>
-
                                 </bind:collection>
-                            </box>
+                            </vc>
                         </box>
                     </tab>
                 </bind:template>

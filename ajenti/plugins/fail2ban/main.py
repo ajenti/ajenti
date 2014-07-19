@@ -17,7 +17,8 @@ config_dirs = {
 config_file_types = ('.conf', '.py', '.local')
 
 
-class f2b_Config(object):
+@plugin
+class f2b_Config (BasePlugin):
     def __init__(self, name, configfile, config):
         self.name = name
         self.configfile = configfile
@@ -30,6 +31,7 @@ class f2b_Config(object):
         try:
             open(self.configfile, 'w').write(self.config)
         except IOError as e:
+            self.context.notify('error', _('Could not save config file. %s') % str(e))
             logging.error(e.message)
 
 
@@ -52,7 +54,7 @@ def listing_of_configs(path):
         try:
             cf = os.path.join(path, filename)
             if os.path.isfile(cf) and (os.path.splitext(filename)[-1] in config_file_types):
-                configs.append(f2b_Config(filename, cf, open(cf, 'r').readlines()))
+                configs.append(f2b_Config.new(filename, cf, open(cf).readlines()))
         except IOError as e:
             print('Error reading file {0} in {1}'.format(filename, path))
     return configs
@@ -61,12 +63,9 @@ def listing_of_configs(path):
 @plugin
 class fail2ban(SectionPlugin):
     def init(self):
-        self.title = 'fail2ban'  # those are not class attributes and can be only set in or after init()
+        self.title = 'fail2ban'
         self.icon = 'shield'
         self.category = _('Software')
-
-        self.configurations = [f2b_Configs(x, config_dirs[x], listing_of_configs(config_dirs[x])) for x in
-                               config_dirs.keys()]
 
         self.append(self.ui.inflate('fail2ban:main'))
         self.binder = Binder(self, self)
@@ -85,14 +84,14 @@ class fail2ban(SectionPlugin):
             s_fn = new_fn.format('')
             filename = os.path.join(c.path, s_fn)
             i = 1
-            while os.path.isfile(filename) or os.path.isdir(filename):
+            while os.path.exists(filename):
                 s_fn = new_fn.format('_' + str(i))
                 filename = os.path.join(c.path, s_fn)
                 i += 1
             try:
                 open(filename, 'w').write(' ')
                 logging.info('add config %s' % filename)
-                return f2b_Config(s_fn, filename, '')
+                return f2b_Config.new(s_fn, filename, '')
             except IOError as e:
                 print('Error writing file {0} in {1}'.format(filename, c.path))
 
@@ -107,14 +106,16 @@ class fail2ban(SectionPlugin):
         self.find('configlist').new_item = new_config
         self.find('configlist').delete_item = delete_config
 
-
     def on_page_load(self):
         self.refresh()
 
     def refresh(self):
-        self.configurations = [f2b_Configs(x, config_dirs[x], listing_of_configs(config_dirs[x])) for x in
-                               config_dirs.keys()]
-        self.binder.populate()
+        self.configurations = [
+            f2b_Configs(k, d, listing_of_configs(d)) 
+            for k, d in config_dirs.iteritems()
+            if os.path.isdir(d)
+        ]
+        self.binder.setup(self).populate()
 
     @on('save-button', 'click')
     def save(self):
