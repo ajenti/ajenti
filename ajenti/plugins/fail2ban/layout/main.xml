@@ -51,22 +51,21 @@
                 </hc>
             </tab>
             <tab title="{Filters checker}">
-                <formgroup text="{Check regex}"/>
-                <hc>
-                    <label text="{Filter file}" style="bold"/>
-                    <textbox id="filter-filename"/>
-                    <button id="open-filter-button" text="{Open}" icon="folder-open"/>
-                    <button id="save-filter-button" text="{Save}" icon="folder-open"/>
-                </hc>
+                <formgroup text="{Filter file}"/>
                 <pad>
+                    <hc>
+                        <textbox id="filter-filename"/>
+                        <button id="open-filter-button" icon="folder-open" style="mini"/>
+                        <button id="save-filter-button" icon="save" style="mini"/>
+                    </hc>
                     <codearea id="filter-file" height="150" width="700"/>
                 </pad>
-                <hc>
-                    <label text="{Log file}" style="bold"/>
-                    <textbox id="log-filename"/>
-                    <button id="open-log-button" text="{Open}" icon="folder-open"/>
-                </hc>
+                <formgroup text="{Log file}"/>
                 <pad>
+                    <hc>
+                        <textbox id="log-filename"/>
+                        <button id="open-log-button" icon="folder-open" style="mini"/>
+                    </hc>
                     <codearea id="log-file" height="150" width="700"/>
                 </pad>
                 <button id="check-regex" text="{Run test}" icon="play"/>

@@ -127,28 +127,28 @@ class fail2ban(SectionPlugin):
 
     @on('check-regex', 'click')
     def check_regex(self):
+        self.find('check-status').text = ''
         log_fname = self.find('log-filename').value
         filter_fname = self.find('filter-filename').value
         log_as_text = self.find('log-file').value
         filter_as_text = self.find('filter-file').value
         if not (log_fname or log_as_text) or not (filter_fname or filter_as_text):
             logging.info('Filter checker. Some parametrs empty.')
-            self.context.notify('Some parametrs empty.')
+            self.context.notify('error', _('Some parametrs empty.'))
             return
 
-        with tempfile.NamedTemporaryFile(delete=False) as lt:
-            lt.write(self.find('log-file').value)
-            lt_name = lt.name
-        with tempfile.NamedTemporaryFile(delete=False) as rt:
+        with open(filter_fname + '.tmp', 'w') as rt:
             rt.write(self.find('filter-file').value)
+            rt.flush()
             rt_name = rt.name
+            rt.close()
 
-        p = subprocess.Popen(['fail2ban-regex', lt_name, rt_name], stdout=subprocess.PIPE, universal_newlines=True)
+        p = subprocess.Popen(['fail2ban-regex', '--full-traceback', log_fname, rt_name], stdout=subprocess.PIPE,
+                             stderr=subprocess.STDOUT)
         out, err = p.communicate()
         self.find('check-status').text = out
 
         os.unlink(rt_name)
-        os.unlink(lt_name)
 
     @on('open-filter-button', 'click')
     def open_filter(self):
