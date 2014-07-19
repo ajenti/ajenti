@@ -1,0 +1,13 @@
+<box>
+    <vc binder:context="classconfig">
+        <formline text="{Host}">
+            <textbox bind="[hostname]" />
+        </formline>
+        <formline text="{Username}">
+            <textbox bind="[user]" />
+        </formline>
+        <formline text="{Password}">
+            <passwordbox bind="[password]" />
+        </formline>
+    </vc>
+</box>
