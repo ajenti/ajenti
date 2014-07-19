@@ -1,5 +1,7 @@
 # coding=utf-8
-import os, json, logging
+import os, json, logging, tempfile, time
+
+import subprocess
 
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
@@ -18,7 +20,7 @@ config_file_types = ('.conf', '.py', '.local')
 
 
 @plugin
-class f2b_Config (BasePlugin):
+class f2b_Config(BasePlugin):
     def __init__(self, name, configfile, config):
         self.name = name
         self.configfile = configfile
@@ -66,14 +68,14 @@ class fail2ban(SectionPlugin):
         self.title = 'fail2ban'
         self.icon = 'shield'
         self.category = _('Software')
-
+        self.f2b_v = subprocess.check_output(['fail2ban-client', '--version']).splitlines()[0]
         self.append(self.ui.inflate('fail2ban:main'))
         self.binder = Binder(self, self)
 
         def on_config_update(o, c, config, u):
             # if config.__old_name != config.name:
             # self.log('renamed config file %s to %s' % (config.__old_name, config.name))
-            #    self.hosts_dir.rename(config.__old_name, config.name)
+            # self.hosts_dir.rename(config.__old_name, config.name)
             config.save()
 
         def on_config_bind(o, c, config, u):
@@ -107,11 +109,12 @@ class fail2ban(SectionPlugin):
         self.find('configlist').delete_item = delete_config
 
     def on_page_load(self):
+        self.find('f2b_v').text = self.f2b_v
         self.refresh()
 
     def refresh(self):
         self.configurations = [
-            f2b_Configs(k, d, listing_of_configs(d)) 
+            f2b_Configs(k, d, listing_of_configs(d))
             for k, d in config_dirs.iteritems()
             if os.path.isdir(d)
         ]
@@ -121,3 +124,65 @@ class fail2ban(SectionPlugin):
     def save(self):
         self.binder.update()
         self.context.notify('info', 'Saved')
+
+    @on('check-regex', 'click')
+    def check_regex(self):
+        log_fname = self.find('log-filename').value
+        filter_fname = self.find('filter-filename').value
+        log_as_text = self.find('log-file').value
+        filter_as_text = self.find('filter-file').value
+        if not (log_fname or log_as_text) or not (filter_fname or filter_as_text):
+            logging.info('Filter checker. Some parametrs empty.')
+            self.context.notify('Some parametrs empty.')
+            return
+
+        with tempfile.NamedTemporaryFile(delete=False) as lt:
+            lt.write(self.find('log-file').value)
+            lt_name = lt.name
+        with tempfile.NamedTemporaryFile(delete=False) as rt:
+            rt.write(self.find('filter-file').value)
+            rt_name = rt.name
+
+        p = subprocess.Popen(['fail2ban-regex', lt_name, rt_name], stdout=subprocess.PIPE, universal_newlines=True)
+        out, err = p.communicate()
+        self.find('check-status').text = out
+
+        os.unlink(rt_name)
+        os.unlink(lt_name)
+
+    @on('open-filter-button', 'click')
+    def open_filter(self):
+        self.find('openfilterdialog').show()
+
+    @on('openfilterdialog', 'button')
+    def on_open_filter_dialog(self, button):
+        self.find('openfilterdialog').visible = False
+
+    @on('openfilterdialog', 'select')
+    def on_filter_file_select(self, path=None):
+        self.find('openfilterdialog').visible = False
+        self.find('filter-filename').value = path
+        self.find('filter-file').value = ''.join(open(path).readlines())
+
+
+    @on('open-log-button', 'click')
+    def open_log(self):
+        self.find('openlogdialog').show()
+
+    @on('openlogdialog', 'button')
+    def on_open_log_dialog(self, button):
+        self.find('openlogdialog').visible = False
+
+    @on('openlogdialog', 'select')
+    def on_log_file_select(self, path=None):
+        self.find('openlogdialog').visible = False
+        self.find('log-filename').value = path
+        self.find('log-file').value = ''.join(open(path).readlines())
+
+    @on('save-filter-button', 'click')
+    def save_filter(self):
+        try:
+            open(self.find('filter-filename').value, 'w').write(self.find('filter-file').value)
+        except IOError as e:
+            self.context.notify('error', _('Could not save config file. %s') % str(e))
+            logging.error(e.message)
