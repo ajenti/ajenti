@@ -6,7 +6,8 @@ info = PluginInfo(
     title='fail2ban',
     icon='shield',
     dependencies=[
-        PluginDependency('main')
+        PluginDependency('main'),
+        BinaryDependency('fail2ban-client'),
     ],
 )
 
