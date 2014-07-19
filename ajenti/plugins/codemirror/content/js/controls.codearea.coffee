@@ -18,7 +18,11 @@ class window.Controls.codearea extends window.Control
         $(@dom).find('.CodeMirror-scroll').css(
             height: @_int_to_px(@properties.height)
         )
-
+        cm = @cm
+        jQuery(@dom).find('.CodeMirror').resizable resize: () ->
+            cm.setSize $(this).width(), $(this).height()
+            cm.refresh()
+            
         setTimeout @cm.refresh, 1
 
     onBroadcast: (msg) ->
