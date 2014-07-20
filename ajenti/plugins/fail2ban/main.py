@@ -159,6 +159,8 @@ class fail2ban(SectionPlugin):
 
     @on('openfilterdialog', 'select')
     def on_filter_file_select(self, path=None):
+        if not path:
+            return
         self.find('openfilterdialog').visible = False
         self.find('filter-filename').value = path
         self.find('filter-file').value = ''.join(open(path).readlines())
@@ -174,6 +176,8 @@ class fail2ban(SectionPlugin):
 
     @on('openlogdialog', 'select')
     def on_log_file_select(self, path=None):
+        if not path:
+            return
         self.find('openlogdialog').visible = False
         self.find('log-filename').value = path
         self.find('log-file').value = ''.join(open(path).readlines())
