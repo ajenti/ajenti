@@ -39,12 +39,13 @@
             </bind:collection>
 
             <button icon="plus" text="{Create}" id="add-db" />
+        </pad>
 
-
-            <label text="{Users}" style="bold" />
+        <pad>
+            <label text="{Users}" style="bold" bind:visible="has_users" />
             <bind:collection bind="users" id="users">
                 <vc>
-                    <dt bind="__items">
+                    <dt bind="__items" bind:visible="has_users">
                         <dtr header="True">
                             <dth text="{Username}" />
                             <dth text="{Host}" />

@@ -239,7 +239,7 @@ class window.Controls.combobox extends window.Control
             jQuery(@input[0]).autocomplete {
                 source: (request, response) =>
                     vals = @getVals()
-                    response($.ui.autocomplete.filter(@data, vals.pop()))
+                    response(jQuery.ui.autocomplete.filter(@data, vals.pop()))
                 focus: () =>
                     return false
                 select: (event, ui) =>
@@ -251,9 +251,9 @@ class window.Controls.combobox extends window.Control
                 minLength: 0
             }
         else
-            @input.autocomplete source: @data, minLength: 0
+            jQuery(@input[0]).autocomplete source: @data, minLength: 0
         @input.click () =>
-            @input.autocomplete 'search', ''
+            jQuery(@input[0]).autocomplete 'search', ''
         return this
 
     getVals: () ->

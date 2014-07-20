@@ -17,6 +17,7 @@ class User (object):
 class DBPlugin (SectionPlugin):
     service_name = ''
     service_buttons = []
+    has_users = True
 
     def init(self):
         self.append(self.ui.inflate('db_common:main'))
@@ -76,7 +77,8 @@ class DBPlugin (SectionPlugin):
         self.users = []
         try:
             self.databases = self.query_databases()
-            self.users = self.query_users()
+            if self.has_users:
+                self.users = self.query_users()
         except Exception as e:
             import traceback; traceback.print_exc();
             self.context.notify('error', str(e))
@@ -116,22 +118,22 @@ class DBPlugin (SectionPlugin):
         self.refresh()
 
     def query_sql(self, db, sql):
-        return []
+        raise NotImplementedError()
 
     def query_databases(self):
-        return []
+        raise NotImplementedError()
 
     def query_drop(self, db):
-        pass
+        raise NotImplementedError()
 
     def query_create(self, name):
-        pass
+        raise NotImplementedError()
 
     def query_users(self):
-        return []
+        raise NotImplementedError()
 
     def query_create_user(self, user):
-        pass
+        raise NotImplementedError()
 
     def query_drop_user(self, user):
-        pass
+        raise NotImplementedError()
