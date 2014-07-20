@@ -109,7 +109,6 @@ class fail2ban(SectionPlugin):
         self.find('configlist').delete_item = delete_config
 
     def on_page_load(self):
-        self.find('f2b_v').text = self.f2b_v
         self.refresh()
 
     def refresh(self):
