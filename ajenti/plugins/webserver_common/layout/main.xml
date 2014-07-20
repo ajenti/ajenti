@@ -1,45 +1,53 @@
 <vc>
     <servicebar
-        bind="service_name" />
+            bind="service_name"/>
 
     <body>
-        <pad>
-            <bind:collection bind="hosts" id="hosts">
-                <dt bind="__items" addrow="{Add}" />
-                <bind:template>
-                    <collapserow>
-                        <box>
-                            <right>
-                                <hc>
-                                    <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
-                                </hc>
-                            </right>
-                            <hc>
-                                <icon icon="globe" />
-                                <checkbox bind="active" id="header-active-checkbox" />
-                                <box width="200">
-                                    <label bind="name" style="bold" />
+        <tabs>
+            <tab title="{Sites}">
+                <pad>
+                    <bind:collection bind="hosts" id="hosts">
+                        <dt bind="__items" addrow="{Add}"/>
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <hc>
+                                            <button bind="__delete" icon="remove" style="icon"
+                                                    warning="{Confirm deletion}"/>
+                                        </hc>
+                                    </right>
+                                    <hc>
+                                        <icon icon="globe"/>
+                                        <checkbox bind="active" id="header-active-checkbox"/>
+                                        <box width="200">
+                                            <label bind="name" style="bold"/>
+                                        </box>
+                                    </hc>
                                 </box>
-                            </hc>
-                        </box>
-                        <indent>
-                            <vc>
-                                <formline text="{Name}">
-                                    <textbox bind="name" />
-                                </formline>
-                                <formline text="{Enable}" id="body-active-line">
-                                    <checkbox bind="active" />
-                                </formline>
-                                <formline text="{Configuration}">
-                                    <codearea bind="config" width="500" height="400" />
-                                </formline>
-                            </vc>
-                        </indent>
-                    </collapserow>
-                </bind:template>
-            </bind:collection>
-        </pad>
+                                <indent>
+                                    <vc>
+                                        <formline text="{Name}">
+                                            <textbox bind="name"/>
+                                        </formline>
+                                        <formline text="{Enable}" id="body-active-line">
+                                            <checkbox bind="active"/>
+                                        </formline>
+                                        <formline text="{Configuration}">
+                                            <codearea bind="config" width="500" height="400"/>
+                                        </formline>
+                                    </vc>
+                                </indent>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </pad>
+            </tab>
+            <tab title="{Configuration}">
+
+            </tab>
+        </tabs>
     </body>
 
-    <button text="{Save}" id="save-button" icon="ok" />
+    <button text="{Save}" id="save-button" icon="ok"/>
 </vc>
