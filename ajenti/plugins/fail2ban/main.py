@@ -66,7 +66,7 @@ class f2b_Config(object):
 
     def update(self):
         self.configfile = os.path.join(self.path, self.name)
-        self.config.join(open(self.configfile).readlines())
+        self.config = ''.join((open(self.configfile).readlines()))
         return self
 
 
