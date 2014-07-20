@@ -1,8 +1,8 @@
 <vc>
     <hc>
         <servicebar name="fail2ban"/>
-        <box width="10" />
-        <icon icon="shield" />
+        <box width="10"/>
+        <icon icon="shield"/>
         <label bind="f2b_v"/>
     </hc>
     <body>
@@ -59,26 +59,22 @@
                     <pad>
                         <vc>
                             <formline text="{Filter file}">
-                                <vc>
-                                    <hc>
-                                        <textbox id="filter-filename"/>
-                                        <button id="open-filter-button" icon="folder-open" style="mini"/>
-                                        <button id="save-filter-button" icon="save" style="mini"/>
-                                    </hc>
-                                    <codearea id="filter-file" height="150" width="500"/>
-                                </vc>
+                                <hc>
+                                    <textbox id="filter-filename"/>
+                                    <button id="open-filter-button" icon="folder-open" style="mini"/>
+                                    <button id="save-filter-button" icon="save" style="mini"/>
+                                </hc>
                             </formline>
+                            <codearea id="filter-file" height="150" width="700"/>
                             <formline text="{Log file}">
-                                <vc>
-                                    <hc>
-                                        <textbox id="log-filename"/>
-                                        <button id="open-log-button" icon="folder-open" style="mini"/>
-                                    </hc>
-                                    <codearea id="log-file" height="150" width="500"/>
-                                    <button id="check-regex" text="{Run test}" icon="play"/>
-                                    <label id="check-status" style="bold"/>
-                                </vc>
+                                <hc>
+                                    <textbox id="log-filename"/>
+                                    <button id="open-log-button" icon="folder-open" style="mini"/>
+                                </hc>
                             </formline>
+                            <codearea id="log-file" height="150" width="700"/>
+                            <button id="check-regex" text="{Run test}" icon="play"/>
+                            <label id="check-status" style="bold"/>
                         </vc>
                     </pad>
                 </tab>
