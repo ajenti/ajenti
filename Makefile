@@ -88,8 +88,10 @@ upload-deb: deb
 
 upload-rpm: rpm
 	scp dist/*.rpm root@ajenti.org:/srv/repo/ng/centos/6
-	scp dist/*.rpm root@ajenti.org:/srv/repo/ng/centos/7
 	ssh root@ajenti.org /srv/repo/rebuild-centos.sh
+
+upload-rpm7: rpm
+	scp dist/*.rpm root@ajenti.org:/srv/repo/ng/centos/7
 	ssh root@ajenti.org /srv/repo/rebuild-centos7.sh
 
 upload-tgz: tgz
