@@ -19,9 +19,13 @@ class Apache (WebserverPlugin):
         centos='/etc/httpd/conf.d',
         freebsd='/usr/local/etc/apache/sites-available',
     )
-    hosts_enabled_dir = '/etc/apache2/sites-enabled'
+    hosts_enabled_dir = platform_select(
+        debian='/etc/apache2/sites-enabled',
+        freebsd='/usr/local/etc/apache/sites-enabled'
+    )
     supports_host_activation = platform_select(
         debian=True,
+        freebsd=True,
         default=False,
     )
 

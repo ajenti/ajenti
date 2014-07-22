@@ -1,10 +1,9 @@
 <vc>
-    <servicebar
-            bind="service_name"/>
+    <servicebar bind="service_name"/>
 
     <body>
         <tabs>
-            <tab title="{Sites}">
+            <tab title="{Hosts}">
                 <pad>
                     <bind:collection bind="hosts" id="hosts">
                         <dt bind="__items" addrow="{Add}"/>
@@ -42,12 +41,52 @@
                         </bind:template>
                     </bind:collection>
                 </pad>
+                <pad>
+                    <button text="{Save}" id="save-button" icon="ok"/>
+                </pad>
             </tab>
-            <tab title="{Configuration}">
+            <tab title="{Mods}" visible="false">
+                <pad>
+                    <bind:collection id="mods">
+                        <dt bind="__items">
+                            <bind:template>
 
+                            </bind:template>
+                        </dt>
+                    </bind:collection>
+                </pad>
+                <pad>
+                    <button text="{Save}" id="save-mods-button" icon="ok"/>
+                </pad>
+            </tab>
+            <tab title="{Configurations}" visible="false">
+                <pad>
+                    <bind:collection id="configurations">
+                        <dt bind="__items"/>
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <right>
+                                        <label bind="configfile"/>
+                                    </right>
+                                    <hc>
+                                        <icon icon="list-alt"/>
+                                        <label bind="name" style="bold"/>
+                                    </hc>
+                                </box>
+                                <pad>
+                                    <pad>
+                                        <codearea height="680" width="720" bind="config"/>
+                                    </pad>
+                                </pad>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </pad>
+                <pad>
+                    <button text="{Save}" id="save-conf-button" icon="ok"/>
+                </pad>
             </tab>
         </tabs>
     </body>
-
-    <button text="{Save}" id="save-button" icon="ok"/>
 </vc>

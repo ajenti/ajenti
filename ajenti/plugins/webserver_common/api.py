@@ -6,7 +6,7 @@ from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
 
-class AvailabilitySymlinks (object):
+class AvailabilitySymlinks(object):
     """
     Manage directories of following style::
 
@@ -73,7 +73,7 @@ class AvailabilitySymlinks (object):
         return os.path.exists(self.dir_a) and os.path.exists(self.dir_e)
 
 
-class WebserverHost (object):
+class WebserverHost(object):
     def __init__(self, owner, dir, entry):
         self.owner = owner
         self.name = entry
@@ -89,13 +89,52 @@ class WebserverHost (object):
             self.dir.disable(self.name)
 
 
-class WebserverPlugin (SectionPlugin):
+class WebserverMod(object):
+    def __init__(self, dir, entry):
+        self.name = entry
+        self.dir = dir
+        self.active = dir.is_enabled(entry)
+
+
+class WebserverConf(object):
+    def __init__(self, filename):
+        self.name = os.path.basename(filename)
+        self.configfile = filename
+        self.config = ''
+
+    def save(self):
+        try:
+            open(self.configfile, 'w').write(self.config)
+        except IOError as e:
+            logging.error(e.message)
+        return self
+
+    def update(self):
+        try:
+            self.config = ''.join(open(self.configfile).readlines())
+        except IOError as e:
+            logging.error(e.message)
+        return self
+
+
+class WebserverPlugin(SectionPlugin):
     service_name = ''
     service_buttons = []
     hosts_available_dir = ''
     hosts_enabled_dir = ''
+    mods_available_dir = ''
+    mods_enabled_dir = ''
+    confs_available_dir = ''
+    confs_enabled_dir = ''
+    hosts_dir = None
+    mods_dir = None
+    confs_dir = None
     template = ''
     supports_host_activation = True
+    supports_mod_activation = False
+    supports_conf_activation = False
+    configurable = False
+    configurations = []
 
     def log(self, msg):
         logging.info('[%s] %s' % (self.service_name, msg))
@@ -104,8 +143,11 @@ class WebserverPlugin (SectionPlugin):
         self.append(self.ui.inflate('webserver_common:main'))
         self.binder = Binder(None, self)
         self.find_type('servicebar').buttons = self.service_buttons
+
+        # Hosts preperation
+
         self.hosts_dir = AvailabilitySymlinks(
-            self.hosts_available_dir, 
+            self.hosts_available_dir,
             self.hosts_enabled_dir,
             self.supports_host_activation
         )
@@ -138,19 +180,38 @@ class WebserverPlugin (SectionPlugin):
         self.find('hosts').post_item_update = on_host_update
         self.find('header-active-checkbox').visible = \
             self.find('body-active-line').visible = \
-                self.supports_host_activation
+            self.supports_host_activation
 
-    def on_page_load(self):
-        self.refresh()
+        # Hosts preparation
 
-    @on('save-button', 'click')
-    def save(self):
-        self.log('saving hosts')
-        self.binder.update()
-        self.refresh()
-        self.context.notify('info', 'Saved')
+        if self.supports_mod_activation:
+            self.mods_dir = AvailabilitySymlinks(
+                self.mods_available_dir,
+                self.mods_enabled_dir,
+                self.supports_mod_activation
+            )
 
-    def refresh(self):
-        self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
-        self.binder.setup(self).populate()
-        self.find_type('servicebar').reload()
+        if self.supports_conf_activation:
+            self.confs_dir = AvailabilitySymlinks(
+                self.confs_available_dir,
+                self.confs_enabled_dir,
+                self.supports_conf_activation
+            )
+
+
+def on_page_load(self):
+    self.refresh()
+
+
+@on('save-button', 'click')
+def save(self):
+    self.log('saving hosts')
+    self.binder.update()
+    self.refresh()
+    self.context.notify('info', 'Saved')
+
+
+def refresh(self):
+    self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
+    self.binder.setup(self).populate()
+    self.find_type('servicebar').reload()
