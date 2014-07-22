@@ -99,17 +99,20 @@ class fail2ban(SectionPlugin):
         self.f2b_v = subprocess.check_output(['fail2ban-client', '--version']).splitlines()[0]
         self.append(self.ui.inflate('fail2ban:main'))
         self.binder = Binder(self, self)
+        self.update_status = True
 
         def on_config_update(o, c, config, u):
             if config.__old_name != config.name:
-                # if os.path.exists(os.path.join(c.path, config.name)):
-                #     self.context.notify('info', _(
-                #         'File with name {0} already exists in {1}\n'
-                #         'Please use a another file name.').format(config.name, c.path))
-                #     return
+                if os.path.exists(os.path.join(c.path, config.name)):
+                    self.context.notify('error', _(
+                        'File with name {0} already exists in {1}.').format(config.name, c.path))
+                    u.find('name').value = config.__old_name
+                    self.update_status = False
+                    return
                 logging.debug('renamed config file %s to %s' % (config.__old_name, config.name))
                 os.unlink(config.configfile)
             config.save()
+            u.find('configfile').text = config.configfile
 
         def on_config_bind(o, c, config, u):
             config.__old_name = config.name
@@ -156,7 +159,9 @@ class fail2ban(SectionPlugin):
     @on('save-button', 'click')
     def save(self):
         self.binder.update()
-        self.context.notify('info', _('Saved'))
+        if self.update_status:
+            self.context.notify('info', _('Saved'))
+        self.update_status = True
 
     @on('check-regex', 'click')
     def check_regex(self):

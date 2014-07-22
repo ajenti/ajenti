@@ -28,7 +28,7 @@
                                                         <box>
                                                             <right>
                                                                 <hc>
-                                                                    <label bind="configfile"/>
+                                                                    <label bind="configfile" id="configfile"/>
                                                                     <box width="5"/>
                                                                     <button bind="__delete" icon="remove" style="icon"
                                                                             warning="{Confirm deletion}"/>
@@ -36,7 +36,7 @@
                                                             </right>
                                                             <hc>
                                                                 <icon icon="list-alt"/>
-                                                                <editable bind="name"/>
+                                                                <editable bind="name" id="name"/>
                                                             </hc>
                                                         </box>
                                                         <pad>
