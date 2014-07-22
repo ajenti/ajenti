@@ -9,6 +9,8 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
 
+from templates import config_templates
+
 config_dirs = {
     'main': '/etc/fail2ban/',
     'jails': '/etc/fail2ban/jail.d/',
@@ -18,14 +20,6 @@ config_dirs = {
 }
 
 config_file_types = ('.conf', '.local')
-
-config_templates = {
-    'main': '',
-    'jails': 'enable = true\n',
-    'actions': '',
-    'filters': '# Fail2Ban filter\n[INCLUDES]\nbefore =\nafter =\n[Definition]\nfailregex =\n\nignoreregex =\n#Autor:',
-    'extra': ''
-}
 
 
 # fail2ban:
@@ -74,7 +68,7 @@ class f2b_Configs(object):
     def __init__(self, name, path):
         self.name = name
         self.path = path
-        self.configlist = f2b_list()
+        self.configlist = f2b_list(path=path, type=name)
         self.configlist.path = self.path
 
     def update(self):
@@ -90,8 +84,9 @@ class f2b_Configs(object):
 
 
 class f2b_list(list):
-    def __init__(self):
-        self.path = ''
+    def __init__(self, path='', type=''):
+        self.path = path
+        self.type = type
 
 
 @plugin
@@ -129,7 +124,9 @@ class fail2ban(SectionPlugin):
                 i += 1
             try:
                 logging.info('add config %s' % filename)
-                return f2b_Config(s_fn, c.path).save()
+                conf = f2b_Config(s_fn, c.path)
+                conf.config = config_templates[c.type]
+                return conf.save()
             except IOError as e:
                 print('Error writing file {0} in {1}'.format(filename, c.path))
 
