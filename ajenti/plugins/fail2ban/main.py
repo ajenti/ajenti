@@ -172,8 +172,8 @@ class fail2ban(SectionPlugin):
         log_as_text = self.find('log-file').value
         filter_as_text = self.find('filter-file').value
         if not (log_fname or log_as_text) or not (filter_fname or filter_as_text):
-            logging.debug('Filter checker. Some parametrs empty.')
-            self.context.notify('error', _('Some parametrs empty.'))
+            logging.debug('Filter checker. Some parameters are empty.')
+            self.context.notify('error', _('Some parameters are empty.'))
             return
 
         with open(filter_fname + '.tmp', 'w') as rt:
