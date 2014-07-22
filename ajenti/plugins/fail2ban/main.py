@@ -31,6 +31,7 @@ config_file_types = ('.conf', '.local')
 #                     confillist=
 #                         f2b_list:
 #                             path=
+#                             type=
 #                             __list__=
 #                                     f2b_config:
 #                                         name=
@@ -106,7 +107,7 @@ class fail2ban(SectionPlugin):
                 #         'File with name {0} already exists in {1}\n'
                 #         'Please use a another file name.').format(config.name, c.path))
                 #     return
-                logging.info('renamed config file %s to %s' % (config.__old_name, config.name))
+                logging.debug('renamed config file %s to %s' % (config.__old_name, config.name))
                 os.unlink(config.configfile)
             config.save()
 
@@ -123,7 +124,7 @@ class fail2ban(SectionPlugin):
                 filename = os.path.join(c.path, s_fn)
                 i += 1
             try:
-                logging.info('add config %s' % filename)
+                logging.debug('add config %s' % filename)
                 conf = f2b_Config(s_fn, c.path)
                 conf.config = config_templates[c.type]
                 return conf.save()
@@ -132,7 +133,7 @@ class fail2ban(SectionPlugin):
 
         def delete_config(config, c):
             filename = config.configfile
-            logging.info('removed config %s' % config.configfile)
+            logging.debug('removed config %s' % config.configfile)
             c.remove(config)
             os.unlink(filename)
 
@@ -165,7 +166,7 @@ class fail2ban(SectionPlugin):
         log_as_text = self.find('log-file').value
         filter_as_text = self.find('filter-file').value
         if not (log_fname or log_as_text) or not (filter_fname or filter_as_text):
-            logging.info('Filter checker. Some parametrs empty.')
+            logging.debug('Filter checker. Some parametrs empty.')
             self.context.notify('error', _('Some parametrs empty.'))
             return
 
