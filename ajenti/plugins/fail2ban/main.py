@@ -106,13 +106,13 @@ class fail2ban(SectionPlugin):
                 if os.path.exists(os.path.join(c.path, config.name)):
                     self.context.notify('error', _(
                         'File with name {0} already exists in {1}.').format(config.name, c.path))
-                    u.find('name').value = config.__old_name
                     self.update_status = False
+                    config.name = config.__old_name
                     return
                 logging.debug('renamed config file %s to %s' % (config.__old_name, config.name))
                 os.unlink(config.configfile)
             config.save()
-            u.find('configfile').text = config.configfile
+            self.update_status = True
 
         def on_config_bind(o, c, config, u):
             config.__old_name = config.name
@@ -162,6 +162,7 @@ class fail2ban(SectionPlugin):
         if self.update_status:
             self.context.notify('info', _('Saved'))
         self.update_status = True
+        self.binder.setup(self).populate()
 
     @on('check-regex', 'click')
     def check_regex(self):
