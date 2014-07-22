@@ -12,36 +12,35 @@ from api import Service, ServiceManager
 
 @plugin
 class SystemdServiceManager (ServiceManager):
-    platforms = ['arch']
-
     def init(self):
         self.bus = dbus.SystemBus()
         self.systemd = self.bus.get_object("org.freedesktop.systemd1", "/org/freedesktop/systemd1")
         self.interface = dbus.Interface(self.systemd, 'org.freedesktop.systemd1.Manager')
 
+    @classmethod
+    def verify(cls):
+        return subprocess.call(['which', 'systemctl']) == 0
+
     @cache_value(1)
     def get_all(self):
-        try:
-            units = self.interface.ListUnits()
-            r = []
-            logging.debug('units size: %i' % len(units))
-            for unit in units:
-                if (unit[0].endswith('.service')):
-                    #logging.debug('================== service ==================')
-                    #logging.debug('unit: %s' % unit[0])
-                    #logging.debug('desc: %s' % unit[1])
-                    #logging.debug('status: %s' % unit[2])
-                    #logging.debug('isactive: %s' % unit[3])
-                    #logging.debug('plugged: %s' % unit[4])
-                    #logging.debug('path: %s' % unit[6])
+        unit_files = self.interface.ListUnitFiles() 
+        r = []
+        for unit_file in unit_files:
+            if str(unit_file[0]).endswith('.service'):
+                name = str(unit_file[0])
+                name = os.path.splitext(name)[0]
+                name = os.path.split(name)[1]
+                r.append(SystemdService(name))
 
-                    s = SystemdService(os.path.splitext(str(unit[0]))[0])
-                    s.running = (str(unit[4]) == 'running')
-                    r.append(s)
+        units = self.interface.ListUnits()
+        for unit in units:
+            name = str(unit[0])
+            name = os.path.splitext(name)[0]
+            for service in r:
+                if service.name == name:
+                    service.running = str(unit[4]) == 'running'
 
-            return r
-        except dbus.DBusException:
-            return []
+        return r
 
 
 class SystemdService (Service):
@@ -49,9 +48,10 @@ class SystemdService (Service):
 
     def __init__(self, name):
         self.name = name
+        self.running = False
 
     def refresh(self):
-        self.running = 'running' in subprocess.check_output(['systemctl', 'status', self.name])
+        self.running = subprocess.call(['systemctl', 'is-active', self.name]) == 0
 
     def start(self):
         self.command('start')
@@ -63,4 +63,4 @@ class SystemdService (Service):
         self.command('restart')
 
     def command(self, cmd):
-        subprocess.Popen(['systemctl', cmd,  self.name], close_fds=True).wait()
+        return subprocess.call(['systemctl', cmd, self.name], close_fds=True)
