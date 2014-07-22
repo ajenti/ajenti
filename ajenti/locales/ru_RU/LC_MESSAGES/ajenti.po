@@ -17,6 +17,10 @@ msgstr "Сбор списка плагинов"
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/vh-mysql/layout/ext.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:6
+#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:14
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
@@ -217,8 +221,6 @@ msgstr "Хост"
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
@@ -233,7 +235,7 @@ msgstr "Имя пользователя"
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:10
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:6
@@ -353,6 +355,7 @@ msgstr "Сгенерировать"
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "Пользователи"
@@ -672,7 +675,8 @@ msgstr "Дни недели"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:7
+#: ajenti/plugins/vh-mysql/layout/ext.xml:15
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
@@ -1129,35 +1133,48 @@ msgstr "Домашний каталог"
 msgid "Shell"
 msgstr "Оболочка"
 
-#: ajenti/plugins/vh-mysql/mysql.py:61
+#: ajenti/plugins/vh-mysql/mysql.py:83
 msgid "This database name is already used"
 msgstr "Это имя базы данных уже используется"
 
-#: ajenti/plugins/vh-mysql/mysql.py:66
-msgid "This username is already used"
-msgstr "Это имя пользователя уже используется"
+#: ajenti/plugins/vh-mysql/mysql.py:96 ajenti/plugins/vh-mysql/mysql.py:132
+msgid "Created. Click Save to save the database info."
+msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:98
-msgid "Database created. Click Save to save the database info."
+#: ajenti/plugins/vh-mysql/mysql.py:112
+msgid "This username is already used"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/mysql.py:147
+msgid "Permissions granted."
 msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
-#: ajenti/plugins/vh-mysql/layout/ext.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "Имя базы данных"
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Базы данных"
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:11
+msgid "Detach from the website"
+msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
+#: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr "Уничтожить"
+msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
-msgid "Database contents will be deleted!"
-msgstr "Содержимое базы данных будет удалено!"
+msgid "Drop the database?"
+msgstr ""
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:6
-msgid "No database created"
-msgstr "База данных не создана"
+#: ajenti/plugins/vh-mysql/layout/ext.xml:13
+msgid "Drop the user?"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:16
+msgid "Grant all permissions"
+msgstr ""
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1211,13 +1228,13 @@ msgstr "Запрос выполнен"
 msgid "Output cut from %i rows to 200"
 msgstr "Количество строк уменьшено с %i до 200"
 
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "Базы данных"
-
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
 msgstr "Подтвердите удаление базы данных!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Имя базы данных"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"

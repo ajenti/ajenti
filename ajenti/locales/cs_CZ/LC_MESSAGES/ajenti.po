@@ -17,6 +17,10 @@ msgstr "Získávám seznam zásuvných modulů"
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/vh-mysql/layout/ext.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:6
+#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:14
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
@@ -217,8 +221,6 @@ msgstr "Hostitel"
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
@@ -233,7 +235,7 @@ msgstr "Uživatel"
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:10
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:6
@@ -353,6 +355,7 @@ msgstr "Generovat"
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "Uživatelé"
@@ -673,7 +676,8 @@ msgstr "DoW"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:7
+#: ajenti/plugins/vh-mysql/layout/ext.xml:15
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
@@ -1130,34 +1134,47 @@ msgstr "Domovský adresář"
 msgid "Shell"
 msgstr "Shell"
 
-#: ajenti/plugins/vh-mysql/mysql.py:61
+#: ajenti/plugins/vh-mysql/mysql.py:83
 msgid "This database name is already used"
 msgstr "Tento název databáze je již použit"
 
-#: ajenti/plugins/vh-mysql/mysql.py:66
-msgid "This username is already used"
-msgstr "Toto uživatelské jméno je již použito"
+#: ajenti/plugins/vh-mysql/mysql.py:96 ajenti/plugins/vh-mysql/mysql.py:132
+msgid "Created. Click Save to save the database info."
+msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:98
-msgid "Database created. Click Save to save the database info."
+#: ajenti/plugins/vh-mysql/mysql.py:112
+msgid "This username is already used"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/mysql.py:147
+msgid "Permissions granted."
 msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
-#: ajenti/plugins/vh-mysql/layout/ext.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "Název databáze"
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Databáze"
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:4
-msgid "Destroy"
-msgstr "Zničit"
-
-#: ajenti/plugins/vh-mysql/layout/ext.xml:5
-msgid "Database contents will be deleted!"
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:11
+msgid "Detach from the website"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:6
-msgid "No database created"
+#: ajenti/plugins/vh-mysql/layout/ext.xml:4
+#: ajenti/plugins/vh-mysql/layout/ext.xml:12
+msgid "Destroy"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:5
+msgid "Drop the database?"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:13
+msgid "Drop the user?"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:16
+msgid "Grant all permissions"
 msgstr ""
 
 #: ajenti/plugins/vh-puma/puma.py:17
@@ -1212,13 +1229,13 @@ msgstr "Dotaz dokončen"
 msgid "Output cut from %i rows to 200"
 msgstr "Výstup zkrácen z %i řádků na 200"
 
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "Databáze"
-
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
 msgstr "Potvrďte smazání databáze!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Název databáze"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"

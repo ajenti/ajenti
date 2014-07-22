@@ -4,7 +4,7 @@
 	</right>
 	<hc>
 		<icon icon="file" id="icon" />
-        <box width="160">
+        <box width="150">
     		<label id="name" />
         </box>
 	</hc>
