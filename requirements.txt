@@ -1,3 +1,4 @@
+dbus-python
 gevent
 gevent-socketio
 gevent-websocket

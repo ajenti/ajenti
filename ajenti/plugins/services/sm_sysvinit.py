@@ -14,27 +14,10 @@ from api import Service, ServiceManager
 class SysVInitServiceManager (ServiceManager):
     platforms = ['debian']
 
-    def init(self):
-        self.has_initctl = subprocess.call(['which', 'initctl']) == 0
-
     @cache_value(1)
     def get_all(self):
         r = []
-
         found_names = []
-
-        if self.has_initctl:
-            for line in subprocess_check_output_background(['initctl', 'list']).splitlines():
-                tokens = line.split()
-                name = tokens[0]
-            
-                for token in tokens:
-                    token = token.strip().strip(',;.')
-                    if '/' in token:
-                        s = UpstartService(name)
-                        s.running = token == 'start/running'
-                        found_names.append(name)
-                        r.append(s)
 
         for line in subprocess_check_output_background(['service', '--status-all']).splitlines():
             tokens = line.split()
@@ -56,11 +39,6 @@ class SysVInitServiceManager (ServiceManager):
         return r
 
     def get_one(self, name):
-        if self.has_initctl and subprocess.call(['initctl', 'status', name]) == 0:
-            s = UpstartService(name)
-            s.refresh()
-            return s
-
         s = SysVInitService(name)
         if os.path.exists(s.script):
             s.refresh()
@@ -91,33 +69,6 @@ class SysVInitService (Service):
     def command(self, cmd):
         try:
             p = subprocess.Popen([self.script, cmd], close_fds=True)
-            gevent.sleep(0)
-            p.wait()
-        except OSError as e:
-            logging.warn('service script failed: %s - %s' % (self.script, e))
-
-
-class UpstartService (Service):
-    source = 'sysvinit'
-
-    def __init__(self, name):
-        self.name = name
-
-    def refresh(self):
-        self.running = 'start/running' in subprocess.check_output(['initctl', 'status', self.name])
-
-    def start(self):
-        self.command('start')
-
-    def stop(self):
-        self.command('stop')
-
-    def restart(self):
-        self.command('restart')
-
-    def command(self, cmd):
-        try:
-            p = subprocess.Popen(['initctl', cmd, self.name], close_fds=True)
             gevent.sleep(0)
             p.wait()
         except OSError as e:
