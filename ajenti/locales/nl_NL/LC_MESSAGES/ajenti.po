@@ -17,6 +17,10 @@ msgstr "Plugin-lijst verzamelen"
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/vh-mysql/layout/ext.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:6
+#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:14
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
@@ -39,7 +43,7 @@ msgstr "Naam"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Beschrijving"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -217,8 +221,6 @@ msgstr "Host"
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
@@ -233,7 +235,7 @@ msgstr "Gebruikersnaam"
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:10
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:6
@@ -353,6 +355,7 @@ msgstr "Genereren"
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "Gebruikers"
@@ -516,7 +519,7 @@ msgstr "Gereedschap"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Opdracht uitvoeren"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -525,7 +528,7 @@ msgstr "Kopiëren %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Bestanden verplaatsen"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -534,12 +537,12 @@ msgstr "Verplaatsen %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Bestanden verwijderen"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "%s verwijderen"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -672,7 +675,8 @@ msgstr "Dag van de week"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:7
+#: ajenti/plugins/vh-mysql/layout/ext.xml:15
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
@@ -810,7 +814,7 @@ msgstr "Hoofd folder"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "De locatie bestaat niet meer"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
@@ -1129,35 +1133,48 @@ msgstr "Thuis folder"
 msgid "Shell"
 msgstr "Shell"
 
-#: ajenti/plugins/vh-mysql/mysql.py:61
+#: ajenti/plugins/vh-mysql/mysql.py:83
 msgid "This database name is already used"
 msgstr "Deze databasenaam is al in gebruik"
 
-#: ajenti/plugins/vh-mysql/mysql.py:66
+#: ajenti/plugins/vh-mysql/mysql.py:96 ajenti/plugins/vh-mysql/mysql.py:132
+msgid "Created. Click Save to save the database info."
+msgstr "Aangemaakt. Klik op Opslaan om de database info op te slaan."
+
+#: ajenti/plugins/vh-mysql/mysql.py:112
 msgid "This username is already used"
 msgstr "Deze gebruikersnaam is al in gebruik"
 
-#: ajenti/plugins/vh-mysql/mysql.py:98
-msgid "Database created. Click Save to save the database info."
-msgstr ""
+#: ajenti/plugins/vh-mysql/mysql.py:147
+msgid "Permissions granted."
+msgstr "Rechten die zijn toegekend."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
-#: ajenti/plugins/vh-mysql/layout/ext.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "Database naam"
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "Databases"
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:11
+msgid "Detach from the website"
+msgstr "Loskoppelen van de website"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
+#: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
 msgstr "Verwijder"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
-msgid "Database contents will be deleted!"
-msgstr "Inhoud van de database zal worden verwijderd!"
+msgid "Drop the database?"
+msgstr "De database verwijderen?"
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:6
-msgid "No database created"
-msgstr "Geen database aangemaakt"
+#: ajenti/plugins/vh-mysql/layout/ext.xml:13
+msgid "Drop the user?"
+msgstr "De gebruiker verwijderen?"
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:16
+msgid "Grant all permissions"
+msgstr "Alle rechten toekennen"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1211,13 +1228,13 @@ msgstr "Query beëindigd"
 msgid "Output cut from %i rows to 200"
 msgstr "Resultaat knipactie van %i rijen naar 200"
 
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "Databases"
-
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
 msgstr "Bevestig database drop!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "Database naam"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
@@ -1836,7 +1853,7 @@ msgstr "Bestandenbeheer"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Bestanden zijn verwijderd"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -1893,15 +1910,15 @@ msgstr "Klembord"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Tijd van laatste toegang"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Tijdstip van wijziging"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Aanmaaktijd"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
@@ -2200,27 +2217,27 @@ msgstr "Er is een Ajenti update beschikbaar"
 
 #: ajenti/plugins/ntpd/main.py:54
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum & tijd"
 
 #: ajenti/plugins/ntpd/main.py:91
 msgid "No servers defined"
-msgstr ""
+msgstr "Geen servers gedefinieerd"
 
 #: ajenti/plugins/ntpd/main.py:95
 msgid "Done"
-msgstr ""
+msgstr "Gereed"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Huidige tijd"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Sync"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Servers"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
