@@ -1185,7 +1185,7 @@ msgid "File with name {0} already exists in {1}."
 msgstr ""
 
 #: ajenti/plugins/fail2ban/main.py:176
-msgid "Some parametrs empty."
+msgid "Some parameters are empty."
 msgstr ""
 
 #: ajenti/plugins/fail2ban/main.py:228
