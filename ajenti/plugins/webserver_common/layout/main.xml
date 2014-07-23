@@ -45,23 +45,9 @@
                     <button text="{Save}" id="save-button" icon="ok"/>
                 </pad>
             </tab>
-            <tab title="{Mods}" visible="false">
+            <tab title="{Main configurations}" visible="false" id="main-conf-tab">
                 <pad>
-                    <bind:collection id="mods">
-                        <dt bind="__items">
-                            <bind:template>
-
-                            </bind:template>
-                        </dt>
-                    </bind:collection>
-                </pad>
-                <pad>
-                    <button text="{Save}" id="save-mods-button" icon="ok"/>
-                </pad>
-            </tab>
-            <tab title="{Configurations}" visible="false">
-                <pad>
-                    <bind:collection id="configurations">
+                    <bind:collection bind="configurations" id="configurations">
                         <dt bind="__items"/>
                         <bind:template>
                             <collapserow>

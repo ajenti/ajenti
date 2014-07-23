@@ -122,18 +122,19 @@ class WebserverPlugin(SectionPlugin):
     service_buttons = []
     hosts_available_dir = ''
     hosts_enabled_dir = ''
-    mods_available_dir = ''
-    mods_enabled_dir = ''
-    confs_available_dir = ''
-    confs_enabled_dir = ''
+    # mods_available_dir = ''
+    # mods_enabled_dir = ''
+    # confs_available_dir = ''
+    # confs_enabled_dir = ''
     hosts_dir = None
-    mods_dir = None
-    confs_dir = None
+    # mods_dir = None
+    # confs_dir = None
     template = ''
     supports_host_activation = True
-    supports_mod_activation = False
-    supports_conf_activation = False
-    configurable = False
+    # supports_mod_activation = False
+    # supports_conf_activation = False
+    configurable = True
+    main_conf_files = []
     configurations = []
 
     def log(self, msg):
@@ -182,36 +183,37 @@ class WebserverPlugin(SectionPlugin):
             self.find('body-active-line').visible = \
             self.supports_host_activation
 
-        # Hosts preparation
+        self.find('main-conf-tab').visible = self.configurable
 
-        if self.supports_mod_activation:
-            self.mods_dir = AvailabilitySymlinks(
-                self.mods_available_dir,
-                self.mods_enabled_dir,
-                self.supports_mod_activation
-            )
+        # if self.supports_mod_activation:
+        # self.mods_dir = AvailabilitySymlinks(
+        #         self.mods_available_dir,
+        #         self.mods_enabled_dir,
+        #         self.supports_mod_activation
+        #     )
+        #
+        # if self.supports_conf_activation:
+        #     self.confs_dir = AvailabilitySymlinks(
+        #         self.confs_available_dir,
+        #         self.confs_enabled_dir,
+        #         self.supports_conf_activation
+        #     )
 
-        if self.supports_conf_activation:
-            self.confs_dir = AvailabilitySymlinks(
-                self.confs_available_dir,
-                self.confs_enabled_dir,
-                self.supports_conf_activation
-            )
+    def on_page_load(self):
+        self.refresh()
 
+    @on('save-button', 'click')
+    def save(self):
+        self.log('saving hosts')
+        self.binder.update()
+        self.refresh()
+        self.context.notify('info', 'Saved')
 
-def on_page_load(self):
-    self.refresh()
+    def refresh(self):
+        self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
+        if self.configurable:
+            print(self.main_conf_files)
+            self.configurations = [WebserverConf(y) for y in self.main_conf_files]
 
-
-@on('save-button', 'click')
-def save(self):
-    self.log('saving hosts')
-    self.binder.update()
-    self.refresh()
-    self.context.notify('info', 'Saved')
-
-
-def refresh(self):
-    self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
-    self.binder.setup(self).populate()
-    self.find_type('servicebar').reload()
+        self.binder.setup(self).populate()
+        self.find_type('servicebar').reload()
