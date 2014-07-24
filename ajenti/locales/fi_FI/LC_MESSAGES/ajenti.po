@@ -80,6 +80,7 @@ msgstr "Tila"
 #: ajenti/plugins/snmpd/layout/main.xml:3
 #: ajenti/plugins/snmpd/layout/main.xml:4
 #: ajenti/plugins/snmpd/layout/main.xml:5
+#: ajenti/plugins/fail2ban/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -113,6 +114,7 @@ msgstr "Lisää"
 #: ajenti/plugins/samba/layout/main.xml:35
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/fail2ban/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
@@ -152,7 +154,7 @@ msgstr "Vahvista poisto"
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 #: ajenti/plugins/vh-mail/layout/main.xml:18
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
@@ -175,6 +177,7 @@ msgstr "Asetukset"
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/snmpd/layout/main.xml:6
+#: ajenti/plugins/fail2ban/layout/main.xml:4
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -199,14 +202,14 @@ msgstr ""
 
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
-#: ajenti/plugins/dhcpd/main.py:16 ajenti/plugins/munin/main.py:19
-#: ajenti/plugins/nginx/main.py:51 ajenti/plugins/supervisor/main.py:18
-#: ajenti/plugins/netatalk/main.py:19 ajenti/plugins/psql/main.py:20
-#: ajenti/plugins/nsd/main.py:18 ajenti/plugins/ctdb/main.py:22
-#: ajenti/plugins/mysql/main.py:27 ajenti/plugins/ntpd/main.py:56
-#: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
-#: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:29
-#: ajenti/plugins/apache/main.py:49
+#: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
+#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "Ohjelmisto"
 
@@ -272,6 +275,7 @@ msgstr ""
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/fail2ban/layout/main.xml:1
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "Määritä"
@@ -743,12 +747,13 @@ msgid "NFS Exports"
 msgstr "NFS-vienti"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
-#: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
-#: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
-#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
-#: ajenti/plugins/fstab/main.py:103 ajenti/plugins/ntpd/main.py:104
-#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
+#: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:261
+#: ajenti/plugins/iptables/main.py:199 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:103
+#: ajenti/plugins/ntpd/main.py:104 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "Tallennettu"
 
@@ -1017,6 +1022,7 @@ msgid "Server string"
 msgstr "Palvelimen merkkijono"
 
 #: ajenti/plugins/samba/layout/main.xml:26
+#: ajenti/plugins/fail2ban/layout/main.xml:7
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
 msgstr "Lokitiedosto"
@@ -1076,7 +1082,7 @@ msgid "Device"
 msgstr "Laite"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:15
+#: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
@@ -1133,19 +1139,15 @@ msgstr "Kotikansio"
 msgid "Shell"
 msgstr "Komentorivi"
 
-#: ajenti/plugins/vh-mysql/mysql.py:83
+#: ajenti/plugins/vh-mysql/mysql.py:92
 msgid "This database name is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:96 ajenti/plugins/vh-mysql/mysql.py:132
-msgid "Created. Click Save to save the database info."
-msgstr ""
-
-#: ajenti/plugins/vh-mysql/mysql.py:112
+#: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:147
+#: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
 msgstr ""
 
@@ -1174,6 +1176,31 @@ msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:108
+msgid "File with name {0} already exists in {1}."
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:176
+msgid "Some parameters are empty."
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:228
+#, python-format
+msgid "Could not save config file. %s"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:5
+msgid "Filters checker"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:6
+msgid "Filter file"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:8
+msgid "Run test"
 msgstr ""
 
 #: ajenti/plugins/vh-puma/puma.py:17
@@ -1260,23 +1287,23 @@ msgstr "Prosessit"
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:237
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:238
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:252
+#: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:254
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:255
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:256
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:257
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:212
+#: ajenti/plugins/vh/main.py:213
 msgid "Download complete"
 msgstr ""
 
@@ -1305,10 +1332,18 @@ msgid "Max processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
-msgid "PHP options"
+msgid "Process user"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "Process group"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
 msgstr ""
 
@@ -1511,28 +1546,28 @@ msgstr "Lohkot"
 msgid "Recovery:"
 msgstr "Palautus:"
 
-#: ajenti/plugins/iptables/main.py:57
+#: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
 msgstr "Et voi poistaa palomuurin automaattikäynnistystä tällä alustalla"
 
-#: ajenti/plugins/iptables/main.py:70
+#: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
 msgstr "Palomuuri"
 
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:119
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "Lisää asetus"
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid "Disable"
 msgstr "Poista käytöstä"
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid " autostart"
 msgstr " autostart"
 
-#: ajenti/plugins/iptables/main.py:206
+#: ajenti/plugins/iptables/main.py:212
 msgid "Applied successfully"
 msgstr ""
 

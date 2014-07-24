@@ -154,7 +154,7 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 #: ajenti/plugins/vh-mail/layout/main.xml:18
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
@@ -751,7 +751,7 @@ msgstr ""
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
 #: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:261
-#: ajenti/plugins/iptables/main.py:193 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/iptables/main.py:199 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:104 ajenti/plugins/csf/main.py:81
@@ -1084,7 +1084,7 @@ msgid "Device"
 msgstr ""
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:15
+#: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
@@ -1334,10 +1334,18 @@ msgid "Max processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
-msgid "PHP options"
+msgid "Process user"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "Process group"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
 msgstr ""
 
@@ -1541,28 +1549,28 @@ msgstr ""
 msgid "Recovery:"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:57
+#: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:70
+#: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:119
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid "Disable"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid " autostart"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:206
+#: ajenti/plugins/iptables/main.py:212
 msgid "Applied successfully"
 msgstr ""
 
