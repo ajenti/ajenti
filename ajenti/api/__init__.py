@@ -65,11 +65,11 @@ def plugin(cls):
     # Run custom verificator if any
     if hasattr(cls, 'verify'):
         if not cls.verify():
-            return
+            return cls
 
     if hasattr(cls, 'platforms'):
         if not ajenti.platform in cls.platforms:
-            return
+            return cls
 
     manager.register_implementation(cls)
     cls._plugin = True
