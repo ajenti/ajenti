@@ -41,9 +41,6 @@
                         </bind:template>
                     </bind:collection>
                 </pad>
-                <pad>
-                    <button text="{Save}" id="save-button" icon="ok"/>
-                </pad>
             </tab>
             <tab title="{Main configurations}" visible="false" id="main-conf-tab">
                 <pad>
@@ -69,10 +66,73 @@
                         </bind:template>
                     </bind:collection>
                 </pad>
+            </tab>
+            <tab title="{Mods}" visible="false" id="mods-tab">
                 <pad>
-                    <button text="{Save}" id="save-conf-button" icon="ok"/>
+                    <hc>
+                        <box height="700" scroll="True">
+                            <bind:collection bind="mods" id="mods">
+                                <dt bind="__items" width="auto">
+                                    <dtr header="True">
+                                        <dth text="{Active}"/>
+                                        <dth text="{Name}"/>
+                                        <dth text="{Control}"/>
+                                    </dtr>
+                                </dt>
+                                <bind:template>
+                                    <dtr>
+                                        <dtd>
+                                            <checkbox bind="active"/>
+                                        </dtd>
+                                        <dtd>
+                                            <label bind="name"/>
+                                        </dtd>
+                                        <dtd>
+                                            <button id="edit" bind="edit" icon="edit" style="icon"/>
+                                        </dtd>
+                                    </dtr>
+                                    <!--<collapserow>-->
+                                        <!--<box>-->
+                                            <!--<right>-->
+                                                <!--<hc>-->
+                                                    <!--<button bind="__delete" icon="remove" style="icon"-->
+                                                            <!--warning="{Confirm deletion}"/>-->
+                                                <!--</hc>-->
+                                            <!--</right>-->
+                                            <!--<hc>-->
+                                                <!--<icon icon="bolt"/>-->
+                                                <!--<checkbox bind="active" id="mod-active-checkbox"/>-->
+                                                <!--<box width="200">-->
+                                                    <!--<label bind="name" style="bold"/>-->
+                                                <!--</box>-->
+                                            <!--</hc>-->
+                                        <!--</box>-->
+                                        <!--<indent>-->
+                                            <!--<vc>-->
+                                                <!--<formline text="{Name}">-->
+                                                    <!--<textbox bind="name"/>-->
+                                                <!--</formline>-->
+                                                <!--<formline text="{Enable}" id="mod-active-line">-->
+                                                    <!--<checkbox bind="active"/>-->
+                                                <!--</formline>-->
+                                                <!--<formline text="{Configuration}">-->
+                                                    <!--<codearea bind="config" width="500" height="400"/>-->
+                                                <!--</formline>-->
+                                            <!--</vc>-->
+                                        <!--</indent>-->
+                                    <!--</collapserow>-->
+                                </bind:template>
+                            </bind:collection>
+                        </box>
+                        <box>
+                            <codearea visible="False" bind="config" id="mod-config" width="auto"/>
+                        </box>
+                    </hc>
                 </pad>
             </tab>
         </tabs>
+        <pad>
+            <button text="{Save}" id="save-button" icon="ok"/>
+        </pad>
     </body>
 </vc>

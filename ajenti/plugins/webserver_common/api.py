@@ -17,12 +17,14 @@ class AvailabilitySymlinks(object):
          --a.site -> ../sites.available/a.site
     """
 
-    def __init__(self, dir_a, dir_e, supports_activation):
-        self.dir_a, self.dir_e = dir_a, dir_e
+    def __init__(self, dir_a, dir_e, supports_activation, ignore_ext=[]):
+        self.dir_a, self.dir_e, self.ignore_ext = dir_a, dir_e, ignore_ext
         self.supports_activation = supports_activation
 
     def list_available(self):
-        return [x for x in sorted(os.listdir(self.dir_a)) if not os.path.isdir(os.path.join(self.dir_a, x))]
+        return [x for x in sorted(os.listdir(self.dir_a)) if
+                not os.path.isdir(os.path.join(self.dir_a, x))
+                and not os.path.splitext(os.path.join(self.dir_a, x))[-1] in self.ignore_ext]
 
     def is_enabled(self, entry):
         if not self.supports_activation:
@@ -90,10 +92,19 @@ class WebserverHost(object):
 
 
 class WebserverMod(object):
-    def __init__(self, dir, entry):
+    def __init__(self, owner, dir, entry):
         self.name = entry
+        self.owner = owner
         self.dir = dir
         self.active = dir.is_enabled(entry)
+        self.config = dir.open(entry).read()
+
+        def save(self):
+            self.dir.open(self.name, 'w').write(self.config)
+            if self.active:
+                self.dir.enable(self.name)
+            else:
+                self.dir.disable(self.name)
 
 
 class WebserverConf(object):
@@ -122,20 +133,21 @@ class WebserverPlugin(SectionPlugin):
     service_buttons = []
     hosts_available_dir = ''
     hosts_enabled_dir = ''
-    # mods_available_dir = ''
-    # mods_enabled_dir = ''
-    # confs_available_dir = ''
-    # confs_enabled_dir = ''
+    mods_available_dir = ''
+    mods_enabled_dir = ''
+    confs_available_dir = ''
+    confs_enabled_dir = ''
     hosts_dir = None
-    # mods_dir = None
-    # confs_dir = None
+    mods_dir = None
+    confs_dir = None
     template = ''
     supports_host_activation = True
-    # supports_mod_activation = False
-    # supports_conf_activation = False
-    configurable = True
+    supports_mod_activation = False
+    supports_conf_activation = False
+    configurable = False
     main_conf_files = []
     configurations = []
+    mods = []
 
     def log(self, msg):
         logging.info('[%s] %s' % (self.service_name, msg))
@@ -151,6 +163,11 @@ class WebserverPlugin(SectionPlugin):
             self.hosts_available_dir,
             self.hosts_enabled_dir,
             self.supports_host_activation
+        )
+        self.mods_dir = AvailabilitySymlinks(
+            self.mods_available_dir,
+            self.mods_enabled_dir,
+            self.supports_mod_activation
         )
 
         def delete_host(host, c):
@@ -185,19 +202,34 @@ class WebserverPlugin(SectionPlugin):
 
         self.find('main-conf-tab').visible = self.configurable
 
-        # if self.supports_mod_activation:
-        # self.mods_dir = AvailabilitySymlinks(
-        #         self.mods_available_dir,
-        #         self.mods_enabled_dir,
-        #         self.supports_mod_activation
-        #     )
-        #
-        # if self.supports_conf_activation:
-        #     self.confs_dir = AvailabilitySymlinks(
-        #         self.confs_available_dir,
-        #         self.confs_enabled_dir,
-        #         self.supports_conf_activation
-        #     )
+        def on_edit_mod(mod):
+            self.find('mod-config').visible = True
+            self.find('mod-config').value = mod.config
+
+        def on_mod_bind(o, c, mod, u):
+            u.find('edit').on('click', on_edit_mod, mod)
+
+        def on_mod_update(o, c, mod, u):
+            mod.save()
+
+        self.find('mods').post_item_bind = on_mod_bind
+        self.find('mods').post_item_update = on_mod_update
+        self.find('mods-tab').visible = self.supports_mod_activation
+
+        if self.supports_mod_activation:
+            self.mods_dir = AvailabilitySymlinks(
+                self.mods_available_dir,
+                self.mods_enabled_dir,
+                self.supports_mod_activation,
+                ignore_ext=['.conf', ],
+            )
+
+        if self.supports_conf_activation:
+            self.confs_dir = AvailabilitySymlinks(
+                self.confs_available_dir,
+                self.confs_enabled_dir,
+                self.supports_conf_activation,
+            )
 
     def on_page_load(self):
         self.refresh()
@@ -212,8 +244,9 @@ class WebserverPlugin(SectionPlugin):
     def refresh(self):
         self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
         if self.configurable:
-            print(self.main_conf_files)
-            self.configurations = [WebserverConf(y) for y in self.main_conf_files]
+            self.configurations = [WebserverConf(y).update() for y in self.main_conf_files]
+        if self.supports_mod_activation:
+            self.mods = [WebserverMod(self, self.mods_dir, x) for x in self.mods_dir.list_available()]
 
         self.binder.setup(self).populate()
         self.find_type('servicebar').reload()
