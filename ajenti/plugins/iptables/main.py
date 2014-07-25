@@ -172,6 +172,7 @@ COMMIT
         self.refresh()
 
     def on_add_option(self, options, rule, ui):
+        self.binder.update()
         o = OptionData.create(ui.find('add-option').value)
         ui.find('add-option').value = ''
         rule.options.append(o)
