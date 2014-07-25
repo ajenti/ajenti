@@ -200,14 +200,11 @@ class WebserverPlugin(SectionPlugin):
             self.find('body-active-line').visible = \
             self.supports_host_activation
 
-        self.find('main-conf-tab').visible = self.configurable
 
-        def on_edit_mod(mod):
-            self.find('mod-config').visible = True
-            self.find('mod-config').value = mod.config
 
         def on_mod_bind(o, c, mod, u):
-            u.find('edit').on('click', on_edit_mod, mod)
+            pass
+            # u.find('edit').on('click', on_edit_mod, mod)
 
         def on_mod_update(o, c, mod, u):
             mod.save()
@@ -223,6 +220,10 @@ class WebserverPlugin(SectionPlugin):
                 self.supports_mod_activation,
                 ignore_ext=['.conf', ],
             )
+
+        self.find('header-active-mod').visible = \
+            self.find('body-active-mod').visible = \
+            self.supports_host_activation
 
         if self.supports_conf_activation:
             self.confs_dir = AvailabilitySymlinks(
