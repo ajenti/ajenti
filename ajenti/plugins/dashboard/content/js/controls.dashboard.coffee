@@ -21,7 +21,10 @@ class window.Controls.dashboard__dash extends window.Control
             revert: 200
             placeholder: 'placeholder'
             tolerance: 'pointer'
+            start: () =>
+                @event('drag_start', {})
             stop: () =>
+                @event('drag_stop', {})
                 r = {}
                 $(@dom).children('.widget-container').each (i, c) =>
                     index = parseInt($(c).attr('data-index'))
