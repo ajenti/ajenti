@@ -74,11 +74,10 @@ class AvailabilitySymlinks(object):
     def exists(self):
         return os.path.exists(self.dir_a) and os.path.exists(self.dir_e)
 
-
-class WebserverHost(object):
+class WebserverConf(object):
     def __init__(self, owner, dir, entry):
-        self.owner = owner
         self.name = entry
+        self.owner = owner
         self.dir = dir
         self.active = dir.is_enabled(entry)
         self.config = dir.open(entry).read()
@@ -90,24 +89,7 @@ class WebserverHost(object):
         else:
             self.dir.disable(self.name)
 
-
-class WebserverMod(object):
-    def __init__(self, owner, dir, entry):
-        self.name = entry
-        self.owner = owner
-        self.dir = dir
-        self.active = dir.is_enabled(entry)
-        self.config = dir.open(entry).read()
-
-        def save(self):
-            self.dir.open(self.name, 'w').write(self.config)
-            if self.active:
-                self.dir.enable(self.name)
-            else:
-                self.dir.disable(self.name)
-
-
-class WebserverConf(object):
+class WebserverMainConf(object):
     def __init__(self, filename):
         self.name = os.path.basename(filename)
         self.configfile = filename
@@ -243,11 +225,13 @@ class WebserverPlugin(SectionPlugin):
         self.context.notify('info', 'Saved')
 
     def refresh(self):
-        self.hosts = [WebserverHost(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
+        self.hosts = [WebserverConf(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
         if self.configurable:
-            self.configurations = [WebserverConf(y).update() for y in self.main_conf_files]
+            self.configurations = [WebserverMainConf(y).update() for y in self.main_conf_files]
         if self.supports_mod_activation:
-            self.mods = [WebserverMod(self, self.mods_dir, x) for x in self.mods_dir.list_available()]
+            self.mods = [WebserverConf(self, self.mods_dir, x) for x in self.mods_dir.list_available()]
+        if self.supports_conf_activation:
+            self.confs = [WebserverConf(self, self.confs_dir, x) for x in self.confs_dir.list_available()]
 
         self.binder.setup(self).populate()
         self.find_type('servicebar').reload()

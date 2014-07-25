@@ -100,6 +100,39 @@
                     </bind:collection>
                 </pad>
             </tab>
+            <tab title="{Extra configurations}" visible="false" id="confs-tab">
+                <pad>
+                    <bind:collection bind="confs" id="confs">
+                        <dt bind="__items"/>
+                        <bind:template>
+                            <collapserow>
+                                <box>
+                                    <hc>
+                                        <icon icon="list-alt"/>
+                                        <checkbox bind="active" id="header-active-conf"/>
+                                        <box width="200">
+                                            <label bind="name" style="bold"/>
+                                        </box>
+                                    </hc>
+                                </box>
+                                <indent>
+                                    <vc>
+                                        <formline text="{Name}">
+                                            <label bind="name"/>
+                                        </formline>
+                                        <formline text="{Enable}" id="body-active-conf">
+                                            <checkbox bind="active"/>
+                                        </formline>
+                                        <formline text="{Configuration}">
+                                            <codearea bind="config" width="720"/>
+                                        </formline>
+                                    </vc>
+                                </indent>
+                            </collapserow>
+                        </bind:template>
+                    </bind:collection>
+                </pad>
+            </tab>
         </tabs>
         <pad>
             <box>

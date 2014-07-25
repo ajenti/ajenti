@@ -45,6 +45,23 @@ class Apache(WebserverPlugin):
         freebsd=True,
         default=False,
     )
+
+    confs_available_dir = platform_select(
+        debian='/etc/apache2/conf-available',
+        centos='/etc/httpd/conf.d',
+        freebsd='/usr/local/etc/apache/conf-available',
+    )
+
+    confs_enabled_dir = platform_select(
+        debian='/etc/apache2/conf-enabled',
+        freebsd='/usr/local/etc/apache/conf-enabled'
+    )
+
+    supports_conf_activation = platform_select(
+        debian=True,
+        freebsd=True,
+        default=False,
+    )
     configurable = True
     main_conf_files = platform_select(
         debian=['/etc/apache2/apache2.conf', '/etc/apache2/ports.conf', '/etc/apache2/envvars', '/etc/apache2/magic',],
