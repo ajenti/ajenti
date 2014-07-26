@@ -83,8 +83,8 @@ msgstr "الحالة"
 #: ajenti/plugins/fail2ban/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
-#: ajenti/plugins/vh/layout/main-website.xml:17
-#: ajenti/plugins/vh/layout/main-website.xml:21
+#: ajenti/plugins/vh/layout/main-website.xml:18
+#: ajenti/plugins/vh/layout/main-website.xml:22
 #: ajenti/plugins/supervisor/layout/main.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:2
 #: ajenti/plugins/vh-mail/layout/main.xml:10
@@ -120,9 +120,9 @@ msgstr "إضافة"
 #: ajenti/plugins/dhcpd/layout/options.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:9
 #: ajenti/plugins/vh/layout/ext-processes.xml:2
-#: ajenti/plugins/vh/layout/main-website.xml:19
-#: ajenti/plugins/vh/layout/main-website.xml:24
-#: ajenti/plugins/vh/layout/main-website.xml:29
+#: ajenti/plugins/vh/layout/main-website.xml:20
+#: ajenti/plugins/vh/layout/main-website.xml:25
+#: ajenti/plugins/vh/layout/main-website.xml:30
 #: ajenti/plugins/supervisor/layout/main.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:5
 #: ajenti/plugins/iptables/layout/main.xml:6
@@ -207,16 +207,16 @@ msgstr "حجم استخدام Memcache"
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
-#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
-#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
+#: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
+#: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:29
+#: ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr "البرمجيات"
 
 #: ajenti/plugins/mongo/layout/config.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:8
-#: ajenti/plugins/vh/layout/main-website.xml:22
+#: ajenti/plugins/vh/layout/main-website.xml:23
 #: ajenti/plugins/mysql/layout/config.xml:1
 msgid "Host"
 msgstr "المضيف"
@@ -329,7 +329,7 @@ msgid "or UNIX socket path"
 msgstr "أو مسار منفذ UNIX"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
-#: ajenti/plugins/vh/layout/main-website.xml:23
+#: ajenti/plugins/vh/layout/main-website.xml:24
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
 msgid "Port"
@@ -460,10 +460,14 @@ msgid "Base DN"
 msgstr "قاعدة النطاق"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
+msgid "Limit to group DN"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
 msgstr "المستخدم المدير"
 
-#: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
 msgstr "كلمة مرور المدير"
 
@@ -686,7 +690,7 @@ msgstr "مؤشر داو جونز"
 #: ajenti/plugins/db_common/layout/main.xml:5
 #: ajenti/plugins/db_common/layout/main.xml:10
 #: ajenti/plugins/vh/layout/main.xml:5
-#: ajenti/plugins/vh/layout/main-website.xml:28
+#: ajenti/plugins/vh/layout/main-website.xml:29
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/options-editor.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:9
@@ -748,11 +752,11 @@ msgstr "صادرات NFS"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
-#: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:261
-#: ajenti/plugins/iptables/main.py:199 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:262
+#: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:104 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/ctdb/main.py:80 ajenti/plugins/fstab/main.py:103
+#: ajenti/plugins/ntpd/main.py:115 ajenti/plugins/csf/main.py:81
 #: ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "تم الحفظ"
@@ -816,6 +820,13 @@ msgstr "التأشير"
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
 msgstr "الدليل الأعلى"
+
+#: ajenti/plugins/main/controls_dialogs.py:16
+#: ajenti/plugins/packages/layout/row.xml:3
+#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:35
+#: ajenti/plugins/dashboard/layout/dash.xml:6
+msgid "Cancel"
+msgstr "إلغاء الأمر"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
@@ -966,7 +977,7 @@ msgstr "للقراءة فقط"
 
 #: ajenti/plugins/samba/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-website-location.xml:2
-#: ajenti/plugins/vh/layout/main-website.xml:30
+#: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
 msgstr "متقدم"
@@ -1085,9 +1096,9 @@ msgstr "الجهاز"
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
-#: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:28
+#: ajenti/plugins/ntpd/main.py:57 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
 msgstr "النظام"
 
@@ -1287,7 +1298,7 @@ msgstr "العمليات"
 msgid "Websites"
 msgstr "مواقع الكترونية"
 
-#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:238
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
 msgstr "اختبار الإعدادات"
 
@@ -1295,15 +1306,15 @@ msgstr "اختبار الإعدادات"
 msgid "Saving changes"
 msgstr "حفظ التغييرات"
 
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:255
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
 msgstr "تنفيذ التغييرات"
 
-#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:257
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
 msgstr "إعادة تشغيل خدمات الويب"
 
-#: ajenti/plugins/vh/main.py:213
+#: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
 msgstr "إكتمل التنزيل"
 
@@ -1340,7 +1351,7 @@ msgid "Process group"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
-msgid "PHP options"
+msgid "PHP .ini values"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
@@ -1397,7 +1408,7 @@ msgid "Append URL pattern to path"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
-#: ajenti/plugins/vh/layout/main-website.xml:31
+#: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
 msgstr ""
@@ -1451,44 +1462,52 @@ msgid "Create directory"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
-msgid "Automatic downloader"
+msgid "Fix file permissions"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
-msgid "From URL"
+msgid "Automatic downloader"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
-msgid "Download and unpack"
+msgid "From URL"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
+msgid "Download and unpack"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:17
 msgid "Domains"
 msgstr "نطاقات"
 
-#: ajenti/plugins/vh/layout/main-website.xml:18
+#: ajenti/plugins/vh/layout/main-website.xml:19
 msgid "Domain"
 msgstr "نطاق"
 
-#: ajenti/plugins/vh/layout/main-website.xml:20
+#: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:12
 msgid "Ports"
 msgstr "منافذ"
 
-#: ajenti/plugins/vh/layout/main-website.xml:25
+#: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL certificate path"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website.xml:26
+#: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "SSL key path"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website.xml:27
+#: ajenti/plugins/vh/layout/main-website.xml:28
 msgid "Content"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-website.xml:32
+#: ajenti/plugins/vh/layout/main-website.xml:33
+msgid "Custom top level configuration"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Apply changes"
 msgstr "تطبيق التغييرات"
@@ -1567,7 +1586,7 @@ msgstr "تعطيل"
 msgid " autostart"
 msgstr " تشغيل تلقائي"
 
-#: ajenti/plugins/iptables/main.py:212
+#: ajenti/plugins/iptables/main.py:213
 msgid "Applied successfully"
 msgstr "طبقت بنجاح"
 
@@ -1837,12 +1856,6 @@ msgstr "التأشير للتثبيت/الترقية"
 msgid "Mark for removal"
 msgstr "التأشير لإزالة"
 
-#: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:17
-#: ajenti/plugins/dashboard/layout/dash.xml:6
-msgid "Cancel"
-msgstr "إلغاء الأمر"
-
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
 msgstr "درجة حرارة القرص الصلب"
@@ -2065,7 +2078,7 @@ msgstr ""
 msgid "Samba Cluster"
 msgstr "مجموعة سامبا"
 
-#: ajenti/plugins/ctdb/main.py:65
+#: ajenti/plugins/ctdb/main.py:70
 msgid "Failed to obtain CTDB status"
 msgstr "فشل في الحصول على حالة CTDB "
 
@@ -2224,7 +2237,7 @@ msgstr "مرحباً"
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: ajenti/plugins/dashboard/dash.py:202
+#: ajenti/plugins/dashboard/dash.py:215
 msgid "Widgets"
 msgstr ""
 
@@ -2250,15 +2263,15 @@ msgstr ""
 msgid "Ajenti update is available"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:54
+#: ajenti/plugins/ntpd/main.py:55
 msgid "Date & Time"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:91
+#: ajenti/plugins/ntpd/main.py:102
 msgid "No servers defined"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:95
+#: ajenti/plugins/ntpd/main.py:106
 msgid "Done"
 msgstr "إنتهت العملية"
 
@@ -2560,7 +2573,7 @@ msgstr "خاصة"
 msgid "Logs"
 msgstr "سجلات"
 
-#: ajenti/plugins/vh-php-fpm/phpfpm.py:64
+#: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
 msgstr ""
 
