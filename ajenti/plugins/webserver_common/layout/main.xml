@@ -2,7 +2,7 @@
     <servicebar bind="service_name"/>
 
     <body>
-        <tabs>
+        <tabs id="tabs">
             <tab title="{Hosts}">
                 <pad>
                     <bind:collection bind="hosts" id="hosts">

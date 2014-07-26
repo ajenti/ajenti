@@ -56,12 +56,12 @@ class Apache(WebserverPlugin):
         debian='/etc/apache2/conf-enabled',
         freebsd='/usr/local/etc/apache/conf-enabled'
     )
-
-    supports_conf_activation = platform_select(
-        debian=True,
-        freebsd=True,
-        default=False,
-    )
+    supports_conf_activation =False
+    # supports_conf_activation = platform_select(
+    #     debian=True,
+    #     freebsd=True,
+    #     default=False,
+    # )
     configurable = True
     main_conf_files = platform_select(
         debian=['/etc/apache2/apache2.conf', '/etc/apache2/ports.conf', '/etc/apache2/envvars', '/etc/apache2/magic',],

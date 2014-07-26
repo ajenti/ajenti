@@ -74,6 +74,7 @@ class AvailabilitySymlinks(object):
     def exists(self):
         return os.path.exists(self.dir_a) and os.path.exists(self.dir_e)
 
+
 class WebserverConf(object):
     def __init__(self, owner, dir, entry):
         self.name = entry
@@ -88,6 +89,7 @@ class WebserverConf(object):
             self.dir.enable(self.name)
         else:
             self.dir.disable(self.name)
+
 
 class WebserverMainConf(object):
     def __init__(self, filename):
@@ -182,7 +184,7 @@ class WebserverPlugin(SectionPlugin):
             self.find('body-active-line').visible = \
             self.supports_host_activation
 
-
+        self.tabs = self.find('tabs')
 
         def on_mod_bind(o, c, mod, u):
             pass
@@ -193,26 +195,24 @@ class WebserverPlugin(SectionPlugin):
 
         self.find('mods').post_item_bind = on_mod_bind
         self.find('mods').post_item_update = on_mod_update
-        self.find('mods-tab').visible = self.supports_mod_activation
 
-        if self.supports_mod_activation:
-            self.mods_dir = AvailabilitySymlinks(
-                self.mods_available_dir,
-                self.mods_enabled_dir,
-                self.supports_mod_activation,
-                ignore_ext=['.conf', ],
-            )
+        self.mods_dir = AvailabilitySymlinks(self.mods_available_dir, self.mods_enabled_dir,
+                                             self.supports_mod_activation,
+                                             ignore_ext=['.conf', ], ) if self.supports_mod_activation else None
 
         self.find('header-active-mod').visible = \
             self.find('body-active-mod').visible = \
-            self.supports_host_activation
+            self.supports_mod_activation
 
-        if self.supports_conf_activation:
-            self.confs_dir = AvailabilitySymlinks(
-                self.confs_available_dir,
-                self.confs_enabled_dir,
-                self.supports_conf_activation,
-            )
+        self.find('confs').post_item_bind = on_mod_bind
+        self.find('confs').post_item_update = on_mod_update
+
+        self.confs_dir = AvailabilitySymlinks(self.confs_available_dir, self.confs_enabled_dir,
+                                              self.supports_conf_activation, ) if self.supports_conf_activation else None
+
+        self.find('header-active-conf').visible = \
+            self.find('body-active-conf').visible = \
+            self.supports_mod_activation
 
     def on_page_load(self):
         self.refresh()
@@ -226,12 +226,12 @@ class WebserverPlugin(SectionPlugin):
 
     def refresh(self):
         self.hosts = [WebserverConf(self, self.hosts_dir, x) for x in self.hosts_dir.list_available()]
-        if self.configurable:
-            self.configurations = [WebserverMainConf(y).update() for y in self.main_conf_files]
-        if self.supports_mod_activation:
-            self.mods = [WebserverConf(self, self.mods_dir, x) for x in self.mods_dir.list_available()]
-        if self.supports_conf_activation:
-            self.confs = [WebserverConf(self, self.confs_dir, x) for x in self.confs_dir.list_available()]
+        self.configurations = [WebserverMainConf(y).update() for y in
+                               self.main_conf_files] if self.configurable else []
+        self.mods = [WebserverConf(self, self.mods_dir, x) for x in
+                     self.mods_dir.list_available()] if self.supports_mod_activation else []
+        self.confs = [WebserverConf(self, self.confs_dir, x) for x in
+                      self.confs_dir.list_available()] if self.supports_conf_activation else []
 
         self.binder.setup(self).populate()
         self.find_type('servicebar').reload()
