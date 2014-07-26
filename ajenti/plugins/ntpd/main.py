@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 import time
 import subprocess
 
@@ -53,7 +54,7 @@ class NTPDPlugin (SectionPlugin):
     def init(self):
         self.title = _('Date & Time')
         self.icon = 'time'
-        self.category = _('Software')
+        self.category = _('System')
 
         self.append(self.ui.inflate('ntpd:main'))
 
@@ -66,6 +67,14 @@ class NTPDPlugin (SectionPlugin):
 
         self.binder = Binder(None, self)
 
+        self.available_zones = []
+        for d, dirs, files in os.walk('/usr/share/zoneinfo', followlinks=False):
+            for f in files:
+                if f != 'zone.tab':
+                    self.available_zones.append(os.path.join(d, f))
+        self.available_zones = [x[len('/usr/share/zoneinfo/'):] for x in self.available_zones]
+        self.available_zones.sort()
+
         self.find('servers').new_item = lambda c: ServerData()
 
     def on_page_load(self):
@@ -74,6 +83,7 @@ class NTPDPlugin (SectionPlugin):
     def refresh(self):
         self.config.load()
         self.now = int(time.time())
+        self.timezone = open('/etc/timezone').read().strip()
         self.binder.setup(self).populate()
 
     @on('set', 'click')
@@ -81,6 +91,7 @@ class NTPDPlugin (SectionPlugin):
         self.binder.update()
         d = datetime.fromtimestamp(self.now)
         s = d.strftime('%m%d%H%M%Y') 
+        open('/etc/timezone', 'w').write(self.timezone + '\n')
         subprocess.call(['date', s])
         self.refresh()
 

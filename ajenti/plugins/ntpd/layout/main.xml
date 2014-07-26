@@ -7,6 +7,7 @@
                 <vc>
                     <hc>
                         <datetime bind="now" />
+                        <dropdown bind:value="timezone" bind:labels="available_zones" bind:values="available_zones" />
                         <button icon="ok" text="{Set}" id="set" />
                         <button icon="refresh" text="{Sync}" id="sync" />
                     </hc>
