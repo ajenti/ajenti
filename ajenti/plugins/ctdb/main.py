@@ -35,7 +35,12 @@ class CTDB (SectionPlugin):
         self.n_binder = Binder(None, self.find('nodes-config'))
         self.a_binder = Binder(None, self.find('addresses-config'))
         self.find('nodes').new_item = lambda c: NodeData()
-        self.find('addresses').new_item = lambda c: PublicAddressData()
+        self.find('addresses').new_item = lambda c: self.new_address()
+
+    def new_address(self):
+        a = PublicAddressData()
+        a.address = '192.168.0.1/24'
+        return a
 
     def on_page_load(self):
         n_path = self.config.tree.nodes_file
