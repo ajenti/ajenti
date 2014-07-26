@@ -207,9 +207,9 @@ msgstr ""
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
-#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
-#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
+#: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
+#: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:29
+#: ajenti/plugins/apache/main.py:49
 msgid "Software"
 msgstr ""
 
@@ -462,10 +462,14 @@ msgid "Base DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
-msgid "Admin user"
+msgid "Limit to group DN"
 msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
+msgid "Admin user"
+msgstr ""
+
+#: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
 msgstr ""
 
@@ -751,10 +755,10 @@ msgstr ""
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
 #: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:261
-#: ajenti/plugins/iptables/main.py:199 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:104 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/ntpd/main.py:115 ajenti/plugins/csf/main.py:81
 #: ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr ""
@@ -1087,9 +1091,9 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
-#: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
-#: ajenti/plugins/logs/main.py:28
+#: ajenti/plugins/ntpd/main.py:57 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
+#: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
 msgstr ""
 
@@ -1570,7 +1574,7 @@ msgstr ""
 msgid " autostart"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:212
+#: ajenti/plugins/iptables/main.py:213
 msgid "Applied successfully"
 msgstr ""
 
@@ -2235,7 +2239,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:202
+#: ajenti/plugins/dashboard/dash.py:211
 msgid "Widgets"
 msgstr ""
 
@@ -2261,15 +2265,15 @@ msgstr ""
 msgid "Ajenti update is available"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:54
+#: ajenti/plugins/ntpd/main.py:55
 msgid "Date & Time"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:91
+#: ajenti/plugins/ntpd/main.py:102
 msgid "No servers defined"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:95
+#: ajenti/plugins/ntpd/main.py:106
 msgid "Done"
 msgstr ""
 
