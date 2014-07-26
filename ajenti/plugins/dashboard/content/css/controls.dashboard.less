@@ -133,39 +133,39 @@
             position: relative;
 
             &.ubuntu {
-                @ubuntuOrange: saturate(lighten(@orange, 5%), 10%);
-                #gradient > .radial(lighten(@ubuntuOrange, 20%), @ubuntuOrange);
+                #gradient > .radial(#FF9900, #B06800);
                 >.image.ubuntu { display: block; }
             }
 
             &.debian {
-                @red: #d70751;
-                #gradient > .radial(lighten(@red, 20%), @red);
+                #gradient > .radial(#f94b89, #6D0329);
                 >.image.debian { display: block; }
             }
 
             &.centos {
-                @purple: #932279;
-                #gradient > .radial(lighten(@purple, 20%), @purple);
+                #gradient > .radial(#d447b4, #601950);
                 >.image.centos { display: block; }
             }
 
             &.rhel {
-                @red: #f00;
-                #gradient > .radial(lighten(@red, 20%), @red);
+                #gradient > .radial(#ff6666, #8A2222);
                 >.image.rhel { display: block; }
             }
 
             &.freebsd {
                 @red: #f00;
-                #gradient > .radial(lighten(@red, 20%), @red);
+                #gradient > .radial(lighten(@red, 20%), #6A0606);
                 >.image.freebsd { display: block; }
             }
 
             &.arch {
-                @red: #f00;
-                #gradient > .radial(lighten(#1793d1, 20%), #1793d1);
+                #gradient > .radial(lighten(#1793d1, 20%), #0A405B);
                 >.image.arch { display: block; }
+            }
+
+            &.osx {
+                #gradient > .radial(#1BB0A5, #08364d);
+                >.image.osx { display: block; }
             }
 
             >.bar {
