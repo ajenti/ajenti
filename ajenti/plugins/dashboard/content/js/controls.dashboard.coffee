@@ -32,7 +32,7 @@ class window.Controls.dashboard__dash extends window.Control
                     $(c).children().each (i, e) =>
                         r[index].push(parseInt($(e).attr('data-uid')))
                 @event('reorder', indexes: r)
-        }).disableSelection()
+        })
 
         $(@dom).find('.widget-storage > *').each (i, e) =>
             $(@dom).find(".container-#{$(e).attr('data-container')}").append(e)
