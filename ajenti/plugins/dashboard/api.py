@@ -30,6 +30,11 @@ class ConfigurableWidget (DashboardWidget):
     def init(self):
         self.on_prepare()
         self.dialog = self.find('config-dialog')
+        self.dialog.buttons = [
+            {'text': 'OK', 'id': 'ok'},
+            {'text': _('Cancel'), 'id': 'cancel'},
+        ]
+
         if not self.config and self.dialog:
             self.config = self.create_config()
             self.begin_configuration()            
@@ -43,8 +48,9 @@ class ConfigurableWidget (DashboardWidget):
 
     def on_config(self, button):
         self.dialog.visible = False
-        self.on_config_save()
-        self.save_config()
+        if button == 'ok':
+            self.on_config_save()
+            self.save_config()
 
     def on_prepare(self):
         """

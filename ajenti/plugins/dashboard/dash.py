@@ -136,6 +136,7 @@ class Dash (SectionPlugin):
                         instance.classname = cls.classname
                         instance.set(e)
                     instance.on('save-config', self.on_widget_config, widget, instance)
+                    instance.on('configure', self.on_widget_reconfigure, widget, instance)
                     instance.on('delete', self.on_widget_delete, widget, instance)
                     self.dash.append(instance)
 
@@ -143,6 +144,9 @@ class Dash (SectionPlugin):
         config['config'] = instance.config
         self.save_classconfig()
         self.refresh()
+
+    def on_widget_reconfigure(self, widget, instance):
+        instance.begin_configuration()
 
     def on_widget_delete(self, widget, instance):
         self.classconfig['widgets'].remove(widget)

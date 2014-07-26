@@ -44,12 +44,15 @@ class window.Controls.dashboard__widget extends window.Control
             <div data-uid="#{@properties.uid}" data-container="#{@properties.container}" class="control dashboard-widget">
                 <div class="handle"></div>
                 <div class="content __child-container"><children></div>
+                <a class="configure"><i class="icon-wrench"></i></a>
                 <a class="delete"><i class="icon-remove"></i></a>
             </div>
         """
 
     setupDom: (dom) ->
         super(dom)
+        $(@dom).children('a.configure').click () =>
+            @event('configure', {})
         $(@dom).children('a.delete').click () =>
             @event('delete', {})
 

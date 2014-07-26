@@ -82,12 +82,10 @@
             box-shadow: 10px 10px 0 rgba(0,0,0,.0625);
         }
 
-        &>.delete {
+        &>a {
             position: absolute;
-            right: 1px;
             top: -10px;
             color: white;
-            background: #F56D51;
             width: 19px;
             height: 19px;
             text-align: center;
@@ -100,13 +98,25 @@
             *::before {
                 color: white;
             }
+        }
 
+        &>.configure {
+            right: 25px;
+            background: #aaa;
+            &:hover {
+                background: #bbb;
+            }
+        }
+
+        &>.delete {
+            right: 1px;
+            background: #F56D51;
             &:hover {
                 background: #FF3B12;
             }
         }
 
-        &:hover > .delete {
+        &:hover > a {
             opacity: 1;
             .transition(2s opacity);
             transition-delay: 1s;

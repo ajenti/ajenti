@@ -13,7 +13,7 @@ class Dialog (UIElement):
     def init(self):
         presets = {
             'ok': {'text': 'OK', 'id': 'ok'},
-            'cancel': {'text': 'Cancel', 'id': 'cancel'},
+            'cancel': {'text': _('Cancel'), 'id': 'cancel'},
         }
         new_buttons = []
         for button in self.buttons:
