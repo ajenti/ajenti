@@ -1,5 +1,7 @@
+dbus-python
 gevent
 gevent-socketio
+gevent-websocket
 lxml>=2.2.4
 passlib
 psutil>=0.6.0

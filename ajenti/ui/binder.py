@@ -450,15 +450,16 @@ class CollectionAutoBinding (Binding):
                 else:
                     new_indexes.append(i)
 
-            new_values = []
-            for i in new_indexes:
-                if i < len(self.collection):
-                    new_values.append(self.values[i])
+            new_values = [self.values[i] for i in new_indexes if i < len(self.collection)]
+            new_binders = [self.binders[i] for i in new_indexes if i < len(self.collection)]
 
+            self.binders = new_binders
             while len(self.collection) > 0:
                 self.collection.pop(0)
             for e in new_values:
                 self.collection.append(e)
+
+
             self.items_ui.order = []
 
         for index, value in enumerate(self.values):

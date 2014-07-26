@@ -54,7 +54,7 @@ class Dash (SectionPlugin):
 
     def worker(self):
         while True:
-            if self.active and self.autorefresh:
+            if self.active and self.autorefresh and self.dash.allow_updates:
                 self.refresh()
             gevent.sleep(5)
 
@@ -175,6 +175,15 @@ class Dash (SectionPlugin):
 @plugin
 class DashboardDash (UIElement):
     typeid = 'dashboard:dash'
+
+    def init(self):
+        self.allow_updates = True
+
+    def on_drag_start(self):
+        self.allow_updates = False
+
+    def on_drag_stop(self):
+        self.allow_updates = True
 
 
 @p('platform')

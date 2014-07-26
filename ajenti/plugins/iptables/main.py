@@ -17,6 +17,10 @@ from reconfigure.items.iptables import TableData, ChainData, RuleData, OptionDat
 
 @interface
 class FirewallManager (object):
+    iptables_binary = 'iptables'
+    iptables_save_binary = 'iptables-save'
+    iptables_restore_binary = 'iptables-restore'
+
     def get_autostart_state(self):
         pass
 
@@ -25,7 +29,7 @@ class FirewallManager (object):
 
 
 @plugin
-class DebianFirewallManager (FirewallManager):
+class DebianFirewallManager (FirewallManager, BasePlugin):
     platforms = ['debian']
     autostart_script_path = '/etc/network/if-up.d/iptables'
     config_path = '/etc/iptables.up.rules'
@@ -37,8 +41,8 @@ class DebianFirewallManager (FirewallManager):
     def set_autostart_state(self, state):
         if state and not self.get_autostart_state():
             open(self.autostart_script_path, 'w').write("""#!/bin/sh
-            iptables-restore < %s
-            """ % self.config_path)
+            %s < %s
+            """ % (self.iptables_restore_binary, self.config_path))
             os.chmod(self.autostart_script_path, stat.S_IRWXU | stat.S_IRWXO)
         if not state and self.get_autostart_state():
             os.unlink(self.autostart_script_path)
@@ -56,15 +60,18 @@ class CentOSFirewallManager (FirewallManager, BasePlugin):
     def set_autostart_state(self, state):
         self.context.notify('info', _('You can\'t disable firewall autostart on this platform'))
 
+
 @plugin
 class ArchFirewallManager (FirewallManager, BasePlugin):
     platforms = ['arch']
     config_path = '/etc/iptables/iptables.rules'
     config_path_ajenti = '/etc/iptables/iptables-ajenti.rules'
 
+
 @plugin
 class Firewall (SectionPlugin):
     platforms = ['centos', 'debian', 'arch']
+    manager_class = FirewallManager
 
     def init(self):
         self.title = _('Firewall')
@@ -73,7 +80,7 @@ class Firewall (SectionPlugin):
 
         self.append(self.ui.inflate('iptables:main'))
 
-        self.fw_mgr = FirewallManager.get()
+        self.fw_mgr = self.manager_class.get()
         self.config = IPTablesConfig(path=self.fw_mgr.config_path_ajenti)
         self.binder = Binder(None, self.find('config'))
 
@@ -137,7 +144,6 @@ COMMIT
 -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 8000 -j ACCEPT
 COMMIT
-
                 """)
             open(self.fw_mgr.config_path_ajenti, 'w').write(open(self.fw_mgr.config_path).read())
         self.config.load()
@@ -145,7 +151,7 @@ COMMIT
 
     @on('load-current', 'click')
     def on_load_current(self):
-        subprocess.call('iptables-save > %s' % self.fw_mgr.config_path, shell=True)
+        subprocess.call('%s > %s' % (self.fw_mgr.iptables_save_binary, self.fw_mgr.config_path), shell=True)
         self.config.load()
         self.refresh()
 
@@ -166,6 +172,7 @@ COMMIT
         self.refresh()
 
     def on_add_option(self, options, rule, ui):
+        self.binder.update()
         o = OptionData.create(ui.find('add-option').value)
         ui.find('add-option').value = ''
         rule.options.append(o)
@@ -199,7 +206,7 @@ COMMIT
     @on('apply', 'click')
     def apply(self):
         self.save()
-        cmd = 'cat %s | iptables-restore' % self.fw_mgr.config_path
+        cmd = 'cat %s | %s' % (self.fw_mgr.config_path, self.fw_mgr.iptables_restore_binary)
         if subprocess.call(cmd, shell=True) != 0:
             self.context.launch('terminal', command=cmd)
         else:
@@ -256,3 +263,36 @@ class OptionsBinding (CollectionAutoBinding):
             device.values = device.labels = NetworkManager.get().get_devices()
         root.find('slot').append(option_ui)
         return root
+
+
+
+if subprocess.call(['which', 'ip6tables']) == 0:
+    @interface
+    class IPv6FirewallManager (object):
+        iptables_binary = 'ip6tables'
+        iptables_save_binary = 'ip6tables-save'
+        iptables_restore_binary = 'ip6tables-restore'
+
+    @plugin
+    class DebianIPv6FirewallManager (DebianFirewallManager, IPv6FirewallManager):
+        autostart_script_path = '/etc/network/if-up.d/ip6tables'
+        config_path = '/etc/ip6tables.up.rules'
+        config_path_ajenti = '/etc/ip6tables.up.rules.ajenti'
+    
+    @plugin
+    class CentOSIPv6FirewallManager (CentOSFirewallManager, IPv6FirewallManager):
+        config_path = '/etc/sysconfig/ip6tables'
+        config_path_ajenti = '/etc/ip6tables.up.rules.ajenti'
+
+    @plugin
+    class ArchIPv6FirewallManager (ArchFirewallManager, IPv6FirewallManager):
+        config_path = '/etc/iptables/ip6tables.rules'
+        config_path_ajenti = '/etc/iptables/ip6tables-ajenti.rules'
+
+    @plugin
+    class IPv6Firewall (Firewall):
+        platforms = ['centos', 'debian', 'arch']
+        manager_class = IPv6FirewallManager
+
+        def init(self):
+            self.title += ' (IPv6)'

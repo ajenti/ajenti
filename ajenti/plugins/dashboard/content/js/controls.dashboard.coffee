@@ -21,7 +21,10 @@ class window.Controls.dashboard__dash extends window.Control
             revert: 200
             placeholder: 'placeholder'
             tolerance: 'pointer'
+            start: () =>
+                @event('drag_start', {})
             stop: () =>
+                @event('drag_stop', {})
                 r = {}
                 $(@dom).children('.widget-container').each (i, c) =>
                     index = parseInt($(c).attr('data-index'))
@@ -29,7 +32,7 @@ class window.Controls.dashboard__dash extends window.Control
                     $(c).children().each (i, e) =>
                         r[index].push(parseInt($(e).attr('data-uid')))
                 @event('reorder', indexes: r)
-        }).disableSelection()
+        })
 
         $(@dom).find('.widget-storage > *').each (i, e) =>
             $(@dom).find(".container-#{$(e).attr('data-container')}").append(e)

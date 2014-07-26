@@ -17,6 +17,10 @@ msgstr "플러그인 목록 수집"
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/vh-mysql/layout/ext.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:6
+#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:14
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
@@ -76,6 +80,7 @@ msgstr "진행상태"
 #: ajenti/plugins/snmpd/layout/main.xml:3
 #: ajenti/plugins/snmpd/layout/main.xml:4
 #: ajenti/plugins/snmpd/layout/main.xml:5
+#: ajenti/plugins/fail2ban/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -109,6 +114,7 @@ msgstr "추가"
 #: ajenti/plugins/samba/layout/main.xml:35
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/fail2ban/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
@@ -148,7 +154,7 @@ msgstr "삭제 요청 확인"
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 #: ajenti/plugins/vh-mail/layout/main.xml:18
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
@@ -171,6 +177,7 @@ msgstr "환경설정"
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/snmpd/layout/main.xml:6
+#: ajenti/plugins/fail2ban/layout/main.xml:4
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -192,6 +199,55 @@ msgstr "저장"
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
 msgstr "Memcache 메모리 사용량"
+
+#: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
+#: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
+#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
+msgid "Software"
+msgstr "소프트웨어"
+
+#: ajenti/plugins/mongo/layout/config.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/vh/layout/main-website.xml:22
+#: ajenti/plugins/mysql/layout/config.xml:1
+msgid "Host"
+msgstr "호스트"
+
+#: ajenti/plugins/mongo/layout/config.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
+#: ajenti/plugins/vh/layout/ext-processes.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
+#: ajenti/plugins/vh-mail/layout/main.xml:4
+#: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr "사용자명"
+
+#: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
+#: ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/vh-mysql/layout/ext.xml:10
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/vh-mail/layout/main.xml:5
+#: ajenti/plugins/vh-pureftpd/layout/ext.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
+msgid "Password"
+msgstr "비밀 번호"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
@@ -219,6 +275,7 @@ msgstr "오류 : \"%s\""
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/fail2ban/layout/main.xml:1
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "구성"
@@ -267,13 +324,6 @@ msgstr "언어"
 msgid "HTTP Server"
 msgstr "HTTP 서버"
 
-#: ajenti/plugins/configurator/layout/main.xml:5
-#: ajenti/plugins/db_common/layout/main.xml:8
-#: ajenti/plugins/vh/layout/main-website.xml:22
-#: ajenti/plugins/mysql/layout/config.xml:1
-msgid "Host"
-msgstr "호스트"
-
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
 msgstr "또는 UNIX 소켓 경로"
@@ -309,6 +359,7 @@ msgstr "생성"
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "사용자"
@@ -426,7 +477,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "라인센스 타입"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
@@ -628,7 +679,8 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:7
+#: ajenti/plugins/vh-mysql/layout/ext.xml:15
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
@@ -666,7 +718,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "파일 보존 시간"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
@@ -674,7 +726,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "대상 디렉토리 삭제"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
@@ -694,25 +746,14 @@ msgstr ""
 msgid "NFS Exports"
 msgstr ""
 
-#: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/snmpd/main.py:128 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
-#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
-#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
-#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
-#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
-msgid "Software"
-msgstr "소프트웨어"
-
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
-#: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
-#: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
-#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
-#: ajenti/plugins/fstab/main.py:98 ajenti/plugins/ntpd/main.py:104
-#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
+#: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:261
+#: ajenti/plugins/iptables/main.py:199 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:103
+#: ajenti/plugins/ntpd/main.py:104 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "저장 완료"
 
@@ -750,17 +791,17 @@ msgstr ""
 #: ajenti/plugins/notepad/notepad.py:71
 #, python-format
 msgid "Untitled %i"
-msgstr ""
+msgstr "무제 %i"
 
 #: ajenti/plugins/notepad/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:2
 msgid "New"
-msgstr ""
+msgstr "신규"
 
 #: ajenti/plugins/notepad/layout/main.xml:2
 #: ajenti/plugins/logs/layout/main.xml:1
 msgid "Open"
-msgstr ""
+msgstr "열기"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
@@ -778,19 +819,7 @@ msgstr ""
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
-
-#: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/vh-mail/layout/main.xml:5
-#: ajenti/plugins/vh-pureftpd/layout/ext.xml:2
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
-msgstr "비밀 번호"
+msgstr "이 디렉토리는 더 이상 존재하지 않습니다"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
@@ -814,12 +843,12 @@ msgstr ""
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "아이디 혹은 비밀번호가 잘못 입력 되었습니다"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "이메일 \"%s\"은 모든 사용자에게 연결되지 않습니다"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
@@ -831,11 +860,11 @@ msgstr ""
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "비밀번호 변경"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "기존 비밀번호"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -844,7 +873,7 @@ msgstr "새로운 비밀번호"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "비밀번호 확인"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -993,6 +1022,7 @@ msgid "Server string"
 msgstr "서버 문자열"
 
 #: ajenti/plugins/samba/layout/main.xml:26
+#: ajenti/plugins/fail2ban/layout/main.xml:7
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
 msgstr "로그 파일"
@@ -1052,9 +1082,9 @@ msgid "Device"
 msgstr "장치"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:15
+#: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
-#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:48
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
 #: ajenti/plugins/logs/main.py:28
@@ -1079,22 +1109,6 @@ msgstr "비밀번호 입력란을 비워둘 수 없습니다"
 #, python-format
 msgid "Password for %s was removed"
 msgstr "%s의 비밀번호가 제거되었습니다"
-
-#: ajenti/plugins/users/layout/main.xml:2
-#: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:8
-#: ajenti/plugins/db_common/layout/main.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:12
-#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
-#: ajenti/plugins/vh/layout/ext-processes.xml:6
-#: ajenti/plugins/supervisor/layout/main.xml:16
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
-#: ajenti/plugins/vh-mail/layout/main.xml:4
-#: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
-#: ajenti/plugins/mysql/layout/config.xml:2
-msgid "Username"
-msgstr "사용자명"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
@@ -1125,30 +1139,68 @@ msgstr "홈 디렉터리"
 msgid "Shell"
 msgstr "쉘"
 
-#: ajenti/plugins/vh-mysql/mysql.py:61
+#: ajenti/plugins/vh-mysql/mysql.py:92
 msgid "This database name is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:66
+#: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
 msgstr ""
 
+#: ajenti/plugins/vh-mysql/mysql.py:156
+msgid "Permissions granted."
+msgstr ""
+
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
-#: ajenti/plugins/vh-mysql/layout/ext.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "데이터베이스"
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:11
+msgid "Detach from the website"
 msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
+#: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
 msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
-msgid "Database contents will be deleted!"
+msgid "Drop the database?"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:6
-msgid "No database created"
+#: ajenti/plugins/vh-mysql/layout/ext.xml:13
+msgid "Drop the user?"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:16
+msgid "Grant all permissions"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:108
+msgid "File with name {0} already exists in {1}."
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:176
+msgid "Some parameters are empty."
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:228
+#, python-format
+msgid "Could not save config file. %s"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:5
+msgid "Filters checker"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:6
+msgid "Filter file"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:8
+msgid "Run test"
 msgstr ""
 
 #: ajenti/plugins/vh-puma/puma.py:17
@@ -1194,21 +1246,21 @@ msgstr ""
 msgid "Reload"
 msgstr ""
 
-#: ajenti/plugins/db_common/api.py:45
+#: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
 msgstr ""
 
-#: ajenti/plugins/db_common/api.py:54
+#: ajenti/plugins/db_common/api.py:55
 #, python-format
 msgid "Output cut from %i rows to 200"
 msgstr ""
 
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "데이터베이스"
-
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
+msgstr "데이터베이스가 삭제되었습니다."
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
 msgstr ""
 
 #: ajenti/plugins/vh/gate_static.py:8
@@ -1235,29 +1287,29 @@ msgstr "프로세스들"
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:237
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:238
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:252
+#: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:254
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:255
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:256
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:257
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:212
+#: ajenti/plugins/vh/main.py:213
 msgid "Download complete"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "관리"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
@@ -1273,17 +1325,25 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "최소 프로세서"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
-msgid "PHP options"
+msgid "Process user"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "Process group"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
 msgstr ""
 
@@ -1440,7 +1500,7 @@ msgstr "자동 시작"
 #: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
-msgstr ""
+msgstr "사용 안함"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
@@ -1486,28 +1546,28 @@ msgstr ""
 msgid "Recovery:"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:57
+#: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:70
+#: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
 msgstr "방화벽"
 
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:119
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr "옵션 추가"
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid "Disable"
 msgstr "사용 안 함"
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid " autostart"
 msgstr " 자동 시작"
 
-#: ajenti/plugins/iptables/main.py:206
+#: ajenti/plugins/iptables/main.py:212
 msgid "Applied successfully"
 msgstr ""
 
@@ -2107,15 +2167,15 @@ msgstr ""
 msgid "Immediate I/O"
 msgstr ""
 
-#: ajenti/plugins/fstab/main.py:46
+#: ajenti/plugins/fstab/main.py:51
 msgid "Filesystems"
 msgstr "파일 시스템"
 
-#: ajenti/plugins/fstab/main.py:70
+#: ajenti/plugins/fstab/main.py:75
 msgid "Unmounted"
 msgstr "마운드 제거"
 
-#: ajenti/plugins/fstab/main.py:77
+#: ajenti/plugins/fstab/main.py:82
 msgid "mount -a failed"
 msgstr ""
 

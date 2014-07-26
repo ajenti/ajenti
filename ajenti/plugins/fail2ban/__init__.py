@@ -8,6 +8,7 @@ info = PluginInfo(
     dependencies=[
         PluginDependency('main'),
         BinaryDependency('fail2ban-client'),
+        BinaryDependency('fail2ban-regex'),
     ],
 )
 

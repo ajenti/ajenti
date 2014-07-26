@@ -1,6 +1,6 @@
 class AjentiNotification
     constructor: (@type, @text, @timeout, @notificator, @position) ->
-        @dom = $("""
+        @dom = jQuery("""
             <div class="notification #{@type}">
                 #{@text}
             </div>
@@ -14,7 +14,7 @@ class AjentiNotification
 
     remove: () =>
         @dom.animate {left: '300px'}, 500, 'swing'
-        setTimeout () ->
+        setTimeout () =>
             @notificator.notifications.pop this
             @dom.remove()
         , 500
@@ -51,7 +51,7 @@ class Notificator
                 notification.moveUp(-50)
         notification = new AjentiNotification(type, text, timeout, this, 0)
         @notifications.push notification
-        $('#notifications').append notification.dom
+        jQuery('#notifications').append notification.dom
 
 
 window.Notificator = new Notificator()

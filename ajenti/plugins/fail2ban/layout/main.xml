@@ -1,50 +1,86 @@
 <vc>
-    <servicebar name="fail2ban"/>
+    <hc>
+        <servicebar name="fail2ban"/>
+        <box width="10"/>
+        <icon icon="shield"/>
+        <label bind="f2b_v"/>
+    </hc>
     <body>
         <pad>
-            <bind:collection bind="configurations">
-                <tabs bind="__items"/>
-                <bind:template>
-                    <tab bind="name">
-                        <box height="700" scroll="True">
-                            <vc>
-                                <hc>
-                                    <icon icon="folder-open"/>
-                                    <label bind="path"/>
-                                </hc>
-                                <bind:collection bind="configlist" id="configlist">
-                                    <dt bind="__items" addrow="{Add}"/>
+            <tabs>
+                <tab title="{Configure}">
+                    <pad>
+                        <bind:collection bind="configurations">
+                            <tabs bind="__items"/>
+                            <bind:template>
+                                <tab bind="name">
+                                    <box height="700" scroll="True">
+                                        <vc>
+                                            <hc>
+                                                <icon icon="folder-open"/>
+                                                <label bind="path"/>
+                                            </hc>
+                                            <bind:collection bind="configlist" id="configlist">
+                                                <dt bind="__items" addrow="{Add}"/>
 
-                                    <bind:template>
-                                        <collapserow>
-                                            <box>
-                                                <right>
-                                                    <hc>
-                                                        <label bind="configfile"/>
-                                                        <box width="5" />
-                                                        <button bind="__delete" icon="remove" style="icon"
-                                                                warning="{Confirm deletion}"/>
-                                                    </hc>
-                                                </right>
-                                                <hc>
-                                                    <icon icon="list-alt"/>
-                                                    <label bind="name"/>
-                                                </hc>
-                                            </box>
-                                            <pad>
-                                                <codearea height="480" width="720" bind="config"/>
-                                            </pad>
-                                        </collapserow>
-                                    </bind:template>
-                                </bind:collection>
-                            </vc>
-                        </box>
-                    </tab>
-                </bind:template>
-            </bind:collection>
+                                                <bind:template>
+                                                    <collapserow>
+                                                        <box>
+                                                            <right>
+                                                                <hc>
+                                                                    <label bind="configfile" id="configfile"/>
+                                                                    <box width="5"/>
+                                                                    <button bind="__delete" icon="remove" style="icon"
+                                                                            warning="{Confirm deletion}"/>
+                                                                </hc>
+                                                            </right>
+                                                            <hc>
+                                                                <icon icon="list-alt"/>
+                                                                <editable bind="name" id="name"/>
+                                                            </hc>
+                                                        </box>
+                                                        <pad>
+                                                            <codearea height="480" width="680" bind="config"/>
+                                                        </pad>
+                                                    </collapserow>
+                                                </bind:template>
+                                            </bind:collection>
+                                        </vc>
+                                    </box>
+                                </tab>
+                            </bind:template>
+                        </bind:collection>
+                    </pad>
+                    <hc>
+                        <button id="save-button" text="{Save}" icon="ok"/>
+                    </hc>
+                </tab>
+                <tab title="{Filters checker}">
+                    <pad>
+                        <vc>
+                            <formline text="{Filter file}">
+                                <hc>
+                                    <textbox id="filter-filename"/>
+                                    <button id="open-filter-button" icon="folder-open" style="mini"/>
+                                    <button id="save-filter-button" icon="save" style="mini"/>
+                                </hc>
+                            </formline>
+                            <codearea id="filter-file" height="150" width="700"/>
+                            <formline text="{Log file}">
+                                <hc>
+                                    <textbox id="log-filename"/>
+                                    <button id="open-log-button" icon="folder-open" style="mini"/>
+                                </hc>
+                            </formline>
+                            <codearea id="log-file" height="150" width="700"/>
+                            <button id="check-regex" text="{Run test}" icon="play"/>
+                            <label id="check-status" style="bold"/>
+                        </vc>
+                    </pad>
+                </tab>
+            </tabs>
         </pad>
     </body>
-    <hc>
-        <button id="save-button" text="{Save}" icon="ok"/>
-    </hc>
+    <openfiledialog id="openfilterdialog" visible="False" path="/etc/fail2ban/filter.d/"/>
+    <openfiledialog id="openlogdialog" visible="False" path="/var/log"/>
 </vc>

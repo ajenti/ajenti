@@ -71,7 +71,7 @@ class Notepad (SectionPlugin):
             item.find('name').text = file['path'] or _('Untitled %i') % id
 
             item.find('close').on('click', self.on_close, id)
-            item.find('close').visible = len(self.controller.files.keys()) > 1
+            #item.find('close').visible = len(self.controller.files.keys()) > 1
             item.on('click', self.select, id)
 
             if file['path'] in self.classconfig['bookmarks']:
@@ -126,6 +126,8 @@ class Notepad (SectionPlugin):
             )
             self.save_classconfig()
         self.controller.close(id)
+        if len(self.controller.files) == 0:
+            self.on_new()
         self.select(self.controller.files.keys()[0])
 
     @on('bookmark-button', 'click')

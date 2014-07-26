@@ -17,6 +17,10 @@ msgstr "รายการรวบรวมปลั๊กอิน"
 #: ajenti/plugins/samba/layout/main.xml:5
 #: ajenti/plugins/users/layout/main.xml:4
 #: ajenti/plugins/users/layout/main.xml:11
+#: ajenti/plugins/vh-mysql/layout/ext.xml:2
+#: ajenti/plugins/vh-mysql/layout/ext.xml:6
+#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:14
 #: ajenti/plugins/db_common/layout/main.xml:3
 #: ajenti/plugins/vh/layout/main.xml:4
 #: ajenti/plugins/vh/layout/ext-processes.xml:3
@@ -76,6 +80,7 @@ msgstr "สถานะ"
 #: ajenti/plugins/snmpd/layout/main.xml:3
 #: ajenti/plugins/snmpd/layout/main.xml:4
 #: ajenti/plugins/snmpd/layout/main.xml:5
+#: ajenti/plugins/fail2ban/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:17
@@ -109,6 +114,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:35
 #: ajenti/plugins/users/layout/main.xml:10
 #: ajenti/plugins/users/layout/user-list.xml:1
+#: ajenti/plugins/fail2ban/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
@@ -148,7 +154,7 @@ msgstr "ยืนยันการลบ"
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 #: ajenti/plugins/vh-mail/layout/main.xml:18
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
@@ -171,6 +177,7 @@ msgstr "ตั้งค่าคอนฟิก"
 #: ajenti/plugins/users/layout/main.xml:8
 #: ajenti/plugins/users/layout/main.xml:13
 #: ajenti/plugins/snmpd/layout/main.xml:6
+#: ajenti/plugins/fail2ban/layout/main.xml:4
 #: ajenti/plugins/dhcpd/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
@@ -192,6 +199,55 @@ msgstr "บันทึก"
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
 msgstr "หน่วยความจำ Memcache ที่ใช้ไป"
+
+#: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
+#: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
+#: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
+#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
+#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
+#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
+#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
+msgid "Software"
+msgstr "ซอฟต์แวร์"
+
+#: ajenti/plugins/mongo/layout/config.xml:1
+#: ajenti/plugins/configurator/layout/main.xml:5
+#: ajenti/plugins/db_common/layout/main.xml:8
+#: ajenti/plugins/vh/layout/main-website.xml:22
+#: ajenti/plugins/mysql/layout/config.xml:1
+msgid "Host"
+msgstr "โฮสต์"
+
+#: ajenti/plugins/mongo/layout/config.xml:2
+#: ajenti/plugins/users/layout/main.xml:2
+#: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/db_common/layout/main.xml:7
+#: ajenti/plugins/db_common/layout/main.xml:12
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
+#: ajenti/plugins/vh/layout/ext-processes.xml:6
+#: ajenti/plugins/supervisor/layout/main.xml:16
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
+#: ajenti/plugins/vh-mail/layout/main.xml:4
+#: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
+#: ajenti/plugins/mysql/layout/config.xml:2
+msgid "Username"
+msgstr ""
+
+#: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
+#: ajenti/plugins/samba/layout/main.xml:36
+#: ajenti/plugins/vh-mysql/layout/ext.xml:10
+#: ajenti/plugins/db_common/layout/main.xml:14
+#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
+#: ajenti/plugins/netatalk/layout/main.xml:6
+#: ajenti/plugins/vh-mail/layout/main.xml:5
+#: ajenti/plugins/vh-pureftpd/layout/ext.xml:2
+#: ajenti/plugins/mysql/layout/config.xml:3
+#: ajenti/plugins/openvpn/layout/config.xml:3
+msgid "Password"
+msgstr ""
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
@@ -219,6 +275,7 @@ msgstr "ข้อผิดพลาด: \"% s\""
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
 #: ajenti/plugins/configurator/layout/main.xml:32
+#: ajenti/plugins/fail2ban/layout/main.xml:1
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
 msgstr "ตั้งค่าคอนฟิก"
@@ -267,13 +324,6 @@ msgstr "ภาษา"
 msgid "HTTP Server"
 msgstr "HTTP เซิร์ฟเวอร์"
 
-#: ajenti/plugins/configurator/layout/main.xml:5
-#: ajenti/plugins/db_common/layout/main.xml:8
-#: ajenti/plugins/vh/layout/main-website.xml:22
-#: ajenti/plugins/mysql/layout/config.xml:1
-msgid "Host"
-msgstr "โฮสต์"
-
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
 msgstr "หรือพาธของ UNIX Socket"
@@ -309,6 +359,7 @@ msgstr "สร้าง"
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
+#: ajenti/plugins/vh-mysql/layout/ext.xml:8
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "ผู้ใช้"
@@ -628,7 +679,8 @@ msgstr "DoW"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
-#: ajenti/plugins/vh-mysql/layout/ext.xml:9
+#: ajenti/plugins/vh-mysql/layout/ext.xml:7
+#: ajenti/plugins/vh-mysql/layout/ext.xml:15
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
@@ -694,25 +746,14 @@ msgstr "คำสั่ง"
 msgid "NFS Exports"
 msgstr ""
 
-#: ajenti/plugins/exports/main.py:19 ajenti/plugins/samba/main.py:19
-#: ajenti/plugins/snmpd/main.py:128 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
-#: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
-#: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
-#: ajenti/plugins/ntpd/main.py:56 ajenti/plugins/openvpn/main.py:28
-#: ajenti/plugins/services/main.py:16 ajenti/plugins/squid/main.py:16
-#: ajenti/plugins/bind9/main.py:29 ajenti/plugins/apache/main.py:49
-msgid "Software"
-msgstr "ซอฟต์แวร์"
-
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
-#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/vh/main.py:105
-#: ajenti/plugins/vh/main.py:260 ajenti/plugins/iptables/main.py:193
-#: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
-#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:75
-#: ajenti/plugins/fstab/main.py:98 ajenti/plugins/ntpd/main.py:104
-#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:85
+#: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
+#: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:261
+#: ajenti/plugins/iptables/main.py:199 ajenti/plugins/vh-mail/main.py:171
+#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
+#: ajenti/plugins/ctdb/main.py:75 ajenti/plugins/fstab/main.py:103
+#: ajenti/plugins/ntpd/main.py:104 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/bind9/main.py:85
 msgid "Saved"
 msgstr "บันทึกแล้ว"
 
@@ -778,18 +819,6 @@ msgstr "ไดเรกทอรีที่อยู่ด้านบนสุ
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
-
-#: ajenti/plugins/main/passwd.py:11 ajenti/plugins/samba/layout/main.xml:36
-#: ajenti/plugins/vh-mysql/layout/ext.xml:3
-#: ajenti/plugins/db_common/layout/main.xml:14
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
-#: ajenti/plugins/netatalk/layout/main.xml:6
-#: ajenti/plugins/vh-mail/layout/main.xml:5
-#: ajenti/plugins/vh-pureftpd/layout/ext.xml:2
-#: ajenti/plugins/mysql/layout/config.xml:3
-#: ajenti/plugins/openvpn/layout/config.xml:3
-msgid "Password"
 msgstr ""
 
 #: ajenti/plugins/main/passwd.py:21
@@ -993,6 +1022,7 @@ msgid "Server string"
 msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:26
+#: ajenti/plugins/fail2ban/layout/main.xml:7
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
 msgstr ""
@@ -1052,9 +1082,9 @@ msgid "Device"
 msgstr ""
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
-#: ajenti/plugins/iptables/main.py:72 ajenti/plugins/packages/main.py:15
+#: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
-#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:48
+#: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
 #: ajenti/plugins/hosts/main.py:15 ajenti/plugins/taskmgr/main.py:21
 #: ajenti/plugins/csf/main.py:18 ajenti/plugins/cron/main.py:19
 #: ajenti/plugins/logs/main.py:28
@@ -1078,22 +1108,6 @@ msgstr ""
 #: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
-
-#: ajenti/plugins/users/layout/main.xml:2
-#: ajenti/plugins/users/layout/user-list.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:2
-#: ajenti/plugins/vh-mysql/layout/ext.xml:8
-#: ajenti/plugins/db_common/layout/main.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:12
-#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
-#: ajenti/plugins/vh/layout/ext-processes.xml:6
-#: ajenti/plugins/supervisor/layout/main.xml:16
-#: ajenti/plugins/vh-vsftpd/layout/ext.xml:1
-#: ajenti/plugins/vh-mail/layout/main.xml:4
-#: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
-#: ajenti/plugins/mysql/layout/config.xml:2
-msgid "Username"
 msgstr ""
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
@@ -1125,30 +1139,68 @@ msgstr ""
 msgid "Shell"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:61
+#: ajenti/plugins/vh-mysql/mysql.py:92
 msgid "This database name is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:66
+#: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
 msgstr ""
 
+#: ajenti/plugins/vh-mysql/mysql.py:156
+msgid "Permissions granted."
+msgstr ""
+
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
-#: ajenti/plugins/vh-mysql/layout/ext.xml:7
-#: ajenti/plugins/db_common/layout/main.xml:11
-msgid "Database name"
-msgstr "ชื่อฐานข้อมูล"
+#: ajenti/plugins/db_common/layout/main.xml:2
+msgid "Databases"
+msgstr "ฐานข้อมูล"
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:3
+#: ajenti/plugins/vh-mysql/layout/ext.xml:11
+msgid "Detach from the website"
+msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
+#: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
 msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
-msgid "Database contents will be deleted!"
+msgid "Drop the database?"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:6
-msgid "No database created"
+#: ajenti/plugins/vh-mysql/layout/ext.xml:13
+msgid "Drop the user?"
+msgstr ""
+
+#: ajenti/plugins/vh-mysql/layout/ext.xml:16
+msgid "Grant all permissions"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:108
+msgid "File with name {0} already exists in {1}."
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:176
+msgid "Some parameters are empty."
+msgstr ""
+
+#: ajenti/plugins/fail2ban/main.py:228
+#, python-format
+msgid "Could not save config file. %s"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:5
+msgid "Filters checker"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:6
+msgid "Filter file"
+msgstr ""
+
+#: ajenti/plugins/fail2ban/layout/main.xml:8
+msgid "Run test"
 msgstr ""
 
 #: ajenti/plugins/vh-puma/puma.py:17
@@ -1194,22 +1246,22 @@ msgstr "ดู"
 msgid "Reload"
 msgstr "โหลดใหม่"
 
-#: ajenti/plugins/db_common/api.py:45
+#: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
 msgstr ""
 
-#: ajenti/plugins/db_common/api.py:54
+#: ajenti/plugins/db_common/api.py:55
 #, python-format
 msgid "Output cut from %i rows to 200"
 msgstr ""
 
-#: ajenti/plugins/db_common/layout/main.xml:2
-msgid "Databases"
-msgstr "ฐานข้อมูล"
-
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
 msgstr "ยืนยันลบฐานข้อมูล!"
+
+#: ajenti/plugins/db_common/layout/main.xml:11
+msgid "Database name"
+msgstr "ชื่อฐานข้อมูล"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
@@ -1235,23 +1287,23 @@ msgstr ""
 msgid "Websites"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:237
+#: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:238
 msgid "Testing configuration"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:96 ajenti/plugins/vh/main.py:252
+#: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:254
+#: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:255
 msgid "Applying changes"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:256
+#: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:257
 msgid "Restarting web services"
 msgstr ""
 
-#: ajenti/plugins/vh/main.py:212
+#: ajenti/plugins/vh/main.py:213
 msgid "Download complete"
 msgstr ""
 
@@ -1280,10 +1332,18 @@ msgid "Max processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
-msgid "PHP options"
+msgid "Process user"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+msgid "Process group"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
+msgid "PHP options"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
 msgstr ""
 
@@ -1486,28 +1546,28 @@ msgstr ""
 msgid "Recovery:"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:57
+#: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:70
+#: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:112
+#: ajenti/plugins/iptables/main.py:119
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid "Disable"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:153
+#: ajenti/plugins/iptables/main.py:159
 msgid " autostart"
 msgstr ""
 
-#: ajenti/plugins/iptables/main.py:206
+#: ajenti/plugins/iptables/main.py:212
 msgid "Applied successfully"
 msgstr ""
 
@@ -2107,15 +2167,15 @@ msgstr ""
 msgid "Immediate I/O"
 msgstr ""
 
-#: ajenti/plugins/fstab/main.py:46
+#: ajenti/plugins/fstab/main.py:51
 msgid "Filesystems"
 msgstr ""
 
-#: ajenti/plugins/fstab/main.py:70
+#: ajenti/plugins/fstab/main.py:75
 msgid "Unmounted"
 msgstr ""
 
-#: ajenti/plugins/fstab/main.py:77
+#: ajenti/plugins/fstab/main.py:82
 msgid "mount -a failed"
 msgstr ""
 
