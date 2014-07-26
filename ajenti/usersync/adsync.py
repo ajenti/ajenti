@@ -32,6 +32,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
         'user': 'Administrator',
         'password': '',
         'base': 'cn=Users,dc=DOMAIN',
+        'group': '',
     }
     classconfig_root = True
     classconfig_editor = ADSyncClassConfigEditor
@@ -62,10 +63,13 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
 
     def __search(self):
         l = self.__get_ldap()
+        flt = '(|(objectClass=user)(objectClass=simpleSecurityObject))' 
+        if self.classconfig.get('group', ''):
+            flt = '(&%s(memberOf=%s))' % (flt, self.clasconfig['group'])
         return l.search_s(
             self.classconfig['base'],
             ldap.SCOPE_SUBTREE,
-            '(|(objectClass=user)(objectClass=simpleSecurityObject))',
+            flt,
             ['sAMAccountName']
         )
 
