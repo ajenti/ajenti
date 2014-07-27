@@ -330,11 +330,11 @@ class CollectionAutoBinding (Binding):
                 self.template = self.template.children[0]
             self.template_parent = self.template.parent
             self.template.visible = False
-        self.items_ui = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
-        self.old_items = copy.copy(self.items_ui.children)
+        self.items_ui_element = self.ui.nearest(lambda x: x.bind == '__items')[0] or self.ui
+        self.old_items = copy.copy(self.items_ui_element.children)
 
-        self.item_ui = {}
-        self.binders = {}
+        self.item_ui = []
+        self.binders = []
         self.values = []
 
         self.last_template_hash = None
@@ -342,9 +342,9 @@ class CollectionAutoBinding (Binding):
     def unpopulate(self):
         if self.template:
             self.template_parent.append(self.template)
-        self.items_ui.empty()
+        self.items_ui_element.empty()
         # restore original container content
-        self.items_ui.children = copy.copy(self.old_items)
+        self.items_ui_element.children = copy.copy(self.old_items)
         return self
 
     def get_template(self, item, ui):
@@ -367,7 +367,7 @@ class CollectionAutoBinding (Binding):
         self.unpopulate()
 
         # Do it before DOM becomes huge
-        self.items_ui.on('add', self.on_add)
+        self.items_ui_element.on('add', self.on_add)
 
         try:
             add_button = self.ui.nearest(lambda x: x.bind == '__add')[0]
@@ -387,8 +387,8 @@ class CollectionAutoBinding (Binding):
             except IndexError:
                 pass
 
-        self.item_ui = {}
-        self.binders = {}
+        self.item_ui = []
+        self.binders = []
         for index, value in enumerate(self.values):
             # apply the filter property
             if not self.ui.filter(value):
@@ -396,12 +396,12 @@ class CollectionAutoBinding (Binding):
 
             template = self.get_template(value, self.ui)
             template.visible = True
-            self.items_ui.append(template)
-            self.item_ui[index] = template
+            self.items_ui_element.append(template)
+            self.item_ui.append(template)
 
             binder = Binder(value, template)
             binder.populate()
-            self.binders[index] = binder
+            self.binders.append(binder)
 
             try:
                 del_button = template.nearest(lambda x: x.bind == '__delete')[0]
@@ -434,13 +434,13 @@ class CollectionAutoBinding (Binding):
         self.populate()
 
     def update(self):
-        if hasattr(self.items_ui, 'sortable') and self.items_ui.order:
+        if hasattr(self.items_ui_element, 'sortable') and self.items_ui_element.order:
             sortable_indexes = []
-            for i, e in enumerate(self.items_ui.children):
+            for i, e in enumerate(self.items_ui_element.children):
                 if e.visible:
                     sortable_indexes.append(i)
 
-            absolute_order = [sortable_indexes[i - 1] for i in self.items_ui.order]
+            absolute_order = [sortable_indexes[i - 1] for i in self.items_ui_element.order]
             new_indexes = []
             absolute_order_idx = 0
             for i in range(len(self.values)):
@@ -460,10 +460,10 @@ class CollectionAutoBinding (Binding):
                 self.collection.append(e)
 
 
-            self.items_ui.order = []
+            self.items_ui_element.order = []
 
         for index, value in enumerate(self.values):
-            if self.ui.filter(value) and index in self.binders:
+            if self.ui.filter(value):
                 self.binders[index].update()
                 self.ui.post_item_update(self.object, self.collection, value, self.binders[index].ui)
 
