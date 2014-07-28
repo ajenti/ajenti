@@ -387,8 +387,8 @@ class CollectionAutoBinding (Binding):
             except IndexError:
                 pass
 
-        self.item_ui = []
-        self.binders = []
+        self.item_ui = {}
+        self.binders = {}
         for index, value in enumerate(self.values):
             # apply the filter property
             if not self.ui.filter(value):
@@ -397,11 +397,11 @@ class CollectionAutoBinding (Binding):
             template = self.get_template(value, self.ui)
             template.visible = True
             self.items_ui_element.append(template)
-            self.item_ui.append(template)
+            self.item_ui[index] = template
 
             binder = Binder(value, template)
             binder.populate()
-            self.binders.append(binder)
+            self.binders[index] = binder
 
             try:
                 del_button = template.nearest(lambda x: x.bind == '__delete')[0]
@@ -449,16 +449,16 @@ class CollectionAutoBinding (Binding):
                     absolute_order_idx += 1
                 else:
                     new_indexes.append(i)
+            
+            shuffle = lambda a: dict([(old, a[i]) for old, i in enumerate(new_indexes) if i < len(self.collection)])
+            self.binders = shuffle(self.binders)
+            self.item_ui = shuffle(self.item_ui)
 
             new_values = [self.values[i] for i in new_indexes if i < len(self.collection)]
-            new_binders = [self.binders[i] for i in new_indexes if i < len(self.collection)]
-
-            self.binders = new_binders
             while len(self.collection) > 0:
                 self.collection.pop(0)
             for e in new_values:
                 self.collection.append(e)
-
 
             self.items_ui_element.order = []
 
