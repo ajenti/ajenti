@@ -93,7 +93,7 @@
                                                                 <editable bind="name" style="mini" id="name-edit" />
                                                                 <label bind="name" style="mini" id="name-label" />
                                                             </box>
-                                                            <editable id="password" placeholder="{Change password}" icon="lock" />
+                                                            <editable id="password" bind="password" placeholder="{Change password}" icon="lock" />
                                                         </hc>
                                                     </box>
                                                     <vc>
