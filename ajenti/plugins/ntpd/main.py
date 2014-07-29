@@ -61,8 +61,12 @@ class NTPDPlugin (SectionPlugin):
         self.find('servicebar').name = self.service_name
         self.find('servicebar').reload()
 
+        open_ntpd_conf = '/etc/openntpd/ntpd.conf'
+        ntpd_conf = '/etc/ntp.conf'
+
+        conf = ntpd_conf if os.path.exists(ntpd_conf) else open_ntpd_conf
         self.config = NTPDConfig(path=platform_select(
-            default='/etc/ntp.conf',
+            default=conf,
         ))
 
         self.binder = Binder(None, self)
