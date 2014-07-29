@@ -51,6 +51,8 @@ class window.Controls.dashboard__widget extends window.Control
 
     setupDom: (dom) ->
         super(dom)
+        if not @properties.configurable
+            $(@dom).children('a.configure').remove()
         $(@dom).children('a.configure').click () =>
             @event('configure', {})
         $(@dom).children('a.delete').click () =>

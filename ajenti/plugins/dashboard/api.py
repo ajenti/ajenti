@@ -3,6 +3,7 @@ from ajenti.ui import UIElement, p
 
 
 @p('config', public=False, doc="current configuration dict of this widget instance")
+@p('configurable', default=False)
 @p('container', type=int, default=0)
 @p('index', type=int, default=0)
 @interface
@@ -22,6 +23,7 @@ class DashboardWidget (BasePlugin, UIElement):
         self.event('save-config')
 
 
+@p('configurable', default=True)
 @interface
 class ConfigurableWidget (DashboardWidget):
     """
