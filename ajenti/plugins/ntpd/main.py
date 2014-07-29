@@ -92,8 +92,6 @@ class NTPDPlugin(SectionPlugin):
 
         self.append(self.ui.inflate('ntpd:main'))
 
-        print(self.service_name)
-
         self.find('servicebar').name = self.service_name
         self.find('servicebar').reload()
 
