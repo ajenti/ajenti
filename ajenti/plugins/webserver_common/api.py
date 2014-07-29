@@ -139,11 +139,6 @@ class WebserverPlugin(SectionPlugin):
             self.hosts_enabled_dir,
             self.supports_host_activation
         )
-        self.mods_dir = AvailabilitySymlinks(
-            self.mods_available_dir,
-            self.mods_enabled_dir,
-            self.supports_mod_activation
-        )
 
         def delete_host(host, c):
             self.log('removed host %s' % host.name)

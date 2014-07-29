@@ -4,7 +4,7 @@ from ajenti.util import platform_select
 
 
 @plugin
-class Nginx (WebserverPlugin):
+class Nginx(WebserverPlugin):
     platforms = ['debian', 'centos', 'freebsd', 'arch']
     service_name = 'nginx'
     service_buttons = [
@@ -25,6 +25,13 @@ class Nginx (WebserverPlugin):
         debian=True,
         arch=True,
         default=False,
+    )
+
+    configurable = True
+    main_conf_files = platform_select(
+        debian=['/etc/nginx/nginx.conf', '/etc/nginx/proxy_params', '/etc/nginx/fastcgi_params',
+                '/etc/nginx/scgi_params', '/etc/nginx/uwsgi_params'],
+        default=[],
     )
 
     template = """server {
