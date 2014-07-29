@@ -16,20 +16,8 @@ from reconfigure.builders import BoundBuilder
 from reconfigure.nodes import Node, PropertyNode
 from reconfigure.items.bound import BoundData
 
-
-def get_tz_debian(*args,**kwargs):
-    return open('/etc/timezone').read().strip()
-
-
-def get_tz_centos(*args,**kwargs):
-    return os.path.realpath('/etc/localtime')[len('/usr/share/zoneinfo/'):] if os.path.islink('/etc/localtime') else ''
-
-def set_tz_debian(*args,**kwargs):
-    open('/etc/timezone', 'w').write(kwargs['timezone'] + '\n')
-
-def set_tz_centos(*args,**kwargs):
-    tz = os.path.join('/usr/share/zoneinfo/',kwargs['timezone'])
-    os.symlink(tz, '/etc/localtime')
+open_ntpd_conf = '/etc/openntpd/ntpd.conf'
+ntpd_conf = '/etc/ntp.conf'
 
 class NTPDData(BoundData):
     pass
@@ -61,8 +49,25 @@ class NTPDConfig(Reconfig):
 
 @plugin
 class NTPDPlugin(SectionPlugin):
+
+    def get_tz_debian(self):
+        return open('/etc/timezone').read().strip()
+
+
+    def get_tz_centos(self):
+        return os.path.realpath('/etc/localtime')[len('/usr/share/zoneinfo/'):] if os.path.islink('/etc/localtime') else ''
+
+
+    def set_tz_debian(self, timezone):
+        open('/etc/timezone', 'w').write(timezone + '\n')
+
+
+    def set_tz_centos(self, timezone):
+        tz = os.path.join('/usr/share/zoneinfo/', timezone)
+        os.symlink(tz, '/etc/localtime')
+
     service_name = platform_select(
-        default='ntp',
+        default='ntp' if os.path.exists(ntpd_conf) else 'openntpd',
         centos='ntpd',
     )
 
@@ -85,9 +90,6 @@ class NTPDPlugin(SectionPlugin):
 
         self.find('servicebar').name = self.service_name
         self.find('servicebar').reload()
-
-        open_ntpd_conf = '/etc/openntpd/ntpd.conf'
-        ntpd_conf = '/etc/ntp.conf'
 
         conf = ntpd_conf if os.path.exists(ntpd_conf) else open_ntpd_conf
         self.config = NTPDConfig(path=platform_select(
@@ -120,7 +122,7 @@ class NTPDPlugin(SectionPlugin):
         self.binder.update()
         d = datetime.fromtimestamp(self.now)
         s = d.strftime('%m%d%H%M%Y')
-        self.set_tz(timezone=self.timezone)
+        self.set_tz(self.timezone)
         subprocess.call(['date', s])
         self.refresh()
 
