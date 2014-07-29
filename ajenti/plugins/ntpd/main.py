@@ -19,6 +19,11 @@ from reconfigure.items.bound import BoundData
 open_ntpd_conf = '/etc/openntpd/ntpd.conf'
 ntpd_conf = '/etc/ntp.conf'
 
+
+def isopenntpd():
+    return not ServiceMultiplexor.get().get_one('openntpd') is None
+
+
 class NTPDData(BoundData):
     pass
 
@@ -49,36 +54,35 @@ class NTPDConfig(Reconfig):
 
 @plugin
 class NTPDPlugin(SectionPlugin):
-
     def get_tz_debian(self):
         return open('/etc/timezone').read().strip()
 
-
-    def get_tz_centos(self):
-        return os.path.realpath('/etc/localtime')[len('/usr/share/zoneinfo/'):] if os.path.islink('/etc/localtime') else ''
-
+    def get_tz_nondebian(self):
+        return os.path.realpath('/etc/localtime')[len('/usr/share/zoneinfo/'):] if os.path.islink(
+            '/etc/localtime') else ''
 
     def set_tz_debian(self, timezone):
         open('/etc/timezone', 'w').write(timezone + '\n')
 
-
-    def set_tz_centos(self, timezone):
+    def set_tz_nondebian(self, timezone):
         tz = os.path.join('/usr/share/zoneinfo/', timezone)
         os.symlink(tz, '/etc/localtime')
 
+    openntpd = isopenntpd()
+
     service_name = platform_select(
-        default='ntp' if os.path.exists(ntpd_conf) else 'openntpd',
-        centos='ntpd',
+        default='openntpd' if openntpd else 'ntp',
+        centos='openntpd' if openntpd else 'ntpd',
     )
 
     get_tz = platform_select(
-        default=get_tz_debian,
-        centos=get_tz_centos,
+        debian=get_tz_debian,
+        default=get_tz_nondebian,
     )
 
     set_tz = platform_select(
-        default=set_tz_debian,
-        centos=set_tz_centos,
+        debian=set_tz_debian,
+        default=set_tz_nondebian,
     )
 
     def init(self):
@@ -88,12 +92,15 @@ class NTPDPlugin(SectionPlugin):
 
         self.append(self.ui.inflate('ntpd:main'))
 
+        print(self.service_name)
+
         self.find('servicebar').name = self.service_name
         self.find('servicebar').reload()
 
-        conf = ntpd_conf if os.path.exists(ntpd_conf) else open_ntpd_conf
         self.config = NTPDConfig(path=platform_select(
-            default=conf,
+            default=open_ntpd_conf if self.openntpd else ntpd_conf,
+            centos='/usr/local/etc/ntpd.conf',
+            freebsd='/usr/local/etc/ntpd.conf' if self.openntpd else ntpd_conf
         ))
 
         self.binder = Binder(None, self)
