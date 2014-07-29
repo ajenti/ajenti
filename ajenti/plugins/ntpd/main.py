@@ -17,25 +17,28 @@ from reconfigure.builders import BoundBuilder
 from reconfigure.nodes import Node, PropertyNode
 from reconfigure.items.bound import BoundData
 
+open_ntpd_conf = '/etc/openntpd/ntpd.conf'
+ntpd_conf = '/etc/ntp.conf'
 
-class NTPDData (BoundData):
+class NTPDData(BoundData):
     pass
 
 
-class ServerData (BoundData):
+class ServerData(BoundData):
     def template(self):
         return Node(
             'line',
-            Node('token', PropertyNode('value',  'server')),
+            Node('token', PropertyNode('value', 'server')),
             Node('token', PropertyNode('value', '0.pool.ntp.org')),
         )
 
 
-NTPDData.bind_collection('servers', selector=lambda x: x.children[0].get('value').value == 'server', item_class=ServerData)
+NTPDData.bind_collection('servers', selector=lambda x: x.children[0].get('value').value == 'server',
+                         item_class=ServerData)
 ServerData.bind_property('value', 'address', path=lambda x: x.children[1])
 
 
-class NTPDConfig (Reconfig):
+class NTPDConfig(Reconfig):
     def __init__(self, **kwargs):
         k = {
             'parser': SSVParser(),
@@ -46,10 +49,37 @@ class NTPDConfig (Reconfig):
 
 
 @plugin
-class NTPDPlugin (SectionPlugin):
+class NTPDPlugin(SectionPlugin):
+
+    def get_tz_debian(self):
+        return open('/etc/timezone').read().strip()
+
+
+    def get_tz_centos(self):
+        return os.path.realpath('/etc/localtime')[len('/usr/share/zoneinfo/'):] if os.path.islink('/etc/localtime') else ''
+
+
+    def set_tz_debian(self, timezone):
+        open('/etc/timezone', 'w').write(timezone + '\n')
+
+
+    def set_tz_centos(self, timezone):
+        tz = os.path.join('/usr/share/zoneinfo/', timezone)
+        os.symlink(tz, '/etc/localtime')
+
     service_name = platform_select(
-        default='ntp',
+        default='ntp' if os.path.exists(ntpd_conf) else 'openntpd',
         centos='ntpd',
+    )
+
+    get_tz = platform_select(
+        default=get_tz_debian,
+        centos=get_tz_centos,
+    )
+
+    set_tz = platform_select(
+        default=set_tz_debian,
+        centos=set_tz_centos,
     )
 
     def init(self):
@@ -62,8 +92,9 @@ class NTPDPlugin (SectionPlugin):
         self.find('servicebar').name = self.service_name
         self.find('servicebar').reload()
 
+        conf = ntpd_conf if os.path.exists(ntpd_conf) else open_ntpd_conf
         self.config = NTPDConfig(path=platform_select(
-            default='/etc/ntp.conf',
+            default=conf,
         ))
 
         self.binder = Binder(None, self)
@@ -84,15 +115,15 @@ class NTPDPlugin (SectionPlugin):
     def refresh(self):
         self.config.load()
         self.now = int(time.time())
-        self.timezone = open('/etc/timezone').read().strip()
+        self.timezone = self.get_tz()
         self.binder.setup(self).populate()
 
     @on('set', 'click')
     def on_set(self):
         self.binder.update()
         d = datetime.fromtimestamp(self.now)
-        s = d.strftime('%m%d%H%M%Y') 
-        open('/etc/timezone', 'w').write(self.timezone + '\n')
+        s = d.strftime('%m%d%H%M%Y')
+        self.set_tz(self.timezone)
         subprocess.call(['date', s])
         self.refresh()
 
