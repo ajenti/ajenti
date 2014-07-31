@@ -23,6 +23,7 @@ Developers
    dev/binding.rst
    dev/custom-controls.rst
    dev/http.rst
+   dev/dash-widgets.rst
 
 
 API Reference

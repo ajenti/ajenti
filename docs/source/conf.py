@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+import datetime
 
 sys.path.insert(0, os.path.abspath('../..'))
 
@@ -13,7 +14,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 project = u'Ajenti'
-copyright = u'2013, Eugene Pankov'
+copyright = u'%i, Eugene Pankov' % datetime.datetime.now().year
 
 import ajenti
 version = ajenti.__version__
@@ -99,6 +100,6 @@ class Mock(object):
         else:
             return Mock()
 
-MOCK_MODULES = ['python-ldap', 'gevent', 'gevent-socketio', 'lxml', 'lxml.etree', 'pyOpenSSL', 'Pillow', 'psutil']
+MOCK_MODULES = ['python-ldap', 'gevent', 'gevent.pywsgi', 'gevent.queue', 'gevent-socketio', 'lxml', 'lxml.etree', 'pyOpenSSL', 'Pillow', 'psutil']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
