@@ -52,7 +52,8 @@ Creating new plugin package
 New plugins can be placed in both ``<source>/ajenti/plugins/`` (if you expect inclusion in the source tree) and ``/var/lib/ajenti/plugins``.
 
 Each plugin package consists of few Python modules, which contain :class:`ajenti.api.plugin` classes (*plugins*).
-Packages also may contain static files, CoffeeScript and LESS code, and XML user interface layouts::
+Packages also may contain :ref:`static files, CoffeeScript and LESS code <dev-resources>`, and XML user interface layouts::
+
 
     * ajenti
       * plugins

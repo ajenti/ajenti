@@ -67,10 +67,23 @@ Layout::
         </pad>
     </body>
 
-We have added ``bind`` attributes to the elements which are to be auto-populated with values. If you want to bind multiple properties, use XML attributes like ``bind:text`` or ``bind:style``.
+We have added ``bind`` attributes to the elements which are to be auto-populated with values. If you want to bind multiple properties, use XML attributes like ``bind:text`` or ``bind:style``. Dictionary values and ``__getattr__`` powered indexers can be bound by enclosing the key name in square brackets, e.g.: ``<label bind:value="[somekey]" />``
 
 .. image:: /_static/dev/simple-binding.png
 
+If you would like to continue binding on a nested object, use ``binder:context`` attribute::
+
+    <body>
+        <vc>
+            <label bind:value="simple_str_field" />    <!-- data.simple_str_field -->
+            <box binder:context="object_field">  
+                <label bind:value="objects_str_field" />   <!-- data.object_field.objects_str_field -->
+            </box>
+            <box binder:context="dict_field">
+                <label bind:value="[dict_key]" />  <!-- data.dict_field['dict_key'] -->
+            </box>
+        </vc>
+    </body>
 
 
 Collection Bindings
