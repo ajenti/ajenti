@@ -18,7 +18,7 @@ optionmap = {
 
 @plugin
 class CentosNetworkConfig (LinuxIfconfig, INetworkConfig):
-    platforms = ['centos']
+    platforms = ['centos', 'mageia']
 
     interfaces = None
 

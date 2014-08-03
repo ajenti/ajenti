@@ -25,7 +25,8 @@ class CTDB (SectionPlugin):
 
         self.config_path = {
             'debian': '/etc/default/ctdb',
-            'centos': '/etc/sysconfig/ctdb'
+            'centos': '/etc/sysconfig/ctdb',
+            'mageia': '/etc/sysconfig/ctdb'
         }[ajenti.platform]
 
         self.config = CTDBConfig(path=self.config_path)

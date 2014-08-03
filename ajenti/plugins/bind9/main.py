@@ -15,6 +15,7 @@ class BIND9Plugin (SectionPlugin):
     config_root = platform_select(
         debian='/etc/bind/',
         centos='/etc/named/',
+        mageia='/etc/named/',
         arch='/var/named/',
     )
 

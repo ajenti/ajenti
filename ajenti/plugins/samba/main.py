@@ -22,6 +22,7 @@ class Samba (SectionPlugin):
         self.find('servicebar').name = platform_select(
             debian='samba',
             ubuntu='smbd',
+            mageia='smbd',
             centos='smb',
             default='samba',
         )

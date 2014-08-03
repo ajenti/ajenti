@@ -10,7 +10,7 @@ from ajenti.ui import *
 
 
 class LinuxIfconfig (object):
-    platforms = ['debian', 'centos']
+    platforms = ['debian', 'centos', 'mageia']
 
     def detect_dev_class(self, iface):
         ifname = re.compile('[a-z]+').findall(iface.name)

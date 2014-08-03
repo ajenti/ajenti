@@ -8,7 +8,7 @@ from api import PackageManager, PackageInfo
 
 @plugin
 class Packages (SectionPlugin):
-    platforms = ['debian', 'centos', 'freebsd', 'arch']
+    platforms = ['debian', 'centos', 'freebsd', 'arch', 'mageia']
     def init(self):
         self.title = _('Packages')
         self.icon = 'gift'
