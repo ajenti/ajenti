@@ -43,7 +43,7 @@ msgstr "Název"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -458,11 +458,11 @@ msgstr "Název domény"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Základní název domény"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Limit pro skupiny DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -528,7 +528,7 @@ msgstr "Nástroje"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Vykonat příkaz"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -537,7 +537,7 @@ msgstr "Kopíruje se %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Přesunout soubory"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -546,12 +546,12 @@ msgstr "Přesouvá se %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Odstranit soubory"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Odstraňování %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -831,7 +831,7 @@ msgstr "Zrušit"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Adresář již neexistuje"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
@@ -860,7 +860,7 @@ msgstr "Neplatné přihlašovací jméno nebo heslo"
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "E-mail \"%s\" není spojen s žádným uživatelem"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
@@ -993,7 +993,7 @@ msgstr "R/W uživatelé"
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
-msgstr ""
+msgstr "Soubory veto"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
@@ -1157,11 +1157,11 @@ msgstr "Tento název databáze je již použit"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr ""
+msgstr "Toto uživatelské jméno je již použito"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Přístup udělen."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1171,53 +1171,53 @@ msgstr "Databáze"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Odpojit od stránky"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Zničit"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Odstranit databázi?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Odstranit uživatele?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Udělit všechna oprávnění"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Soubor názvem {0} již existuje v {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Některé parametry jsou prázdné."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Nelze uložit konfigurační soubor. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Kontrolor filterů"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Soubor filtru"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Spustit test"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "PUMA service"
 
 #: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
@@ -1277,19 +1277,19 @@ msgstr "Název databáze"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Statické soubory"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "Vlastní FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Reverzní proxy"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Process"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1297,97 +1297,97 @@ msgstr "Procesy"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Webové stránky"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "Testování konfigurace"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
-msgstr ""
+msgstr "Ukládání změn"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr ""
+msgstr "Uplatňování změn"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
-msgstr ""
+msgstr "Restartování webových služeb"
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
-msgstr ""
+msgstr "Stahování dokončeno"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Spravovat"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Nové webové stránky"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Kontroly konfigurace"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Restartovat webové služby"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "Minimum procesů"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
-msgstr ""
+msgstr "Maximum procesů"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "Process user"
-msgstr ""
+msgstr "Uživatel procesu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "Process group"
-msgstr ""
+msgstr "Skupina procesu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "PHP .ini values"
-msgstr ""
+msgstr "PHP .ini hodnoty"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
-msgstr ""
+msgstr "PHP flags"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Aplikační modul"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Cesta Virtualenv"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Pracovníci"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Název skriptu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "Port HTTP skriptu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Zobrazit obsah adresáře"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "Použít Bundler"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
 #: ajenti/plugins/vh/layout/ext-processes.xml:7
@@ -1398,15 +1398,15 @@ msgstr "Prostředí"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "URL vzor"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Vlastní cesta"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Přidat URL vzor do cesty"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:32
@@ -1464,7 +1464,7 @@ msgstr "Vytvořit adresář"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Oprava oprávnění souboru"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
@@ -1506,7 +1506,7 @@ msgstr "Obsah"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Vlastní configurace nejvyšší úrovně"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:33
@@ -1720,23 +1720,23 @@ msgstr "Velikost"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Předávání"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Cílová adresa"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nová poštovní schránka"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Poštovní schránka"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Selektor"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
@@ -1780,11 +1780,11 @@ msgstr "Vlastní transporty"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail ještě není povolen"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Aktivace Ajenti V přepíše nastavení následujících programů:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
@@ -1873,7 +1873,7 @@ msgstr "Zóna uložena"
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s neexistuje"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
@@ -1902,15 +1902,15 @@ msgstr "Správce souborů"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Soubory odstraněny"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
-msgstr ""
+msgstr "Soubory přesunuty"
 
 #: ajenti/plugins/fm/fm.py:184
 msgid "Files copied"
-msgstr ""
+msgstr "Soubory zkopírovány"
 
 #: ajenti/plugins/fm/fm.py:199
 #, python-format
@@ -1919,7 +1919,7 @@ msgstr "Vybráno %i položek"
 
 #: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
-msgstr ""
+msgstr "Rozbalené"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1959,19 +1959,19 @@ msgstr "Schránka"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Čas posledního přístupu"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Čas změny"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Čas vytvoření"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 #: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
@@ -1995,11 +1995,11 @@ msgstr "Nastavit rekurzivně"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "Spouštěcí složka"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Vlastník pro nové soubory"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
@@ -2266,27 +2266,27 @@ msgstr "Ajenti aktualizace je k dispozici"
 
 #: ajenti/plugins/ntpd/main.py:55
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum & čas"
 
 #: ajenti/plugins/ntpd/main.py:102
 msgid "No servers defined"
-msgstr ""
+msgstr "Žádné servery definovány"
 
 #: ajenti/plugins/ntpd/main.py:106
 msgid "Done"
-msgstr ""
+msgstr "Hotovo"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Aktuální čas"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Synchronizace"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Servery"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"

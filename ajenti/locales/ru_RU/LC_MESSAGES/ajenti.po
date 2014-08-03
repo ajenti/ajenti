@@ -461,7 +461,7 @@ msgstr "Корневой DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Из DN группы"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -1160,7 +1160,7 @@ msgstr "Это имя пользователя уже используется"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Разрешения предоставлены."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1170,24 +1170,24 @@ msgstr "Базы данных"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Отсоединить от сайта."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Удалить"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Удалить базу данных?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Удалить пользователя?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Выдать разрешения"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
@@ -1344,15 +1344,15 @@ msgstr "Процессы, до"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "Process user"
-msgstr ""
+msgstr "Пользователь процесса"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "Process group"
-msgstr ""
+msgstr "Группа процесса"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "PHP .ini values"
-msgstr ""
+msgstr "Значения php.ini"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
@@ -1463,7 +1463,7 @@ msgstr "Создать папку"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Исправить права файлов"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
@@ -1505,7 +1505,7 @@ msgstr "Содержимое"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Своя конфигурация (верхний уровень)"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:33
@@ -1825,7 +1825,7 @@ msgstr "Обновить списки"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr "Получить списки"
+msgstr "Перезагрузить"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
@@ -1958,15 +1958,15 @@ msgstr "Буфер обмена"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Время доступа"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Время изменения"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Время создания"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"

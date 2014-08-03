@@ -43,7 +43,7 @@ msgstr "Nome"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -527,7 +527,7 @@ msgstr "Ferramentas"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Executar comando"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -536,7 +536,7 @@ msgstr "Cópia de %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Mover ficheiros"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -545,12 +545,12 @@ msgstr "Movendo %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Apagar Ficheiros"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "A apagar %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -830,19 +830,19 @@ msgstr "Cancelar"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "O local já não existe"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "As palavras-passe não são iguais"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Palavra-passe incorreta"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Palavra-passe alterada"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -850,7 +850,7 @@ msgstr "Vazio"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filtrar..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -871,11 +871,11 @@ msgstr "Acesso à secção"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Alterar a palavra-passe"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Palavra-passe anterior"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -884,7 +884,7 @@ msgstr "Nova senha"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Confirmação da palavra-passe"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -1152,15 +1152,15 @@ msgstr "Shell"
 
 #: ajenti/plugins/vh-mysql/mysql.py:92
 msgid "This database name is already used"
-msgstr ""
+msgstr "Este nome já existe para outra base de dados"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr ""
+msgstr "Este nome de utilizador já é utilizado"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Permissões atribuidas."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1170,53 +1170,53 @@ msgstr "Bases de dados"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Desassociar do website"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Destruir"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Apagar a base de dados?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Apagar o utilizador?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Dar todas as permissões"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "O ficheiro com o nome {0} já existe em {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Alguns parâmetros estão vazios."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Não foi possível salvar o ficheiro de configuração. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Filtros"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filtrar ficheiro"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Executar teste"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "Serviço PUMA"
 
 #: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
@@ -1276,19 +1276,19 @@ msgstr "Nome da Base Dados"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Ficheiros estáticos"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "FCGI personalizado"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Reverse proxy"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Processo"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1296,35 +1296,35 @@ msgstr "Processos"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "Websites"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "Configuração para teste"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
-msgstr ""
+msgstr "A salvar alterações"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr ""
+msgstr "A aplicar alterações"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
-msgstr ""
+msgstr "A reiniciar serviços web"
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
-msgstr ""
+msgstr "Transferência completa"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Gerir"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Novo website"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
