@@ -49,6 +49,5 @@ class Apache (WebserverPlugin):
         self.title = 'Apache'
         self.category = _('Software')
         self.icon = 'globe'
-        if ajenti.platform == 'centos' or \
-               ajenti.platform == 'mageia':
+        if ajenti.platform in ['centos', 'mageia']:
             self.service_name = 'httpd'

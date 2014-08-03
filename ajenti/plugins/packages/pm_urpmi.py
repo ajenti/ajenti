@@ -33,8 +33,10 @@ class UrpmiPackageManager (PackageManager):
         if query.strip() == "":
             return []
         try:
-            out_s = subprocess.check_output(['urpmq', "-Y",
-                                             "--summary", query])
+            out_s = subprocess.check_output([
+                'urpmq', "-Y",
+                "--summary", query
+            ])
         except subprocess.CalledProcessError as e:
             return []
         
@@ -56,8 +58,10 @@ class UrpmiPackageManager (PackageManager):
             r.append(p)
         return r
     def get_lists(self):
-        self.context.launch('terminal',
-                            command='urpmi.update -a ; read -p "Press [enter] to continue"')
+        self.context.launch(
+            'terminal',
+            command='urpmi.update -a ; read -p "Press [enter] to continue"'
+        )
 
     def do(self, actions, callback=lambda: 0):
         to_install = [a for a in actions if a.action == 'i']
