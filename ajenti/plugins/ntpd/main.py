@@ -70,6 +70,7 @@ class NTPDPlugin(SectionPlugin):
     service_name = platform_select(
         default='ntp' if os.path.exists(ntpd_conf) else 'openntpd',
         centos='ntpd',
+        mageia='ntpd',
     )
 
     get_tz = platform_select(

@@ -58,7 +58,7 @@ def run():
         logging.warning('Couldn\'t set default locale')
 
     logging.info('Ajenti %s running on platform: %s' % (ajenti.version, ajenti.platform))
-    if not ajenti.platform in ['debian', 'centos', 'freebsd']:
+    if not ajenti.platform in ['debian', 'centos', 'freebsd', 'mageia']:
         logging.warn('%s is not officially supported!' % ajenti.platform)
 
     if ajenti.debug:

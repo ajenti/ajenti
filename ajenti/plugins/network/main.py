@@ -9,7 +9,7 @@ from api import *
 
 @plugin
 class NetworkPlugin (SectionPlugin):
-    platforms = ['debian', 'centos']
+    platforms = ['debian', 'centos', 'mageia']
 
     def init(self):
         self.title = _('Network')

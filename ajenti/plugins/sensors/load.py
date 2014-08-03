@@ -15,7 +15,7 @@ class BaseLoadSensor (Sensor):
 
 @plugin
 class LinuxLoadSensor (BaseLoadSensor):
-    platforms = ['debian', 'centos', 'arch']
+    platforms = ['debian', 'centos', 'arch', 'mageia']
 
     def measure(self, variant):
         idx = self.get_variants().index(variant)

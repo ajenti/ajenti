@@ -17,6 +17,7 @@ class Apache (WebserverPlugin):
     hosts_available_dir = platform_select(
         debian='/etc/apache2/sites-available',
         centos='/etc/httpd/conf.d',
+        mageia='/etc/httpd/conf',
         freebsd='/usr/local/etc/apache/sites-available',
     )
     hosts_enabled_dir = '/etc/apache2/sites-enabled'
@@ -48,5 +49,6 @@ class Apache (WebserverPlugin):
         self.title = 'Apache'
         self.category = _('Software')
         self.icon = 'globe'
-        if ajenti.platform == 'centos':
+        if ajenti.platform == 'centos' or \
+               ajenti.platform == 'mageia':
             self.service_name = 'httpd'

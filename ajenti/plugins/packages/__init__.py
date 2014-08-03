@@ -18,4 +18,5 @@ def init():
     import pm_bsd
     import pm_yum
     import pm_pacman
+    import pm_urpmi
     import installer
