@@ -6,6 +6,7 @@ class RAIDDevice (object):
         self.name = ''
         self.up = False
         self.failed = False
+        self.spared = False
         self.index = 0
 
 
@@ -59,12 +60,17 @@ class RAIDManager (BasePlugin):
 
                 self.arrays.append(array)
 
-                for i in range(len(devices)):
+                for i, device_str in enumerate(devices):
                     device = RAIDDevice()
-                    device.name = devices[i].split('[')[0]
-                    device.index = int(devices[i].split('[')[1].split(']')[0])
-                    device.up = states[i] == 'U'
-                    array.devices.append(device)
+                    device.name = device_str.split('[')[0]
+                    device.index = int(device_str.split('[')[1].split(']')[0])
+                    if device_str.endswith("(F)"):
+                        device.failed = True
+                    elif device_str.endswith("(S)"):
+                        device.spared = True
+                    else:
+                        device.up = True
+                    array.devices.append(device)                
 
                 l = ll.pop(0)
                 if 'recovery' in l:
