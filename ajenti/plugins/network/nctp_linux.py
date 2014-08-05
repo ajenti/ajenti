@@ -14,6 +14,9 @@ class LinuxIfconfig (object):
 
     def detect_dev_class(self, iface):
         ifname = re.compile('[a-z]+').findall(iface.name)
+        if not ifname: 
+            return 'ethernet'
+        ifname = ifname[0]
         if ifname in ['ppp', 'wvdial']:
             return 'ppp'
         if ifname in ['wlan', 'ra', 'wifi', 'ath']:
