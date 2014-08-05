@@ -526,11 +526,13 @@ class Binder (object):
         """
 
         # Initial call
-        if not object and not ui:
+        if object is None and ui is None:
             self.bindings = []
 
-        ui = ui or self.ui
-        object = object or self.object
+        if ui is None:
+            ui = self.ui
+        if object is None:
+            object = self.object
 
         bindables = ui.nearest(
             lambda x: is_bound(x),
