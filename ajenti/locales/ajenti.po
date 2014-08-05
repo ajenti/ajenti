@@ -1382,19 +1382,20 @@ msgstr ""
 msgid "Script's HTTP port"
 msgstr ""
 
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
+#: ajenti/plugins/vh/layout/ext-processes.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:17
+#: ajenti/plugins/cron/layout/main.xml:22
+msgid "Environment"
+msgstr ""
+
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
-
-#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
-#: ajenti/plugins/vh/layout/ext-processes.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:17
-#: ajenti/plugins/cron/layout/main.xml:22
-msgid "Environment"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1

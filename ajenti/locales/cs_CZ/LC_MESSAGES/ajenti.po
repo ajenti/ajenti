@@ -69,7 +69,7 @@ msgid "Status"
 msgstr "Stav"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
-#: ajenti/plugins/configurator/configurator.py:161
+#: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
 #: ajenti/plugins/exports/layout/main.xml:5
@@ -162,7 +162,7 @@ msgid "Enable"
 msgstr "Zapnout"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
-#: ajenti/plugins/configurator/configurator.py:262
+#: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "Konfigurace"
 
@@ -203,13 +203,13 @@ msgstr "Memcache využití paměti"
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
 #: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:51
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:52
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
-#: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:29
-#: ajenti/plugins/apache/main.py:49
+#: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
+#: ajenti/plugins/apache/main.py:50
 msgid "Software"
 msgstr "Software"
 
@@ -280,28 +280,28 @@ msgstr "Chyba: \"%s\""
 msgid "Configure"
 msgstr "Nastavení"
 
-#: ajenti/plugins/configurator/configurator.py:178
+#: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
 msgstr "Automaticky"
 
-#: ajenti/plugins/configurator/configurator.py:200
+#: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
 msgstr "Uloženo. K provedení změn restartujte Ajenti."
 
-#: ajenti/plugins/configurator/configurator.py:207
+#: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
 msgstr "Zadejte název hostitele"
 
-#: ajenti/plugins/configurator/configurator.py:223
+#: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
 msgstr "Plugin %s je třeba nastavit!"
 
-#: ajenti/plugins/configurator/configurator.py:266
+#: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
 msgstr "Změnit nastavení Ajenti"
 
-#: ajenti/plugins/configurator/configurator.py:267
+#: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
 msgstr "Restartovat Ajenti"
 
@@ -756,9 +756,9 @@ msgstr "NFS exporty"
 #: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:262
 #: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/ctdb/main.py:80 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:115 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:85
+#: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
+#: ajenti/plugins/ntpd/main.py:148 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/bind9/main.py:86
 msgid "Saved"
 msgstr "Uloženo"
 
@@ -824,7 +824,7 @@ msgstr "Nejvyšší adresář"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:35
+#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:37
 #: ajenti/plugins/dashboard/layout/dash.xml:6
 msgid "Cancel"
 msgstr "Zrušit"
@@ -937,11 +937,11 @@ msgstr "Využití CPU"
 msgid "Variant"
 msgstr "Varianta"
 
-#: ajenti/plugins/samba/main.py:50
+#: ajenti/plugins/samba/main.py:51
 msgid "Password updated"
 msgstr "Heslo bylo změněno"
 
-#: ajenti/plugins/samba/main.py:53
+#: ajenti/plugins/samba/main.py:54
 msgid "Password update failed"
 msgstr "Při změně hesla nastala chyba"
 
@@ -1097,7 +1097,7 @@ msgstr "Zařízení"
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/ntpd/main.py:57 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/ntpd/main.py:89 ajenti/plugins/hosts/main.py:15
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
@@ -1381,6 +1381,14 @@ msgstr "Název skriptu"
 msgid "Script's HTTP port"
 msgstr "Port HTTP skriptu"
 
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
+#: ajenti/plugins/vh/layout/ext-processes.xml:7
+#: ajenti/plugins/supervisor/layout/main.xml:17
+#: ajenti/plugins/cron/layout/main.xml:22
+msgid "Environment"
+msgstr "Prostředí"
+
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
 msgstr "Zobrazit obsah adresáře"
@@ -1388,13 +1396,6 @@ msgstr "Zobrazit obsah adresáře"
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
 msgstr "Použít Bundler"
-
-#: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
-#: ajenti/plugins/vh/layout/ext-processes.xml:7
-#: ajenti/plugins/supervisor/layout/main.xml:17
-#: ajenti/plugins/cron/layout/main.xml:22
-msgid "Environment"
-msgstr "Prostředí"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
@@ -1509,7 +1510,7 @@ msgid "Custom top level configuration"
 msgstr "Vlastní configurace nejvyšší úrovně"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
-#: ajenti/plugins/vh-mail/layout/main.xml:33
+#: ajenti/plugins/vh-mail/layout/main.xml:34
 msgid "Apply changes"
 msgstr "Použít změny"
 
@@ -1775,6 +1776,10 @@ msgid "Custom routers"
 msgstr "Vlastní směrovače"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
+msgid "Custom local router config"
+msgstr ""
+
+#: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"
 msgstr "Vlastní transporty"
 
@@ -1866,7 +1871,7 @@ msgstr "Teplota HDD"
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:52
+#: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
 msgstr "Zóna uložena"
 
@@ -2079,7 +2084,7 @@ msgstr "Manuální"
 msgid "Samba Cluster"
 msgstr "Samba Cluster"
 
-#: ajenti/plugins/ctdb/main.py:70
+#: ajenti/plugins/ctdb/main.py:71
 msgid "Failed to obtain CTDB status"
 msgstr "Nepodařilo se získat CTDB status"
 
@@ -2264,15 +2269,15 @@ msgstr "Aktualizovat Ajenti"
 msgid "Ajenti update is available"
 msgstr "Ajenti aktualizace je k dispozici"
 
-#: ajenti/plugins/ntpd/main.py:55
+#: ajenti/plugins/ntpd/main.py:87
 msgid "Date & Time"
 msgstr "Datum & čas"
 
-#: ajenti/plugins/ntpd/main.py:102
+#: ajenti/plugins/ntpd/main.py:135
 msgid "No servers defined"
 msgstr "Žádné servery definovány"
 
-#: ajenti/plugins/ntpd/main.py:106
+#: ajenti/plugins/ntpd/main.py:139
 msgid "Done"
 msgstr "Hotovo"
 
