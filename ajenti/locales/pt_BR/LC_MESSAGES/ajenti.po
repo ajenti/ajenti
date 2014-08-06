@@ -5,7 +5,7 @@ msgstr "Complementos"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr "Lista de plugin de recolhimento"
+msgstr "Obtendo a lista de plugins"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:3
@@ -282,7 +282,7 @@ msgstr "Configurar"
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automático"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -318,7 +318,7 @@ msgstr "Geral"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr "Linguagem"
+msgstr "Idioma"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
@@ -412,7 +412,7 @@ msgstr "Enviar comentário"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr "Ajenti enviará anonimamente sua versão, o nome do sistema operacional e que plugins você mais usa para ajenti.org"
+msgstr "Ajenti enviará anonimamente sua versão, o nome do sistema operacional e quais plugins você mais usa para ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
@@ -437,7 +437,7 @@ msgstr "URL do servidor"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr "Admin DN"
+msgstr "Administrador DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
@@ -465,7 +465,7 @@ msgstr "Limite para o grupo DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr "Usuário admin"
+msgstr "Usuário administrador"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
@@ -514,7 +514,7 @@ msgstr "Tarefa %s na fila"
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
 msgid "Task %s started"
-msgstr "Tarefa %s começada"
+msgstr "Tarefa %s iniciou"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
@@ -568,7 +568,7 @@ msgstr "Em execução"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr "Cancelando"
+msgstr "Abortando"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
@@ -577,7 +577,7 @@ msgstr "Pendente"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr "Cancelar"
+msgstr "Abortar"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
@@ -625,12 +625,12 @@ msgstr "Manual (especificar abaixo)"
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr "Hora"
+msgstr "De hora em hora"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
 msgid "Daily"
-msgstr "Diária"
+msgstr "Diariamente"
 
 #: ajenti/plugins/tasks/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:18
@@ -726,11 +726,11 @@ msgstr "Preservar horários do arquivo"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr "Preservar os atributos de atributos."
+msgstr "Preservar os atributos de extensões"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr "Excluir diretório de destino"
+msgstr "Excluir no diretório de destino"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
@@ -854,7 +854,7 @@ msgstr "Filtrar..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr "Login inválido ou senha"
+msgstr "Login ou senha inválidos"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
@@ -1152,11 +1152,11 @@ msgstr "Shell"
 
 #: ajenti/plugins/vh-mysql/mysql.py:92
 msgid "This database name is already used"
-msgstr "O nome deste banco de dados já esta sendo usado"
+msgstr "Este nome de banco de dados já está em uso"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr "Este nome de usuário já está sendo usado"
+msgstr "Este nome de usuário já está em uso"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
@@ -1179,19 +1179,19 @@ msgstr "Destruir"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr "Apagar a base de dados?"
+msgstr "Apagar o banco de dados?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr "Apagar o utilizador?"
+msgstr "Apagar o usuário?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr "Conceder permissões de todos os"
+msgstr "Conceder todas as permissões"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr "O ficheiro com o nome {0} já existe em {1}."
+msgstr "O arquivo com o nome {0} já existe em {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
@@ -1200,7 +1200,7 @@ msgstr "Alguns parâmetros estão vazios."
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr "Não foi possível salvar o ficheiro de configuração. %s"
+msgstr "Não foi possível salvar o arquivo de configuração. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
@@ -1308,7 +1308,7 @@ msgstr "Salvando alterações"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr "Aplicar alterações"
+msgstr "Aplicando alterações"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
@@ -1344,11 +1344,11 @@ msgstr "Máximo de processos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "Process user"
-msgstr ""
+msgstr "Usuário do processo"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "Process group"
-msgstr "Grupo de processo"
+msgstr "Grupo do processo"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "PHP .ini values"
@@ -1776,7 +1776,7 @@ msgstr "Roteadores personalizados"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Configuração personalizada do roteador local"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"

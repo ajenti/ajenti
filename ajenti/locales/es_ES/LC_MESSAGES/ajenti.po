@@ -461,7 +461,7 @@ msgstr "DN base"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Limitar a grupo DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -1156,11 +1156,11 @@ msgstr "Este nombre de base de datos ya esta en uso"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr ""
+msgstr "Este nombre de usuario ya es utilizado"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Permisos concedidos."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1170,12 +1170,12 @@ msgstr "Bases de datos"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Separar de la página web"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Eliminar"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"

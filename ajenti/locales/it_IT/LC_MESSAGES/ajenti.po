@@ -1170,7 +1170,7 @@ msgstr "Database"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Scollegare dal sito Web"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
@@ -1191,20 +1191,20 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "File con il nome {0} già esistente in {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Alcuni parametri sono vuoti."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Impossibile salvare il file di configurazione %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Controllo filtri"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
@@ -1212,7 +1212,7 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Avvia test"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
