@@ -112,10 +112,11 @@ if __name__ == '__main__':
 
     if is_daemon:
         ajenti.log.init_log_directory()
+        logfile = open(ajenti.log.LOG_FILE, 'w+')
         context = daemon.DaemonContext(
             pidfile=PidFile('/var/run/ajenti.pid'),
-            stdout=open(ajenti.log.LOG_FILE, 'w+'),
-            stderr=open(ajenti.log.LOG_FILE, 'w+'),
+            stdout=logfile,
+            stderr=logfile,
             detach_process=True
         )
         with context:
