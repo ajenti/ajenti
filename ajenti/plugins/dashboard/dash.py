@@ -27,7 +27,9 @@ class Dash (SectionPlugin):
 
         self.append(self.ui.inflate('dashboard:dash'))
         self.dash = self.find('dash')
+        self.dash._section = self
         self.dash.on('reorder', self.on_reorder)
+        self.allow_updates = True
 
         self.autorefresh = False
 
@@ -54,7 +56,7 @@ class Dash (SectionPlugin):
 
     def worker(self):
         while True:
-            if self.active and self.autorefresh and self.dash.allow_updates:
+            if self.active and self.autorefresh and self.allow_updates:
                 self.refresh()
             gevent.sleep(5)
 
@@ -180,14 +182,11 @@ class Dash (SectionPlugin):
 class DashboardDash (UIElement):
     typeid = 'dashboard:dash'
 
-    def init(self):
-        self.allow_updates = True
-
     def on_drag_start(self):
-        self.allow_updates = False
+        self._section.allow_updates = False
 
     def on_drag_stop(self):
-        self.allow_updates = True
+        self._section.allow_updates = True
 
 
 @p('platform')
