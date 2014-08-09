@@ -1,5 +1,5 @@
 <hc>
-    <label id="text" text="---" />
+    <label id="text" text="---" escape="False" />
 
     <dialog id="config-dialog" visible="False">
         <pad>

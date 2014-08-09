@@ -13,7 +13,10 @@ class window.Controls.default extends window.Control
 
 class window.Controls.label extends window.Control
     createDom: () ->
-        """<span class="control label #{@s(@properties.style)}">#{@s(@properties.text)}</span>"""
+        text = @properties.text
+        if @properties.escape
+            text = @s(text)
+        """<span class="control label #{@s(@properties.style)}">#{text}</span>"""
 
 
 class window.Controls.tooltip extends window.Control
