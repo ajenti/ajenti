@@ -95,7 +95,7 @@ upload-rpm7: rpm
 	ssh root@ajenti.org /srv/repo/rebuild-centos7.sh
 
 upload-tgz: tgz
-	$(PYTHON) setup.py sdist upload
+	$(PYTHON) setup.py sdist bdist_wheel upload
 
 clean:
 	$(PYTHON) setup.py clean

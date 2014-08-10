@@ -8,6 +8,7 @@ debian/changelog
 dist/*.rpm
 dist/*.deb
 dist/*.gz
+dist/*.whl
 *.egg*
 build/*
 debian/files
