@@ -89,3 +89,16 @@ def new_init(self, *args, **kwargs):
     self.headers = []
 
 BaseTransport.__init__ = new_init
+
+
+# Rude JSONP polling fix
+from socketio.handler import SocketIOHandler
+
+old_init = SocketIOHandler.__init__
+
+def new_init(self, *args, **kwargs):
+    self.response_headers = []
+    self.response_headers_list = []
+    old_init(self, *args, **kwargs)
+
+SocketIOHandler.__init__ = new_init
