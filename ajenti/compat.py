@@ -82,23 +82,23 @@ except:
 # Suppress CORS headers in Socket.IO
 from socketio.transports import BaseTransport
 
-old_init = BaseTransport.__init__
+old_transport_init = BaseTransport.__init__
 
-def new_init(self, *args, **kwargs):
-    old_init(self, *args, **kwargs)
+def new_transport_init(self, *args, **kwargs):
+    old_transport_init(self, *args, **kwargs)
     self.headers = []
 
-BaseTransport.__init__ = new_init
+BaseTransport.__init__ = new_transport_init
 
 
 # Rude JSONP polling fix
 from socketio.handler import SocketIOHandler
 
-old_init = SocketIOHandler.__init__
+old_handler_init = SocketIOHandler.__init__
 
-def new_init(self, *args, **kwargs):
+def new_handler_init(self, *args, **kwargs):
     self.response_headers = []
     self.response_headers_list = []
-    old_init(self, *args, **kwargs)
+    old_handler_init(self, *args, **kwargs)
 
-SocketIOHandler.__init__ = new_init
+SocketIOHandler.__init__ = new_handler_init
