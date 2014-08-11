@@ -5,7 +5,7 @@ from ajenti.util import platform_select
 
 
 @plugin
-class Apache (WebserverPlugin):
+class Apache(WebserverPlugin):
     service_name = 'apache2'
     service_buttons = [
         {
@@ -20,10 +20,20 @@ class Apache (WebserverPlugin):
         mageia='/etc/httpd/conf',
         freebsd='/usr/local/etc/apache/sites-available',
     )
-    hosts_enabled_dir = '/etc/apache2/sites-enabled'
+    hosts_enabled_dir = platform_select(
+        debian='/etc/apache2/sites-enabled',
+        freebsd='/usr/local/etc/apache/sites-enabled'
+    )
     supports_host_activation = platform_select(
         debian=True,
+        freebsd=True,
         default=False,
+    )
+
+    configurable = True
+    main_conf_files = platform_select(
+        debian=['/etc/apache2/apache2.conf', '/etc/apache2/ports.conf', '/etc/apache2/envvars', '/etc/apache2/magic',],
+        default=[],
     )
 
     template = """<VirtualHost *:80>
