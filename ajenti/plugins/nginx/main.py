@@ -32,6 +32,8 @@ class Nginx(WebserverPlugin):
     main_conf_files = platform_select(
         debian=['/etc/nginx/nginx.conf', '/etc/nginx/proxy_params', '/etc/nginx/fastcgi_params',
                 '/etc/nginx/scgi_params', '/etc/nginx/uwsgi_params'],
+        centos=['/etc/nginx/nginx.conf', '/etc/nginx/fastcgi_params',
+                '/etc/nginx/scgi_params', '/etc/nginx/uwsgi_params'],
         default=[],
     )
 
