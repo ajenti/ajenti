@@ -291,7 +291,7 @@ if subprocess.call(['which', 'ip6tables']) == 0:
 
     @plugin
     class IPv6Firewall (Firewall):
-        platforms = ['centos', 'debian', 'arch']
+        platforms = ['centos', 'debian', 'arch', 'mageia']
         manager_class = IPv6FirewallManager
 
         def init(self):
