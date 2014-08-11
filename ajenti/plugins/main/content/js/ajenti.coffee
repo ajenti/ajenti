@@ -488,7 +488,7 @@ _escape = (s) -> s.replace(/</g, '&lt;')
 window.ajentiConnectSocket = (uri) ->
     cfg = resource: 'ajenti:socket', 'reconnection limit': 1, 'max reconnection attempts': 999999
     if /Apple Computer/.test(navigator.vendor) and location.protocol == 'https:'
-        cfg.transports = ['xhr-polling', 'jsonp-polling']
+        cfg.transports = ['jsonp-polling'] # Safari can go to hell
     return io.connect(uri, cfg)
 
 window.ajentiCrash = (info) ->
