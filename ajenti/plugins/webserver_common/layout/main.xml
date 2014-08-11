@@ -42,7 +42,7 @@
                     </bind:collection>
                 </pad>
             </tab>
-            <tab title="{Main configurations}" visible="false" id="main-conf-tab">
+            <tab title="{Main configs}" visible="false" id="main-conf-tab">
                 <pad>
                     <bind:collection bind="configurations" id="configurations">
                         <dt bind="__items"/>

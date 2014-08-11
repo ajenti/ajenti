@@ -172,7 +172,6 @@ class WebserverPlugin(SectionPlugin):
 
         self.tabs = self.find('tabs')
 
-
     def on_page_load(self):
         self.refresh()
 

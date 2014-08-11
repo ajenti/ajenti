@@ -32,7 +32,8 @@ class Apache(WebserverPlugin):
 
     configurable = True
     main_conf_files = platform_select(
-        debian=['/etc/apache2/apache2.conf', '/etc/apache2/ports.conf', '/etc/apache2/envvars', '/etc/apache2/magic',],
+        debian=['/etc/apache2/apache2.conf', '/etc/apache2/ports.conf', '/etc/apache2/envvars', '/etc/apache2/magic'],
+        centos=['/etc/httpd/conf/httpd.conf', '/etc/httpd/conf/magic'],
         default=[],
     )
 
