@@ -90,15 +90,3 @@ def new_transport_init(self, *args, **kwargs):
 
 BaseTransport.__init__ = new_transport_init
 
-
-# Rude XHR polling fix
-from socketio.handler import SocketIOHandler
-
-old_handler_init = SocketIOHandler.__init__
-
-def new_handler_init(self, *args, **kwargs):
-    self.response_headers = []
-    self.response_headers_list = []
-    old_handler_init(self, *args, **kwargs)
-
-SocketIOHandler.__init__ = new_handler_init
