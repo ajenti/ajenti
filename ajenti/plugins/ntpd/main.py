@@ -66,6 +66,8 @@ class NTPDPlugin(SectionPlugin):
 
     def set_tz_nondebian(self, timezone):
         tz = os.path.join('/usr/share/zoneinfo/', timezone)
+        if os.path.exists('/etc/localtime'):
+            os.unlink('/etc/localtime')
         os.symlink(tz, '/etc/localtime')
 
     openntpd = isopenntpd()
