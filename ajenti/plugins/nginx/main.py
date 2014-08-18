@@ -5,8 +5,11 @@ from ajenti.util import platform_select
 
 @plugin
 class Nginx(WebserverPlugin):
-    platforms = ['debian', 'centos', 'freebsd', 'arch', 'mageia']
-    service_name = 'nginx'
+    platforms = ['debian', 'centos', 'freebsd', 'arch', 'mageia', 'osx']
+    service_name = platform_select(
+        default='nginx',
+        osx='org.macports.nginx',
+    )
     service_buttons = [
         {
             'command': 'force-reload',
@@ -20,6 +23,7 @@ class Nginx(WebserverPlugin):
         mageia='/etc/nginx/conf.d',
         freebsd='/usr/local/etc/nginx/conf.d',
         arch='/etc/nginx/sites-available',
+        osx='/opt/local/etc/nginx',
     )
     hosts_enabled_dir = '/etc/nginx/sites-enabled'
     supports_host_activation = platform_select(

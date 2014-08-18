@@ -19,4 +19,5 @@ def init():
     import pm_yum
     import pm_pacman
     import pm_urpmi
+    import pm_macports
     import installer

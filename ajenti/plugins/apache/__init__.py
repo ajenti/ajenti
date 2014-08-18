@@ -13,6 +13,7 @@ info = PluginInfo(
             mageia='httpd',
             centos='httpd',
             freebsd='apachectl',
+            osx='apachectl',
             default='apache2',
         )),
     ],

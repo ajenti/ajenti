@@ -50,7 +50,7 @@ class DebianFirewallManager (FirewallManager, BasePlugin):
 
 @plugin
 class CentOSFirewallManager (FirewallManager, BasePlugin):
-    platforms = ['centos']
+    platforms = ['centos', 'mageia']
     config_path = '/etc/sysconfig/iptables'
     config_path_ajenti = '/etc/iptables.up.rules.ajenti'
 
@@ -70,7 +70,7 @@ class ArchFirewallManager (FirewallManager, BasePlugin):
 
 @plugin
 class Firewall (SectionPlugin):
-    platforms = ['centos', 'debian', 'arch']
+    platforms = ['centos', 'debian', 'arch', 'mageia']
     manager_class = FirewallManager
 
     def init(self):
@@ -291,7 +291,7 @@ if subprocess.call(['which', 'ip6tables']) == 0:
 
     @plugin
     class IPv6Firewall (Firewall):
-        platforms = ['centos', 'debian', 'arch']
+        platforms = ['centos', 'debian', 'arch', 'mageia']
         manager_class = IPv6FirewallManager
 
         def init(self):
