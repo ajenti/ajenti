@@ -9,6 +9,7 @@ info = PluginInfo(
         PluginDependency('main'),
         PluginDependency('services'),
         BinaryDependency('smbd'),
+        BinaryDependency('smbstatus'),
     ],
 )
 

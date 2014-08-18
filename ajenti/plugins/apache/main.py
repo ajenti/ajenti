@@ -6,7 +6,10 @@ from ajenti.util import platform_select
 
 @plugin
 class Apache(WebserverPlugin):
-    service_name = 'apache2'
+    service_name = platform_select(
+        default='apache2',
+        osx='org.macports.apache2'
+    )
     service_buttons = [
         {
             'command': 'force-reload',
@@ -19,6 +22,7 @@ class Apache(WebserverPlugin):
         centos='/etc/httpd/conf.d',
         mageia='/etc/httpd/conf',
         freebsd='/usr/local/etc/apache/sites-available',
+        osx='/opt/local/apache2',
     )
     hosts_enabled_dir = platform_select(
         debian='/etc/apache2/sites-enabled',
