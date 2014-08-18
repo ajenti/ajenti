@@ -1,6 +1,6 @@
 <hc>
-    <box width="50">
+    <box width="80">
         <label id="value" text="---" />
     </box>
-    <progressbar id="progress" width="150" />
+    <progressbar id="progress" width="120" />
 </hc>
