@@ -5,10 +5,10 @@ msgstr "插件"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "獲得附加元件列表"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
-#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:20
@@ -43,7 +43,7 @@ msgstr "名稱"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "說明"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -58,7 +58,7 @@ msgstr "類型"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
-msgstr ""
+msgstr "決定於"
 
 #: ajenti/plugins/plugins/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -69,6 +69,11 @@ msgid "Status"
 msgstr "狀態"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/hosts/main.py:13
+msgid "Hosts"
+msgstr "主機"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
@@ -103,9 +108,9 @@ msgstr "狀態"
 #: ajenti/plugins/cron/layout/main.xml:23
 #: ajenti/plugins/bind9/layout/main.xml:2
 msgid "Add"
-msgstr ""
+msgstr "增加"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:38
@@ -150,7 +155,7 @@ msgstr ""
 msgid "Confirm deletion"
 msgstr "確認刪除"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
@@ -161,12 +166,16 @@ msgstr "確認刪除"
 msgid "Enable"
 msgstr "開啟"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "配置"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/webserver_common/layout/main.xml:7
+msgid "Main configs"
+msgstr ""
+
+#: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
@@ -198,18 +207,18 @@ msgstr "儲存"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcache 記憶體使用"
 
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
 #: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:52
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
-#: ajenti/plugins/apache/main.py:50
+#: ajenti/plugins/apache/main.py:65
 msgid "Software"
 msgstr "軟件"
 
@@ -251,19 +260,19 @@ msgstr "密碼"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "key 無效"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "IP 無效"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "逾期"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -370,7 +379,7 @@ msgstr "驗證中..."
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "同步於"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
@@ -378,7 +387,7 @@ msgstr "立即同步"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr ""
+msgstr "正確配置"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
@@ -395,11 +404,11 @@ msgstr ""
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
 msgid "Change password"
-msgstr "更改密碼"
+msgstr "變更密碼"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "權限"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -416,7 +425,7 @@ msgstr "Ajenti 將以匿名方式發送其版本、 您作業系統的名稱，�
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "授權"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -429,19 +438,19 @@ msgstr "重新啟動"
 
 #: ajenti/plugins/configurator/layout/main.xml:36
 msgid "Restart Ajenti?"
-msgstr "重新啟動 Ajenti"
+msgstr "重新啟動 Ajenti？"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "伺服器 URL"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "DN 管理員"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "DN 後綴授權"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
@@ -457,15 +466,15 @@ msgstr "域名"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "DN 基本"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "來自 DN 群組的限制"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr ""
+msgstr "管理使用者"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
@@ -473,19 +482,19 @@ msgstr "管理員密碼"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "授權狀態"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "公司"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "授權類型"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "授權逾期時間"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -495,26 +504,26 @@ msgstr "刪除"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "沒有商業的授權安裝"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "安裝"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
 msgid "Task %s finished"
-msgstr ""
+msgstr "任務 %s 已完成"
 
 #: ajenti/plugins/tasks/manager.py:104
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "任務 %s 已排隊"
 
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "任務 %s 已開始"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
@@ -527,7 +536,7 @@ msgstr "工具 "
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "命令列執行"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -536,7 +545,7 @@ msgstr "正在複製 %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "檔案移動"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -545,16 +554,16 @@ msgstr "正在移動 %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "檔案刪除"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "正在刪除 %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr ""
+msgstr "正執行中的任務"
 
 #: ajenti/plugins/tasks/layout/main.xml:2 ajenti/plugins/vh/layout/main.xml:7
 #: ajenti/plugins/fstab/layout/main.xml:1
@@ -581,7 +590,7 @@ msgstr "中止"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr ""
+msgstr "已完成的任務"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
@@ -598,7 +607,7 @@ msgstr "錯誤"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "已崩潰"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -612,7 +621,7 @@ msgstr ""
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr ""
+msgstr "執行任務"
 
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
@@ -621,7 +630,7 @@ msgstr "排程"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "手動 (以下的指定)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
@@ -651,7 +660,7 @@ msgstr "每年"
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr ""
+msgstr "正在重啟"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
@@ -757,7 +766,7 @@ msgstr ""
 #: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:148 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
 #: ajenti/plugins/bind9/main.py:86
 msgid "Saved"
 msgstr "已儲存！"
@@ -801,7 +810,7 @@ msgstr ""
 #: ajenti/plugins/notepad/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:2
 msgid "New"
-msgstr ""
+msgstr "新的"
 
 #: ajenti/plugins/notepad/layout/main.xml:2
 #: ajenti/plugins/logs/layout/main.xml:1
@@ -831,23 +840,23 @@ msgstr "取消"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "此目錄文件已經不存在"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "密碼並不相配"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "不正確的密碼"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "密碼已變更"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "無"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
@@ -872,11 +881,11 @@ msgstr "區段存取"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "密碼變更"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "舊密碼"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -885,11 +894,11 @@ msgstr "新密碼"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "確認密碼"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "檔案名稱"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -1011,7 +1020,7 @@ msgstr "設定"
 #: ajenti/plugins/samba/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:12
 msgid "Networking"
-msgstr "網絡"
+msgstr "網路"
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
@@ -1037,7 +1046,7 @@ msgstr ""
 #: ajenti/plugins/fail2ban/layout/main.xml:7
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
-msgstr ""
+msgstr "日誌檔"
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
@@ -1071,7 +1080,7 @@ msgstr "斷開連接"
 #: ajenti/plugins/vh/layout/main-website.xml:11
 #: ajenti/plugins/ntpd/layout/main.xml:2
 msgid "Set"
-msgstr ""
+msgstr "設定"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
@@ -1097,7 +1106,7 @@ msgstr "裝置"
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/ntpd/main.py:89 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/ntpd/main.py:95 ajenti/plugins/hosts/main.py:15
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
@@ -1111,7 +1120,7 @@ msgstr ""
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "%s 的密碼已更改成功"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
@@ -1151,15 +1160,15 @@ msgstr "家目錄"
 msgid "Shell"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:92
+#: ajenti/plugins/vh-mysql/mysql.py:88
 msgid "This database name is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:121
+#: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:156
+#: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
 msgstr ""
 
@@ -1209,7 +1218,7 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "篩選檔案"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
@@ -1225,7 +1234,7 @@ msgstr ""
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr "子網絡"
+msgstr "子網路"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
@@ -1252,9 +1261,9 @@ msgstr ""
 msgid "View"
 msgstr "檢視"
 
-#: ajenti/plugins/nginx/main.py:13 ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
-#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
 msgstr "重新載入"
 
@@ -1293,11 +1302,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
-msgstr "進程"
+msgstr "程序"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr ""
+msgstr "網站"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
@@ -1313,7 +1322,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
-msgstr ""
+msgstr "重啟網站服務"
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
@@ -1325,7 +1334,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "新網站"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1333,7 +1342,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "重啟網站"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
@@ -1344,6 +1353,7 @@ msgid "Max processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
 msgstr ""
 
@@ -1426,11 +1436,11 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "目前 Ajenti V 尚未啟動"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "啟動 Ajenti V 的話將會覆蓋以下軟體配置："
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
@@ -1443,7 +1453,7 @@ msgstr "刪除"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "所有網站的資料將會消失。您確定？"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1457,7 +1467,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "網站檔案"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
@@ -1785,11 +1795,11 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "目前 Ajenti V 郵件尚未啟動"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "啟動 Ajenti V 郵件的話將會覆蓋以下軟體配置："
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
@@ -1797,7 +1807,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
-msgstr ""
+msgstr "套件包"
 
 #: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
@@ -1814,12 +1824,12 @@ msgstr ""
 #: ajenti/plugins/packages/main.py:135
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "找到 %i 條，顯示其中的 100 條"
 
 #: ajenti/plugins/packages/main.py:138
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "找到 %i 條"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
@@ -1831,7 +1841,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "獲得列表"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
@@ -1844,7 +1854,7 @@ msgstr "升級所有"
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr "搜索"
+msgstr "搜尋"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
@@ -1903,11 +1913,11 @@ msgstr ""
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
-msgstr ""
+msgstr "檔案管理員"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "檔案已刪除"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -2004,11 +2014,11 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "新檔案的擁有者"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "新檔案的群組"
 
 #: ajenti/plugins/terminal/terminal.py:114
 #, python-format
@@ -2017,7 +2027,7 @@ msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:116
 msgid "Process has exited successfully"
-msgstr "進程已成功退出"
+msgstr "程序已成功退出"
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
 #: ajenti/plugins/terminal/main.py:223
@@ -2050,7 +2060,7 @@ msgstr "流量"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr "網絡"
+msgstr "網路"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
@@ -2090,7 +2100,7 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr ""
+msgstr "公開 IPs"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
@@ -2102,7 +2112,7 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr ""
+msgstr "檔案"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
@@ -2114,7 +2124,7 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr ""
+msgstr "Nodes 檔案"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
@@ -2122,7 +2132,7 @@ msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr "公共網絡"
+msgstr "公開網路"
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
@@ -2188,7 +2198,7 @@ msgstr "即時I/O"
 
 #: ajenti/plugins/fstab/main.py:51
 msgid "Filesystems"
-msgstr "文件系統"
+msgstr "檔案系統"
 
 #: ajenti/plugins/fstab/main.py:75
 msgid "Unmounted"
@@ -2209,7 +2219,7 @@ msgstr "掛載點"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 msgid "FS type"
-msgstr ""
+msgstr "FS 類型"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan frequency"
@@ -2243,7 +2253,7 @@ msgstr "歡迎"
 msgid "Dashboard"
 msgstr ""
 
-#: ajenti/plugins/dashboard/dash.py:215
+#: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
 msgstr ""
 
@@ -2251,11 +2261,11 @@ msgstr ""
 #: ajenti/plugins/dashboard/layout/text.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
-msgstr ""
+msgstr "文字"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"
-msgstr ""
+msgstr "增加小工具"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
@@ -2263,35 +2273,35 @@ msgstr "自動重新整理"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "更新 Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "有可用的 Ajenti 更新"
 
-#: ajenti/plugins/ntpd/main.py:87
+#: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
-msgstr ""
+msgstr "日期與時間"
 
-#: ajenti/plugins/ntpd/main.py:135
+#: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:139
+#: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "目前時間"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "同步"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "伺服器"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2433,10 +2443,6 @@ msgstr "停止"
 msgid "IPMI Sensor"
 msgstr ""
 
-#: ajenti/plugins/hosts/main.py:13
-msgid "Hosts"
-msgstr "主機"
-
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"
 msgstr "別名"
@@ -2489,7 +2495,7 @@ msgstr ""
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "CSF 防火牆"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
@@ -2505,15 +2511,15 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "網路設備"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "網路設備 (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "連接埠已允許"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
@@ -2533,11 +2539,11 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "啟動 IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "IP 列表"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
@@ -2545,23 +2551,23 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "地址已允許"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "地址已拒絕"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "暫時規則"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "地址已禁止"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "禁止"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2581,7 +2587,7 @@ msgstr "日誌"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPM 服務"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2597,15 +2603,15 @@ msgstr "未知的錯誤"
 
 #: ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr ""
+msgstr "日誌中的錯誤"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr "Active Directory同步"
+msgstr "同步有效目錄"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
-msgstr "輕型目錄訪問協議使用者同步"
+msgstr "LDAP 使用者同步"
 
 #: ajenti/usersync/local.py:12
 msgid "Off"

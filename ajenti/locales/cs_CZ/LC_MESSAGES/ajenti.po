@@ -8,7 +8,7 @@ msgid "Gathering plugin list"
 msgstr "Získávám seznam zásuvných modulů"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
-#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:20
@@ -69,6 +69,11 @@ msgid "Status"
 msgstr "Stav"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/hosts/main.py:13
+msgid "Hosts"
+msgstr "Hostitelé"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
@@ -105,7 +110,7 @@ msgstr "Stav"
 msgid "Add"
 msgstr "Přidat"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:38
@@ -150,7 +155,7 @@ msgstr "Přidat"
 msgid "Confirm deletion"
 msgstr "Potvrďte odstranění"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
@@ -161,12 +166,16 @@ msgstr "Potvrďte odstranění"
 msgid "Enable"
 msgstr "Zapnout"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "Konfigurace"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/webserver_common/layout/main.xml:7
+msgid "Main configs"
+msgstr ""
+
+#: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
@@ -203,13 +212,13 @@ msgstr "Memcache využití paměti"
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
 #: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:52
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
-#: ajenti/plugins/apache/main.py:50
+#: ajenti/plugins/apache/main.py:65
 msgid "Software"
 msgstr "Software"
 
@@ -757,7 +766,7 @@ msgstr "NFS exporty"
 #: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:148 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
 #: ajenti/plugins/bind9/main.py:86
 msgid "Saved"
 msgstr "Uloženo"
@@ -1097,7 +1106,7 @@ msgstr "Zařízení"
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/ntpd/main.py:89 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/ntpd/main.py:95 ajenti/plugins/hosts/main.py:15
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
@@ -1151,15 +1160,15 @@ msgstr "Domovský adresář"
 msgid "Shell"
 msgstr "Shell"
 
-#: ajenti/plugins/vh-mysql/mysql.py:92
+#: ajenti/plugins/vh-mysql/mysql.py:88
 msgid "This database name is already used"
 msgstr "Tento název databáze je již použit"
 
-#: ajenti/plugins/vh-mysql/mysql.py:121
+#: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
 msgstr "Toto uživatelské jméno je již použito"
 
-#: ajenti/plugins/vh-mysql/mysql.py:156
+#: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
 msgstr "Přístup udělen."
 
@@ -1252,9 +1261,9 @@ msgstr "Munin HTTP autentizace selhala"
 msgid "View"
 msgstr "Zobrazit"
 
-#: ajenti/plugins/nginx/main.py:13 ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
-#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
 msgstr "Znovu načíst"
 
@@ -1344,6 +1353,7 @@ msgid "Max processes"
 msgstr "Maximum procesů"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
 msgstr "Uživatel procesu"
 
@@ -2243,7 +2253,7 @@ msgstr "Vítejte"
 msgid "Dashboard"
 msgstr "Přehled"
 
-#: ajenti/plugins/dashboard/dash.py:215
+#: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
 msgstr "Widgety"
 
@@ -2269,15 +2279,15 @@ msgstr "Aktualizovat Ajenti"
 msgid "Ajenti update is available"
 msgstr "Ajenti aktualizace je k dispozici"
 
-#: ajenti/plugins/ntpd/main.py:87
+#: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
 msgstr "Datum & čas"
 
-#: ajenti/plugins/ntpd/main.py:135
+#: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
 msgstr "Žádné servery definovány"
 
-#: ajenti/plugins/ntpd/main.py:139
+#: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
 msgstr "Hotovo"
 
@@ -2432,10 +2442,6 @@ msgstr "Zastavit"
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
 msgstr "IPMI senzor"
-
-#: ajenti/plugins/hosts/main.py:13
-msgid "Hosts"
-msgstr "Hostitelé"
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"

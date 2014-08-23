@@ -8,7 +8,7 @@ msgid "Gathering plugin list"
 msgstr "Eklenti listesini toplama"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
-#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:20
@@ -69,6 +69,11 @@ msgid "Status"
 msgstr "Durumu"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/hosts/main.py:13
+msgid "Hosts"
+msgstr "Ana bilgisayarlar"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
@@ -105,7 +110,7 @@ msgstr "Durumu"
 msgid "Add"
 msgstr "Ekle"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:38
@@ -150,7 +155,7 @@ msgstr "Ekle"
 msgid "Confirm deletion"
 msgstr "Silmeyi Onayla"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
@@ -161,12 +166,16 @@ msgstr "Silmeyi Onayla"
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "Yapılandırma"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/webserver_common/layout/main.xml:7
+msgid "Main configs"
+msgstr ""
+
+#: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
@@ -203,13 +212,13 @@ msgstr "Memcache bellek kullanımı"
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
 #: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:52
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
-#: ajenti/plugins/apache/main.py:50
+#: ajenti/plugins/apache/main.py:65
 msgid "Software"
 msgstr "Yazılım"
 
@@ -457,11 +466,11 @@ msgstr "Alanadı"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Temel DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "DN Grup limit"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -469,7 +478,7 @@ msgstr "Yönetici hesabı"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr "Yönetici parolası"
+msgstr "Yönetici şifresi"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
@@ -722,11 +731,11 @@ msgstr "Tekrarlamalı"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr ""
+msgstr "Dosya korumaları"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Ekstra korumalar"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
@@ -756,7 +765,7 @@ msgstr "NFS ihracat"
 #: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:148 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
 #: ajenti/plugins/bind9/main.py:86
 msgid "Saved"
 msgstr "Kaydedildi"
@@ -830,19 +839,19 @@ msgstr "İptal"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Dosya veya dizin yok"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Şifreler uyuşmuyor"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Hatalı şifre"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Şifre değiştirildi"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -1096,7 +1105,7 @@ msgstr "Aygıt"
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/ntpd/main.py:89 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/ntpd/main.py:95 ajenti/plugins/hosts/main.py:15
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
@@ -1150,17 +1159,17 @@ msgstr "Giriş dizini"
 msgid "Shell"
 msgstr "Kabuk"
 
-#: ajenti/plugins/vh-mysql/mysql.py:92
+#: ajenti/plugins/vh-mysql/mysql.py:88
 msgid "This database name is already used"
-msgstr ""
+msgstr "Bu veritabanı adı zaten kullanılıyor"
 
-#: ajenti/plugins/vh-mysql/mysql.py:121
+#: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
-msgstr ""
+msgstr "Bu kullanıcı adı zaten kullanılıyor"
 
-#: ajenti/plugins/vh-mysql/mysql.py:156
+#: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
-msgstr ""
+msgstr "İzinler verildi."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1170,32 +1179,32 @@ msgstr "Veritabanları"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Web sitesinden ayır"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Yok et"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Veritabanı silinsin mi?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Kullanıcı silinsin mi?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Tüm izinler"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "İsimli dosya {0} zaten aynı isimde dosya {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Bazı parametreler boş."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
@@ -1212,7 +1221,7 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Testi çalıştır"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1241,7 +1250,7 @@ msgstr "Genel seçenekleri"
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr "Munin için bağlanamadı: %s"
+msgstr "Munin bağlanamadı: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
@@ -1251,11 +1260,11 @@ msgstr "Munin HTTP kimlik doğrulaması başarısız oldu"
 msgid "View"
 msgstr "Görünüm"
 
-#: ajenti/plugins/nginx/main.py:13 ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
-#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
-msgstr "Yenidenyükleme"
+msgstr "Yeniden yükleme"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
@@ -1300,7 +1309,7 @@ msgstr "Web siteleri"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "Konfigürasyonlar test ediliyor"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
@@ -1308,7 +1317,7 @@ msgstr "Değişiklikler kaydediliyor"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr ""
+msgstr "Değişiklikleri uygula"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
@@ -1328,7 +1337,7 @@ msgstr "Yeni websitesi"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Yapılandırmaları kontrol et"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
@@ -1343,16 +1352,17 @@ msgid "Max processes"
 msgstr "Max işlemler"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Proses kullanıcı"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "Process group"
-msgstr ""
+msgstr "Proses grup"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "PHP .ini values"
-msgstr ""
+msgstr "PHP .ini değerleri"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
@@ -1364,7 +1374,7 @@ msgstr "Uygulama modulü"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Virtualenv yolu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
@@ -1378,7 +1388,7 @@ msgstr "Script ismi"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "Scriptlerin HTTP bağlantı noktası (Port)"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
@@ -1406,7 +1416,7 @@ msgstr "Özel yol"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "URL yolunu ekle"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:32
@@ -1425,7 +1435,7 @@ msgstr "Çalışma dizini"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V henüz etkin değil"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
@@ -1442,7 +1452,7 @@ msgstr "Silme"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Web sitesine ait tüm veriler kaybolacaktır. Devam etmek istermisin?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1452,7 +1462,7 @@ msgstr "Etkin"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Bakım modu"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
@@ -1464,7 +1474,7 @@ msgstr "Dizin oluştur"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Dosya izinlerini düzenle"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
@@ -1506,7 +1516,7 @@ msgstr "İçerik"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Özel üst düzey yapılandırma"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
@@ -1688,15 +1698,15 @@ msgstr "E-Posta"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Geçersiz posta kutusu adı"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Geçersiz posta kutusu domaini"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "Bu adres zaten alınmış"
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
@@ -1720,7 +1730,7 @@ msgstr "Boyutu"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Yönlendirme"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
@@ -1748,7 +1758,7 @@ msgstr "DNS girdisi şablonu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Yeni DKIM anahtar oluştur"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
@@ -1963,11 +1973,11 @@ msgstr "Pano"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Son erişim zamanı"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Değiştirilme zamanı"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
@@ -2242,7 +2252,7 @@ msgstr "Hoş geldiniz"
 msgid "Dashboard"
 msgstr "Kontrol paneli"
 
-#: ajenti/plugins/dashboard/dash.py:215
+#: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
 msgstr "Widgetler"
 
@@ -2268,15 +2278,15 @@ msgstr "Ajenti Güncelleme"
 msgid "Ajenti update is available"
 msgstr "Ajenti güncellemesi var"
 
-#: ajenti/plugins/ntpd/main.py:87
+#: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
 msgstr "Tarih & Zaman"
 
-#: ajenti/plugins/ntpd/main.py:135
+#: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
 msgstr "Server Tanımlı Değil"
 
-#: ajenti/plugins/ntpd/main.py:139
+#: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
 msgstr "Tamam"
 
@@ -2431,10 +2441,6 @@ msgstr "Durdurmak"
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
 msgstr "IPMI sensörü"
-
-#: ajenti/plugins/hosts/main.py:13
-msgid "Hosts"
-msgstr "Ana bilgisayarlar"
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"

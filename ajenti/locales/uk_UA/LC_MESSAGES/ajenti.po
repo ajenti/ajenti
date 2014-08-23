@@ -8,7 +8,7 @@ msgid "Gathering plugin list"
 msgstr "Збір списку плагінів"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
-#: ajenti/plugins/webserver_common/layout/main.xml:3
+#: ajenti/plugins/webserver_common/layout/main.xml:4
 #: ajenti/plugins/tasks/layout/main.xml:3
 #: ajenti/plugins/tasks/layout/main.xml:10
 #: ajenti/plugins/tasks/layout/main.xml:20
@@ -69,6 +69,11 @@ msgid "Status"
 msgstr "Стан"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:1
+#: ajenti/plugins/hosts/main.py:13
+msgid "Hosts"
+msgstr "Хости"
+
+#: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
 #: ajenti/plugins/tasks/layout/main.xml:18
 #: ajenti/plugins/exports/layout/main.xml:1
@@ -105,7 +110,7 @@ msgstr "Стан"
 msgid "Add"
 msgstr "Додати"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:2
+#: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
 #: ajenti/plugins/tasks/layout/main.xml:19
 #: ajenti/plugins/tasks/layout/main.xml:38
@@ -150,7 +155,7 @@ msgstr "Додати"
 msgid "Confirm deletion"
 msgstr "Підтвердити видалення"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:4
+#: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/layout/main.xml:15
 #: ajenti/plugins/configurator/layout/main.xml:29
 #: ajenti/plugins/vh/layout/not-configured.xml:3
@@ -161,12 +166,16 @@ msgstr "Підтвердити видалення"
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:5
+#: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
 msgstr "Конфігурація"
 
-#: ajenti/plugins/webserver_common/layout/main.xml:6
+#: ajenti/plugins/webserver_common/layout/main.xml:7
+msgid "Main configs"
+msgstr ""
+
+#: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
 #: ajenti/plugins/tasks/layout/main.xml:41
 #: ajenti/plugins/exports/layout/main.xml:8
@@ -203,13 +212,13 @@ msgstr "Використання пам'яті Memcache"
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
 #: ajenti/plugins/fail2ban/main.py:98 ajenti/plugins/dhcpd/main.py:16
-#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:52
+#: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
-#: ajenti/plugins/apache/main.py:50
+#: ajenti/plugins/apache/main.py:65
 msgid "Software"
 msgstr "Програмне забезпечення"
 
@@ -404,7 +413,7 @@ msgstr "Дозволи"
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
-msgstr "Інші"
+msgstr "Інше"
 
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
@@ -756,7 +765,7 @@ msgstr "NFS Exports"
 #: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:148 ajenti/plugins/csf/main.py:81
+#: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
 #: ajenti/plugins/bind9/main.py:86
 msgid "Saved"
 msgstr "Збережено"
@@ -1005,7 +1014,7 @@ msgstr ""
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr ""
+msgstr "Налаштування"
 
 #: ajenti/plugins/samba/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:12
@@ -1096,7 +1105,7 @@ msgstr "Пристрій"
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
 #: ajenti/plugins/network/main.py:17 ajenti/plugins/megaraid/main.py:17
 #: ajenti/plugins/resolv/main.py:15 ajenti/plugins/fstab/main.py:53
-#: ajenti/plugins/ntpd/main.py:89 ajenti/plugins/hosts/main.py:15
+#: ajenti/plugins/ntpd/main.py:95 ajenti/plugins/hosts/main.py:15
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
@@ -1119,7 +1128,7 @@ msgstr "Пароль не повинен бути порожнім"
 #: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Пароль для %s було видалено"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
@@ -1148,17 +1157,17 @@ msgstr "Домашній каталог"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
-msgstr ""
+msgstr "Оболонка"
 
-#: ajenti/plugins/vh-mysql/mysql.py:92
+#: ajenti/plugins/vh-mysql/mysql.py:88
 msgid "This database name is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:121
+#: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:156
+#: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
 msgstr ""
 
@@ -1179,28 +1188,28 @@ msgstr ""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Видалити базу даних?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Видалити користувача?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Надати усі привілеї"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Файл, що називається {0} вже існує у {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Деякі параметри незаповнені."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Не вдалося зберегти файл конфігурації. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
@@ -1212,7 +1221,7 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Запустити тест"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1228,7 +1237,7 @@ msgstr ""
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
-msgstr ""
+msgstr "Специфікація"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
@@ -1251,9 +1260,9 @@ msgstr ""
 msgid "View"
 msgstr "Дивитися"
 
-#: ajenti/plugins/nginx/main.py:13 ajenti/plugins/supervisor/layout/main.xml:1
+#: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
-#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:13
+#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
 msgstr "Перезавантажити"
 
@@ -1316,15 +1325,15 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
-msgstr ""
+msgstr "Завантаження завершено"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Управління"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr ""
+msgstr "Новий веб-сайт"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1343,6 +1352,7 @@ msgid "Max processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
 msgstr ""
 
@@ -1609,7 +1619,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr ""
+msgstr "Дія"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
@@ -1635,7 +1645,7 @@ msgstr "Модулі"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr ""
+msgstr "Стани"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
@@ -1656,7 +1666,7 @@ msgstr "Інтерфейс"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr ""
+msgstr "Редактор коду CodeMirror"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
@@ -1672,11 +1682,11 @@ msgstr "Розширені атрибути"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr ""
+msgstr "Схема CNID"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr ""
+msgstr "Порт AFP"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
@@ -1684,7 +1694,7 @@ msgstr "CNID адреса"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Пошта"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
@@ -1696,7 +1706,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "Цю адресу вже зайнято"
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
@@ -1709,7 +1719,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Поштові скриньки"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1728,11 +1738,11 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Нова поштова скринька"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Поштова скринька"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
@@ -1740,7 +1750,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Приватний ключ"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
@@ -1910,20 +1920,20 @@ msgstr "Файли видалені"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
-msgstr ""
+msgstr "Файли переміщено"
 
 #: ajenti/plugins/fm/fm.py:184
 msgid "Files copied"
-msgstr ""
+msgstr "Файли скопійовано"
 
 #: ajenti/plugins/fm/fm.py:199
 #, python-format
 msgid "Selected %i items"
-msgstr ""
+msgstr "Обрано %i елементів"
 
 #: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
-msgstr ""
+msgstr "Розпаковано"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1939,19 +1949,19 @@ msgstr "Нова папка"
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr ""
+msgstr "Вирізати"
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
-msgstr ""
+msgstr "Копіювати"
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
-msgstr ""
+msgstr "Вставити"
 
 #: ajenti/plugins/fm/layout/main.xml:9
 msgid "Select all"
-msgstr ""
+msgstr "Обрати усе"
 
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Upload"
@@ -1971,15 +1981,15 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Час створення"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
-msgstr ""
+msgstr "Редагувати"
 
 #: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
-msgstr ""
+msgstr "Розпакувати"
 
 #: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
@@ -1995,7 +2005,7 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
-msgstr ""
+msgstr "Встановити рекурсивно"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
@@ -2003,11 +2013,11 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "Власник для нових файлів"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "Група для нових файлів"
 
 #: ajenti/plugins/terminal/terminal.py:114
 #, python-format
@@ -2021,7 +2031,7 @@ msgstr ""
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
 #: ajenti/plugins/terminal/main.py:223
 msgid "Terminal"
-msgstr ""
+msgstr "Термінал"
 
 #: ajenti/plugins/terminal/main.py:227
 msgid "Run shell"
@@ -2049,7 +2059,7 @@ msgstr "Трафік"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr ""
+msgstr "Мережа"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
@@ -2242,7 +2252,7 @@ msgstr "Ласкаво просимо"
 msgid "Dashboard"
 msgstr "Панель налаштувань"
 
-#: ajenti/plugins/dashboard/dash.py:215
+#: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
 msgstr ""
 
@@ -2268,29 +2278,29 @@ msgstr ""
 msgid "Ajenti update is available"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:87
+#: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
-msgstr ""
+msgstr "Дата та час"
 
-#: ajenti/plugins/ntpd/main.py:135
+#: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
 msgstr ""
 
-#: ajenti/plugins/ntpd/main.py:139
+#: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
 msgstr ""
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Поточний час"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Синхронізувати"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Сервери"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2314,11 +2324,11 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr ""
+msgstr "Повідомлення"
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr ""
+msgstr "Час"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
@@ -2334,11 +2344,11 @@ msgstr ""
 
 #: ajenti/plugins/power/power.py:58
 msgid "Power"
-msgstr ""
+msgstr "Живлення"
 
 #: ajenti/plugins/power/power.py:102
 msgid "Power control"
-msgstr ""
+msgstr "Управління живленням"
 
 #: ajenti/plugins/power/power.py:106 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
@@ -2358,11 +2368,11 @@ msgstr "Вимкнути"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr ""
+msgstr "Мережа"
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr ""
+msgstr "Батарея"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
@@ -2414,27 +2424,23 @@ msgstr ""
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 #: ajenti/plugins/services/layout/bar.xml:1
 msgid "Start"
-msgstr ""
+msgstr "Запустити"
 
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 #: ajenti/plugins/services/layout/bar.xml:2
 msgid "Stop"
-msgstr ""
+msgstr "Зупинити"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
 msgstr ""
-
-#: ajenti/plugins/hosts/main.py:13
-msgid "Hosts"
-msgstr "Хости"
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"
@@ -2466,25 +2472,25 @@ msgstr "HTTP доступ"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 #: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
-msgstr ""
+msgstr "Дозволити"
 
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
-msgstr ""
+msgstr "Заборонити"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "Сервіс Node.js"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:27
 msgid "GUnicorn service"
-msgstr ""
+msgstr "Сервіс GUnicorn"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
