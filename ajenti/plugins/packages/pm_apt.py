@@ -54,7 +54,7 @@ class DebianPackageManager (PackageManager):
 
             p = PackageInfo()
             p.name = s[0]
-            p.version = s[1].split(' ')[-1]
+            p.version = s[-1].split(' ')[-1]
             r.append(p)
         return r
 
