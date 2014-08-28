@@ -170,6 +170,15 @@ class WebserverPlugin(SectionPlugin):
             self.find('body-active-line').visible = \
             self.supports_host_activation
 
+        def on_conf_bind(o, c, conf, u):
+            conf.__old_name = conf.name
+
+        def on_conf_update(o, c, conf, u):
+            conf.save()
+
+        self.find('configurations').post_item_bind = on_conf_bind
+        self.find('configurations').post_item_update = on_conf_update
+
         self.tabs = self.find('tabs')
 
     def on_page_load(self):
