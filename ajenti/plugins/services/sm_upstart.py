@@ -8,6 +8,30 @@ from ajenti.util import cache_value
 from api import Service, ServiceManager
 
 
+
+class UpstartService (Service):
+    source = 'upstart'
+
+    def __init__(self, name):
+        self.name = name
+
+    def refresh(self):
+        self.running = 'running' in subprocess.check_output(['status', self.name])
+
+    def start(self):
+        self.command('start')
+
+    def stop(self):
+        self.command('stop')
+
+    def restart(self):
+        self.command('restart')
+
+    def command(self, cmd):
+        subprocess.Popen(['initctl', cmd, self.name], close_fds=True).wait()
+
+
+
 @plugin
 class UpstartServiceManager (ServiceManager):
     def init(self):
@@ -45,25 +69,3 @@ class UpstartServiceManager (ServiceManager):
 
             r.append(s)
         return r
-
-
-class UpstartService (Service):
-    source = 'upstart'
-
-    def __init__(self, name):
-        self.name = name
-
-    def refresh(self):
-        self.running = 'running' in subprocess.check_output(['status', self.name])
-
-    def start(self):
-        self.command('start')
-
-    def stop(self):
-        self.command('stop')
-
-    def restart(self):
-        self.command('restart')
-
-    def command(self, cmd):
-        subprocess.Popen(['initctl', cmd, self.name], close_fds=True).wait()
