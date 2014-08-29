@@ -5,7 +5,7 @@ msgstr "Module"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Colectez lista cu plugin-uri"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:4
@@ -43,7 +43,7 @@ msgstr "Nume"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Descriere"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -173,7 +173,7 @@ msgstr "Configurare"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Setari principale"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -265,15 +265,15 @@ msgstr "Cheie invalidă\n"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Adresa IP invalida"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Expirat"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Necunoscut"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
@@ -400,7 +400,7 @@ msgstr "Account-uri"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "Fa o copie"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
@@ -409,7 +409,7 @@ msgstr "Schimbă parola"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Permisiuni"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -426,7 +426,7 @@ msgstr "Ajenti va transmite anonim informația despre versiunea folosită, siste
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Licenta"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -459,7 +459,7 @@ msgstr "Secret"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Adresa serverului"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
@@ -467,7 +467,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "DN bază"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
@@ -475,19 +475,19 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr ""
+msgstr "Utilizator admin"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr ""
+msgstr "Parolă admin"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Stare licenta"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Companie"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
@@ -537,7 +537,7 @@ msgstr "Instrumente"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Executa comanda"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -546,7 +546,7 @@ msgstr "Copierea %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Mutaţi fişierele"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -555,12 +555,12 @@ msgstr "Mutarea %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Ştergeţi fişierele"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Ştergere %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -767,7 +767,7 @@ msgstr "Export NFS"
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:86
+#: ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "Salvat"
 
@@ -840,40 +840,40 @@ msgstr "Anulează"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "Directorul nu mai există"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Parolele nu corespund"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "Parolă incorectă"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Parola a fost modificată"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "Gol"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "Filtru..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "Utilizator sau parola gresita"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "E-mailul \"%s\" nu este asociat cu niciun utilizator"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "Logare eșuată"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
@@ -881,11 +881,11 @@ msgstr "Accesul la secția"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Schimbarea parolei"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Parola veche"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -894,11 +894,11 @@ msgstr "Parolă nouă"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Confirmare parolă"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "Nume de fişier"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
@@ -1162,15 +1162,15 @@ msgstr "Shell"
 
 #: ajenti/plugins/vh-mysql/mysql.py:88
 msgid "This database name is already used"
-msgstr ""
+msgstr "Acest nume pentru baza de date este deja folosit"
 
 #: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
-msgstr ""
+msgstr "Acest nume de utilizator este deja folosit"
 
 #: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
-msgstr ""
+msgstr "Permisiuni acordate."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1185,11 +1185,11 @@ msgstr ""
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Distruge"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Stergi baza de date?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"

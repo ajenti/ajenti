@@ -173,7 +173,7 @@ msgstr "Konfiguration"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Haupt-Konfiguration"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -766,7 +766,7 @@ msgstr "NFS-Exports"
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:86
+#: ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "Gespeichert"
 
@@ -868,7 +868,7 @@ msgstr "Ungültiger Benutzername oder Passwort"
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr "Die E-Mail \"%s\" ist keinem Benutzer zugeordnet"
+msgstr "Die E-Mail Adresse \"%s\" ist keinem Benutzer zugeordnet"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
@@ -1611,7 +1611,7 @@ msgstr "Lade aktuellen Status"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Dies überschreibt die aktuell gespeicherte Konfiguration mit dem aktuellen Firewall-Status. Fortfahren?"
+msgstr "Dies wird die aktuell gespeicherte Konfiguration mit dem aktuellen Firewall-Status überschreiben. Fortfahren?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
@@ -2296,7 +2296,7 @@ msgstr "Aktuelle Uhrzeit"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr "Sync"
+msgstr "Synchronisieren"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"

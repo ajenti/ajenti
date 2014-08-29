@@ -173,7 +173,7 @@ msgstr "Configuração"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Configuração Principal"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -766,7 +766,7 @@ msgstr "Exportações de NFS"
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:86
+#: ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "Salvo"
 

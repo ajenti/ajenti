@@ -173,7 +173,7 @@ msgstr "Configuratie"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "standaard configuraties"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -766,7 +766,7 @@ msgstr "NFS uitvoer"
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:86
+#: ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "Opgeslagen"
 
@@ -1213,15 +1213,15 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Filters checker"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filterbestand"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "voer test uit"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1362,7 +1362,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "PHP .ini values"
-msgstr ""
+msgstr "PHP .ini waardes"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
@@ -1474,7 +1474,7 @@ msgstr "Maak map aan"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Bestandsmachtigingen oplossen"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"

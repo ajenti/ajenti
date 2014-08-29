@@ -753,7 +753,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
 msgid "Command"
-msgstr ""
+msgstr "커맨드"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
@@ -766,7 +766,7 @@ msgstr ""
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:86
+#: ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "저장 완료"
 
@@ -1719,7 +1719,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "메일함"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1802,7 +1802,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "검색 결과가 없습니다."
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
@@ -1823,7 +1823,7 @@ msgstr ""
 #: ajenti/plugins/packages/main.py:135
 #, python-format
 msgid "%i found, 100 shown"
-msgstr ""
+msgstr "%i 개를 찾았습니다. 이중 100개만 표시합니다."
 
 #: ajenti/plugins/packages/main.py:138
 #, python-format
@@ -1840,7 +1840,7 @@ msgstr "목록 새로 고침"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr ""
+msgstr "목록 확인"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
@@ -2001,7 +2001,7 @@ msgstr "소유자"
 
 #: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
-msgstr ""
+msgstr "기타"
 
 #: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
@@ -2163,7 +2163,7 @@ msgstr "DNS 서버"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
-msgstr ""
+msgstr "로컬 도메인 네임"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Search list"
@@ -2189,7 +2189,7 @@ msgstr "디스크 여유 공간"
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr ""
+msgstr "%s 사용가능"
 
 #: ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"

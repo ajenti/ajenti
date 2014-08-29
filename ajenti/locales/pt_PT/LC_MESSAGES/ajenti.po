@@ -173,7 +173,7 @@ msgstr "Configuração"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Configuração Principal"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -304,7 +304,7 @@ msgstr "Por favor, forneça o nome do anfitrião"
 #: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr "Por favor configure a plugin %s!"
+msgstr "Por favor configure o plugin %s!"
 
 #: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
@@ -766,7 +766,7 @@ msgstr "Exportações de NFS"
 #: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
 #: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
 #: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:86
+#: ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "Salvo"
 
@@ -1337,58 +1337,58 @@ msgstr "Novo website"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Verificações de configuração"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr ""
+msgstr "Reiniciar websites"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Min processes"
-msgstr ""
+msgstr "Mínimo de processos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Max processes"
-msgstr ""
+msgstr "Máximo de processos"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Processos de Utilizador"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 msgid "Process group"
-msgstr ""
+msgstr "Processos de grupo"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "PHP .ini values"
-msgstr ""
+msgstr "Configuração PHP.ini"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP flags"
-msgstr ""
+msgstr "PHP flags"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "Módulo de aplicação"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "Directório Virtualenv"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "Trabalhadores"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "Nome do script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "Porta HTTP do script"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
@@ -1400,33 +1400,33 @@ msgstr "Ambiente"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Mostrar conteúdo do diretório"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
-msgstr ""
+msgstr "Usar Bundler"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr ""
+msgstr "Padrão URL"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "Directório personalizado"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
+msgstr "Acrescentar padrão URL ao directório"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:5
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Configuração personalizada"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr ""
+msgstr "Usar apenas configurações personalizadas e não incluir parâmetros padrão"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
@@ -1435,15 +1435,15 @@ msgstr "Pasta de trabalho"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
-msgstr ""
+msgstr "Ajenti V ainda não está activo"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Activar o Ajenti V vai substituir a configuração para o seguinte software:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
@@ -1452,7 +1452,7 @@ msgstr "Excluir"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "Todos os dados do site serão perdidos. Continuar?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1462,23 +1462,23 @@ msgstr "Activo"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Modo de manutenção"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Ficheiros do site"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Criar diretório"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Corrigir as permissões de ficheiro"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Downloader automático"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "From URL"
@@ -1516,7 +1516,7 @@ msgstr "Conteúdo"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Configuração personalizada de alto nível"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
@@ -1786,7 +1786,7 @@ msgstr "Roteadores personalizados"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Configuraão personalizada do router local"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"
@@ -1916,7 +1916,7 @@ msgstr "Gestor ficheiros"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "Ficheiros eliminados"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -1973,15 +1973,15 @@ msgstr "Área de transferência"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Hora do último acesso"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Tempo de modificação"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Tempo de criação"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
@@ -2280,27 +2280,27 @@ msgstr "Atualização do Ajenti disponível"
 
 #: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
-msgstr ""
+msgstr "Data e  hora"
 
 #: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
-msgstr ""
+msgstr "Sem servidores definidos"
 
 #: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
-msgstr ""
+msgstr "Feito"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
-msgstr ""
+msgstr "Hora actual"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Sincronização"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
-msgstr ""
+msgstr "Servidores"
 
 #: ajenti/plugins/openvpn/main.py:26
 msgid "OpenVPN"
@@ -2542,31 +2542,31 @@ msgstr "Habilitar o IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "Listas IP"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "Regras permanentes"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Endereços permitidos"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Endereços negados"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Regras temporárias"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Endereços banidos"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Banir"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2586,7 +2586,7 @@ msgstr "Registos"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "Serviço PHP-FPM"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
