@@ -151,7 +151,7 @@ COMMIT
 
     @on('load-current', 'click')
     def on_load_current(self):
-        subprocess.call('%s > %s' % (self.fw_mgr.iptables_save_binary, self.fw_mgr.config_path), shell=True)
+        subprocess.call('%s > %s' % (self.fw_mgr.iptables_save_binary, self.fw_mgr.config_path_ajenti), shell=True)
         self.config.load()
         self.refresh()
 
