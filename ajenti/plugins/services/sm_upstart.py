@@ -19,6 +19,7 @@ class UpstartServiceManager (ServiceManager):
         try:
             c = cls()
             c.init()
+            c.get_all()
             return True
         except Exception, e:
             logging.info('Disabling Upstart service manager: %s' % str(e))
