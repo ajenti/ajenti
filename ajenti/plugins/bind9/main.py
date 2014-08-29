@@ -35,8 +35,8 @@ class BIND9Plugin (SectionPlugin):
         self.binder = Binder(None, self)
         self.find('zones').new_item = lambda c: ZoneData()
 
-        def post_zone_bind(o, c, i, u):
-            path = i.file
+        def post_zone_bind(o, c, item, u):
+            path = item.file
             if path is not None:
                 if not path.startswith('/'):
                     path = self.config_root + path
@@ -53,6 +53,7 @@ class BIND9Plugin (SectionPlugin):
                 self.context.notify('info', _('Zone saved'))
 
             def on_create_zone():
+                self.binder.update()
                 open(path, 'w').write("""$TTL    604800
 @       IN      SOA     ns. root.ns. (
                               1         ; Serial
@@ -62,10 +63,10 @@ class BIND9Plugin (SectionPlugin):
                          604800 )       ; Negative Cache TTL
 ;
 @                   IN      NS      ns.
-example.com.        IN      A       127.0.0.1
-example.com.        IN      AAAA    ::1
-""")
-                post_zone_bind(o, c, i, u)
+%(name)s.        IN      A       127.0.0.1
+%(name)s.        IN      AAAA    ::1
+""" % {'name': item.name})
+                post_zone_bind(o, c, item, u)
 
             u.find('save-zone').on('click', on_save_zone)
             u.find('create-zone').on('click', on_create_zone)
