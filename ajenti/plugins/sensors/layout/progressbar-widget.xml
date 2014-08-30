@@ -8,7 +8,7 @@
     <box width="80">
         <label id="value" text="---" />
     </box>
-    <progressbar id="progress" width="120" value="0.4" />
+    <progressbar id="progress" width="150" value="0.4" />
 
 
     <dialog id="config-dialog" visible="False">
