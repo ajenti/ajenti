@@ -220,7 +220,7 @@ msgstr "Використання пам'яті Memcache"
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
 #: ajenti/plugins/apache/main.py:65
 msgid "Software"
-msgstr "Програмне забезпечення"
+msgstr "Програми"
 
 #: ajenti/plugins/mongo/layout/config.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:5
@@ -1806,7 +1806,7 @@ msgstr ""
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
-msgstr ""
+msgstr "Пакети"
 
 #: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
@@ -1840,15 +1840,15 @@ msgstr "Оновити списки"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr "Отримати списки"
+msgstr "Списки"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr ""
+msgstr "Оновлюємі"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr ""
+msgstr "Оновити все"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
@@ -2250,7 +2250,7 @@ msgstr "Ласкаво просимо"
 
 #: ajenti/plugins/dashboard/dash.py:23
 msgid "Dashboard"
-msgstr "Панель налаштувань"
+msgstr "Головна"
 
 #: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
