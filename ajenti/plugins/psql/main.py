@@ -26,6 +26,7 @@ class PSQLPlugin (DBPlugin):
             'postgres',
             '-c',
             'psql -R"~~~" -A -t -c "%s" %s' % (sql, db)],
+            cwd='/',
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
