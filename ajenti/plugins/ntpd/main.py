@@ -101,8 +101,8 @@ class NTPDPlugin(SectionPlugin):
 
         self.config = NTPDConfig(path=platform_select(
             default=open_ntpd_conf if self.openntpd else ntpd_conf,
-            centos='/usr/local/etc/ntpd.conf',
-            freebsd='/usr/local/etc/ntpd.conf' if self.openntpd else ntpd_conf
+            centos='/usr/local/etc/ntpd.conf' if self.openntpd else ntpd_conf,
+            freebsd='/usr/local/etc/ntpd.conf' if self.openntpd else ntpd_conf,
         ))
 
         self.binder = Binder(None, self)
