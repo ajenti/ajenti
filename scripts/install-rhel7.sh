@@ -5,7 +5,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 echo ':: Adding EPEL repo'
-rpm -ivh http://download.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-0.2.noarch.rpm || true
+rpm -ivh http://download.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-1.noarch.rpm || true
 
 echo ':: Adding Ajenti repo'
 rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
