@@ -35,6 +35,11 @@ class window.Terminal
         @term = $('#term')
         @socket = ajentiConnectSocket('/terminal')
 
+        $('#paste-input').keyup () =>
+            content = $('#paste-input').val()
+            @socket.send(JSON.stringify(type: 'input', content: content))
+            $('#paste-input').val('')
+
         $(document).keydown (event) =>
             if [8, 37, 38, 39, 40].indexOf(event.keyCode) > -1
                 event.preventDefault()
@@ -46,6 +51,7 @@ class window.Terminal
             event.preventDefault()
 
         $(document).keyup (event) =>
+            console.log event
             ch = @filter_key(event)
             @send(RawDeflate.Base64.encode(ch))
             event.preventDefault()

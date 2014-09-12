@@ -27,7 +27,7 @@ body.terminal {
             padding: 0;
         }
 
-        >div {
+        &>div {
             float: left;
             clear: both;
         }
@@ -47,6 +47,22 @@ body.terminal {
             &.cursor {
                 text-decoration: underline;
             }
+        }
+    }
+
+    #paste {
+        margin: 10px auto;
+        width: 600px;
+
+        textarea {
+            display: block;
+            width: 100%;
+            height: 20px;
+            padding: 10px 20px;
+            background: #111;
+            border: #222;
+            color: #555;
+            font-style: italic;
         }
     }
 }

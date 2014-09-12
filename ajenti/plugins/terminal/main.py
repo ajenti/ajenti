@@ -188,6 +188,11 @@ class TerminalSocket (SocketPlugin):
                 ch = b64decode(message['key'])
                 self.terminal.write(ch)
                 self.ready_to_send.set()
+        if message['type'] == 'input':
+            if self.terminal:
+                data = message['content']
+                self.terminal.write(data)
+                self.ready_to_send.set()
         if message['type'] == 'read':
             self.ready_to_send.set()
 
