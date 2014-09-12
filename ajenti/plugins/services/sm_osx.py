@@ -18,6 +18,8 @@ class OSXServiceManager (ServiceManager):
             tokens = line.split()
             if len(tokens) == 3:
                 s = OSXService(tokens[2])
+                if s.name.startswith('com.apple'):
+                    continue
                 if not '.anonymous.' in s.name:
                     s.running = tokens[0] != '-'
                     r.append(s)

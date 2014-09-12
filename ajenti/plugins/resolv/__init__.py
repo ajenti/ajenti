@@ -6,7 +6,8 @@ info = PluginInfo(
     title='Nameservers',
     icon='globe',
     dependencies=[
-        PluginDependency('main')
+        PluginDependency('main'),
+        FileDependency('/etc/resolv.conf'),
     ],
 )
 

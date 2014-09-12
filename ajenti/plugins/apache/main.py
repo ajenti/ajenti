@@ -22,7 +22,7 @@ class Apache(WebserverPlugin):
         centos='/etc/httpd/conf.d',
         mageia='/etc/httpd/conf',
         freebsd='/usr/local/etc/apache/sites-available',
-        osx='/opt/local/apache2',
+        osx='/opt/local/apache2/conf',
     )
     hosts_enabled_dir = platform_select(
         debian='/etc/apache2/sites-enabled',

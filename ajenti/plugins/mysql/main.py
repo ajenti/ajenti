@@ -11,7 +11,8 @@ class MySQLPlugin (DBPlugin):
 
     service_name = platform_select(
         debian='mysql',
-        default='mysqld'
+        osx='org.macports.mysql56-server',
+        default='mysqld',
     )
 
     service_buttons = [

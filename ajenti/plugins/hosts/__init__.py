@@ -6,7 +6,7 @@ info = PluginInfo(
     title='Hosts',
     icon='sitemap',
     dependencies=[
-        PluginDependency('main')
+        PluginDependency('main'),
     ],
 )
 
