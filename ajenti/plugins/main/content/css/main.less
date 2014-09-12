@@ -323,50 +323,6 @@ body.auth {
     overflow: hidden;
     display: none;
     z-index: 9000;
-
-    > .wrapper {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        opacity: .5;
-    }
-
-    .spinner {
-        width: 16px;
-        height: 16px;
-        @interpolator: cubic-bezier(0.3, 0.5, 0.7, 0.5);
-        -webkit-animation: spinner 3s @interpolator infinite;
-        -moz-animation: spinner 3s @interpolator infinite;
-        animation: spinner 3s @interpolator infinite;
-
-        position: absolute;
-        margin: -8px 0 0 -8px;
-
-        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gIGCCgk1AbAgAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAFwSURBVDjLjdPPi41hFMDxz3vnYljZ2IitVzay8AewUKTD1GQnKyywmK2NUhrKLGSjrKSpSZp0ZmNmY2mBlM14lZXUlIUkNaPuHZt38vbMlXtWp3PO8z0/n0ohEXEQ13AKx3A8M9+2vj0YZOZGRMhM1QjAZmG6jbsYYAHfcCsz1yJCr/NwS31RAG7gJVYwhSt4EhH7tlUQEbvwEzv8X+7jZj8iDuALnmJ6zMewhmEfV1vDxRFBX/ELhwr7QmbOQQ9n/pHhOc7jLGYL3/6ImIBqxNS35FxmZme1Szja+ob4hMc9nMBD/CgAuzv6zmI2PRzGXNVm6GMZJztBb3CvBV/A5RFVvq46K1xq+y1lHZPYZNvhzVQRMYlHuDTm+lYxgzs43cdvvB8TsJqZR1p9GXqZOWwreNAJfIZ5NAXge3H2JtpfNajr+hU+4kNmXm+aZrGu63VEB7C3aZrZpvnL7WemFrKB+XYj3Y81hc9IvCt7+gMegXcEvXEnrQAAAABJRU5ErkJggg==');
-
-        &.one {
-            margin-left: -13px;
-            margin-top: 0px;
-        }
-
-        &.two {
-            margin-left: -1px;
-            animation-direction: reverse;
-            -moz-animation-direction: reverse;
-            -webkit-animation-direction: reverse;
-        }
-
-    }
-
-    .message {
-        width: 300px;
-        position: absolute;
-        left: 20px;
-        top: 3px;
-        color: #555;
-        font-size: 12px;
-        font-weight: bold;
-    }
 }
 
 
@@ -379,7 +335,7 @@ body.auth {
     display: none;
     z-index: 9000;
 
-    background: rgba(0,0,0,.75);
+    background: rgba(0,0,0,.85);
 
     >.content {
         margin: 60px auto;
@@ -495,36 +451,6 @@ body.auth {
     }
 }
 
-
-@-webkit-keyframes spinner {
-    0% {
-        -webkit-transform: rotate(0);
-    }
-
-    100% {
-        -webkit-transform: rotate(720deg);
-    }
-}
-
-@-moz-keyframes spinner {
-    from {
-       -moz-transform: rotate(0);
-    }
-
-    to {
-       -moz-transform: rotate(720deg);
-    }
-}
-
-@keyframes spinner {
-    from {
-        transform: rotate(0);
-    }
-
-    to {
-        transform: rotate(720deg);
-    }
-}
 
 @import "controls.index.i.less";
 @import "controls.dialogs.i.less";

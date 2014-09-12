@@ -50,11 +50,6 @@
             </div>
             
             <div id="loading">
-                <div class="wrapper">
-                    <div class="spinner one"></div>
-                    <div class="spinner two"></div>
-                    <div class="message"></div>
-                </div>
             </div>
 
             <div id="crash" class="full-overlay">
@@ -64,9 +59,7 @@
                         <pre id="crash-traceback">Blah blah</pre>
                         <div id="crash-report" style="display:none">
                             Submit this report to 
-                            <a target="_blank" href="https://github.com/Eugeny/ajenti/issues?state=open">Github</a><br/>
-                            or
-                            <a target="_blank" href="https://bugs.launchpad.net/ajenti/+filebug">Launchpad</a><br/>
+                            <a target="_blank" href="https://github.com/Eugeny/ajenti/issues?state=open">Github</a>.<br/>
                             <textarea></textarea>
                         </div>
                         <br class="clear" />
@@ -75,13 +68,9 @@
                                 <a onclick="ajentiCrashShowReport()" href="#" class="control button style-normal"><i class="icon-eye-open"></i> Submit bug</a>
                             </div>
                         </div>
-                        <div class="control hc" style="float:right">
-                            <div>
-                                <a onclick="document.location='/'" href="#" class="control button style-normal"><i class="icon-repeat"></i> Reload page</a>
-                            </div>
-                            <div>
-                                <a onclick="ajentiCrashResume()" href="#" class="control button style-normal"><i class="icon-chevron-right"></i> Continue</a>
-                            </div>
+                        <div class="control hc" style="float:right; width: 240px">
+                            <a onclick="document.location='/'" href="#" class="control button style-normal" style="display:inline-block"><i class="icon-repeat"></i> Reload page</a>
+                            <a onclick="ajentiCrashResume()" href="#" class="control button style-normal" style="display:inline-block"><i class="icon-chevron-right"></i> Continue</a>
                         </div>
                     </div>
                 </div>
