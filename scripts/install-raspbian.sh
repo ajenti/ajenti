@@ -15,9 +15,7 @@ apt-get update
 
 echo ':: Installing packages'
 apt-get install -y ajenti 
-apt-get install python-pip 
-apt-get install python-dev 
-apt-get install libevent-dev 
+apt-get install -y python-pip python-dev libevent-dev 
 pip install -U gevent 
 pip install greenlet==dev 
 pip install psutil --upgrade 
