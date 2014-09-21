@@ -43,7 +43,7 @@ msgstr "الاسم"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "وصف"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -173,7 +173,7 @@ msgstr "إعدادات"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "الكونفج"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -215,7 +215,7 @@ msgstr "حجم استخدام Memcache"
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:28
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
 #: ajenti/plugins/apache/main.py:65
@@ -470,7 +470,7 @@ msgstr "قاعدة النطاق"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "محدودية مجموعة dn"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -545,7 +545,7 @@ msgstr "جاري نسخ %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "تحريك الملفات"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -839,19 +839,19 @@ msgstr "إلغاء الأمر"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "لم يعد متوفر هذا المسار"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "كلمات السر غير صحيحة"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "كلمة السر خاطئة"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "تم تغيير كلمة المرور"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -880,11 +880,11 @@ msgstr "الوصول إلى الباب"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "تغيير كلمة المرور"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "كلمة السر القديمة"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -893,7 +893,7 @@ msgstr "كلمة المرور الجديدة"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "تأكيد كلمة السر"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
@@ -1165,11 +1165,12 @@ msgstr "اسم قاعدة البيانات هذا مستخدم سلفا"
 
 #: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
-msgstr ""
+msgstr "هذا الاسم تم استخدامه من قبل "
 
 #: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
-msgstr ""
+msgstr "الأذونات ممنوحة\n"
+""
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1179,49 +1180,49 @@ msgstr "قواعد البيانات"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "فصل من الموقع"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "تدمير"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "رمي قاعدة البيانات ؟"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "رمي المستخدم"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "السماح لجميع الادونات "
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "ملف بأسم {0} متواجد من قبل في {1}"
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "بعض الاعدادات خالية"
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "لا يمكن حفظ ملف الكونفج %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "المتحقق من الفلتر"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "ملف الفلتر"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "بدء التجريب"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1261,7 +1262,7 @@ msgid "View"
 msgstr "عرض"
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
-#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
 msgstr "إعادة تحميل"
@@ -1337,58 +1338,62 @@ msgstr "موقع جديد"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "التحقق من الكونفج"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
 msgstr "إعادة تشغيل المواقع"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
-msgid "Min processes"
+msgid "Process manager"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
-msgid "Max processes"
-msgstr ""
+msgid "Min processes"
+msgstr "عمليات دقيقة"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
-#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
-msgid "Process user"
-msgstr ""
+msgid "Max processes"
+msgstr "اعلى معدل للعمليات"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
-msgid "Process group"
-msgstr ""
+#: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
+msgid "Process user"
+msgstr "عملية المستخدم"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
-msgid "PHP .ini values"
-msgstr ""
+msgid "Process group"
+msgstr "عمليات المجموعة"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
+msgid "PHP .ini values"
+msgstr "قيم PHP .ini"
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
-msgstr ""
+msgstr "إعلام بي إتش بي"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
-msgstr ""
+msgstr "الوحدة النمطية للتطبيق"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:2
 msgid "Virtualenv path"
-msgstr ""
+msgstr "مسار فيرتوالينف"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-unicorn.xml:1
 msgid "Workers"
-msgstr ""
+msgstr "العمال"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
-msgstr ""
+msgstr "اسم السكربت"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "منفذ HTTP في البرنامج النصي"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
@@ -1412,7 +1417,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
-msgstr ""
+msgstr "تخصيص مسار"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
@@ -1458,19 +1463,19 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Enabled"
-msgstr ""
+msgstr "تمكين"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "وضع الصيانة"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "ملفات الموقع"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "اضافة ملف"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
@@ -1794,15 +1799,15 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "لم يتم تمكين بريد V أجينتي بعد"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "تمكين \"البريد V أجينتي\" سيقوم بالكتابة فوق تكوين للبرامج التالية:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "لم يتم العثور على نتائج البحث"
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
@@ -1818,7 +1823,7 @@ msgstr "إنتهى التثبيت"
 
 #: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
-msgstr ""
+msgstr "الاستعلام عن \"إدارة الحزم\""
 
 #: ajenti/plugins/packages/main.py:135
 #, python-format
@@ -1887,7 +1892,7 @@ msgstr "تم حفظ المنطقة"
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s غير موجود"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
 msgid "Zones"
@@ -1916,7 +1921,7 @@ msgstr "إدارة الملفات"
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
-msgstr ""
+msgstr "تم مسح الملف"
 
 #: ajenti/plugins/fm/fm.py:179
 msgid "Files moved"
@@ -1933,7 +1938,7 @@ msgstr "العناصر المحددة %i"
 
 #: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
-msgstr ""
+msgstr "تفكيك"
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
@@ -1973,23 +1978,23 @@ msgstr "الحافظة"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "آخر وقت تم الولوج"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "تعديل الوقت"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "تاريخ الاضافة"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
-msgstr ""
+msgstr "تعديل"
 
 #: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
-msgstr ""
+msgstr "فك"
 
 #: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
@@ -2005,19 +2010,19 @@ msgstr "إعدادات اخرى"
 
 #: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
-msgstr ""
+msgstr "تعيين بشكل متكرر"
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
-msgstr ""
+msgstr "مسار بدء التشغيل"
 
 #: ajenti/plugins/fm/layout/config.xml:3
 msgid "Owner for new files"
-msgstr ""
+msgstr "مالك للملفات الجديدة"
 
 #: ajenti/plugins/fm/layout/config.xml:4
 msgid "Group for new files"
-msgstr ""
+msgstr "مجموعة ملفات جديدة"
 
 #: ajenti/plugins/terminal/terminal.py:114
 #, python-format
@@ -2029,15 +2034,15 @@ msgid "Process has exited successfully"
 msgstr "تمت العملية بنجاح"
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
-#: ajenti/plugins/terminal/main.py:223
+#: ajenti/plugins/terminal/main.py:228
 msgid "Terminal"
 msgstr "الطرفية"
 
-#: ajenti/plugins/terminal/main.py:227
+#: ajenti/plugins/terminal/main.py:232
 msgid "Run shell"
 msgstr "تشغيل shell"
 
-#: ajenti/plugins/terminal/main.py:228
+#: ajenti/plugins/terminal/main.py:233
 msgid "Run custom commands"
 msgstr "تشغيل أوامر مخصصة"
 
@@ -2063,19 +2068,19 @@ msgstr "شبكة"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
-msgstr ""
+msgstr "إحضار"
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
-msgstr ""
+msgstr "إسقاط"
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "إسقاط اتصال شبكة الاتصال الأساسي قد يقطع  الوصول إلى الخادم! هل أنت متأكد؟"
 
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr ""
+msgstr "إعادة تشغيل اتصال الشبكة الأولية قد يقطع  الوصول إلى الخادم! هل أنت متأكد من فعل هذا؟"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "Loopback"
@@ -2083,11 +2088,11 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr ""
+msgstr "ثابت"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr ""
+msgstr "الدليل"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
@@ -2254,7 +2259,7 @@ msgstr "لوحة التحكم"
 
 #: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
-msgstr ""
+msgstr "تطبيقات مصغّرة"
 
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
@@ -2268,23 +2273,23 @@ msgstr "إدراج إضافة"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
-msgstr ""
+msgstr "تحديت تلقائي"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
-msgstr ""
+msgstr "تحديث أجينتي"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr ""
+msgstr "يتوفر تحديث أجينتي"
 
 #: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"
-msgstr ""
+msgstr "التاريخ والوقت"
 
 #: ajenti/plugins/ntpd/main.py:142
 msgid "No servers defined"
-msgstr ""
+msgstr "لا يوجد سيرفر "
 
 #: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
@@ -2296,7 +2301,7 @@ msgstr "الوقت الحالي"
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "المزامنة"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
@@ -2482,91 +2487,91 @@ msgstr "سماح"
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
-msgstr ""
+msgstr "منع"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr ""
+msgstr "خدمة Node.js"
 
-#: ajenti/plugins/vh-gunicorn/gunicorn.py:27
+#: ajenti/plugins/vh-gunicorn/gunicorn.py:28
 msgid "GUnicorn service"
-msgstr ""
+msgstr "خدمة جونيكورن"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr ""
+msgstr "جدار الحماية CSF"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"
-msgstr ""
+msgstr "تطبيق"
 
 #: ajenti/plugins/csf/main.py:84
 msgid "Self-test OK"
-msgstr ""
+msgstr "اختبار ذاتي موافق"
 
 #: ajenti/plugins/csf/layout/main.xml:2
 msgid "Testing mode"
-msgstr ""
+msgstr "وضع الاختبار"
 
 #: ajenti/plugins/csf/layout/main.xml:3
 msgid "Network device"
-msgstr ""
+msgstr "جهاز شبكة الاتصال"
 
 #: ajenti/plugins/csf/layout/main.xml:4
 msgid "Network device (IPv6)"
-msgstr ""
+msgstr "جهاز شبكة الاتصال (IPv6)"
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr ""
+msgstr "المنافذ المسموح بها"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "TCP الواردة"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "TCP الصادرة"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "UDP الواردة"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "UDP الصادرة"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "تمكين IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr ""
+msgstr "قوائم الايبي"
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr ""
+msgstr "قواعد دائمة"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "عناوين المسموح بها"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "عناوين مرفوضة"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "القواعد المؤقتة"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "عناوين محظورة"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "حظر"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2586,7 +2591,7 @@ msgstr "سجلات"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "خدمة PHP-FPM"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2606,7 +2611,7 @@ msgstr "الأخطاء في السجل"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "تفعيل خدمة مسامنة الدليل"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"

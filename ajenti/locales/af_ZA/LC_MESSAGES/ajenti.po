@@ -215,7 +215,7 @@ msgstr "Memcache geheue gebruik"
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:28
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
 #: ajenti/plugins/apache/main.py:65
@@ -1261,7 +1261,7 @@ msgid "View"
 msgstr ""
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
-#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
 msgstr "herlaai"
@@ -1344,27 +1344,31 @@ msgid "Restart websites"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
-msgid "Min processes"
+msgid "Process manager"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
-msgid "Max processes"
+msgid "Min processes"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+msgid "Max processes"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
 msgstr ""
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
 msgstr ""
 
@@ -2029,15 +2033,15 @@ msgid "Process has exited successfully"
 msgstr ""
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
-#: ajenti/plugins/terminal/main.py:223
+#: ajenti/plugins/terminal/main.py:228
 msgid "Terminal"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:227
+#: ajenti/plugins/terminal/main.py:232
 msgid "Run shell"
 msgstr ""
 
-#: ajenti/plugins/terminal/main.py:228
+#: ajenti/plugins/terminal/main.py:233
 msgid "Run custom commands"
 msgstr ""
 
@@ -2488,7 +2492,7 @@ msgstr ""
 msgid "Node.js service"
 msgstr ""
 
-#: ajenti/plugins/vh-gunicorn/gunicorn.py:27
+#: ajenti/plugins/vh-gunicorn/gunicorn.py:28
 msgid "GUnicorn service"
 msgstr ""
 

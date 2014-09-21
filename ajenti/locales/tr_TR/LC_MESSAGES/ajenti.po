@@ -1,7 +1,7 @@
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
-msgstr "Pluginler"
+msgstr "Eklentiler"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
@@ -173,7 +173,7 @@ msgstr "Yapılandırma"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Temel ayarlar"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -215,7 +215,7 @@ msgstr "Memcache bellek kullanımı"
 #: ajenti/plugins/munin/main.py:19 ajenti/plugins/nginx/main.py:65
 #: ajenti/plugins/supervisor/main.py:18 ajenti/plugins/netatalk/main.py:19
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
-#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:27
+#: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:28
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
 #: ajenti/plugins/apache/main.py:65
@@ -1005,11 +1005,11 @@ msgstr "Veto dosyaları"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Dosya umask'a zorla"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "Klasör umask'a zorla"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -1209,15 +1209,15 @@ msgstr "Bazı parametreler boş."
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Ayar dosyası kaydedilemedi. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Filtre kontrolcüsü"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filtre dosyası"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
@@ -1261,7 +1261,7 @@ msgid "View"
 msgstr "Görünüm"
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
-#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:20
+#: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
 #: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
 msgid "Reload"
 msgstr "Yeniden yükleme"
@@ -1344,27 +1344,31 @@ msgid "Restart websites"
 msgstr "Websitelerini yeniden başlat"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
+msgid "Process manager"
+msgstr ""
+
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
 msgstr "Min işlemler"
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
 msgid "Max processes"
 msgstr "Max işlemler"
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:3
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
 msgstr "Proses kullanıcı"
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
 msgstr "Proses grup"
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
 msgstr "PHP .ini değerleri"
 
-#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
+#: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
 msgstr "Php flags"
 
@@ -1439,7 +1443,7 @@ msgstr "Ajenti V henüz etkin değil"
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Ajenti V'i devreye sokmak belirtilen yazılımların ayarlarının üzerine yazacak:"
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
@@ -1715,7 +1719,7 @@ msgstr "Özel domain"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
-msgstr ""
+msgstr "Geçerli bir anahtar mevcut değil"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
@@ -2029,15 +2033,15 @@ msgid "Process has exited successfully"
 msgstr "İşlem başarıyla çıkıldı"
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
-#: ajenti/plugins/terminal/main.py:223
+#: ajenti/plugins/terminal/main.py:228
 msgid "Terminal"
 msgstr "Terminal"
 
-#: ajenti/plugins/terminal/main.py:227
+#: ajenti/plugins/terminal/main.py:232
 msgid "Run shell"
 msgstr "Kabuk çalıştırmak"
 
-#: ajenti/plugins/terminal/main.py:228
+#: ajenti/plugins/terminal/main.py:233
 msgid "Run custom commands"
 msgstr "Özel komutları çalıştırmak"
 
@@ -2488,7 +2492,7 @@ msgstr "Reddet"
 msgid "Node.js service"
 msgstr "Node.js Servisi"
 
-#: ajenti/plugins/vh-gunicorn/gunicorn.py:27
+#: ajenti/plugins/vh-gunicorn/gunicorn.py:28
 msgid "GUnicorn service"
 msgstr "GUnicorn Servisi"
 
