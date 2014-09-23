@@ -833,7 +833,7 @@ msgstr "Nejvyšší adresář"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
-#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:37
+#: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:38
 #: ajenti/plugins/dashboard/layout/dash.xml:6
 msgid "Cancel"
 msgstr "Zrušit"
