@@ -32,10 +32,11 @@ class ConfigurableWidget (DashboardWidget):
     def init(self):
         self.on_prepare()
         self.dialog = self.find('config-dialog')
-        self.dialog.buttons = [
-            {'text': 'OK', 'id': 'ok'},
-            {'text': _('Cancel'), 'id': 'cancel'},
-        ]
+        if self.dialog:
+            self.dialog.buttons = [
+                {'text': 'OK', 'id': 'ok'},
+                {'text': _('Cancel'), 'id': 'cancel'},
+            ]
 
         if not self.config and self.dialog:
             self.config = self.create_config()
