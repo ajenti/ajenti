@@ -148,7 +148,7 @@ class window.Terminal
                 ch = '&lt'
             if ch == '>'
                 ch = '&gt'
-            r += cell[0]
+            r += ch
         r += '</pre>'
         return r
 
