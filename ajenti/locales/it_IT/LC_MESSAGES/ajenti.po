@@ -173,7 +173,7 @@ msgstr "Configurazione"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Configurazioni principali"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -470,7 +470,7 @@ msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Limit to group DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -1165,11 +1165,11 @@ msgstr "Questo nome di database è già utilizzato"
 
 #: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
-msgstr ""
+msgstr "Questo nome utente è già utilizzato"
 
 #: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
-msgstr ""
+msgstr "Autorizzazioni concesse."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1184,19 +1184,19 @@ msgstr "Scollegare dal sito Web"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Distruggere"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Eliminare il database?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Eliminare l'utente?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Concedere tutte le autorizzazioni"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
@@ -1217,7 +1217,7 @@ msgstr "Controllo filtri"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filtro del file"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
@@ -1345,7 +1345,7 @@ msgstr "Riavvio dei siti web"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "Gestore del processo"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
@@ -1358,15 +1358,15 @@ msgstr "Processi max"
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Utente del processo"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
-msgstr ""
+msgstr "Gruppo di processo"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
-msgstr ""
+msgstr "Valori PHP.ini"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
@@ -1478,7 +1478,7 @@ msgstr "Crea cartella"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Riparare i permessi del file"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
@@ -1520,7 +1520,7 @@ msgstr "Contenuto"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Configurazione personalizzata di alto livello"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
@@ -1790,7 +1790,7 @@ msgstr "Routers personalizzati"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Configurazione personalizzata del router locale"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"
@@ -1977,15 +1977,15 @@ msgstr "Appunti"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Ora dell'ultimo accesso"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Data di modifica"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Data di creazione"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"

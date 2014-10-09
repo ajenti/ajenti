@@ -1233,7 +1233,7 @@ msgstr "DHCP-Server"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr "Subnetz"
+msgstr "Subnetze"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
