@@ -1,0 +1,13 @@
+<box>
+    <vc binder:context="classconfig">
+        <formline text="{Host}">
+            <textbox bind="[RETHINKDB_HOST]" />
+        </formline>
+        <formline text="{Port}">
+            <textbox bind="[RETHINKDB_PORT]" />
+        </formline>
+        <formline text="{Auth}">
+            <textbox bind="[RETHINKDB_AUTH]" />
+        </formline>
+    </vc>
+</box>
