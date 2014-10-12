@@ -1,0 +1,26 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="cog" />
+    </box>
+    <box width="90">
+        <label id="name" style="bold" text="Uname:" />
+    </box>
+    <label id="value" />
+
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="{Uname options}">
+                <checkbox id="opt_a" text="all" />
+                <checkbox id="opt_s" text="-s --kernel-name" />
+                <checkbox id="opt_n" text="-n --nodename" />
+                <checkbox id="opt_r" text="-r --kernel-release" />
+                <checkbox id="opt_v" text="-v --kernel-version" />
+                <checkbox id="opt_m" text="-m --machine" />
+                <checkbox id="opt_p" text="-p --processor" />
+                <checkbox id="opt_i" text="-i --hardware-platform" />
+                <checkbox id="opt_o" text="-o --operating-system" />
+            </formline>
+        </pad>
+    </dialog>
+</hc>
