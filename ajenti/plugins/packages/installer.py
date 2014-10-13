@@ -59,6 +59,7 @@ db = {
         'mdadm': 'mdadm',
         'nginx': 'nginx',
         'ipmitool': 'ipmitool',
+        'rethinkdb': 'rethinkdb',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',
@@ -78,6 +79,7 @@ db = {
         'nginx': 'nginx',
         'ipmitool': 'ipmitool',
         'cron': 'cronie',
+        'rethinkdb': 'rethinkdb',
     },
     'mageia': {
         'python-module-BeautifulSoup': 'python-beautifulsoup',
@@ -99,6 +101,7 @@ db = {
         'cron': 'cronie',
         'openvpn': 'openvpn',
         'memcached': 'memcached',
+        'rethinkdb': 'rethinkdb',
     },
     'arch': {
         'python-module-BeautifulSoup': 'python2-beautifulsoup3',
@@ -123,5 +126,6 @@ db = {
         'dhcpd': 'dhcp',
         'named': 'bind',
         'ipmitool': 'ipmitool',
+        'rethinkdb': 'rethinkdb',
     },
 }
