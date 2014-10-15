@@ -3,10 +3,9 @@
         <icon id="icon" icon="cog" />
     </box>
     <box width="90">
-        <label id="name" style="bold" text="Uname:" />
+        <label id="name" style="bold" text="uname" />
     </box>
     <label id="value" />
-
 
     <dialog id="config-dialog" visible="False">
         <pad>

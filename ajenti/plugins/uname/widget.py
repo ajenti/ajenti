@@ -1,29 +1,18 @@
 import subprocess
+
 from ajenti.api import plugin
 from ajenti.plugins.dashboard.api import DashboardWidget
 from ajenti.plugins.dashboard.api import ConfigurableWidget
 
-@plugin
-class UnameWidget(DashboardWidget):
-    name = _('Uname')
-    icon = 'cog'
-
-    def init(self):
-        self.append(self.ui.inflate('uname:uname'))
-        self.find('icon').text = 'cog'
-        self.find('name').text = 'Uname:'
-        self.find('value').text = subprocess.check_output(['uname', '-srm'])
-
 
 @plugin
-
 class MyUnameWidget(ConfigurableWidget):
-    name = _('Uname (configurable)')
+    name = _('uname')
     icon = 'cog'
     options = 'asnrvmpio'
 
     def on_prepare(self):
-        self.append(self.ui.inflate('uname:cfguname'))
+        self.append(self.ui.inflate('uname:widget'))
 
     def on_start(self):
         args = ''
@@ -39,19 +28,15 @@ class MyUnameWidget(ConfigurableWidget):
         self.find('value').text = subprocess.check_output(['uname', args])
 
     def create_config(self):
-        options={}
+        options = {}
         for o in self.options:
-            if o in 'srm':
-                options['opt_%s'%o]=True
-            else:
-                options['opt_%s'%o]=False
+            options['opt_%s'%o] = o in 'srm'
         return options
 
     def on_config_start(self):
         for o in self.options:
             opt = 'opt_%s' % o
-            if self.config[opt]:
-                self.dialog.find(opt).value = True
+            self.dialog.find(opt).value = self.config[opt]
 
     def on_config_save(self):
         for o in self.options:
