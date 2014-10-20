@@ -19,7 +19,7 @@ class SystemdServiceManager (ServiceManager):
 
     @classmethod
     def verify(cls):
-        if subprocess.call(['which', 'systemctl']) != 0
+        if subprocess.call(['which', 'systemctl']) != 0:
             return False
         try:
             c = cls()
