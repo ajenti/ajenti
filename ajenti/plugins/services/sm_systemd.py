@@ -19,7 +19,16 @@ class SystemdServiceManager (ServiceManager):
 
     @classmethod
     def verify(cls):
-        return subprocess.call(['which', 'systemctl']) == 0
+        if subprocess.call(['which', 'systemctl']) != 0
+            return False
+        try:
+            c = cls()
+            c.init()
+            c.get_all()
+            return True
+        except Exception, e:
+            logging.info('Disabling systemd service manager: %s' % str(e))
+            return False
 
     @cache_value(1)
     def get_all(self):
