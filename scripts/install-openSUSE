@@ -5,6 +5,8 @@ exit 1
 fi
 echo ':: Adding Ajenti repo'
 rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
+echo ':: Updating Repository'
+zypper up
 echo ':: Installing package'
 zypper in ajenti --non-interactive
 echo ':: Done! Open https://<address>:8000 in browser'
