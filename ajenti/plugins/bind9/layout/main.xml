@@ -1,4 +1,14 @@
 <vc>
+    <servicebar
+        id="servicebar"
+        name="bind9"
+        buttons="
+            [{
+                'command': 'force-reload',
+                'text': _('Reload'),
+                'icon': 'step-forward',
+            }]
+        " />
     <body>
         <pad>
             <vc>
