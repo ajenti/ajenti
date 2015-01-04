@@ -173,7 +173,7 @@ msgstr "Konfiguration"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Huvudkonfigurationer"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -470,7 +470,7 @@ msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Begränsa till gruppens DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -1165,11 +1165,11 @@ msgstr "Detta databasnamnet används redan"
 
 #: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
-msgstr ""
+msgstr "Detta användarnamn används redan"
 
 #: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
-msgstr ""
+msgstr "Rättighet beviljad."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1179,49 +1179,49 @@ msgstr "Databaser"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Släpp från hemsidan"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Förstöra"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Radera databasen?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Radera användaren?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Ge alla behörigheter"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Filen med namnet {0} existerar redan i  {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Vissa parametrar är tomma."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Kunde inte spara konfigurationsfilen. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Filtercheck"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filterfil"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Kör test"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1345,7 +1345,7 @@ msgstr "Starta om webbplatser"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "Processhanterare"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
@@ -1358,15 +1358,15 @@ msgstr "Max antal processer"
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Processanvändare"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
-msgstr ""
+msgstr "Processgrupp"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
-msgstr ""
+msgstr "PHP.ini-värden"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
@@ -1478,7 +1478,7 @@ msgstr "Skapa katalog"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Åtgärda filrättigheter"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
@@ -1977,15 +1977,15 @@ msgstr "Urklipp"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Senaste åtkomsttid"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Ändringstid"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Skapad den"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"

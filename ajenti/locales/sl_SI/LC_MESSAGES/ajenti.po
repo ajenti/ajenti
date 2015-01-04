@@ -173,7 +173,7 @@ msgstr "Konfiguracija"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Glavna konfiguracija"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -470,7 +470,7 @@ msgstr "Osnovna DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Omejitev na skupino DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
@@ -921,7 +921,7 @@ msgstr "Zaženi v ukazni lupini"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr "Poraba spomina"
+msgstr "Spomin"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
@@ -1165,11 +1165,11 @@ msgstr "Ime podatkovne baza je že uporabljeno"
 
 #: ajenti/plugins/vh-mysql/mysql.py:117
 msgid "This username is already used"
-msgstr ""
+msgstr "Uporabniško ime je že v uporabi"
 
 #: ajenti/plugins/vh-mysql/mysql.py:152
 msgid "Permissions granted."
-msgstr ""
+msgstr "Dano dovoljenje."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
@@ -1179,49 +1179,49 @@ msgstr "Podatkovne baze"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Izloči iz spletne strani"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Uniči"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Izbrišem bazo?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Izbrišem uporabnika?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:16
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Nastavi vsa dovoljenja"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Datoteka z imenom {0} že obstaja v {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Nekateri parametri so prazni."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Config datoteke ni mogoče shraniti. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Preverba filtrov"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filter datoteka"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Zaženi test"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
@@ -1345,7 +1345,7 @@ msgstr "Ponovni zagon spletnih strani"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "Upravitelj procesov"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
@@ -1358,15 +1358,15 @@ msgstr "Max procesov"
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr ""
+msgstr "Uporabnik procesa"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
-msgstr ""
+msgstr "Skupina procesa"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
-msgstr ""
+msgstr "PHP .ini vrednosti"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
@@ -1478,7 +1478,7 @@ msgstr "Ustvari imenik"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Popravi dovoljenja"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
@@ -1520,7 +1520,7 @@ msgstr "Vsebina"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Konfiguracija najvišje ravni"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
@@ -1790,7 +1790,7 @@ msgstr "Usmerjevalniki po meri"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Nastavitve lokalnega usmerjevalnika"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"
@@ -1977,15 +1977,15 @@ msgstr "Odložišče"
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
-msgstr ""
+msgstr "Čas zadnjega dostopa"
 
 #: ajenti/plugins/fm/layout/main.xml:20
 msgid "Modification time"
-msgstr ""
+msgstr "Čas spremembe"
 
 #: ajenti/plugins/fm/layout/main.xml:21
 msgid "Creation time"
-msgstr ""
+msgstr "Datum nastanka"
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
@@ -2268,7 +2268,7 @@ msgstr "Besedilo"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"
-msgstr "Dodaj pripomoček"
+msgstr "Dodaj gradnik"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
@@ -2280,7 +2280,7 @@ msgstr "Posodobi Ajenti"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:5
 msgid "Ajenti update is available"
-msgstr "Na voljo je posodobitev za Ajenti"
+msgstr "Ajenti posodobitev je na voljo"
 
 #: ajenti/plugins/ntpd/main.py:93
 msgid "Date & Time"

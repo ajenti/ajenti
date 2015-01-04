@@ -71,7 +71,7 @@ msgstr "Status"
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Poslužitelji"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
@@ -108,7 +108,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:23
 #: ajenti/plugins/bind9/layout/main.xml:2
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -243,7 +243,7 @@ msgstr ""
 #: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr ""
+msgstr "Korisničko ime"
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
@@ -260,26 +260,26 @@ msgstr "Lozinka"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Nevažeći ključ"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Nevažeći IP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Isteklo"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Greška: \"%s\""
 
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -304,11 +304,11 @@ msgstr "Molimo upišite hostname"
 #: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Podesite dodatak %s!"
 
 #: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Izmijenite Ajenti konfiguraciju"
 
 #: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
@@ -500,7 +500,7 @@ msgstr ""
 #: ajenti/plugins/users/layout/user-list.xml:9
 #: ajenti/plugins/fm/layout/main.xml:15
 msgid "Remove"
-msgstr ""
+msgstr "Ukloni"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
