@@ -173,7 +173,7 @@ msgstr "Beállítások"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Főbb beállítások"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -1345,7 +1345,7 @@ msgstr "Honlapok újraindítása"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "Folyamatkezelő"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"

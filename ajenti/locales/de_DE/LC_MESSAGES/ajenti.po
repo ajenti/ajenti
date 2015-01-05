@@ -1057,7 +1057,7 @@ msgstr "Sitzungen"
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
-msgstr "Freigaben"
+msgstr "Freigeben"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 #: ajenti/plugins/users/layout/main.xml:1
@@ -1313,11 +1313,11 @@ msgstr "Teste Konfiguration"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
-msgstr "Speichere Änderungen"
+msgstr "Änderungen Speichern"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr "Wende Änderungen an"
+msgstr "Änderungen übernehmen"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
