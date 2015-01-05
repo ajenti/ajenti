@@ -7,6 +7,9 @@ fi
 echo ':: Adding EPEL repo'
 rpm -ivh http://download.fedoraproject.org/pub/epel/beta/7/x86_64/epel-release-7-1.noarch.rpm || true
 
+echo ':: Switching from MariaDB (default) to MySQL (new)'
+rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm 
+
 echo ':: Adding Ajenti repo'
 rpm -ivh http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
 
