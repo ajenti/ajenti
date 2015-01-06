@@ -243,7 +243,8 @@ msgstr ""
 #: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr ""
+msgstr "Korisničko ime\n"
+""
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
@@ -478,7 +479,7 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr ""
+msgstr "Admin šifra"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
@@ -500,7 +501,7 @@ msgstr ""
 #: ajenti/plugins/users/layout/user-list.xml:9
 #: ajenti/plugins/fm/layout/main.xml:15
 msgid "Remove"
-msgstr ""
+msgstr "Ukloni"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
@@ -545,7 +546,7 @@ msgstr "Копиранје %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Premesti fajlove"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -654,7 +655,7 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:28
 #: ajenti/plugins/cron/layout/main.xml:20
 msgid "Yearly"
-msgstr ""
+msgstr "Godišnje"
 
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
