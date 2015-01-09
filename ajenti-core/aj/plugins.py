@@ -5,6 +5,7 @@ import subprocess
 import sys
 import traceback
 import weakref
+import yaml
 
 import aj
 from aj.api import *
@@ -16,6 +17,7 @@ class PluginProvider (object):
     def provide(self):
         raise NotImplementedError()
 
+
 @public
 class DirectoryPluginProvider (PluginProvider):
     def __init__(self, path):
@@ -26,9 +28,8 @@ class DirectoryPluginProvider (PluginProvider):
         for dir in os.listdir(self.path):
             path = os.path.join(self.path, dir)
             if os.path.isdir(path):
-                if os.path.exists(os.path.join(path, '__init__.py')):
-                    if open(os.path.join(path, '__init__.py')).read().splitlines()[0].strip() ==  '#ajenti-plugin':
-                        found_plugins.append(path)
+                if os.path.exists(os.path.join(path, 'plugin.yml')):
+                    found_plugins.append(path)
         return found_plugins
 
 
@@ -104,7 +105,7 @@ class ModuleDependency (Dependency):
         def reason(self):
             return '%s' % self.dependency.module_name
 
-    def __init__(self, module_name):
+    def __init__(self, module_name=None):
         self.module_name = module_name
 
     def is_satisfied(self):
@@ -128,7 +129,7 @@ class PluginDependency (Dependency):
         def reason(self):
             return '%s' % self.dependency.plugin_name
 
-    def __init__(self, plugin_name):
+    def __init__(self, plugin_name=None):
         self.plugin_name = plugin_name
 
     def is_satisfied(self):
@@ -147,7 +148,7 @@ class BinaryDependency (Dependency):
         def reason(self):
             return '%s' % self.dependency.binary_name
 
-    def __init__(self, binary_name):
+    def __init__(self, binary_name=None):
         self.binary_name = binary_name
 
     def is_satisfied(self):
@@ -165,7 +166,7 @@ class FileDependency (Dependency):
         def reason(self):
             return '%s' % self.dependency.file_name
 
-    def __init__(self, file_name):
+    def __init__(self, file_name=None):
         self.file_name = file_name
 
     def is_satisfied(self):
@@ -224,10 +225,16 @@ class PluginManager (object):
                 if e.dependency.plugin_name in self.get_all():
                     if self.get_all()[e.dependency.plugin_name].crash:
                         self.get_all()[name].crash = e
-                        logging.warn('Plugin dependency unsatisfied: "%s" -> "%s"' %
-                                    (name, e.dependency.plugin_name))
+                        logging.warn(
+                            'Plugin dependency unsatisfied: "%s" -> "%s"' % (name, e.dependency.plugin_name)
+                        )
                         return
                 try:
+                    if e.dependency.plugin_name not in self.__locations:
+                        logging.warn(
+                            'Plugin dependency unsatisfied: "%s" -> "%s"' % (name, e.dependency.plugin_name)
+                        )
+                        return
                     logging.debug('Preloading plugin dependency: "%s"' % e.dependency.plugin_name)
                     if not self.load_recursive(e.dependency.plugin_name):
                         self.get_all()[name].crash = e
@@ -241,39 +248,26 @@ class PluginManager (object):
         """
         logging.debug('Loading plugin "%s"' % name)
         try:
+            yml_info = yaml.load(open(os.path.join(location, name, 'plugin.yml')))
+            info = PluginInfo(**yml_info)
+            info.active = False
+            info.name = name
+            info.crash = None
+            info.location = location
+            self.__plugins[name] = info
+
+            for dependency in info.dependencies:
+                dependency.check()
+
+            info.active = True
+
             try:
                 mod = imp.load_module(
                     'aj.plugins.%s' % name,
                     *imp.find_module(name, [location])
                 )
-                if not hasattr(mod, 'info'):
-                    raise PluginFormatError()
             except PluginFormatError:
                 raise
-            except Exception as e:
-                # TOTAL CRASH
-                from aj.api import PluginInfo
-                info = PluginInfo(name=name, crash=e)
-                self.__plugins[name] = info
-                raise PluginCrashed(e)
-
-            info = mod.info
-            info.module = mod
-            info.active = False
-            info.name = name
-            info.path = mod.__path__[0]
-            info.crash = None
-            info.location = location
-            if hasattr(mod, 'init'):
-                info.init = mod.init
-            self.__plugins[name] = info
-
-            for dependency in info.dependencies:
-                dependency.check()
-            info.active = True
-
-            try:
-                info.init()
             except Exception as e:
                 raise PluginCrashed(e)
 

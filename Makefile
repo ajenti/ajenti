@@ -1,3 +1,9 @@
+bower:
+	cd plugins && ajenti-dev-multitool --bower install
+
+build:
+	cd plugins && ajenti-dev-multitool --build
+
 run:
 	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins
 
