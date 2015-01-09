@@ -1,12 +1,12 @@
 import logging
 import subprocess
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import BaseHttpHandler, url, HttpPlugin, SocketEndpoint
-from ajenti.plugins import PluginManager
+import aj
+from aj.api import *
+from aj.api.http import BaseHttpHandler, url, HttpPlugin, SocketEndpoint
+from aj.plugins import PluginManager
 
-from ajenti.plugins.core.api.endpoint import endpoint
+from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)
@@ -23,7 +23,7 @@ class Handler (HttpPlugin):
     @url('/view/.*')
     @endpoint(page=True, auth=False)
     def handle_view(self, http_context):
-        if ajenti.dev:
+        if aj.dev:
             cmd = ['./scripts/build-resources']
             if http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache':
                 cmd += ['nocache']
@@ -33,7 +33,7 @@ class Handler (HttpPlugin):
                 logging.error('Resource compilation failed')
                 logging.error(o + e)
             
-        path = PluginManager.get(ajenti.context).get_content_path('core', 'content/pages/index.html')
+        path = PluginManager.get(aj.context).get_content_path('core', 'content/pages/index.html')
         content = open(path).read() % {
             'prefix': http_context.prefix,
         }

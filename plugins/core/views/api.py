@@ -5,14 +5,14 @@ import socket
 import subprocess
 import traceback
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import BaseHttpHandler, url, HttpPlugin
-from ajenti.plugins import PluginManager
-from ajenti.auth import AuthenticationService, SudoError
+import aj
+from aj.api import *
+from aj.api.http import BaseHttpHandler, url, HttpPlugin
+from aj.plugins import PluginManager
+from aj.auth import AuthenticationService, SudoError
 
-from ajenti.plugins.core.api.endpoint import endpoint
-from ajenti.plugins.core.api.sidebar import Sidebar
+from aj.plugins.core.api.endpoint import endpoint
+from aj.plugins.core.api.sidebar import Sidebar
 
 
 @component(HttpPlugin)
@@ -91,7 +91,7 @@ class Handler (HttpPlugin):
                     'error': 'Could not authenticate with Mozilla Persona: %s' % str(e),
                 }
 
-            emails = ajenti.config.get('emails', {})
+            emails = aj.config.data.get('emails', {})
             if email in emails:
                 username = emails[email]
                 auth.login(username)

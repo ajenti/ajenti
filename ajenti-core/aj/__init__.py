@@ -9,8 +9,10 @@ __version__ = '1.2.22.16'
 
 # Global state
 
+product = None
+""" Custom product name """
+
 config = None
-""" Loaded config """
 
 version = None
 """ Ajenti version """
@@ -39,7 +41,6 @@ edition = 'vanilla'
 
 master = True
 
-plugin_sources = []
 
 __all__ = [
     'config', 'platform', 'platform_string', 'platform_unmapped',
@@ -145,15 +146,15 @@ def check_uid():
 
 
 def init():
-    import ajenti
-    ajenti.version = detect_version()
-    if ajenti.platform is None:
-        ajenti.platform_unmapped, ajenti.platform = detect_platform()
+    import aj
+    aj.version = detect_version()
+    if aj.platform is None:
+        aj.platform_unmapped, aj.platform = detect_platform()
     else:
         logging.warn('Platform ID was enforced by commandline!')
-        ajenti.platform_unmapped = ajenti.platform
-    ajenti.platform_string = detect_platform_string()
-    ajenti.installation_uid = check_uid()
+        aj.platform_unmapped = aj.platform
+    aj.platform_string = detect_platform_string()
+    aj.installation_uid = check_uid()
 
 
 def exit():

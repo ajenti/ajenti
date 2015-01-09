@@ -1,4 +1,4 @@
-from ajenti.util import LazyModule
+from aj.util import LazyModule
 requests = LazyModule('requests')
 
 import crypt
@@ -9,11 +9,11 @@ import pwd
 import spwd
 import subprocess
 
-import ajenti
-import ajenti.pam
-from ajenti.api import *
-from ajenti.api.http import BaseHttpHandler
-from ajenti.util import *
+import aj
+import aj.pam
+from aj.api import *
+from aj.api.http import BaseHttpHandler
+from aj.util import *
 
 
 class SudoError (Exception):
@@ -96,7 +96,7 @@ class AuthenticationService (BaseHttpHandler):
         return self.context.identity
 
     def login(self, username, demote=True):
-        logging.debug('Authenticating this session as %s' % username)
+        logging.info('Authenticating session as %s' % username)
         if demote:       
             self.context.worker.demote(username)
         self.context.identity = username 

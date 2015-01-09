@@ -1,0 +1,108 @@
+#!/usr/bin/env python
+import daemon
+import getopt
+import json
+import logging
+import os
+import stat
+import sys
+import yaml
+
+
+import aj
+import aj.config
+import aj.core
+import aj.log
+import aj.plugins
+
+
+
+
+class AjentiConfig (aj.config.BaseConfig):
+    def __init__(self, path):
+        self.path = os.path.abspath(path)
+
+    def __unicode__(self):
+        return self.path
+
+    def harden(self):
+        os.chmod(self.path, stat.S_IRWXU)
+
+    def load(self):
+        self.data = yaml.load(open(self.path))
+
+    def save(self):
+        with open(self.path, 'w') as f:
+            f.write(yaml.dump(self.data))
+
+
+
+def usage():
+    print("""
+Usage: %s [options]
+Options:
+    -c, --config <file> - Use given config file instead of default
+    -v                  - Debug/verbose logging
+    --dev               - Dev mode (recompile resources)
+    -d, --daemon        - Run in background (daemon mode)
+    -h, --help          - This help
+    """)
+
+
+if __name__ == '__main__':
+    log_level = logging.INFO
+    daemonize = False
+    dev_mode = False
+    debug_mode = False
+    config_path = None
+    plugin_providers = []
+
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'dev', 'plugins='])
+    except getopt.GetoptError as e:
+        print(str(e))
+        usage()
+        sys.exit(2)
+
+    for o, a in opts:
+        if o in ('-h', '--help'):
+            usage()
+            sys.exit(0)
+        elif o in ('-v',):
+            log_level = logging.DEBUG
+            debug_mode = True
+        elif o in ('--dev',):
+            log_level = logging.DEBUG
+            debug_mode = True
+            dev_mode = True
+        elif o in ('-c', '--config'):
+            config_path = a
+        elif o in ('-d', '--start'):
+            daemonize = True
+        elif o == '--plugins':
+            plugin_providers.append(aj.plugins.DirectoryPluginProvider(a))
+
+    aj.log.init_console(log_level)
+
+    # Find default config file
+    if not config_path:
+        # Check for config file in /etc/ajenti/config.yml
+        if os.path.isfile('/etc/ajenti/config.yml'):
+            config_path = '/etc/ajenti/config.yml'
+        elif os.path.isfile(os.path.join(sys.path[0], 'config.yml')):
+            # Try local config file
+            config_path = os.path.join(sys.path[0], 'config.yml')
+
+    if not os.path.exists(config_path):
+        logging.error('Config file "%s" not found' % config_path)
+        sys.exit(1)
+
+    config = AjentiConfig(config_path)
+    aj.core.start(
+        config=config,
+        dev_mode=dev_mode,
+        debug_mode=debug_mode,
+        product_name='ajenti',
+        daemonize=daemonize,
+        plugin_providers=plugin_providers,
+    )

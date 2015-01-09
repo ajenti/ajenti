@@ -3,7 +3,7 @@ import re
 import json
 import types
 
-from ajenti.api import *
+from aj.api import *
 
 
 def url(pattern):
@@ -34,7 +34,7 @@ class BaseHttpHandler (object):
         Should create a HTTP response in the given ``context`` and return the plain output
 
         :param context: HTTP context
-        :type  context: :class:`ajenti.http.HttpContext`
+        :type  context: :class:`aj.http.HttpContext`
         """
 
 
@@ -46,7 +46,7 @@ class HttpPlugin (object):
 
         @plugin
         class TerminalHttp (BasePlugin, HttpPlugin):
-            @url('/ajenti:terminal/(?P<id>\d+)')
+            @url('/aj:terminal/(?P<id>\d+)')
             def get_page(self, context, id):
                 if context.session.identity is None:
                     context.respond_redirect('/')
@@ -61,7 +61,7 @@ class HttpPlugin (object):
         Finds and executes the handler for given request context (handlers are methods decorated with :func:`url` )
 
         :param context: HTTP context
-        :type  context: :class:`ajenti.http.HttpContext`
+        :type  context: :class:`aj.http.HttpContext`
         """
 
         for name, method in self.__class__.__dict__.iteritems():

@@ -1,7 +1,7 @@
 import logging
 import uuid
 
-from ajenti.api import *
+from aj.api import *
 
 from terminal import *
 

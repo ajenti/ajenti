@@ -8,19 +8,19 @@ import traceback
 import setproctitle
 import sys
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import SocketEndpoint
-from ajenti.http import HttpMiddlewareAggregator, HttpContext
-from ajenti.auth import AuthenticationMiddleware
-from ajenti.routing import CentralDispatcher
+import aj
+from aj.api import *
+from aj.api.http import SocketEndpoint
+from aj.http import HttpMiddlewareAggregator, HttpContext
+from aj.auth import AuthenticationMiddleware
+from aj.routing import CentralDispatcher
 
 
 class Worker (object):
     def __init__(self, stream, gate):
         self.stream = stream
         self.gate = gate
-        ajenti.master = False
+        aj.master = False
         os.setpgrp()
         setproctitle.setproctitle('%s session worker #%i' % (sys.argv[0], os.getpid()))
 
@@ -28,7 +28,7 @@ class Worker (object):
             os.getpid(), os.geteuid(), os.getegid(),
         ))
 
-        self.context = Context(parent=ajenti.context)
+        self.context = Context(parent=aj.context)
         self.context.session = self.gate.session
         self.context.worker = self
         self.handler = HttpMiddlewareAggregator([

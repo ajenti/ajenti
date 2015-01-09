@@ -4,9 +4,9 @@ import logging
 import os
 import signal
 
-from ajenti.util import BroadcastQueue
-from ajenti.gate.stream import *
-from ajenti.gate.worker import *
+from aj.util import BroadcastQueue
+from aj.gate.stream import *
+from aj.gate.worker import *
 
 
 class WorkerGate (object):

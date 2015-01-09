@@ -1,4 +1,4 @@
-from ajenti.plugins.core.api.sidebar import *
+from aj.plugins.core.api.sidebar import *
 
 
 @component(SidebarItemProvider)

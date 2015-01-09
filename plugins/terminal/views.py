@@ -1,14 +1,14 @@
-from ajenti.util import LazyModule
+from aj.util import LazyModule
 Image = LazyModule('PIL.Image')
 ImageDraw = LazyModule('PIL.ImageDraw')
 
 import gevent
 import StringIO
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import url, HttpPlugin, SocketEndpoint
-from ajenti.plugins.core.api.endpoint import endpoint
+import aj
+from aj.api import *
+from aj.api.http import url, HttpPlugin, SocketEndpoint
+from aj.plugins.core.api.endpoint import endpoint
 
 from manager import TerminalManager
 

@@ -13,7 +13,7 @@ import termios
 
 import pyte
 
-from ajenti.util import BroadcastQueue
+from aj.util import BroadcastQueue
 
 
 class Terminal (object):

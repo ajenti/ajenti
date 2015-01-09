@@ -2,8 +2,8 @@ import logging
 import cgi
 import traceback
 
-from ajenti.api import *
-from ajenti.api.http import BaseHttpHandler, HttpPlugin
+from aj.api import *
+from aj.api.http import BaseHttpHandler, HttpPlugin
 
 
 
@@ -61,7 +61,7 @@ class CentralDispatcher (BaseHttpHandler):
                     }
                 </style>
 
-                <img src="/ajenti:static/main/error.jpeg" />
+                <img src="/aj:static/main/error.jpeg" />
                 <br/>
                 <p>
                     Server error

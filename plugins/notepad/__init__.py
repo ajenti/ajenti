@@ -1,5 +1,6 @@
-from ajenti.api import *
-from ajenti.plugins import *
+#ajenti-plugin
+from aj.api import *
+from aj.plugins import *
 
 
 info = PluginInfo(

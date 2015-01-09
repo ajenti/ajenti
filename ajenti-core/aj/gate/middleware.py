@@ -8,12 +8,12 @@ from gevent.queue import Queue
 from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 
-from ajenti.api import *
-from ajenti.api.http import *
-from ajenti.cookies import Cookie, Cookies
-from ajenti.gate.session import Session
-from ajenti.gate.worker import WorkerError
-from ajenti.util import str_fsize
+from aj.api import *
+from aj.api.http import *
+from aj.cookies import Cookie, Cookies
+from aj.gate.session import Session
+from aj.gate.worker import WorkerError
+from aj.util import str_fsize
 
 
 class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
@@ -99,7 +99,7 @@ class GateMiddleware (object):
 
     def open_session(self, env):
         """
-        Creates a new session for the :class:`ajenti.http.HttpContext`
+        Creates a new session for the :class:`aj.http.HttpContext`
         """
         client_info = {
             'address': env.get('REMOTE_ADDR', None),

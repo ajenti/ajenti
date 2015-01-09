@@ -1,9 +1,9 @@
 import uuid
 import time
 import logging
+from cookies import Cookie, Cookies
 
-from ajenti.cookies import Cookie, Cookies
-from ajenti.gate.gate import WorkerGate
+from aj.gate.gate import WorkerGate
 
 
 class Session (object):
@@ -44,7 +44,7 @@ class Session (object):
 
     def set_cookie(self, http_context):
         """
-        Adds headers to :class:`ajenti.http.HttpContext` that set the session cookie
+        Adds headers to :class:`aj.http.HttpContext` that set the session cookie
         """
         http_context.add_header('Set-Cookie', Cookie('session', self.key, path='/', httponly=True).render_response())
 

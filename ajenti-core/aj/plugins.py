@@ -1,14 +1,35 @@
 import imp
-import os
 import logging
-import traceback
+import os
 import subprocess
 import sys
+import traceback
 import weakref
 
-import ajenti
-from ajenti.api import *
-from ajenti.util import *
+import aj
+from aj.api import *
+from aj.util import *
+
+
+@public
+class PluginProvider (object):
+    def provide(self):
+        raise NotImplementedError()
+
+@public
+class DirectoryPluginProvider (PluginProvider):
+    def __init__(self, path):
+        self.path = os.path.abspath(path)
+
+    def provide(self):
+        found_plugins = []
+        for dir in os.listdir(self.path):
+            path = os.path.join(self.path, dir)
+            if os.path.isdir(path):
+                if os.path.exists(os.path.join(path, '__init__.py')):
+                    if open(os.path.join(path, '__init__.py')).read().splitlines()[0].strip() ==  '#ajenti-plugin':
+                        found_plugins.append(path)
+        return found_plugins
 
 
 @public
@@ -112,7 +133,7 @@ class PluginDependency (Dependency):
 
     def is_satisfied(self):
         # get_order() only contains successfully loaded plugins
-        return self.plugin_name in PluginManager.get(ajenti.context).get_order()
+        return self.plugin_name in PluginManager.get(aj.context).get_order()
 
     def __str__(self):
         return self.plugin_name
@@ -168,8 +189,7 @@ class PluginManager (object):
     __locations = {}
 
     def __init__(self, context):
-        path = os.path.split(__file__)[0]
-        self.locations = ajenti.plugin_sources
+        self.context = context
 
     # Plugin loader
     def get_all(self):
@@ -184,14 +204,12 @@ class PluginManager (object):
     def get_order(self):
         return self.__order
 
-    def load_all(self):
-        items = []
-        for location in self.locations:
-            items += [(x, location) for x in os.listdir(location)]
+    def load_all_from(self, providers):
+        found = []
+        for provider in providers:
+            found += provider.provide()
 
-        for item in items:
-            if os.path.exists(os.path.join(item[1], item[0], '__init__.py')):
-                self.__locations[item[0]] = item[1]
+        self.__locations = dict(tuple(reversed(os.path.split(x))) for x in found)
 
         for plugin, location in self.__locations.iteritems():
             if not plugin in self.__plugins:
@@ -225,7 +243,7 @@ class PluginManager (object):
         try:
             try:
                 mod = imp.load_module(
-                    'ajenti.plugins.%s' % name,
+                    'aj.plugins.%s' % name,
                     *imp.find_module(name, [location])
                 )
                 if not hasattr(mod, 'info'):
@@ -234,7 +252,7 @@ class PluginManager (object):
                 raise
             except Exception as e:
                 # TOTAL CRASH
-                from ajenti.api import PluginInfo
+                from aj.api import PluginInfo
                 info = PluginInfo(name=name, crash=e)
                 self.__plugins[name] = info
                 raise PluginCrashed(e)

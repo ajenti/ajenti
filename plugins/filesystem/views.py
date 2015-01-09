@@ -1,11 +1,11 @@
 import errno
 import os
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import url, HttpPlugin
+import aj
+from aj.api import *
+from aj.api.http import url, HttpPlugin
 
-from ajenti.plugins.core.api.endpoint import endpoint
+from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)

@@ -1,17 +1,4 @@
-recursive-include ajenti * *.*
-recursive-exclude ajenti *~ *.pyc
-recursive-exclude packaging * *.*
-include README
-include COPYRIGHT
-include LICENSE
+recursive-include ajenticore * *.*
+recursive-exclude ajenticore *~ *.pyc
 include Makefile
 include requirements.txt
-include packaging/files/config.json
-include packaging/files/ajenti
-include packaging/files/.placeholder
-prune ajenti/plugins/elements
-prune ajenti/plugins/ltfs
-prune ajenti/plugins/vh
-prune ajenti/plugins/test
-prune ajenti/plugins/test*
-prune ajenti/plugins/custom

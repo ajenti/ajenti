@@ -7,9 +7,9 @@ import logging
 import math
 import os
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import *
+import aj
+from aj.api import *
+from aj.api.http import *
 from socketio.handler import SocketIOHandler
 
 

@@ -1,24 +1,24 @@
 import json
 import os
 
-import ajenti
-from ajenti.api import *
-from ajenti.api.http import BaseHttpHandler, url, HttpPlugin
-from ajenti.plugins import PluginManager
+import aj
+from aj.api import *
+from aj.api.http import BaseHttpHandler, url, HttpPlugin
+from aj.plugins import PluginManager
 
-from ajenti.plugins.core.api.endpoint import endpoint
+from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)
 class ResourcesHandler (HttpPlugin):
     def __init__(self, http_context):
         self.cache = {}
-        self.use_cache = not ajenti.debug
+        self.use_cache = not aj.debug
 
     @url(r'/resources/all\.(?P<type>.+)')
     @endpoint(page=True, auth=False)
     def handle_build(self, http_context, type=None):
-        mgr = PluginManager.get(ajenti.context)
+        mgr = PluginManager.get(aj.context)
 
         if self.use_cache and type in self.cache:
             content = self.cache[type]
@@ -73,7 +73,7 @@ class ResourcesHandler (HttpPlugin):
     def handle_file(self, http_context, plugin=None, path=None):
         if '..' in path:
             return http_context.respond_not_found()
-        mgr = PluginManager.get(ajenti.context)
+        mgr = PluginManager.get(aj.context)
         info = mgr[plugin]
         path = os.path.join(info.location, plugin, path)
         return http_context.file(path)

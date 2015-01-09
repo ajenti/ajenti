@@ -5,6 +5,7 @@ import sys
 import termcolor
 from datetime import datetime
 
+import aj
 
 LOG_DIR = '/var/log/ajenti'
 LOG_NAME = 'ajenti.log'
@@ -13,8 +14,7 @@ LOG_FILE = os.path.join(LOG_DIR, LOG_NAME)
 
 
 class ConsoleHandler (logging.StreamHandler):
-    def __init__(self, stream, debug):
-        self.debug = debug
+    def __init__(self, stream):
         logging.StreamHandler.__init__(self, stream)
 
     def handle(self, record):
@@ -24,7 +24,7 @@ class ConsoleHandler (logging.StreamHandler):
         s = ''
         d = datetime.fromtimestamp(record.created)
         s += termcolor.colored(d.strftime("%d.%m.%Y %H:%M  "), 'white') 
-        if self.debug:
+        if aj.debug:
             s += termcolor.colored(('%s:%s' % (record.filename, record.lineno)), 'grey', attrs=['bold']).ljust(35)
 
         s += termcolor.colored('[%5i]  ' % os.getpid(), 'white')
@@ -37,7 +37,7 @@ class ConsoleHandler (logging.StreamHandler):
         if record.levelname == 'WARNING':
             l = termcolor.colored('WARN ', 'yellow', attrs=['bold'])
         if record.levelname == 'ERROR':
-            l = '\033[31mERROR\033[0m '
+            l = termcolor.colored('ERROR', 'red', attrs=['bold'])
         s += l + '  ' 
 
 
@@ -49,17 +49,16 @@ class ConsoleHandler (logging.StreamHandler):
         self.stream.write(s)
 
 
-def make_log(debug=False, log_level=logging.INFO):
+def init_console(log_level=logging.INFO):
     log = logging.getLogger()
     log.setLevel(logging.DEBUG)
 
-    stdout = ConsoleHandler(sys.stdout, debug)
+    stdout = ConsoleHandler(sys.stdout)
     stdout.setLevel(log_level)
 
     dformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
     stdout.setFormatter(dformatter)
-
-    log.addHandler(stdout)
+    log.handlers = [stdout]
 
 
 def init_log_directory():
@@ -82,7 +81,3 @@ def init_log_rotation():
         pass
 
     return log
-
-
-def init(level=logging.INFO):
-    make_log(debug=level == logging.DEBUG, log_level=level)

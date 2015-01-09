@@ -1,4 +1,4 @@
-from ajenti.api import *
+from aj.api import *
 
 
 @interface

@@ -1,0 +1,8 @@
+*.sublime-*
+.~lock.*
+*~
+*.pyc
+*.gz
+*.whl
+*.egg*
+
