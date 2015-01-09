@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+import os
+import sys
+import json
+import subprocess
+
+if len(sys.argv) < 2:
+    print('Usage: ajenti-ssl-gen <hostname> [-f]')
+    sys.exit(1)
+
+host = sys.argv[1]
+path = '/etc/ajenti'
+config_path = '/etc/ajenti/config.json'
+marker_path = '/etc/ajenti/.ssl-generated'
+
+
+conf = json.loads(open(config_path).read())
+if len(sys.argv) == 2:
+    if os.path.exists(marker_path):
+        print(':: SSL is already configured')
+        sys.exit(1)
+
+
+script = """
+    echo '\n:: Generating key\n';
+    openssl genrsa -des3 -out /tmp/ajenti.key -passout pass:1234 2048;
+    echo '\n:: Generating certificate request\n';
+    openssl req -new -key /tmp/ajenti.key -out /tmp/ajenti.csr -passin pass:1234 -subj /C=US/ST=NA/L=Nowhere/O=Acme\\ Inc/OU=IT/CN={0}/;
+    echo '\n:: Removing passphrase\n';
+    cp /tmp/ajenti.key /tmp/ajenti.key.org;
+    openssl rsa -in /tmp/ajenti.key.org -out /tmp/ajenti.key -passin pass:1234;
+    echo '\n:: Generating certificate\n';
+    openssl x509 -req -days 365 -in /tmp/ajenti.csr -signkey /tmp/ajenti.key -out /tmp/ajenti.crt -passin pass:1234;
+    cat /tmp/ajenti.key /tmp/ajenti.crt > {1}/ajenti.pem;
+    rm /tmp/ajenti.*;
+""".format(host, path)
+
+subprocess.call(script, shell=True)
+
+conf['ssl']['enable'] = True
+certificate_path = os.path.join(path, 'ajenti.pem')
+conf['ssl']['certificate_path'] = certificate_path
+os.chmod(certificate_path, 0400)
+open(config_path, 'w').write(json.dumps(conf, indent=4))
+
+open(marker_path, 'w').close()
+
+print(':: SSL configured!')

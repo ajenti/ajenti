@@ -1,0 +1,7 @@
+{
+  "name": "plugin",
+  "private": true,
+  "dependencies": {
+    "angular-ui-ace": "bower"
+  }
+}

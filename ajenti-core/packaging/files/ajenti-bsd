@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# PROVIDE: ajenti
+# REQUIRE: netif
+# KEYWORD: nojail
+
+. /etc/rc.subr
+
+name="ajenti"
+command="/usr/local/bin/ajenti-panel"
+start_cmd="/usr/local/bin/ajenti-panel -d"
+procname="/usr/local/bin/ajenti-panel"
+command_interpreter=`readlink -f /usr/local/bin/python`
+
+load_rc_config $name
+run_rc_command "$1"

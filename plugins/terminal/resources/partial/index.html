@@ -1,0 +1,34 @@
+<h2>Terminals</h2>
+
+<div class="alert alert-info" ng:show="terminals.length == 0">
+    <i class="fa fa-info-circle"></i> No terminals open
+</div>
+
+<a class="btn btn-primary btn-large-phone" ng:click="create()" ng:show="terminals.length == 0">
+    <i class="fa fa-plus"></i> Open a terminal
+</a>
+
+<div class="list-group">
+    <div ng:repeat="terminal in terminals" class="list-group-item list-group-item-large">
+        <a class="list-group-btn" ng:click="kill(terminal)" title="Terminate">
+            <i class="fa fa-trash-o"></i>
+        </a>
+        <a class="list-group-main" ng:href="/view/terminal/{{terminal.id}}">
+            <div class="list-group-image terminal-preview">
+                <img ng:src="/api/terminal/preview/{{terminal.id}}" />
+            </div>
+            <h4 class="list-group-item-heading">
+                {{terminal.title}}
+            </h4>
+            <p class="list-group-item-text">
+                {{terminal.command}}
+            </p>
+        </a>
+    </div>
+</div>
+
+<div class="floating-toolbar-padder"></div>
+
+<floating-toolbar ng:show="terminals.length > 0">
+    <a ng:click="create()" class="btn btn-primary btn-flat">New terminal</a>
+</floating-toolbar>

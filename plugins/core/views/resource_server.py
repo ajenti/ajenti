@@ -1,0 +1,79 @@
+import json
+import os
+
+import ajenti
+from ajenti.api import *
+from ajenti.api.http import BaseHttpHandler, url, HttpPlugin
+from ajenti.plugins import PluginManager
+
+from ajenti.plugins.core.api.endpoint import endpoint
+
+
+@component(HttpPlugin)
+class ResourcesHandler (HttpPlugin):
+    def __init__(self, http_context):
+        self.cache = {}
+        self.use_cache = not ajenti.debug
+
+    @url(r'/resources/all\.(?P<type>.+)')
+    @endpoint(page=True, auth=False)
+    def handle_build(self, http_context, type=None):
+        mgr = PluginManager.get(ajenti.context)
+
+        if self.use_cache and type in self.cache:
+            content = self.cache[type]
+        else:
+            content = ''
+            if type in ['js', 'css']:
+                for plugin in mgr.get_order():
+                    path = mgr.get_content_path(plugin, 'resources/build/all.%s' % type)
+                    if os.path.exists(path):
+                        content += open(path).read()
+            if type == 'init.js':
+                ng_modules = []
+                for plugin in mgr.get_order():
+                    for resource in mgr[plugin].resources:
+                        if resource.startswith('ng:'):
+                            ng_modules.append(resource.split(':')[-1])
+                content = '''
+                    window.__ngModules = %s;
+                ''' % json.dumps(ng_modules)
+            if type == 'partials.js':
+                content = '''
+                    angular.module("core.templates", []);
+                    angular.module("core.templates").run(["$templateCache", function($templateCache) {
+                '''
+                for plugin in mgr.get_order():
+                    for resource in mgr[plugin].resources:
+                        if resource.endswith('.html'):
+                            path = mgr.get_content_path(plugin, resource)
+                            if os.path.exists(path):
+                                template = open(path).read()
+                                content += '''
+                                      $templateCache.put("%s", %s);
+                                ''' % ('%s/%s:%s' % (http_context.prefix, plugin, resource), json.dumps(template))
+                content += '''
+                    }]);
+                '''
+
+            self.cache[type] = content
+                
+        http_context.add_header('Content-Type', {
+            'css': 'text/css',
+            'js': 'application/javascript',
+            'init.js': 'application/javascript',
+            'partials.js': 'application/javascript',
+        }[type])
+        http_context.respond_ok()
+        return http_context.gzip(content=content)
+
+
+    @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
+    @endpoint(page=True, auth=False)
+    def handle_file(self, http_context, plugin=None, path=None):
+        if '..' in path:
+            return http_context.respond_not_found()
+        mgr = PluginManager.get(ajenti.context)
+        info = mgr[plugin]
+        path = os.path.join(info.location, plugin, path)
+        return http_context.file(path)

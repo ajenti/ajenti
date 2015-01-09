@@ -1,0 +1,8 @@
+*.pyc
+*.sublime-*
+.~lock.*
+.bowerrc
+resources/build
+resources/vendor
+*/resources/build
+*/resources/vendor

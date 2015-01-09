@@ -1,0 +1,65 @@
+.terminal-container {
+    background: #073642;
+    min-height: 100vh;
+}
+
+.terminal-preview {
+    width: 80px;
+    height: 45px;
+    background: #073642;
+    display: block;
+
+    img {
+        max-width: 80px;
+        max-height: 45px;
+        display: block;
+        margin: auto;
+    }
+}
+
+terminal {
+    -moz-user-select: text;
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    margin: 25px;
+
+    .paste-area {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        bottom: 0;
+        width: 100%;
+        display: block;
+        opacity: 0;
+        font-size: 48px;
+        text-align: center;
+        border: 1px solid transparent;
+        line-height: 100px;
+
+        &:hover {
+            opacity: .15;
+        }
+
+        &.focus {
+            opacity: .3;
+            border: 1px solid white;
+        }
+
+        textarea {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        &.focus textarea {
+            cursor: text;
+        }
+    }
+}
+

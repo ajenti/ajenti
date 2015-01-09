@@ -1,0 +1,31 @@
+<div class="row">
+    <ace-editor ng:model="content">
+    </ace-editor>
+</div>
+
+<file-dialog 
+    mode="open"
+    ng:show="openDialogVisible" 
+    on-select="open(item.path)"
+    on-cancel="openDialogVisible = false">
+</file-dialog>
+
+<file-dialog 
+    mode="save"
+    ng:show="saveDialogVisible" 
+    on-select="saveAs(path)"
+    on-cancel="saveDialogVisible = false"
+    name="saveAsName">
+</file-dialog>
+
+<div class="floating-toolbar-padder"></div>
+
+<floating-toolbar>
+    <a href="/view/notepad" target="_blank" class="btn btn-default btn-flat pull-right">
+        <i class="fa fa-plus"></i> Tab
+    </a>
+    <a ng:click="newFile()" class="btn btn-default btn-flat">New</a>
+    <a ng:click="showOpenDialog()" class="btn btn-default btn-flat">Open</a>
+    <a ng:click="save()" ng:show="path" class="btn btn-default btn-flat">Save</a>
+    <a ng:click="showSaveDialog()" class="btn btn-default btn-flat">Save As...</a>
+</floating-toolbar>

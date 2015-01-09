@@ -1,0 +1,19 @@
+<div class="sidebar-item" ng:class="{isRoot: item.isRoot, isTopLevel: item.isTopLevel, hasChildren: item.children.length > 0, active: location.pathname == item.url}">
+    <h5 ng:show="item.isTopLevel">
+        {{item.name}}
+    </h5>
+    <div ng:if="!item.isRoot && !item.isTopLevel">
+        <a ng:click="item.expanded = !item.expanded" ng:show="item.children.length > 0" class="expander" href="#">
+            <i ng:if="item.expanded" class="fa fa-fw fa-caret-down"></i>
+            <i ng:if="!item.expanded" class="fa fa-fw fa-caret-right"></i>
+        </a>
+        <a ng:href="{{item.url}}" class="link">
+            <i class="fa fa-fw fa-{{item.icon}}"></i> {{item.name}}
+        </a>
+    </div>
+    <div class="children" ng:show="item.expanded && item.children.length > 0">
+        <div ng:repeat="item in item.children">
+            <ng:include src="'/core:resources/partial/sidebarItem.html'"></ng:include>
+        </div>
+    </div>
+</div>

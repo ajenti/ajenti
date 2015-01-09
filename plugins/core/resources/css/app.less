@@ -1,0 +1,271 @@
+@import "../vendor/bootstrap/less/variables.less";
+@import "bootstrap/variables.less";
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100%;
+    padding-top: @navbar-height;
+    cursor: default;
+}
+
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.ellipsis {
+    .nowrap();
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.subtle {
+    opacity: .5;
+}
+
+
+.navbar {
+    box-shadow: @object-shadow;
+    border: none;
+
+    .navbar-brand {
+        .subtitle {
+            opacity: .5;
+        }
+    }
+
+    .profile-button {
+        margin: 10px 5px;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        line-height: 28px;
+        text-align: center;
+        font-size: 20px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25) inset;
+        border: none;
+        color: white;
+        text-shadow: 0 0 1px rgba(0,0,0,.5);
+        background-image: url('./core/resources/images/profile-normal.png');
+        background-size: cover;
+        position: relative;
+
+        &.superuser {
+            background-image: url('./core/resources/images/profile-root.png');
+        }
+
+        &[aria-expanded=true] {
+            box-shadow: 0 0 5px @brand-primary;
+        }
+
+        .rank {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            font-size: 14px;
+            line-height: 13px;
+
+            text-align: center;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 0 1px rgba(0,0,0,.25);
+            color: white;
+            text-shadow: 0 0 1px rgba(0,0,0,.5);
+            background: #333;
+            border-radius: 50%;
+        }
+    }
+}
+
+
+.container {
+    //width: auto;
+}
+
+body > .container > .row > .sidebar,
+body > .container > .sidebar {
+    background: #eee;
+    min-height: 100vh;
+    box-shadow: @object-shadow;
+    z-index: @zindex-sidebar;
+    padding: 15px 25px 0;
+
+    .sidebar-item {
+        @accent: @brand-primary;
+        @item-height: 35px;
+
+        h5 {
+            color: @accent;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        & > div { 
+            overflow: hidden;
+
+            .colors () {
+                color: @text-color;
+                text-decoration: none;
+
+                &:hover {
+                    background: #ddd;
+                }
+
+                &:active {
+                    background: #ccc;
+                }
+            }
+
+            & > .expander {
+                float: left;
+                display: block;
+                .colors();
+                line-height: @item-height;
+                padding: 0 15px;
+            }
+
+            & > .link {
+                display: block;
+                .colors();
+                line-height: @item-height;
+                padding-left: 20px;
+                padding-right: 20px;
+
+                i {
+                    padding-right: 15px;
+                }
+            }
+        }
+
+        &.hasChildren > div > .link {
+            padding-left: 50px;
+        }
+
+        &.active > div {
+            & > .expander, & > .link {
+                color: white;
+                background: @accent;
+            }
+        }
+
+        & > .children {
+            padding-left: 20px;
+        }
+
+        &.isRoot > .children {
+            padding-left: 0;
+        }
+    
+        &.isTopLevel > .children {
+            padding-left: 0;
+        }
+    }
+
+    &.overlay-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 100%;
+        width: 33%;
+        padding-top: @navbar-height;
+        overflow-y: auto;
+        box-shadow: 0 0 50px #000 !important;
+    }
+}
+
+body > .container > .row > .content {
+    background: #fff;
+    box-shadow: @object-shadow;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 0 15px; // simlute col padding
+}
+
+.floating-toolbar-padder {
+    height: 52px;
+}
+
+floating-toolbar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: @zindex-floating-toolbar;
+
+    & > .container > .row > .col-lg-9 > .bar {
+        //margin: 0 20px;
+        padding: 10px;
+        background: white;
+        //box-shadow: @object-shadow-large;
+        box-shadow: @object-shadow;
+    }
+}
+
+progress-spinner {
+    display: block;
+    
+    @size: 30px;
+    @fg: @brand-primary;
+    @bg: white;
+    @inner: 2px;
+    @outer: 5px;
+
+    width: @size;
+    height: @size;
+    position: relative;
+    margin: 20px auto;
+
+    .one, .two {
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .one {
+        width: @size - 2px;
+        height: @size - 2px;
+        left: 1px;
+        top: 1px;
+
+        border: @inner solid transparent;
+        border-left: @inner solid @fg;
+        border-top: @inner solid @fg;
+        z-index: 1;
+        -webkit-animation: progress-spin 2.7s infinite linear;
+                animation: progress-spin 2.7s infinite linear;
+    }
+
+    .two {
+        width: @size;
+        height: @size;
+        left: 0;
+        top: 0;
+
+        border: @outer solid transparent;
+        border-right: @outer solid @bg;
+        border-bottom: @outer solid @bg;
+        z-index: 2;
+        -webkit-animation: progress-spin 1.3s infinite linear;
+                animation: progress-spin 1.3s infinite linear;
+    }
+}
+
+
+
+#login-form {
+    margin: 50px 0;    
+
+    h1 {    
+        font-size: 48px;
+        color: #888;
+        margin: 20px 0;
+    }
+
+    div {
+        margin: 10px 0;
+    }
+}

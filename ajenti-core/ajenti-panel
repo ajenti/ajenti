@@ -1,0 +1,149 @@
+#!/usr/bin/env python
+import daemon
+import fcntl
+import getopt
+import json
+import logging
+import os
+import stat
+import sys
+import yaml
+
+import ajenti
+import ajenti.log
+
+
+class PidFile(object):
+    """
+    Context manager that locks a pid file.  Implemented as class
+    not generator because daemon.py is calling .__exit__() with no parameters
+    instead of the None, None, None specified by PEP-343.
+    """
+
+    def __init__(self, path):
+        self.path = path
+        self.pidfile = None
+
+    def __enter__(self):
+        self.pidfile = open(self.path, "a+")
+        try:
+            fcntl.flock(self.pidfile.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except IOError:
+            raise SystemExit("Already running according to " + self.path)
+        self.pidfile.seek(0)
+        self.pidfile.truncate()
+        self.pidfile.write(str(os.getpid()))
+        self.pidfile.flush()
+        self.pidfile.seek(0)
+        return self.pidfile
+
+    def __exit__(self, exc_type=None, exc_value=None, exc_tb=None):
+        try:
+            self.pidfile.close()
+        except IOError as err:
+            # ok if file was just closed elsewhere
+            if err.errno != 9:
+                raise
+        os.remove(self.path)
+
+
+
+def usage():
+    print("""
+Usage: %s [options]
+Options:
+    -c, --config <file> - Use given config file instead of default
+    -v                  - Debug/verbose logging
+    --dev               - Dev mode (recompile resources)
+    -d, --daemon        - Run in background (daemon mode)
+    -h, --help          - This help
+    --set-platform <id> - Override OS detection
+    """)
+
+
+if __name__ == '__main__':
+    log_level = logging.INFO
+    config_file = ''
+
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'set-platform=', 'dev', 'plugins='])
+    except getopt.GetoptError as e:
+        print(str(e))
+        usage()
+        sys.exit(2)
+
+    is_daemon = False
+
+    for o, a in opts:
+        if o in ('-h', '--help'):
+            usage()
+            sys.exit(0)
+        elif o in ('-v',):
+            log_level = logging.DEBUG
+            ajenti.debug = True
+        elif o in ('--dev',):
+            log_level = logging.DEBUG
+            ajenti.debug = True
+            ajenti.dev = True
+        elif o in ('-c', '--config'):
+            config_file = a
+        elif o in ('-d', '--start'):
+            is_daemon = True
+        elif o == '--set-platform':
+            ajenti.platform = a
+        elif o == '--plugins':
+            ajenti.plugin_sources.append(a)
+
+    ajenti.log.init(log_level)
+    logging.basicConfig(level=log_level)
+
+    # Find default config file
+    if not config_file:
+        # Check for config file in /etc/ajenti/config.yml
+        if os.path.isfile('/etc/ajenti/config.yml'):
+            config_file = '/etc/ajenti/config.yml'
+        elif os.path.isfile(os.path.join(sys.path[0], 'config.yml')):
+            # Try local config file
+            config_file = os.path.join(sys.path[0], 'config.yml')
+
+    if not os.path.exists(config_file):
+        logging.error('Config file "%s" not found' % config_file)
+        sys.exit(1)
+    else:
+        logging.info('Using config file %s' % config_file)
+
+    os.chmod(config_file, stat.S_IRWXU)
+    ajenti.config = yaml.load(open(config_file))
+
+
+    if is_daemon:
+        ajenti.log.init_log_directory()
+        logfile = open(ajenti.log.LOG_FILE, 'w+')
+        context = daemon.DaemonContext(
+            pidfile=PidFile('/var/run/ajenti.pid'),
+            stdout=logfile,
+            stderr=logfile,
+            detach_process=True
+        )
+        with context:
+            ajenti.log.init_log_rotation()
+            from ajenti import core
+            try:
+                core.run()
+            except Exception as e:
+                core.handle_crash(e)
+    else:
+        logging.info('Ajenti starting in foreground')
+        if ajenti.debug:
+            logging.warn('Debug mode')
+        if ajenti.dev:
+            logging.warn('Dev mode')
+        try:
+            from ajenti import core
+            core.run()
+        except KeyboardInterrupt:
+            pass
+        except Exception as e:
+            from ajenti import core
+            core.handle_crash(e)
+

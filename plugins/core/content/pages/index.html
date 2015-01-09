@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng:app="app">
+    <head>
+        <title ng:bind="pageTitle + (pageTitle ? ' | ' : '') + identity.machine.name"></title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="viewport" content="initial-scale=1, user-scalable=no, width=device-width, height=device-height, minimal-ui" />
+
+        <link rel="stylesheet" href="%(prefix)s/resources/all.css" type="text/css">
+        <link rel="stylesheet" href="%(prefix)s/resources/core/resources/vendor/fontawesome/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="%(prefix)s/resources/core/resources/vendor/pt-sans/styles/pt_sans.css" type="text/css">
+
+        <script src="%(prefix)s/resources/all.init.js" type="text/javascript"></script>
+        <script src="%(prefix)s/resources/all.js" type="text/javascript"></script>
+        <script src="%(prefix)s/resources/all.partials.js" type="text/javascript"></script>
+    </head>
+    <body ng:controller="CoreRootController">
+        <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady">
+            <div class="container">
+
+                <a ng:click="toggleNavigation()" ng:show="navigationPresent" class="navbar-brand hide-phone hide-tablet">
+                    <i class="fa fa-navicon"></i>
+                </a>
+
+                <a ng:click="toggleOverlayNavigation()" ng:show="navigationPresent" class="navbar-brand hide-desktop hide-large">
+                    <i class="fa fa-navicon"></i>
+                </a>
+
+                <a class="navbar-brand ellipsis" href="/view/">
+                    Ajenti <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
+                </a>
+
+                <div ng:show="identity.user" class="pull-right">
+                    <div class="dropdown">
+                        <a class="btn btn-default profile-button" ng:class="{superuser: identity.isSuperuser}" dropdown-toggle>
+                            {{identity.user[0].toUpperCase()}}
+
+                            <span class="rank" ng:show="identity.isSuperuser">
+                                <i class="fa fa-angle-double-up"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right" style="width: 200px">
+                            <li>
+                                <div>
+                                    <span class="subtle pull-right">UID {{ identity.effective }}</span>
+                                    <i class="fa fa-fw fa-user"></i> {{ identity.user }} 
+                                </div>
+                            </li>
+                            <li class="hide-tablet hide-desktop hide-large">
+                                <div>
+                                    <i class="fa fa-fw fa-hdd-o"></i> {{ identity.machine.name }} 
+                                </div>
+                            </li>
+                            <li>
+                                <a ng:click="identity.elevate()" ng:show="identity.effective != 0">
+                                    <i class="fa fa-fw fa-angle-double-up"></i> Elevate
+                                </a>
+                            </li>
+                            <li>
+                                <a ng:click="identity.logout()">
+                                    <i class="fa fa-fw fa-power-off"></i> Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>                    
+                </div>
+
+                <p class="navbar-text pull-right hide-phone">
+                    <i class="fa fa-hdd-o"></i> {{ identity.machine.name }}
+                </p>
+            </div>
+        </nav>
+
+        <div class="container" ng:show="appReady">
+            <div class="row">
+                <div class="col-md-3 sidebar hide-tablet hide-phone" ng:show="showSidebar && navigationPresent">
+                    <core:sidebar></core:sidebar>
+                </div>
+                <div ng:view class="content">
+                </div>
+            </div>
+
+            <div class="sidebar overlay-sidebar hide-desktop hide-large" ng:show="showOverlaySidebar && navigationPresent">
+                <core:sidebar></core:sidebar>
+            </div>
+        </div>
+
+        <toaster-container></toaster-container>
+
+        <script>
+            angular.module('core').constant('urlPrefix', '%(prefix)s');
+        </script>
+    </body>
+</html>

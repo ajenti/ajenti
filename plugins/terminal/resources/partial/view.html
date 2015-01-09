@@ -1,0 +1,28 @@
+<div ng:show="!ready">
+    <progress-spinner></progress-spinner>
+</div>
+
+<div ng:show="ready" class="terminal-container row">
+    <terminal 
+        id="id" 
+        on-ready="onReady()" 
+        text-data="copyData">
+    </terminal>
+</div>
+
+<dialog ng:show="copyDialogVisible" dialog-class="modal-lg">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            Copy terminal content
+        </h4>
+    </div>
+    <div class="modal-body scrollable">
+        <ace-editor 
+            ng:model="copyData"
+            ace-options="{useWrapMode: false, fontSize: '10px', readOnly: true}">
+        </ace-editor>
+    </div>
+    <div class="modal-footer">
+        <a ng:click="hideCopyDialogVisible()" class="btn btn-default btn-flat">Done</a>
+    </div>            
+</dialog>

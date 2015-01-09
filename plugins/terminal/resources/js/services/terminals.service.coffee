@@ -1,0 +1,38 @@
+angular.module('ajenti.terminal').service 'terminals', ($http, $q) -> 
+    @list = () ->
+        q = $q.defer()
+        $http.get("/api/terminal/list").success (data) ->
+            for t in data
+                cmd = t.command.split(' ')[0]
+                tokens = cmd.split('/')
+                t.title = tokens[tokens.length - 1]
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
+    @kill = (id) ->
+        q = $q.defer()
+        $http.get("/api/terminal/kill/#{id}").success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
+    @create = () ->
+        q = $q.defer()
+        $http.get("/api/terminal/create").success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
+    @full = (id) ->
+        q = $q.defer()
+        $http.get("/api/terminal/full/#{id}").success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
+    return this

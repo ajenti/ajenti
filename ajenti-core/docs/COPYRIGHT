@@ -1,0 +1,25 @@
+Copyright (c) 2010-2014 the Ajenti developers
+
+Contributors
+------------
+
+* Eugene Pankov <e@ajenti.org>
+* Dmitry Zamaruev <dmitry.zamaruev@gmail.com>
+* Valentin Bryukhanov <bvv.mag@gmail.com>
+* Andrey Fishchenko <fishchenko.andrey@gmail.com>
+* Ilya Gorbunov <daverk@gmail.com>
+* Paul Shepel <tacid@tacid.kiev.ua>
+
+Full list of contributors: https://github.com/Eugeny/ajenti/graphs/contributors 
+
+Various parts
+-------------
+
+* CodeMirror embeddable editor (c) Marijn Haverbeke <marijnh@gmail.com>
+* PyTE (c) Selectel <https://github.com/selectel/pyte>, see plugins/terminal/pyte/
+* FontAwesome (c) Dave Gandy <http://fortawesome.github.io/Font-Awesome/>
+
+Feedback
+--------
+
+If you use Ajenti, we would be happy if you drop us a message about your experiences.
