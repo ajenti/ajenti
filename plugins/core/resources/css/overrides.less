@@ -96,7 +96,7 @@ dialog {
 
 
 .list-group {
-    .list-group-item-large {
+    .list-group-item-small, .list-group-item-large {
         padding: 0;
 
         .list-group-image {
@@ -112,25 +112,13 @@ dialog {
 
         .list-group-main {
             display: block;
-            padding: 20px 15px;
             text-decoration: none !important;
-
-            .list-group-item-heading {
-                color: @list-group-link-heading-color;
-            }
-
-            .list-group-item-text {
-                color: @list-group-link-color;
-            }
         }
 
+        .list-group-addon,
         .list-group-btn {
             display: block;
-            padding: 20px 15px;
             float: right;
-            width: 70px;
-            height: 82px;
-            line-height: 40px;
             text-align: center;
             color: @list-group-link-color;
         }
@@ -144,6 +132,55 @@ dialog {
             &:active {
                 background: #f0f0f0;
             }
+
+            &.subtle {
+                opacity: .2;
+
+                &:hover {
+                    opacity: .5;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .list-group-item-small {
+        .list-group-main {
+            padding: 10px;
+            color: @list-group-link-heading-color;
+        }
+
+        .list-group-btn,
+        .list-group-addon {
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            line-height: 19px;
+        }
+    }
+
+    .list-group-item-large {
+        .list-group-main {
+            padding: 20px 15px;
+
+            .list-group-item-heading {
+                color: @list-group-link-heading-color;
+            }
+
+            .list-group-item-text {
+                color: @list-group-link-color;
+            }
+        }
+
+        .list-group-btn,
+        .list-group-addon {
+            padding: 20px 15px;
+            width: 70px;
+            height: 82px;
+            line-height: 40px;
         }
     }
 }
@@ -175,4 +212,60 @@ dialog {
         box-shadow: none;
         background: white;
     }
+}
+
+
+*[checkbox] {
+    cursor: pointer;
+    width: auto !important;
+    display: inline-block;
+
+    &[disabled] {
+        opacity: 0;
+    }
+
+    i {
+        color: @text-color;
+        font-size: 16px;
+        vertical-align: -1px;
+        width: 20px;
+        text-align: center;
+    }
+
+    &.active i.on {
+        color: @brand-primary;
+    }
+
+    i.on, &.active i.off {
+        display: none;
+    }
+
+    i.off, &.active i.on {
+        display: inline-block;
+    }
+
+    &.subtle {
+        opacity: .2;
+
+        &:hover {
+            opacity: .5;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+
+    &:active {
+        background: rgba(255,255,255,.1);
+        border-radius: 3px;
+    }
+}
+
+.label {
+    padding: .4em .6em .3em;
+}
+
+.form-control-static {
+    font-weight: normal;
 }

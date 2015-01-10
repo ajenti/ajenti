@@ -1,0 +1,17 @@
+title: 'File Manager'
+icon: folder-o
+dependencies:
+    - !!python/object:aj.plugins.PluginDependency {
+        plugin_name: core
+    }
+    - !!python/object:aj.plugins.PluginDependency {
+        plugin_name: filesystem
+    }
+resources:
+    - 'resources/js/module.coffee'
+    - 'resources/js/routing.coffee'
+    - 'resources/js/controllers/index.controller.coffee'
+    - 'resources/js/controllers/properties.controller.coffee'
+    - 'resources/partial/index.html'
+    - 'resources/partial/properties.html'
+    - 'ng:ajenti.filemanager'

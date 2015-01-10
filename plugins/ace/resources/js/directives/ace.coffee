@@ -1,4 +1,4 @@
-angular.module('util.ace').directive 'aceEditor', ($timeout, $log) -> 
+angular.module('ajenti.ace').directive 'aceEditor', ($timeout, $log) -> 
     return {
         scope: {
             ngModel: '='

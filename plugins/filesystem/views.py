@@ -1,5 +1,7 @@
 import errno
+import grp
 import os
+import pwd
 
 import aj
 from aj.api import *
@@ -57,6 +59,46 @@ class Handler (HttpPlugin):
             items.append(data)
 
         return {
-            'parent': os.path.dirname(os.path.normpath(path)),
+            'parent': os.path.dirname(os.path.normpath(path)) if path != '/' else None,
             'items': items,
         }
+
+    @url(r'/api/filesystem/stat/(?P<path>.+)')
+    @endpoint(api=True)
+    def handle_api_fs_stat(self, http_context, path=None):
+        data = {
+            'name': os.path.split(path)[1],
+            'path': path,
+            'isDir': os.path.isdir(path),
+            'isFile': os.path.isfile(path),
+            'isLink': os.path.islink(path),            
+            'readAccess': os.access(path, os.R_OK),
+            'writeAccess': os.access(path, os.W_OK),
+            'executeAccess': os.access(path, os.X_OK),
+        }
+
+        try:
+            stat = os.stat(path)
+            data.update({
+                'mode': stat.st_mode,
+                'mtime': stat.st_mtime,
+                'uid': stat.st_uid,
+                'gid': stat.st_gid,
+                'size': stat.st_size,
+            })
+            
+            try:
+                data['user'] = pwd.getpwuid(stat.st_uid).pw_name
+            except:
+                pass
+
+            try:
+                data['group'] = grp.getgrgid(stat.st_gid).gr_name
+            except:
+                pass
+        except OSError as e:
+            data['accessError'] = str(e)
+            if e.errno == errno.ENOENT and os.path.islink(path):
+                data['brokenLink'] = True
+
+        return data

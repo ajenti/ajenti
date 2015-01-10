@@ -1,4 +1,4 @@
-angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys) -> 
+angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, urlPrefix) -> 
     pageTitle.set('')
 
     $scope.newFile = () ->
@@ -12,7 +12,7 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
         $scope.openDialogVisible = true
 
     $scope.open = (path) ->
-        url = "/view/notepad/#{path}"
+        url = "#{urlPrefix}/view/notepad/#{path}"
         if $location.path() != url
             $location.path(url)
             return

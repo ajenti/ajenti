@@ -1,5 +1,5 @@
 angular.module 'ajenti.notepad', [
     'core',
-    'util.filesystem',
-    'util.ace',
+    'ajenti.filesystem',
+    'ajenti.ace',
 ]

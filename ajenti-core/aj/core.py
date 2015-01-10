@@ -57,6 +57,7 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     aj.init()
     aj.context = Context()
     aj.config = config
+    aj.plugin_providers = plugin_providers
     logging.info('Loading config from %s' % aj.config)
     aj.config.load()
 
@@ -75,7 +76,7 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     logging.info('Detected platform: %s / %s' % (aj.platform, aj.platform_string))
 
     # Load plugins
-    PluginManager.get(aj.context).load_all_from(plugin_providers)
+    PluginManager.get(aj.context).load_all_from(aj.plugin_providers)
     if len(PluginManager.get(aj.context).get_all()) == 0:
         logging.warn('No plugins were loaded!')
 

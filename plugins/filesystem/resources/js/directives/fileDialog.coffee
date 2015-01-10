@@ -1,4 +1,4 @@
-angular.module('util.filesystem').directive 'fileDialog', ($timeout, filesystem, notify, hotkeys) -> 
+angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesystem, notify, hotkeys) -> 
     return {
         scope: {
             ngShow: "=?"

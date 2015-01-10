@@ -1,0 +1,49 @@
+<div class="row">
+    <progress-spinner ng:show="loading"></progress-spinner>
+    <div class="list-group" ng:hide="loading" keyboard-focus>
+        <div ng:show="parent" class="list-group-item list-group-item-small">
+            <div class="list-group-btn pull-left">
+                <span checkbox disabled></span>
+            </div>
+            <a ng:click="navigate(parent)" class="list-group-main">
+                &nbsp;
+                <i class="fa fa-fw fa-level-up"></i> Up one level
+            </a>
+        </div>
+        <div ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item list-group-item-small">
+            <a href="/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
+                <i class="fa fa-cog"></i>
+            </a>
+            <div class="list-group-addon pull-left">
+                <span class="subtle" checkbox ng:model="item.selected"></span>
+            </div>
+            <a ng:href="/view/filemanager{{item.isDir ? '' : '/properties'}}/{{item.path}}" class="list-group-main">
+                &nbsp;
+                <i class="fa fa-fw fa-folder-o" ng:if="item.isDir"></i>
+                <i class="fa fa-fw fa-file-o" ng:if="item.isFile"></i>
+                &nbsp;
+                {{item.name}}
+                &nbsp;
+                <span class="subtle" ng:show="item.isFile">{{item.size|bytes}}</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="floating-toolbar-padder"></div>
+
+<floating-toolbar>
+    <a href="/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
+        <i class="fa fa-plus"></i> Tab
+    </a>
+</floating-toolbar>
+
+<floating-toolbar class="accented" ng:show="(items|filter:{selected:true}).length > 0">
+    <span class="pull-right">
+        <strong>{{(items|filter:{selected:true}).length}}</strong> items selected. 
+    </span>
+
+    <a ng:click="doCut()" class="btn btn-default btn-flat">Cut</a>
+    <a ng:click="doCopy()" class="btn btn-default btn-flat">Copy</a>
+    <a ng:click="doDelete()" class="btn btn-default btn-flat">Delete</a>
+</floating-toolbar>

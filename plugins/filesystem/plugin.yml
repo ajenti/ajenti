@@ -8,4 +8,4 @@ resources:
     - 'resources/js/module.coffee'
     - 'resources/js/directives/fileDialog.coffee'
     - 'resources/js/services/filesystem.service.coffee'
-    - 'ng:util.filesystem'
+    - 'ng:ajenti.filesystem'

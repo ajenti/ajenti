@@ -41,6 +41,8 @@ edition = 'vanilla'
 
 master = True
 
+plugin_providers = []
+
 
 __all__ = [
     'config', 'platform', 'platform_string', 'platform_unmapped',

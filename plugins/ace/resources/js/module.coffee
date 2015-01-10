@@ -1,4 +1,4 @@
-angular.module 'util.ace', [
+angular.module 'ajenti.ace', [
     'core',
     'ui.ace',
 ]

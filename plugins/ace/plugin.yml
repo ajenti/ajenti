@@ -15,4 +15,4 @@ resources:
     - 'resources/vendor/ace-builds/src-min-noconflict/ext-language_tools.js'
     - 'resources/vendor/ace-builds/src-min-noconflict/theme-solarized_dark.js'
     - 'resources/vendor/angular-ui-ace/ui-ace.js'
-    - 'ng:util.ace'
+    - 'ng:ajenti.ace'

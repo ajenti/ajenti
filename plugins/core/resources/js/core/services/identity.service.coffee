@@ -1,4 +1,4 @@
-angular.module('core').service 'identity', ($http, $location, $timeout, $q) ->
+angular.module('core').service 'identity', ($http, $location, $timeout, $q, urlPrefix) ->
     @init = () ->
         q = $q.defer()
         @promise = q.promise
@@ -50,18 +50,18 @@ angular.module('core').service 'identity', ($http, $location, $timeout, $q) ->
         return q.promise
 
     @login = () ->
-        location.assign("/view/login/normal/#{$location.path()}")
+        location.assign("#{urlPrefix}/view/login/normal/#{$location.path()}")
 
     @elevate = () ->
         $http.get('/api/core/logout')
         $timeout () =>
-            location.href = "/view/login/sudo:#{@user}/#{$location.path()}"
+            location.href = "#{urlPrefix}/view/login/sudo:#{@user}/#{$location.path()}"
         , 1000
 
     @logout = () ->
         $http.get('/api/core/logout')
         $timeout () ->
-            location.assign("/view/login/normal/#{$location.path()}")
+            location.assign("#{urlPrefix}/view/login/normal/#{$location.path()}")
         , 1000
 
     return this

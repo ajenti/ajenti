@@ -1,4 +1,4 @@
-<div class="sidebar-item" ng:class="{isRoot: item.isRoot, isTopLevel: item.isTopLevel, hasChildren: item.children.length > 0, active: location.pathname == item.url}">
+<div class="sidebar-item" ng:class="{isRoot: item.isRoot, isTopLevel: item.isTopLevel, hasChildren: item.children.length > 0, active: location.pathname == urlPrefix + item.url}">
     <h5 ng:show="item.isTopLevel">
         {{item.name}}
     </h5>

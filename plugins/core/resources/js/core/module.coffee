@@ -2,6 +2,7 @@ angular.module 'core', [
     'ngAnimate',
     'ngCookies',
     'ngRoute',
+    'ngStorage',
 
     'angular-loading-bar',
     'btford.socket-io',

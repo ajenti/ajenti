@@ -4,7 +4,7 @@ import subprocess
 import aj
 from aj.api import *
 from aj.api.http import BaseHttpHandler, url, HttpPlugin, SocketEndpoint
-from aj.plugins import PluginManager
+from aj.plugins import PluginManager, DirectoryPluginProvider
 
 from aj.plugins.core.api.endpoint import endpoint
 
@@ -27,11 +27,15 @@ class Handler (HttpPlugin):
             cmd = ['./scripts/build-resources']
             if http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache':
                 cmd += ['nocache']
-            p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            o, e = p.communicate()
-            if p.returncode != 0:
-                logging.error('Resource compilation failed')
-                logging.error(o + e)
+
+            for provider in aj.plugin_providers:
+                if type(provider) is DirectoryPluginProvider:
+                    logging.debug('Building resources in %s' % provider.path)
+                    p = subprocess.Popen(['ajenti-dev-multitool', '--build'], cwd=provider.path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    o, e = p.communicate()
+                    if p.returncode != 0:
+                        logging.error('Resource compilation failed')
+                        logging.error(o + e)
             
         path = PluginManager.get(aj.context).get_content_path('core', 'content/pages/index.html')
         content = open(path).read() % {

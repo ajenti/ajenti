@@ -1,3 +1,3 @@
-angular.module 'util.filesystem', [
+angular.module 'ajenti.filesystem', [
     'core'
 ]

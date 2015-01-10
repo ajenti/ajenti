@@ -197,12 +197,21 @@ floating-toolbar {
     width: 100%;
     z-index: @zindex-floating-toolbar;
 
-    & > .container > .row > .col-lg-9 > .bar {
-        //margin: 0 20px;
-        padding: 10px;
+    .bar {
+        padding: 10px 20px 10px 10px;
+        line-height: 30px;
         background: white;
         //box-shadow: @object-shadow-large;
         box-shadow: @object-shadow;
+    }
+
+    &.accented .bar {
+        background: @brand-primary;
+        color: white;
+
+        .btn-flat {
+            color: white !important;
+        }
     }
 }
 

@@ -1,10 +1,10 @@
-angular.module('core').controller 'CoreIndexController', ($scope, $location, identity, socket, pageTitle) -> 
+angular.module('core').controller 'CoreIndexController', ($scope, $location, identity, socket, pageTitle, urlPrefix) -> 
     pageTitle.set('')
 
     identity.promise.then () ->
         console.log identity.user
         if not identity.user
-            $location.path('/view/login')
+            $location.path("#{urlPrefix}/view/login")
 
     $scope.send = () ->
         socket.send('core', 'test message')
