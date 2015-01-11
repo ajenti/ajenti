@@ -35,8 +35,8 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     </div>
                 </div>            
                 <div class="modal-footer">
-                    <a ng:click="onCancel()" class="btn btn-default btn-flat">Cancel</a>
                     <a ng:click="save()" ng:show="mode == 'save'" ng:disabled="!name" class="btn btn-primary btn-flat">Save</a>
+                    <a ng:click="onCancel()" class="btn btn-default btn-flat">Cancel</a>
                 </div>            
             </dialog>
         '''

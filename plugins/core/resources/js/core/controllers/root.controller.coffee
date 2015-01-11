@@ -1,8 +1,17 @@
-angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix) -> 
+angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion) -> 
     $rootScope.identity = identity
     $rootScope.$location = $location
     $rootScope.location = location
     $rootScope.urlPrefix = urlPrefix
+    $rootScope.ajentiVersion = ajentiVersion
+    $rootScope.ajentiPlugins = ajentiPlugins
+
+    console.group('Welcome')
+    console.log('Ajenti', ajentiVersion)
+    if urlPrefix
+        console.log('URL prefix', urlPrefix)    
+    console.log('Plugins', ajentiPlugins)
+    console.groupEnd()
 
     $scope.navigationPresent = $location.path().indexOf('/view/login') != 0
     

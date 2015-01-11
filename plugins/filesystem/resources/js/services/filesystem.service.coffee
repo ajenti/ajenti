@@ -31,4 +31,12 @@ angular.module('ajenti.filesystem').service 'filesystem', ($http, $q) ->
             q.reject(err)
         return q.promise
 
+    @chmod = (path, mode) ->
+        q = $q.defer()
+        $http.post("/api/filesystem/chmod/#{path}", mode: mode).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     return this

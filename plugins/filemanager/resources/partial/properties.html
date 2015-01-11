@@ -1,113 +1,190 @@
+<br/>
+
 <progress-spinner ng:show="!info"></progress-spinner>
 
 <div ng:show="info">
-    <!--h4>
-        <i class="fa fa-fw fa-folder-o" ng:if="info.isDir"></i>
-        <i class="fa fa-fw fa-file-o" ng:if="info.isFile"></i>
-        &nbsp;
-        {{info.path}}
-    </h4-->
-
-    <br/>
-
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    {{info.name}}
-                </label>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{info.name}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Full path</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{info.path}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Type</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            <span class="label label-info" ng:show="info.isDir">
+                                <i class="fa fa-folder-o"></i>
+                                &nbsp;
+                                DIRECTORY
+                            </span>
+                            <span class="label label-info" ng:show="info.isFile">
+                                <i class="fa fa-file-o"></i>
+                                &nbsp;
+                                FILE
+                            </span>
+                            &nbsp;
+                            <span class="label label-info" ng:show="info.isLink">
+                                <i class="fa fa-link"></i>
+                                &nbsp;
+                                LINK
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Access</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            <span class="label" ng:class="{'label-success': info.readAccess, 'label-warning': !info.readAccess}">
+                                <i class="fa fa-check" ng:show="info.readAccess"></i> 
+                                <i class="fa fa-times" ng:show="!info.readAccess"></i> 
+                                &nbsp;
+                                READ
+                            </span>
+                            &nbsp;
+                            <span class="label" ng:class="{'label-success': info.writeAccess, 'label-warning': !info.writeAccess}">
+                                <i class="fa fa-check" ng:show="info.writeAccess"></i> 
+                                <i class="fa fa-times" ng:show="!info.writeAccess"></i> 
+                                &nbsp;
+                                WRITE
+                            </span>
+                            &nbsp;
+                            <span class="label" ng:class="{'label-success': info.executeAccess, 'label-warning': !info.executeAccess}">
+                                <i class="fa fa-check" ng:show="info.executeAccess"></i> 
+                                <i class="fa fa-times" ng:show="!info.executeAccess"></i> 
+                                &nbsp;
+                                EXECUTE
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Size</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{info.size|bytes}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Modified</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{(info.mtime*1000)|date:'medium'}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Owner</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{info.user}} <span class="subtle">UID {{info.uid}}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Group</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{info.group}} <span class="subtle">GID {{info.gid}}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mode</label>
+                    <div class="col-sm-10">
+                        <label class="form-control-static">
+                            {{info.mode.toString(8)}}
+                        </label>
+                        <br/>
+                        <a ng:click="permissionsDialogVisible = true" ng:disabled="!info.writeAccess" class="btn btn-default">
+                            <i class="fa fa-lock"></i> Change permissions
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Full path</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    {{info.path}}
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Type</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    <span class="label label-info" ng:show="info.isDir">
-                        <i class="fa fa-folder-o"></i>
-                        &nbsp;
-                        DIRECTORY
-                    </span>
-                    <span class="label label-info" ng:show="info.isFile">
-                        <i class="fa fa-file-o"></i>
-                        &nbsp;
-                        FILE
-                    </span>
-                    &nbsp;
-                    <span class="label label-info" ng:show="info.isLink">
-                        <i class="fa fa-link"></i>
-                        &nbsp;
-                        LINK
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Access</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    <span class="label" ng:class="{'label-success': info.readAccess, 'label-warning': !info.readAccess}">
-                        <i class="fa fa-check" ng:show="info.readAccess"></i> 
-                        <i class="fa fa-times" ng:show="!info.readAccess"></i> 
-                        &nbsp;
-                        READ
-                    </span>
-                    &nbsp;
-                    <span class="label" ng:class="{'label-success': info.writeAccess, 'label-warning': !info.writeAccess}">
-                        <i class="fa fa-check" ng:show="info.writeAccess"></i> 
-                        <i class="fa fa-times" ng:show="!info.writeAccess"></i> 
-                        &nbsp;
-                        WRITE
-                    </span>
-                    &nbsp;
-                    <span class="label" ng:class="{'label-success': info.executeAccess, 'label-warning': !info.executeAccess}">
-                        <i class="fa fa-check" ng:show="info.executeAccess"></i> 
-                        <i class="fa fa-times" ng:show="!info.executeAccess"></i> 
-                        &nbsp;
-                        EXECUTE
-                    </span>
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Size</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    {{info.size|bytes}}
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Modified</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    {{(info.mtime*1000)|date:'medium'}}
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Owner</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    {{info.user}} <span class="subtle">UID {{info.uid}}</span>
-                </label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Group</label>
-            <div class="col-sm-10">
-                <label class="form-control-static">
-                    {{info.group}} <span class="subtle">GID {{info.gid}}</span>
-                </label>
-            </div>
+        <div class="col-md-3">
+            <a href="/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.size < (1024 * 1024 * 64)" class="btn btn-default">
+                <i class="fa fa-pencil"></i> Edit in Notepad
+            </a>
+            <br/>
         </div>
     </div>
 </div>
+
+<dialog ng:show="permissionsDialogVisible">
+    <div class="modal-header">
+        <h4>Permission bits</h4>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+            <tr>
+                <th>User</th>
+                <td>
+                    <span checkbox ng:model="mode.ur" text="R"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.uw" text="W"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.ux" text="X"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Group</th>
+                <td>
+                    <span checkbox ng:model="mode.gr" text="R"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.gw" text="W"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.gx" text="X"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>All</th>
+                <td>
+                    <span checkbox ng:model="mode.ar" text="R"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.aw" text="W"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.ax" text="X"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Extra</th>
+                <td>
+                    <span checkbox ng:model="mode.sticky" text="Sticky"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.setuid" text="Set UID"></span>
+                </td>
+                <td>
+                    <span checkbox ng:model="mode.setgid" text="Set GID"></span>
+                </td>
+            </tr>
+        </table>
+    </div>           
+    <div class="modal-footer">
+        <a ng:click="applyPermissions()" class="btn btn-primary btn-flat">Apply</a>
+        <a ng:click="hidePermissionsDialog()" class="btn btn-default btn-flat">Cancel</a>
+    </div>            
+</dialog>

@@ -1,5 +1,6 @@
 import errno
 import grp
+import json
 import os
 import pwd
 
@@ -102,3 +103,9 @@ class Handler (HttpPlugin):
                 data['brokenLink'] = True
 
         return data
+
+    @url(r'/api/filesystem/chmod/(?P<path>.+)')
+    @endpoint(api=True)
+    def handle_api_fs_chmod(self, http_context, path=None):
+        data = json.loads(http_context.body)
+        os.chmod(path, data['mode'])

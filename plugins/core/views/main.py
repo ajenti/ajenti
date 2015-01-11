@@ -1,3 +1,4 @@
+import json
 import logging
 import subprocess
 
@@ -40,6 +41,10 @@ class Handler (HttpPlugin):
         path = PluginManager.get(aj.context).get_content_path('core', 'content/pages/index.html')
         content = open(path).read() % {
             'prefix': http_context.prefix,
+            'plugins': json.dumps(
+                dict((k, v.title) for k, v in PluginManager.get(aj.context).get_all().iteritems())
+            ),
+            'version': aj.version,
         }
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()
