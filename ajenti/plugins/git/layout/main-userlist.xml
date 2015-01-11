@@ -1,0 +1,31 @@
+<vc>
+    <bind:collection bind="users" id="usercollection">
+        <vc>
+            <dt bind="__items" addrow="{Add}" />
+        </vc>
+        <bind:template>
+            <collapserow>
+                <box>
+                    <right>
+                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                    </right>
+                    <hc>
+                        <icon icon="user" />
+                        <label style="bold" bind="name" />
+                    </hc>
+                </box>
+                <pad>
+                    <hc>
+                        <formline text="{Username}">
+                            <textbox bind="name" />
+                        </formline>
+                        <formline text="{Public Key}">
+                            <textbox bind="pubkey" />
+                        </formline>
+                    </hc>
+                </pad>
+            </collapserow>
+        </bind:template>
+    </bind:collection>
+    <button id="save-users" text="{Save}" icon="ok" />
+</vc>
