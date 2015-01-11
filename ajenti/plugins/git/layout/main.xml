@@ -1,0 +1,17 @@
+<vc>
+    <body>
+        <pad>
+            <tabs>
+                <tab title="{Repositories}">
+                    <include layout="git:main-repolist" />
+                </tab>
+                <tab title="{Users}">
+                    <include layout="git:main-userlist" />
+                </tab>
+                <!--<tab title="{Groups}">
+                    <include layout="" />
+                </tab>-->
+            </tabs>
+        </pad>
+    </body>
+</vc>

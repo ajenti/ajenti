@@ -1,0 +1,34 @@
+<vc>
+    <bind:collection bind="repositories" id="repocollection">
+        <vc>
+            <dt bind="__items" addrow="{Add}" />
+        </vc>
+        <bind:template>
+            <collapserow>
+                <box>
+                    <right>
+                        <button bind="__delete" icon="remove" style="icon" warning="{Confirm deletion}" />
+                    </right>
+                    <hc>
+                        <icon icon="folder-close" />
+                        <label style="bold" bind="name" />
+                    </hc>
+                </box>
+                <pad>
+                    <vc>
+                        <formline text="{Repository Name}">
+                            <textbox bind="name" />
+                        </formline>
+                        <formline text="{Users (read-write)}">
+                            <combobox id="rwusers" separator=" " bind:value="rwusers" />
+                        </formline>
+                        <formline text="{Users (read-only)}">
+                            <combobox id="rousers" separator=" " bind:value="rousers" />
+                        </formline>
+                    </vc>
+                </pad>
+            </collapserow>
+        </bind:template>
+    </bind:collection>
+    <button id="save-repositories" text="{Save}" icon="ok" />
+</vc>
