@@ -2,18 +2,18 @@ import os
 import subprocess
 import re
 
+from pwd import getpwnam
+
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.ui.binder import Binder
-from ajenti.util import platform_select
 
 class Repository (object):
     def __init__(self, name):
         self.name = name
         self.rwusers = ''
         self.rousers = '@all'
-
 
 class User (object):
     def __init__(self, name, pubkey):
@@ -28,23 +28,37 @@ class User (object):
 
 @plugin
 class GitPlugin (SectionPlugin):
-    user = 'gitolite3'
-    keydir = '/var/lib/gitolite3/.gitolite/keydir/'
-    confdir = '/var/lib/gitolite3/.gitolite/conf/'
-    conf = 'gitolite.conf'
-
-
     def init(self):
         self.title = _('Git')
         self.icon = 'folder-close'
         self.category = 'Software'
         self.append(self.ui.inflate('git:main'))
         self.binder = Binder(None, self)
+        self.user = None
+
+        # Find User
+        for user in ['gitolite3', 'gitolite2', 'gitolite']:
+             try:
+                 pwn = getpwnam(user)
+                 self.user = pwn
+                 break
+             except:
+                 pass
+
+        if self.user == None:
+            exit(-1)
+
+        # Set Conf & Key Directory
+        self.confdir = os.path.join(self.user.pw_dir, '.gitolite/conf/')
+        self.keydir = os.path.join(self.user.pw_dir, '.gitolite/keydir/')
+
+        # Event for new items
         self.find('usercollection').new_item = lambda c: User('newuser', '')
         self.find('repocollection').new_item = lambda c: Repository('newrepo')
 
-        os.remove(self.confdir + self.conf)
-        with open((self.confdir + self.conf), 'w+') as file:
+        # Remove old Gitolite.conf and replace our version
+        os.remove(self.confdir + 'gitolite.conf')
+        with open((self.confdir + 'gitolite.conf'), 'w+') as file:
             file.write('include "*.conf"')
 
     def on_page_load(self):
@@ -55,8 +69,13 @@ class GitPlugin (SectionPlugin):
         self.refresh_repositories()
         self.binder.setup(self).populate()
 
+    def reload(self):
+        subprocess.call('su -c "gitolite compile" ' + self.user.pw_name, shell=True)
+        self.context.notify('info', _('Saved'))
 
-
+    #
+    # Repositories
+    #
     def refresh_repositories(self):
         self.repositories = []
 
@@ -68,10 +87,10 @@ class GitPlugin (SectionPlugin):
         self.find('rousers').values = userlist
         self.find('rousers').labels = userlist
 
-        for repoFile in os.listdir(self.confdir):
-            if os.path.isfile(self.confdir + repoFile) and not self.conf in repoFile:
-                with open(self.confdir + repoFile) as file:
-                    content = file.read()
+        for file in os.listdir(self.confdir):
+            if os.path.isfile(self.confdir + file) and not 'gitolite.conf' in file:
+                with open(self.confdir + file) as content:
+                    content = content.read()
                     repo = Repository('')
 
                     # Repository Name
@@ -88,24 +107,8 @@ class GitPlugin (SectionPlugin):
 
                     self.repositories.append(repo)
 
-
-    def refresh_users(self):
-        self.users = []
-
-        for userFile in os.listdir(self.keydir):
-            with open(self.keydir + userFile) as file:
-                username = userFile.replace('.pub', '')
-                pubkey = file.read()
-
-                self.users.append(User(username, pubkey))
-
-    def reload(self):
-        subprocess.call('su -c "gitolite compile" ' + self.user, shell=True)
-        self.context.notify('info', _('Saved'))
-
-
     @on('save-repositories', 'click')
-    def saveRepositories(self):
+    def save_repositories(self):
         self.binder.update()
 
         files = []
@@ -137,8 +140,21 @@ class GitPlugin (SectionPlugin):
 
         self.reload()
 
+    #
+    # Users
+    #
+    def refresh_users(self):
+        self.users = []
+
+        for file in os.listdir(self.keydir):
+            with open(self.keydir + file) as content:
+                username = file.replace('.pub', '')
+                pubkey = content.read()
+
+                self.users.append(User(username, pubkey))
+
     @on('save-users', 'click')
-    def saveUsers(self):
+    def save_users(self):
         self.binder.update()
 
         files = []
