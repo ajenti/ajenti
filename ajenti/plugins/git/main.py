@@ -172,6 +172,20 @@ class GitPlugin (SectionPlugin):
 
         self.reload();
 
+#    #
+#    # Groups
+#    #
+#    def refresh_groups(self):
+#        self.groups = []
+#
+#    @on('save-groups', 'click')
+#    def save_groups(self):
+#        self.binder.update()
+#        #
+#        # ...
+#        #
+#        self.reload();
+
 
 
 

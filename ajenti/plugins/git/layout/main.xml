@@ -9,7 +9,7 @@
                     <include layout="git:main-userlist" />
                 </tab>
                 <!--<tab title="{Groups}">
-                    <include layout="git:main-grouplist" />
+                    <include layout="" />
                 </tab>-->
             </tabs>
         </pad>
