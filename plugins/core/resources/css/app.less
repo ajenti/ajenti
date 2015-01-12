@@ -7,7 +7,6 @@ html {
 
 body {
     min-height: 100%;
-    padding-top: @navbar-height;
     cursor: default;
 }
 
@@ -91,7 +90,7 @@ body > .container > .sidebar {
     min-height: 100vh;
     box-shadow: @object-shadow;
     z-index: @zindex-sidebar;
-    padding: 15px 25px 0;
+    padding: (@navbar-height + 15px) 25px 0;
 
     .sidebar-item {
         @accent: @brand-primary;
@@ -182,7 +181,7 @@ body > .container > .row > .content {
     box-shadow: @object-shadow;
     overflow: hidden;
     min-height: 100vh;
-    padding: 0 15px; // simlute col padding
+    padding: @navbar-height 15px 0; // simlute col padding
 }
 
 .floating-toolbar-padder {
@@ -199,9 +198,9 @@ floating-toolbar {
 
     .bar {
         padding: 10px 20px 10px 10px;
+        margin-left: -14px;
         line-height: 30px;
         background: white;
-        //box-shadow: @object-shadow-large;
         box-shadow: @object-shadow;
     }
 

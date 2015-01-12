@@ -52,8 +52,8 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     $scope.items = data.items
                     $scope.parent = data.parent
                     $scope.restoreFocus()
-                .catch () ->
-                    notify.error 'Could not load directory'
+                .catch (data) ->
+                    notify.error 'Could not load directory', data.message
                 .finally () ->
                     $scope.loading = false
 

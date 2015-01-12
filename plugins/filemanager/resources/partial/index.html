@@ -33,6 +33,9 @@
 <div class="floating-toolbar-padder"></div>
 
 <floating-toolbar>
+    <a ng:click="showNewFileDialog()" class="btn btn-default btn-flat">New file</a>
+    <a ng:click="showNewDirectoryDialog()" class="btn btn-default btn-flat">New directory</a>
+
     <a href="/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
         <i class="fa fa-plus"></i> Tab
     </a>
@@ -47,3 +50,29 @@
     <a ng:click="doCopy()" class="btn btn-default btn-flat">Copy</a>
     <a ng:click="doDelete()" class="btn btn-default btn-flat">Delete</a>
 </floating-toolbar>
+
+<dialog ng:show="newFileDialogVisible">
+    <div class="modal-header">
+        <h4>New file</h4>
+    </div>
+    <div class="modal-body">
+        <input type="text" ng:model="$parent.newFileName" class="form-control" placeholder="File name" autofocus ng:enter="doCreateFile()" />
+    </div>           
+    <div class="modal-footer">
+        <a ng:click="doCreateFile()" class="btn btn-primary btn-flat">Create</a>
+        <a ng:click="hideNewFileDialog()" class="btn btn-default btn-flat">Cancel</a>
+    </div>            
+</dialog>
+
+<dialog ng:show="newDirectoryDialogVisible">
+    <div class="modal-header">
+        <h4>New directory</h4>
+    </div>
+    <div class="modal-body">
+        <input type="text" ng:model="$parent.newDirectoryName" class="form-control" placeholder="Directory name" autofocus ng:enter="doCreateDirectory()" />
+    </div>           
+    <div class="modal-footer">
+        <a ng:click="doCreateDirectory()" class="btn btn-primary btn-flat">Create</a>
+        <a ng:click="hideNewDirectoryDialog()" class="btn btn-default btn-flat">Cancel</a>
+    </div>            
+</dialog>

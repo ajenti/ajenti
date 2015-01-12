@@ -109,3 +109,13 @@ class Handler (HttpPlugin):
     def handle_api_fs_chmod(self, http_context, path=None):
         data = json.loads(http_context.body)
         os.chmod(path, data['mode'])
+
+    @url(r'/api/filesystem/create-file/(?P<path>.+)')
+    @endpoint(api=True)
+    def handle_api_fs_create_file(self, http_context, path=None):
+        os.mknod(path, int('644', 8))
+
+    @url(r'/api/filesystem/create-directory/(?P<path>.+)')
+    @endpoint(api=True)
+    def handle_api_fs_create_directory(self, http_context, path=None):
+        os.makedirs(path)

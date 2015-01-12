@@ -39,4 +39,20 @@ angular.module('ajenti.filesystem').service 'filesystem', ($http, $q) ->
             q.reject(err)
         return q.promise
 
+    @createFile = (path, mode) ->
+        q = $q.defer()
+        $http.post("/api/filesystem/create-file/#{path}", mode: mode).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
+    @createDirectory = (path, mode) ->
+        q = $q.defer()
+        $http.post("/api/filesystem/create-directory/#{path}", mode: mode).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     return this

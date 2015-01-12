@@ -1,14 +1,10 @@
 angular.module('core').directive 'dialog', ($http, $log) ->
     return {
         restrict: 'E'
-        scope: {
-            dialogClass: '@'
-            ngShow: '='
-        }
         transclude: true
         template: '''
-            <div class="modal" ng:show="ngShow">
-                <div class="modal-dialog {{dialogClass}}">
+            <div class="modal" ng:show="attrs.ngShow">
+                <div class="modal-dialog {{attrs.dialogClass}}">
                     <div class="modal-content">
                         <ng-transclude></ng-transclude>
                     </div>
@@ -17,5 +13,10 @@ angular.module('core').directive 'dialog', ($http, $log) ->
         '''
         link: ($scope, element, attrs) ->
             element.addClass('block-element')
+            $scope.attrs = attrs
+            $scope.$watch 'attrs.ngShow', () ->
+                if attrs.ngShow
+                    setTimeout () ->
+                        element.find('*[autofocus]').focus()
     }
     
