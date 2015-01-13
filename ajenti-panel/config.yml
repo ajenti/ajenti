@@ -3,6 +3,7 @@ bind:
     port: 8000
 ssl:
     enable: false
-    certificate_path:
+    certificate_path: /etc/ajenti/ajenti.pem
+    client_auth: true
 emails: 
     john.pankov@gmail.com: root

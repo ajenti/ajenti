@@ -10,7 +10,6 @@ import os
 import aj
 from aj.api import *
 from aj.api.http import *
-from socketio.handler import SocketIOHandler
 
 
 def _validate_origin(env):
@@ -20,13 +19,6 @@ def _validate_origin(env):
         if request_origin != valid_origin:
             return False
     return True
-
-
-class RootHttpHandler (SocketIOHandler):
-    def handle_one_response(self):
-        if not _validate_origin(self.environ):
-            return super(SocketIOHandler, self).handle_one_response()
-        return SocketIOHandler.handle_one_response(self)
 
 
 class HttpRoot (object):
@@ -67,6 +59,7 @@ class HttpRoot (object):
 
             http_context.run_response()
             #logging.debug('<< %s %s' % (http_context.path, len(content)))
+            gevent.sleep(0)
             return content
 
 
@@ -133,6 +126,9 @@ class HttpContext (object):
         if self.cgi_query:
             self.query = dict((k, self.cgi_query[k].value) for k in self.cgi_query)
 
+    def dump_env(self):
+        print '\n'.join('%s = %s' % (x, self.env[x]) for x in sorted(list(self.env)))
+        
     def get_cleaned_env(self):
         env = self.env.copy()
         for k in list(env):

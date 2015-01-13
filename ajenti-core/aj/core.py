@@ -10,26 +10,25 @@ import signal
 import socket
 import sys
 import syslog
+import ssl
 import traceback
 
 import aj
 import aj.plugins
-from aj.http import HttpRoot, RootHttpHandler, HttpMiddlewareAggregator
+from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import *
 from aj.api import *
 from aj.util import make_report
 from aj.util.pidfile import PidFile
+from aj.wsgi import RequestHandler
 
 import gevent
 import gevent.ssl
 from gevent import monkey
 
 # Gevent monkeypatch ---------------------
-try:
-    monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
-except:
-    monkey.patch_all(select=True, thread=True, aggressive=False)  # old gevent
+monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
 
 from gevent.event import Event
 import threading
@@ -39,7 +38,6 @@ threading.Event = Event
 import aj.compat
 
 from socketio.server import SocketIOServer
-from socketio.handler import SocketIOHandler
 
 
 
@@ -121,27 +119,19 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     ssl_args = {}
     if aj.config.data['ssl']['enable']:
         ssl_args['certfile'] = aj.config.data['ssl']['certificate_path']
+        ssl_args['ssl_version'] = ssl.PROTOCOL_TLSv1
+        if aj.config.data['ssl']['client_auth']:
+            logging.info('Enabling SSL client authentication')
+            ssl_args['ca_certs'] = ssl_args['certfile']
+            ssl_args['cert_reqs'] = ssl.CERT_OPTIONAL
         logging.info('SSL enabled: %s' % ssl_args['certfile'])
-
-    # URL prefix support for SocketIOServer
-    def handle_one_response(self):
-        path = self.environ.get('PATH_INFO')
-        prefix = self.environ.get('HTTP_X_URL_PREFIX', '')
-        self.server.resource = (prefix + '/socket.io').strip('/')
-        response = handle_one_response.original(self)
-        self.server.response = 'socket.io'
-        return response
-        
-    handle_one_response.original = SocketIOHandler.handle_one_response
-    SocketIOHandler.handle_one_response = handle_one_response
 
     aj.server = SocketIOServer(
         listener,
         log=open(os.devnull, 'w'),
         application=application,
+        handler_class=RequestHandler,
         policy_server=False,
-        handler_class=RootHttpHandler,
-        resource='socket.io',
         transports=[
             str('websocket'),
             str('flashsocket'),

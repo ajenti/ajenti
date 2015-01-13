@@ -4,7 +4,7 @@ angular.module('core').controller 'CoreIndexController', ($scope, $location, ide
     identity.promise.then () ->
         console.log identity.user
         if not identity.user
-            $location.path("#{urlPrefix}/view/login")
+            location.assign("#{urlPrefix}/view/login/normal")
 
     $scope.send = () ->
         socket.send('core', 'test message')

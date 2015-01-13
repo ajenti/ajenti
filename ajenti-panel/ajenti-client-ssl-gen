@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+import os
+import shutil
+import socket
+import subprocess
+import sys
+import tempfile
+import yaml
+
+if len(sys.argv) != 3:
+    print('Usage: %s <username> <output file>' % sys.argv[0])
+    sys.exit(1)
+
+username = sys.argv[1]
+output = sys.argv[2]
+etcdir = '/etc/ajenti'
+config_path = '%s/config.yml' % etcdir
+
+config = yaml.load(open(config_path))
+
+if not config['ssl']:
+    print 'SSL is not enabled in config.yml'
+    sys.exit(2)
+
+temp = tempfile.mkdtemp()
+
+if subprocess.call([
+        'openssl', 
+        'genrsa', 
+        '-out', '%s/client.key' % temp, 
+        '4096'
+    ]) != 0:
+    print 'Failed to generate key' 
+    sys.exit(1)
+
+if subprocess.call([
+        'openssl', 
+        'req', 
+        '-new',
+        '-nodes',
+        '-key', '%s/client.key' % temp, 
+        '-out', '%s/client.csr' % temp,
+        '-subj', '/C=NA/ST=NA/OU=%s/CN=%s@%s/' % (socket.gethostname(), username, socket.gethostname()),
+    ]) != 0:
+    print 'Failed to generate certificate request' 
+    sys.exit(1)
+
+if subprocess.call([
+        'openssl', 
+        'x509', 
+        '-req', 
+        '-days', '365', 
+        '-in', '%s/client.csr' % temp, 
+        '-CA', config['ssl']['certificate_path'], 
+        '-set_serial', '1', 
+        '-out', '%s/client.crt' % temp
+    ]) != 0:
+    print 'Failed to generate certificate' 
+    sys.exit(1)
+
+subprocess.Popen([
+    'openssl', 
+    'pkcs12', 
+    '-export', 
+    '-in', '%s/client.crt' % temp, 
+    '-inkey', '%s/client.key' % temp,  
+    '-out', '%s/client.p12' % temp,
+    '-passout', 'pass:',
+], stdin=subprocess.PIPE).communicate('')
+
+pkcs12 = open('%s/client.p12' % temp).read()
+shutil.rmtree(temp)
+
+open(output, 'w').write(pkcs12)

@@ -31,6 +31,19 @@ class AuthenticationMiddleware (BaseHttpHandler):
             context.identity = None
         
     def handle(self, http_context):
+        if http_context.env['SSL_VALID']:
+            if not self.context.identity:
+                cn = http_context.env['SSL_CN']
+                if '@' in cn:
+                    username = cn.split('@')[0]
+                    try:
+                        pwd.getpwnam(username)
+                        found = True
+                    except KeyError:
+                        found = False
+                    if found:
+                        self.auth.login(username)
+
         http_context.add_header('X-Auth-Identity', str(self.context.identity or ''))
 
 
