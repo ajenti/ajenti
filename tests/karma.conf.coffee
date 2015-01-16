@@ -22,13 +22,11 @@ files.push 'node_modules/angular-mocks/angular-mocks.js'
 files.push 'test-extras.coffee'
 files.push 'tests/**/*.coffee'
 
-console.log(files)
-
 
 module.exports = (config) ->
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'sinon-chai', 'chai-as-promised'],
     files: files,
     exclude: [
     ],
@@ -44,7 +42,8 @@ module.exports = (config) ->
     reporters: ['progress', 'coverage'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
+    #logLevel: config.LOG_DEBUG,
     autoWatch: false,
     browsers: ['PhantomJS'],
     singleRun: true
