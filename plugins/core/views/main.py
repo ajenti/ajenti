@@ -1,3 +1,4 @@
+import gevent
 import json
 import logging
 import subprocess
@@ -13,13 +14,12 @@ from aj.plugins.core.api.endpoint import endpoint
 @component(HttpPlugin)
 class Handler (HttpPlugin):
     def __init__(self, context):
-        pass
+        self.context = context
 
     @url('/')
     @endpoint(page=True, auth=False)
     def handle_root(self, http_context):
         return http_context.redirect('/view/')
-
 
     @url('/view/.*')
     @endpoint(page=True, auth=False)
@@ -37,7 +37,7 @@ class Handler (HttpPlugin):
                     if p.returncode != 0:
                         logging.error('Resource compilation failed')
                         logging.error(o + e)
-            
+
         path = PluginManager.get(aj.context).get_content_path('core', 'content/pages/index.html')
         content = open(path).read() % {
             'prefix': http_context.prefix,
@@ -49,3 +49,21 @@ class Handler (HttpPlugin):
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()
         return content
+
+    @url('/testtasks')
+    @endpoint(api=True)
+    def handle_test(self, http_context):
+        from aj.plugins.core.api.tasks import Task, TasksService
+        import time
+
+        class MyTask (Task):
+            name = 'Test'
+
+            def run(self):
+                logging.info('Running')
+                for i in range(0, 3):
+                    gevent.sleep(1)
+                    self.report_progress(message='Working', done=i, total=10)
+                logging.info('Done')
+
+        TasksService.get(self.context).start(MyTask(self.context))

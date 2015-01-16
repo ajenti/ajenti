@@ -1,4 +1,4 @@
-angular.module('core').controller 'CoreIndexController', ($scope, $location, identity, socket, pageTitle, urlPrefix) -> 
+angular.module('core').controller 'CoreIndexController', ($scope, $location, $http, identity, socket, pageTitle, urlPrefix) -> 
     pageTitle.set('')
 
     identity.promise.then () ->
@@ -7,6 +7,7 @@ angular.module('core').controller 'CoreIndexController', ($scope, $location, ide
             location.assign("#{urlPrefix}/view/login/normal")
 
     $scope.send = () ->
+        $http.get('/testtasks')
         socket.send('core', 'test message')
 
     $scope.$on 'socket:core', ($event, data) ->

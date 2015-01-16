@@ -90,7 +90,11 @@ body > .container > .sidebar {
     min-height: 100vh;
     box-shadow: @object-shadow;
     z-index: @zindex-sidebar;
-    padding: (@navbar-height + 15px) 25px 0;
+    padding: @navbar-height 0 0;
+
+    .sidebar-item.isRoot {
+        padding: 15px 25px 0;
+    }
 
     .sidebar-item {
         @accent: @brand-primary;
@@ -173,6 +177,21 @@ body > .container > .sidebar {
         padding-top: @navbar-height;
         overflow-y: auto;
         box-shadow: 0 0 50px #000 !important;
+    }
+
+    .task-status {
+        overflow: hidden;
+        background: white;
+        padding: 10px 20px;
+        box-shadow: 0 1px 0 rgba(0,0,0,.125);
+
+        h5 {
+            margin: 3px 0;
+        }
+
+        progress-spinner {
+            margin: 5px 10px 0 0;
+        }
     }
 }
 

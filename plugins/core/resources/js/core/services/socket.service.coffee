@@ -26,7 +26,7 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
     @socket.on 'message', (msg) ->
         if msg[0] == '{'
             msg = JSON.parse(msg)
-        #$log.debug('Socket message', msg)
+        $log.debug('Socket message', msg)
         data = msg['data']
         $rootScope.$broadcast "socket:#{msg['plugin']}", data
 

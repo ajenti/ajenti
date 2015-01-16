@@ -39,7 +39,6 @@ class Handler (HttpPlugin):
     def handle_full(self, http_context, id=None):
         return self.mgr[id].format(full=True)
 
-
     colors = {
         'black': '#073642',
         'white': '#eee8d5',
@@ -118,5 +117,3 @@ class Socket (SocketEndpoint):
             data = q.get()
             data['id'] = id
             self.send(data)
-
-

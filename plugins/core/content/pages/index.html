@@ -75,6 +75,7 @@
         <div class="container" ng:show="appReady">
             <div class="row">
                 <div class="col-md-3 sidebar hide-tablet hide-phone" ng:show="showSidebar && navigationPresent">
+                    <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                     <core:sidebar></core:sidebar>
                 </div>
                 <div ng:view class="content">
@@ -82,6 +83,7 @@
             </div>
 
             <div class="sidebar overlay-sidebar hide-desktop hide-large" ng:show="showOverlaySidebar && navigationPresent">
+                <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                 <core:sidebar></core:sidebar>
             </div>
         </div>

@@ -1,0 +1,15 @@
+<div ng:controller="CoreTasksController">
+    <div class="task-status" ng:repeat="task in tasks.tasks">
+        <div class="pull-left">
+            <progress-spinner></progress-spinner>
+        </div>
+        <h5>{{task.name}}</h5>
+        <smart-progress 
+            ng:show="task.progress.total"
+            max="task.progress.total" 
+            max-text="task.progress.total"
+            value="task.progress.done" 
+            text="task.progress.done" 
+        ></smart-progress>
+    </div>
+</div>
