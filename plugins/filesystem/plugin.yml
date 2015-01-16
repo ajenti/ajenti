@@ -1,9 +1,7 @@
 title: 'Filesystem API'
 icon: cog
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency {
-        plugin_name: core
-    }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
 resources:
     - 'resources/js/module.coffee'
     - 'resources/js/directives/fileDialog.coffee'

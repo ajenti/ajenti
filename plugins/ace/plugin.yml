@@ -1,9 +1,7 @@
 title: 'Ace editor'
 icon: cog
 dependencies:
-    - !!python/object:aj.plugins.PluginDependency {
-        plugin_name: core
-    }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
 resources:
     - 'resources/css/ace.less'
     - 'resources/js/module.coffee'
