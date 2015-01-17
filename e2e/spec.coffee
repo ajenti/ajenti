@@ -1,7 +1,7 @@
 fs = require 'fs'
 execSync = require 'exec-sync'
 
-testDir = '/tmp/testenv'
+testDir = '/tmp/testenv-notepad'
 testContent = 'test content!'
 testContent2 = 'updated content'
 
@@ -21,38 +21,82 @@ afterEach () ->
             return false;
 
 
-describe 'notepad plugin', () ->
-    notepadLoadFile = (path) ->
-        # open dialog
-        element(By.linkText('OPEN')).click()
-        expect(element(By.css('file-dialog[mode=open]')).isDisplayed()).toBeTruthy()
+class NotepadPage
+    constructor: () ->
+        @openDialog = element(By.css('file-dialog[mode=open]'))
+        @saveDialog = element(By.css('file-dialog[mode=save]'))
+        @saveDialogInput = @saveDialog.element(By.css('input[type=text]'))
+        @newButton = element(By.linkText('NEW'))
+        @openButton = element(By.linkText('OPEN'))
+        @saveButton = element(By.linkText('SAVE'))
+        @saveAsButton = element(By.linkText('SAVE AS...'))
+        @editor = element(By.css('.ace_line'))
+        @editorInput = element(By.css('.ace_text-input'))
+
+    get: (url) ->
+        url ?= ''
+        browser.get("/view/notepad/#{url}")
+
+    doLoadFile: (path) ->
+        @openButton.click()
+        expect(@openDialog.isDisplayed()).toBeTruthy()
         for token in path.split('/')
             if token
-                element(By.partialLinkText(token)).click()
-        expect(element(By.css('file-dialog[mode=open]')).isDisplayed()).toBeFalsy()
+                @openDialog.element(By.partialLinkText(token)).click()
+        expect(@openDialog.isDisplayed()).toBeFalsy()
+
+    doSaveFileAs: (path, name) ->
+        @saveAsButton.click()
+        expect(@saveDialog.isDisplayed()).toBeTruthy()
+        for token in path.split('/')
+            if token
+                @saveDialog.element(By.partialLinkText(token)).click()
+        @saveDialogInput.clear()
+        @saveDialogInput.sendKeys(name)
+        @saveDialog.element(By.linkText('SAVE')).click()
+        expect(@saveDialog.isDisplayed()).toBeFalsy()
+
+
+describe 'notepad plugin', () ->
+    it 'should create new files', () ->
+        page = new NotepadPage()
+        page.get("#{testDir}/test.txt")
+        page.newButton.click()
+        browser.switchTo().alert().accept()
+        expect(page.editor.getText()).not.toContain(testContent)
 
     it 'should load files', () ->
-        browser.get('/view/notepad')
-        notepadLoadFile(testDir + '/test.txt')
-        expect(browser.getCurrentUrl()).toContain("/view/notepad/#{testDir}/test.txt")
-        expect(element(By.css('.ace_line')).getText()).toContain(testContent)
+        page = new NotepadPage()
+        page.get()
+        page.doLoadFile(testDir + '/test.txt')
+        expect(browser.getCurrentUrl()).toContain("#{testDir}/test.txt")
+        expect(page.editor.getText()).toContain(testContent)
 
     it 'should load files from URL', () ->
-        browser.get("/view/notepad/#{testDir}/test.txt")
-        expect(element(By.css('.ace_line')).getText()).toContain(testContent)
+        page = new NotepadPage()
+        page.get("#{testDir}/test.txt")
+        expect(page.editor.getText()).toContain(testContent)
 
     it 'should save files', () ->
-        browser.get("/view/notepad/#{testDir}/test.txt")
+        page = new NotepadPage()
+        page.get("#{testDir}/test.txt")
         # Erase content
-        expect(element(By.css('.ace_line')).getText()).toContain(testContent)
+        expect(page.editor.getText()).toContain(testContent)
         for i in [0...20]
-            element(By.css('.ace_text-input')).sendKeys(protractor.Key.BACK_SPACE)
+            page.editorInput.sendKeys(protractor.Key.BACK_SPACE)
         # Input new content
-        element(By.css('.ace_text-input')).sendKeys(testContent2)
-        expect(element(By.css('.ace_line')).getText()).toContain(testContent2)
+        page.editorInput.sendKeys(testContent2)
+        expect(page.editor.getText()).toContain(testContent2)
         # Save
-        element(By.linkText('SAVE')).click()
+        page.saveButton.click()
         # Verify
-        browser.get("/view/notepad/#{testDir}/test.txt")
-        expect(element(By.css('.ace_line')).getText()).toContain(testContent2)
+        page.get("#{testDir}/test.txt")
+        expect(page.editor.getText()).toContain(testContent2)
 
+    it 'should save files as...', () ->
+        page = new NotepadPage()
+        page.get("#{testDir}/test.txt")
+        page.doSaveFileAs(testDir, 'test2.txt')
+        expect(browser.getCurrentUrl()).toContain('test2.txt')
+        page.get("#{testDir}/test2.txt")
+        expect(page.editor.getText()).toContain(testContent)

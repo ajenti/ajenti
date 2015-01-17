@@ -31,7 +31,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     </div>
                     <div ng:show="mode == 'save'">
                         <label>File name</label>
-                        <input type="text" ng:model="name" class="form-control" required />
+                        <input type="text" ng:model="$parent.name" class="form-control" required />
                     </div>
                 </div>            
                 <div class="modal-footer">

@@ -11,4 +11,14 @@ exports.config = {
             });
         }
     },
+    multiCapabilities: {
+        split: true,
+        maxSessions: false,
+        capabilities: {
+            browserName: 'chrome',
+            shardTestFiles: true,
+            maxInstances: 2,
+            //count: 2,
+        },
+    },
 };

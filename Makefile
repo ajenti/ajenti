@@ -1,3 +1,5 @@
+all: build
+	
 bower:
 	cd plugins && ajenti-dev-multitool --bower install
 
