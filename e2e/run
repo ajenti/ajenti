@@ -1,2 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+#webdriver-manager start &
+#PID=$!
+
+#sleep 3
+
+#function finish {
+#    kill -TERM -$PID
+#    sleep 1
+#}
+
+#trap finish TERM INT EXIT
+
 protractor --verbose --stackTrace --baseUrl http://localhost:8000 conf.js 

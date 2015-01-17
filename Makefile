@@ -11,3 +11,6 @@ run:
 
 rundev:
 	cd ajenti-panel && ./ajenti-panel -v --dev --plugins ../plugins	
+
+test:
+	cd e2e && ./run
