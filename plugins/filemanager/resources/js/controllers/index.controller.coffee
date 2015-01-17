@@ -1,8 +1,9 @@
-angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, urlPrefix) -> 
+angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, notify, filesystem, pageTitle, urlPrefix) -> 
     pageTitle.set('path', $scope)
     $scope.loading = false
     $scope.newDirectoryDialogVisible = false
     $scope.newFileDialogVisible = false
+    $scope.clipboardVisible = false
 
     $scope.load = (path) ->
         $scope.loading = true
@@ -34,20 +35,44 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         for item in $scope.items
             item.selected = false
 
+    if not $localStorage.fileManagerClipboard
+        $localStorage.fileManagerClipboard = []
+    $scope.clipboard = $localStorage.fileManagerClipboard
+
+    $scope.showClipboard = () ->
+        $scope.clipboardVisible = true
+
+    $scope.hideClipboard = () ->
+        $scope.clipboardVisible = false
+
+    $scope.clearClipboard = () ->
+        $scope.clipboard.length = 0
+        $scope.hideClipboard()
+
     $scope.doCut = () ->
         for item in $scope.items
-            ;
+            if item.selected
+                $scope.clipboard.push {
+                    mode: 'move'
+                    item: item
+                }
         $scope.clearSelection()
 
     $scope.doCopy = () ->
         for item in $scope.items
-            ;
+            if item.selected
+                $scope.clipboard.push {
+                    mode: 'copy'
+                    item: item
+                }
         $scope.clearSelection()
 
     $scope.doDelete = () ->
-        for item in $scope.items
-            ;
-        $scope.clearSelection()
+        if confirm('Delete selected items?')
+            for item in $scope.items
+                if item.selected
+                    ;
+            $scope.clearSelection()
 
     # NewFileDialog
 

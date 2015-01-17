@@ -23,19 +23,19 @@ afterEach () ->
 
 class NotepadPage
     constructor: () ->
-        @openDialog = element(By.css('file-dialog[mode=open]'))
-        @saveDialog = element(By.css('file-dialog[mode=save]'))
-        @saveDialogInput = @saveDialog.element(By.css('input[type=text]'))
-        @newButton = element(By.linkText('NEW'))
-        @openButton = element(By.linkText('OPEN'))
-        @saveButton = element(By.linkText('SAVE'))
-        @saveAsButton = element(By.linkText('SAVE AS...'))
-        @editor = element(By.css('.ace_line'))
-        @editorInput = element(By.css('.ace_text-input'))
+        @openDialog = element By.css 'file-dialog[mode=open]'
+        @saveDialog = element By.css 'file-dialog[mode=save]'
+        @saveDialogInput = @saveDialog.element By.css 'input[type=text]'
+        @newButton = element By.linkText 'NEW'
+        @openButton = element By.linkText 'OPEN'
+        @saveButton = element By.linkText 'SAVE'
+        @saveAsButton = element By.linkText 'SAVE AS...'
+        @editor = element By.css '.ace_line'
+        @editorInput = element By.css '.ace_text-input'
 
     get: (url) ->
         url ?= ''
-        browser.get("/view/notepad/#{url}")
+        browser.get "/view/notepad/#{url}"
 
     doLoadFile: (path) ->
         @openButton.click()

@@ -92,6 +92,10 @@ dialog {
         background: rgba(0,0,0,.1);
         color: @brand-primary;
     }
+
+    &[disabled] {
+        background: rgba(255, 255, 255, 0.3);
+    }
 }
 
 
@@ -290,4 +294,10 @@ smart-progress {
     .values {
         font-size: 10px;
     }
+}
+
+.alert {
+    border-radius: 0;
+    border-width: 0;
+    border-left-width: 5px;
 }

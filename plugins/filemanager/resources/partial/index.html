@@ -33,6 +33,10 @@
 <div class="floating-toolbar-padder"></div>
 
 <floating-toolbar>
+    <a ng:click="showClipboard()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat pull-right">
+        <i class="fa fa-paste"></i> {{clipboard.length}}
+    </a>
+
     <a ng:click="showNewFileDialog()" class="btn btn-default btn-flat">New file</a>
     <a ng:click="showNewDirectoryDialog()" class="btn btn-default btn-flat">New directory</a>
 
@@ -42,10 +46,10 @@
 </floating-toolbar>
 
 <floating-toolbar class="accented" ng:show="(items|filter:{selected:true}).length > 0">
-    <span class="pull-right">
+    <a disabled class="btn btn-default btn-flat pull-right">
         <strong>{{(items|filter:{selected:true}).length}}</strong> items selected. 
-    </span>
-
+    </a>
+    
     <a ng:click="doCut()" class="btn btn-default btn-flat">Cut</a>
     <a ng:click="doCopy()" class="btn btn-default btn-flat">Copy</a>
     <a ng:click="doDelete()" class="btn btn-default btn-flat">Delete</a>
@@ -74,5 +78,33 @@
     <div class="modal-footer">
         <a ng:click="doCreateDirectory()" class="btn btn-primary btn-flat">Create</a>
         <a ng:click="hideNewDirectoryDialog()" class="btn btn-default btn-flat">Cancel</a>
+    </div>            
+</dialog>
+
+<dialog ng:show="clipboardVisible && clipboard.length > 0">
+    <div class="modal-header">
+        <h4>Clipboard</h4>
+    </div>
+    <div class="modal-body">
+        <div class="list-group">
+            <div ng:repeat="item in clipboard" class="list-group-item list-group-item-small">
+                <a ng:click="clipboard.splice($index, 1)" class="list-group-btn subtle" title="Remove">
+                    <i class="fa fa-times"></i>
+                </a>
+                <div class="list-group-main">
+                    <i class="fa fa-fw fa-cut" ng:if="item.mode == 'move'"></i>
+                    <i class="fa fa-fw fa-copy" ng:if="item.mode == 'copy'"></i>
+                    &nbsp;
+                    <i class="fa fa-fw fa-folder-o" ng:if="item.item.isDir"></i>
+                    <i class="fa fa-fw fa-file-o" ng:if="item.item.isFile"></i>
+                    &nbsp;
+                    {{item.item.path}}
+                </div>
+            </div>
+        </div>           
+    </div>           
+    <div class="modal-footer">
+        <a ng:click="clearClipboard()" class="btn btn-default btn-flat">Remove all items</a>
+        <a ng:click="hideClipboard()" class="btn btn-default btn-flat">Close</a>
     </div>            
 </dialog>
