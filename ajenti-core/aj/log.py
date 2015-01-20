@@ -2,7 +2,7 @@ import logging
 import logging.handlers
 import os
 import sys
-import termcolor
+from termcolor import colored
 from datetime import datetime
 
 import aj
@@ -10,7 +10,10 @@ import aj
 LOG_DIR = '/var/log/ajenti'
 LOG_NAME = 'ajenti.log'
 LOG_FILE = os.path.join(LOG_DIR, LOG_NAME)
-
+LOG_PARAMS = {
+    'master_pid': None,
+    'tag': 'master',
+}
 
 
 class ConsoleHandler (logging.StreamHandler):
@@ -23,23 +26,41 @@ class ConsoleHandler (logging.StreamHandler):
 
         s = ''
         d = datetime.fromtimestamp(record.created)
-        s += termcolor.colored(d.strftime("%d.%m.%Y %H:%M  "), 'white') 
-        if aj.debug:
-            s += termcolor.colored(('%s:%s' % (record.filename, record.lineno)), 'grey', attrs=['bold']).ljust(35)
+        s += colored(d.strftime("%d.%m.%Y %H:%M  "), 'white')
 
-        s += termcolor.colored('[%5i]  ' % os.getpid(), 'white')
-        
+        process_tag = ''
+        padding = ''
+        if LOG_PARAMS['tag'] == 'master':
+            if os.getpid() == LOG_PARAMS['master_pid']:
+                process_tag = colored('master', 'yellow')
+            else:
+                LOG_PARAMS['tag'] = 'worker'
+                #process_tag = colored('...   ', 'yellow')
+        if LOG_PARAMS['tag'] == 'worker':
+            process_tag = colored('worker', 'green')
+            padding = '  '
+        if LOG_PARAMS['tag'] == 'task':
+            process_tag = colored('task  ', 'blue')
+            padding = '    '
+        s += colored('[', 'white')
+        s += process_tag
+        s += colored(' %5i]  ' % os.getpid(), 'white')
+
+        if aj.debug:
+            s += colored(('%15s:%-4s  ' % (record.filename[-15:], record.lineno)), 'grey', attrs=['bold'])
+
         l = ''
         if record.levelname == 'DEBUG':
-            l = termcolor.colored('DEBUG', 'white')
+            l = colored('DEBUG', 'white')
         if record.levelname == 'INFO':
-            l = termcolor.colored('INFO ', 'green', attrs=['bold'])
+            l = colored('INFO ', 'green', attrs=['bold'])
         if record.levelname == 'WARNING':
-            l = termcolor.colored('WARN ', 'yellow', attrs=['bold'])
+            l = colored('WARN ', 'yellow', attrs=['bold'])
         if record.levelname == 'ERROR':
-            l = termcolor.colored('ERROR', 'red', attrs=['bold'])
-        s += l + '  ' 
+            l = colored('ERROR', 'red', attrs=['bold'])
+        s += l + '  '
 
+        s += padding
 
         try:
             s += record.msg % record.args
@@ -81,3 +102,7 @@ def init_log_rotation():
         pass
 
     return log
+
+
+def set_log_params(**kwargs):
+    LOG_PARAMS.update(kwargs)

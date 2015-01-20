@@ -10,6 +10,7 @@ import signal
 import uuid
 
 from aj.api import *
+from aj.log import set_log_params
 from aj.util import BroadcastQueue
 
 
@@ -57,6 +58,7 @@ class Task (object):
     def _worker(self, pipe=None):
         self.pipe = pipe
         setproctitle.setproctitle('%s task %s #%i' % (sys.argv[0], self.__class__.__name__, os.getpid()))
+        set_log_params(tag='task')
         logging.info('Starting task %s (%s)' % (self.id, self.__class__.__name__))
         try:
             self.run()
@@ -82,12 +84,14 @@ class Task (object):
             #print '<<', msg
             if msg['type'] == 'exception':
                 self.exception = msg['exception']
+                logging.debug('Task %s reports exception: %s' % msg['exception'])
             if msg['type'] == 'progress':
                 self.progress = msg['progress']
                 logging.debug('Task %s reports progress: %s %s/%s' % (
                     self.id, self.progress['message'], self.progress['done'], self.progress['total'],
                 ))
             if msg['type'] == 'done':
+                logging.debug('Task %s reports completion')
                 self.service.notify({
                     'type': 'done',
                     'task': {

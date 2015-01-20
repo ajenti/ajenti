@@ -4,9 +4,9 @@ import logging
 import os
 import signal
 
-from aj.util import BroadcastQueue
 from aj.gate.stream import *
 from aj.gate.worker import *
+from aj.util import BroadcastQueue
 
 
 class WorkerGate (object):
@@ -56,7 +56,7 @@ class WorkerGate (object):
                 pass
         except OSError:
             pass
-            
+
         self.stream_reader.kill(block=False)
 
     def _stream_reader(self):

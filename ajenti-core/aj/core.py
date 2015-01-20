@@ -51,8 +51,9 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     aj.product = product_name
     aj.debug = debug_mode
     aj.dev = dev_mode
-    
+
     aj.init()
+    aj.log.set_log_params(tag='master', master_pid=os.getpid())
     aj.context = Context()
     aj.config = config
     aj.plugin_providers = plugin_providers

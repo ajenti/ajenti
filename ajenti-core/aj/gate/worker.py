@@ -14,6 +14,7 @@ from aj.api.http import SocketEndpoint
 from aj.http import HttpMiddlewareAggregator, HttpContext
 from aj.auth import AuthenticationMiddleware
 from aj.routing import CentralDispatcher
+from aj.log import set_log_params
 
 
 class WorkerSocketNamespace (object):
@@ -46,6 +47,7 @@ class Worker (object):
         aj.master = False
         os.setpgrp()
         setproctitle.setproctitle('%s session worker #%i' % (sys.argv[0], os.getpid()))
+        set_log_params(tag='worker')
 
         logging.info('New worker #%s, EUID %s, EGID %s' % (
             os.getpid(), os.geteuid(), os.getegid(),
