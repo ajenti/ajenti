@@ -50,20 +50,19 @@ class Handler (HttpPlugin):
         http_context.respond_ok()
         return content
 
-    @url('/testtasks')
-    @endpoint(api=True)
-    def handle_test(self, http_context):
-        from aj.plugins.core.api.tasks import Task, TasksService
-        import time
 
-        class MyTask (Task):
-            name = 'Test'
+from aj.plugins.core.api.tasks import Task, TasksService
 
-            def run(self):
-                logging.info('Running')
-                for i in range(0, 3):
-                    gevent.sleep(1)
-                    self.report_progress(message='Working', done=i, total=10)
-                logging.info('Done')
+class MyTask (Task):
+    name = 'Test'
 
-        TasksService.get(self.context).start(MyTask(self.context))
+    def __init__(self, context, *args, **kwargs):
+        print args, kwargs
+        Task.__init__(self, context)
+
+    def run(self):
+        logging.info('Running')
+        for i in range(0, 10):
+            gevent.sleep(1)
+            self.report_progress(message='Working', done=i, total=10)
+        logging.info('Done')

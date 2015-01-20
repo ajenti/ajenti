@@ -3,12 +3,30 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
         ioSocket: io.connect('/socket', resource: "#{urlPrefix}/socket.io".substring(1))
     )
 
+    @socket.on 'connecting', (e) ->
+        $log.log('Connecting')
+
+    @socket.on 'connect_failed', (e) ->
+        $log.log('Connection failed', e)
+
+    @socket.on 'reconnecting', (e) ->
+        $log.log('Reconnecting')
+
+    @socket.on 'reconnect_failed', (e) ->
+        $log.log('Reconnection failed', e)
+
+    @socket.on 'reconnect', (e) ->
+        $rootScope.socketConnectionLost = false
+        $log.log('Reconnected')
+
     @socket.on 'connect', (e) ->
         $rootScope.socketConnectionLost = false
-        $log.log('Connect', e)
+        $log.log('Connected')
+
     @socket.on 'disconnect', (e) ->
         $rootScope.socketConnectionLost = true
         $log.error('Disconnect', e)
+
     @socket.on 'error', (e) ->
         $rootScope.socketConnectionLost = true
         $log.error('Error', e)

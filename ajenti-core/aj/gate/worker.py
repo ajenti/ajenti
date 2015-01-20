@@ -16,6 +16,29 @@ from aj.auth import AuthenticationMiddleware
 from aj.routing import CentralDispatcher
 
 
+class WorkerSocketNamespace (object):
+    def __init__(self, context, id):
+        self.context = context
+        self.id = id
+        logging.debug('Socket namespace %s created' % self.id)
+        self.endpoints = [cls(self.context) for cls in SocketEndpoint.classes()]
+
+    def process_event(self, event, msg):
+        for endpoint in self.endpoints:
+            if not msg or msg['plugin'] in ['*', endpoint.plugin]:
+                data = msg['data'] if msg else None
+                try:
+                    getattr(endpoint, 'on_%s' % event)(data)
+                except Exception as e:
+                    logging.error('Exception in socket event handler')
+                    traceback.print_exc()
+
+    def destroy(self):
+        logging.debug('Socket namespace %s is being destroyed' % self.id)
+        for endpoint in self.endpoints:
+            endpoint.destroy()
+
+
 class Worker (object):
     def __init__(self, stream, gate):
         self.stream = stream
@@ -44,12 +67,12 @@ class Worker (object):
         if os.getuid() != 0:
             logging.warn('Running as a limited user, setuid() unavailable!')
             return
-        
+
         uid = pwd.getpwnam(username).pw_uid
         gid = pwd.getpwnam(username).pw_gid
-        
+
         logging.info('Worker %s is demoting to %s (UID %s / GID %s)' % (os.getpid(), username, uid, gid))
-        
+
         groups = [g.gr_gid for g in grp.getgrall() if username in g.gr_mem or g.gr_gid == gid]
         os.setgroups(groups)
         os.setgid(gid)
@@ -57,28 +80,34 @@ class Worker (object):
         logging.info('Demoted, EUID %s EGID %s' % (os.geteuid(), os.getegid()))
 
     def run(self):
-        while True:
-            rq = self.stream.recv()
-            if not rq:
-                return
-            if rq.object['type'] == 'http':
-                gevent.spawn(self.handle_http_request, rq)
-            if rq.object['type'] == 'socket':
-                for endpoint in SocketEndpoint.all(self.context):
+        try:
+            socket_namespaces = {}
+            while True:
+                rq = self.stream.recv()
+                if not rq:
+                    return
+                if rq.object['type'] == 'http':
+                    gevent.spawn(self.handle_http_request, rq)
+                if rq.object['type'] == 'socket':
                     msg = rq.object['message']
-                    if not msg or msg['plugin'] in ['*', endpoint.plugin]:
-                        data = msg['data'] if msg else None
-                        try:
-                            getattr(endpoint, 'on_%s' % rq.object['event'])(data)
-                        except Exception as e:
-                            logging.error('Exception in socket event handler')
-                            traceback.print_exc()
-                        if rq.object['event'] == 'disconnect':
-                            endpoint.destroy()
+                    nsid = rq.object['namespace']
+                    event = rq.object['event']
+
+                    if event == 'connect':
+                        socket_namespaces[nsid] = WorkerSocketNamespace(self.context, nsid)
+
+                    socket_namespaces[nsid].process_event(event, msg)
+
+                    if event == 'disconnect':
+                        socket_namespaces[nsid].destroy()
+                        logging.debug('Socket disconnected, destroying endpoints')
+        except Exception as e:
+            logging.error('Worker crashed!')
+            traceback.print_exc()
 
     def terminate(self):
         self.send_to_upstream({
-            'type': 'terminate',    
+            'type': 'terminate',
         })
 
     def handle_http_request(self, rq):

@@ -1,6 +1,7 @@
 import gevent
-import re
 import json
+import logging
+import re
 import types
 
 from aj.api import *
@@ -38,7 +39,6 @@ class BaseHttpHandler (object):
         """
 
 
-
 @interface
 class HttpPlugin (object):
     """
@@ -71,7 +71,7 @@ class HttpPlugin (object):
                 if match:
                     context.route_data = match.groupdict()
                     data = method(context, **context.route_data)
-                    if type(data) is types.GeneratorType:
+                    if isinstance(data, types.GeneratorType):
                         return data
                     else:
                         return [data]
@@ -99,7 +99,10 @@ class SocketEndpoint (object):
         pass
 
     def spawn(self, target, *args, **kwargs):
-        self.greenlets.append(gevent.spawn(target, *args, **kwargs))
+        logging.debug('Spawning sub-Socket Greenlet (in a namespace): %s' % target.__name__)
+        greenlet = gevent.spawn(target, *args, **kwargs)
+        self.greenlets.append(greenlet)
+        return greenlet
 
     def send(self, data, plugin=None):
         self.context.worker.send_to_upstream({

@@ -1,8 +1,27 @@
 import gevent
+import json
 
 from aj.api import *
-from aj.api.http import SocketEndpoint
+from aj.api.http import SocketEndpoint, BaseHttpHandler, url, HttpPlugin
+from aj.plugins.core.api.endpoint import endpoint
 from aj.plugins.core.api.tasks import TasksService
+
+
+@component(HttpPlugin)
+class Handler (HttpPlugin):
+    def __init__(self, context):
+        self.context = context
+        self.service = TasksService.get(self.context)
+
+    @url('/api/core/tasks/start')
+    @endpoint(api=True)
+    def handle_api_tasks_start(self, http_context):
+        data = json.loads(http_context.body)
+        modulename, clsname = data['cls'].rsplit('.', 1)
+        module = __import__(modulename, fromlist=[''])
+        cls = getattr(module, clsname)
+        task = cls(self.context, *data.get('args', []), **data.get('kwargs', {}))
+        self.service.start(task)
 
 
 @component(SocketEndpoint)
@@ -14,8 +33,7 @@ class TasksSocket (SocketEndpoint):
         self.service = TasksService.get(self.context)
 
     def on_connect(self, message, *args):
-        # todo: spawn in namespace
-        self.reader = gevent.spawn(self._reader)
+        self.reader = self.spawn(self._reader)
 
     def on_message(self, message, *args):
         if message == 'request-update':
@@ -29,6 +47,7 @@ class TasksSocket (SocketEndpoint):
             except:
                 return
             if msg:
+                print self, msg
                 self.send({
                     'type': 'message',
                     'message': msg,
@@ -52,5 +71,5 @@ class TasksSocket (SocketEndpoint):
                 'progress': task.progress,
                 'exception': task.exception,
             }
-            for task in sorted(self.service.tasks.values(), key=lambda x: -x.started)
+            for task in sorted(self.service.tasks.values(), key=lambda x: x.started)
         ]

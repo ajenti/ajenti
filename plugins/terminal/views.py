@@ -100,9 +100,7 @@ class Socket (SocketEndpoint):
             id = message['id']
             if id in self.readers:
                 self.readers[id].kill(block=False)
-            self.readers[id] = gevent.spawn(self.reader, id)
-            # todo: spawn in namespace
-            #self.spawn(self.reader, terminal)
+            self.readers[id] = self.spawn(self.reader, id)
         if message['action'] == 'input':
             terminal = self.mgr[message['id']]
             terminal.feed(message['data'])

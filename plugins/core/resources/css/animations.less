@@ -1,41 +1,70 @@
-.flipCycle {
-    animation: flipCycleFrames ease infinite 2s;
-    -moz-animation: flipCycleFrames ease infinite 2s;
-    -webkit-animation: flipCycleFrames ease infinite 2s;
+.animate-list {
+    border-spacing: none;
+    overflow: hidden;
 }
 
-.flipCycle.halfstart {
+.animate-list.ng-enter,
+.animate-list.ng-leave {
+    -webkit-transition: 500ms ease all;
+    -moz-transition: 500ms ease all;
+    -ms-transition: 500ms ease all;
+    -o-transition: 500ms ease all;
+    transition: 500ms ease all;
+    position: relative;
+    display: block;
+}
+
+.animate-list.ng-leave.animate-list.ng-leave-active,
+.animate-list.ng-enter {
+    max-height: 0px;
+    opacity: 0;
+}
+
+.animate-list.ng-enter.animate-list.ng-enter-active,
+.animate-list.ng-leave {
+    max-height: 100px;
+    opacity: 1;
+}
+
+
+.flip-cycle {
+    animation: flip-cycle-frames ease infinite 2s;
+    -moz-animation: flip-cycle-frames ease infinite 2s;
+    -webkit-animation: flip-cycle-frames ease infinite 2s;
+}
+
+.flip-cycle.halfstart {
     animation-delay: -3s;
     -moz-animation-delay: -3s;
     -webkit-animation-delay: -3s;
 }
 
 .flipCycleFramesTpl() {
-    0% { 
+    0% {
         transform: rotateY(0deg);
         -webkit-transform: rotateY(0deg);
     }
-    25% { 
+    25% {
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
     }
-    50% { 
+    50% {
         transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
     }
-    75% { 
+    75% {
         transform: rotateY(360deg);
         -webkit-transform: rotateY(360deg);
     }
-    100% { 
+    100% {
         transform: rotateY(360deg);
         -webkit-transform: rotateY(360deg);
     }
 }
 
-@keyframes flipCycleFrames { .flipCycleFramesTpl(); }
-@-moz-keyframes flipCycleFrames { .flipCycleFramesTpl(); }
-@-webkit-keyframes flipCycleFrames { .flipCycleFramesTpl(); }
+@keyframes flip-cycle-frames { .flipCycleFramesTpl(); }
+@-moz-keyframes flip-cycle-frames { .flipCycleFramesTpl(); }
+@-webkit-keyframes flip-cycle-frames { .flipCycleFramesTpl(); }
 
 
 

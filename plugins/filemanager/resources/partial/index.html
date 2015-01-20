@@ -47,9 +47,9 @@
 
 <floating-toolbar class="accented" ng:show="(items|filter:{selected:true}).length > 0">
     <a disabled class="btn btn-default btn-flat pull-right">
-        <strong>{{(items|filter:{selected:true}).length}}</strong> items selected. 
+        <strong>{{(items|filter:{selected:true}).length}}</strong> items selected.
     </a>
-    
+
     <a ng:click="doCut()" class="btn btn-default btn-flat">Cut</a>
     <a ng:click="doCopy()" class="btn btn-default btn-flat">Copy</a>
     <a ng:click="doDelete()" class="btn btn-default btn-flat">Delete</a>
@@ -61,11 +61,11 @@
     </div>
     <div class="modal-body">
         <input type="text" ng:model="$parent.newFileName" class="form-control" placeholder="File name" autofocus ng:enter="doCreateFile()" />
-    </div>           
+    </div>
     <div class="modal-footer">
         <a ng:click="doCreateFile()" class="btn btn-primary btn-flat">Create</a>
         <a ng:click="hideNewFileDialog()" class="btn btn-default btn-flat">Cancel</a>
-    </div>            
+    </div>
 </dialog>
 
 <dialog ng:show="newDirectoryDialogVisible">
@@ -74,11 +74,11 @@
     </div>
     <div class="modal-body">
         <input type="text" ng:model="$parent.newDirectoryName" class="form-control" placeholder="Directory name" autofocus ng:enter="doCreateDirectory()" />
-    </div>           
+    </div>
     <div class="modal-footer">
         <a ng:click="doCreateDirectory()" class="btn btn-primary btn-flat">Create</a>
         <a ng:click="hideNewDirectoryDialog()" class="btn btn-default btn-flat">Cancel</a>
-    </div>            
+    </div>
 </dialog>
 
 <dialog ng:show="clipboardVisible && clipboard.length > 0">
@@ -101,10 +101,10 @@
                     {{item.item.path}}
                 </div>
             </div>
-        </div>           
-    </div>           
+        </div>
+    </div>
     <div class="modal-footer">
         <a ng:click="clearClipboard()" class="btn btn-default btn-flat">Remove all items</a>
         <a ng:click="hideClipboard()" class="btn btn-default btn-flat">Close</a>
-    </div>            
+    </div>
 </dialog>

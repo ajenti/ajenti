@@ -3,6 +3,7 @@ import logging
 import random
 import socketio
 import time
+import traceback
 from gevent.timeout import Timeout
 from gevent.queue import Queue
 from socketio.namespace import BaseNamespace
@@ -34,30 +35,27 @@ class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
             resp = q.get()
             self.emit('message', resp.object['message'])
 
-    def recv_connect(self):
-        logging.debug('Socket %s connected' % id(self))
+    def _send_worker_event(self, event, message=None):
         self.gate.stream.send({
             'type': 'socket',
-            'event': 'connect',
-            'message': None,
+            'event': event,
+            'namespace': id(self),
+            'message': message,
         })
+
+    def recv_connect(self):
+        logging.debug('Socket %s connected' % id(self))
+        self._send_worker_event('connect')
 
     def recv_disconnect(self):
         logging.debug('Socket %s disconnected' % id(self))
-        self.gate.stream.send({
-            'type': 'socket',
-            'event': 'disconnect',
-            'message': None,
-        })
+        traceback.print_stack()
+        self._send_worker_event('disconnect')
         self.disconnect(silent=True)
 
     def on_message(self, message, *args):
         logging.debug('Socket %s message: %s' % (id(self), repr(message)))
-        self.gate.stream.send({
-            'type': 'socket',
-            'event': 'message',
-            'message': message,
-        })
+        self._send_worker_event('message', message)
 
 
 @service
@@ -167,13 +165,13 @@ class GateMiddleware (object):
             http_context.add_header(*header)
         http_context.respond(resp.object['status'])
         content = resp.object['content']
-        
+
         end_time = time.time()
         logging.debug('%.03fs %12s   %s %s %s' % (
-            end_time - start_time, 
+            end_time - start_time,
             str_fsize(len(content[0] if content else [])),
-            str(http_context.status).split()[0], 
-            http_context.env['REQUEST_METHOD'], 
+            str(http_context.status).split()[0],
+            http_context.env['REQUEST_METHOD'],
             http_context.path
         ))
         return content

@@ -108,7 +108,7 @@ body > .container > .sidebar {
             font-size: 13px;
         }
 
-        & > div { 
+        & > div {
             overflow: hidden;
 
             .colors () {
@@ -163,7 +163,7 @@ body > .container > .sidebar {
         &.isRoot > .children {
             padding-left: 0;
         }
-    
+
         &.isTopLevel > .children {
             padding-left: 0;
         }
@@ -183,8 +183,11 @@ body > .container > .sidebar {
     .task-status {
         overflow: hidden;
         background: white;
-        padding: 10px 20px;
         box-shadow: 0 1px 0 rgba(0,0,0,.125);
+
+        &>div {
+            padding: 10px 20px;
+        }
 
         h5 {
             margin: 3px 0;
@@ -235,7 +238,7 @@ floating-toolbar {
 
 progress-spinner {
     display: block;
-    
+
     @size: 30px;
     @fg: @brand-primary;
     @bg: white;
@@ -284,9 +287,9 @@ progress-spinner {
 
 
 #login-form {
-    margin: 50px 0;    
+    margin: 50px 0;
 
-    h1 {    
+    h1 {
         font-size: 48px;
         color: #888;
         margin: 20px 0;

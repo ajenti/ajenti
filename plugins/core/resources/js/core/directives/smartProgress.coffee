@@ -14,8 +14,8 @@ angular.module('core').directive 'smartProgress', () ->
             </progressbar>
         </div>
         <div class="values">
-            <span class="pull-left">{{text}}</span>
-            <span class="pull-right">{{maxText}}</span>
+            <span class="pull-left no-wrap">{{text}}</span>
+            <span class="pull-right no-wrap">{{maxText}}</span>
         </div>
         """
         link: ($scope, element, attr) ->
