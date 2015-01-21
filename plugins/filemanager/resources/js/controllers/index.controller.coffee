@@ -73,14 +73,13 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
 
     $scope.doDelete = () ->
         if confirm('Delete selected items?')
-            for item in $scope.items
-                if item.selected
-                    ; # TODO
+            items = (item for item in $scope.items when item.selected)
+            tasks.start('aj.plugins.filesystem.tasks.Delete', [], items: items)
             $scope.clearSelection()
 
     $scope.doPaste = () ->
         items = angular.copy($scope.clipboard)
-        tasks.start('aj.plugins.filesystem.tasks.FileTransfer', [], destination: $scope.path, items: items).then () ->
+        tasks.start('aj.plugins.filesystem.tasks.Transfer', [], destination: $scope.path, items: items).then () ->
             $scope.clearClipboard()
 
     # NewFileDialog

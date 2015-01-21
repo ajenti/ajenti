@@ -85,7 +85,7 @@ class Task (object):
             #print '<<', msg
             if msg['type'] == 'exception':
                 self.exception = msg['exception']
-                logging.debug('Task %s reports exception: %s' % msg['exception'])
+                logging.debug('Task %s reports exception: %s' % (self.id, msg['exception']))
                 self.service.notify({
                     'type': 'exception',
                     'exception': self.exception,

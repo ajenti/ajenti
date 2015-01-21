@@ -5,7 +5,7 @@ from aj.plugins.core.api.push import Push
 from aj.plugins.core.api.tasks import Task
 
 
-class FileTransfer (Task):
+class Transfer (Task):
     name = 'File transfer'
 
     def __init__(self, context, destination=None, items=None):
@@ -33,5 +33,27 @@ class FileTransfer (Task):
                 ])
                 if r != 0:
                     logging.warn('cp exited with code %i' % r)
+
+        self.push('filesystem', 'refresh')
+
+
+class Delete (Task):
+    name = 'Deleting'
+
+    def __init__(self, context, items=None):
+        Task.__init__(self, context)
+        self.items = items
+
+    def run(self):
+        logging.info('Deleting %s items' % len(self.items))
+
+        for idx, item in enumerate(self.items):
+            self.report_progress(message=item['name'], done=idx, total=len(self.items))
+            logging.info('Deleting %s' % item['path'])
+            r = subprocess.call([
+                'rm', '-r', '-f', item['path'],
+            ])
+            if r != 0:
+                logging.warn('rm exited with code %i' % r)
 
         self.push('filesystem', 'refresh')
