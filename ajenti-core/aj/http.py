@@ -13,7 +13,7 @@ from aj.api.http import *
 
 
 def _validate_origin(env):
-    valid_origin = '%s://%s' % (env['wsgi.url_scheme'], env['HTTP_HOST'])
+    valid_origin = '%s://%s' % ('https' if env['SSL'] else 'http', env['HTTP_HOST'])
     request_origin = env.get('HTTP_ORIGIN', '').strip('/')
     if request_origin:
         if request_origin != valid_origin:
@@ -36,31 +36,31 @@ class HttpRoot (object):
         if not _validate_origin(env):
             start_response('403 Invalid Origin', [])
             return ''
-        else:
-            #logging.debug('>> %s' % env['PATH_INFO'])
 
-            http_context = HttpContext(env, start_response)
-            http_context.prefix = env.get('HTTP_X_URL_PREFIX', '')
-            
-            if http_context.prefix:
-                if http_context.path.startswith(http_context.prefix):
-                    http_context.path = http_context.path[len(http_context.prefix):]
-                else:
-                    http_context.respond(400)
-                    http_context.run_response()
-                    return 'Invalid URL Prefix'
+        #logging.debug('>> %s' % env['PATH_INFO'])
 
-            content = self.handler.handle(http_context)
+        http_context = HttpContext(env, start_response)
+        http_context.prefix = env.get('HTTP_X_URL_PREFIX', '')
 
-            if http_context.prefix:
-                for index, header in enumerate(http_context.headers):
-                    if header[0] == 'Location':
-                        http_context.headers[index] = (header[0], http_context.prefix + header[1])
+        if http_context.prefix:
+            if http_context.path.startswith(http_context.prefix):
+                http_context.path = http_context.path[len(http_context.prefix):]
+            else:
+                http_context.respond(400)
+                http_context.run_response()
+                return 'Invalid URL Prefix'
 
-            http_context.run_response()
-            #logging.debug('<< %s %s' % (http_context.path, len(content)))
-            gevent.sleep(0)
-            return content
+        content = self.handler.handle(http_context)
+
+        if http_context.prefix:
+            for index, header in enumerate(http_context.headers):
+                if header[0] == 'Location':
+                    http_context.headers[index] = (header[0], http_context.prefix + header[1])
+
+        http_context.run_response()
+        #logging.debug('<< %s %s' % (http_context.path, len(content)))
+        gevent.sleep(0)
+        return content
 
 
 class HttpMiddlewareAggregator (BaseHttpHandler):
@@ -122,13 +122,13 @@ class HttpContext (object):
                 self.body = self.env['wsgi.input'].read()
         else:
             self.cgi_query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
-        
+
         if self.cgi_query:
             self.query = dict((k, self.cgi_query[k].value) for k in self.cgi_query)
 
     def dump_env(self):
         print '\n'.join('%s = %s' % (x, self.env[x]) for x in sorted(list(self.env)))
-        
+
     def get_cleaned_env(self):
         env = self.env.copy()
         for k in list(env):

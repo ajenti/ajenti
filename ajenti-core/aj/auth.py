@@ -29,7 +29,7 @@ class AuthenticationMiddleware (BaseHttpHandler):
         self.auth = AuthenticationService.get(self.context)
         if not hasattr(context, 'identity'):
             context.identity = None
-        
+
     def handle(self, http_context):
         if http_context.env['SSL_VALID']:
             if not self.context.identity:
@@ -77,11 +77,11 @@ class AuthenticationService (BaseHttpHandler):
 
     def check_sudo_password(self, username, password):
         sudo = subprocess.Popen(
-            ['sudo', '-S', '-u', 'eugene', '--', 'sh', '-c', 'sudo -k; sudo -S echo'], 
-            stdin=subprocess.PIPE, 
+            ['sudo', '-S', '-u', 'eugene', '--', 'sh', '-c', 'sudo -k; sudo -S echo'],
+            stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-        ) 
+        )
         o, e = sudo.communicate(password + '\n')
         if sudo.returncode != 0:
             raise SudoError((o + e).splitlines()[-1].strip())
@@ -110,6 +110,6 @@ class AuthenticationService (BaseHttpHandler):
 
     def login(self, username, demote=True):
         logging.info('Authenticating session as %s' % username)
-        if demote:       
+        if demote:
             self.context.worker.demote(username)
-        self.context.identity = username 
+        self.context.identity = username

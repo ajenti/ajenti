@@ -1,4 +1,4 @@
-angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootScope, $routeParams, identity, notify) -> 
+angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootScope, $routeParams, identity, notify) ->
     $rootScope.disableExpiredSessionInterceptor = true
     $scope.working = false
     $scope.success = false
@@ -10,6 +10,8 @@ angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootSco
         $scope.mode = $routeParams.mode
 
     $scope.login = () ->
+        if not $scope.username or not $scope.password
+            return
         $scope.working = true
         identity.auth($scope.username, $scope.password, $scope.mode).then (username) ->
             $scope.success = true
@@ -38,7 +40,7 @@ angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootSco
                     notify.error 'Authentication failed', err
                     navigator.id.logout()
             onlogout: () -> null
-        } 
+        }
         navigator.id.request {
             siteName: identity.machine.name
             backgroundColor: '#678'

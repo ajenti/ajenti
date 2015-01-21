@@ -4,3 +4,4 @@ python-daemon
 python-exconsole>=0.1.5
 requests>=0.12.0
 reconfigure>=0.1.41
+pyOpenSSL

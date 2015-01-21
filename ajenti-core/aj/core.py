@@ -20,12 +20,14 @@ from aj.gate.middleware import GateMiddleware
 from aj.plugins import *
 from aj.api import *
 from aj.util import make_report
+from aj.util.sslsocket import SSLSocket
 from aj.util.pidfile import PidFile
 from aj.wsgi import RequestHandler
 
 import gevent
 import gevent.ssl
 from gevent import monkey
+from OpenSSL import SSL
 
 # Gevent monkeypatch ---------------------
 monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
@@ -38,7 +40,6 @@ threading.Event = Event
 import aj.compat
 
 from socketio.server import SocketIOServer
-
 
 
 def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False, debug_mode=False):
@@ -59,7 +60,6 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     aj.plugin_providers = plugin_providers
     logging.info('Loading config from %s' % aj.config)
     aj.config.load()
-
 
     if aj.debug:
         logging.warn('Debug mode')
@@ -98,7 +98,6 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         except:
             logging.error('Could not bind to %s' % bind_spec[0])
             sys.exit(1)
-        listener.listen(10)
     else:
         listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
         if not aj.platform in ['freebsd', 'osx']:
@@ -112,20 +111,11 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         except:
             logging.error('Could not bind to %s' % (bind_spec,))
             sys.exit(1)
-        listener.listen(10)
+
+    listener.listen(10)
 
     gateway = GateMiddleware.get(aj.context)
     application = HttpRoot(HttpMiddlewareAggregator([gateway])).dispatch
-
-    ssl_args = {}
-    if aj.config.data['ssl']['enable']:
-        ssl_args['certfile'] = aj.config.data['ssl']['certificate_path']
-        ssl_args['ssl_version'] = ssl.PROTOCOL_TLSv1
-        if aj.config.data['ssl']['client_auth']:
-            logging.info('Enabling SSL client authentication')
-            ssl_args['ca_certs'] = ssl_args['certfile']
-            ssl_args['cert_reqs'] = ssl.CERT_OPTIONAL
-        logging.info('SSL enabled: %s' % ssl_args['certfile'])
 
     aj.server = SocketIOServer(
         listener,
@@ -139,8 +129,20 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
             str('xhr-polling'),
             str('jsonp-polling'),
         ],
-        **ssl_args
     )
+
+    if aj.config.data['ssl']['enable']:
+        context = SSL.Context(SSL.TLSv1_METHOD)
+        context.set_options(SSL.OP_NO_SSLv2 | SSL.OP_NO_SSLv3)
+        context.use_certificate_file(aj.config.data['ssl']['certificate_path'])
+        context.use_privatekey_file(aj.config.data['ssl']['certificate_path'])
+        if aj.config.data['ssl']['client_auth']:
+            logging.info('Enabling SSL client authentication')
+            context.load_verify_locations(aj.config.data['ssl']['certificate_path'], None)
+            context.set_verify(SSL.VERIFY_PEER)
+        aj.server.ssl_args = {'server_side': True}
+        aj.server.wrap_socket = lambda socket, **ssl: SSLSocket(context, socket)
+        logging.info('SSL enabled')
 
     # auth.log
     try:

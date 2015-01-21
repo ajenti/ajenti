@@ -1,5 +1,7 @@
 from socketio.handler import SocketIOHandler
 
+from aj.util.sslsocket import SSLSocket
+
 
 class RequestHandler (SocketIOHandler):
     def __init__(self, *args, **kwargs):
@@ -8,12 +10,13 @@ class RequestHandler (SocketIOHandler):
 
     def get_environ(self):
         env = SocketIOHandler.get_environ(self)
-        env['SSL'] = hasattr(self.socket, 'getpeercert')
+        env['SSL'] = isinstance(self.socket, SSLSocket)
         env['SSL_VALID'] = False
         env['SSL_CN'] = None
         if env['SSL']:
-            env['SSL_CERTIFICATE'] = self.socket.getpeercert()
+            env['SSL_CERTIFICATE'] = self.socket.get_peer_certificate()
             if env['SSL_CERTIFICATE']:
+                # TODO handle openssl cert
                 env['SSL_VALID'] = 'subject' in env['SSL_CERTIFICATE']
                 if env['SSL_VALID']:
                     for subj in env['SSL_CERTIFICATE']['subject']:
