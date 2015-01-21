@@ -13,6 +13,7 @@ class RequestHandler (SocketIOHandler):
         env['SSL'] = isinstance(self.socket, SSLSocket)
         env['SSL_VALID'] = False
         env['SSL_CN'] = None
+        print self.socket
         if env['SSL']:
             env['SSL_CERTIFICATE'] = self.socket.get_peer_certificate()
             if env['SSL_CERTIFICATE']:

@@ -4,6 +4,6 @@ bind:
 ssl:
     enable: true
     certificate_path: /etc/ajenti/ajenti.pem
-    client_auth: false
+    client_auth: true
 emails:
     john.pankov@gmail.com: root

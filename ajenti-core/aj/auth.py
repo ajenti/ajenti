@@ -105,6 +105,10 @@ class AuthenticationService (BaseHttpHandler):
         else:
             raise Exception('Request failed')
 
+    def check_client_certificate(self, connection, x509, e1, e2, e3):
+        print 'verifying cert', connection, x509
+        return True
+
     def get_identity(self):
         return self.context.identity
 

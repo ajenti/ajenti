@@ -15,6 +15,7 @@ import traceback
 
 import aj
 import aj.plugins
+from aj.auth import AuthenticationService
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import *
@@ -133,13 +134,14 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
 
     if aj.config.data['ssl']['enable']:
         context = SSL.Context(SSL.TLSv1_METHOD)
+        context.set_session_id(str(id(context)))
         context.set_options(SSL.OP_NO_SSLv2 | SSL.OP_NO_SSLv3)
         context.use_certificate_file(aj.config.data['ssl']['certificate_path'])
         context.use_privatekey_file(aj.config.data['ssl']['certificate_path'])
         if aj.config.data['ssl']['client_auth']:
             logging.info('Enabling SSL client authentication')
             context.load_verify_locations(aj.config.data['ssl']['certificate_path'], None)
-            context.set_verify(SSL.VERIFY_PEER)
+            context.set_verify(SSL.VERIFY_PEER, AuthenticationService.get(aj.context).check_client_certificate)
         aj.server.ssl_args = {'server_side': True}
         aj.server.wrap_socket = lambda socket, **ssl: SSLSocket(context, socket)
         logging.info('SSL enabled')
@@ -152,7 +154,6 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         )
     except:
         syslog.openlog(aj.product)
-
 
     def cleanup():
         if hasattr(cleanup, '_started'):

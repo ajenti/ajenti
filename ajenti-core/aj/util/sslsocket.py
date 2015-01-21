@@ -9,15 +9,11 @@ import sys
 
 
 class SSLSocket(object):
-    def __init__(self, context, sock=None, connection=None):
+    def __init__(self, context, sock=None):
         self._context = context
-        if sock:
-            self._socket = sock
-            self._connection = OpenSSL.SSL.Connection(context, sock)
-            self._connection.set_accept_state()
-        if connection:
-            self._connection = connection
-            self._socket = connection._sock
+        self._socket = sock
+        self._connection = OpenSSL.SSL.Connection(context, sock)
+        self._connection.set_accept_state()
         self._makefile_refs = 0
 
     def __getattr__(self, attr):
