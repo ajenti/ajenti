@@ -16,6 +16,16 @@
         <script src="%(prefix)s/resources/all.partials.js" type="text/javascript"></script>
     </head>
     <body ng:controller="CoreRootController">
+        <div class="row" ng:hide="appReady">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <br/><br/><br/><br/>
+                <smart-progress text="Loading"></smart-progress>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+
         <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady">
             <div class="container">
 
@@ -44,12 +54,12 @@
                             <li>
                                 <div>
                                     <span class="subtle pull-right">UID {{ identity.effective }}</span>
-                                    <i class="fa fa-fw fa-user"></i> {{ identity.user }} 
+                                    <i class="fa fa-fw fa-user"></i> {{ identity.user }}
                                 </div>
                             </li>
                             <li class="hide-tablet hide-desktop hide-large">
                                 <div>
-                                    <i class="fa fa-fw fa-hdd-o"></i> {{ identity.machine.name }} 
+                                    <i class="fa fa-fw fa-hdd-o"></i> {{ identity.machine.name }}
                                 </div>
                             </li>
                             <li>
@@ -63,7 +73,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>                    
+                    </div>
                 </div>
 
                 <p class="navbar-text pull-right hide-phone">

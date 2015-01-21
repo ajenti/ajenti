@@ -62,7 +62,8 @@ class MyTask (Task):
 
     def run(self):
         logging.info('Running')
-        for i in range(0, 10):
+        gevent.sleep(2)
+        for i in range(0, 5):
             gevent.sleep(1)
             self.report_progress(message='Working', done=i, total=10)
         logging.info('Done')

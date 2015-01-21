@@ -39,6 +39,7 @@
 
     <a ng:click="showNewFileDialog()" class="btn btn-default btn-flat">New file</a>
     <a ng:click="showNewDirectoryDialog()" class="btn btn-default btn-flat">New directory</a>
+    <a ng:click="doPaste()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat">Paste here</a>
 
     <a href="/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
         <i class="fa fa-plus"></i> Tab
@@ -47,7 +48,7 @@
 
 <floating-toolbar class="accented" ng:show="(items|filter:{selected:true}).length > 0">
     <a disabled class="btn btn-default btn-flat pull-right">
-        <strong>{{(items|filter:{selected:true}).length}}</strong> items selected.
+        <strong>{{(items|filter:{selected:true}).length}}</strong> items selected
     </a>
 
     <a ng:click="doCut()" class="btn btn-default btn-flat">Cut</a>

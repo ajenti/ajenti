@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, notify, filesystem, pageTitle, urlPrefix) -> 
+angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, notify, filesystem, pageTitle, urlPrefix, tasks) ->
     pageTitle.set('path', $scope)
     $scope.loading = false
     $scope.newDirectoryDialogVisible = false
@@ -18,6 +18,10 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
 
     $scope.refresh = () ->
         $scope.load($scope.path)
+
+    $scope.$on 'push:filesystem', ($event, msg) ->
+        if msg == 'refresh'
+            $scope.refresh()
 
     $scope.navigate = (path) ->
         $location.path("#{urlPrefix}/view/filemanager/#{path}")
@@ -71,8 +75,13 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         if confirm('Delete selected items?')
             for item in $scope.items
                 if item.selected
-                    ;
+                    ; # TODO
             $scope.clearSelection()
+
+    $scope.doPaste = () ->
+        items = angular.copy($scope.clipboard)
+        tasks.start('aj.plugins.filesystem.tasks.FileTransfer', [], destination: $scope.path, items: items).then () ->
+            $scope.clearClipboard()
 
     # NewFileDialog
 
@@ -90,11 +99,11 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         .catch (err) ->
             notify.error 'Could not create file', err.message
 
-    $scope.hideNewFileDialog = () ->    
+    $scope.hideNewFileDialog = () ->
         $scope.newFileDialogVisible = false
 
     # NewDirectoryDialog
-    
+
     $scope.showNewDirectoryDialog = () ->
         $scope.newDirectoryName = ''
         $scope.newDirectoryDialogVisible = true
@@ -109,7 +118,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         .catch (err) ->
             notify.error 'Could not create directory', err.message
 
-    $scope.hideNewDirectoryDialog = () ->    
+    $scope.hideNewDirectoryDialog = () ->
         $scope.newDirectoryDialogVisible = false
 
     # ---

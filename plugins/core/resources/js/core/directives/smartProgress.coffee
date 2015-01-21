@@ -10,7 +10,7 @@ angular.module('core').directive 'smartProgress', () ->
         }
         template: """
         <div>
-            <progressbar type="warning" max="100" value="100 * value / max" animate="animate">
+            <progressbar type="warning" max="100" value="100 * value / max" animate="animate" ng:class="{indeterminate: !max}">
             </progressbar>
         </div>
         <div class="values">

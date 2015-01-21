@@ -44,6 +44,7 @@ resources:
     - 'resources/js/core/services/identity.service.coffee'
     - 'resources/js/core/services/notify.service.coffee'
     - 'resources/js/core/services/pageTitle.service.coffee'
+    - 'resources/js/core/services/push.service.coffee'
     - 'resources/js/core/services/socket.service.coffee'
     - 'resources/js/core/services/tasks.service.coffee'
     - 'resources/partial/index.html'

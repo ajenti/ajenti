@@ -12,6 +12,7 @@ import uuid
 from aj.api import *
 from aj.log import set_log_params
 from aj.util import BroadcastQueue
+from aj.plugins.core.api.push import Push
 
 
 class Task (object):
@@ -64,7 +65,7 @@ class Task (object):
             self.run()
         except Exception as e:
             logging.error('Exception in task %s' % self.id)
-            logging.error(e)
+            logging.error(str(e))
             traceback.print_exc()
             self.pipe.put({'type': 'exception', 'exception': str(e)})
         self.pipe.put({'type': 'done'})
@@ -77,21 +78,29 @@ class Task (object):
             except:
                 self.running = False
                 self.finished = time.time()
-                self.service.notify()
                 logging.debug('Task %s pipe was closed' % self.id)
                 self.service.remove(self.id)
+                self.service.notify()
                 return
             #print '<<', msg
             if msg['type'] == 'exception':
                 self.exception = msg['exception']
                 logging.debug('Task %s reports exception: %s' % msg['exception'])
+                self.service.notify({
+                    'type': 'exception',
+                    'exception': self.exception,
+                    'task': {
+                        'id': self.id,
+                        'name': self.name,
+                    }
+                })
             if msg['type'] == 'progress':
                 self.progress = msg['progress']
                 logging.debug('Task %s reports progress: %s %s/%s' % (
                     self.id, self.progress['message'], self.progress['done'], self.progress['total'],
                 ))
             if msg['type'] == 'done':
-                logging.debug('Task %s reports completion')
+                logging.debug('Task %s reports completion' % self.id)
                 self.service.notify({
                     'type': 'done',
                     'task': {
@@ -99,10 +108,22 @@ class Task (object):
                         'name': self.name,
                     }
                 })
+            if msg['type'] == 'push':
+                Push.get(self.context).push(msg['plugin'], msg['message'])
+                logging.debug('Task %s sends a push message: %s %s' % (
+                    self.id, msg['plugin'], msg['message'],
+                ))
             self.service.notify()
 
     def run(self):
-        pass
+        raise NotImplementedError()
+
+    def push(self, plugin, message):
+        self.pipe.put({
+            'type': 'push',
+            'plugin': plugin,
+            'message': message,
+        })
 
 
 @service
@@ -115,6 +136,7 @@ class TasksService (object):
     def start(self, task):
         self.tasks[task.id] = task
         task._start()
+        self.send_update()
 
     def abort(self, id):
         self.tasks[task.id]._abort()
@@ -123,4 +145,33 @@ class TasksService (object):
         self.tasks.pop(id)
 
     def notify(self, message=None):
-        self.notifications.broadcast(message)
+        if message:
+            Push.get(self.context).push(
+                'tasks', {
+                    'type': 'message',
+                    'message': message,
+                }
+            )
+        self.send_update()
+
+    def send_update(self):
+        Push.get(self.context).push(
+            'tasks', {
+                'type': 'update',
+                'tasks': self.format_tasks(),
+            }
+        )
+
+    def format_tasks(self):
+        return [
+            {
+                'id': task.id,
+                'name': task.name,
+                'running': task.running,
+                'started': task.started,
+                'finished': task.finished,
+                'progress': task.progress,
+                'exception': task.exception,
+            }
+            for task in sorted(self.tasks.values(), key=lambda x: x.started)
+        ]

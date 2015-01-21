@@ -91,4 +91,38 @@
 }
 
 
+.indeterminate .progress-bar {
+    animation: indeterminate-frames linear infinite 1s;
+    -moz-animation: indeterminate-frames linear infinite 1s;
+    -webkit-animation: indeterminate-frames linear infinite 1s;
+}
+
+.indeterminateFramesTpl() {
+    0% {
+        margin-left: 0;
+        width: 0;
+    }
+    33% {
+        margin-left: 0;
+        width: 50%;
+    }
+    66% {
+        margin-left: 50%;
+        width: 50%;
+    }
+    99% {
+        margin-left: 100%;
+        width: 0;
+    }
+    100% {
+        margin-left: 0;
+        width: 0;
+    }
+}
+
+@keyframes indeterminate-frames { .indeterminateFramesTpl(); }
+@-moz-keyframes indeterminate-frames { .indeterminateFramesTpl(); }
+@-webkit-keyframes indeterminate-frames { .indeterminateFramesTpl(); }
+
+
 

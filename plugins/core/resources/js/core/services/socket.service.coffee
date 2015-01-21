@@ -21,16 +21,18 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
 
     @socket.on 'connect', (e) ->
         $rootScope.socketConnectionLost = false
+        $rootScope.$broadcast 'socket-event:connect'
         $log.log('Connected')
 
     @socket.on 'disconnect', (e) ->
         $rootScope.socketConnectionLost = true
+        $rootScope.$broadcast 'socket-event:disconnect'
         $log.error('Disconnect', e)
 
     @socket.on 'error', (e) ->
         $rootScope.socketConnectionLost = true
         $log.error('Error', e)
-    
+
     @send = (plugin, data) ->
         q = $q.defer()
         msg = {
@@ -40,13 +42,12 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
         @socket.emit 'message', msg, () ->
             q.resolve()
         return q.promise
-    
+
     @socket.on 'message', (msg) ->
         if msg[0] == '{'
             msg = JSON.parse(msg)
-        $log.debug('Socket message', msg)
-        data = msg['data']
-        $rootScope.$broadcast "socket:#{msg['plugin']}", data
+        $log.debug 'Socket message from', msg.plugin, msg.data
+        $rootScope.$broadcast "socket:#{msg.plugin}", msg.data
 
     return this
 

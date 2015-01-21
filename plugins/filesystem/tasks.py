@@ -1,0 +1,37 @@
+import logging
+import subprocess
+
+from aj.plugins.core.api.push import Push
+from aj.plugins.core.api.tasks import Task
+
+
+class FileTransfer (Task):
+    name = 'File transfer'
+
+    def __init__(self, context, destination=None, items=None):
+        Task.__init__(self, context)
+        self.destination = destination
+        self.items = items
+
+    def run(self):
+        logging.info('Transferring %s items into %s' % (len(self.items), self.destination))
+        self.destination = self.destination.rstrip('/') + '/'
+
+        for idx, item in enumerate(self.items):
+            self.report_progress(message=item['item']['name'], done=idx, total=len(self.items))
+            if item['mode'] == 'move':
+                logging.info('Moving %s' % item['item']['path'])
+                r = subprocess.call([
+                    'mv', item['item']['path'], '-t', self.destination
+                ])
+                if r != 0:
+                    logging.warn('mv exited with code %i' % r)
+            if item['mode'] == 'copy':
+                logging.info('Copying %s' % item['item']['path'])
+                r = subprocess.call([
+                    'cp', '-a', item['item']['path'], '-t', self.destination
+                ])
+                if r != 0:
+                    logging.warn('cp exited with code %i' % r)
+
+        self.push('filesystem', 'refresh')

@@ -1,9 +1,10 @@
-angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, socket) ->
+angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, socket) ->
     @tasks = []
 
-    socket.send('tasks', 'request-update')
+    $rootScope.$on 'socket-event:connect', () ->
+        $http.get('/api/core/tasks/request-update')
 
-    $rootScope.$on 'socket:tasks', ($event, msg) =>
+    $rootScope.$on 'push:tasks', ($event, msg) =>
         if msg.type == 'update'
             #@tasks = msg.tasks
             if @tasks.length > msg.tasks.length
@@ -13,9 +14,11 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, socket) 
                     @tasks.push {}
                 angular.copy msg.tasks[i], @tasks[i]
         if msg.type == 'message'
-            if msg.message.type = 'done'
-                console.log msg.message
-                notify.success 'Task finished', msg.message.task.name
+            console.log msg.message
+            if msg.message.type == 'done'
+                notify.success msg.message.task.name, 'Done'
+            if msg.message.type == 'exception'
+                notify.error msg.message.task.name, "Failed: #{msg.message.exception}"
 
     @start = (cls, args, kwargs) ->
         args ?= []
