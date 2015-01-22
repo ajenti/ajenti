@@ -15,12 +15,13 @@
         }
     }
 
-    .btn-flat {
-        color: @color;
-    }
-
     .form-control:focus {
         border-bottom-color: @color;
+    }
+
+    .form-control:focus + .input-group-addon {
+        border-bottom-color: @color;
+        a i { color: @color; }
     }
 
     .navbar-brand .title {
@@ -33,6 +34,10 @@
 
     .btn-primary {
         .button-variant(white; @color; darken(@color, 10%));
+    }
+
+    .btn-flat {
+        color: @color;
     }
 
     *[checkbox].active i.on {

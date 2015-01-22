@@ -1,106 +1,175 @@
 <br/>
-<div class="padded-container">
 
-    <div class="form-group">
-        <label>Machine name</label>
-        <div>
-            <input ng:model="config.name" type="text" class="form-control" />
+<progress-spinner ng:show="!config"></progress-spinner>
+
+<div ng:show="config" root-access>
+    <div class="padded-container">
+        <div class="form-group">
+            <label>Machine name</label>
+            <div>
+                <input ng:model="config.name" type="text" class="form-control" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Color tag</label>
-        <div>
-            <div class="btn-group">
-                <a ng:model="config.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
+        <hr/>
+
+        <div class="form-group">
+            <label>Color tag</label>
+            <div>
+                <div class="btn-group">
+                    <a ng:model="config.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
+                        &nbsp;
+                    </a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="form-group">
+            <label>Binding</label>
+            <div class="form-inline">
+                <div class="btn-group pull-left">
+                    <a ng:model="config.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
+                    <a ng:model="config.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
+                </div>
+
+                &nbsp;
+
+                <span ng:show="config.bind.mode == 'tcp'">
+                    <input ng:model="config.bind.host" type="text" placeholder="Host / IP" class="form-control" />
                     &nbsp;
-                </a>
+                    :
+                    &nbsp;
+                    <input ng:model="config.bind.port" type="number" placeholder="Port" class="form-control" />
+                </span>
+
+                <span ng:show="config.bind.mode == 'unix'">
+                    <input ng:model="config.bind.socket" type="text" placeholder="Socket path" class="form-control" />
+                </span>
+
+                <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Binding</label>
-        <div class="form-inline">
-            <div class="btn-group pull-left">
-                <a ng:model="config.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
-                <a ng:model="config.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
-            </div>
+        <hr/>
 
-            &nbsp;
-
-            <span ng:show="config.bind.mode == 'tcp'">
-                <input ng:model="config.bind.host" type="text" placeholder="Host / IP" class="form-control" />
-                &nbsp;
-                :
-                &nbsp;
-                <input ng:model="config.bind.port" type="number" placeholder="Port" class="form-control" />
-            </span>
-
-            <span ng:show="config.bind.mode == 'unix'">
-                <input ng:model="config.bind.socket" type="text" placeholder="Socket path" class="form-control" />
-            </span>
-
-            <div class="clearfix"></div>
-        </div>
-    </div>
-
-    <div class="form-group" ng:show="config.bind.mode == 'tcp'">
-        <label>SSL</label>
-        <div>
-            <span checkbox ng:model="config.ssl.enable" text="Enable SSL"></span>
-        </div>
-    </div>
-
-    <div ng:show="config.bind.mode == 'tcp' && config.ssl.enable">
-        <div class="form-group">
-            <label>Certificate file</label>
+        <div class="form-group" ng:show="config.bind.mode == 'tcp'">
+            <label>SSL</label>
             <div>
-                <input ng:model="config.ssl.certificate" type="text" class="form-control" />
+                <span checkbox ng:model="config.ssl.enable" text="Enable SSL"></span>
             </div>
         </div>
-        <div class="form-group">
-            <label>SSL client authentication</label>
-            <div>
-                <span checkbox ng:model="config.ssl.client_auth.enable" text="Enable client authentication"></span>
+
+        <div ng:show="config.bind.mode == 'tcp' && config.ssl.enable">
+            <div class="form-group">
+                <label>SSL certificate file</label>
+                <div>
+                    <path-selector ng:model="config.ssl.certificate" type="text"></path-selector>
+                </div>
             </div>
-            <div>
-                <span checkbox ng:model="config.ssl.client_auth.force" text="Deny other means of authentication"></span>
+
+            <hr/>
+
+            <div class="form-group">
+                <label>SSL client authentication</label>
+                <div>
+                    <span checkbox ng:model="config.ssl.client_auth.enable" text="Enable client authentication"></span>
+                </div>
+                <div>
+                    <span checkbox ng:model="config.ssl.client_auth.force" text="Deny other means of authentication"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group" ng:show="config.ssl.client_auth.enable">
-            <label>SSL client certificates</label>
-            <div class="alert alert-warning" ng:show="config.ssl.client_auth.certificates.length == 0">
-                <i class="fa fa-warning"></i> No certificates are created yet.
-            </div>
-            <div>
-                <div class="list-group">
-                    <div ng:repeat="certificate in config.ssl.client_auth.certificates" class="list-group-item list-group-item-large">
-                        <a class="list-group-btn" ng:click="config.ssl.client_auth.certificates.splice($index, 1)" title="Revoke">
-                            <i class="fa fa-trash-o"></i>
-                        </a>
-                        <div class="list-group-main">
-                            <div class="list-group-icon">
-                                <i class="fa fa-key"></i>
+
+            <div class="form-group" ng:show="config.ssl.client_auth.enable">
+                <label>SSL client certificates</label>
+                <div class="alert alert-warning" ng:show="config.ssl.client_auth.certificates.length == 0">
+                    <i class="fa fa-warning"></i> No certificates are created yet.
+                </div>
+                <div>
+                    <div class="list-group">
+                        <div ng:repeat="certificate in config.ssl.client_auth.certificates" class="list-group-item list-group-item-large">
+                            <a class="list-group-btn" ng:click="config.ssl.client_auth.certificates.splice($index, 1)" title="Revoke">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                            <div class="list-group-main">
+                                <div class="list-group-icon">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                                <h4 class="list-group-item-heading">
+                                    {{certificate.user}}
+                                </h4>
+                                <p class="list-group-item-text">
+                                    <code class="ellipsis">{{certificate.digest}}</code>
+                                </p>
                             </div>
-                            <h4 class="list-group-item-heading">
-                                {{certificate.user}}
-                            </h4>
-                            <p class="list-group-item-text">
-                                <code class="ellipsis">{{certificate.digest}}</code>
-                            </p>
                         </div>
                     </div>
                 </div>
+                <a ng:click="newClientCertificateDialogVisible = true" class="btn btn-default">
+                    <i class="fa fa-plus"></i> New certificate
+                </a>
+
+                <dialog ng:show="newClientCertificateDialogVisible">
+                    <div class="modal-header">
+                        <h4>New client certificate</h4>
+                    </div>
+                    <div class="modal-body" ng:show="newClientCertificate.generating">
+                        <div class="text-center">
+                            <progress-spinner></progress-spinner>
+                            <h4>Generating certificate</h4>
+                            <div>This might take a few seconds</div>
+                        </div>
+                    </div>
+                    <div class="modal-body" ng:show="newClientCertificate.generated">
+                        <div class="text-center">
+                            <a download="{{newClientCertificate.user}}.p12" href="{{newClientCertificate.url}}" class="btn btn-primary">
+                                <i class="fa fa-download"></i> Download certificate
+                            </a>
+                        </div>
+                    </div>
+                    <div class="modal-body scrollable" ng:show="!newClientCertificate.generating && !newClientCertificate.generated">
+                        <div class="form-group">
+                            <label>Login as</label>
+                            <select ng:model="newClientCertificate.user" ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input ng:model="newClientCertificate.c" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>State</label>
+                            <input ng:model="newClientCertificate.st" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Organization</label>
+                            <input ng:model="newClientCertificate.o" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label>Common name</label>
+                            <input ng:model="newClientCertificate.cn" class="form-control" type="text" />
+                        </div>
+                    </div>
+                    <div class="modal-footer" ng:show="!newClientCertificate.generated">
+                        <div ng:hide="newClientCertificate.generating">
+                            <a ng:click="generateClientCertificate()" class="btn btn-default btn-flat">Generate</a>
+                            <a ng:click="$parent.newClientCertificateDialogVisible = false" class="btn btn-default btn-flat">Cancel</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer" ng:show="newClientCertificate.generated">
+                        <a ng:click="$parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat">
+                            Close
+                        </a>
+                    </div>
+                </dialog>
             </div>
         </div>
     </div>
+
+    <div class="floating-toolbar-padder"></div>
+
+    <floating-toolbar>
+        <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
+    </floating-toolbar>
 </div>
-
-
-<div class="floating-toolbar-padder"></div>
-
-<floating-toolbar>
-    <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
-</floating-toolbar>

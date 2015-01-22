@@ -3,16 +3,16 @@
     </ace-editor>
 </div>
 
-<file-dialog 
+<file-dialog
     mode="open"
-    ng:show="openDialogVisible" 
+    ng:show="openDialogVisible"
     on-select="open(item.path)"
     on-cancel="openDialogVisible = false">
 </file-dialog>
 
-<file-dialog 
+<file-dialog
     mode="save"
-    ng:show="saveDialogVisible" 
+    ng:show="saveDialogVisible"
     on-select="saveAs(path)"
     on-cancel="saveDialogVisible = false"
     name="saveAsName">

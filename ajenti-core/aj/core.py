@@ -150,6 +150,7 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         context.use_privatekey(private_key)
 
         if aj.config.data['ssl']['client_auth']['enable']:
+            # todo harden files
             logging.info('Enabling SSL client authentication')
             context.add_client_ca(certificate)
             context.get_cert_store().add_cert(certificate)

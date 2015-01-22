@@ -66,7 +66,8 @@ dialog {
         }
 
         .modal-body {
-            padding: 15px 30px;
+            padding: 0 30px;
+            margin: 15px 0;
         }
 
         .modal-footer {
@@ -228,9 +229,23 @@ dialog {
     &:focus {
         border-color: @input-border;
         border-bottom-color: @brand-primary;
-        box-shadow: none;
         background: white;
+        box-shadow: none;
     }
+}
+
+.form-control:focus + .input-group-addon {
+    border-color: @input-border;
+    border-bottom-color: @brand-primary;
+    background: white;
+    a i { color: @brand-primary; }
+}
+
+.input-group-addon {
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+    background: @input-bg;
+    a i { color: @text-color; }
 }
 
 .form-control-static {
@@ -272,10 +287,10 @@ dialog {
     }
 
     &.subtle {
-        opacity: .2;
+        opacity: .6;
 
         &:hover {
-            opacity: .5;
+            opacity: .8;
         }
 
         &.active {
@@ -319,4 +334,8 @@ smart-progress {
     border-radius: 0;
     border-width: 0;
     border-left-width: 5px;
+}
+
+hr {
+    margin: 20px -20px;
 }
