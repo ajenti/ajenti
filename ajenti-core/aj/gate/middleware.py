@@ -49,7 +49,6 @@ class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
 
     def recv_disconnect(self):
         logging.debug('Socket %s disconnected' % id(self))
-        traceback.print_stack()
         self._send_worker_event('disconnect')
         self.disconnect(silent=True)
 

@@ -1,48 +1,45 @@
 #!/usr/bin/env python
 import os
 import sys
-import json
-import subprocess
+import socket
+import random
+import yaml
+from OpenSSL.crypto import *
 
 if len(sys.argv) < 2:
     print('Usage: ajenti-ssl-gen <hostname> [-f]')
     sys.exit(1)
 
 host = sys.argv[1]
-path = '/etc/ajenti'
-config_path = '/etc/ajenti/config.json'
-marker_path = '/etc/ajenti/.ssl-generated'
+etcdir = '/etc/ajenti'
+certificate_path = '%s/ajenti.pem' % etcdir
+config_path = '%s/config.yml' % etcdir
 
+config = yaml.load(open(config_path))
 
-conf = json.loads(open(config_path).read())
+if not config['ssl']['enable']:
+    print 'SSL is not enabled in config.yml'
+    sys.exit(2)
+
 if len(sys.argv) == 2:
-    if os.path.exists(marker_path):
+    if config['ssl']['certificate']:
         print(':: SSL is already configured')
         sys.exit(1)
 
+key = PKey()
+key.generate_key(TYPE_RSA, 4096)
+cert = X509()
+cert.get_subject().countryName = 'NA'
+cert.get_subject().organizationName = socket.gethostname()
+cert.get_subject().commonName = 'ajenti'
+cert.set_pubkey(key)
+cert.set_serial_number(random.getrandbits(8 * 20))
+cert.gmtime_adj_notBefore(0)
+cert.gmtime_adj_notAfter(10 * 365 * 24 * 60 * 60)
+cert.set_issuer(cert.get_subject())
+cert.sign(key, 'sha1')
 
-script = """
-    echo '\n:: Generating key\n';
-    openssl genrsa -des3 -out /tmp/ajenti.key -passout pass:1234 2048;
-    echo '\n:: Generating certificate request\n';
-    openssl req -new -key /tmp/ajenti.key -out /tmp/ajenti.csr -passin pass:1234 -subj /C=US/ST=NA/L=Nowhere/O=Acme\\ Inc/OU=IT/CN={0}/;
-    echo '\n:: Removing passphrase\n';
-    cp /tmp/ajenti.key /tmp/ajenti.key.org;
-    openssl rsa -in /tmp/ajenti.key.org -out /tmp/ajenti.key -passin pass:1234;
-    echo '\n:: Generating certificate\n';
-    openssl x509 -req -days 365 -in /tmp/ajenti.csr -signkey /tmp/ajenti.key -out /tmp/ajenti.crt -passin pass:1234;
-    cat /tmp/ajenti.key /tmp/ajenti.crt > {1}/ajenti.pem;
-    rm /tmp/ajenti.*;
-""".format(host, path)
 
-subprocess.call(script, shell=True)
-
-conf['ssl']['enable'] = True
-certificate_path = os.path.join(path, 'ajenti.pem')
-conf['ssl']['certificate_path'] = certificate_path
-os.chmod(certificate_path, 0400)
-open(config_path, 'w').write(json.dumps(conf, indent=4))
-
-open(marker_path, 'w').close()
-
-print(':: SSL configured!')
+with open(certificate_path, 'w') as f:
+    f.write(dump_privatekey(FILETYPE_PEM, key))
+    f.write(dump_certificate(FILETYPE_PEM, cert))

@@ -1,6 +1,8 @@
 from socketio.handler import SocketIOHandler
 
+import aj
 from aj.util.sslsocket import SSLSocket
+from aj.security.verifier import ClientCertificateVerificator
 
 
 class RequestHandler (SocketIOHandler):
@@ -11,19 +13,16 @@ class RequestHandler (SocketIOHandler):
     def get_environ(self):
         env = SocketIOHandler.get_environ(self)
         env['SSL'] = isinstance(self.socket, SSLSocket)
-        env['SSL_VALID'] = False
-        env['SSL_CN'] = None
-        print self.socket
+        env['SSL_CLIENT_VALID'] = False
+        env['SSL_CLIENT_USER'] = None
         if env['SSL']:
-            env['SSL_CERTIFICATE'] = self.socket.get_peer_certificate()
-            if env['SSL_CERTIFICATE']:
-                # TODO handle openssl cert
-                env['SSL_VALID'] = 'subject' in env['SSL_CERTIFICATE']
-                if env['SSL_VALID']:
-                    for subj in env['SSL_CERTIFICATE']['subject']:
-                        k, v = subj[0]
-                        if k == 'commonName':
-                            env['SSL_CN'] = v
+            certificate = self.socket.get_peer_certificate()
+            env['SSL_CLIENT_CERTIFICATE'] = certificate
+            if certificate:
+                user = ClientCertificateVerificator.get(aj.context).verify(certificate)
+                env['SSL_CLIENT_VALID'] = bool(user)
+                env['SSL_CLIENT_USER'] = user
+                env['SSL_CLIENT_DIGEST'] = certificate.digest('sha1')
         return env
 
     def handle_one_response(self):

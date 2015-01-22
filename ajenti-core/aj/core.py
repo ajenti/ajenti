@@ -28,7 +28,7 @@ from aj.wsgi import RequestHandler
 import gevent
 import gevent.ssl
 from gevent import monkey
-from OpenSSL import SSL
+from OpenSSL import SSL, crypto
 
 # Gevent monkeypatch ---------------------
 monkey.patch_all(select=True, thread=True, aggressive=False, subprocess=True)
@@ -136,12 +136,29 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         context = SSL.Context(SSL.TLSv1_METHOD)
         context.set_session_id(str(id(context)))
         context.set_options(SSL.OP_NO_SSLv2 | SSL.OP_NO_SSLv3)
-        context.use_certificate_file(aj.config.data['ssl']['certificate_path'])
-        context.use_privatekey_file(aj.config.data['ssl']['certificate_path'])
-        if aj.config.data['ssl']['client_auth']:
+
+        certificate = crypto.load_certificate(
+            crypto.FILETYPE_PEM,
+            open(aj.config.data['ssl']['certificate']).read()
+        )
+        private_key = crypto.load_privatekey(
+            crypto.FILETYPE_PEM,
+            open(aj.config.data['ssl']['certificate']).read()
+        )
+
+        context.use_certificate(certificate)
+        context.use_privatekey(private_key)
+
+        if aj.config.data['ssl']['client_auth']['enable']:
             logging.info('Enabling SSL client authentication')
-            context.load_verify_locations(aj.config.data['ssl']['certificate_path'], None)
-            context.set_verify(SSL.VERIFY_PEER, AuthenticationService.get(aj.context).check_client_certificate)
+            context.add_client_ca(certificate)
+            context.get_cert_store().add_cert(certificate)
+            verify_flags = SSL.VERIFY_PEER
+            if aj.config.data['ssl']['client_auth']['force']:
+                verify_flags |= SSL.VERIFY_FAIL_IF_NO_PEER_CERT
+            context.set_verify(verify_flags, AuthenticationService.get(aj.context).client_certificate_callback)
+            context.set_verify_depth(0)
+
         aj.server.ssl_args = {'server_side': True}
         aj.server.wrap_socket = lambda socket, **ssl: SSLSocket(context, socket)
         logging.info('SSL enabled')

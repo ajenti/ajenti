@@ -33,7 +33,7 @@ class AjentiConfig (aj.config.BaseConfig):
 
     def save(self):
         with open(self.path, 'w') as f:
-            f.write(yaml.dump(self.data))
+            f.write(yaml.dump(self.data, default_flow_style=False))
 
 
 

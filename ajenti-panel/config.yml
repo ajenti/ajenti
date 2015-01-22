@@ -1,9 +1,16 @@
 bind:
-    host: 0.0.0.0
-    port: 8000
-ssl:
-    enable: true
-    certificate_path: /etc/ajenti/ajenti.pem
-    client_auth: true
+  host: 0.0.0.0
+  port: 8000
 emails:
-    john.pankov@gmail.com: root
+  john.pankov@gmail.com: root
+ssl:
+  certificate: /etc/ajenti/ajenti.pem
+  client_auth:
+    certificates:
+    - digest: 00:FD:19:E3:44:6A:A8:EF:5B:F0:73:44:30:E0:1D:84:B8:99:91:BC
+      name: C=NA,O=eugene-thinkpad,CN=root@eugene-thinkpad
+      serial: 287142337862750379472331279688064414308445941974
+      user: root
+    enable: true
+    force: false
+  enable: false

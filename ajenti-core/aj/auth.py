@@ -13,6 +13,7 @@ import aj
 import aj.pam
 from aj.api import *
 from aj.api.http import BaseHttpHandler
+from aj.security.verifier import ClientCertificateVerificator
 from aj.util import *
 
 
@@ -31,18 +32,17 @@ class AuthenticationMiddleware (BaseHttpHandler):
             context.identity = None
 
     def handle(self, http_context):
-        if http_context.env['SSL_VALID']:
+        if http_context.env['SSL_CLIENT_VALID']:
             if not self.context.identity:
-                cn = http_context.env['SSL_CN']
-                if '@' in cn:
-                    username = cn.split('@')[0]
-                    try:
-                        pwd.getpwnam(username)
-                        found = True
-                    except KeyError:
-                        found = False
-                    if found:
-                        self.auth.login(username)
+                username = http_context.env['SSL_CLIENT_USER']
+                logging.info('SSL client certificate %s verified as %s' % (http_context.env['SSL_CLIENT_DIGEST'], username))
+                try:
+                    pwd.getpwnam(username)
+                    found = True
+                except KeyError:
+                    found = False
+                if found:
+                    self.auth.login(username)
 
         http_context.add_header('X-Auth-Identity', str(self.context.identity or ''))
 
@@ -105,9 +105,13 @@ class AuthenticationService (BaseHttpHandler):
         else:
             raise Exception('Request failed')
 
-    def check_client_certificate(self, connection, x509, e1, e2, e3):
-        print 'verifying cert', connection, x509
-        return True
+    def client_certificate_callback(self, connection, x509, errno, depth, result):
+        if depth == 0 and (errno == 9 or errno == 10):
+            return False  # expired / not yet valid
+        if not aj.config.data['ssl']['client_auth']['force']:
+            return True
+        user = ClientCertificateVerificator.get(aj.context).verify(x509)
+        return bool(user)
 
     def get_identity(self):
         return self.context.identity
