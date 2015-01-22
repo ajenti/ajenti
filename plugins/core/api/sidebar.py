@@ -25,7 +25,7 @@ class Sidebar (object):
         }
 
         def find_id(id, e=sidebar):
-            if e['id'] == id:
+            if 'id' in e and e['id'] == id:
                 return e
             for c in e['children']:
                 f = find_id(id, e=c)

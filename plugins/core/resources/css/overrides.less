@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #loading-bar-spinner {
     z-index: @zindex-navbar-fixed + 1;
-    
+
     .spinner-icon {
         border-top-color: @brand-primary;
         border-left-color: @brand-primary;
@@ -75,6 +75,16 @@ dialog {
     }
 }
 
+
+.btn {
+    border-radius: 0;
+
+    &:active, &.active {
+        box-shadow: none;
+    }
+}
+
+
 .btn-flat {
     background: transparent;
     color: @brand-primary;
@@ -110,7 +120,7 @@ dialog {
 
         .list-group-icon {
             float: left;
-            margin: 0 10px 0 0;
+            margin: 0 20px 0 0;
             font-size: 32px;
         }
 
@@ -126,9 +136,9 @@ dialog {
             text-align: center;
             color: @list-group-link-color;
         }
-    
-        .list-group-main,
-        .list-group-btn {
+
+        a.list-group-main,
+        a.list-group-btn {
             &:hover {
                 background: #f8f8f8;
             }
@@ -138,8 +148,6 @@ dialog {
             }
 
             &.subtle {
-                opacity: .2;
-
                 &:hover {
                     opacity: .5;
                 }
@@ -147,6 +155,13 @@ dialog {
                 &:hover {
                     opacity: 1;
                 }
+            }
+        }
+
+        .list-group-main,
+        .list-group-btn {
+            &.subtle {
+                opacity: .2;
             }
         }
     }
@@ -168,7 +183,7 @@ dialog {
 
     .list-group-item-large {
         .list-group-main {
-            padding: 20px 15px;
+            padding: 15px 15px;
 
             .list-group-item-heading {
                 color: @list-group-link-heading-color;
@@ -183,8 +198,8 @@ dialog {
         .list-group-addon {
             padding: 20px 15px;
             width: 70px;
-            height: 82px;
-            line-height: 40px;
+            height: 72px;
+            line-height: 30px;
         }
     }
 }
@@ -208,7 +223,7 @@ dialog {
 .form-control {
     border-bottom: 1px solid #ddd;
     box-shadow: none;
-    background: @input-bg; 
+    background: @input-bg;
 
     &:focus {
         border-color: @input-border;
@@ -216,6 +231,14 @@ dialog {
         box-shadow: none;
         background: white;
     }
+}
+
+.form-control-static {
+    font-weight: normal;
+}
+
+.form-group {
+  margin-bottom: 30px;
 }
 
 
@@ -229,7 +252,7 @@ dialog {
     }
 
     i {
-        color: @text-color;
+        color: lighten(@text-color, 40%);
         font-size: 16px;
         vertical-align: -1px;
         width: 20px;
@@ -270,15 +293,11 @@ dialog {
     padding: .4em .6em .3em;
 }
 
-.form-control-static {
-    font-weight: normal;
-}
-
 smart-progress {
     padding-top: 3px;
     display: block;
     overflow: hidden;
-    
+
     .progress {
         height: 4px;
         margin: 0 0 2px;

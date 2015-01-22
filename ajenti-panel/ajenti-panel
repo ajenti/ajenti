@@ -31,7 +31,7 @@ class AjentiConfig (aj.config.BaseConfig):
 
     def save(self):
         with open(self.path, 'w') as f:
-            f.write(yaml.dump(self.data, default_flow_style=False))
+            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True))
 
 
 def usage():
@@ -42,6 +42,7 @@ Options:
     -v                  - Debug/verbose logging
     --dev               - Dev mode (recompile resources)
     -d, --daemon        - Run in background (daemon mode)
+    --autologin         - Log in automatically as the running user
     -h, --help          - This help
     """)
 
@@ -52,10 +53,11 @@ if __name__ == '__main__':
     dev_mode = False
     debug_mode = False
     config_path = None
+    autologin = False
     plugin_providers = []
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'dev', 'plugins='])
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'dev', 'plugins=', 'autologin'])
     except getopt.GetoptError as e:
         print(str(e))
         usage()
@@ -76,10 +78,16 @@ if __name__ == '__main__':
             config_path = a
         elif o in ('-d', '--start'):
             daemonize = True
+        elif o in ('--autologin',):
+            autologin = True
         elif o == '--plugins':
             plugin_providers.append(aj.plugins.DirectoryPluginProvider(a))
 
     aj.log.init_console(log_level)
+
+    if autologin and not debug_mode:
+        logging.error('Autologin is a dangerous option and should be used together with -v')
+        sys.exit(1)
 
     # Find default config file
     if not config_path:
@@ -98,6 +106,7 @@ if __name__ == '__main__':
         config=AjentiConfig(config_path),
         dev_mode=dev_mode,
         debug_mode=debug_mode,
+        autologin=autologin,
         product_name='ajenti',
         daemonize=daemonize,
         plugin_providers=plugin_providers,

@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from aj.util import LazyModule
 psutil = LazyModule('psutil') # -2MB
 
+import daemon
 import locale
 import logging
 import os
@@ -43,7 +44,7 @@ import aj.compat
 from socketio.server import SocketIOServer
 
 
-def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False, debug_mode=False):
+def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False, debug_mode=False, autologin=False):
     if config is None:
         raise TypeError('`config` can\'t be None')
 
@@ -53,6 +54,7 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     aj.product = product_name
     aj.debug = debug_mode
     aj.dev = dev_mode
+    aj.dev_autologin = autologin
 
     aj.init()
     aj.log.set_log_params(tag='master', master_pid=os.getpid())
@@ -80,38 +82,36 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     if len(PluginManager.get(aj.context).get_all()) == 0:
         logging.warn('No plugins were loaded!')
 
-    if 'socket' in aj.config.data['bind']:
-        addrs = socket.getaddrinfo(bind_spec[0], bind_spec[1], socket.AF_INET6, 0, socket.SOL_TCP)
-        bind_spec = addrs[0][-1]
-    else:
-        bind_spec = (aj.config.data['bind']['host'], aj.config.data['bind']['port'])
-
-    # Fix stupid socketio bug (it tries to do *args[0][0])
-    socket.socket.__getitem__ = lambda x, y: None
-
-    logging.info('Starting server on %s' % (bind_spec, ))
-    if bind_spec[0].startswith('/'):
-        if os.path.exists(bind_spec[0]):
-            os.unlink(bind_spec[0])
+    if aj.config.data['bind']['mode'] == 'unix':
+        path = aj.config.data['bind']['socket']
+        if os.path.exists(path):
+            os.unlink(path)
         listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         try:
-            listener.bind(bind_spec[0])
+            listener.bind(path)
         except:
-            logging.error('Could not bind to %s' % bind_spec[0])
+            logging.error('Could not bind to %s' % path)
             sys.exit(1)
-    else:
-        listener = socket.socket(socket.AF_INET6 if ':' in bind_spec[0] else socket.AF_INET, socket.SOCK_STREAM)
+
+    if aj.config.data['bind']['mode'] == 'tcp':
+        host = aj.config.data['bind']['host']
+        port = aj.config.data['bind']['port']
+        listener = socket.socket(socket.AF_INET6 if ':' in host else socket.AF_INET, socket.SOCK_STREAM)
         if not aj.platform in ['freebsd', 'osx']:
             try:
                 listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
             except:
                 logging.warn('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        logging.info('Binding to [%s]:%s' % (host, port))
         try:
-            listener.bind(bind_spec)
-        except:
-            logging.error('Could not bind to %s' % (bind_spec,))
+            listener.bind((host, port))
+        except Exception, e:
+            logging.error('Could not bind: %s' % str(e))
             sys.exit(1)
+
+    # Fix stupid socketio bug (it tries to do *args[0][0])
+    socket.socket.__getitem__ = lambda x, y: None
 
     listener.listen(10)
 
@@ -132,7 +132,7 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         ],
     )
 
-    if aj.config.data['ssl']['enable']:
+    if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
         context = SSL.Context(SSL.TLSv1_METHOD)
         context.set_session_id(str(id(context)))
         context.set_options(SSL.OP_NO_SSLv2 | SSL.OP_NO_SSLv3)

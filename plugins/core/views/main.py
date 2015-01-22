@@ -25,14 +25,16 @@ class Handler (HttpPlugin):
     @endpoint(page=True, auth=False)
     def handle_view(self, http_context):
         if aj.dev:
-            cmd = ['./scripts/build-resources']
-            if http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache':
-                cmd += ['nocache']
+            rebuild_all = http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache'
 
             for provider in aj.plugin_providers:
                 if type(provider) is DirectoryPluginProvider:
                     logging.debug('Building resources in %s' % provider.path)
-                    p = subprocess.Popen(['ajenti-dev-multitool', '--build'], cwd=provider.path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    if rebuild_all:
+                        cmd = ['ajenti-dev-multitool', '--rebuild']
+                    else:
+                        cmd = ['ajenti-dev-multitool', '--build']
+                    p = subprocess.Popen(cmd, cwd=provider.path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                     o, e = p.communicate()
                     if p.returncode != 0:
                         logging.error('Resource compilation failed')

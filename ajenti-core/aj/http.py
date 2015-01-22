@@ -110,9 +110,10 @@ class HttpContext (object):
         self.query = None
         self.cgi_query = None
         self.prefix = None
+        self.method = self.env['REQUEST_METHOD'].upper()
 
         self.env.setdefault('QUERY_STRING', '')
-        if self.env['REQUEST_METHOD'].upper() == 'POST':
+        if self.method == 'POST':
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if ctype.startswith('application/x-www-form-urlencoded') \
                or ctype.startswith('multipart/form-data'):
@@ -144,6 +145,7 @@ class HttpContext (object):
             'body': self.body,
             'query': self.query,
             'prefix': self.prefix,
+            'method': self.method,
         }
 
     @classmethod
@@ -154,6 +156,7 @@ class HttpContext (object):
         self.body = data['body']
         self.query = data['query']
         self.prefix = data['prefix']
+        self.method = data['method']
         return self
 
     def add_header(self, key, value):

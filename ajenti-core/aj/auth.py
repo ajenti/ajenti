@@ -32,6 +32,9 @@ class AuthenticationMiddleware (BaseHttpHandler):
             context.identity = None
 
     def handle(self, http_context):
+        if aj.dev_autologin and not self.context.identity:
+            username = pwd.getpwuid(os.geteuid()).pw_name
+            self.auth.login(username, demote=os.geteuid() == 0)
         if http_context.env['SSL_CLIENT_VALID']:
             if not self.context.identity:
                 username = http_context.env['SSL_CLIENT_USER']
@@ -52,9 +55,6 @@ class AuthenticationMiddleware (BaseHttpHandler):
 class AuthenticationService (BaseHttpHandler):
     def __init__(self, context):
         self.context = context
-        if os.geteuid() != 0:
-            username = pwd.getpwuid(os.geteuid()).pw_name
-            self.login(username, demote=False)
 
     def check_password(self, username, password):
         try:

@@ -1,18 +1,19 @@
-name: 'Test Box'
-color: 'red'
 bind:
   host: 0.0.0.0
+  mode: tcp
   port: 8000
+color: orange
 emails:
   john.pankov@gmail.com: root
+name: Test Box
 ssl:
   certificate: /etc/ajenti/ajenti.pem
   client_auth:
     certificates:
     - digest: 00:FD:19:E3:44:6A:A8:EF:5B:F0:73:44:30:E0:1D:84:B8:99:91:BC
       name: C=NA,O=eugene-thinkpad,CN=root@eugene-thinkpad
-      serial: 287142337862750379472331279688064414308445941974
+      serial: 2.871423378627504e+47
       user: root
     enable: true
     force: false
-  enable: false
+  enable: true

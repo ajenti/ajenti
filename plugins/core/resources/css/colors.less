@@ -19,7 +19,7 @@
         color: @color;
     }
 
-    .form-control:hover {
+    .form-control:focus {
         border-bottom-color: @color;
     }
 
@@ -33,6 +33,10 @@
 
     .btn-primary {
         .button-variant(white; @color; darken(@color, 10%));
+    }
+
+    *[checkbox].active i.on {
+        color: @color;
     }
 
     smart-progress .progress .progress-bar {
@@ -79,4 +83,51 @@ body.global-color-orange {
 body.global-color-teal {
     .global-color(desaturate(@color-teal, 10%));
 }
+
+.button-variant-color-selector(@color) {
+    border-top-color: @color !important;
+    border-bottom-color: @color !important;
+
+    &.active {
+        border-color: @color !important;
+        background: @color !important;
+    }
+}
+
+.btn-color-selector-default {
+}
+
+.btn-color-selector-red {
+    .button-variant-color-selector(@color-red);
+}
+
+.btn-color-selector-bluegrey {
+    .button-variant-color-selector(@color-bluegrey);
+}
+
+.btn-color-selector-purple {
+    .button-variant-color-selector(@color-purple);
+}
+
+.btn-color-selector-blue {
+    .button-variant-color-selector(@color-blue);
+}
+
+.btn-color-selector-green {
+    .button-variant-color-selector(@color-green);
+}
+
+.btn-color-selector-deeporange {
+    .button-variant-color-selector(@color-deeporange);
+}
+
+.btn-color-selector-orange {
+    .button-variant-color-selector(@color-orange);
+}
+
+.btn-color-selector-teal {
+    .button-variant-color-selector(@color-teal);
+}
+
+
 

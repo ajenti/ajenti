@@ -10,19 +10,16 @@ class ItemProvider (SidebarItemProvider):
         return [
             {
                 'attach': None,
+                'id': 'category:general',
+                'name': 'General',
+                'children': [
+                ]
+            },
+            {
+                'attach': None,
                 'id': 'category:tools',
-                'icon': 'cogs',
                 'name': 'Tools',
                 'children': [
                 ]
-            }
+            },
         ]
-        '''
-                            {
-                        'name': 'Home',
-                        'icon': 'home',
-                        'url': '/view/',
-                        'children': [
-                        ]
-                    }
-        '''
