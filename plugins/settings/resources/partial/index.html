@@ -158,8 +158,8 @@
                         </div>
                     </div>
                     <div class="modal-footer" ng:show="newClientCertificate.generated">
-                        <a ng:click="$parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat">
-                            Close
+                        <a ng:click="save(); $parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat">
+                            Save and Close
                         </a>
                     </div>
                 </dialog>

@@ -3,6 +3,12 @@
 @import "bootstrap/variables.less";
 
 .global-color(@color) {
+    #loading-bar {
+        .bar {
+            background: @color;
+        }
+    }
+
     .container > .row > .sidebar .sidebar-item,
     .container > .sidebar .sidebar-item {
         &.active {
