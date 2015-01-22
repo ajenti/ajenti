@@ -21,6 +21,7 @@ resources:
     - 'resources/css/animations.less'
     - 'resources/css/app.less'
     - 'resources/css/responsive.less'
+    - 'resources/css/colors.less'
     - 'resources/js/socket.io.js'
     - 'resources/js/app.coffee'
     - 'resources/js/core/module.coffee'

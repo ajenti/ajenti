@@ -1,0 +1,82 @@
+@import "../vendor/bootstrap/less/variables.less";
+@import "../vendor/bootstrap/less/mixins/buttons.less";
+@import "bootstrap/variables.less";
+
+.global-color(@color) {
+    .container > .row > .sidebar .sidebar-item,
+    .container > .sidebar .sidebar-item {
+        &.active {
+            div .expander, div .link {
+                background: @color;
+            }
+        }
+        h5 {
+            color: @color;
+        }
+    }
+
+    .btn-flat {
+        color: @color;
+    }
+
+    .form-control:hover {
+        border-bottom-color: @color;
+    }
+
+    .navbar-brand .title {
+        color: @color;
+    }
+
+    .navbar-brand.navigation-toggle {
+        color: @color;
+    }
+
+    .btn-primary {
+        .button-variant(white; @color; darken(@color, 10%));
+    }
+
+    smart-progress .progress .progress-bar {
+        background: @color;
+    }
+
+    progress-spinner .one {
+        border-left-color: @color;
+        border-top-color: @color;
+    }
+}
+
+body.global-color-default {
+}
+
+body.global-color-red {
+    .global-color(desaturate(@color-red, 10%));
+}
+
+body.global-color-bluegrey {
+    .global-color(desaturate(@color-bluegrey, 10%));
+}
+
+body.global-color-purple {
+    .global-color(desaturate(@color-purple, 10%));
+}
+
+body.global-color-blue {
+    .global-color(desaturate(@color-blue, 10%));
+}
+
+body.global-color-green {
+    .global-color(desaturate(@color-green, 10%));
+}
+
+body.global-color-deeporange {
+    .global-color(desaturate(@color-deeporange, 10%));
+}
+
+body.global-color-orange {
+    .global-color(desaturate(@color-orange, 10%));
+}
+
+body.global-color-teal {
+    .global-color(desaturate(@color-teal, 10%));
+}
+

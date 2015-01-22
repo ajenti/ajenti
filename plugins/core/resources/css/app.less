@@ -27,6 +27,21 @@ body {
 }
 
 
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: @zindex-navbar-fixed;
+
+    .extra-toolbar {
+        background: #ccc;
+        height: 40px;
+        box-shadow: @object-shadow-large;
+        z-index: @zindex-navbar-fixed - 1;
+    }
+}
+
 .navbar {
     box-shadow: @object-shadow-large;
     border: none;

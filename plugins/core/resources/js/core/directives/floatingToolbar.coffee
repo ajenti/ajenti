@@ -5,9 +5,9 @@ angular.module('core').directive 'floatingToolbar', () ->
         template: '''
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div ng:class="{'col-md-3': showSidebar}">
                     </div>
-                    <div class="col-lg-9">
+                    <div ng:class="{'col-md-9': showSidebar, 'col-md-12': !showSidebar}">
                         <div class="bar row">
                             <ng-transclude></ng-transclude>
                         </div>
@@ -17,4 +17,3 @@ angular.module('core').directive 'floatingToolbar', () ->
         '''
         link: ($scope, element, attrs) ->
     }
-    

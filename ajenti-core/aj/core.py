@@ -224,8 +224,8 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
             logging.debug('Server stopped')
 
 
-
 def handle_crash(exc):
+    # todo rework this
     logging.error('Fatal crash occured')
     traceback.print_exc()
     exc.traceback = traceback.format_exc(exc)

@@ -16,8 +16,6 @@ import aj.log
 import aj.plugins
 
 
-
-
 class AjentiConfig (aj.config.BaseConfig):
     def __init__(self, path):
         self.path = os.path.abspath(path)
@@ -34,7 +32,6 @@ class AjentiConfig (aj.config.BaseConfig):
     def save(self):
         with open(self.path, 'w') as f:
             f.write(yaml.dump(self.data, default_flow_style=False))
-
 
 
 def usage():
@@ -97,9 +94,8 @@ if __name__ == '__main__':
         logging.error('Config file "%s" not found' % config_path)
         sys.exit(1)
 
-    config = AjentiConfig(config_path)
     aj.core.start(
-        config=config,
+        config=AjentiConfig(config_path),
         dev_mode=dev_mode,
         debug_mode=debug_mode,
         product_name='ajenti',

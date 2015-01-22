@@ -29,9 +29,10 @@ class Handler (HttpPlugin):
                 'effective': os.geteuid(),
             },
             'machine': {
-                'name': socket.gethostname(),
+                'name': aj.config.data['name'],
                 'hostname': socket.gethostname(),
-            }
+            },
+            'color': aj.config.data['color'],
         }
 
     @url('/api/core/auth')
@@ -83,7 +84,7 @@ class Handler (HttpPlugin):
                 }
 
             try:
-                email = auth.check_persona_assertion(assertion, audience)            
+                email = auth.check_persona_assertion(assertion, audience)
             except Exception as e:
                 traceback.print_exc()
                 return {
@@ -118,6 +119,6 @@ class Handler (HttpPlugin):
     @url('/api/core/sidebar')
     @endpoint(api=True)
     def handle_api_sidebar(self, http_context):
-        return {   
+        return {
             'sidebar': Sidebar.get(self.context).build(),
         }

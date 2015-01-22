@@ -6,6 +6,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
             @user = data.identity.user
             @effective = data.identity.effective
             @machine = data.machine
+            @color = data.color
             @isSuperuser = @user == 'root'
             q.resolve()
         .error () ->
@@ -15,7 +16,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
 
     @auth = (username, password, mode) ->
         q = $q.defer()
-        
+
         data = {
             username: username
             password: password
@@ -33,7 +34,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
 
     @personaAuth = (assertion, audience) ->
         q = $q.defer()
-        
+
         data = {
             assertion: assertion
             audience: audience

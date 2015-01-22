@@ -15,7 +15,7 @@
         <script src="%(prefix)s/resources/all.js" type="text/javascript"></script>
         <script src="%(prefix)s/resources/all.partials.js" type="text/javascript"></script>
     </head>
-    <body ng:controller="CoreRootController">
+    <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}}">
         <div class="row" ng:hide="appReady">
             <div class="col-md-4"></div>
             <div class="col-md-4">
@@ -25,20 +25,19 @@
             <div class="col-md-4"></div>
         </div>
 
-
         <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady">
             <div class="container">
 
-                <a ng:click="toggleNavigation()" ng:show="navigationPresent" class="navbar-brand hide-phone hide-tablet">
+                <a ng:click="toggleNavigation()" ng:show="navigationPresent" class="navbar-brand navigation-toggle hide-phone hide-tablet">
                     <i class="fa fa-navicon"></i>
                 </a>
 
-                <a ng:click="toggleOverlayNavigation()" ng:show="navigationPresent" class="navbar-brand hide-desktop hide-large">
+                <a ng:click="toggleOverlayNavigation()" ng:show="navigationPresent" class="navbar-brand navigation-toggle hide-desktop hide-large">
                     <i class="fa fa-navicon"></i>
                 </a>
 
                 <a class="navbar-brand ellipsis" href="/view/">
-                    Ajenti <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
+                    <span class="title">Ajenti</span> <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
                 </a>
 
                 <div ng:show="identity.user" class="pull-right">
