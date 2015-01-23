@@ -87,17 +87,19 @@
                     <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                     <core:sidebar></core:sidebar>
                 </div>
-                <div ng:view class="content">
+                <div ng:view class="content" ng-swipe-right="toggleOverlayNavigation(true)">
                 </div>
             </div>
 
-            <div class="sidebar overlay-sidebar hide-desktop hide-large" ng:show="showOverlaySidebar && navigationPresent">
+            <div class="sidebar overlay-sidebar hide-desktop hide-large" ng:show="showOverlaySidebar && navigationPresent" ng-swipe-left="toggleOverlayNavigation(false)">
                 <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                 <core:sidebar></core:sidebar>
             </div>
         </div>
 
         <toaster-container></toaster-container>
+
+        <messagebox-container></messagebox-container>
 
         <script>
             angular.module('core').constant('urlPrefix', '%(prefix)s');

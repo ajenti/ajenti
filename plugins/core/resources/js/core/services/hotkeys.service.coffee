@@ -13,8 +13,8 @@ angular.module('core').service 'hotkeys', ($timeout, $window, $rootScope) ->
         #console.log(char, e)
         $rootScope.$broadcast mode, char, e
         $rootScope.$apply()
-        return 
-        
+        return
+
     $timeout () ->
         $(document).keydown (e) -> handler(e, 'keydown')
         $(document).keyup (e) -> handler(e, 'keyup')

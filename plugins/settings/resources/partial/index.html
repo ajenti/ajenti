@@ -5,23 +5,24 @@
 <div ng:show="config" root-access>
     <div class="padded-container">
         <div class="form-group">
-            <label>Machine name</label>
-            <div>
-                <input ng:model="config.name" type="text" class="form-control" />
-            </div>
-        </div>
-
-        <hr/>
-
-        <div class="form-group">
-            <label>Color tag</label>
-            <div>
-                <div class="btn-group">
-                    <a ng:model="config.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
-                        &nbsp;
-                    </a>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Machine name</label>
+                    <div>
+                        <input ng:model="config.name" type="text" class="form-control" />
+                    </div>
                 </div>
-                <div class="clearfix"></div>
+                <div class="col-md-6">
+                    <label>Color tag</label>
+                    <div>
+                        <div class="btn-group">
+                            <a ng:model="config.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
+                                &nbsp;
+                            </a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -65,8 +66,15 @@
         <div ng:show="config.bind.mode == 'tcp' && config.ssl.enable">
             <div class="form-group">
                 <label>SSL certificate file</label>
-                <div>
-                    <path-selector ng:model="config.ssl.certificate" type="text"></path-selector>
+                <div class="row">
+                    <div class="col-md-8">
+                        <path-selector ng:model="config.ssl.certificate" type="text"></path-selector>
+                    </div>
+                    <div class="col-md-4">
+                        <a ng:click="createNewServerCertificate()" class="btn btn-default btn-block">
+                            <i class="fa fa-cog"></i> Generate a self-signed certificate
+                        </a>
+                    </div>
                 </div>
             </div>
 

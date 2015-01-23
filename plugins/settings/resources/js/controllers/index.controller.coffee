@@ -1,4 +1,4 @@
-angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, passwd) ->
+angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd) ->
     pageTitle.set('Settings')
 
     $scope.availableColors = [
@@ -21,13 +21,10 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
 
     identity.promise.then () ->
         $scope.newClientCertificate.o = identity.machine.name
-
         passwd.list().then (data) ->
             $scope.availableUsers = data
-
             $scope.$watch 'newClientCertificate.user', () ->
                 $scope.newClientCertificate.cn = "#{identity.user}@#{identity.machine.hostname}"
-
             $scope.newClientCertificate.user = 'root'
 
     $http.get('/api/settings/config').success (data) ->
@@ -36,15 +33,33 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
         $scope.config = {}
         notify.error 'Could not load config'
 
+    $scope.$watch 'config.color', () ->
+        if $scope.config
+            identity.color = $scope.config.color
+
     $scope.save = () ->
         $http.post('/api/settings/config', $scope.config).success (data) ->
             notify.success 'Saved'
         .error () ->
             notify.error 'Could not save config'
 
-    $scope.$watch 'config.color', () ->
-        if $scope.config
-            identity.color = $scope.config.color
+    $scope.createNewServerCertificate = () ->
+        messagebox.show(
+            title: 'Self-signed certificate'
+            text: 'Generating a new certificate will void all existing client authentication certificates!'
+            positive: 'Generate'
+            negative: 'Cancel'
+        ).then () ->
+            $scope.config.ssl.client_auth.force = false
+            notify.info 'Generating certificate', 'Please wait'
+            $http.get('/api/settings/generate-server-certificate').success (data) ->
+                notify.success 'Certificate successfully generated'
+                $scope.config.ssl.enable = true
+                $scope.config.ssl.certificate = data.path
+                $scope.config.ssl.client_auth.certificates = []
+                $scope.save()
+            .error (err) ->
+                notify.error 'Certificate generation failed', err.message
 
     $scope.generateClientCertificate = () ->
         $scope.newClientCertificate.generating = true
