@@ -39,6 +39,7 @@
 
     <a ng:click="showNewFileDialog()" class="btn btn-default btn-flat">New file</a>
     <a ng:click="showNewDirectoryDialog()" class="btn btn-default btn-flat">New directory</a>
+    <a ng:click="showUploadDialog()" class="btn btn-default btn-flat">Upload</a>
     <a ng:click="doPaste()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat">Paste here</a>
 
     <a href="/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
@@ -64,8 +65,8 @@
         <input type="text" ng:model="$parent.newFileName" class="form-control" placeholder="File name" autofocus ng:enter="doCreateFile()" />
     </div>
     <div class="modal-footer">
-        <a ng:click="doCreateFile()" class="btn btn-primary btn-flat">Create</a>
-        <a ng:click="hideNewFileDialog()" class="btn btn-default btn-flat">Cancel</a>
+        <a ng:click="doCreateFile()" class="btn btn-default btn-flat">Create</a>
+        <a ng:click="$parent.newFileDialogVisible = false" class="btn btn-default btn-flat">Cancel</a>
     </div>
 </dialog>
 
@@ -77,8 +78,36 @@
         <input type="text" ng:model="$parent.newDirectoryName" class="form-control" placeholder="Directory name" autofocus ng:enter="doCreateDirectory()" />
     </div>
     <div class="modal-footer">
-        <a ng:click="doCreateDirectory()" class="btn btn-primary btn-flat">Create</a>
-        <a ng:click="hideNewDirectoryDialog()" class="btn btn-default btn-flat">Cancel</a>
+        <a ng:click="doCreateDirectory()" class="btn btn-default btn-flat">Create</a>
+        <a ng:click="$parent.newDirectoryDialogVisible = false" class="btn btn-default btn-flat">Cancel</a>
+    </div>
+</dialog>
+
+<dialog ng:show="uploadDialogVisible">
+    <div class="modal-header">
+        <h4>Upload files</h4>
+    </div>
+    <div class="modal-body" ng:show="uploadRunning">
+        <div class="text-center">
+            <br/>
+            <smart-progress max="uploadCurrent.length" text="uploadCurrent.name" value="uploadCurrent.progress" animate="true"></smart-progress>
+            <br/>
+        </div>
+    </div>
+    <div class="modal-body" ng:show="!uploadRunning">
+        <div class="text-center">
+            <div ng:file-drop ng:model="$parent.uploadFiles" ng:file-change="doUpload()" ng:multiple="true" hideOnDropNotAvailable="false">
+                <button class="btn btn-primary" ng:file-select ng:model="$parent.uploadFiles" ng:file-change="doUpload()" ng:multiple="true">
+                    <i class="fa fa-cloud-upload"></i> Select files to upload
+                </button>
+                <br/>
+                <br/>
+                <span class="subtle">or drop them here</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a ng:click="cancelUpload()" class="btn btn-default btn-flat">Cancel</a>
     </div>
 </dialog>
 

@@ -27,6 +27,13 @@ class Handler (HttpPlugin):
         with open(path, 'w') as f:
             f.write(http_context.body)
 
+    @url(r'/api/filesystem/upload/(?P<path>.+)')
+    @endpoint(api=True)
+    def handle_api_fs_upload(self, http_context, path=None):
+        with open(path, 'w') as f:
+            f.write(http_context.query['upload'])
+        return True
+
     @url(r'/api/filesystem/list/(?P<path>.+)')
     @endpoint(api=True)
     def handle_api_fs_list(self, http_context, path=None):
@@ -40,7 +47,7 @@ class Handler (HttpPlugin):
                 'path': item_path,
                 'isDir': os.path.isdir(item_path),
                 'isFile': os.path.isfile(item_path),
-                'isLink': os.path.islink(item_path),            
+                'isLink': os.path.islink(item_path),
             }
 
             try:
@@ -72,7 +79,7 @@ class Handler (HttpPlugin):
             'path': path,
             'isDir': os.path.isdir(path),
             'isFile': os.path.isfile(path),
-            'isLink': os.path.islink(path),            
+            'isLink': os.path.islink(path),
             'readAccess': os.access(path, os.R_OK),
             'writeAccess': os.access(path, os.W_OK),
             'executeAccess': os.access(path, os.X_OK),
@@ -87,7 +94,7 @@ class Handler (HttpPlugin):
                 'gid': stat.st_gid,
                 'size': stat.st_size,
             })
-            
+
             try:
                 data['user'] = pwd.getpwuid(stat.st_uid).pw_name
             except:

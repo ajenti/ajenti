@@ -113,12 +113,13 @@ class Worker (object):
         })
 
     def handle_http_request(self, rq):
+        response_object = {
+            'type': 'http',
+        }
+
         try:
             http_context = HttpContext.deserialize(rq.object['context'])
 
-            response_object = {
-                'type': 'http',
-            }
             # Generate response
             content = self.handler.handle(http_context)
             # ---

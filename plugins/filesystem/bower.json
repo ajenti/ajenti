@@ -2,5 +2,6 @@
   "name": "plugin",
   "private": true,
   "dependencies": {
+    "ng-file-upload": "~2.1.1"
   }
 }

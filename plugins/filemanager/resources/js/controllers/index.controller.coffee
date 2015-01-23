@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, notify, filesystem, pageTitle, urlPrefix, tasks) ->
+angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, filesystem, pageTitle, urlPrefix, tasks, $upload) ->
     pageTitle.set('path', $scope)
     $scope.loading = false
     $scope.newDirectoryDialogVisible = false
@@ -82,7 +82,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         tasks.start('aj.plugins.filesystem.tasks.Transfer', [], destination: $scope.path, items: items).then () ->
             $scope.clearClipboard()
 
-    # NewFileDialog
+    # new file dialog
 
     $scope.showNewFileDialog = () ->
         $scope.newFileName = ''
@@ -94,14 +94,11 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
 
         filesystem.createFile($scope.path + '/' + $scope.newFileName).then () ->
             $scope.refresh()
-            $scope.hideNewFileDialog()
+            $scope.newFileDialogVisible = false
         .catch (err) ->
             notify.error 'Could not create file', err.message
 
-    $scope.hideNewFileDialog = () ->
-        $scope.newFileDialogVisible = false
-
-    # NewDirectoryDialog
+    # new directory dialog
 
     $scope.showNewDirectoryDialog = () ->
         $scope.newDirectoryName = ''
@@ -113,12 +110,66 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
 
         filesystem.createDirectory($scope.path + '/' + $scope.newDirectoryName).then () ->
             $scope.refresh()
-            $scope.hideNewDirectoryDialog()
+            $scope.newDirectoryDialogVisible = false
         .catch (err) ->
             notify.error 'Could not create directory', err.message
 
-    $scope.hideNewDirectoryDialog = () ->
-        $scope.newDirectoryDialogVisible = false
+    # upload dialog
+    $scope.uploadFiles = []
+    $scope.uploadPending = []
+
+    $scope.showUploadDialog = () ->
+        $scope.uploadDialogVisible = true
+
+    uploadCallback = () ->
+        if $scope.uploadPending.length > 0
+            $scope.uploadCurrent = {
+                file: $scope.uploadPending[0]
+                name: $scope.uploadPending[0].name
+            }
+            $scope.uploadPending.remove($scope.uploadCurrent.file)
+            $upload.upload({
+                url: "#{urlPrefix}/api/filesystem/upload/#{$scope.path}/#{$scope.uploadCurrent.name}"
+                file: $scope.uploadCurrent.file
+                fileName: $scope.uploadCurrent.name
+                fileFormDataName: 'upload'
+            }).success () ->
+                notify.success 'Uploaded', $scope.uploadCurrent.name
+                $scope.refresh()
+                uploadCallback()
+            .xhr (xhr) ->
+                $scope.uploadCurrent.cancel = () ->
+                    xhr.abort()
+            .progress (e) ->
+                $scope.uploadCurrent.length = e.total
+                $scope.uploadCurrent.progress = e.loaded
+            .error (e) ->
+                if $scope.uploadCurrent
+                    notify.error 'Upload failed', $scope.uploadCurrent.name
+                    uploadCallback()
+                else
+                    notify.info 'Upload cancelled'
+        else
+            $scope.uploadDialogVisible = false
+            $scope.uploadPending = []
+            $scope.uploadRunning = false
+            $scope.uploadCurrent = null
+
+    $scope.doUpload = () ->
+        $timeout () ->
+            $scope.uploadRunning = true
+            $scope.uploadPending = $scope.uploadFiles
+            $scope.uploadFiles = []
+            uploadCallback()
+
+    $scope.cancelUpload = () ->
+        $scope.uploadDialogVisible = false
+        $scope.uploadFiles = []
+        $scope.uploadPending = []
+        $scope.uploadRunning = false
+        if $scope.uploadCurrent
+            $scope.uploadCurrent.cancel()
+            $scope.uploadCurrent = null
 
     # ---
 

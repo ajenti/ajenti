@@ -115,12 +115,10 @@ class HttpContext (object):
         self.env.setdefault('QUERY_STRING', '')
         if self.method == 'POST':
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
-            if ctype.startswith('application/x-www-form-urlencoded') \
-               or ctype.startswith('multipart/form-data'):
-                sio = StringIO(self.env['wsgi.input'].read())
-                self.cgi_query = cgi.FieldStorage(fp=sio, environ=self.env, keep_blank_values=1)
             if 'wsgi.input' in self.env:
                 self.body = self.env['wsgi.input'].read()
+                if ctype.startswith('application/x-www-form-urlencoded') or ctype.startswith('multipart/form-data'):
+                    self.cgi_query = cgi.FieldStorage(fp=StringIO(self.body), environ=self.env, keep_blank_values=1)
         else:
             self.cgi_query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
 

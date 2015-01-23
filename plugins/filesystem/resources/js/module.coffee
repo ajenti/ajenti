@@ -1,3 +1,4 @@
 angular.module 'ajenti.filesystem', [
-    'core'
+    'core',
+    'angularFileUpload',
 ]
