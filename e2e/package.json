@@ -3,6 +3,7 @@
     "coffee-script": "~1.8.0",
     "exec-sync": "^0.1.6",
     "execSync": "~1.0.2",
+    "jasmine-spec-reporter": "^1.1.1",
     "protractor": "~1.6.1"
   }
 }

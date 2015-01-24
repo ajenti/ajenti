@@ -6,30 +6,24 @@ testContent = 'test content!'
 testContent2 = 'updated content'
 
 beforeEach () ->
-    browser.manage().window().maximize()
-    browser.manage().deleteAllCookies()
     execSync("mkdir -p '#{testDir}'")
     fs.writeFileSync("#{testDir}/test.txt", testContent, 'utf8')
 
 afterEach () ->
     execSync("rm -rf '#{testDir}'")
 
-afterEach () ->
-    passed = jasmine.getEnv().currentSpec.results().passed()
-    if not passed
-        jasmine.getEnv().specFilter = (spec) -> 
-            return false;
-
 
 class NotepadPage
     constructor: () ->
-        @openDialog = element By.css 'file-dialog[mode=open]'
-        @saveDialog = element By.css 'file-dialog[mode=save]'
+        bindElements this, [
+            'openDialog',
+            'saveDialog',
+            'newButton',
+            'openButton',
+            'saveButton',
+            'saveAsButton',
+        ]
         @saveDialogInput = @saveDialog.element By.css 'input[type=text]'
-        @newButton = element By.linkText 'NEW'
-        @openButton = element By.linkText 'OPEN'
-        @saveButton = element By.linkText 'SAVE'
-        @saveAsButton = element By.linkText 'SAVE AS...'
         @editor = element By.css '.ace_line'
         @editorInput = element By.css '.ace_text-input'
 
@@ -58,27 +52,25 @@ class NotepadPage
 
 
 describe 'notepad plugin', () ->
+    page = new NotepadPage()
+
     it 'should create new files', () ->
-        page = new NotepadPage()
         page.get("#{testDir}/test.txt")
         page.newButton.click()
         browser.switchTo().alert().accept()
         expect(page.editor.getText()).not.toContain(testContent)
 
     it 'should load files', () ->
-        page = new NotepadPage()
         page.get()
         page.doLoadFile(testDir + '/test.txt')
         expect(browser.getCurrentUrl()).toContain("#{testDir}/test.txt")
         expect(page.editor.getText()).toContain(testContent)
 
     it 'should load files from URL', () ->
-        page = new NotepadPage()
         page.get("#{testDir}/test.txt")
         expect(page.editor.getText()).toContain(testContent)
 
     it 'should save files', () ->
-        page = new NotepadPage()
         page.get("#{testDir}/test.txt")
         # Erase content
         expect(page.editor.getText()).toContain(testContent)
@@ -94,7 +86,6 @@ describe 'notepad plugin', () ->
         expect(page.editor.getText()).toContain(testContent2)
 
     it 'should save files as...', () ->
-        page = new NotepadPage()
         page.get("#{testDir}/test.txt")
         page.doSaveFileAs(testDir, 'test2.txt')
         expect(browser.getCurrentUrl()).toContain('test2.txt')

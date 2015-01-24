@@ -11,4 +11,5 @@
 
 #trap finish TERM INT EXIT
 
-protractor --verbose --stackTrace --baseUrl http://localhost:8000 conf.js 
+protractor --verbose --stackTrace --baseUrl http://localhost:8000 conf.coffee
+
