@@ -3,8 +3,6 @@ import logging
 import subprocess
 import traceback
 
-import ajenti
-
 #TODO sort this out
 
 

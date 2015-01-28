@@ -1,0 +1,11 @@
+title: 'Services'
+icon: cogs
+dependencies:
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+resources:
+    - 'resources/js/module.coffee'
+    - 'resources/js/routing.coffee'
+    - 'resources/js/controllers/index.controller.coffee'
+    - 'resources/js/services/services.service.coffee'
+    - 'resources/partial/index.html'
+    - 'ng:ajenti.services'

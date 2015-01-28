@@ -14,3 +14,9 @@ rundev:
 
 test:
 	cd e2e && ./run
+
+webdriver:
+	cd e2e && node_modules/protractor/bin/webdriver-manager start
+
+webdriver-update:
+	cd e2e && node_modules/protractor/bin/webdriver-manager update

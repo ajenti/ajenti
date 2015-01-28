@@ -1,0 +1,29 @@
+<div class="row">
+    <progress-spinner ng:show="services.length == 0"></progress-spinner>
+
+    <div class="list-group">
+        <div ng:repeat="service in services|orderBy:'name'" class="list-group-item list-group-item-small">
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'stop')" ng:show="service.running">
+                <i class="fa fa-stop"></i>
+            </a>
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'restart')" ng:show="service.running">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'start')" ng:show="!service.running">
+                <i class="fa fa-play"></i>
+            </a>
+            <div class="list-group-main">
+                <span class="label" ng:class="{'label-success': service.running, 'label-warning': !service.running}">
+                    <i ng:show="service.running" class="fa fa-fw fa-play"></i>
+                    <i ng:show="!service.running" class="fa fa-fw fa-pause"></i>
+                </span>
+                &nbsp;
+                {{service.name}}
+                &nbsp;
+                <span class="subtle">
+                    {{service.managerId}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

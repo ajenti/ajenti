@@ -80,6 +80,13 @@ dialog {
 
 .btn {
     border-radius: 0;
+    transition: 100ms ease all;
+
+    &:active {
+        transform: scale(0.95, 0.95);
+        -moz-transform: scale(0.95, 0.95);
+        -webkit-transform: scale(0.95, 0.95);
+    }
 
     &:active, &.active {
         box-shadow: none;
@@ -112,6 +119,16 @@ dialog {
 
 
 .list-group {
+    .list-group-item {
+        transition: 100ms ease all;
+
+        &:active {
+            transform: scale(0.99, 0.95);
+            -moz-transform: scale(0.99, 0.95);
+            -webkit-transform: scale(0.99, 0.95);
+        }
+    }
+
     .list-group-item-small, .list-group-item-large {
         padding: 0;
 

@@ -17,6 +17,13 @@ class ItemProvider (SidebarItemProvider):
             },
             {
                 'attach': None,
+                'id': 'category:system',
+                'name': 'System',
+                'children': [
+                ]
+            },
+            {
+                'attach': None,
                 'id': 'category:tools',
                 'name': 'Tools',
                 'children': [
