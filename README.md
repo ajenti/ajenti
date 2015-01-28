@@ -1,5 +1,7 @@
 Native deps
 
+Debian
+
   * build-essential
   * python-dev
   * libxslt1-dev
@@ -7,3 +9,16 @@ Native deps
   * libssl-dev
   * libjpeg-dev
   * libpng-dev
+
+EL
+  * gcc
+  * make
+  * python-devel
+  * libxslt-devel
+  * libxml2-devel
+  * libffi-devel
+  * openssl-devel
+  * libjpeg-turbo-devel
+  * libpng-devel
+  * dbus-python
+

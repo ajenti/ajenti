@@ -27,6 +27,20 @@
 }
 
 
+.animate-sidebar {
+    transition: all ease 0.25s;
+    -moz-transition: all ease 0.25s;
+    -webkit-transition: all ease 0.25s;
+    left: 0 !important;
+    opacity: 1;
+}
+
+.animate-sidebar.ng-hide {
+    left: -300px !important;
+    opacity: 0;
+}
+
+
 .flip-cycle {
     animation: flip-cycle-frames ease infinite 2s;
     -moz-animation: flip-cycle-frames ease infinite 2s;

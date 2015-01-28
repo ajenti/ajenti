@@ -5,7 +5,7 @@ lxml>=2.2.4
 passlib
 psutil>=0.6.0
 python-catcher
-python-daemon
+python-daemon<2.0
 requests>=0.12.0
 pyOpenSSL
 Pillow
@@ -14,5 +14,6 @@ pyte
 setproctitle
 termcolor
 cookies
-pam
 pyyaml
+upstart
+dbus # for upstart

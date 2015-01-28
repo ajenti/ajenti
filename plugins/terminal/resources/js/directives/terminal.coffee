@@ -21,7 +21,7 @@ colors =
         cyan:       '#2abbb0'
 
 
-angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket, terminals, hotkeys) -> 
+angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket, terminals, hotkeys) ->
     return {
         scope: {
             id: '=?'
@@ -32,12 +32,12 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
             <div>
                 <canvas></canvas>
                 <div class="paste-area" ng:class="{focus: pasteAreaFocused}">
-                    <i class="fa fa-paste"></i> 
+                    <i class="fa fa-paste"></i>
                     <span ng:show="pasteAreaFocused">
                         Paste now
                     </span>
-                    
-                    <textarea 
+
+                    <textarea
                         ng:model="pasteData"
                         ng:focus="pasteAreaFocused = true"
                         ng:blur="pasteAreaFocused = false"
@@ -75,7 +75,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                         $scope.ready = true
                         $scope.onReady()
                         $timeout () -> # reflow
-                            $scope.autoResize() 
+                            $scope.autoResize()
 
             $scope.clear()
             $scope.fullReload()
@@ -135,9 +135,10 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                     line = ''
                     for x in [0...row.length]
                         cell = row[x]
-                        line += cell[0]
+                        if cell
+                            line += cell[0]
                     $scope.textLines[parseInt(y)] = line
-                
+
                 $scope.textData = $scope.textLines.join('\n')
 
                 lns = element.find('div')
@@ -150,6 +151,9 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
 
                     for x in [0...row.length]
                         cell = row[x]
+
+                        if not cell
+                            continue
 
                         defaultFG = 'white'
                         defaultBG = 'black'
@@ -170,7 +174,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                             if cell[2] != 'default' or cell[7]
                                 $scope.context.fillStyle = colors.normal[cell[2]] or colors.normal[defaultBG]
                                 $scope.context.fillRect(
-                                    $scope.charWidth * x, 
+                                    $scope.charWidth * x,
                                     $scope.charHeight * y,
                                     $scope.charWidth,
                                     $scope.charHeight,
@@ -179,7 +183,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                         if y == $scope.cursy and x == $scope.cursx
                             $scope.context.fillStyle = colors.normal['white']
                             $scope.context.fillRect(
-                                $scope.charWidth * x, 
+                                $scope.charWidth * x,
                                 $scope.charHeight * y,
                                 $scope.charWidth,
                                 $scope.charHeight,
@@ -191,7 +195,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                             $scope.context.fillText(cell[0], $scope.charWidth * x, $scope.charHeight * y)
                             if cell[5]
                                 $scope.context.fillRect(
-                                    $scope.charWidth * x, 
+                                    $scope.charWidth * x,
                                     $scope.charHeight * (y + 1) - 1,
                                     $scope.charWidth,
                                     1,
@@ -284,11 +288,11 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                 $scope.sendInput(ch)
                 return true
 
-            hotkeys.on $scope, (k, e) -> 
+            hotkeys.on $scope, (k, e) ->
                 return handler(k, e, 'keypress')
             , 'keypress'
-            
-            hotkeys.on $scope, (k, e) -> 
+
+            hotkeys.on $scope, (k, e) ->
                 return handler(k, e, 'keydown')
             , 'keydown'
 

@@ -4,6 +4,7 @@ import random
 import socketio
 import time
 import traceback
+from cookies import Cookie, Cookies
 from gevent.timeout import Timeout
 from gevent.queue import Queue
 from socketio.namespace import BaseNamespace
@@ -11,7 +12,6 @@ from socketio.mixins import RoomsMixin, BroadcastMixin
 
 from aj.api import *
 from aj.api.http import *
-from aj.cookies import Cookie, Cookies
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError
 from aj.util import str_fsize

@@ -87,11 +87,11 @@
                     <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                     <core:sidebar></core:sidebar>
                 </div>
-                <div ng:view class="content" ng-swipe-right="toggleOverlayNavigation(true)">
+                <div ng:view class="content" ng-swipe-right="toggleOverlayNavigation(true)" ng-swipe-left="toggleOverlayNavigation(false)">
                 </div>
             </div>
 
-            <div class="sidebar overlay-sidebar hide-desktop hide-large" ng:show="showOverlaySidebar && navigationPresent" ng-swipe-left="toggleOverlayNavigation(false)">
+            <div class="sidebar overlay-sidebar animate-sidebar hide-desktop hide-large" ng:show="showOverlaySidebar && navigationPresent" ng-swipe-left="toggleOverlayNavigation(false)">
                 <ng:include src="'/core:resources/partial/sidebarTasks.html'"></ng:include>
                 <core:sidebar></core:sidebar>
             </div>

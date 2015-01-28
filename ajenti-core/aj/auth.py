@@ -10,7 +10,6 @@ import spwd
 import subprocess
 
 import aj
-import aj.pam
 from aj.api import *
 from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator

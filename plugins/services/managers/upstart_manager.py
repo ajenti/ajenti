@@ -10,6 +10,14 @@ class UpstartServiceManager (ServiceManager):
     id = 'upstart'
     name = 'Upstart'
 
+    @classmethod
+    def __verify__(cls):
+        try:
+            UpstartSystem()
+            return True
+        except:
+            return False
+
     def __init__(self, context):
         self.upstart = UpstartSystem()
 
