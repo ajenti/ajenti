@@ -4,7 +4,7 @@
     <progress-spinner ng:hide="results != null"></progress-spinner>
 
     <div class="list-group">
-        <div ng:repeat="package in results|orderBy:'name'" class="list-group-item list-group-item-small">
+        <div ng:repeat="package in results|orderBy:'name'" class="list-group-item list-group-item-large">
             <!--a class="list-group-btn subtle" ng:click="runOperation(service, 'stop')" ng:show="service.running">
                 <i class="fa fa-stop"></i>
             </a>
@@ -15,28 +15,31 @@
                 <i class="fa fa-play"></i>
             </a-->
             <div class="list-group-main">
-                <div class="pull-right">
+                <div class="list-group-icon">
+                    <i class="fa fa-gift"></i>
                 </div>
-
-                <!--span class="label" ng:class="{'label-success': service.running, 'label-warning': !service.running}">
-                    <i ng:show="service.running" class="fa fa-fw fa-play"></i>
-                    <i ng:show="!service.running" class="fa fa-fw fa-pause"></i>
-                </span>-->
-                <i class="fa fa-gift"></i>
-                &nbsp;
-                {{package.name}}
-                &nbsp;
-                    <span class="label label-success" ng:show="package.isInstalled">
-                        <i class="fa fa-check"></i> Installed
+                <h4 class="list-group-item-heading">
+                    {{package.name}}
+                    <span ng:show="package.isInstalled">
+                        &nbsp;
+                        <span class="label label-success" title="Installed">
+                            <i class="fa fa-fw fa-check"></i>
+                        </span>
+                    </span>
+                    <span ng:show="package.isUpgradeable">
+                        &nbsp;
+                        <span class="label label-info" title="Upgradeable">
+                            <i class="fa fa-fw fa-arrow-up"></i>
+                        </span>
                     </span>
                     &nbsp;
-                    <span class="label label-info" ng:show="package.isUpgradeable">
-                        <i class="fa fa-arrow-up"></i> Upgradeable
+                    <span class="subtle">
+                        {{package.version}}
                     </span>
-                    &nbsp;
-                <span class="subtle">
-                    {{package.version}}
-                </span>
+                </h4>
+                <p class="list-group-item-text">
+                    {{package.description}}
+                </p>
             </div>
         </div>
     </div>
