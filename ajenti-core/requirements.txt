@@ -1,3 +1,5 @@
+# core
+
 gevent
 gevent-socketio
 gevent-websocket
@@ -15,5 +17,12 @@ setproctitle
 termcolor
 cookies
 pyyaml
+
+# upstart
 upstart
 dbus # for upstart
+
+# packages
+## --allow-unverified python-apt
+python-apt
+

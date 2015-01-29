@@ -1,0 +1,34 @@
+import apt
+
+from aj.api import *
+from aj.plugins.packages.api import PackageManager, Package
+
+
+@component(PackageManager)
+class APTPackageManager (PackageManager):
+    id = 'apt'
+    name = 'APT'
+
+    def __init__(self, context):
+        PackageManager.__init__(self, context)
+        self.cache = apt.Cache()
+
+    def __make_package(self, apt_package):
+        p = Package(self)
+        p.id = apt_package.name
+        p.name = apt_package.fullname
+        v = apt_package.versions[-1]
+        p.version = v.version
+        p.description = v.summary
+        p.is_installed = apt_package.installed is not None
+        if p.is_installed:
+            p.installed_version = apt_package.installed.version
+            p.is_upgradeable = p.installed_version != p.version
+        return p
+
+    def list(self):
+        for id in self.cache.keys():
+            yield self.__make_package(self.cache[id])
+
+    def get(self, id):
+        return self.__make_package(self.cache[id])

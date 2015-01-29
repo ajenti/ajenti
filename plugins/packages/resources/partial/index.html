@@ -1,0 +1,43 @@
+<div class="row">
+    <input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" class="form-control" placeholder="Search packages" />
+
+    <progress-spinner ng:hide="results != null"></progress-spinner>
+
+    <div class="list-group">
+        <div ng:repeat="package in results|orderBy:'name'" class="list-group-item list-group-item-small">
+            <!--a class="list-group-btn subtle" ng:click="runOperation(service, 'stop')" ng:show="service.running">
+                <i class="fa fa-stop"></i>
+            </a>
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'restart')" ng:show="service.running">
+                <i class="fa fa-refresh"></i>
+            </a>
+            <a class="list-group-btn subtle" ng:click="runOperation(service, 'start')" ng:show="!service.running">
+                <i class="fa fa-play"></i>
+            </a-->
+            <div class="list-group-main">
+                <div class="pull-right">
+                </div>
+
+                <!--span class="label" ng:class="{'label-success': service.running, 'label-warning': !service.running}">
+                    <i ng:show="service.running" class="fa fa-fw fa-play"></i>
+                    <i ng:show="!service.running" class="fa fa-fw fa-pause"></i>
+                </span>-->
+                <i class="fa fa-gift"></i>
+                &nbsp;
+                {{package.name}}
+                &nbsp;
+                    <span class="label label-success" ng:show="package.isInstalled">
+                        <i class="fa fa-check"></i> Installed
+                    </span>
+                    &nbsp;
+                    <span class="label label-info" ng:show="package.isUpgradeable">
+                        <i class="fa fa-arrow-up"></i> Upgradeable
+                    </span>
+                    &nbsp;
+                <span class="subtle">
+                    {{package.version}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
