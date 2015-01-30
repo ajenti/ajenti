@@ -21,7 +21,7 @@ colors =
         cyan:       '#2abbb0'
 
 
-angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket, terminals, hotkeys) ->
+angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, socket, notify, terminals, hotkeys) ->
     return {
         scope: {
             id: '=?'
@@ -48,11 +48,6 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
         link: ($scope, element, attrs) ->
             element.addClass('block-element')
 
-            socket.send 'terminal', {
-                action: 'subscribe'
-                id: $scope.id
-            }
-
             $scope.charWidth = 7
             $scope.charHeight = 14
             $scope.canvas = element.find('canvas')[0]
@@ -67,7 +62,17 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                 $scope.dataHeight = 0
 
             $scope.fullReload = () ->
+                q = $q.defer()
                 terminals.full($scope.id).then (data) ->
+                    if not data
+                        q.reject()
+                        return
+
+                    socket.send 'terminal', {
+                        action: 'subscribe'
+                        id: $scope.id
+                    }
+
                     $scope.clear()
                     $scope.draw(data)
 
@@ -76,9 +81,14 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                         $scope.onReady()
                         $timeout () -> # reflow
                             $scope.autoResize()
+                    q.resolve()
+                return q.promise
 
             $scope.clear()
-            $scope.fullReload()
+            $scope.fullReload().catch () ->
+                $scope.disabled = true
+                $scope.onReady()
+                notify.info 'Terminal was closed'
 
             $scope.resize = (w, h) ->
                 socket.send 'terminal', {
@@ -109,9 +119,13 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                 element.find('textarea').focus()
 
             $scope.$on 'socket:terminal', ($event, data) ->
-                if data.id != $scope.id
+                if data.id != $scope.id or $scope.disabled
                     return
-                $scope.draw(data)
+                if data.type == 'closed'
+                    $scope.disabled = true
+                    notify.info 'Terminal was closed'
+                if data.type == 'data'
+                    $scope.draw(data.data)
 
             $scope.draw = (data) ->
                 #console.log 'Payload', data
@@ -280,7 +294,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, socket,
                 }
 
             handler = (key, event, mode) ->
-                if $scope.pasteAreaFocused
+                if $scope.pasteAreaFocused or $scope.disabled
                     return
                 ch = $scope.parseKey(event, mode)
                 if not ch

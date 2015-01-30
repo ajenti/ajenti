@@ -3,6 +3,7 @@ Image = LazyModule('PIL.Image')
 ImageDraw = LazyModule('PIL.ImageDraw')
 
 import gevent
+import json
 import StringIO
 
 import aj
@@ -27,7 +28,8 @@ class Handler (HttpPlugin):
     @url('/api/terminal/create')
     @endpoint(api=True)
     def handle_create(self, http_context):
-        return self.mgr.create()
+        options = json.loads(http_context.body)
+        return self.mgr.create(**options)
 
     @url(r'/api/terminal/kill/(?P<id>.+)')
     @endpoint(api=True)
@@ -37,7 +39,10 @@ class Handler (HttpPlugin):
     @url(r'/api/terminal/full/(?P<id>.+)')
     @endpoint(api=True)
     def handle_full(self, http_context, id=None):
-        return self.mgr[id].format(full=True)
+        if id in self.mgr:
+            return self.mgr[id].format(full=True)
+        else:
+            return None
 
     colors = {
         'black': '#073642',
@@ -96,8 +101,14 @@ class Socket (SocketEndpoint):
         self.readers = {}
 
     def on_message(self, message, *args):
+        id = message['id']
+        if id not in self.mgr:
+            self.send({
+                'id': id,
+                'type': 'closed',
+            })
+            return
         if message['action'] == 'subscribe':
-            id = message['id']
             if id in self.readers:
                 self.readers[id].kill(block=False)
             self.readers[id] = self.spawn(self.reader, id)
@@ -112,6 +123,8 @@ class Socket (SocketEndpoint):
         terminal = self.mgr[id]
         q = terminal.output.register()
         while True:
-            data = q.get()
-            data['id'] = id
-            self.send(data)
+            self.send({
+                'type': 'data',
+                'id': id,
+                'data': q.get(),
+            })

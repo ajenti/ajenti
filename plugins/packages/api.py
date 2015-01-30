@@ -17,6 +17,7 @@ class Package (object):
 class PackageManager (object):
     id = None
     name = None
+    update_command = None
 
     def __init__(self, context):
         self.context = context

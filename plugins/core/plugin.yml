@@ -34,6 +34,7 @@ resources:
     - 'resources/js/core/controllers/login.controller.coffee'
     - 'resources/js/core/controllers/root.controller.coffee'
     - 'resources/js/core/controllers/tasks.controller.coffee'
+    - 'resources/js/core/directives/autofocus.coffee'
     - 'resources/js/core/directives/checkbox.coffee'
     - 'resources/js/core/directives/dialog.coffee'
     - 'resources/js/core/directives/fitToParent.coffee'

@@ -23,4 +23,12 @@ angular.module('ajenti.packages').service 'packages', ($http, $q) ->
             q.reject(err)
         return q.promise
 
+    @updateLists = (managerId) ->
+        q = $q.defer()
+        $http.get("/api/packages/update-lists/#{managerId}").success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     return this

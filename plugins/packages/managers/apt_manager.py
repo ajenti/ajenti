@@ -8,6 +8,7 @@ from aj.plugins.packages.api import PackageManager, Package
 class APTPackageManager (PackageManager):
     id = 'apt'
     name = 'APT'
+    update_command = 'apt-get update'
 
     def __init__(self, context):
         PackageManager.__init__(self, context)
@@ -15,7 +16,7 @@ class APTPackageManager (PackageManager):
 
     def __make_package(self, apt_package):
         p = Package(self)
-        p.id = apt_package.name
+        p.id = apt_package.fullname
         p.name = apt_package.fullname
         v = apt_package.versions[-1]
         p.version = v.version

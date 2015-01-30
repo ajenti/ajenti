@@ -1,4 +1,4 @@
-angular.module('ajenti.terminal').service 'terminals', ($http, $q) -> 
+angular.module('ajenti.terminal').service 'terminals', ($http, $q) ->
     @list = () ->
         q = $q.defer()
         $http.get("/api/terminal/list").success (data) ->
@@ -19,9 +19,9 @@ angular.module('ajenti.terminal').service 'terminals', ($http, $q) ->
             q.reject(err)
         return q.promise
 
-    @create = () ->
+    @create = (options) ->
         q = $q.defer()
-        $http.get("/api/terminal/create").success (data) ->
+        $http.post("/api/terminal/create", options).success (data) ->
             q.resolve(data)
         .error (err) ->
             q.reject(err)

@@ -50,3 +50,14 @@ class Handler (HttpPlugin):
     @endpoint(api=True)
     def handle_api_get(self, http_context, manager_id=None, package_id=None):
         return self.__package_to_json(self.managers[manager_id].get(package_id))
+
+    @url(r'/api/packages/update-lists/(?P<manager_id>\w+)')
+    @endpoint(api=True)
+    def handle_api_update_lists(self, http_context, manager_id=None):
+        mgr = self.managers[manager_id]
+        if mgr.update_command:
+            return {
+                'terminalCommand': mgr.update_command,
+            }
+        else:
+            raise Exception('Package manager has no update command')

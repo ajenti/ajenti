@@ -17,9 +17,11 @@ from aj.util import BroadcastQueue
 
 
 class Terminal (object):
-    def __init__(self, command=None, autoclose=False, **kwargs):
+    def __init__(self, manager=None, id=None, command=None, autoclose=False):
         self.width = 80
         self.height = 25
+        self.id = id
+        self.manager = manager
         self.autoclose = autoclose
         self.output = BroadcastQueue()
 
@@ -30,16 +32,15 @@ class Terminal (object):
         env['LINES'] = str(self.height)
         env['LC_ALL'] = 'en_US.UTF8'
 
-        shell = os.environ.get('SHELL', None)
-        if not shell:
-            for sh in ['zsh', 'bash', 'sh']:
-                try:
-                    shell = subprocess.check_output(['which', sh])
-                    break
-                except:
-                    pass
-
-        if shell:
+        if not command:
+            shell = os.environ.get('SHELL', None)
+            if not shell:
+                for sh in ['zsh', 'bash', 'sh']:
+                    try:
+                        shell = subprocess.check_output(['which', sh])
+                        break
+                    except:
+                        pass
             self.command = shell
             args = [shell]
             exe = shell
@@ -75,7 +76,7 @@ class Terminal (object):
         data = ''
         while True:
             wait_read(self.fd)
-            
+
             try:
                 d = self.stream.read()
             except IOError:
@@ -102,7 +103,7 @@ class Terminal (object):
         try:
             pid, status = os.waitpid(self.pid, os.WNOHANG)
         except OSError:
-            self.on_died(code=-1)
+            self.on_died(code=0)
             return
         if pid:
             self.on_died(code=status)
@@ -110,12 +111,17 @@ class Terminal (object):
     def on_died(self, code=0):
         if self.dead:
             return
+
         self.dead = True
+
         if code:
             self.pyte_stream.feed(u'\n\n * ' + u'Process has exited with status %i' % code)
         else:
             self.pyte_stream.feed(u'\n\n * ' + u'Process has exited successfully')
+
         self.broadcast_update()
+        if self.autoclose:
+            self.manager.remove(self.id)
         """
         TODO
         if self.callback:

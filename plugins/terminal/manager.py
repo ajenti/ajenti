@@ -15,18 +15,25 @@ class TerminalManager (object):
     def __getitem__(self, id):
         return self.terminals[id]
 
+    def __contains__(self, id):
+        return id in self.terminals
+
     def list(self):
         return [{
             'id': id,
             'command': self[id].command,
         } for id in self.terminals.keys()]
 
-    def create(self):
-        t = Terminal()
+    def create(self, **kwargs):
         id = str(uuid.uuid4())
+        t = Terminal(self, id, **kwargs)
         logging.info('Created terminal %s' % id)
         self.terminals[id] = t
         return id
-    
+
     def kill(self, id):
-        self.terminals.pop(id).kill()
+        self.terminals[id].kill()
+        self.remove(id)
+
+    def remove(self, id):
+        self.terminals.pop(id)
