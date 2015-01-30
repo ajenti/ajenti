@@ -39,7 +39,6 @@ class APTPackageManager (PackageManager):
     def update_lists(self, progress_callback):
         class Progress (AcquireProgress):
             def fetch(self, item):
-                print item, self.current_items, self.total_items
                 message = '%s%% %s' % (int(100 * self.current_items / self.total_items), item.shortdesc)
                 progress_callback(message=message, done=self.current_items, total=self.total_items)
 
@@ -52,3 +51,9 @@ class APTPackageManager (PackageManager):
 
         while not hasattr(ack, 'done'):
             gevent.sleep(1)
+
+    def get_apply_cmd(self, selection):
+        cmd = 'apt-get install '
+        for sel in selection:
+            cmd += sel['package']['id'] + {'remove': '-', 'install': '+', 'upgrade': '+'}[sel['operation']] + ' '
+        return cmd

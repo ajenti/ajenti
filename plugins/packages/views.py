@@ -1,3 +1,5 @@
+import json
+
 import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
@@ -51,13 +53,12 @@ class Handler (HttpPlugin):
     def handle_api_get(self, http_context, manager_id=None, package_id=None):
         return self.__package_to_json(self.managers[manager_id].get(package_id))
 
-    @url(r'/api/packages/update-lists/(?P<manager_id>\w+)')
+    @url(r'/api/packages/apply/(?P<manager_id>\w+)')
     @endpoint(api=True)
-    def handle_api_update_lists(self, http_context, manager_id=None):
+    def handle_api_apply(self, http_context, manager_id=None):
         mgr = self.managers[manager_id]
-        if mgr.update_command:
-            return {
-                'terminalCommand': mgr.update_command,
-            }
-        else:
-            raise Exception('Package manager has no update command')
+        selection = json.loads(http_context.body)
+        cmd = mgr.get_apply_cmd(selection)
+        return {
+            'terminalCommand': cmd,
+        }

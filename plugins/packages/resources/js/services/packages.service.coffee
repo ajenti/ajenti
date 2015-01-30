@@ -31,4 +31,12 @@ angular.module('ajenti.packages').service 'packages', ($http, $q, tasks) ->
             q.reject(err)
         return q.promise
 
+    @applySelection = (managerId, selection) ->
+        q = $q.defer()
+        $http.post("/api/packages/apply/#{managerId}", selection).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     return this

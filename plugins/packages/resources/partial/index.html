@@ -1,20 +1,20 @@
 <br/>
 
-<input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" class="form-control" placeholder="Search packages" />
+<input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" autofocus class="form-control" placeholder="Search packages" />
 
 <progress-spinner ng:hide="results != null"></progress-spinner>
 
 <div class="list-group">
     <div ng:repeat="package in results|orderBy:['name']" class="list-group-item list-group-item-large">
-        <!--a class="list-group-btn subtle" ng:click="runOperation(service, 'stop')" ng:show="service.running">
-            <i class="fa fa-stop"></i>
+        <a class="list-group-btn subtle" ng:click="markForUpgrade(package)" ng:show="package.isUpgradeable" title="Mark for upgrade">
+            <i class="fa fa-arrow-up"></i>
         </a>
-        <a class="list-group-btn subtle" ng:click="runOperation(service, 'restart')" ng:show="service.running">
-            <i class="fa fa-refresh"></i>
+        <a class="list-group-btn subtle" ng:click="markForInstallation(package)" ng:show="!package.isInstalled" title="Mark for installation">
+            <i class="fa fa-download"></i>
         </a>
-        <a class="list-group-btn subtle" ng:click="runOperation(service, 'start')" ng:show="!service.running">
-            <i class="fa fa-play"></i>
-        </a-->
+        <a class="list-group-btn subtle" ng:click="markForRemoval(package)" ng:show="package.isInstalled" title="Mark for removal">
+            <i class="fa fa-trash-o"></i>
+        </a>
         <div class="list-group-main">
             <div class="list-group-icon">
                 <i class="fa fa-gift"></i>
@@ -50,3 +50,36 @@
 <floating-toolbar>
     <a ng:click="updateLists()" class="btn btn-default btn-flat" test-bind="updateButton">Update package list</a>
 </floating-toolbar>
+
+<floating-toolbar class="accented" ng:show="selection.length > 0">
+    <a class="btn btn-default btn-flat pull-right" ng:click="showSelection()">
+        <strong>{{selection.length}}</strong> pending
+    </a>
+
+    <a ng:click="doApply()" class="btn btn-default btn-flat">Apply changes</a>
+</floating-toolbar>
+
+<dialog ng:show="selectionVisible && selection.length > 0">
+    <div class="modal-header">
+        <h4>Selections</h4>
+    </div>
+    <div class="modal-body">
+        <div class="list-group" test-bind="clipboardDialogList">
+            <div ng:repeat="item in selection" class="list-group-item list-group-item-small" test-bind-item="{{item.package.id}}">
+                <a ng:click="selection.splice($index, 1)" class="list-group-btn subtle" title="Cancel">
+                    <i class="fa fa-times"></i>
+                </a>
+                <div class="list-group-main">
+                    <i class="fa fa-fw fa-download" ng:if="item.operation == 'install'"></i>
+                    <i class="fa fa-fw fa-arrow-up" ng:if="item.operation == 'upgrade'"></i>
+                    <i class="fa fa-fw fa-trash-o" ng:if="item.operation == 'remove'"></i>
+                    &nbsp;
+                    {{item.package.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a ng:click="hideSelection()" class="btn btn-default btn-flat">Close</a>
+    </div>
+</dialog>

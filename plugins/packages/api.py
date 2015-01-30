@@ -30,3 +30,6 @@ class PackageManager (object):
 
     def update_lists(self, progress_callback):
         raise NotImplementedError
+
+    def get_apply_cmd(self, selection):
+        raise NotImplementedError
