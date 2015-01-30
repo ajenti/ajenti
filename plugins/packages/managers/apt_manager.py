@@ -10,7 +10,6 @@ from aj.plugins.packages.api import PackageManager, Package
 class APTPackageManager (PackageManager):
     id = 'apt'
     name = 'APT'
-    update_command = 'apt-get update'
 
     def __init__(self, context):
         PackageManager.__init__(self, context)
@@ -43,7 +42,6 @@ class APTPackageManager (PackageManager):
                 progress_callback(message=message, done=self.current_items, total=self.total_items)
 
             def stop(self):
-                print 'STOP'
                 self.done = True
 
         ack = Progress()

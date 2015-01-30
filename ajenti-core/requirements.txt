@@ -24,5 +24,4 @@ dbus # for upstart
 
 # packages
 ## --allow-unverified python-apt
-python-apt
-
+#python-apt
