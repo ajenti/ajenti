@@ -1,4 +1,4 @@
-angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope, $routeParams, $location, notify, pageTitle, packages, terminals) ->
+angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope, $routeParams, $location, notify, pageTitle, packages) ->
     pageTitle.set('Packages')
 
     $scope.managerId = $routeParams.managerId
@@ -18,10 +18,5 @@ angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope,
     $scope.updateLists = () ->
         packages.updateLists($scope.managerId).then (data) ->
             notify.info 'Package list update started'
-            if data.terminalCommand
-                terminals.create(command: data.terminalCommand, autoclose: true).then (id) ->
-                    $location.path "/view/terminal/#{id}"
-                .catch (err) ->
-                    notify.error 'Could not open terminal', err.message
         .catch (err) ->
             notify.error 'Package list update failed', err.message

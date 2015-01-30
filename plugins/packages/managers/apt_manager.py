@@ -1,4 +1,6 @@
+import gevent
 import apt
+from apt.progress.base import AcquireProgress
 
 from aj.api import *
 from aj.plugins.packages.api import PackageManager, Package
@@ -33,3 +35,20 @@ class APTPackageManager (PackageManager):
 
     def get(self, id):
         return self.__make_package(self.cache[id])
+
+    def update_lists(self, progress_callback):
+        class Progress (AcquireProgress):
+            def fetch(self, item):
+                print item, self.current_items, self.total_items
+                message = '%s%% %s' % (int(100 * self.current_items / self.total_items), item.shortdesc)
+                progress_callback(message=message, done=self.current_items, total=self.total_items)
+
+            def stop(self):
+                print 'STOP'
+                self.done = True
+
+        ack = Progress()
+        self.cache.update(fetch_progress=ack)
+
+        while not hasattr(ack, 'done'):
+            gevent.sleep(1)

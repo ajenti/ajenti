@@ -1,4 +1,4 @@
-angular.module('ajenti.packages').service 'packages', ($http, $q) ->
+angular.module('ajenti.packages').service 'packages', ($http, $q, tasks) ->
     @getManagers = () ->
         q = $q.defer()
         $http.get("/api/packages/managers").success (data) ->
@@ -25,9 +25,9 @@ angular.module('ajenti.packages').service 'packages', ($http, $q) ->
 
     @updateLists = (managerId) ->
         q = $q.defer()
-        $http.get("/api/packages/update-lists/#{managerId}").success (data) ->
+        tasks.start('aj.plugins.packages.tasks.UpdateLists', [], manager_id: managerId).then (data) ->
             q.resolve(data)
-        .error (err) ->
+        .catch (err) ->
             q.reject(err)
         return q.promise
 

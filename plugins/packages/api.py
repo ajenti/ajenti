@@ -27,3 +27,6 @@ class PackageManager (object):
 
     def get(self, id):
         raise NotImplementedError
+
+    def update_lists(self, progress_callback):
+        raise NotImplementedError
