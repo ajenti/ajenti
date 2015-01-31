@@ -18,9 +18,10 @@ termcolor
 cookies
 pyyaml
 
-# upstart
-upstart
+# services
+upstart  # todo: strict version with direct=True support
 dbus # for upstart
+python-systemd
 
 # packages
 ## --allow-unverified python-apt
