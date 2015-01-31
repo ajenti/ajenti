@@ -4,6 +4,7 @@ Debian
 
   * build-essential
   * python-dev
+  * python-dbus
   * libxslt1-dev
   * libxml2-dev
   * libssl-dev

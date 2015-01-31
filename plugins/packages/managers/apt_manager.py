@@ -17,8 +17,8 @@ class APTPackageManager (PackageManager):
 
     def __make_package(self, apt_package):
         p = Package(self)
-        p.id = apt_package.fullname
-        p.name = apt_package.fullname
+        p.id = apt_package.fullname if hasattr(apt_package, 'fullname') else apt_package.name
+        p.name = p.id
         v = apt_package.versions[-1]
         p.version = v.version
         p.description = v.summary

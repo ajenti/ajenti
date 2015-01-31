@@ -40,10 +40,10 @@ class SystemdServiceManager (ServiceManager):
                 return s
 
     def start(self, id):
-        subprocess.check_call(['systemctl', 'start', id])
+        subprocess.check_call(['systemctl', 'start', id], close_fds=True)
 
     def stop(self, id):
-        subprocess.check_call(['systemctl', 'stop', id])
+        subprocess.check_call(['systemctl', 'stop', id], close_fds=True)
 
     def restart(self, id):
-        subprocess.check_call(['systemctl', 'restart', id])
+        subprocess.check_call(['systemctl', 'restart', id], close_fds=True)

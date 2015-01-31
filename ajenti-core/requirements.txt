@@ -19,7 +19,7 @@ cookies
 pyyaml
 
 # services
-upstart  # todo: strict version with direct=True support
+upstart-dev  # todo: strict version with direct=True support
 #dbus # for upstart # todo: pypi package is fucked up, install from pkg mgr
 
 # packages

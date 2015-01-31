@@ -26,6 +26,8 @@ class SysVServiceManager (ServiceManager):
             path = os.path.join(INIT_D, id)
             if id.startswith('.'):
                 continue
+            if id.startswith('rc'):
+                continue
             if os.path.islink(path):
                 continue
             if os.path.exists(UPSTART_PATTERN % id):
@@ -43,7 +45,7 @@ class SysVServiceManager (ServiceManager):
         return service
 
     def _run_action(self, id, action):
-        return subprocess.call([os.path.join(INIT_D, id), action]) == 0
+        return subprocess.call([os.path.join(INIT_D, id), action], close_fds=True) == 0
 
     def start(self, id):
         self._run_action(id, 'start')
