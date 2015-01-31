@@ -36,12 +36,12 @@ class Handler (HttpPlugin):
     def handle_api_list(self, http_context, manager_id=None):
         return [self.__service_to_json(service) for service in self.managers[manager_id].list()]
 
-    @url(r'/api/services/get/(?P<manager_id>\w+)/(?P<service_id>\w+)')
+    @url(r'/api/services/get/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @endpoint(api=True)
     def handle_api_get(self, http_context, manager_id=None, service_id=None):
         return self.__service_to_json(self.managers[manager_id].get(service_id))
 
-    @url(r'/api/services/do/(?P<operation>\w+)/(?P<manager_id>\w+)/(?P<service_id>\w+)')
+    @url(r'/api/services/do/(?P<operation>\w+)/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @endpoint(api=True)
     def handle_api_operate(self, http_context, manager_id=None, operation=None, service_id=None):
         if operation not in ['start', 'stop', 'restart']:

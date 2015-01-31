@@ -20,8 +20,7 @@ pyyaml
 
 # services
 upstart  # todo: strict version with direct=True support
-dbus # for upstart
-python-systemd
+#dbus # for upstart # todo: pypi package is fucked up, install from pkg mgr
 
 # packages
 ## --allow-unverified python-apt
