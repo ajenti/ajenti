@@ -1,0 +1,49 @@
+<br/>
+
+<progress-spinner ng:show="!ready"></progress-spinner>
+
+<div ng:show="ready">
+    <div class="dropdown pull-right">
+        <a class="btn btn-default" dropdown-toggle>
+            <i class="fa fa-plus"></i> Add widget
+        </a>
+        <ul class="dropdown-menu">
+            <li ng:repeat="widget in availableWidgets|orderBy:'name'">
+                <a ng:click="addWidget(widget)">
+                    {{widget.name}}
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="dashboard-widgets-container" sv:root sv:on-sort="onSort()">
+        <div class="row">
+            <div class="col-md-6" sv:part="userConfig.dashboard.widgetsLeft">
+                <div sv:placeholder class="widget placeholder"></div>
+                <div ng:repeat="widget in userConfig.dashboard.widgetsLeft" sv:element class="widget">
+                    <ng:include src="'/dashboard:resources/partial/widget.html'" />
+                </div>
+            </div>
+            <div class="col-md-6" sv:part="userConfig.dashboard.widgetsRight">
+                <div sv:placeholder class="widget placeholder"></div>
+                <div ng:repeat="widget in userConfig.dashboard.widgetsRight" sv:element class="widget">
+                    <ng:include src="'/dashboard:resources/partial/widget.html'" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <dialog ng:show="configuredWidget">
+        <div class="modal-header">
+            <h4>{{widgetTypes[configuredWidget.typeId].name}}</h4>
+        </div>
+        <div class="modal-body">
+            <ng:include src="widgetTypes[configuredWidget.typeId].config_template" />
+        </div>
+        <div class="modal-footer">
+            <a ng:click="saveWidgetConfig()" class="btn btn-default btn-flat">Save</a>
+        </div>
+    </div>
+</div>

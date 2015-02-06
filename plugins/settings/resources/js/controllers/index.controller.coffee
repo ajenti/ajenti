@@ -1,4 +1,4 @@
-angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd) ->
+angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, settings) ->
     pageTitle.set('Settings')
 
     $scope.availableColors = [
@@ -27,9 +27,9 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
                 $scope.newClientCertificate.cn = "#{identity.user}@#{identity.machine.hostname}"
             $scope.newClientCertificate.user = 'root'
 
-    $http.get('/api/settings/config').success (data) ->
+    settings.getConfig().then (data) ->
         $scope.config = data
-    .error () ->
+    .catch () ->
         $scope.config = {}
         notify.error 'Could not load config'
 
@@ -38,9 +38,9 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
             identity.color = $scope.config.color
 
     $scope.save = () ->
-        $http.post('/api/settings/config', $scope.config).success (data) ->
+        settings.setConfig($scope.config).then (data) ->
             notify.success 'Saved'
-        .error () ->
+        .catch () ->
             notify.error 'Could not save config'
 
     $scope.createNewServerCertificate = () ->

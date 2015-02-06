@@ -1,0 +1,16 @@
+title: 'Dashboard'
+icon: bar-chart
+dependencies:
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: settings }
+resources:
+    - 'resources/js/module.coffee'
+    - 'resources/js/routing.coffee'
+    - 'resources/js/controllers/index.controller.coffee'
+    - 'resources/js/controllers/uptimeWidget.controller.coffee'
+    - 'resources/js/services/dashboard.service.coffee'
+    - 'resources/css/styles.less'
+    - 'resources/partial/index.html'
+    - 'resources/partial/widget.html'
+    - 'resources/partial/widgets/uptime.html'
+    - 'ng:ajenti.dashboard'

@@ -10,6 +10,7 @@ angular.module 'core', [
     'persona',
     'toaster',
     'ui.bootstrap',
+    'angular-sortable-view',
 ]
 
 
@@ -43,3 +44,9 @@ Array.prototype.toggleItem = (v) ->
     else
         @push(v)
 
+
+String.prototype.lpad = (padString, length) ->
+    str = this
+    while (str.length < length)
+        str = padString + str
+    return str

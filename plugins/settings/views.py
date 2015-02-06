@@ -6,6 +6,7 @@ from OpenSSL.crypto import *
 import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
+from aj.config import UserConfig
 
 from aj.plugins.core.api.endpoint import endpoint
 
@@ -26,6 +27,17 @@ class Handler (HttpPlugin):
             data = json.loads(http_context.body)
             aj.config.data.update(data)
             aj.config.save()
+
+    @url(r'/api/settings/user-config')
+    @endpoint(api=True)
+    def handle_api_user_config(self, http_context):
+        if http_context.method == 'GET':
+            return UserConfig.get(self.context).data
+        if http_context.method == 'POST':
+            data = json.loads(http_context.body)
+            config = UserConfig.get(self.context)
+            config.data.update(data)
+            config.save()
 
     @url(r'/api/settings/generate-client-certificate')
     @endpoint(api=True)

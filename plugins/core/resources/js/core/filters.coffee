@@ -42,3 +42,18 @@ angular.module('core').filter 'rankMatch', () ->
                 points += 10
             item.rank = points
         return input
+
+
+angular.module('core').filter 'time', () ->
+    return (time, frac) ->
+        if time == null or not angular.isDefined(time)
+            return '--:--:--'
+        s = ''
+        s += Math.floor(time / 3600 / 24) + ':'
+        s += ('' + Math.floor(time / 60 / 60) % 24).lpad('0', 2) + ':'
+        s += ('' + Math.floor(time / 60) % 60).lpad('0', 2) + ':'
+        s += ('' + Math.floor(time) % 60).lpad('0', 2)
+        if frac
+            s += '.' + ('' + Math.floor((time - Math.floor(time)) * 100)).lpad('0', 2)
+        return s
+

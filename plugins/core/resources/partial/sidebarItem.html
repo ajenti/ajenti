@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="children" ng:show="item.expanded && item.children.length > 0">
-        <div ng:repeat="item in item.children">
+        <div ng:repeat="item in item.children|orderBy:'name'">
             <ng:include src="'/core:resources/partial/sidebarItem.html'"></ng:include>
         </div>
     </div>

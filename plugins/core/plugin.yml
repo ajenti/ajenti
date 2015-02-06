@@ -16,6 +16,7 @@ resources:
     - 'resources/vendor/angular-loading-bar/build/loading-bar.min.css'
     - 'resources/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js'
     - 'resources/vendor/angular-persona/angular-persona.min.js'
+    - 'resources/vendor/angular-sortable-view/src/angular-sortable-view.min.js'
     - 'resources/vendor/ngstorage/ngStorage.min.js'
     - 'resources/vendor/fastclick/lib/fastclick.js'
     - 'resources/css/bootstrap/bootstrap.less'

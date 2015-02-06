@@ -1,0 +1,29 @@
+<div ng:controller="ServiceWidgetController">
+    <div class="widget-header">
+        {{service.name || 'No service'}}
+    </div>
+    <div class="pull-right btn-group">
+        <a class="btn btn-default subtle" ng:click="doAction('start')" ng:show="!service.isRunning">
+            <i class="fa fa-fw fa-play"></i>
+        </a>
+        <a class="btn btn-default subtle" ng:click="doAction('stop')" ng:show="service.isRunning">
+            <i class="fa fa-fw fa-stop"></i>
+        </a>
+        <a class="btn btn-default subtle" ng:click="doAction('restart')" ng:show="service.isRunning">
+            <i class="fa fa-fw fa-refresh"></i>
+        </a>
+    </div>
+    <div class="widget-value">
+        {{service.state || 'Unknown'}}
+        <sup ng:show="service.isRunning">
+            <span class="label label-info">
+                <i class="fa fa-play"></i>
+            </span>
+        </sup>
+        <sup ng:show="!service.isRunning">
+            <span class="label label-danger">
+                <i class="fa fa-warning"></i>
+            </span>
+        </sup>
+    </div>
+</div>

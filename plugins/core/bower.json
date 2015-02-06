@@ -18,6 +18,7 @@
     "angular-persona": "~1.1.0",
     "ngstorage": "~0.3.0",
     "fastclick": "~1.0.3",
+    "angular-sortable-view": "0.0.2",
     "AngularJS-Toaster": "~0.4.9"
   }
 }

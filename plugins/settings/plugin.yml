@@ -7,5 +7,6 @@ resources:
     - 'resources/js/module.coffee'
     - 'resources/js/routing.coffee'
     - 'resources/js/controllers/index.controller.coffee'
+    - 'resources/js/services/settings.service.coffee'
     - 'resources/partial/index.html'
     - 'ng:ajenti.settings'

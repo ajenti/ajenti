@@ -1,0 +1,71 @@
+.dashboard-widgets-container {
+    .row > div {
+        padding: 0 0 50px;
+    }
+
+    .widget {
+        margin: 20px;
+        padding: 5px 10px;
+        background: white;
+        position: relative;
+
+        &.sv-helper {
+            box-shadow: 0 0 2px rgba(0,0,0,.25);
+        }
+
+        .widget-header {
+            font-size: 12px;
+        }
+
+        .widget-value {
+            font-size: 24px;
+
+            sup {
+                font-size: 10px;
+                top: -12px;
+            }
+        }
+
+        .widget-btn  {
+            position: absolute;
+            top: -15px;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .config-btn {
+            right: 110px;
+        }
+
+        .move-btn {
+            right: 60px;
+        }
+
+        .remove-btn {
+            right: 10px;
+        }
+
+        &:hover .widget-btn {
+            opacity: 1;
+        }
+    }
+
+    .placeholder {
+        box-shadow: 0 0 2px rgba(0,0,0,.25);
+        opacity: .5;
+        height: 20px;
+    }
+
+    .trash-container {
+        padding: 20px 0;
+    }
+
+    .trash {
+        padding: 20px;
+        display: none;
+    }
+
+    &:hover .trash {
+        display: block;
+    }
+}
