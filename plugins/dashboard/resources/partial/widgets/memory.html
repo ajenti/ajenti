@@ -1,0 +1,24 @@
+<div ng:controller="MemoryWidgetController" class="row">
+    <div class="col-xs-4">
+        <div class="widget-header">
+            Memory usage
+        </div>
+        <div class="widget-value">
+            {{usage}}%
+            <sup ng:show="usage > 90">
+                <span class="label label-danger">
+                    <i class="fa fa-warning"></i>
+                </span>
+            </sup>
+        </div>
+        <smart-progress value="usage" max="100"></smart-progress>
+    </div>
+    <div class="col-xs-3">
+        <div class="widget-header">
+            Total
+        </div>
+        <div class="widget-value">
+            {{total|bytes}}
+        </div>
+    </div>
+</div>

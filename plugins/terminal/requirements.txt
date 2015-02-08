@@ -1,0 +1,4 @@
+pyte
+Pillow
+aj
+ajenti.plugin.core

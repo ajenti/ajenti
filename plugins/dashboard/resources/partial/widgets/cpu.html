@@ -1,0 +1,24 @@
+<div ng:controller="CPUWidgetController" class="row">
+    <div class="col-xs-4">
+        <div class="widget-header">
+            CPU usage
+        </div>
+        <div class="widget-value">
+            {{avgPercent}}%
+            <sup ng:show="avgPercent > 95">
+                <span class="label label-danger">
+                    <i class="fa fa-warning"></i>
+                </span>
+            </sup>
+        </div>
+        <smart-progress value="avgPercent" max="100"></smart-progress>
+    </div>
+    <div class="col-xs-3">
+        <div class="widget-header">
+            Active cores
+        </div>
+        <div class="widget-value">
+            {{cores}}/{{values.length}}
+        </div>
+    </div>
+</div>

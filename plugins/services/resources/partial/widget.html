@@ -1,15 +1,15 @@
 <div ng:controller="ServiceWidgetController">
     <div class="widget-header">
-        {{service.name || 'No service'}}
+        {{service.name || 'No service'}} / {{service.managerId}}
     </div>
     <div class="pull-right btn-group">
-        <a class="btn btn-default subtle" ng:click="doAction('start')" ng:show="!service.isRunning">
+        <a class="btn btn-default subtle" ng:click="runOperation('start')" ng:show="!service.isRunning">
             <i class="fa fa-fw fa-play"></i>
         </a>
-        <a class="btn btn-default subtle" ng:click="doAction('stop')" ng:show="service.isRunning">
+        <a class="btn btn-default subtle" ng:click="runOperation('stop')" ng:show="service.isRunning">
             <i class="fa fa-fw fa-stop"></i>
         </a>
-        <a class="btn btn-default subtle" ng:click="doAction('restart')" ng:show="service.isRunning">
+        <a class="btn btn-default subtle" ng:click="runOperation('restart')" ng:show="service.isRunning">
             <i class="fa fa-fw fa-refresh"></i>
         </a>
     </div>

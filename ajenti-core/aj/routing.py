@@ -15,7 +15,7 @@ class InvalidRouteHandler (BaseHttpHandler):
     def handle(self, http_context):
         logging.warn('URL not found: %s' % http_context.path)
         http_context.respond_not_found()
-        return 'Invalid URL'
+        return 'URL not found'
 
 
 @service

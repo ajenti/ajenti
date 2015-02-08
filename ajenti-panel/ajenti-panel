@@ -82,6 +82,9 @@ if __name__ == '__main__':
         elif o == '--plugins':
             plugin_providers.append(aj.plugins.DirectoryPluginProvider(a))
 
+    if not plugin_providers:
+        plugin_providers.append(aj.plugins.PythonPathPluginProvider())
+
     aj.log.init_console(log_level)
 
     if autologin and not debug_mode:

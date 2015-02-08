@@ -3,19 +3,27 @@ import logging
 
 class LazyModule (object):
     def __init__(self, module, object=None):
-        self.__module = module
-        self.__object = object
-        self.__loaded = False
+        self._module = module
+        self._object = object
+        self._loaded = False
 
     def __load(self):
-        logging.debug('Lazy-loading module %s' % self.__module)
-        target = __import__(self.__module, fromlist=[''])
-        if self.__object:
-            target = getattr(target, self.__object)
-        self.__dict__ = target.__dict__
+        logging.debug('Lazy-loading module %s' % self._module)
+        target = __import__(self._module, fromlist=[''])
+        if self._object:
+            target = getattr(target, self._object)
+
+        for k in dir(target):
+            try:
+                self.__dict__[k] = getattr(target, k)
+            except AttributeError:
+                pass
+
+        self._loaded = True
 
     def __getattr__(self, attr):
-        self.__load()
+        if not self._loaded:
+            self.__load()
         return self.__dict__[attr]
 
 

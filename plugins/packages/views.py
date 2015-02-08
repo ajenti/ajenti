@@ -42,6 +42,7 @@ class Handler (HttpPlugin):
         query = http_context.query['query']
         if len(query) < 3:
             raise Exception('Query too short')
+        query = query.lower().strip()
         return [
             self.__package_to_json(package)
             for package in self.managers[manager_id].list()

@@ -34,6 +34,20 @@ class DirectoryPluginProvider (PluginProvider):
 
 
 @public
+class PythonPathPluginProvider (PluginProvider):
+    def __init__(self):
+        pass
+
+    def provide(self):
+        found_plugins = []
+        for path in sys.path:
+            if os.path.isdir(path):
+                logging.debug('Looking for plugins in %s' % path)
+                found_plugins += DirectoryPluginProvider(path).provide()
+        return found_plugins
+
+
+@public
 class PluginLoadError (Exception):
     pass
 
@@ -187,7 +201,7 @@ class PluginManager (object):
 
     __plugins = {}
     __order = []
-    __locations = {}
+    __info = {}
 
     def __init__(self, context):
         self.context = context
@@ -200,7 +214,7 @@ class PluginManager (object):
         return self.__plugins[name]
 
     def get_content_path(self, name, path):
-        return os.path.join(self[name].location, name, path)
+        return os.path.join(self[name].path, path)
 
     def get_order(self):
         return self.__order
@@ -210,17 +224,22 @@ class PluginManager (object):
         for provider in providers:
             found += provider.provide()
 
-        self.__locations = dict(tuple(reversed(os.path.split(x))) for x in found)
+        self.__info = {}
+        for path in found:
+            yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')))
+            self.__info[yml_info['name']] = {
+                'info': yml_info,
+                'path': path
+            }
 
-        for plugin, location in self.__locations.iteritems():
+        for plugin, info in self.__info.iteritems():
             if not plugin in self.__plugins:
-                self.load_recursive(plugin)
+                self.load_recursive(plugin, info)
 
-    def load_recursive(self, name):
-        location = self.__locations[name]
+    def load_recursive(self, name, info):
         while True:
             try:
-                return self.load(name, location)
+                return self.load(name, info)
             except PluginDependency.Unsatisfied as e:
                 if e.dependency.plugin_name in self.get_all():
                     if self.get_all()[e.dependency.plugin_name].crash:
@@ -230,41 +249,42 @@ class PluginManager (object):
                         )
                         return
                 try:
-                    if e.dependency.plugin_name not in self.__locations:
+                    if e.dependency.plugin_name not in self.__info:
                         logging.warn(
                             'Plugin dependency unsatisfied: "%s" -> "%s"' % (name, e.dependency.plugin_name)
                         )
                         return
                     logging.debug('Preloading plugin dependency: "%s"' % e.dependency.plugin_name)
-                    if not self.load_recursive(e.dependency.plugin_name):
+                    if not self.load_recursive(e.dependency.plugin_name, self.__info[e.dependency.plugin_name]):
                         self.get_all()[name].crash = e
                         return
                 except:
                     raise
 
-    def load(self, name, location):
+    def load(self, name, info):
         """
         Loads given plugin
         """
         logging.debug('Loading plugin "%s"' % name)
         try:
-            yml_info = yaml.load(open(os.path.join(location, name, 'plugin.yml')))
-            info = PluginInfo(**yml_info)
-            info.active = False
-            info.name = name
-            info.crash = None
-            info.location = location
-            self.__plugins[name] = info
+            plugin_info = PluginInfo(**info['info'])
+            plugin_info.active = False
+            plugin_info.name = name
+            plugin_info.crash = None
+            plugin_info.path = info['path']
+            self.__plugins[name] = plugin_info
 
-            for dependency in info.dependencies:
+            for dependency in plugin_info.dependencies:
                 dependency.check()
 
-            info.active = True
+            plugin_info.active = True
+
+            module_path, module_name = os.path.split(info['path'])
 
             try:
                 mod = imp.load_module(
                     'aj.plugins.%s' % name,
-                    *imp.find_module(name, [location])
+                    *imp.find_module(module_name, [module_path])
                 )
             except PluginFormatError:
                 raise
@@ -283,11 +303,11 @@ class PluginManager (object):
         except PluginCrashed as e:
             logging.warn(' *** [%s] Plugin crashed: "%s"' % (name, e))
             print(e.traceback)
-            info.crash = e
+            plugin_info.crash = e
         except Dependency.Unsatisfied as e:
             logging.debug(' *** [%s] skipping due to "%s"' % (name, e))
-            info.crash = e
+            plugin_info.crash = e
         except PluginLoadError as e:
             logging.warn(' *** [%s] Plugin failed to load: "%s"' % (name, e))
-            info.crash = e
+            plugin_info.crash = e
 

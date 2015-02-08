@@ -20,13 +20,13 @@
 
     <div class="dashboard-widgets-container" sv:root sv:on-sort="onSort()">
         <div class="row">
-            <div class="col-md-6" sv:part="userConfig.dashboard.widgetsLeft">
+            <div class="col-sm-6" sv:part="userConfig.dashboard.widgetsLeft">
                 <div sv:placeholder class="widget placeholder"></div>
                 <div ng:repeat="widget in userConfig.dashboard.widgetsLeft" sv:element class="widget">
                     <ng:include src="'/dashboard:resources/partial/widget.html'" />
                 </div>
             </div>
-            <div class="col-md-6" sv:part="userConfig.dashboard.widgetsRight">
+            <div class="col-sm-6" sv:part="userConfig.dashboard.widgetsRight">
                 <div sv:placeholder class="widget placeholder"></div>
                 <div ng:repeat="widget in userConfig.dashboard.widgetsRight" sv:element class="widget">
                     <ng:include src="'/dashboard:resources/partial/widget.html'" />

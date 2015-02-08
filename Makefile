@@ -15,6 +15,9 @@ rundev:
 clean:
 	find | grep \.pyc | xargs rm
 
+check:
+	cd plugins && ajenti-dev-multitool --find-outdated
+
 test:
 	cd e2e && ./run
 

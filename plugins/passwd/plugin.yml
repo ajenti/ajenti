@@ -1,3 +1,8 @@
+name: passwd
+author: Ajenti project
+email: e@ajenti.org
+url: http://ajenti.org
+version: 0.1
 title: 'User DB API'
 icon: cog
 dependencies:

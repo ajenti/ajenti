@@ -10,16 +10,14 @@ python-catcher
 python-daemon<2.0
 requests>=0.12.0
 pyOpenSSL
-Pillow
 gipc
-pyte
 setproctitle
 termcolor
 cookies
 pyyaml
 
 # services
-upstart-dev  # todo: strict version with direct=True support
+#upstart-dev  # todo: strict version with direct=True support
 #dbus # for upstart # todo: pypi package is fucked up, install from pkg mgr
 
 # packages

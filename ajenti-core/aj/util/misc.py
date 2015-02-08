@@ -20,10 +20,10 @@ def platform_select(**values):
         )
 
     """
-    if ajenti.platform_unmapped in values:
-        return values[ajenti.platform_unmapped]
-    if ajenti.platform in values:
-        return values[ajenti.platform]
+    if aj.platform_unmapped in values:
+        return values[aj.platform_unmapped]
+    if aj.platform in values:
+        return values[aj.platform]
     return values.get('default', None)
 
 
@@ -32,7 +32,7 @@ def make_report(e):
     Formats a bug report.
     """
     import platform as _platform
-    from ajenti import platform, platform_unmapped, platform_string, installation_uid, version, debug
+    from aj import platform, platform_unmapped, platform_string, installation_uid, version, debug
 
     tb = traceback.format_exc(e)
     tb = '\n'.join('    ' + x for x in tb.splitlines())
@@ -49,7 +49,7 @@ def make_report(e):
     import greenlet
     import reconfigure
     import psutil
-    from ajenti.plugins import PluginManager
+    from aj.plugins import PluginManager
 
     return """Ajenti bug report
 --------------------
@@ -84,7 +84,7 @@ psutil | %s
         installation_uid,
         debug,
         catcher_url or 'Failed to upload traceback',
-        ', '.join(sorted(PluginManager.get(ajenti.context).get_order())),
+        ', '.join(sorted(PluginManager.get(aj.context).get_order())),
 
         gevent.__version__,
         greenlet.__version__,

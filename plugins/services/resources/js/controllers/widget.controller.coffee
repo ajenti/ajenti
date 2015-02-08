@@ -4,6 +4,12 @@ angular.module('ajenti.services').controller 'ServiceWidgetController', ($scope,
             return
         $scope.service = data
 
+    $scope.runOperation = (o) ->
+        svc =
+            managerId: $scope.widget.config.manager_id
+            id: $scope.widget.config.service_id
+        services.runOperation(svc, o)
+
 
 angular.module('ajenti.services').controller 'ServiceWidgetConfigController', ($scope, services) ->
     $scope.services = []

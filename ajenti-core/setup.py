@@ -3,14 +3,14 @@ from distutils.core import setup
 from setuptools import find_packages
 
 import os
-import ajenticore
+import aj
 
 __requires = filter(None, open('requirements.txt').read().splitlines())
 
 
 setup(
-    name='ajenti-core',
-    version=ajenticore.__version__,
+    name='aj',
+    version=aj.__version__,
     install_requires=__requires,
     description='Web UI base toolkit',
     author='Eugene Pankov',

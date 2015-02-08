@@ -1,3 +1,8 @@
+name: dashboard
+author: Ajenti project
+email: e@ajenti.org
+url: http://ajenti.org
+version: 0.4
 title: 'Dashboard'
 icon: bar-chart
 dependencies:
@@ -7,10 +12,18 @@ resources:
     - 'resources/js/module.coffee'
     - 'resources/js/routing.coffee'
     - 'resources/js/controllers/index.controller.coffee'
+    - 'resources/js/controllers/cpuWidget.controller.coffee'
+    - 'resources/js/controllers/hostnameWidget.controller.coffee'
+    - 'resources/js/controllers/loadAverageWidget.controller.coffee'
+    - 'resources/js/controllers/memoryWidget.controller.coffee'
     - 'resources/js/controllers/uptimeWidget.controller.coffee'
     - 'resources/js/services/dashboard.service.coffee'
     - 'resources/css/styles.less'
     - 'resources/partial/index.html'
     - 'resources/partial/widget.html'
+    - 'resources/partial/widgets/cpu.html'
+    - 'resources/partial/widgets/hostname.html'
+    - 'resources/partial/widgets/loadavg.html'
+    - 'resources/partial/widgets/memory.html'
     - 'resources/partial/widgets/uptime.html'
     - 'ng:ajenti.dashboard'
