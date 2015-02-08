@@ -90,19 +90,13 @@ class Dependency (object):
         def __str__(self):
             return '%s (%s)' % (self.dependency.__class__.__name__, self.reason())
 
-    def satisfied(self):
-        if hasattr(self, '_was_satisfied'):
-            return self._was_satisfied
-        self._was_satisfied = self.is_satisfied()
-        return self._was_satisfied
-
     def build_exception(self):
         exception = self.Unsatisfied()
         exception.dependency = self
         return exception
 
     def check(self):
-        if not self.satisfied():
+        if not self.is_satisfied():
             exception = self.build_exception()
             raise exception
 
@@ -268,11 +262,11 @@ class PluginManager (object):
         logging.debug('Loading plugin "%s"' % name)
         try:
             plugin_info = PluginInfo(**info['info'])
+            self.__plugins[name] = plugin_info
             plugin_info.active = False
             plugin_info.name = name
             plugin_info.crash = None
             plugin_info.path = info['path']
-            self.__plugins[name] = plugin_info
 
             for dependency in plugin_info.dependencies:
                 dependency.check()

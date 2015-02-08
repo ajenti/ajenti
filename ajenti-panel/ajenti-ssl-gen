@@ -17,10 +17,6 @@ config_path = '%s/config.yml' % etcdir
 
 config = yaml.load(open(config_path))
 
-if not config['ssl']['enable']:
-    print 'SSL is not enabled in config.yml'
-    sys.exit(2)
-
 if len(sys.argv) == 2:
     if config['ssl']['certificate']:
         print(':: SSL is already configured')
@@ -43,3 +39,8 @@ cert.sign(key, 'sha1')
 with open(certificate_path, 'w') as f:
     f.write(dump_privatekey(FILETYPE_PEM, key))
     f.write(dump_certificate(FILETYPE_PEM, cert))
+
+
+config['ssl']['enable'] = True
+config['ssl']['certificate'] = certificate_path
+open(config_path, 'w').write(yaml.safe_dump(config, default_flow_style=False, encoding='utf-8', allow_unicode=True))

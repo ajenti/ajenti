@@ -1,2 +1,0 @@
-ajenti-core
-pyyaml

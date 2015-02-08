@@ -133,9 +133,13 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     )
 
     if aj.config.data['ssl']['enable'] and aj.config.data['bind']['mode'] == 'tcp':
-        context = SSL.Context(SSL.TLSv1_METHOD)
+        try:
+            context = SSL.Context(SSL.TLSv1_2_METHOD)
+        except:
+            context = SSL.Context(SSL.TLSv1_METHOD)
         context.set_session_id(str(id(context)))
         context.set_options(SSL.OP_NO_SSLv2 | SSL.OP_NO_SSLv3)
+        context.set_cipher_list('ALL:!ADH:!EXP:!LOW:!RC2:!3DES:!SEED:!RC4:+HIGH:+MEDIUM')
 
         certificate = crypto.load_certificate(
             crypto.FILETYPE_PEM,
@@ -184,7 +188,7 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
             gateway.destroy()
 
         p = psutil.Process(os.getpid())
-        for c in p.get_children(recursive=True):
+        for c in p.children(recursive=True):
             try:
                 os.killpg(c.pid, signal.SIGTERM)
                 os.killpg(c.pid, signal.SIGKILL)

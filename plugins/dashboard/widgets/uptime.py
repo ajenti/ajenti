@@ -17,4 +17,4 @@ class UptimeWidget (Widget):
         Widget.__init__(self, context)
 
     def get_value(self, config):
-        return time.time() - psutil.BOOT_TIME
+        return time.time() - psutil.boot_time()

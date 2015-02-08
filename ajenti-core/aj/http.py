@@ -191,7 +191,7 @@ class HttpContext (object):
         status = self.status
         if type(status) == int:
             status = '%s ' % status
-        self.start_response(status, self.headers)
+        self.start_response(status, [(x.encode('utf-8'), y.encode('utf-8')) for x,y in self.headers])
 
     def respond(self, status):
         """

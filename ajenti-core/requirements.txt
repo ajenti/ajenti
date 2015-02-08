@@ -1,23 +1,20 @@
 # core
-
+cookies
 gevent
 gevent-socketio
 gevent-websocket
+gipc
 lxml>=2.2.4
 passlib
-psutil>=0.6.0
+psutil>=2.2.1
+pyOpenSSL
 python-catcher
 python-daemon<2.0
+pyyaml
 requests>=0.12.0
-pyOpenSSL
-gipc
 setproctitle
 termcolor
-cookies
-pyyaml
-
-# services
-#upstart-dev  # todo: strict version with direct=True support
+setuptools>=12
 #dbus # for upstart # todo: pypi package is fucked up, install from pkg mgr
 
 # packages

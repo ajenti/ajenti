@@ -57,7 +57,7 @@ class ResourcesHandler (HttpPlugin):
                 '''
 
             self.cache[type] = content
-                
+
         http_context.add_header('Content-Type', {
             'css': 'text/css',
             'js': 'application/javascript',
@@ -75,5 +75,4 @@ class ResourcesHandler (HttpPlugin):
             return http_context.respond_not_found()
         mgr = PluginManager.get(aj.context)
         info = mgr[plugin]
-        path = os.path.join(info.location, plugin, path)
-        return http_context.file(path)
+        return http_context.file(mgr.get_content_path(plugin, path))

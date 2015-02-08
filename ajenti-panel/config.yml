@@ -12,4 +12,4 @@ ssl:
     certificates: []
     enable: true
     force: false
-  enable: false
+  enable: true

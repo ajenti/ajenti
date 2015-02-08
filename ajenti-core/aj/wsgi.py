@@ -32,3 +32,7 @@ class RequestHandler (SocketIOHandler):
         response = SocketIOHandler.handle_one_response(self)
         self.server.resource = 'socket.io'
         return response
+
+    def _sendall(self, data):
+        data = str(data) if data else data
+        return SocketIOHandler._sendall(self, data)

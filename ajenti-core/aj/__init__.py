@@ -5,7 +5,9 @@ import random
 import signal
 import subprocess
 
-__version__ = '0.1'
+# imported by installer, no 3rd party imports here!
+
+__version__ = '0.10'
 
 # Global state
 
