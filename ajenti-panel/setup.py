@@ -10,6 +10,25 @@ import subprocess
 import aj
 
 
+def _pre_install (dir):
+    platform = None
+    if os.path.exists('/etc/redhat-release'):
+        platform = 'rhel'
+    if os.path.exists('/etc/debian_version'):
+        platform = 'debian'
+    if not platform:
+        print ' *** Could not detect your distribution!'
+        print ' *** We won\'t be able to install some dependencies automatically.'
+        print ' *** Press Enter if you know what you are doing, press Ctrl-C to abort.'
+        raw_input()
+        return
+
+    if platform == 'rhel':
+        subprocess.call('yum install -y gcc make python-devel libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python', shell=True)
+    if platform == 'rhel':
+        subprocess.call('apt-get install -y build-essential python-dev libxslt1-dev libxml2-dev libffi-dev libssl-dev libjpeg-dev libpng-dev', shell=True)
+
+
 def _post_install (dir):
     config_path = '/etc/ajenti/config.yml'
     if not os.path.exists('/etc/ajenti'):
@@ -37,6 +56,7 @@ ssl:
 
 class install (_install):
     def run(self):
+        self.execute(_pre_install, [self.install_lib], msg='Running pre install script')
         _install.run(self)
         self.execute(_post_install, [self.install_lib], msg='Running post install script')
 

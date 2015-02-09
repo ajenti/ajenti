@@ -60,7 +60,7 @@ class AuthenticationService (BaseHttpHandler):
             enc_pwd = spwd.getspnam(username)[1]
 
             if enc_pwd in ["NP", "!", "", None]:
-                return "user '%s' has no password set" % user
+                return "user '%s' has no password set" % username
             if enc_pwd in ["LK", "*"]:
                 return "account is locked"
             if enc_pwd == "!!":
