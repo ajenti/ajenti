@@ -1,0 +1,52 @@
+<h3><i class="fa fa-{{plugin.icon}}"></i> {{plugin.description}}</h3>
+
+<progress-spinner ng:show="!plugin"></progress-spinner>
+
+<div class="form-horizontal" ng:show="plugin">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <label class="form-control-static">
+                {{plugin.name}}
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <label class="form-control-static">
+                {{plugin.description}}
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Version</label>
+        <div class="col-sm-10">
+            <label class="form-control-static">
+                {{plugin.version}}
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Location</label>
+        <div class="col-sm-10">
+            <label class="form-control-static">
+                {{plugin.path}}
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Author</label>
+        <div class="col-sm-10">
+            <label class="form-control-static">
+                {{plugin.author}}
+                <div ng:show="plugin.author_email">
+                    <span class="subtle">{{plugin.author_email}}</span>
+                </div>
+                <div ng:show="plugin.url">
+                    <a href="{{plugin.url}}" target="_blank">Homepage</a> <i class="fa fa-external-link-square"></i>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

@@ -11,20 +11,22 @@ import sys
 class SSLSocket(object):
     def __init__(self, context, sock=None):
         self._context = context
-        self._socket = sock
+        self.__socket = sock
         self._connection = OpenSSL.SSL.Connection(context, sock)
         self._connection.set_accept_state()
         self._makefile_refs = 0
 
     def __getattr__(self, attr):
-        if attr not in ('_context', '_socket', '_connection', '_makefile_refs'):
+        if attr == '_sock':
+            return self
+        if attr not in ('_context', '_sock', '_connection', '_makefile_refs'):
             return getattr(self._connection, attr)
         else:
             raise AttributeError
 
     def __iowait(self, io_func, *args, **kwargs):
-        timeout = self._socket.gettimeout() or 0.1
-        fd = self._socket.fileno()
+        timeout = self.__socket.gettimeout() or 0.1
+        fd = self.__socket.fileno()
         while True:
             try:
                 return io_func(*args, **kwargs)
@@ -40,15 +42,22 @@ class SSLSocket(object):
                     break
 
     def accept(self):
-        print 'accepting', self._connection, self._connection.accept
-        _, _, _ = select.select([self._socket.fileno()], [], [])
+        _, _, _ = select.select([self.__socket.fileno()], [], [])
         conn, addr = self._connection.accept()
-        print '>', conn
         client = SSLSocket(self._context, connection=conn)
         return client, addr
 
     def connect(self, *args, **kwargs):
         return self.__iowait(self._connection.connect, *args, **kwargs)
+
+    def sendall(self, data, flags=0):
+        try:
+            return self.__iowait(self._connection.sendall, data, flags)
+        except OpenSSL.SSL.SysCallError as e:
+            if e[0] == -1 and not data:
+                # errors when writing empty strings are expected and can be ignored
+                return 0
+            raise
 
     def send(self, data, flags=0):
         try:
@@ -82,8 +91,8 @@ class SSLSocket(object):
     def close(self):
         if self._makefile_refs < 1:
             self._connection = None
-            if self._socket:
-                self._socket.close()
+            if self.__socket:
+                self.__socket.close()
         else:
             self._makefile_refs -= 1
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -27,37 +27,44 @@ if grep 'CentOS' /etc/issue > /dev/null 2>&1 ; then
     DISTRO=centos
 fi
 
+if grep 'CentOS' /etc/os-release > /dev/null 2>&1 ; then
+    OS=rhel
+    DISTRO=centos
+fi
+
 if grep 'Red' /etc/issue > /dev/null 2>&1 ; then
     OS=rhel
     DISTRO=rhel
 fi
 
 if [ ! $OS ] ; then
-    echo Could not detect OS
+    echo "Could not detect OS"
+    echo "Press Enter to continue"
+    read -n1
 fi
 
 
 echo "OS: $OS"
 echo "Distro: $DISTRO"
 
-if [ $OS == "rhel" ] ; then
+if [ "$OS" == "rhel" ] ; then
     echo Installing prerequisites
     yum install -y gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python || exit 1
 fi
 
-if [ $OS == "debian" ] ; then
+if [ "$OS" == "debian" ] ; then
     echo Installing prerequisites
     apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev python-dbus || exit 1
 fi
 
-echo Installing Ajenti
+echo "Installing Ajenti"
 
 pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.notepad ajenti.plugin.services ajenti.plugin.filemanager ajenti.plugin.terminal ajenti.plugin.packages
 
-echo Installing initscript
+echo "Installing initscript"
 
 if [ -e /etc/init ] ; then
-    cat << EOF
+    cat << EOF > /etc/init/ajenti-panel.conf
 description     "Ajenti panel"
 
 start on runlevel [2345]
@@ -69,13 +76,13 @@ respawn limit 10 5
 expect fork
 
 exec /usr/bin/ajenti-panel -d
-EOF > /etc/init/ajenti-panel.conf
+EOF
     service ajenti-panel start
 
 else
     if [ -e /lib/systemd/system ] ; then
         INITSCRIPT=/etc/init.d/ajenti-panel
-        cat << EOF
+        cat << EOF > /lib/systemd/system/ajenti-panel.service
 [Unit]
 Description=Ajenti panel
 After=network.target
@@ -85,10 +92,11 @@ Type=forking
 PIDFile=/var/run/ajenti.pid
 ExecStart=/usr/bin/ajenti-panel -d
 WantedBy=multi-user.target
-EOF > /lib/systemd/system/ajenti-panel.service
+EOF
+        systemctl daemon-reload
         systemctl start ajenti-panel
     else
-        cat << EOF
+        cat << EOF > $INITSCRIPT
 #!/bin/sh
 
 ### BEGIN INIT INFO
@@ -172,7 +180,7 @@ case "$1" in
 esac
 
 exit 0
-EOF > $INITSCRIPT
+EOF
         $INITSCRIPT start
     fi
 fi
