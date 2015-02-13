@@ -75,7 +75,7 @@ respawn limit 10 5
 
 expect fork
 
-exec /usr/bin/ajenti-panel -d
+exec /usr/local/bin/ajenti-panel -d
 EOF
     service ajenti-panel start
 

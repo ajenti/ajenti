@@ -7,7 +7,7 @@ import subprocess
 
 # imported by installer, no 3rd party imports here!
 
-__version__ = '0.12'
+__version__ = '0.15'
 
 # Global state
 
@@ -54,6 +54,7 @@ __all__ = [
 
 
 def detect_version():
+    import traceback; traceback.print_stack()
     p = subprocess.Popen(
         'git describe --tags 2> /dev/null',
         shell=True,

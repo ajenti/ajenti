@@ -26,7 +26,7 @@
 <progress-spinner ng:show="repoList == null"></progress-spinner>
 
 <div class="list-group">
-    <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoList|orderBy:'title'" ng:hideeee="isInstalled(plugin)"> <!--TODO-->
+    <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoList|orderBy:'title'" ng:hide="isInstalled(plugin)">
         <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install">
             <i class="fa fa-download"></i>
         </a>

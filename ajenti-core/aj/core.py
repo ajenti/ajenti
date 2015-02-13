@@ -259,7 +259,8 @@ def start(daemonize=False, log_level=logging.INFO, **kwargs):
             pidfile=PidFile('/var/run/ajenti.pid'),
             stdout=logfile,
             stderr=logfile,
-            detach_process=True
+            detach_process=True,
+            files_preserve=range(1024), # force-closing files breaks gevent badly
         )
         with context:
             gevent.reinit()
