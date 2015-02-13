@@ -59,7 +59,7 @@ fi
 
 echo "Installing Ajenti"
 
-pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.notepad ajenti.plugin.services ajenti.plugin.filemanager ajenti.plugin.terminal ajenti.plugin.packages
+pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
 
 echo "Installing initscript"
 
