@@ -53,6 +53,7 @@ resources:
     - 'resources/js/core/directives/rootAccess.coffee'
     - 'resources/js/core/directives/sidebar.coffee'
     - 'resources/js/core/directives/smartProgress.coffee'
+    - 'resources/js/core/services/core.service.coffee'
     - 'resources/js/core/services/hotkeys.service.coffee'
     - 'resources/js/core/services/identity.service.coffee'
     - 'resources/js/core/services/messagebox.service.coffee'

@@ -6,7 +6,12 @@ angular.module('core').service 'messagebox', ($timeout, $q) ->
         options.visible = true
         options.q = q
         @messages.push options
-        return q.promise
+        return {
+            then: (f) -> q.promise.then(f)
+            catch: (f) -> q.promise.catch(f)
+            finally: (f) -> q.promise.finally(f)
+            close: () => @close(options)
+        }
 
     @close = (msg) ->
         msg.visible = false

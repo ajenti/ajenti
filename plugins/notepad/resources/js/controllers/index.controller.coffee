@@ -1,4 +1,4 @@
-angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, urlPrefix) -> 
+angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, urlPrefix) ->
     pageTitle.set('')
 
     $scope.newFile = () ->
@@ -7,7 +7,7 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
                 return
         $scope.path = null
         $scope.content = ''
-    
+
     $scope.showOpenDialog = () ->
         $scope.openDialogVisible = true
 
@@ -20,7 +20,7 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
         $scope.openDialogVisible = false
         $scope.path = path
         pageTitle.set(path)
-    
+
         filesystem.read($scope.path).then (content) ->
             $scope.content = content
             $scope.$broadcast 'ace:reload', $scope.path

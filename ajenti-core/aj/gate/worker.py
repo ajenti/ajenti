@@ -112,6 +112,11 @@ class Worker (object):
             'type': 'terminate',
         })
 
+    def restart_master(self):
+        self.send_to_upstream({
+            'type': 'restart-master',
+        })
+
     def handle_http_request(self, rq):
         response_object = {
             'type': 'http',

@@ -53,6 +53,7 @@ class Handler (HttpPlugin):
         return content
 
 
+#TODO remove
 from aj.plugins.core.api.tasks import Task, TasksService
 
 class MyTask (Task):

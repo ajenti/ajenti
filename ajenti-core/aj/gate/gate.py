@@ -4,6 +4,7 @@ import logging
 import os
 import signal
 
+import aj
 from aj.gate.stream import *
 from aj.gate.worker import *
 from aj.util import BroadcastQueue
@@ -72,6 +73,8 @@ class WorkerGate (object):
                     self.q_http_replies.broadcast(resp)
                 if resp.object['type'] == 'terminate':
                     self.session.deactivate()
+                if resp.object['type'] == 'restart-master':
+                    aj.restart()
         except greenlet.GreenletExit:
             pass
 

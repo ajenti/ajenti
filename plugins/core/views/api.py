@@ -122,3 +122,9 @@ class Handler (HttpPlugin):
         return {
             'sidebar': Sidebar.get(self.context).build(),
         }
+
+    @url('/api/core/restart-master')
+    @endpoint(api=True)
+    def handle_api_restart_master(self, http_context):
+        self.context.worker.restart_master()
+

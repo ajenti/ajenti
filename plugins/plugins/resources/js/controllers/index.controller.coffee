@@ -1,5 +1,8 @@
-angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $http, notify, pageTitle, identity) ->
+angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $http, notify, pageTitle, messagebox, core) ->
     pageTitle.set('Plugins')
+
+    $scope.selectedInstalledPlugin = null
+    $scope.selectedRepoPlugin = null
 
     $scope.refresh = () ->
         $http.get('/api/plugins/list/installed').success (data) ->
@@ -24,7 +27,7 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
         return false
 
     $scope.isUpgradeable = (plugin) ->
-        if not $scope.repoList
+        if not $scope.repoList or not plugin
             return false
         for p in $scope.repoList
             if p.name == plugin.name and p.version != plugin.version
@@ -32,18 +35,31 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
         return false
 
     $scope.installPlugin = (plugin) ->
-        notify.info 'Installing...'
+        $scope.selectedRepoPlugin = null
+        $scope.selectedInstalledPlugin = null
+        msg = messagebox.show progress: true, title: 'Installing'
         $http.get("/api/plugins/pypi/install/#{plugin.name}").success () ->
-            notify.success 'Installed', 'Don\'t forget to restart Ajenti!'
             $scope.refresh()
+            messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                $scope.restart()
         .error (err) ->
             notify.error 'Install failed', err.message
+        .finally () ->
+            msg.close()
 
     $scope.uninstallPlugin = (plugin) ->
-        notify.info 'Uninstalling...'
-        if confirm("Uninstall #{plugin.name}?")
+        $scope.selectedRepoPlugin = null
+        $scope.selectedInstalledPlugin = null
+        messagebox.show(title: 'Uninstall', text: "Uninstall #{plugin.name}?", positive: 'Uninstall', negative: 'Cancel').then () ->
+            msg = messagebox.show progress: true, title: 'Uninstalling'
             $http.get("/api/plugins/pypi/uninstall/#{plugin.name}").success () ->
-                notify.success 'Uninstalled', 'Don\'t forget to restart Ajenti!'
                 $scope.refresh()
+                messagebox.show(title: 'Done', text: 'Uninstalled. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                    $scope.restart()
             .error (err) ->
                 notify.error 'Uninstall failed', err.message
+            .finally () ->
+                msg.close()
+
+    $scope.restart = () ->
+        core.restart()

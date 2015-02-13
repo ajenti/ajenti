@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, filesystem, pageTitle, urlPrefix, tasks, $upload) ->
+angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, filesystem, pageTitle, urlPrefix, tasks, messagebox, $upload) ->
     pageTitle.set('path', $scope)
     $scope.loading = false
     $scope.newDirectoryDialogVisible = false
@@ -72,7 +72,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         $scope.clearSelection()
 
     $scope.doDelete = () ->
-        if confirm('Delete selected items?')
+        messagebox.show(text: 'Delete selected items?', positive: 'Delete', negative: 'Cancel').then () ->
             items = (item for item in $scope.items when item.selected)
             tasks.start('aj.plugins.filesystem.tasks.Delete', [], items: items)
             $scope.clearSelection()

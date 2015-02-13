@@ -3,15 +3,15 @@
 <progress-spinner ng:show="installedPlugins == null"></progress-spinner>
 
 <div class="list-group">
-    <div class="list-group-item list-group-item-small" ng:repeat="plugin in installedPlugins|orderBy:'description'">
+    <div class="list-group-item list-group-item-small" ng:repeat="plugin in installedPlugins|orderBy:'title'">
         <a ng:click="uninstallPlugin(plugin)" class="list-group-btn" title="Uninstall" ng:show="pypiList && pypiList[plugin.name]">
             <i class="fa fa-trash-o"></i>
         </a>
         <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Upgrade" ng:show="isUpgradeable(plugin)">
             <i class="fa fa-arrow-up"></i>
         </a>
-        <a href="{{urlPrefix}}/view/plugins/installed/{{plugin.name}}" class="list-group-main">
-            <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.description}}
+        <a ng:click="$parent.selectedInstalledPlugin = plugin" class="list-group-main">
+            <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.title}}
             &nbsp;
             <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
             &nbsp;
@@ -26,14 +26,134 @@
 <progress-spinner ng:show="repoList == null"></progress-spinner>
 
 <div class="list-group">
-    <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoList|orderBy:'description'" ng:hide="isInstalled(plugin)">
+    <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoList|orderBy:'title'" ng:hideeee="isInstalled(plugin)"> <!--TODO-->
         <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install">
             <i class="fa fa-download"></i>
         </a>
-        <a href="{{urlPrefix}}/view/plugins/repo/{{plugin.name}}" class="list-group-main">
-            <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.description}}
+        <a ng:click="$parent.selectedRepoPlugin = plugin" class="list-group-main">
+            <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.title}}
             &nbsp;
             <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
         </a>
     </div>
 </div>
+
+
+<dialog ng:show="selectedInstalledPlugin">
+    <div class="modal-header">
+        <h4><i class="fa fa-{{selectedInstalledPlugin.icon}}"></i> {{selectedInstalledPlugin.title}}</h4>
+    </div>
+    <div class="modal-body scrollable">
+        <div class="form-group">
+            <label>Name</label>
+            <div>
+                {{selectedInstalledPlugin.name}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Title</label>
+            <div>
+                {{selectedInstalledPlugin.title}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Version</label>
+            <div>
+                {{selectedInstalledPlugin.version}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <div>
+                {{selectedInstalledPlugin.path}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <div>
+                {{selectedInstalledPlugin.author}}
+                <div ng:show="selectedInstalledPlugin.author_email">
+                    <span class="subtle">{{selectedInstalledPlugin.author_email}}</span>
+                </div>
+                <div ng:show="selectedInstalledPlugin.url">
+                    <a href="{{selectedInstalledPlugin.url}}" target="_blank">Homepage</a> <i class="fa fa-external-link-square"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a ng:click="installPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="isUpgradeable(selectedInstalledPlugin)">
+            Upgrade
+        </a>
+        <a ng:click="uninstallPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="pypiList && pypiList[selectedInstalledPlugin.name]">
+            Uninstall
+        </a>
+        <a ng:click="$parent.selectedInstalledPlugin = null" class="btn btn-default btn-flat">
+            Close
+        </a>
+    </div>
+</dialog>
+
+<dialog ng:show="selectedRepoPlugin">
+    <div class="modal-header">
+        <h4>{{selectedRepoPlugin.title}}</h4>
+    </div>
+    <div class="modal-body scrollable">
+        <div class="form-group">
+            <label>Name</label>
+            <div>
+                {{selectedRepoPlugin.name}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Title</label>
+            <div>
+                {{selectedRepoPlugin.title}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Version</label>
+            <div>
+                {{selectedRepoPlugin.version}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>PyPI ID</label>
+            <div>
+                {{selectedRepoPlugin.pypi_name}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Downloads in the last month</label>
+            <div>
+                {{selectedRepoPlugin.last_month_downloads}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <div>
+                {{selectedRepoPlugin.author}}
+                <div ng:show="selectedRepoPlugin.author_email">
+                    <span class="subtle">{{selectedRepoPlugin.author_email}}</span>
+                </div>
+                <div ng:show="selectedRepoPlugin.url">
+                    <a href="{{selectedRepoPlugin.url}}" target="_blank">Homepage</a> <i class="fa fa-external-link-square"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a ng:click="installPlugin(selectedRepoPlugin)" class="btn btn-default btn-flat">
+            Install
+        </a>
+        <a ng:click="$parent.selectedRepoPlugin = null" class="btn btn-default btn-flat">
+            Close
+        </a>
+    </div>
+</dialog>
+
+<div class="floating-toolbar-padder"></div>
+
+<floating-toolbar>
+    <a ng:click="restart()" class="btn btn-default btn-flat">Restart panel</a>
+</floating-toolbar>

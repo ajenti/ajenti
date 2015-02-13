@@ -30,7 +30,7 @@ class Handler (HttpPlugin):
                 'url': plugin.url,
                 'icon': plugin.icon,
                 'version': plugin.version,
-                'description': plugin.title,
+                'title': plugin.title,
             })
         return r
 

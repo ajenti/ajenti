@@ -194,11 +194,14 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
                 os.killpg(c.pid, signal.SIGKILL)
             except OSError:
                 pass
+
+    def signal_handler():
+        cleanup()
         sys.exit(0)
 
     try:
-        gevent.signal(signal.SIGINT, cleanup)
-        gevent.signal(signal.SIGTERM, cleanup)
+        gevent.signal(signal.SIGINT, signal_handler)
+        gevent.signal(signal.SIGTERM, signal_handler)
     except:
         pass
 
@@ -223,10 +226,12 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
                 pass
             fd -= 1
 
+        logging.warn('Will restart the process now')
         os.execv(sys.argv[0], sys.argv)
     else:
         if aj.master:
             logging.debug('Server stopped')
+            cleanup()
 
 
 def handle_crash(exc):

@@ -7,6 +7,9 @@ angular.module('core').directive 'messageboxContainer', (messagebox) ->
                     <h4>{{message.title}}</h4>
                 </div>
                 <div class="modal-body" ng:class="{scrollable: message.scrollable}">
+                    <div ng:show="message.progress">
+                        <progress-spinner></progress-spinner>
+                    </div>
                     {{message.text}}
                 </div>
                 <div class="modal-footer">
