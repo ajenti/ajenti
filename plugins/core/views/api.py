@@ -13,6 +13,7 @@ from aj.auth import AuthenticationService, SudoError
 
 from aj.plugins.core.api.endpoint import endpoint
 from aj.plugins.core.api.sidebar import Sidebar
+from aj.plugins.core.api.navbox import Navbox
 
 
 @component(HttpPlugin)
@@ -122,6 +123,11 @@ class Handler (HttpPlugin):
         return {
             'sidebar': Sidebar.get(self.context).build(),
         }
+
+    @url('/api/core/navbox/(?P<query>.+)')
+    @endpoint(api=True)
+    def handle_api_navbox(self, http_context, query=None):
+        return Navbox.get(self.context).search(query)
 
     @url('/api/core/restart-master')
     @endpoint(api=True)

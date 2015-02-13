@@ -17,17 +17,16 @@
     </head>
     <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}}">
         <div class="row" ng:hide="appReady">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
                 <br/><br/><br/><br/>
                 <smart-progress text="Loading"></smart-progress>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-xs-4"></div>
         </div>
 
         <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady">
             <div class="container">
-
                 <a ng:click="toggleNavigation()" ng:show="navigationPresent" class="navbar-brand navigation-toggle hide-phone hide-tablet">
                     <i class="fa fa-navicon"></i>
                 </a>
@@ -100,6 +99,21 @@
         <toaster-container></toaster-container>
 
         <messagebox-container></messagebox-container>
+
+        <div ng:controller="CoreNavboxController">
+            <div class="navbox-overlay" ng:if="visible">
+                <div class="navbox-box">
+                    <input ng:model="$parent.query" ng:model-options="{debounce: 500}" ng:keyup="onSearchboxKeyUp($event)" ng:keydown="onSearchboxKeyDown($event)" type="search" autofocus class="form-control" placeholder="Quick search" />
+                    <div class="list-group">
+                        <a ng:repeat="result in results|rankMatch:'title':query" href="{{result.url}}" ng:click="open(result)" class="list-group-item">
+                            <code class="navbox-hotkey pull-right" ng:if="$index < 10 && $index > 0">Shift - {{$index}}</code>
+                            <code class="navbox-hotkey pull-right" ng:if="$index == 0">Enter</code>
+                            <i class="fa fa-fw fa-{{result.icon}}"></i> {{result.title}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             angular.module('core').constant('urlPrefix', '%(prefix)s');

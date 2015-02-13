@@ -16,4 +16,3 @@ angular.module('core').directive 'coreSidebar', ($http, $log) ->
             .error () ->
                 $log.error 'Error loading sidebar'
     }
-    

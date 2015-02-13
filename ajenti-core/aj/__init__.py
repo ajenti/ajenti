@@ -54,7 +54,6 @@ __all__ = [
 
 
 def detect_version():
-    import traceback; traceback.print_stack()
     p = subprocess.Popen(
         'git describe --tags 2> /dev/null',
         shell=True,
