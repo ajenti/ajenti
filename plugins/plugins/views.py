@@ -1,6 +1,5 @@
-import json
+import requests
 import subprocess
-import urllib3
 
 import aj
 from aj.api import *
@@ -49,23 +48,47 @@ class Handler (HttpPlugin):
                         r[name] = package
         return r
 
-    @url(r'/api/plugins/pypi/install/(?P<name>.+)')
+    @url(r'/api/plugins/pypi/install/(?P<name>.+)/(?P<version>.+)')
     @endpoint(api=True)
-    def handle_api_pypi_install(self, http_context, name=None):
-        if subprocess.call(['pip', 'install', '-U', 'ajenti.plugin.%s' % name]) != 0:
-            raise EndpointError('PIP returned error')
+    def handle_api_pypi_install(self, http_context, name=None, version=None):
+        try:
+            subprocess.call(['pip', 'install', 'ajenti.plugin.%s==%s' % (name, version)])
+        except subprocess.CalledProcessError as e:
+            raise EndpointError(e.output)
 
     @url(r'/api/plugins/pypi/uninstall/(?P<name>.+)')
     @endpoint(api=True)
     def handle_api_pypi_uninstall(self, http_context, name=None):
-        if subprocess.call(['pip', 'uninstall', '-y', 'ajenti.plugin.%s' % name]) != 0:
-            raise EndpointError('PIP returned error')
+        try:
+            subprocess.check_output(['pip', 'uninstall', '-y', 'ajenti.plugin.%s' % name])
+        except subprocess.CalledProcessError as e:
+            raise EndpointError(e.output)
 
     @url(r'/api/plugins/repo/list')
     @endpoint(api=True)
     def handle_api_repo_list(self, http_context):
         try:
-            http = urllib3.PoolManager()
-            return json.loads(http.request('GET', 'http://ajenti.org/plugins/list').data)
+            return requests.get('http://ajenti.org/plugins/list').json()
         except Exception as e:
             raise EndpointError(e)
+
+    @url(r'/api/plugins/core/check-upgrade')
+    @endpoint(api=True)
+    def handle_api_core_check_upgrade(self, http_context):
+        url = 'https://pypi.python.org/pypi/%s/json' % 'ajenti-panel'
+        try:
+            data = requests.get(url).json()
+        except Exception as e:
+            raise EndpointError(e)
+        version = data['info']['version']
+        if version != aj.version:
+            return version
+        return None
+
+    @url(r'/api/plugins/core/upgrade/(?P<version>.+)')
+    @endpoint(api=True)
+    def handle_api_core_upgrade(self, http_context, version=None):
+        try:
+            subprocess.check_output(['pip', 'install', 'ajenti-panel==%s' % version])
+        except subprocess.CalledProcessError as e:
+            raise EndpointError(e.output)

@@ -1,4 +1,3 @@
-import catcher
 import logging
 import subprocess
 import traceback
@@ -31,6 +30,7 @@ def make_report(e):
     """
     Formats a bug report.
     """
+    import catcher
     import platform as _platform
     from aj import platform, platform_unmapped, platform_string, installation_uid, version, debug
 

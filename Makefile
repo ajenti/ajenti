@@ -18,11 +18,11 @@ clean:
 check:
 	cd plugins && ajenti-dev-multitool --find-outdated
 
-upload:
+upload: build
 	cd ajenti-core && ./setup.py sdist upload
 	cd ajenti-panel && ./setup.py sdist upload
 
-upload-plugins:
+upload-plugins: build
 	cd plugins && ajenti-dev-multitool --setuppy 'sdist upload'
 
 test:

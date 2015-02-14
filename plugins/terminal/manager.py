@@ -1,5 +1,7 @@
+from aj.util import LazyModule
+
 import logging
-import uuid
+uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
 
 from aj.api import *
 

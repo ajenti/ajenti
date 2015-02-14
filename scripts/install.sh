@@ -73,7 +73,7 @@ stop on runlevel [!2345]
 respawn
 respawn limit 10 5
 
-expect fork
+expect daemon
 
 exec /usr/local/bin/ajenti-panel -d
 EOF

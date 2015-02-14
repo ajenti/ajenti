@@ -1,3 +1,5 @@
+from aj.util import LazyModule
+
 import gipc
 import logging
 import sys
@@ -7,7 +9,7 @@ import traceback
 import os
 import setproctitle
 import signal
-import uuid
+uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
 
 from aj.api import *
 from aj.log import set_log_params

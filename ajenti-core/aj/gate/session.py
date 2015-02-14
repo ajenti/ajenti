@@ -1,4 +1,6 @@
-import uuid
+from aj.util import LazyModule
+
+uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
 import time
 import logging
 from cookies import Cookie, Cookies
