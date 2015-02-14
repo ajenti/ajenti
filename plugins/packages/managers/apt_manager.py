@@ -28,7 +28,7 @@ class APTPackageManager (PackageManager):
             p.is_upgradeable = p.installed_version != p.version
         return p
 
-    def list(self):
+    def list(self, query=None):
         for id in self.cache.keys():
             yield self.__make_package(self.cache[id])
 

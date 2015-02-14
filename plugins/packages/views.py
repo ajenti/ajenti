@@ -45,7 +45,7 @@ class Handler (HttpPlugin):
         query = query.lower().strip()
         return [
             self.__package_to_json(package)
-            for package in self.managers[manager_id].list()
+            for package in self.managers[manager_id].list(query=query)
             if query in package.id or query in package.name
         ]
 

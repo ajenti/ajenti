@@ -7,7 +7,7 @@ from aj.api import *
 from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager
 
-from aj.plugins.core.api.endpoint import endpoint
+from aj.plugins.core.api.endpoint import endpoint, EndpointError
 
 
 @component(HttpPlugin)
@@ -53,16 +53,19 @@ class Handler (HttpPlugin):
     @endpoint(api=True)
     def handle_api_pypi_install(self, http_context, name=None):
         if subprocess.call(['pip', 'install', '-U', 'ajenti.plugin.%s' % name]) != 0:
-            raise Exception('PIP returned error')
+            raise EndpointError('PIP returned error')
 
     @url(r'/api/plugins/pypi/uninstall/(?P<name>.+)')
     @endpoint(api=True)
     def handle_api_pypi_uninstall(self, http_context, name=None):
         if subprocess.call(['pip', 'uninstall', '-y', 'ajenti.plugin.%s' % name]) != 0:
-            raise Exception('PIP returned error')
+            raise EndpointError('PIP returned error')
 
     @url(r'/api/plugins/repo/list')
     @endpoint(api=True)
     def handle_api_repo_list(self, http_context):
-        http = urllib3.PoolManager()
-        return json.loads(http.request('GET', 'http://ajenti.org/plugins/list').data)
+        try:
+            http = urllib3.PoolManager()
+            return json.loads(http.request('GET', 'http://ajenti.org/plugins/list').data)
+        except Exception as e:
+            raise EndpointError(e)

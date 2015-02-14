@@ -67,5 +67,6 @@ resources:
     - 'resources/partial/login.html'
     - 'resources/partial/sidebarItem.html'
     - 'resources/partial/sidebarTasks.html'
+    - 'resources/partial/serverErrorMessage.html'
     - 'ng:core'
     - 'ng:core.templates'

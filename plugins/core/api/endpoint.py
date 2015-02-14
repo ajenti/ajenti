@@ -6,9 +6,13 @@ import traceback
 
 
 class EndpointError (Exception):
-    def __init__(self, inner, message):
+    def __init__(self, inner, message=None):
         self.inner = inner
-        self.message = message
+        self.message = message or unicode(inner)
+        try:
+            self.traceback_str = traceback.format_exc()
+        except:
+            self.traceback_str = None
 
     def __unicode__(self):
         return self.message
@@ -28,8 +32,18 @@ def endpoint(page=False, api=False, file=False, auth=True):
                 result = fx(self, context, *args, **kwargs)
                 if page:
                     return result
+            except EndpointError as e:
+                logging.warn('Endpoint error at %s: %s' % (context.path, e.message))
+                if page:
+                    raise
+                status = 500
+                result = {
+                    'message': unicode(e.message),
+                    'exception': unicode(e.__class__.__name__),
+                    'traceback': unicode(e.traceback_str),
+                }
             except Exception as e:
-                logging.error('Endpoint error at %s' % context.path)
+                logging.error('Unhandled endpoint error at %s' % context.path)
                 traceback.print_exc()
                 if page:
                     raise

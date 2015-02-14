@@ -28,7 +28,7 @@ class YUMPackageManager (PackageManager):
             p.is_upgradeable = p.installed_version != p.version
         return p
 
-    def list(self):
+    def list(self, query=None):
         for pkg in self.yum.pkgSack.returnPackages():
             yield self.__make_package(pkg)
 

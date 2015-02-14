@@ -1,0 +1,31 @@
+<div class="alert alert-danger">
+    <i class="fa fa-warning"></i> Server error occured. This is likely a bug.
+</div>
+
+<div class="form-group">
+    <label>Request</label>
+    <div>
+        <strong>{{message.data.config.method}}</strong> {{message.data.config.url}}
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Type</label>
+    <div>
+        {{message.data.data.exception}}
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Message</label>
+    <div>
+        {{message.data.data.message}}
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Traceback</label>
+    <div>
+        <pre>{{message.data.data.traceback}}</pre>
+    </div>
+</div>

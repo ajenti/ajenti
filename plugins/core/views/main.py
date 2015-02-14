@@ -21,6 +21,11 @@ class Handler (HttpPlugin):
     def handle_root(self, http_context):
         return http_context.redirect('/view/')
 
+    @url('/boom')
+    @endpoint(api=True, auth=False)
+    def handle_root(self, http_context):
+        raise Exception('Boom')
+
     @url('/view/.*')
     @endpoint(page=True, auth=False)
     def handle_view(self, http_context):

@@ -145,7 +145,7 @@ class GateMiddleware (object):
         }
 
         try:
-            timeout = 30
+            timeout = 60
             with Timeout(timeout) as t:
                 q = session.gate.q_http_replies.register()
                 rq = session.gate.stream.send(request_object)

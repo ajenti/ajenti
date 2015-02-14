@@ -11,5 +11,8 @@ angular.module('core').controller 'CoreIndexController', ($scope, $location, $ht
         tasks.start 'aj.plugins.core.views.main.MyTask', ['arg'], {kw:'arg'}
         socket.send('core', 'test message')
 
+    $scope.boom = () ->
+        $http.get('/boom')
+
     $scope.$on 'socket:core', ($event, data) ->
         console.log data

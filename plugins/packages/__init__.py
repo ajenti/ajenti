@@ -12,3 +12,5 @@ try:
     import managers.yum_manager
 except ImportError:
     pass
+
+import managers.pip_manager

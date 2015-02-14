@@ -7,14 +7,15 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
     $scope.refresh = () ->
         $http.get('/api/plugins/list/installed').success (data) ->
             $scope.installedPlugins = data
+            $http.get('/api/plugins/repo/list').success (data) ->
+                $scope.repoList = data
+                $scope.notInstalledRepoList = (x for x in $scope.repoList when !$scope.isInstalled(x))
+            .error (err) ->
+                notify.error 'Could not load plugin repository', err.message
         .error (err) ->
             notify.error 'Could not installed plugin list', err.message
         $http.get('/api/plugins/pypi/list').success (data) ->
             $scope.pypiList = data
-        $http.get('/api/plugins/repo/list').success (data) ->
-            $scope.repoList = data
-        .error (err) ->
-            notify.error 'Could not load plugin repository', err.message
 
     $scope.refresh()
 

@@ -11,6 +11,7 @@ angular.module('core').directive 'messageboxContainer', (messagebox) ->
                         <progress-spinner></progress-spinner>
                     </div>
                     {{message.text}}
+                    <ng:include ng:if="message.template" src="message.template"></ng:include>
                 </div>
                 <div class="modal-footer">
                     <a ng:click="doPositive(message)" ng:show="message.positive" class="btn btn-default btn-flat">{{message.positive}}</a>

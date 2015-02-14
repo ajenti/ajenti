@@ -22,7 +22,7 @@ class PackageManager (object):
     def __init__(self, context):
         self.context = context
 
-    def list(self):
+    def list(self, query=None):
         raise NotImplementedError
 
     def get(self, id):
