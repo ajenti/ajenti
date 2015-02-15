@@ -20,6 +20,7 @@ angular.module('ajenti.terminal').service 'terminals', ($http, $q) ->
         return q.promise
 
     @create = (options) ->
+        options ?= {}
         q = $q.defer()
         $http.post("/api/terminal/create", options).success (data) ->
             q.resolve(data)

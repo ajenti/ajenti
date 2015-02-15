@@ -35,11 +35,9 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     $scope.$on '$routeChangeSuccess', () ->
         $scope.toggleOverlayNavigation(false)
 
-    $rootScope.appReady = false
-    $q.all([
-        identity.promise,
-    ]).then () ->
-        $rootScope.appReady = true
+    $rootScope.appReady = true
+    identity.init()
+    identity.promise.then () ->
         console.log 'Ready!'
     .catch () ->
         console.error 'Failed'

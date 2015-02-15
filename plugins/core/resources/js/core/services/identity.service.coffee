@@ -12,8 +12,6 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
         .error () ->
             q.reject()
 
-    @init()
-
     @auth = (username, password, mode) ->
         q = $q.defer()
 

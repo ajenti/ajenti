@@ -184,8 +184,6 @@ class HttpContext (object):
 
     def run_response(self):
         if not self.response_ready:
-            import traceback;traceback.print_stack()
-            print dir(self), self.env, self.path
             raise Exception('Response not created yet!')
 
         status = self.status

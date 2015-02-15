@@ -77,7 +77,7 @@ def init_console(log_level=logging.INFO):
     stdout = ConsoleHandler(sys.stdout)
     stdout.setLevel(log_level)
 
-    dformatter = logging.Formatter('%(asctime)s %(levelname)-8s %(module)s.%(funcName)s(): %(message)s')
+    dformatter = logging.Formatter('%(asctime)s %(levelname)-8s [%(process)-5d]: %(message)s')
     stdout.setFormatter(dformatter)
     log.handlers = [stdout]
 

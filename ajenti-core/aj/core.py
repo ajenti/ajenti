@@ -227,6 +227,8 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
             fd -= 1
 
         logging.warn('Will restart the process now')
+        if '-d' in sys.argv:
+            sys.argv.remove('-d')
         os.execv(sys.argv[0], sys.argv)
     else:
         if aj.master:

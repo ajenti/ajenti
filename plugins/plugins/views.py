@@ -51,6 +51,7 @@ class Handler (HttpPlugin):
     @url(r'/api/plugins/pypi/install/(?P<name>.+)/(?P<version>.+)')
     @endpoint(api=True)
     def handle_api_pypi_install(self, http_context, name=None, version=None):
+        # TODO replaced with a task
         try:
             subprocess.call(['pip', 'install', 'ajenti.plugin.%s==%s' % (name, version)])
         except subprocess.CalledProcessError as e:

@@ -59,6 +59,7 @@ fi
 
 echo "Installing Ajenti"
 
+#TODO install pip >= 6, setuptools >= 0.6rc11
 pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
 
 echo "Installing initscript"
@@ -75,9 +76,9 @@ respawn limit 10 5
 
 expect daemon
 
-exec /usr/local/bin/ajenti-panel -d
+exec $(which ajenti-panel) -d
 EOF
-    service ajenti-panel start
+    start ajenti-panel
 
 else
     if [ -e /lib/systemd/system ] ; then
@@ -90,7 +91,9 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/var/run/ajenti.pid
-ExecStart=/usr/bin/ajenti-panel -d
+ExecStart=$(which ajenti-panel) -d
+
+[Install]
 WantedBy=multi-user.target
 EOF
         systemctl daemon-reload
@@ -136,7 +139,7 @@ else
 fi
 
 NAME=Ajenti
-DAEMON=/usr/bin/ajenti-panel
+DAEMON=$(which ajenti-panel)
 PIDFILE=/var/run/ajenti.pid
 
 case "$1" in

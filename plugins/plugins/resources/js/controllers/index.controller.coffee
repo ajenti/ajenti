@@ -1,4 +1,4 @@
-angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $http, notify, pageTitle, messagebox, core) ->
+angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $http, notify, pageTitle, messagebox, tasks, core) ->
     pageTitle.set('Plugins')
 
     $scope.selectedInstalledPlugin = null
@@ -48,25 +48,28 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                 return p
         return null
 
-    $scope.installPlugin = (plugin) ->
-        $scope.selectedRepoPlugin = null
-        $scope.selectedInstalledPlugin = null
-        msg = messagebox.show progress: true, title: 'Installing'
-        $http.get("/api/plugins/pypi/install/#{plugin.name}/#{plugin.version}").success () ->
+    $scope.$on 'push:plugins', ($event, msg) ->
+        if msg == 'install-done'
             $scope.refresh()
             messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
                 core.forceRestart()
-        .error (err) ->
+            $scope.installProgressMessage.close()
+        if msg == 'install-error'
             notify.error 'Install failed', err.message
-        .finally () ->
-            msg.close()
+            $scope.installProgressMessage.close()
+
+    $scope.installPlugin = (plugin) ->
+        $scope.selectedRepoPlugin = null
+        $scope.selectedInstalledPlugin = null
+        $scope.installProgressMessage = messagebox.show progress: true, title: 'Installing'
+        tasks.start('aj.plugins.plugins.tasks.InstallPlugin', [], name: plugin.name, version: plugin.version)
 
     $scope.uninstallPlugin = (plugin) ->
-        if plugin.name in ['plugins', 'settings']
+        if plugin.name == 'plugins'
             messagebox.show(title: 'Warning', text: 'This will remove the Plugins plugin. You can reinstall it later using PIP.', positive: 'Continue', negative: 'Cancel').then () ->
-                doUninstallPlugin(plugin)
+                $scope.doUninstallPlugin(plugin)
         else
-            doUninstallPlugin(plugin)
+            $scope.doUninstallPlugin(plugin)
 
     $scope.doUninstallPlugin = (plugin) ->
         $scope.selectedRepoPlugin = null
