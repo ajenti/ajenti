@@ -14,6 +14,7 @@ pyyaml
 requests>=0.12.0
 setproctitle
 termcolor
+pip>=6
 setuptools>=12
 #dbus # for upstart # todo: pypi package is fucked up, install from pkg mgr
 

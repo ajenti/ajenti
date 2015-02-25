@@ -49,13 +49,13 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
         return null
 
     $scope.$on 'push:plugins', ($event, msg) ->
-        if msg == 'install-done'
+        if msg.type == 'install-done'
             $scope.refresh()
             messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
                 core.forceRestart()
             $scope.installProgressMessage.close()
-        if msg == 'install-error'
-            notify.error 'Install failed', err.message
+        if msg.type == 'install-error'
+            notify.error 'Install failed', msg.error
             $scope.installProgressMessage.close()
 
     $scope.installPlugin = (plugin) ->

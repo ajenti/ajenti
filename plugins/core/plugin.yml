@@ -2,7 +2,7 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.14'
+version: '0.16'
 title: Core
 icon: link
 dependencies: []
@@ -55,6 +55,7 @@ resources:
     - 'resources/js/core/directives/sidebar.coffee'
     - 'resources/js/core/directives/smartProgress.coffee'
     - 'resources/js/core/services/core.service.coffee'
+    - 'resources/js/core/services/favicon.service.coffee'
     - 'resources/js/core/services/hotkeys.service.coffee'
     - 'resources/js/core/services/identity.service.coffee'
     - 'resources/js/core/services/messagebox.service.coffee'

@@ -17,3 +17,6 @@ angular.module('core').config ($routeProvider, $locationProvider, urlPrefix) ->
     $routeProvider.when '/view/login/:mode/:nextPage*',
         templateUrl: '/core:resources/partial/login.html'
         controller: 'CoreLoginController'
+
+
+# TODO 404

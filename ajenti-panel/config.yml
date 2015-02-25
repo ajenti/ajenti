@@ -2,7 +2,7 @@ bind:
   host: 0.0.0.0
   mode: tcp
   port: 8000
-color: deeporange
+color: blue
 emails:
   john.pankov@gmail.com: root
 name: Test Box

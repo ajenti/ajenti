@@ -1,4 +1,4 @@
-angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion) ->
+angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, favicon) ->
     $rootScope.identity = identity
     $rootScope.$location = $location
     $rootScope.location = location
@@ -15,6 +15,8 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
 
     $scope.navigationPresent = $location.path().indexOf('/view/login') != 0
 
+    # ---
+
     $scope.showSidebar = $cookieStore.get('showSidebar') ? true
     $scope.toggleNavigation = (state) ->
         if angular.isDefined state
@@ -23,6 +25,8 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
             $scope.showSidebar = !$scope.showSidebar
         $cookieStore.put('showSidebar', $scope.showSidebar)
         $scope.$broadcast 'navigation:toggle'
+
+    # ---
 
     $scope.showOverlaySidebar = false
     $scope.toggleOverlayNavigation = (state) ->
@@ -35,12 +39,27 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     $scope.$on '$routeChangeSuccess', () ->
         $scope.toggleOverlayNavigation(false)
 
+    # ---
+
+    $scope.isWidescreen = $cookieStore.get('isWidescreen') ? false
+    $scope.toggleWidescreen = (state) ->
+        if angular.isDefined state
+            $scope.isWidescreen = state
+        else
+            $scope.isWidescreen = !$scope.isWidescreen
+        $cookieStore.put('isWidescreen', $scope.isWidescreen)
+        $scope.$broadcast 'widescreen:toggle'
+
+    # ---
+
     $rootScope.appReady = true
     identity.init()
     identity.promise.then () ->
         console.log 'Ready!'
     .catch () ->
         console.error 'Failed'
+
+    favicon.init()
 
     $rootScope.theme = 'deeporange'
 

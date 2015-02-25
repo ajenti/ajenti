@@ -115,6 +115,10 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
                 $timeout () -> # reflow
                     $scope.autoResize()
 
+            $scope.$on 'widescreen:toggle', () ->
+                $timeout () -> # reflow
+                    $scope.autoResize()
+
             $scope.$on 'terminal:paste', () ->
                 element.find('textarea').focus()
 

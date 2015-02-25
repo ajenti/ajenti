@@ -13,6 +13,6 @@ class InstallPlugin (Task):
     def run(self):
         try:
             subprocess.check_output(['pip', 'install', self.spec])
-            self.push('plugins', 'install-done')
+            self.push('plugins', {'type': 'install-done'})
         except subprocess.CalledProcessError as e:
-            self.push('plugins', 'install-error')
+            self.push('plugins', {'type': 'install-error', 'error': str(e)})

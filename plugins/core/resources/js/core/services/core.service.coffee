@@ -11,8 +11,11 @@ angular.module('core').service 'core', ($timeout, $q, $http, identity, messagebo
                 msg.close()
                 q.resolve()
                 messagebox.show title: 'Restarted', text: 'Please wait'
-                $timeout () ->
+                setTimeout () ->
                     location.reload()
+                    setTimeout () -> # sometimes this is not enough
+                        location.reload()
+                    , 5000
             , 5000
         .error (err) ->
             msg.close()

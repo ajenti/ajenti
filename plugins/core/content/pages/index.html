@@ -2,6 +2,7 @@
 <html ng:app="app">
     <head>
         <title ng:bind="pageTitle + (pageTitle ? ' | ' : '') + identity.machine.name"></title>
+        <link rel="shortcut icon" />
 
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -15,7 +16,7 @@
         <script src="%(prefix)s/resources/all.js" type="text/javascript"></script>
         <script src="%(prefix)s/resources/all.partials.js" type="text/javascript"></script>
     </head>
-    <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}}">
+    <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}}">
         <div class="row" ng:hide="appReady">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
@@ -37,6 +38,11 @@
 
                 <a class="navbar-brand ellipsis" href="/view/">
                     <span class="title">Ajenti</span> <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
+                </a>
+
+                <a ng:click="toggleWidescreen()" class="hide-phone hide-tablet navbar-btn btn btn-default btn-flat pull-right">
+                    <i class="fa fa-expand" ng:if="!isWidescreen"></i>
+                    <i class="fa fa-compress" ng:if="isWidescreen"></i>
                 </a>
 
                 <div ng:show="identity.user" class="pull-right">

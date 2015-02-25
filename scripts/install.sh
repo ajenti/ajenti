@@ -38,34 +38,44 @@ if grep 'Red' /etc/issue > /dev/null 2>&1 ; then
 fi
 
 if [ ! $OS ] ; then
-    echo "Could not detect OS"
-    echo "Press Enter to continue"
+    echo ":: Could not detect OS"
+    echo ":: Press Enter to continue"
     read -n1
 fi
 
 
-echo "OS: $OS"
-echo "Distro: $DISTRO"
+echo ":: OS: $OS"
+echo ":: Distro: $DISTRO"
 
 if [ "$OS" == "rhel" ] ; then
-    echo Installing prerequisites
+    echo ":: Installing prerequisites"
     yum install -y gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python || exit 1
 fi
 
 if [ "$OS" == "debian" ] ; then
-    echo Installing prerequisites
-    apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev python-dbus || exit 1
+    echo ":: Installing prerequisites"
+    apt-get update
+    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev python-dbus || exit 1
 fi
 
-echo "Installing Ajenti"
+echo ":: Installing Ajenti"
 
-#TODO install pip >= 6, setuptools >= 0.6rc11
-pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
+if ! which pip; then
+    easy_install pip
+fi
 
-echo "Installing initscript"
+echo ":: Upgrading PIP"
+rm /usr/lib/python2.7/dist-packages/setuptools.egg-info || true # for debian 7
+pip install 'setuptools>=0.6rc11'
+pip install 'pip>=6'
+`which pip` install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins || exit 1
 
-if [ -e /etc/init ] ; then
-    cat << EOF > /etc/init/ajenti-panel.conf
+# ----------------
+
+echo ":: Installing initscript"
+
+if [ -e /etc/init ] && which start ; then # Upstart
+    cat << EOF > /etc/init/ajenti.conf
 description     "Ajenti panel"
 
 start on runlevel [2345]
@@ -78,12 +88,11 @@ expect daemon
 
 exec $(which ajenti-panel) -d
 EOF
-    start ajenti-panel
+    start ajenti
 
 else
-    if [ -e /lib/systemd/system ] ; then
-        INITSCRIPT=/etc/init.d/ajenti-panel
-        cat << EOF > /lib/systemd/system/ajenti-panel.service
+    if [ -e /lib/systemd/system ] && which systemctl ; then # systemd
+        cat << EOF > /lib/systemd/system/ajenti.service
 [Unit]
 Description=Ajenti panel
 After=network.target
@@ -97,8 +106,9 @@ ExecStart=$(which ajenti-panel) -d
 WantedBy=multi-user.target
 EOF
         systemctl daemon-reload
-        systemctl start ajenti-panel
-    else
+        systemctl start ajenti
+    else # sysvinit
+        INITSCRIPT=/etc/init.d/ajenti
         cat << EOF > $INITSCRIPT
 #!/bin/sh
 
@@ -118,23 +128,23 @@ if [ -e /lib/lsb/init-functions ]; then
     . /lib/lsb/init-functions
 
     log_success() {
-        log_success_msg "$1"
+        log_success_msg "\$1"
     }
 
     log_failure() {
-        log_failure_msg "$1"
+        log_failure_msg "\$1"
     }
 else
     . /etc/rc.d/init.d/functions
 
     log_success() {
         echo_success
-        echo "$1"
+        echo "\$1"
     }
 
     log_failure() {
         echo_failure
-        echo "$1"
+        echo "\$1"
     }
 fi
 
@@ -142,48 +152,49 @@ NAME=Ajenti
 DAEMON=$(which ajenti-panel)
 PIDFILE=/var/run/ajenti.pid
 
-case "$1" in
+case "\$1" in
     start)
-        echo "Starting $NAME:"
+        echo "Starting \$NAME:"
         export LC_CTYPE=en_US.UTF8
 
-        if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
+        if pidofproc -p \$PIDFILE \$DAEMON > /dev/null; then
             log_failure "already running"
             exit 1
         fi
-        if $DAEMON -d ; then
+        if \$DAEMON -d ; then
             log_success "started"
         else
             log_failure "failed"
         fi
         ;;
     stop)
-        echo "Stopping $NAME:"
-        if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
-            killproc -p $PIDFILE $DAEMON
-            /bin/rm -rf $PIDFILE
+        echo "Stopping \$NAME:"
+        if pidofproc -p \$PIDFILE \$DAEMON > /dev/null; then
+            killproc -p \$PIDFILE \$DAEMON
+            /bin/rm -rf \$PIDFILE
             log_success "stopped"
         else
            log_failure "not running"
         fi
         ;;
     restart)
-        $0 stop && sleep 2 && $0 start
+        \$0 stop && sleep 2 && \$0 start
         ;;
     status)
-        if pidofproc -p $PIDFILE $DAEMON > /dev/null; then
-            log_success "$NAME is running"
+        if pidofproc -p \$PIDFILE \$DAEMON > /dev/null; then
+            log_success "\$NAME is running"
         else
-            log_success "$NAME is not running"
+            log_success "\$NAME is not running"
         fi
         ;;
     *)
-        echo "Usage: $0 {start|stop|restart|status}"
+        echo "Usage: \$0 {start|stop|restart|status}"
         exit 1
 esac
 
 exit 0
 EOF
+        chmod +x $INITSCRIPT
         $INITSCRIPT start
     fi
 fi
