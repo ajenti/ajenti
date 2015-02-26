@@ -9,7 +9,7 @@ class LazyModule (object):
 
     def __load(self):
         logging.debug('Lazy-loading module %s' % self._module)
-        target = __import__(self._module, fromlist=[self._module])
+        target = __import__(self._module, fromlist=[str(self._module)])
         if self._object:
             target = getattr(target, self._object)
 

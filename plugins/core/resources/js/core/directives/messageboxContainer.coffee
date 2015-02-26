@@ -14,8 +14,8 @@ angular.module('core').directive 'messageboxContainer', (messagebox) ->
                     <ng:include ng:if="message.template" src="message.template"></ng:include>
                 </div>
                 <div class="modal-footer">
-                    <a ng:click="doPositive(message)" ng:show="message.positive" class="btn btn-default btn-flat">{{message.positive}}</a>
-                    <a ng:click="doNegative(message)" ng:show="message.negative" class="btn btn-default btn-flat">{{message.negative}}</a>
+                    <a ng:click="doPositive(message)" ng:show="message.positive" class="positive btn btn-default btn-flat">{{message.positive}}</a>
+                    <a ng:click="doNegative(message)" ng:show="message.negative" class="negative btn btn-default btn-flat">{{message.negative}}</a>
                 </div>
             </dialog>
         '''

@@ -160,7 +160,7 @@ describe 'filemanager plugin', () ->
         page.get(testDir)
         page.listCheckbox('1.txt').click()
         page.deleteButton.click()
-        browser.switchTo().alert().accept()
+        element(By.css('messagebox-container .positive')).click()
         browser.sleep(1000)
         expectGone(page.listItem('1.txt'))
 
@@ -174,6 +174,6 @@ describe 'filemanager plugin', () ->
 
         page.uploadButton.click()
         page.uploadDialog.$('input[type=file]').sendKeys("#{testDir}/1.txt")
-        browser.sleep(2000)
+        browser.sleep(3000)
         expectNotVisible(page.uploadDialog)
         expectVisible(page.listItem('1.txt'))

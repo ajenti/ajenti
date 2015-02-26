@@ -1,7 +1,7 @@
 require 'coffee-script'
 
 specs = [
-    'specs/notepad.coffee'
+    #'specs/notepad.coffee'
     'specs/filemanager.coffee'
 ]
 
