@@ -1,8 +1,9 @@
-angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, favicon) ->
+angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, favicon, feedback) ->
     $rootScope.identity = identity
     $rootScope.$location = $location
     $rootScope.location = location
     $rootScope.urlPrefix = urlPrefix
+    $rootScope.feedback = feedback
     $rootScope.ajentiVersion = ajentiVersion
     $rootScope.ajentiPlugins = ajentiPlugins
 
@@ -38,6 +39,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
 
     $scope.$on '$routeChangeSuccess', () ->
         $scope.toggleOverlayNavigation(false)
+        feedback.emit 'navigation', url: $location.path()
 
     # ---
 

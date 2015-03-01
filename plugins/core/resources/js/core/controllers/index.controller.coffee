@@ -1,6 +1,8 @@
 angular.module('core').controller 'CoreIndexController', ($scope, $location, $http, identity, socket, pageTitle, urlPrefix, tasks) ->
     pageTitle.set('')
 
+    $location.path('/view/dashboard')
+
     identity.promise.then () ->
         console.log identity.user
         if not identity.user
