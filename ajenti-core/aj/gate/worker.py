@@ -12,7 +12,7 @@ import aj
 from aj.api import *
 from aj.api.http import SocketEndpoint
 from aj.http import HttpMiddlewareAggregator, HttpContext
-from aj.auth import AuthenticationMiddleware
+from aj.auth import AuthenticationMiddleware, AuthenticationService
 from aj.routing import CentralDispatcher
 from aj.log import set_log_params
 
@@ -46,11 +46,11 @@ class Worker (object):
         self.gate = gate
         aj.master = False
         os.setpgrp()
-        setproctitle.setproctitle('%s session worker #%i' % (sys.argv[0], os.getpid()))
-        set_log_params(tag='worker')
+        setproctitle.setproctitle('%s worker [%s]' % (sys.argv[0], self.gate.name))
+        set_log_params(tag=self.gate.log_tag)
 
-        logging.info('New worker #%s, EUID %s, EGID %s' % (
-            os.getpid(), os.geteuid(), os.getegid(),
+        logging.info('New worker "%s" PID %s, EUID %s, EGID %s' % (
+            self.gate.name, os.getpid(), os.geteuid(), os.getegid(),
         ))
 
         self.context = Context(parent=aj.context)
@@ -61,10 +61,6 @@ class Worker (object):
             CentralDispatcher.get(self.context),
         ])
 
-        logging.info('Serving client %s' % (
-            self.context.session.client_info['address'],
-        ))
-
     def demote(self, username):
         if os.getuid() != 0:
             logging.warn('Running as a limited user, setuid() unavailable!')
@@ -73,15 +69,21 @@ class Worker (object):
         uid = pwd.getpwnam(username).pw_uid
         gid = pwd.getpwnam(username).pw_gid
 
-        logging.info('Worker %s is demoting to %s (UID %s / GID %s)' % (os.getpid(), username, uid, gid))
+        logging.info('Worker %s is demoting to %s (UID %s / GID %s)...' % (os.getpid(), username, uid, gid))
 
         groups = [g.gr_gid for g in grp.getgrall() if username in g.gr_mem or g.gr_gid == gid]
         os.setgroups(groups)
         os.setgid(gid)
         os.setuid(uid)
-        logging.info('Demoted, EUID %s EGID %s' % (os.geteuid(), os.getegid()))
+        logging.info('...done, new EUID %s EGID %s' % (os.geteuid(), os.getegid()))
 
     def run(self):
+        if self.gate.restricted:
+            self.demote('nobody')
+        else:
+            if self.gate.initial_identity:
+                AuthenticationService.get(self.context).login(self.gate.initial_identity, demote=True)
+
         try:
             socket_namespaces = {}
             while True:
@@ -124,10 +126,14 @@ class Worker (object):
 
         try:
             http_context = HttpContext.deserialize(rq.object['context'])
+            logging.debug('                    ... %s %s' % (http_context.method, http_context.path))
 
             # Generate response
             content = self.handler.handle(http_context)
             # ---
+
+            http_context.add_header('X-Worker-Name', str(self.gate.name))
+
             response_object['content'] = list(content)
             response_object['status'] = http_context.status
             response_object['headers'] = http_context.headers

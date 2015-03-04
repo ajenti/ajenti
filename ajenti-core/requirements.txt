@@ -6,6 +6,7 @@ gevent-websocket
 gipc
 lxml>=2.2.4
 passlib
+pexpect
 psutil>=2.2.1
 pyOpenSSL<0.14 # 0.14 breaks WantWrite retries
 python-catcher

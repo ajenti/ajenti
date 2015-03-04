@@ -13,7 +13,6 @@ class APTPackageManager (PackageManager):
 
     def __init__(self, context):
         PackageManager.__init__(self, context)
-        self.cache = apt.Cache()
 
     def __make_package(self, apt_package):
         p = Package(self)
@@ -29,11 +28,13 @@ class APTPackageManager (PackageManager):
         return p
 
     def list(self, query=None):
-        for id in self.cache.keys():
-            yield self.__make_package(self.cache[id])
+        cache = apt.Cache()
+        for id in cache.keys():
+            yield self.__make_package(cache[id])
 
     def get(self, id):
-        return self.__make_package(self.cache[id])
+        cache = apt.Cache()
+        return self.__make_package(cache[id])
 
     def update_lists(self, progress_callback):
         class Progress (AcquireProgress):
@@ -44,8 +45,9 @@ class APTPackageManager (PackageManager):
             def stop(self):
                 self.done = True
 
+        cache = apt.Cache()
         ack = Progress()
-        self.cache.update(fetch_progress=ack)
+        cache.update(fetch_progress=ack)
 
         while not hasattr(ack, 'done'):
             gevent.sleep(1)

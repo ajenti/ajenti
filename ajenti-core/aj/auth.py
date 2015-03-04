@@ -1,12 +1,11 @@
 from aj.util import LazyModule
 requests = LazyModule('requests')
 
-import crypt
 import json
 import logging
 import os
+import pexpect
 import pwd
-import spwd
 import subprocess
 
 import aj
@@ -56,23 +55,21 @@ class AuthenticationService (BaseHttpHandler):
         self.context = context
 
     def check_password(self, username, password):
+        child = None
         try:
-            enc_pwd = spwd.getspnam(username)[1]
-
-            if enc_pwd in ["NP", "!", "", None]:
-                return "user '%s' has no password set" % username
-            if enc_pwd in ["LK", "*"]:
-                return "account is locked"
-            if enc_pwd == "!!":
-                return "password has expired"
-
-            if crypt.crypt(password, enc_pwd) == enc_pwd:
-                return True
-            else:
-                return False
-        except KeyError:
+            child = pexpect.spawn('/bin/su', ['-c', '/bin/echo SUCCESS', '-', username], timeout=5)
+            child.expect('.*:')
+            child.sendline(password)
+            result = child.expect(['su: .*', 'SUCCESS'])
+        except Exception as err:
+            if child and child.isalive():
+                child.close()
+            logging.error('Error checking password: %s' % err)
             return False
-        return False
+        if result == 0:
+            return False
+        else:
+            return True
 
     def check_sudo_password(self, username, password):
         sudo = subprocess.Popen(
@@ -120,3 +117,6 @@ class AuthenticationService (BaseHttpHandler):
         if demote:
             self.context.worker.demote(username)
         self.context.identity = username
+
+    def prepare_session_redirect(self, http_context, username):
+        http_context.add_header('X-Session-Redirect', username)

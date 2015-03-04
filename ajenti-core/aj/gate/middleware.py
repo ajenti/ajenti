@@ -12,9 +12,11 @@ from socketio.mixins import RoomsMixin, BroadcastMixin
 
 from aj.api import *
 from aj.api.http import *
+from aj.gate.gate import WorkerGate
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError
 from aj.util import str_fsize
+
 
 
 class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
@@ -24,10 +26,11 @@ class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
     def __init__(self, context, env, *args, **kwargs):
         BaseNamespace.__init__(self, env, *args, **kwargs)
         self.context = context
+        self.env = env
+        self.gate = None
 
-        session = GateMiddleware.get(self.context).obtain_session(env)
-        self.gate = session.gate
-        self.spawn(self._stream_reader)
+    def get_initial_acl(self):
+        return ['recv_connect']
 
     def _stream_reader(self):
         q = self.gate.q_socket_messages.register()
@@ -36,16 +39,24 @@ class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
             self.emit('message', resp.object['message'])
 
     def _send_worker_event(self, event, message=None):
-        self.gate.stream.send({
-            'type': 'socket',
-            'event': event,
-            'namespace': id(self),
-            'message': message,
-        })
+        if self.gate:
+            self.gate.stream.send({
+                'type': 'socket',
+                'event': event,
+                'namespace': id(self),
+                'message': message,
+            })
 
     def recv_connect(self):
         logging.debug('Socket %s connected' % id(self))
-        self._send_worker_event('connect')
+        session = GateMiddleware.get(self.context).obtain_session(self.env)
+        if session:
+            self.gate = session.gate
+            self.spawn(self._stream_reader)
+            self.add_acl_method('on_message')
+            self.add_acl_method('recv_message')
+            self.add_acl_method('recv_disconnect')
+            self._send_worker_event('connect')
 
     def recv_disconnect(self):
         logging.debug('Socket %s disconnected' % id(self))
@@ -73,6 +84,8 @@ class GateMiddleware (object):
     def __init__(self, context):
         self.context = context
         self.sessions = {}
+        self.restricted_gate = WorkerGate(self, restricted=True, name='restricted session', log_tag='restricted')
+        self.restricted_gate.start()
 
     def generate_session_key(self, env):
         hash = str(random.random())
@@ -94,7 +107,7 @@ class GateMiddleware (object):
             session.deactivate()
         self.vacuum()
 
-    def open_session(self, env):
+    def open_session(self, env, **kwargs):
         """
         Creates a new session for the :class:`aj.http.HttpContext`
         """
@@ -102,7 +115,7 @@ class GateMiddleware (object):
             'address': env.get('REMOTE_ADDR', None),
         }
         session_key = self.generate_session_key(env)
-        session = Session(session_key, client_info=client_info)
+        session = Session(session_key, client_info=client_info, **kwargs)
         self.sessions[session_key] = session
         return session
 
@@ -120,18 +133,21 @@ class GateMiddleware (object):
                     session = self.sessions[cookie.value]
                     if session.is_dead():
                         session = None
-        if session is None:
-            session = self.open_session(env)
         return session
 
     def handle(self, http_context):
-        #logging.debug('Incoming: %s' % http_context.path)
         start_time = time.time()
 
         self.vacuum()
+
         session = self.obtain_session(http_context.env)
-        session.set_cookie(http_context)
-        session.touch()
+        gate = None
+
+        if session:
+            session.touch()
+            gate = session.gate
+        else:
+            gate = self.restricted_gate
 
         if http_context.path.startswith('/socket'):
             #return http_context.respond_forbidden()
@@ -144,11 +160,13 @@ class GateMiddleware (object):
             'context': http_context.serialize(),
         }
 
+        # await response
+
         try:
             timeout = 60
             with Timeout(timeout) as t:
-                q = session.gate.q_http_replies.register()
-                rq = session.gate.stream.send(request_object)
+                q = gate.q_http_replies.register()
+                rq = gate.stream.send(request_object)
                 while True:
                     resp = q.get(t)
                     if resp.id == rq.id:
@@ -157,11 +175,20 @@ class GateMiddleware (object):
             http_context.respond('504 Gateway Timeout')
             return 'Worker timeout'
 
+        # ---
+
         if 'error' in resp.object:
             raise WorkerError(resp.object)
 
         for header in resp.object['headers']:
             http_context.add_header(*header)
+            if header[0] == 'X-Session-Redirect':
+                # new authenticated session
+                username = header[1]
+                logging.info('Opening a session for user %s' % username)
+                session = self.open_session(http_context.env, initial_identity=username)
+                session.set_cookie(http_context)
+
         http_context.respond(resp.object['status'])
         content = resp.object['content']
 

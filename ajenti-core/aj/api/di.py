@@ -24,7 +24,7 @@ class Context (object):
         return self.service_instances[fqdn]
 
     def get_components(self, cls):
-        for component in cls._implementations: 
+        for component in cls._implementations:
             fqdn = self.get_fqdn(component)
             if not fqdn in self.component_instances:
                 self.component_instances[fqdn] = component(self)

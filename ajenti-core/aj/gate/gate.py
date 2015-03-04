@@ -11,9 +11,13 @@ from aj.util import BroadcastQueue
 
 
 class WorkerGate (object):
-    def __init__(self, session):
+    def __init__(self, session, name=None, log_tag=None, restricted=False, initial_identity=None):
         self.session = session
         self.process = None
+        self.name = name
+        self.log_tag = log_tag
+        self.restricted = restricted
+        self.initial_identity = initial_identity
         self.q_http_replies = BroadcastQueue()
         self.q_socket_messages = BroadcastQueue()
 

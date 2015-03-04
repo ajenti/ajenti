@@ -1,6 +1,5 @@
 from aj.util import LazyModule
 
-uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
 import time
 import logging
 from cookies import Cookie, Cookies
@@ -13,15 +12,22 @@ class Session (object):
     Holds the HTTP session data
     """
 
-    def __init__(self, key, client_info={}):
-        self.id = uuid.uuid4()
+    last_id = 0
+
+    def __init__(self, key, client_info={}, **kwargs):
+        Session.last_id += 1
+        self.id = Session.last_id
         self.key = key
         self.client_info = client_info
         self.data = {}
         self.identity = None
         self.touch()
         self.active = True
-        self.gate = WorkerGate(self)
+        logging.info('Opening a new worker gate for session %s, client %s' % (
+            self.id,
+            self.client_info['address'],
+        ))
+        self.gate = WorkerGate(self, name='session %i' % self.id, log_tag='worker', **kwargs)
         self.gate.start()
         logging.debug('New session %s' % self.id)
 

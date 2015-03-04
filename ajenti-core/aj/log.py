@@ -34,14 +34,20 @@ class ConsoleHandler (logging.StreamHandler):
             if os.getpid() == LOG_PARAMS['master_pid']:
                 process_tag = colored('master', 'yellow')
             else:
-                LOG_PARAMS['tag'] = 'worker'
+                LOG_PARAMS['tag'] = None
                 #process_tag = colored('...   ', 'yellow')
+        if LOG_PARAMS['tag'] == 'restricted':
+            process_tag = colored('rstrct', 'red')
+            padding = '  '
         if LOG_PARAMS['tag'] == 'worker':
             process_tag = colored('worker', 'green')
             padding = '  '
         if LOG_PARAMS['tag'] == 'task':
             process_tag = colored('task  ', 'blue')
             padding = '    '
+        if LOG_PARAMS['tag'] is None:
+            process_tag = colored('...   ', 'blue')
+            padding = '  '
         s += colored('[', 'white')
         s += process_tag
         s += colored(' %5i]  ' % os.getpid(), 'white')

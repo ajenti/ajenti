@@ -19,7 +19,10 @@ class Handler (HttpPlugin):
     @url('/')
     @endpoint(page=True, auth=False)
     def handle_root(self, http_context):
-        return http_context.redirect('/view/')
+        if self.context.identity:
+            return http_context.redirect('/view/')
+        else:
+            return http_context.redirect('/view/login/normal')
 
     @url('/view/.*')
     @endpoint(page=True, auth=False)
@@ -47,6 +50,8 @@ class Handler (HttpPlugin):
                 dict((k, v.title) for k, v in PluginManager.get(aj.context).get_all().iteritems())
             ),
             'version': aj.version,
+            'platform': aj.platform,
+            'platformUnmapped': aj.platform_unmapped,
         }
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()
