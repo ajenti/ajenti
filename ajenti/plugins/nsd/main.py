@@ -29,9 +29,12 @@ class NSDPlugin (SectionPlugin):
 
         def post_zone_bind(o, c, i, u):
             path = i.file
-            if not path.startswith('/'):
-                path = '/etc/nsd3/' + path
-            exists = os.path.exists(path)
+            if path is not None:
+                if not path.startswith('/'):
+                    path = '/etc/nsd3/' + path
+                exists = os.path.exists(path)
+            else:
+                exists = False
             u.find('no-file').visible = not exists
             u.find('file').visible = exists
             if exists:
