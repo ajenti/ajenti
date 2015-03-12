@@ -122,3 +122,16 @@ if not hasattr(_ssl, 'sslwrap') and not hasattr(gevent.ssl, 'SSLContext'):
     _ssl.sslwrap = new_sslwrap
 
 """
+
+# pexpect 3.3 still expects stdin to be available
+import pexpect
+import sys
+
+old = pexpect.spawn.__init__
+def new(self, *args, **kwargs):
+    if sys.__stdin__.closed:
+        sys.__stdin__ = open('/dev/zero')
+    old(self, *args, **kwargs)
+
+pexpect.spawn.__init__ = new
+
