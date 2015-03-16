@@ -1,6 +1,4 @@
-from aj.util import LazyModule
-Image = LazyModule('PIL.Image')
-ImageDraw = LazyModule('PIL.ImageDraw')
+from PIL import Image, ImageDraw
 
 import gevent
 import json

@@ -3,9 +3,9 @@
 </div>
 
 <div ng:show="ready" class="terminal-container row">
-    <terminal 
-        id="id" 
-        on-ready="onReady()" 
+    <terminal
+        id="id"
+        on-ready="onReady()"
         text-data="copyData">
     </terminal>
 </div>
@@ -17,12 +17,12 @@
         </h4>
     </div>
     <div class="modal-body scrollable">
-        <ace-editor 
+        <ace-editor
             ng:model="copyData"
             ace-options="{useWrapMode: false, fontSize: '10px', readOnly: true}">
         </ace-editor>
     </div>
     <div class="modal-footer">
         <a ng:click="hideCopyDialogVisible()" class="btn btn-default btn-flat">Done</a>
-    </div>            
+    </div>
 </dialog>

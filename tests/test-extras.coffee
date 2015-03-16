@@ -9,7 +9,7 @@ window.__initHttpBackend = () ->
     inject ($httpBackend, urlPrefix)->
         if $httpBackend.oldWhen
             return
-            
+
         $httpBackend.oldWhen = $httpBackend.when
         $httpBackend.when = (method, url) ->
             return $httpBackend.oldWhen(method, urlPrefix + url)
@@ -19,3 +19,20 @@ window.__initHttpBackend = () ->
                 $httpBackend['old' + m] = $httpBackend[m]
                 $httpBackend[m] = (url) ->
                     return $httpBackend['old' + m](urlPrefix + url)
+
+
+beforeEach () ->
+    __initHttpBackend()
+
+
+afterEach () ->
+    inject ($httpBackend) ->
+        $httpBackend.verifyNoOutstandingExpectation()
+        $httpBackend.verifyNoOutstandingRequest()
+
+
+beforeEach () ->
+    @sinon = sinon.sandbox.create()
+
+afterEach () ->
+    @sinon.restore()

@@ -1,4 +1,7 @@
-angular.module('core').service 'core', ($timeout, $q, $http, identity, messagebox) ->
+angular.module('core').service 'core', ($timeout, $q, $http, $window, messagebox) ->
+    @pageReload = () ->
+        $window.location.reload()
+
     @restart = () ->
         messagebox.show(title: 'Restart', text: 'Restart the panel?', positive: 'Yes', negative: 'No').then () =>
             @forceRestart()
@@ -6,15 +9,15 @@ angular.module('core').service 'core', ($timeout, $q, $http, identity, messagebo
     @forceRestart = () ->
         q = $q.defer()
         msg = messagebox.show progress: true, title: 'Restarting'
-        $http.get('/api/core/restart-master').success () ->
-            $timeout () ->
+        $http.get('/api/core/restart-master').success () =>
+            $timeout () =>
                 msg.close()
                 q.resolve()
                 messagebox.show title: 'Restarted', text: 'Please wait'
-                setTimeout () ->
-                    location.reload()
-                    setTimeout () -> # sometimes this is not enough
-                        location.reload()
+                $timeout () =>
+                    @pageReload()
+                    setTimeout () => # sometimes this is not enough
+                        @pageReload()
                     , 5000
             , 5000
         .error (err) ->

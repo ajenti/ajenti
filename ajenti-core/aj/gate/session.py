@@ -1,5 +1,3 @@
-from aj.util import LazyModule
-
 import time
 import logging
 from cookies import Cookie, Cookies

@@ -1,6 +1,4 @@
-from aj.util import LazyModule
-psutil = LazyModule('psutil')
-
+import psutil
 import time
 
 from aj.api import *

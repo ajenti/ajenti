@@ -1,15 +1,12 @@
-from aj.util import LazyModule
-
+import gevent
 import gipc
 import logging
-import sys
-import gevent
-import time
-import traceback
 import os
 import setproctitle
 import signal
-uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
+import sys
+import time
+import traceback
 
 from aj.api import *
 from aj.log import set_log_params
@@ -26,7 +23,7 @@ class Task (object):
         self.exception = None
         self.started = time.time()
         self.finished = None
-        self.id = str(uuid.uuid4())
+        self.id = os.urandom(32).encode('hex')
         self.reader = None
         self.service = TasksService.get(self.context)
         self.progress = {

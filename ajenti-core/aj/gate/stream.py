@@ -1,17 +1,15 @@
-from aj.util import LazyModule
-
-uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
-from gevent.lock import RLock
 import gevent.socket
 from gevent.socket import wait_read, wait_write
+from gevent.lock import RLock
 import gipc
+import os
 import logging
 import time
 
 
 class GateStreamRequest (object):
     def __init__(self, object, endpoint):
-        self.id = str(uuid.uuid4())
+        self.id = os.urandom(32).encode('hex')
         self.object = object
         self.endpoint = endpoint
 

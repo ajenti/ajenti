@@ -2,7 +2,8 @@ require 'coffee-script'
 
 specs = [
     #'specs/notepad.coffee'
-    'specs/filemanager.coffee'
+    #'specs/filemanager.coffee'
+    'specs/terminal.coffee'
 ]
 
 exports.config =

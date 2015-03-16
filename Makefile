@@ -33,3 +33,7 @@ webdriver:
 
 webdriver-update:
 	cd e2e && node_modules/protractor/bin/webdriver-manager update
+
+karma:
+	cd tests && node_modules/karma/bin/karma start karma.conf.coffee --no-single-run --auto-watch
+

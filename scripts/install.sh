@@ -55,7 +55,7 @@ fi
 if [ "$OS" == "debian" ] ; then
     echo ":: Installing prerequisites"
     apt-get update
-    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev python-dbus || exit 1
+    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus || exit 1
 fi
 
 echo ":: Installing Ajenti"

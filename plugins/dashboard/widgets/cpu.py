@@ -1,5 +1,4 @@
-from aj.util import LazyModule
-psutil = LazyModule('psutil')
+import psutil
 
 from aj.api import *
 from aj.plugins.dashboard.api import Widget

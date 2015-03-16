@@ -22,7 +22,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
         }
         $http.post('/api/core/auth', data).success (data) ->
             if data.success
-                q.resolve(data.username)
+                q.resolve()
             else
                 q.reject(data.error)
         .error () ->
@@ -40,7 +40,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
         }
         $http.post('/api/core/auth', data).success (data) ->
             if data.success
-                q.resolve(data.username)
+                q.resolve()
             else
                 q.reject(data.error)
         .error () ->

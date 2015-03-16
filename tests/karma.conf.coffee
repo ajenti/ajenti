@@ -26,7 +26,7 @@ files.push 'tests/**/*.coffee'
 module.exports = (config) ->
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'chai', 'sinon-chai', 'chai-as-promised'],
+    frameworks: ['mocha', 'sinon-chai', 'chai-as-promised'],
     files: files,
     exclude: [
     ],
@@ -39,7 +39,10 @@ module.exports = (config) ->
         sourceMap: true
       }
     },
-    reporters: ['progress', 'coverage'],
+    reporters: [
+      'progress',
+      'coverage',
+    ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

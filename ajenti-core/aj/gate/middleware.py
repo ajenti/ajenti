@@ -1,5 +1,7 @@
 import hashlib
 import logging
+import os
+import pwd
 import random
 import socketio
 import time
@@ -10,13 +12,13 @@ from gevent.queue import Queue
 from socketio.namespace import BaseNamespace
 from socketio.mixins import RoomsMixin, BroadcastMixin
 
+import aj
 from aj.api import *
 from aj.api.http import *
 from aj.gate.gate import WorkerGate
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError
 from aj.util import str_fsize
-
 
 
 class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
@@ -142,6 +144,12 @@ class GateMiddleware (object):
 
         session = self.obtain_session(http_context.env)
         gate = None
+
+        if not session and aj.dev_autologin:
+            username = pwd.getpwuid(os.geteuid()).pw_name
+            logging.warn('Opening an autologin session for user %s' % username)
+            session = self.open_session(http_context.env, initial_identity=username)
+            session.set_cookie(http_context)
 
         if session:
             session.touch()

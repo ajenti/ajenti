@@ -1,12 +1,10 @@
 from __future__ import unicode_literals
 
-from aj.util import LazyModule
-psutil = LazyModule('psutil') # -2MB
-
 import daemon
 import locale
 import logging
 import os
+import psutil
 import signal
 import socket
 import sys

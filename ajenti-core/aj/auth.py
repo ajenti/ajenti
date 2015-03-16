@@ -1,11 +1,9 @@
-from aj.util import LazyModule
-requests = LazyModule('requests')
-
 import json
 import logging
 import os
 import pexpect
 import pwd
+import requests
 import subprocess
 
 import aj
@@ -30,9 +28,6 @@ class AuthenticationMiddleware (BaseHttpHandler):
             context.identity = None
 
     def handle(self, http_context):
-        if aj.dev_autologin and not self.context.identity:
-            username = pwd.getpwuid(os.geteuid()).pw_name
-            self.auth.login(username, demote=os.geteuid() == 0)
         if http_context.env['SSL_CLIENT_VALID']:
             if not self.context.identity:
                 username = http_context.env['SSL_CLIENT_USER']

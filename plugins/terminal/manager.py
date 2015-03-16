@@ -1,7 +1,5 @@
-from aj.util import LazyModule
-
 import logging
-uuid = LazyModule('uuid') # uses ctypes, forks, screws up Upstart
+import os
 
 from aj.api import *
 
@@ -27,7 +25,7 @@ class TerminalManager (object):
         } for id in self.terminals.keys()]
 
     def create(self, **kwargs):
-        id = str(uuid.uuid4())
+        id = os.urandom(32).encode('hex')
         t = Terminal(self, id, **kwargs)
         logging.info('Created terminal %s' % id)
         self.terminals[id] = t

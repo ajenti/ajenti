@@ -4,7 +4,7 @@
     <i class="fa fa-info-circle"></i> No terminals open
 </div>
 
-<a class="btn btn-primary btn-large-phone" ng:click="create()" ng:show="terminals.length == 0">
+<a class="btn btn-primary btn-large-phone" ng:click="create()" ng:show="terminals.length == 0" test-bind="newTerminalButton">
     <i class="fa fa-plus"></i> Open a terminal
 </a>
 
@@ -30,5 +30,5 @@
 <div class="floating-toolbar-padder"></div>
 
 <floating-toolbar ng:show="terminals.length > 0">
-    <a ng:click="create()" class="btn btn-primary btn-flat">New terminal</a>
+    <a ng:click="create()" class="btn btn-primary btn-flat" test-bind="newTerminalButton2">New terminal</a>
 </floating-toolbar>
