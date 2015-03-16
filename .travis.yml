@@ -6,5 +6,5 @@ node_js:
 before_script:
     - cd tests; npm install
 script:
-    - find tests
+    - find .
     - cd tests; ./node_modules/.bin/karma start karma.conf.coffee --single-run
