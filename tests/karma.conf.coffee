@@ -18,7 +18,7 @@ for d in plugins
         if /.*(js|coffee)$/.test(res)
             files.push "../plugins/#{d}/#{res}"
 
-files.push 'node_modules/angular-mocks/angular-mocks.js'
+#files.push 'node_modules/angular-mocks/angular-mocks.js'
 files.push 'test-extras.coffee'
 files.push 'tests/**/*.coffee'
 

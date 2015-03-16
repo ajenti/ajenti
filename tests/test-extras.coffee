@@ -21,6 +21,9 @@ window.__initHttpBackend = () ->
                     return $httpBackend['old' + m](urlPrefix + url)
 
 
+
+beforeEach () ->
+
 beforeEach () ->
     __initHttpBackend()
 
