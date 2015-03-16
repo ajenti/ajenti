@@ -1,0 +1,7 @@
+language: python
+before_script:
+    - cd tests; npm install
+script:
+    - cd tests; ./node_modules/karma/bin/karma start karma.conf.coffee --single-run
+node_js:
+  - 0.10
