@@ -13,4 +13,5 @@ before_script:
 script:
     - cd tests
     -  ./node_modules/.bin/karma start karma.conf.coffee --single-run
+    - cat coverage/*/coverage.txt
     - cd ..

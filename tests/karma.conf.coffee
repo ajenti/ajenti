@@ -50,4 +50,9 @@ module.exports = (config) ->
     autoWatch: false,
     browsers: ['PhantomJS'],
     singleRun: true
+    coverageReporter:
+      reporters: [
+        type: 'html'
+        type: 'text-summary', file: 'coverage.txt'
+      ]
   })
