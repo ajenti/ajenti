@@ -4,6 +4,9 @@ python:
 node_js:
     - 0.10
 before_script:
+    - npm install -g bower
+    - pip install ajenti-dev-multitool
+    - ajenti-dev-multitool --bower install
     - cd tests
     - npm install
     - cd ..
