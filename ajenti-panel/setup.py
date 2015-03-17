@@ -10,7 +10,7 @@ import subprocess
 import aj
 
 
-def _post_install (dir):
+def _post_install(_dir):
     config_path = '/etc/ajenti/config.yml'
     if not os.path.exists('/etc/ajenti'):
         os.makedirs('/etc/ajenti')
@@ -34,8 +34,7 @@ ssl:
     subprocess.call(['ajenti-ssl-gen', socket.gethostname()])
 
 
-
-class install (_install):
+class install(_install):
     def run(self):
         _install.run(self)
         self.execute(_post_install, [self.install_lib], msg='Running post install script')

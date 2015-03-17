@@ -2,7 +2,7 @@ from aj.api import *
 
 
 @interface
-class SidebarItemProvider (object):
+class SidebarItemProvider(object):
     def __init__(self, context):
         pass
 
@@ -11,7 +11,7 @@ class SidebarItemProvider (object):
 
 
 @service
-class Sidebar (object):
+class Sidebar(object):
     def __init__(self, context):
         self.context = context
 
@@ -20,15 +20,12 @@ class Sidebar (object):
             'id': None,
             'children': [],
         }
-        id_map = {
-            None: sidebar
-        }
 
-        def find_id(id, e=sidebar):
-            if 'id' in e and e['id'] == id:
+        def find_id(_id, e=sidebar):
+            if 'id' in e and e['id'] == _id:
                 return e
             for c in e['children']:
-                f = find_id(id, e=c)
+                f = find_id(_id, e=c)
                 if f:
                     return f
 

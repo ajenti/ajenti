@@ -4,7 +4,7 @@ from aj.plugins.packages.api import PackageManager
 
 
 @component(SidebarItemProvider)
-class ItemProvider (SidebarItemProvider):
+class ItemProvider(SidebarItemProvider):
     def __init__(self, context):
         self.context = context
 

@@ -1,6 +1,8 @@
 angular.module('core').constant('urlPrefix', '/urlPrefix')
 angular.module('core').constant('ajentiPlugins', [])
 angular.module('core').constant('ajentiVersion', 'testenv')
+angular.module('core').constant('ajentiPlatform', 'test')
+angular.module('core').constant('ajentiPlatformUnmapped', 'test')
 
 for m in window.__ngModules
     beforeEach module(m)

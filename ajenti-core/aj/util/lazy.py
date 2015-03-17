@@ -1,14 +1,14 @@
 import logging
 
 
-class LazyModule (object):
-    def __init__(self, module, object=None):
+class LazyModule(object):
+    def __init__(self, module, obj=None):
         self._module = module
-        self._object = object
+        self._object = obj
         self._loaded = False
 
     def __load(self):
-        logging.debug('Lazy-loading module %s' % self._module)
+        logging.debug('Lazy-loading module %s', self._module)
         target = __import__(self._module, fromlist=[str(self._module)])
         if self._object:
             target = getattr(target, self._object)
@@ -25,5 +25,3 @@ class LazyModule (object):
         if not self._loaded:
             self.__load()
         return self.__dict__[attr]
-
-

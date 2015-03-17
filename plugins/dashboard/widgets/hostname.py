@@ -5,7 +5,7 @@ from aj.plugins.dashboard.api import Widget
 
 
 @component(Widget)
-class HostnameWidget (Widget):
+class HostnameWidget(Widget):
     id = 'hostname'
     name = 'Hostname'
     template = '/dashboard:resources/partial/widgets/hostname.html'

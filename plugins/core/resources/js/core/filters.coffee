@@ -8,7 +8,14 @@ angular.module('core').filter 'bytes', () ->
             precision = 1
         units = ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB']
         number = Math.floor(Math.log(bytes) / Math.log(1024))
-        return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number]
+
+        x = (bytes / Math.pow(1024, Math.floor(number)))
+        if number == 0
+            x = Math.floor(x)
+        else
+            x = x.toFixed(precision)
+
+        return x +  ' ' + units[number]
 
 
 angular.module('core').filter 'ordinal', () ->
@@ -36,9 +43,9 @@ angular.module('core').filter 'rankMatch', () ->
             points = 0
             data = item[field]
             points += (data.match(rgx) or []).length
-            if field == query
+            if data == query
                 points += 50
-            if field.indexOf(query) == 0
+            if data.indexOf(query) == 0
                 points += 10
             item.rank = points
         return input
@@ -49,11 +56,12 @@ angular.module('core').filter 'time', () ->
         if time == null or not angular.isDefined(time)
             return '--:--:--'
         s = ''
-        s += Math.floor(time / 3600 / 24) + ':'
+        if time >= 3600 * 24
+            s += Math.floor(time / 3600 / 24) + ':'
         s += ('' + Math.floor(time / 60 / 60) % 24).lpad('0', 2) + ':'
         s += ('' + Math.floor(time / 60) % 60).lpad('0', 2) + ':'
         s += ('' + Math.floor(time) % 60).lpad('0', 2)
         if frac
-            s += '.' + ('' + Math.floor((time - Math.floor(time)) * 100)).lpad('0', 2)
+            s += '.' + ('' + Math.floor((time - Math.floor(time)) * 100)).lpad('0', frac + 0)
         return s
 

@@ -6,20 +6,18 @@ from aj.api import *
 from aj.api.http import BaseHttpHandler, HttpPlugin
 
 
-
-
-class InvalidRouteHandler (BaseHttpHandler):
+class InvalidRouteHandler(BaseHttpHandler):
     def __init__(self, context):
         pass
 
     def handle(self, http_context):
-        logging.warn('URL not found: %s' % http_context.path)
+        logging.warn('URL not found: %s', http_context.path)
         http_context.respond_not_found()
         return 'URL not found'
 
 
 @service
-class CentralDispatcher (BaseHttpHandler):
+class CentralDispatcher(BaseHttpHandler):
     def __init__(self, context):
         self.context = context
         self.invalid = InvalidRouteHandler(context)
@@ -32,6 +30,7 @@ class CentralDispatcher (BaseHttpHandler):
         for instance in HttpPlugin.all(self.context):
             try:
                 output = instance.handle(context)
+            # pylint: disable=W0703
             except Exception as e:
                 return [self.respond_error(context, e)]
             if output is not None:

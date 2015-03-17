@@ -1,15 +1,13 @@
-import gevent
 import json
 
 from aj.api import *
-from aj.api.http import SocketEndpoint, BaseHttpHandler, url, HttpPlugin
+from aj.api.http import url, HttpPlugin
 from aj.plugins.core.api.endpoint import endpoint
-from aj.plugins.core.api.push import Push
 from aj.plugins.core.api.tasks import TasksService
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.service = TasksService.get(self.context)

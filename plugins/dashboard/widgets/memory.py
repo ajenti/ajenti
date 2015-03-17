@@ -5,7 +5,7 @@ from aj.plugins.dashboard.api import Widget
 
 
 @component(Widget)
-class MemoryWidget (Widget):
+class MemoryWidget(Widget):
     id = 'memory'
     name = 'Memory usage'
     template = '/dashboard:resources/partial/widgets/memory.html'
@@ -20,5 +20,3 @@ class MemoryWidget (Widget):
             'free': v.available,
             'total': v.total
         }
-        #v = psutil.swap_memory()
-        #return (v.used, v.total)

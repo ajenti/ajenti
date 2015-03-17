@@ -3,7 +3,6 @@ try:
 except ImportError:
     import xmlrpc.client as xmlrpclib
 
-import gevent
 import pip
 
 from aj.api import *
@@ -11,7 +10,7 @@ from aj.plugins.packages.api import PackageManager, Package
 
 
 @component(PackageManager)
-class PIPPackageManager (PackageManager):
+class PIPPackageManager(PackageManager):
     id = 'pip'
     name = 'PIP'
 
@@ -46,9 +45,9 @@ class PIPPackageManager (PackageManager):
         for dist in self.client.search({'name': query}):
             yield self.__make_package(dist)
 
-    def get(self, id):
+    def get(self, _id):
         for d in pip.get_installed_distributions():
-            if d.key == id.split('==')[0]:
+            if d.key == _id.split('==')[0]:
                 return self.__make_package_pipdist(d)
 
     def update_lists(self, progress_callback):

@@ -5,7 +5,7 @@ from aj.plugins.dashboard.api import Widget
 
 
 @component(Widget)
-class CPUWidget (Widget):
+class CPUWidget(Widget):
     id = 'cpu'
     name = 'CPU usage'
     template = '/dashboard:resources/partial/widgets/cpu.html'

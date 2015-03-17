@@ -1,9 +1,9 @@
 import gevent
+import gevent.queue
 import gipc
 import logging
 import os
 import setproctitle
-import signal
 import sys
 import time
 import traceback
@@ -14,7 +14,7 @@ from aj.util import BroadcastQueue
 from aj.plugins.core.api.push import Push
 
 
-class Task (object):
+class Task(object):
     name = None
 
     def __init__(self, context):
@@ -25,6 +25,8 @@ class Task (object):
         self.finished = None
         self.id = os.urandom(32).encode('hex')
         self.reader = None
+        self.pipe = None
+        self.process = None
         self.service = TasksService.get(self.context)
         self.progress = {
             'message': None,
@@ -32,7 +34,7 @@ class Task (object):
             'total': None,
         }
 
-    def _start(self):
+    def start(self):
         self.pipe, pipe_child = gipc.pipe(duplex=True)
         self.running = True
         self.process = gipc.start_process(
@@ -43,7 +45,7 @@ class Task (object):
         )
         self.reader = gevent.spawn(self._reader)
 
-    def _abort(self):
+    def abort(self):
         self.greenlet.kill(block=False)
 
     def report_progress(self, message=None, done=None, total=None):
@@ -57,34 +59,39 @@ class Task (object):
 
     def _worker(self, pipe=None):
         self.pipe = pipe
-        setproctitle.setproctitle('%s task %s #%i' % (sys.argv[0], self.__class__.__name__, os.getpid()))
+        setproctitle.setproctitle(
+            '%s task %s #%i',
+            sys.argv[0],
+            self.__class__.__name__,
+            os.getpid()
+        )
         set_log_params(tag='task')
-        logging.info('Starting task %s (%s)' % (self.id, self.__class__.__name__))
+        logging.info('Starting task %s (%s)', self.id, self.__class__.__name__)
         try:
             self.run()
+        # pylint: disable=W0703
         except Exception as e:
-            logging.error('Exception in task %s' % self.id)
+            logging.error('Exception in task %s', self.id)
             logging.error(str(e))
             traceback.print_exc()
             self.pipe.put({'type': 'exception', 'exception': str(e)})
         self.pipe.put({'type': 'done'})
-        logging.info('Task %s finished' % self.id)
+        logging.info('Task %s finished', self.id)
 
     def _reader(self):
         while True:
             try:
                 msg = self.pipe.get()
-            except:
+            except gevent.queue.Empty:
                 self.running = False
                 self.finished = time.time()
-                logging.debug('Task %s pipe was closed' % self.id)
+                logging.debug('Task %s pipe was closed', self.id)
                 self.service.remove(self.id)
                 self.service.notify()
                 return
-            #print '<<', msg
             if msg['type'] == 'exception':
                 self.exception = msg['exception']
-                logging.debug('Task %s reports exception: %s' % (self.id, msg['exception']))
+                logging.debug('Task %s reports exception: %s', self.id, msg['exception'])
                 self.service.notify({
                     'type': 'exception',
                     'exception': self.exception,
@@ -95,11 +102,15 @@ class Task (object):
                 })
             if msg['type'] == 'progress':
                 self.progress = msg['progress']
-                logging.debug('Task %s reports progress: %s %s/%s' % (
-                    self.id, self.progress['message'], self.progress['done'], self.progress['total'],
-                ))
+                logging.debug(
+                    'Task %s reports progress: %s %s/%s',
+                    self.id,
+                    self.progress['message'],
+                    self.progress['done'],
+                    self.progress['total'],
+                )
             if msg['type'] == 'done':
-                logging.debug('Task %s reports completion' % self.id)
+                logging.debug('Task %s reports completion', self.id)
                 self.service.notify({
                     'type': 'done',
                     'task': {
@@ -109,9 +120,12 @@ class Task (object):
                 })
             if msg['type'] == 'push':
                 Push.get(self.context).push(msg['plugin'], msg['message'])
-                logging.debug('Task %s sends a push message: %s %s' % (
-                    self.id, msg['plugin'], msg['message'],
-                ))
+                logging.debug(
+                    'Task %s sends a push message: %s %s',
+                    self.id,
+                    msg['plugin'],
+                    msg['message'],
+                )
             self.service.notify()
 
     def run(self):
@@ -126,7 +140,7 @@ class Task (object):
 
 
 @service
-class TasksService (object):
+class TasksService(object):
     def __init__(self, context):
         self.context = context
         self.tasks = {}
@@ -134,14 +148,14 @@ class TasksService (object):
 
     def start(self, task):
         self.tasks[task.id] = task
-        task._start()
+        task.start()
         self.send_update()
 
-    def abort(self, id):
-        self.tasks[task.id]._abort()
+    def abort(self, _id):
+        self.tasks[_id].abort()
 
-    def remove(self, id):
-        self.tasks.pop(id)
+    def remove(self, _id):
+        self.tasks.pop(_id)
 
     def notify(self, message=None):
         if message:

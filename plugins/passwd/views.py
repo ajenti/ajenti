@@ -1,6 +1,5 @@
 import pwd
 
-import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
@@ -8,7 +7,7 @@ from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 

@@ -1,16 +1,13 @@
 import gevent.socket
-from gevent.socket import wait_read, wait_write
 from gevent.lock import RLock
-import gipc
 import os
 import logging
-import time
 
 
-class GateStreamRequest (object):
-    def __init__(self, object, endpoint):
+class GateStreamRequest(object):
+    def __init__(self, obj, endpoint):
         self.id = os.urandom(32).encode('hex')
-        self.object = object
+        self.object = obj
         self.endpoint = endpoint
 
     def serialize(self):
@@ -26,10 +23,10 @@ class GateStreamRequest (object):
         return self
 
 
-class GateStreamResponse (object):
-    def __init__(self, id, object):
-        self.id = id
-        self.object = object
+class GateStreamResponse(object):
+    def __init__(self, _id, obj):
+        self.id = _id
+        self.object = obj
 
     def serialize(self):
         return {
@@ -43,18 +40,18 @@ class GateStreamResponse (object):
         return self
 
 
-class GateStreamServerEndpoint (object):
+class GateStreamServerEndpoint(object):
     def __init__(self, pipe):
         self.pipe = pipe
         self.buffer = {}
         self.buffer_lock = RLock()
         self.log = False
 
-    def send(self, object):
-        rq = GateStreamRequest(object, self)
+    def send(self, obj):
+        rq = GateStreamRequest(obj, self)
         self.pipe.put(rq.serialize())
         if self.log:
-            logging.debug('%s: >> %s' % (self, rq.id))
+            logging.debug('%s: >> %s', self, rq.id)
         return rq
 
     def buffer_single_response(self, timeout):
@@ -66,13 +63,14 @@ class GateStreamServerEndpoint (object):
                             data = self.pipe.get(t)
                     else:
                         data = self.pipe.get()
+                # pylint: disable=E0712
                 except gevent.Timeout:
                     return None
                 except EOFError:
                     return None
                 resp = GateStreamResponse.deserialize(data)
                 if self.log:
-                    logging.debug('%s: << %s' % (self, resp.id))
+                    logging.debug('%s: << %s', self, resp.id)
                 self.buffer[resp.id] = resp
                 return resp
         except IOError:
@@ -82,29 +80,29 @@ class GateStreamServerEndpoint (object):
         with self.buffer_lock:
             return list(self.buffer)
 
-    def has_response(self, id):
+    def has_response(self, _id):
         with self.buffer_lock:
-            return id in self.buffer
+            return _id in self.buffer
 
-    def ack_response(self, id):
+    def ack_response(self, _id):
         with self.buffer_lock:
-            return self.buffer.pop(id)
+            return self.buffer.pop(_id)
 
 
-class GateStreamWorkerEndpoint (object):
+class GateStreamWorkerEndpoint(object):
     def __init__(self, pipe):
         self.pipe = pipe
         self.log = False
 
-    def reply(self, request, object):
-        resp = GateStreamResponse(request.id if request else None, object)
+    def reply(self, request, obj):
+        resp = GateStreamResponse(request.id if request else None, obj)
         self.pipe.put(resp.serialize())
         if self.log:
-            logging.debug('%s: >> %s' % (self, resp.id))
+            logging.debug('%s: >> %s', self, resp.id)
 
     def recv(self):
         data = self.pipe.get()
         rq = GateStreamRequest.deserialize(data)
         if self.log:
-            logging.debug('%s: << %s' % (self, rq.id))
+            logging.debug('%s: << %s', self, rq.id)
         return rq

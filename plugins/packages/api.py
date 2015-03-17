@@ -1,7 +1,7 @@
 from aj.api import *
 
 
-class Package (object):
+class Package(object):
     def __init__(self, manager):
         self.manager = manager
         self.id = None
@@ -14,7 +14,7 @@ class Package (object):
 
 
 @interface
-class PackageManager (object):
+class PackageManager(object):
     id = None
     name = None
     update_command = None
@@ -25,7 +25,7 @@ class PackageManager (object):
     def list(self, query=None):
         raise NotImplementedError
 
-    def get(self, id):
+    def get(self, _id):
         raise NotImplementedError
 
     def update_lists(self, progress_callback):

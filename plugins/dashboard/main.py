@@ -1,8 +1,9 @@
+from aj.api import *
 from aj.plugins.core.api.sidebar import *
 
 
 @component(SidebarItemProvider)
-class ItemProvider (SidebarItemProvider):
+class ItemProvider(SidebarItemProvider):
     def __init__(self, context):
         pass
 

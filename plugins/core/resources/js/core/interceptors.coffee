@@ -1,4 +1,4 @@
-angular.module('core').factory 'unauthenticatedInterceptor', ($q, $rootScope, $location, notify, urlPrefix, messagebox) ->
+angular.module('core').factory 'unauthenticatedInterceptor', ($q, $rootScope, $location, $window, notify, urlPrefix, messagebox) ->
     return {
         responseError: (rejection) ->
             if rejection.status == 500 and rejection.data.exception != 'EndpointError'
@@ -10,7 +10,7 @@ angular.module('core').factory 'unauthenticatedInterceptor', ($q, $rootScope, $l
 
                 $rootScope.disableExpiredSessionInterceptor = true
                 notify.error 'Your session has expired'
-                location.assign("#{urlPrefix}/view/login/normal/#{$location.path()}")
+                $window.location.assign("#{urlPrefix}/view/login/normal/#{$location.path()}")
                 #identity.login() # circular dep - TODO
 
             return $q.reject(rejection)

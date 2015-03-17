@@ -1,7 +1,7 @@
 from aj.api import *
 
 
-class Service (object):
+class Service(object):
     def __init__(self, manager):
         self.id = None
         self.name = None
@@ -11,21 +11,21 @@ class Service (object):
 
 
 @interface
-class ServiceManager (object):
+class ServiceManager(object):
     id = None
     name = None
 
     def list(self):
         raise NotImplementedError
 
-    def get(self, id):
+    def get(self, _id):
         raise NotImplementedError
 
-    def start(self, id):
+    def start(self, _id):
         raise NotImplementedError
 
-    def stop(self, id):
+    def stop(self, _id):
         raise NotImplementedError
 
-    def restart(self, id):
+    def restart(self, _id):
         raise NotImplementedError

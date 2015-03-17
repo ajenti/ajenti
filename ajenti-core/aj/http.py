@@ -3,11 +3,9 @@ from StringIO import StringIO
 import cgi
 import gevent
 import gzip
-import logging
 import math
 import os
 
-import aj
 from aj.api import *
 from aj.api.http import *
 
@@ -21,9 +19,10 @@ def _validate_origin(env):
     return True
 
 
-class HttpRoot (object):
+class HttpRoot(object):
     """
-    A root middleware object that creates the :class:`HttpContext` and dispatches it to other registered middleware
+    A root middleware object that creates the :class:`HttpContext` and dispatches
+    it to other registered middleware
     """
 
     def __init__(self, handler):
@@ -36,8 +35,6 @@ class HttpRoot (object):
         if not _validate_origin(env):
             start_response('403 Invalid Origin', [])
             return ''
-
-        #logging.debug('>> %s' % env['PATH_INFO'])
 
         http_context = HttpContext(env, start_response)
         http_context.prefix = env.get('HTTP_X_URL_PREFIX', '')
@@ -58,12 +55,11 @@ class HttpRoot (object):
                     http_context.headers[index] = (header[0], http_context.prefix + header[1])
 
         http_context.run_response()
-        #logging.debug('<< %s %s' % (http_context.path, len(content)))
         gevent.sleep(0)
         return content
 
 
-class HttpMiddlewareAggregator (BaseHttpHandler):
+class HttpMiddlewareAggregator(BaseHttpHandler):
     def __init__(self, stack):
         self.stack = stack
 
@@ -74,7 +70,7 @@ class HttpMiddlewareAggregator (BaseHttpHandler):
                 return output
 
 
-class HttpContext (object):
+class HttpContext(object):
     """
     Instance of :class:`HttpContext` is passed to all HTTP handler methods
 
@@ -117,8 +113,13 @@ class HttpContext (object):
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if 'wsgi.input' in self.env:
                 self.body = self.env['wsgi.input'].read()
-                if ctype.startswith('application/x-www-form-urlencoded') or ctype.startswith('multipart/form-data'):
-                    self.cgi_query = cgi.FieldStorage(fp=StringIO(self.body), environ=self.env, keep_blank_values=1)
+                if ctype.startswith('application/x-www-form-urlencoded') or \
+                        ctype.startswith('multipart/form-data'):
+                    self.cgi_query = cgi.FieldStorage(
+                        fp=StringIO(self.body),
+                        environ=self.env,
+                        keep_blank_values=1
+                    )
         else:
             self.cgi_query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
 
@@ -131,6 +132,7 @@ class HttpContext (object):
     def get_cleaned_env(self):
         env = self.env.copy()
         for k in list(env):
+            # pylint: disable=W1504
             if type(env[k]) not in [str, unicode, list, dict, bool, type(None), int]:
                 del env[k]
         return env
@@ -172,7 +174,7 @@ class HttpContext (object):
 
         :type key: str
         """
-        self.headers = filter(lambda h: h[0] != key, self.headers)
+        self.headers = [h for h in self.headers if h[0] != key]
 
     def fallthrough(self, handler):
         """
@@ -187,9 +189,12 @@ class HttpContext (object):
             raise Exception('Response not created yet!')
 
         status = self.status
-        if type(status) == int:
+        if isinstance(status, int):
             status = '%s ' % status
-        self.start_response(status, [(x.encode('utf-8'), y.encode('utf-8')) for x,y in self.headers])
+        self.start_response(
+            status,
+            [(x.encode('utf-8'), y.encode('utf-8')) for x, y in self.headers]
+        )
 
     def respond(self, status):
         """
@@ -226,12 +231,12 @@ class HttpContext (object):
         self.respond('404 Not Found')
         return 'Not Found'
 
-    def redirect(self, url):
+    def redirect(self, location):
         """
-        Returns a ``HTTP 302 Found`` redirect response with given ``url``
-        :type url: str
+        Returns a ``HTTP 302 Found`` redirect response with given ``location``
+        :type location: str
         """
-        self.add_header('Location', url)
+        self.add_header('Location', location)
         self.respond('302 Found')
         return ''
 
@@ -297,40 +302,40 @@ class HttpContext (object):
             except:
                 pass
 
-        range = self.env.get('HTTP_RANGE', None)
-        rfrom = rto = None
-        if range and range.startswith('bytes'):
+        http_range = self.env.get('HTTP_RANGE', None)
+        range_from = range_to = None
+        if http_range and http_range.startswith('bytes'):
             rsize = os.stat(path).st_size
-            rfrom, rto = range.split('=')[1].split('-')
-            rfrom = int(rfrom) if rfrom else 0
-            rto = int(rto) if rto else (rsize - 1)
+            range_from, range_to = http_range.split('=')[1].split('-')
+            range_from = int(range_from) if range_from else 0
+            range_to = int(range_to) if range_to else (rsize - 1)
         else:
-            rfrom = 0
-            rto = 999999999
+            range_from = 0
+            range_to = 999999999
 
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         self.add_header('Accept-Ranges', 'bytes')
 
         if stream:
-            if rfrom:
-                self.add_header('Content-Length', str(rto - rfrom + 1))
-                self.add_header('Content-Range', 'bytes %i-%i/%i' % (rfrom, rto, rsize))
+            if range_from:
+                self.add_header('Content-Length', str(range_to - range_from + 1))
+                self.add_header('Content-Range', 'bytes %i-%i/%i' % (range_from, range_to, rsize))
                 self.respond('206 Partial Content')
             else:
                 self.respond_ok()
-            fd = os.open(path, os.O_RDONLY)# | os.O_NONBLOCK)
-            os.lseek(fd, rfrom or 0, os.SEEK_SET)
+            fd = os.open(path, os.O_RDONLY)
+            os.lseek(fd, range_from or 0, os.SEEK_SET)
             bufsize = 100 * 1024
-            read = rfrom
+            read = range_from
             buf = 1
             while buf:
                 buf = os.read(fd, bufsize)
                 gevent.sleep(0)
-                if read + len(buf) > rto:
-                    buf = buf[:rto + 1 - read]
+                if read + len(buf) > range_to:
+                    buf = buf[:range_to + 1 - read]
                 yield buf
                 read += len(buf)
-                if read >= rto:
+                if read >= range_to:
                     break
             os.close(fd)
         else:

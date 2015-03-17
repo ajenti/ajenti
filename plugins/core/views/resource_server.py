@@ -3,14 +3,14 @@ import os
 
 import aj
 from aj.api import *
-from aj.api.http import BaseHttpHandler, url, HttpPlugin
+from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager
 
 from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)
-class ResourcesHandler (HttpPlugin):
+class ResourcesHandler(HttpPlugin):
     def __init__(self, http_context):
         self.cache = {}
         self.use_cache = not aj.debug
@@ -19,7 +19,6 @@ class ResourcesHandler (HttpPlugin):
     @url(r'/resources/all\.(?P<type>.+)')
     @endpoint(page=True, auth=False)
     def handle_build(self, http_context, type=None):
-
         if self.use_cache and type in self.cache:
             content = self.cache[type]
         else:
@@ -41,7 +40,8 @@ class ResourcesHandler (HttpPlugin):
             if type == 'partials.js':
                 content = '''
                     angular.module("core.templates", []);
-                    angular.module("core.templates").run(["$templateCache", function($templateCache) {
+                    angular.module("core.templates").run(
+                        ["$templateCache", function($templateCache) {
                 '''
                 for plugin in self.mgr.get_order():
                     for resource in self.mgr[plugin].resources:
@@ -51,7 +51,10 @@ class ResourcesHandler (HttpPlugin):
                                 template = open(path).read()
                                 content += '''
                                       $templateCache.put("%s", %s);
-                                ''' % ('%s/%s:%s' % (http_context.prefix, plugin, resource), json.dumps(template))
+                                ''' % (
+                                    '%s/%s:%s' % (http_context.prefix, plugin, resource),
+                                    json.dumps(template)
+                                )
                 content += '''
                     }]);
                 '''
@@ -67,12 +70,9 @@ class ResourcesHandler (HttpPlugin):
         http_context.respond_ok()
         return http_context.gzip(content=content)
 
-
     @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
     @endpoint(page=True, auth=False)
     def handle_file(self, http_context, plugin=None, path=None):
         if '..' in path:
             return http_context.respond_not_found()
-        mgr = PluginManager.get(aj.context)
-        info = mgr[plugin]
-        return http_context.file(mgr.get_content_path(plugin, path))
+        return http_context.file(PluginManager.get(aj.context).get_content_path(plugin, path))

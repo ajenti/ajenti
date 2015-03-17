@@ -44,7 +44,7 @@ class SSLSocket(object):
     def accept(self):
         _, _, _ = select.select([self.__socket.fileno()], [], [])
         conn, addr = self._connection.accept()
-        client = SSLSocket(self._context, connection=conn)
+        client = SSLSocket(self._context, conn)
         return client, addr
 
     def connect(self, *args, **kwargs):
@@ -98,4 +98,5 @@ class SSLSocket(object):
 
     def makefile(self, mode='r', bufsize=-1):
         self._makefile_refs += 1
+        # pylint: disable=W0212
         return socket._fileobject(self, mode, bufsize, close=True)

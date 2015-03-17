@@ -2,13 +2,11 @@ import gevent
 import json
 import os
 import socket
-import subprocess
 import traceback
 
 import aj
 from aj.api import *
-from aj.api.http import BaseHttpHandler, url, HttpPlugin
-from aj.plugins import PluginManager
+from aj.api.http import url, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 
 from aj.plugins.core.api.endpoint import endpoint
@@ -17,7 +15,7 @@ from aj.plugins.core.api.navbox import Navbox
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
@@ -133,4 +131,3 @@ class Handler (HttpPlugin):
     @endpoint(api=True)
     def handle_api_restart_master(self, http_context):
         self.context.worker.restart_master()
-

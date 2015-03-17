@@ -1,11 +1,10 @@
 import logging
 import subprocess
 
-from aj.plugins.core.api.push import Push
 from aj.plugins.core.api.tasks import Task
 
 
-class Transfer (Task):
+class Transfer(Task):
     name = 'File transfer'
 
     def __init__(self, context, destination=None, items=None):
@@ -14,30 +13,30 @@ class Transfer (Task):
         self.items = items
 
     def run(self):
-        logging.info('Transferring %s items into %s' % (len(self.items), self.destination))
+        logging.info('Transferring %s items into %s', len(self.items), self.destination)
         self.destination = self.destination.rstrip('/') + '/'
 
         for idx, item in enumerate(self.items):
             self.report_progress(message=item['item']['name'], done=idx, total=len(self.items))
             if item['mode'] == 'move':
-                logging.info('Moving %s' % item['item']['path'])
+                logging.info('Moving %s', item['item']['path'])
                 r = subprocess.call([
                     'mv', item['item']['path'], '-t', self.destination
                 ])
                 if r != 0:
-                    logging.warn('mv exited with code %i' % r)
+                    logging.warn('mv exited with code %i', r)
             if item['mode'] == 'copy':
-                logging.info('Copying %s' % item['item']['path'])
+                logging.info('Copying %s', item['item']['path'])
                 r = subprocess.call([
                     'cp', '-a', item['item']['path'], '-t', self.destination
                 ])
                 if r != 0:
-                    logging.warn('cp exited with code %i' % r)
+                    logging.warn('cp exited with code %i', r)
 
         self.push('filesystem', 'refresh')
 
 
-class Delete (Task):
+class Delete(Task):
     name = 'Deleting'
 
     def __init__(self, context, items=None):
@@ -45,15 +44,15 @@ class Delete (Task):
         self.items = items
 
     def run(self):
-        logging.info('Deleting %s items' % len(self.items))
+        logging.info('Deleting %s items', len(self.items))
 
         for idx, item in enumerate(self.items):
             self.report_progress(message=item['name'], done=idx, total=len(self.items))
-            logging.info('Deleting %s' % item['path'])
+            logging.info('Deleting %s', item['path'])
             r = subprocess.call([
                 'rm', '-r', '-f', item['path'],
             ])
             if r != 0:
-                logging.warn('rm exited with code %i' % r)
+                logging.warn('rm exited with code %i', r)
 
         self.push('filesystem', 'refresh')

@@ -6,7 +6,7 @@ import yaml
 from aj.api import *
 
 
-class BaseConfig (object):
+class BaseConfig(object):
     def __init__(self):
         self.data = None
 
@@ -18,13 +18,14 @@ class BaseConfig (object):
 
 
 @service
-class UserConfig (BaseConfig):
+class UserConfig(BaseConfig):
     def __init__(self, context):
+        BaseConfig.__init__(self)
         username = pwd.getpwuid(os.getuid())[0]
-        dir = os.path.expanduser('~%s/.config' % username)
-        if not os.path.exists(dir):
-            os.makedirs(dir)
-        self.path = os.path.join(dir, 'ajenti.yml')
+        _dir = os.path.expanduser('~%s/.config' % username)
+        if not os.path.exists(_dir):
+            os.makedirs(_dir)
+        self.path = os.path.join(_dir, 'ajenti.yml')
         if os.path.exists(self.path):
             self.load()
         else:
@@ -38,5 +39,7 @@ class UserConfig (BaseConfig):
 
     def save(self):
         with open(self.path, 'w') as f:
-            f.write(yaml.safe_dump(self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True))
+            f.write(yaml.safe_dump(
+                self.data, default_flow_style=False, encoding='utf-8', allow_unicode=True
+            ))
         self.harden()

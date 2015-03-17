@@ -1,8 +1,7 @@
-import logging
 import subprocess
 import traceback
 
-#TODO sort this out
+# TODO sort this out
 
 
 def platform_select(**values):
@@ -42,7 +41,7 @@ def make_report(e):
         report = catcher.collect(e)
         html = catcher.formatters.HTMLFormatter().format(report, maxdepth=3)
         catcher_url = catcher.uploaders.AjentiOrgUploader().upload(html)
-    except:
+    except Exception:
         pass
 
     import gevent
@@ -77,19 +76,19 @@ psutil | %s
 %s
 
             """ % (
-        version,
-        platform, platform_unmapped, platform_string.strip(),
-        subprocess.check_output(['uname', '-mp']).strip(),
-        '.'.join([str(x) for x in _platform.python_version_tuple()]),
-        installation_uid,
-        debug,
-        catcher_url or 'Failed to upload traceback',
-        ', '.join(sorted(PluginManager.get(aj.context).get_order())),
+            version,
+            platform, platform_unmapped, platform_string.strip(),
+            subprocess.check_output(['uname', '-mp']).strip(),
+            '.'.join([str(x) for x in _platform.python_version_tuple()]),
+            installation_uid,
+            debug,
+            catcher_url or 'Failed to upload traceback',
+            ', '.join(sorted(PluginManager.get(aj.context).get_order())),
 
-        gevent.__version__,
-        greenlet.__version__,
-        reconfigure.__version__,
-        psutil.__version__,
+            gevent.__version__,
+            greenlet.__version__,
+            reconfigure.__version__,
+            psutil.__version__,
 
-        tb,
-    )
+            tb,
+        )

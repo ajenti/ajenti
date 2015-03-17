@@ -1,10 +1,12 @@
+import gevent.queue
+
 from aj.api import *
 from aj.api.http import SocketEndpoint
 from aj.plugins.core.api.push import Push
 
 
 @component(SocketEndpoint)
-class PushSocket (SocketEndpoint):
+class PushSocket(SocketEndpoint):
     plugin = 'push'
 
     def __init__(self, context):
@@ -18,7 +20,7 @@ class PushSocket (SocketEndpoint):
         while True:
             try:
                 plugin, msg = q.get()
-            except:
+            except gevent.queue.Empty:
                 return
             if msg:
                 self.send({

@@ -9,7 +9,6 @@ import signal
 import socket
 import sys
 import syslog
-import ssl
 import traceback
 
 import aj
@@ -42,7 +41,8 @@ import aj.compat
 from socketio.server import SocketIOServer
 
 
-def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False, debug_mode=False, autologin=False):
+def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=False,
+        debug_mode=False, autologin=False):
     if config is None:
         raise TypeError('`config` can\'t be None')
 
@@ -58,8 +58,8 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
     aj.log.set_log_params(tag='master', master_pid=os.getpid())
     aj.context = Context()
     aj.config = config
-    aj.plugin_providers = plugin_providers
-    logging.info('Loading config from %s' % aj.config)
+    aj.plugin_providers = plugin_providers or []
+    logging.info('Loading config from %s', aj.config)
     aj.config.load()
 
     if aj.debug:
@@ -69,11 +69,11 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
 
     try:
         locale.setlocale(locale.LC_ALL, '')
-    except:
+    except locale.Error:
         logging.warning('Couldn\'t set default locale')
 
-    logging.info('Ajenti Core %s' % aj.version)
-    logging.info('Detected platform: %s / %s' % (aj.platform, aj.platform_string))
+    logging.info('Ajenti Core %s', aj.version)
+    logging.info('Detected platform: %s / %s', aj.platform, aj.platform_string)
 
     # Load plugins
     PluginManager.get(aj.context).load_all_from(aj.plugin_providers)
@@ -87,25 +87,27 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
         try:
             listener.bind(path)
-        except:
-            logging.error('Could not bind to %s' % path)
+        except OSError:
+            logging.error('Could not bind to %s', path)
             sys.exit(1)
 
     if aj.config.data['bind']['mode'] == 'tcp':
         host = aj.config.data['bind']['host']
         port = aj.config.data['bind']['port']
-        listener = socket.socket(socket.AF_INET6 if ':' in host else socket.AF_INET, socket.SOCK_STREAM)
-        if not aj.platform in ['freebsd', 'osx']:
+        listener = socket.socket(
+            socket.AF_INET6 if ':' in host else socket.AF_INET, socket.SOCK_STREAM
+        )
+        if aj.platform not in ['freebsd', 'osx']:
             try:
                 listener.setsockopt(socket.IPPROTO_TCP, socket.TCP_CORK, 1)
-            except:
+            except socket.error:
                 logging.warn('Could not set TCP_CORK')
         listener.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        logging.info('Binding to [%s]:%s' % (host, port))
+        logging.info('Binding to [%s]:%s', host, port)
         try:
             listener.bind((host, port))
-        except Exception, e:
-            logging.error('Could not bind: %s' % str(e))
+        except socket.error as e:
+            logging.error('Could not bind: %s', str(e))
             sys.exit(1)
 
     # Fix stupid socketio bug (it tries to do *args[0][0])
@@ -176,10 +178,10 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         syslog.openlog(aj.product)
 
     def cleanup():
-        if hasattr(cleanup, '_started'):
+        if hasattr(cleanup, 'started'):
             return
-        cleanup._started = True
-        logging.info('Process %s exiting normally' % os.getpid())
+        cleanup.started = True
+        logging.info('Process %s exiting normally', os.getpid())
         gevent.signal(signal.SIGINT, lambda: None)
         gevent.signal(signal.SIGTERM, lambda: None)
         if aj.master:
@@ -197,19 +199,14 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         cleanup()
         sys.exit(0)
 
-    try:
-        gevent.signal(signal.SIGINT, signal_handler)
-        gevent.signal(signal.SIGTERM, signal_handler)
-    except:
-        pass
+    gevent.signal(signal.SIGINT, signal_handler)
+    gevent.signal(signal.SIGTERM, signal_handler)
 
     aj.server.serve_forever()
 
     if not aj.master:
         # child process, server is stopped, wait until killed
         gevent.wait()
-        #while True:
-        #    gevent.sleep(3600)
 
     if hasattr(aj.server, 'restart_marker'):
         logging.warn('Restarting by request')
@@ -219,8 +216,8 @@ def run(config=None, plugin_providers=[], product_name='ajenti', dev_mode=False,
         while fd > 2:
             try:
                 os.close(fd)
-                logging.debug('Closed descriptor #%i' % fd)
-            except:
+                logging.debug('Closed descriptor #%i', fd)
+            except OSError:
                 pass
             fd -= 1
 
@@ -247,8 +244,9 @@ def handle_crash(exc):
         report = open(report_path, 'w')
     report.write(make_report(exc))
     report.close()
-    logging.error('Crash report written to %s' % report_path)
-    #logging.error('Please submit it to https://github.com/Eugeny/ajenti/issues/new')
+    logging.error('Crash report written to %s', report_path)
+    # TODO message
+    # logging.error('Please submit it to https://github.com/ajenti/ajenti/issues/new')
 
 
 def start(daemonize=False, log_level=logging.INFO, **kwargs):
@@ -260,13 +258,14 @@ def start(daemonize=False, log_level=logging.INFO, **kwargs):
             stdout=logfile,
             stderr=logfile,
             detach_process=True,
-            files_preserve=range(1024), # force-closing files breaks gevent badly
+            files_preserve=range(1024),  # force-closing files breaks gevent badly
         )
         with context:
             gevent.reinit()
             aj.log.init_log_rotation()
             try:
                 run(**kwargs)
+            # pylint: disable=W0703
             except Exception as e:
                 handle_crash(e)
     else:
@@ -274,6 +273,6 @@ def start(daemonize=False, log_level=logging.INFO, **kwargs):
             run(**kwargs)
         except KeyboardInterrupt:
             pass
+        # pylint: disable=W0703
         except Exception as e:
             handle_crash(e)
-

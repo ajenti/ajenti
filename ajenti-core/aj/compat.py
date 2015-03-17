@@ -8,7 +8,7 @@ if not hasattr(subprocess, 'check_output'):
     def c_o(*args, **kwargs):
         kwargs['stdout'] = subprocess.PIPE
         popen = subprocess.Popen(*args, **kwargs)
-        stdout, stderr = popen.communicate()
+        stdout, _ = popen.communicate()
         return stdout
     subprocess.check_output = c_o
 
@@ -17,7 +17,7 @@ old_Popen = subprocess.Popen.__init__
 
 
 def Popen(*args, **kwargs):
-    logging.debug('Popen: %s' % (args[1],))
+    logging.debug('Popen: %s', args[1])
     __null = open(os.devnull, 'w')
     return old_Popen(
         stdin=kwargs.pop('stdin', subprocess.PIPE),
@@ -84,6 +84,7 @@ from socketio.transports import BaseTransport
 
 old_transport_init = BaseTransport.__init__
 
+
 def new_transport_init(self, *args, **kwargs):
     old_transport_init(self, *args, **kwargs)
     self.headers = []
@@ -93,6 +94,7 @@ BaseTransport.__init__ = new_transport_init
 
 
 # Re-add sslwrap to Python 2.7.9
+
 """
 import inspect
 import gevent.ssl
@@ -128,10 +130,11 @@ import pexpect
 import sys
 
 old = pexpect.spawn.__init__
+
+
 def new(self, *args, **kwargs):
     if sys.__stdin__.closed:
         sys.__stdin__ = open('/dev/zero')
     old(self, *args, **kwargs)
 
 pexpect.spawn.__init__ = new
-

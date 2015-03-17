@@ -1,4 +1,3 @@
-import gevent
 import yum
 
 from aj.api import *
@@ -6,7 +5,7 @@ from aj.plugins.packages.api import PackageManager, Package
 
 
 @component(PackageManager)
-class YUMPackageManager (PackageManager):
+class YUMPackageManager(PackageManager):
     id = 'yum'
     name = 'YUM'
 
@@ -21,7 +20,7 @@ class YUMPackageManager (PackageManager):
         p.id = '%s.%s' % (pkg.name, pkg.arch)
         p.name = pkg.name
         p.version = pkg.version
-        p.description = pkg.arch # nothing better
+        p.description = pkg.arch  # nothing better
         p.is_installed = pkg_installed is not None
         if p.is_installed:
             p.installed_version = pkg_installed.version
@@ -32,12 +31,17 @@ class YUMPackageManager (PackageManager):
         for pkg in self.yum.pkgSack.returnPackages():
             yield self.__make_package(pkg)
 
-    def get(self, id):
-        pkg = (self.yum.searchNames(names=[id]) or [None])[0]
+    def get(self, _id):
+        pkg = (self.yum.searchNames(names=[_id]) or [None])[0]
         return self.__make_package(pkg)
 
     def update_lists(self, progress_callback):
-        class Progress (object):
+        class Progress(object):
+            def __init__(self):
+                self.size = 0
+                self.done = 0
+                self.name = None
+
             def end(self, amount_read, now=None):
                 pass
 
@@ -59,8 +63,16 @@ class YUMPackageManager (PackageManager):
         y.repos.populateSack()
 
     def get_apply_cmd(self, selection):
-        to_install = [sel['package']['id'] for sel in selection if sel['operation'] in ['install', 'upgrade']]
-        to_remove = [sel['package']['id'] for sel in selection if sel['operation'] == 'remove']
+        to_install = [
+            sel['package']['id']
+            for sel in selection
+            if sel['operation'] in ['install', 'upgrade']
+        ]
+        to_remove = [
+            sel['package']['id']
+            for sel in selection
+            if sel['operation'] == 'remove'
+        ]
         cmd = ''
         if len(to_install) > 0:
             cmd += 'yum install ' + ' '.join(to_install)

@@ -7,7 +7,7 @@ from aj.plugins.packages.api import PackageManager, Package
 
 
 @component(PackageManager)
-class APTPackageManager (PackageManager):
+class APTPackageManager(PackageManager):
     id = 'apt'
     name = 'APT'
 
@@ -29,17 +29,20 @@ class APTPackageManager (PackageManager):
 
     def list(self, query=None):
         cache = apt.Cache()
-        for id in cache.keys():
-            yield self.__make_package(cache[id])
+        for _id in cache.keys():
+            yield self.__make_package(cache[_id])
 
-    def get(self, id):
+    def get(self, _id):
         cache = apt.Cache()
-        return self.__make_package(cache[id])
+        return self.__make_package(cache[_id])
 
     def update_lists(self, progress_callback):
-        class Progress (AcquireProgress):
+        class Progress(AcquireProgress):
             def fetch(self, item):
-                message = '%s%% %s' % (int(100 * self.current_items / self.total_items), item.shortdesc)
+                message = '%s%% %s' % (
+                    int(100 * self.current_items / self.total_items),
+                    item.shortdesc
+                )
                 progress_callback(message=message, done=self.current_items, total=self.total_items)
 
             def stop(self):
@@ -55,5 +58,9 @@ class APTPackageManager (PackageManager):
     def get_apply_cmd(self, selection):
         cmd = 'apt-get install '
         for sel in selection:
-            cmd += sel['package']['id'] + {'remove': '-', 'install': '+', 'upgrade': '+'}[sel['operation']] + ' '
+            cmd += sel['package']['id'] + {
+                'remove': '-',
+                'install': '+',
+                'upgrade': '+'
+            }[sel['operation']] + ' '
         return cmd

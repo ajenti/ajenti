@@ -1,6 +1,5 @@
 import json
 
-import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
@@ -9,7 +8,7 @@ from aj.plugins.packages.api import PackageManager
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.managers = dict((x.id, x) for x in PackageManager.all(self.context))

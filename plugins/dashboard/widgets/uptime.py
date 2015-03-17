@@ -6,7 +6,7 @@ from aj.plugins.dashboard.api import Widget
 
 
 @component(Widget)
-class UptimeWidget (Widget):
+class UptimeWidget(Widget):
     id = 'uptime'
     name = 'Uptime'
     template = '/dashboard:resources/partial/widgets/uptime.html'

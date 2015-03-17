@@ -2,7 +2,7 @@ from aj.api import *
 
 
 @interface
-class Widget (object):
+class Widget(object):
     id = None
     name = None
     template = None

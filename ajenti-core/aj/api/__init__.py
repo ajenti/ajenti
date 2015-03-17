@@ -1,7 +1,7 @@
 from aj.api.di import *
 
 
-class PluginInfo:
+class PluginInfo(object):
     """
     Describes a loaded plugin package
     """

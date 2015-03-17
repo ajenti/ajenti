@@ -1,19 +1,17 @@
 from PIL import Image, ImageDraw
 
-import gevent
 import json
 import StringIO
 
-import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin, SocketEndpoint
 from aj.plugins.core.api.endpoint import endpoint
 
-from manager import TerminalManager
+from .manager import TerminalManager
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.mgr = TerminalManager.get(self.context)
@@ -29,16 +27,16 @@ class Handler (HttpPlugin):
         options = json.loads(http_context.body)
         return self.mgr.create(**options)
 
-    @url(r'/api/terminal/kill/(?P<id>.+)')
+    @url(r'/api/terminal/kill/(?P<terminal_id>.+)')
     @endpoint(api=True)
-    def handle_kill(self, http_context, id=None):
-        return self.mgr.kill(id)
+    def handle_kill(self, http_context, terminal_id=None):
+        return self.mgr.kill(terminal_id)
 
-    @url(r'/api/terminal/full/(?P<id>.+)')
+    @url(r'/api/terminal/full/(?P<terminal_id>.+)')
     @endpoint(api=True)
-    def handle_full(self, http_context, id=None):
-        if id in self.mgr:
-            return self.mgr[id].format(full=True)
+    def handle_full(self, http_context, terminal_id=None):
+        if terminal_id in self.mgr:
+            return self.mgr[terminal_id].format(full=True)
         else:
             return None
 
@@ -54,14 +52,17 @@ class Handler (HttpPlugin):
         'cyan': '#2aa198',
     }
 
-    @url(r'/api/terminal/preview/(?P<id>.+)')
+    @url(r'/api/terminal/preview/(?P<terminal_id>.+)')
     @endpoint(page=True)
-    def handle_preview(self, http_context, id):
-        terminal = self.mgr[id]
+    def handle_preview(self, http_context, terminal_id):
+        terminal = self.mgr[terminal_id]
 
         img = Image.new('RGB', (terminal.width, terminal.height * 2))
         draw = ImageDraw.Draw(img)
-        draw.rectangle([0, 0, terminal.width, terminal.height], fill=ImageDraw.ImageColor.getcolor(self.colors['black'], 'RGB'))
+        draw.rectangle(
+            [0, 0, terminal.width, terminal.height],
+            fill=ImageDraw.ImageColor.getcolor(self.colors['black'], 'RGB')
+        )
 
         for y in range(0, terminal.height):
             for x in range(0, terminal.width):
@@ -90,7 +91,7 @@ class Handler (HttpPlugin):
 
 
 @component(SocketEndpoint)
-class Socket (SocketEndpoint):
+class Socket(SocketEndpoint):
     plugin = 'terminal'
 
     def __init__(self, context):
@@ -99,30 +100,30 @@ class Socket (SocketEndpoint):
         self.readers = {}
 
     def on_message(self, message, *args):
-        id = message['id']
-        if id not in self.mgr:
+        terminal_id = message['id']
+        if terminal_id not in self.mgr:
             self.send({
-                'id': id,
+                'id': terminal_id,
                 'type': 'closed',
             })
             return
         if message['action'] == 'subscribe':
-            if id in self.readers:
-                self.readers[id].kill(block=False)
-            self.readers[id] = self.spawn(self.reader, id)
+            if terminal_id in self.readers:
+                self.readers[terminal_id].kill(block=False)
+            self.readers[terminal_id] = self.spawn(self.reader, terminal_id)
         if message['action'] == 'input':
-            terminal = self.mgr[message['id']]
+            terminal = self.mgr[terminal_id]
             terminal.feed(message['data'])
         if message['action'] == 'resize':
-            terminal = self.mgr[message['id']]
+            terminal = self.mgr[terminal_id]
             terminal.resize(message['width'], message['height'])
 
-    def reader(self, id):
-        terminal = self.mgr[id]
+    def reader(self, terminal_id):
+        terminal = self.mgr[terminal_id]
         q = terminal.output.register()
         while True:
             self.send({
                 'type': 'data',
-                'id': id,
+                'id': terminal_id,
                 'data': q.get(),
             })

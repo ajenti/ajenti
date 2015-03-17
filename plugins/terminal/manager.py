@@ -7,33 +7,33 @@ from terminal import *
 
 
 @service
-class TerminalManager (object):
+class TerminalManager(object):
     def __init__(self, context):
         self.context = context
         self.terminals = {}
 
-    def __getitem__(self, id):
-        return self.terminals[id]
+    def __getitem__(self, _id):
+        return self.terminals[_id]
 
-    def __contains__(self, id):
-        return id in self.terminals
+    def __contains__(self, _id):
+        return _id in self.terminals
 
     def list(self):
         return [{
-            'id': id,
-            'command': self[id].command,
-        } for id in self.terminals.keys()]
+            'id': _id,
+            'command': self[_id].command,
+        } for _id in self.terminals.keys()]
 
     def create(self, **kwargs):
-        id = os.urandom(32).encode('hex')
-        t = Terminal(self, id, **kwargs)
-        logging.info('Created terminal %s' % id)
-        self.terminals[id] = t
-        return id
+        _id = os.urandom(32).encode('hex')
+        t = Terminal(self, _id, **kwargs)
+        logging.info('Created terminal %s', _id)
+        self.terminals[_id] = t
+        return _id
 
-    def kill(self, id):
-        self.terminals[id].kill()
-        self.remove(id)
+    def kill(self, _id):
+        self.terminals[_id].kill()
+        self.remove(_id)
 
-    def remove(self, id):
-        self.terminals.pop(id)
+    def remove(self, _id):
+        self.terminals.pop(_id)

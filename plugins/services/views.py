@@ -1,4 +1,3 @@
-import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
@@ -7,18 +6,18 @@ from aj.plugins.services.api import ServiceManager
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.managers = dict((x.id, x) for x in ServiceManager.all(self.context))
 
-    def __service_to_json(self, service):
+    def __service_to_json(self, svc):
         return {
-            'id': service.id,
-            'name': service.name,
-            'state': service.state,
-            'running': service.running,
-            'managerId': service.manager.id,
+            'id': svc.id,
+            'name': svc.name,
+            'state': svc.state,
+            'running': svc.running,
+            'managerId': svc.manager.id,
         }
 
     @url(r'/api/services/managers')
@@ -34,7 +33,7 @@ class Handler (HttpPlugin):
     @url(r'/api/services/list/(?P<manager_id>\w+)')
     @endpoint(api=True)
     def handle_api_list(self, http_context, manager_id=None):
-        return [self.__service_to_json(service) for service in self.managers[manager_id].list()]
+        return [self.__service_to_json(svc) for svc in self.managers[manager_id].list()]
 
     @url(r'/api/services/get/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @endpoint(api=True)

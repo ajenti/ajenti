@@ -1,6 +1,5 @@
 import json
 import logging
-import os
 import pexpect
 import pwd
 import requests
@@ -13,14 +12,15 @@ from aj.security.verifier import ClientCertificateVerificator
 from aj.util import *
 
 
-class SudoError (Exception):
+class SudoError(Exception):
     def __init__(self, message):
+        Exception.__init__(self)
         self.message = message
 
 
 @public
 @service
-class AuthenticationMiddleware (BaseHttpHandler):
+class AuthenticationMiddleware(BaseHttpHandler):
     def __init__(self, context):
         self.context = context
         self.auth = AuthenticationService.get(self.context)
@@ -31,7 +31,11 @@ class AuthenticationMiddleware (BaseHttpHandler):
         if http_context.env['SSL_CLIENT_VALID']:
             if not self.context.identity:
                 username = http_context.env['SSL_CLIENT_USER']
-                logging.info('SSL client certificate %s verified as %s' % (http_context.env['SSL_CLIENT_DIGEST'], username))
+                logging.info(
+                    'SSL client certificate %s verified as %s',
+                    http_context.env['SSL_CLIENT_DIGEST'],
+                    username
+                )
                 try:
                     pwd.getpwnam(username)
                     found = True
@@ -45,7 +49,7 @@ class AuthenticationMiddleware (BaseHttpHandler):
 
 @public
 @service
-class AuthenticationService (BaseHttpHandler):
+class AuthenticationService(BaseHttpHandler):
     def __init__(self, context):
         self.context = context
 
@@ -59,7 +63,7 @@ class AuthenticationService (BaseHttpHandler):
         except Exception as err:
             if child and child.isalive():
                 child.close()
-            logging.error('Error checking password: %s' % err)
+            logging.error('Error checking password: %s', err)
             return False
         if result == 0:
             return False
@@ -108,7 +112,7 @@ class AuthenticationService (BaseHttpHandler):
         return self.context.identity
 
     def login(self, username, demote=True):
-        logging.info('Authenticating session as %s' % username)
+        logging.info('Authenticating session as %s', username)
         if demote:
             self.context.worker.demote(username)
         self.context.identity = username

@@ -52,7 +52,7 @@ module.exports = (config) ->
     singleRun: true
     coverageReporter:
       reporters: [
-        type: 'html'
-        type: 'text-summary', file: 'coverage.txt'
+        {type: 'html', subdir: '.'}
+        {type: 'text-summary', subdir: '.', file: 'coverage.txt'}
       ]
   })

@@ -14,7 +14,6 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, so
                     @tasks.push {}
                 angular.copy msg.tasks[i], @tasks[i]
         if msg.type == 'message'
-            console.log msg.message
             if msg.message.type == 'done'
                 notify.success msg.message.task.name, 'Done'
             if msg.message.type == 'exception'

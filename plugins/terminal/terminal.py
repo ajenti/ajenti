@@ -16,7 +16,7 @@ import pyte
 from aj.util import BroadcastQueue
 
 
-class Terminal (object):
+class Terminal(object):
     def __init__(self, manager=None, id=None, command=None, autoclose=False):
         self.width = 80
         self.height = 25
@@ -49,14 +49,14 @@ class Terminal (object):
             args = ['sh', '-c', self.command]
             exe = 'sh'
 
-        logging.info('Activating new terminal: %s' % self.command)
+        logging.info('Activating new terminal: %s', self.command)
 
         self.pid, self.fd = pty.fork()
         if self.pid == 0:
             setproctitle.setproctitle('%s terminal session #%i' % (sys.argv[0], os.getpid()))
             os.execvpe(exe, args, env)
 
-        logging.info('Subprocess PID %s' % self.pid)
+        logging.info('Subprocess PID %s', self.pid)
 
         self.dead = False
 
@@ -70,9 +70,9 @@ class Terminal (object):
 
         self.last_cursor_position = None
 
-        self.reader = gevent.spawn(self.reader)
+        self.reader = gevent.spawn(self.reader_fn)
 
-    def reader(self):
+    def reader_fn(self):
         data = ''
         while True:
             wait_read(self.fd)
@@ -176,7 +176,7 @@ class Terminal (object):
             return
         self.width = w
         self.height = h
-        logging.debug('Resizing terminal to %sx%s' % (w, h))
+        logging.debug('Resizing terminal to %sx%s', w, h)
         self.screen.resize(h, w)
         winsize = struct.pack("HHHH", h, w, 0, 0)
         fcntl.ioctl(self.fd, termios.TIOCSWINSZ, winsize)
@@ -184,7 +184,7 @@ class Terminal (object):
     def kill(self):
         self.reader.kill(block=False)
 
-        logging.info('Killing subprocess PID %s' % self.pid)
+        logging.info('Killing subprocess PID %s', self.pid)
         try:
             os.killpg(self.pid, signal.SIGTERM)
         except OSError:

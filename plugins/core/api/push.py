@@ -3,7 +3,7 @@ from aj.util import BroadcastQueue
 
 
 @service
-class Push (object):
+class Push(object):
     def __init__(self, context):
         self.q = BroadcastQueue()
 

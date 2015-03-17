@@ -10,7 +10,7 @@ UPSTART_PATTERN = '/etc/init/%s.conf'
 
 
 @component(ServiceManager)
-class SysVServiceManager (ServiceManager):
+class SysVServiceManager(ServiceManager):
     id = 'sysv'
     name = 'System V'
 
@@ -22,36 +22,36 @@ class SysVServiceManager (ServiceManager):
         pass
 
     def list(self):
-        for id in os.listdir(INIT_D):
-            path = os.path.join(INIT_D, id)
-            if id.startswith('.'):
+        for _id in os.listdir(INIT_D):
+            path = os.path.join(INIT_D, _id)
+            if _id.startswith('.'):
                 continue
-            if id.startswith('rc'):
+            if _id.startswith('rc'):
                 continue
             if os.path.islink(path):
                 continue
-            if os.path.exists(UPSTART_PATTERN % id):
+            if os.path.exists(UPSTART_PATTERN % _id):
                 continue
-            yield self.get(id)
+            yield self.get(_id)
 
-    def get(self, id):
-        service = Service(self)
-        service.id = service.name = id
+    def get(self, _id):
+        svc = Service(self)
+        svc.id = svc.name = _id
         try:
-            service.running = self._run_action(id, 'status')
-            service.state = 'running' if service.running else 'stopped'
+            svc.running = self._run_action(_id, 'status')
+            svc.state = 'running' if svc.running else 'stopped'
         except:
-            service.running = False
-        return service
+            svc.running = False
+        return svc
 
-    def _run_action(self, id, action):
-        return subprocess.call([os.path.join(INIT_D, id), action], close_fds=True) == 0
+    def _run_action(self, _id, action):
+        return subprocess.call([os.path.join(INIT_D, _id), action], close_fds=True) == 0
 
-    def start(self, id):
-        self._run_action(id, 'start')
+    def start(self, _id):
+        self._run_action(_id, 'start')
 
-    def stop(self, id):
-        self._run_action(id, 'stop')
+    def stop(self, _id):
+        self._run_action(_id, 'stop')
 
-    def restart(self, id):
-        self._run_action(id, 'restart')
+    def restart(self, _id):
+        self._run_action(_id, 'restart')

@@ -1,5 +1,4 @@
 import gevent
-import json
 import logging
 import re
 import types
@@ -20,19 +19,20 @@ def url(pattern):
     """
 
     def decorator(f):
-        f._url_pattern = re.compile('^%s$' % pattern)
+        f.url_pattern = re.compile('^%s$' % pattern)
         return f
     return decorator
 
 
-class BaseHttpHandler (object):
+class BaseHttpHandler(object):
     """
     Base class for everything that can process HTTP requests
     """
 
     def handle(self, context):
         """
-        Should create a HTTP response in the given ``context`` and return the plain output
+        Should create a HTTP response in the given ``context`` and return
+        the plain output
 
         :param context: HTTP context
         :type  context: :class:`aj.http.HttpContext`
@@ -40,13 +40,13 @@ class BaseHttpHandler (object):
 
 
 @interface
-class HttpPlugin (object):
+class HttpPlugin(object):
     """
     A base plugin class for HTTP request handling::
 
         @plugin
         class TerminalHttp (BasePlugin, HttpPlugin):
-            @url('/aj:terminal/(?P<id>\d+)')
+            @url('/aj:terminal/(?P<id>\\d+)')
             def get_page(self, context, id):
                 if context.session.identity is None:
                     context.respond_redirect('/')
@@ -58,16 +58,17 @@ class HttpPlugin (object):
 
     def handle(self, context):
         """
-        Finds and executes the handler for given request context (handlers are methods decorated with :func:`url` )
+        Finds and executes the handler for given request context (handlers are
+        methods decorated with :func:`url` )
 
         :param context: HTTP context
         :type  context: :class:`aj.http.HttpContext`
         """
 
         for name, method in self.__class__.__dict__.iteritems():
-            if hasattr(method, '_url_pattern'):
+            if hasattr(method, 'url_pattern'):
                 method = getattr(self, name)
-                match = method._url_pattern.match(context.path)
+                match = method.url_pattern.match(context.path)
                 if match:
                     context.route_data = match.groupdict()
                     data = method(context, **context.route_data)
@@ -78,7 +79,7 @@ class HttpPlugin (object):
 
 
 @interface
-class SocketEndpoint (object):
+class SocketEndpoint(object):
     plugin = None
 
     def __init__(self, context):
@@ -99,7 +100,11 @@ class SocketEndpoint (object):
         pass
 
     def spawn(self, target, *args, **kwargs):
-        logging.debug('Spawning sub-Socket Greenlet (in a namespace): %s' % target.__name__)
+        logging.debug(
+            'Spawning sub-Socket Greenlet (in a namespace): %s' % (
+                target.__name__
+            )
+        )
         greenlet = gevent.spawn(target, *args, **kwargs)
         self.greenlets.append(greenlet)
         return greenlet

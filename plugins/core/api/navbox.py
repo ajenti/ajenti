@@ -3,7 +3,7 @@ from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
 @service
-class Navbox (object):
+class Navbox(object):
     def __init__(self, context):
         self.context = context
 

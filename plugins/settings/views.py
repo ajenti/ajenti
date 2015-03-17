@@ -12,7 +12,7 @@ from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 

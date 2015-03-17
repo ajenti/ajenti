@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import os
 import sys
 import socket
 import random
@@ -7,7 +6,7 @@ import yaml
 from OpenSSL.crypto import *
 
 if len(sys.argv) < 2:
-    print('Usage: ajenti-ssl-gen <hostname> [-f]')
+    print 'Usage: ajenti-ssl-gen <hostname> [-f]'
     sys.exit(1)
 
 host = sys.argv[1]
@@ -19,7 +18,7 @@ config = yaml.load(open(config_path))
 
 if len(sys.argv) == 2:
     if config['ssl']['certificate']:
-        print(':: SSL is already configured')
+        print ':: SSL is already configured'
         sys.exit(1)
 
 key = PKey()
@@ -43,4 +42,6 @@ with open(certificate_path, 'w') as f:
 
 config['ssl']['enable'] = True
 config['ssl']['certificate'] = certificate_path
-open(config_path, 'w').write(yaml.safe_dump(config, default_flow_style=False, encoding='utf-8', allow_unicode=True))
+open(config_path, 'w').write(
+    yaml.safe_dump(config, default_flow_style=False, encoding='utf-8', allow_unicode=True)
+)

@@ -1,12 +1,10 @@
 import logging
-import subprocess
 
-from aj.plugins.core.api.push import Push
 from aj.plugins.core.api.tasks import Task
 from aj.plugins.packages.api import PackageManager
 
 
-class UpdateLists (Task):
+class UpdateLists(Task):
     name = 'Update package lists'
 
     def __init__(self, context, manager_id=None):
@@ -16,7 +14,7 @@ class UpdateLists (Task):
                 self.manager = mgr
                 break
         else:
-            logging.error('Package manager %s not found' % manager_id)
+            logging.error('Package manager %s not found', manager_id)
 
     def run(self):
         self.manager.update_lists(self.report_progress)

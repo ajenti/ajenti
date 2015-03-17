@@ -17,12 +17,15 @@ from aj.routing import CentralDispatcher
 from aj.log import set_log_params
 
 
-class WorkerSocketNamespace (object):
-    def __init__(self, context, id):
+class WorkerSocketNamespace(object):
+    def __init__(self, context, _id):
         self.context = context
-        self.id = id
-        logging.debug('Socket namespace %s created' % self.id)
-        self.endpoints = [cls(self.context) for cls in SocketEndpoint.classes()]
+        self.id = _id
+        logging.debug('Socket namespace %s created', self.id)
+        self.endpoints = [
+            cls(self.context)
+            for cls in SocketEndpoint.classes()
+        ]
 
     def process_event(self, event, msg):
         for endpoint in self.endpoints:
@@ -30,28 +33,38 @@ class WorkerSocketNamespace (object):
                 data = msg['data'] if msg else None
                 try:
                     getattr(endpoint, 'on_%s' % event)(data)
-                except Exception as e:
+                # pylint: disable=W0703
+                except Exception:
                     logging.error('Exception in socket event handler')
                     traceback.print_exc()
 
     def destroy(self):
-        logging.debug('Socket namespace %s is being destroyed' % self.id)
+        logging.debug('Socket namespace %s is being destroyed', self.id)
         for endpoint in self.endpoints:
             endpoint.destroy()
 
 
-class Worker (object):
+class Worker(object):
     def __init__(self, stream, gate):
         self.stream = stream
         self.gate = gate
         aj.master = False
         os.setpgrp()
-        setproctitle.setproctitle('%s worker [%s]' % (sys.argv[0], self.gate.name))
+        setproctitle.setproctitle(
+            '%s worker [%s]' % (
+                sys.argv[0],
+                self.gate.name
+            )
+        )
         set_log_params(tag=self.gate.log_tag)
 
-        logging.info('New worker "%s" PID %s, EUID %s, EGID %s' % (
-            self.gate.name, os.getpid(), os.geteuid(), os.getegid(),
-        ))
+        logging.info(
+            'New worker "%s" PID %s, EUID %s, EGID %s',
+            self.gate.name,
+            os.getpid(),
+            os.geteuid(),
+            os.getegid(),
+        )
 
         self.context = Context(parent=aj.context)
         self.context.session = self.gate.session
@@ -69,20 +82,36 @@ class Worker (object):
         uid = pwd.getpwnam(username).pw_uid
         gid = pwd.getpwnam(username).pw_gid
 
-        logging.info('Worker %s is demoting to %s (UID %s / GID %s)...' % (os.getpid(), username, uid, gid))
+        logging.info(
+            'Worker %s is demoting to %s (UID %s / GID %s)...',
+            os.getpid(),
+            username,
+            uid,
+            gid
+        )
 
-        groups = [g.gr_gid for g in grp.getgrall() if username in g.gr_mem or g.gr_gid == gid]
+        groups = [
+            g.gr_gid
+            for g in grp.getgrall()
+            if username in g.gr_mem or g.gr_gid == gid
+        ]
         os.setgroups(groups)
         os.setgid(gid)
         os.setuid(uid)
-        logging.info('...done, new EUID %s EGID %s' % (os.geteuid(), os.getegid()))
+        logging.info(
+            '...done, new EUID %s EGID %s',
+            os.geteuid(),
+            os.getegid()
+        )
 
     def run(self):
         if self.gate.restricted:
             self.demote('nobody')
         else:
             if self.gate.initial_identity:
-                AuthenticationService.get(self.context).login(self.gate.initial_identity, demote=True)
+                AuthenticationService.get(self.context).login(
+                    self.gate.initial_identity, demote=True
+                )
 
         try:
             socket_namespaces = {}
@@ -98,14 +127,17 @@ class Worker (object):
                     event = rq.object['event']
 
                     if event == 'connect':
-                        socket_namespaces[nsid] = WorkerSocketNamespace(self.context, nsid)
+                        socket_namespaces[nsid] = WorkerSocketNamespace(
+                            self.context, nsid
+                        )
 
                     socket_namespaces[nsid].process_event(event, msg)
 
                     if event == 'disconnect':
                         socket_namespaces[nsid].destroy()
                         logging.debug('Socket disconnected, destroying endpoints')
-        except Exception as e:
+        # pylint: disable=W0703
+        except Exception:
             logging.error('Worker crashed!')
             traceback.print_exc()
 
@@ -126,7 +158,11 @@ class Worker (object):
 
         try:
             http_context = HttpContext.deserialize(rq.object['context'])
-            logging.debug('                    ... %s %s' % (http_context.method, http_context.path))
+            logging.debug(
+                '                    ... %s %s',
+                http_context.method,
+                http_context.path
+            )
 
             # Generate response
             content = self.handler.handle(http_context)
@@ -138,7 +174,8 @@ class Worker (object):
             response_object['status'] = http_context.status
             response_object['headers'] = http_context.headers
             self.stream.reply(rq, response_object)
-        except Exception as e:
+        # pylint: disable=W0703
+        except Exception:
             traceback.print_exc()
             response_object.update({
                 'error': str(e),
@@ -146,12 +183,13 @@ class Worker (object):
             })
             self.stream.reply(rq, response_object)
 
-    def send_to_upstream(self, object):
-        self.stream.reply(None, object)
+    def send_to_upstream(self, obj):
+        self.stream.reply(None, obj)
 
 
-class WorkerError (Exception):
+class WorkerError(Exception):
     def __init__(self, response):
+        Exception.__init__(self)
         self.response = response
 
     def __str__(self):

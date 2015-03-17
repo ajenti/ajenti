@@ -1,4 +1,3 @@
-import logging
 import subprocess
 
 from aj.api import *
@@ -6,7 +5,7 @@ from aj.plugins.services.api import ServiceManager, Service
 
 
 @component(ServiceManager)
-class SystemdServiceManager (ServiceManager):
+class SystemdServiceManager(ServiceManager):
     id = 'systemd'
     name = 'systemd'
 
@@ -24,26 +23,26 @@ class SystemdServiceManager (ServiceManager):
             tokens = l.split(None, 4)
             if len(tokens) != 5:
                 continue
-            service = Service(self)
-            service.id, load_state, active_state, sub_state, name = tokens
-            service.name, type = service.id.rsplit('.', 1)
-            service.name = service.name.replace('\\x2d', '\x2d')
-            if type != 'service':
+            svc = Service(self)
+            svc.id, load_state, active_state, sub_state, name = tokens
+            svc.name, type = svc.id.rsplit('.', 1)
+            svc.name = svc.name.replace('\\x2d', '\x2d')
+            if type != 'svc':
                 continue
-            service.running = sub_state == 'running'
-            service.state = 'running' if service.running else 'stopped'
-            yield service
+            svc.running = sub_state == 'running'
+            svc.state = 'running' if svc.running else 'stopped'
+            yield svc
 
-    def get(self, id):
+    def get(self, _id):
         for s in self.list():
-            if s.id == id:
+            if s.id == _id:
                 return s
 
-    def start(self, id):
-        subprocess.check_call(['systemctl', 'start', id], close_fds=True)
+    def start(self, _id):
+        subprocess.check_call(['systemctl', 'start', _id], close_fds=True)
 
-    def stop(self, id):
-        subprocess.check_call(['systemctl', 'stop', id], close_fds=True)
+    def stop(self, _id):
+        subprocess.check_call(['systemctl', 'stop', _id], close_fds=True)
 
-    def restart(self, id):
-        subprocess.check_call(['systemctl', 'restart', id], close_fds=True)
+    def restart(self, _id):
+        subprocess.check_call(['systemctl', 'restart', _id], close_fds=True)

@@ -4,7 +4,6 @@ import json
 import os
 import pwd
 
-import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
@@ -12,7 +11,7 @@ from aj.plugins.core.api.endpoint import endpoint, EndpointError
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
@@ -50,7 +49,6 @@ class Handler (HttpPlugin):
             items = []
             for name in os.listdir(path):
                 item_path = os.path.join(path, name)
-                accessError = None
 
                 data = {
                     'name': name,
@@ -109,12 +107,12 @@ class Handler (HttpPlugin):
 
             try:
                 data['user'] = pwd.getpwuid(stat.st_uid).pw_name
-            except:
+            except KeyError:
                 pass
 
             try:
                 data['group'] = grp.getgrgid(stat.st_gid).gr_name
-            except:
+            except KeyError:
                 pass
         except OSError as e:
             data['accessError'] = str(e)

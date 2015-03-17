@@ -16,6 +16,8 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
 
     $scope.navigationPresent = $location.path().indexOf('/view/login') != 0
 
+    feedback.init()
+
     # ---
 
     $scope.showSidebar = $cookieStore.get('showSidebar') ? true

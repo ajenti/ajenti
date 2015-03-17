@@ -6,7 +6,7 @@ from aj.plugins.services.api import ServiceManager, Service
 
 
 @component(ServiceManager)
-class UpstartServiceManager (ServiceManager):
+class UpstartServiceManager(ServiceManager):
     id = 'upstart'
     name = 'Upstart'
 
@@ -37,23 +37,23 @@ class UpstartServiceManager (ServiceManager):
         for job_name in self.upstart.get_all_jobs():
             yield self.get(job_name)
 
-    def get(self, id):
-        job = UpstartJob(id, bus=self.bus)
-        service = Service(self)
-        service.id = id
-        service.name = self.__fix_name(id)
+    def get(self, _id):
+        job = UpstartJob(_id, bus=self.bus)
+        svc = Service(self)
+        svc.id = _id
+        svc.name = self.__fix_name(_id)
         try:
-            service.state = job.get_status()['state']
-            service.running = service.state == 'running'
+            svc.state = job.get_status()['state']
+            svc.running = svc.state == 'running'
         except:
-            service.running = False
-        return service
+            svc.running = False
+        return svc
 
-    def start(self, id):
-        UpstartJob(id).start()
+    def start(self, _id):
+        UpstartJob(_id).start()
 
-    def stop(self, id):
-        UpstartJob(id).stop()
+    def stop(self, _id):
+        UpstartJob(_id).stop()
 
-    def restart(self, id):
-        UpstartJob(id).restart()
+    def restart(self, _id):
+        UpstartJob(_id).restart()

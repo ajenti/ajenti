@@ -1,4 +1,6 @@
 angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socketFactory, urlPrefix) ->
+    @enabled = true
+
     @socket = socketFactory(
         ioSocket: io.connect('/socket', resource: "#{urlPrefix}/socket.io".substring(1))
     )
@@ -20,11 +22,15 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
         $log.log('Reconnected')
 
     @socket.on 'connect', (e) ->
+        if not enabled
+            return
         $rootScope.socketConnectionLost = false
         $rootScope.$broadcast 'socket-event:connect'
         $log.log('Connected')
 
     @socket.on 'disconnect', (e) ->
+        if not enabled
+            return
         $rootScope.socketConnectionLost = true
         $rootScope.$broadcast 'socket-event:disconnect'
         $log.error('Disconnect', e)
@@ -44,6 +50,8 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
         return q.promise
 
     @socket.on 'message', (msg) ->
+        if not enabled
+            return
         if msg[0] == '{'
             msg = JSON.parse(msg)
         $log.debug 'Socket message from', msg.plugin, msg.data

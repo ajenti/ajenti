@@ -5,14 +5,14 @@ import subprocess
 
 import aj
 from aj.api import *
-from aj.api.http import BaseHttpHandler, url, HttpPlugin, SocketEndpoint
+from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager, DirectoryPluginProvider
 
 from aj.plugins.core.api.endpoint import endpoint
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
@@ -31,13 +31,18 @@ class Handler (HttpPlugin):
             rebuild_all = http_context.env.get('HTTP_CACHE_CONTROL', None) == 'no-cache'
 
             for provider in aj.plugin_providers:
-                if type(provider) is DirectoryPluginProvider:
-                    logging.debug('Building resources in %s' % provider.path)
+                if isinstance(provider, DirectoryPluginProvider):
+                    logging.debug('Building resources in %s', provider.path)
                     if rebuild_all:
                         cmd = ['ajenti-dev-multitool', '--rebuild']
                     else:
                         cmd = ['ajenti-dev-multitool', '--build']
-                    p = subprocess.Popen(cmd, cwd=provider.path, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    p = subprocess.Popen(
+                        cmd,
+                        cwd=provider.path,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE
+                    )
                     o, e = p.communicate()
                     if p.returncode != 0:
                         logging.error('Resource compilation failed')
@@ -59,9 +64,10 @@ class Handler (HttpPlugin):
 
 
 #TODO remove
-from aj.plugins.core.api.tasks import Task, TasksService
+from aj.plugins.core.api.tasks import Task
 
-class MyTask (Task):
+
+class MyTask(Task):
     name = 'Test'
 
     def __init__(self, context, *args, **kwargs):

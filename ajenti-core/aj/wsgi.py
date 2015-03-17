@@ -5,7 +5,7 @@ from aj.util.sslsocket import SSLSocket
 from aj.security.verifier import ClientCertificateVerificator
 
 
-class RequestHandler (SocketIOHandler):
+class RequestHandler(SocketIOHandler):
     def __init__(self, *args, **kwargs):
         SocketIOHandler.__init__(self, *args, **kwargs)
         self.server.resource = 'socket.io'
@@ -26,7 +26,6 @@ class RequestHandler (SocketIOHandler):
         return env
 
     def handle_one_response(self):
-        path = self.environ.get('PATH_INFO')
         prefix = self.environ.get('HTTP_X_URL_PREFIX', '')
         self.server.resource = (prefix + '/socket.io').strip('/')
         response = SocketIOHandler.handle_one_response(self)

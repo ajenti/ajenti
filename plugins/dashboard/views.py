@@ -1,6 +1,5 @@
 import json
 
-import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
@@ -9,7 +8,7 @@ from aj.plugins.dashboard.api import Widget
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.widgets = dict((x.id, x) for x in Widget.all(self.context))

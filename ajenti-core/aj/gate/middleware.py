@@ -5,12 +5,10 @@ import pwd
 import random
 import socketio
 import time
-import traceback
-from cookies import Cookie, Cookies
+from cookies import Cookies
 from gevent.timeout import Timeout
-from gevent.queue import Queue
 from socketio.namespace import BaseNamespace
-from socketio.mixins import RoomsMixin, BroadcastMixin
+from socketio.mixins import BroadcastMixin
 
 import aj
 from aj.api import *
@@ -21,12 +19,13 @@ from aj.gate.worker import WorkerError
 from aj.util import str_fsize
 
 
-class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
+class SocketIONamespace(BaseNamespace, BroadcastMixin):
     name = '/socket'
     """ Endpoint ID """
 
     def __init__(self, context, env, *args, **kwargs):
         BaseNamespace.__init__(self, env, *args, **kwargs)
+        BroadcastMixin.__init__(self)
         self.context = context
         self.env = env
         self.gate = None
@@ -50,7 +49,7 @@ class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
             })
 
     def recv_connect(self):
-        logging.debug('Socket %s connected' % id(self))
+        logging.debug('Socket %s connected', id(self))
         session = GateMiddleware.get(self.context).obtain_session(self.env)
         if session:
             self.gate = session.gate
@@ -61,40 +60,49 @@ class SocketIONamespace (BaseNamespace, RoomsMixin, BroadcastMixin):
             self._send_worker_event('connect')
 
     def recv_disconnect(self):
-        logging.debug('Socket %s disconnected' % id(self))
+        logging.debug('Socket %s disconnected', id(self))
         self._send_worker_event('disconnect')
         self.disconnect(silent=True)
 
     def on_message(self, message, *args):
-        logging.debug('Socket %s message: %s' % (id(self), repr(message)))
+        logging.debug('Socket %s message: %s', id(self), repr(message))
         self._send_worker_event('message', message)
 
 
 @service
-class SocketIORouteHandler (BaseHttpHandler):
+class SocketIORouteHandler(BaseHttpHandler):
     def __init__(self, context):
         self.namespaces = {
-            '/socket': lambda *args, **kwargs: SocketIONamespace(context, *args, **kwargs)
+            '/socket': lambda *args, **kwargs: SocketIONamespace(
+                context, *args, **kwargs
+            )
         }
 
     def handle(self, context):
-        return str(socketio.socketio_manage(context.env, self.namespaces, context))
+        return str(socketio.socketio_manage(
+            context.env, self.namespaces, context
+        ))
 
 
 @service
-class GateMiddleware (object):
+class GateMiddleware(object):
     def __init__(self, context):
         self.context = context
         self.sessions = {}
-        self.restricted_gate = WorkerGate(self, restricted=True, name='restricted session', log_tag='restricted')
+        self.restricted_gate = WorkerGate(
+            self,
+            restricted=True,
+            name='restricted session',
+            log_tag='restricted'
+        )
         self.restricted_gate.start()
 
     def generate_session_key(self, env):
-        hash = str(random.random())
-        hash += env.get('REMOTE_ADDR', '')
-        hash += env.get('HTTP_USER_AGENT', '')
-        hash += env.get('HTTP_HOST', '')
-        return hashlib.sha1(hash).hexdigest()
+        h = str(random.random())
+        h += env.get('REMOTE_ADDR', '')
+        h += env.get('HTTP_USER_AGENT', '')
+        h += env.get('HTTP_HOST', '')
+        return hashlib.sha1(h).hexdigest()
 
     def vacuum(self):
         """
@@ -147,8 +155,11 @@ class GateMiddleware (object):
 
         if not session and aj.dev_autologin:
             username = pwd.getpwuid(os.geteuid()).pw_name
-            logging.warn('Opening an autologin session for user %s' % username)
-            session = self.open_session(http_context.env, initial_identity=username)
+            logging.warn('Opening an autologin session for user %s', username)
+            session = self.open_session(
+                http_context.env,
+                initial_identity=username
+            )
             session.set_cookie(http_context)
 
         if session:
@@ -158,7 +169,6 @@ class GateMiddleware (object):
             gate = self.restricted_gate
 
         if http_context.path.startswith('/socket'):
-            #return http_context.respond_forbidden()
             http_context.fallthrough(SocketIORouteHandler.get(self.context))
             http_context.respond_ok()
             return 'Socket closed'
@@ -179,6 +189,7 @@ class GateMiddleware (object):
                     resp = q.get(t)
                     if resp.id == rq.id:
                         break
+        # pylint: disable=E0712
         except Timeout:
             http_context.respond('504 Gateway Timeout')
             return 'Worker timeout'
@@ -193,19 +204,23 @@ class GateMiddleware (object):
             if header[0] == 'X-Session-Redirect':
                 # new authenticated session
                 username = header[1]
-                logging.info('Opening a session for user %s' % username)
-                session = self.open_session(http_context.env, initial_identity=username)
+                logging.info('Opening a session for user %s', username)
+                session = self.open_session(
+                    http_context.env,
+                    initial_identity=username
+                )
                 session.set_cookie(http_context)
 
         http_context.respond(resp.object['status'])
         content = resp.object['content']
 
         end_time = time.time()
-        logging.debug('%.03fs %12s   %s %s %s' % (
+        logging.debug(
+            '%.03fs %12s   %s %s %s',
             end_time - start_time,
             str_fsize(len(content[0] if content else [])),
             str(http_context.status).split()[0],
             http_context.env['REQUEST_METHOD'],
             http_context.path
-        ))
+        )
         return content

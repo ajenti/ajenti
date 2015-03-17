@@ -10,10 +10,14 @@ from aj.gate.worker import *
 from aj.util import BroadcastQueue
 
 
-class WorkerGate (object):
-    def __init__(self, session, name=None, log_tag=None, restricted=False, initial_identity=None):
+class WorkerGate(object):
+    def __init__(self, session, name=None, log_tag=None, restricted=False,
+                 initial_identity=None):
         self.session = session
         self.process = None
+        self.stream = None
+        self.stream_reader = None
+        self.worker = None
         self.name = name
         self.log_tag = log_tag
         self.restricted = restricted
@@ -34,31 +38,29 @@ class WorkerGate (object):
             }
         )
 
-        logging.debug('Started child process %s' % self.process.pid)
+        logging.debug('Started child process %s', self.process.pid)
 
         self.stream_reader = gevent.spawn(self._stream_reader)
 
     def stop(self):
-        logging.debug('Stopping child process %s' % self.process.pid)
+        logging.debug('Stopping child process %s', self.process.pid)
 
         try:
             os.killpg(self.process.pid, signal.SIGTERM)
         except OSError as e:
-            logging.debug('Child process %s is already dead: %s' % (self.process.pid, e))
+            logging.debug('Child process %s is already dead: %s', self.process.pid, e)
             return
 
         self.process.terminate()
         self.process.join(0.125)
         try:
             os.kill(self.process.pid, 0)
-            logging.debug('Child process %s did not stop, killing' % self.process.pid)
+            logging.debug('Child process %s did not stop, killing', self.process.pid)
             os.kill(self.process.pid, signal.SIGKILL)
             os.killpg(self.process.pid, signal.SIGKILL)
-            try:
-                os.kill(self.process.pid, 0)
-                logging.error('Child process %s did not stop after SIGKILL!' % self.process.pid)
-            except OSError:
-                pass
+
+            os.kill(self.process.pid, 0)
+            logging.error('Child process %s did not stop after SIGKILL!', self.process.pid)
         except OSError:
             pass
 

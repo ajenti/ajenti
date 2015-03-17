@@ -16,7 +16,7 @@ LOG_PARAMS = {
 }
 
 
-class ConsoleHandler (logging.StreamHandler):
+class ConsoleHandler(logging.StreamHandler):
     def __init__(self, stream):
         logging.StreamHandler.__init__(self, stream)
 
@@ -35,7 +35,7 @@ class ConsoleHandler (logging.StreamHandler):
                 process_tag = colored('master', 'yellow')
             else:
                 LOG_PARAMS['tag'] = None
-                #process_tag = colored('...   ', 'yellow')
+                # process_tag = colored('...   ', 'yellow')
         if LOG_PARAMS['tag'] == 'restricted':
             process_tag = colored('rstrct', 'red')
             padding = '  '
@@ -53,7 +53,11 @@ class ConsoleHandler (logging.StreamHandler):
         s += colored(' %5i]  ' % os.getpid(), 'white')
 
         if aj.debug:
-            s += colored(('%15s:%-4s  ' % (record.filename[-15:], record.lineno)), 'grey', attrs=['bold'])
+            s += colored(
+                ('%15s:%-4s  ' % (record.filename[-15:], record.lineno)),
+                'grey',
+                attrs=['bold']
+            )
 
         l = ''
         if record.levelname == 'DEBUG':
@@ -68,10 +72,7 @@ class ConsoleHandler (logging.StreamHandler):
 
         s += padding
 
-        try:
-            s += record.msg % record.args
-        except:
-            s += record.msg
+        s += record.msg % record.args
         s += '\n'
         self.stream.write(s)
 

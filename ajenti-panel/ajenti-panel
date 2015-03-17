@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import getopt
-import json
 import logging
 import os
 import stat
@@ -15,8 +14,10 @@ import aj.log
 import aj.plugins
 
 
-class AjentiConfig (aj.config.BaseConfig):
+class AjentiConfig(aj.config.BaseConfig):
     def __init__(self, path):
+        aj.config.BaseConfig.__init__(self)
+        self.data = None
         self.path = os.path.abspath(path)
 
     def __unicode__(self):
@@ -34,7 +35,7 @@ class AjentiConfig (aj.config.BaseConfig):
 
 
 def usage():
-    print("""
+    print """
 Usage: %s [options]
 Options:
     -c, --config <file> - Use given config file instead of default
@@ -43,7 +44,7 @@ Options:
     -d, --daemon        - Run in background (daemon mode)
     --autologin         - Log in automatically as the running user
     -h, --help          - This help
-    """)
+    """
 
 
 if __name__ == '__main__':
@@ -56,9 +57,13 @@ if __name__ == '__main__':
     plugin_providers = []
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'dev', 'plugins=', 'autologin'])
+        opts, args = getopt.getopt(
+            sys.argv[1:],
+            'hc:dv',
+            ['help', 'config=', 'daemon', 'dev', 'plugins=', 'autologin']
+        )
     except getopt.GetoptError as e:
-        print(str(e))
+        print str(e)
         usage()
         sys.exit(2)
 
@@ -101,7 +106,7 @@ if __name__ == '__main__':
             config_path = os.path.join(sys.path[0], 'config.yml')
 
     if not os.path.exists(config_path):
-        logging.error('Config file "%s" not found' % config_path)
+        logging.error('Config file "%s" not found', config_path)
         sys.exit(1)
 
     aj.core.start(

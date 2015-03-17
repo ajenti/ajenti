@@ -12,7 +12,7 @@ def public(f):
     http://groups.google.com/group/comp.lang.python/msg/3d400fb22d8a42e1
 
     """
-    all = sys.modules[f.__module__].__dict__.setdefault('__all__', [])
-    if f.__name__ not in all:  # Prevent duplicates if run from an IDE.
-        all.append(f.__name__)
+    _all = sys.modules[f.__module__].__dict__.setdefault('__all__', [])
+    if f.__name__ not in _all:  # Prevent duplicates if run from an IDE.
+        _all.append(f.__name__)
     return f

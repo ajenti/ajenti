@@ -10,7 +10,7 @@ from aj.plugins.core.api.endpoint import endpoint, EndpointError
 
 
 @component(HttpPlugin)
-class Handler (HttpPlugin):
+class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
@@ -32,7 +32,6 @@ class Handler (HttpPlugin):
                 'title': plugin.title,
             })
         return r
-
 
     @url(r'/api/plugins/pypi/list')
     @endpoint(api=True)

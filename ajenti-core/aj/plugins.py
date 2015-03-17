@@ -4,7 +4,6 @@ import os
 import subprocess
 import sys
 import traceback
-import weakref
 import yaml
 
 import aj
@@ -13,20 +12,20 @@ from aj.util import *
 
 
 @public
-class PluginProvider (object):
+class PluginProvider(object):
     def provide(self):
         raise NotImplementedError()
 
 
 @public
-class DirectoryPluginProvider (PluginProvider):
+class DirectoryPluginProvider(PluginProvider):
     def __init__(self, path):
         self.path = os.path.abspath(path)
 
     def provide(self):
         found_plugins = []
-        for dir in os.listdir(self.path):
-            path = os.path.join(self.path, dir)
+        for _dir in os.listdir(self.path):
+            path = os.path.join(self.path, _dir)
             if os.path.isdir(path):
                 if os.path.exists(os.path.join(path, 'plugin.yml')):
                     found_plugins.append(path)
@@ -34,7 +33,7 @@ class DirectoryPluginProvider (PluginProvider):
 
 
 @public
-class PythonPathPluginProvider (PluginProvider):
+class PythonPathPluginProvider(PluginProvider):
     def __init__(self):
         pass
 
@@ -42,18 +41,18 @@ class PythonPathPluginProvider (PluginProvider):
         found_plugins = []
         for path in sys.path:
             if os.path.isdir(path):
-                logging.debug('Looking for plugins in %s' % path)
+                logging.debug('Looking for plugins in %s', path)
                 found_plugins += DirectoryPluginProvider(path).provide()
         return found_plugins
 
 
 @public
-class PluginLoadError (Exception):
+class PluginLoadError(Exception):
     pass
 
 
 @public
-class PluginFormatError (PluginLoadError):
+class PluginFormatError(PluginLoadError):
     def describe(self):
         return 'Plugin format error'
 
@@ -62,8 +61,9 @@ class PluginFormatError (PluginLoadError):
 
 
 @public
-class PluginCrashed (PluginLoadError):
+class PluginCrashed(PluginLoadError):
     def __init__(self, e):
+        PluginLoadError.__init__(self)
         self.e = e
         self.traceback = traceback.format_exc()
 
@@ -75,8 +75,8 @@ class PluginCrashed (PluginLoadError):
 
 
 @public
-class Dependency (object):
-    class Unsatisfied (PluginLoadError):
+class Dependency(object):
+    class Unsatisfied(PluginLoadError):
         def __init__(self):
             PluginLoadError.__init__(self, None)
             self.dependency = None
@@ -106,10 +106,10 @@ class Dependency (object):
 
 
 @public
-class ModuleDependency (Dependency):
+class ModuleDependency(Dependency):
     description = 'Python module'
 
-    class Unsatisfied (Dependency.Unsatisfied):
+    class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
             return '%s' % self.dependency.module_name
 
@@ -122,7 +122,7 @@ class ModuleDependency (Dependency):
         try:
             __import__(self.module_name)
             return True
-        except:
+        except ImportError:
             return False
 
     def __str__(self):
@@ -130,10 +130,10 @@ class ModuleDependency (Dependency):
 
 
 @public
-class PluginDependency (Dependency):
+class PluginDependency(Dependency):
     description = 'Plugin'
 
-    class Unsatisfied (Dependency.Unsatisfied):
+    class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
             return '%s' % self.dependency.plugin_name
 
@@ -149,10 +149,10 @@ class PluginDependency (Dependency):
 
 
 @public
-class BinaryDependency (Dependency):
+class BinaryDependency(Dependency):
     description = 'Application binary'
 
-    class Unsatisfied (Dependency.Unsatisfied):
+    class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
             return '%s' % self.dependency.binary_name
 
@@ -167,10 +167,10 @@ class BinaryDependency (Dependency):
 
 
 @public
-class FileDependency (Dependency):
+class FileDependency(Dependency):
     description = 'File'
 
-    class Unsatisfied (Dependency.Unsatisfied):
+    class Unsatisfied(Dependency.Unsatisfied):
         def reason(self):
             return '%s' % self.dependency.file_name
 
@@ -186,7 +186,7 @@ class FileDependency (Dependency):
 
 @public
 @service
-class PluginManager (object):
+class PluginManager(object):
     """
     Handles plugin loading and unloading
     """
@@ -227,7 +227,7 @@ class PluginManager (object):
             }
 
         for plugin, info in self.__info.iteritems():
-            if not plugin in self.__plugins:
+            if plugin not in self.__plugins:
                 self.load_recursive(plugin, info)
 
     def load_recursive(self, name, info):
@@ -239,17 +239,24 @@ class PluginManager (object):
                     if self.get_all()[e.dependency.plugin_name].crash:
                         self.get_all()[name].crash = e
                         logging.warn(
-                            'Plugin dependency unsatisfied: "%s" -> "%s"' % (name, e.dependency.plugin_name)
+                            'Plugin dependency unsatisfied: "%s" -> "%s"',
+                            name,
+                            e.dependency.plugin_name
                         )
                         return
                 try:
                     if e.dependency.plugin_name not in self.__info:
                         logging.warn(
-                            'Plugin dependency unsatisfied: "%s" -> "%s"' % (name, e.dependency.plugin_name)
+                            'Plugin dependency unsatisfied: "%s" -> "%s"',
+                            name,
+                            e.dependency.plugin_name
                         )
                         return
-                    logging.debug('Preloading plugin dependency: "%s"' % e.dependency.plugin_name)
-                    if not self.load_recursive(e.dependency.plugin_name, self.__info[e.dependency.plugin_name]):
+                    logging.debug('Preloading plugin dependency: "%s"', e.dependency.plugin_name)
+                    if not self.load_recursive(
+                            e.dependency.plugin_name,
+                            self.__info[e.dependency.plugin_name]
+                    ):
                         self.get_all()[name].crash = e
                         return
                 except:
@@ -259,7 +266,7 @@ class PluginManager (object):
         """
         Loads given plugin
         """
-        logging.debug('Loading plugin "%s"' % name)
+        logging.debug('Loading plugin "%s"', name)
         try:
             plugin_info = PluginInfo(**info['info'])
             self.__plugins[name] = plugin_info
@@ -276,7 +283,7 @@ class PluginManager (object):
             module_path, module_name = os.path.split(info['path'])
 
             try:
-                mod = imp.load_module(
+                imp.load_module(
                     'aj.plugins.%s' % name,
                     *imp.find_module(module_name, [module_path])
                 )
@@ -293,15 +300,14 @@ class PluginManager (object):
         except PluginDependency.Unsatisfied as e:
             raise
         except PluginFormatError as e:
-            logging.warn(' *** [%s] Plugin error: "%s"' % (name, e))
+            logging.warn(' *** [%s] Plugin error: "%s"', name, e)
         except PluginCrashed as e:
-            logging.warn(' *** [%s] Plugin crashed: "%s"' % (name, e))
-            print(e.traceback)
+            logging.warn(' *** [%s] Plugin crashed: "%s"', name, e)
+            logging.error(e.traceback)
             plugin_info.crash = e
         except Dependency.Unsatisfied as e:
-            logging.debug(' *** [%s] skipping due to "%s"' % (name, e))
+            logging.debug(' *** [%s] skipping due to "%s"', name, e)
             plugin_info.crash = e
         except PluginLoadError as e:
-            logging.warn(' *** [%s] Plugin failed to load: "%s"' % (name, e))
+            logging.warn(' *** [%s] Plugin failed to load: "%s"', name, e)
             plugin_info.crash = e
-

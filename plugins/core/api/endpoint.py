@@ -1,12 +1,12 @@
 from functools import wraps
-from urllib import quote
 import json
 import logging
 import traceback
 
 
-class EndpointError (Exception):
+class EndpointError(Exception):
     def __init__(self, inner, message=None):
+        Exception.__init__(self)
         self.inner = inner
         self.message = message or unicode(inner)
         try:
@@ -33,7 +33,7 @@ def endpoint(page=False, api=False, file=False, auth=True):
                 if page:
                     return result
             except EndpointError as e:
-                logging.warn('Endpoint error at %s: %s' % (context.path, e.message))
+                logging.warn('Endpoint error at %s: %s', context.path, e.message)
                 if page:
                     raise
                 status = 500
@@ -42,8 +42,9 @@ def endpoint(page=False, api=False, file=False, auth=True):
                     'exception': unicode(e.__class__.__name__),
                     'traceback': unicode(e.traceback_str),
                 }
+            # pylint: disable=W0703
             except Exception as e:
-                logging.error('Unhandled endpoint error at %s' % context.path)
+                logging.error('Unhandled endpoint error at %s', context.path)
                 traceback.print_exc()
                 if page:
                     raise
@@ -73,4 +74,3 @@ def endpoint(page=False, api=False, file=False, auth=True):
         return wrapper
 
     return decorator
-
