@@ -13,6 +13,11 @@ before_script:
     - npm install
     - cd ..
 script:
+    - echo Running Nose tests
+    - cd tests-nose
+    - nosetests base.py
+    - cd ..
+    - echo Running Karma tests
     - cd tests-karma
     -  ./node_modules/.bin/karma start karma.conf.coffee --single-run
     - cat coverage/coverage.txt
