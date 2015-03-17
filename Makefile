@@ -37,3 +37,5 @@ webdriver-update:
 karma:
 	cd tests-karma && node_modules/karma/bin/karma start karma.conf.coffee --no-single-run --auto-watch
 
+nose:
+	cd tests-nose && nosetests base.py
