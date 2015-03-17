@@ -5,5 +5,4 @@ import widgets.cpu
 import widgets.hostname
 import widgets.loadavg
 import widgets.memory
-import widgets.service
 import widgets.uptime

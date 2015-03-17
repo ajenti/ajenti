@@ -5,9 +5,11 @@ node_js:
     - 0.10
 install:
     - pip install -r ajenti-core/requirements.txt
+    - pip install -r plugins/core/requirements.txt
+    - pip install -r plugins/terminal/requirements.txt
+    - pip install ajenti-dev-multitool
 before_script:
     - npm install -g bower
-    - pip install ajenti-dev-multitool
     - ajenti-dev-multitool --bower install
     - cd tests-karma
     - npm install
