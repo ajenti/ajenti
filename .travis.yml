@@ -25,3 +25,5 @@ script:
     -  ./node_modules/.bin/karma start karma.conf.coffee --single-run
     - cat coverage/coverage.txt
     - cd ..
+notifications:
+  slack: ajenti:ANVVc21AEbnRLYAWBZlhzAtW
