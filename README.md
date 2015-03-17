@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ajenti/ajenti.svg?branch=master)](https://travis-ci.org/ajenti/ajenti)
+
 Native deps
 
 Debian
