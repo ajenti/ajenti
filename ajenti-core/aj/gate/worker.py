@@ -75,12 +75,15 @@ class Worker(object):
         ])
 
     def demote(self, username):
-        if os.getuid() != 0:
-            logging.warn('Running as a limited user, setuid() unavailable!')
-            return
-
         uid = pwd.getpwnam(username).pw_uid
         gid = pwd.getpwnam(username).pw_gid
+
+        if os.getuid() == uid:
+            return
+        else:
+            if os.getuid() != 0:
+                logging.warn('Running as a limited user, setuid() unavailable!')
+                return
 
         logging.info(
             'Worker %s is demoting to %s (UID %s / GID %s)...',

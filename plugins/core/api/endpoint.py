@@ -18,6 +18,16 @@ class EndpointError(Exception):
         return self.message
 
 
+class EndpointReturn(Exception):
+    def __init__(self, code, data=None):
+        Exception.__init__(self)
+        self.code = code
+        self.data = data
+
+    def __unicode__(self):
+        return '[EndpointReturn: %s]' % self.code
+
+
 def endpoint(page=False, api=False, file=False, auth=True):
     def decorator(fx):
         @wraps(fx)
@@ -32,6 +42,10 @@ def endpoint(page=False, api=False, file=False, auth=True):
                 result = fx(self, context, *args, **kwargs)
                 if page:
                     return result
+            except EndpointReturn as e:
+                logging.debug('Endpoint return at %s: %s', context.path, e.code)
+                status = e.code
+                result = e.data
             except EndpointError as e:
                 logging.warn('Endpoint error at %s: %s', context.path, e.message)
                 if page:

@@ -7,7 +7,7 @@ import pwd
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
-from aj.plugins.core.api.endpoint import endpoint, EndpointError
+from aj.plugins.core.api.endpoint import endpoint, EndpointError, EndpointReturn
 
 
 @component(HttpPlugin)
@@ -18,6 +18,8 @@ class Handler(HttpPlugin):
     @url(r'/api/filesystem/read/(?P<path>.+)')
     @endpoint(api=True)
     def handle_api_fs_read(self, http_context, path=None):
+        if not os.path.exists(path):
+            raise EndpointReturn(404)
         try:
             return open(path).read()
         except OSError as e:
@@ -45,6 +47,8 @@ class Handler(HttpPlugin):
     @url(r'/api/filesystem/list/(?P<path>.+)')
     @endpoint(api=True)
     def handle_api_fs_list(self, http_context, path=None):
+        if not os.path.exists(path):
+            raise EndpointReturn(404)
         try:
             items = []
             for name in os.listdir(path):
@@ -84,6 +88,8 @@ class Handler(HttpPlugin):
     @url(r'/api/filesystem/stat/(?P<path>.+)')
     @endpoint(api=True)
     def handle_api_fs_stat(self, http_context, path=None):
+        if not os.path.exists(path):
+            raise EndpointReturn(404)
         data = {
             'name': os.path.split(path)[1],
             'path': path,
@@ -124,6 +130,8 @@ class Handler(HttpPlugin):
     @url(r'/api/filesystem/chmod/(?P<path>.+)')
     @endpoint(api=True)
     def handle_api_fs_chmod(self, http_context, path=None):
+        if not os.path.exists(path):
+            raise EndpointReturn(404)
         data = json.loads(http_context.body)
         try:
             os.chmod(path, data['mode'])
