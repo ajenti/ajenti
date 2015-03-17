@@ -65,7 +65,7 @@ class ActiveDirectorySyncProvider (UserSyncProvider, BasePlugin):
         l = self.__get_ldap()
         flt = '(|(objectClass=user)(objectClass=simpleSecurityObject))' 
         if self.classconfig.get('group', ''):
-            flt = '(&%s(memberOf=%s))' % (flt, self.clasconfig['group'])
+            flt = '(&%s(memberOf=%s))' % (flt, self.classconfig['group'])
         return l.search_s(
             self.classconfig['base'],
             ldap.SCOPE_SUBTREE,
