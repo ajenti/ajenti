@@ -1,11 +1,11 @@
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
-msgstr "Plugins"
+msgstr "Dodaci"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr "Indsamler plugin liste"
+msgstr "Prikupljanje liste dodataka"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:4
@@ -39,26 +39,26 @@ msgstr "Indsamler plugin liste"
 #: ajenti/plugins/cron/layout/main.xml:25
 #: ajenti/plugins/bind9/layout/main.xml:5
 msgid "Name"
-msgstr "Navn"
+msgstr "Ime"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr "Beskrivelse"
+msgstr "Opis"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
-msgstr "Afhængigheder"
+msgstr "Zavisnosti"
 
 #: ajenti/plugins/plugins/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:3
 #: ajenti/plugins/bind9/layout/main.xml:6
 msgid "Type"
-msgstr "Type"
+msgstr "Tip"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
-msgstr "Afhænger af"
+msgstr "Zavisi od"
 
 #: ajenti/plugins/plugins/layout/main.xml:6
 #: ajenti/plugins/tasks/layout/main.xml:4
@@ -71,7 +71,7 @@ msgstr "Status"
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"
-msgstr "Værter"
+msgstr "Domaćini"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
@@ -110,7 +110,7 @@ msgstr "Værter"
 #: ajenti/plugins/cron/layout/main.xml:23
 #: ajenti/plugins/bind9/layout/main.xml:3
 msgid "Add"
-msgstr "Tilføj"
+msgstr "Dodaj"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -157,7 +157,7 @@ msgstr "Tilføj"
 #: ajenti/plugins/cron/layout/main.xml:24
 #: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Confirm deletion"
-msgstr "Bekræft sletning"
+msgstr "Potvrdi brisanje"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:5
 #: ajenti/plugins/configurator/layout/main.xml:15
@@ -168,16 +168,16 @@ msgstr "Bekræft sletning"
 #: ajenti/plugins/vh-mail/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:3
 msgid "Enable"
-msgstr "Aktiver"
+msgstr "Uključi"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:6
 #: ajenti/plugins/configurator/configurator.py:261
 msgid "Configuration"
-msgstr "Konfiguration"
+msgstr "Konfiguracija"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Glavne konfiguracije"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -209,11 +209,11 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:27
 #: ajenti/plugins/bind9/layout/main.xml:12
 msgid "Save"
-msgstr "Gem"
+msgstr "Sačuvaj"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr "Memcache hukommelses forbrug"
+msgstr "Iskorišćenje Memcache memorije"
 
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
@@ -226,7 +226,7 @@ msgstr "Memcache hukommelses forbrug"
 #: ajenti/plugins/squid/main.py:16 ajenti/plugins/rethink/main.py:19
 #: ajenti/plugins/bind9/main.py:30 ajenti/plugins/apache/main.py:65
 msgid "Software"
-msgstr "Software"
+msgstr "Softver"
 
 #: ajenti/plugins/mongo/layout/config.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:5
@@ -235,7 +235,7 @@ msgstr "Software"
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/rethink/layout/config.xml:1
 msgid "Host"
-msgstr "Vært"
+msgstr "Domaćin"
 
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
@@ -251,7 +251,7 @@ msgstr "Vært"
 #: ajenti/plugins/vh-pureftpd/layout/ext.xml:1
 #: ajenti/plugins/mysql/layout/config.xml:2
 msgid "Username"
-msgstr "Brugernavn"
+msgstr "Korisničko ime"
 
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
@@ -265,30 +265,30 @@ msgstr "Brugernavn"
 #: ajenti/plugins/mysql/layout/config.xml:3
 #: ajenti/plugins/openvpn/layout/config.xml:3
 msgid "Password"
-msgstr "Adgangskode"
+msgstr "Lozinka"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr "Ugyldig nøgle"
+msgstr "Neispravan ključ"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr "Ugyldig IP"
+msgstr "Neispravna IP adresa"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr "Udløbet"
+msgstr "Isteklo"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr "Ukendt"
+msgstr "Nepoznato"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
-msgstr "Fejl: \"%s\""
+msgstr "Greška: \"%s\""
 
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -296,32 +296,32 @@ msgstr "Fejl: \"%s\""
 #: ajenti/plugins/fail2ban/layout/main.xml:1
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr "Konfigurer"
+msgstr "Konfiguriši"
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatski"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
-msgstr "Gemt. Genstart Ajenti for ændringerne træder i kraft."
+msgstr "Sačuvano. Restartujte Ajenti da bi se promene primenile."
 
 #: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
-msgstr "Opgiv venligst værtsnavn"
+msgstr "Podesite ime domaćina"
 
 #: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr "Konfigurer %s plugin!"
+msgstr "Konfigurišite %s dodatak!"
 
 #: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
-msgstr "Ændre Ajenti konfiguration"
+msgstr "Modifikujte Ajenti konfiguraciju"
 
 #: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
-msgstr "Genstart Ajenti"
+msgstr "Restartujte Ajenti"
 
 #: ajenti/plugins/configurator/layout/main.xml:1
 #: ajenti/plugins/configurator/layout/main.xml:2
@@ -332,19 +332,19 @@ msgstr "Genstart Ajenti"
 #: ajenti/plugins/vh-mail/layout/main.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:4 ajenti/plugins/csf/layout/main.xml:1
 msgid "General"
-msgstr "Generelt"
+msgstr "Opšte"
 
 #: ajenti/plugins/configurator/layout/main.xml:3
 msgid "Language"
-msgstr "Sprog"
+msgstr " Jezik"
 
 #: ajenti/plugins/configurator/layout/main.xml:4
 msgid "HTTP Server"
-msgstr "HTTP-Server"
+msgstr "HTTP Server"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
-msgstr "eller UNIX socket sti"
+msgstr "ili UNIX socket putanju"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/vh/layout/main-website.xml:24
@@ -356,24 +356,24 @@ msgstr "Port"
 
 #: ajenti/plugins/configurator/layout/main.xml:8
 msgid "Use SSL"
-msgstr "Brug SSL"
+msgstr "Koristi SSL"
 
 #: ajenti/plugins/configurator/layout/main.xml:9
 msgid "Path to certificate"
-msgstr "Sti til certifikat"
+msgstr "Putanja do sertifikata"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr "SSL selvsigneret certifikat generator"
+msgstr "SSL Generator Samopotpisanog sertifikata"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
 msgid "Hostname"
-msgstr "Værts navn"
+msgstr "Ime domaćina"
 
 #: ajenti/plugins/configurator/layout/main.xml:12
 msgid "Generate"
-msgstr "Generer"
+msgstr "Generiši"
 
 #: ajenti/plugins/configurator/layout/main.xml:13
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
@@ -382,61 +382,61 @@ msgstr "Generer"
 #: ajenti/plugins/git/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
-msgstr "Brugere"
+msgstr "Korisnici"
 
 #: ajenti/plugins/configurator/layout/main.xml:14
 msgid "Authentication"
-msgstr "Godkendelse"
+msgstr "Autorizacija"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr "Synkroniser med"
+msgstr "Sinhronizuj sa"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
-msgstr "Synkroniser nu"
+msgstr "Sinhronizuj sada"
 
 #: ajenti/plugins/configurator/layout/main.xml:19
 msgid "Configured correctly"
-msgstr "Konfigureret korrekt"
+msgstr "Tačno konfigurisano"
 
 #: ajenti/plugins/configurator/layout/main.xml:20
 msgid "Failed to sync"
-msgstr "Det lykkedes ikke at synkronisere"
+msgstr "Sinhronizacija nije uspela"
 
 #: ajenti/plugins/configurator/layout/main.xml:21
 msgid "Accounts"
-msgstr "Konti"
+msgstr "Nalozi"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr "Dublet"
+msgstr "Dupliraj"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
 msgid "Change password"
-msgstr "Skift adgangskode"
+msgstr "Promeni lozinku"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr "Tilladelser"
+msgstr "Dozvole"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
 msgid "Other"
-msgstr "Andre"
+msgstr "Ostalo"
 
 #: ajenti/plugins/configurator/layout/main.xml:28
 msgid "Send feedback"
-msgstr "Send feedback"
+msgstr "Pošalji povratnu informaciju"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr "Ajenti sender anonymt sin version, dit OS navn samt hvilke plugins du bruger mest til ajenti.org"
+msgstr "Ajenti će anonimno slati svoju verziju, ime vašeg OS-a i koje plguin-ove najviše koristite na ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr "Licens"
+msgstr "Licenca"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -445,236 +445,236 @@ msgstr "Licens"
 #: ajenti/plugins/services/layout/widget.xml:3
 #: ajenti/plugins/services/layout/bar.xml:3
 msgid "Restart"
-msgstr "Genstart"
+msgstr "Restart"
 
 #: ajenti/plugins/configurator/layout/main.xml:36
 msgid "Restart Ajenti?"
-msgstr "Genstart Ajenti?"
+msgstr "Restartujte Ajenti?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr "Server URL"
+msgstr "URL Servera"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr "Admin DN"
+msgstr "Administratorsko ime domena"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr "Auth DN suffiks"
+msgstr "Sufiks autorizacije za ime domena"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr "Hemmelighed"
+msgstr "Tajna"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr "Serveradresse"
+msgstr "Serverska adresa"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr "Domænenavn"
+msgstr "Ime domena"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr "Base DN"
+msgstr "Osnovni domen"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Limitiraj na grupu imena domena"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr "Administrator"
+msgstr "Korisničko ime administratora"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr "Admin kodeord"
+msgstr "Lozinka administratora"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr "Licensstatus"
+msgstr "Status licence"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr "Firma"
+msgstr "Kompanija"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr "Licenstype"
+msgstr "Tip licence"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr "Licens udløber den"
+msgstr "Licenca ističe"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
 #: ajenti/plugins/fm/layout/main.xml:15
 msgid "Remove"
-msgstr "Fjern"
+msgstr "Ukloni"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr "Ingen kommerciel licens installeret"
+msgstr "Nije instalirana komercijalna licenca"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr "Installer"
+msgstr "Instaliraj"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
 msgid "Task %s finished"
-msgstr "Opgave %s færdig"
+msgstr "Zadatak %s završen"
 
 #: ajenti/plugins/tasks/manager.py:104
 #, python-format
 msgid "Task %s queued"
-msgstr "Opgave %s i kø"
+msgstr "Zadatak %s dodat u red"
 
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
 msgid "Task %s started"
-msgstr "Opgave %s startet"
+msgstr "Započet %s zadatak"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
-msgstr "Opgaver"
+msgstr "Zadaci"
 
 #: ajenti/plugins/tasks/main.py:16 ajenti/plugins/notepad/notepad.py:33
 #: ajenti/plugins/fm/fm.py:34 ajenti/plugins/terminal/main.py:37
 msgid "Tools"
-msgstr "Værktøjer"
+msgstr "Alati"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr "Udfør kommando"
+msgstr "Izvrši komandu"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr "Kopierer %s"
+msgstr "Kopiranje %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr "Flyt filer"
+msgstr "Prebaci fajlove"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
 msgid "Moving %s"
-msgstr "Flytter %s"
+msgstr "Prebacujem %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr "Slet filer"
+msgstr "Obriši fajlove"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Brišem %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
-msgstr "Kørende opgaver"
+msgstr "Izvršavam zadatke"
 
 #: ajenti/plugins/tasks/layout/main.xml:2 ajenti/plugins/vh/layout/main.xml:7
 #: ajenti/plugins/fstab/layout/main.xml:1
 #: ajenti/plugins/dashboard/layout/dash.xml:2
 msgid "Refresh"
-msgstr "Opdater"
+msgstr "Osveži"
 
 #: ajenti/plugins/tasks/layout/main.xml:5
 msgid "Running"
-msgstr "Kørende"
+msgstr "U toku"
 
 #: ajenti/plugins/tasks/layout/main.xml:6
 msgid "Aborting"
-msgstr "Afbryder"
+msgstr "Prekidam"
 
 #: ajenti/plugins/tasks/layout/main.xml:7
 #: ajenti/plugins/packages/layout/main.xml:7
 msgid "Pending"
-msgstr "Ventende"
+msgstr "Na čekanju"
 
 #: ajenti/plugins/tasks/layout/main.xml:8
 msgid "Abort"
-msgstr "Afbryd"
+msgstr "Obustavi"
 
 #: ajenti/plugins/tasks/layout/main.xml:9
 msgid "Completed tasks"
-msgstr "Fuldførte opgaver"
+msgstr "Završeni zadaci"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr "Succes"
+msgstr "Uspeh"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr "Afbrudt"
+msgstr "Obustavljeno"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
-msgstr "Fejl"
+msgstr "Greška"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr "Brudt ned"
+msgstr "Nije izvršeno"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:1
 msgid "Run"
-msgstr "Kør"
+msgstr "Pokreni"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr "Jobs"
+msgstr "Poslovi"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
-msgstr "Kør opgave"
+msgstr "Pokreni zadatak"
 
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
 msgid "Schedule"
-msgstr "Tidsplan"
+msgstr "Raspored"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr "Manuel (specificér herunder)"
+msgstr "Ručno (preciziraj ispod)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr "Hver time"
+msgstr "Na sat"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
 msgid "Daily"
-msgstr "Dagligt"
+msgstr "Dnevno"
 
 #: ajenti/plugins/tasks/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:18
 msgid "Weekly"
-msgstr "Ugentligt"
+msgstr "Nedeljno"
 
 #: ajenti/plugins/tasks/layout/main.xml:27
 #: ajenti/plugins/cron/layout/main.xml:19
 msgid "Monthly"
-msgstr "Månedligt"
+msgstr "Mesečno"
 
 #: ajenti/plugins/tasks/layout/main.xml:28
 #: ajenti/plugins/cron/layout/main.xml:20
 msgid "Yearly"
-msgstr "Årligt"
+msgstr "Godišnje"
 
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr "Ved genstart"
+msgstr "Prilikom restarta"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
-msgstr "Manuel indtastning"
+msgstr "Ručni unos"
 
 #: ajenti/plugins/tasks/layout/main.xml:31
 #: ajenti/plugins/cron/layout/main.xml:5
@@ -684,22 +684,22 @@ msgstr "Minut"
 #: ajenti/plugins/tasks/layout/main.xml:32
 #: ajenti/plugins/cron/layout/main.xml:6
 msgid "Hour"
-msgstr "Time"
+msgstr "Sat"
 
 #: ajenti/plugins/tasks/layout/main.xml:33
 #: ajenti/plugins/cron/layout/main.xml:7
 msgid "Day"
-msgstr "Dag"
+msgstr "Dan"
 
 #: ajenti/plugins/tasks/layout/main.xml:34
 #: ajenti/plugins/cron/layout/main.xml:8
 msgid "Month"
-msgstr "Måned"
+msgstr "Mesec"
 
 #: ajenti/plugins/tasks/layout/main.xml:35
 #: ajenti/plugins/cron/layout/main.xml:9
 msgid "DoW"
-msgstr "Ugedag"
+msgstr "DoW"
 
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
@@ -715,46 +715,46 @@ msgstr "Ugedag"
 #: ajenti/plugins/squid/layout/options-editor.xml:1
 #: ajenti/plugins/bind9/layout/main.xml:10
 msgid "Create"
-msgstr "Opret"
+msgstr "Kreiraj"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr "Kør sideløbende"
+msgstr "Pokreni paralelno"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
 #: ajenti/plugins/tasks/layout/params-deletedir.xml:1
 msgid "From directory"
-msgstr "Fra mappe"
+msgstr "Iz direktorijuma"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:2
 #: ajenti/plugins/tasks/layout/params-copydir.xml:2
 msgid "Into directory"
-msgstr "Til mappe"
+msgstr "U direktorijum"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr "Arkiv"
+msgstr "Arhiva"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
-msgstr "Rekursivt"
+msgstr "Rekurzija"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:5
 msgid "Preserve file times"
-msgstr "Behold fil tidspunkter"
+msgstr "Sačuvaj vreme u fajlovima"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr "Bevar eksterne attributter"
+msgstr "Sačuvaj spoljne atribute"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr "Slet i destinations mappen"
+msgstr "Obriši u direktorijumu destinacije"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
-msgstr "Bevar tilladelser"
+msgstr "Sačuvaj dozvole"
 
 #: ajenti/plugins/tasks/layout/params-execute.xml:1
 #: ajenti/plugins/scripts/layout/widget.xml:2
@@ -764,11 +764,11 @@ msgstr "Bevar tilladelser"
 #: ajenti/plugins/cron/layout/main.xml:10
 #: ajenti/plugins/cron/layout/main.xml:15
 msgid "Command"
-msgstr "Kommando"
+msgstr "Komanda"
 
 #: ajenti/plugins/exports/main.py:17
 msgid "NFS Exports"
-msgstr "NFS eksporter"
+msgstr "NFS izvozi"
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
@@ -779,15 +779,15 @@ msgstr "NFS eksporter"
 #: ajenti/plugins/fstab/main.py:103 ajenti/plugins/ntpd/main.py:155
 #: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:87
 msgid "Saved"
-msgstr "Gemt"
+msgstr "Sačuvano"
 
 #: ajenti/plugins/exports/layout/main.xml:3
 msgid "Directory"
-msgstr "Mappe"
+msgstr "Direktorijum"
 
 #: ajenti/plugins/exports/layout/main.xml:4
 msgid "Clients"
-msgstr "Klienter"
+msgstr "Klijenti"
 
 #: ajenti/plugins/exports/layout/main.xml:6
 #: ajenti/plugins/iptables/layout/option-address.xml:1
@@ -797,7 +797,7 @@ msgstr "Klienter"
 #: ajenti/plugins/ntpd/layout/main.xml:7
 #: ajenti/plugins/hosts/layout/main.xml:4
 msgid "Address"
-msgstr "Adresse"
+msgstr "Adresa"
 
 #: ajenti/plugins/exports/layout/main.xml:7
 #: ajenti/plugins/dhcpd/layout/main.xml:6 ajenti/plugins/resolv/main.py:18
@@ -806,67 +806,67 @@ msgstr "Adresse"
 #: ajenti/plugins/squid/layout/main.xml:11
 #: ajenti/plugins/squid/layout/port-template.xml:3
 msgid "Options"
-msgstr "Indstillinger"
+msgstr "Opcije"
 
 #: ajenti/plugins/notepad/notepad.py:13 ajenti/plugins/notepad/notepad.py:31
 msgid "Notepad"
-msgstr "Notesblok"
+msgstr "Beleške"
 
 #: ajenti/plugins/notepad/notepad.py:71
 #, python-format
 msgid "Untitled %i"
-msgstr "Unavngivet %i"
+msgstr "Neimenovan %i"
 
 #: ajenti/plugins/notepad/layout/main.xml:1
 #: ajenti/plugins/terminal/layout/main.xml:2
 msgid "New"
-msgstr "Ny"
+msgstr "Novi"
 
 #: ajenti/plugins/notepad/layout/main.xml:2
 #: ajenti/plugins/logs/layout/main.xml:1
 msgid "Open"
-msgstr "Åben"
+msgstr "Otvori"
 
 #: ajenti/plugins/notepad/layout/main.xml:4
 msgid "Save As"
-msgstr "Gem som"
+msgstr "Sačuvaj kao"
 
 #: ajenti/plugins/notepad/layout/main.xml:5
 msgid "Bookmark"
-msgstr "Bogmærke"
+msgstr "Omiljeni"
 
 #: ajenti/plugins/notepad/layout/config.xml:1
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
-msgstr "Øverste mappe"
+msgstr "Koreni direktorijum"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
 #: ajenti/plugins/fm/layout/main.xml:17 ajenti/plugins/dashboard/api.py:38
 #: ajenti/plugins/dashboard/layout/dash.xml:6
 msgid "Cancel"
-msgstr "Annuller"
+msgstr "Otkaži"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr "Mappen findes ikke længere"
+msgstr "Direktorijum više ne postoji"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr "Adgangskoderne er ikke ens"
+msgstr "Lozinka se ne poklapa"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr "Forkert adgangskode"
+msgstr "Netačna lozinka"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr "Adgangskoden ændret"
+msgstr "Lozinka promenjena"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr "Tom"
+msgstr "Prazno"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
@@ -874,223 +874,223 @@ msgstr "Filter..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
-msgstr ""
+msgstr "Pogrešno korisničko ime ili lozinka"
 
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr ""
+msgstr "Email \"%s\" nije dodeljen ni jednom korisniku"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr "Login mislykkedes"
+msgstr "Logovanje nije uspelo"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
-msgstr "Sektion adgang"
+msgstr "Pristup sekciji"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Promena lozinke"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr "Gammel adgangskode"
+msgstr "Stara lozinka"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
 msgid "New password"
-msgstr "Ny adgangskode"
+msgstr "Nova lozinka"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "Potvrda lozinke"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr "Fil navn"
+msgstr "Ime fajla"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"
-msgstr "Script"
+msgstr "Skripta"
 
 #: ajenti/plugins/scripts/widget.py:48
 msgid "Launched"
-msgstr "Lanceret"
+msgstr "Lansirano"
 
 #: ajenti/plugins/scripts/widget.py:60
 msgid "Scripts"
-msgstr "Scripts"
+msgstr "Skripte"
 
 #: ajenti/plugins/scripts/widget.py:64
 msgid "Run scripts"
-msgstr "Kør scripts"
+msgstr "Pokreni skripte"
 
 #: ajenti/plugins/scripts/layout/widget.xml:3
 msgid "Run in terminal"
-msgstr "Kør i terminal"
+msgstr "Pokreni u terminalu"
 
 #: ajenti/plugins/sensors/memory.py:31 ajenti/plugins/sensors/memory.py:38
 msgid "Memory usage"
-msgstr "Forbrugt hukommelse"
+msgstr "Iskorišćenje memorije"
 
 #: ajenti/plugins/sensors/memory.py:46 ajenti/plugins/sensors/memory.py:53
 msgid "Swap usage"
-msgstr "Swap forbrug"
+msgstr "Iskorišćenje swap-a"
 
 #: ajenti/plugins/sensors/load.py:38 ajenti/plugins/sensors/load.py:45
 msgid "Load average"
-msgstr "Indlæsnings gennemsnit"
+msgstr "Prosečan load"
 
 #: ajenti/plugins/sensors/uptime.py:21
 msgid "Uptime"
-msgstr "Oppetid"
+msgstr "Od kad je upaljen server"
 
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr "CPU-forbrug"
+msgstr ""
 
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
 msgid "Variant"
-msgstr "Variant"
+msgstr ""
 
 #: ajenti/plugins/samba/main.py:51
 msgid "Password updated"
-msgstr "Adgangskode opdateret"
+msgstr ""
 
 #: ajenti/plugins/samba/main.py:54
 msgid "Password update failed"
-msgstr "Adgangskode opdatering mislykkedes"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
 msgid "Shares"
-msgstr "Delte mapper"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:6
 #: ajenti/plugins/vh/layout/main-website.xml:10
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr "Sti"
+msgstr "Putanja"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
-msgstr "Gæsteadgang"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:8
 msgid "Browseable"
-msgstr "Søgbar"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:9
 msgid "Create mask"
-msgstr "Opret maske"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:10
 msgid "Directory mask"
-msgstr "Mappe-maske"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:11
 msgid "Read only"
-msgstr "Læs kun"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-website-location.xml:2
 #: ajenti/plugins/vh/layout/main-website.xml:31
 #: ajenti/plugins/vh-mail/layout/main.xml:23
 msgid "Advanced"
-msgstr "Avanceret"
+msgstr "Napredno"
 
 #: ajenti/plugins/samba/layout/main.xml:13
 msgid "Allowed users"
-msgstr "Tilladte brugere"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:14
 msgid "R/W users"
-msgstr "R/W brugere"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:15
 msgid "Veto files"
-msgstr "Veto filer"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr "Gennemtving fil umask"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr "Gennemtving mappe umask"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
 msgid "Config"
-msgstr "Konfiguration"
+msgstr "Konfiguracija"
 
 #: ajenti/plugins/samba/layout/main.xml:19
 #: ajenti/plugins/ctdb/layout/main.xml:12
 msgid "Networking"
-msgstr "Netværk"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:20
 msgid "Interfaces"
-msgstr "Grænseflader"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
-msgstr "Bind kun til disse grænseflader"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
-msgstr "Identifikation"
+msgstr "Identifikacija"
 
 #: ajenti/plugins/samba/layout/main.xml:23
 msgid "Workgroup"
-msgstr "Arbejdsgruppe"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:24
 msgid "Server string"
-msgstr "Server streng"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:26
 #: ajenti/plugins/fail2ban/layout/main.xml:7
 #: ajenti/plugins/ctdb/layout/main.xml:11
 msgid "Log file"
-msgstr "Log-fil"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:27
 msgid "Security"
-msgstr "Sikkerhed"
+msgstr "Sigurnost"
 
 #: ajenti/plugins/samba/layout/main.xml:28
 msgid "Sessions"
-msgstr "Sessioner"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
-msgstr "Del"
+msgstr "Podeli"
 
 #: ajenti/plugins/samba/layout/main.xml:30
 #: ajenti/plugins/users/layout/main.xml:1
 #: ajenti/plugins/taskmgr/layout/main.xml:6
 msgid "User"
-msgstr "Bruger"
+msgstr "Korisnik"
 
 #: ajenti/plugins/samba/layout/main.xml:31
 msgid "Machine"
-msgstr "Maskine"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:32
 #: ajenti/plugins/openvpn/layout/main.xml:7
 msgid "Disconnect"
-msgstr "Afbryd"
+msgstr ""
 
 #: ajenti/plugins/samba/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:11
 #: ajenti/plugins/ntpd/layout/main.xml:2
 msgid "Set"
-msgstr "Sæt"
+msgstr ""
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
@@ -1098,7 +1098,7 @@ msgstr ""
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
-msgstr "Ingen data"
+msgstr ""
 
 #: ajenti/plugins/hdparm/layout/widget.xml:1
 #: ajenti/plugins/hddtemp/layout/widget.xml:1
@@ -1110,7 +1110,7 @@ msgstr "Ingen data"
 #: ajenti/plugins/fstab/layout/iio-widget.xml:1
 #: ajenti/plugins/smartctl/layout/widget.xml:1
 msgid "Device"
-msgstr "Enhed"
+msgstr "Uređaj"
 
 #: ajenti/plugins/users/main.py:17 ajenti/plugins/raid/main.py:17
 #: ajenti/plugins/iptables/main.py:79 ajenti/plugins/packages/main.py:15
@@ -1120,51 +1120,51 @@ msgstr "Enhed"
 #: ajenti/plugins/taskmgr/main.py:21 ajenti/plugins/csf/main.py:18
 #: ajenti/plugins/cron/main.py:19 ajenti/plugins/logs/main.py:28
 msgid "System"
-msgstr "System"
+msgstr "Sistem"
 
 #: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
-msgstr "Hjemme mappe for %s blev oprettet"
+msgstr ""
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr "Adgangskode for %s blev ændret"
+msgstr "Lozinka za %s je promenjena"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
-msgstr "Password bør ikke være tom"
+msgstr "Lozinka ne bi smela biti prazna"
 
 #: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
-msgstr "Adgangskode for %s blev fjernet"
+msgstr "Lozinka za %s je uklonjena"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
-msgstr "Gruppe"
+msgstr "Grupa"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr "Systembrugere"
+msgstr "Sistemski korisnici"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
-msgstr "Grupper"
+msgstr "Grupe"
 
 #: ajenti/plugins/users/layout/main.xml:12
 msgid "Members"
-msgstr "Medlemmer"
+msgstr "Članovi"
 
 #: ajenti/plugins/users/layout/user-list.xml:3
 #: ajenti/plugins/iptables/layout/main.xml:8
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "Komentar"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr "Hjemme mappe"
+msgstr "Početni direktorijum"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
@@ -1172,160 +1172,160 @@ msgstr "Shell"
 
 #: ajenti/plugins/vh-mysql/mysql.py:90
 msgid "This database name is already used"
-msgstr ""
+msgstr "Ovo ime baze je već iskorišćeno"
 
 #: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
-msgstr ""
+msgstr "Ovo korisničko ime je već iskorišćeno"
 
 #: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
-msgstr ""
+msgstr "Dozvole odobrene."
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:1
 #: ajenti/plugins/db_common/layout/main.xml:2
 msgid "Databases"
-msgstr "Databaser"
+msgstr "Baze"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Odvoji od sajta"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Uništi"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Ispusti bazu?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Ispusti korisnika?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:17
 msgid "Grant all permissions"
-msgstr ""
+msgstr "Odobri sve dozvole"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "Fajl sa imenom {0} već postoji u {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Neki parametri su prazni."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "Nije moguće sačuvati konfiguracioni fajl. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Provera filtera"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Filter fajl"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
-msgstr ""
+msgstr "Pokreni test"
 
 #: ajenti/plugins/vh-puma/puma.py:17
 msgid "PUMA service"
-msgstr ""
+msgstr "PUMA servis"
 
 #: ajenti/plugins/dhcpd/main.py:14
 msgid "DHCP Server"
-msgstr "DHCP-Server"
+msgstr "DHCP Server"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr "Subnetworks"
+msgstr "Podmreže"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
-msgstr "Specifikation"
+msgstr "Specifikacije"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
-msgstr "IP-intervaller"
+msgstr "Raspon IP adresa"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr "Globale indstillinger"
+msgstr "Globalne opcije"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr "Kunne ikke oprette forbindelse til Munin: %s"
+msgstr "Nije moguće povezati se sa Muninom: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr "Munin HTTP-godkendelse mislykkedes"
+msgstr "Munin HTTP potvrda identiteta nije uspela"
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
-msgstr "Se"
+msgstr "Pregled"
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
 #: ajenti/plugins/openvpn/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/apache/main.py:16
 msgid "Reload"
-msgstr "Genindlæs"
+msgstr "Ponovo napuni"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Magacini"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Ime magacina"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Korisnici (upis-čitanje)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Korisnici (samo čitanje)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "Javni ključ"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
-msgstr "Forespørgsel færdig"
+msgstr "Upit završen"
 
 #: ajenti/plugins/db_common/api.py:55
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr "Output skåret fra %i rækker til 200"
+msgstr ""
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
-msgstr "Bekræft database sletning!"
+msgstr "Potvrdi ispuštanje baze!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr "Database navn"
+msgstr "Ime baze"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr "Statiske filer"
+msgstr "Statični fajlovi"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "Prilagođeni FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
@@ -1333,15 +1333,15 @@ msgstr ""
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Proces"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
-msgstr "Processer"
+msgstr "Procesi"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
-msgstr "Hjemmesider"
+msgstr ""
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
@@ -1361,15 +1361,15 @@ msgstr ""
 
 #: ajenti/plugins/vh/main.py:214
 msgid "Download complete"
-msgstr "Download fuldført"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr "Administrere"
+msgstr "Upravljaj"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
-msgstr "Ny hjemmeside"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
@@ -1377,7 +1377,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
-msgstr "Genstart hjemmesider"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
@@ -1427,7 +1427,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:32
 #: ajenti/plugins/vh-mail/layout/main.xml:29
 msgid "Custom configuration"
-msgstr ""
+msgstr "Prilagođena konfiguracija"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
@@ -1435,7 +1435,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:2
 msgid "Script's HTTP port"
-msgstr ""
+msgstr "HTTP port skripte"
 
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:3
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:2
@@ -1443,11 +1443,11 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:17
 #: ajenti/plugins/cron/layout/main.xml:22
 msgid "Environment"
-msgstr "Miljø"
+msgstr "Okruženje"
 
 #: ajenti/plugins/vh/layout/main-backend-params-static.xml:1
 msgid "Show directory content"
-msgstr ""
+msgstr "Prikaži sadržaj direktorijuma"
 
 #: ajenti/plugins/vh/layout/main-backend-params-ruby-puma.xml:1
 msgid "Use Bundler"
@@ -1472,7 +1472,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
 msgid "Working directory"
-msgstr "Arbejdsmappe"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/not-configured.xml:1
 msgid "Ajenti V is not enabled yet"
@@ -1484,12 +1484,12 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
-msgstr "Tilbage"
+msgstr "Nazad"
 
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Delete"
-msgstr "Slet"
+msgstr "Obriši"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
@@ -1499,11 +1499,11 @@ msgstr ""
 #: ajenti/plugins/supervisor/layout/main.xml:8
 #: ajenti/plugins/supervisor/layout/main.xml:11
 msgid "Enabled"
-msgstr "Aktiveret"
+msgstr "Omogućeno"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Režim održavanja"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
@@ -1511,7 +1511,7 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr "Opret mappe"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
@@ -1519,29 +1519,29 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
-msgstr "Automatisk downloader"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "From URL"
-msgstr "Fra URL"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Download and unpack"
-msgstr "Download og Udpak"
+msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:17
 msgid "Domains"
-msgstr "Domæner"
+msgstr "Domeni"
 
 #: ajenti/plugins/vh/layout/main-website.xml:19
 msgid "Domain"
-msgstr "Domæne"
+msgstr "Domen"
 
 #: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
 #: ajenti/plugins/squid/layout/main.xml:12
 msgid "Ports"
-msgstr "Porte"
+msgstr "Portovi"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL certificate path"
@@ -1549,53 +1549,53 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "SSL key path"
-msgstr ""
+msgstr "Putanja do SSL ključa"
 
 #: ajenti/plugins/vh/layout/main-website.xml:28
 msgid "Content"
-msgstr ""
+msgstr "Sadržaj"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
-msgstr ""
+msgstr "Prilagođena konfiguracija na najvišem nivou"
 
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
 msgid "Apply changes"
-msgstr ""
+msgstr "Primeni promene"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
-msgstr "Autostart"
+msgstr "Automatski start"
 
 #: ajenti/plugins/supervisor/layout/main.xml:9
 #: ajenti/plugins/supervisor/layout/main.xml:13
 msgid "Disabled"
-msgstr "Deaktiveret"
+msgstr "Onemogućeno"
 
 #: ajenti/plugins/supervisor/layout/main.xml:10
 msgid "Autorestart"
-msgstr "Auto genstart"
+msgstr "Automatski restart"
 
 #: ajenti/plugins/supervisor/layout/main.xml:12
 msgid "On crash"
-msgstr "Ved nedbrud"
+msgstr "Prilikom pada"
 
 #: ajenti/plugins/supervisor/layout/main.xml:14
 msgid "Start timeout"
-msgstr "Start timeout"
+msgstr "Započni tajm-aut"
 
 #: ajenti/plugins/supervisor/layout/main.xml:15
 msgid "Start retries"
-msgstr "Start forsøg"
+msgstr "Započni ponovne pokušaje"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "NGINX test konfiguracije"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "NGINX servis"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1603,23 +1603,23 @@ msgstr ""
 
 #: ajenti/plugins/raid/layout/main.xml:2
 msgid "State"
-msgstr "Status"
+msgstr "Stanje"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr "Enheder"
+msgstr "Uređaji"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
-msgstr "Blokke"
+msgstr "Blokovi"
 
 #: ajenti/plugins/raid/layout/main.xml:6
 msgid "Recovery:"
-msgstr "Gendannelse:"
+msgstr "Oporavak:"
 
 #: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
-msgstr "Du kan ikke deaktivere firewall autostart på denne platform"
+msgstr "Nije moguće isključiti automatsko startovanje firewall-a na ovoj platformi"
 
 #: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
@@ -1628,69 +1628,69 @@ msgstr "Firewall"
 #: ajenti/plugins/iptables/main.py:119
 #: ajenti/plugins/iptables/layout/main.xml:10
 msgid "Add option"
-msgstr "Tilføj indstilling"
+msgstr "Dodaj opciju"
 
 #: ajenti/plugins/iptables/main.py:159
 msgid "Disable"
-msgstr "Deaktiver"
+msgstr "Isključi"
 
 #: ajenti/plugins/iptables/main.py:159
 msgid " autostart"
-msgstr " autostart"
+msgstr " automatski start"
 
 #: ajenti/plugins/iptables/main.py:213
 msgid "Applied successfully"
-msgstr "Anvendt med succes"
+msgstr "Uspešno primenjeno"
 
 #: ajenti/plugins/iptables/layout/main.xml:1
 msgid "Raw edit"
-msgstr "Rå redigering"
+msgstr "Sirovo menjanje"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr "Indlæs aktuel tilstand"
+msgstr "Učitaj trenutno stanje"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Dette vil overskrift den gemte konfiguration til firewallen! Vil du fortsætte?"
+msgstr "Ovo će presnimiti sačuvanu konfiguraciju trenutnog stanja firewall-a! Nastavi?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr "Ny kæde"
+msgstr "Novi Lanac"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
-msgstr "Handling"
+msgstr "Akcija"
 
 #: ajenti/plugins/iptables/layout/main.xml:9
 msgid "Conditions"
-msgstr "Betingelser"
+msgstr "Uslovi"
 
 #: ajenti/plugins/iptables/layout/main.xml:11
 msgid "New Rule"
-msgstr "Ny regel"
+msgstr "Novo pravilo"
 
 #: ajenti/plugins/iptables/layout/main.xml:13
 #: ajenti/plugins/packages/layout/main.xml:2
 #: ajenti/plugins/csf/layout/main.xml:27
 msgid "Apply"
-msgstr "Anvend"
+msgstr "Primeni"
 
 #: ajenti/plugins/iptables/layout/option-reject-with.xml:1
 msgid "Reason"
-msgstr "Begrundelse"
+msgstr "Razlog"
 
 #: ajenti/plugins/iptables/layout/option-match.xml:1
 msgid "Modules"
-msgstr "Moduler"
+msgstr "Moduli"
 
 #: ajenti/plugins/iptables/layout/option-state.xml:1
 msgid "States"
-msgstr "Tilstande"
+msgstr "Stanja"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr "Argumenter"
+msgstr "Argumenti"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
@@ -1703,39 +1703,39 @@ msgstr "Protokol"
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:24
 msgid "Interface"
-msgstr "Grænseflade"
+msgstr "Interfejs"
 
 #: ajenti/plugins/codemirror/__init__.py:7
 msgid "CodeMirror code editor"
-msgstr "CodeMirror Kode editor"
+msgstr "CodeMirror editor koda"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr "Gyldige brugere"
+msgstr "Ispravni korisnici"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr "Ressource forks"
+msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr "Udvidede attributter"
+msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr "CNID skema"
+msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr "AFP port"
+msgstr ""
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
-msgstr "CNID adresse"
+msgstr ""
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Pošta"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
@@ -1766,7 +1766,7 @@ msgstr ""
 #: ajenti/plugins/fm/layout/main.xml:11
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr "Størrelse"
+msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
@@ -1843,83 +1843,83 @@ msgstr ""
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr "Ingen søgeresultater fundet"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
-msgstr "Pakker"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
-msgstr "Sætter pakke-installation i kø"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:62
 msgid "Installation complete!"
-msgstr "Installation fuldført!"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
-msgstr "Forespørg pakkestyring"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:135
 #, python-format
 msgid "%i found, 100 shown"
-msgstr "%i fundet, 100 vist"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:138
 #, python-format
 msgid "%i found"
-msgstr "%i fundet"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
-msgstr "Installer / Fjern"
+msgstr ""
 
 #: ajenti/plugins/packages/main.py:152
 msgid "Refresh lists"
-msgstr "Opdater lister"
+msgstr ""
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr "Hent lister"
+msgstr ""
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr "Kan opgraderes"
+msgstr ""
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr "Opgrader alle"
+msgstr ""
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6
 msgid "Search"
-msgstr "Søg"
+msgstr "Pretraga"
 
 #: ajenti/plugins/packages/layout/main.xml:8
 msgid "Cancel all"
-msgstr "Annuller alle"
+msgstr ""
 
 #: ajenti/plugins/packages/layout/headers.xml:2
 msgid "Version"
-msgstr "Version"
+msgstr "Verzija"
 
 #: ajenti/plugins/packages/layout/row.xml:1
 msgid "Mark for installation/upgrade"
-msgstr "Afmærk til installation/opgradering"
+msgstr ""
 
 #: ajenti/plugins/packages/layout/row.xml:2
 msgid "Mark for removal"
-msgstr "Afmærk til fjernelse"
+msgstr ""
 
 #: ajenti/plugins/hddtemp/widget.py:9
 msgid "HDD Temperature"
-msgstr "HDD Temperatur"
+msgstr ""
 
 #: ajenti/plugins/lm_sensors/layout/widget.xml:1
 #: ajenti/plugins/ipmi/layout/widget.xml:1
 msgid "Sensor"
-msgstr "Sensor"
+msgstr ""
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
@@ -1931,37 +1931,37 @@ msgstr ""
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
-msgstr "Zone gemt"
+msgstr ""
 
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s ne postoji"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:2
 msgid "Zones"
-msgstr "Zoner"
+msgstr "Zone"
 
 #: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:7
 msgid "File"
-msgstr "Fil"
+msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:8
 msgid "Zone"
-msgstr "Zone"
+msgstr "Zona"
 
 #: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Zone file does not exist"
-msgstr "Zone-fil findes ikke"
+msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:9
 #: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save zone"
-msgstr "Gem zone"
+msgstr ""
 
 #: ajenti/plugins/fm/fm.py:19 ajenti/plugins/fm/fm.py:33
 msgid "File Manager"
-msgstr "Filhåndtering"
+msgstr ""
 
 #: ajenti/plugins/fm/fm.py:161
 msgid "Files deleted"
@@ -1978,47 +1978,47 @@ msgstr ""
 #: ajenti/plugins/fm/fm.py:199
 #, python-format
 msgid "Selected %i items"
-msgstr "Valgte %i elementer"
+msgstr ""
 
 #: ajenti/plugins/fm/fm.py:238
 msgid "Unpacked"
-msgstr "Udpakket"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:1
 msgid "Close"
-msgstr "Luk"
+msgstr "Zatvori"
 
 #: ajenti/plugins/fm/layout/main.xml:2
 msgid "New File"
-msgstr "Ny fil"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:3
 msgid "New Folder"
-msgstr "Ny mappe"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:4
 msgid "Cut"
-msgstr "Klip"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:5
 msgid "Copy"
-msgstr "Kopier"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:6
 msgid "Paste"
-msgstr "Indsæt"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:9
 msgid "Select all"
-msgstr "Vælg alle"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:12
 msgid "Upload"
-msgstr "Upload"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:13
 msgid "Clipboard"
-msgstr "Udklipsholder"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:19
 msgid "Last access time"
@@ -2034,27 +2034,27 @@ msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:22
 msgid "Edit"
-msgstr ""
+msgstr "Izmeni"
 
 #: ajenti/plugins/fm/layout/main.xml:23
 msgid "Unpack"
-msgstr "Pak ud"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:24
 msgid "Access"
-msgstr "Adgang"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:25
 msgid "Owner"
-msgstr "Ejer"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:27
 msgid "Others"
-msgstr "Andre"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/main.xml:28
 msgid "Set recursively"
-msgstr "Sæt rekursivt"
+msgstr ""
 
 #: ajenti/plugins/fm/layout/config.xml:2
 msgid "Startup directory"
@@ -2071,60 +2071,60 @@ msgstr ""
 #: ajenti/plugins/terminal/terminal.py:114
 #, python-format
 msgid "Process has exited with status %i"
-msgstr "Processen er afsluttet med status %i"
+msgstr ""
 
 #: ajenti/plugins/terminal/terminal.py:116
 msgid "Process has exited successfully"
-msgstr "Processen er afsluttet med succes"
+msgstr ""
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
 #: ajenti/plugins/terminal/main.py:228
 msgid "Terminal"
-msgstr "Terminal"
+msgstr ""
 
 #: ajenti/plugins/terminal/main.py:232
 msgid "Run shell"
-msgstr "Kør shell"
+msgstr ""
 
 #: ajenti/plugins/terminal/main.py:233
 msgid "Run custom commands"
-msgstr "Kør brugerdefinerede kommandoer"
+msgstr ""
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr "Ingen aktive terminaler"
+msgstr ""
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
-msgstr "Standard-shell"
+msgstr ""
 
 #: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
-msgstr "Trafik i øjeblikket"
+msgstr ""
 
 #: ajenti/plugins/network/widget.py:118
 msgid "Traffic"
-msgstr "Trafik"
+msgstr "Saobraćaj"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr "Netværk"
+msgstr "Mreža"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
-msgstr "Ryk op"
+msgstr ""
 
 #: ajenti/plugins/network/layout/main.xml:3
 msgid "Bring down"
-msgstr "Ryk ned"
+msgstr ""
 
 #: ajenti/plugins/network/layout/main.xml:4
 msgid "Bringing down primary network connection may cut off any access to the server! Are you sure?"
-msgstr "At slukke for den primære netværksforbindelse kan forhindre al forbindelse til serveren! Er du sikker?"
+msgstr ""
 
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr "Genstart af den primærer netværksforbindelse afbryder måske alt adgang til serveren! Er du sikker?"
+msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "Loopback"
@@ -2132,192 +2132,192 @@ msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:2
 msgid "Static"
-msgstr "Statisk"
+msgstr ""
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:3
 msgid "Manual"
-msgstr "Manuelt"
+msgstr ""
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr "Samba klynge"
+msgstr ""
 
 #: ajenti/plugins/ctdb/main.py:71
 msgid "Failed to obtain CTDB status"
-msgstr "CTBD status kunne ikke hentes"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr "Offentlige IP's"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr "Administrer Samba"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr "Fejlsøgnings niveau"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr "Filer"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr "Genddanelses låsefil"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr "Offentlig adresse fil"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr "Node fil"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
-msgstr "Offentlig grænseflade"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:14
 msgid "Public network"
-msgstr "Offentligt netværk"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:15
 msgid "Public gateway"
-msgstr "Offentlige gateway"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:16
 msgid "Nodes"
-msgstr "Noder"
+msgstr ""
 
 #: ajenti/plugins/ctdb/layout/main.xml:20
 msgid "Public addresses"
-msgstr "Offentlige adresser"
+msgstr ""
 
 #: ajenti/plugins/megaraid/layout/main.xml:1
 msgid "Adapter"
-msgstr "Adapter"
+msgstr ""
 
 #: ajenti/plugins/megaraid/layout/widget.xml:1
 msgid "Array"
-msgstr "Array"
+msgstr ""
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr "Navneservere"
+msgstr ""
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr "DNS-navneserver"
+msgstr ""
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
-msgstr "Lokal domænenavn"
+msgstr ""
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Search list"
-msgstr "Søgeliste"
+msgstr ""
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Sort list"
-msgstr "Sorter liste"
+msgstr ""
 
 #: ajenti/plugins/resolv/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:26
 msgid "Value"
-msgstr "Værdi"
+msgstr "Vrednost"
 
 #: ajenti/plugins/fstab/widget.py:9
 msgid "Disk space"
-msgstr "Diskplads"
+msgstr ""
 
 #: ajenti/plugins/fstab/widget.py:38
 msgid "Free disk space"
-msgstr "Ledig plads på disken"
+msgstr ""
 
 #: ajenti/plugins/fstab/widget.py:48
 #, python-format
 msgid "%s free"
-msgstr "%s ledig"
+msgstr ""
 
 #: ajenti/plugins/fstab/iops.py:70
 msgid "Immediate I/O"
-msgstr "Øjeblikkelig I/O"
+msgstr ""
 
 #: ajenti/plugins/fstab/main.py:51
 msgid "Filesystems"
-msgstr "Filsystemer"
+msgstr ""
 
 #: ajenti/plugins/fstab/main.py:75
 msgid "Unmounted"
-msgstr "Afmonteret"
+msgstr ""
 
 #: ajenti/plugins/fstab/main.py:82
 msgid "mount -a failed"
-msgstr "Montering -a mislykkedes"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:2
 msgid "Mount all"
-msgstr "Monter alle"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr "Monteringspunkt"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 msgid "FS type"
-msgstr "FS type"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan frequency"
-msgstr "Scannings frekvens"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:10
 msgid "Scan pass"
-msgstr "Skan pas"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:11
 msgid "Mounted filesystems"
-msgstr "Monterede filsystemer"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:14
 msgid "Used"
-msgstr "Forbrugt"
+msgstr "Korišćeno"
 
 #: ajenti/plugins/fstab/layout/main.xml:16
 msgid "Usage"
-msgstr "Forbrug"
+msgstr ""
 
 #: ajenti/plugins/fstab/layout/main.xml:17
 msgid "Unmount"
-msgstr "Afmonter"
+msgstr ""
 
 #: ajenti/plugins/dashboard/welcome.py:13
 msgid "Welcome"
-msgstr "Velkommen"
+msgstr ""
 
 #: ajenti/plugins/dashboard/dash.py:23
 msgid "Dashboard"
-msgstr "Instrumentbræt"
+msgstr ""
 
 #: ajenti/plugins/dashboard/dash.py:214
 msgid "Widgets"
-msgstr "Widgets"
+msgstr ""
 
 #: ajenti/plugins/dashboard/text.py:7
 #: ajenti/plugins/dashboard/layout/text.xml:1
 #: ajenti/plugins/openvpn/layout/main.xml:12
 msgid "Text"
-msgstr "Tekst"
+msgstr "Тekst"
 
 #: ajenti/plugins/dashboard/layout/dash.xml:1
 msgid "Add widget"
-msgstr "Tilføj widget"
+msgstr ""
 
 #: ajenti/plugins/dashboard/layout/dash.xml:3
 msgid "Automatic refresh"
-msgstr "Automatisk opdatering"
+msgstr ""
 
 #: ajenti/plugins/dashboard/layout/dash.xml:4
 msgid "Update Ajenti"
@@ -2337,7 +2337,7 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/main.py:146
 msgid "Done"
-msgstr ""
+msgstr "Završeno"
 
 #: ajenti/plugins/ntpd/layout/main.xml:1
 msgid "Current time"
@@ -2345,7 +2345,7 @@ msgstr ""
 
 #: ajenti/plugins/ntpd/layout/main.xml:3
 msgid "Sync"
-msgstr ""
+msgstr "Sinhronizacija"
 
 #: ajenti/plugins/ntpd/layout/main.xml:4
 msgid "Servers"
@@ -2357,147 +2357,147 @@ msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:4
 msgid "Remote IP"
-msgstr "Fjern-IP"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:5
 msgid "Local IP"
-msgstr "Lokal-IP"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:6
 msgid "Connected since"
-msgstr "Forbundet siden"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:8
 msgid "clients"
-msgstr "klienter"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:9
 msgid "Messages"
-msgstr "Meddelelser"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/main.xml:10
 msgid "Timestamp"
-msgstr "Tidsstempel"
+msgstr "Vremenski pečat"
 
 #: ajenti/plugins/openvpn/layout/main.xml:11
 msgid "Flags"
-msgstr "Flag"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/config.xml:1
 msgid "Management address"
-msgstr "Vedligeholdelses adresse"
+msgstr ""
 
 #: ajenti/plugins/openvpn/layout/config.xml:2
 msgid "host:port or UNIX socket path"
-msgstr "vært:port eller UNIX socket sti"
+msgstr ""
 
 #: ajenti/plugins/power/power.py:58
 msgid "Power"
-msgstr "Strøm"
+msgstr ""
 
 #: ajenti/plugins/power/power.py:102
 msgid "Power control"
-msgstr "Strøm-styring"
+msgstr ""
 
 #: ajenti/plugins/power/power.py:106 ajenti/plugins/power/layout/widget.xml:3
 msgid "Suspend"
-msgstr "Suspender"
+msgstr ""
 
 #: ajenti/plugins/power/power.py:107 ajenti/plugins/power/layout/widget.xml:5
 msgid "Hibernate"
-msgstr "Dvale"
+msgstr ""
 
 #: ajenti/plugins/power/power.py:108 ajenti/plugins/power/layout/widget.xml:7
 msgid "Reboot"
-msgstr "Genstart"
+msgstr ""
 
 #: ajenti/plugins/power/power.py:109
 msgid "Shutdown"
-msgstr "Lukning"
+msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
-msgstr "AC strøm"
+msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:2
 msgid "Battery"
-msgstr "Batteri"
+msgstr "Baterija"
 
 #: ajenti/plugins/power/layout/widget.xml:4
 msgid "Suspend the system?"
-msgstr "Suspender systemet?"
+msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:6
 msgid "Hibernate the system?"
-msgstr "Sæt systemet i dvale?"
+msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
-msgstr "Genstart systemet?"
+msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr "Sluk"
+msgstr ""
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
-msgstr "Sluk systemet?"
+msgstr ""
 
 #: ajenti/plugins/services/widget.py:10
 #: ajenti/plugins/services/layout/widget.xml:4
 msgid "Service"
-msgstr "Tjeneste"
+msgstr ""
 
 #: ajenti/plugins/services/main.py:14
 msgid "Services"
-msgstr "Tjenester"
+msgstr "Servisi"
 
 #: ajenti/plugins/services/main.py:41
 #, python-format
 msgid "%s started"
-msgstr "%s startet"
+msgstr ""
 
 #: ajenti/plugins/services/main.py:46
 #, python-format
 msgid "%s stopped"
-msgstr "%s stoppet"
+msgstr ""
 
 #: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
-msgstr "%s genstartet"
+msgstr ""
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
-msgstr "Oprindelse"
+msgstr ""
 
 #: ajenti/plugins/services/layout/main.xml:2
 msgid "Actions"
-msgstr "Handlinger"
+msgstr ""
 
 #: ajenti/plugins/services/layout/main.xml:3
 #: ajenti/plugins/services/layout/widget.xml:1
 #: ajenti/plugins/services/layout/bar.xml:1
 msgid "Start"
-msgstr "Start"
+msgstr "Pokreni"
 
 #: ajenti/plugins/services/layout/main.xml:4
 #: ajenti/plugins/services/layout/widget.xml:2
 #: ajenti/plugins/services/layout/bar.xml:2
 msgid "Stop"
-msgstr "Stop"
+msgstr "Zaustavi"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr "IPMI Sensor"
+msgstr ""
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"
-msgstr "Aliaser"
+msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:1
 msgid "Parent"
-msgstr "Forælder"
+msgstr "Roditelj"
 
 #: ajenti/plugins/taskmgr/layout/main.xml:4
 msgid "CPU"
@@ -2509,29 +2509,29 @@ msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:7
 msgid "Terminate"
-msgstr "Afbryd"
+msgstr ""
 
 #: ajenti/plugins/taskmgr/layout/main.xml:8
 msgid "Kill"
-msgstr "Dræb"
+msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:5
 msgid "HTTP Access"
-msgstr "Http-adgang"
+msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr "Tilstand"
+msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:9
 #: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
 msgid "Allow"
-msgstr "Tillad"
+msgstr ""
 
 #: ajenti/plugins/squid/layout/main.xml:10
 #: ajenti/plugins/csf/layout/main.xml:20
 msgid "Deny"
-msgstr "Afvis"
+msgstr ""
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
@@ -2567,7 +2567,7 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:5
 msgid "Allowed ports"
-msgstr "Tilladte porte"
+msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
@@ -2591,15 +2591,15 @@ msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
-msgstr "IP lister"
+msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:16
 msgid "Permanent rules"
-msgstr "Permanente regler"
+msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr "Tilladte adresser"
+msgstr ""
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
@@ -2619,15 +2619,15 @@ msgstr ""
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
-msgstr "Vælg"
+msgstr "Odaberi"
 
 #: ajenti/plugins/cron/layout/main.xml:2
 msgid "Normal"
-msgstr "Normal"
+msgstr "Normalno"
 
 #: ajenti/plugins/cron/layout/main.xml:11
 msgid "Special"
-msgstr "Speciel"
+msgstr "Specijalno"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
@@ -2635,15 +2635,15 @@ msgstr ""
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
-msgstr "Logs"
+msgstr "Zapisi"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "PHP-FPM servis"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
-msgstr "SVIGTENDE"
+msgstr ""
 
 #: ajenti/plugins/smartctl/widget.py:62
 msgid "PRE-FAIL"
@@ -2651,25 +2651,25 @@ msgstr ""
 
 #: ajenti/plugins/smartctl/widget.py:63
 msgid "Unknown error"
-msgstr "Ukendt fejl"
+msgstr "Nepoznata greška"
 
 #: ajenti/plugins/smartctl/widget.py:64
 msgid "Errors in log"
-msgstr "Fejl i log"
+msgstr ""
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr "Aktiv mappe-synkronisering"
+msgstr ""
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
-msgstr "LDAP bruger synkronisering"
+msgstr ""
 
 #: ajenti/usersync/local.py:12
 msgid "Off"
-msgstr "Sluk"
+msgstr "Isključeno"
 
 #: ajenti/usersync/unix.py:14
 msgid "OS users"
-msgstr "OS-brugere"
+msgstr ""
 

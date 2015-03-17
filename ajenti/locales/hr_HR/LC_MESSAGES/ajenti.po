@@ -37,7 +37,7 @@ msgstr ""
 #: ajenti/plugins/taskmgr/layout/main.xml:2
 #: ajenti/plugins/squid/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:25
-#: ajenti/plugins/bind9/layout/main.xml:4
+#: ajenti/plugins/bind9/layout/main.xml:5
 msgid "Name"
 msgstr "Naziv"
 
@@ -52,7 +52,7 @@ msgstr "Dependencije"
 #: ajenti/plugins/plugins/layout/main.xml:4
 #: ajenti/plugins/raid/layout/main.xml:3
 #: ajenti/plugins/resolv/layout/main.xml:3
-#: ajenti/plugins/bind9/layout/main.xml:5
+#: ajenti/plugins/bind9/layout/main.xml:6
 msgid "Type"
 msgstr "Tip"
 
@@ -87,6 +87,8 @@ msgstr "Poslužitelji"
 #: ajenti/plugins/snmpd/layout/main.xml:5
 #: ajenti/plugins/fail2ban/layout/main.xml:2
 #: ajenti/plugins/dhcpd/layout/main.xml:2
+#: ajenti/plugins/git/layout/main-repolist.xml:1
+#: ajenti/plugins/git/layout/main-userlist.xml:1
 #: ajenti/plugins/vh/layout/ext-processes.xml:1
 #: ajenti/plugins/vh/layout/main-website.xml:18
 #: ajenti/plugins/vh/layout/main-website.xml:22
@@ -106,7 +108,7 @@ msgstr "Poslužitelji"
 #: ajenti/plugins/cron/layout/main.xml:3
 #: ajenti/plugins/cron/layout/main.xml:12
 #: ajenti/plugins/cron/layout/main.xml:23
-#: ajenti/plugins/bind9/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:3
 msgid "Add"
 msgstr "Dodaj"
 
@@ -123,6 +125,8 @@ msgstr "Dodaj"
 #: ajenti/plugins/dhcpd/layout/main.xml:3
 #: ajenti/plugins/dhcpd/layout/ranges.xml:1
 #: ajenti/plugins/dhcpd/layout/options.xml:1
+#: ajenti/plugins/git/layout/main-repolist.xml:2
+#: ajenti/plugins/git/layout/main-userlist.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:9
 #: ajenti/plugins/vh/layout/ext-processes.xml:2
 #: ajenti/plugins/vh/layout/main-website.xml:20
@@ -151,7 +155,7 @@ msgstr "Dodaj"
 #: ajenti/plugins/cron/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:13
 #: ajenti/plugins/cron/layout/main.xml:24
-#: ajenti/plugins/bind9/layout/main.xml:3
+#: ajenti/plugins/bind9/layout/main.xml:4
 msgid "Confirm deletion"
 msgstr "Potvrdi brisanje"
 
@@ -188,6 +192,8 @@ msgstr ""
 #: ajenti/plugins/snmpd/layout/main.xml:6
 #: ajenti/plugins/fail2ban/layout/main.xml:4
 #: ajenti/plugins/dhcpd/layout/main.xml:8
+#: ajenti/plugins/git/layout/main-repolist.xml:6
+#: ajenti/plugins/git/layout/main-userlist.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:18
 #: ajenti/plugins/iptables/layout/main.xml:12
 #: ajenti/plugins/netatalk/layout/main.xml:14
@@ -201,7 +207,7 @@ msgstr ""
 #: ajenti/plugins/squid/layout/main.xml:15
 #: ajenti/plugins/csf/layout/main.xml:26
 #: ajenti/plugins/cron/layout/main.xml:27
-#: ajenti/plugins/bind9/layout/main.xml:11
+#: ajenti/plugins/bind9/layout/main.xml:12
 msgid "Save"
 msgstr "Spremi"
 
@@ -217,8 +223,8 @@ msgstr "Memcache korištenje memorije"
 #: ajenti/plugins/psql/main.py:20 ajenti/plugins/nsd/main.py:18
 #: ajenti/plugins/ctdb/main.py:22 ajenti/plugins/mysql/main.py:28
 #: ajenti/plugins/openvpn/main.py:28 ajenti/plugins/services/main.py:16
-#: ajenti/plugins/squid/main.py:16 ajenti/plugins/bind9/main.py:30
-#: ajenti/plugins/apache/main.py:65
+#: ajenti/plugins/squid/main.py:16 ajenti/plugins/rethink/main.py:19
+#: ajenti/plugins/bind9/main.py:30 ajenti/plugins/apache/main.py:65
 msgid "Software"
 msgstr "Softver"
 
@@ -227,12 +233,14 @@ msgstr "Softver"
 #: ajenti/plugins/db_common/layout/main.xml:8
 #: ajenti/plugins/vh/layout/main-website.xml:23
 #: ajenti/plugins/mysql/layout/config.xml:1
+#: ajenti/plugins/rethink/layout/config.xml:1
 msgid "Host"
 msgstr ""
 
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
 #: ajenti/plugins/users/layout/user-list.xml:2
+#: ajenti/plugins/git/layout/main-userlist.xml:3
 #: ajenti/plugins/db_common/layout/main.xml:7
 #: ajenti/plugins/db_common/layout/main.xml:12
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:4
@@ -248,6 +256,7 @@ msgstr "Korisničko ime"
 #: ajenti/plugins/mongo/layout/config.xml:3 ajenti/plugins/main/passwd.py:11
 #: ajenti/plugins/samba/layout/main.xml:36
 #: ajenti/plugins/vh-mysql/layout/ext.xml:10
+#: ajenti/plugins/vh-mysql/layout/ext.xml:15
 #: ajenti/plugins/db_common/layout/main.xml:14
 #: ajenti/plugins/vh-vsftpd/layout/ext.xml:2
 #: ajenti/plugins/netatalk/layout/main.xml:6
@@ -341,6 +350,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:24
 #: ajenti/plugins/iptables/layout/option-port.xml:1
 #: ajenti/plugins/squid/layout/port-template.xml:2
+#: ajenti/plugins/rethink/layout/config.xml:2
 msgid "Port"
 msgstr "Port"
 
@@ -369,6 +379,7 @@ msgstr "Generiraj"
 #: ajenti/plugins/samba/layout/main.xml:33 ajenti/plugins/users/main.py:15
 #: ajenti/plugins/users/layout/main.xml:5
 #: ajenti/plugins/vh-mysql/layout/ext.xml:8
+#: ajenti/plugins/git/layout/main.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:6
 msgid "Users"
 msgstr "Stranke"
@@ -693,7 +704,7 @@ msgstr ""
 #: ajenti/plugins/tasks/layout/main.xml:37
 #: ajenti/plugins/users/layout/user-list.xml:5
 #: ajenti/plugins/vh-mysql/layout/ext.xml:7
-#: ajenti/plugins/vh-mysql/layout/ext.xml:15
+#: ajenti/plugins/vh-mysql/layout/ext.xml:16
 #: ajenti/plugins/dhcpd/layout/ranges.xml:2
 #: ajenti/plugins/dhcpd/layout/options.xml:2
 #: ajenti/plugins/db_common/layout/main.xml:5
@@ -702,7 +713,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:29
 #: ajenti/plugins/nsd/layout/main.xml:8 ajenti/plugins/hosts/layout/main.xml:6
 #: ajenti/plugins/squid/layout/options-editor.xml:1
-#: ajenti/plugins/bind9/layout/main.xml:9
+#: ajenti/plugins/bind9/layout/main.xml:10
 msgid "Create"
 msgstr "Izradi"
 
@@ -761,12 +772,12 @@ msgstr ""
 
 #: ajenti/plugins/exports/main.py:38 ajenti/plugins/notepad/notepad.py:120
 #: ajenti/plugins/snmpd/main.py:192 ajenti/plugins/fail2ban/main.py:163
-#: ajenti/plugins/vh/main.py:105 ajenti/plugins/vh/main.py:262
-#: ajenti/plugins/iptables/main.py:200 ajenti/plugins/vh-mail/main.py:171
-#: ajenti/plugins/nsd/main.py:81 ajenti/plugins/network/main.py:77
-#: ajenti/plugins/ctdb/main.py:81 ajenti/plugins/fstab/main.py:103
-#: ajenti/plugins/ntpd/main.py:155 ajenti/plugins/csf/main.py:81
-#: ajenti/plugins/bind9/main.py:87
+#: ajenti/plugins/git/main.py:74 ajenti/plugins/vh/main.py:105
+#: ajenti/plugins/vh/main.py:262 ajenti/plugins/iptables/main.py:200
+#: ajenti/plugins/vh-mail/main.py:171 ajenti/plugins/nsd/main.py:81
+#: ajenti/plugins/network/main.py:77 ajenti/plugins/ctdb/main.py:81
+#: ajenti/plugins/fstab/main.py:103 ajenti/plugins/ntpd/main.py:155
+#: ajenti/plugins/csf/main.py:81 ajenti/plugins/bind9/main.py:87
 msgid "Saved"
 msgstr "Sačuvano"
 
@@ -1159,15 +1170,15 @@ msgstr ""
 msgid "Shell"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:88
+#: ajenti/plugins/vh-mysql/mysql.py:90
 msgid "This database name is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:117
+#: ajenti/plugins/vh-mysql/mysql.py:121
 msgid "This username is already used"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/mysql.py:152
+#: ajenti/plugins/vh-mysql/mysql.py:156
 msgid "Permissions granted."
 msgstr ""
 
@@ -1194,7 +1205,7 @@ msgstr ""
 msgid "Drop the user?"
 msgstr ""
 
-#: ajenti/plugins/vh-mysql/layout/ext.xml:16
+#: ajenti/plugins/vh-mysql/layout/ext.xml:17
 msgid "Grant all permissions"
 msgstr ""
 
@@ -1262,8 +1273,33 @@ msgstr ""
 
 #: ajenti/plugins/nginx/main.py:16 ajenti/plugins/supervisor/layout/main.xml:1
 #: ajenti/plugins/psql/main.py:13 ajenti/plugins/mysql/main.py:21
-#: ajenti/plugins/openvpn/layout/main.xml:2 ajenti/plugins/apache/main.py:16
+#: ajenti/plugins/openvpn/layout/main.xml:2
+#: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/apache/main.py:16
 msgid "Reload"
+msgstr ""
+
+#: ajenti/plugins/git/main.py:32
+msgid "Git"
+msgstr ""
+
+#: ajenti/plugins/git/layout/main.xml:1
+msgid "Repositories"
+msgstr ""
+
+#: ajenti/plugins/git/layout/main-repolist.xml:3
+msgid "Repository Name"
+msgstr ""
+
+#: ajenti/plugins/git/layout/main-repolist.xml:4
+msgid "Users (read-write)"
+msgstr ""
+
+#: ajenti/plugins/git/layout/main-repolist.xml:5
+msgid "Users (read-only)"
+msgstr ""
+
+#: ajenti/plugins/git/layout/main-userlist.xml:4
+msgid "Public Key"
 msgstr ""
 
 #: ajenti/plugins/db_common/api.py:46
@@ -1386,6 +1422,13 @@ msgstr ""
 msgid "Workers"
 msgstr ""
 
+#: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:5
+#: ajenti/plugins/vh/layout/main-website-location.xml:5
+#: ajenti/plugins/vh/layout/main-website.xml:32
+#: ajenti/plugins/vh-mail/layout/main.xml:29
+msgid "Custom configuration"
+msgstr ""
+
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:1
 msgid "Script name"
 msgstr ""
@@ -1420,12 +1463,6 @@ msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:4
 msgid "Append URL pattern to path"
-msgstr ""
-
-#: ajenti/plugins/vh/layout/main-website-location.xml:5
-#: ajenti/plugins/vh/layout/main-website.xml:32
-#: ajenti/plugins/vh-mail/layout/main.xml:29
-msgid "Custom configuration"
 msgstr ""
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:6
@@ -1884,6 +1921,14 @@ msgstr ""
 msgid "Sensor"
 msgstr ""
 
+#: ajenti/plugins/uname/widget.py:10
+msgid "uname"
+msgstr ""
+
+#: ajenti/plugins/uname/layout/widget.xml:1
+msgid "Uname options"
+msgstr ""
+
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
 msgstr ""
@@ -1893,24 +1938,24 @@ msgstr ""
 msgid "%s does not exist"
 msgstr ""
 
-#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:1
+#: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:2
 msgid "Zones"
 msgstr ""
 
-#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:6
+#: ajenti/plugins/nsd/layout/main.xml:5 ajenti/plugins/bind9/layout/main.xml:7
 msgid "File"
 msgstr ""
 
-#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:7
+#: ajenti/plugins/nsd/layout/main.xml:6 ajenti/plugins/bind9/layout/main.xml:8
 msgid "Zone"
 msgstr ""
 
-#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/bind9/layout/main.xml:8
+#: ajenti/plugins/nsd/layout/main.xml:7 ajenti/plugins/bind9/layout/main.xml:9
 msgid "Zone file does not exist"
 msgstr ""
 
 #: ajenti/plugins/nsd/layout/main.xml:9
-#: ajenti/plugins/bind9/layout/main.xml:10
+#: ajenti/plugins/bind9/layout/main.xml:11
 msgid "Save zone"
 msgstr ""
 
@@ -2492,7 +2537,7 @@ msgstr ""
 msgid "Node.js service"
 msgstr ""
 
-#: ajenti/plugins/vh-gunicorn/gunicorn.py:28
+#: ajenti/plugins/vh-gunicorn/gunicorn.py:30
 msgid "GUnicorn service"
 msgstr ""
 
@@ -2582,6 +2627,10 @@ msgstr ""
 
 #: ajenti/plugins/cron/layout/main.xml:11
 msgid "Special"
+msgstr ""
+
+#: ajenti/plugins/rethink/layout/config.xml:3
+msgid "Auth"
 msgstr ""
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
