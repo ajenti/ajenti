@@ -30,9 +30,9 @@ class PluginInfo(object):
 
 
 __all__ = [
-    'PluginInfo',
-    'Context',
-    'component',
     'interface',
+    'component',
     'service',
+    'Context',
+    'PluginInfo',
 ]

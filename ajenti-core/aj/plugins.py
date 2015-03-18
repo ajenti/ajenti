@@ -13,12 +13,27 @@ from aj.util import *
 
 @public
 class PluginProvider(object):
+    """
+    A base class for plugin locator
+    """
+
     def provide(self):
+        """
+        Should return a list of found plugin paths
+
+        :returns: list(str)
+        """
         raise NotImplementedError()
 
 
 @public
 class DirectoryPluginProvider(PluginProvider):
+    """
+    A plugin provider that looks up plugins in a given directory.
+
+    :param path: directory to look for plugins in
+    """
+
     def __init__(self, path):
         self.path = os.path.abspath(path)
 
@@ -34,6 +49,10 @@ class DirectoryPluginProvider(PluginProvider):
 
 @public
 class PythonPathPluginProvider(PluginProvider):
+    """
+    A plugin provider that looks up plugins on ``$PYTHONPATH``
+    """
+
     def __init__(self):
         pass
 
@@ -49,15 +68,6 @@ class PythonPathPluginProvider(PluginProvider):
 @public
 class PluginLoadError(Exception):
     pass
-
-
-@public
-class PluginFormatError(PluginLoadError):
-    def describe(self):
-        return 'Plugin format error'
-
-    def __str__(self):
-        return 'format error'
 
 
 @public
@@ -141,8 +151,7 @@ class PluginDependency(Dependency):
         self.plugin_name = plugin_name
 
     def is_satisfied(self):
-        # get_order() only contains successfully loaded plugins
-        return self.plugin_name in PluginManager.get(aj.context).get_order()
+        return self.plugin_name in PluginManager.get(aj.context).get_loaded_plugins_list()
 
     def __str__(self):
         return self.plugin_name
@@ -191,10 +200,8 @@ class PluginManager(object):
     Handles plugin loading and unloading
     """
 
-    blacklist = []
-
     __plugins = {}
-    __order = []
+    __loaded_plugins = []
     __info = {}
 
     def __init__(self, context):
@@ -210,10 +217,16 @@ class PluginManager(object):
     def get_content_path(self, name, path):
         return os.path.join(self[name].path, path)
 
-    def get_order(self):
-        return self.__order
+    def get_loaded_plugins_list(self):
+        return self.__loaded_plugins
 
     def load_all_from(self, providers):
+        """
+        Loads all plugins provided by given providers.
+
+        :param providers:
+        :type providers: list(:class:`PluginProvider`)
+        """
         found = []
         for provider in providers:
             found += provider.provide()
@@ -287,20 +300,16 @@ class PluginManager(object):
                     'aj.plugins.%s' % name,
                     *imp.find_module(module_name, [module_path])
                 )
-            except PluginFormatError:
-                raise
             except Exception as e:
                 raise PluginCrashed(e)
 
-            if name in self.__order:
-                self.__order.remove(name)
-            self.__order.append(name)
+            if name in self.__loaded_plugins:
+                self.__loaded_plugins.remove(name)
+            self.__loaded_plugins.append(name)
 
             return True
         except PluginDependency.Unsatisfied as e:
             raise
-        except PluginFormatError as e:
-            logging.warn(' *** [%s] Plugin error: "%s"', name, e)
         except PluginCrashed as e:
             logging.warn(' *** [%s] Plugin crashed: "%s"', name, e)
             logging.error(e.traceback)

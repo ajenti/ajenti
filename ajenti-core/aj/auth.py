@@ -49,7 +49,7 @@ class AuthenticationMiddleware(BaseHttpHandler):
 
 @public
 @service
-class AuthenticationService(BaseHttpHandler):
+class AuthenticationService(object):
     def __init__(self, context):
         self.context = context
 

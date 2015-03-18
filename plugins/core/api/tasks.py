@@ -15,9 +15,14 @@ from aj.plugins.core.api.push import Push
 
 
 class Task(object):
-    name = None
+    """
+    Tasks are one-off child processes with progress reporting. This is a base abstract class.
+    """
 
-    def __init__(self, context):
+    name = None
+    """Display name"""
+
+    def __init__(self, context, *args, **kwargs):
         self.context = context
         self.running = False
         self.exception = None
@@ -35,6 +40,9 @@ class Task(object):
         }
 
     def start(self):
+        """
+        Starts the task's process
+        """
         self.pipe, pipe_child = gipc.pipe(duplex=True)
         self.running = True
         self.process = gipc.start_process(
@@ -46,9 +54,16 @@ class Task(object):
         self.reader = gevent.spawn(self._reader)
 
     def abort(self):
-        self.greenlet.kill(block=False)
+        self.process.terminate()
 
     def report_progress(self, message=None, done=None, total=None):
+        """
+        Updates the task's process info.
+
+        :param message: text message
+        :param done: number of processed items
+        :param total: total number of items
+        """
         self.progress['message'] = message
         self.progress['done'] = done
         self.progress['total'] = total
@@ -129,9 +144,15 @@ class Task(object):
             self.service.notify()
 
     def run(self):
+        """
+        Override this with your task's logic.
+        """
         raise NotImplementedError()
 
     def push(self, plugin, message):
+        """
+        An interface to :class:`aj.plugins.core.api.push.Push` usable from inside the task's process.
+        """
         self.pipe.put({
             'type': 'push',
             'plugin': plugin,

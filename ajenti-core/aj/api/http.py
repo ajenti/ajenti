@@ -10,7 +10,7 @@ def url(pattern):
     """
     Exposes the decorated method of your :class:`HttpPlugin` via HTTP
 
-    :param pattern: URL regex (no ``^`` and ``$`` required)
+    :param pattern: URL regex (``^`` and ``$`` are implicit)
     :type  pattern: str
     :rtype: function
 
@@ -29,49 +29,48 @@ class BaseHttpHandler(object):
     Base class for everything that can process HTTP requests
     """
 
-    def handle(self, context):
+    def handle(self, http_context):
         """
-        Should create a HTTP response in the given ``context`` and return
+        Should create a HTTP response in the given ``http_context`` and return
         the plain output
 
-        :param context: HTTP context
-        :type  context: :class:`aj.http.HttpContext`
+        :param http_context: HTTP context
+        :type  http_context: :class:`aj.http.HttpContext`
         """
 
 
 @interface
 class HttpPlugin(object):
     """
-    A base plugin class for HTTP request handling::
+    A base interface for HTTP request handling::
 
-        @plugin
-        class TerminalHttp (BasePlugin, HttpPlugin):
-            @url('/aj:terminal/(?P<id>\\d+)')
-            def get_page(self, context, id):
-                if context.session.identity is None:
-                    context.respond_redirect('/')
-                context.add_header('Content-Type', 'text/html')
+        @component
+        class HelloHttp(HttpPlugin):
+            @url('/hello/(?P<name>.+)')
+            def get_page(self, http_context, name=None):
+                context.add_header('Content-Type', 'text/plain')
                 context.respond_ok()
-                return self.open_content('static/index.html').read()
+                return 'Hello, %s!' % name
 
     """
 
-    def handle(self, context):
+    def handle(self, http_context):
         """
         Finds and executes the handler for given request context (handlers are
         methods decorated with :func:`url` )
 
-        :param context: HTTP context
-        :type  context: :class:`aj.http.HttpContext`
+        :param http_context: HTTP context
+        :type  http_context: :class:`aj.http.HttpContext`
+        :returns: reponse data
         """
 
         for name, method in self.__class__.__dict__.iteritems():
             if hasattr(method, 'url_pattern'):
                 method = getattr(self, name)
-                match = method.url_pattern.match(context.path)
+                match = method.url_pattern.match(http_context.path)
                 if match:
-                    context.route_data = match.groupdict()
-                    data = method(context, **context.route_data)
+                    http_context.route_data = match.groupdict()
+                    data = method(http_context, **http_context.route_data)
                     if isinstance(data, types.GeneratorType):
                         return data
                     else:
@@ -80,26 +79,46 @@ class HttpPlugin(object):
 
 @interface
 class SocketEndpoint(object):
+    """
+    Base interface for Socket.IO endpoints.
+
+    """
+
     plugin = None
+    """arbitrary plugin ID for socket message routing"""
 
     def __init__(self, context):
         self.context = context
         self.greenlets = []
 
     def on_connect(self, message):
-        pass
+        """
+        Called on a successful client connection
+        """
 
     def on_disconnect(self, message):
-        pass
+        """
+        Called on a client disconnect
+        """
 
     def destroy(self):
+        """
+        Destroys endpoint, killing the running greenlets
+        """
         for gl in self.greenlets:
             gl.kill(block=False)
 
     def on_message(self, message, *args):
-        pass
+        """
+        Called when a socket message arrives to this endpoint
+        """
 
     def spawn(self, target, *args, **kwargs):
+        """
+        Spawns a greenlet in this endpoint, which will be auto-killed when the client disconnects
+
+        :param target: target function
+        """
         logging.debug(
             'Spawning sub-Socket Greenlet (in a namespace): %s' % (
                 target.__name__
@@ -110,6 +129,13 @@ class SocketEndpoint(object):
         return greenlet
 
     def send(self, data, plugin=None):
+        """
+        Sends a message to the client.the
+
+        :param data: message object
+        :param plugin: routing ID (this endpoint's ID if not specified)
+        :type  plugin: str
+        """
         self.context.worker.send_to_upstream({
             'type': 'socket',
             'message': {

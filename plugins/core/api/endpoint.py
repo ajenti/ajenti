@@ -5,6 +5,13 @@ import traceback
 
 
 class EndpointError(Exception):
+    """
+    To be raised by endpoints when a foreseen error occurs.
+    This exception doesn't cause a client-side crash dialog.
+
+    :param inner: inner exception
+    :param message: message
+    """
     def __init__(self, inner, message=None):
         Exception.__init__(self)
         self.inner = inner
@@ -19,6 +26,12 @@ class EndpointError(Exception):
 
 
 class EndpointReturn(Exception):
+    """
+    Raising ``EndpointReturn`` will return a custom HTTP code in the API endpoints.
+
+    :param code: HTTP code
+    :param data: response data
+    """
     def __init__(self, code, data=None):
         Exception.__init__(self)
         self.code = code
@@ -29,6 +42,20 @@ class EndpointReturn(Exception):
 
 
 def endpoint(page=False, api=False, file=False, auth=True):
+    """
+    It's recommended to decorate all HTTP handling methods with ``@endpoint``.
+
+    ``@endpoint(auth=True)`` will require authenticated session before giving control to the handler.
+
+    ``@endpoint(api=True)`` will wrap responses and exceptions into JSON, and will also provide special handling of :class:`EndpointsError`
+
+    :param auth: requires authentication for this endpoint
+    :type  auth: bool
+    :param page: enables page mode
+    :type  page: bool
+    :param api: enables API mode
+    :type  api: bool
+    """
     def decorator(fx):
         @wraps(fx)
         def wrapper(self, context, *args, **kwargs):

@@ -1,6 +1,3 @@
-from datetime import timedelta
-
-
 def str_fsize(sz):
     """
     Formats file size as string (i.e., 1.2 Mb)
@@ -20,8 +17,3 @@ def str_fsize(sz):
     return '%.1f TB' % sz
 
 
-def str_timedelta(s):
-    """
-    Formats a time delta (i.e., "5 days, 5:06:07")
-    """
-    return str(timedelta(0, s)).split('.')[0]

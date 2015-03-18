@@ -3,7 +3,7 @@ import sys
 import os
 import datetime
 
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../ajenti-core'))
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.ifconfig', 'sphinx.ext.viewcode']  # 'sphinx.ext.intersphinx']
 
@@ -16,9 +16,21 @@ master_doc = 'index'
 project = u'Ajenti'
 copyright = u'%i, Eugene Pankov' % datetime.datetime.now().year
 
-import ajenti
-version = ajenti.__version__
-release = ajenti.__version__
+import aj
+version = aj.__version__
+release = aj.__version__
+
+import aj
+import aj.api
+import aj.config
+import aj.core
+import aj.log
+import aj.plugins
+
+aj.context = aj.api.Context()
+aj.init()
+aj.plugins.PluginManager.get(aj.context).load_all_from([aj.plugins.DirectoryPluginProvider('../../plugins')])
+
 
 exclude_patterns = []
 add_function_parentheses = True
@@ -55,20 +67,12 @@ intersphinx_mapping = {'http://docs.python.org/': None}
 
 
 def skip(app, what, name, obj, skip, options):
-    if hasattr(obj, '_plugin'):
-        for x in ['get', 'new', 'classname']:
-            if hasattr(obj, x):
-                try:
-                    delattr(obj, x)
-                except:
-                    pass
-    if hasattr(obj, '_interface'):
-        for x in ['get', 'get_all', 'get_instances', 'get_class', 'get_classes']:
-            if hasattr(obj, x):
-                try:
-                    delattr(obj, x)
-                except:
-                    pass
+    for x in ['all', 'classes', 'implementations']:
+        if hasattr(obj, x):
+            try:
+                delattr(obj, x)
+            except:
+                pass
     return skip
 
 

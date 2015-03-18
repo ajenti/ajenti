@@ -15,6 +15,15 @@ rundev:
 clean:
 	find | grep \.pyc | xargs rm
 
+
+doc:
+	sphinx-build -b html -d docs/build/doctrees docs/source docs/build/html
+
+cdoc:
+	rm -rf docs/build/*
+	make doc
+
+
 check:
 	cd plugins && ajenti-dev-multitool --find-outdated
 

@@ -21,8 +21,11 @@ def _validate_origin(env):
 
 class HttpRoot(object):
     """
-    A root middleware object that creates the :class:`HttpContext` and dispatches
-    it to other registered middleware
+    A root WSGI middleware object that creates the :class:`HttpContext` and dispatches
+    it to an HTTP handler.
+
+    :param handler: next middleware handler
+    :type  handler: :class:`aj.api.http.BaseHttpHandler`
     """
 
     def __init__(self, handler):
@@ -60,6 +63,13 @@ class HttpRoot(object):
 
 
 class HttpMiddlewareAggregator(BaseHttpHandler):
+    """
+    Stacks multiple HTTP handlers together in a middleware fashion.
+
+    :param stack: handler list
+    :type  stack: list(:class:`aj.api.http.BaseHttpHandler`)
+    """
+
     def __init__(self, stack):
         self.stack = stack
 
@@ -82,9 +92,17 @@ class HttpContext(object):
 
         Path segment of the URL
 
+    .. attribute:: method
+
+        Request method
+
     .. attribute:: headers
 
         List of HTTP response headers
+
+    .. attribute:: body
+
+        Request body
 
     .. attribute:: response_ready
 
@@ -163,8 +181,10 @@ class HttpContext(object):
         """
         Adds a given HTTP header to the response
 
-        :type key: str
-        :type value: str
+        :param key: header name
+        :type  key: str
+        :param value: header value
+        :type  value: str
         """
         self.headers += [(key, value)]
 
@@ -172,7 +192,8 @@ class HttpContext(object):
         """
         Removed a given HTTP header from the response
 
-        :type key: str
+        :param key: header name
+        :type  key: str
         """
         self.headers = [h for h in self.headers if h[0] != key]
 
@@ -180,11 +201,15 @@ class HttpContext(object):
         """
         Executes a ``handler`` in this context
 
+        :type handler: :class:`aj.api.http.BaseHttpHandler`
         :returns: handler-supplied output
         """
         return handler.handle(self)
 
     def run_response(self):
+        """
+        Finalizes the response and runs WSGI's ``start_response()``.
+        """
         if not self.response_ready:
             raise Exception('Response not created yet!')
 
@@ -199,6 +224,7 @@ class HttpContext(object):
     def respond(self, status):
         """
         Creates a response with given HTTP status line
+
         :type status: str
         """
         self.status = status
@@ -234,6 +260,7 @@ class HttpContext(object):
     def redirect(self, location):
         """
         Returns a ``HTTP 302 Found`` redirect response with given ``location``
+
         :type location: str
         """
         self.add_header('Location', location)
@@ -243,8 +270,10 @@ class HttpContext(object):
     def gzip(self, content, compression=9):
         """
         Returns a GZip compressed response with given ``content`` and correct headers
+
         :type content: str
-        :type compression: int
+        :param compression: compression level from 0 to 9
+        :type  compression: int
         :rtype: str
         """
         io = StringIO()
@@ -262,6 +291,7 @@ class HttpContext(object):
     def file(self, path, stream=False):
         """
         Returns a GZip compressed response with content of file located in ``path`` and correct headers
+
         :type path: str
         :type stream: bool
         """

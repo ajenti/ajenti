@@ -1,94 +1,51 @@
 .. _installing:
 
-Installation
+Installing
+**********
+
+Requirements
 ============
 
-Debian Packages
-***************
+Ajenti supports
 
-Ajenti requires Debian 6 or later. Debian 5 might work with Python 2.6 installed.
-
-Debian Squeeze requires squeeze-backports repository: http://backports.debian.org/Instructions/
-
-Add repository key::
-
-    wget http://repo.ajenti.org/debian/key -O- | apt-key add -
-
-Add repository to /etc/apt/sources.list::
-    
-    echo "deb http://repo.ajenti.org/debian main main debian" >> /etc/apt/sources.list
-
-Install the package::
-    
-    apt-get update && apt-get install ajenti
-
-Start the service::
-    
-    service ajenti restart
+    * Debian 6 or later
+    * Ubuntu Precise or later
+    * CentOS 6 or later
+    * RHEL 6 or later
 
 
-Ubuntu Packages
-***************
+Automatic Installation
+======================
 
-Ajenti requires ubuntu 12.04 Precise Pangolin. Previous releases might work with Python upgraded.
-
-Add repository key::
-
-    wget http://repo.ajenti.org/debian/key -O- | apt-key add -
-
-Add repository to /etc/apt/sources.list::
-    
-    echo "deb http://repo.ajenti.org/ng/debian main main ubuntu" >> /etc/apt/sources.list
-
-Install the package::
-    
-    apt-get update && apt-get install ajenti
-
-Start the service::
-    
-    service ajenti restart
+    ``curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh | sudo bash``
 
 
+Manual Installation
+===================
 
-RPM Packages
-************
+Native dependencies: Debian/Ubuntu
+----------------------------------
 
-Ajenti requires EPEL repositories: http://fedoraproject.org/wiki/EPEL
+    ``sudo apt-get install build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus``
 
-Add repository key::
+Native dependencies: RHEL/CentOS
+--------------------------------
 
-    wget http://repo.ajenti.org/ajenti-repo-1.0-1.noarch.rpm
-    rpm -i ajenti-repo-1.0-1.noarch.rpm
+    ``sudo yum install gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python``
 
-Install the package::
-    
-    yum install ajenti
+Install Ajenti
+--------------
 
-Start the service::
-    
-    service ajenti restart
+    Upgrade PIP:
 
-.. note::
-    Package does not match intended download? ::
+    ``sudo pip install 'setuptools>=0.6rc11' 'pip>=6'``
 
-        yum clean metadata
+    Minimal install:
+
+    ``sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins``
+
+    With more plugins:
+
+    ``sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.services ajenti.plugin.terminal``
 
 
-FreeBSD Installation
-********************
-
-Prerequisites::
-    
-    cd /usr/ports/devel/py-gevent;  make install clean;
-    cd /usr/ports/devel/py-lxml;    make install clean;
-    cd /usr/ports/devel/py-pip;     make install clean;
-    cd /usr/ports/net/py-ldap2;     make install clean;
-    cd /usr/ports/security/stunnel; make install clean;
-
-Download and install latest Ajenti build from PYPI::
-    
-    pip install ajenti
-
-Install rc.d script::
-
-    wget https://raw.github.com/Eugeny/ajenti/master/packaging/files/ajenti-bsd -O /etc/rc.d/ajenti

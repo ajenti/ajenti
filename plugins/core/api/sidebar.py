@@ -3,10 +3,30 @@ from aj.api import *
 
 @interface
 class SidebarItemProvider(object):
+    """
+    Interface for providing sidebar items.
+    """
     def __init__(self, context):
         pass
 
     def provide(self):
+        """
+        Should return a list of sidebar items, each in the following format::
+
+            {
+                'id': 'optional-id',
+                'attach': 'category:general', # id of the attachment point or None for top level
+                'name': 'Dashboard',
+                'icon': 'bar-chart',
+                'url': '/view/dashboard',
+                'children': [
+                    ...
+                ]
+            }
+
+
+        :returns: list(dict)
+        """
         return []
 
 
@@ -16,6 +36,11 @@ class Sidebar(object):
         self.context = context
 
     def build(self):
+        """
+        Returns a complete tree of sidebar items.
+
+        :returns: dict
+        """
         sidebar = {
             'id': None,
             'children': [],

@@ -21,15 +21,15 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
         $rootScope.socketConnectionLost = false
         $log.log('Reconnected')
 
-    @socket.on 'connect', (e) ->
-        if not enabled
+    @socket.on 'connect', (e) =>
+        if not @enabled
             return
         $rootScope.socketConnectionLost = false
         $rootScope.$broadcast 'socket-event:connect'
         $log.log('Connected')
 
-    @socket.on 'disconnect', (e) ->
-        if not enabled
+    @socket.on 'disconnect', (e) =>
+        if not @enabled
             return
         $rootScope.socketConnectionLost = true
         $rootScope.$broadcast 'socket-event:disconnect'
@@ -49,8 +49,8 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
             q.resolve()
         return q.promise
 
-    @socket.on 'message', (msg) ->
-        if not enabled
+    @socket.on 'message', (msg) =>
+        if not @enabled
             return
         if msg[0] == '{'
             msg = JSON.parse(msg)

@@ -2,6 +2,13 @@ import logging
 
 
 class Context(object):
+    '''
+    A dependency injection container for :func:`interface` s, :func:`service` s and :func:`component` s
+
+    :param parent: a parent context
+    :type parent: :class:`Context`
+    '''
+
     def __init__(self, parent=None):
         self.parent = parent
         self.service_instances = {}
@@ -15,6 +22,9 @@ class Context(object):
 
     @staticmethod
     def get_fqdn(clz):
+        '''
+        Returns a fully-qualified name for the given class
+        '''
         return clz.__module__ + '.' + clz.__name__
 
     def get_service(self, cls):
@@ -32,6 +42,20 @@ class Context(object):
 
 
 def service(cls):
+    '''
+    Marks the decorated class as a singleton ``service``.
+
+    Injects following classmethods:
+
+        .. py:function:: get(context)
+
+            Returns a singleton instance of the class for given ``context``
+
+            :param context: context to look in
+            :type context: :class:`Context`
+            :returns: ``cls``
+    '''
+
     if not cls:
         return None
 
@@ -46,6 +70,26 @@ def service(cls):
 
 
 def interface(cls):
+    '''
+    Marks the decorated class as an abstract interface.
+
+    Injects following classmethods:
+
+        .. py:function:: all(context)
+
+            Returns a list of instances of each component in the ``context`` implementing this ``@interface``
+
+            :param context: context to look in
+            :type context: :class:`Context`
+            :returns: list(``cls``)
+
+        .. py:function:: classes()
+
+            Returns a list of classes implementing this ``@interface``
+
+            :returns: list(class)
+    '''
+
     if not cls:
         return None
 
@@ -66,6 +110,13 @@ def interface(cls):
 
 
 def component(iface):
+    '''
+    Marks the decorated class as a component implementing the given ``iface``
+
+    :param iface: the interface to implement
+    :type iface: :func:`interface`
+    '''
+
     def decorator(cls):
         if not cls:
             return None

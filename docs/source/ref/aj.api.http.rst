@@ -1,6 +1,6 @@
-ajenti.http
+aj.api.http
 ***********
 
-.. automodule:: ajenti.http
+.. automodule:: aj.api.http
    :members:
    :undoc-members:

@@ -6,3 +6,5 @@
 *.whl
 *.egg*
 
+plugins/demo*
+docs/build

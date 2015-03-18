@@ -62,6 +62,6 @@ angular.module('core').filter 'time', () ->
         s += ('' + Math.floor(time / 60) % 60).lpad('0', 2) + ':'
         s += ('' + Math.floor(time) % 60).lpad('0', 2)
         if frac
-            s += '.' + ('' + Math.floor((time - Math.floor(time)) * 100)).lpad('0', frac + 0)
+            s += '.' + ('' + Math.floor((time - Math.floor(time)) * Math.pow(10, frac))).lpad('0', frac + 0)
         return s
 
