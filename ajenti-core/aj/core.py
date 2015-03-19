@@ -43,6 +43,21 @@ from socketio.server import SocketIOServer
 
 def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=False,
         debug_mode=False, autologin=False):
+    """
+    A global entry point for Ajenti.
+
+    :param config: config file implementation instance to use
+    :type  config: :class:`aj.config.BaseConfig`
+    :param plugin_providers: list of plugin providers to load plugins from
+    :type  plugin_providers: list(:class:`aj.plugins.PluginProvider`)
+    :param product_name: a product name to use
+    :param dev_mode: enables dev mode (automatic resource recompilation)
+    :type  dev_mode: bool
+    :param debug_mode: enables debug mode (verbose and extra logging)
+    :type  debug_mode: bool
+    :param autologin: disables authentication and logs everyone in as the user running the panel. This is EXTREMELY INSECURE.
+    :type  autologin: bool
+    """
     if config is None:
         raise TypeError('`config` can\'t be None')
 
@@ -250,6 +265,11 @@ def handle_crash(exc):
 
 
 def start(daemonize=False, log_level=logging.INFO, **kwargs):
+    """
+    A wrapper for :func:`run` that optionally runs it in a forked daemon process.
+
+    :param kwargs: rest of arguments is forwarded to :func:`run`
+    """
     if daemonize:
         aj.log.init_log_directory()
         logfile = open(aj.log.LOG_FILE, 'w+')

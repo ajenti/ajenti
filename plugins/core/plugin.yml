@@ -50,7 +50,6 @@ resources:
     - 'resources/js/core/directives/keyboardFocus.coffee'
     - 'resources/js/core/directives/messageboxContainer.coffee'
     - 'resources/js/core/directives/ngEnter.coffee'
-    - 'resources/js/core/directives/pathSelector.coffee'
     - 'resources/js/core/directives/progressSpinner.coffee'
     - 'resources/js/core/directives/rootAccess.coffee'
     - 'resources/js/core/directives/sidebar.coffee'

@@ -49,6 +49,7 @@ angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scop
                 $scope.$broadcast 'widget-update', resp.id, resp.data
 
     $scope.configureWidget = (widget) ->
+        widget.config ?= {}
         $scope.configuredWidget = widget
 
     $scope.saveWidgetConfig = () ->

@@ -18,27 +18,38 @@ Developers
    dev/intro.rst
    dev/ui.rst
    dev/resources.rst
-   dev/notifications.rst
-   dev/binding.rst
-   dev/custom-controls.rst
    dev/http.rst
    dev/dash-widgets.rst
 
 
-API Reference
--------------
+Python API Reference
+--------------------
 
 .. toctree::
    ref/aj
    ref/aj.api
    ref/aj.api.http
-   ref/aj.http
+   ref/aj.config
    ref/aj.core
+   ref/aj.http
    ref/aj.plugins
 
 
-Plugin API Reference
---------------------
+Stock Angular components
+------------------------
+
+.. toctree::
+   refjs/core
+   refjs/ace
+   refjs/filesystem
+   refjs/passwd
+   refjs/services
+   refjs/settings
+   refjs/terminal
+
+
+Python Plugin API Reference
+---------------------------
 
 .. toctree::
    ref/aj.plugins.core.api.endpoint
@@ -46,6 +57,7 @@ Plugin API Reference
    ref/aj.plugins.core.api.sidebar
    ref/aj.plugins.core.api.tasks
    ref/aj.plugins.dashboard.api
+   ref/aj.plugins.services.api
 
 
 Indices and tables

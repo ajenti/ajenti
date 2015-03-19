@@ -7,13 +7,28 @@ from aj.api import *
 
 
 class BaseConfig(object):
+    """
+    A base class for config implementations. Your implementation must be able to save
+    arbitrary mixture of ``dict``, ``list``, and scalar values.
+
+    .. py:attribute:: data
+
+        currenly loaded config content
+
+    """
     def __init__(self):
         self.data = None
 
     def load(self):
+        """
+        Should load config content into :attr:`data`.
+        """
         raise NotImplementedError()
 
     def save(self):
+        """
+        Should save config content from :attr:`data`.
+        """
         raise NotImplementedError()
 
 

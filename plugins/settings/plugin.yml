@@ -7,6 +7,7 @@ title: 'Settings'
 icon: wrench
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: filesystem }
     - !!python/object:aj.plugins.PluginDependency { plugin_name: passwd }
 resources:
     - 'resources/js/module.coffee'

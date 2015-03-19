@@ -15,7 +15,7 @@ class Widget(object):
     """Angular view template URL"""
 
     config_template = None
-    """Config dict for new plugins"""
+    """Configuration dialog template URL"""
 
     def __init__(self, context):
         self.context = context

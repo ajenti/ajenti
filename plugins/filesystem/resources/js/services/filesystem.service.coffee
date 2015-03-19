@@ -22,7 +22,7 @@ angular.module('ajenti.filesystem').service 'filesystem', ($http, $q) ->
         .error (err) ->
             q.reject(err)
         return q.promise
-        
+
     @stat = (path) ->
         q = $q.defer()
         $http.get("/api/filesystem/stat/#{path}").success (data) ->

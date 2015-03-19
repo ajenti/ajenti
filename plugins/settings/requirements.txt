@@ -1,3 +1,4 @@
 aj
 ajenti.plugin.core
+ajenti.plugin.filesystem
 ajenti.plugin.passwd

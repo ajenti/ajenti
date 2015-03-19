@@ -24,13 +24,13 @@ class ResourcesHandler(HttpPlugin):
         else:
             content = ''
             if type in ['js', 'css']:
-                for plugin in self.mgr.get_order():
+                for plugin in self.mgr.get_loaded_plugins_list():
                     path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % type)
                     if os.path.exists(path):
                         content += open(path).read()
             if type == 'init.js':
                 ng_modules = []
-                for plugin in self.mgr.get_order():
+                for plugin in self.mgr.get_loaded_plugins_list():
                     for resource in self.mgr[plugin].resources:
                         if resource.startswith('ng:'):
                             ng_modules.append(resource.split(':')[-1])
@@ -43,7 +43,7 @@ class ResourcesHandler(HttpPlugin):
                     angular.module("core.templates").run(
                         ["$templateCache", function($templateCache) {
                 '''
-                for plugin in self.mgr.get_order():
+                for plugin in self.mgr.get_loaded_plugins_list():
                     for resource in self.mgr[plugin].resources:
                         if resource.endswith('.html'):
                             path = self.mgr.get_content_path(plugin, resource)

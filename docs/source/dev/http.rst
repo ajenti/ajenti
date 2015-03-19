@@ -6,45 +6,59 @@ Handling HTTP Requests
 Example
 =======
 
-This example illustrates various HTTP responses.
-Try following URLs:
+Basic HTTP API example can be browsed and downloaded at https://github.com/ajenti/demo-plugins/tree/master/demo_4_http
 
-  * http://localhost:8000/ajenti:demo/notify?text=hello
-  * http://localhost:8000/ajenti:demo/respond/redirect
-  * http://localhost:8000/ajenti:demo/respond/server_error
-  * http://localhost:8000/ajenti:demo/respond/ok
-  * http://localhost:8000/ajenti:demo/respond/file
+Plugins can provide their own HTTP endpoints by extending the :class:`aj.api.http.HttpPlugin` abstract class.
 
-Code::
+Example::
 
-    from ajenti.api import plugin, BasePlugin
-    from ajenti.api.http import HttpPlugin, url
+    import time
+
+    from aj.api import component
+    from aj.api.http import url, HttpPlugin
+
+    from aj.plugins.core.api.endpoint import endpoint, EndpointError, EndpointReturn
 
 
-    @plugin
-    class HttpDemo (BasePlugin, HttpPlugin):
-        @url('/ajenti:demo/notify')
-        def get_page(self, context):
-            if context.session.identity is None:
-                context.respond_redirect('/')
-            self.context.notify('info', context.query.getvalue('text', ''))
-            context.respond_ok()
-            return ''
+    @component(HttpPlugin)
+    class Handler(HttpPlugin):
+        def __init__(self, context):
+            self.context = context
 
-        @url('/ajenti:demo/respond/(?P<what>.+)')
-        def get_response(self, context, what=None):
-            if what == 'ok':
-                context.respond_ok()
-                return 'Hello!'
-            if what == 'redirect':
-                return context.respond_redirect('/')
-            if what == 'server_error':
-                return context.respond_server_error()
-            if what == 'forbidden':
-                return context.respond_forbidden()
-            if what == 'not_found':
-                return context.respond_not_found()
-            if what == 'file':
-                return context.file('/etc/issue')
+        @url(r'/api/demo4/calculate/(?P<operation>\w+)/(?P<a>\d+)/(?P<b>\d+)')
+        @endpoint(api=True)
+        def handle_api_calculate(self, http_context, operation=None, a=None, b=None):
+            start_time = time.time()
 
-`Download this example </_static/dev/test_http.tar.gz>`_
+            try:
+                if operation == 'add':
+                    result = int(a) + int(b)
+                elif operation == 'divide':
+                    result = int(a) / int(b)
+                else:
+                    raise EndpointReturn(404)
+            except ZeroDivisionError:
+                raise EndpointError('Division by zero')
+
+            return {
+                'value': result,
+                'time': time.time() - start_time
+            }
+
+
+``@endpoint(api=True)`` mode provides automatic JSON encoding of the responses and error handling.
+
+If you need lower-level access to the HTTP response, use ``@endpoint(page=True)``::
+
+        @url(r'/api/test')
+        @endpoint(page=True)
+        def handle_api_calculate(self, http_context):
+            http_context.add_header('Content-Type', '...')
+            content = "Hello!"
+            #return http_context.respond_not_found()
+            #return http_context.respond_forbidden()
+            #return http_context.file('/some/path')
+            http_context.respond_ok()
+            return content
+
+See :class:`aj.http.HttpContext` for the available ``http_context`` methods.

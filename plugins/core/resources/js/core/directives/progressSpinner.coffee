@@ -9,4 +9,3 @@ angular.module('core').directive 'progressSpinner', () ->
         '''
         link: ($scope, element, attrs) ->
     }
-    

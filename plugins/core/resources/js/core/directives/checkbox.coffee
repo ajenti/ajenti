@@ -16,7 +16,7 @@ angular.module('core').directive 'checkbox', () ->
                     if angular.isDefined($scope.ngChecked)
                         return
                     $scope.ngModel = !$scope.ngModel
-                    
+
             $scope.$watch 'ngModel', (newValue) ->
                 if not attr.ngModel
                     return

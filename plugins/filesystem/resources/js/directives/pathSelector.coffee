@@ -1,4 +1,4 @@
-angular.module('core').directive 'pathSelector', () ->
+angular.module('ajenti.filesystem').directive 'pathSelector', () ->
     return {
         restrict: 'E'
         scope: {

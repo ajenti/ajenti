@@ -1,85 +1,65 @@
 Dashboard Widgets
 *****************
 
-Dashboard plugin API exposes two widget types: :class:`ajenti.plugins.dashboard.api.DashboardWidget` and :class:`ajenti.plugins.dashboard.api.ConfigurableWidget`.
+Example
+=======
 
-Simple widget
-=============
+Basic example of a dynamic and configurable widget can be browsed and downloaded at https://github.com/ajenti/demo-plugins/tree/master/demo_5_widget
 
-Example::
+Plugins can provide dashboard widgets by extending the :class:`aj.plugins.dashboard.api.Widget` abstract class::
 
-    from ajenti.api import plugin
-    from ajenti.plugins.dashboard.api import DashboardWidget
+    @component(Widget)
+    class RandomWidget(Widget):
+        id = 'random'
 
-    @plugin
-    class HelloWidget (DashboardWidget):
-        name = 'Hello Widget'
-        icon = 'comment'
+        # display name
+        name = 'Random'
 
-        def init(self):
-            self.append(self.ui.inflate('hello_widget:widget'))
-            self.find('text').text = 'Hello'
+        # template of the widget
+        template = '/demo_5_widget:resources/partial/widget.html'
 
-Layout::
+        # template of the configuration dialog
+        config_template = '/demo_5_widget:resources/partial/widget.config.html'
 
-    <hc>
-        <box width="20">
-            <icon id="icon" icon="comment" />
-        </box>
-        
-        <box width="90">
-            <label id="name" style="bold" text="Widget" />
-        </box>
+        def __init__(self, context):
+            Widget.__init__(self, context)
 
-        <label id="text" />
-    </hc>
+        def get_value(self, config):
+            # generate value based on widget's config
+            if 'bytes' not in config:
+                return 'Not configured'
+            return os.urandom(int(config['bytes'])).encode('hex')
 
 
-Configurable widget
-===================
+There are some CSS classes available for the standard widget looks::
 
-Configurable widgets have a ``dict`` config, configuration dialog and a configuration button.
+    <div ng:controller="Demo5WidgetController">
+        <div class="widget-header">
+            Random
+        </div>
+        <div class="widget-value">
+            {{value || 'Unknown'}}
+        </div>
+    </div>
 
-Example (real dashboard Text widget)::
-
-    from ajenti.api import plugin
-    from ajenti.plugins.dashboard.api import ConfigurableWidget
 
 
-    @plugin
-    class TextWidget (ConfigurableWidget):
-        name = _('Text')
-        icon = 'font'
+The templates should reference appropriate controllers::
 
-        def on_prepare(self):
-            # probably not configured yet!
-            self.append(self.ui.inflate('dashboard:text'))
+    angular.module('ajenti.demo5').controller 'Demo5WidgetController', ($scope) ->
+        # $scope.widget is our widget descriptor here
+        $scope.$on 'widget-update', ($event, id, data) ->
+            if id != $scope.widget.id
+                return
+            $scope.value = data
 
-        def on_start(self):
-            # configured by now
-            self.find('text').text = self.config['text']
 
-        def create_config(self):
-            return {'text': ''}
+    angular.module('ajenti.demo5').controller 'Demo5WidgetConfigController', ($scope) ->
+        # $scope.configuredWidget is our widget descriptor here
+        # some defaults
+        $scope.configuredWidget.config.bytes ?= 4
 
-        def on_config_start(self):
-            # configuration begins now, a chance to fill the configuration dialog
-            pass
 
-        def on_config_save(self):
-            self.config['text'] = self.dialog.find('text').value
+Initially, dashboard will create your widget with an empty (``{}``) config and show the configuration dialog you provided.
 
-Layout::
-
-    <hc>
-        <label id="text" text="---" />
-
-        <dialog id="config-dialog" visible="False">
-            <pad>
-                <formline text="{Text}">
-                    <textbox id="text" />
-                </formline>
-            </pad>
-        </dialog>
-    </hc>
-
+Dashboard will issue periodic requests to your :class:`aj.plugins.dashboard.api.Widget` implementations. Your widget classes should not retain any state. If user creates multiple widgets of same type, a single instance will be created to service their requests.
