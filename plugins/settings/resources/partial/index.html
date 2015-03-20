@@ -30,27 +30,27 @@
 
         <div class="form-group">
             <label>Binding</label>
-            <div class="form-inline">
-                <div class="btn-group pull-left">
-                    <a ng:model="config.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
-                    <a ng:model="config.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="btn-group btn-group-justified">
+                        <a ng:model="config.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
+                        <a ng:model="config.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
+                    </div>
                 </div>
+                <div class="col-sm-7">
+                    <div ng:show="config.bind.mode == 'tcp'" class="row">
+                        <div class="col-xs-8">
+                            <input ng:model="config.bind.host" type="text" placeholder="Host / IP" class="form-control" />
+                        </div>
+                        <div class="col-xs-4">
+                            <input ng:model="config.bind.port" type="number" placeholder="Port" class="form-control" />
+                        </div>
+                    </div>
 
-                &nbsp;
-
-                <span ng:show="config.bind.mode == 'tcp'">
-                    <input ng:model="config.bind.host" type="text" placeholder="Host / IP" class="form-control" />
-                    &nbsp;
-                    :
-                    &nbsp;
-                    <input ng:model="config.bind.port" type="number" placeholder="Port" class="form-control" />
-                </span>
-
-                <span ng:show="config.bind.mode == 'unix'">
-                    <input ng:model="config.bind.socket" type="text" placeholder="Socket path" class="form-control" />
-                </span>
-
-                <div class="clearfix"></div>
+                    <div ng:show="config.bind.mode == 'unix'">
+                        <input ng:model="config.bind.socket" type="text" placeholder="Socket path" class="form-control" />
+                    </div>
+                </div>
             </div>
         </div>
 

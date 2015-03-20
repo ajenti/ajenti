@@ -37,12 +37,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 #toast-container > div {
-    box-shadow: 0 0 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 2px rgba(0,0,0,.5), 0 0 30px rgba(0,0,0,.25) !important;
+    padding: 15px 15px 15px 50px !important; // override responsivity
     opacity: 0.85;
 }
 
 #toast-container > div:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,.5);
     opacity: 0.9;
 }
 
@@ -132,6 +132,7 @@ dialog {
 
     .list-group-item-small, .list-group-item-large {
         padding: 0;
+        white-space: nowrap;
 
         .list-group-image {
             float: left;
@@ -207,10 +208,14 @@ dialog {
 
             .list-group-item-heading {
                 color: @list-group-link-heading-color;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
 
             .list-group-item-text {
                 color: @list-group-link-color;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
         }
 
@@ -273,6 +278,10 @@ dialog {
 
 .form-group {
     margin-bottom: 30px;
+
+    &>.row>div {
+        margin-bottom: 10px;
+    }
 }
 
 .form-horizontal .form-group {

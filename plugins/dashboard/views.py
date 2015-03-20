@@ -34,4 +34,5 @@ class Handler(HttpPlugin):
                 'id': rq['id'],
                 'data': self.widgets[rq['typeId']].get_value(rq['config']),
             } for rq in data
+            if rq['typeId'] in self.widgets
         ]

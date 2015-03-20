@@ -96,8 +96,10 @@ body.global-color-teal {
 }
 
 .button-variant-color-selector(@color) {
-    border-top-color: @color !important;
-    border-bottom-color: @color !important;
+    //border-top-color: @color !important;
+    border: none;
+    border-bottom: 5px solid @color !important;
+    background: lighten(@color, 35%);
 
     &.active {
         border-color: @color !important;

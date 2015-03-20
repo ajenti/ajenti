@@ -28,14 +28,24 @@ Download the source::
 
 Install the dependencies::
 
+    # Debian/Ubuntu
+    sudo apt-get install build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus``
+    # RHEL/CentOS
+    sudo yum install gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python
+
     sudo pip install -r ajenti-core/requirements.txt
     sudo pip install ajenti-dev-multitool
 
-Download and install Bower dependencies:
+Native dependencies: RHEL/CentOS
+--------------------------------
+
+
+
+Download and install Bower dependencies::
 
     make bower
 
-Ensure that resource compilation is set up correctly and works (optional):
+Ensure that resource compilation is set up correctly and works (optional)::
 
     make build
 

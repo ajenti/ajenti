@@ -22,6 +22,8 @@ class PushSocket(SocketEndpoint):
                 plugin, msg = q.get()
             except gevent.queue.Empty:
                 return
+            except EOFError:
+                return
             if msg:
                 self.send({
                     'plugin': plugin,

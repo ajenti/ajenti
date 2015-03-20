@@ -75,10 +75,11 @@ class Task(object):
     def _worker(self, pipe=None):
         self.pipe = pipe
         setproctitle.setproctitle(
-            '%s task %s #%i',
-            sys.argv[0],
-            self.__class__.__name__,
-            os.getpid()
+            '%s task %s #%i' % (
+                sys.argv[0],
+                self.__class__.__name__,
+                os.getpid()
+            )
         )
         set_log_params(tag='task')
         logging.info('Starting task %s (%s)', self.id, self.__class__.__name__)
@@ -97,7 +98,7 @@ class Task(object):
         while True:
             try:
                 msg = self.pipe.get()
-            except gevent.queue.Empty:
+            except EOFError:
                 self.running = False
                 self.finished = time.time()
                 logging.debug('Task %s pipe was closed', self.id)

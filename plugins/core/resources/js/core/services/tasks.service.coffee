@@ -13,6 +13,9 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, so
                 if @tasks.length <= i
                     @tasks.push {}
                 angular.copy msg.tasks[i], @tasks[i]
+            if @tasks.length == 0
+                if $rootScope.toggleOverlayNavigation
+                    $rootScope.toggleOverlayNavigation(false)
         if msg.type == 'message'
             if msg.message.type == 'done'
                 notify.success msg.message.task.name, 'Done'
@@ -29,6 +32,8 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, so
         }
         q = $q.defer()
         $http.post('/api/core/tasks/start', data).success () ->
+            if $rootScope.toggleOverlayNavigation
+                $rootScope.toggleOverlayNavigation(true)
             q.resolve()
         .error () ->
             q.reject()

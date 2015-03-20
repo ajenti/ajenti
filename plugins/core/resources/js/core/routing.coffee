@@ -18,5 +18,8 @@ angular.module('core').config ($routeProvider, $locationProvider, urlPrefix) ->
         templateUrl: '/core:resources/partial/login.html'
         controller: 'CoreLoginController'
 
+    $routeProvider.when '/view/ui-test',
+        templateUrl: '/core:resources/partial/index.html'
+
 
 # TODO 404

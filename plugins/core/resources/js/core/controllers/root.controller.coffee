@@ -21,7 +21,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     # ---
 
     $scope.showSidebar = $cookieStore.get('showSidebar') ? true
-    $scope.toggleNavigation = (state) ->
+    $rootScope.toggleNavigation = (state) ->
         if angular.isDefined state
             $scope.showSidebar = state
         else
@@ -32,7 +32,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     # ---
 
     $scope.showOverlaySidebar = false
-    $scope.toggleOverlayNavigation = (state) ->
+    $rootScope.toggleOverlayNavigation = (state) ->
         if angular.isDefined state
             $scope.showOverlaySidebar = state
         else

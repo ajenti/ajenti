@@ -1,5 +1,6 @@
 import gevent
 import apt
+import apt.cache
 from apt.progress.base import AcquireProgress
 
 from aj.api import *
@@ -50,7 +51,10 @@ class APTPackageManager(PackageManager):
 
         cache = apt.Cache()
         ack = Progress()
-        cache.update(fetch_progress=ack)
+        try:
+            cache.update(fetch_progress=ack)
+        except apt.cache.FetchFailedException:
+            pass
 
         while not hasattr(ack, 'done'):
             gevent.sleep(1)
