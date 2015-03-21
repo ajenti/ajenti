@@ -49,6 +49,7 @@ echo ":: Distro: $DISTRO"
 
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
+	yum install -y epel*
     yum install -y gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python || exit 1
 fi
 
