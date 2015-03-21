@@ -3,27 +3,7 @@ python:
     - 2.7
 node_js:
     - 0.10
-install:
-    - sudo apt-get install -y python-lxml python-dbus python-lxml
-    - pip install -r ajenti-core/requirements.txt
-    - pip install -r plugins/core/requirements.txt
-    - pip install -r plugins/terminal/requirements.txt
-    - pip install ajenti-dev-multitool
-before_script:
-    - npm install -g bower
-    - ajenti-dev-multitool --bower install
-    - cd tests-karma
-    - npm install
-    - cd ..
 script:
-    - echo Running Nose tests
-    - cd tests-nose
-    - nosetests base.py
-    - cd ..
-    - echo Running Karma tests
-    - cd tests-karma
-    -  ./node_modules/.bin/karma start karma.conf.coffee --single-run
-    - cat coverage/coverage.txt
-    - cd ..
+    - scripts/ci.sh
 notifications:
   slack: ajenti:ANVVc21AEbnRLYAWBZlhzAtW
