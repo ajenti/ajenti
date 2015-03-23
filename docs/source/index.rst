@@ -15,6 +15,7 @@ Developers
 
 .. toctree::
 
+   dev/about.rst
    dev/intro.rst
    dev/ui.rst
    dev/resources.rst
