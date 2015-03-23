@@ -1,24 +1,35 @@
-<div ng:controller="CPUWidgetController" class="row">
-    <div class="col-xs-4">
-        <div class="widget-header">
-            CPU usage
+<div ng:controller="CPUWidgetController">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="widget-header">
+                Active cores
+            </div>
+            <smart-progress value="cores" max="values.length"></smart-progress>
         </div>
-        <div class="widget-value">
-            {{avgPercent}}%
-            <sup ng:show="avgPercent > 95">
-                <span class="label label-danger">
-                    <i class="fa fa-warning"></i>
-                </span>
-            </sup>
+        <div class="col-xs-8">
+            <div class="widget-header">
+                CPU usage
+            </div>
+            <smart-progress value="avgPercent" max="100"></smart-progress>
         </div>
-        <smart-progress value="avgPercent" max="100"></smart-progress>
     </div>
-    <div class="col-xs-3">
-        <div class="widget-header">
-            Active cores
+    <div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="widget-value">
+                {{cores}}/{{values.length}}
+            </div>
         </div>
-        <div class="widget-value">
-            {{cores}}/{{values.length}}
+        <div class="col-xs-8">
+            <div class="widget-value">
+                {{avgPercent}}%
+                <sup ng:show="avgPercent > 95">
+                    <span class="label label-danger">
+                        <i class="fa fa-warning"></i>
+                    </span>
+                </sup>
+            </div>
         </div>
     </div>
 </div>

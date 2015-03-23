@@ -7,6 +7,9 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     $rootScope.ajentiVersion = ajentiVersion
     $rootScope.ajentiPlugins = ajentiPlugins
 
+    # todo figure this out, used in settings template
+    $rootScope.keys = (x) -> Object.keys(x)
+
     console.group('Welcome')
     console.log('Ajenti', ajentiVersion)
     if urlPrefix

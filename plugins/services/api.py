@@ -10,6 +10,14 @@ class Service(object):
         self.running = None
 
 
+class ServiceOperationError(Exception):
+    def __init__(self, inner):
+        self.inner = inner
+
+    def __unicode__(self):
+        return '[ServiceOperationError %s]' % self.inner
+
+
 @interface
 class ServiceManager(object):
     id = None

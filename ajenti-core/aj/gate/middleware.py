@@ -96,6 +96,7 @@ class GateMiddleware(object):
             log_tag='restricted'
         )
         self.restricted_gate.start()
+        aj.config.data.setdefault('max_sessions', None)
 
     def generate_session_key(self, env):
         h = str(random.random())
@@ -121,6 +122,14 @@ class GateMiddleware(object):
         """
         Creates a new session for the :class:`aj.http.HttpContext`
         """
+        max_sessions = aj.config.data['max_sessions']
+        if max_sessions and len(self.sessions) >= max_sessions:
+            candidates = sorted(self.sessions.keys(), key=lambda k: -self.sessions[k].get_age())
+            victim = self.sessions[candidates[0]]
+            logging.info("Closing session %s due to pool overflow" % victim.id)
+            victim.deactivate()
+            self.vacuum()
+
         client_info = {
             'address': env.get('REMOTE_ADDR', None),
         }

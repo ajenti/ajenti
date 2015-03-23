@@ -1,24 +1,33 @@
-<div ng:controller="MemoryWidgetController" class="row">
-    <div class="col-xs-4">
-        <div class="widget-header">
-            Memory usage
+<div ng:controller="MemoryWidgetController">
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="widget-header">
+                Total
+            </div>
+            <smart-progress max="1"></smart-progress>
         </div>
-        <div class="widget-value">
-            {{usage}}%
-            <sup ng:show="usage > 90">
-                <span class="label label-danger">
-                    <i class="fa fa-warning"></i>
-                </span>
-            </sup>
+        <div class="col-xs-8">
+            <div class="widget-header">
+                Memory usage
+            </div>
+            <smart-progress value="usage" max="100"></smart-progress>
         </div>
-        <smart-progress value="usage" max="100"></smart-progress>
     </div>
-    <div class="col-xs-3">
-        <div class="widget-header">
-            Total
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="widget-value">
+                {{total|bytes}}
+            </div>
         </div>
-        <div class="widget-value">
-            {{total|bytes}}
+        <div class="col-xs-8">
+            <div class="widget-value">
+                {{usage}}%
+                <sup ng:show="usage > 90">
+                    <span class="label label-danger">
+                        <i class="fa fa-warning"></i>
+                    </span>
+                </sup>
+            </div>
         </div>
     </div>
 </div>

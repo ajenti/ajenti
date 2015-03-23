@@ -1,8 +1,9 @@
+from dbus.exceptions import DBusException
 from upstart.system import UpstartSystem, DirectUpstartBus
 from upstart.job import UpstartJob
 
 from aj.api import *
-from aj.plugins.services.api import ServiceManager, Service
+from aj.plugins.services.api import ServiceManager, Service, ServiceOperationError
 
 
 @component(ServiceManager)
@@ -50,10 +51,19 @@ class UpstartServiceManager(ServiceManager):
         return svc
 
     def start(self, _id):
-        UpstartJob(_id).start()
+        try:
+            UpstartJob(_id).start()
+        except DBusException as e:
+            raise ServiceOperationError(e)
 
     def stop(self, _id):
-        UpstartJob(_id).stop()
+        try:
+            UpstartJob(_id).stop()
+        except DBusException as e:
+            raise ServiceOperationError(e)
 
     def restart(self, _id):
-        UpstartJob(_id).restart()
+        try:
+            UpstartJob(_id).restart()
+        except DBusException as e:
+            raise ServiceOperationError(e)

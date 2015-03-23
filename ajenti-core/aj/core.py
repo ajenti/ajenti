@@ -50,13 +50,10 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     :type  config: :class:`aj.config.BaseConfig`
     :param plugin_providers: list of plugin providers to load plugins from
     :type  plugin_providers: list(:class:`aj.plugins.PluginProvider`)
-    :param product_name: a product name to use
-    :param dev_mode: enables dev mode (automatic resource recompilation)
-    :type  dev_mode: bool
-    :param debug_mode: enables debug mode (verbose and extra logging)
-    :type  debug_mode: bool
-    :param autologin: disables authentication and logs everyone in as the user running the panel. This is EXTREMELY INSECURE.
-    :type  autologin: bool
+    :param str product_name: a product name to use
+    :param bool dev_mode: enables dev mode (automatic resource recompilation)
+    :param bool debug_mode: enables debug mode (verbose and extra logging)
+    :param bool autologin: disables authentication and logs everyone in as the user running the panel. This is EXTREMELY INSECURE.
     """
     if config is None:
         raise TypeError('`config` can\'t be None')

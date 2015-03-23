@@ -1,8 +1,8 @@
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
-from aj.plugins.core.api.endpoint import endpoint
-from aj.plugins.services.api import ServiceManager
+from aj.plugins.core.api.endpoint import endpoint, EndpointError
+from aj.plugins.services.api import ServiceManager, ServiceOperationError
 
 
 @component(HttpPlugin)
@@ -45,4 +45,7 @@ class Handler(HttpPlugin):
     def handle_api_operate(self, http_context, manager_id=None, operation=None, service_id=None):
         if operation not in ['start', 'stop', 'restart']:
             return
-        getattr(self.managers[manager_id], operation)(service_id)
+        try:
+            getattr(self.managers[manager_id], operation)(service_id)
+        except ServiceOperationError as e:
+            raise EndpointError(e)

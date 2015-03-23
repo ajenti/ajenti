@@ -77,3 +77,10 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
             $scope.newClientCertificate.generating = false
             $scope.newClientCertificateDialogVisible = false
             notify.error 'Certificate generation failed', err.message
+
+    $scope.addEmail = (email, username) ->
+        $scope.config.emails[email] = username
+        $scope.newEmailDialogVisible = false
+
+    $scope.removeEmail = (email) ->
+        delete $scope.config.emails[email]

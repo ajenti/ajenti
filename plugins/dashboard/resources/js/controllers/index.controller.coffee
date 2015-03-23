@@ -21,9 +21,33 @@ angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scop
 
     settings.getUserConfig().then (userConfig) ->
         $scope.userConfig = userConfig
-        $scope.userConfig.dashboard ?= {}
-        $scope.userConfig.dashboard.widgetsLeft ?= []
-        $scope.userConfig.dashboard.widgetsRight ?= []
+        $scope.userConfig.dashboard ?= {
+          widgetsLeft: [
+            {
+                id: 'w1'
+                typeId: 'hostname'
+
+            }
+            {
+                id: 'w2'
+                typeId: 'cpu'
+            }
+            {
+                id: 'w3'
+                typeId: 'loadavg'
+            }
+          ]
+          widgetsRight: [
+            {
+                id: 'w4'
+                typeId: 'uptime'
+            }
+            {
+                id: 'w5'
+                typeId: 'memory'
+            }
+          ]
+        }
 
         updateInterval = $interval () ->
             $scope.refresh()

@@ -173,6 +173,58 @@
                 </dialog>
             </div>
         </div>
+
+        <hr />
+
+        <div class="form-group">
+            <label>E-mail authentication</label>
+            <div class="help-text">
+                Allows login with a confirmed e-mail address via <a href="https://login.persona.org/about" target="_blank">Mozilla Persona</a> auth service. Requires server-side internet access.
+            </div>
+            <div class="alert alert-warning" ng:show="keys(config.emails).length == 0">
+                <i class="fa fa-warning"></i> No e-mail addresses added yet.
+            </div>
+            <div class="list-group">
+                <div ng:repeat="(email, username) in config.emails" class="list-group-item list-group-item-large">
+                    <a class="list-group-btn" ng:click="removeEmail(email)" title="Remove">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                    <div class="list-group-main">
+                        <div class="list-group-icon">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <h4 class="list-group-item-heading">
+                            {{email}}
+                        </h4>
+                        <p class="list-group-item-text">
+                            <i class="fa fa-user"></i> {{username}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a ng:click="newEmailDialogVisible = true" class="btn btn-default">
+                <i class="fa fa-plus"></i> New address
+            </a>
+            <dialog ng:show="newEmailDialogVisible">
+                <div class="modal-header">
+                    <h4>New e-mail address</h4>
+                </div>
+                <div class="modal-body" ng:form="form">
+                    <div class="form-group">
+                        <label>E-mail address</label>
+                        <input ng:model="newEmailAddress" required class="form-control" type="email" />
+                    </div>
+                    <div class="form-group">
+                        <label>User to log in</label>
+                        <select ng:model="newEmailUsername" required ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a ng:click="addEmail(newEmailAddress, newEmailUsername)" ng:disabled="!form.$valid" class="btn btn-default btn-flat">Add</a>
+                    <a ng:click="$parent.newEmailDialogVisible = false" class="btn btn-default btn-flat">Cancel</a>
+                </div>
+            </dialog>
+        </div>
     </div>
 
     <div class="floating-toolbar-padder"></div>

@@ -48,8 +48,11 @@ class Session(object):
         """
         self.timestamp = time.time()
 
+    def get_age(self):
+        return time.time() - self.timestamp
+
     def is_dead(self):
-        return not self.active or (time.time() - self.timestamp) > 3600
+        return not self.active or self.get_age() > 3600
 
     def set_cookie(self, http_context):
         """
