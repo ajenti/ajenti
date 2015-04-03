@@ -1,0 +1,124 @@
+// coding=utf-8
+// ---------------------------------------------------------------------------
+//   UI common plugin for Ajenti, to provide general UI elements.
+//
+//   Copyright (C) 2015 Marc Bertens <m.bertens@pe2mbs.nl>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see http://www.gnu.org/licenses/agpl-3.0.html.
+// ---------------------------------------------------------------------------
+//
+@import "../../../main/content/css/mixins.i.less";
+@import "../../../main/content/css/vars.i.less";
+
+.control {
+    .label.uicommon-host {
+        font-size: 20px;
+        margin: 0 0 0 10px;
+        font-weight: bold;
+        color: rgba(255,255,255,.75);
+        text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+    }
+
+    &.uicommon-header {
+        &>.icon {
+            float: left;
+			#gradient > .radial(#FFD18C, #FF9900);
+            .size(70px,60px);
+            margin: 10px;
+            .border-radius(2px);
+            border: 1px solid rgba(0,0,0,.25);
+
+            position: relative;
+
+            >.mainbar {
+                //#gradient > .radial(#FFD18C, #FF9900);
+                position: absolute;
+                width: 62px;
+				//.size(30px,62px);
+                padding: 4px 0 5px;
+                top: -5px;
+                left: -1px;
+                .border-radius(0 0 2px 2px);
+                color: white;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+            >.bar {
+                position: absolute;
+                width: 62px;
+                padding: 4px 0 5px;
+                bottom: -1px;
+                left: -1px;
+                .border-radius(0 0 2px 2px);
+                background: #555;
+
+                color: white;
+                text-transform: lowercase;
+                text-align: center;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+            >.image {
+                .square(32px);
+                position: absolute;
+                left: 50%;
+                top: 30%;
+                margin: -16px;
+                display: none;
+            }
+        }
+
+        &>.labels {
+            float: left;
+            padding: 8px 0 0;
+
+			.sepline {
+				font-size: 7px;
+				color: white;
+			}
+
+            .version {
+                font-size: 20px;
+                color: #888;
+                text-shadow: 0 1px 0 #eee;
+                font-weight: bold;
+            }
+
+            .author {
+                font-size: 14px;
+                color: #aaa;
+            }
+
+            .email {
+                font-size: 12px;
+                color: #aaa;
+            }
+
+			.copyright {
+                font-size: 12px;
+                color: #aaa;
+            }
+        }
+
+        &>.inner {
+            float: right;
+            padding: 20px;
+        }
+    }
+
+}

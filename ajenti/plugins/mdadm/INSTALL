@@ -1,0 +1,5 @@
+Install package in /var/lib/ajenti/plugins/mdadm
+
+The package depends on uicommon (https://github.com/pe2mbs/ajenti-uicommon.git) installed in /var/lib/ajenti/plugins/uicommon
+
+

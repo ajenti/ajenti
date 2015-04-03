@@ -1,0 +1,128 @@
+<lt>
+    <ltr>
+        <ltd>
+            <box width="80">
+                <label text="{Name}"/>
+            </box>
+        </ltd>
+        <ltd>
+            <box width="200">
+                <label bind="hostName"/>
+            </box>
+        </ltd>
+        <ltd>
+            <box width="80">
+                <label text="{UUID}"/>
+            </box>
+        </ltd>
+        <ltd>
+            <label bind="UUID"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Level}"/>
+        </ltd>
+        <ltd>
+            <label bind="type" bindtransform="lambda x: x.upper()"/>
+        </ltd>
+        <ltd>
+            <label text="{Version}"/>
+        </ltd>
+        <ltd>
+            <label bind="version"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{State}"/>
+        </ltd>
+        <ltd>
+            <label bind="stateText"/>
+        </ltd>
+        <ltd>
+            <label text="{Events}"/>
+        </ltd>
+        <ltd>
+            <label bind="events"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Creation Time}"/>
+        </ltd>
+        <ltd>
+            <label bind="creationTime"/>
+        </ltd>
+        <ltd>
+            <label text="{Update Time}"/>
+        </ltd>
+        <ltd>
+            <label bind="updateTime"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Total Devices}"/>
+        </ltd>
+        <ltd>
+            <label bind="totalDevices"/>
+        </ltd>
+        <ltd>
+            <label text="{RAID Devices}"/>
+        </ltd>
+        <ltd>
+            <label bind="raidDevices"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Active Devices}"/>
+        </ltd>
+        <ltd>
+            <label bind="activeDevices"/>
+        </ltd>
+        <ltd>
+            <label text="{Working Devices}"/>
+        </ltd>
+        <ltd>
+            <label bind="workingDevices"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Spare Devices}"/>
+        </ltd>
+        <ltd>
+            <label bind="spareDevices"/>
+        </ltd>
+        <ltd>
+            <label text="{Failed Devices}"/>
+        </ltd>
+        <ltd>
+            <label bind="failedDevices"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Array Size}"/>
+        </ltd>
+        <ltd>
+            <label bind="arraySize"/>
+        </ltd>
+        <ltd>
+            <label text="{Used Device Size}"/>
+        </ltd>
+        <ltd>
+            <label bind="usedDevSize"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="{Persistence}"/>
+        </ltd>
+        <ltd>
+            <label bind="persistence"/>
+        </ltd>
+    </ltr>
+</lt>

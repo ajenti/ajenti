@@ -1,0 +1,104 @@
+<lt>
+    <ltr>
+        <ltd>
+            <!-- The box's here are just for some "width" formating -->
+            <box width="80">
+                <label text="Id"/>
+            </box>
+        </ltd>
+        <ltd>
+            <box width="120">
+                <label bind="id"/>
+            </box>
+        </ltd>
+        <ltd>
+            <box width="80">
+                <label text="Number"/>
+            </box>
+        </ltd>
+        <ltd>
+            <box width="120">
+                <label bind="number"/>
+            </box>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="Major"/>
+        </ltd>
+        <ltd>
+            <label bind="major"/>
+        </ltd>
+        <ltd>
+            <label text="Minor"/>
+        </ltd>
+        <ltd>
+            <label bind="minor"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="Data offset"/>
+        </ltd>
+        <ltd>
+            <label bind="dataOffset"/>
+        </ltd>
+        <ltd>
+            <label text="Super offset"/>
+        </ltd>
+        <ltd>
+            <label bind="superOffset"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="Magic"/>
+        </ltd>
+        <ltd>
+            <label bind="magic"/>
+        </ltd>
+        <ltd>
+            <label text="Checksum"/>
+        </ltd>
+        <ltd>
+            <label bind="checksum"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd bind:visible="layout" bindtransform="lambda x: True if not x is None and x != '' else False">
+            <label text="Layout"/>
+        </ltd>
+        <ltd bind:visible="layout" bindtransform="lambda x: True if not x is None and x != '' else False">
+            <label bind="layout"/>
+        </ltd>
+        <ltd bind:visible="chunkSize" bindtransform="lambda x: True if not x is None and x != '' else False">
+            <label text="Chunk size"/>
+        </ltd>
+        <ltd bind:visible="chunkSize" bindtransform="lambda x: True if not x is None and x != '' else False">
+            <label bind="chunkSize"/>
+        </ltd>
+
+    </ltr>
+    <ltr>
+        <ltd>
+            <label text="Role"/>
+        </ltd>
+        <ltd>
+            <label bind="role"/>
+        </ltd>
+        <ltd>
+            <label text="UUID"/>
+        </ltd>
+        <ltd>
+            <label bind="UUID"/>
+        </ltd>
+    </ltr>
+    <ltr>
+        <ltd bind:visible="featureMap" bindtransform="lambda x: True if not x is None and x != 0 else False">
+            <label text="Feature map"/>
+        </ltd>
+        <ltd bind:visible="featureMap" bindtransform="lambda x: True if not x is None and x != 0 else False">
+            <label bind="featureMap"/>
+        </ltd>
+    </ltr>
+</lt>
