@@ -1,0 +1,13 @@
+<vc>
+    <hc>
+        <box width="80">
+            <label id="device" text="---"/>
+        </box>
+        <box width="150">
+            <label id="status" text=""/>
+        </box>
+    </hc>
+    <box width="230">
+        <progressbar id="progress" width="230"/>
+    </box>
+</vc>

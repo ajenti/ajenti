@@ -1,0 +1,8 @@
+Version 1.0.1 Alpha
+* Improve speed of data/config collection.
+* Fix the add storage drive dialog in the active MD device view.
+* Dynamic add storage drive to grow the MD array, when storage devices are removed thay do not appear in the available devices.
+* Show used/free space of MD device
+* Hide the default RAID (mdadm) plugin when this plugin becomes active.
+* Support and test other platforms than ubuntu/debian
+

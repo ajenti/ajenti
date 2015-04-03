@@ -1,0 +1,19 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="off"/>
+    </box>
+    <box width="90">
+        <vc>
+            <label id="name" style="bold" text="..."/>
+        </vc>
+    </box>
+    <vc id="lines"/>
+
+    <dialog id="config-dialog" visible="False">
+        <pad>
+            <formline text="{Variant}" id="form-line">
+                <combobox id="variant"/>
+            </formline>
+        </pad>
+    </dialog>
+</hc>

@@ -1,0 +1,53 @@
+<pad id="new_raid_device">
+    <box>
+        <formgroup text="Device">
+            <formline text="Name">
+                <textbox bind="device_name"/>
+            </formline>
+            <formline text="Type">
+                <dropdown bind="device_type" id="raid_types" filtering="False"/>
+            </formline>
+            <formline text="Meta data">
+                <textbox bind="meta_data"/>
+            </formline>
+        </formgroup>
+        <formgroup text="Monitor">
+            <formline text="Enable monitoring">
+                <checkbox bind="enable_mon"/>
+            </formline>
+            <formline text="E-mail address">
+                <textbox bind="email" value=""/>
+            </formline>
+        </formgroup>
+        <formgroup text="Storage devices">
+            <bind:collection bind="new_devices" id="new_devices">
+                <dt bind="__items" width="600" addrow="{Add}" filtering="False">
+                    <dtr header="True">
+                        <dth text="" width="10"/>
+                        <dth text="Name"/>
+                        <dth text="Type"/>
+                        <dth text="Actions"/>
+                    </dtr>
+                </dt>
+                <bind:template>
+                    <dtr>
+                        <dtd>
+                            <icon icon="hdd"/>
+                        </dtd>
+                        <dtd>
+                            <dropdown bind="drive_name" id="active_device_names" filtering="False"/>
+                        </dtd>
+                        <dtd>
+                            <dropdown bind="drive_type" id="active_device_type" filtering="False"/>
+                        </dtd>
+                        <dtd>
+                            <button icon="remove" style="mini" id="remove_new"/>
+                            <button icon="refresh" style="mini" id="update_new"/>
+                        </dtd>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
+        </formgroup>
+    </box>
+    <button style="mini" icon="plus" id="create_raid" text="Create"/>
+</pad>

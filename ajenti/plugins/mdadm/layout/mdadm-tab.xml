@@ -1,0 +1,71 @@
+<tab id="device_tab" title="...">
+    <pad>
+        <box>
+            <indent>
+                <hc>
+                    <box width="600">
+                        <hc bind:visible="showRecovery">
+                            <icon icon="warning-sign" style="yellow"/>
+                            <label bind="typeUpdate" style="bold" text="..."/>
+                            <progressbar bind="ProgressBar" width="400" value="10.4"/>
+                            <label bind="progress" bindtransform="lambda x: '%.2f' % ( 100.0 - x )"/>
+                            <label text="% remaining"/>
+                        </hc>
+                    </box>
+                </hc>
+            </indent>
+        </box>
+        <include layout="mdadm:device-detail"/>
+        <pad>
+            <bind:collection id="drive_devices" bind="devices">
+                <dt bind="__items" width="800" filtering="False">
+                    <dtr header="True">
+                        <dth text="{Name}"/>
+                        <dth text="{State}" width="80"/>
+                        <dth text="{Action}" width="160"/>
+                    </dtr>
+                </dt>
+                <bind:template>
+                    <dtr>
+                        <dtd>
+                            <collapse>
+                                <hc>
+                                    <icon icon="hdd"/>
+                                    <label bind="name"/>
+                                    <label text=", "/>
+                                    <label bind="role"/>
+                                </hc>
+                                <include layout="mdadm:storage-detail"/>
+                            </collapse>
+                        </dtd>
+                        <dtd>
+                            <label bind="State"/>
+                        </dtd>
+                        <dtd>
+                            <button icon="arrow-down" bind:visible="state" text="Fail" id="fail-device"
+                                    bindtransform="lambda x: True if x == 'active' else False"
+                                    warning="Failing a device may cause RAID to fail the whole array."/>
+                            <button icon="remove" bind:visible="state" text="Remove" id="remove-device"
+                                    bindtransform="lambda x: True if x.startswith( 'faulty' ) or x.startswith( 'spare' ) else False"
+                                    warning="Are you sure to removing the device from RAID array."/>
+                        </dtd>
+                    </dtr>
+                </bind:template>
+            </bind:collection>
+        </pad>
+        <box>
+            <hc>
+
+                <button icon="play" id="startDevice" text="Start" visible="False"/>
+                <button icon="stop" id="stopDevice" text="Stop" visible="True"
+                        warning="Are you sure, you want to stop the RAID array,\nit may cause to File System to become unavailable"/>
+                <right>
+                    <hc>
+                        <button icon="add" id="addDrive" text="Add drive"/>
+                    </hc>
+                </right>
+
+            </hc>
+        </box>
+    </pad>
+</tab>
