@@ -69,7 +69,7 @@ echo ":: Upgrading PIP"
 rm /usr/lib/python2.7/dist-packages/setuptools.egg-info || true # for debian 7
 pip install 'setuptools>=0.6rc11'
 pip install 'pip>=6'
-`which pip` install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins || exit 1
+`which pip` install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # ----------------
 

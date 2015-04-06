@@ -12,6 +12,9 @@ run:
 rundev:
 	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins --dev
 
+rundevlogin:
+	cd ajenti-panel && ./ajenti-panel -v --plugins ../plugins --dev
+
 clean:
 	find | grep \.pyc | xargs rm
 
