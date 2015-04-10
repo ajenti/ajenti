@@ -8,7 +8,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     $rootScope.ajentiPlugins = ajentiPlugins
 
     # todo figure this out, used in settings template
-    $rootScope.keys = (x) -> Object.keys(x)
+    $rootScope.keys = (x) -> if x then Object.keys(x) else []
 
     console.group('Welcome')
     console.log('Ajenti', ajentiVersion)

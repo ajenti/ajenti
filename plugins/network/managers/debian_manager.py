@@ -1,3 +1,5 @@
+import subprocess
+
 from aj.api import component
 from aj.plugins.augeas.api import Augeas
 from aj.plugins.network.api import NetworkManager
@@ -84,3 +86,11 @@ class DebianNetworkManager(NetworkManager):
 
     def down(self, iface):
         ifconfig_down(iface)
+
+    def get_hostname(self):
+        return subprocess.check_output('hostname')
+
+    def set_hostname(self, value):
+        with open('/etc/hostname', 'w') as f:
+            f.write(value)
+        subprocess.check_call(['hostname', value])

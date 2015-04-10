@@ -21,3 +21,8 @@ class NetworkManager(object):
     def down(self, iface):
         raise NotImplementedError
 
+    def get_hostname(self):
+        raise NotImplementedError
+
+    def set_hostname(self, value):
+        raise NotImplementedError

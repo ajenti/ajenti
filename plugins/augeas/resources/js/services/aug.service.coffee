@@ -82,7 +82,7 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
 
         model: (path) ->
             fx = (value) =>
-                console.log 'fx', path, value
+                #console.log 'fx', path, value
                 if angular.isDefined(value)
                     @set(path, value)
                 return @get(path)

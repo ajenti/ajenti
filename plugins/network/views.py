@@ -37,3 +37,13 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_down(self, http_context, iface=None):
         return self.manager.down(iface)
+
+    @url(r'/api/network/hostname/get')
+    @endpoint(api=True)
+    def handle_api_hostname_get(self, http_context):
+        return self.manager.get_hostname()
+
+    @url(r'/api/network/hostname/set')
+    @endpoint(api=True)
+    def handle_api_hostname_set(self, http_context):
+        self.manager.set_hostname(http_context.body)

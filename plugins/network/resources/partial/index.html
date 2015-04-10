@@ -1,20 +1,34 @@
 <br/>
 
 <tabset>
-    <tab heading="Interfaces">            
+    <tab heading="Network">            
         <br/>
+
+        <div class="form-group">
+            <label>Hostname</label>
+            <div class="input-group">
+                <input ng:model="hostname" ng:enter="setHostname(hostname)" class="form-control" />
+                <div class="input-group-btn">
+                    <a ng:click="setHostname(hostname)" ng:disabled="!hostname" class="btn btn-primary">Update hostname</a>
+                </div>
+            </div>
+        </div>
+
+        <hr/>
+
+        <label>Interfaces</label>
 
         <progress-spinner ng:hide="config != null"></progress-spinner>
 
         <div class="list-group">
             <div ng:repeat="iface in config" class="list-group-item list-group-item-large">
-                <a class="list-group-btn subtle" ng:click="$parent.configuringInterface = iface" title="Configure">
+                <a class="list-group-btn" ng:click="$parent.configuringInterface = iface" title="Configure">
                     <i class="fa fa-cog"></i>
                 </a>
-                <a class="list-group-btn subtle" ng:click="upInterface(iface)" ng:show="state[iface.name].up === false" title="Activate (up) interface">
+                <a class="list-group-btn" ng:click="upInterface(iface)" ng:show="state[iface.name].up === false" title="Activate (up) interface">
                     <i class="fa fa-arrow-up"></i>
                 </a>
-                <a class="list-group-btn subtle" ng:click="downInterface(iface)" ng:show="state[iface.name].up === true" title="Deactivate (down) interface">
+                <a class="list-group-btn" ng:click="downInterface(iface)" ng:show="state[iface.name].up === true" title="Deactivate (down) interface">
                     <i class="fa fa-arrow-down"></i>
                 </a>
                 <div class="list-group-main">
@@ -175,7 +189,7 @@
         <br/>
         <div class="list-group">
             <div ng:repeat="path in config.match('nameserver')" class="list-group-item list-group-item-small">
-                <a class="list-group-btn subtle" ng:click="config.remove(path)" title="Remove">
+                <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
                     <i class="fa fa-trash-o"></i>
                 </a>
                 <div class="list-group-main">
@@ -209,10 +223,10 @@
         <br/>
         <div class="list-group">
             <div ng:repeat="path in config.match('\\d+')" class="list-group-item list-group-item-large">
-                <a class="list-group-btn subtle" ng:click="config.remove(path)" title="Remove">
+                <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
                     <i class="fa fa-trash-o"></i>
                 </a>
-                <a class="list-group-btn subtle" ng:click="$parent.configuringHostPath = path" title="Configure">
+                <a class="list-group-btn" ng:click="$parent.configuringHostPath = path" title="Configure">
                     <i class="fa fa-cog"></i>
                 </a>
                 <div class="list-group-main"> 
@@ -279,7 +293,7 @@
                     </div>
                     <div class="list-group">
                         <div ng:repeat="path in config.match(configuringHostPath + '/alias')" class="list-group-item list-group-item-small">
-                            <a class="list-group-btn subtle" ng:click="config.remove(path)" title="Remove">
+                            <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
                                 <i class="fa fa-trash-o"></i>
                             </a>
                             <div class="list-group-main">

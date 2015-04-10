@@ -1,4 +1,4 @@
-angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, settings) ->
+angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, settings, core) ->
     pageTitle.set('Settings')
 
     $scope.availableColors = [
@@ -84,3 +84,6 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
 
     $scope.removeEmail = (email) ->
         delete $scope.config.emails[email]
+
+    $scope.restart = () ->
+        core.restart()

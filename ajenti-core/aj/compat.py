@@ -12,7 +12,6 @@ if not hasattr(subprocess, 'check_output'):
         return stdout
     subprocess.check_output = c_o
 
-
 old_Popen = subprocess.Popen.__init__
 
 

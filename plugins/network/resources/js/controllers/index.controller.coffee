@@ -26,6 +26,8 @@ angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $
         network.getConfig().then (data) ->
             $scope.config = data
             $scope.reloadState()
+        network.getHostname().then (hostname) ->
+            $scope.hostname = hostname
 
     $scope.save = () ->
         network.setConfig($scope.config).then () ->
@@ -42,3 +44,9 @@ angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $
         network.down(iface.name).then () ->
             notify.success 'Interface deactivated'
             $scope.reloadState()
+
+    $scope.setHostname = (hostname) ->
+        network.setHostname(hostname).then () ->
+            notify.success 'Hostname changed'
+        .catch (e) ->
+            notify.error 'Failed', e.message

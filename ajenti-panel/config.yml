@@ -2,9 +2,10 @@ bind:
   host: 0.0.0.0
   mode: tcp
   port: 8000
-color: orange
+color: teal
 emails:
   john.pankov@gmail.com: root
+max_sessions: 1
 name: Test Box
 ssl:
   certificate: /etc/ajenti/ajenti.pem
@@ -13,4 +14,3 @@ ssl:
     enable: true
     force: false
   enable: false
-max_sessions: 1
