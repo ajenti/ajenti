@@ -178,7 +178,7 @@ class Worker(object):
             response_object['headers'] = http_context.headers
             self.stream.reply(rq, response_object)
         # pylint: disable=W0703
-        except Exception:
+        except Exception as e:
             traceback.print_exc()
             response_object.update({
                 'error': str(e),

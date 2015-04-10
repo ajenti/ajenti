@@ -190,7 +190,7 @@ dialog {
     .list-group-item-small {
         .list-group-main {
             padding: 10px;
-            color: @list-group-link-heading-color;
+            color: @text-color;
         }
 
         .list-group-btn,
@@ -338,6 +338,7 @@ dialog {
 
 .label {
     padding: .4em .6em .3em;
+    margin-right: 3px;
 }
 
 smart-progress {
@@ -374,4 +375,20 @@ hr {
 
 .progress-bar {
     box-shadow: none;
+}
+
+
+
+.nav-tabs > li > a {
+    color: @text-color;
+    border-radius: 0;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover {
+    border: 1px solid transparent;
+    border-bottom: 1px solid @nav-tabs-active-border-color;
+    color: @brand-primary;
+    background: rgba(0,0,0,.03);
+    border-radius: 0;
 }

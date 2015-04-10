@@ -1,0 +1,204 @@
+<br/>
+
+<tabset>
+    <tab heading="Interfaces">            
+        <br/>
+
+        <progress-spinner ng:hide="config != null"></progress-spinner>
+
+        <div class="list-group">
+            <div ng:repeat="iface in config" class="list-group-item list-group-item-large">
+                <a class="list-group-btn subtle" ng:click="$parent.configuringInterface = iface" title="Configure">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <a class="list-group-btn subtle" ng:click="upInterface(iface)" ng:show="state[iface.name].up === false" title="Activate (up) interface">
+                    <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="list-group-btn subtle" ng:click="downInterface(iface)" ng:show="state[iface.name].up === true" title="Deactivate (down) interface">
+                    <i class="fa fa-arrow-down"></i>
+                </a>
+                <div class="list-group-main">
+                    <div class="list-group-icon">
+                        <i class="fa fa-plug"></i>
+                    </div>
+                    <h4 class="list-group-item-heading">
+                        {{iface.name}}
+                    </h4>
+                    <p class="list-group-item-text">
+                        <span class="label label-success" ng:show="state[iface.name].up === true">
+                            <i class="fa fa-fw fa-check"></i> UP
+                        </span>
+                        <span class="label label-info" ng:show="state[iface.name].address">
+                            {{state[iface.name].address}}
+                        </span>
+                        <span class="label label-warning" ng:show="state[iface.name].up === false">
+                            <i class="fa fa-fw fa-warning"></i> DOWN
+                        </span>
+                        <span class="label label-info" ng:show="!state[iface.name]">
+                            <i class="fa fa-circle-o-notch fa-spin"></i> Checking status...
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-toolbar-padder"></div>
+
+        <floating-toolbar>
+            <!-- ng:click="updateLists()" class="btn btn-default btn-flat" test-bind="updateButton">Update package list</a-->
+        </floating-toolbar>
+
+        <dialog ng:show="configuringInterface">
+            <div class="modal-header">
+                <h4>{{configuringInterface.name}}</h4>
+            </div>
+            <div class="modal-body scrollable">
+                <div class="alert alert-warning" ng:show="!knownFamilies[configuringInterface.family]">
+                    <i class="fa fa-warning"></i> Unknown family "{{configuringInterface.family}}"
+                </div>
+                <div class="alert alert-warning" ng:show="knownFamilies[configuringInterface.family].indexOf(configuringInterface.addressing) == -1">
+                    <i class="fa fa-warning"></i> Unknown addressing "{{configuringInterface.addressing}}"
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Family</label>
+                            <select ng:model="configuringInterface.family" class="form-control">
+                                <option value="inet">IPv4</option>
+                                <option value="inet6">IPv6</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Addressing</label>
+                            <select ng:model="configuringInterface.addressing" ng:options="x as (knownAddressingNames[x] || x) for x in knownFamilies[configuringInterface.family]" class="form-control">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div ng:show="configuringInterface.addressing == 'static'">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input ng:model="configuringInterface.address" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mask</label>
+                        <input ng:model="configuringInterface.mask" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Gateway</label>
+                        <input ng:model="configuringInterface.gateway" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Metric</label>
+                        <input ng:model="configuringInterface.metric" type="number" class="form-control" />
+                    </div>
+                </div>
+
+                <div ng:show="configuringInterface.addressing == 'dhcp'">
+                    <div class="form-group">
+                        <label>Client ID</label>
+                        <input ng:model="configuringInterface.client" type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div ng:show="configuringInterface.addressing == 'static' && configuringInterface.family == 'ipv6'">
+                    <div class="form-group">
+                        <label>Scope</label>
+                        <select ng:model="configuringInterface.scope" class="form-control">
+                            <option>global</option>
+                            <option>site</option>
+                            <option>link</option>
+                            <option>host</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>MAC</label>
+                    <input ng:model="configuringInterface.hwaddress" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>MTU</label>
+                    <input ng:model="configuringInterface.mtu" type="number" class="form-control" />
+                </div>
+                
+                <hr />
+
+                <div>
+                    <div class="form-group">
+                        <label>Pre-up script</label>
+                        <input ng:model="configuringInterface.pre_up_script" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Up script</label>
+                        <input ng:model="configuringInterface.up_script" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Post-up script</label>
+                        <input ng:model="configuringInterface.post_up_script" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pre-down script</label>
+                        <input ng:model="configuringInterface.pre_down_script" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Down script</label>
+                        <input ng:model="configuringInterface.down_script" type="text" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Post-down script</label>
+                        <input ng:model="configuringInterface.post_down_script" type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a ng:click="$parent.configuringInterface = null; save()" class="btn btn-default btn-flat">Save</a>
+                <a ng:click="$parent.configuringInterface = null; reload()" class="btn btn-default btn-flat">Close</a>
+            </div>
+        </dialog>
+    </tab>
+
+    <tab heading="DNS" ng:controller="NetworkDNSController">
+        <br/>
+        <div class="list-group">
+            <div ng:repeat="path in config.match('nameserver')" class="list-group-item list-group-item-small">
+                <a class="list-group-btn subtle" ng:click="config.remove(path)" title="Remove">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+                <div class="list-group-main">
+                    <i class="fa fa-fw fa-globe"></i> {{config.get(path)}}
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-warning" ng:show="config.match('nameserver').length == 0">
+            <i class="fa fa-warning"></i> No nameservers defined
+        </div>
+
+        <div class="input-group">
+            <input ng:model="newNameserver" ng:enter="addNameserver()" placeholder="DNS server address" class="form-control" />
+            <div class="input-group-btn">
+                
+            <a ng:click="addNameserver()" class="btn btn-primary ">Add</a>
+            </div>
+        </div>
+
+
+        <div class="floating-toolbar-padder"></div>
+
+        <floating-toolbar>
+            <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
+        </floating-toolbar>
+    </tab>
+</tabset>

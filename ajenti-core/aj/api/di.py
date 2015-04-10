@@ -83,6 +83,14 @@ def interface(cls):
             :type context: :class:`Context`
             :returns: list(``cls``)
 
+        .. py:function:: any(context)
+
+            Returns a first suitable instance implementing this ``@interface``
+
+            :param context: context to look in
+            :type context: :class:`Context`
+            :returns: ``cls``
+
         .. py:function:: classes()
 
             Returns a list of classes implementing this ``@interface``
@@ -99,6 +107,10 @@ def interface(cls):
     def _all(cls, context):
         return list(context.get_components(cls))
     cls.all = _all.__get__(cls)
+
+    def _any(cls, context):
+        return (cls.all(context) + [None])[0]
+    cls.any = _any.__get__(cls)
 
     def _classes(cls):
         return list(cls.implementations)
