@@ -15,9 +15,9 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
                 if child == this
                     index = total
             if total > 1
-                return "#{@parent.path}/#{@name}[#{index}]"
+                return "#{@parent.fullPath()}/#{@name}[#{index}]"
             else
-                return "#{@parent.path}/#{@name}"
+                return "#{@parent.fullPath()}/#{@name}"
 
         toString: () ->
             return '[' + @path + ']'
@@ -50,6 +50,8 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
 
         get: (path) ->
             matches = @matchNodes(path)
+            if matches.length == 0
+                return null
             return matches[0].value
 
         set: (path, value, node) ->
@@ -58,7 +60,7 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
                 if path[0] == '/'
                     path = @relativize(path)
 
-            if not remainder
+            if not path
                 node.value = value
                 return
 
@@ -78,10 +80,19 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
 
             @set(remainder, value, child)
 
+        model: (path) ->
+            fx = (value) =>
+                console.log 'fx', path, value
+                if angular.isDefined(value)
+                    @set(path, value)
+                return @get(path)
+            return fx
+
         insert: (path, value, index) ->
             matches = @matchNodes(path)
             if matches.length == 0
                 @set(path, value)
+                return path
             else
                 node = matches[0].parent
                 index ?= node.children.indexOf(matches[matches.length - 1]) + 1
@@ -90,6 +101,7 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
                 child.name = path.substring(path.lastIndexOf('/') + 1)
                 child.value = value
                 node.children.splice index, 0, child
+                return child.fullPath()
 
         remove: (path) ->
             for node in @matchNodes(path)
@@ -133,7 +145,7 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
 
             deepMatches = []
             for match in matches
-                for sm in @match(remainder, match)
+                for sm in @matchNodes(remainder, match)
                     deepMatches.push sm
 
             return deepMatches

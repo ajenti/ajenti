@@ -17,3 +17,20 @@ class ResolvConfEndpoint(AugeasEndpoint):
 
     def get_root_path(self):
         return '/files/etc/resolv.conf'
+
+
+@component(AugeasEndpoint)
+class HostsEndpoint(AugeasEndpoint):
+    id = 'hosts'
+
+    def get_augeas(self):
+        return Augeas(modules=[{
+            'name': 'Hosts',
+            'lens': 'Hosts.lns',
+            'incl': [
+                '/etc/hosts',
+            ]
+        }])
+
+    def get_root_path(self):
+        return '/files/etc/hosts'

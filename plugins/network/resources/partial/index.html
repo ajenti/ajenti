@@ -167,6 +167,8 @@
                 <a ng:click="$parent.configuringInterface = null; reload()" class="btn btn-default btn-flat">Close</a>
             </div>
         </dialog>
+        
+        <br/>
     </tab>
 
     <tab heading="DNS" ng:controller="NetworkDNSController">
@@ -182,15 +184,14 @@
             </div>
         </div>
 
-        <div class="alert alert-warning" ng:show="config.match('nameserver').length == 0">
-            <i class="fa fa-warning"></i> No nameservers defined
+        <div class="alert alert-info" ng:show="config.match('nameserver').length == 0">
+            <i class="fa fa-info-circle"></i> No nameservers defined
         </div>
 
         <div class="input-group">
             <input ng:model="newNameserver" ng:enter="addNameserver()" placeholder="DNS server address" class="form-control" />
             <div class="input-group-btn">
-                
-            <a ng:click="addNameserver()" class="btn btn-primary ">Add</a>
+                <a ng:click="addNameserver()" class="btn btn-primary ">Add</a>
             </div>
         </div>
 
@@ -200,5 +201,108 @@
         <floating-toolbar>
             <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
         </floating-toolbar>
+        
+        <br/>
+    </tab>
+
+    <tab heading="Hosts" ng:controller="NetworkHostsController">
+        <br/>
+        <div class="list-group">
+            <div ng:repeat="path in config.match('\\d+')" class="list-group-item list-group-item-large">
+                <a class="list-group-btn subtle" ng:click="config.remove(path)" title="Remove">
+                    <i class="fa fa-trash-o"></i>
+                </a>
+                <a class="list-group-btn subtle" ng:click="$parent.configuringHostPath = path" title="Configure">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <div class="list-group-main"> 
+                    <div class="list-group-icon">
+                        <i class="fa fa-fw fa-globe"></i> 
+                    </div>
+                    <h4 class="list-group-item-heading">
+                        {{ config.get(path + '/canonical') }}
+                    </h4>
+                    <p class="list-group-item-text">
+                        {{ config.get(path + '/ipaddr') }}
+                        &nbsp;
+                        <span ng:show="config.match(path + '/alias').length" class="label label-info">
+                            +{{config.match(path + '/alias').length}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
+            <i class="fa fa-info-circle"></i> No hosts defined
+        </div>
+
+        <div class="input-group">
+            <input ng:model="newHost" ng:enter="addHost()" placeholder="New host name" class="form-control" />
+            <div class="input-group-btn">
+                <a ng:click="addHost()" class="btn btn-primary ">Add</a>
+            </div>
+        </div>
+
+
+        <div class="floating-toolbar-padder"></div>
+
+        <floating-toolbar>
+            <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
+        </floating-toolbar>
+
+        <dialog ng:show="configuringHostPath">
+            <div class="modal-header">
+                <h4>{{config.get(configuringHostPath + '/canonical')}}</h4>
+            </div>
+            <div class="modal-body scrollable">
+                <div class="form-group">
+                    <label>Canonical hostname</label>
+                    <input 
+                        ng:model="config.model(configuringHostPath + '/canonical')" 
+                        ng:model-options="{getterSetter: true}"
+                        type="text" 
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>IP address</label>
+                    <input 
+                        ng:model="config.model(configuringHostPath + '/ipaddr')" 
+                        ng:model-options="{getterSetter: true}"
+                        type="text" 
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Aliases</label>
+                    <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
+                        <i class="fa fa-info-circle"></i> No hosts defined
+                    </div>
+                    <div class="list-group">
+                        <div ng:repeat="path in config.match(configuringHostPath + '/alias')" class="list-group-item list-group-item-small">
+                            <a class="list-group-btn subtle" ng:click="config.remove(path)" title="Remove">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                            <div class="list-group-main">
+                                <i class="fa fa-fw fa-tag"></i> {{config.get(path)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input ng:model="_.newAlias" ng:enter="addAlias(configuringHostPath)" placeholder="New alias" class="form-control" />
+                        <div class="input-group-btn">
+                            <a ng:click="addAlias(configuringHostPath)" class="btn btn-primary ">Add</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a ng:click="$parent.configuringHostPath = null; save()" class="btn btn-default btn-flat">Save</a>
+                <a ng:click="$parent.configuringHostPath = null" class="btn btn-default btn-flat">Close</a>
+            </div>
+        </dialog>
+
+        <br/>
     </tab>
 </tabset>

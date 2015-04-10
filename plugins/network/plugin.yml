@@ -13,6 +13,7 @@ resources:
     - 'resources/js/routing.coffee'
     - 'resources/js/controllers/index.controller.coffee'
     - 'resources/js/controllers/dns.controller.coffee'
+    - 'resources/js/controllers/hosts.controller.coffee'
     - 'resources/js/services/network.service.coffee'
     - 'resources/partial/index.html'
     - 'ng:ajenti.network'
