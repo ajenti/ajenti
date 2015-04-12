@@ -5,6 +5,7 @@
 *.gz
 *.whl
 *.egg*
+*.asc
 
 plugins/demo*
 docs/build

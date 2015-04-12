@@ -1,0 +1,30 @@
+<br/>
+
+
+<div class="form-group">
+    <label>Time zone</label>
+    <select ng:model="timezone" ng:options="x for x in timezones" class="form-control"></select>
+</div>
+
+<hr/>
+
+<div class="form-group" ng:show="_.time">
+    <label>Date & time</label>
+    <div class="row">
+        <div class="col-sm-7">
+            <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" is-open="dpOpened" ng:click="dpOpened=true" />
+        </div>
+        <div class="col-sm-3">
+            <timepicker class="timepicker" ng:model="_.time" />
+        </div>
+        <div class="col-sm-2">
+            <a ng:click="setTime()" class="btn btn-primary btn-block">Set time</a>
+        </div>
+    </div>
+    <div>
+        <a ng:click="syncTime()" class="btn btn-default">
+            <i class="fa fa-globe"></i> Sync time from the Internet
+        </a>
+    </div>
+</div>
+

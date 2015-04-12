@@ -2,7 +2,7 @@ bind:
   host: 0.0.0.0
   mode: tcp
   port: 8000
-color: teal
+color: deeporange
 emails:
   john.pankov@gmail.com: root
 max_sessions: 1
