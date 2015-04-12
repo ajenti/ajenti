@@ -1,0 +1,98 @@
+<br/>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-sm-6">
+            <label>System uptime</label>
+            <div class="form-control">{{uptime|time}}</div>
+        </div>
+        <div class="col-sm-6">
+            <label>Operations</label>
+            <div>
+                <a ng:click="poweroff()" class="btn btn-danger">
+                    <i class="fa fa-power-off"></i> Power off
+                </a>
+                <a ng:click="reboot()" class="btn btn-default">
+                    <i class="fa fa-recycle"></i> Reboot
+                </a>
+                <a ng:click="suspend()" class="btn btn-default">
+                    <i class="fa fa-moon-o"></i> Suspend
+                </a>
+                <a ng:click="hibernate()" class="btn btn-default">
+                    <i class="fa fa-download"></i> Hibernate
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<div class="form-group">
+    <label>Batteries</label>
+
+    <div class="alert alert-info" ng:show="batteries.length == 0">
+        <i class="fa fa-info-circle"></i> No batteries detected
+    </div>
+
+    <div class="list-group">
+        <div ng:repeat="battery in batteries" class="list-group-item list-group-item-large">
+            <div class="list-group-main">
+                <div class="list-group-icon">
+                    <i class="fa fa-fw fa-bolt"></i>
+                </div>
+                <h4 class="list-group-item-heading">
+                    {{battery.name}} ({{battery.manufacturer}} {{battery.type}})
+                </h4>
+                <p class="list-group-item-text">
+                    <smart-progress 
+                        value="battery.capacityLeft" 
+                        max="battery.fullCapacity" 
+                        text="battery.capacityLeft + ' Wh'"
+                        max-text="battery.fullCapacity + ' Wh'"
+                    ></smart-progress>
+                    <span class="label label-success" ng:show="battery.charging">
+                        <i class="fa fa-plug"></i> Charging
+                    </span>
+                    <span class="label label-danger" ng:show="!battery.charging && battery.rate > 0">
+                        <i class="fa fa-bolt"></i> Discharging at {{battery.rate}} W
+                    </span>
+                    <span class="label label-info" ng:show="battery.voltage > 0">
+                        {{battery.voltage}} V
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr/>
+
+<div class="form-group">
+    <label>Adapters</label>
+
+    <div class="alert alert-info" ng:show="adapters.length == 0">
+        <i class="fa fa-info-circle"></i> No adapters detected
+    </div>
+
+    <div class="list-group">
+        <div ng:repeat="adapter in adapters" class="list-group-item list-group-item-large">
+            <div class="list-group-main">
+                <div class="list-group-icon">
+                    <i class="fa fa-fw fa-plug"></i>
+                </div>
+                <h4 class="list-group-item-heading">
+                    {{adapter.name}}
+                </h4>
+                <p class="list-group-item-text">
+                    <span class="label label-success" ng:show="adapter.pluggedIn">
+                        <i class="fa fa-plug"></i> Plugged in
+                    </span>
+                    <span class="label label-warning" ng:show="!adapter.pluggedIn">
+                        <i class="fa fa-question"></i> Not available
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div ng:controller="PowerWidgetController">
+    <div class="widget-header">
+        Power
+    </div>
+
+    <div class="list-group">
+        <div ng:repeat="battery in batteries" class="list-group-item list-group-item-small">
+            <div class="list-group-main">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <i class="fa fa-fw fa-bolt"></i> <b>{{battery.name}}</b> {{battery.manufacturer}}
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="label label-success" ng:show="battery.charging">
+                            <i class="fa fa-plug"></i>
+                        </span>
+                        <span class="label label-danger" ng:show="!battery.charging && battery.rate > 0">
+                            <i class="fa fa-bolt"></i>
+                        </span>
+                    </div>
+                    <div class="col-sm-7">
+                        <smart-progress 
+                            value="battery.capacityLeft" 
+                            max="battery.fullCapacity" 
+                            text="battery.capacityLeft + ' Wh'"
+                            max-text="battery.fullCapacity + ' Wh'"
+                        ></smart-progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng:repeat="adapter in adapters" class="list-group-item list-group-item-small">
+            <div class="list-group-main">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <i class="fa fa-fw fa-plug"></i> <b>{{adapter.name}}</b>
+                    </div>
+                    <div class="col-sm-1">
+                        <span class="label label-success" ng:show="adapter.pluggedIn">
+                            <i class="fa fa-plug"></i> 
+                        </span>
+                        <span class="label label-warning" ng:show="!adapter.pluggedIn">
+                            <i class="fa fa-question"></i> 
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
