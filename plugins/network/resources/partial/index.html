@@ -31,6 +31,9 @@
                 <a class="list-group-btn" ng:click="downInterface(iface)" ng:show="state[iface.name].up === true" title="Deactivate (down) interface">
                     <i class="fa fa-arrow-down"></i>
                 </a>
+                <a class="list-group-btn" ng:click="restartInterface(iface)" ng:show="state[iface.name].up === true" title="Restart interface">
+                    <i class="fa fa-refresh"></i>
+                </a>
                 <div class="list-group-main">
                     <div class="list-group-icon">
                         <i class="fa fa-plug"></i>

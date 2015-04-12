@@ -10,7 +10,11 @@ angular.module('core').controller 'CoreIndexController', ($scope, $location, $ht
 
     $scope.send = () ->
         #$http.get('/testtasks')
-        tasks.start 'aj.plugins.core.views.main.MyTask', ['arg'], {kw:'arg'}
+        tasks.start('aj.plugins.core.views.main.MyTask', ['arg'], {kw:'arg'}).then (data) ->
+            data.promise.then () ->
+                alert 'success'
+            .catch () ->
+                alert 'fail'
         socket.send('core', 'test message')
 
     $scope.boom = () ->

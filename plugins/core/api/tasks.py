@@ -116,6 +116,8 @@ class Task(object):
                         'name': self.name,
                     }
                 })
+                self.service.remove(self.id)
+                self.service.notify()
             if msg['type'] == 'progress':
                 self.progress = msg['progress']
                 logging.debug(
@@ -134,6 +136,8 @@ class Task(object):
                         'name': self.name,
                     }
                 })
+                self.service.remove(self.id)
+                self.service.notify()
             if msg['type'] == 'push':
                 Push.get(self.context).push(msg['plugin'], msg['message'])
                 logging.debug(
@@ -177,7 +181,8 @@ class TasksService(object):
         self.tasks[_id].abort()
 
     def remove(self, _id):
-        self.tasks.pop(_id)
+        if _id in self.tasks:
+            self.tasks.pop(_id)
 
     def notify(self, message=None):
         if message:

@@ -39,6 +39,14 @@ angular.module('ajenti.network').service 'network', ($http, $q, tasks) ->
             q.reject(err)
         return q.promise
 
+    @downup = (iface) ->
+        q = $q.defer()
+        $http.get("/api/network/downup/#{iface}").success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     @getHostname = () ->
         q = $q.defer()
         $http.get("/api/network/hostname/get").success (data) ->

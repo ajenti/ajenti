@@ -21,6 +21,7 @@ class Handler(HttpPlugin):
         cls = getattr(module, clsname)
         task = cls(self.context, *data.get('args', []), **data.get('kwargs', {}))
         self.service.start(task)
+        return task.id
 
     @url('/api/core/tasks/request-update')
     @endpoint(api=True)

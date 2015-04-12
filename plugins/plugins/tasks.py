@@ -11,8 +11,4 @@ class InstallPlugin (Task):
         self.spec = 'ajenti.plugin.%s==%s' % (name, version)
 
     def run(self):
-        try:
-            subprocess.check_output(['pip', 'install', self.spec])
-            self.push('plugins', {'type': 'install-done'})
-        except subprocess.CalledProcessError as e:
-            self.push('plugins', {'type': 'install-error', 'error': str(e)})
+        subprocess.check_output(['pip', 'install', self.spec])

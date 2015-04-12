@@ -26,3 +26,6 @@ class NetworkManager(object):
 
     def set_hostname(self, value):
         raise NotImplementedError
+
+    def restart(self):
+        raise NotImplementedError

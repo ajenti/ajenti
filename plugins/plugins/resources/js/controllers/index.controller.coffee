@@ -1,24 +1,33 @@
-angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $http, notify, pageTitle, messagebox, tasks, core) ->
+angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $q, $http, notify, pageTitle, messagebox, tasks, core) ->
     pageTitle.set('Plugins')
 
     $scope.selectedInstalledPlugin = null
     $scope.selectedRepoPlugin = null
     $scope.coreUpgradeAvailable = null
 
+    $scope.officialKeyFingerprint = '425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759'
+
     $scope.refresh = () ->
         $http.get('/api/plugins/list/installed').success (data) ->
             $scope.installedPlugins = data
+            $scope.repoList = null
+            $scope.repoListOfficial = null
+            $scope.repoListCommunity = null
             $http.get('/api/plugins/repo/list').success (data) ->
                 $scope.repoList = data
                 $scope.notInstalledRepoList = (x for x in $scope.repoList when !$scope.isInstalled(x))
+                $scope.repoListOfficial = (x for x in $scope.repoList when x.signature == $scope.officialKeyFingerprint)
+                $scope.repoListCommunity = (x for x in $scope.repoList when x.signature != $scope.officialKeyFingerprint)
             .error (err) ->
                 notify.error 'Could not load plugin repository', err.message
         .error (err) ->
             notify.error 'Could not installed plugin list', err.message
-        $http.get('/api/plugins/pypi/list').success (data) ->
-            $scope.pypiList = data
         $http.get('/api/plugins/core/check-upgrade').success (data) ->
             $scope.coreUpgradeAvailable = data
+
+        $scope.pypiList = null
+        $http.get('/api/plugins/pypi/list').success (data) ->
+            $scope.pypiList = data
 
     $scope.refresh()
 
@@ -40,6 +49,54 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                 return true
         return false
 
+    $scope.isUninstallable = (plugin) ->
+        return $scope.pypiList and $scope.pypiList[plugin.name] and plugin.name != 'core'
+
+    $scope.isAnythingUpgradeable = () ->
+        if not $scope.installedPlugins
+            return false
+        if $scope.coreUpgradeAvailable
+            return true
+        for p in $scope.installedPlugins
+            if $scope.getUpgrade(p)
+                return true
+        return false
+
+    $scope.upgradeEverything = () ->
+        $scope.upgradeAllPlugins().then () ->
+            if $scope.coreUpgradeAvailable
+                $scope.upgradeCore()
+            else
+                notify.success 'All plugins updated'
+
+    $scope.upgradeAllPlugins = () ->
+        q = $q.defer()
+
+        rqQs = []
+        upgradeQs = []
+        for plugin in $scope.installedPlugins
+            upgrade = $scope.getUpgrade(plugin)
+            if upgrade
+                p = tasks.start('aj.plugins.plugins.tasks.InstallPlugin', [], name: upgrade.name, version: upgrade.version)
+                rqQs.push p
+                p.then (data) ->
+                    upgradeQs.push data.promise
+
+        if rqQs.length == 0
+            return $q.resolve()
+
+        msg = messagebox.show progress: true, title: 'Updating plugins'
+
+        $q.all(rqQs).then () ->
+            $q.all(upgradeQs).then () ->
+                q.resolve()
+            .finally () ->
+                msg.close()
+                q.reject()
+
+        return q.promise
+
+
     $scope.getUpgrade = (plugin) ->
         if not $scope.repoList or not plugin
             return null
@@ -48,21 +105,19 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                 return p
         return null
 
-    $scope.$on 'push:plugins', ($event, msg) ->
-        if msg.type == 'install-done'
-            $scope.refresh()
-            messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
-                core.forceRestart()
-            $scope.installProgressMessage.close()
-        if msg.type == 'install-error'
-            notify.error 'Install failed', msg.error
-            $scope.installProgressMessage.close()
-
     $scope.installPlugin = (plugin) ->
         $scope.selectedRepoPlugin = null
         $scope.selectedInstalledPlugin = null
-        $scope.installProgressMessage = messagebox.show progress: true, title: 'Installing'
-        tasks.start('aj.plugins.plugins.tasks.InstallPlugin', [], name: plugin.name, version: plugin.version)
+        msg = messagebox.show progress: true, title: 'Installing'
+        tasks.start('aj.plugins.plugins.tasks.InstallPlugin', [], name: plugin.name, version: plugin.version).then (data) ->
+            data.promise.then () ->
+                $scope.refresh()
+                messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                    core.forceRestart()
+            .catch (e) ->
+                notify.error 'Install failed', e.error
+            .finally () ->
+                msg.close()
 
     $scope.uninstallPlugin = (plugin) ->
         if plugin.name == 'plugins'

@@ -1,16 +1,26 @@
 <div root-access>
+    <div ng:show="isAnythingUpgradeable()">
+        <h3>Updates</h3>
+
+        <a ng:click="upgradeEverything()" class="btn btn-primary btn-lg btn-block">
+            <i class="fa fa-arrow-up"></i> Update everything
+        </a>
+    </div>
+
     <h3>Core</h3>
 
     <div ng:show="!coreUpgradeAvailable">
-        Ajenti core {{ajentiVersion}}, no upgrades available.
+        <div class="alert alert-info">
+            <i class="fa fa-info-circle"></i> Ajenti core {{ajentiVersion}}, no upgrades available.
+        </div>
     </div>
 
     <div ng:show="coreUpgradeAvailable">
-        <div class="alert alert-info">
+        <div class="alert alert-warning">
             <i class="fa fa-warning"></i> Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available.
         </div>
         <a ng:click="upgradeCore()" class="btn btn-primary">
-            <i class="fa fa-download"></i> Upgrade
+            <i class="fa fa-download"></i> Update
         </a>
     </div>
 
@@ -20,10 +30,10 @@
 
     <div class="list-group">
         <div class="list-group-item list-group-item-small" ng:repeat="plugin in installedPlugins|orderBy:'title'">
-            <a ng:click="uninstallPlugin(plugin)" class="list-group-btn" title="Uninstall" ng:show="pypiList && pypiList[plugin.name] && plugin.name != 'core'">
+            <a ng:click="uninstallPlugin(plugin)" class="list-group-btn" title="Uninstall" ng:show="isUninstallable(plugin)">
                 <i class="fa fa-trash-o"></i>
             </a>
-            <a ng:click="installPlugin(getUpgrade(plugin))" class="list-group-btn" title="Upgrade" ng:show="getUpgrade(plugin)">
+            <a ng:click="installPlugin(getUpgrade(plugin))" class="list-group-btn" title="Update" ng:show="getUpgrade(plugin)">
                 <i class="fa fa-arrow-up"></i>
             </a>
             <a ng:click="$parent.selectedInstalledPlugin = plugin" class="list-group-main">
@@ -41,23 +51,45 @@
 
     <progress-spinner ng:show="repoList == null"></progress-spinner>
 
-    <div class="alert alert-info" ng:show="notInstalledRepoList.length == 0">
-        <i class="fa fa-info-circle"></i> No new plugins
+    <div ng:show="repoList != null">
+        <tabset class="no-padding">
+            <tab heading="Official">
+                <div class="list-group">
+                    <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListOfficial|orderBy:'title'">
+                        <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install" ng:show="!isInstalled(plugin)">
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a ng:click="$parent.selectedRepoPlugin = plugin" class="list-group-main">
+                            <span class="label label-info pull-right" ng:show="isInstalled(plugin)">
+                                <i class="fa fa-check"></i>
+                            </span>
+                            {{plugin.title}}
+                            &nbsp;
+                            <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
+                        </a>
+                    </div>
+                </div>
+            </tab>
+            <tab heading="Community">
+                <input ng:model="filter" type="search" placeholder="Filter" class="form-control" />
+                <div class="list-group">
+                    <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListCommunity|filter:filter|orderBy:'title'">
+                        <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install" ng:show="!isInstalled(plugin)">
+                            <i class="fa fa-download"></i>
+                        </a>
+                        <a ng:click="$parent.selectedRepoPlugin = plugin" class="list-group-main">
+                            <span class="label label-info pull-right" ng:show="isInstalled(plugin)">
+                                <i class="fa fa-check"></i>
+                            </span>
+                            {{plugin.title}}
+                            &nbsp;
+                            <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
+                        </a>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
     </div>
-
-    <div class="list-group">
-        <div class="list-group-item list-group-item-small" ng:repeat="plugin in notInstalledRepoList|orderBy:'title'">
-            <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install">
-                <i class="fa fa-download"></i>
-            </a>
-            <a ng:click="$parent.selectedRepoPlugin = plugin" class="list-group-main">
-                <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.title}}
-                &nbsp;
-                <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
-            </a>
-        </div>
-    </div>
-
 
     <dialog ng:show="selectedInstalledPlugin">
         <div class="modal-header">
@@ -103,7 +135,7 @@
         </div>
         <div class="modal-footer">
             <a ng:click="installPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="getUpgrade(selectedInstalledPlugin)">
-                Upgrade
+                Update
             </a>
             <a ng:click="uninstallPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="pypiList && pypiList[selectedInstalledPlugin.name] && selectedInstalledPlugin.name != 'core'">
                 Uninstall

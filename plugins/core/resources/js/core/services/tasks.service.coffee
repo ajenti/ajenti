@@ -1,5 +1,6 @@
 angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, socket) ->
     @tasks = []
+    @deferreds = {}
 
     $rootScope.$on 'socket-event:connect', () ->
         $http.get('/api/core/tasks/request-update')
@@ -18,8 +19,14 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, so
                     $rootScope.toggleOverlayNavigation(false)
         if msg.type == 'message'
             if msg.message.type == 'done'
+                def = @deferreds[msg.message.task.id]
+                if def
+                    def.resolve()
                 notify.success msg.message.task.name, 'Done'
             if msg.message.type == 'exception'
+                def = @deferreds[msg.message.task.id]
+                if def
+                    def.reject(msg.message)
                 notify.error msg.message.task.name, "Failed: #{msg.message.exception}"
 
     @start = (cls, args, kwargs) ->
@@ -31,10 +38,14 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, so
             kwargs: kwargs
         }
         q = $q.defer()
-        $http.post('/api/core/tasks/start', data).success () ->
+        $http.post('/api/core/tasks/start', data).success (taskId) =>
             if $rootScope.toggleOverlayNavigation
                 $rootScope.toggleOverlayNavigation(true)
-            q.resolve()
+
+            def = $q.defer()
+            @deferreds[taskId] = def
+
+            q.resolve(id: taskId, promise: def.promise)
         .error () ->
             q.reject()
         return q.promise

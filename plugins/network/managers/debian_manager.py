@@ -94,3 +94,4 @@ class DebianNetworkManager(NetworkManager):
         with open('/etc/hostname', 'w') as f:
             f.write(value)
         subprocess.check_call(['hostname', value])
+

@@ -35,7 +35,7 @@ upload: build
 	cd ajenti-panel && ./setup.py sdist upload
 
 upload-plugins: build
-	cd plugins && ajenti-dev-multitool --setuppy 'sdist upload'
+	cd plugins && ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'
 
 test:
 	cd e2e && ./run

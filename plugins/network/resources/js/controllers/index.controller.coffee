@@ -1,4 +1,4 @@
-angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $routeParams, $location, notify, pageTitle, urlPrefix, network) ->
+angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $routeParams, $timeout, messagebox, notify, pageTitle, urlPrefix, network) ->
     pageTitle.set('Network')
 
     $scope.knownFamilies = {
@@ -41,9 +41,28 @@ angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $
             $scope.reloadState()
 
     $scope.downInterface = (iface) ->
-        network.down(iface.name).then () ->
-            notify.success 'Interface deactivated'
-            $scope.reloadState()
+        messagebox.show(
+            title: 'Warning'
+            text: 'Deactivating a network interface can lock you out of the remote session'
+            positive: 'Deactivate'
+            negative: 'Cancel'
+        ).then () ->
+            network.down(iface.name).then () ->
+                notify.success 'Interface deactivated'
+                $scope.reloadState()
+
+    $scope.restartInterface = (iface) ->
+        messagebox.show(
+            title: 'Warning'
+            text: 'Restarting a network interface can lock you out of the remote session'
+            positive: 'Restart'
+            negative: 'Cancel'
+        ).then () ->
+            network.downup(iface.name).then () ->
+                $timeout () ->
+                    notify.success 'Interface reactivated'
+                    $scope.reloadState()
+                , 2000
 
     $scope.setHostname = (hostname) ->
         network.setHostname(hostname).then () ->
