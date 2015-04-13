@@ -23,10 +23,9 @@ class AjentiConfig(aj.config.BaseConfig):
     def __unicode__(self):
         return self.path
 
-    def harden(self):
-        os.chmod(self.path, stat.S_IRWXU)
-
     def load(self):
+        if os.geteuid() == 0:
+            os.chmod(self.path, 0644)
         self.data = yaml.load(open(self.path))
 
     def save(self):

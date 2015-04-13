@@ -4,11 +4,12 @@ import socket
 from OpenSSL.crypto import *
 
 import aj
-from aj.api import *
+from aj.api import component
 from aj.api.http import url, HttpPlugin
 from aj.config import UserConfig
+from aj.auth import AuthenticationProvider
 
-from aj.plugins.core.api.endpoint import endpoint
+from aj.plugins.core.api.endpoint import endpoint, EndpointReturn
 
 
 @component(HttpPlugin)
@@ -20,13 +21,15 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_config(self, http_context):
         if self.context.identity != 'root':
-            return http_context.respond_forbidden()
+            raise EndpointReturn(403)
         if http_context.method == 'GET':
+            aj.config.load()
             return aj.config.data
         if http_context.method == 'POST':
             data = json.loads(http_context.body)
             aj.config.data.update(data)
             aj.config.save()
+            return aj.config.data
 
     @url(r'/api/settings/user-config')
     @endpoint(api=True)
@@ -98,3 +101,14 @@ class Handler(HttpPlugin):
         return {
             'path': certificate_path,
         }
+
+    @url(r'/api/settings/authentication-providers')
+    @endpoint(api=True)
+    def handle_api_auth_providers(self, http_context):
+        r = []
+        for p in AuthenticationProvider.all(self.context):
+            r.append({
+                'id': p.id,
+                'name': p.name,
+            })
+        return r

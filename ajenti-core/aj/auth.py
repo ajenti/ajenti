@@ -6,7 +6,7 @@ import requests
 import subprocess
 
 import aj
-from aj.api import *
+from aj.api import component, service, interface
 from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator
 from aj.util import *
@@ -47,13 +47,35 @@ class AuthenticationMiddleware(BaseHttpHandler):
         http_context.add_header('X-Auth-Identity', str(self.context.identity or ''))
 
 
-@public
-@service
-class AuthenticationService(object):
+class AuthenticationError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def __str__(self):
+        return self.message
+
+
+@interface
+class AuthenticationProvider(object):
+    id = None
+    name = None
+
     def __init__(self, context):
         self.context = context
 
-    def check_password(self, username, password):
+    def authenticate(self, username, password):
+        raise NotImplementedError
+
+    def get_isolation_uid(self, username):
+        raise NotImplementedError
+
+
+@component(AuthenticationProvider)
+class OSAuthenticationProvider(AuthenticationProvider):
+    id = 'os'
+    name = 'OS users'
+
+    def authenticate(self, username, password):
         child = None
         try:
             child = pexpect.spawn('/bin/su', ['-c', '/bin/echo SUCCESS', '-', username], timeout=5)
@@ -70,7 +92,29 @@ class AuthenticationService(object):
         else:
             return True
 
+    def get_isolation_uid(self, username):
+        return pwd.getpwnam(username).pw_uid
+
+
+@public
+@service
+class AuthenticationService(object):
+    def __init__(self, context):
+        self.context = context
+
+    def get_provider(self):
+        provider_id = aj.config.data.get('authentication_provider', 'os')
+        for provider in AuthenticationProvider.all(self.context):
+            if provider.id == provider_id:
+                return provider
+        raise AuthenticationError('Authentication provider %s is unavailable' % provider_id)
+
+    def check_password(self, username, password):
+        return self.get_provider().authenticate(username, password)
+
     def check_sudo_password(self, username, password):
+        if self.get_provider().id != 'os':
+            return False
         sudo = subprocess.Popen(
             ['sudo', '-S', '-u', 'eugene', '--', 'sh', '-c', 'sudo -k; sudo -S echo'],
             stdin=subprocess.PIPE,
@@ -96,9 +140,9 @@ class AuthenticationService(object):
                 email = verification_data['email']
                 return email
             else:
-                raise Exception('Persona auth failed')
+                raise AuthenticationError('Persona auth failed')
         else:
-            raise Exception('Request failed')
+            raise AuthenticationError('Request failed')
 
     def client_certificate_callback(self, connection, x509, errno, depth, result):
         if depth == 0 and (errno == 9 or errno == 10):
@@ -114,7 +158,13 @@ class AuthenticationService(object):
     def login(self, username, demote=True):
         logging.info('Authenticating session as %s', username)
         if demote:
-            self.context.worker.demote(username)
+            uid = self.get_provider().get_isolation_uid(username)
+            logging.debug('Authentication provider "%s" maps "%s" -> %i' % (
+                self.get_provider().name,
+                username,
+                uid,
+            ))
+            self.context.worker.demote(uid)
         self.context.identity = username
 
     def prepare_session_redirect(self, http_context, username):

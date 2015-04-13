@@ -57,6 +57,15 @@
         <hr/>
 
         <div class="form-group" ng:show="config.bind.mode == 'tcp'">
+            <label>Authentication provider</label>
+            <div>
+                <select ng:model="config.authentication_provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="form-group" ng:show="config.bind.mode == 'tcp'">
             <label>SSL</label>
             <div>
                 <span checkbox ng:model="config.ssl.enable" text="Enable SSL"></span>

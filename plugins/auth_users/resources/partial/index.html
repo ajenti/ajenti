@@ -1,0 +1,76 @@
+<br/>
+
+<div root-access>
+    <progress-spinner ng:hide="config != null"></progress-spinner>
+
+    <div class="list-group">
+        <div ng:repeat="(username, user) in config.auth_users" class="list-group-item list-group-item-large">
+            <a class="list-group-btn" ng:click="removeUser(username)">
+                <i class="fa fa-trash-o"></i>
+            </a>
+            <a class="list-group-btn" ng:click="$parent.configuringUsername = username" title="Configure">
+                <i class="fa fa-cog"></i>
+            </a>
+            <div class="list-group-main">
+                <div class="list-group-icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <h4 class="list-group-item-heading">
+                    {{username}}
+                </h4>
+                <p class="list-group-item-text">
+                    {{getSystemUser(user.uid).name}} ({{user.uid}})
+                </p>
+            </div>
+        </div>
+    </div>  
+
+    <div class="input-group">
+        <input ng:model="newUsername" ng:enter="addUser(newUsername)" placeholder="New user name" class="form-control" />
+        <div class="input-group-btn">
+            <a ng:click="addUser(newUsername)" ng:disabled="!newUsername" class="btn btn-primary">Create</a>
+        </div>
+    </div>    
+
+    <br/>        
+
+    <div class="alert alert-danger" ng:show="isDangerousSetup()">
+        <i class="fa fa-warning"></i> You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access.
+    </div>
+
+    <div class="alert alert-info" ng:show="keys(config.auth_users).length == 1">
+        <i class="fa fa-info-circle"></i> Default root password is <code>admin</code>.
+    </div>
+    
+
+    <div class="floating-toolbar-padder"></div>
+
+
+    <floating-toolbar>
+        <ng:click="save()" class="btn btn-default btn-flat">Save</a>
+    </floating-toolbar>
+
+    <dialog ng:show="configuringUsername">
+        <div class="modal-header">
+            <h4>{{configuringUsername}}</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>System account</label>
+                <select ng:model="config.auth_users[configuringUsername].uid" ng:options="x.uid as x.name for x in systemUsers" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label>New password</label>
+                <div class="input-group">
+                    <input ng:model="newPassword" ng:enter="setPassword(configuringUsername, newPassword)" class="form-control" />
+                    <div class="input-group-btn">
+                        <a ng:click="setPassword(configuringUsername, newPassword)" ng:disabled="!newPassword" class="btn btn-primary">Update password</a>
+                    </div>
+                </div>            
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a ng:click="$parent.configuringUsername = null" class="btn btn-default btn-flat">OK</a>
+        </div>
+    </dialog>
+</div>

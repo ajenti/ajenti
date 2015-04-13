@@ -31,4 +31,12 @@ angular.module('ajenti.settings').service 'settings', ($http, $q) ->
             q.reject(err)
         return q.promise
 
+    @getAuthenticationProviders = (config) ->
+        q = $q.defer()
+        $http.post("/api/settings/authentication-providers", config).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     return this

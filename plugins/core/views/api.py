@@ -5,7 +5,7 @@ import socket
 import traceback
 
 import aj
-from aj.api import *
+from aj.api import component
 from aj.api.http import url, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 
@@ -25,6 +25,7 @@ class Handler(HttpPlugin):
         return {
             'identity': {
                 'user': AuthenticationService.get(self.context).get_identity(),
+                'uid': os.getuid(),
                 'effective': os.geteuid(),
             },
             'machine': {
@@ -60,12 +61,18 @@ class Handler(HttpPlugin):
         elif mode == 'sudo':
             target = 'root'
             try:
-                auth.check_sudo_password(username, password)
-                auth.prepare_session_redirect(http_context, target)
-                return {
-                    'success': True,
-                    'username': target,
-                }
+                if auth.check_sudo_password(username, password):
+                    auth.prepare_session_redirect(http_context, target)
+                    return {
+                        'success': True,
+                        'username': target,
+                    }
+                else:
+                    gevent.sleep(3)
+                    return {
+                        'success': False,
+                        'error': 'Authorization failed',
+                    }
             except SudoError as e:
                 gevent.sleep(3)
                 return {

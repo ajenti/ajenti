@@ -74,9 +74,13 @@ class Worker(object):
             CentralDispatcher.get(self.context),
         ])
 
-    def demote(self, username):
-        uid = pwd.getpwnam(username).pw_uid
-        gid = pwd.getpwnam(username).pw_gid
+    def demote(self, uid):
+        try:
+            username = pwd.getpwuid(uid).pw_name
+            gid = pwd.getpwuid(uid).pw_gid
+        except KeyError:
+            username = None
+            gid = uid
 
         if os.getuid() == uid:
             return
@@ -86,9 +90,8 @@ class Worker(object):
                 return
 
         logging.info(
-            'Worker %s is demoting to %s (UID %s / GID %s)...',
+            'Worker %s is demoting to UID %s / GID %s...',
             os.getpid(),
-            username,
             uid,
             gid
         )
@@ -109,7 +112,7 @@ class Worker(object):
 
     def run(self):
         if self.gate.restricted:
-            self.demote('nobody')
+            self.demote(pwd.getpwnam('nobody').pw_uid)
         else:
             if self.gate.initial_identity:
                 AuthenticationService.get(self.context).login(

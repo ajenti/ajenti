@@ -33,3 +33,5 @@ angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope,
         datetime.syncTime().then (time) ->
             $scope._.time = new Date(time * 1000)
             notify.success 'Time synchronized'
+        .catch (e) ->
+            notify.error 'Failed', e.message

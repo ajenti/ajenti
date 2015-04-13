@@ -1,0 +1,4 @@
+aj
+ajenti.plugin.core
+ajenti.plugin.settings
+scrypt

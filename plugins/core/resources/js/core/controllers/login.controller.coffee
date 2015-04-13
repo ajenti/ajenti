@@ -15,7 +15,6 @@ angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootSco
         $scope.working = true
         identity.auth($scope.username, $scope.password, $scope.mode).then (username) ->
             $scope.success = true
-            notify.success 'Authentication succeeded', username
             location.href = $routeParams.nextPage or '/'
         .catch (error) ->
             $scope.working = false

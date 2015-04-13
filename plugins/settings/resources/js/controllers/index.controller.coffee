@@ -29,6 +29,10 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
 
     settings.getConfig().then (data) ->
         $scope.config = data
+        settings.getAuthenticationProviders().then (p) ->
+            $scope.authenticationProviders = p
+        .catch () ->
+            notify.error 'Could not load authentication provider list'
     .catch () ->
         $scope.config = {}
         notify.error 'Could not load config'

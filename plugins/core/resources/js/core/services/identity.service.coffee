@@ -4,10 +4,11 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
         @promise = q.promise
         $http.get('/api/core/identity').success (data) =>
             @user = data.identity.user
+            @uid = data.identity.uid
             @effective = data.identity.effective
             @machine = data.machine
             @color = data.color
-            @isSuperuser = @user == 'root'
+            @isSuperuser = @uid == 0
             q.resolve()
         .error () ->
             q.reject()
