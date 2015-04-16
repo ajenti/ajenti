@@ -1,5 +1,5 @@
-aj.plugins.services.api
-***********************
+Plugin: aj.plugins.services.api
+*******************************
 
 .. automodule:: aj.plugins.services.api
    :members:

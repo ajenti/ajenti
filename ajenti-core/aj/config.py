@@ -3,7 +3,7 @@ import pwd
 import stat
 import yaml
 
-from aj.api import *
+from aj.api import service
 
 
 class BaseConfig(object):

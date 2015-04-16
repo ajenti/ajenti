@@ -47,7 +47,7 @@ def service(cls):
 
     Injects following classmethods:
 
-        .. py:function:: get(context)
+        .. py:method:: .get(context)
 
             Returns a singleton instance of the class for given ``context``
 
@@ -75,7 +75,7 @@ def interface(cls):
 
     Injects following classmethods:
 
-        .. py:function:: all(context)
+        .. py:method:: .all(context) 
 
             Returns a list of instances of each component in the ``context`` implementing this ``@interface``
 
@@ -83,15 +83,15 @@ def interface(cls):
             :type context: :class:`Context`
             :returns: list(``cls``)
 
-        .. py:function:: any(context)
+        .. py:method:: .any(context)
 
-            Returns a first suitable instance implementing this ``@interface``
+            Returns the first suitable instance implementing this ``@interface`` or raises :exc:`NotImplementedError` if none is available.
 
             :param context: context to look in
             :type context: :class:`Context`
             :returns: ``cls``
 
-        .. py:function:: classes()
+        .. py:method:: .classes()
 
             Returns a list of classes implementing this ``@interface``
 
@@ -109,7 +109,10 @@ def interface(cls):
     cls.all = _all.__get__(cls)
 
     def _any(cls, context):
-        return (cls.all(context) + [None])[0]
+        instances = cls.all(context)
+        if instances:
+            return instances[0]
+        raise NotImplementedError
     cls.any = _any.__get__(cls)
 
     def _classes(cls):

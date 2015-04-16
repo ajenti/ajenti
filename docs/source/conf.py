@@ -67,7 +67,7 @@ intersphinx_mapping = {'http://docs.python.org/': None}
 
 
 def skip(app, what, name, obj, skip, options):
-    for x in ['all', 'classes', 'implementations']:
+    for x in ['all', 'any', 'classes', 'implementations']:
         if hasattr(obj, x):
             try:
                 delattr(obj, x)

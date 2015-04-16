@@ -2,7 +2,7 @@ import logging
 import cgi
 import traceback
 
-from aj.api import *
+from aj.api import service
 from aj.api.http import BaseHttpHandler, HttpPlugin
 
 

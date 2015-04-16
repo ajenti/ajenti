@@ -11,8 +11,8 @@ from socketio.namespace import BaseNamespace
 from socketio.mixins import BroadcastMixin
 
 import aj
-from aj.api import *
-from aj.api.http import *
+from aj.api import service
+from aj.api.http import BaseHttpHandler
 from aj.gate.gate import WorkerGate
 from aj.gate.session import Session
 from aj.gate.worker import WorkerError

@@ -1,5 +1,5 @@
-aj.plugins.dashboard.api
-************************
+Plugin: aj.plugins.dashboard.api
+********************************
 
 .. automodule:: aj.plugins.dashboard.api
    :members:

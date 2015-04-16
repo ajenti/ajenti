@@ -1,5 +1,5 @@
-aj.plugins.core.api.endpoint
-****************************
+Plugin: aj.plugins.core.api.endpoint
+************************************
 
 .. automodule:: aj.plugins.core.api.endpoint
    :members:

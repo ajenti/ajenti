@@ -1,3 +1,4 @@
+#pyflakes: disable-all
 import api
 import main
 import views

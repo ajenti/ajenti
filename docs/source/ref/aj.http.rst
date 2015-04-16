@@ -1,5 +1,5 @@
-aj.http
-*******
+API: aj.http
+************
 
 .. automodule:: aj.http
    :members:

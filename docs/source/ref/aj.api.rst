@@ -1,5 +1,5 @@
-aj.api
-******
+API: aj.api
+***********
 
 .. automodule:: aj.api
    :members:

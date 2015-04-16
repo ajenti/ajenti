@@ -1,5 +1,5 @@
-aj.plugins.core.api.push
-************************
+Plugin: aj.plugins.core.api.push
+********************************
 
 .. automodule:: aj.plugins.core.api.push
    :members:

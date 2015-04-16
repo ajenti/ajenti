@@ -42,10 +42,10 @@ Stock Angular components
 .. toctree::
    refjs/core
    refjs/ace
+   refjs/augeas
    refjs/filesystem
    refjs/passwd
    refjs/services
-   refjs/settings
    refjs/terminal
 
 
@@ -57,6 +57,7 @@ Python Plugin API Reference
    ref/aj.plugins.core.api.push
    ref/aj.plugins.core.api.sidebar
    ref/aj.plugins.core.api.tasks
+   ref/aj.plugins.augeas.api
    ref/aj.plugins.dashboard.api
    ref/aj.plugins.services.api
 

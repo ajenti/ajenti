@@ -1,3 +1,4 @@
+import gevent
 import gipc
 import greenlet
 import logging
@@ -5,8 +6,8 @@ import os
 import signal
 
 import aj
-from aj.gate.stream import *
-from aj.gate.worker import *
+from aj.gate.stream import GateStreamServerEndpoint, GateStreamWorkerEndpoint
+from aj.gate.worker import Worker
 from aj.util import BroadcastQueue
 
 

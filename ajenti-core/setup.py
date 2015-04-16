@@ -2,7 +2,6 @@
 from distutils.core import setup
 from setuptools import find_packages
 
-import os
 import aj
 
 __requires = filter(None, open('requirements.txt').read().splitlines())

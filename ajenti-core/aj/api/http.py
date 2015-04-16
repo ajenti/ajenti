@@ -3,7 +3,7 @@ import logging
 import re
 import types
 
-from aj.api import *
+from aj.api import interface
 
 
 def url(pattern):

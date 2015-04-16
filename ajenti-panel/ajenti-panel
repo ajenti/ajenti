@@ -25,7 +25,7 @@ class AjentiConfig(aj.config.BaseConfig):
 
     def load(self):
         if os.geteuid() == 0:
-            os.chmod(self.path, 0644)
+            os.chmod(self.path, 0600)
         self.data = yaml.load(open(self.path))
 
     def save(self):

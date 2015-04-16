@@ -11,7 +11,7 @@ import sys
 from gevent.event import Event
 
 import aj
-from aj.api import *
+from aj.api import Context
 from aj.api.http import SocketEndpoint
 from aj.http import HttpMiddlewareAggregator, HttpContext
 from aj.auth import AuthenticationMiddleware, AuthenticationService

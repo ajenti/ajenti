@@ -9,9 +9,10 @@ import aj
 from aj.api import component, service, interface
 from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator
-from aj.util import *
+from aj.util import public
 
 
+@public
 class SudoError(Exception):
     def __init__(self, message):
         Exception.__init__(self)

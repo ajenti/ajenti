@@ -7,6 +7,39 @@ This Angular module contains core components of Ajenti frontend.
 Services
 --------
 
+
+.. js:class:: config
+
+    .. js:data:: data
+
+        Config file content object
+
+    .. js:function:: load()
+
+        Gets complete configuration data of the backend
+
+        :returns: promise
+
+    .. js:function:: save()
+
+        Updates and saves configuration data
+
+        :returns: promise
+
+    .. js:function:: getUserConfig()
+
+        Gets per-user configuration data of the backend
+
+        :returns: promise → per-user Ajenti config object
+
+    .. js:function:: setUserConfig(config)
+
+        Updates and saves per-user configuration data
+
+        :param object config: updated configuration data from ``getUserConfig()``
+        :returns: promise
+
+
 .. js:class:: core
 
     .. js:function:: pageReload()

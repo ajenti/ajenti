@@ -1,4 +1,4 @@
-from aj.api.di import *
+from aj.api.di import interface, component, service, Context
 
 
 class PluginInfo(object):

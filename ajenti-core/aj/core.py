@@ -16,8 +16,8 @@ import aj.plugins
 from aj.auth import AuthenticationService
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
-from aj.plugins import *
-from aj.api import *
+from aj.plugins import PluginManager
+from aj.api import Context
 from aj.util import make_report
 from aj.util.sslsocket import SSLSocket
 from aj.util.pidfile import PidFile

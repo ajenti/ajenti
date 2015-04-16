@@ -6,8 +6,7 @@ import gzip
 import math
 import os
 
-from aj.api import *
-from aj.api.http import *
+from aj.api.http import BaseHttpHandler
 
 
 def _validate_origin(env):

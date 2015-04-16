@@ -1,5 +1,5 @@
 import aj
-from aj.api import *
+from aj.api import service
 
 
 @service
