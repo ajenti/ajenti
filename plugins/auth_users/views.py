@@ -17,5 +17,5 @@ class Handler(HttpPlugin):
     def handle_api_set_password(self, http_context, username):
         password = http_context.body
         aj.config.load()
-        aj.config.data['auth_users'][username]['password'] = self.manager.hash_password(password)
+        aj.config.data.setdefault('auth', {})['users'][username]['password'] = self.manager.hash_password(password)
         aj.config.save()

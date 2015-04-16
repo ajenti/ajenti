@@ -1,5 +1,7 @@
-angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, settings, core) ->
+angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, config, core) ->
     pageTitle.set('Settings')
+
+    $scope.config = config
 
     $scope.availableColors = [
         'default'
@@ -27,22 +29,20 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
                 $scope.newClientCertificate.cn = "#{identity.user}@#{identity.machine.hostname}"
             $scope.newClientCertificate.user = 'root'
 
-    settings.getConfig().then (data) ->
-        $scope.config = data
-        settings.getAuthenticationProviders().then (p) ->
+    config.load().then () ->
+        config.getAuthenticationProviders().then (p) ->
             $scope.authenticationProviders = p
         .catch () ->
             notify.error 'Could not load authentication provider list'
     .catch () ->
-        $scope.config = {}
         notify.error 'Could not load config'
 
     $scope.$watch 'config.color', () ->
-        if $scope.config
-            identity.color = $scope.config.color
+        if config.data
+            identity.color = config.data.color
 
     $scope.save = () ->
-        settings.setConfig($scope.config).then (data) ->
+        config.save().then (data) ->
             notify.success 'Saved'
         .catch () ->
             notify.error 'Could not save config'
@@ -54,13 +54,13 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
             positive: 'Generate'
             negative: 'Cancel'
         ).then () ->
-            $scope.config.ssl.client_auth.force = false
+            config.data.ssl.client_auth.force = false
             notify.info 'Generating certificate', 'Please wait'
             $http.get('/api/settings/generate-server-certificate').success (data) ->
                 notify.success 'Certificate successfully generated'
-                $scope.config.ssl.enable = true
-                $scope.config.ssl.certificate = data.path
-                $scope.config.ssl.client_auth.certificates = []
+                config.data.ssl.enable = true
+                config.data.ssl.certificate = data.path
+                config.data.ssl.client_auth.certificates = []
                 $scope.save()
             .error (err) ->
                 notify.error 'Certificate generation failed', err.message
@@ -71,7 +71,7 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
             $scope.newClientCertificate.generating = false
             $scope.newClientCertificate.generated = true
             $scope.newClientCertificate.url = $sce.trustAsUrl("data:application/x-pkcs12;base64,#{data.b64certificate}")
-            $scope.config.ssl.client_auth.certificates.push {
+            config.data.ssl.client_auth.certificates.push {
                 user: $scope.newClientCertificate.user
                 digest: data.digest
                 name: data.name
@@ -83,11 +83,11 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
             notify.error 'Certificate generation failed', err.message
 
     $scope.addEmail = (email, username) ->
-        $scope.config.emails[email] = username
+        config.data.auth.emails[email] = username
         $scope.newEmailDialogVisible = false
 
     $scope.removeEmail = (email) ->
-        delete $scope.config.emails[email]
+        delete config.data.auth.emails[email]
 
     $scope.restart = () ->
         core.restart()

@@ -67,7 +67,7 @@
                                 </div>
                             </li>
                             <li>
-                                <a ng:click="identity.elevate()" ng:show="identity.effective != 0">
+                                <a ng:click="identity.elevate()" ng:show="identity.effective != 0 && identity.elevation_allowed">
                                     <i class="fa fa-fw fa-angle-double-up"></i> Elevate
                                 </a>
                             </li>

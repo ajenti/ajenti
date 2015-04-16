@@ -1,22 +1,22 @@
 <br/>
 
-<progress-spinner ng:show="!config"></progress-spinner>
+<progress-spinner ng:show="!config.data"></progress-spinner>
 
-<div ng:show="config" root-access>
+<div ng:show="config.data" root-access>
     <div class="padded-container">
         <div class="form-group">
             <div class="row">
                 <div class="col-md-6">
                     <label>Machine name</label>
                     <div>
-                        <input ng:model="config.name" type="text" class="form-control" />
+                        <input ng:model="config.data.name" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label>Color tag</label>
                     <div>
                         <div class="btn-group">
-                            <a ng:model="config.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
+                            <a ng:model="config.data.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
                                 &nbsp;
                             </a>
                         </div>
@@ -33,22 +33,22 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="btn-group btn-group-justified">
-                        <a ng:model="config.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
-                        <a ng:model="config.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
+                        <a ng:model="config.data.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
+                        <a ng:model="config.data.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
                     </div>
                 </div>
                 <div class="col-sm-7">
-                    <div ng:show="config.bind.mode == 'tcp'" class="row">
+                    <div ng:show="config.data.bind.mode == 'tcp'" class="row">
                         <div class="col-xs-8">
-                            <input ng:model="config.bind.host" type="text" placeholder="Host / IP" class="form-control" />
+                            <input ng:model="config.data.bind.host" type="text" placeholder="Host / IP" class="form-control" />
                         </div>
                         <div class="col-xs-4">
-                            <input ng:model="config.bind.port" type="number" placeholder="Port" class="form-control" />
+                            <input ng:model="config.data.bind.port" type="number" placeholder="Port" class="form-control" />
                         </div>
                     </div>
 
-                    <div ng:show="config.bind.mode == 'unix'">
-                        <input ng:model="config.bind.socket" type="text" placeholder="Socket path" class="form-control" />
+                    <div ng:show="config.data.bind.mode == 'unix'">
+                        <input ng:model="config.data.bind.socket" type="text" placeholder="Socket path" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -56,28 +56,35 @@
 
         <hr/>
 
-        <div class="form-group" ng:show="config.bind.mode == 'tcp'">
+        <div class="form-group" ng:show="config.data.bind.mode == 'tcp'">
             <label>Authentication provider</label>
             <div>
-                <select ng:model="config.authentication_provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
+                <select ng:model="config.data.auth.provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
+            </div>
+        </div>
+
+        <div class="form-group" ng:show="config.data.bind.mode == 'tcp'">
+            <label>Sudo</label>
+            <div>
+                <span checkbox ng:model="config.data.auth.allow_sudo" text="Allow sudo elevation for logged in users"></span>
             </div>
         </div>
 
         <hr/>
 
-        <div class="form-group" ng:show="config.bind.mode == 'tcp'">
+        <div class="form-group" ng:show="config.data.bind.mode == 'tcp'">
             <label>SSL</label>
             <div>
-                <span checkbox ng:model="config.ssl.enable" text="Enable SSL"></span>
+                <span checkbox ng:model="config.data.ssl.enable" text="Enable SSL"></span>
             </div>
         </div>
 
-        <div ng:show="config.bind.mode == 'tcp' && config.ssl.enable">
+        <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable">
             <div class="form-group">
                 <label>SSL certificate file</label>
                 <div class="row">
                     <div class="col-md-8">
-                        <path-selector ng:model="config.ssl.certificate" type="text"></path-selector>
+                        <path-selector ng:model="config.data.ssl.certificate" type="text"></path-selector>
                     </div>
                     <div class="col-md-4">
                         <a ng:click="createNewServerCertificate()" class="btn btn-default btn-block">
@@ -92,22 +99,22 @@
             <div class="form-group">
                 <label>SSL client authentication</label>
                 <div>
-                    <span checkbox ng:model="config.ssl.client_auth.enable" text="Enable client authentication"></span>
+                    <span checkbox ng:model="config.data.ssl.client_auth.enable" text="Enable client authentication"></span>
                 </div>
                 <div>
-                    <span checkbox ng:model="config.ssl.client_auth.force" text="Deny other means of authentication"></span>
+                    <span checkbox ng:model="config.data.ssl.client_auth.force" text="Deny other means of authentication"></span>
                 </div>
             </div>
 
-            <div class="form-group" ng:show="config.ssl.client_auth.enable">
+            <div class="form-group" ng:show="config.data.ssl.client_auth.enable">
                 <label>SSL client certificates</label>
-                <div class="alert alert-warning" ng:show="config.ssl.client_auth.certificates.length == 0">
+                <div class="alert alert-warning" ng:show="config.data.ssl.client_auth.certificates.length == 0">
                     <i class="fa fa-warning"></i> No certificates are created yet.
                 </div>
                 <div>
                     <div class="list-group">
-                        <div ng:repeat="certificate in config.ssl.client_auth.certificates" class="list-group-item list-group-item-large">
-                            <a class="list-group-btn" ng:click="config.ssl.client_auth.certificates.splice($index, 1)" title="Revoke">
+                        <div ng:repeat="certificate in config.data.ssl.client_auth.certificates" class="list-group-item list-group-item-large">
+                            <a class="list-group-btn" ng:click="config.data.ssl.client_auth.certificates.splice($index, 1)" title="Revoke">
                                 <i class="fa fa-trash-o"></i>
                             </a>
                             <div class="list-group-main">
@@ -190,11 +197,11 @@
             <div class="help-text">
                 Allows login with a confirmed e-mail address via <a href="https://login.persona.org/about" target="_blank">Mozilla Persona</a> auth service. Requires server-side internet access.
             </div>
-            <div class="alert alert-warning" ng:show="keys(config.emails).length == 0">
+            <div class="alert alert-warning" ng:show="keys(config.data.auth.emails).length == 0">
                 <i class="fa fa-warning"></i> No e-mail addresses added yet.
             </div>
             <div class="list-group">
-                <div ng:repeat="(email, username) in config.emails" class="list-group-item list-group-item-large">
+                <div ng:repeat="(email, username) in config.data.auth.emails" class="list-group-item list-group-item-large">
                     <a class="list-group-btn" ng:click="removeEmail(email)" title="Remove">
                         <i class="fa fa-trash-o"></i>
                     </a>

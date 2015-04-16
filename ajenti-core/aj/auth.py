@@ -59,6 +59,7 @@ class AuthenticationError(Exception):
 class AuthenticationProvider(object):
     id = None
     name = None
+    allows_sudo_elevation = False
 
     def __init__(self, context):
         self.context = context
@@ -74,6 +75,7 @@ class AuthenticationProvider(object):
 class OSAuthenticationProvider(AuthenticationProvider):
     id = 'os'
     name = 'OS users'
+    allows_sudo_elevation = True
 
     def authenticate(self, username, password):
         child = None
@@ -103,7 +105,7 @@ class AuthenticationService(object):
         self.context = context
 
     def get_provider(self):
-        provider_id = aj.config.data.get('authentication_provider', 'os')
+        provider_id = aj.config.data.setdefault('auth', {}).get('provider', 'os')
         for provider in AuthenticationProvider.all(self.context):
             if provider.id == provider_id:
                 return provider
@@ -113,7 +115,7 @@ class AuthenticationService(object):
         return self.get_provider().authenticate(username, password)
 
     def check_sudo_password(self, username, password):
-        if self.get_provider().id != 'os':
+        if not aj.config.data.setdefault('auth', {}).get('allow_sudo', False):
             return False
         sudo = subprocess.Popen(
             ['sudo', '-S', '-u', 'eugene', '--', 'sh', '-c', 'sudo -k; sudo -S echo'],

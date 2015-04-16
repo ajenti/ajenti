@@ -6,6 +6,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
             @user = data.identity.user
             @uid = data.identity.uid
             @effective = data.identity.effective
+            @elevation_allowed = data.identity.elevation_allowed
             @machine = data.machine
             @color = data.color
             @isSuperuser = @uid == 0

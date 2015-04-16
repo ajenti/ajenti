@@ -1,4 +1,4 @@
-angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scope, $interval, notify, pageTitle, dashboard, settings) ->
+angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scope, $interval, notify, pageTitle, dashboard, config) ->
     pageTitle.set('Dashboard')
 
     $scope.ready = false
@@ -19,7 +19,7 @@ angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scop
                 $scope.configureWidget(widget)
             $scope.refresh()
 
-    settings.getUserConfig().then (userConfig) ->
+    config.getUserConfig().then (userConfig) ->
         $scope.userConfig = userConfig
         $scope.userConfig.dashboard ?= {
           widgetsLeft: [
@@ -87,5 +87,5 @@ angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scop
         $scope.save()
 
     $scope.save = () ->
-        return settings.setUserConfig($scope.userConfig)
+        return config.setUserConfig($scope.userConfig)
 

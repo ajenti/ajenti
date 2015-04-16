@@ -81,6 +81,12 @@ class WorkerGate(object):
                     self.session.deactivate()
                 if resp.object['type'] == 'restart-master':
                     aj.restart()
+                if resp.object['type'] == 'reload-config':
+                    aj.config.load()
+                    self.stream.send({
+                        'type': 'config-data',
+                        'data': aj.config.data,
+                    })
         except greenlet.GreenletExit:
             pass
 

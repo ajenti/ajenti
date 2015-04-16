@@ -8,6 +8,8 @@ import traceback
 import setproctitle
 import sys
 
+from gevent.event import Event
+
 import aj
 from aj.api import *
 from aj.api.http import SocketEndpoint
@@ -73,6 +75,8 @@ class Worker(object):
             AuthenticationMiddleware.get(self.context),
             CentralDispatcher.get(self.context),
         ])
+        
+        self._master_config_reloaded = Event()
 
     def demote(self, uid):
         try:
@@ -125,8 +129,10 @@ class Worker(object):
                 rq = self.stream.recv()
                 if not rq:
                     return
+
                 if rq.object['type'] == 'http':
                     gevent.spawn(self.handle_http_request, rq)
+
                 if rq.object['type'] == 'socket':
                     msg = rq.object['message']
                     nsid = rq.object['namespace']
@@ -142,6 +148,11 @@ class Worker(object):
                     if event == 'disconnect':
                         socket_namespaces[nsid].destroy()
                         logging.debug('Socket disconnected, destroying endpoints')
+
+                if rq.object['type'] == 'config-data':
+                    aj.config.data = rq.object['data']
+                    self._master_config_reloaded.set()
+
         # pylint: disable=W0703
         except Exception:
             logging.error('Worker crashed!')
@@ -156,6 +167,13 @@ class Worker(object):
         self.send_to_upstream({
             'type': 'restart-master',
         })
+
+    def reload_master_config(self):
+        self.send_to_upstream({
+            'type': 'reload-config',
+        })
+        self._master_config_reloaded.wait()
+        self._master_config_reloaded.clear()
 
     def handle_http_request(self, rq):
         response_object = {

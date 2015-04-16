@@ -2,7 +2,7 @@ name: settings
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.11'
+version: '0.12'
 title: 'Settings'
 icon: wrench
 dependencies:
@@ -13,6 +13,5 @@ resources:
     - 'resources/js/module.coffee'
     - 'resources/js/routing.coffee'
     - 'resources/js/controllers/index.controller.coffee'
-    - 'resources/js/services/settings.service.coffee'
     - 'resources/partial/index.html'
     - 'ng:ajenti.settings'

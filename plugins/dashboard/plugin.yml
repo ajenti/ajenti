@@ -2,12 +2,11 @@ name: dashboard
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.14'
+version: '0.15'
 title: 'Dashboard'
 icon: bar-chart
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
-    - !!python/object:aj.plugins.PluginDependency { plugin_name: settings }
 resources:
     - 'resources/js/module.coffee'
     - 'resources/js/routing.coffee'

@@ -13,6 +13,4 @@ angular.module('core').directive 'coreSidebar', ($http, $log) ->
                 for item in $scope.item.children
                     item.expanded = true
                     item.isTopLevel = true
-            .error () ->
-                $log.error 'Error loading sidebar'
     }
