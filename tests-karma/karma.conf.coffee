@@ -3,6 +3,7 @@ YAML = require 'yamljs'
 plugins = [
     'core'
     'ace'
+    'augeas'
     'filesystem'
     'notepad'
 ]
@@ -21,7 +22,6 @@ for d in plugins
 #files.push 'node_modules/angular-mocks/angular-mocks.js'
 files.push 'test-extras.coffee'
 files.push 'tests/**/*.coffee'
-
 
 module.exports = (config) ->
   config.set({

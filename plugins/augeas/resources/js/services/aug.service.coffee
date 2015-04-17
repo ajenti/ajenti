@@ -19,9 +19,6 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
             else
                 return "#{@parent.fullPath()}/#{@name}"
 
-        toString: () ->
-            return '[' + @path + ']'
-
     class AugeasConfig
         constructor: (data) ->
             @root = @__construct(data)
@@ -135,7 +132,7 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
                     matches.push child
 
             if index != null
-                if matches.length == 0
+                if matches.length <= index
                     matches = []
                 else
                     matches = [matches[index]]
