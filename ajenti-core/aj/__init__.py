@@ -136,19 +136,6 @@ def detect_platform_string():
         return subprocess.check_output(['uname', '-mrs'])
 
 
-def check_uid():
-    file = '/var/lib/ajenti/installation-uid'
-    if not os.path.exists(file):
-        uid = str(random.randint(1, 9000 * 9000))
-        try:
-            open(file, 'w').write(uid)
-        except:
-            uid = '0'
-    else:
-        uid = open(file).read()
-    return uid
-
-
 def init():
     import aj
     aj.version = detect_version()
@@ -158,7 +145,6 @@ def init():
         logging.warn('Platform ID was enforced by commandline!')
         aj.platform_unmapped = aj.platform
     aj.platform_string = detect_platform_string()
-    aj.installation_uid = check_uid()
 
 
 def exit():

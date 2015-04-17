@@ -33,7 +33,7 @@ def make_report(e):
     """
     import catcher
     import platform as _platform
-    from aj import platform, platform_unmapped, platform_string, installation_uid, version, debug
+    from aj import platform, platform_unmapped, platform_string, version, debug
 
     tb = traceback.format_exc(e)
     tb = '\n'.join('    ' + x for x in tb.splitlines())
@@ -61,7 +61,6 @@ Ajenti | %s
 Platform | %s / %s / %s
 Architecture | %s
 Python | %s
-Installation | %s
 Debug | %s
 Catcher report | %s
 Loaded plugins | %s
@@ -77,10 +76,9 @@ psutil | %s
 
             """ % (
             version,
-            platform, platform_unmapped, platform_string.strip(),
+            platform, platform_unmapped, platform_string,
             subprocess.check_output(['uname', '-mp']).strip(),
             '.'.join([str(x) for x in _platform.python_version_tuple()]),
-            installation_uid,
             debug,
             catcher_url or 'Failed to upload traceback',
             ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())),

@@ -78,10 +78,10 @@ class PluginCrashed(PluginLoadError):
         self.traceback = traceback.format_exc()
 
     def describe(self):
-        return 'Crashed: %s' % self.e
+        return 'Crashed: %s' % repr(self.e)
 
     def __str__(self):
-        return 'crashed: %s' % self.e
+        return 'crashed: %s' % repr(self.e)
 
 
 @public
@@ -203,6 +203,7 @@ class PluginManager(object):
     __plugins = {}
     __loaded_plugins = []
     __info = {}
+    __crashes = {}
 
     def __init__(self, context):
         self.context = context
@@ -210,6 +211,9 @@ class PluginManager(object):
     # Plugin loader
     def get_all(self):
         return self.__plugins
+
+    def get_crash(self, name):
+        return self.__crashes.get(name, None)
 
     def __getitem__(self, name):
         return self.__plugins[name]
@@ -249,31 +253,28 @@ class PluginManager(object):
                 return self.load(name, info)
             except PluginDependency.Unsatisfied as e:
                 if e.dependency.plugin_name in self.get_all():
-                    if self.get_all()[e.dependency.plugin_name].crash:
-                        self.get_all()[name].crash = e
+                    if e.dependency.plugin_name in self.__crashes:
+                        self.__crashes[name] = e
                         logging.warn(
-                            'Plugin dependency unsatisfied: "%s" -> "%s"',
+                            'Plugin dependency unsatisfied: [%s] -> [%s]',
                             name,
                             e.dependency.plugin_name
                         )
                         return
-                try:
-                    if e.dependency.plugin_name not in self.__info:
-                        logging.warn(
-                            'Plugin dependency unsatisfied: "%s" -> "%s"',
-                            name,
-                            e.dependency.plugin_name
-                        )
-                        return
-                    logging.debug('Preloading plugin dependency: "%s"', e.dependency.plugin_name)
-                    if not self.load_recursive(
-                            e.dependency.plugin_name,
-                            self.__info[e.dependency.plugin_name]
-                    ):
-                        self.get_all()[name].crash = e
-                        return
-                except:
-                    raise
+                if e.dependency.plugin_name not in self.__info:
+                    logging.warn(
+                        'Plugin dependency unsatisfied: [%s] -> [%s]',
+                        name,
+                        e.dependency.plugin_name
+                    )
+                    return
+                logging.debug('Preloading plugin dependency: [%s]->[%s]', name, e.dependency.plugin_name)
+                if not self.load_recursive(
+                        e.dependency.plugin_name,
+                        self.__info[e.dependency.plugin_name]
+                ):
+                    self.__crashes[name] = e
+                    return
 
     def load(self, name, info):
         """
@@ -285,7 +286,6 @@ class PluginManager(object):
             self.__plugins[name] = plugin_info
             plugin_info.active = False
             plugin_info.name = name
-            plugin_info.crash = None
             plugin_info.path = info['path']
 
             for dependency in plugin_info.dependencies:
@@ -301,7 +301,6 @@ class PluginManager(object):
                     *imp.find_module(module_name, [module_path])
                 )
             except Exception as e:
-                traceback.print_exc()
                 raise PluginCrashed(e)
 
             if name in self.__loaded_plugins:
@@ -312,12 +311,12 @@ class PluginManager(object):
         except PluginDependency.Unsatisfied as e:
             raise
         except PluginCrashed as e:
-            logging.warn(' *** [%s] Plugin crashed: "%s"', name, e)
-            logging.error(e.traceback)
-            plugin_info.crash = e
+            logging.error('[%s] Plugin crashed: "%s"', name, e)
+            logging.warn(e.traceback)
+            self.__crashes[name] = e
         except Dependency.Unsatisfied as e:
-            logging.debug(' *** [%s] skipping due to "%s"', name, e)
-            plugin_info.crash = e
+            logging.warn('[%s] skipping due to "%s"', name, e)
+            self.__crashes[name] = e
         except PluginLoadError as e:
-            logging.warn(' *** [%s] Plugin failed to load: "%s"', name, e)
-            plugin_info.crash = e
+            logging.warn('[%s] Plugin failed to load: "%s"', name, e)
+            self.__crashes[name] = e

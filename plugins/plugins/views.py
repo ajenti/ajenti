@@ -4,7 +4,7 @@ import subprocess
 import aj
 from aj.api import *
 from aj.api.http import url, HttpPlugin
-from aj.plugins import PluginManager
+from aj.plugins import PluginManager, PluginDependency, BinaryDependency
 
 from aj.plugins.core.api.endpoint import endpoint, EndpointError
 
@@ -14,15 +14,36 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
 
+    def __serialize_exception(self, e):
+        if not e:
+            return
+
+        d = {
+            'cls': e.__class__.__name__,
+            'message': str(e),
+            'type': 'generic',
+        }
+
+        if isinstance(e, PluginDependency.Unsatisfied):
+            d['pluginName'] = e.dependency.plugin_name
+            d['type'] = 'PluginDependency.Unsatisfied'
+
+        if isinstance(e, BinaryDependency.Unsatisfied):
+            d['binaryName'] = e.dependency.binary_name
+            d['type'] = 'BinaryDependency.Unsatisfied'
+
+        return d
+
     @url(r'/api/plugins/list/installed')
     @endpoint(api=True)
     def handle_api_list_installed(self, http_context):
         r = []
-        for plugin in PluginManager.get(aj.context).get_all().values():
+        manager = PluginManager.get(aj.context)
+        for plugin in manager.get_all().values():
             r.append({
                 'name': plugin.name,
                 'active': plugin.active,
-                'crash': plugin.crash,
+                'crash': self.__serialize_exception(manager.get_crash(plugin.name)),
                 'path': plugin.path,
                 'author': plugin.author,
                 'author_email': plugin.email,

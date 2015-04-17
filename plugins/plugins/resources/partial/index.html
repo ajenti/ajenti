@@ -42,6 +42,10 @@
                 <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
                 &nbsp;
                 <span class="label label-info" ng:show="getUpgrade(plugin)">Upgradeable to {{getUpgrade(plugin).version}}</span>
+
+                <span class="label label-danger" ng:show="plugin.crash">
+                    <i class="fa fa-warning"></i> Loading error
+                </span>
             </a>
         </div>
     </div>
@@ -106,6 +110,26 @@
                 <label>Title</label>
                 <div>
                     {{selectedInstalledPlugin.title}}
+                </div>
+            </div>
+            <div class="form-group" ng:show="selectedInstalledPlugin.crash">
+                <label>Error</label>
+                <div class="alert alert-warning" ng:show="selectedInstalledPlugin.crash.type == 'PluginDependency.Unsatisfied'">
+                    This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup.
+                </div>
+                <div class="alert alert-warning" ng:show="selectedInstalledPlugin.crash.type == 'BinaryDependency.Unsatisfied'">
+                    This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup.
+                </div>
+                <div class="alert alert-danger">
+                    <div>
+                        <b>This plugin crashed with the following error:</b>
+                    </div>
+                    <div>
+                        Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>
+                    </div>
+                    <div>
+                        Message: <code>{{selectedInstalledPlugin.crash.message}}</code>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
