@@ -1,7 +1,6 @@
 #!/bin/bash
 echo -en 'travis_fold:start:deps.python\r'
     echo Installing Python modules
-    sudo apt-get install -y python-lxml python-dbus python-lxml python-augeas
     pip install -r ajenti-core/requirements.txt
     pip install -r plugins/core/requirements.txt
     pip install -r plugins/augeas/requirements.txt

@@ -83,7 +83,7 @@ psutil | %s
             installation_uid,
             debug,
             catcher_url or 'Failed to upload traceback',
-            ', '.join(sorted(PluginManager.get(aj.context).get_order())),
+            ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())),
 
             gevent.__version__,
             greenlet.__version__,

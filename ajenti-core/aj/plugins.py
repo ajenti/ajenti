@@ -301,6 +301,7 @@ class PluginManager(object):
                     *imp.find_module(module_name, [module_path])
                 )
             except Exception as e:
+                traceback.print_exc()
                 raise PluginCrashed(e)
 
             if name in self.__loaded_plugins:
