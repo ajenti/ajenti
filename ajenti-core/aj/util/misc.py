@@ -48,7 +48,6 @@ def make_report(e):
 
     import gevent
     import greenlet
-    import reconfigure
     import psutil
     from aj.plugins import PluginManager
 
@@ -71,7 +70,6 @@ Library | Version
 ------- | -------
 gevent | %s
 greenlet | %s
-reconfigure | %s
 psutil | %s
 
 
@@ -89,7 +87,6 @@ psutil | %s
 
             gevent.__version__,
             greenlet.__version__,
-            reconfigure.__version__,
             psutil.__version__,
 
             tb,
