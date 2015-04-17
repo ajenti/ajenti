@@ -4,6 +4,8 @@ echo -en 'travis_fold:start:deps.python\r'
     sudo apt-get install -y python-lxml python-dbus python-lxml
     pip install -r ajenti-core/requirements.txt
     pip install -r plugins/core/requirements.txt
+    pip install -r plugins/augeas/requirements.txt
+    pip install -r plugins/auth_users/requirements.txt
     pip install -r plugins/services/requirements.txt
     pip install -r plugins/terminal/requirements.txt
     pip install ajenti-dev-multitool
