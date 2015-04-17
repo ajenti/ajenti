@@ -96,7 +96,6 @@ class GateMiddleware(object):
             log_tag='restricted'
         )
         self.restricted_gate.start()
-        aj.config.data.setdefault('max_sessions', None)
 
     def generate_session_key(self, env):
         h = str(random.random())

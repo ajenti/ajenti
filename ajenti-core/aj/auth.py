@@ -106,7 +106,7 @@ class AuthenticationService(object):
         self.context = context
 
     def get_provider(self):
-        provider_id = aj.config.data.setdefault('auth', {}).get('provider', 'os')
+        provider_id = aj.config.data['auth'].get('provider', 'os')
         for provider in AuthenticationProvider.all(self.context):
             if provider.id == provider_id:
                 return provider
@@ -116,7 +116,7 @@ class AuthenticationService(object):
         return self.get_provider().authenticate(username, password)
 
     def check_sudo_password(self, username, password):
-        if not aj.config.data.setdefault('auth', {}).get('allow_sudo', False):
+        if not aj.config.data['auth'].get('allow_sudo', False):
             return False
         sudo = subprocess.Popen(
             ['sudo', '-S', '-u', 'eugene', '--', 'sh', '-c', 'sudo -k; sudo -S echo'],

@@ -27,7 +27,7 @@ class Handler(HttpPlugin):
                 'user': AuthenticationService.get(self.context).get_identity(),
                 'uid': os.getuid(),
                 'effective': os.geteuid(),
-                'elevation_allowed': aj.config.data.setdefault('auth', {}).get('allow_sudo', False),
+                'elevation_allowed': aj.config.data['auth'].get('allow_sudo', False),
             },
             'machine': {
                 'name': aj.config.data['name'],
@@ -99,7 +99,7 @@ class Handler(HttpPlugin):
                     'error': 'Could not authenticate with Mozilla Persona: %s' % str(e),
                 }
 
-            emails = aj.config.data.setdefault('auth', {}).get('emails', {})
+            emails = aj.config.data['auth'].get('emails', {})
             if email in emails:
                 username = emails[email]
                 auth.prepare_session_redirect(http_context, username)
