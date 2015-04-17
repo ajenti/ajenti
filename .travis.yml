@@ -3,6 +3,8 @@ python:
     - 2.7
 node_js:
     - 0.10
+before_install:
+    - scripts/ci-setup.sh
 script:
     - scripts/ci.sh
 notifications:
