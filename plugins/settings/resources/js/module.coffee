@@ -3,3 +3,6 @@ angular.module 'ajenti.settings', [
     'ajenti.filesystem',
     'ajenti.passwd',
 ]
+
+angular.module('ajenti.settings').run (customization) ->
+    customization.plugins.settings = {}

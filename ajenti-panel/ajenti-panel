@@ -43,7 +43,7 @@ Options:
     -d, --daemon        - Run in background (daemon mode)
     --autologin         - Log in automatically as the running user
     -h, --help          - This help
-    """
+    """ % sys.argv[0]
 
 
 if __name__ == '__main__':

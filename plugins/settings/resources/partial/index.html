@@ -4,15 +4,15 @@
 
 <div ng:show="config.data" root-access>
     <div class="padded-container">
-        <div class="form-group">
+        <div class="form-group" ng:show="!customization.plugins.settings.hideMachineSettings">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineName">
                     <label>Machine name</label>
                     <div>
                         <input ng:model="config.data.name" type="text" class="form-control" />
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineColor">
                     <label>Color tag</label>
                     <div>
                         <div class="btn-group">
@@ -26,9 +26,9 @@
             </div>
         </div>
 
-        <hr/>
+        <hr ng:show="!customization.plugins.settings.hideMachineSettings" />
 
-        <div class="form-group">
+        <div class="form-group" ng:show="!customization.plugins.settings.hideBindingSettings">
             <label>Binding</label>
             <div class="row">
                 <div class="col-sm-3">
@@ -54,32 +54,32 @@
             </div>
         </div>
 
-        <hr/>
+        <hr ng:show="!customization.plugins.settings.hideBindingSettings" />
 
-        <div class="form-group" ng:show="config.data.bind.mode == 'tcp'">
+        <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
             <label>Authentication provider</label>
             <div>
                 <select ng:model="config.data.auth.provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
             </div>
         </div>
 
-        <div class="form-group" ng:show="config.data.bind.mode == 'tcp'">
+        <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
             <label>Sudo</label>
             <div>
                 <span checkbox ng:model="config.data.auth.allow_sudo" text="Allow sudo elevation for logged in users"></span>
             </div>
         </div>
 
-        <hr/>
+        <hr ng:show="!customization.plugins.settings.hideAuthSettings" />
 
-        <div class="form-group" ng:show="config.data.bind.mode == 'tcp'">
+        <div class="form-group" ng:show="config.data.bind.mode == 'tcp' && !customization.plugins.settings.hideSSLSettings">
             <label>SSL</label>
             <div>
                 <span checkbox ng:model="config.data.ssl.enable" text="Enable SSL"></span>
             </div>
         </div>
 
-        <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable">
+        <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable && !customization.plugins.settings.hideSSLSettings">
             <div class="form-group">
                 <label>SSL certificate file</label>
                 <div class="row">
@@ -96,7 +96,7 @@
 
             <hr/>
 
-            <div class="form-group">
+            <div class="form-group" ng:show="!customization.plugins.settings.hideSSLClientAuthSettings">
                 <label>SSL client authentication</label>
                 <div>
                     <span checkbox ng:model="config.data.ssl.client_auth.enable" text="Enable client authentication"></span>
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="form-group" ng:show="config.data.ssl.client_auth.enable">
+            <div class="form-group" ng:show="config.data.ssl.client_auth.enable && !customization.plugins.settings.hideSSLClientAuthSettings">
                 <label>SSL client certificates</label>
                 <div class="alert alert-warning" ng:show="config.data.ssl.client_auth.certificates.length == 0">
                     <i class="fa fa-warning"></i> No certificates are created yet.
@@ -190,9 +190,9 @@
             </div>
         </div>
 
-        <hr />
+        <hr ng:show="!customization.plugins.settings.hideSSLSettings" />
 
-        <div class="form-group">
+        <div class="form-group" ng:show="!customization.plugins.core.hidePersonaLogin">
             <label>E-mail authentication</label>
             <div class="help-text">
                 Allows login with a confirmed e-mail address via <a href="https://login.persona.org/about" target="_blank">Mozilla Persona</a> auth service. Requires server-side internet access.

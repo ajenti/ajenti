@@ -31,6 +31,9 @@ class BaseConfig(object):
         """
         raise NotImplementedError()
 
+    def ensure_structure(self):
+        self.data.setdefault('name', None)
+
 
 @service
 class UserConfig(BaseConfig):

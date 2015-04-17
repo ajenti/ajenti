@@ -16,7 +16,7 @@
         <script src="%(prefix)s/resources/all.js" type="text/javascript"></script>
         <script src="%(prefix)s/resources/all.partials.js" type="text/javascript"></script>
     </head>
-    <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}}">
+    <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}} {{customization.plugins.core.bodyClass}}">
         <div class="row" ng:hide="appReady">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
@@ -36,8 +36,15 @@
                     <i class="fa fa-navicon"></i>
                 </a>
 
+                <a class="navbar-brand" href="/view/" ng:if="customization.plugins.core.logoURL" >
+                    <img ng:src="{{customization.plugins.core.logoURL}}" />
+                </a>
+
+
                 <a class="navbar-brand ellipsis" href="/view/">
-                    <span class="title">Ajenti</span> <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
+                    <span class="title">
+                        {{customization.plugins.core.title || 'Ajenti'}}
+                    </span> <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
                 </a>
 
                 <a ng:click="toggleWidescreen()" class="hide-phone hide-tablet navbar-btn btn btn-default btn-flat pull-right">

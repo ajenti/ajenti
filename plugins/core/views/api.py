@@ -33,7 +33,7 @@ class Handler(HttpPlugin):
                 'name': aj.config.data['name'],
                 'hostname': socket.gethostname(),
             },
-            'color': aj.config.data['color'],
+            'color': aj.config.data.get('color', None),
         }
 
     @url('/api/core/auth')

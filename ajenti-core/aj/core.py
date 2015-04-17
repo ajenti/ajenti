@@ -73,6 +73,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     aj.plugin_providers = plugin_providers or []
     logging.info('Loading config from %s', aj.config)
     aj.config.load()
+    aj.config.ensure_structure()
 
     if aj.debug:
         logging.warn('Debug mode')

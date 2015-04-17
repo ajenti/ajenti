@@ -3,6 +3,9 @@
         <div class="col-sm-4">
         </div>
         <div class="col-sm-4">
+            <div ng:if="customization.plugins.core.bigLogoURL" class="text-center">
+                <img ng:src="{{customization.plugins.core.bigLogoURL}}" />
+            </div>
             <h1 class="text-center" style="perspective: 75px">
                 <i ng:show="!working" class="fa fa-lock"></i>
                 <span ng:show="working && !success">
@@ -24,7 +27,7 @@
                     <span ng:show="mode == 'sudo'">Authenticate</span>
                 </a>
             </div>
-            <div ng:show="mode == 'normal'">
+            <div ng:show="mode == 'normal' && !customization.plugins.core.hidePersonaLogin">
                 <a ng:click="personaLogin()" ng:disabled="working" class="btn btn-default btn-block">
                     Log in with e-mail
                 </a>

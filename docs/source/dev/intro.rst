@@ -3,6 +3,21 @@
 Getting Started with Plugin Development
 ***************************************
 
+Required knowledge
+==================
+
+To build plugin's backend API:
+
+  * Python 2.x
+  * async programming with gevent (optional but recommended)
+
+To build plugin's frontend:
+
+  * CoffeeScript or JavaScript
+  * basic AngularJS knowledge (modules & controllers)
+  * basic HTML layout
+  * LESS or CSS (optional, for custom styling)
+
 Prerequisites
 =============
 

@@ -1,4 +1,4 @@
-angular.module('core').service 'favicon', ($rootScope, identity) ->
+angular.module('core').service 'favicon', ($rootScope, identity, customization) ->
     @colors = {
         red:          '#F44336'
         bluegrey:     '#607D8B'
@@ -12,7 +12,7 @@ angular.module('core').service 'favicon', ($rootScope, identity) ->
         teal:         '#009688'
     }
 
-    @set = (color) ->
+    @set = (color) =>
         canvas = document.createElement 'canvas'
         canvas.width = 16
         canvas.height = 16
@@ -31,14 +31,20 @@ angular.module('core').service 'favicon', ($rootScope, identity) ->
             context.fillRect(6, 6, 4, 4)
             context.fillRect(11, 6, 4, 4)
 
+        @setURL(canvas.toDataURL())
+
+    @setURL = (url) ->
         link = $('link[rel="shortcut icon"]')[0]
         link.type = 'image/x-icon'
-        link.href = canvas.toDataURL()
+        link.href = url
 
     @init = () ->
         @scope = $rootScope.$new()
         @scope.identity = identity
-        @scope.$watch 'identity.color', () =>
-            @set(identity.color)
+        if customization.plugins.core.faviconURL
+            @setURL(customization.plugins.core.faviconURL)
+        else
+            @scope.$watch 'identity.color', () =>
+                @set(identity.color)
 
     return this
