@@ -1,7 +1,7 @@
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
-from aj.plugins.core.api.endpoint import endpoint, EndpointError
+from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.services.api import ServiceManager, ServiceOperationError
 
 

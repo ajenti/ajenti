@@ -7,7 +7,7 @@ import aj
 from aj.api import component
 from aj.api.http import url, HttpPlugin
 
-from aj.plugins.core.api.endpoint import endpoint
+from aj.api.endpoint import endpoint
 
 
 @component(HttpPlugin)

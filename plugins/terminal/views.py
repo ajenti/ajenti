@@ -5,7 +5,7 @@ import StringIO
 
 from aj.api import *
 from aj.api.http import url, HttpPlugin, SocketEndpoint
-from aj.plugins.core.api.endpoint import endpoint
+from aj.api.endpoint import endpoint
 
 from .manager import TerminalManager
 

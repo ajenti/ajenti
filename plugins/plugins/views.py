@@ -6,7 +6,7 @@ from aj.api import *
 from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager, PluginDependency, BinaryDependency
 
-from aj.plugins.core.api.endpoint import endpoint, EndpointError
+from aj.api.endpoint import endpoint, EndpointError
 
 
 @component(HttpPlugin)

@@ -3,7 +3,7 @@ import json
 from aj.api import *
 from aj.api.http import url, HttpPlugin
 
-from aj.plugins.core.api.endpoint import endpoint
+from aj.api.endpoint import endpoint
 from aj.plugins.network.api import NetworkManager
 
 

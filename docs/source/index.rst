@@ -30,6 +30,7 @@ Python API Reference
    ref/aj
    ref/aj.api
    ref/aj.api.http
+   ref/aj.api.endpoint
    ref/aj.config
    ref/aj.core
    ref/aj.http
@@ -53,7 +54,6 @@ Python Plugin API Reference
 ---------------------------
 
 .. toctree::
-   ref/aj.plugins.core.api.endpoint
    ref/aj.plugins.core.api.push
    ref/aj.plugins.core.api.sidebar
    ref/aj.plugins.core.api.tasks

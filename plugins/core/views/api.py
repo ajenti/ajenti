@@ -9,7 +9,7 @@ from aj.api import component
 from aj.api.http import url, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 
-from aj.plugins.core.api.endpoint import endpoint
+from aj.api.endpoint import endpoint
 from aj.plugins.core.api.sidebar import Sidebar
 from aj.plugins.core.api.navbox import Navbox
 

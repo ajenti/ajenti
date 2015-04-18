@@ -6,7 +6,7 @@ from aj.api.http import url, HttpPlugin
 from aj.config import UserConfig
 from aj.auth import AuthenticationProvider
 
-from aj.plugins.core.api.endpoint import endpoint, EndpointReturn
+from aj.api.endpoint import endpoint, EndpointReturn
 
 
 @component(HttpPlugin)
