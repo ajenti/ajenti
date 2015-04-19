@@ -35,8 +35,8 @@ class Augeas(augeas.Augeas):
     Don't forget to call :func:`.load()` afterwards.
     """
 
-    def __init__(self, modules=[]):
-        augeas.Augeas.__init__(self, flags=augeas.Augeas.NO_MODL_AUTOLOAD | augeas.Augeas.NO_LOAD)
+    def __init__(self, modules=[], loadpath=None):
+        augeas.Augeas.__init__(self, loadpath=loadpath, flags=augeas.Augeas.NO_MODL_AUTOLOAD | augeas.Augeas.NO_LOAD)
         for module in modules:
             path = '/augeas/load/%s' % module['name']
             self.set(path + '/lens', module['lens'])

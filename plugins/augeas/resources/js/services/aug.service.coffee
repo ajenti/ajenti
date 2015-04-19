@@ -45,11 +45,17 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
         relativize: (path) ->
             return path.substring(@root.path.length + 1)
 
-        get: (path) ->
+        getNode: (path) ->
             matches = @matchNodes(path)
             if matches.length == 0
                 return null
-            return matches[0].value
+            return matches[0]
+
+        get: (path) ->
+            node = @getNode(path)
+            if not node
+                return null
+            return node.value
 
         set: (path, value, node) ->
             if not node
@@ -77,12 +83,19 @@ angular.module('ajenti.augeas').service 'AugeasConfig', () ->
 
             @set(remainder, value, child)
 
-        model: (path) ->
+        setd: (path, value) ->
+            if not value
+                @remove(path)
+            else
+                @set(path, value)
+
+        model: (path, setd) ->
+            setfx = (p, v) => if setd then @setd(p, v) else @set(p, v)
             fx = (value) =>
-                #console.log 'fx', path, value
                 if angular.isDefined(value)
-                    @set(path, value)
+                    setfx(path, value)
                 return @get(path)
+
             return fx
 
         insert: (path, value, index) ->

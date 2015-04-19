@@ -1,4 +1,4 @@
-angular.module('ajenti.services').controller 'ServicesIndexController', ($scope, notify, pageTitle, services) ->
+angular.module('ajenti.services').controller 'ServicesIndexController', ($scope, $routeParams, notify, pageTitle, services) ->
     pageTitle.set('Services')
 
     $scope.services = []
@@ -7,6 +7,8 @@ angular.module('ajenti.services').controller 'ServicesIndexController', ($scope,
         $scope.managers = managers
 
         for manager in $scope.managers
+            if $routeParams.managerId and manager.id != $routeParams.managerId
+                continue
             services.getServices(manager.id).then (services) ->
                 for service in services
                     $scope.services.push service

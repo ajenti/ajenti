@@ -6,14 +6,12 @@ from aj.api import component
 from aj.api.http import url, HttpPlugin
 
 from aj.api.endpoint import endpoint, EndpointError
-from aj.plugins.datetime.api import TZManager
 
 
 @component(HttpPlugin)
 class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
-        self.manager = TZManager.any(self.context)
 
     @url(r'/api/datetime/tz/get')
     @endpoint(api=True)
@@ -43,9 +41,6 @@ class Handler(HttpPlugin):
     @url(r'/api/datetime/time/sync')
     @endpoint(api=True)
     def handle_api_time_sync(self, http_context):
-        if subprocess.call(['which', 'ntpdate']) != 0:
-            raise EndpointError('ntpdate utility is not installed')
-            
         try:
             subprocess.check_call(['ntpdate', '0.pool.ntp.org'])
         except Exception as e:

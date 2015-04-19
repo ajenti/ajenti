@@ -1,5 +1,6 @@
 import subprocess
 
+import aj
 from aj.api import component
 from aj.plugins.augeas.api import Augeas
 from aj.plugins.network.api import NetworkManager
@@ -11,6 +12,10 @@ from .ifconfig import ifconfig_up, ifconfig_down, ifconfig_get_ip, ifconfig_get_
 class DebianNetworkManager(NetworkManager):
     path = '/etc/network/interfaces'
     aug_path = '/files' + path
+
+    @classmethod
+    def __verify__(cls):
+        return aj.platform in ['debian']
 
     def __init__(self, context):
         NetworkManager.__init__(self, context)

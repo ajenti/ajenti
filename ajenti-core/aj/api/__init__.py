@@ -1,4 +1,4 @@
-from aj.api.di import interface, component, service, Context
+from aj.api.di import interface, component, service, Context, NoImplementationError
 
 
 class PluginInfo(object):
@@ -35,4 +35,5 @@ __all__ = [
     'service',
     'Context',
     'PluginInfo',
+    'NoImplementationError',
 ]

@@ -24,4 +24,4 @@ class Widget(object):
         """
         Override this to return the widget value for the given config dict.
         """
-        raise NotImplementedError()
+        raise NotImplementedError

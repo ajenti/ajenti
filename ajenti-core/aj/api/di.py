@@ -69,6 +69,17 @@ def service(cls):
     return cls
 
 
+class NoImplementationError(Exception):
+    def __init__(self, interface):
+        self.interface = interface
+
+    def __str__(self):
+        return u'No platform-dependent implementation for [%s] is available' % self.interface.__name__
+
+    def __repr__(self):
+        return unicode(self)
+
+
 def interface(cls):
     '''
     Marks the decorated class as an abstract interface.
@@ -85,7 +96,7 @@ def interface(cls):
 
         .. py:method:: .any(context)
 
-            Returns the first suitable instance implementing this ``@interface`` or raises :exc:`NotImplementedError` if none is available.
+            Returns the first suitable instance implementing this ``@interface`` or raises :exc:`NoImplementationError` if none is available.
 
             :param context: context to look in
             :type context: :class:`Context`
@@ -112,7 +123,7 @@ def interface(cls):
         instances = cls.all(context)
         if instances:
             return instances[0]
-        raise NotImplementedError
+        raise NoImplementationError(cls)
     cls.any = _any.__get__(cls)
 
     def _classes(cls):

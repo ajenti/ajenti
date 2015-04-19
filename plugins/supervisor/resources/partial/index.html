@@ -1,0 +1,219 @@
+<br/>
+
+<div class="list-group">
+    <div ng:repeat="path in config.match('program:.*')" class="list-group-item list-group-item-large">
+        <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
+            <i class="fa fa-trash-o"></i>
+        </a>
+        <a class="list-group-btn" ng:click="$parent.configuringProcessPath = path" title="Configure">
+            <i class="fa fa-cog"></i>
+        </a>
+        <a class="list-group-btn" ng:click="stop(extractName(path))" ng:show="processServices[extractName(path)].state == 'RUNNING'">
+            <i class="fa fa-stop"></i>
+        </a>
+        <a class="list-group-btn" ng:click="start(extractName(path))" ng:show="processServices[extractName(path)].state != 'RUNNING'">
+            <i class="fa fa-play"></i>
+        </a>
+        <div class="list-group-main"> 
+            <div class="list-group-icon">
+                <i class="fa fa-fw fa-cog"></i> 
+            </div>
+            <h4 class="list-group-item-heading">
+                {{ extractName(path) }}
+            </h4>
+            <p class="list-group-item-text">
+                <span ng:show="processServices[extractName(path)].state == 'RUNNING'" class="label label-success">
+                    <i class="fa fa-play"></i> RUNNING 
+                </span>
+                <span ng:show="processServices[extractName(path)].state != 'RUNNING'" class="label label-warning">
+                    {{processServices[extractName(path)].state}}
+                </span>
+                &nbsp;
+                {{ config.get(path + '/command') }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info" ng:show="config.match('program:.*').length == 0">
+    <i class="fa fa-info-circle"></i> No processes defined
+</div>
+
+<div class="input-group">
+    <input ng:model="newProcessName" ng:enter="addProcess()" placeholder="New process name" class="form-control" />
+    <div class="input-group-btn">
+        <a ng:click="addProcess()" class="btn btn-primary ">Add</a>
+    </div>
+</div>
+
+
+<div class="floating-toolbar-padder"></div>
+
+<floating-toolbar>
+    <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
+</floating-toolbar>
+
+<dialog ng:show="configuringProcessPath">
+    <div class="modal-header">
+        <h4>{{extractName(configuringProcessPath)}}</h4>
+    </div>
+    <div class="modal-body scrollable">
+        <tabset>
+            <tab heading="General">
+                <br/>
+                <div class="form-group">
+                    <label>Command</label>
+                    <input 
+                        ng:model="config.model(configuringProcessPath + '/command')" 
+                        ng:model-options="{getterSetter: true}"
+                        type="text" 
+                        class="form-control" />
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Number of processes</label>
+                            <input 
+                                ng:model="config.model(configuringProcessPath + '/numprocs', true)" 
+                                ng:model-options="{getterSetter: true}"
+                                type="number" 
+                                class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Process name template</label>
+                            <input 
+                                ng:model="config.model(configuringProcessPath + '/process_name', true)" 
+                                ng:model-options="{getterSetter: true}"
+                                type="text" 
+                                class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>User account</label>
+                    <select 
+                        ng:model="config.model(configuringProcessPath + '/user', true)",
+                        ng:model-options="{getterSetter: true}"
+                        class="form-control"
+                    >
+                        <option ng:repeat="x in systemUsers">{{x.name}}</option>
+                    </select>
+                    <!-- ngOption doesn't work with getterSetter -->
+                </div>
+                <div class="form-group">
+                    <label>Environment</label>
+                    <input 
+                        ng:model="config.model(configuringProcessPath + '/environment', true)" 
+                        ng:model-options="{getterSetter: true}"
+                        type="text" 
+                        placeholder='TERM="linux",KEY="value"'
+                        class="form-control" />
+                </div>
+                <div class="form-group"> <!-- TODO selector -->
+                    <label>Working directory</label>
+                    <input 
+                        ng:model="config.model(configuringProcessPath + '/directory', true)" 
+                        ng:model-options="{getterSetter: true}"
+                        type="text" 
+                        class="form-control" />
+                </div>
+                <div class="form-group"> <!-- TODO selector -->
+                    <label>umask</label>
+                    <input 
+                        ng:model="config.model(configuringProcessPath + '/umask', true)" 
+                        ng:model-options="{getterSetter: true}"
+                        type="text" 
+                        class="form-control" />
+                </div>
+            </tab>
+            <tab heading="Startup">
+                <br/>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Autostart</label>
+                            <div>
+                                <span 
+                                    checkbox 
+                                    ng:model="config.model(configuringProcessPath + '/autostart', true)",
+                                    ng:model-options="{getterSetter: true}"
+                                    toggle="['false', 'true']"
+                                    text="Enable"
+                                ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Autorestart</label>
+                            <select 
+                                ng:model="config.model(configuringProcessPath + '/autorestart', true)",
+                                ng:model-options="{getterSetter: true}"
+                                class="form-control"
+                            >
+                                <option value="true">Yes</option>
+                                <option value="unexpected">On crash</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Seconds to start</label>
+                            <input 
+                                ng:model="config.model(configuringProcessPath + '/startsecs', true)" 
+                                ng:model-options="{getterSetter: true}"
+                                type="number" 
+                                class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Seconds to stop</label>
+                            <input 
+                                ng:model="config.model(configuringProcessPath + '/stopwaitsecs', true)" 
+                                ng:model-options="{getterSetter: true}"
+                                type="number" 
+                                class="form-control" />
+                            <br/>
+                            <div>
+                                <span 
+                                    checkbox 
+                                    ng:model="config.model(configuringProcessPath + '/stopasgroup', true)",
+                                    ng:model-options="{getterSetter: true}"
+                                    toggle="['false', 'true']"
+                                    text="Terminate children"
+                                ></span>
+                            </div>
+                            <div>
+                                <span 
+                                    checkbox 
+                                    ng:model="config.model(configuringProcessPath + '/killasgroup', true)",
+                                    ng:model-options="{getterSetter: true}"
+                                    toggle="['false', 'true']"
+                                    text="Kill children"
+                                ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Start retries</label>
+                            <input 
+                                ng:model="config.model(configuringProcessPath + '/startretries', true)" 
+                                ng:model-options="{getterSetter: true}"
+                                type="number" 
+                                class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <div class="modal-footer">
+        <a ng:click="$parent.configuringProcessPath = null; save()" class="btn btn-default btn-flat">Save</a>
+        <a ng:click="$parent.configuringProcessPath = null" class="btn btn-default btn-flat">Close</a>
+    </div>
+</dialog>

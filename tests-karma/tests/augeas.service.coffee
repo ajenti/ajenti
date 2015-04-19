@@ -96,6 +96,13 @@ describe 'augeas config', () ->
                 '/test/root/multi[3]'
             ])
 
+    it 'getNode()', () ->
+        inject (AugeasConfig) ->
+            aug = AugeasConfig.get(testTreeData)
+            expect(aug.getNode('/test/root/nope')).to.equal(null)
+            expect(aug.getNode('/test/root/multi[2]').value).to.equal(2)
+            expect(aug.getNode('multi[2]').value).to.equal(2)
+
     it 'get()', () ->
         inject (AugeasConfig) ->
             aug = AugeasConfig.get(testTreeData)

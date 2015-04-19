@@ -17,6 +17,20 @@ class ItemProvider(SidebarItemProvider):
             },
             {
                 'attach': None,
+                'id': 'category:tools',
+                'name': 'Tools',
+                'children': [
+                ]
+            },
+            {
+                'attach': None,
+                'id': 'category:software',
+                'name': 'Software',
+                'children': [
+                ]
+            },
+            {
+                'attach': None,
                 'id': 'category:system',
                 'name': 'System',
                 'children': [
@@ -24,8 +38,8 @@ class ItemProvider(SidebarItemProvider):
             },
             {
                 'attach': None,
-                'id': 'category:tools',
-                'name': 'Tools',
+                'id': 'category:other',
+                'name': 'Other',
                 'children': [
                 ]
             },

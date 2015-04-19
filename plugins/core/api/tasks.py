@@ -152,7 +152,7 @@ class Task(object):
         """
         Override this with your task's logic.
         """
-        raise NotImplementedError()
+        raise NotImplementedError
 
     def push(self, plugin, message):
         """

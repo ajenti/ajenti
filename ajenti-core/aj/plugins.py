@@ -7,7 +7,7 @@ import traceback
 import yaml
 
 import aj
-from aj.api import service, PluginInfo
+from aj.api import service, PluginInfo, NoImplementationError
 from aj.util import public
 
 
@@ -72,16 +72,16 @@ class PluginLoadError(Exception):
 
 @public
 class PluginCrashed(PluginLoadError):
-    def __init__(self, e):
+    def __init__(self, exception):
         PluginLoadError.__init__(self)
-        self.e = e
+        self.exception = exception
         self.traceback = traceback.format_exc()
 
     def describe(self):
-        return 'Crashed: %s' % repr(self.e)
+        return 'Crashed: %s' % repr(self.exception)
 
     def __str__(self):
-        return 'crashed: %s' % repr(self.e)
+        return 'crashed: %s' % repr(self.exception)
 
 
 @public
@@ -311,8 +311,11 @@ class PluginManager(object):
         except PluginDependency.Unsatisfied as e:
             raise
         except PluginCrashed as e:
-            logging.error('[%s] Plugin crashed: "%s"', name, e)
-            logging.warn(e.traceback)
+            if type(e.exception) is NoImplementationError:
+                logging.error('[%s] %s', name, e.exception)
+            else:
+                logging.error('[%s] Plugin crashed: "%s"', name, e)
+                logging.warn(e.traceback)
             self.__crashes[name] = e
         except Dependency.Unsatisfied as e:
             logging.warn('[%s] skipping due to "%s"', name, e)

@@ -3,27 +3,29 @@ angular.module('core').directive 'checkbox', () ->
         restrict: 'A'
         scope: {
             text: '@'
-            ngModel: '=?'
-            ngChecked: '=?'
+            toggle: '='
         }
+        require: 'ngModel',
         template: """
             <i class="fa fa-square-o off"></i><i class="fa fa-check-square on"></i> {{text}}
         """
-        link: ($scope, element, attr) ->
+        link: ($scope, element, attr, ngModelController) ->
             classToToggle = 'active'
+
+            ngModelController.$render = () ->
+                if ngModelController.$viewValue
+                    element.addClass(classToToggle)
+                else
+                    element.removeClass(classToToggle)
+
             element.bind 'click', () ->
                 $scope.$apply (scope) ->
-                    if angular.isDefined($scope.ngChecked)
-                        return
-                    $scope.ngModel = !$scope.ngModel
+                    ngModelController.$setViewValue(!ngModelController.$viewValue)
+                    ngModelController.$render()
 
-            $scope.$watch 'ngModel', (newValue) ->
-                if not attr.ngModel
-                    return
-                if newValue then element.addClass(classToToggle) else element.removeClass(classToToggle)
-
-            $scope.$watch 'ngChecked', (newValue) ->
-                if not attr.ngChecked
-                    return
-                if newValue then element.addClass(classToToggle) else element.removeClass(classToToggle)
+            if $scope.toggle
+                ngModelController.$formatters.push (v) ->
+                    return v == $scope.toggle[1]
+                ngModelController.$parsers.push (v) ->
+                    return if v then $scope.toggle[1] else $scope.toggle[0]
     }

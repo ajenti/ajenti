@@ -7,19 +7,20 @@ from aj.plugins.datetime.api import TZManager
 
 
 @component(TZManager)
-class DebianTZManager(TZManager):
+class CentOSTZManager(TZManager):
     @classmethod
     def __verify__(cls):
-        return aj.platform in ['debian']
+        return aj.platform in ['centos']
 
     def __init__(self, context):
         TZManager.__init__(self, context)
 
     def get_tz(self):
-        return open('/etc/timezone').read().strip()
+        return os.path.realpath('/etc/localtime')[len('/usr/share/zoneinfo/'):] if os.path.islink('/etc/localtime') else None
 
     def set_tz(self, name):
-        open('/etc/timezone', 'w').write(name + '\n')
+        if not name:
+            return
         tz = os.path.join('/usr/share/zoneinfo/', name)
         if os.path.exists('/etc/localtime'):
             os.unlink('/etc/localtime')
