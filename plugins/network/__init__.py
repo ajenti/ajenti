@@ -1,4 +1,5 @@
 import api
+import managers.centos_manager
 import managers.debian_manager
 
 # assert

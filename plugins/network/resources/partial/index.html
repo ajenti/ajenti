@@ -111,7 +111,7 @@
                         <label>Gateway</label>
                         <input ng:model="configuringInterface.gateway" type="text" class="form-control" />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng:if="configuringInterface.metric !== undefined">
                         <label>Metric</label>
                         <input ng:model="configuringInterface.metric" type="number" class="form-control" />
                     </div>
@@ -120,7 +120,7 @@
                 <div ng:show="configuringInterface.addressing == 'dhcp'">
                     <div class="form-group">
                         <label>Client ID</label>
-                        <input ng:model="configuringInterface.client" type="text" class="form-control" />
+                        <input ng:model="configuringInterface.dhcpClient" type="text" class="form-control" />
                     </div>
                 </div>
 
@@ -140,14 +140,14 @@
                     <label>MAC</label>
                     <input ng:model="configuringInterface.hwaddress" type="text" class="form-control" />
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng:if="configuringInterface.mtu !== undefined">
                     <label>MTU</label>
                     <input ng:model="configuringInterface.mtu" type="number" class="form-control" />
                 </div>
                 
                 <hr />
 
-                <div>
+                <div ng:if="configuringInterface.up_script !== undefined">
                     <div class="form-group">
                         <label>Pre-up script</label>
                         <input ng:model="configuringInterface.pre_up_script" type="text" class="form-control" />
