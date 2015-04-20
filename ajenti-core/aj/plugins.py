@@ -7,7 +7,7 @@ import traceback
 import yaml
 
 import aj
-from aj.api import service, PluginInfo, NoImplementationError
+from aj.api import service
 from aj.util import public
 
 
@@ -158,6 +158,24 @@ class PluginDependency(Dependency):
 
 
 @public
+class OptionalPluginDependency(Dependency):
+    description = 'Plugin'
+
+    class Unsatisfied(Dependency.Unsatisfied):
+        def reason(self):
+            return '%s' % self.dependency.plugin_name
+
+    def __init__(self, plugin_name=None):
+        self.plugin_name = plugin_name
+
+    def is_satisfied(self):
+        return True
+
+    def __str__(self):
+        return self.plugin_name
+
+
+@public
 class BinaryDependency(Dependency):
     description = 'Application binary'
 
@@ -200,29 +218,31 @@ class PluginManager(object):
     Handles plugin loading and unloading
     """
 
-    __plugins = {}
-    __loaded_plugins = []
-    __info = {}
+    __plugin_info = {}
     __crashes = {}
 
     def __init__(self, context):
         self.context = context
 
-    # Plugin loader
-    def get_all(self):
-        return self.__plugins
-
     def get_crash(self, name):
         return self.__crashes.get(name, None)
 
     def __getitem__(self, name):
-        return self.__plugins[name]
+        return self.__plugin_info[name]
+
+    def __iter__(self):
+        return iter(self.__plugin_info)
+
+    def __len__(self):
+        return len(self.__plugin_info)
 
     def get_content_path(self, name, path):
-        return os.path.join(self[name].path, path)
+        return os.path.join(self[name]['path'], path)
 
     def get_loaded_plugins_list(self):
-        return self.__loaded_plugins
+        for plugin in self:
+            if self[plugin]['imported']:
+                yield plugin['info']['name']
 
     def load_all_from(self, providers):
         """
@@ -235,91 +255,98 @@ class PluginManager(object):
         for provider in providers:
             found += provider.provide()
 
-        self.__info = {}
+        self.__plugin_info = {}
         for path in found:
             yml_info = yaml.load(open(os.path.join(path, 'plugin.yml')))
-            self.__info[yml_info['name']] = {
+            self.__plugin_info[yml_info['name']] = {
                 'info': yml_info,
-                'path': path
+                'path': path,
+                'imported': False,
             }
 
-        for plugin, info in self.__info.iteritems():
-            if plugin not in self.__plugins:
-                self.load_recursive(plugin, info)
+        logging.info('Discovered %i plugins', len(self.__plugin_info))
 
-    def load_recursive(self, name, info):
+        load_order = []
+        to_load = list(self.__plugin_info.values())
+
         while True:
+            delta = 0
+            for plugin in to_load:
+                for dep in plugin['info']['dependencies']:
+                    if isinstance(dep, PluginDependency) and dep.plugin_name not in load_order:
+                        break
+                    if isinstance(dep, OptionalPluginDependency) and dep.plugin_name not in load_order:
+                        break
+                else:
+                    load_order.append(plugin['info']['name'])
+                    to_load.remove(plugin)
+                    delta += 1
+
+            if delta == 0:
+                # less strict
+                for plugin in to_load:
+                    for dep in plugin['info']['dependencies']:
+                        if isinstance(dep, PluginDependency) and dep.plugin_name not in load_order:
+                            break
+                    else:
+                        load_order.append(plugin['info']['name'])
+                        to_load.remove(plugin)
+                        delta += 1
+
+            if delta == 0:
+                break
+
+        for plugin in to_load:
+            for dep in plugin['info']['dependencies']:
+                if isinstance(dep, PluginDependency) and dep.plugin_name not in load_order:
+                    self.__crashes[plugin['info']['name']] = dep.build_exception()
+                    logging.warn('Not loading [%s] because [%s] is unavailable', plugin['info']['name'], dep.plugin_name)
+
+
+        for name in list(load_order):
             try:
-                return self.load(name, info)
-            except PluginDependency.Unsatisfied as e:
-                if e.dependency.plugin_name in self.get_all():
-                    if e.dependency.plugin_name in self.__crashes:
-                        self.__crashes[name] = e
-                        logging.warn(
-                            'Plugin dependency unsatisfied: [%s] -> [%s]',
-                            name,
-                            e.dependency.plugin_name
-                        )
-                        return
-                if e.dependency.plugin_name not in self.__info:
-                    logging.warn(
-                        'Plugin dependency unsatisfied: [%s] -> [%s]',
-                        name,
-                        e.dependency.plugin_name
-                    )
-                    return
-                logging.debug('Preloading plugin dependency: [%s]->[%s]', name, e.dependency.plugin_name)
-                if not self.load_recursive(
-                        e.dependency.plugin_name,
-                        self.__info[e.dependency.plugin_name]
-                ):
-                    self.__crashes[name] = e
-                    return
+                for dependency in self[name]['info']['dependencies']:
+                    if not isinstance(dependency, PluginDependency):
+                        dependency.check()
+            except Dependency.Unsatisfied as e:
+                self.__crashes[name] = e
+                logging.warn('Not loading [%s] because dependency failed: %s', name, e)
+                load_order.remove(name)
 
-    def load(self, name, info):
-        """
-        Loads given plugin
-        """
-        logging.debug('Loading plugin "%s"', name)
-        try:
-            plugin_info = PluginInfo(**info['info'])
-            self.__plugins[name] = plugin_info
-            plugin_info.active = False
-            plugin_info.name = name
-            plugin_info.path = info['path']
+        logging.debug('Resolved load order for %i plugins: %s', len(load_order), load_order)
 
-            for dependency in plugin_info.dependencies:
-                dependency.check()
-
-            plugin_info.active = True
-
-            module_path, module_name = os.path.split(info['path'])
-
+        for name in list(load_order):
             try:
-                imp.load_module(
-                    'aj.plugins.%s' % name,
-                    *imp.find_module(module_name, [module_path])
-                )
+                self.__import_plugin_module(name, self[name])
             except Exception as e:
-                raise PluginCrashed(e)
+                self.__crashes[name] = PluginCrashed(e)
+                logging.error('[%s]: plugin import failed: %s', name, e)
+                load_order.remove(name)
 
-            if name in self.__loaded_plugins:
-                self.__loaded_plugins.remove(name)
-            self.__loaded_plugins.append(name)
+        for name in list(load_order):
+            try:
+                self.__init_plugin_module(name, self[name])
+            except Exception as e:
+                self.__crashes[name] = PluginCrashed(e)
+                logging.error('[%s]: plugin init failed: %s', name, e)
+                load_order.remove(name)
 
-            return True
-        except PluginDependency.Unsatisfied as e:
-            raise
-        except PluginCrashed as e:
-            if type(e.exception) is NoImplementationError:
-                logging.error('[%s] %s', name, e.exception)
-            else:
-                logging.error('[%s] Plugin crashed: "%s"', name, e)
-                logging.warn(e.traceback)
-            self.__crashes[name] = e
-        except Dependency.Unsatisfied as e:
-            logging.warn('[%s] skipping due to "%s"', name, e)
-            self.__crashes[name] = e
-        except PluginLoadError as e:
-            logging.warn('[%s] Plugin failed to load: "%s"', name, e)
-            self.__crashes[name] = e
+
+        logging.info('Loaded %i plugins', len(load_order))
+
+    def __import_plugin_module(self, name, info):
+        logging.debug('Importing plugin "%s"', name)
+        module_path, module_name = os.path.split(info['path'])
+
+        info['module'] = imp.load_module(
+            'aj.plugins.%s' % name,
+            *imp.find_module(module_name, [module_path])
+        )
+        info['imported'] = True
+
+    def __init_plugin_module(self, name, info):
+        logging.debug('Initializing plugin "%s"', name)
+        mod = info['module']
+        if hasattr(mod, 'init'):
+            mod.init(self)
+        info['initialized'] = True

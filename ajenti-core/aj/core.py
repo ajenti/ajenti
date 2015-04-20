@@ -90,7 +90,7 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
 
     # Load plugins
     PluginManager.get(aj.context).load_all_from(aj.plugin_providers)
-    if len(PluginManager.get(aj.context).get_all()) == 0:
+    if len(PluginManager.get(aj.context)) == 0:
         logging.warn('No plugins were loaded!')
 
     if aj.config.data['bind']['mode'] == 'unix':

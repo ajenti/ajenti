@@ -1,3 +1,6 @@
 import main
 import views
-import widget
+
+def init(plugin_manager):
+    if 'dashboard' in plugin_manager and plugin_manager['dashboard']['imported']:
+        import widget

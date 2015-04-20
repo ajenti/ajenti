@@ -48,11 +48,12 @@ class Handler(HttpPlugin):
                         logging.error('Resource compilation failed')
                         logging.error(o + e)
 
-        path = PluginManager.get(aj.context).get_content_path('core', 'content/pages/index.html')
+        manager = PluginManager.get(aj.context)
+        path = manager.get_content_path('core', 'content/pages/index.html')
         content = open(path).read() % {
             'prefix': http_context.prefix,
             'plugins': json.dumps(
-                dict((k, v.title) for k, v in PluginManager.get(aj.context).get_all().iteritems())
+                dict((manager[n]['info']['name'], manager[n]['info']['title']) for n in manager)
             ),
             'version': aj.version,
             'platform': aj.platform,

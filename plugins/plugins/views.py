@@ -39,18 +39,19 @@ class Handler(HttpPlugin):
     def handle_api_list_installed(self, http_context):
         r = []
         manager = PluginManager.get(aj.context)
-        for plugin in manager.get_all().values():
+        for name in manager:
+            plugin = manager[name]
             r.append({
-                'name': plugin.name,
-                'active': plugin.active,
-                'crash': self.__serialize_exception(manager.get_crash(plugin.name)),
-                'path': plugin.path,
-                'author': plugin.author,
-                'author_email': plugin.email,
-                'url': plugin.url,
-                'icon': plugin.icon,
-                'version': plugin.version,
-                'title': plugin.title,
+                'name': plugin['info']['name'],
+                'imported': plugin['imported'],
+                'crash': self.__serialize_exception(manager.get_crash(plugin['info']['name'])),
+                'path': plugin['path'],
+                'author': plugin['info']['author'],
+                'author_email': plugin['info']['email'],
+                'url': plugin['info']['url'],
+                'icon': plugin['info']['icon'],
+                'version': plugin['info']['version'],
+                'title': plugin['info']['title'],
             })
         return r
 
