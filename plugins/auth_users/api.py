@@ -1,9 +1,9 @@
 import logging
 import os
 import scrypt
+from jadi import component
 
 import aj
-from aj.api import component
 from aj.auth import AuthenticationProvider
 
 

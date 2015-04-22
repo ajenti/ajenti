@@ -1,8 +1,8 @@
 import json
 import os
+from jadi import component
 
 import aj
-from aj.api import *
 from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager
 

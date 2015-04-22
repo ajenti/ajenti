@@ -2,7 +2,7 @@ from dbus.exceptions import DBusException
 from upstart.system import UpstartSystem, DirectUpstartBus
 from upstart.job import UpstartJob
 
-from aj.api import *
+from jadi import component
 from aj.plugins.services.api import ServiceManager, Service, ServiceOperationError
 
 

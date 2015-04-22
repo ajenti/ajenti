@@ -1,5 +1,6 @@
+from jadi import component
+
 import aj
-from aj.api import component
 from aj.api.http import url, HttpPlugin
 
 from aj.api.endpoint import endpoint

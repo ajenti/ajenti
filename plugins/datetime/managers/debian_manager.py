@@ -1,8 +1,8 @@
 import os
 import pytz
+from jadi import component
 
 import aj
-from aj.api import component
 from aj.plugins.datetime.api import TZManager
 
 

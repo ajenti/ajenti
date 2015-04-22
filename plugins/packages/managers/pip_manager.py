@@ -5,7 +5,7 @@ except ImportError:
 
 import pip
 
-from aj.api import *
+from jadi import component
 from aj.plugins.packages.api import PackageManager, Package
 
 

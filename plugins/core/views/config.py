@@ -1,7 +1,7 @@
 import json
+from jadi import component
 
 import aj
-from aj.api import component
 from aj.api.http import url, HttpPlugin
 from aj.config import UserConfig
 from aj.auth import AuthenticationProvider

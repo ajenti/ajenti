@@ -2,8 +2,7 @@ import gevent
 import logging
 import re
 import types
-
-from aj.api import interface
+from jadi import interface
 
 
 def url(pattern):

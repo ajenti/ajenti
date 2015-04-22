@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import json
 import StringIO
 
-from aj.api import *
+from jadi import component
 from aj.api.http import url, HttpPlugin, SocketEndpoint
 from aj.api.endpoint import endpoint
 

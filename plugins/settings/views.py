@@ -4,7 +4,7 @@ import socket
 from OpenSSL.crypto import *
 
 import aj
-from aj.api import component
+from jadi import component
 from aj.api.http import url, HttpPlugin
 
 from aj.api.endpoint import endpoint

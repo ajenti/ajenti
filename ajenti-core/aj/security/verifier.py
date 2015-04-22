@@ -1,5 +1,6 @@
+from jadi import service
+
 import aj
-from aj.api import service
 
 
 @service

@@ -27,8 +27,8 @@ Python API Reference
 --------------------
 
 .. toctree::
+   ref/jadi
    ref/aj
-   ref/aj.api
    ref/aj.api.http
    ref/aj.api.endpoint
    ref/aj.config

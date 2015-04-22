@@ -7,11 +7,10 @@ import gevent
 import traceback
 import setproctitle
 import sys
-
 from gevent.event import Event
+from jadi import Context
 
 import aj
-from aj.api import Context
 from aj.api.http import SocketEndpoint
 from aj.http import HttpMiddlewareAggregator, HttpContext
 from aj.auth import AuthenticationMiddleware, AuthenticationService

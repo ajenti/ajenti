@@ -5,9 +5,9 @@ import subprocess
 import sys
 import traceback
 import yaml
+from jadi import service
 
 import aj
-from aj.api import service
 from aj.util import public
 
 
@@ -302,7 +302,6 @@ class PluginManager(object):
                     self.__crashes[plugin['info']['name']] = dep.build_exception()
                     logging.warn('Not loading [%s] because [%s] is unavailable', plugin['info']['name'], dep.plugin_name)
 
-
         for name in list(load_order):
             try:
                 for dependency in self[name]['info']['dependencies']:
@@ -321,6 +320,7 @@ class PluginManager(object):
             except Exception as e:
                 self.__crashes[name] = PluginCrashed(e)
                 logging.error('[%s]: plugin import failed: %s', name, e)
+                logging.error(traceback.format_exc())
                 load_order.remove(name)
 
         for name in list(load_order):
@@ -329,8 +329,8 @@ class PluginManager(object):
             except Exception as e:
                 self.__crashes[name] = PluginCrashed(e)
                 logging.error('[%s]: plugin init failed: %s', name, e)
+                logging.error(traceback.format_exc())
                 load_order.remove(name)
-
 
         logging.info('Loaded %i plugins', len(load_order))
 

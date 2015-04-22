@@ -3,9 +3,9 @@ import json
 import os
 import socket
 import traceback
+from jadi import component
 
 import aj
-from aj.api import component
 from aj.api.http import url, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
 

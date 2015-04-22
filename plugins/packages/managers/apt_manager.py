@@ -3,7 +3,7 @@ import apt
 import apt.cache
 from apt.progress.base import AcquireProgress
 
-from aj.api import *
+from jadi import component
 from aj.plugins.packages.api import PackageManager, Package
 
 

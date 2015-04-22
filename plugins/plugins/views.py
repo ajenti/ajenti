@@ -2,7 +2,7 @@ import requests
 import subprocess
 
 import aj
-from aj.api import *
+from jadi import component
 from aj.api.http import url, HttpPlugin
 from aj.plugins import PluginManager, PluginDependency, BinaryDependency
 

@@ -1,8 +1,8 @@
 import logging
 import cgi
 import traceback
+from jadi import service
 
-from aj.api import service
 from aj.api.http import BaseHttpHandler, HttpPlugin
 
 

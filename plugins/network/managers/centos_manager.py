@@ -1,8 +1,8 @@
 import os
 import subprocess
+from jadi import component
 
 import aj
-from aj.api import component
 from aj.plugins.augeas.api import Augeas
 from aj.plugins.network.api import NetworkManager
 

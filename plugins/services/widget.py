@@ -1,4 +1,4 @@
-from aj.api import *
+from jadi import component
 from aj.plugins.dashboard.api import Widget
 from aj.plugins.services.api import ServiceManager
 

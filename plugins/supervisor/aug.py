@@ -1,5 +1,5 @@
 import aj
-from aj.api import component
+from jadi import component
 from aj.plugins.augeas.api import AugeasEndpoint, Augeas
 from aj.util import platform_select
 from aj.plugins import PluginManager

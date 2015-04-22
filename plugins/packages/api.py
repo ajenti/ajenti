@@ -1,4 +1,4 @@
-from aj.api import *
+from jadi import interface
 
 
 class Package(object):

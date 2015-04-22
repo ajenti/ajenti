@@ -9,9 +9,9 @@ from cookies import Cookies
 from gevent.timeout import Timeout
 from socketio.namespace import BaseNamespace
 from socketio.mixins import BroadcastMixin
+from jadi import service
 
 import aj
-from aj.api import service
 from aj.api.http import BaseHttpHandler
 from aj.gate.gate import WorkerGate
 from aj.gate.session import Session

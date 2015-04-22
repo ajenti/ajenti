@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from aj.api import service
+from jadi import service
 
 
 @service

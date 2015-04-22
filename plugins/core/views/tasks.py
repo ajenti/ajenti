@@ -1,6 +1,6 @@
 import json
+from jadi import component
 
-from aj.api import *
 from aj.api.http import url, HttpPlugin
 from aj.api.endpoint import endpoint
 from aj.plugins.core.api.tasks import TasksService

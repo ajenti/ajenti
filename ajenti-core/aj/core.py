@@ -10,6 +10,7 @@ import socket
 import sys
 import syslog
 import traceback
+from jadi import Context
 
 import aj
 import aj.plugins
@@ -17,7 +18,6 @@ from aj.auth import AuthenticationService
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager
-from aj.api import Context
 from aj.util import make_report
 from aj.util.sslsocket import SSLSocket
 from aj.util.pidfile import PidFile

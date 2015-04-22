@@ -1,6 +1,7 @@
-from aj.plugins.core.api.sidebar import *
+from jadi import component
 
-from aj.plugins.packages.api import PackageManager
+from aj.plugins.core.api.sidebar import SidebarItemProvider
+from .api import PackageManager
 
 
 @component(SidebarItemProvider)

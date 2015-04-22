@@ -7,8 +7,8 @@ import setproctitle
 import sys
 import time
 import traceback
+from jadi import service
 
-from aj.api import *
 from aj.log import set_log_params
 from aj.util import BroadcastQueue
 from aj.plugins.core.api.push import Push

@@ -4,9 +4,9 @@ import pexpect
 import pwd
 import requests
 import subprocess
+from jadi import component, service, interface
 
 import aj
-from aj.api import component, service, interface
 from aj.api.http import BaseHttpHandler
 from aj.security.verifier import ClientCertificateVerificator
 from aj.util import public

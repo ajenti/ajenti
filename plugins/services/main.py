@@ -1,4 +1,6 @@
-from aj.plugins.core.api.sidebar import *
+from jadi import component
+
+from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 from .api import ServiceManager
 

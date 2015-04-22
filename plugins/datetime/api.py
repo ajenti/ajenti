@@ -1,4 +1,4 @@
-from aj.api import interface
+from jadi import interface
 
 
 @interface

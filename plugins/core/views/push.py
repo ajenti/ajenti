@@ -1,6 +1,6 @@
 import gevent.queue
+from jadi import component
 
-from aj.api import *
 from aj.api.http import SocketEndpoint
 from aj.plugins.core.api.push import Push
 

@@ -1,4 +1,4 @@
-from aj.api import component
+from jadi import component
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 

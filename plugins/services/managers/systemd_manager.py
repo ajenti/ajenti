@@ -1,6 +1,6 @@
 import subprocess
 
-from aj.api import *
+from jadi import component
 from aj.plugins.services.api import ServiceManager, Service
 
 

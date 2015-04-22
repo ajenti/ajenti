@@ -1,7 +1,7 @@
 import logging
 import os
 
-from aj.api import *
+from jadi import service
 
 from terminal import *
 

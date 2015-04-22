@@ -35,8 +35,8 @@ check:
 	cd plugins && ajenti-dev-multitool --find-outdated
 
 upload: build
-	cd ajenti-core && ./setup.py sdist upload
-	cd ajenti-panel && ./setup.py sdist upload
+	cd ajenti-core && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
+	cd ajenti-panel && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
 
 upload-plugins: build
 	cd plugins && ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'

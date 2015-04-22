@@ -2,8 +2,7 @@ import os
 import pwd
 import stat
 import yaml
-
-from aj.api import service
+from jadi import service
 
 
 class BaseConfig(object):

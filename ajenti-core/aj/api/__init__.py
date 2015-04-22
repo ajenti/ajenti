@@ -1,4 +1,4 @@
-from aj.api.di import interface, component, service, Context, NoImplementationError
+from jadi import interface, component, service, Context, NoImplementationError
 
 
 __all__ = [

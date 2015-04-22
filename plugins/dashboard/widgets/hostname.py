@@ -1,6 +1,6 @@
 import platform
+from jadi import component
 
-from aj.api import *
 from aj.plugins.dashboard.api import Widget
 
 
