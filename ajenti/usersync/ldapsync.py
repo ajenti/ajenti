@@ -63,7 +63,7 @@ class LDAPSyncProvider (UserSyncProvider):
         users = l.search_s(
             self.classconfig['auth_dn'],
             ldap.SCOPE_SUBTREE,
-            '(|(objectClass=user)(objectClass=simpleSecurityObject))',
+            '(|(objectClass=user)(objectClass=simpleSecurityObject)(objectClass=inetOrgPerson))',
             ['cn']
         )
         for u in users:
