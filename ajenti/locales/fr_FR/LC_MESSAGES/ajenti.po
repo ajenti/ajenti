@@ -1280,23 +1280,23 @@ msgstr "Actualiser"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Dépôts"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Nom du dépôt"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Utilisateurs (lecture et écriture)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Utilisateurs (lecture seule)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
@@ -1923,11 +1923,11 @@ msgstr "Capteurs"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "uname"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Options uname"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
@@ -2631,7 +2631,7 @@ msgstr "Spéciaux"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Authentification"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"

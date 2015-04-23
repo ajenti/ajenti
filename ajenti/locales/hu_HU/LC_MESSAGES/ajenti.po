@@ -1280,27 +1280,27 @@ msgstr "Újratöltés"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Tárolók"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Tároló név"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Felhasználók (olvasás-írás)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Felhasználók (csak-olvasás)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "Nyilvános kulcs"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
@@ -1923,11 +1923,11 @@ msgstr "Szenzor"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "uname"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Uname beállítások"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
@@ -2631,7 +2631,7 @@ msgstr "Speciális"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Hitelesítés"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"

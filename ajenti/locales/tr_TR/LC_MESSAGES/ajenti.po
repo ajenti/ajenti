@@ -5,7 +5,7 @@ msgstr "Eklentiler"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr "Eklenti listesini toplama"
+msgstr "Eklenti listesi toplanıyor"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:4
@@ -489,7 +489,7 @@ msgstr "Yönetici hesabı"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr "Yönetici şifresi"
+msgstr "Yönetici parolası"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
@@ -670,7 +670,7 @@ msgstr "Yıllık"
 #: ajenti/plugins/tasks/layout/main.xml:29
 #: ajenti/plugins/cron/layout/main.xml:21
 msgid "On reboot"
-msgstr "Yeniden Başlat"
+msgstr "Başlangıçta"
 
 #: ajenti/plugins/tasks/layout/main.xml:30
 msgid "Manual entry"
@@ -962,7 +962,7 @@ msgstr "Parola güncellendi"
 
 #: ajenti/plugins/samba/main.py:54
 msgid "Password update failed"
-msgstr "Parola güncellenmedi"
+msgstr "Parola güncelleştirme başarısız oldu"
 
 #: ajenti/plugins/samba/layout/main.xml:1
 #: ajenti/plugins/netatalk/layout/main.xml:1
@@ -973,7 +973,7 @@ msgstr "Hisse"
 #: ajenti/plugins/vh/layout/main-website.xml:10
 #: ajenti/plugins/netatalk/layout/main.xml:5
 msgid "Path"
-msgstr "Hedefyol"
+msgstr "Yol"
 
 #: ajenti/plugins/samba/layout/main.xml:7
 msgid "Guest access"
@@ -1038,7 +1038,7 @@ msgstr "Arabirimleri"
 
 #: ajenti/plugins/samba/layout/main.xml:21
 msgid "Bind only to these interfaces"
-msgstr "Sadece bu arabirimler için bind"
+msgstr "Sadece bu arabirimleri bağla"
 
 #: ajenti/plugins/samba/layout/main.xml:22
 msgid "Identification"
@@ -1064,7 +1064,7 @@ msgstr "Güvenlik"
 
 #: ajenti/plugins/samba/layout/main.xml:28
 msgid "Sessions"
-msgstr "Oturumları"
+msgstr "Oturumlar"
 
 #: ajenti/plugins/samba/layout/main.xml:29
 msgid "Share"
@@ -1125,12 +1125,12 @@ msgstr "Sistem"
 #: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
-msgstr "%S için giriş dizini oluşturuldu"
+msgstr "%s için ev dizini oluşturuldu"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr "%S için parola değiştirildi"
+msgstr "%s için parola değiştirildi"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
@@ -1164,7 +1164,7 @@ msgstr "Yorum"
 
 #: ajenti/plugins/users/layout/user-list.xml:4
 msgid "Home directory"
-msgstr "Giriş dizini"
+msgstr "Ev dizini"
 
 #: ajenti/plugins/users/layout/user-list.xml:6
 msgid "Shell"
@@ -1207,11 +1207,11 @@ msgstr "Kullanıcı silinsin mi?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:17
 msgid "Grant all permissions"
-msgstr "Tüm izinler"
+msgstr "Tüm izinleri ver"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr "İsimli dosya {0} zaten aynı isimde dosya {1}."
+msgstr "{0} isimli dosya zaten {1} isimiyle var."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
@@ -1244,11 +1244,11 @@ msgstr "DHCP sunucusu"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:1
 msgid "Subnetworks"
-msgstr "Alt"
+msgstr "Alt ağlar"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
-msgstr "Belirtimi"
+msgstr "Özellik"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
@@ -1261,7 +1261,7 @@ msgstr "Genel seçenekleri"
 #: ajenti/plugins/munin/main.py:43
 #, python-format
 msgid "Couldn't connect to Munin: %s"
-msgstr "Munin bağlanamadı: %s"
+msgstr "Munin'e bağlanamadı: %s"
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
@@ -1276,19 +1276,19 @@ msgstr "Görünüm"
 #: ajenti/plugins/openvpn/layout/main.xml:2
 #: ajenti/plugins/bind9/layout/main.xml:1 ajenti/plugins/apache/main.py:16
 msgid "Reload"
-msgstr "Yeniden yükleme"
+msgstr "Yeniden yükle"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Repolar"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Repo adı"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
@@ -1309,7 +1309,7 @@ msgstr "Sorgu tamamlandı"
 #: ajenti/plugins/db_common/api.py:55
 #, python-format
 msgid "Output cut from %i rows to 200"
-msgstr "Çıkış %i satırlarından 200 için kesmek."
+msgstr "%i 'den 200. satıra kadar çıkıştan kesildi"
 
 #: ajenti/plugins/db_common/layout/main.xml:4
 msgid "Confirm database drop!"
@@ -1337,7 +1337,7 @@ msgstr "Süreç"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
-msgstr "Süreçleri"
+msgstr "İşlemleri"
 
 #: ajenti/plugins/vh/main.py:20 ajenti/plugins/vh/layout/main.xml:1
 msgid "Websites"
@@ -1353,7 +1353,7 @@ msgstr "Değişiklikler kaydediliyor"
 
 #: ajenti/plugins/vh/main.py:99 ajenti/plugins/vh/main.py:256
 msgid "Applying changes"
-msgstr "Değişiklikleri uygula"
+msgstr "Değişiklikler uygulanıyor"
 
 #: ajenti/plugins/vh/main.py:101 ajenti/plugins/vh/main.py:258
 msgid "Restarting web services"
@@ -1373,7 +1373,7 @@ msgstr "Yeni websitesi"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr "Yapılandırmaları kontrol et"
+msgstr "Yapılandırma kontrolü"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"
@@ -1381,7 +1381,7 @@ msgstr "Websitelerini yeniden başlat"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr "Proses Yöneticisi"
+msgstr "İşlem Yöneticisi"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
@@ -1394,11 +1394,11 @@ msgstr "Max işlemler"
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:4
 #: ajenti/plugins/vh/layout/main-backend-params-nodejs.xml:4
 msgid "Process user"
-msgstr "Proses kullanıcı"
+msgstr "İşlemin kullanıcısı"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:5
 msgid "Process group"
-msgstr "Proses grup"
+msgstr "İşlem grubu"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:6
 msgid "PHP .ini values"
@@ -1406,7 +1406,7 @@ msgstr "PHP .ini değerleri"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
-msgstr "Php flags"
+msgstr "PHP flag'leri"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
@@ -1467,7 +1467,7 @@ msgstr "URL yolunu ekle"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:6
 msgid "Use only custom configuration and don't include standard parameters"
-msgstr "Sadece özel yapılandırmayı kullanın ve standart parametreleri ekleme"
+msgstr "Sadece özel yapılandırmayı kullan ve standart parametreleri ekleme"
 
 #: ajenti/plugins/vh/layout/ext-processes.xml:5
 #: ajenti/plugins/supervisor/layout/main.xml:6
@@ -1489,7 +1489,7 @@ msgstr "Geri"
 #: ajenti/plugins/vh/layout/main-website.xml:3
 #: ajenti/plugins/fm/layout/main.xml:7
 msgid "Delete"
-msgstr "Silme"
+msgstr "Sil"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
@@ -1648,15 +1648,15 @@ msgstr "Ham Düzenle"
 
 #: ajenti/plugins/iptables/layout/main.xml:2
 msgid "Load current state"
-msgstr "Yük mevcut durumu"
+msgstr "Mevcut yük durumu"
 
 #: ajenti/plugins/iptables/layout/main.xml:3
 msgid "This will overwrite the saved configuration with current firewall state! Continue?"
-msgstr "Bu mevcut güvenlik duvarı durumu ile kaydedilmiş olan yapılandırmayı üzerine yazar. Devam edilsin mi?"
+msgstr "Bu yapılandırma şu anki güvenlik duvarına uygulanacak. Devam edilsin mi?"
 
 #: ajenti/plugins/iptables/layout/main.xml:4
 msgid "New Chain"
-msgstr "Yeni zinciri"
+msgstr "Yeni zincir"
 
 #: ajenti/plugins/iptables/layout/main.xml:7
 msgid "Action"
@@ -1690,15 +1690,15 @@ msgstr "Durumlar"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:2
 msgid "Arguments"
-msgstr "Bağımsız değişkenler"
+msgstr "Değişkenler"
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr "Bağımsız değişken"
+msgstr "Değişken"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
-msgstr "İletişim kuralı"
+msgstr "Protokol"
 
 #: ajenti/plugins/iptables/layout/option-interface.xml:1
 #: ajenti/plugins/ctdb/layout/main.xml:24
@@ -1711,7 +1711,7 @@ msgstr "CodeMirror Kod Düzenleyicisi"
 
 #: ajenti/plugins/netatalk/layout/main.xml:7
 msgid "Valid users"
-msgstr "Geçerli kullanıcıları"
+msgstr "Geçerli kullanıcılar"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
@@ -1719,11 +1719,11 @@ msgstr "Kaynak çatal"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
-msgstr "Genişletilmiş öznitelikleri"
+msgstr "Genişletilmiş nitelikler"
 
 #: ajenti/plugins/netatalk/layout/main.xml:10
 msgid "CNID scheme"
-msgstr "CNID düzeni"
+msgstr "CNID şeması"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
@@ -1766,7 +1766,7 @@ msgstr "Posta kutuları"
 #: ajenti/plugins/fm/layout/main.xml:11
 #: ajenti/plugins/fstab/layout/main.xml:15
 msgid "Size"
-msgstr "Boyutu"
+msgstr "Boyut"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
@@ -1783,7 +1783,7 @@ msgstr "Yeni posta kutusu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr "Gelen Kutusu"
+msgstr "Posta Kutusu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
@@ -1799,7 +1799,7 @@ msgstr "DNS girdisi şablonu"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr "Yeni DKIM anahtar oluştur"
+msgstr "Yeni DKIM anahtarı oluştur"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
@@ -1823,7 +1823,7 @@ msgstr "Özel ACL"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr "Özel Yönlendiriciler"
+msgstr "Özel router"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
@@ -1923,11 +1923,11 @@ msgstr "Sensör"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "uname"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Uname seçenekleri"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
@@ -2075,7 +2075,7 @@ msgstr "İşlem durumu %i ile çıkıldı"
 
 #: ajenti/plugins/terminal/terminal.py:116
 msgid "Process has exited successfully"
-msgstr "İşlem başarıyla çıkıldı"
+msgstr "İşlemden başarıyla çıkıldı"
 
 #: ajenti/plugins/terminal/main.py:22 ajenti/plugins/terminal/main.py:35
 #: ajenti/plugins/terminal/main.py:228
@@ -2084,15 +2084,15 @@ msgstr "Terminal"
 
 #: ajenti/plugins/terminal/main.py:232
 msgid "Run shell"
-msgstr "Kabuk çalıştırmak"
+msgstr "Kabuğu çalıştır"
 
 #: ajenti/plugins/terminal/main.py:233
 msgid "Run custom commands"
-msgstr "Özel komutları çalıştırmak"
+msgstr "Özel komutları çalıştır"
 
 #: ajenti/plugins/terminal/layout/main.xml:3
 msgid "No active terminals"
-msgstr "Hiçbir etkin terminalleri"
+msgstr "Etkin terminal yok"
 
 #: ajenti/plugins/terminal/layout/config.xml:1
 msgid "Default shell"
@@ -2100,7 +2100,7 @@ msgstr "Varsayılan kabuk"
 
 #: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
-msgstr "Acil trafik"
+msgstr "Acil Trafik"
 
 #: ajenti/plugins/network/widget.py:118
 msgid "Traffic"
@@ -2124,7 +2124,7 @@ msgstr "Birincil ağ bağlantısını kesmek sunucuya erişimi kesebilir. Emin m
 
 #: ajenti/plugins/network/layout/main.xml:6
 msgid "Restarting primary network connection may cut off any access to the server! Are you sure?"
-msgstr "Ana ağ bağlantısını yeniden başlatmak sunuya olan bağlantıyı kesebilir. Emin misiniz?"
+msgstr "Ana ağ bağlantısını yeniden başlatmak sunucuya olan bağlantıyı kesebilir. Emin misiniz?"
 
 #: ajenti/plugins/network/layout/bit-linux-basic.xml:1
 msgid "Loopback"
@@ -2140,27 +2140,27 @@ msgstr "Manuel"
 
 #: ajenti/plugins/ctdb/main.py:20
 msgid "Samba Cluster"
-msgstr "Samba küme"
+msgstr "Samba kümesi"
 
 #: ajenti/plugins/ctdb/main.py:71
 msgid "Failed to obtain CTDB status"
-msgstr "CTDB statü etmek başarısız oldu"
+msgstr "CTDB durumu alınamadı"
 
 #: ajenti/plugins/ctdb/layout/main.xml:3
 msgid "Public IPs"
-msgstr "Genel IP'leri"
+msgstr "Public IP'leri"
 
 #: ajenti/plugins/ctdb/layout/main.xml:5
 msgid "Manage Samba"
-msgstr "Samba yönetmek"
+msgstr "Samba yönet"
 
 #: ajenti/plugins/ctdb/layout/main.xml:6
 msgid "Debug level"
-msgstr "Hata derecesi"
+msgstr "Hata ayıklama seviyesi"
 
 #: ajenti/plugins/ctdb/layout/main.xml:7
 msgid "Files"
-msgstr "Dosyaları"
+msgstr "Dosyalar"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
@@ -2168,11 +2168,11 @@ msgstr "Kurtarma kilit dosyası"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"
-msgstr "Genel adresler dosya"
+msgstr "Public adresler dosya"
 
 #: ajenti/plugins/ctdb/layout/main.xml:10
 msgid "Nodes file"
-msgstr "Düğümleri dosya"
+msgstr "Düğümler dosyası"
 
 #: ajenti/plugins/ctdb/layout/main.xml:13
 msgid "Public interface"
@@ -2204,11 +2204,11 @@ msgstr "Dizi"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr "Nameservers"
+msgstr "İsim Sunucuları"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr "DNS nameserver"
+msgstr "DNS sunucuları"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
@@ -2263,7 +2263,7 @@ msgstr "Hepsini Bağla"
 #: ajenti/plugins/fstab/layout/main.xml:6
 #: ajenti/plugins/fstab/layout/main.xml:13
 msgid "Mountpoint"
-msgstr "Mountpoint"
+msgstr "Bağlama Noktası"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 msgid "FS type"
@@ -2413,7 +2413,7 @@ msgstr "Yeniden başlat"
 
 #: ajenti/plugins/power/power.py:109
 msgid "Shutdown"
-msgstr "Kapatma"
+msgstr "Kapat"
 
 #: ajenti/plugins/power/layout/widget.xml:1
 msgid "AC power"
@@ -2433,11 +2433,11 @@ msgstr "Sistem hazırda bekletilsin mi?"
 
 #: ajenti/plugins/power/layout/widget.xml:8
 msgid "Reboot the system?"
-msgstr "Sistem yeniden başlatmak ister misiniz ?"
+msgstr "Sistem yeniden başlat?"
 
 #: ajenti/plugins/power/layout/widget.xml:9
 msgid "Power off"
-msgstr "Güç kapalı"
+msgstr "Gücü kapat"
 
 #: ajenti/plugins/power/layout/widget.xml:10
 msgid "Shutdown the system?"
@@ -2450,7 +2450,7 @@ msgstr "Hizmet"
 
 #: ajenti/plugins/services/main.py:14
 msgid "Services"
-msgstr "Servisler"
+msgstr "Hizmetler"
 
 #: ajenti/plugins/services/main.py:41
 #, python-format
@@ -2465,7 +2465,7 @@ msgstr "%s durduruldu"
 #: ajenti/plugins/services/main.py:51
 #, python-format
 msgid "%s restarted"
-msgstr "%s yeniden"
+msgstr "%s yeniden başlatıldı"
 
 #: ajenti/plugins/services/layout/main.xml:1
 msgid "Origin"
@@ -2485,7 +2485,7 @@ msgstr "Başlat"
 #: ajenti/plugins/services/layout/widget.xml:2
 #: ajenti/plugins/services/layout/bar.xml:2
 msgid "Stop"
-msgstr "Durdurmak"
+msgstr "Durdur"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
@@ -2521,7 +2521,7 @@ msgstr "HTTP erişim"
 
 #: ajenti/plugins/squid/layout/main.xml:8
 msgid "Mode"
-msgstr "Modu"
+msgstr "Mod"
 
 #: ajenti/plugins/squid/layout/main.xml:9
 #: ajenti/plugins/csf/layout/main.xml:19 ajenti/plugins/csf/layout/main.xml:24
@@ -2535,11 +2535,11 @@ msgstr "Reddet"
 
 #: ajenti/plugins/vh-nodejs/nodejs.py:18
 msgid "Node.js service"
-msgstr "Node.js Servisi"
+msgstr "Node.js servisi"
 
 #: ajenti/plugins/vh-gunicorn/gunicorn.py:30
 msgid "GUnicorn service"
-msgstr "GUnicorn Servisi"
+msgstr "GUnicorn servisi"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
@@ -2631,7 +2631,7 @@ msgstr "Özel"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Auth"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"

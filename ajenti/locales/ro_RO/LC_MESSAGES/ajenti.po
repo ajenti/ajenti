@@ -1504,39 +1504,39 @@ msgstr "Activat"
 
 #: ajenti/plugins/vh/layout/main-website.xml:8
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Modul de întreţinere"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr ""
+msgstr "Fișiere website"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
-msgstr ""
+msgstr "Fișier nou"
 
 #: ajenti/plugins/vh/layout/main-website.xml:13
 msgid "Fix file permissions"
-msgstr ""
+msgstr "Repară permisiunile fișierului"
 
 #: ajenti/plugins/vh/layout/main-website.xml:14
 msgid "Automatic downloader"
-msgstr ""
+msgstr "Downloader automat"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "From URL"
-msgstr ""
+msgstr "De pe URL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Download and unpack"
-msgstr ""
+msgstr "Descarcă di despachetează"
 
 #: ajenti/plugins/vh/layout/main-website.xml:17
 msgid "Domains"
-msgstr ""
+msgstr "Domenii"
 
 #: ajenti/plugins/vh/layout/main-website.xml:19
 msgid "Domain"
-msgstr ""
+msgstr "Domeniu"
 
 #: ajenti/plugins/vh/layout/main-website.xml:21
 #: ajenti/plugins/iptables/layout/option-ports.xml:1
@@ -1546,15 +1546,15 @@ msgstr "Port-uri"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL certificate path"
-msgstr ""
+msgstr "Locație certificat SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "SSL key path"
-msgstr ""
+msgstr "Locație cheie SSL"
 
 #: ajenti/plugins/vh/layout/main-website.xml:28
 msgid "Content"
-msgstr ""
+msgstr "Conținut"
 
 #: ajenti/plugins/vh/layout/main-website.xml:33
 msgid "Custom top level configuration"
@@ -1563,7 +1563,7 @@ msgstr ""
 #: ajenti/plugins/vh/layout/main-website.xml:34
 #: ajenti/plugins/vh-mail/layout/main.xml:34
 msgid "Apply changes"
-msgstr ""
+msgstr "Aplică modificările"
 
 #: ajenti/plugins/supervisor/layout/main.xml:7
 msgid "Autostart"
@@ -1592,11 +1592,11 @@ msgstr "Start încercări"
 
 #: ajenti/plugins/vh-nginx/nginx.py:15
 msgid "NGINX config test"
-msgstr ""
+msgstr "Setare de probă a NGINX"
 
 #: ajenti/plugins/vh-nginx/nginx.py:26
 msgid "NGINX service"
-msgstr ""
+msgstr "Serviciu de NGINX"
 
 #: ajenti/plugins/raid/main.py:15
 msgid "RAID"
@@ -1736,24 +1736,24 @@ msgstr "Adresa CNID"
 
 #: ajenti/plugins/vh-mail/main.py:18
 msgid "Mail"
-msgstr ""
+msgstr "Mail"
 
 #: ajenti/plugins/vh-mail/main.py:63
 msgid "Invalid mailbox name"
-msgstr ""
+msgstr "Nume cutie poştală nevalid"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr ""
+msgstr "Domeniu căsuță postală nevalid"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "Această adresă este deja folosită"
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr ""
+msgstr "Domeniu personalizat"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
@@ -1761,7 +1761,7 @@ msgstr "Nu există nici-o cheie validă"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
-msgstr ""
+msgstr "Cutii poştale"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:7
 #: ajenti/plugins/fm/layout/main.xml:11
@@ -1772,59 +1772,59 @@ msgstr "Mărime"
 #: ajenti/plugins/vh-mail/layout/main.xml:8
 #: ajenti/plugins/vh-mail/layout/main.xml:17
 msgid "Forwarding"
-msgstr ""
+msgstr "Expediere"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:11
 msgid "Target address"
-msgstr ""
+msgstr "Adresa destinației"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:13
 msgid "New mailbox"
-msgstr ""
+msgstr "Nouă căsuță poştală"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:16
 msgid "Mailbox"
-msgstr ""
+msgstr "Căsuță poştală"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:19
 msgid "Selector"
-msgstr ""
+msgstr "Selector"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:20
 msgid "Private key"
-msgstr ""
+msgstr "Cheie privată"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:21
 msgid "DNS entry template"
-msgstr ""
+msgstr "Şablon de intrare DNS"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "Generează o nouă cheie DKIM"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Locație certificat"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
-msgstr ""
+msgstr "Locație cheie privată"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "Generează certificat nou"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
-msgstr ""
+msgstr "Configurare particularizată MTA"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:30
 msgid "Custom ACLs"
-msgstr ""
+msgstr "ACL-uri personalizate"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr ""
+msgstr "Routere personalizate"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
@@ -1836,15 +1836,15 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:1
 msgid "Ajenti V Mail is not enabled yet"
-msgstr ""
+msgstr "Ajenti V Mail nu este activat încă"
 
 #: ajenti/plugins/vh-mail/layout/not-configured.xml:2
 msgid "Enabling Ajenti V Mail will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Activarea Ajenti V va suprascrie configurația pentru următoarele programe:"
 
 #: ajenti/plugins/packages/pm_pacman.py:38
 msgid "No search results found"
-msgstr ""
+msgstr "Nu am găsit rezultate la căutare"
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
@@ -1860,7 +1860,7 @@ msgstr "Instalare completă!"
 
 #: ajenti/plugins/packages/main.py:74
 msgid "Querying package manager"
-msgstr ""
+msgstr "Interogarea managerul de pachete"
 
 #: ajenti/plugins/packages/main.py:135
 #, python-format
@@ -1924,11 +1924,11 @@ msgstr "Senzor"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "uname"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Opțiuni uname"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
@@ -1937,7 +1937,7 @@ msgstr "Zonă salvată"
 #: ajenti/plugins/nsd/main.py:70
 #, python-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s nu există"
 
 #: ajenti/plugins/nsd/layout/main.xml:1 ajenti/plugins/bind9/layout/main.xml:2
 msgid "Zones"
@@ -2572,23 +2572,23 @@ msgstr "Porturi permise"
 
 #: ajenti/plugins/csf/layout/main.xml:6 ajenti/plugins/csf/layout/main.xml:11
 msgid "Incoming TCP"
-msgstr ""
+msgstr "TCP în intrare"
 
 #: ajenti/plugins/csf/layout/main.xml:7 ajenti/plugins/csf/layout/main.xml:12
 msgid "Outgoing TCP"
-msgstr ""
+msgstr "TCP în ieșire"
 
 #: ajenti/plugins/csf/layout/main.xml:8 ajenti/plugins/csf/layout/main.xml:13
 msgid "Incoming UDP"
-msgstr ""
+msgstr "UDP în intrare"
 
 #: ajenti/plugins/csf/layout/main.xml:9 ajenti/plugins/csf/layout/main.xml:14
 msgid "Outgoing UDP"
-msgstr ""
+msgstr "UDP în ieșire"
 
 #: ajenti/plugins/csf/layout/main.xml:10
 msgid "Enable IPv6"
-msgstr ""
+msgstr "Activează IPv6"
 
 #: ajenti/plugins/csf/layout/main.xml:15
 msgid "IP lists"
@@ -2600,23 +2600,23 @@ msgstr "Regulile permanente"
 
 #: ajenti/plugins/csf/layout/main.xml:17 ajenti/plugins/csf/layout/main.xml:22
 msgid "Allowed addresses"
-msgstr ""
+msgstr "Adrese permise"
 
 #: ajenti/plugins/csf/layout/main.xml:18
 msgid "Denied addresses"
-msgstr ""
+msgstr "Adrese negate"
 
 #: ajenti/plugins/csf/layout/main.xml:21
 msgid "Temporary rules"
-msgstr ""
+msgstr "Norme temporare"
 
 #: ajenti/plugins/csf/layout/main.xml:23
 msgid "Banned addresses"
-msgstr ""
+msgstr "Adrese interzise"
 
 #: ajenti/plugins/csf/layout/main.xml:25
 msgid "Ban"
-msgstr ""
+msgstr "Blochează"
 
 #: ajenti/plugins/cron/layout/main.xml:1
 msgid "Select"
@@ -2632,7 +2632,7 @@ msgstr "Special"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Auth"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
@@ -2640,7 +2640,7 @@ msgstr "Log-uri"
 
 #: ajenti/plugins/vh-php-fpm/phpfpm.py:62
 msgid "PHP-FPM service"
-msgstr ""
+msgstr "Serviciul PHP-FPM"
 
 #: ajenti/plugins/smartctl/widget.py:61
 msgid "FAILING"
@@ -2660,7 +2660,7 @@ msgstr "Erori în log"
 
 #: ajenti/usersync/adsync.py:18
 msgid "Active Directory Syncronization"
-msgstr ""
+msgstr "Sincronizarea Active Directory"
 
 #: ajenti/usersync/ldapsync.py:17
 msgid "LDAP User Syncronization"
