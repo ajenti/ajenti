@@ -113,6 +113,7 @@ MOCK_MODULES = [
     'gevent-socketio', 
     'lxml', 
     'lxml.etree', 
+    'pexpect', 
     'pyOpenSSL', 
     'Pillow', 
     'psutil'
