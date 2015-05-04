@@ -112,6 +112,7 @@ MOCK_MODULES = [
     'psutil'
     'pyOpenSSL', 
     'python-ldap', 
+    'setproctitle', 
     'socketio', 
     'socketio.handler', 
     'socketio.mixins', 
