@@ -48,7 +48,7 @@ plugin_providers = []
 
 __all__ = [
     'config', 'platform', 'platform_string', 'platform_unmapped',
-    'installation_uid', 'version', 'server', 'debug', 'init',
+    'version', 'server', 'debug', 'init',
     'exit', 'restart'
 ]
 

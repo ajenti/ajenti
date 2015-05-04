@@ -20,17 +20,6 @@ import aj
 version = aj.__version__
 release = aj.__version__
 
-import aj
-import aj.api
-import aj.config
-import aj.core
-import aj.log
-import aj.plugins
-
-aj.context = aj.api.Context()
-aj.init()
-aj.plugins.PluginManager.get(aj.context).load_all_from([aj.plugins.DirectoryPluginProvider('../../plugins')])
-
 
 exclude_patterns = []
 add_function_parentheses = True
@@ -104,6 +93,43 @@ class Mock(object):
         else:
             return Mock()
 
-MOCK_MODULES = ['python-ldap', 'gevent', 'gevent.pywsgi', 'gevent.queue', 'gevent-socketio', 'lxml', 'lxml.etree', 'pyOpenSSL', 'Pillow', 'psutil']
+MOCK_MODULES = [
+    'python-ldap', 
+    'gipc',
+    'gevent', 
+    'gevent.pywsgi', 
+    'gevent.queue', 
+    'gevent.lock', 
+    'gevent.event', 
+    'gevent.ssl', 
+    'socketio', 
+    'socketio.namespace', 
+    'socketio.server', 
+    'socketio.mixins', 
+    'socketio.handler', 
+    'socketio.transports', 
+    'gevent.socket', 
+    'gevent.timeout', 
+    'gevent-socketio', 
+    'lxml', 
+    'lxml.etree', 
+    'pyOpenSSL', 
+    'Pillow', 
+    'psutil'
+]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
+
+
+
+
+import aj
+import aj.api
+import aj.config
+import aj.core
+import aj.log
+import aj.plugins
+
+aj.context = aj.api.Context()
+aj.init()
+aj.plugins.PluginManager.get(aj.context).load_all_from([aj.plugins.DirectoryPluginProvider('../../plugins')])
