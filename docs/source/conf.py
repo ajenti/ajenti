@@ -94,29 +94,30 @@ class Mock(object):
             return Mock()
 
 MOCK_MODULES = [
-    'python-ldap', 
-    'gipc',
     'gevent', 
+    'gevent-socketio', 
+    'gevent.event', 
+    'gevent.lock', 
     'gevent.pywsgi', 
     'gevent.queue', 
-    'gevent.lock', 
-    'gevent.event', 
-    'gevent.ssl', 
-    'socketio', 
-    'socketio.namespace', 
-    'socketio.server', 
-    'socketio.mixins', 
-    'socketio.handler', 
-    'socketio.transports', 
     'gevent.socket', 
+    'gevent.ssl', 
     'gevent.timeout', 
-    'gevent-socketio', 
+    'gipc',
+    'greenlet', 
     'lxml', 
     'lxml.etree', 
     'pexpect', 
-    'pyOpenSSL', 
     'Pillow', 
     'psutil'
+    'pyOpenSSL', 
+    'python-ldap', 
+    'socketio', 
+    'socketio.handler', 
+    'socketio.mixins', 
+    'socketio.namespace', 
+    'socketio.server', 
+    'socketio.transports', 
 ]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
