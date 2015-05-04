@@ -94,6 +94,7 @@ class Mock(object):
             return Mock()
 
 MOCK_MODULES = [
+    'augeas', 
     'gevent', 
     'gevent-socketio', 
     'gevent.event', 
@@ -112,6 +113,9 @@ MOCK_MODULES = [
     'psutil'
     'pyOpenSSL', 
     'python-ldap', 
+    'supervisor', 
+    'supervisor.options', 
+    'scrypt', 
     'setproctitle', 
     'socketio', 
     'socketio.handler', 
