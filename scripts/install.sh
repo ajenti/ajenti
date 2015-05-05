@@ -59,16 +59,13 @@ if [ "$OS" == "debian" ] ; then
     DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus python-augeas || exit 1
 fi
 
-echo ":: Installing Ajenti"
-
-if ! which pip; then
-    easy_install pip
-fi
 
 echo ":: Upgrading PIP"
 rm /usr/lib/python2.7/dist-packages/setuptools.egg-info || true # for debian 7
-pip install 'setuptools>=0.6rc11'
-pip install 'pip>=6'
+easy_install -U pip
+pip install -U pip distribute setuptools
+
+echo ":: Installing Ajenti"
 `which pip` install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
 
 # ----------------
