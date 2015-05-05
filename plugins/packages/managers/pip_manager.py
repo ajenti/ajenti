@@ -45,7 +45,7 @@ class PIPPackageManager(PackageManager):
         for dist in self.client.search({'name': query}):
             yield self.__make_package(dist)
 
-    def get(self, _id):
+    def get_package(self, _id):
         for d in pip.get_installed_distributions():
             if d.key == _id.split('==')[0]:
                 return self.__make_package_pipdist(d)

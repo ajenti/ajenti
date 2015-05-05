@@ -99,7 +99,7 @@ class Handler(HttpPlugin):
                     'error': 'Could not authenticate with Mozilla Persona: %s' % str(e),
                 }
 
-            emails = aj.config.data['auth'].get('emails', {})
+            emails = aj.config.data['auth']['emails']
             if email in emails:
                 username = emails[email]
                 auth.prepare_session_redirect(http_context, username)

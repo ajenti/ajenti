@@ -1,4 +1,6 @@
+import os
 import subprocess
+import shutil
 
 from aj.plugins.core.api.tasks import Task
 

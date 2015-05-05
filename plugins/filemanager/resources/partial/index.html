@@ -3,7 +3,7 @@
     <div class="list-group" ng:hide="loading" keyboard-focus test-bind="fileList">
         <div ng:show="parent" class="list-group-item list-group-item-small">
             <div class="list-group-btn pull-left">
-                <span checkbox disabled></span>
+                <span checkbox ng:model="___" disabled></span>
             </div>
             <a ng:click="navigate(parent)" class="list-group-main" test-bind="up">
                 &nbsp;
@@ -11,13 +11,13 @@
             </a>
         </div>
         <div ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item list-group-item-small" test-bind-item="{{item.name}}">
-            <a href="/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
+            <a ng:href="{{urlPrefix}}/view/filemanager/properties/{{item.path}}" class="list-group-btn subtle" title="Properties">
                 <i class="fa fa-cog"></i>
             </a>
             <div class="list-group-addon pull-left">
                 <span class="subtle" checkbox ng:model="item.selected"></span>
             </div>
-            <a ng:href="/view/filemanager{{item.isDir ? '' : '/properties'}}/{{item.path}}" class="list-group-main">
+            <a ng:href="{{urlPrefix}}/view/filemanager{{item.isDir ? '' : '/properties'}}/{{item.path}}" class="list-group-main">
                 &nbsp;
                 <i class="fa fa-fw fa-folder-o" ng:if="item.isDir"></i>
                 <i class="fa fa-fw fa-file-o" ng:if="item.isFile"></i>
@@ -42,7 +42,7 @@
     <a ng:click="showUploadDialog()" class="btn btn-default btn-flat" test-bind="uploadButton">Upload</a>
     <a ng:click="doPaste()" ng:show="clipboard.length > 0" class="btn btn-default btn-flat" test-bind="pasteButton">Paste here</a>
 
-    <a href="/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
+    <a ng:href="{{urlPrefix}}/view/filemanager/{{path}}" target="_blank" class="btn btn-default btn-flat pull-right">
         <i class="fa fa-plus"></i> Tab
     </a>
 </floating-toolbar>

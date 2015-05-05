@@ -33,7 +33,7 @@ class SystemdServiceManager(ServiceManager):
             svc.state = 'running' if svc.running else 'stopped'
             yield svc
 
-    def get(self, _id):
+    def get_service(self, _id):
         for s in self.list():
             if s.id == _id:
                 return s

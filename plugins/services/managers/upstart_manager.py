@@ -36,9 +36,9 @@ class UpstartServiceManager(ServiceManager):
 
     def list(self):
         for job_name in self.upstart.get_all_jobs():
-            yield self.get(job_name)
+            yield self.get_service(job_name)
 
-    def get(self, _id):
+    def get_service(self, _id):
         job = UpstartJob(_id, bus=self.bus)
         svc = Service(self)
         svc.id = _id

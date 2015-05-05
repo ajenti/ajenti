@@ -26,7 +26,7 @@ class SupervisorServiceManager(ServiceManager):
         svc.running = svc.state == 'RUNNING'
         return svc
 
-    def get(self, _id):
+    def get_service(self, _id):
         return self.__make_service(self.supervisor.getProcessInfo(_id))
 
     def start(self, _id):

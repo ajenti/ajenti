@@ -84,6 +84,7 @@ class WorkerGate(object):
                     aj.restart()
                 if resp.object['type'] == 'reload-config':
                     aj.config.load()
+                    aj.config.ensure_structure()
                     self.stream.send({
                         'type': 'config-data',
                         'data': aj.config.data,

@@ -51,7 +51,7 @@ class Handler(HttpPlugin):
     @url(r'/api/packages/get/(?P<manager_id>\w+)/(?P<package_id>\w+)')
     @endpoint(api=True)
     def handle_api_get(self, http_context, manager_id=None, package_id=None):
-        return self.__package_to_json(self.managers[manager_id].get(package_id))
+        return self.__package_to_json(self.managers[manager_id].get_package(package_id))
 
     @url(r'/api/packages/apply/(?P<manager_id>\w+)')
     @endpoint(api=True)

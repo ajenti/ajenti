@@ -33,7 +33,7 @@ class APTPackageManager(PackageManager):
         for _id in cache.keys():
             yield self.__make_package(cache[_id])
 
-    def get(self, _id):
+    def get_package(self, _id):
         cache = apt.Cache()
         return self.__make_package(cache[_id])
 

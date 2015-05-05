@@ -38,7 +38,7 @@ class Handler(HttpPlugin):
     @url(r'/api/services/get/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @endpoint(api=True)
     def handle_api_get(self, http_context, manager_id=None, service_id=None):
-        return self.__service_to_json(self.managers[manager_id].get(service_id))
+        return self.__service_to_json(self.managers[manager_id].get_service(service_id))
 
     @url(r'/api/services/do/(?P<operation>\w+)/(?P<manager_id>\w+)/(?P<service_id>.+)')
     @endpoint(api=True)

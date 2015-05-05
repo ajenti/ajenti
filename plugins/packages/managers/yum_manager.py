@@ -31,7 +31,7 @@ class YUMPackageManager(PackageManager):
         for pkg in self.yum.pkgSack.returnPackages():
             yield self.__make_package(pkg)
 
-    def get(self, _id):
+    def get_package(self, _id):
         pkg = (self.yum.searchNames(names=[_id]) or [None])[0]
         return self.__make_package(pkg)
 

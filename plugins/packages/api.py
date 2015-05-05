@@ -25,7 +25,7 @@ class PackageManager(object):
     def list(self, query=None):
         raise NotImplementedError
 
-    def get(self, _id):
+    def get_package(self, _id):
         raise NotImplementedError
 
     def update_lists(self, progress_callback):

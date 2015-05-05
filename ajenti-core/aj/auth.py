@@ -2,7 +2,6 @@ import json
 import logging
 import pexpect
 import pwd
-import requests
 import subprocess
 from jadi import component, service, interface
 
@@ -130,6 +129,8 @@ class AuthenticationService(object):
         return True
 
     def check_persona_assertion(self, assertion, audience):
+        import requests
+        
         params = {
             'assertion': assertion,
             'audience': audience,

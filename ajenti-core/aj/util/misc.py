@@ -31,20 +31,12 @@ def make_report(e):
     """
     Formats a bug report.
     """
-    import catcher
     import platform as _platform
     from aj import platform, platform_unmapped, platform_string, version, debug
 
     tb = traceback.format_exc(e)
     tb = '\n'.join('    ' + x for x in tb.splitlines())
 
-    catcher_url = None
-    try:
-        report = catcher.collect(e)
-        html = catcher.formatters.HTMLFormatter().format(report, maxdepth=3)
-        catcher_url = catcher.uploaders.AjentiOrgUploader().upload(html)
-    except Exception:
-        pass
 
     import gevent
     import greenlet
@@ -62,7 +54,6 @@ Platform | %s / %s / %s
 Architecture | %s
 Python | %s
 Debug | %s
-Catcher report | %s
 Loaded plugins | %s
 
 Library | Version
@@ -80,7 +71,6 @@ psutil | %s
             subprocess.check_output(['uname', '-mp']).strip(),
             '.'.join([str(x) for x in _platform.python_version_tuple()]),
             debug,
-            catcher_url or 'Failed to upload traceback',
             ', '.join(sorted(PluginManager.get(aj.context).get_loaded_plugins_list())),
 
             gevent.__version__,

@@ -26,7 +26,7 @@ class ServiceManager(object):
     def list(self):
         raise NotImplementedError
 
-    def get(self, _id):
+    def get_service(self, _id):
         raise NotImplementedError
 
     def start(self, _id):

@@ -19,6 +19,8 @@ class PowerManager(object):
     def get_batteries(self):
         batteries = []
         battery_dir = '/proc/acpi/battery'
+        if not os.path.exists(battery_dir):
+            return []
         for d in sorted(os.listdir(battery_dir)):
             props = {}
             for path in [
@@ -46,6 +48,8 @@ class PowerManager(object):
     def get_adapters(self):
         adapters = []
         adapter_dir = '/proc/acpi/ac_adapter'
+        if not os.path.exists(adapter_dir):
+            return []
         for d in sorted(os.listdir(adapter_dir)):
             props = {}
             path = os.path.join(adapter_dir, d, 'state')

@@ -43,7 +43,7 @@ class HttpRoot(object):
 
         if http_context.prefix:
             if http_context.path.startswith(http_context.prefix):
-                http_context.path = http_context.path[len(http_context.prefix):]
+                http_context.path = http_context.path[len(http_context.prefix):] or '/'
             else:
                 http_context.respond(400)
                 http_context.run_response()

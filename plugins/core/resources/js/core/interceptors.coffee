@@ -24,6 +24,7 @@ angular.module('core').factory 'unauthenticatedInterceptor', ($q, $rootScope, $l
 angular.module('core').factory 'urlPrefixInterceptor', ($q, $rootScope, $location, notify, urlPrefix) ->
     return {
         request: (config) ->
-            config.url = urlPrefix + config.url
+            if config.url and config.url[0] == '/'
+                config.url = urlPrefix + config.url
             return config
     }

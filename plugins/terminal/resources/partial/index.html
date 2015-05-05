@@ -13,9 +13,9 @@
         <a class="list-group-btn" ng:click="kill(terminal)" title="Terminate">
             <i class="fa fa-trash-o"></i>
         </a>
-        <a class="list-group-main" ng:href="/view/terminal/{{terminal.id}}">
+        <a class="list-group-main" ng:href="{{urlPrefix}}/view/terminal/{{terminal.id}}">
             <div class="list-group-image terminal-preview">
-                <img ng:src="/api/terminal/preview/{{terminal.id}}" />
+                <img ng:src="{{urlPrefix}}/api/terminal/preview/{{terminal.id}}" />
             </div>
             <h4 class="list-group-item-heading">
                 {{terminal.title}}

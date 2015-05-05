@@ -32,9 +32,9 @@ class SysVServiceManager(ServiceManager):
                 continue
             if os.path.exists(UPSTART_PATTERN % _id):
                 continue
-            yield self.get(_id)
+            yield self.get_service(_id)
 
-    def get(self, _id):
+    def get_service(self, _id):
         svc = Service(self)
         svc.id = svc.name = _id
         try:

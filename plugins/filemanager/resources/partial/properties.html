@@ -119,7 +119,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <a href="/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.isFile && info.size < (1024 * 1024 * 64)" class="btn btn-default btn-block">
+            <a ng:href="{{urlPrefix}}/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.isFile && info.size < (1024 * 1024 * 64)" class="btn btn-default btn-block">
                 <i class="fa fa-pencil"></i> Edit in Notepad
             </a>
             <br/>

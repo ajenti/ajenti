@@ -68,6 +68,10 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                 $scope.upgradeCore()
             else
                 notify.success 'All plugins updated'
+                messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                    core.forceRestart()
+        .catch () ->
+            notify.error 'Some plugins failed to update'
 
     $scope.upgradeAllPlugins = () ->
         q = $q.defer()
@@ -83,16 +87,19 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                     upgradeQs.push data.promise
 
         if rqQs.length == 0
-            return $q.resolve()
+            q = $q.defer()
+            q.resolve()
+            return q.promise
 
         msg = messagebox.show progress: true, title: 'Updating plugins'
 
         $q.all(rqQs).then () ->
             $q.all(upgradeQs).then () ->
                 q.resolve()
+            .catch () ->
+                q.reject()
             .finally () ->
                 msg.close()
-                q.reject()
 
         return q.promise
 

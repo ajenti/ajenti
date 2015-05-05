@@ -23,3 +23,10 @@ angular.module('core').config ($routeProvider, $locationProvider, urlPrefix) ->
 
 
 # TODO 404
+
+angular.module('core').run ($location, urlPrefix) ->
+    $location._oldPath = $location.path
+    $location.path = (path) ->
+        if path
+            path = urlPrefix + path
+        return $location._oldPath(path)
