@@ -1,7 +1,6 @@
 auth:
   allow_sudo: true
-  emails:
-    john.pankov@gmail.com: root
+  emails: {}
   provider: os
   users:
     root:
@@ -11,7 +10,7 @@ bind:
   host: 0.0.0.0
   mode: tcp
   port: 8000
-color: deeporange
+color: red
 max_sessions: 9
 name: Test Box
 ssl:

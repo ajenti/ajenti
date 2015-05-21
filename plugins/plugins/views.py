@@ -1,4 +1,6 @@
+import os
 import requests
+import shutil
 import subprocess
 
 import aj
@@ -89,6 +91,8 @@ class Handler(HttpPlugin):
     @url(r'/api/plugins/repo/list')
     @endpoint(api=True)
     def handle_api_repo_list(self, http_context):
+        if os.path.exists('/root/.cache/pip'):
+            shutil.rmtree('/root/.cache/pip')
         try:
             return requests.get('http://ajenti.org/plugins/list').json()
         except Exception as e:

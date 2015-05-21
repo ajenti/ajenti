@@ -13,6 +13,8 @@ angular.module('core').service 'favicon', ($rootScope, identity, customization) 
     }
 
     @set = (color) =>
+        $rootScope.themeColorValue = @colors[color]
+        
         canvas = document.createElement 'canvas'
         canvas.width = 16
         canvas.height = 16

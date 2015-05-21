@@ -22,7 +22,7 @@ angular.module('core').config ($httpProvider, $animateProvider, $compileProvider
 
 
 angular.module('core').run () ->
-    FastClick.attach(document.body)
+    FastClick.attach(document.body) 
 
 
 Array.prototype.remove = (args...) ->

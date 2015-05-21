@@ -35,6 +35,7 @@ class BaseConfig(object):
         self.data.setdefault('max_sessions', 99)
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})
+        self.data['auth'].setdefault('provider', 'os')
         self.data.setdefault('ssl', {})
         self.data['ssl'].setdefault('enable', False)
         self.data['ssl'].setdefault('certificate', None)

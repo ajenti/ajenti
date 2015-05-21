@@ -58,6 +58,7 @@ class HttpRoot(object):
 
         http_context.run_response()
         gevent.sleep(0)
+        print http_context.path, repr(content)[:1000]
         return content
 
 
@@ -266,7 +267,7 @@ class HttpContext(object):
         self.respond('302 Found')
         return ''
 
-    def gzip(self, content, compression=9):
+    def gzip(self, content, compression=6):
         """
         Returns a GZip compressed response with given ``content`` and correct headers
 

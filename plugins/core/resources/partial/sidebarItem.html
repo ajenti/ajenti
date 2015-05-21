@@ -7,7 +7,7 @@
             <i ng:if="item.expanded" class="fa fa-fw fa-caret-down"></i>
             <i ng:if="!item.expanded" class="fa fa-fw fa-caret-right"></i>
         </a>
-        <a ng:href="{{item.url[0] == '/' ? (urlPrefix + item.url) : item.url}}" ng:click="feedback.emit('sidebar', {id: item.id})" class="link">
+        <a ng:href="{{item.url[0] == '/' ? (urlPrefix + item.url) : item.url}}" ng:mouseup="feedback.emit('sidebar', {id: item.id})" class="link">
             <i class="fa fa-fw fa-{{item.icon}}"></i> {{item.name}}
         </a>
     </div>

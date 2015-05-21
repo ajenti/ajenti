@@ -14,9 +14,13 @@ class ServiceWidget(Widget):
         Widget.__init__(self, context)
 
     def get_value(self, config):
+        manager_id = config.get('manager_id', None)
+        service_id = config.get('service_id', None)
+        if not manager_id or not service_id:
+            return None
         for mgr in ServiceManager.all(self.context):
-            if mgr.id == config.get('manager_id', None):
-                svc = mgr.get(config.get('service_id', None))
+            if mgr.id == manager_id:
+                svc = mgr.get_service(service_id)
                 return {
                     'id': svc.id,
                     'name': svc.name,

@@ -56,7 +56,8 @@ class Augeas(augeas.Augeas):
         """
         Sets `path` to `value`, or removes `path` if `value == default`
         """
-        self.set(path, value)
+        if value is not None:
+            self.set(path, value)
         if value == default:
             self.remove(path)
 

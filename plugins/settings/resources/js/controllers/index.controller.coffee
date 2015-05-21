@@ -37,7 +37,7 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
     .catch () ->
         notify.error 'Could not load config'
 
-    $scope.$watch 'config.color', () ->
+    $scope.$watch 'config.data.color', () ->
         if config.data
             identity.color = config.data.color
 

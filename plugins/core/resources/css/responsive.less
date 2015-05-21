@@ -36,4 +36,15 @@
         display: block;
         .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
     }
+
+    #toast-container {
+        left: 0;
+        top: 0;
+        width: 100%;
+
+        &>.toast {
+            width: 100%;
+            border-radius: 0;
+        }
+    }
 }

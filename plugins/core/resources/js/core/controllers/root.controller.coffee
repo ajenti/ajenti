@@ -17,7 +17,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     console.log('Plugins', ajentiPlugins)
     console.groupEnd()
 
-    $scope.navigationPresent = $location.path().indexOf('/view/login') != 0
+    $scope.navigationPresent = $location.path().indexOf('/view/login') == -1
 
     feedback.init()
 
