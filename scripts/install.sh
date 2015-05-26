@@ -196,3 +196,8 @@ EOF
         $INITSCRIPT start
     fi
 fi
+
+echo ':: Complete'
+echo 
+echo 'Ajenti will be listening at HTTPS port 8000'
+echo 'Log in with your root password or another OS user'
