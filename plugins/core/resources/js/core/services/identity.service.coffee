@@ -1,7 +1,8 @@
 angular.module('core').service 'identity', ($http, $location, $window, $timeout, $q, urlPrefix) ->
+    q = $q.defer()
+    @promise = q.promise
+    
     @init = () ->
-        q = $q.defer()
-        @promise = q.promise
         $http.get('/api/core/identity').success (data) =>
             @user = data.identity.user
             @uid = data.identity.uid

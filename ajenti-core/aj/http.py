@@ -58,7 +58,6 @@ class HttpRoot(object):
 
         http_context.run_response()
         gevent.sleep(0)
-        print http_context.path, repr(content)[:1000]
         return content
 
 

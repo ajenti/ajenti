@@ -11,6 +11,7 @@ angular.module 'core', [
     'toaster',
     'ui.bootstrap',
     'angular-sortable-view',
+    'base64',
 ]
 
 

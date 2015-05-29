@@ -41,6 +41,27 @@
 }
 
 
+.animate-modal {
+    transition: opacity ease 0.25s;
+    -moz-transition: opacity ease 0.25s;
+    -webkit-transition: opacity ease 0.25s;
+
+    &>.modal {
+        transition: margin ease 0.25s, opacity ease 0.25s;
+        -moz-transition: margin ease 0.25s, opacity ease 0.25s;
+        -webkit-transition: margin ease 0.25s, opacity ease 0.25s;
+        opacity: 1;
+    }
+}
+
+.animate-modal.ng-hide {
+    &>.modal {
+        margin-top: -50px;
+        opacity: 0;
+    }
+}
+
+
 .flip-cycle {
     animation: flip-cycle-frames ease infinite 2s;
     -moz-animation: flip-cycle-frames ease infinite 2s;

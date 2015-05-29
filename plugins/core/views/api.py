@@ -36,6 +36,23 @@ class Handler(HttpPlugin):
             'color': aj.config.data.get('color', None),
         }
 
+    @url('/api/core/web-manifest')
+    @endpoint(api=True, auth=False)
+    def handle_api_web_manifest(self, http_context):
+        return {
+            'short_name': aj.config.data['name'],
+            'name': '%s (%s)' % (aj.config.data['name'], socket.gethostname()),
+            'start_url': '%s/#app' % http_context.prefix,
+            'display': 'standalone',
+            'icons': [
+                {
+                    'src': '%s/resources/core/resources/images/icon.png' % http_context.prefix,
+                    'sizes': '1024x1024',
+                    'type': 'image/png',
+                }
+            ]
+        }
+
     @url('/api/core/auth')
     @endpoint(api=True, auth=False)
     def handle_api_auth(self, http_context):

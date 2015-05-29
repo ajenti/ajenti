@@ -63,8 +63,6 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     identity.init()
     identity.promise.then () ->
         console.log 'Ready!'
-    .catch () ->
-        console.error 'Failed'
 
     favicon.init()
 

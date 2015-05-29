@@ -3,6 +3,7 @@
     <head>
         <title ng:bind="pageTitle + (pageTitle ? ' | ' : '') + identity.machine.name"></title>
         <link rel="shortcut icon" />
+        <link rel="manifest" href="{{urlPrefix || '/'}}api/core/web-manifest" />
 
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
