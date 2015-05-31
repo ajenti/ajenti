@@ -2,7 +2,7 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.36'
+version: '0.37'
 title: Core
 icon: link
 dependencies: []
@@ -25,6 +25,7 @@ resources:
     - 'resources/vendor/ngstorage/ngStorage.min.js'
     - 'resources/vendor/fastclick/lib/fastclick.js'
     - 'resources/vendor/angular-base64/angular-base64.js'
+    - 'resources/vendor/mobile-detect/mobile-detect.min.js'
     - 'resources/css/bootstrap/bootstrap.less'
     - 'resources/css/overrides.less'
     - 'resources/css/animations.less'

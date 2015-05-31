@@ -43,10 +43,44 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
                         ng:blur="pasteAreaFocused = false"
                     ></textarea>
                 </div>
+
+                <textarea
+                    class="mobile-input-area"
+                    ng:if="isMobile"
+                    autocomplete="off" 
+                    autocorrect="off" 
+                    autocapitalize="off" 
+                    spellcheck="false"
+                ></textarea>
+
+                <a class="extra-keyboard-toggle btn btn-default" ng:click="extraKeyboardVisible=!extraKeyboardVisible" ng:show="isMobile">
+                    <i class="fa fa-keyboard-o"></i>
+                </a>
+
+                <div class="extra-keyboard" ng:show="extraKeyboardVisible">
+                    <a class="btn btn-default" ng:click="extraKeyboardCtrl = true" ng:class="{active: extraKeyboardCtrl}">
+                        Ctrl
+                    </a>
+                    <a class="btn btn-default" ng:click="fakeKeyEvent(38)">
+                        <i class="fa fa-arrow-up"></i>
+                    </a>
+                    <a class="btn btn-default" ng:click="fakeKeyEvent(40)">
+                        <i class="fa fa-arrow-down"></i>
+                    </a>
+                    <a class="btn btn-default" ng:click="fakeKeyEvent(37)">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
+                    <a class="btn btn-default" ng:click="fakeKeyEvent(39)">
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         '''
         link: ($scope, element, attrs) ->
             element.addClass('block-element')
+
+            $scope.isMobile = new MobileDetect(window.navigator.userAgent).mobile()
+            $scope.extraKeyboardVisible = false
 
             $scope.charWidth = 7
             $scope.charHeight = 14
@@ -233,7 +267,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
 
                 #$log.log event
 
-                if event_name == 'keypress' and event.charCode
+                if event_name == 'keypress' and (event.charCode or event.which)
                     ch = String.fromCharCode(event.which)
                     if ch == '\r'
                         ch = '\n'
@@ -300,6 +334,9 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
             handler = (key, event, mode) ->
                 if $scope.pasteAreaFocused or $scope.disabled
                     return
+                if $scope.extraKeyboardCtrl
+                    event.ctrlKey = true
+                    $scope.extraKeyboardCtrl = false
                 ch = $scope.parseKey(event, mode)
                 if not ch
                     return false
@@ -308,11 +345,14 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
 
             hotkeys.on $scope, (k, e) ->
                 return handler(k, e, 'keypress')
-            , 'keypress'
+            , 'keypress:global'
 
             hotkeys.on $scope, (k, e) ->
                 return handler(k, e, 'keydown')
-            , 'keydown'
+            , 'keydown:global'
+
+            $scope.fakeKeyEvent = (code) ->
+                handler(null, {keyCode: code}, 'keydown')
 
             $scope.$watch 'pasteData', () ->
                 if $scope.pasteData

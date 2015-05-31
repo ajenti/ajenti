@@ -20,7 +20,8 @@
     "fastclick": "~1.0.3",
     "angular-sortable-view": "0.0.13",
     "AngularJS-Toaster": "~0.4.9",
-    "angular-base64": "~2.0.4"
+    "angular-base64": "~2.0.4",
+    "mobile-detect": "*"
   },
   "resolutions": {
     "angular": "~1.4.0"
