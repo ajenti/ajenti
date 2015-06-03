@@ -98,7 +98,7 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/var/run/ajenti.pid
-ExecStart=$(which ajenti-panel) -d
+ExecStart=$(which python) $(which ajenti-panel) -d
 
 [Install]
 WantedBy=multi-user.target
