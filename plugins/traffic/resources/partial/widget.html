@@ -1,0 +1,31 @@
+<div ng:controller="TrafficWidgetController">
+    <div class="widget-header">
+        {{widget.config.interface}}
+    </div>
+    <div class="widget-value">
+        <div class="row">
+            <div class="col-xs-1">
+                <i class="fa fa-arrow-down"></i>
+            </div>
+            <div class="col-xs-5">
+                {{rxSpeed|bytes}}/s
+                <div>
+                    <small>
+                        {{rxTotal|bytes}}
+                    </small>
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <i class="fa fa-arrow-up"></i>
+            </div>
+            <div class="col-xs-5">
+                {{txSpeed|bytes}}/s
+                <div>
+                    <small>
+                        {{txTotal|bytes}}
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

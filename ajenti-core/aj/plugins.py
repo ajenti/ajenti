@@ -231,7 +231,7 @@ class PluginManager(object):
         return self.__plugin_info[name]
 
     def __iter__(self):
-        return iter(self.__plugin_info)
+        return iter(self.load_order)
 
     def __len__(self):
         return len(self.__plugin_info)
@@ -266,19 +266,19 @@ class PluginManager(object):
 
         logging.info('Discovered %i plugins', len(self.__plugin_info))
 
-        load_order = []
+        self.load_order = []
         to_load = list(self.__plugin_info.values())
 
         while True:
             delta = 0
             for plugin in to_load:
                 for dep in plugin['info']['dependencies']:
-                    if isinstance(dep, PluginDependency) and dep.plugin_name not in load_order:
+                    if isinstance(dep, PluginDependency) and dep.plugin_name not in self.load_order:
                         break
-                    if isinstance(dep, OptionalPluginDependency) and dep.plugin_name not in load_order:
+                    if isinstance(dep, OptionalPluginDependency) and dep.plugin_name not in self.load_order:
                         break
                 else:
-                    load_order.append(plugin['info']['name'])
+                    self.load_order.append(plugin['info']['name'])
                     to_load.remove(plugin)
                     delta += 1
 
@@ -286,10 +286,10 @@ class PluginManager(object):
                 # less strict
                 for plugin in to_load:
                     for dep in plugin['info']['dependencies']:
-                        if isinstance(dep, PluginDependency) and dep.plugin_name not in load_order:
+                        if isinstance(dep, PluginDependency) and dep.plugin_name not in self.load_order:
                             break
                     else:
-                        load_order.append(plugin['info']['name'])
+                        self.load_order.append(plugin['info']['name'])
                         to_load.remove(plugin)
                         delta += 1
 
@@ -298,11 +298,11 @@ class PluginManager(object):
 
         for plugin in to_load:
             for dep in plugin['info']['dependencies']:
-                if isinstance(dep, PluginDependency) and dep.plugin_name not in load_order:
+                if isinstance(dep, PluginDependency) and dep.plugin_name not in self.load_order:
                     self.__crashes[plugin['info']['name']] = dep.build_exception()
                     logging.warn('Not loading [%s] because [%s] is unavailable', plugin['info']['name'], dep.plugin_name)
 
-        for name in list(load_order):
+        for name in list(self.load_order):
             try:
                 for dependency in self[name]['info']['dependencies']:
                     if not isinstance(dependency, PluginDependency):
@@ -310,29 +310,29 @@ class PluginManager(object):
             except Dependency.Unsatisfied as e:
                 self.__crashes[name] = e
                 logging.warn('Not loading [%s] because dependency failed: %s', name, e)
-                load_order.remove(name)
+                self.load_order.remove(name)
 
-        logging.debug('Resolved load order for %i plugins: %s', len(load_order), load_order)
+        logging.debug('Resolved load order for %i plugins: %s', len(self.load_order), self.load_order)
 
-        for name in list(load_order):
+        for name in list(self.load_order):
             try:
                 self.__import_plugin_module(name, self[name])
             except Exception as e:
                 self.__crashes[name] = PluginCrashed(e)
                 logging.error('[%s]: plugin import failed: %s', name, e)
                 logging.error(traceback.format_exc())
-                load_order.remove(name)
+                self.load_order.remove(name)
 
-        for name in list(load_order):
+        for name in list(self.load_order):
             try:
                 self.__init_plugin_module(name, self[name])
             except Exception as e:
                 self.__crashes[name] = PluginCrashed(e)
                 logging.error('[%s]: plugin init failed: %s', name, e)
                 logging.error(traceback.format_exc())
-                load_order.remove(name)
+                self.load_order.remove(name)
 
-        logging.info('Loaded %i plugins', len(load_order))
+        logging.info('Loaded %i plugins', len(self.load_order))
 
     def __import_plugin_module(self, name, info):
         logging.debug('Importing plugin "%s"', name)

@@ -1,0 +1,16 @@
+name: traffic
+author: Ajenti project
+email: e@ajenti.org
+url: http://ajenti.org
+version: '0.1'
+title: 'Traffic Widget'
+icon: exchange
+dependencies:
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: dashboard }
+resources:
+    - 'resources/js/module.coffee'
+    - 'resources/js/controllers/widget.controller.coffee'
+    - 'resources/partial/widget.html'
+    - 'resources/partial/widget.config.html'
+    - 'ng:ajenti.traffic'
