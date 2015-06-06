@@ -1,4 +1,4 @@
-angular.module('core').directive 'dialog', ($http, $log) ->
+angular.module('core').directive 'dialog', ($http, $log, $timeout) ->
     return {
         restrict: 'E'
         transclude: true
@@ -13,7 +13,9 @@ angular.module('core').directive 'dialog', ($http, $log) ->
         '''
         link: ($scope, element, attrs) ->
             element.addClass('block-element')
-            element.addClass('animate-modal')
+            $timeout () ->
+                element.addClass('animate-modal')
+
             $scope.attrs = attrs
             $scope.$watch 'attrs.ngShow', () ->
                 if attrs.ngShow

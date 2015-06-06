@@ -63,7 +63,7 @@
                         <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install" ng:show="!isInstalled(plugin)">
                             <i class="fa fa-download"></i>
                         </a>
-                        <a ng:click="$parent.selectedRepoPlugin = plugin" class="list-group-main">
+                        <a ng:click="selectRepoPlugin(plugin)" class="list-group-main">
                             <span class="label label-info pull-right" ng:show="isInstalled(plugin)">
                                 <i class="fa fa-check"></i>
                             </span>
@@ -81,7 +81,7 @@
                         <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install" ng:show="!isInstalled(plugin)">
                             <i class="fa fa-download"></i>
                         </a>
-                        <a ng:click="$parent.selectedRepoPlugin = plugin" class="list-group-main">
+                        <a ng:click="selectRepoPlugin(plugin)" class="list-group-main">
                             <span class="label label-info pull-right" ng:show="isInstalled(plugin)">
                                 <i class="fa fa-check"></i>
                             </span>
@@ -104,12 +104,6 @@
                 <label>Name</label>
                 <div>
                     {{selectedInstalledPlugin.name}}
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Title</label>
-                <div>
-                    {{selectedInstalledPlugin.title}}
                 </div>
             </div>
             <div class="form-group" ng:show="selectedInstalledPlugin.crash">
@@ -179,12 +173,6 @@
                 <label>Name</label>
                 <div>
                     {{selectedRepoPlugin.name}}
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Title</label>
-                <div>
-                    {{selectedRepoPlugin.title}}
                 </div>
             </div>
             <div class="form-group">

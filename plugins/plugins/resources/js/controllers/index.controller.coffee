@@ -1,11 +1,14 @@
 angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $q, $http, notify, pageTitle, messagebox, tasks, core) ->
     pageTitle.set('Plugins')
 
+    $scope.officialKeyFingerprint = '425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759'
     $scope.selectedInstalledPlugin = null
     $scope.selectedRepoPlugin = null
     $scope.coreUpgradeAvailable = null
 
-    $scope.officialKeyFingerprint = '425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759'
+    $scope.selectRepoPlugin = (plugin) ->
+        $scope.selectedRepoPlugin = plugin
+
 
     $scope.refresh = () ->
         $http.get('/api/plugins/list/installed').success (data) ->
