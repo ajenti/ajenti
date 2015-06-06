@@ -25,15 +25,6 @@
         </style>
     </head>
     <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}} {{customization.plugins.core.bodyClass}}">
-        <div class="row" ng:hide="appReady">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                <br/><br/><br/><br/>
-                <smart-progress text="Loading"></smart-progress>
-            </div>
-            <div class="col-xs-4"></div>
-        </div>
-
         <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady" ng:cloak>
             <div class="container">
                 <a ng:click="toggleNavigation()" ng:show="navigationPresent" class="navbar-brand navigation-toggle hide-phone hide-tablet">
@@ -134,6 +125,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="global-overlay global-loading-overlay" ng:hide="appReady">
+            <progress-spinner></progress-spinner>
         </div>
 
         <div class="global-overlay global-bootstrap-error" style="display: none">
