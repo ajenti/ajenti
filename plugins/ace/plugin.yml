@@ -2,7 +2,7 @@ name: ace
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.14'
+version: '0.18'
 title: 'Ace editor'
 icon: cog
 dependencies:
@@ -19,3 +19,8 @@ resources:
     - 'resources/vendor/ace-builds/src-min-noconflict/theme-solarized_dark.js'
     - 'resources/vendor/angular-ui-ace/ui-ace.js'
     - 'ng:ajenti.ace'
+pre_build: >
+    rm -r resources/vendor/ace-builds/demo;
+    rm -r resources/vendor/ace-builds/src;
+    rm -r resources/vendor/ace-builds/src-min;
+    rm -r resources/vendor/ace-builds/src-noconflict;

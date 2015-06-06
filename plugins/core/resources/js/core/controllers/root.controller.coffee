@@ -1,4 +1,4 @@
-angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, favicon, feedback) ->
+angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $log, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback) ->
     $rootScope.identity = identity
     $rootScope.$location = $location
     $rootScope.location = location
@@ -11,7 +11,8 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     $rootScope.keys = (x) -> if x then Object.keys(x) else []
 
     console.group('Welcome')
-    console.log('Ajenti', ajentiVersion)
+    console.info('Ajenti', ajentiVersion)
+    console.log('Running on', ajentiPlatform, '/', ajentiPlatformUnmapped)
     if urlPrefix
         console.log('URL prefix', urlPrefix)
     console.log('Plugins', ajentiPlugins)
@@ -62,7 +63,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
     $rootScope.appReady = true
     identity.init()
     identity.promise.then () ->
-        console.log 'Ready!'
+        $log.info 'Ready'
 
     favicon.init()
 

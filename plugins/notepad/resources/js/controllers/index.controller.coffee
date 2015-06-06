@@ -1,4 +1,4 @@
-angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, urlPrefix) ->
+angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, config) ->
     pageTitle.set('')
 
     $scope.newFile = () ->
@@ -12,7 +12,7 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
         $scope.openDialogVisible = true
 
     $scope.open = (path) ->
-        url = "#{urlPrefix}/view/notepad/#{path}"
+        url = "/view/notepad/#{path}"
         if $location.path() != url
             $location.path(url)
             return
@@ -51,6 +51,20 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
         else
             $scope.saveAsName = 'new.txt'
 
+    config.getUserConfig().then (userConfig) ->
+        $scope.userConfig = userConfig
+        $scope.userConfig.notepad ?= {}
+        $scope.userConfig.notepad.bookmarks ?= []
+        $scope.bookmarks = $scope.userConfig.notepad.bookmarks
+
+    $scope.toggleBookmark = () ->
+        index = $scope.bookmarks.indexOf($scope.path)
+        if index >= 0
+            $scope.bookmarks.splice(index, 1)
+        else
+            $scope.bookmarks.push $scope.path
+        config.setUserConfig($scope.userConfig)
+
     if $routeParams.path
         $scope.open($routeParams.path)
     else
@@ -70,3 +84,4 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
             $scope.newFile()
             return true
         return false
+

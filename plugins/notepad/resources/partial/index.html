@@ -26,6 +26,25 @@
     <a href="{{urlPrefix}}/view/notepad" target="_blank" class="btn btn-default btn-flat pull-right">
         <i class="fa fa-plus"></i> Tab
     </a>
+
+    <div class="btn-group dropdown dropup pull-right">
+        <a class="btn btn-default btn-flat" ng:click="toggleBookmark()" ng:class="{active: bookmarks.indexOf(path) >= 0}" title="Bookmark this" ng:show="path">
+            <i class="fa fa-bookmark-o"></i>
+        </a>
+
+        <a class="btn btn-default btn-flat" dropdown-toggle ng:show="bookmarks.length > 0">
+            Bookmarks <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu" ng:show="bookmarks.length > 0">
+            <li ng:repeat="path in bookmarks|orderBy:'toString()'">
+                <a ng:href="{{urlPrefix}}/view/notepad/{{path}}">
+                    <i class="fa fa-file"></i> {{path}}
+                </a>
+            </li>
+        </ul>
+    </div>    
+
     <a ng:click="newFile()" class="btn btn-default btn-flat" test-bind="newButton">New</a>
     <a ng:click="showOpenDialog()" class="btn btn-default btn-flat" test-bind="openButton">Open</a>
     <a ng:click="save()" ng:show="path" class="btn btn-default btn-flat" test-bind="saveButton">Save</a>

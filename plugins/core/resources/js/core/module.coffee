@@ -26,6 +26,20 @@ angular.module('core').run () ->
     FastClick.attach(document.body) 
 
 
+angular.module('core').factory '$exceptionHandler', ($injector) ->
+    return (exception, cause) ->
+        $injector.get('notify').warning 'Unhanded error occured', 'Please see browser console'
+
+        console.group('Unhandled exception occured')
+        console.error(exception)
+        if cause
+            console.error('Caused by')
+            console.error(cause)
+            console.warn('Consider sending this error to https://github.com/ajenti/ajenti/issues/new')
+        console.groupEnd()
+        #throw exception
+
+
 Array.prototype.remove = (args...) ->
     output = []
     for arg in args

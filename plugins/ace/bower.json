@@ -2,6 +2,6 @@
   "name": "plugin",
   "private": true,
   "dependencies": {
-    "angular-ui-ace": "bower"
+    "angular-ui-ace": "0.2.3"
   }
 }

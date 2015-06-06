@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng:app="app">
+<html>
     <head>
         <title ng:bind="pageTitle + (pageTitle ? ' | ' : '') + identity.machine.name"></title>
         <link rel="shortcut icon" />
@@ -130,12 +130,40 @@
             </div>
         </div>
 
+        <div class="global-overlay global-bootstrap-error" style="display: none">
+            <div class="text-center">
+                <span class="header">
+                    <i class="fa fa-warning"></i>
+                </span>
+                <h1>
+                    A bootstrap error has occured
+                </h1>
+                <div>
+                    Please see browser console
+                </div>
+                <div>
+                    <i class="fa fa-arrow-down"></i>
+                </div>
+            </div>
+        </div>
+
         <script>
             angular.module('core').constant('urlPrefix', '%(prefix)s');
             angular.module('core').constant('ajentiPlugins', %(plugins)s);
             angular.module('core').constant('ajentiPlatform', '%(platform)s');
             angular.module('core').constant('ajentiPlatformUnmapped', '%(platformUnmapped)s');
             angular.module('core').constant('ajentiVersion', '%(version)s');
+
+            angular.element(document).ready(function() {
+                try {
+                    angular.bootstrap(document, ['app']);
+                } catch(e) {
+                    $('.global-bootstrap-error').show();
+                    console.error('Angular bootstrap has failed');
+                    console.warn('Consider sending the following error to https://github.com/ajenti/ajenti/issues/new');
+                    throw e;
+                }
+            });
         </script>
     </body>
 </html>

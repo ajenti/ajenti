@@ -6,6 +6,6 @@
 *.whl
 *.egg*
 *.asc
-
+.last-upload
 plugins/demo*
 docs/build

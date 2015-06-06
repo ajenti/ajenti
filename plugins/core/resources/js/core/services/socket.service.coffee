@@ -6,34 +6,34 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
     )
 
     @socket.on 'connecting', (e) ->
-        $log.log('Connecting')
+        $log.log('Socket is connecting')
 
     @socket.on 'connect_failed', (e) ->
-        $log.log('Connection failed', e)
+        $log.log('Socket is connection failed', e)
 
     @socket.on 'reconnecting', (e) ->
-        $log.log('Reconnecting')
+        $log.log('Socket is reconnecting')
 
     @socket.on 'reconnect_failed', (e) ->
-        $log.log('Reconnection failed', e)
+        $log.log('Socket reconnection failed', e)
 
     @socket.on 'reconnect', (e) ->
         $rootScope.socketConnectionLost = false
-        $log.log('Reconnected')
+        $log.log('Socket has reconnected')
 
     @socket.on 'connect', (e) =>
         if not @enabled
             return
         $rootScope.socketConnectionLost = false
         $rootScope.$broadcast 'socket-event:connect'
-        $log.log('Connected')
+        $log.log('Socket has connected')
 
     @socket.on 'disconnect', (e) =>
         if not @enabled
             return
         $rootScope.socketConnectionLost = true
         $rootScope.$broadcast 'socket-event:disconnect'
-        $log.error('Disconnect', e)
+        $log.error('Socket has disconnect', e)
 
     @socket.on 'error', (e) ->
         $rootScope.socketConnectionLost = true

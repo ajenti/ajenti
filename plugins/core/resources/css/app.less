@@ -345,3 +345,24 @@ progress-spinner {
         margin: 5px 0; 
     }
 }
+
+
+.global-overlay {
+    background: rgba(255,255,255,.75);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+
+    &.global-bootstrap-error {
+        padding-top: 50px;
+
+        .header {
+            font-size: 100px;
+            color: #ddd;
+            text-shadow: 0 0 1px #fff;
+        }
+    }
+}

@@ -8,26 +8,26 @@ angular.module('ajenti.ace').directive 'aceEditor', ($timeout, $log) ->
             <div ui-ace="options" ng:model="ngModel"></div>
         '''
         link: ($scope, element, attrs) ->
-            ace.config.set('basePath', '/resources/ace/resources/vendor/ace-builds/src-min-noconflict')
-
             element.addClass('block-element')
-            $scope.options = $scope.aceOptions
+
+        controller: ($scope) ->
             $scope.options ?= {}
             $scope.options.useWrapMode ?= true
             $scope.options.showGutter ?= true
-            $scope.options.theme ?= 'solarized_dark'
-            $scope.options.autoScrollEditorIntoView ?= true
-            $scope.options.fontSize ?= '12px'
-            $scope.options.maxLines ?= Infinity
-            $scope.options.scrollPastEnd ?= true
+            $scope.aceOptions ?= {}
+            $scope.aceOptions.theme ?= 'ace/theme/solarized_dark'
+            $scope.aceOptions.autoScrollEditorIntoView ?= true
+            $scope.aceOptions.fontSize ?= '12px'
+            $scope.aceOptions.maxLines ?= Infinity
+            $scope.aceOptions.scrollPastEnd ?= true
+            ace.config.set('basePath', '/resources/ace/resources/vendor/ace-builds/src-min-noconflict')
 
             $scope.options.onLoad = (ace) ->
                 $log.debug 'Ace editor loaded'
                 $scope.ace = ace
-                $scope.ace.setOptions $scope.options
+                $scope.ace.$blockScrolling = Infinity
+                $scope.ace.setOptions $scope.aceOptions
                 $scope.ace.resize()
-
-            #element.find('div[ui-ace]').height(900)
 
             $scope.$on 'ace:reload', ($event, path) ->
                 $log.debug 'Guessing mode for ' + path
