@@ -1,4 +1,12 @@
 angular.module('ajenti.terminal').service 'terminals', ($http, $q) ->
+    @script = (options) ->
+        q = $q.defer()
+        $http.post('/api/terminal/script', options).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     @list = () ->
         q = $q.defer()
         $http.get("/api/terminal/list").success (data) ->

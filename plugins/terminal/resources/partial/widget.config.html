@@ -1,0 +1,19 @@
+<div>
+    <div class="form-group">
+        <label>Name</label>
+        <input ng:model="configuredWidget.config.name" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Script</label>
+        <ace-editor ng:model="configuredWidget.config.script"></ace-editor>
+    </div>
+    <div class="form-group">
+        <label>stdin data</label>
+        <ace-editor ng:model="configuredWidget.config.input"></ace-editor>
+    </div>
+    <div class="form-group">
+        <label>
+            <input ng:model="configuredWidget.config.terminal" type="checkbox" /> Run in a terminal
+        </label>
+    </div>
+</div>

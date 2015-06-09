@@ -1,0 +1,13 @@
+<div ng:controller="ScriptWidgetController">
+    <div class="widget-header">
+        Script
+    </div>
+    <div class="pull-right">
+        <a ng:click="run(widget.config)" class="btn btn-default">
+            <i class="fa fa-play"></i> Run
+        </a>
+    </div>
+    <div class="widget-value">
+        {{widget.config.name}}
+    </div>
+</div>

@@ -2,6 +2,7 @@ angular.module('ajenti.ace').directive 'aceEditor', ($timeout, $log) ->
     return {
         scope: {
             ngModel: '='
+            options: '=?'
             aceOptions: '=?'
         }
         template: '''
@@ -9,6 +10,11 @@ angular.module('ajenti.ace').directive 'aceEditor', ($timeout, $log) ->
         '''
         link: ($scope, element, attrs) ->
             element.addClass('block-element')
+            if $scope.options 
+                if $scope.options.height
+                    element.height($scope.options.height)
+                if $scope.options.fullScreen
+                    element.addClass('full-screen')
 
         controller: ($scope) ->
             $scope.options ?= {}

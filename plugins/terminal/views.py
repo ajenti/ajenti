@@ -2,10 +2,11 @@ from PIL import Image, ImageDraw
 
 import json
 import StringIO
+import subprocess
 
 from jadi import component
 from aj.api.http import url, HttpPlugin, SocketEndpoint
-from aj.api.endpoint import endpoint
+from aj.api.endpoint import endpoint, EndpointError
 
 from .manager import TerminalManager
 
@@ -15,6 +16,28 @@ class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
         self.mgr = TerminalManager.get(self.context)
+
+    @url('/api/terminal/script')
+    @endpoint(api=True)
+    def handle_script(self, http_context):
+        data = json.loads(http_context.body)
+        try:
+            p = subprocess.Popen(
+                ['bash', '-c', data['script']],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                close_fds=True
+            )
+            o, e = p.communicate(data.get('input', None))
+        except subprocess.CalledProcessError as e:
+            raise EndpointError(e)
+        except OSError as e:
+            raise EndpointError(e)
+        return {
+            'code': p.returncode,
+            'output': o,
+            'stderr': e,
+        }
 
     @url('/api/terminal/list')
     @endpoint(api=True)

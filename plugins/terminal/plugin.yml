@@ -7,6 +7,8 @@ title: 'Terminal'
 icon: terminal
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+    - !!python/object:aj.plugins.PluginDependency { plugin_name: ace }
+    - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
 resources:
     - 'resources/css/terminal.less'
     - 'resources/js/module.coffee'
@@ -14,7 +16,10 @@ resources:
     - 'resources/js/directives/terminal.coffee'
     - 'resources/js/controllers/index.controller.coffee'
     - 'resources/js/controllers/view.controller.coffee'
+    - 'resources/js/controllers/widget.controller.coffee'
     - 'resources/js/services/terminals.service.coffee'
     - 'resources/partial/index.html'
     - 'resources/partial/view.html'
+    - 'resources/partial/widget.html'
+    - 'resources/partial/widget.config.html'
     - 'ng:ajenti.terminal'

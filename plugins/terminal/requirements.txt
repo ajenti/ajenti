@@ -2,3 +2,4 @@ pyte
 Pillow
 aj
 ajenti.plugin.core
+ajenti.plugin.ace
