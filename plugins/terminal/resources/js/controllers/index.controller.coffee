@@ -1,5 +1,5 @@
 angular.module('ajenti.terminal').controller 'TerminalIndexController', ($scope, $location, $q, pageTitle, terminals) -> 
-    pageTitle.set('')
+    pageTitle.set('Terminals')
 
     $scope.refresh = () ->
         q = $q.defer()
@@ -10,6 +10,10 @@ angular.module('ajenti.terminal').controller 'TerminalIndexController', ($scope,
 
     $scope.create = () ->
         terminals.create().then (id) ->
+            $location.path("/view/terminal/#{id}")
+
+    $scope.runCommand = () ->
+        terminals.create(command: $scope.command, autoclose: true).then (id) ->
             $location.path("/view/terminal/#{id}")
 
     $scope.kill = (terminal) ->

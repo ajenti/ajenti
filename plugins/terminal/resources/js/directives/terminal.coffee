@@ -124,6 +124,12 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
                 $scope.onReady()
                 notify.info 'Terminal was closed'
 
+            $scope.scheduleResize = (w, h) ->
+                $timeout.cancel($scope.resizeTimeout)
+                $scope.resizeTimeout = $timeout () ->
+                    $scope.resize(w, h)
+                , 1000
+
             $scope.resize = (w, h) ->
                 socket.send 'terminal', {
                     action: 'resize'
@@ -140,7 +146,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
                 availableHeight = $(window).height() - 60 - 40
                 cols = Math.floor(availableWidth / $scope.charWidth)
                 rows = Math.floor(availableHeight / $scope.charHeight)
-                $scope.resize(cols, rows)
+                $scope.scheduleResize(cols, rows)
 
             $scope.$on 'window:resize', () ->
                 $scope.autoResize()

@@ -17,12 +17,13 @@ from aj.util import BroadcastQueue
 
 
 class Terminal(object):
-    def __init__(self, manager=None, id=None, command=None, autoclose=False):
+    def __init__(self, manager=None, id=None, command=None, autoclose=False, autoclose_retain=5):
         self.width = 80
         self.height = 25
         self.id = id
         self.manager = manager
         self.autoclose = autoclose
+        self.autoclose_retain = autoclose_retain
         self.output = BroadcastQueue()
 
         env = {}
@@ -73,28 +74,26 @@ class Terminal(object):
         self.reader = gevent.spawn(self.reader_fn)
 
     def reader_fn(self):
-        data = ''
         while True:
             wait_read(self.fd)
+            self.run_single_read()
+            self._check()
+            if self.dead:
+                return
 
-            try:
-                d = self.stream.read()
-            except IOError:
-                d = ''
+    def run_single_read(self):
+        try:
+            data = self.stream.read()
+        except IOError:
+            data = ''
 
+        if data:
             try:
-                data += d
-                self._check()
-                if self.dead:
-                    return
-                if data:
-                    u = data.decode('utf-8')
-                    self.pyte_stream.feed(u)
-                    data = ''
-                    self.broadcast_update()
-                    continue
+                u = data.decode('utf-8')
+                self.pyte_stream.feed(u)
+                self.broadcast_update()
             except UnicodeDecodeError:
-                continue
+                pass
 
     def broadcast_update(self):
         self.output.broadcast(self.format())
@@ -112,6 +111,7 @@ class Terminal(object):
         if self.dead:
             return
 
+        logging.info('Terminal %s has died', self.id)
         self.dead = True
 
         if code:
@@ -120,8 +120,10 @@ class Terminal(object):
             self.pyte_stream.feed(u'\n\n * ' + u'Process has exited successfully')
 
         self.broadcast_update()
+
         if self.autoclose:
-            self.manager.remove(self.id)
+            gevent.spawn_later(self.autoclose_retain, self.manager.remove, self.id)
+
         """
         TODO
         if self.callback:
@@ -170,6 +172,8 @@ class Terminal(object):
         self.stream.flush()
 
     def resize(self, w, h):
+        if self.dead:
+            return
         if (h, w) == self.screen.size:
             return
         if w <= 0 or h <= 0:

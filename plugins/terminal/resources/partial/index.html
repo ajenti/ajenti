@@ -4,10 +4,6 @@
     <i class="fa fa-info-circle"></i> No terminals open
 </div>
 
-<a class="btn btn-primary btn-large-phone" ng:click="create()" ng:show="terminals.length == 0" test-bind="newTerminalButton">
-    <i class="fa fa-plus"></i> Open a terminal
-</a>
-
 <div class="list-group">
     <div ng:repeat="terminal in terminals" class="list-group-item list-group-item-large">
         <a class="list-group-btn" ng:click="kill(terminal)" title="Terminate">
@@ -27,8 +23,22 @@
     </div>
 </div>
 
-<div class="floating-toolbar-padder"></div>
+<div class="row">
+    <div class="col-sm-4">
+        <a class="btn btn-primary btn-block" ng:click="create()" test-bind="newTerminalButton">
+            <i class="fa fa-plus"></i> Open a new terminal
+        </a>
+    </div>
+    <div class="col-sm-8">
+        <div class="input-group">
+            <input ng:model="command" ng:enter="runCommand()" placeholder="Run a command..." class="form-control" />
+            <div class="input-group-btn">
+                <a ng:click="runCommand()" class="btn btn-primary">
+                    <i class="fa fa-play"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<floating-toolbar ng:show="terminals.length > 0">
-    <a ng:click="create()" class="btn btn-default btn-flat" test-bind="newTerminalButton2">New terminal</a>
-</floating-toolbar>
+<div class="floating-toolbar-padder"></div>

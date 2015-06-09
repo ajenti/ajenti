@@ -3,7 +3,7 @@ import os
 
 from jadi import service
 
-from terminal import *
+from terminal import Terminal
 
 
 @service
