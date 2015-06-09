@@ -25,7 +25,7 @@ Setting up
 
 Download the source::
 
-    git clone git://github.com/Eugeny/ajenti.git
+    git clone git://github.com/ajenti/ajenti.git -b 1.x
 
 (or download them from PyPI: https://pypi.python.org/pypi/ajenti)
 

@@ -41,7 +41,7 @@ htmlhelp_basename = 'Ajentidoc'
 
 html_context = {
     "disqus_shortname": 'ajenti',
-    "github_base_account": 'Eugeny',
+    "github_base_account": 'ajenti',
     "github_project": 'ajenti',
 }
 

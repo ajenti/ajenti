@@ -91,4 +91,4 @@ Download and install latest Ajenti build from PYPI::
 
 Install rc.d script::
 
-    wget https://raw.github.com/Eugeny/ajenti/master/packaging/files/ajenti-bsd -O /etc/rc.d/ajenti
+    wget https://raw.github.com/ajenti/ajenti/master/packaging/files/ajenti-bsd -O /etc/rc.d/ajenti

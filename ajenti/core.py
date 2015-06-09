@@ -200,4 +200,4 @@ def handle_crash(exc):
     report.write(make_report(exc))
     report.close()
     logging.error('Crash report written to %s' % report_path)
-    logging.error('Please submit it to https://github.com/Eugeny/ajenti/issues/new')
+    logging.error('Please submit it to https://github.com/ajenti/ajenti/issues/new')
