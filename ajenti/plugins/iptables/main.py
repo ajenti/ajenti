@@ -274,18 +274,18 @@ if subprocess.call(['which', 'ip6tables']) == 0:
         iptables_restore_binary = 'ip6tables-restore'
 
     @plugin
-    class DebianIPv6FirewallManager (DebianFirewallManager, IPv6FirewallManager):
+    class DebianIPv6FirewallManager (IPv6FirewallManager, DebianFirewallManager):
         autostart_script_path = '/etc/network/if-up.d/ip6tables'
         config_path = '/etc/ip6tables.up.rules'
         config_path_ajenti = '/etc/ip6tables.up.rules.ajenti'
     
     @plugin
-    class CentOSIPv6FirewallManager (CentOSFirewallManager, IPv6FirewallManager):
+    class CentOSIPv6FirewallManager (IPv6FirewallManager, CentOSFirewallManager):
         config_path = '/etc/sysconfig/ip6tables'
         config_path_ajenti = '/etc/ip6tables.up.rules.ajenti'
 
     @plugin
-    class ArchIPv6FirewallManager (ArchFirewallManager, IPv6FirewallManager):
+    class ArchIPv6FirewallManager (IPv6FirewallManager, ArchFirewallManager):
         config_path = '/etc/iptables/ip6tables.rules'
         config_path_ajenti = '/etc/iptables/ip6tables-ajenti.rules'
 
