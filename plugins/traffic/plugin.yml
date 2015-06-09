@@ -2,7 +2,7 @@ name: traffic
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.1'
+version: '0.2'
 title: 'Traffic Widget'
 icon: exchange
 dependencies:
