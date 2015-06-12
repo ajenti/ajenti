@@ -20,7 +20,10 @@ runprod:
 
 
 clean:
-	find | grep \.pyc | xargs rm
+	find | grep \.pyc | xargs rm || true
+	rm -rf plugins/*/build || true
+	rm -rf plugins/*/dist || true
+	rm -rf plugins/*/.last-upload || true
 
 
 doc:

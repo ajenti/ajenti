@@ -1,13 +1,12 @@
 import logging
 import os
 import platform as pyplatform
-import random
 import signal
 import subprocess
 
 # imported by installer, no 3rd party imports here!
 
-__version__ = '2.0.50'
+__version__ = '2.0.55'
 
 # Global state
 
@@ -115,7 +114,7 @@ def detect_platform():
 
     if dist == '':
         try:
-            dist = subprocess.check_output(['strings', '-4', '/etc/issue']).split()[0]
+            dist = subprocess.check_output(['strings', '-4', '/etc/issue']).split()[0].strip()
         except:
             dist = 'unknown'
 
@@ -131,9 +130,9 @@ def detect_platform():
 
 def detect_platform_string():
     try:
-        return subprocess.check_output(['lsb_release', '-sd'])
+        return subprocess.check_output(['lsb_release', '-sd']).strip()
     except:
-        return subprocess.check_output(['uname', '-mrs'])
+        return subprocess.check_output(['uname', '-mrs']).strip()
 
 
 def init():

@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 
-import daemon
 import locale
 import logging
 import os
@@ -9,7 +8,6 @@ import signal
 import socket
 import sys
 import syslog
-import traceback
 from jadi import Context
 
 import aj
@@ -18,9 +16,7 @@ from aj.auth import AuthenticationService
 from aj.http import HttpRoot, HttpMiddlewareAggregator
 from aj.gate.middleware import GateMiddleware
 from aj.plugins import PluginManager
-from aj.util import make_report
 from aj.util.sslsocket import SSLSocket
-from aj.util.pidfile import PidFile
 from aj.wsgi import RequestHandler
 
 import gevent
@@ -242,55 +238,3 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
         if aj.master:
             logging.debug('Server stopped')
             cleanup()
-
-
-def handle_crash(exc):
-    # todo rework this
-    logging.error('Fatal crash occured')
-    traceback.print_exc()
-    exc.traceback = traceback.format_exc(exc)
-    report_path = '/root/%s-crash.txt' % aj.product
-    try:
-        report = open(report_path, 'w')
-    except:
-        report_path = './%s-crash.txt' % aj.product
-        report = open(report_path, 'w')
-    report.write(make_report(exc))
-    report.close()
-    logging.error('Crash report written to %s', report_path)
-    # TODO message
-    # logging.error('Please submit it to https://github.com/ajenti/ajenti/issues/new')
-
-
-def start(daemonize=False, log_level=logging.INFO, **kwargs):
-    """
-    A wrapper for :func:`run` that optionally runs it in a forked daemon process.
-
-    :param kwargs: rest of arguments is forwarded to :func:`run`
-    """
-    if daemonize:
-        aj.log.init_log_directory()
-        logfile = open(aj.log.LOG_FILE, 'w+')
-        context = daemon.DaemonContext(
-            pidfile=PidFile('/var/run/ajenti.pid'),
-            stdout=logfile,
-            stderr=logfile,
-            detach_process=True,
-            files_preserve=range(1024),  # force-closing files breaks gevent badly
-        )
-        with context:
-            gevent.reinit()
-            aj.log.init_log_rotation()
-            try:
-                run(**kwargs)
-            # pylint: disable=W0703
-            except Exception as e:
-                handle_crash(e)
-    else:
-        try:
-            run(**kwargs)
-        except KeyboardInterrupt:
-            pass
-        # pylint: disable=W0703
-        except Exception as e:
-            handle_crash(e)

@@ -84,13 +84,15 @@ class ConsoleHandler(logging.StreamHandler):
 def init_console(log_level=logging.INFO):
     log = logging.getLogger()
     log.setLevel(logging.DEBUG)
-
     stdout = ConsoleHandler(sys.stdout)
     stdout.setLevel(log_level)
-
-    dformatter = logging.Formatter('%(asctime)s %(levelname)-8s [%(process)-5d]: %(message)s')
-    stdout.setFormatter(dformatter)
     log.handlers = [stdout]
+
+
+class LoggerWriter:
+    def write(self, message):
+        if message != '\n':
+            logging.warning('stdout: %s', message.strip('\n'))
 
 
 def init_log_directory():
@@ -98,18 +100,18 @@ def init_log_directory():
         os.mkdir(LOG_DIR)
 
 
-def init_log_rotation():
-    sys.stderr = sys.stdout
+def init_log_file():
+    sys.stderr = sys.stdout = LoggerWriter()
     log = logging.getLogger()
     try:
         handler = logging.handlers.TimedRotatingFileHandler(
-            os.path.join(LOG_DIR, LOG_NAME),
+            LOG_FILE,
             when='midnight',
             backupCount=7
         )
         handler.setLevel(logging.INFO)
         handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)-8s: %(message)s'))
-        log.addHandler(handler)
+        log.handlers = [handler]
     except IOError:
         pass
 

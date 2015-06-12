@@ -9,6 +9,14 @@ class YUMPackageManager(PackageManager):
     id = 'yum'
     name = 'YUM'
 
+    @classmethod
+    def __verify__(cls):
+        try:
+            yum.YumBase().doGenericSetup(cache=1)
+            return True
+        except:
+            return False
+
     def __init__(self, context):
         PackageManager.__init__(self, context)
         self.yum = yum.YumBase()

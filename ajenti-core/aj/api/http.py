@@ -70,6 +70,8 @@ class HttpPlugin(object):
                 if match:
                     http_context.route_data = match.groupdict()
                     data = method(http_context, **http_context.route_data)
+                    if isinstance(data, unicode):
+                        data = data.encode('utf-8')
                     if isinstance(data, types.GeneratorType):
                         return data
                     else:

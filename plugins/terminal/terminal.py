@@ -33,7 +33,8 @@ class Terminal(object):
         env['LINES'] = str(self.height)
         env['LC_ALL'] = 'en_US.UTF8'
 
-        if not command:
+        self.command = command
+        if not self.command:
             shell = os.environ.get('SHELL', None)
             if not shell:
                 for sh in ['zsh', 'bash', 'sh']:
@@ -43,12 +44,9 @@ class Terminal(object):
                     except:
                         pass
             self.command = shell
-            args = [shell]
-            exe = shell
-        else:
-            self.command = command
-            args = ['sh', '-c', self.command]
-            exe = 'sh'
+
+        args = ['sh', '-c', self.command]
+        exe = 'sh'
 
         logging.info('Activating new terminal: %s', self.command)
 

@@ -231,4 +231,9 @@ class GateMiddleware(object):
             http_context.env['REQUEST_METHOD'],
             http_context.path
         )
+
+        for index, item in enumerate(content):
+            if isinstance(item, unicode):
+                content[index] = item.encode('utf-8')
+
         return content

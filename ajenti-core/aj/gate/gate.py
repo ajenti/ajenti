@@ -3,6 +3,7 @@ import gipc
 import greenlet
 import logging
 import os
+import pickle
 import signal
 
 import aj
@@ -27,7 +28,10 @@ class WorkerGate(object):
         self.q_socket_messages = BroadcastQueue()
 
     def start(self):
-        pipe_parent, pipe_child = gipc.pipe(duplex=True)
+        pipe_parent, pipe_child = gipc.pipe(
+            duplex=True,
+            encoder=lambda x: pickle.dumps(x, 2),
+        )
         self.stream = GateStreamServerEndpoint(pipe_parent)
         stream_child = GateStreamWorkerEndpoint(pipe_child)
 

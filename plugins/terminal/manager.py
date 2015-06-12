@@ -27,7 +27,6 @@ class TerminalManager(object):
     def create(self, **kwargs):
         _id = os.urandom(32).encode('hex')
         t = Terminal(self, _id, **kwargs)
-        logging.info('Created terminal %s', _id)
         self.terminals[_id] = t
         return _id
 

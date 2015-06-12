@@ -33,6 +33,7 @@ Python API Reference
    ref/aj.api.endpoint
    ref/aj.config
    ref/aj.core
+   ref/aj.entry
    ref/aj.http
    ref/aj.plugins
 

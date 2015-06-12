@@ -216,7 +216,7 @@ class HttpContext(object):
         if isinstance(status, int):
             status = '%s ' % status
         self.start_response(
-            status,
+            status.encode('utf-8'),
             [(x.encode('utf-8'), y.encode('utf-8')) for x, y in self.headers]
         )
 

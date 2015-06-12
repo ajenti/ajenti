@@ -9,7 +9,7 @@ import yaml
 
 import aj
 import aj.config
-import aj.core
+import aj.entry
 import aj.log
 import aj.plugins
 
@@ -108,7 +108,7 @@ if __name__ == '__main__':
         logging.error('Config file "%s" not found', config_path)
         sys.exit(1)
 
-    aj.core.start(
+    aj.entry.start(
         config=AjentiConfig(config_path),
         dev_mode=dev_mode,
         debug_mode=debug_mode,
