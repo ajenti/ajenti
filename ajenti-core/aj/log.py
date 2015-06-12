@@ -28,29 +28,33 @@ class ConsoleHandler(logging.StreamHandler):
         d = datetime.fromtimestamp(record.created)
         s += colored(d.strftime("%d.%m.%Y %H:%M  "), 'white')
 
+        params = {
+            'tag': getattr(record, 'tag', 'master'),
+            'pid': getattr(record, 'pid', os.getpid()),
+        }
+
         process_tag = ''
         padding = ''
-        if LOG_PARAMS['tag'] == 'master':
+        if params['tag'] == 'master':
             if os.getpid() == LOG_PARAMS['master_pid']:
                 process_tag = colored('master', 'yellow')
             else:
-                LOG_PARAMS['tag'] = None
-                # process_tag = colored('...   ', 'yellow')
-        if LOG_PARAMS['tag'] == 'restricted':
+                params['tag'] = None
+        if params['tag'] == 'restricted':
             process_tag = colored('rstrct', 'red')
             padding = '  '
-        if LOG_PARAMS['tag'] == 'worker':
+        if params['tag'] == 'worker':
             process_tag = colored('worker', 'green')
             padding = '  '
-        if LOG_PARAMS['tag'] == 'task':
+        if params['tag'] == 'task':
             process_tag = colored('task  ', 'blue')
             padding = '    '
-        if LOG_PARAMS['tag'] is None:
+        if params['tag'] is None:
             process_tag = colored('...   ', 'blue')
             padding = '  '
         s += colored('[', 'white')
         s += process_tag
-        s += colored(' %5i]  ' % os.getpid(), 'white')
+        s += colored(' %5i]  ' % params['pid'], 'white')
 
         if aj.debug:
             s += colored(
@@ -95,6 +99,7 @@ def init_log_directory():
 
 
 def init_log_rotation():
+    sys.stderr = sys.stdout
     log = logging.getLogger()
     try:
         handler = logging.handlers.TimedRotatingFileHandler(
@@ -109,6 +114,22 @@ def init_log_rotation():
         pass
 
     return log
+
+
+def init_forked_logging(worker):
+    methods = ['info', 'warn', 'debug', 'error', 'critical']
+    for method in methods:
+        setattr(
+            logging,
+            method,
+            (lambda method: lambda message, *args: worker.send_log_event(
+                method,
+                message,
+                tag=LOG_PARAMS['tag'],
+                pid=os.getpid(),
+                *args
+            ))(method)
+        )
 
 
 def set_log_params(**kwargs):

@@ -89,6 +89,16 @@ class WorkerGate(object):
                         'type': 'config-data',
                         'data': aj.config.data,
                     })
+                if resp.object['type'] == 'log':
+                    method = {
+                        'info': logging.info,
+                        'warn': logging.warn,
+                        'debug': logging.debug,
+                        'error': logging.error,
+                        'critical': logging.critical,
+                    }.get(resp.object['method'], None)
+                    if method:
+                        method(resp.object['message'], extra=resp.object['kwargs'])
         except greenlet.GreenletExit:
             pass
 

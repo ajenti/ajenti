@@ -15,7 +15,7 @@ from aj.api.http import SocketEndpoint
 from aj.http import HttpMiddlewareAggregator, HttpContext
 from aj.auth import AuthenticationMiddleware, AuthenticationService
 from aj.routing import CentralDispatcher
-from aj.log import set_log_params
+from aj.log import set_log_params, init_forked_logging
 
 
 class WorkerSocketNamespace(object):
@@ -58,6 +58,7 @@ class Worker(object):
             )
         )
         set_log_params(tag=self.gate.log_tag)
+        init_forked_logging(self)
 
         logging.info(
             'New worker "%s" PID %s, EUID %s, EGID %s',
@@ -74,7 +75,7 @@ class Worker(object):
             AuthenticationMiddleware.get(self.context),
             CentralDispatcher.get(self.context),
         ])
-        
+
         self._master_config_reloaded = Event()
 
     def demote(self, uid):
@@ -173,6 +174,14 @@ class Worker(object):
         })
         self._master_config_reloaded.wait()
         self._master_config_reloaded.clear()
+
+    def send_log_event(self, method, message, *args, **kwargs):
+        self.send_to_upstream({
+            'type': 'log',
+            'method': method,
+            'message': message % args,
+            'kwargs': kwargs,
+        })
 
     def handle_http_request(self, rq):
         response_object = {
