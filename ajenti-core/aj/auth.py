@@ -3,6 +3,7 @@ import logging
 import pexpect
 import pwd
 import subprocess
+import syslog
 from jadi import component, service, interface
 
 import aj
@@ -161,6 +162,10 @@ class AuthenticationService(object):
 
     def login(self, username, demote=True):
         logging.info('Authenticating session as %s', username)
+        syslog.syslog(syslog.LOG_NOTICE | syslog.LOG_AUTH, '%s has logged in from %s' % (
+            username,
+            self.context.session.client_info['address'],
+        ))
         if demote:
             uid = self.get_provider().get_isolation_uid(username)
             logging.debug('Authentication provider "%s" maps "%s" -> %i' % (

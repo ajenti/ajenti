@@ -6,7 +6,7 @@ import subprocess
 
 # imported by installer, no 3rd party imports here!
 
-__version__ = '2.0.55'
+__version__ = '2.0.57'
 
 # Global state
 

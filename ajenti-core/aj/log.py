@@ -118,13 +118,13 @@ def init_log_file():
     return log
 
 
-def init_forked_logging(worker):
+def init_log_forwarding(fx):
     methods = ['info', 'warn', 'debug', 'error', 'critical']
     for method in methods:
         setattr(
             logging,
             method,
-            (lambda method: lambda message, *args: worker.send_log_event(
+            (lambda method: lambda message, *args: fx(
                 method,
                 message,
                 tag=LOG_PARAMS['tag'],

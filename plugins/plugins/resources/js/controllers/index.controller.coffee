@@ -124,6 +124,7 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                 $scope.refresh()
                 messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
                     core.forceRestart()
+                return null
             .catch (e) ->
                 notify.error 'Install failed', e.error
             .finally () ->

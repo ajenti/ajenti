@@ -27,5 +27,5 @@ describe 'terminal plugin', () ->
         #browser.actions().sendKeys("clear; echo TEST\n").perform()
         browser.sleep(1000)
         expect(page.content.getText()).toContain('TEST1')
-        page.content.getText().catch (e) ->
-            console.log 'E>>', e
+        #page.content.getText().catch (e) ->
+        #    console.log 'E>>', e

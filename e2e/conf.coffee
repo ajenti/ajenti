@@ -1,9 +1,9 @@
 require 'coffee-script'
 
 specs = [
-    #'specs/notepad.coffee'
-    #'specs/filemanager.coffee'
-    'specs/terminal.coffee'
+    'specs/notepad.coffee'
+    'specs/filemanager.coffee'
+    #'specs/terminal.coffee'
 ]
 
 exports.config =
@@ -16,7 +16,7 @@ exports.config =
         global.By = `global.by`
 
         global.takeScreenshot = (f) ->
-            browser.takeScreenshot.then (data) ->
+            browser.takeScreenshot().then (data) ->
                 fs.writeFile("#{f}.png", data, 'binary')
 
         global.bindElements = (page, elements) ->

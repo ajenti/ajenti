@@ -58,6 +58,7 @@ class Handler(HttpPlugin):
             'version': aj.version,
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,
+            'bootstrapColor': aj.config.data.get('color', None),
         }
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()

@@ -1,6 +1,6 @@
 angular.module('core').directive 'checkbox', () ->
     return {
-        restrict: 'A'
+        restrict: 'EA'
         scope: {
             text: '@'
             toggle: '='

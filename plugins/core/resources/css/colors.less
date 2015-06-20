@@ -46,8 +46,10 @@
         color: @color;
     }
 
-    *[checkbox].active i.on {
-        color: @color;
+    *[checkbox], checkbox {
+        .active i.on {
+            color: @color;
+        }
     }
 
     smart-progress .progress .progress-bar {

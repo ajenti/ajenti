@@ -1,6 +1,7 @@
-angular.module('core').service 'identity', ($http, $location, $window, $timeout, $q, urlPrefix) ->
+angular.module('core').service 'identity', ($http, $location, $window, $timeout, $q, urlPrefix, ajentiBootstrapColor) ->
     q = $q.defer()
     @promise = q.promise
+    @color = ajentiBootstrapColor
     
     @init = () ->
         $http.get('/api/core/identity').success (data) =>

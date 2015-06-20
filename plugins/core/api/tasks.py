@@ -9,7 +9,7 @@ import time
 import traceback
 from jadi import service
 
-from aj.log import set_log_params
+from aj.log import set_log_params, init_log_forwarding
 from aj.util import BroadcastQueue
 from aj.plugins.core.api.push import Push
 
@@ -82,6 +82,7 @@ class Task(object):
             )
         )
         set_log_params(tag='task')
+        init_log_forwarding(self.send_log_event)
         logging.info('Starting task %s (%s)', self.id, self.__class__.__name__)
         try:
             self.run()
@@ -146,6 +147,8 @@ class Task(object):
                     msg['plugin'],
                     msg['message'],
                 )
+            if msg['type'] == 'log':
+                self.context.worker.send_to_upstream(msg)
             self.service.notify()
 
     def run(self):
@@ -156,12 +159,20 @@ class Task(object):
 
     def push(self, plugin, message):
         """
-        An interface to :class:`aj.plugins.core.api.push.Push` usable from inside the task's process.
+        An interface to :class:`aj.plugins.core.api.push.Push` usable from inside the task's process
         """
         self.pipe.put({
             'type': 'push',
             'plugin': plugin,
             'message': message,
+        })
+
+    def send_log_event(self, method, message, *args, **kwargs):
+        self.pipe.put({
+            'type': 'log',
+            'method': method,
+            'message': message % args,
+            'kwargs': kwargs,
         })
 
 
