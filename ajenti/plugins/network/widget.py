@@ -19,7 +19,7 @@ class TrafficSensor (Sensor):
 
     def measure(self, device):
         try:
-            v = psutil.network_io_counters(pernic=True)[device]
+            v = psutil.net_io_counters(pernic=True)[device]
         except KeyError:
             return (0, 0)
         return (v.bytes_sent, v.bytes_recv)
@@ -35,11 +35,11 @@ class ImmediateTXSensor (Sensor):
         self.last_time = {}
 
     def get_variants(self):
-        return psutil.network_io_counters(pernic=True).keys()
+        return psutil.net_io_counters(pernic=True).keys()
 
     def measure(self, device):
         try:
-            v = psutil.network_io_counters(pernic=True)[device]
+            v = psutil.net_io_counters(pernic=True)[device]
         except KeyError:
             return 0
         r = (v.bytes_sent, v.bytes_recv)
@@ -64,11 +64,11 @@ class ImmediateRXSensor (Sensor):
         self.last_time = {}
 
     def get_variants(self):
-        return psutil.network_io_counters(pernic=True).keys()
+        return psutil.net_io_counters(pernic=True).keys()
 
     def measure(self, device):
         try:
-            v = psutil.network_io_counters(pernic=True)[device]
+            v = psutil.net_io_counters(pernic=True)[device]
         except KeyError:
             return 0
         r = (v.bytes_sent, v.bytes_recv)
