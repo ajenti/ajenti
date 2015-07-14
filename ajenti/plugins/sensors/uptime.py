@@ -13,8 +13,13 @@ class UnixUptimeSensor (Sensor):
     timeout = 1
 
     def measure(self, variant):
-        return time.time() - psutil.BOOT_TIME
-
+        btime = 0
+        try:
+            btime = time.time() - psutil.BOOT_TIME
+        except AttributeError:
+            """psutil 2.0"""
+            btime = time.time() - psutil.boot_time()
+        return btime
 
 @plugin
 class UptimeWidget (DashboardWidget):
