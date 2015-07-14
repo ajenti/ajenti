@@ -60,6 +60,19 @@ class TaskManager (SectionPlugin):
                     p._username = get(p.username)
                 except:
                     p._username = '?'
+            except AttributeError:
+                """psutil 2.0 updates"""
+                p._name = get(p.name)
+                p._cmd = ' '.join(get(p.cmdline))
+                p._cpu = p.cpu_percent(interval=0)
+                p._ram = '%i K' % int(p.memory_info()[0] / 1024)
+                p._ppid = get(p.ppid)
+                p._sort_ram = p.memory_info()[0]
+                p._sort_name = get(p.name).lower()
+                try:
+                    p._username = get(p.username)
+                except:
+                    p._username = '?'
             except psutil.NoSuchProcess:
                 self.processes.remove(p)
 
