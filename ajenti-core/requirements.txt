@@ -1,6 +1,6 @@
 # core
 cookies
-gevent
+gevent>=1.0
 gevent-socketio
 gevent-websocket
 gipc

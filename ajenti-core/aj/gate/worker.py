@@ -116,7 +116,8 @@ class Worker(object):
 
     def run(self):
         if self.gate.restricted:
-            self.demote(pwd.getpwnam('nobody').pw_uid)
+            restricted_user = aj.config.data['restricted_user']
+            self.demote(pwd.getpwnam(restricted_user).pw_uid)
         else:
             if self.gate.initial_identity:
                 AuthenticationService.get(self.context).login(
