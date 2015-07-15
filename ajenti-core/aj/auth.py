@@ -81,7 +81,7 @@ class OSAuthenticationProvider(AuthenticationProvider):
     def authenticate(self, username, password):
         child = None
         try:
-            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c /bin/echo SUCCESS - %s' % username], timeout=5)
+            child = pexpect.spawn('/bin/sh', ['-c', '/bin/su -c "/bin/echo SUCCESS" - %s' % username], timeout=5)
             child.expect('.*:')
             child.sendline(password)
             result = child.expect(['su: .*', 'SUCCESS'])
