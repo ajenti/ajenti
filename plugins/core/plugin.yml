@@ -2,7 +2,7 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.43'
+version: '0.45'
 title: Core
 icon: link
 dependencies: []
@@ -46,6 +46,7 @@ resources:
     - 'resources/js/core/controllers/navbox.controller.coffee'
     - 'resources/js/core/directives/autofocus.coffee'
     - 'resources/js/core/directives/checkbox.coffee'
+    - 'resources/js/core/directives/datePickerFix.coffee'
     - 'resources/js/core/directives/dialog.coffee'
     - 'resources/js/core/directives/fitToParent.coffee'
     - 'resources/js/core/directives/floatingToolbar.coffee'

@@ -40,6 +40,6 @@ angular.module('core').service 'config', ($http, $q) ->
             q.reject(err)
         return q.promise
 
-    @load()
+    @promise = @load()
 
     return this

@@ -3,6 +3,7 @@ angular.module('ajenti.filesystem').directive 'pathSelector', () ->
         restrict: 'E'
         scope: {
             ngModel: '='
+            mode: '@'
         }
         template: """
             <div>
@@ -13,7 +14,7 @@ angular.module('ajenti.filesystem').directive 'pathSelector', () ->
                     </span>
                 </div>
                 <file-dialog
-                    mode="open"
+                    mode="{{mode}}"
                     path="path"
                     ng:show="openDialogVisible"
                     on-select="select(item.path)"
@@ -23,6 +24,7 @@ angular.module('ajenti.filesystem').directive 'pathSelector', () ->
         link: ($scope, element, attr, ctrl) ->
             $scope.attr = attr
             $scope.path = '/'
+            $scope.mode ?= 'open'
 
             $scope.select = (path) ->
                 $scope.ngModel = path
