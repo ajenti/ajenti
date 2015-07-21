@@ -10,7 +10,7 @@ from aj.plugins.datetime.api import TZManager
 class DebianTZManager(TZManager):
     @classmethod
     def __verify__(cls):
-        return aj.platform in ['debian']
+        return aj.platform in ['debian', 'gentoo']
 
     def __init__(self, context):
         TZManager.__init__(self, context)
