@@ -1,4 +1,5 @@
 import json
+import os
 from jadi import component
 
 import aj
@@ -17,7 +18,7 @@ class Handler(HttpPlugin):
     @url(r'/api/core/config')
     @endpoint(api=True)
     def handle_api_config(self, http_context):
-        if self.context.identity != 'root':
+        if os.getuid() != 0:
             raise EndpointReturn(403)
         if http_context.method == 'GET':
             self.context.worker.reload_master_config()

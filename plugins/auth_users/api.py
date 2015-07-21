@@ -28,7 +28,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         return scrypt.encrypt(salt, password, maxtime=1).encode('hex')
 
     def authenticate(self, username, password):
-        aj.config.load()
+        self.context.worker.reload_master_config()
         password = password.encode('utf-8')
         if username in aj.config.data.setdefault('auth', {})['users']:
             hash = aj.config.data.setdefault('auth', {})['users'][username]['password']

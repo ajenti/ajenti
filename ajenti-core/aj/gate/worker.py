@@ -209,7 +209,7 @@ class Worker(object):
             self.stream.reply(rq, response_object)
         # pylint: disable=W0703
         except Exception as e:
-            traceback.print_exc()
+            logging.error(traceback.format_exc())
             response_object.update({
                 'error': str(e),
                 'exception': repr(e),
