@@ -21,7 +21,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                         <a ng:show="parent" ng:click="navigate(parent)" href="#" class="list-group-item">
                             <i class="fa fa-fw fa-level-up"></i> Up one level
                         </a>
-                        <a ng:click="select(item)" href="#" ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item">
+                        <a ng:click="select(item)" href="#" ng:repeat="item in items|orderBy:['-isDir', 'name']" class="list-group-item" ng:show="mode != 'directory' || item.isDir">
                             <i class="fa fa-fw" ng:class="::{'fa-folder-o': item.isDir, 'fa-file-o': item.isFile}"></i>
                             &nbsp;
                             {{::item.name}}
@@ -35,6 +35,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <a ng:click="selectDirectory()" ng:show="mode == 'directory'" class="btn btn-primary btn-flat">Select this directory</a>
                     <a ng:click="save()" ng:show="mode == 'save'" ng:disabled="!name" class="btn btn-primary btn-flat">Save</a>
                     <a ng:click="onCancel()" class="btn btn-default btn-flat">Cancel</a>
                 </div>
@@ -46,7 +47,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
             $scope.mode ?= 'open'
             $scope.path ?= '/'
 
-            $scope.navigate = (path) ->
+            $scope.navigate = (path, explicit) ->
                 $scope.loading = true
                 filesystem.list(path).then (data) ->
                     $scope.loadedPath = path
@@ -55,13 +56,14 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     $scope.parent = data.parent
                     $scope.restoreFocus()
                 .catch (data) ->
-                    notify.error 'Could not load directory', data.message
+                    if explicit
+                        notify.error 'Could not load directory', data.message
                 .finally () ->
                     $scope.loading = false
 
             $scope.select = (item) ->
                 if item.isDir
-                    $scope.navigate(item.path)
+                    $scope.navigate(item.path, true)
                 else
                     if $scope.mode == 'open'
                         $scope.onSelect({item: item})
@@ -70,6 +72,9 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
 
             $scope.save = () ->
                 $scope.onSelect({path: $scope.path + '/' + $scope.name})
+
+            $scope.selectDirectory = () ->
+                $scope.onSelect({path: $scope.path})
 
             hotkeys.on $scope, (char) ->
                 if $scope.ngShow and char == hotkeys.ESC

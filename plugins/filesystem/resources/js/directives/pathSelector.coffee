@@ -17,7 +17,7 @@ angular.module('ajenti.filesystem').directive 'pathSelector', () ->
                     mode="{{mode}}"
                     path="path"
                     ng:show="openDialogVisible"
-                    on-select="select(item.path)"
+                    on-select="select(path)"
                     on-cancel="openDialogVisible = false" />
             </div>
         """
@@ -32,5 +32,8 @@ angular.module('ajenti.filesystem').directive 'pathSelector', () ->
 
             $scope.$watch 'ngModel', () ->
                 if $scope.ngModel
-                    $scope.path = $scope.ngModel.substr(0, $scope.ngModel.lastIndexOf('/'))
+                    if $scope.mode == 'directory'
+                        $scope.path = $scope.ngModel
+                    else
+                        $scope.path = $scope.ngModel.substr(0, $scope.ngModel.lastIndexOf('/'))
     }
