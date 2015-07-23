@@ -7,8 +7,10 @@ from ajenti.ui import *
 @plugin
 class NetworkManager (BasePlugin):
     def get_devices(self):
-        return psutil.net_io_counters(pernic=True).keys()
-
+        try:
+            return psutil.net_io_counters(pernic=True).keys()
+        except AttributeError:
+            return psutil.network_io_counters(pernic=True).keys()
 
 @interface
 class INetworkConfig (object):
