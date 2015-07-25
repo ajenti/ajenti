@@ -1,5 +1,6 @@
 from jadi import component
 
+from aj.auth import PermissionProvider
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
@@ -46,3 +47,30 @@ class ItemProvider(SidebarItemProvider):
                 ]
             },
         ]
+
+
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        sidebar_perms = [
+            {
+                'id': 'sidebar:view:%s' % item['url'],
+                'name': item['name'],
+                'default': True,
+            }
+            for provider in SidebarItemProvider.all(self.context)
+            for item in provider.provide()
+            if 'url' in item
+        ]
+        return [
+            {
+                'id': 'core:config:read',
+                'name': 'Read configuration file',
+                'default': True,
+            },
+            {
+                'id': 'core:config:write',
+                'name': 'Write configuration file',
+                'default': True,
+            },
+        ] + sidebar_perms

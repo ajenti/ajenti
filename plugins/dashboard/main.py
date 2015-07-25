@@ -4,7 +4,7 @@ from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
 @component(SidebarItemProvider)
-class ItemProvider(SidebarItemProvider):
+class ItemProvider (SidebarItemProvider):
     def __init__(self, context):
         pass
 

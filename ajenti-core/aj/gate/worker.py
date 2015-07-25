@@ -47,6 +47,7 @@ class WorkerSocketNamespace(object):
 
 class Worker(object):
     def __init__(self, stream, gate):
+        aj.worker = self
         self.stream = stream
         self.gate = gate
         aj.master = False

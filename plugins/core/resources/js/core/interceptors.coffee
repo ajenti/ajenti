@@ -5,10 +5,13 @@ angular.module('core').factory 'unauthenticatedInterceptor', ($q, $rootScope, $l
                 ; # todo
                 #notify.error 'Could not connect'
 
-            if rejection.status == 500 and rejection.data.exception != 'EndpointError'
+            if rejection.status == 500 and rejection.data.exception == 'SecurityError'
+                notify.error 'Security error', rejection.data.message
+
+            else if rejection.status == 500 and rejection.data.exception != 'EndpointError'
                 messagebox.show title: 'Server error', data: rejection, template: '/core:resources/partial/serverErrorMessage.html', scrollable: true, negative: 'Close'
 
-            if rejection.status == 401
+            else if rejection.status == 401
                 if $rootScope.disableExpiredSessionInterceptor or $location.path().indexOf("#{urlPrefix}/view/login") == 0
                     return $q.reject(rejection)
 

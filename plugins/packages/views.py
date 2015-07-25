@@ -2,7 +2,7 @@ import json
 
 from jadi import component
 from aj.api.http import url, HttpPlugin
-
+from aj.auth import authorize
 from aj.api.endpoint import endpoint
 from aj.plugins.packages.api import PackageManager
 
@@ -54,6 +54,7 @@ class Handler(HttpPlugin):
         return self.__package_to_json(self.managers[manager_id].get_package(package_id))
 
     @url(r'/api/packages/apply/(?P<manager_id>\w+)')
+    @authorize('packages:install')
     @endpoint(api=True)
     def handle_api_apply(self, http_context, manager_id=None):
         mgr = self.managers[manager_id]

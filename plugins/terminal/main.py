@@ -1,5 +1,6 @@
 from jadi import component
 
+from aj.auth import PermissionProvider
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 
 
@@ -17,4 +18,20 @@ class ItemProvider(SidebarItemProvider):
                 'url': '/view/terminal',
                 'children': []
             }
+        ]
+
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        return [
+            {
+                'id': 'terminal:scripts',
+                'name': 'Run arbitrary scripts',
+                'default': True,
+            },
+            {
+                'id': 'terminal:open',
+                'name': 'Open shell terminals',
+                'default': True,
+            },
         ]

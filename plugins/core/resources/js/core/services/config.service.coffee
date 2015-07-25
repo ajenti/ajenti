@@ -40,6 +40,14 @@ angular.module('core').service 'config', ($http, $q) ->
             q.reject(err)
         return q.promise
 
+    @getPermissions = (config) ->
+        q = $q.defer()
+        $http.post("/api/core/permissions", config).success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+        
     @promise = @load()
 
     return this

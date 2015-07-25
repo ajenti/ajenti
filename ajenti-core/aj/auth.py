@@ -18,6 +18,19 @@ class SudoError(Exception):
         Exception.__init__(self)
         self.message = message
 
+    def __str__(self):
+        return self.message
+
+
+@public
+class SecurityError(Exception):
+    def __init__(self, permission):
+        Exception.__init__(self)
+        self.message = 'Permission "%s" is required' % permission
+
+    def __str__(self):
+        return self.message
+
 
 @public
 @service
@@ -68,6 +81,8 @@ class AuthenticationProvider(object):
     def authenticate(self, username, password):
         raise NotImplementedError
 
+    def authorize(self, username, permission):        raise NotImplementedError
+
     def get_isolation_uid(self, username):
         raise NotImplementedError
 
@@ -94,6 +109,9 @@ class OSAuthenticationProvider(AuthenticationProvider):
             return False
         else:
             return True
+
+    def authorize(self, username, permission):
+        return True
 
     def get_isolation_uid(self, username):
         return pwd.getpwnam(username).pw_uid
@@ -131,7 +149,7 @@ class AuthenticationService(object):
 
     def check_persona_assertion(self, assertion, audience):
         import requests
-        
+
         params = {
             'assertion': assertion,
             'audience': audience,
@@ -178,3 +196,47 @@ class AuthenticationService(object):
 
     def prepare_session_redirect(self, http_context, username):
         http_context.add_header('X-Session-Redirect', username)
+
+
+@public
+@interface
+class PermissionProvider(object):
+    def __init__(self, context):
+        self.context = context
+
+    def provide(self):
+        return []
+
+
+@public
+class authorize(object):
+    def __init__(self, permission_id):
+        self.permission_id = permission_id
+
+    def check(self):
+        username = aj.worker.context.identity
+        provider = AuthenticationService.get(aj.worker.context).get_provider()
+        for permission in [
+            p
+            for permission_provider in PermissionProvider.all(aj.worker.context)
+            for p in permission_provider.provide()
+        ]:
+            if permission['id'] == self.permission_id:
+                if provider.authorize(username, permission):
+                    break
+                else:
+                    raise SecurityError(self.permission_id)
+        else:
+            raise SecurityError(self.permission_id)
+
+    def __call__(self, fx):
+        def wrapper(*args, **kwargs):
+            self.check()
+            return fx(*args, **kwargs)
+        return wrapper
+
+    def __enter__(self):
+        self.check()
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        pass

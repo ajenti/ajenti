@@ -14,6 +14,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
 
     def __init__(self, context):
         self.context = context
+        aj.config.data['auth'].setdefault('users', {})
 
     def get_salt(self):
         return os.urandom(256)
@@ -30,8 +31,8 @@ class UsersAuthenticationProvider(AuthenticationProvider):
     def authenticate(self, username, password):
         self.context.worker.reload_master_config()
         password = password.encode('utf-8')
-        if username in aj.config.data.setdefault('auth', {})['users']:
-            hash = aj.config.data.setdefault('auth', {})['users'][username]['password']
+        if username in aj.config.data['auth']['users']:
+            hash = aj.config.data['auth']['users'][username]['password']
             try:
                 scrypt.decrypt(hash.decode('hex'), password, maxtime=2)
                 return True
@@ -40,5 +41,9 @@ class UsersAuthenticationProvider(AuthenticationProvider):
                 return False
         return False
 
+    def authorize(self, username, permission):
+        print username, permission, aj.config.data['auth']['users'].get(username, {})
+        return aj.config.data['auth']['users'].get(username, {}).get('permissions', {}).get(permission['id'], permission['default'])
+
     def get_isolation_uid(self, username):
-        return aj.config.data.setdefault('auth', {})['users'][username]['uid']
+        return aj.config.data['auth']['users'][username]['uid']

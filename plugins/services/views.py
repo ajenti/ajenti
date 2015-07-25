@@ -1,6 +1,6 @@
 from jadi import component
 from aj.api.http import url, HttpPlugin
-
+from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.services.api import ServiceManager, ServiceOperationError
 
@@ -41,6 +41,7 @@ class Handler(HttpPlugin):
         return self.__service_to_json(self.managers[manager_id].get_service(service_id))
 
     @url(r'/api/services/do/(?P<operation>\w+)/(?P<manager_id>\w+)/(?P<service_id>.+)')
+    @authorize('services:manage')
     @endpoint(api=True)
     def handle_api_operate(self, http_context, manager_id=None, operation=None, service_id=None):
         if operation not in ['start', 'stop', 'restart']:

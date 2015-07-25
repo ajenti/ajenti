@@ -6,6 +6,7 @@ import subprocess
 
 from jadi import component
 from aj.api.http import url, HttpPlugin, SocketEndpoint
+from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 
 from .manager import TerminalManager
@@ -18,6 +19,7 @@ class Handler(HttpPlugin):
         self.mgr = TerminalManager.get(self.context)
 
     @url('/api/terminal/script')
+    @authorize('terminal:scripts')
     @endpoint(api=True)
     def handle_script(self, http_context):
         data = json.loads(http_context.body)
@@ -45,6 +47,7 @@ class Handler(HttpPlugin):
         return self.mgr.list()
 
     @url('/api/terminal/create')
+    @authorize('terminal:open')
     @endpoint(api=True)
     def handle_create(self, http_context):
         options = json.loads(http_context.body)

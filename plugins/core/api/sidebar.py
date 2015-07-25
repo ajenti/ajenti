@@ -1,4 +1,5 @@
 from jadi import interface, service
+from aj.auth import authorize, SecurityError
 
 
 @interface
@@ -56,6 +57,12 @@ class Sidebar(object):
 
         for provider in SidebarItemProvider.all(self.context):
             for item in provider.provide():
+                if 'url' in item:
+                    try:
+                        authorize('sidebar:view:%s' % item['url']).check()
+                    except SecurityError:
+                        continue
+
                 attach_to = find_id(item['attach'])
                 if not attach_to:
                     raise Exception('Attachment point not found: %s' % item['attach'])

@@ -3,9 +3,10 @@ import os
 from jadi import component
 
 import aj
+from aj.auth import authorize
 from aj.api.http import url, HttpPlugin
 from aj.config import UserConfig
-from aj.auth import AuthenticationProvider
+from aj.auth import AuthenticationProvider, PermissionProvider
 
 from aj.api.endpoint import endpoint, EndpointReturn
 
@@ -21,13 +22,16 @@ class Handler(HttpPlugin):
         if os.getuid() != 0:
             raise EndpointReturn(403)
         if http_context.method == 'GET':
-            self.context.worker.reload_master_config()
-            return aj.config.data
+            with authorize('core:config:read'):
+                self.context.worker.reload_master_config()
+                return aj.config.data
         if http_context.method == 'POST':
-            data = json.loads(http_context.body)
-            aj.config.data.update(data)
-            aj.config.save()
-            return aj.config.data
+            with authorize('core:config:write'):
+                data = json.loads(http_context.body)
+                aj.config.data.update(data)
+                aj.config.save()
+                self.context.worker.reload_master_config()
+                return aj.config.data
 
     @url(r'/api/core/user-config')
     @endpoint(api=True)
@@ -49,4 +53,12 @@ class Handler(HttpPlugin):
                 'id': p.id,
                 'name': p.name,
             })
+        return r
+
+    @url(r'/api/core/permissions')
+    @endpoint(api=True)
+    def handle_api_permissions(self, http_context):
+        r = []
+        for p in PermissionProvider.all(self.context):
+            r += p.provide()
         return r

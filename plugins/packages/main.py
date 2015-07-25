@@ -1,5 +1,6 @@
 from jadi import component
 
+from aj.auth import PermissionProvider
 from aj.plugins.core.api.sidebar import SidebarItemProvider
 from .api import PackageManager
 
@@ -26,4 +27,16 @@ class ItemProvider(SidebarItemProvider):
                 'url': '/view/packages/%s' % PackageManager.all(self.context)[0].id,
                 'children': children,
             }
+        ]
+
+
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        return [
+            {
+                'id': 'packages:install',
+                'name': 'Install/remove packages',
+                'default': True,
+            },
         ]

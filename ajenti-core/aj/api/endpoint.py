@@ -3,6 +3,8 @@ import json
 import logging
 import traceback
 
+from aj.auth import SecurityError
+
 
 class EndpointError(Exception):
     """
@@ -73,7 +75,7 @@ def endpoint(page=False, api=False, file=False, auth=True):
                 logging.debug('Endpoint return at %s: %s', context.path, e.code)
                 status = e.code
                 result = e.data
-            except EndpointError as e:
+            except (EndpointError, SecurityError) as e:
                 logging.warn('Endpoint error at %s: %s', context.path, e.message)
                 if page:
                     raise
@@ -81,7 +83,7 @@ def endpoint(page=False, api=False, file=False, auth=True):
                 result = {
                     'message': unicode(e.message),
                     'exception': unicode(e.__class__.__name__),
-                    'traceback': unicode(e.traceback_str),
+                    'traceback': unicode(getattr(e, 'traceback_str', '')),
                 }
             # pylint: disable=W0703
             except Exception as e:

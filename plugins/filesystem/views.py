@@ -6,8 +6,8 @@ import pwd
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
-
 from aj.api.endpoint import endpoint, EndpointError, EndpointReturn
+from aj.auth import authorize
 
 
 @component(HttpPlugin)
@@ -16,6 +16,7 @@ class Handler(HttpPlugin):
         self.context = context
 
     @url(r'/api/filesystem/read/(?P<path>.+)')
+    @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_read(self, http_context, path=None):
         if not os.path.exists(path):
@@ -26,6 +27,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
 
     @url(r'/api/filesystem/write/(?P<path>.+)')
+    @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_write(self, http_context, path=None):
         try:
@@ -35,6 +37,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
 
     @url(r'/api/filesystem/upload/(?P<path>.+)')
+    @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_upload(self, http_context, path=None):
         try:
@@ -45,6 +48,7 @@ class Handler(HttpPlugin):
         return True
 
     @url(r'/api/filesystem/list/(?P<path>.+)')
+    @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_list(self, http_context, path=None):
         if not os.path.exists(path):
@@ -86,6 +90,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
 
     @url(r'/api/filesystem/stat/(?P<path>.+)')
+    @authorize('filesystem:read')
     @endpoint(api=True)
     def handle_api_fs_stat(self, http_context, path=None):
         if not os.path.exists(path):
@@ -128,6 +133,7 @@ class Handler(HttpPlugin):
         return data
 
     @url(r'/api/filesystem/chmod/(?P<path>.+)')
+    @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_chmod(self, http_context, path=None):
         if not os.path.exists(path):
@@ -139,6 +145,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
 
     @url(r'/api/filesystem/create-file/(?P<path>.+)')
+    @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_create_file(self, http_context, path=None):
         try:
@@ -147,6 +154,7 @@ class Handler(HttpPlugin):
             raise EndpointError(e)
 
     @url(r'/api/filesystem/create-directory/(?P<path>.+)')
+    @authorize('filesystem:write')
     @endpoint(api=True)
     def handle_api_fs_create_directory(self, http_context, path=None):
         try:

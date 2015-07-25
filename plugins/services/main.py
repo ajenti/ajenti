@@ -1,6 +1,7 @@
 from jadi import component
 
 from aj.plugins.core.api.sidebar import SidebarItemProvider
+from aj.auth import PermissionProvider
 
 from .api import ServiceManager
 
@@ -27,4 +28,15 @@ class ItemProvider(SidebarItemProvider):
                 'url': '/view/services',
                 'children': children
             }
+        ]
+
+@component(PermissionProvider)
+class Permissions (PermissionProvider):
+    def provide(self):
+        return [
+            {
+                'id': 'services:manage',
+                'name': 'Manage system services',
+                'default': True,
+            },
         ]

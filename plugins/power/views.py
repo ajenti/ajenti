@@ -3,7 +3,7 @@ import time
 
 from jadi import component
 from aj.api.http import url, HttpPlugin
-
+from aj.auth import authorize
 from aj.api.endpoint import endpoint
 from aj.plugins.power.api import PowerManager
 
@@ -30,21 +30,25 @@ class Handler(HttpPlugin):
         return self.manager.get_adapters()
 
     @url(r'/api/power/poweroff')
+    @authorize('power:manage')
     @endpoint(api=True)
     def handle_api_poweroff(self, http_context):
         self.manager.poweroff()
 
     @url(r'/api/power/reboot')
+    @authorize('power:manage')
     @endpoint(api=True)
     def handle_api_reboot(self, http_context):
         self.manager.reboot()
 
     @url(r'/api/power/suspend')
+    @authorize('power:manage')
     @endpoint(api=True)
     def handle_api_suspend(self, http_context):
         self.manager.suspend()
 
     @url(r'/api/power/hibernate')
+    @authorize('power:manage')
     @endpoint(api=True)
     def handle_api_hibernate(self, http_context):
         self.manager.hibernate()

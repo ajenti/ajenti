@@ -4,7 +4,7 @@ from datetime import datetime
 from jadi import component
 
 from aj.api.http import url, HttpPlugin
-
+from aj.auth import authorize
 from aj.api.endpoint import endpoint, EndpointError
 from aj.plugins.datetime.api import TZManager
 
@@ -21,6 +21,7 @@ class Handler(HttpPlugin):
         return self.manager.get_tz()
 
     @url(r'/api/datetime/tz/set/(?P<tz>.+)')
+    @authorize('datetime:write')
     @endpoint(api=True)
     def handle_api_tz_set(self, http_context, tz=None):
         return self.manager.set_tz(tz)
@@ -36,11 +37,13 @@ class Handler(HttpPlugin):
         return int(time.time())
 
     @url(r'/api/datetime/time/set/(?P<time>.+)')
+    @authorize('datetime:write')
     @endpoint(api=True)
     def handle_api_time_set(self, http_context, time=None):
         subprocess.call(['date', datetime.fromtimestamp(int(time)).strftime('%m%d%H%M%Y')])
 
     @url(r'/api/datetime/time/sync')
+    @authorize('datetime:write')
     @endpoint(api=True)
     def handle_api_time_sync(self, http_context):
         if subprocess.call(['which', 'ntpdate']) != 0:

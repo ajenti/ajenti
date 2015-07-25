@@ -54,10 +54,13 @@
         <div class="modal-header">
             <h4>{{configuringUsername}}</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body scrollable">
             <div class="form-group">
                 <label>System account</label>
                 <select ng:model="config.data.auth.users[configuringUsername].uid" ng:options="x.uid as x.name for x in systemUsers" class="form-control"></select>
+                <div class="alert alert-info" ng:show="config.data.auth.users[configuringUsername].uid != 0">
+                    <i class="fa fa-info-circle"></i> This user will be constrained by POSIX permissions for the selected system account.
+                </div>
             </div>
             <div class="form-group">
                 <label>New password</label>
@@ -68,6 +71,24 @@
                     </div>
                 </div>            
             </div>
+            <tabset>
+                <tab heading="Sidebar entries">
+                    <br/>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-warning"></i> This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab.
+                    </div>
+                    
+                    <div ng:repeat="permission in permissions|orderBy:'name'" ng:if="permission.id.indexOf('sidebar:view:') == 0">
+                        <span checkbox ng:model="userPermissions[configuringUsername][permission.id]" text="{{permission.name}}"></span>
+                    </div>
+                </tab>
+                <tab heading="Permissions">
+                    <br/>
+                    <div ng:repeat="permission in permissions|orderBy:'id'" ng:if="permission.id.indexOf('sidebar:view:') == -1">
+                        <span checkbox ng:model="userPermissions[configuringUsername][permission.id]" text="{{permission.name}}"></span>
+                    </div>
+                </tab>
+            </tabset>
         </div>
         <div class="modal-footer">
             <a ng:click="$parent.configuringUsername = null" class="btn btn-default btn-flat">OK</a>

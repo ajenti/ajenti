@@ -11,8 +11,19 @@ angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($sco
                 password: $scope.defaultRootPassword
                 uid: 0
         }
+        config.getPermissions().then (data) ->
+            $scope.permissions = data
+            for username of config.data.auth.users
+                $scope.resetPermissions(username)
+                angular.extend($scope.userPermissions[username], config.data.auth.users[username].permissions or {})
     .catch () ->
         notify.error 'Could not load config'
+
+    $scope.userPermissions = {}
+    $scope.resetPermissions = (username) ->
+        $scope.userPermissions[username] = {}
+        for permission in $scope.permissions
+            $scope.userPermissions[username][permission.id] = permission.default
 
     $scope.removeUser = (username) ->
         delete config.data.auth.users[username]
@@ -26,6 +37,13 @@ angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($sco
                     return u
 
     $scope.save = () ->
+        for username of $scope.userPermissions
+            config.data.auth.users[username].permissions = {}
+            for permission in $scope.permissions
+                v = $scope.userPermissions[username][permission.id]
+                if v != permission.default
+                    config.data.auth.users[username].permissions[permission.id] = v
+
         config.save().then () ->
             notify.success 'Saved'
 
@@ -37,6 +55,7 @@ angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($sco
 
     $scope.addUser = (username) ->
         config.data.auth.users[username] = {uid: 0}
+        $scope.resetPermissions(username)
         $scope.newUsername = ''
 
     $scope.isDangerousSetup = () ->
