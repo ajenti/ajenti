@@ -42,7 +42,6 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         return False
 
     def authorize(self, username, permission):
-        print username, permission, aj.config.data['auth']['users'].get(username, {})
         return aj.config.data['auth']['users'].get(username, {}).get('permissions', {}).get(permission['id'], permission['default'])
 
     def get_isolation_uid(self, username):

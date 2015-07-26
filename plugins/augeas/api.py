@@ -49,6 +49,9 @@ class Augeas(augeas.Augeas):
     def match(self, path):
         return augeas.Augeas.match(self, self.__enc(path))
 
+    def get(self, path):
+        return augeas.Augeas.get(self, self.__enc(path))
+
     def set(self, path, value):
         augeas.Augeas.set(self, self.__enc(path), self.__enc(value))
 

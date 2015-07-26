@@ -1,4 +1,4 @@
-angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $routeParams, $timeout, messagebox, notify, pageTitle, urlPrefix, network) ->
+angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $routeParams, $timeout, messagebox, notify, pageTitle, network) ->
     pageTitle.set('Network')
 
     $scope.knownFamilies = {
