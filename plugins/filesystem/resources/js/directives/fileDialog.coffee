@@ -4,6 +4,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
             ngShow: "=?"
             onSelect: "&"
             onCancel: "&?"
+            root: '=?'
             mode: '@?'
             name: '=?'
             path: '=?'
@@ -46,6 +47,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
             $scope.loading = false
             $scope.mode ?= 'open'
             $scope.path ?= '/'
+            $scope.root ?= '/'
 
             $scope.navigate = (path, explicit) ->
                 $scope.loading = true
@@ -54,6 +56,10 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     $scope.path = path
                     $scope.items = data.items
                     $scope.parent = data.parent
+                    if $scope.path == $scope.root
+                        $scope.parent = null
+                    else if $scope.path.indexOf($scope.root) != 0
+                        $scope.navigate($scope.root)
                     $scope.restoreFocus()
                 .catch (data) ->
                     if explicit
@@ -88,6 +94,9 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
             $scope.$watch 'ngShow', () ->
                 if $scope.ngShow
                     $scope.restoreFocus()
+
+            $scope.$watch 'root', () ->
+                $scope.navigate($scope.root)
 
             $scope.$watch 'path', () ->
                 if $scope.loadedPath != $scope.path

@@ -21,7 +21,7 @@
             <a ng:click="setTime()" class="btn btn-primary btn-block">Set time</a>
         </div>
     </div>
-    <div>
+    <div ng:hide="customization.plugins.datetime.hideSync">
         <a ng:click="syncTime()" class="btn btn-default">
             <i class="fa fa-globe"></i> Sync time from the Internet
         </a>

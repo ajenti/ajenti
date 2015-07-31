@@ -63,9 +63,9 @@ class ResourcesHandler(HttpPlugin):
 
         http_context.add_header('Content-Type', {
             'css': 'text/css',
-            'js': 'application/javascript',
-            'init.js': 'application/javascript',
-            'partials.js': 'application/javascript',
+            'js': 'application/javascript; charset=utf-8',
+            'init.js': 'application/javascript; charset=utf-8',
+            'partials.js': 'application/javascript; charset=utf-8',
         }[type])
         http_context.respond_ok()
         return http_context.gzip(content=content)
