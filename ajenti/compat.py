@@ -120,3 +120,8 @@ def new_sslwrap(sock, server_side=False, keyfile=None, certfile=None, cert_reqs=
 if not hasattr(_ssl, 'sslwrap') and not hasattr(gevent.ssl, 'SSLContext'):
     _ssl.sslwrap = new_sslwrap
 
+
+import psutil
+
+if not hasattr(psutil, 'net_io_counters'):
+    psutil.net_io_counters = psutil.network_io_counters
