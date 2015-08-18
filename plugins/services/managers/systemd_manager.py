@@ -16,27 +16,39 @@ class SystemdServiceManager(ServiceManager):
     def __init__(self, context):
         pass
 
-    def list(self):
-        for l in subprocess.check_output(['systemctl', 'list-units', '-la']).splitlines()[1:]:
+    def list(self, units=None):
+        if not units:
+            units = [x.split()[0] for x in subprocess.check_output(['systemctl', 'list-unit-files', '--no-legend', '--no-pager', '-la']).splitlines() if x]
+            units = [x for x in units if x.endswith('.service') and '@' not in x]
+            units = list(set(units))
+
+        cmd = ['systemctl', 'show', '-o', 'json', '--full', '--all'] + units
+
+        used_names = set()
+        unit = {}
+        for l in subprocess.check_output(cmd).splitlines() + [None]:
             if not l:
-                break
-            tokens = l.split(None, 4)
-            if len(tokens) != 5:
-                continue
-            svc = Service(self)
-            svc.id, load_state, active_state, sub_state, name = tokens
-            svc.name, type = svc.id.rsplit('.', 1)
-            svc.name = svc.name.replace('\\x2d', '\x2d')
-            if type != 'svc':
-                continue
-            svc.running = sub_state == 'running'
-            svc.state = 'running' if svc.running else 'stopped'
-            yield svc
+                if len(unit) > 0:
+                    svc = Service(self)
+                    svc.id = unit['Id']
+                    svc.name, type = svc.id.rsplit('.', 1)
+
+                    svc.name = svc.name.replace('\\x2d', '\x2d')
+                    svc.running = unit['SubState'] == 'running'
+                    svc.state = 'running' if svc.running else 'stopped'
+
+                    if svc.name not in used_names:
+                        yield svc
+
+                    used_names.add(svc.name)
+                unit = {}
+            elif '=' in l:
+                k, v = l.split('=', 1)
+                unit[k] = v
 
     def get_service(self, _id):
-        for s in self.list():
-            if s.id == _id:
-                return s
+        for s in self.list(units=[_id]):
+            return s
 
     def start(self, _id):
         subprocess.check_call(['systemctl', 'start', _id], close_fds=True)
