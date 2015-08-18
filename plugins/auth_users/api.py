@@ -34,7 +34,7 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         if username in aj.config.data['auth']['users']:
             hash = aj.config.data['auth']['users'][username]['password']
             try:
-                scrypt.decrypt(hash.decode('hex'), password, maxtime=2)
+                scrypt.decrypt(hash.decode('hex'), password, maxtime=15)
                 return True
             except scrypt.error as e:
                 logging.debug('Auth failed: %s' % e)

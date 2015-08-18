@@ -15,10 +15,10 @@
                 <a ng:click="reboot()" class="btn btn-default">
                     <i class="fa fa-recycle"></i> Reboot
                 </a>
-                <a ng:click="suspend()" class="btn btn-default">
+                <a ng:click="suspend()" class="btn btn-default" ng:hide="customization.plugins.power.hideSuspend">
                     <i class="fa fa-moon-o"></i> Suspend
                 </a>
-                <a ng:click="hibernate()" class="btn btn-default">
+                <a ng:click="hibernate()" class="btn btn-default" ng:hide="customization.plugins.power.hideHibernate">
                     <i class="fa fa-download"></i> Hibernate
                 </a>
             </div>

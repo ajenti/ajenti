@@ -3,6 +3,7 @@ angular.module('core').constant('ajentiPlugins', [])
 angular.module('core').constant('ajentiVersion', 'testenv')
 angular.module('core').constant('ajentiPlatform', 'test')
 angular.module('core').constant('ajentiPlatformUnmapped', 'test')
+angular.module('core').constant('ajentiBootstrapColor', 'default')
 
 for m in window.__ngModules
     beforeEach module(m)
@@ -23,8 +24,6 @@ window.__initHttpBackend = () ->
                     return $httpBackend['old' + m](urlPrefix + url)
 
 
-
-beforeEach () ->
 
 beforeEach () ->
     __initHttpBackend()
