@@ -22,3 +22,4 @@ cache:
   directories:
     - node_modules
     - $HOME/.cache/pip
+    - $HOME/virtualenv
