@@ -4,7 +4,7 @@ sys.path.insert(0, '../ajenti-core')
 
 import aj
 import aj.config
-import aj.core
+import aj.entry
 import aj.log
 import aj.plugins
 
@@ -34,7 +34,7 @@ class TestConfig(aj.config.BaseConfig):
 
 aj.log.init_console(logging.WARN)
 
-aj.core.start(
+aj.entry.start(
     config=TestConfig(),
     dev_mode=False,
     debug_mode=True,

@@ -27,7 +27,7 @@ echo -en 'travis_fold:end:deps.bower\r'
 echo -en 'travis_fold:start:test.nose\r'
     echo Running Nose tests
     cd tests-nose
-    nosetests base.py || exit 1
+    nosetests tests || exit 1
     cd ..
 echo -en 'travis_fold:end:test.nose\r'
 

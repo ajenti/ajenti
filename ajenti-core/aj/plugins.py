@@ -223,6 +223,7 @@ class PluginManager(object):
 
     def __init__(self, context):
         self.context = context
+        self.load_order = []
 
     def get_crash(self, name):
         return self.__crashes.get(name, None)
