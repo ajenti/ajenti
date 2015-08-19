@@ -18,3 +18,7 @@ addons:
     - python-lxml 
     - libaugeas-dev
     - augeas-tools
+cache:
+  directories:
+    - node_modules
+    - $HOME/.cache/pip
