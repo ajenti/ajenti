@@ -9,4 +9,4 @@ before_install:
 script:
     - scripts/ci.sh
 notifications:
-  slack: ajenti:ANVVc21AEbnRLYAWBZlhzAtW
+  slack: ajenti:ANVVc21AEbnRLYAWBZlhzAtW 
