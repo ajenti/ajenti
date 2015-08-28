@@ -1607,7 +1607,7 @@ msgstr "İlçe"
 
 #: ajenti/plugins/raid/layout/main.xml:4
 msgid "Devices"
-msgstr "Aygıtları"
+msgstr "Aygıtlar"
 
 #: ajenti/plugins/raid/layout/main.xml:5
 msgid "Blocks"
@@ -1619,7 +1619,7 @@ msgstr "Kurtarma:"
 
 #: ajenti/plugins/iptables/main.py:61
 msgid "You can't disable firewall autostart on this platform"
-msgstr "Güvenlik Duvarı autostart bu platformda devre dışı bırakılamıyor"
+msgstr "Güvenlik Duvarı otomatik başlangıcı bu platformda devre dışı bırakılamıyor"
 
 #: ajenti/plugins/iptables/main.py:77
 msgid "Firewall"
@@ -1715,7 +1715,7 @@ msgstr "Geçerli kullanıcılar"
 
 #: ajenti/plugins/netatalk/layout/main.xml:8
 msgid "Resource forks"
-msgstr "Kaynak çatal"
+msgstr "Resource forks"
 
 #: ajenti/plugins/netatalk/layout/main.xml:9
 msgid "Extended attributes"
@@ -1743,7 +1743,7 @@ msgstr "Geçersiz posta kutusu adı"
 
 #: ajenti/plugins/vh-mail/main.py:67
 msgid "Invalid mailbox domain"
-msgstr "Geçersiz posta kutusu domaini"
+msgstr "Geçersiz posta kutusu alan adı"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
@@ -1752,7 +1752,7 @@ msgstr "Bu adres zaten alınmış"
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
 msgid "Custom domain"
-msgstr "Özel domain"
+msgstr "Özel Alan Adı"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
@@ -1823,7 +1823,7 @@ msgstr "Özel ACL"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:31
 msgid "Custom routers"
-msgstr "Özel router"
+msgstr "Özel Yönlendiriciler(Routers)"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
@@ -1847,11 +1847,11 @@ msgstr "Arama sonucu bulunamadı"
 
 #: ajenti/plugins/packages/main.py:13 ajenti/plugins/packages/main.py:147
 msgid "Packages"
-msgstr "Paketleri"
+msgstr "Paketler"
 
 #: ajenti/plugins/packages/main.py:51
 msgid "Enqueueing package installation"
-msgstr "Enqueueing paket yükleme"
+msgstr "Sırayla Paket Yükleme"
 
 #: ajenti/plugins/packages/main.py:62
 msgid "Installation complete!"
@@ -1881,7 +1881,7 @@ msgstr "Listeleri Yenile"
 
 #: ajenti/plugins/packages/layout/main.xml:1
 msgid "Get lists"
-msgstr "Listeleri"
+msgstr "Listeleri Al"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
@@ -1889,7 +1889,7 @@ msgstr "Yükseltilebilir"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"
-msgstr "Tüm yükseltin"
+msgstr "Tümünü yükseltin"
 
 #: ajenti/plugins/packages/layout/main.xml:5
 #: ajenti/plugins/packages/layout/main.xml:6

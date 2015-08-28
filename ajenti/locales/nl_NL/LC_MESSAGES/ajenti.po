@@ -54,7 +54,7 @@ msgstr "Afhankelijkheden"
 #: ajenti/plugins/resolv/layout/main.xml:3
 #: ajenti/plugins/bind9/layout/main.xml:6
 msgid "Type"
-msgstr "Soort"
+msgstr "Type"
 
 #: ajenti/plugins/plugins/layout/main.xml:5
 msgid "Depends on"
@@ -501,7 +501,7 @@ msgstr "Bedrijf"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr "Licentie type"
+msgstr "Licentietype"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
@@ -552,7 +552,7 @@ msgstr "Opdracht uitvoeren"
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
 msgid "Copying %s"
-msgstr "Kopiëren %s"
+msgstr "%s kopiëren"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
@@ -645,7 +645,7 @@ msgstr "Handleiding (hieronder vermeld)"
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
 msgid "Hourly"
-msgstr "Per uur"
+msgstr "Uurlijks"
 
 #: ajenti/plugins/tasks/layout/main.xml:25
 #: ajenti/plugins/cron/layout/main.xml:17
@@ -1317,7 +1317,7 @@ msgstr "Bevestig database verwijderen!"
 
 #: ajenti/plugins/db_common/layout/main.xml:11
 msgid "Database name"
-msgstr "Database naam"
+msgstr "Databasenaam"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
@@ -1455,7 +1455,7 @@ msgstr "Gebruik Bundler"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:1
 msgid "URL Pattern"
-msgstr "URL patroon"
+msgstr "URL-patroon"
 
 #: ajenti/plugins/vh/layout/main-website-location.xml:3
 msgid "Custom path"
@@ -1507,7 +1507,7 @@ msgstr "Onderhoudsmodus"
 
 #: ajenti/plugins/vh/layout/main-website.xml:9
 msgid "Website files"
-msgstr "Website bestanden"
+msgstr "Websitebestanden"
 
 #: ajenti/plugins/vh/layout/main-website.xml:12
 msgid "Create directory"
@@ -1545,11 +1545,11 @@ msgstr "Poorten"
 
 #: ajenti/plugins/vh/layout/main-website.xml:26
 msgid "SSL certificate path"
-msgstr "SSL-certificaat pad"
+msgstr "SSL-certificaatpad"
 
 #: ajenti/plugins/vh/layout/main-website.xml:27
 msgid "SSL key path"
-msgstr "SSL-sleutel pad"
+msgstr "SSL-sleutelpad"
 
 #: ajenti/plugins/vh/layout/main-website.xml:28
 msgid "Content"
@@ -1727,7 +1727,7 @@ msgstr "CNID schema"
 
 #: ajenti/plugins/netatalk/layout/main.xml:12
 msgid "AFP port"
-msgstr "AFP poort"
+msgstr "AFP-poort"
 
 #: ajenti/plugins/netatalk/layout/main.xml:13
 msgid "CNID address"
@@ -2204,11 +2204,11 @@ msgstr "Reeks"
 
 #: ajenti/plugins/resolv/main.py:13
 msgid "Nameservers"
-msgstr "Nameservers"
+msgstr "Naamservers"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "DNS nameserver"
-msgstr "DNS nameserver"
+msgstr "DNS-naamserver"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Local domain name"
@@ -2267,7 +2267,7 @@ msgstr "Koppelpunt"
 
 #: ajenti/plugins/fstab/layout/main.xml:7
 msgid "FS type"
-msgstr "FS type"
+msgstr "FS-type"
 
 #: ajenti/plugins/fstab/layout/main.xml:9
 msgid "Scan frequency"
@@ -2489,7 +2489,7 @@ msgstr "Stop"
 
 #: ajenti/plugins/ipmi/widget.py:9
 msgid "IPMI Sensor"
-msgstr "IPMI Sensor"
+msgstr "IPMI-sensor"
 
 #: ajenti/plugins/hosts/layout/main.xml:5
 msgid "Aliases"
@@ -2543,7 +2543,7 @@ msgstr "GUnicorn service"
 
 #: ajenti/plugins/csf/main.py:16
 msgid "CSF Firewall"
-msgstr "CSF Firewall"
+msgstr "CSF-firewall"
 
 #: ajenti/plugins/csf/main.py:69
 msgid "Applied"

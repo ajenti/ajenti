@@ -485,11 +485,11 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr ""
+msgstr "שם המשתמש של המנהל"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr ""
+msgstr "הסיסמה של המנהל"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
@@ -505,7 +505,7 @@ msgstr "סוג רישיון"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "רישיון פג תוקף ב-"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -515,7 +515,7 @@ msgstr "הסר"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "לא הותקן רישיון מסחרי"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
@@ -547,7 +547,7 @@ msgstr "כלים"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "הפעל פקודה"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -556,7 +556,7 @@ msgstr "מעתיק את %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "העבר קבצים"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -565,7 +565,7 @@ msgstr "מעביר את %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "מחק קבצים"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
@@ -640,7 +640,7 @@ msgstr "תיזמון"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
-msgstr ""
+msgstr "ידני (ציין למטה)"
 
 #: ajenti/plugins/tasks/layout/main.xml:24
 #: ajenti/plugins/cron/layout/main.xml:16
@@ -719,7 +719,7 @@ msgstr "צור"
 
 #: ajenti/plugins/tasks/layout/main.xml:40
 msgid "Run in parallel"
-msgstr ""
+msgstr "הרץ במקביל"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:1
 #: ajenti/plugins/tasks/layout/params-copydir.xml:1
@@ -850,27 +850,27 @@ msgstr "בטל"
 
 #: ajenti/plugins/main/controls_dialogs.py:72
 msgid "The directory does not exist anymore"
-msgstr ""
+msgstr "הספריה אינה קיימת יותר"
 
 #: ajenti/plugins/main/passwd.py:21
 msgid "Passwords don't match"
-msgstr ""
+msgstr "סיסמאות לא תואמות"
 
 #: ajenti/plugins/main/passwd.py:25
 msgid "Incorrect password"
-msgstr ""
+msgstr "סיסמה שגויה"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "סיסמה שונתה"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
-msgstr ""
+msgstr "ריק"
 
 #: ajenti/plugins/main/controls_containers.py:40
 msgid "Filter..."
-msgstr ""
+msgstr "מסנן..."
 
 #: ajenti/plugins/main/main.py:49
 msgid "Invalid login or password"
@@ -883,7 +883,7 @@ msgstr ""
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
-msgstr ""
+msgstr "ההתחברות נכשלה"
 
 #: ajenti/plugins/main/main.py:293
 msgid "Section access"
@@ -891,11 +891,11 @@ msgstr "סעיף גישה"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "שינוי סיסמה"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "סיסמה ישנה"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -904,11 +904,11 @@ msgstr "סיסמה חדשה"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:4
 msgid "Password confirmation"
-msgstr ""
+msgstr "אימות סיסמה"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "שם קובץ"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"

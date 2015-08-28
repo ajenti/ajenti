@@ -177,7 +177,7 @@ msgstr "Asetukset"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Pääasetukset"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -300,7 +300,7 @@ msgstr "Määritä"
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
-msgstr ""
+msgstr "Automattinen"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."
@@ -344,7 +344,7 @@ msgstr "HTTP-palvelin"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "tai UNIX soketin polku"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/vh/layout/main-website.xml:24
@@ -390,7 +390,7 @@ msgstr "Todennus"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Synkronoi"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
@@ -410,7 +410,7 @@ msgstr "Tilit"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "Luo kopio"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
@@ -453,19 +453,19 @@ msgstr "Käynnistä Ajenti uudelleen?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Palvelimen osoite"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Pääkäyttäjän verkkotunnus"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Pääkäyttäjän verkkotunnuksen jälkiliite"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Salasana"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
@@ -473,7 +473,7 @@ msgstr "Palvelimen osoite"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Verkkotunnus"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -481,15 +481,15 @@ msgstr ""
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Rajaa verkkotunnusryhmälle"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr ""
+msgstr "Pääkäyttäjä tunnus"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr ""
+msgstr "Pääkäyttäjän salasana"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
@@ -734,7 +734,7 @@ msgstr "Hakemistoon"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:3
 msgid "Archive"
-msgstr ""
+msgstr "Arkisto"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:4
 msgid "Recursive"
@@ -746,11 +746,11 @@ msgstr "Säilytä tiedostojen aika-arvot"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:6
 msgid "Preserve ext. attributes"
-msgstr ""
+msgstr "Säilytä ulkoiset määritteet"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:7
 msgid "Delete in destination dir"
-msgstr ""
+msgstr "Poista kohdekansiosta"
 
 #: ajenti/plugins/tasks/layout/params-rsync.xml:8
 msgid "Preserve permissions"
@@ -1016,11 +1016,11 @@ msgstr "Veto tiedostot"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr ""
+msgstr "Pakottaa tiedoston umask"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
-msgstr ""
+msgstr "pakottaa kansion umask"
 
 #: ajenti/plugins/samba/layout/main.xml:18
 #: ajenti/plugins/netatalk/layout/main.xml:11
@@ -1094,7 +1094,7 @@ msgstr "Aseta"
 
 #: ajenti/plugins/hdparm/widget.py:37
 msgid "HDD drive state"
-msgstr ""
+msgstr "Kovalevyn tila"
 
 #: ajenti/plugins/hdparm/widget.py:47 ajenti/plugins/smartctl/widget.py:60
 msgid "No data"
@@ -1125,12 +1125,12 @@ msgstr "Järjestelmä"
 #: ajenti/plugins/users/main.py:105
 #, python-format
 msgid "Home dir for %s was created"
-msgstr ""
+msgstr "Kotikansio käyttäjälle %s luotu"
 
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr ""
+msgstr "Salasana käyttäjälle %s muutettu"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
@@ -1139,7 +1139,7 @@ msgstr "Salasana ei pitäisi olla tyhjä"
 #: ajenti/plugins/users/main.py:123
 #, python-format
 msgid "Password for %s was removed"
-msgstr ""
+msgstr "Käyttäjän %s salasana poistettu"
 
 #: ajenti/plugins/users/layout/main.xml:3 ajenti/plugins/fm/layout/main.xml:26
 msgid "Group"
@@ -1147,7 +1147,7 @@ msgstr "Ryhmä"
 
 #: ajenti/plugins/users/layout/main.xml:7
 msgid "System Users"
-msgstr ""
+msgstr "Järjestelmän käyttäjät"
 
 #: ajenti/plugins/users/layout/main.xml:9
 msgid "Groups"
@@ -1190,20 +1190,20 @@ msgstr "Tietokannat"
 #: ajenti/plugins/vh-mysql/layout/ext.xml:3
 #: ajenti/plugins/vh-mysql/layout/ext.xml:11
 msgid "Detach from the website"
-msgstr ""
+msgstr "Irrota verkkosivulta"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:4
 #: ajenti/plugins/vh-mysql/layout/ext.xml:12
 msgid "Destroy"
-msgstr ""
+msgstr "Tuhoa"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:5
 msgid "Drop the database?"
-msgstr ""
+msgstr "Pudotetaanko tietokanta?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:13
 msgid "Drop the user?"
-msgstr ""
+msgstr "Pudotetaanko käyttäjä?"
 
 #: ajenti/plugins/vh-mysql/layout/ext.xml:17
 msgid "Grant all permissions"
@@ -1211,11 +1211,11 @@ msgstr "Myönnä kaikki oikeudet"
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "{0} niminen tiedosto on jo olemassa kohteessa {1}."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "Jotkin parametrit ovat tyhjiä."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
@@ -1224,11 +1224,11 @@ msgstr "Asetustiedoston tallentaminen epäonnistui. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
-msgstr ""
+msgstr "Suodattimien tarkastin"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:6
 msgid "Filter file"
-msgstr ""
+msgstr "Suodata tiedosto"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:8
 msgid "Run test"
@@ -1248,15 +1248,15 @@ msgstr "Aliverkot"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:4
 msgid "Specification"
-msgstr ""
+msgstr "Määrittely"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:5
 msgid "IP ranges"
-msgstr ""
+msgstr "IP-alueet"
 
 #: ajenti/plugins/dhcpd/layout/main.xml:7
 msgid "Global options"
-msgstr ""
+msgstr "Yleiset asetukset"
 
 #: ajenti/plugins/munin/main.py:43
 #, python-format
@@ -1292,11 +1292,11 @@ msgstr "Tietovaraston nimi"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Käyttäjät (luku ja kirjoitus)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Käyttäjät (vain luku)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
@@ -1321,19 +1321,19 @@ msgstr "Tietokannan nimi"
 
 #: ajenti/plugins/vh/gate_static.py:8
 msgid "Static files"
-msgstr ""
+msgstr "Staattiset tiedostot"
 
 #: ajenti/plugins/vh/gate_fcgi.py:8
 msgid "Custom FCGI"
-msgstr ""
+msgstr "Mukautettu FCGI"
 
 #: ajenti/plugins/vh/gate_proxy.py:8
 msgid "Reverse proxy"
-msgstr ""
+msgstr "Käänteinen välityspalvelin"
 
 #: ajenti/plugins/vh/processes.py:41
 msgid "Process"
-msgstr ""
+msgstr "Prosessi"
 
 #: ajenti/plugins/vh/processes.py:56 ajenti/plugins/taskmgr/main.py:19
 msgid "Processes"
@@ -1345,7 +1345,7 @@ msgstr "Sivustot"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "Testataan asetuksia"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
@@ -1365,7 +1365,7 @@ msgstr "Lataus on valmis"
 
 #: ajenti/plugins/vh/layout/main.xml:2
 msgid "Manage"
-msgstr ""
+msgstr "Hallinnoi"
 
 #: ajenti/plugins/vh/layout/main.xml:3
 msgid "New website"
@@ -1373,7 +1373,7 @@ msgstr "Uusi verkkosivusto"
 
 #: ajenti/plugins/vh/layout/main.xml:6
 msgid "Configuration checks"
-msgstr ""
+msgstr "Asetusten tarkastukset"
 
 #: ajenti/plugins/vh/layout/main.xml:8
 msgid "Restart websites"

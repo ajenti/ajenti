@@ -296,7 +296,7 @@ msgstr "Klaida: \"%s\""
 #: ajenti/plugins/fail2ban/layout/main.xml:1
 #: ajenti/plugins/munin/layout/main.xml:2
 msgid "Configure"
-msgstr "Konfigūruoti"
+msgstr "Nustatymai"
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"

@@ -2108,7 +2108,7 @@ msgstr "Traffico"
 
 #: ajenti/plugins/network/main.py:15
 msgid "Network"
-msgstr "Infrastruttura di rete"
+msgstr "Rete"
 
 #: ajenti/plugins/network/layout/main.xml:2
 msgid "Bring up"
@@ -2164,7 +2164,7 @@ msgstr "File"
 
 #: ajenti/plugins/ctdb/layout/main.xml:8
 msgid "Recovery lock file"
-msgstr "Recovery File bloccato"
+msgstr "File di blocco recovery"
 
 #: ajenti/plugins/ctdb/layout/main.xml:9
 msgid "Public addresses file"

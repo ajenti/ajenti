@@ -1016,7 +1016,7 @@ msgstr "Arquivos de veto"
 
 #: ajenti/plugins/samba/layout/main.xml:16
 msgid "Force file umask"
-msgstr "Força arquivo umask"
+msgstr "Forçar arquivo umask"
 
 #: ajenti/plugins/samba/layout/main.xml:17
 msgid "Force dir umask"
@@ -1923,7 +1923,7 @@ msgstr "Sensor"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "uname"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
@@ -2220,7 +2220,7 @@ msgstr "Listas de pesquisas"
 
 #: ajenti/plugins/resolv/main.py:18
 msgid "Sort list"
-msgstr "Listas ordenadas"
+msgstr "Ordenar lista"
 
 #: ajenti/plugins/resolv/layout/main.xml:4
 #: ajenti/plugins/cron/layout/main.xml:26

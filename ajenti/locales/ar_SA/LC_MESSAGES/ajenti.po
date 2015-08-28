@@ -209,7 +209,7 @@ msgstr "الكونفج"
 #: ajenti/plugins/cron/layout/main.xml:27
 #: ajenti/plugins/bind9/layout/main.xml:12
 msgid "Save"
-msgstr "حفظ"
+msgstr "احفظ"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
@@ -1281,27 +1281,27 @@ msgstr "إعادة تحميل"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "جيت (Git)"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "مستودعات البيانات"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "اسم المستودع"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "المستخدمين (القراءة والكتابة)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "المستخدمين (للقراءة فقط)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "المفتاح العمومي"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
@@ -1924,11 +1924,11 @@ msgstr "مستشعر"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "المستخدم"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "خيارات  المستخدم"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
@@ -2632,7 +2632,7 @@ msgstr "خاصة"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "المصادقة"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"

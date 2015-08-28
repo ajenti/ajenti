@@ -1292,15 +1292,15 @@ msgstr ""
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "Uporabniki (branje in pisanje)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Uporabnik (samo za branje)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "Javni ključ"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"
@@ -2631,7 +2631,7 @@ msgstr "Poseben"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Preverjanje pristnosti"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
