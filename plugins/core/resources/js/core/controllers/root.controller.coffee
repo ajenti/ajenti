@@ -62,7 +62,7 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
 
     identity.init()
     identity.promise.then () ->
-        $log.info 'Ready'
+        $log.info 'Identity', identity.user
         $rootScope.appReady = true
 
     favicon.init()

@@ -102,7 +102,7 @@ class WorkerGate(object):
                         'critical': logging.critical,
                     }.get(resp.object['method'], None)
                     if method:
-                        method(resp.object['message'], extra=resp.object['kwargs'])
+                        method('%s', resp.object['message'], extra=resp.object['kwargs'])
         except greenlet.GreenletExit:
             pass
 

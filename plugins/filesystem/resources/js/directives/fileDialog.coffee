@@ -72,7 +72,7 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                     $scope.navigate(item.path, true)
                 else
                     if $scope.mode == 'open'
-                        $scope.onSelect({item: item})
+                        $scope.onSelect({path: item.path})
                     if $scope.mode == 'save'
                         $scope.name = item.name
 
