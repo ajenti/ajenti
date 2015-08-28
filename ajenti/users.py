@@ -96,7 +96,7 @@ class UserManager (BasePlugin):
 
     def hash_passwords(self):
         for user in ajenti.config.tree.users.values():
-            if not '|' in user.password:
+            if not user.password.startswith('sha512|'):
                 user.password = self.hash_password(user.password)
 
     def has_permission(self, context, permission):
