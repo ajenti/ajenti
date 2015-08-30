@@ -41,6 +41,8 @@ Options:
     -v                  - Debug/verbose logging
     --dev               - Dev mode (recompile resources)
     -d, --daemon        - Run in background (daemon mode)
+    --stock-plugins     - Load plugins from PYTHONPATH
+    --plugins <dir>     - Load plugins from a directory
     --autologin         - Log in automatically as the running user
     -h, --help          - This help
     """ % sys.argv[0]
@@ -59,7 +61,7 @@ if __name__ == '__main__':
         opts, args = getopt.getopt(
             sys.argv[1:],
             'hc:dv',
-            ['help', 'config=', 'daemon', 'dev', 'plugins=', 'autologin']
+            ['help', 'config=', 'daemon', 'dev', 'stock-plugins', 'plugins=', 'autologin']
         )
     except getopt.GetoptError as e:
         print str(e)
@@ -83,6 +85,8 @@ if __name__ == '__main__':
             daemonize = True
         elif o in ('--autologin',):
             autologin = True
+        elif o == '--stock-plugins':
+            plugin_providers.append(aj.plugins.PythonPathPluginProvider())
         elif o == '--plugins':
             plugin_providers.append(aj.plugins.DirectoryPluginProvider(a))
 

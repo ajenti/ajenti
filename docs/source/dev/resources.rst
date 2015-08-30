@@ -36,7 +36,7 @@ CSS, JS and HTML resources must be listed in the ``plugin.yml`` file in order to
         - 'resources/css/animations.less'               # Styles
         - 'resources/js/core/filters.coffee'            # JS
         - 'resources/partial/index.html'                # HTML
-        - 'ng:test'                                     # Special syntax for publishing an AngularJS module.
+        - 'ng:moduleName'                               # Special syntax for publishing an AngularJS module.
 
 Please note that the last item instructs Ajenti core to load the specified AngularJS module (``test``) from the plugin.
 
@@ -69,6 +69,6 @@ Other resource files are available through HTTP at ``/resources/<plugin_id>/reso
 Resource compilation
 ====================
 
-When run in dev mode (``--dev``), Ajenti will invoke ``ajenti-dev-multitool --build`` on page reload.
+When running in dev mode (``--dev``), Ajenti will invoke ``ajenti-dev-multitool --build`` on page reload. Force-reloading the page (Ctrl/Cmd-F5) will rebuild all resources in all plugins using ``ajenti-dev-multitool --rebuild``
 
 ``ajenti-dev-multitool`` will automatically compile CoffeeScript and LESS code, concatenate CSS and JS specified in ``plugin.yml`` and place built CSS and JS files in ``plugin/resources/build``. Please note that ``ajenti-dev-multitool`` will only process files in the current directory and below.

@@ -1,17 +1,18 @@
 .. _installing:
 
+
 Installing
 **********
 
-Requirements
-============
-
-Ajenti supports
+.. CAUTION::
+    Supported operating systems:
 
     * Debian 6 or later
     * Ubuntu Precise or later
     * CentOS 6 or later
     * RHEL 6 or later
+
+    Other Linux-based systems *might* work, but you'll have to use manual installation method.
 
 
 Automatic Installation

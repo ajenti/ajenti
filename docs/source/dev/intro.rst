@@ -6,27 +6,24 @@ Getting Started with Plugin Development
 Required knowledge
 ==================
 
-To build plugin's backend API:
+Building plugin backend API:
 
   * Python 2.x
   * async programming with gevent (optional but recommended)
 
-To build plugin's frontend:
+Build plugin frontend:
 
   * CoffeeScript or JavaScript
   * basic AngularJS knowledge (modules & controllers)
   * basic HTML layout
-  * LESS or CSS (optional, for custom styling)
+  * CSS or LESS (optional, for custom styling)
 
 Prerequisites
 =============
 
 The following is the absolutely minimal set of software required to build and run Ajenti:
 
-  * git
-  * bower (from NPM)
-  * coffee-script (from NPM)
-  * lessc (from NPM)
+  * bower, coffee-script and lessc (from NPM)
 
 
 Debian/Ubuntu extras:
@@ -37,57 +34,44 @@ Debian/Ubuntu extras:
 Setting up
 ==========
 
-Download the source::
-
-    git clone git://github.com/ajenti/ajenti.git
+Install complete Ajenti bundle as outlined in the :ref:`installation guide <installing>`.
 
 Install the dependencies::
 
-    # Debian/Ubuntu
-    sudo apt-get install build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus``
-    # RHEL/CentOS
-    sudo yum install gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python
-
-    sudo pip install -r ajenti-core/requirements.txt
     sudo pip install ajenti-dev-multitool
+    sudo npm install -g coffee-script less bower
 
-Native dependencies: RHEL/CentOS
---------------------------------
+.. WARNING::
+  We highly recommend to start with existing well-commented demo plugins instead of making ones from scratch.
+  Download plugins from here: https://github.com/ajenti/demo-plugins or clone this entire repository.
 
+  Navigate into the ``demo-plugins`` directory. Download and install Bower dependencies::
 
-
-Download and install Bower dependencies::
-
-    make bower
+      ajenti-dev-multitool --bower install
 
 Ensure that resource compilation is set up correctly and works (optional)::
 
-    make build
+    ajenti-dev-multitool --build
 
-Launch Ajenti in dev mode::
+Launch Ajenti in dev mode with the plugins from the current directory::
 
-    make rundev
+    sudo ajenti-dev-multitool --run-dev
 
-Navigate to http://localhost:8000/.
+Navigate to http://localhost:8000/. You should see those demo plugins in the sidebar.
 
-Changes in CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources
-
-Ajenti source code includes various example plugins under **Demo** category; their source is available in ``ajenti/plugins/test`` directory.
+.. HINT::
+  Changes in CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources
 
 
 Example plugins
 ===============
 
-We highly recommend to start with existing well-commented demo plugins instead of making ones from scratch.
-Download plugins from here: https://github.com/ajenti/demo-plugins and extract or symlink them into ``plugins`` directory.
 Make sure to run ``make bower`` restart Ajenti afterwards.
 
 Plugin structure
 ================
 
-New plugins are placed in ``<source>/plugins/``.
-
-Each plugin package consists of few Python modules, which contain :class:`ajenti.api.component` classes (*components*).
+Each plugin package consists of few Python modules, which contain :class:`jadi.component` classes (*components*).
 Packages also may contain :ref:`static files, CoffeeScript and LESS code <dev-resources>`::
 
 

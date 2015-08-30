@@ -1,5 +1,11 @@
-Ajenti documentation
-====================
+.. seealso:: 
+   .. toctree::
+      :maxdepth: 1
+      
+      man/install.rst
+      dev/about.rst
+      dev/intro.rst
+      dev/intro-core.rst
 
 Documentation
 -------------
@@ -17,6 +23,8 @@ Developers
 
    dev/about.rst
    dev/intro.rst
+   dev/intro-core.rst
+   dev/multitool.rst
    dev/ui.rst
    dev/resources.rst
    dev/http.rst

@@ -1,5 +1,5 @@
-Plugin: aj.api.endpoint
-***********************
+API: aj.api.endpoint
+********************
 
 .. automodule:: aj.api.endpoint
    :members:
