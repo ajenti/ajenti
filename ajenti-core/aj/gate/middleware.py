@@ -110,7 +110,8 @@ class GateMiddleware(object):
         """
         for session in [x for x in self.sessions.values() if x.is_dead()]:
             session.destroy()
-            del self.sessions[session.key]
+            if session.key in self.sessions:
+                del self.sessions[session.key]
 
     def destroy(self):
         for session in self.sessions.values():

@@ -11,7 +11,7 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
             @elevation_allowed = data.identity.elevation_allowed
             @machine = data.machine
             @color = data.color
-            @isSuperuser = @uid == 0
+            @isSuperuser = @effective == 0
             q.resolve()
         .error () ->
             q.reject()

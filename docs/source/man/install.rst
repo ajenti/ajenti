@@ -18,7 +18,9 @@ Installing
 Automatic Installation
 ======================
 
-    ``curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh > install.sh && sudo bash install.sh``
+::
+
+    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh > install.sh && sudo bash install.sh
 
 
 Manual Installation
@@ -27,26 +29,30 @@ Manual Installation
 Native dependencies: Debian/Ubuntu
 ----------------------------------
 
-    ``sudo apt-get install build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus``
+::
+
+    sudo apt-get install build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus
 
 Native dependencies: RHEL/CentOS
 --------------------------------
 
-    ``sudo yum install gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python``
+::
+
+    sudo yum install gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python
 
 Install Ajenti
 --------------
 
-    Upgrade PIP:
+Upgrade PIP::
 
-    ``sudo pip install 'setuptools>=0.6rc11' 'pip>=6'``
+    sudo pip install 'setuptools>=0.6rc11' 'pip>=6'
 
-    Minimal install:
+Minimal install::
 
-    ``sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins``
+    sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins
 
-    With more plugins:
+With more plugins::
 
-    ``sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.services ajenti.plugin.terminal``
+    sudo pip install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.filemanager ajenti.plugin.notepad ajenti.plugin.packages ajenti.plugin.services ajenti.plugin.terminal
 
 

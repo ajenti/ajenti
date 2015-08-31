@@ -1,3 +1,5 @@
+.. _man-about:
+
 What's Ajenti and how it works
 ==============================
 
