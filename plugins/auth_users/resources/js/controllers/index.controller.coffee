@@ -1,4 +1,4 @@
-angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($scope, $http, notify, pageTitle, config, passwd) ->
+angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($scope, $http, notify, pageTitle, config, passwd, customization) ->
     pageTitle.set('Users')
 
     $scope.config = config
@@ -38,6 +38,8 @@ angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($sco
 
     $scope.save = () ->
         for username of $scope.userPermissions
+            if not config.data.auth.users[username]
+                continue
             config.data.auth.users[username].permissions = {}
             for permission in $scope.permissions
                 v = $scope.userPermissions[username][permission.id]
@@ -54,7 +56,7 @@ angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($sco
                 config.load()
 
     $scope.addUser = (username) ->
-        config.data.auth.users[username] = {uid: 0}
+        config.data.auth.users[username] = {uid: customization.plugins.auth_users.forceUID or 0}
         $scope.resetPermissions(username)
         $scope.newUsername = ''
 

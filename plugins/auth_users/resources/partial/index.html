@@ -18,7 +18,7 @@
                 <h4 class="list-group-item-heading">
                     {{username}}
                 </h4>
-                <p class="list-group-item-text">
+                <p class="list-group-item-text" ng:show="customization.plugins.auth_users.forceUID == null">
                     {{getSystemUser(user.uid).name}} ({{user.uid}})
                 </p>
             </div>
@@ -55,7 +55,7 @@
             <h4>{{configuringUsername}}</h4>
         </div>
         <div class="modal-body scrollable">
-            <div class="form-group">
+            <div class="form-group" ng:show="customization.plugins.auth_users.forceUID == null">
                 <label>System account</label>
                 <select ng:model="config.data.auth.users[configuringUsername].uid" ng:options="x.uid as x.name for x in systemUsers" class="form-control"></select>
                 <div class="alert alert-info" ng:show="config.data.auth.users[configuringUsername].uid != 0">
