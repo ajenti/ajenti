@@ -243,7 +243,7 @@ class PluginManager(object):
     def get_loaded_plugins_list(self):
         for plugin in self:
             if self[plugin]['imported']:
-                yield plugin['info']['name']
+                yield self[plugin]['info']['name']
 
     def load_all_from(self, providers):
         """

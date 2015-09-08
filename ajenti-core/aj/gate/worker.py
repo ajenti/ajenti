@@ -11,7 +11,7 @@ from gevent.event import Event
 from jadi import Context
 
 import aj
-from aj.api.http import SocketEndpoint
+from aj.api.http import SocketEndpoint, HttpMiddleware
 from aj.http import HttpMiddlewareAggregator, HttpContext
 from aj.auth import AuthenticationMiddleware, AuthenticationService
 from aj.routing import CentralDispatcher
@@ -199,7 +199,8 @@ class Worker(object):
             )
 
             # Generate response
-            content = self.handler.handle(http_context)
+            stack = HttpMiddleware.all(self.context)
+            content = HttpMiddlewareAggregator(stack + [self.handler]).handle(http_context)
             # ---
 
             http_context.add_header('X-Worker-Name', str(self.gate.name))

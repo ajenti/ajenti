@@ -63,23 +63,3 @@ class Handler(HttpPlugin):
         http_context.add_header('Content-Type', 'text/html')
         http_context.respond_ok()
         return content
-
-
-#TODO remove
-from aj.plugins.core.api.tasks import Task
-
-
-class MyTask(Task):
-    name = 'Test'
-
-    def __init__(self, context, *args, **kwargs):
-        print args, kwargs
-        Task.__init__(self, context)
-
-    def run(self):
-        logging.info('Running')
-        gevent.sleep(2)
-        for i in range(0, 5):
-            gevent.sleep(1)
-            self.report_progress(message='Working', done=i, total=10)
-        logging.info('Done')

@@ -39,6 +39,15 @@ class BaseHttpHandler(object):
 
 
 @interface
+class HttpMiddleware(BaseHttpHandler):
+    def __init__(self, context):
+        self.context = context
+
+    def handle(self, http_context):
+        pass
+
+
+@interface
 class HttpPlugin(object):
     """
     A base interface for HTTP request handling::
@@ -52,6 +61,9 @@ class HttpPlugin(object):
                 return 'Hello, %s!' % name
 
     """
+
+    def __init__(self, context):
+        self.context = context
 
     def handle(self, http_context):
         """
