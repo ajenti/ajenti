@@ -1,5 +1,5 @@
-angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scope, $interval, notify, pageTitle, dashboard, config) ->
-    pageTitle.set('Dashboard')
+angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scope, $interval, gettext, notify, pageTitle, dashboard, config) ->
+    pageTitle.set(gettext('Dashboard'))
 
     $scope.ready = false
 

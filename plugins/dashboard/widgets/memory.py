@@ -7,7 +7,7 @@ from aj.plugins.dashboard.api import Widget
 @component(Widget)
 class MemoryWidget(Widget):
     id = 'memory'
-    name = 'Memory usage'
+    name = _('Memory usage')
     template = '/dashboard:resources/partial/widgets/memory.html'
 
     def __init__(self, context):

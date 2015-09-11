@@ -8,7 +8,7 @@ from aj.plugins.dashboard.api import Widget
 @component(Widget)
 class UptimeWidget(Widget):
     id = 'uptime'
-    name = 'Uptime'
+    name = _('Uptime')
     template = '/dashboard:resources/partial/widgets/uptime.html'
 
     def __init__(self, context):

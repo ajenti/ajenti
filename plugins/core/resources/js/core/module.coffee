@@ -12,6 +12,7 @@ angular.module 'core', [
     'ui.bootstrap',
     'angular-sortable-view',
     'base64',
+    'gettext',
 ]
 
 

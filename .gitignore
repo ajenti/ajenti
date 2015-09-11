@@ -9,3 +9,5 @@
 .last-upload
 plugins/demo*
 docs/build
+*.mo
+.crowdin.key

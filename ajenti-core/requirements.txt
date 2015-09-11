@@ -9,7 +9,7 @@ lxml>=2.2.4
 passlib
 pexpect
 psutil>=2.2.1
-pyOpenSSL<0.14 # 0.14 breaks WantWrite retries
+pyOpenSSL #<0.14 # 0.14 breaks WantWrite retries
 python-daemon<2.0
 pyyaml
 requests>=2

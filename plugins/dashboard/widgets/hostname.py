@@ -7,7 +7,7 @@ from aj.plugins.dashboard.api import Widget
 @component(Widget)
 class HostnameWidget(Widget):
     id = 'hostname'
-    name = 'Hostname'
+    name = _('Hostname')
     template = '/dashboard:resources/partial/widgets/hostname.html'
 
     def __init__(self, context):

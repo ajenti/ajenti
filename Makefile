@@ -1,10 +1,11 @@
 all: build
 
 bower:
-	cd plugins && ajenti-dev-multitool --bower install
+	ajenti-dev-multitool --bower install
 
 build:
-	cd plugins && ajenti-dev-multitool --build
+	ajenti-dev-multitool --msgfmt
+	ajenti-dev-multitool --build
 
 run:
 	cd ajenti-panel && ./ajenti-panel -v --autologin --plugins ../plugins
@@ -34,18 +35,27 @@ cdoc:
 	make doc
 
 
+push-crowdin:
+	ajenti-dev-multitool --xgettext
+	ajenti-dev-multitool --push-crowdin
+
+pull-crowdin:
+	ajenti-dev-multitool --pull-crowdin
+	ajenti-dev-multitool --msgfmt
+
 check:
-	cd plugins && ajenti-dev-multitool --find-outdated
+	ajenti-dev-multitool --find-outdated
 
 upload: build
 	cd ajenti-core && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
 	cd ajenti-panel && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
 
 upload-plugins: build
-	cd plugins && ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'
+	ajenti-dev-multitool --setuppy 'sdist upload --sign --identity "Ajenti Packagers"'
 
 test:
 	cd e2e && ./run
+
 
 webdriver:
 	cd e2e && node_modules/protractor/bin/webdriver-manager start

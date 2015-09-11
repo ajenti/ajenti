@@ -10,9 +10,10 @@ bind:
   host: 0.0.0.0
   mode: tcp
   port: 8000
-color: red
+color: bluegrey
 max_sessions: 9
 name: Test Box
+restricted_user: nobody
 ssl:
   certificate: /etc/ajenti/ajenti.pem
   client_auth:

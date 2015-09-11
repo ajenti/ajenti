@@ -11,7 +11,7 @@
     "angular-mocks": "~1.4.0",
     "angular-touch": "~1.4.0",
     "bootstrap": "~3.3.1",
-    "fontawesome": "~4.2.0",
+    "fontawesome": "~4.4.0",
     "angular-socket-io": "~0.6.1",
     "angular-loading-bar": "~0.6.0",
     "angular-bootstrap": "~0.11.2",
@@ -21,7 +21,8 @@
     "angular-sortable-view": "0.0.13",
     "AngularJS-Toaster": "~0.4.9",
     "angular-base64": "~2.0.4",
-    "mobile-detect": "*"
+    "mobile-detect": "~1.2.1",
+    "angular-gettext": "~2.1.0"
   },
   "resolutions": {
     "angular": "~1.4.0"

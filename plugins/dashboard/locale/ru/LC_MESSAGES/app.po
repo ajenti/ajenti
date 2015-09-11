@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-11 21:57+0200\n"
+"PO-Revision-Date: 2015-09-11 17:35-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: /2.0/dashboard.po\n"
+
+#: plugins/dashboard/resources/partial/index.html:8
+msgid "Add widget"
+msgstr "Виджет"
+
+#: plugins/dashboard/resources/partial/index.html:46
+msgid "Save"
+msgstr "Сохранить"
+
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:2
+msgid "Dashboard"
+msgstr "Главная"
+
+#: plugins/dashboard/widgets/loadavg.py:11
+msgid "Load average"
+msgstr "Загрузка CPU"
+
+#: plugins/dashboard/widgets/uptime.py:11
+msgid "Uptime"
+msgstr "Аптайм"
+
+#: plugins/dashboard/widgets/hostname.py:10
+msgid "Hostname"
+msgstr "Хост"
+
+#: plugins/dashboard/widgets/memory.py:10
+msgid "Memory usage"
+msgstr "Память"
+
+#: plugins/dashboard/widgets/cpu.py:10
+msgid "CPU usage"
+msgstr "Загрузка CPU"
+

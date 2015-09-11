@@ -8,7 +8,7 @@ from aj.plugins.dashboard.api import Widget
 @component(Widget)
 class LoadAverageWidget(Widget):
     id = 'loadavg'
-    name = 'Load average'
+    name = _('Load average')
     template = '/dashboard:resources/partial/widgets/loadavg.html'
 
     def __init__(self, context):

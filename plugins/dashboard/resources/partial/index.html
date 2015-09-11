@@ -5,7 +5,7 @@
 <div ng:show="ready">
     <div class="dropdown pull-right">
         <a class="btn btn-default subtle" dropdown-toggle>
-            <i class="fa fa-plus"></i> Add widget
+            <i class="fa fa-plus"></i> <span translate>Add widget</span>
         </a>
         <ul class="dropdown-menu">
             <li ng:repeat="widget in availableWidgets|orderBy:'name'">
@@ -37,13 +37,13 @@
 
     <dialog ng:show="configuredWidget">
         <div class="modal-header">
-            <h4>{{widgetTypes[configuredWidget.typeId].name}}</h4>
+            <h4>{{widgetTypes[configuredWidget.typeId].name|translate}}</h4>
         </div>
         <div class="modal-body">
             <ng:include src="widgetTypes[configuredWidget.typeId].config_template" />
         </div>
         <div class="modal-footer">
-            <a ng:click="saveWidgetConfig()" class="btn btn-default btn-flat">Save</a>
+            <a ng:click="saveWidgetConfig()" class="btn btn-default btn-flat" translate>Save</a>
         </div>
     </div>
 </div>

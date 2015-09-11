@@ -26,6 +26,7 @@ resources:
     - 'resources/vendor/fastclick/lib/fastclick.js'
     - 'resources/vendor/angular-base64/angular-base64.js'
     - 'resources/vendor/mobile-detect/mobile-detect.min.js'
+    - 'resources/vendor/angular-gettext/dist/angular-gettext.min.js'
     - 'resources/css/bootstrap/bootstrap.less'
     - 'resources/css/overrides.less'
     - 'resources/css/animations.less'
