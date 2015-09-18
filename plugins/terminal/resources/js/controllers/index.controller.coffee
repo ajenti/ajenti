@@ -1,5 +1,5 @@
-angular.module('ajenti.terminal').controller 'TerminalIndexController', ($scope, $location, $q, pageTitle, terminals) -> 
-    pageTitle.set('Terminals')
+angular.module('ajenti.terminal').controller 'TerminalIndexController', ($scope, $location, $q, pageTitle, terminals, gettext) -> 
+    pageTitle.set(gettext('Terminals'))
 
     $scope.refresh = () ->
         q = $q.defer()

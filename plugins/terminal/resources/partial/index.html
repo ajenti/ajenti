@@ -1,4 +1,4 @@
-<h2>Terminals</h2>
+<h2 translate>Terminals</h2>
 
 <div class="alert alert-info" ng:show="terminals.length == 0">
     <i class="fa fa-info-circle"></i> No terminals open
@@ -6,7 +6,7 @@
 
 <div class="list-group">
     <div ng:repeat="terminal in terminals" class="list-group-item list-group-item-large">
-        <a class="list-group-btn" ng:click="kill(terminal)" title="Terminate">
+        <a class="list-group-btn" ng:click="kill(terminal)" title="{{'Terminate'|translate}}">
             <i class="fa fa-trash-o"></i>
         </a>
         <a class="list-group-main" ng:href="{{urlPrefix}}/view/terminal/{{terminal.id}}">
@@ -26,12 +26,12 @@
 <div class="row">
     <div class="col-sm-4">
         <a class="btn btn-primary btn-block" ng:click="create()" test-bind="newTerminalButton">
-            <i class="fa fa-plus"></i> Open a new terminal
+            <i class="fa fa-plus"></i> <span translate>Open a new terminal</span>
         </a>
     </div>
     <div class="col-sm-8">
         <div class="input-group">
-            <input ng:model="command" ng:enter="runCommand()" placeholder="Run a command..." class="form-control" />
+            <input ng:model="command" ng:enter="runCommand()" placeholder="{{'Run a command...'|translate}}" class="form-control" />
             <div class="input-group-btn">
                 <a ng:click="runCommand()" class="btn btn-primary">
                     <i class="fa fa-play"></i>

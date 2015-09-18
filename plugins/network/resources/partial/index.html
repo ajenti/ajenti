@@ -1,22 +1,22 @@
 <br/>
 
 <tabset>
-    <tab heading="Network">            
+    <tab heading="{{'Network'|translate}}">            
         <br/>
 
         <div class="form-group">
-            <label>Hostname</label>
+            <label translate>Hostname</label>
             <div class="input-group">
                 <input ng:model="hostname" ng:enter="setHostname(hostname)" class="form-control" />
                 <div class="input-group-btn">
-                    <a ng:click="setHostname(hostname)" ng:disabled="!hostname" class="btn btn-primary">Update hostname</a>
+                    <a ng:click="setHostname(hostname)" ng:disabled="!hostname" class="btn btn-primary" translate>Update hostname</a>
                 </div>
             </div>
         </div>
 
         <hr/>
 
-        <label>Interfaces</label>
+        <label translate>Interfaces</label>
 
         <progress-spinner ng:hide="config != null"></progress-spinner>
 
@@ -25,13 +25,13 @@
                 <a class="list-group-btn" ng:click="$parent.configuringInterface = iface" title="Configure">
                     <i class="fa fa-cog"></i>
                 </a>
-                <a class="list-group-btn" ng:click="upInterface(iface)" ng:show="state[iface.name].up === false" title="Activate (up) interface">
+                <a class="list-group-btn" ng:click="upInterface(iface)" ng:show="state[iface.name].up === false" title="{{'Activate (up) interface'|translate}}">
                     <i class="fa fa-arrow-up"></i>
                 </a>
-                <a class="list-group-btn" ng:click="downInterface(iface)" ng:show="state[iface.name].up === true" title="Deactivate (down) interface">
+                <a class="list-group-btn" ng:click="downInterface(iface)" ng:show="state[iface.name].up === true" title="{{'Deactivate (down) interface'|translate}}">
                     <i class="fa fa-arrow-down"></i>
                 </a>
-                <a class="list-group-btn" ng:click="restartInterface(iface)" ng:show="state[iface.name].up === true" title="Restart interface">
+                <a class="list-group-btn" ng:click="restartInterface(iface)" ng:show="state[iface.name].up === true" title="{{'Restart interface'|translate}}">
                     <i class="fa fa-refresh"></i>
                 </a>
                 <div class="list-group-main">
@@ -52,7 +52,7 @@
                             <i class="fa fa-fw fa-warning"></i> DOWN
                         </span>
                         <span class="label label-info" ng:show="!state[iface.name]">
-                            <i class="fa fa-circle-o-notch fa-spin"></i> Checking status...
+                            <i class="fa fa-circle-o-notch fa-spin"></i> <span translate>Checking status...</span>
                         </span>
                     </p>
                 </div>
@@ -71,16 +71,16 @@
             </div>
             <div class="modal-body scrollable">
                 <div class="alert alert-warning" ng:show="!knownFamilies[configuringInterface.family]">
-                    <i class="fa fa-warning"></i> Unknown family "{{configuringInterface.family}}"
+                    <i class="fa fa-warning"></i> <span translate>Unknown family</span> "{{configuringInterface.family}}"
                 </div>
                 <div class="alert alert-warning" ng:show="knownFamilies[configuringInterface.family].indexOf(configuringInterface.addressing) == -1">
-                    <i class="fa fa-warning"></i> Unknown addressing "{{configuringInterface.addressing}}"
+                    <i class="fa fa-warning"></i> <span translate>Unknown addressing</span> "{{configuringInterface.addressing}}"
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Family</label>
+                            <label translate>Family</label>
                             <select ng:model="configuringInterface.family" class="form-control">
                                 <option value="inet">IPv4</option>
                                 <option value="inet6">IPv6</option>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Addressing</label>
+                            <label translate>Addressing</label>
                             <select ng:model="configuringInterface.addressing" ng:options="x as (knownAddressingNames[x] || x) for x in knownFamilies[configuringInterface.family]" class="form-control">
                             </select>
                         </div>
@@ -100,33 +100,33 @@
 
                 <div ng:show="configuringInterface.addressing == 'static'">
                     <div class="form-group">
-                        <label>Address</label>
+                        <label translate>Address</label>
                         <input ng:model="configuringInterface.address" type="text" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Mask</label>
+                        <label translate>Mask</label>
                         <input ng:model="configuringInterface.mask" type="text" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Gateway</label>
+                        <label translate>Gateway</label>
                         <input ng:model="configuringInterface.gateway" type="text" class="form-control" />
                     </div>
                     <div class="form-group" ng:if="configuringInterface.metric !== undefined">
-                        <label>Metric</label>
+                        <label translate>Metric</label>
                         <input ng:model="configuringInterface.metric" type="number" class="form-control" />
                     </div>
                 </div>
 
                 <div ng:show="configuringInterface.addressing == 'dhcp'">
                     <div class="form-group">
-                        <label>Client ID</label>
+                        <label translate>Client ID</label>
                         <input ng:model="configuringInterface.dhcpClient" type="text" class="form-control" />
                     </div>
                 </div>
 
                 <div ng:show="configuringInterface.addressing == 'static' && configuringInterface.family == 'ipv6'">
                     <div class="form-group">
-                        <label>Scope</label>
+                        <label translate>Scope</label>
                         <select ng:model="configuringInterface.scope" class="form-control">
                             <option>global</option>
                             <option>site</option>
@@ -149,50 +149,50 @@
 
                 <div ng:if="configuringInterface.up_script !== undefined">
                     <div class="form-group">
-                        <label>Pre-up script</label>
+                        <label translate>Pre-up script</label>
                         <input ng:model="configuringInterface.pre_up_script" type="text" class="form-control" />
                     </div>
 
                     <div class="form-group">
-                        <label>Up script</label>
+                        <label translate>Up script</label>
                         <input ng:model="configuringInterface.up_script" type="text" class="form-control" />
                     </div>
 
                     <div class="form-group">
-                        <label>Post-up script</label>
+                        <label translate>Post-up script</label>
                         <input ng:model="configuringInterface.post_up_script" type="text" class="form-control" />
                     </div>
 
                     <div class="form-group">
-                        <label>Pre-down script</label>
+                        <label translate>Pre-down script</label>
                         <input ng:model="configuringInterface.pre_down_script" type="text" class="form-control" />
                     </div>
 
                     <div class="form-group">
-                        <label>Down script</label>
+                        <label translate>Down script</label>
                         <input ng:model="configuringInterface.down_script" type="text" class="form-control" />
                     </div>
 
                     <div class="form-group">
-                        <label>Post-down script</label>
+                        <label translate>Post-down script</label>
                         <input ng:model="configuringInterface.post_down_script" type="text" class="form-control" />
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <a ng:click="$parent.configuringInterface = null; save()" class="btn btn-default btn-flat">Save</a>
-                <a ng:click="$parent.configuringInterface = null; reload()" class="btn btn-default btn-flat">Close</a>
+                <a ng:click="$parent.configuringInterface = null; save()" class="btn btn-default btn-flat" translate>Save</a>
+                <a ng:click="$parent.configuringInterface = null; reload()" class="btn btn-default btn-flat" translate>Close</a>
             </div>
         </dialog>
         
         <br/>
     </tab>
 
-    <tab heading="DNS" ng:controller="NetworkDNSController">
+    <tab heading="{{'DNS'|translate}}" ng:controller="NetworkDNSController">
         <br/>
         <div class="list-group">
             <div ng:repeat="path in config.match('nameserver')" class="list-group-item list-group-item-small">
-                <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
+                <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
                     <i class="fa fa-trash-o"></i>
                 </a>
                 <div class="list-group-main">
@@ -202,34 +202,32 @@
         </div>
 
         <div class="alert alert-info" ng:show="config.match('nameserver').length == 0">
-            <i class="fa fa-info-circle"></i> No nameservers defined
+            <i class="fa fa-info-circle"></i> <span translate>No nameservers defined</span>
         </div>
 
         <div class="input-group">
-            <input ng:model="newNameserver" ng:enter="addNameserver()" placeholder="DNS server address" class="form-control" />
+            <input ng:model="newNameserver" ng:enter="addNameserver()" placeholder="{{'DNS server address'|translate}}" class="form-control" />
             <div class="input-group-btn">
-                <a ng:click="addNameserver()" class="btn btn-primary ">Add</a>
+                <a ng:click="addNameserver()" class="btn btn-primary" translate>Add</a>
             </div>
         </div>
-
 
         <div class="floating-toolbar-padder"></div>
 
         <floating-toolbar>
-            <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
-        </floating-toolbar>
-        
+            <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
+        </floating-toolbar>    
         <br/>
     </tab>
 
-    <tab heading="Hosts" ng:controller="NetworkHostsController">
+    <tab heading="{{'Hosts'|translate}}" ng:controller="NetworkHostsController">
         <br/>
         <div class="list-group">
             <div ng:repeat="path in config.match('\\d+')" class="list-group-item list-group-item-large">
-                <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
+                <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
                     <i class="fa fa-trash-o"></i>
                 </a>
-                <a class="list-group-btn" ng:click="$parent.configuringHostPath = path" title="Configure">
+                <a class="list-group-btn" ng:click="$parent.configuringHostPath = path" title="{{'Configure'|translate}}">
                     <i class="fa fa-cog"></i>
                 </a>
                 <div class="list-group-main"> 
@@ -251,21 +249,20 @@
         </div>
 
         <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
-            <i class="fa fa-info-circle"></i> No hosts defined
+            <i class="fa fa-info-circle"></i> <span translate>No hosts defined</span>
         </div>
 
         <div class="input-group">
-            <input ng:model="newHost" ng:enter="addHost()" placeholder="New host name" class="form-control" />
+            <input ng:model="newHost" ng:enter="addHost()" placeholder="{{'New host name'|translate}}" class="form-control" />
             <div class="input-group-btn">
-                <a ng:click="addHost()" class="btn btn-primary ">Add</a>
+                <a ng:click="addHost()" class="btn btn-primary" translate>Add</a>
             </div>
         </div>
-
 
         <div class="floating-toolbar-padder"></div>
 
         <floating-toolbar>
-            <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
+            <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
         </floating-toolbar>
 
         <dialog ng:show="configuringHostPath">
@@ -274,7 +271,7 @@
             </div>
             <div class="modal-body scrollable">
                 <div class="form-group">
-                    <label>Canonical hostname</label>
+                    <label translate>Canonical hostname</label>
                     <input 
                         ng:model="config.model(configuringHostPath + '/canonical')" 
                         ng:model-options="{getterSetter: true}"
@@ -282,7 +279,7 @@
                         class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label>IP address</label>
+                    <label translate>IP address</label>
                     <input 
                         ng:model="config.model(configuringHostPath + '/ipaddr')" 
                         ng:model-options="{getterSetter: true}"
@@ -290,13 +287,13 @@
                         class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label>Aliases</label>
+                    <label translate>Aliases</label>
                     <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
-                        <i class="fa fa-info-circle"></i> No hosts defined
+                        <i class="fa fa-info-circle"></i> <span translate>No hosts defined</span>
                     </div>
                     <div class="list-group">
                         <div ng:repeat="path in config.match(configuringHostPath + '/alias')" class="list-group-item list-group-item-small">
-                            <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
+                            <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
                                 <i class="fa fa-trash-o"></i>
                             </a>
                             <div class="list-group-main">
@@ -307,16 +304,16 @@
                 </div>
                 <div class="form-group">
                     <div class="input-group">
-                        <input ng:model="_.newAlias" ng:enter="addAlias(configuringHostPath)" placeholder="New alias" class="form-control" />
+                        <input ng:model="_.newAlias" ng:enter="addAlias(configuringHostPath)" placeholder="{{'New alias'|translate}}" class="form-control" />
                         <div class="input-group-btn">
-                            <a ng:click="addAlias(configuringHostPath)" class="btn btn-primary ">Add</a>
+                            <a ng:click="addAlias(configuringHostPath)" class="btn btn-primary" translate>Add</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <a ng:click="$parent.configuringHostPath = null; save()" class="btn btn-default btn-flat">Save</a>
-                <a ng:click="$parent.configuringHostPath = null" class="btn btn-default btn-flat">Close</a>
+                <a ng:click="$parent.configuringHostPath = null; save()" class="btn btn-default btn-flat" translate>Save</a>
+                <a ng:click="$parent.configuringHostPath = null" class="btn btn-default btn-flat" translate>Close</a>
             </div>
         </dialog>
 

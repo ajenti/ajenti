@@ -7,7 +7,7 @@ angular.module('core').directive 'rootAccess', (identity) ->
                     <h1>
                         <i class="fa fa-lock"></i>
                     </h1>
-                    <h3>
+                    <h3 translate>
                         Superuser access required
                     </h3>
                 </div>

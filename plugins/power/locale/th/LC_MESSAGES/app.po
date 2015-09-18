@@ -1,16 +1,131 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Thai\n"
+"Language: th_TH\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: ajenti\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: th\n"
 "X-Crowdin-File: /2.0/power.po\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
-"Language-Team: Thai\n"
-"Language: th_TH\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
 
+#: plugins/power/resources/partial/index.html:72
+msgid "Adapters"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:32
+msgid "Batteries"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:55
+msgid "Charging"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:58
+msgid "Discharging at {{battery.rate}} W"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:22
+#: plugins/power/resources/js/controllers/index.controller.coffee:54
+msgid "Hibernate"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:75
+msgid "No adapters detected"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:35
+msgid "No batteries detected"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:92
+msgid "Not available"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:89
+msgid "Plugged in"
+msgstr ""
+
+#: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
+msgid "Power"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:13
+msgid "Power off"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:16
+#: plugins/power/resources/js/controllers/index.controller.coffee:34
+msgid "Reboot"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:19
+#: plugins/power/resources/js/controllers/index.controller.coffee:44
+msgid "Suspend"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:6
+msgid "System uptime"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr ""
+
+#: plugins/power/widget.py:9
+msgid "Power state"
+msgstr ""
+
+#: plugins/power/main.py:30
+msgid "Shutdown and reboot the system"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:2
+msgid "Power management"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:22
+#: plugins/power/resources/js/controllers/index.controller.coffee:32
+#: plugins/power/resources/js/controllers/index.controller.coffee:42
+#: plugins/power/resources/js/controllers/index.controller.coffee:52
+msgid "Warning"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:23
+#: plugins/power/resources/js/controllers/index.controller.coffee:43
+#: plugins/power/resources/js/controllers/index.controller.coffee:53
+msgid "Machine will become unreachable. Continue?"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:24
+msgid "Shutdown"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:25
+#: plugins/power/resources/js/controllers/index.controller.coffee:35
+#: plugins/power/resources/js/controllers/index.controller.coffee:45
+#: plugins/power/resources/js/controllers/index.controller.coffee:55
+msgid "Cancel"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:33
+msgid "Machine may become unreachable. Continue?"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:38
+msgid "System is rebooting. We will try to reconnect with it."
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:48
+msgid "System is suspending"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:58
+msgid "System is hibernating"
+msgstr ""

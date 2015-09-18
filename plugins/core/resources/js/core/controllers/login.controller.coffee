@@ -1,4 +1,4 @@
-angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootScope, $routeParams, identity, notify) ->
+angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootScope, $routeParams, identity, notify, gettext) ->
     $rootScope.disableExpiredSessionInterceptor = true
     $scope.working = false
     $scope.success = false
@@ -19,7 +19,7 @@ angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootSco
         .catch (error) ->
             $scope.working = false
             $log.log 'Authentication failed', error
-            notify.error 'Authentication failed', error
+            notify.error gettext('Authentication failed'), error
 
     setTimeout () ->
         s = document.createElement('script')
@@ -32,11 +32,11 @@ angular.module('core').controller 'CoreLoginController', ($scope, $log, $rootSco
                 $scope.working = true
                 identity.personaAuth(assertion, location.href).then (username) ->
                     $scope.success = true
-                    notify.success 'Authentication succeeded', username
+                    notify.success gettext('Authentication succeeded'), username
                     location.href = $routeParams.nextPage or '/'
                 .catch (err) ->
                     $scope.working = false
-                    notify.error 'Authentication failed', err
+                    notify.error gettext('Authentication failed'), err
                     navigator.id.logout()
             onlogout: () -> null
         }

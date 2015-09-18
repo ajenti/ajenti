@@ -9,12 +9,12 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'filesystem:read',
-                'name': 'Read from the filesystem',
+                'name': _('Read from the filesystem'),
                 'default': True,
             },
             {
                 'id': 'filesystem:write',
-                'name': 'Write to the filesystem',
+                'name': _('Write to the filesystem'),
                 'default': True,
             },
         ]

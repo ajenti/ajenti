@@ -2,10 +2,10 @@
 
 <div class="list-group">
     <div ng:repeat="path in config.match('program:.*')" class="list-group-item list-group-item-large">
-        <a class="list-group-btn" ng:click="config.remove(path)" title="Remove">
+        <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
             <i class="fa fa-trash-o"></i>
         </a>
-        <a class="list-group-btn" ng:click="$parent.configuringProcessPath = path" title="Configure">
+        <a class="list-group-btn" ng:click="$parent.configuringProcessPath = path" title="{{'Configure'|translate}}">
             <i class="fa fa-cog"></i>
         </a>
         <a class="list-group-btn" ng:click="stop(extractName(path))" ng:show="processServices[extractName(path)].state == 'RUNNING'">
@@ -23,7 +23,7 @@
             </h4>
             <p class="list-group-item-text">
                 <span ng:show="processServices[extractName(path)].state == 'RUNNING'" class="label label-success">
-                    <i class="fa fa-play"></i> RUNNING 
+                    <i class="fa fa-play"></i> <span translate>RUNNING</span>
                 </span>
                 <span ng:show="processServices[extractName(path)].state != 'RUNNING'" class="label label-warning">
                     {{processServices[extractName(path)].state}}
@@ -36,13 +36,13 @@
 </div>
 
 <div class="alert alert-info" ng:show="config.match('program:.*').length == 0">
-    <i class="fa fa-info-circle"></i> No processes defined
+    <i class="fa fa-info-circle"></i> <span translate>No processes defined</span>
 </div>
 
 <div class="input-group">
-    <input ng:model="newProcessName" ng:enter="addProcess()" placeholder="New process name" class="form-control" />
+    <input ng:model="newProcessName" ng:enter="addProcess()" placeholder="{{'New process name'|translate}}" class="form-control" />
     <div class="input-group-btn">
-        <a ng:click="addProcess()" class="btn btn-primary ">Add</a>
+        <a ng:click="addProcess()" class="btn btn-primary" translate>Add</a>
     </div>
 </div>
 
@@ -50,7 +50,7 @@
 <div class="floating-toolbar-padder"></div>
 
 <floating-toolbar>
-    <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
+    <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
 </floating-toolbar>
 
 <dialog ng:show="configuringProcessPath">
@@ -59,10 +59,10 @@
     </div>
     <div class="modal-body scrollable">
         <tabset>
-            <tab heading="General">
+            <tab heading="{{'General'|translate}}">
                 <br/>
                 <div class="form-group">
-                    <label>Command</label>
+                    <label translate>Command</label>
                     <input 
                         ng:model="config.model(configuringProcessPath + '/command')" 
                         ng:model-options="{getterSetter: true}"
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Number of processes</label>
+                            <label translate>Number of processes</label>
                             <input 
                                 ng:model="config.model(configuringProcessPath + '/numprocs', true)" 
                                 ng:model-options="{getterSetter: true}"
@@ -82,7 +82,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Process name template</label>
+                            <label translate>Process name template</label>
                             <input 
                                 ng:model="config.model(configuringProcessPath + '/process_name', true)" 
                                 ng:model-options="{getterSetter: true}"
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>User account</label>
+                    <label translate>User account</label>
                     <select 
                         ng:model="config.model(configuringProcessPath + '/user', true)",
                         ng:model-options="{getterSetter: true}"
@@ -103,7 +103,7 @@
                     <!-- ngOption doesn't work with getterSetter -->
                 </div>
                 <div class="form-group">
-                    <label>Environment</label>
+                    <label translate>Environment</label>
                     <input 
                         ng:model="config.model(configuringProcessPath + '/environment', true)" 
                         ng:model-options="{getterSetter: true}"
@@ -112,7 +112,7 @@
                         class="form-control" />
                 </div>
                 <div class="form-group"> <!-- TODO selector -->
-                    <label>Working directory</label>
+                    <label translate>Working directory</label>
                     <input 
                         ng:model="config.model(configuringProcessPath + '/directory', true)" 
                         ng:model-options="{getterSetter: true}"
@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Autostart</label>
+                            <label translate>Autostart</label>
                             <div>
                                 <span 
                                     checkbox 
@@ -147,15 +147,15 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Autorestart</label>
+                            <label translate>Autorestart</label>
                             <select 
                                 ng:model="config.model(configuringProcessPath + '/autorestart', true)",
                                 ng:model-options="{getterSetter: true}"
                                 class="form-control"
                             >
-                                <option value="true">Yes</option>
-                                <option value="unexpected">On crash</option>
-                                <option value="false">No</option>
+                                <option value="true" translate>Yes</option>
+                                <option value="unexpected" translate>On crash</option>
+                                <option value="false" translate>No</option>
                             </select>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Seconds to start</label>
+                            <label translate>Seconds to start</label>
                             <input 
                                 ng:model="config.model(configuringProcessPath + '/startsecs', true)" 
                                 ng:model-options="{getterSetter: true}"
@@ -171,7 +171,7 @@
                                 class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label>Seconds to stop</label>
+                            <label translate>Seconds to stop</label>
                             <input 
                                 ng:model="config.model(configuringProcessPath + '/stopwaitsecs', true)" 
                                 ng:model-options="{getterSetter: true}"
@@ -184,7 +184,7 @@
                                     ng:model="config.model(configuringProcessPath + '/stopasgroup', true)",
                                     ng:model-options="{getterSetter: true}"
                                     toggle="['false', 'true']"
-                                    text="Terminate children"
+                                    text="{{'Terminate children'|translate}}"
                                 ></span>
                             </div>
                             <div>
@@ -193,14 +193,14 @@
                                     ng:model="config.model(configuringProcessPath + '/killasgroup', true)",
                                     ng:model-options="{getterSetter: true}"
                                     toggle="['false', 'true']"
-                                    text="Kill children"
+                                    text="{{'Kill children'|translate}}"
                                 ></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label>Start retries</label>
+                            <label translate>Start retries</label>
                             <input 
                                 ng:model="config.model(configuringProcessPath + '/startretries', true)" 
                                 ng:model-options="{getterSetter: true}"
@@ -213,7 +213,7 @@
         </tabset>
     </div>
     <div class="modal-footer">
-        <a ng:click="$parent.configuringProcessPath = null; save()" class="btn btn-default btn-flat">Save</a>
-        <a ng:click="$parent.configuringProcessPath = null" class="btn btn-default btn-flat">Close</a>
+        <a ng:click="$parent.configuringProcessPath = null; save()" class="btn btn-default btn-flat" translate>Save</a>
+        <a ng:click="$parent.configuringProcessPath = null" class="btn btn-default btn-flat" translate>Close</a>
     </div>
 </dialog>

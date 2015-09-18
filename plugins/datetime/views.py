@@ -47,8 +47,8 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_time_sync(self, http_context):
         if subprocess.call(['which', 'ntpdate']) != 0:
-            raise EndpointError('ntpdate utility is not installed')
-            
+            raise EndpointError(_('ntpdate utility is not installed'))
+
         try:
             subprocess.check_call(['ntpdate', '0.pool.ntp.org'])
         except Exception as e:

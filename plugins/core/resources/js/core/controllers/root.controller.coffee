@@ -1,4 +1,4 @@
-angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $log, $timeout, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback) ->
+angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $location, $cookieStore, $log, $timeout, $q, identity, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) ->
     $rootScope.identity = identity
     $rootScope.$location = $location
     $rootScope.location = location
@@ -66,8 +66,6 @@ angular.module('core').controller 'CoreRootController', ($scope, $rootScope, $lo
         $rootScope.appReady = true
 
     favicon.init()
-
-    $rootScope.theme = 'deeporange'
 
     setTimeout () ->
         $(window).resize () ->

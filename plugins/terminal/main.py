@@ -13,12 +13,13 @@ class ItemProvider(SidebarItemProvider):
         return [
             {
                 'attach': 'category:tools',
-                'name': 'Terminal',
+                'name': _('Terminal'),
                 'icon': 'terminal',
                 'url': '/view/terminal',
                 'children': []
             }
         ]
+
 
 @component(PermissionProvider)
 class Permissions (PermissionProvider):
@@ -26,12 +27,12 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'terminal:scripts',
-                'name': 'Run arbitrary scripts',
+                'name': _('Run arbitrary scripts'),
                 'default': True,
             },
             {
                 'id': 'terminal:open',
-                'name': 'Open shell terminals',
+                'name': _('Open shell terminals'),
                 'default': True,
             },
         ]

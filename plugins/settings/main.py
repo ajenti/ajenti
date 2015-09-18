@@ -12,7 +12,7 @@ class ItemProvider(SidebarItemProvider):
         return [
             {
                 'attach': 'category:general',
-                'name': 'Settings',
+                'name': _('Settings'),
                 'icon': 'cog',
                 'url': '/view/settings',
                 'children': [

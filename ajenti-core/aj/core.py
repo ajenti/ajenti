@@ -81,6 +81,10 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     except locale.Error:
         logging.warning('Couldn\'t set default locale')
 
+    # install a passthrough gettext replacement since all localization is handled in frontend
+    # and _() is here only for string extraction
+    __builtins__['_'] = lambda x: x
+
     logging.info('Ajenti Core %s', aj.version)
     logging.info('Detected platform: %s / %s', aj.platform, aj.platform_string)
 

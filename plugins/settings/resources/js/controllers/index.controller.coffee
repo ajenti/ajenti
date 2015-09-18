@@ -1,5 +1,5 @@
-angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, config, core) ->
-    pageTitle.set('Settings')
+angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope, $http, $sce, notify, pageTitle, identity, messagebox, passwd, config, core, locale, gettext) ->
+    pageTitle.set(gettext('Settings'))
 
     $scope.config = config
 
@@ -28,42 +28,48 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
             $scope.$watch 'newClientCertificate.user', () ->
                 $scope.newClientCertificate.cn = "#{identity.user}@#{identity.machine.hostname}"
             $scope.newClientCertificate.user = 'root'
+        $http.get('/api/core/languages').then (rq) ->
+            $scope.languages = rq.data
 
     config.load().then () ->
         config.getAuthenticationProviders().then (p) ->
             $scope.authenticationProviders = p
         .catch () ->
-            notify.error 'Could not load authentication provider list'
+            notify.error gettext('Could not load authentication provider list')
     .catch () ->
-        notify.error 'Could not load config'
+        notify.error gettext('Could not load config')
 
     $scope.$watch 'config.data.color', () ->
         if config.data
             identity.color = config.data.color
 
+    $scope.$watch 'config.data.language', () ->
+        if config.data
+            locale.setLanguage(config.data.language)
+
     $scope.save = () ->
         config.save().then (data) ->
-            notify.success 'Saved'
+            notify.success gettext('Saved')
         .catch () ->
-            notify.error 'Could not save config'
+            notify.error gettext('Could not save config')
 
     $scope.createNewServerCertificate = () ->
         messagebox.show(
-            title: 'Self-signed certificate'
-            text: 'Generating a new certificate will void all existing client authentication certificates!'
-            positive: 'Generate'
-            negative: 'Cancel'
+            title: gettext('Self-signed certificate')
+            text: gettext('Generating a new certificate will void all existing client authentication certificates!')
+            positive: gettext('Generate')
+            negative: gettext('Cancel')
         ).then () ->
             config.data.ssl.client_auth.force = false
-            notify.info 'Generating certificate', 'Please wait'
+            notify.info gettext('Generating certificate'), gettext('Please wait')
             $http.get('/api/settings/generate-server-certificate').success (data) ->
-                notify.success 'Certificate successfully generated'
+                notify.success gettext('Certificate successfully generated')
                 config.data.ssl.enable = true
                 config.data.ssl.certificate = data.path
                 config.data.ssl.client_auth.certificates = []
                 $scope.save()
             .error (err) ->
-                notify.error 'Certificate generation failed', err.message
+                notify.error gettext('Certificate generation failed'), err.message
 
     $scope.generateClientCertificate = () ->
         $scope.newClientCertificate.generating = true
@@ -80,7 +86,7 @@ angular.module('ajenti.settings').controller 'SettingsIndexController', ($scope,
         .error (err) ->
             $scope.newClientCertificate.generating = false
             $scope.newClientCertificateDialogVisible = false
-            notify.error 'Certificate generation failed', err.message
+            notify.error gettext('Certificate generation failed'), err.message
 
     $scope.addEmail = (email, username) ->
         config.data.auth.emails[email] = username

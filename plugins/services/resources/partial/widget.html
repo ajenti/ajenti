@@ -1,6 +1,6 @@
 <div ng:controller="ServiceWidgetController">
     <div class="widget-header">
-        {{service.name || 'No service'}} / {{service.managerId}}
+        {{service.name || ('No service'|translate)}} / {{service.managerId}}
     </div>
     <div class="pull-right btn-group">
         <a class="btn btn-default subtle" ng:click="runOperation('start')" ng:show="!service.isRunning">
@@ -14,7 +14,7 @@
         </a>
     </div>
     <div class="widget-value">
-        {{service.state || 'Unknown'}}
+        {{service.state || ('Unknown'|translate)}}
         <sup ng:show="service.isRunning">
             <span class="label label-info">
                 <i class="fa fa-play"></i>

@@ -12,7 +12,7 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:software',
                 'id': 'supervisor',
-                'name': 'Supervisor',
+                'name': _('Supervisor'),
                 'icon': 'play',
                 'url': '/view/supervisor',
                 'children': [],

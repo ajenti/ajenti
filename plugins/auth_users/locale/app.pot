@@ -1,5 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:50+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: \n"
+
+#: plugins/auth_users/resources/partial/index.html:11
+msgid "Configure"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:31
+msgid "Create"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:42
+msgid "Default root password is <code>admin</code>"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:64
+msgid "New password"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:29
+msgid "New user name"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:92
+msgid "OK"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:83
+msgid "Permissions"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:48
+msgid "Save"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:73
+msgid "Sidebar entries"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:57
+msgid "System account"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:76
+msgid ""
+"This only affects appearance of the sidebar. Disable actual permissions "
+"under the <b>Permissions</b> tab."
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:60
+msgid ""
+"This user will be constrained by POSIX permissions for the selected system "
+"account."
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:68
+msgid "Update password"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:38
+msgid ""
+"You have no users mapped to <b>root</b> system account. Saving this "
+"configuration will prevent any administrative access."
+msgstr ""
+
+#: plugins/auth_users/api.py:13
+msgid "Custom users"
+msgstr ""
+
+#: plugins/auth_users/main.py:16
+msgid "Users"
+msgstr ""
+
+#: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
+msgid "Password updated"
+msgstr ""

@@ -3,23 +3,23 @@
 <div class="form-group">
     <div class="row">
         <div class="col-sm-6">
-            <label>System uptime</label>
+            <label translate>System uptime</label>
             <div class="form-control">{{uptime|time}}</div>
         </div>
         <div class="col-sm-6">
             <label>Operations</label>
             <div root-access="small">
                 <a ng:click="poweroff()" class="btn btn-danger">
-                    <i class="fa fa-power-off"></i> Power off
+                    <i class="fa fa-power-off"></i> <span translate>Power off</span>
                 </a>
                 <a ng:click="reboot()" class="btn btn-default">
-                    <i class="fa fa-recycle"></i> Reboot
+                    <i class="fa fa-recycle"></i> <span translate>Reboot</span>
                 </a>
                 <a ng:click="suspend()" class="btn btn-default" ng:hide="customization.plugins.power.hideSuspend">
-                    <i class="fa fa-moon-o"></i> Suspend
+                    <i class="fa fa-moon-o"></i> <span translate>Suspend</span>
                 </a>
                 <a ng:click="hibernate()" class="btn btn-default" ng:hide="customization.plugins.power.hideHibernate">
-                    <i class="fa fa-download"></i> Hibernate
+                    <i class="fa fa-download"></i> <span translate>Hibernate</span>
                 </a>
             </div>
         </div>
@@ -29,10 +29,10 @@
 <hr/>
 
 <div class="form-group">
-    <label>Batteries</label>
+    <label translate>Batteries</label>
 
     <div class="alert alert-info" ng:show="batteries.length == 0">
-        <i class="fa fa-info-circle"></i> No batteries detected
+        <i class="fa fa-info-circle"></i> <span translate>No batteries detected</span>
     </div>
 
     <div class="list-group">
@@ -52,13 +52,13 @@
                         max-text="battery.fullCapacity + ' Wh'"
                     ></smart-progress>
                     <span class="label label-success" ng:show="battery.charging">
-                        <i class="fa fa-plug"></i> Charging
+                        <i class="fa fa-plug"></i> <span translate>Charging</span>
                     </span>
                     <span class="label label-danger" ng:show="!battery.charging && battery.rate > 0">
-                        <i class="fa fa-bolt"></i> Discharging at {{battery.rate}} W
+                        <i class="fa fa-bolt"></i> <span translate>Discharging at {{battery.rate}} W</span>
                     </span>
                     <span class="label label-info" ng:show="battery.voltage > 0">
-                        {{battery.voltage}} V
+                        <span translate>{{battery.voltage}} V</span>
                     </span>
                 </p>
             </div>
@@ -69,10 +69,10 @@
 <hr/>
 
 <div class="form-group">
-    <label>Adapters</label>
+    <label translate>Adapters</label>
 
     <div class="alert alert-info" ng:show="adapters.length == 0">
-        <i class="fa fa-info-circle"></i> No adapters detected
+        <i class="fa fa-info-circle"></i> <span translate>No adapters detected</span>
     </div>
 
     <div class="list-group">
@@ -86,10 +86,10 @@
                 </h4>
                 <p class="list-group-item-text">
                     <span class="label label-success" ng:show="adapter.pluggedIn">
-                        <i class="fa fa-plug"></i> Plugged in
+                        <i class="fa fa-plug"></i> <span translate>Plugged in</span>
                     </span>
                     <span class="label label-warning" ng:show="!adapter.pluggedIn">
-                        <i class="fa fa-question"></i> Not available
+                        <i class="fa fa-question"></i> <span translate>Not available</span>
                     </span>
                 </p>
             </div>

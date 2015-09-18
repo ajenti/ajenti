@@ -22,7 +22,7 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:system',
                 'id': 'packages',
-                'name': 'Packages',
+                'name': _('Packages'),
                 'icon': 'gift',
                 'url': '/view/packages/%s' % PackageManager.all(self.context)[0].id,
                 'children': children,
@@ -36,7 +36,7 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'packages:install',
-                'name': 'Install/remove packages',
+                'name': _('Install/remove packages'),
                 'default': True,
             },
         ]

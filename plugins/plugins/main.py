@@ -12,7 +12,7 @@ class ItemProvider(SidebarItemProvider):
         return [
             {
                 'attach': 'category:general',
-                'name': 'Plugins',
+                'name': _('Plugins'),
                 'icon': 'th-large',
                 'url': '/view/plugins',
                 'children': [

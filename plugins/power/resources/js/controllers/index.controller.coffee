@@ -1,5 +1,5 @@
-angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $interval, notify, pageTitle, power, messagebox) ->
-    pageTitle.set('Power management')
+angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $interval, notify, pageTitle, power, messagebox, gettext) ->
+    pageTitle.set(gettext('Power management'))
 
     power.getUptime().then (uptime) ->
         $scope.uptime = uptime
@@ -19,40 +19,40 @@ angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $inte
 
     $scope.poweroff = () ->
         messagebox.show(
-            title: 'Warning'
-            text: 'Machine will become unreachable. Continue?'
-            positive: 'Shutdown'
-            negative: 'Cancel'
+            title: gettext('Warning')
+            text: gettext('Machine will become unreachable. Continue?')
+            positive: gettext('Shutdown')
+            negative: gettext('Cancel')
         ).then () ->
             power.poweroff().then () ->
                 messagebox.show progress: true, text: 'System is shutting down'
 
     $scope.reboot = () ->
         messagebox.show(
-            title: 'Warning'
-            text: 'Machine may become unreachable. Continue?'
-            positive: 'Reboot'
-            negative: 'Cancel'
+            title: gettext('Warning')
+            text: gettext('Machine may become unreachable. Continue?')
+            positive: gettext('Reboot')
+            negative: gettext('Cancel')
         ).then () ->
             power.reboot().then () ->
-                messagebox.show progress: true, text: 'System is rebooting. We will try to reconnect with it.'
+                messagebox.show progress: true, text: gettext('System is rebooting. We will try to reconnect with it.')
 
     $scope.suspend = () ->
         messagebox.show(
-            title: 'Warning'
-            text: 'Machine will become unreachable. Continue?'
-            positive: 'Suspend'
-            negative: 'Cancel'
+            title: gettext('Warning')
+            text: gettext('Machine will become unreachable. Continue?')
+            positive: gettext('Suspend')
+            negative: gettext('Cancel')
         ).then () ->
             power.suspend().then () ->
-                messagebox.show progress: true, text: 'System is suspending'
+                messagebox.show progress: true, text: gettext('System is suspending')
 
     $scope.hibernate = () ->
         messagebox.show(
-            title: 'Warning'
-            text: 'Machine will become unreachable. Continue?'
-            positive: 'Hibernate'
-            negative: 'Cancel'
+            title: gettext('Warning')
+            text: gettext('Machine will become unreachable. Continue?')
+            positive: gettext('Hibernate')
+            negative: gettext('Cancel')
         ).then () ->
             power.hibernate().then () ->
-                messagebox.show progress: true, text: 'System is hibernating'
+                messagebox.show progress: true, text: gettext('System is hibernating')

@@ -14,7 +14,7 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:system',
                 'id': 'datetime',
-                'name': 'Date & time',
+                'name': _('Date & time'),
                 'icon': 'clock-o',
                 'url': '/view/datetime',
                 'children': [],
@@ -28,7 +28,7 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'datetime:write',
-                'name': 'Change date and time',
+                'name': _('Change date and time'),
                 'default': True,
             },
         ]

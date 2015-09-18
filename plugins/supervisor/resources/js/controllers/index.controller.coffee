@@ -1,5 +1,5 @@
-angular.module('ajenti.supervisor').controller 'SupervisorIndexController', ($scope, augeas, notify, pageTitle, passwd, services) ->
-    pageTitle.set('Supervisor')
+angular.module('ajenti.supervisor').controller 'SupervisorIndexController', ($scope, augeas, notify, pageTitle, passwd, services, gettext) ->
+    pageTitle.set(gettext('Supervisor'))
 
     $scope.addProcess = (name) ->
         path = $scope.config.insert "program:#{$scope.newProcessName}", null
@@ -13,9 +13,9 @@ angular.module('ajenti.supervisor').controller 'SupervisorIndexController', ($sc
 
     $scope.save = () ->
         augeas.set('supervisor', $scope.config).then () ->
-            notify.success 'Saved'
+            notify.success gettext('Saved')
         .catch (e) ->
-            notify.error 'Could not save', e.message
+            notify.error gettext('Could not save'), e.message
 
     $scope.reload = () ->
         augeas.get('supervisor').then (config) ->
@@ -29,13 +29,13 @@ angular.module('ajenti.supervisor').controller 'SupervisorIndexController', ($sc
         services.runOperation($scope.processServices[name], 'start').then () ->
             $scope.reload()
         .catch (e) ->
-            notify.error 'Failed', e.message
+            notify.error gettext('Failed'), e.message
 
     $scope.stop = (name) ->
         services.runOperation($scope.processServices[name], 'stop').then () ->
             $scope.reload()
         .catch (e) ->
-            notify.error 'Failed', e.message
+            notify.error gettext('Failed'), e.message
 
     passwd.list().then (l) ->
         $scope.systemUsers = l

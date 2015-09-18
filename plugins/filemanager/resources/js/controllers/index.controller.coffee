@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, filesystem, pageTitle, urlPrefix, tasks, messagebox, $upload) ->
+angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, filesystem, pageTitle, urlPrefix, tasks, messagebox, $upload, gettext) ->
     pageTitle.set('path', $scope)
     $scope.loading = false
     $scope.newDirectoryDialogVisible = false
@@ -12,7 +12,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
             $scope.items = data.items
             $scope.parent = data.parent
         .catch (data) ->
-            notify.error 'Could not load directory', data.message
+            notify.error gettext('Could not load directory'), data.message
         .finally () ->
             $scope.loading = false
 
@@ -72,7 +72,11 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
         $scope.clearSelection()
 
     $scope.doDelete = () ->
-        messagebox.show(text: 'Delete selected items?', positive: 'Delete', negative: 'Cancel').then () ->
+        messagebox.show(
+            text: gettext('Delete selected items?'), 
+            positive: gettext('Delete'), 
+            negative: gettext('Cancel')
+        ).then () ->
             items = (item for item in $scope.items when item.selected)
             tasks.start('aj.plugins.filesystem.tasks.Delete', [], items: items)
             $scope.clearSelection()
@@ -96,7 +100,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
             $scope.refresh()
             $scope.newFileDialogVisible = false
         .catch (err) ->
-            notify.error 'Could not create file', err.message
+            notify.error gettext('Could not create file'), err.message
 
     # new directory dialog
 
@@ -112,7 +116,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
             $scope.refresh()
             $scope.newDirectoryDialogVisible = false
         .catch (err) ->
-            notify.error 'Could not create directory', err.message
+            notify.error gettext('Could not create directory'), err.message
 
     # upload dialog
     $scope.uploadFiles = []
@@ -134,7 +138,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
                 fileName: $scope.uploadCurrent.name
                 fileFormDataName: 'upload'
             }).success () ->
-                notify.success 'Uploaded', $scope.uploadCurrent.name
+                notify.success gettext('Uploaded'), $scope.uploadCurrent.name
                 $scope.refresh()
                 uploadCallback()
             .xhr (xhr) ->
@@ -145,10 +149,10 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
                 $scope.uploadCurrent.progress = e.loaded
             .error (e) ->
                 if $scope.uploadCurrent
-                    notify.error 'Upload failed', $scope.uploadCurrent.name
+                    notify.error gettext('Upload failed'), $scope.uploadCurrent.name
                     uploadCallback()
                 else
-                    notify.info 'Upload cancelled'
+                    notify.info gettext('Upload cancelled')
         else
             $scope.uploadDialogVisible = false
             $scope.uploadPending = []

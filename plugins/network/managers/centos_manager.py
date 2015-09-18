@@ -37,7 +37,6 @@ class CentOSNetworkManager(NetworkManager):
         for file in os.listdir(self.path):
             if file.startswith('ifcfg-'):
                 name = file.split('-')[1]
-                path = os.path.join(self.path, file)
                 aug_path = os.path.join(self.aug_path, file)
                 aug = self.get_augeas(name)
                 iface = {
@@ -48,9 +47,6 @@ class CentOSNetworkManager(NetworkManager):
                     'mask': aug.get(aug_path + '/NETMASK'),
                     'gateway': aug.get(aug_path + '/GATEWAY') if bool(aug.get(aug_path + '/IPV6INIT')) else aug.get(aug_path + '/IPV6_DEFAULTGW'),
                     'hwaddress': aug.get(aug_path + '/HWADDR'),
-                    #'mtu': aug.get(aug_path + '/mtu'),
-                    #'scope': aug.get(aug_path + '/scope'),
-                    #'metric': aug.get(aug_path + '/metric'),
                     'dhcpClient': aug.get(aug_path + '/DHCP_HOSTNAME'),
                 }
                 ifaces.append(iface)
@@ -59,6 +55,8 @@ class CentOSNetworkManager(NetworkManager):
     def set_config(self, config):
         for index, iface in enumerate(config):
             aug = self.get_augeas(iface['name'])
+            file = 'ifcfg-%s' % iface
+            aug_path = os.path.join(self.aug_path, file)
             if iface['family'] == 'inet':
                 aug.remove(aug_path + '/IPV6INIT')
                 aug.remove(aug_path + '/IPV6ADDR')
@@ -74,9 +72,9 @@ class CentOSNetworkManager(NetworkManager):
                 aug.setd(aug_path + '/IPV6ADDR', iface['address'])
                 aug.setd(aug_path + '/IPV6_DEFAULTGW', iface['gateway'])
 
-            aug.setd(path + '/BOOTPROTO', iface['method'])
-            aug.setd(path + '/HWADDR', iface['hwaddress'])
-            aug.setd(path + '/DHCP_HOSTNAME', iface['dhcpClient'])
+            aug.setd(aug_path + '/BOOTPROTO', iface['method'])
+            aug.setd(aug_path + '/HWADDR', iface['hwaddress'])
+            aug.setd(aug_path + '/DHCP_HOSTNAME', iface['dhcpClient'])
             aug.save()
 
     def get_state(self, iface):
@@ -98,4 +96,3 @@ class CentOSNetworkManager(NetworkManager):
         with open('/etc/hostname', 'w') as f:
             f.write(value)
         subprocess.check_call(['hostname', value])
-

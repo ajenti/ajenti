@@ -1,16 +1,136 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar_SA\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: ajenti\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ar\n"
 "X-Crowdin-File: /2.0/supervisor.po\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
-"Language-Team: Arabic\n"
-"Language: ar_SA\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
 
+#: plugins/supervisor/resources/partial/index.html:45
+msgid "Add"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:150
+msgid "Autorestart"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:136
+msgid "Autostart"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:217
+msgid "Close"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:65
+msgid "Command"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:8
+msgid "Configure"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:106
+msgid "Environment"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:62
+msgid "General"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:196
+msgid "Kill children"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:43
+msgid "New process name"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:158
+msgid "No"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:39
+msgid "No processes defined"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:75
+msgid "Number of processes"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:157
+msgid "On crash"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:85
+msgid "Process name template"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:26
+msgid "RUNNING"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:5
+msgid "Remove"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:216
+#: plugins/supervisor/resources/partial/index.html:53
+msgid "Save"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:166
+msgid "Seconds to start"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:174
+msgid "Seconds to stop"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:203
+msgid "Start retries"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:187
+msgid "Terminate children"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:95
+msgid "User account"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:115
+msgid "Working directory"
+msgstr ""
+
+#: plugins/supervisor/resources/partial/index.html:156
+msgid "Yes"
+msgstr ""
+
+#: plugins/supervisor/main.py:15
+#: plugins/supervisor/resources/js/controllers/index.controller.coffee:2
+msgid "Supervisor"
+msgstr ""
+
+#: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
+msgid "Saved"
+msgstr ""
+
+#: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
+msgid "Could not save"
+msgstr ""
+
+#: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
+#: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
+msgid "Failed"
+msgstr ""

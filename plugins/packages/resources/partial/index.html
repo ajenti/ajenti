@@ -1,18 +1,18 @@
 <br/>
 
-<input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" autofocus class="form-control" placeholder="Search packages" />
+<input ng:model="searchQuery" ng:model-options="{debounce: 500}" type="search" autofocus class="form-control" placeholder="{{'Search packages'|translate}}" />
 
 <progress-spinner ng:hide="results != null"></progress-spinner>
 
 <div class="list-group">
     <div ng:repeat="package in results|orderBy:['name']" class="list-group-item list-group-item-large">
-        <a class="list-group-btn subtle" ng:click="markForUpgrade(package)" ng:show="package.isUpgradeable" title="Mark for upgrade">
+        <a class="list-group-btn subtle" ng:click="markForUpgrade(package)" ng:show="package.isUpgradeable" title="{{'Mark for upgrade'|translate}}">
             <i class="fa fa-arrow-up"></i>
         </a>
-        <a class="list-group-btn subtle" ng:click="markForInstallation(package)" ng:show="!package.isInstalled" title="Mark for installation">
+        <a class="list-group-btn subtle" ng:click="markForInstallation(package)" ng:show="!package.isInstalled" title="{{'Mark for installation'|translate}}">
             <i class="fa fa-download"></i>
         </a>
-        <a class="list-group-btn subtle" ng:click="markForRemoval(package)" ng:show="package.isInstalled" title="Mark for removal">
+        <a class="list-group-btn subtle" ng:click="markForRemoval(package)" ng:show="package.isInstalled" title="{{'Mark for removal'|translate}}">
             <i class="fa fa-trash-o"></i>
         </a>
         <div class="list-group-main">
@@ -23,13 +23,13 @@
                 {{package.name}}
                 <span ng:show="package.isInstalled">
                     &nbsp;
-                    <span class="label label-success" title="Installed">
+                    <span class="label label-success" title="{{'Installed'|translate}}">
                         <i class="fa fa-fw fa-check"></i>
                     </span>
                 </span>
                 <span ng:show="package.isUpgradeable">
                     &nbsp;
-                    <span class="label label-info" title="Upgradeable">
+                    <span class="label label-info" title="{{'Upgradeable'|translate}}">
                         <i class="fa fa-fw fa-arrow-up"></i>
                     </span>
                 </span>
@@ -48,25 +48,25 @@
 <div class="floating-toolbar-padder"></div>
 
 <floating-toolbar>
-    <a ng:click="updateLists()" class="btn btn-default btn-flat" test-bind="updateButton">Update package list</a>
+    <a ng:click="updateLists()" class="btn btn-default btn-flat" test-bind="updateButton" translate>Update package list</a>
 </floating-toolbar>
 
 <floating-toolbar class="accented" ng:show="selection.length > 0">
     <a class="btn btn-default btn-flat pull-right" ng:click="showSelection()">
-        <strong>{{selection.length}}</strong> pending
+        <strong>{{selection.length}}</strong> <span translate>pending</span>
     </a>
 
-    <a ng:click="doApply()" class="btn btn-default btn-flat">Apply changes</a>
+    <a ng:click="doApply()" class="btn btn-default btn-flat" translate>Apply changes</a>
 </floating-toolbar>
 
 <dialog ng:show="selectionVisible && selection.length > 0">
     <div class="modal-header">
-        <h4>Selections</h4>
+        <h4 translate>Selections</h4>
     </div>
     <div class="modal-body">
         <div class="list-group" test-bind="clipboardDialogList">
             <div ng:repeat="item in selection" class="list-group-item list-group-item-small" test-bind-item="{{item.package.id}}">
-                <a ng:click="selection.splice($index, 1)" class="list-group-btn subtle" title="Cancel">
+                <a ng:click="selection.splice($index, 1)" class="list-group-btn subtle" title="{{'Cancel'|translate}}">
                     <i class="fa fa-times"></i>
                 </a>
                 <div class="list-group-main">
@@ -80,6 +80,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a ng:click="hideSelection()" class="btn btn-default btn-flat">Close</a>
+        <a ng:click="hideSelection()" class="btn btn-default btn-flat" translate>Close</a>
     </div>
 </dialog>

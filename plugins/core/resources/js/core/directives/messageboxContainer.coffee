@@ -4,18 +4,18 @@ angular.module('core').directive 'messageboxContainer', (messagebox) ->
         template: '''
             <dialog ng:show="message.visible" ng:repeat="message in messagebox.messages">
                 <div class="modal-header">
-                    <h4>{{message.title}}</h4>
+                    <h4>{{message.title|translate}}</h4>
                 </div>
                 <div class="modal-body" ng:class="{scrollable: message.scrollable}">
                     <div ng:show="message.progress">
                         <progress-spinner></progress-spinner>
                     </div>
-                    {{message.text}}
+                    {{message.text|translate}}
                     <ng:include ng:if="message.template" src="message.template"></ng:include>
                 </div>
                 <div class="modal-footer">
-                    <a ng:click="doPositive(message)" ng:show="message.positive" class="positive btn btn-default btn-flat">{{message.positive}}</a>
-                    <a ng:click="doNegative(message)" ng:show="message.negative" class="negative btn btn-default btn-flat">{{message.negative}}</a>
+                    <a ng:click="doPositive(message)" ng:show="message.positive" class="positive btn btn-default btn-flat">{{message.positive|translate}}</a>
+                    <a ng:click="doNegative(message)" ng:show="message.negative" class="negative btn btn-default btn-flat">{{message.negative|translate}}</a>
                 </div>
             </dialog>
         '''

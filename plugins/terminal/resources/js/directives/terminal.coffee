@@ -21,7 +21,7 @@ colors =
         cyan:       '#2abbb0'
 
 
-angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, socket, notify, terminals, hotkeys) ->
+angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, socket, notify, terminals, hotkeys, gettext) ->
     return {
         scope: {
             id: '=?'
@@ -122,7 +122,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
             $scope.fullReload().catch () ->
                 $scope.disabled = true
                 $scope.onReady()
-                notify.info 'Terminal was closed'
+                notify.info gettext('Terminal was closed')
 
             $scope.scheduleResize = (w, h) ->
                 $timeout.cancel($scope.resizeTimeout)
@@ -167,7 +167,7 @@ angular.module('ajenti.terminal').directive 'terminal', ($timeout, $log, $q, soc
                     return
                 if data.type == 'closed'
                     $scope.disabled = true
-                    notify.info 'Terminal was closed'
+                    notify.info gettext('Terminal was closed')
                 if data.type == 'data'
                     $scope.draw(data.data)
 

@@ -1,4 +1,4 @@
-angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, socket) ->
+angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, socket, gettext) ->
     @tasks = []
     @deferreds = {}
 
@@ -22,12 +22,12 @@ angular.module('core').service 'tasks', ($rootScope, $q, $http, notify, push, so
                 def = @deferreds[msg.message.task.id]
                 if def
                     def.resolve()
-                notify.success msg.message.task.name, 'Done'
+                notify.success gettext(msg.message.task.name), gettext('Done')
             if msg.message.type == 'exception'
                 def = @deferreds[msg.message.task.id]
                 if def
                     def.reject(msg.message)
-                notify.error msg.message.task.name, "Failed: #{msg.message.exception}"
+                notify.error gettext(msg.message.task.name), gettext("Failed: #{msg.message.exception}")
 
     @start = (cls, args, kwargs) ->
         args ?= []

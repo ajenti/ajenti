@@ -7,13 +7,13 @@
         <div class="form-group" ng:show="!customization.plugins.settings.hideMachineSettings">
             <div class="row">
                 <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineName">
-                    <label>Machine name</label>
+                    <label translate>Machine name</label>
                     <div>
                         <input ng:model="config.data.name" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="col-md-6" ng:show="!customization.plugins.settings.hideMachineColor">
-                    <label>Color tag</label>
+                    <label translate>Color tag</label>
                     <div>
                         <div class="btn-group">
                             <a ng:model="config.data.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
@@ -26,10 +26,17 @@
             </div>
         </div>
 
+        <div class="form-group" ng:show="!customization.plugins.settings.hideLanguageSettings">
+            <label translate>Language</label>
+            <div>
+                <select ng:model="config.data.language" ng:options="x as x for x in languages" class="form-control"></select>
+            </div>
+        </div>
+
         <hr ng:show="!customization.plugins.settings.hideMachineSettings" />
 
         <div class="form-group" ng:show="!customization.plugins.settings.hideBindingSettings">
-            <label>Binding</label>
+            <label translate>Binding</label>
             <div class="row">
                 <div class="col-sm-3">
                     <div class="btn-group btn-group-justified">
@@ -40,15 +47,15 @@
                 <div class="col-sm-7">
                     <div ng:show="config.data.bind.mode == 'tcp'" class="row">
                         <div class="col-xs-8">
-                            <input ng:model="config.data.bind.host" type="text" placeholder="Host / IP" class="form-control" />
+                            <input ng:model="config.data.bind.host" type="text" placeholder="{{'Host / IP'|translate}}" class="form-control" />
                         </div>
                         <div class="col-xs-4">
-                            <input ng:model="config.data.bind.port" type="number" placeholder="Port" class="form-control" />
+                            <input ng:model="config.data.bind.port" type="number" placeholder="{{'Port' | translate}}" class="form-control" />
                         </div>
                     </div>
 
                     <div ng:show="config.data.bind.mode == 'unix'">
-                        <input ng:model="config.data.bind.socket" type="text" placeholder="Socket path" class="form-control" />
+                        <input ng:model="config.data.bind.socket" type="text" placeholder="{{'Socket path'|translate}}" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -57,16 +64,16 @@
         <hr ng:show="!customization.plugins.settings.hideBindingSettings" />
 
         <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
-            <label>Authentication provider</label>
+            <label translate>Authentication provider</label>
             <div>
                 <select ng:model="config.data.auth.provider" ng:options="x.id as x.name for x in authenticationProviders" class="form-control"></select>
             </div>
         </div>
 
         <div class="form-group" ng:show="!customization.plugins.settings.hideAuthSettings">
-            <label>Sudo</label>
+            <label translate>Sudo</label>
             <div>
-                <span checkbox ng:model="config.data.auth.allow_sudo" text="Allow sudo elevation for logged in users"></span>
+                <span checkbox ng:model="config.data.auth.allow_sudo" text="{{'Allow sudo elevation for logged in users'|translate}}"></span>
             </div>
         </div>
 
@@ -75,20 +82,20 @@
         <div class="form-group" ng:show="config.data.bind.mode == 'tcp' && !customization.plugins.settings.hideSSLSettings">
             <label>SSL</label>
             <div>
-                <span checkbox ng:model="config.data.ssl.enable" text="Enable SSL"></span>
+                <span checkbox ng:model="config.data.ssl.enable" text="{{'Enable SSL'|translate}}"></span>
             </div>
         </div>
 
         <div ng:show="config.data.bind.mode == 'tcp' && config.data.ssl.enable && !customization.plugins.settings.hideSSLSettings">
             <div class="form-group">
-                <label>SSL certificate file</label>
+                <label translate>SSL certificate file</label>
                 <div class="row">
                     <div class="col-md-8">
                         <path-selector ng:model="config.data.ssl.certificate" type="text"></path-selector>
                     </div>
                     <div class="col-md-4">
                         <a ng:click="createNewServerCertificate()" class="btn btn-default btn-block">
-                            <i class="fa fa-cog"></i> Generate a self-signed certificate
+                            <i class="fa fa-cog"></i> <span translate>Generate a self-signed certificate</span>
                         </a>
                     </div>
                 </div>
@@ -97,19 +104,19 @@
             <hr/>
 
             <div class="form-group" ng:show="!customization.plugins.settings.hideSSLClientAuthSettings">
-                <label>SSL client authentication</label>
+                <label translate>SSL client authentication</label>
                 <div>
-                    <span checkbox ng:model="config.data.ssl.client_auth.enable" text="Enable client authentication"></span>
+                    <span checkbox ng:model="config.data.ssl.client_auth.enable" text="{{'Enable client authentication'|translate}}"></span>
                 </div>
                 <div>
-                    <span checkbox ng:model="config.data.ssl.client_auth.force" text="Deny other means of authentication"></span>
+                    <span checkbox ng:model="config.data.ssl.client_auth.force" text="{{'Deny other means of authentication'|translate}}"></span>
                 </div>
             </div>
 
             <div class="form-group" ng:show="config.data.ssl.client_auth.enable && !customization.plugins.settings.hideSSLClientAuthSettings">
-                <label>SSL client certificates</label>
+                <label translate>SSL client certificates</label>
                 <div class="alert alert-warning" ng:show="config.data.ssl.client_auth.certificates.length == 0">
-                    <i class="fa fa-warning"></i> No certificates are created yet.
+                    <i class="fa fa-warning"></i> <span translate>No certificates are created yet.</span>
                 </div>
                 <div>
                     <div class="list-group">
@@ -132,57 +139,57 @@
                     </div>
                 </div>
                 <a ng:click="newClientCertificateDialogVisible = true" class="btn btn-default">
-                    <i class="fa fa-plus"></i> New certificate
+                    <i class="fa fa-plus"></i> <span translate>New certificate</span>
                 </a>
 
                 <dialog ng:show="newClientCertificateDialogVisible">
                     <div class="modal-header">
-                        <h4>New client certificate</h4>
+                        <h4 translate>New client certificate</h4>
                     </div>
                     <div class="modal-body" ng:show="newClientCertificate.generating">
                         <div class="text-center">
                             <progress-spinner></progress-spinner>
-                            <h4>Generating certificate</h4>
-                            <div>This might take a few seconds</div>
+                            <h4 translate>Generating certificate</h4>
+                            <div translate>This might take a few seconds</div>
                         </div>
                     </div>
                     <div class="modal-body" ng:show="newClientCertificate.generated">
                         <div class="text-center">
                             <a download="{{newClientCertificate.user}}.p12" href="{{newClientCertificate.url}}" class="btn btn-primary">
-                                <i class="fa fa-download"></i> Download certificate
+                                <i class="fa fa-download"></i> <span translate>Download certificate</span>
                             </a>
                         </div>
                     </div>
                     <div class="modal-body scrollable" ng:show="!newClientCertificate.generating && !newClientCertificate.generated">
                         <div class="form-group">
-                            <label>Login as</label>
+                            <label translate>Login as</label>
                             <select ng:model="newClientCertificate.user" ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
                         </div>
                         <div class="form-group">
-                            <label>Country</label>
+                            <label translate>Country</label>
                             <input ng:model="newClientCertificate.c" class="form-control" type="text" />
                         </div>
                         <div class="form-group">
-                            <label>State</label>
+                            <label translate>State</label>
                             <input ng:model="newClientCertificate.st" class="form-control" type="text" />
                         </div>
                         <div class="form-group">
-                            <label>Organization</label>
+                            <label translate>Organization</label>
                             <input ng:model="newClientCertificate.o" class="form-control" type="text" />
                         </div>
                         <div class="form-group">
-                            <label>Common name</label>
+                            <label translate>Common name</label>
                             <input ng:model="newClientCertificate.cn" class="form-control" type="text" />
                         </div>
                     </div>
                     <div class="modal-footer" ng:show="!newClientCertificate.generated">
                         <div ng:hide="newClientCertificate.generating">
-                            <a ng:click="generateClientCertificate()" class="btn btn-default btn-flat">Generate</a>
-                            <a ng:click="$parent.newClientCertificateDialogVisible = false" class="btn btn-default btn-flat">Cancel</a>
+                            <a ng:click="generateClientCertificate()" class="btn btn-default btn-flat" translate>Generate</a>
+                            <a ng:click="$parent.newClientCertificateDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
                         </div>
                     </div>
                     <div class="modal-footer" ng:show="newClientCertificate.generated">
-                        <a ng:click="save(); $parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat">
+                        <a ng:click="save(); $parent.newClientCertificateDialogVisible = false; newClientCertificate.generated = false" class="btn btn-default btn-flat" translate>
                             Save and Close
                         </a>
                     </div>
@@ -193,16 +200,16 @@
         <hr ng:show="!customization.plugins.settings.hideSSLSettings" />
 
         <div class="form-group" ng:show="!customization.plugins.core.hidePersonaLogin">
-            <label>E-mail authentication</label>
-            <div class="help-text">
+            <label translate>E-mail authentication</label>
+            <div class="help-text" translate>
                 Allows login with a confirmed e-mail address via <a href="https://login.persona.org/about" target="_blank">Mozilla Persona</a> auth service. Requires server-side internet access.
             </div>
             <div class="alert alert-warning" ng:show="keys(config.data.auth.emails).length == 0">
-                <i class="fa fa-warning"></i> No e-mail addresses added yet.
+                <i class="fa fa-warning"></i> <span translate>No e-mail addresses added yet.</span>
             </div>
             <div class="list-group">
                 <div ng:repeat="(email, username) in config.data.auth.emails" class="list-group-item list-group-item-large">
-                    <a class="list-group-btn" ng:click="removeEmail(email)" title="Remove">
+                    <a class="list-group-btn" ng:click="removeEmail(email)" title="{{'Remove'|translate}}">
                         <i class="fa fa-trash-o"></i>
                     </a>
                     <div class="list-group-main">
@@ -219,25 +226,25 @@
                 </div>
             </div>
             <a ng:click="newEmailDialogVisible = true" class="btn btn-default">
-                <i class="fa fa-plus"></i> New address
+                <i class="fa fa-plus"></i> <span translate>New address</span>
             </a>
             <dialog ng:show="newEmailDialogVisible">
                 <div class="modal-header">
-                    <h4>New e-mail address</h4>
+                    <h4 translate>New e-mail address</h4>
                 </div>
                 <div class="modal-body" ng:form="form">
                     <div class="form-group">
-                        <label>E-mail address</label>
+                        <label translate>E-mail address</label>
                         <input ng:model="newEmailAddress" required class="form-control" type="email" />
                     </div>
                     <div class="form-group">
-                        <label>User to log in</label>
+                        <label translate>User to log in</label>
                         <select ng:model="newEmailUsername" required ng:options="x.name as x.name for x in availableUsers|orderBy:'name'" class="form-control"></select>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a ng:click="addEmail(newEmailAddress, newEmailUsername)" ng:disabled="!form.$valid" class="btn btn-default btn-flat">Add</a>
-                    <a ng:click="$parent.newEmailDialogVisible = false" class="btn btn-default btn-flat">Cancel</a>
+                    <a ng:click="addEmail(newEmailAddress, newEmailUsername)" ng:disabled="!form.$valid" class="btn btn-default btn-flat" translate>Add</a>
+                    <a ng:click="$parent.newEmailDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
                 </div>
             </dialog>
         </div>
@@ -246,7 +253,7 @@
     <div class="floating-toolbar-padder"></div>
 
     <floating-toolbar>
-        <a ng:click="save()" class="btn btn-default btn-flat">Save</a>
-        <a ng:click="restart()" class="btn btn-default btn-flat">Restart panel</a>
+        <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
+        <a ng:click="restart()" class="btn btn-default btn-flat" translate>Restart panel</a>
     </floating-toolbar>
 </div>

@@ -63,6 +63,7 @@ resources:
     - 'resources/js/core/services/customization.service.coffee'
     - 'resources/js/core/services/favicon.service.coffee'
     - 'resources/js/core/services/feedback.service.coffee'
+    - 'resources/js/core/services/gettext.service.coffee'
     - 'resources/js/core/services/hotkeys.service.coffee'
     - 'resources/js/core/services/identity.service.coffee'
     - 'resources/js/core/services/messagebox.service.coffee'

@@ -1,5 +1,5 @@
-angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope, $interval, notify, pageTitle, datetime) ->
-    pageTitle.set('Date & Time')
+angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope, $interval, notify, pageTitle, datetime, gettext) ->
+    pageTitle.set(gettext('Date & Time'))
 
     datetime.listTimezones().then (data) ->
         $scope.timezones = data
@@ -22,16 +22,16 @@ angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope,
     $scope.setTime = () ->
         datetime.setTimezone($scope.timezone).then () ->
             datetime.setTime($scope._.time.getTime() / 1000).then () ->
-                notify.success 'Time set'
+                notify.success gettext('Time set')
             .catch (e) ->
-                notify.error 'Failed', e.message
+                notify.error gettext('Failed'), e.message
         .catch (e) ->
-            notify.error 'Failed', e.message
+            notify.error gettext('Failed'), e.message
     
     $scope.syncTime = () ->
-        notify.info 'Synchronizing...'
+        notify.info gettext('Synchronizing...')
         datetime.syncTime().then (time) ->
             $scope._.time = new Date(time * 1000)
-            notify.success 'Time synchronized'
+            notify.success gettext('Time synchronized')
         .catch (e) ->
-            notify.error 'Failed', e.message
+            notify.error gettext('Failed'), e.message

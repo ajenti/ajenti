@@ -23,7 +23,7 @@ Prerequisites
 
 The following is the absolutely minimal set of software required to build and run Ajenti:
 
-  * bower, coffee-script and lessc (from NPM)
+  * Node, bower, coffee-script and lessc (from NPM)
 
 
 Debian/Ubuntu extras:
@@ -39,7 +39,7 @@ Install complete Ajenti bundle as outlined in the :ref:`installation guide <inst
 Install the dependencies::
 
     sudo pip install ajenti-dev-multitool
-    sudo npm install -g coffee-script less bower
+    sudo npm install -g coffee-script less bower angular-gettext-cli angular-gettext-tools
 
 .. WARNING::
   We highly recommend to start with existing well-commented demo plugins instead of making ones from scratch.

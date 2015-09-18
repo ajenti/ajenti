@@ -13,7 +13,7 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:general',
                 'id': 'auth_users',
-                'name': 'Users',
+                'name': _('Users'),
                 'icon': 'users',
                 'url': '/view/auth-users',
                 'children': [],

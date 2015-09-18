@@ -12,7 +12,7 @@ class ItemProvider(SidebarItemProvider):
         return [
             {
                 'attach': 'category:tools',
-                'name': 'Notepad',
+                'name': _('Notepad'),
                 'icon': 'pencil',
                 'url': '/view/notepad',
                 'children': [

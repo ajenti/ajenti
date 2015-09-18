@@ -11,6 +11,7 @@ bind:
   mode: tcp
   port: 8000
 color: bluegrey
+language: ru
 max_sessions: 9
 name: Test Box
 restricted_user: nobody

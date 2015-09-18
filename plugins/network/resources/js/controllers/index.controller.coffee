@@ -1,5 +1,5 @@
-angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $routeParams, $timeout, messagebox, notify, pageTitle, network) ->
-    pageTitle.set('Network')
+angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $routeParams, $timeout, messagebox, notify, pageTitle, network, gettext) ->
+    pageTitle.set(gettext('Network'))
 
     $scope.knownFamilies = {
         inet: ['static', 'dhcp', 'manual', 'loopback']
@@ -7,11 +7,11 @@ angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $
     }
 
     $scope.knownAddressingNames = {
-        static: 'Static'
-        auto: 'Auto'
+        static: gettext('Static')
+        auto: gettext('Auto')
         dhcp: 'DHCP'
-        manual: 'Manual'
-        loopback: 'Loopback'
+        manual: gettext('Manual')
+        loopback: gettext('Loopback')
     }
 
     $scope.reloadState = () ->
@@ -37,35 +37,35 @@ angular.module('ajenti.network').controller 'NetworkIndexController', ($scope, $
 
     $scope.upInterface = (iface) ->
         network.up(iface.name).then () ->
-            notify.success 'Interface activated'
+            notify.success gettext('Interface activated')
             $scope.reloadState()
 
     $scope.downInterface = (iface) ->
         messagebox.show(
-            title: 'Warning'
-            text: 'Deactivating a network interface can lock you out of the remote session'
-            positive: 'Deactivate'
-            negative: 'Cancel'
+            title: gettext('Warning')
+            text: gettext('Deactivating a network interface can lock you out of the remote session')
+            positive: gettext('Deactivate')
+            negative: gettext('Cancel')
         ).then () ->
             network.down(iface.name).then () ->
-                notify.success 'Interface deactivated'
+                notify.success gettext('Interface deactivated')
                 $scope.reloadState()
 
     $scope.restartInterface = (iface) ->
         messagebox.show(
-            title: 'Warning'
-            text: 'Restarting a network interface can lock you out of the remote session'
-            positive: 'Restart'
-            negative: 'Cancel'
+            title: gettext('Warning')
+            text: gettext('Restarting a network interface can lock you out of the remote session')
+            positive: gettext('Restart')
+            negative: gettext('Cancel')
         ).then () ->
             network.downup(iface.name).then () ->
                 $timeout () ->
-                    notify.success 'Interface reactivated'
+                    notify.success gettext('Interface reactivated')
                     $scope.reloadState()
                 , 2000
 
     $scope.setHostname = (hostname) ->
         network.setHostname(hostname).then () ->
-            notify.success 'Hostname changed'
+            notify.success gettext('Hostname changed')
         .catch (e) ->
-            notify.error 'Failed', e.message
+            notify.error gettext('Failed'), e.message

@@ -1,5 +1,4 @@
 angular.module('core').controller 'CoreIndexController', ($scope, $location, customization, identity, urlPrefix) ->
-
     $location.path(customization.plugins.core.startupURL or '/view/dashboard')
 
     identity.promise.then () ->

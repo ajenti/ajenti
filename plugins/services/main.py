@@ -23,7 +23,7 @@ class ItemProvider(SidebarItemProvider):
         return [
             {
                 'attach': 'category:software',
-                'name': 'Services',
+                'name': _('Services'),
                 'icon': 'cogs',
                 'url': '/view/services',
                 'children': children
@@ -36,7 +36,7 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'services:manage',
-                'name': 'Manage system services',
+                'name': _('Manage system services'),
                 'default': True,
             },
         ]

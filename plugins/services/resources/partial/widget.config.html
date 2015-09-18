@@ -1,10 +1,10 @@
 <div ng:controller="ServiceWidgetConfigController">
     <div>
-        <label>Manager</label>
+        <label translate>Manager</label>
         <select ng:model="configuredWidget.config.manager_id" ng:options="manager.id as manager.name for manager in managers" class="form-control"></select>
     </div>
     <div>
-        <label>Service</label>
+        <label translate>Service</label>
         <select ng:model="configuredWidget.config.service_id" ng:options="service.id as service.name for service in services|filter:{managerId:configuredWidget.config.manager_id}|orderBy:'name'" class="form-control"></select>
     </div>
 </div>

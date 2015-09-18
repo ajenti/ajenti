@@ -1,4 +1,4 @@
-angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($scope, $http, notify, pageTitle, config, passwd, customization) ->
+angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($scope, $http, notify, pageTitle, config, passwd, customization, gettext) ->
     pageTitle.set('Users')
 
     $scope.config = config
@@ -52,7 +52,7 @@ angular.module('ajenti.auth.users').controller 'AuthUsersIndexController', ($sco
     $scope.setPassword = (username, password) ->
         config.save().then () ->
             $http.post("/api/auth-users/set-password/#{username}", password).then () ->
-                notify.success 'Password updated'
+                notify.success gettext('Password updated')
                 config.load()
 
     $scope.addUser = (username) ->

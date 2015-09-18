@@ -10,7 +10,7 @@ from aj.auth import AuthenticationProvider
 @component(AuthenticationProvider)
 class UsersAuthenticationProvider(AuthenticationProvider):
     id = 'users'
-    name = 'Custom users'
+    name = _('Custom users')
 
     def __init__(self, context):
         self.context = context

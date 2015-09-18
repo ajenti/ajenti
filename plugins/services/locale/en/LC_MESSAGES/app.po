@@ -1,5 +1,38 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:51+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/services/resources/partial/index.html:2
+msgid "Filter services"
+msgstr ""
+
+#: plugins/services/resources/partial/widget.config.html:3
+msgid "Manager"
+msgstr ""
+
+#: plugins/services/resources/partial/widget.config.html:7
+#: plugins/services/widget.py:9
+msgid "Service"
+msgstr ""
+
+#: plugins/services/main.py:26
+#: plugins/services/resources/js/controllers/index.controller.coffee:2
+msgid "Services"
+msgstr ""
+
+#: plugins/services/main.py:39
+msgid "Manage system services"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.coffee:20
+msgid "Done"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.coffee:22
+#: plugins/services/resources/js/controllers/widget.controller.coffee:12
+msgid "Service operation failed"
+msgstr ""

@@ -1,16 +1,29 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Frisian\n"
+"Language: fy_NL\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: ajenti\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: fy-NL\n"
 "X-Crowdin-File: /2.0/traffic.po\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
-"Language-Team: Frisian\n"
-"Language: fy_NL\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
 
+#: plugins/traffic/resources/partial/widget.html:11
+#: plugins/traffic/resources/partial/widget.html:22
+msgid "/s"
+msgstr ""
+
+#: plugins/traffic/resources/partial/widget.config.html:3
+msgid "Interface"
+msgstr ""
+
+#: plugins/traffic/widget.py:11
+msgid "Traffic"
+msgstr ""

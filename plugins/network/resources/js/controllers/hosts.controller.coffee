@@ -1,4 +1,4 @@
-angular.module('ajenti.network').controller 'NetworkHostsController', ($scope, notify, augeas) ->
+angular.module('ajenti.network').controller 'NetworkHostsController', ($scope, notify, augeas, gettext) ->
     augeas.get('hosts').then (config) ->
         $scope.config = config
 
@@ -16,6 +16,6 @@ angular.module('ajenti.network').controller 'NetworkHostsController', ($scope, n
 
     $scope.save = () ->
         augeas.set('hosts', $scope.config).then () ->
-            notify.success 'Saved'
+            notify.success gettext('Saved')
         .catch (e) ->
-            notify.error 'Could not save', e.message
+            notify.error gettext('Could not save'), e.message

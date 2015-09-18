@@ -1,4 +1,4 @@
-angular.module('ajenti.services').controller 'ServiceWidgetController', ($scope, services, notify) ->
+angular.module('ajenti.services').controller 'ServiceWidgetController', ($scope, services, notify, gettext) ->
     $scope.$on 'widget-update', ($event, id, data) ->
         if id != $scope.widget.id
             return
@@ -9,7 +9,7 @@ angular.module('ajenti.services').controller 'ServiceWidgetController', ($scope,
             managerId: $scope.widget.config.manager_id
             id: $scope.widget.config.service_id
         services.runOperation(svc, o).catch (e) ->
-            notify.error 'Service operation failed', e.message
+            notify.error gettext('Service operation failed'), e.message
 
 
 angular.module('ajenti.services').controller 'ServiceWidgetConfigController', ($scope, services) ->

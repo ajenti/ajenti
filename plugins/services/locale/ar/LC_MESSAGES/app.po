@@ -1,16 +1,48 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Arabic\n"
+"Language: ar_SA\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: ajenti\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ar\n"
 "X-Crowdin-File: /2.0/services.po\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
-"Language-Team: Arabic\n"
-"Language: ar_SA\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
 
+#: plugins/services/resources/partial/index.html:2
+msgid "Filter services"
+msgstr ""
+
+#: plugins/services/resources/partial/widget.config.html:3
+msgid "Manager"
+msgstr ""
+
+#: plugins/services/resources/partial/widget.config.html:7
+#: plugins/services/widget.py:9
+msgid "Service"
+msgstr ""
+
+#: plugins/services/main.py:26
+#: plugins/services/resources/js/controllers/index.controller.coffee:2
+msgid "Services"
+msgstr ""
+
+#: plugins/services/main.py:39
+msgid "Manage system services"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.coffee:20
+msgid "Done"
+msgstr ""
+
+#: plugins/services/resources/js/controllers/index.controller.coffee:22
+#: plugins/services/resources/js/controllers/widget.controller.coffee:12
+msgid "Service operation failed"
+msgstr ""

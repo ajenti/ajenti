@@ -7,7 +7,7 @@
         <div class="col-md-9">
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Name</label>
+                    <label class="col-sm-2 control-label" translate>Name</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{info.name}}
@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Full path</label>
+                    <label class="col-sm-2 control-label" translate>Full path</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{info.path}}
@@ -23,57 +23,57 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Type</label>
+                    <label class="col-sm-2 control-label" translate>Type</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             <span class="label label-info" ng:show="info.isDir">
                                 <i class="fa fa-folder-o"></i>
                                 &nbsp;
-                                DIRECTORY
+                                <span translate>DIRECTORY</span>
                             </span>
                             <span class="label label-info" ng:show="info.isFile">
                                 <i class="fa fa-file-o"></i>
                                 &nbsp;
-                                FILE
+                                <span translate>FILE</span>
                             </span>
                             &nbsp;
                             <span class="label label-info" ng:show="info.isLink">
                                 <i class="fa fa-link"></i>
                                 &nbsp;
-                                LINK
+                                <span translate>LINK</span>
                             </span>
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Access</label>
+                    <label class="col-sm-2 control-label" translate>Access</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             <span class="label" ng:class="{'label-success': info.readAccess, 'label-warning': !info.readAccess}">
                                 <i class="fa fa-check" ng:show="info.readAccess"></i>
                                 <i class="fa fa-times" ng:show="!info.readAccess"></i>
                                 &nbsp;
-                                READ
+                                <span translate>READ</span>
                             </span>
                             &nbsp;
                             <span class="label" ng:class="{'label-success': info.writeAccess, 'label-warning': !info.writeAccess}">
                                 <i class="fa fa-check" ng:show="info.writeAccess"></i>
                                 <i class="fa fa-times" ng:show="!info.writeAccess"></i>
                                 &nbsp;
-                                WRITE
+                                <span translate>WRITE</span>
                             </span>
                             &nbsp;
                             <span class="label" ng:class="{'label-success': info.executeAccess, 'label-warning': !info.executeAccess}">
                                 <i class="fa fa-check" ng:show="info.executeAccess"></i>
                                 <i class="fa fa-times" ng:show="!info.executeAccess"></i>
                                 &nbsp;
-                                EXECUTE
+                                <span translate>EXECUTE</span>
                             </span>
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Size</label>
+                    <label class="col-sm-2 control-label" translate>Size</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{info.size|bytes}}
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Modified</label>
+                    <label class="col-sm-2 control-label" translate>Modified</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{(info.mtime*1000)|date:'medium'}}
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Owner</label>
+                    <label class="col-sm-2 control-label" translate>Owner</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{info.user}} <span class="subtle">UID {{info.uid}}</span>
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Group</label>
+                    <label class="col-sm-2 control-label" translate>Group</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{info.group}} <span class="subtle">GID {{info.gid}}</span>
@@ -105,14 +105,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Mode</label>
+                    <label class="col-sm-2 control-label" translate>Mode</label>
                     <div class="col-sm-10">
                         <label class="form-control-static">
                             {{info.mode.toString(8)}}
                         </label>
                         <br/>
                         <a ng:click="permissionsDialogVisible = true" ng:disabled="!info.writeAccess" class="btn btn-default">
-                            <i class="fa fa-lock"></i> Change permissions
+                            <i class="fa fa-lock"></i> <span translate>Change permissions</span>
                         </a>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
         </div>
         <div class="col-md-3">
             <a ng:href="{{urlPrefix}}/view/notepad/{{info.path}}" ng:show="ajentiPlugins.notepad && info.isFile && info.size < (1024 * 1024 * 64)" class="btn btn-default btn-block">
-                <i class="fa fa-pencil"></i> Edit in Notepad
+                <i class="fa fa-pencil"></i> <span translate>Edit in Notepad</span>
             </a>
             <br/>
         </div>
@@ -129,12 +129,12 @@
 
 <dialog ng:show="permissionsDialogVisible" ng:cloak>
     <div class="modal-header">
-        <h4>Permission bits</h4>
+        <h4 translate>Permission bits</h4>
     </div>
     <div class="modal-body">
         <table class="table">
             <tr>
-                <th>User</th>
+                <th translate>User</th>
                 <td>
                     <span checkbox ng:model="mode.ur" text="R"></span>
                 </td>
@@ -146,7 +146,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Group</th>
+                <th translate>Group</th>
                 <td>
                     <span checkbox ng:model="mode.gr" text="R"></span>
                 </td>
@@ -158,7 +158,7 @@
                 </td>
             </tr>
             <tr>
-                <th>All</th>
+                <th translate>All</th>
                 <td>
                     <span checkbox ng:model="mode.ar" text="R"></span>
                 </td>
@@ -170,7 +170,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Extra</th>
+                <th translate>Extra</th>
                 <td>
                     <span checkbox ng:model="mode.sticky" text="Sticky"></span>
                 </td>
@@ -184,7 +184,7 @@
         </table>
     </div>
     <div class="modal-footer">
-        <a ng:click="applyPermissions()" class="btn btn-default btn-flat">Apply</a>
-        <a ng:click="hidePermissionsDialog()" class="btn btn-default btn-flat">Cancel</a>
+        <a ng:click="applyPermissions()" class="btn btn-default btn-flat" translate>Apply</a>
+        <a ng:click="hidePermissionsDialog()" class="btn btn-default btn-flat" translate>Cancel</a>
     </div>
 </dialog>

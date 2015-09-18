@@ -1,4 +1,3 @@
-import os
 import subprocess
 from jadi import component
 
@@ -36,7 +35,7 @@ class GentooNetworkManager(NetworkManager):
         ifaces = []
         aug = self.get_augeas()
         for key in aug.match('%s/*' % self.aug_path):
-            if not 'config_' in key:
+            if 'config_' not in key:
                 continue
             iface_name = key.split('_')[-1]
             iface = {
@@ -107,4 +106,3 @@ class GentooNetworkManager(NetworkManager):
         with open('/etc/hostname', 'w') as f:
             f.write(value)
         subprocess.check_call(['hostname', value])
-

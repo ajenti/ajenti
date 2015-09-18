@@ -1,19 +1,24 @@
-angular.module('core').service 'core', ($timeout, $q, $http, $window, messagebox) ->
+angular.module('core').service 'core', ($timeout, $q, $http, $window, messagebox, gettext) ->
     @pageReload = () ->
         $window.location.reload()
 
     @restart = () ->
-        messagebox.show(title: 'Restart', text: 'Restart the panel?', positive: 'Yes', negative: 'No').then () =>
+        messagebox.show(
+            title: gettext('Restart'), 
+            text: gettext('Restart the panel?'), 
+            positive: gettext('Yes'), 
+            negative: gettext('No')
+        ).then () =>
             @forceRestart()
 
     @forceRestart = () ->
         q = $q.defer()
-        msg = messagebox.show progress: true, title: 'Restarting'
+        msg = messagebox.show progress: true, title: gettext('Restarting')
         $http.get('/api/core/restart-master').success () =>
             $timeout () =>
                 msg.close()
                 q.resolve()
-                messagebox.show title: 'Restarted', text: 'Please wait'
+                messagebox.show title: gettext('Restarted'), text: gettext('Please wait')
                 $timeout () =>
                     @pageReload()
                     setTimeout () => # sometimes this is not enough
@@ -22,7 +27,7 @@ angular.module('core').service 'core', ($timeout, $q, $http, $window, messagebox
             , 5000
         .error (err) ->
             msg.close()
-            notify.error 'Could not restart', err.message
+            notify.error gettext('Could not restart'), err.message
             q.reject(err)
         return q.promise
 

@@ -8,7 +8,7 @@ from aj.plugins.dashboard.api import Widget
 @component(Widget)
 class TrafficWidget(Widget):
     id = 'traffic'
-    name = 'Traffic'
+    name = _('Traffic')
     template = '/traffic:resources/partial/widget.html'
     config_template = '/traffic:resources/partial/widget.config.html'
 

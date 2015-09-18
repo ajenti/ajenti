@@ -33,6 +33,7 @@ class BaseConfig(object):
     def ensure_structure(self):
         self.data.setdefault('name', None)
         self.data.setdefault('max_sessions', 99)
+        self.data.setdefault('language', 'en')
         self.data.setdefault('restricted_user', 'nobody')
         self.data.setdefault('auth', {})
         self.data['auth'].setdefault('emails', {})

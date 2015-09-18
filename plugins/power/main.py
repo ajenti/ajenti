@@ -13,12 +13,13 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:system',
                 'id': 'power',
-                'name': 'Power',
+                'name': _('Power'),
                 'icon': 'bolt',
                 'url': '/view/power',
                 'children': [],
             }
         ]
+
 
 @component(PermissionProvider)
 class Permissions (PermissionProvider):
@@ -26,7 +27,7 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'power:manage',
-                'name': 'Shutdown and reboot the system',
+                'name': _('Shutdown and reboot the system'),
                 'default': True,
             },
         ]

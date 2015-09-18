@@ -6,7 +6,7 @@ from aj.plugins.power.api import PowerManager
 @component(Widget)
 class PowerWidget(Widget):
     id = 'power'
-    name = 'Power state'
+    name = _('Power state')
     template = '/power:resources/partial/widget.html'
 
     def __init__(self, context):

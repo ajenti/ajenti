@@ -14,7 +14,7 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': 'category:system',
                 'id': 'network',
-                'name': 'Network',
+                'name': _('Network'),
                 'icon': 'plug',
                 'url': '/view/network',
                 'children': [],
@@ -28,12 +28,12 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'network:configure',
-                'name': 'Configure network interfaces',
+                'name': _('Configure network interfaces'),
                 'default': True,
             },
             {
                 'id': 'network:updown',
-                'name': 'Activate/deactivate network interfaces',
+                'name': _('Activate/deactivate network interfaces'),
                 'default': True,
             },
         ]

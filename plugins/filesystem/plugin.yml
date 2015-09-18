@@ -11,6 +11,7 @@ resources:
     - 'resources/vendor/ng-file-upload/angular-file-upload-all.js'
     - 'resources/js/module.coffee'
     - 'resources/js/directives/fileDialog.coffee'
+    - 'resources/js/directives/fileDialog.html'
     - 'resources/js/directives/pathSelector.coffee'
     - 'resources/js/services/filesystem.service.coffee'
     - 'ng:ajenti.filesystem'

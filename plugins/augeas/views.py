@@ -17,7 +17,6 @@ class Handler(HttpPlugin):
             if a.id == id:
                 return a
 
-
     @url(r'/api/augeas/endpoint/get/(?P<id>.+)')
     @endpoint(api=True)
     def handle_api_get(self, http_context, id=None):

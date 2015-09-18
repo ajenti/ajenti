@@ -27,9 +27,9 @@ angular.module('core').run () ->
     FastClick.attach(document.body) 
 
 
-angular.module('core').factory '$exceptionHandler', ($injector) ->
+angular.module('core').factory '$exceptionHandler', ($injector, gettext) ->
     return (exception, cause) ->
-        $injector.get('notify').warning 'Unhanded error occured', 'Please see browser console'
+        $injector.get('notify').warning gettext('Unhanded error occured'), gettext('Please see browser console')
 
         console.group('Unhandled exception occured')
         console.error(exception)

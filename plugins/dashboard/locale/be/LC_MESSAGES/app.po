@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-11 21:57+0200\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
+"POT-Creation-Date: 2015-09-17 11:49+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be_BY\n"
@@ -16,12 +16,60 @@ msgstr ""
 "X-Crowdin-Language: be\n"
 "X-Crowdin-File: /2.0/dashboard.po\n"
 
+#: plugins/dashboard/resources/partial/widgets/loadavg.html:3
+msgid "1 min"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/loadavg.html:19
+msgid "15 min"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/loadavg.html:11
+msgid "5 min"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/cpu.html:4
+msgid "Active cores"
+msgstr ""
+
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Add widget"
 msgstr ""
 
+#: plugins/dashboard/resources/partial/widgets/cpu.html:10
+#: plugins/dashboard/widgets/cpu.py:10
+msgid "CPU usage"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/hostname.html:2
+#: plugins/dashboard/widgets/hostname.py:10
+msgid "Hostname"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/memory.html:10
+#: plugins/dashboard/widgets/memory.py:10
+msgid "Memory usage"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widget.html:7
+msgid "Remove"
+msgstr ""
+
 #: plugins/dashboard/resources/partial/index.html:46
 msgid "Save"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/memory.html:4
+msgid "Total"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/widgets/uptime.html:2
+#: plugins/dashboard/widgets/uptime.py:11
+msgid "Uptime"
 msgstr ""
 
 #: plugins/dashboard/resources/js/controllers/index.controller.coffee:2
@@ -30,21 +78,5 @@ msgstr ""
 
 #: plugins/dashboard/widgets/loadavg.py:11
 msgid "Load average"
-msgstr ""
-
-#: plugins/dashboard/widgets/uptime.py:11
-msgid "Uptime"
-msgstr ""
-
-#: plugins/dashboard/widgets/hostname.py:10
-msgid "Hostname"
-msgstr ""
-
-#: plugins/dashboard/widgets/memory.py:10
-msgid "Memory usage"
-msgstr ""
-
-#: plugins/dashboard/widgets/cpu.py:10
-msgid "CPU usage"
 msgstr ""
 

@@ -5,7 +5,7 @@ from aj.plugins.core.api.tasks import Task
 
 
 class Transfer(Task):
-    name = 'File transfer'
+    name = _('File transfer')
 
     def __init__(self, context, destination=None, items=None):
         Task.__init__(self, context)
@@ -37,7 +37,7 @@ class Transfer(Task):
 
 
 class Delete(Task):
-    name = 'Deleting'
+    name = _('Deleting')
 
     def __init__(self, context, items=None):
         Task.__init__(self, context)

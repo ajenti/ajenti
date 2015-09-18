@@ -1,9 +1,9 @@
-angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, config) ->
+angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, hotkeys, config, gettext) ->
     pageTitle.set('')
 
     $scope.newFile = () ->
         if $scope.content
-            if not confirm('Current file will be closed. Continue?')
+            if not confirm gettext('Current file will be closed. Continue?')
                 return
         $scope.path = null
         $scope.content = ''
@@ -25,7 +25,7 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
             $scope.content = content
             $scope.$broadcast 'ace:reload', $scope.path
         .catch (err) ->
-            notify.error 'Could not open the file', err.message
+            notify.error gettext('Could not open the file'), err.message
 
     $scope.save = () ->
         $scope.saveAs($scope.path)
@@ -41,7 +41,7 @@ angular.module('ajenti.notepad').controller 'NotepadIndexController', ($scope, $
             else
                 $scope.$broadcast 'ace:reload', $scope.path
         .catch (err) ->
-            notify.error 'Could not save the file', err.message
+            notify.error gettext('Could not save the file'), err.message
 
     $scope.showSaveDialog = () ->
         $scope.saveDialogVisible = true

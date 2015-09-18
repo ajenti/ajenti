@@ -8,9 +8,9 @@
             <i class="fa fa-plus"></i> <span translate>Add widget</span>
         </a>
         <ul class="dropdown-menu">
-            <li ng:repeat="widget in availableWidgets|orderBy:'name'">
+            <li ng:repeat="widget in availableWidgets|orderBy:'name|translate'">
                 <a ng:click="addWidget(widget)">
-                    {{widget.name}}
+                    {{widget.name|translate}}
                 </a>
             </li>
         </ul>

@@ -1,4 +1,4 @@
-angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $q, $http, notify, pageTitle, messagebox, tasks, core) ->
+angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $q, $http, notify, pageTitle, messagebox, tasks, core, gettext) ->
     pageTitle.set('Plugins')
 
     $scope.officialKeyFingerprint = '425E 018E 2394 4B4B 4281  4EE0 BDC3 FBAA 5302 9759'
@@ -22,9 +22,9 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
                 $scope.repoListOfficial = (x for x in $scope.repoList when x.signature == $scope.officialKeyFingerprint)
                 $scope.repoListCommunity = (x for x in $scope.repoList when x.signature != $scope.officialKeyFingerprint)
             .error (err) ->
-                notify.error 'Could not load plugin repository', err.message
+                notify.error gettext('Could not load plugin repository'), err.message
         .error (err) ->
-            notify.error 'Could not installed plugin list', err.message
+            notify.error gettext('Could not load the installed plugin list'), err.message
         $http.get('/api/plugins/core/check-upgrade').success (data) ->
             $scope.coreUpgradeAvailable = data
 
@@ -35,12 +35,12 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
     $scope.refresh()
 
     $scope.upgradeCore = () ->
-        msg = messagebox.show progress: true, title: 'Upgrading'
+        msg = messagebox.show progress: true, title: gettext('Upgrading')
         $http.get("/api/plugins/core/upgrade/#{$scope.coreUpgradeAvailable}").success () ->
-            messagebox.show(title: 'Done', text: 'Upgrade complete. A panel restart is absolutely required.', positive: 'Restart now').then () ->
+            messagebox.show(title: gettext('Done'), text: gettext('Upgrade complete. A panel restart is absolutely required.'), positive: gettext('Restart now')).then () ->
                 core.forceRestart()
         .error (err) ->
-            notify.error 'Upgrade failed', err.message
+            notify.error gettext('Upgrade failed'), err.message
         .finally () ->
             msg.close()
 
@@ -70,11 +70,11 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
             if $scope.coreUpgradeAvailable
                 $scope.upgradeCore()
             else
-                notify.success 'All plugins updated'
-                messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                notify.success gettext('All plugins updated')
+                messagebox.show(title: gettext('Done'), text: gettext('Installed. A panel restart is required.'), positive: gettext('Restart now'), negative: gettext('Later')).then () ->
                     core.forceRestart()
         .catch () ->
-            notify.error 'Some plugins failed to update'
+            notify.error gettext('Some plugins failed to update')
 
     $scope.upgradeAllPlugins = () ->
         q = $q.defer()
@@ -94,7 +94,7 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
             q.resolve()
             return q.promise
 
-        msg = messagebox.show progress: true, title: 'Updating plugins'
+        msg = messagebox.show progress: true, title: gettext('Updating plugins')
 
         $q.all(rqQs).then () ->
             $q.all(upgradeQs).then () ->
@@ -122,17 +122,17 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
         tasks.start('aj.plugins.plugins.tasks.InstallPlugin', [], name: plugin.name, version: plugin.version).then (data) ->
             data.promise.then () ->
                 $scope.refresh()
-                messagebox.show(title: 'Done', text: 'Installed. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                messagebox.show(title: gettext('Done'), text: gettext('Installed. A panel restart is required.'), positive: gettext('Restart now'), negative: gettext('Later')).then () ->
                     core.forceRestart()
                 return null
             .catch (e) ->
-                notify.error 'Install failed', e.error
+                notify.error gettext('Install failed'), e.error
             .finally () ->
                 msg.close()
 
     $scope.uninstallPlugin = (plugin) ->
         if plugin.name == 'plugins'
-            messagebox.show(title: 'Warning', text: 'This will remove the Plugins plugin. You can reinstall it later using PIP.', positive: 'Continue', negative: 'Cancel').then () ->
+            messagebox.show(title: gettext('Warning'), text: gettext('This will remove the Plugins plugin. You can reinstall it later using PIP.'), positive: gettext('Continue'), negative: gettext('Cancel')).then () ->
                 $scope.doUninstallPlugin(plugin)
         else
             $scope.doUninstallPlugin(plugin)
@@ -140,14 +140,14 @@ angular.module('ajenti.plugins').controller 'PluginsIndexController', ($scope, $
     $scope.doUninstallPlugin = (plugin) ->
         $scope.selectedRepoPlugin = null
         $scope.selectedInstalledPlugin = null
-        messagebox.show(title: 'Uninstall', text: "Uninstall #{plugin.name}?", positive: 'Uninstall', negative: 'Cancel').then () ->
-            msg = messagebox.show progress: true, title: 'Uninstalling'
+        messagebox.show(title: gettext('Uninstall'), text: gettext("Uninstall #{plugin.name}?"), positive: gettext('Uninstall'), negative: gettext('Cancel')).then () ->
+            msg = messagebox.show progress: true, title: gettext('Uninstalling')
             $http.get("/api/plugins/pypi/uninstall/#{plugin.name}").success () ->
                 $scope.refresh()
-                messagebox.show(title: 'Done', text: 'Uninstalled. A panel restart is required.', positive: 'Restart now', negative: 'Later').then () ->
+                messagebox.show(title: gettext('Done'), text: gettext('Uninstalled. A panel restart is required.'), positive: gettext('Restart now'), negative: gettext('Later')).then () ->
                     core.forceRestart()
             .error (err) ->
-                notify.error 'Uninstall failed', err.message
+                notify.error gettext('Uninstall failed'), err.message
             .finally () ->
                 msg.close()
 

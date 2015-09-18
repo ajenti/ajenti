@@ -5,7 +5,7 @@ from aj.plugins.dashboard.api import Widget
 @component(Widget)
 class ScriptWidget(Widget):
     id = 'script'
-    name = 'Script'
+    name = _('Script')
     template = '/terminal:resources/partial/widget.html'
     config_template = '/terminal:resources/partial/widget.config.html'
 

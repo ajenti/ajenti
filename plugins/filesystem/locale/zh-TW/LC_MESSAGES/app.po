@@ -1,16 +1,56 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:50+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Chinese Traditional\n"
+"Language: zh_TW\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: ajenti\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: zh-TW\n"
 "X-Crowdin-File: /2.0/filesystem.po\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
-"Language-Team: Chinese Traditional\n"
-"Language: zh_TW\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
 
+#: plugins/filesystem/resources/js/directives/fileDialog.html:29
+msgid "Cancel"
+msgstr ""
+
+#: plugins/filesystem/resources/js/directives/fileDialog.html:22
+msgid "File name"
+msgstr ""
+
+#: plugins/filesystem/resources/js/directives/fileDialog.html:28
+msgid "Save"
+msgstr ""
+
+#: plugins/filesystem/resources/js/directives/fileDialog.html:27
+msgid "Select this directory"
+msgstr ""
+
+#: plugins/filesystem/resources/js/directives/fileDialog.html:11
+msgid "Up one level"
+msgstr ""
+
+#: plugins/filesystem/tasks.py:8
+msgid "File transfer"
+msgstr ""
+
+#: plugins/filesystem/tasks.py:40
+msgid "Deleting"
+msgstr ""
+
+#: plugins/filesystem/main.py:12
+msgid "Read from the filesystem"
+msgstr ""
+
+#: plugins/filesystem/main.py:17
+msgid "Write to the filesystem"
+msgstr ""
+
+#: plugins/filesystem/resources/js/directives/fileDialog.coffee:34
+msgid "Could not load directory"
+msgstr ""

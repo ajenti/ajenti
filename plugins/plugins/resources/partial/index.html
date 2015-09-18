@@ -1,39 +1,39 @@
 <div root-access>
     <div ng:show="isAnythingUpgradeable()">
-        <h3>Updates</h3>
+        <h3 translate>Updates</h3>
 
         <a ng:click="upgradeEverything()" class="btn btn-primary btn-lg btn-block">
-            <i class="fa fa-arrow-up"></i> Update everything
+            <i class="fa fa-arrow-up"></i> <span translate>Update everything</span>
         </a>
     </div>
 
-    <h3>Core</h3>
+    <h3 translate>Core</h3>
 
     <div ng:show="!coreUpgradeAvailable">
         <div class="alert alert-info">
-            <i class="fa fa-info-circle"></i> Ajenti core {{ajentiVersion}}, no upgrades available.
+            <i class="fa fa-info-circle"></i> <span translate>Ajenti core {{ajentiVersion}}, no upgrades available.</span>
         </div>
     </div>
 
     <div ng:show="coreUpgradeAvailable">
         <div class="alert alert-warning">
-            <i class="fa fa-warning"></i> Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available.
+            <i class="fa fa-warning"></i> <span translate>Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available.</span>
         </div>
         <a ng:click="upgradeCore()" class="btn btn-primary">
-            <i class="fa fa-download"></i> Update
+            <i class="fa fa-download"></i> <span translate>Update</span>
         </a>
     </div>
 
-    <h3>Installed plugins</h3>
+    <h3 translate>Installed plugins</h3>
 
     <progress-spinner ng:show="installedPlugins == null"></progress-spinner>
 
     <div class="list-group">
         <div class="list-group-item list-group-item-small" ng:repeat="plugin in installedPlugins|orderBy:'title'">
-            <a ng:click="uninstallPlugin(plugin)" class="list-group-btn" title="Uninstall" ng:show="isUninstallable(plugin)">
+            <a ng:click="uninstallPlugin(plugin)" class="list-group-btn" title="{{'Uninstall'|translate}}" ng:show="isUninstallable(plugin)">
                 <i class="fa fa-trash-o"></i>
             </a>
-            <a ng:click="installPlugin(getUpgrade(plugin))" class="list-group-btn" title="Update" ng:show="getUpgrade(plugin)">
+            <a ng:click="installPlugin(getUpgrade(plugin))" class="list-group-btn" title="{{'Update'|translate}}" ng:show="getUpgrade(plugin)">
                 <i class="fa fa-arrow-up"></i>
             </a>
             <a ng:click="$parent.selectedInstalledPlugin = plugin" class="list-group-main">
@@ -41,26 +41,25 @@
                 &nbsp;
                 <span class="subtle">{{plugin.name}} {{plugin.version}}</span>
                 &nbsp;
-                <span class="label label-info" ng:show="getUpgrade(plugin)">Upgradeable to {{getUpgrade(plugin).version}}</span>
+                <span class="label label-info" ng:show="getUpgrade(plugin)" translate>Upgradeable to {{getUpgrade(plugin).version}}</span>
 
                 <span class="label label-danger" ng:show="plugin.crash">
-                    <i class="fa fa-warning"></i> Loading error
+                    <i class="fa fa-warning"></i> <span translate>Loading error</span>
                 </span>
             </a>
         </div>
     </div>
 
-
-    <h3>Available plugins</h3>
+    <h3 translate>Available plugins</h3>
 
     <progress-spinner ng:show="repoList == null"></progress-spinner>
 
     <div ng:show="repoList != null">
         <tabset class="no-padding">
-            <tab heading="Official">
+            <tab heading="{{'Official'|translate}}">
                 <div class="list-group">
                     <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListOfficial|orderBy:'title'">
-                        <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install" ng:show="!isInstalled(plugin)">
+                        <a ng:click="installPlugin(plugin)" class="list-group-btn" title="{{'Install'|translate}}" ng:show="!isInstalled(plugin)">
                             <i class="fa fa-download"></i>
                         </a>
                         <a ng:click="selectRepoPlugin(plugin)" class="list-group-main">
@@ -74,11 +73,11 @@
                     </div>
                 </div>
             </tab>
-            <tab heading="Community">
-                <input ng:model="filter" type="search" placeholder="Filter" class="form-control" />
+            <tab heading="{{'Community'|translate}}">
+                <input ng:model="filter" type="search" placeholder="{{'Filter'|translate}}" class="form-control" />
                 <div class="list-group">
                     <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListCommunity|filter:filter|orderBy:'title'">
-                        <a ng:click="installPlugin(plugin)" class="list-group-btn" title="Install" ng:show="!isInstalled(plugin)">
+                        <a ng:click="installPlugin(plugin)" class="list-group-btn" title="{{'Install'|translate}}" ng:show="!isInstalled(plugin)">
                             <i class="fa fa-download"></i>
                         </a>
                         <a ng:click="selectRepoPlugin(plugin)" class="list-group-main">
@@ -101,64 +100,64 @@
         </div>
         <div class="modal-body scrollable">
             <div class="form-group">
-                <label>Name</label>
+                <label translate>Name</label>
                 <div>
                     {{selectedInstalledPlugin.name}}
                 </div>
             </div>
             <div class="form-group" ng:show="selectedInstalledPlugin.crash">
-                <label>Error</label>
-                <div class="alert alert-warning" ng:show="selectedInstalledPlugin.crash.type == 'PluginDependency.Unsatisfied'">
+                <label translate>Error</label>
+                <div class="alert alert-warning" ng:show="selectedInstalledPlugin.crash.type == 'PluginDependency.Unsatisfied'" translate>
                     This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup.
                 </div>
-                <div class="alert alert-warning" ng:show="selectedInstalledPlugin.crash.type == 'BinaryDependency.Unsatisfied'">
+                <div class="alert alert-warning" ng:show="selectedInstalledPlugin.crash.type == 'BinaryDependency.Unsatisfied'" translate>
                     This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup.
                 </div>
                 <div class="alert alert-danger">
                     <div>
-                        <b>This plugin crashed with the following error:</b>
+                        <b translate>This plugin crashed with the following error:</b>
                     </div>
-                    <div>
+                    <div translate>
                         Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>
                     </div>
-                    <div>
+                    <div translate>
                         Message: <code>{{selectedInstalledPlugin.crash.message}}</code>
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label>Version</label>
+                <label translate>Version</label>
                 <div>
                     {{selectedInstalledPlugin.version}}
                 </div>
             </div>
             <div class="form-group">
-                <label>Location</label>
+                <label translate>Location</label>
                 <div>
                     {{selectedInstalledPlugin.path}}
                 </div>
             </div>
             <div class="form-group">
-                <label>Author</label>
+                <label translate>Author</label>
                 <div>
                     {{selectedInstalledPlugin.author}}
                     <div ng:show="selectedInstalledPlugin.author_email">
                         <span class="subtle">{{selectedInstalledPlugin.author_email}}</span>
                     </div>
                     <div ng:show="selectedInstalledPlugin.url">
-                        <a href="{{selectedInstalledPlugin.url}}" target="_blank">Homepage</a> <i class="fa fa-external-link-square"></i>
+                        <a href="{{selectedInstalledPlugin.url}}" target="_blank" translate>Homepage</a> <i class="fa fa-external-link-square"></i>
                     </div>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <a ng:click="installPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="getUpgrade(selectedInstalledPlugin)">
+            <a ng:click="installPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="getUpgrade(selectedInstalledPlugin)" translate>
                 Update
             </a>
-            <a ng:click="uninstallPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="pypiList && pypiList[selectedInstalledPlugin.name] && selectedInstalledPlugin.name != 'core'">
+            <a ng:click="uninstallPlugin(selectedInstalledPlugin)" class="btn btn-default btn-flat" ng:show="pypiList && pypiList[selectedInstalledPlugin.name] && selectedInstalledPlugin.name != 'core'" translate>
                 Uninstall
             </a>
-            <a ng:click="$parent.selectedInstalledPlugin = null" class="btn btn-default btn-flat">
+            <a ng:click="$parent.selectedInstalledPlugin = null" class="btn btn-default btn-flat" translate>
                 Close
             </a>
         </div>
@@ -170,13 +169,13 @@
         </div>
         <div class="modal-body scrollable">
             <div class="form-group">
-                <label>Name</label>
+                <label translate>Name</label>
                 <div>
                     {{selectedRepoPlugin.name}}
                 </div>
             </div>
             <div class="form-group">
-                <label>Version</label>
+                <label translate>Version</label>
                 <div>
                     {{selectedRepoPlugin.version}}
                 </div>
@@ -188,13 +187,13 @@
                 </div>
             </div>
             <div class="form-group">
-                <label>Downloads in the last month</label>
+                <label translate>Downloads in the last month</label>
                 <div>
                     {{selectedRepoPlugin.last_month_downloads}}
                 </div>
             </div>
             <div class="form-group">
-                <label>Author</label>
+                <label translate>Author</label>
                 <div>
                     {{selectedRepoPlugin.author}}
                     <div ng:show="selectedRepoPlugin.author_email">
@@ -207,10 +206,10 @@
             </div>
         </div>
         <div class="modal-footer">
-            <a ng:click="installPlugin(selectedRepoPlugin)" class="btn btn-default btn-flat">
+            <a ng:click="installPlugin(selectedRepoPlugin)" class="btn btn-default btn-flat" translate>
                 Install
             </a>
-            <a ng:click="$parent.selectedRepoPlugin = null" class="btn btn-default btn-flat">
+            <a ng:click="$parent.selectedRepoPlugin = null" class="btn btn-default btn-flat" translate>
                 Close
             </a>
         </div>
@@ -219,6 +218,6 @@
     <div class="floating-toolbar-padder"></div>
 
     <floating-toolbar>
-        <a ng:click="restart()" class="btn btn-default btn-flat">Restart panel</a>
+        <a ng:click="restart()" class="btn btn-default btn-flat" translate>Restart panel</a>
     </floating-toolbar>
 </div>

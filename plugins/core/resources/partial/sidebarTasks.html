@@ -4,12 +4,12 @@
             <div class="pull-left">
                 <progress-spinner></progress-spinner>
             </div>
-            <h5>{{task.name}}</h5>
+            <h5>{{task.name|translate}}</h5>
             <smart-progress
                 animate="true"
                 max="task.progress.total"
                 value="task.progress.done"
-                text="task.progress.message || '...'"
+                text="(task.progress.message|translate) || '...'"
             ></smart-progress>
         </div>
     </div>

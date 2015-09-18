@@ -1,4 +1,4 @@
-angular.module('ajenti.network').controller 'NetworkDNSController', ($scope, notify, augeas) ->
+angular.module('ajenti.network').controller 'NetworkDNSController', ($scope, notify, augeas, gettext) ->
     augeas.get('resolv').then (config) ->
         $scope.config = config
 
@@ -8,7 +8,7 @@ angular.module('ajenti.network').controller 'NetworkDNSController', ($scope, not
 
     $scope.save = () ->
         augeas.set('resolv', $scope.config).then () ->
-            notify.success 'Saved'
+            notify.success gettext('Saved')
         .catch (e) ->
-            notify.error 'Could not save', e.message
+            notify.error gettext('Could not save'), e.message
             

@@ -16,14 +16,15 @@ def ifconfig_get_up(iface):
     if subprocess.call(['ifconfig', iface]) != 0:
         return False
     return 'UP' in subprocess.check_output(['ifconfig', iface])
-    
+
+
 def ifconfig_up(iface):
     subprocess.check_call(['ifconfig', iface, 'up'])
     if subprocess.call(['which', 'ifup']) == 0:
         subprocess.check_call(['ifup', iface])
-    
+
+
 def ifconfig_down(iface):
     if subprocess.call(['which', 'ifdown']) == 0:
         subprocess.check_call(['ifdown', iface])
     subprocess.check_call(['ifconfig', iface, 'down'])
-    

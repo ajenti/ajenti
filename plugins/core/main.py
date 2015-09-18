@@ -14,35 +14,35 @@ class ItemProvider(SidebarItemProvider):
             {
                 'attach': None,
                 'id': 'category:general',
-                'name': 'General',
+                'name': _('General'),
                 'children': [
                 ]
             },
             {
                 'attach': None,
                 'id': 'category:tools',
-                'name': 'Tools',
+                'name': _('Tools'),
                 'children': [
                 ]
             },
             {
                 'attach': None,
                 'id': 'category:software',
-                'name': 'Software',
+                'name': _('Software'),
                 'children': [
                 ]
             },
             {
                 'attach': None,
                 'id': 'category:system',
-                'name': 'System',
+                'name': _('System'),
                 'children': [
                 ]
             },
             {
                 'attach': None,
                 'id': 'category:other',
-                'name': 'Other',
+                'name': _('Other'),
                 'children': [
                 ]
             },
@@ -65,12 +65,12 @@ class Permissions (PermissionProvider):
         return [
             {
                 'id': 'core:config:read',
-                'name': 'Read configuration file',
+                'name': _('Read configuration file'),
                 'default': True,
             },
             {
                 'id': 'core:config:write',
-                'name': 'Write configuration file',
+                'name': _('Write configuration file'),
                 'default': True,
             },
         ] + sidebar_perms

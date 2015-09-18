@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller 'FileManagerPropertiesController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, urlPrefix) -> 
+angular.module('ajenti.filemanager').controller 'FileManagerPropertiesController', ($scope, $routeParams, $location, notify, filesystem, pageTitle, urlPrefix, gettext) -> 
     pageTitle.set('path', $scope)
 
     $scope.permissionsDialogVisible = false
@@ -12,7 +12,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerPropertiesController
             for i in [0...modeBits.length]
                 $scope.mode[modeBits[i]] = !!($scope.info.mode & Math.pow(2, i))
         .catch (err) ->
-            notify.error 'Could not read file information', err
+            notify.error gettext('Could not read file information'), err
 
     $scope.hidePermissionsDialog = () ->
         $scope.permissionsDialogVisible = false
@@ -25,7 +25,7 @@ angular.module('ajenti.filemanager').controller 'FileManagerPropertiesController
             mode += if $scope.mode[modeBits[i]] then Math.pow(2, i) else 0
         
         filesystem.chmod($scope.path, mode).then () ->
-            notify.info 'Applied'
+            notify.info gettext('File mode saved')
             $scope.refresh()
 
     $scope.refresh()

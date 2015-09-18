@@ -1,5 +1,5 @@
-angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope, $routeParams, $location, notify, pageTitle, urlPrefix, packages, terminals) ->
-    pageTitle.set('Packages')
+angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope, $routeParams, $location, notify, pageTitle, urlPrefix, packages, terminals, gettext) ->
+    pageTitle.set(gettext('Packages'))
 
     $scope.managerId = $routeParams.managerId
     $scope.searchQuery = ''
@@ -14,14 +14,14 @@ angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope,
         packages.list($scope.managerId, $scope.searchQuery).then (data) ->
             $scope.results = data
         .catch (err) ->
-            notify.error 'Could not find packages', err.message
+            notify.error gettext('Could not find packages'), err.message
             $scope.results = []
 
     $scope.updateLists = () ->
         packages.updateLists($scope.managerId).then (data) ->
-            notify.info 'Package list update started'
+            notify.info gettext('Package list update started')
         .catch (err) ->
-            notify.error 'Package list update failed', err.message
+            notify.error gettext('Package list update failed'), err.message
 
     $scope.mark = (pkg, op) ->
         for sel in $scope.selection
@@ -54,4 +54,4 @@ angular.module('ajenti.packages').controller 'PackagesIndexController', ($scope,
             terminals.create(command: cmd, autoclose: true).then (id) ->
                 $location.path("#{urlPrefix}/view/terminal/#{id}")
         .catch () ->
-            notify.error 'Could not apply changes'
+            notify.error gettext('Could not apply changes')

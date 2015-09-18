@@ -1,16 +1,60 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 15:50+0200\n"
+"PO-Revision-Date: 2015-09-17 05:55-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Norwegian\n"
+"Language: no_NO\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: ajenti\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: no\n"
 "X-Crowdin-File: /2.0/notepad.po\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
-"Language-Team: Norwegian\n"
-"Language: no_NO\n"
-"PO-Revision-Date: 2015-09-11 17:35-0400\n"
 
+#: plugins/notepad/resources/partial/index.html:31
+msgid "Bookmark this"
+msgstr ""
+
+#: plugins/notepad/resources/partial/index.html:36
+msgid "Bookmarks"
+msgstr ""
+
+#: plugins/notepad/resources/partial/index.html:48
+msgid "New"
+msgstr ""
+
+#: plugins/notepad/resources/partial/index.html:49
+msgid "Open"
+msgstr ""
+
+#: plugins/notepad/resources/partial/index.html:50
+msgid "Save"
+msgstr ""
+
+#: plugins/notepad/resources/partial/index.html:51
+msgid "Save As..."
+msgstr ""
+
+#: plugins/notepad/resources/partial/index.html:27
+msgid "Tab"
+msgstr ""
+
+#: plugins/notepad/main.py:15
+msgid "Notepad"
+msgstr ""
+
+#: plugins/notepad/resources/js/controllers/index.controller.coffee:6
+msgid "Current file will be closed. Continue?"
+msgstr ""
+
+#: plugins/notepad/resources/js/controllers/index.controller.coffee:28
+msgid "Could not open the file"
+msgstr ""
+
+#: plugins/notepad/resources/js/controllers/index.controller.coffee:44
+msgid "Could not save the file"
+msgstr ""

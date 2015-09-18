@@ -1,5 +1,5 @@
-angular.module('ajenti.services').controller 'ServicesIndexController', ($scope, $routeParams, notify, pageTitle, services) ->
-    pageTitle.set('Services')
+angular.module('ajenti.services').controller 'ServicesIndexController', ($scope, $routeParams, notify, pageTitle, services, gettext) ->
+    pageTitle.set(gettext('Services'))
 
     $scope.services = []
 
@@ -17,6 +17,6 @@ angular.module('ajenti.services').controller 'ServicesIndexController', ($scope,
         services.runOperation(service, operation).then () ->
             services.getService(service.managerId, service.id).then (data) ->
                 angular.copy(data, service)
-                notify.success 'Done'
+                notify.success gettext('Done')
         .catch (err) ->
-            notify.error 'Service operation failed', err.message
+            notify.error gettext('Service operation failed'), err.message

@@ -6,7 +6,7 @@ from aj.plugins.services.api import ServiceManager
 @component(Widget)
 class ServiceWidget(Widget):
     id = 'service'
-    name = 'Service'
+    name = _('Service')
     template = '/services:resources/partial/widget.html'
     config_template = '/services:resources/partial/widget.config.html'
 

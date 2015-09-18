@@ -35,7 +35,7 @@
                     <i class="fa fa-navicon"></i>
                 </a>
 
-                <a class="navbar-brand" ng:href="{{urlPrefix}}/view/" ng:if="customization.plugins.core.logoURL" >
+                <a class="navbar-brand" ng:href="{{urlPrefix}}/view/" ng:if="customization.plugins.core.logoURL">
                     <img ng:src="{{customization.plugins.core.logoURL}}" />
                 </a>
 
@@ -43,7 +43,7 @@
                 <a class="navbar-brand ellipsis" ng:href="{{urlPrefix}}/view/">
                     <span class="title">
                         {{customization.plugins.core.title || 'Ajenti'}}
-                    </span> <span class="subtitle hide-phone hide-tablet">{{pageTitle}}</span>
+                    </span> <span class="subtitle hide-phone hide-tablet">{{pageTitle|translate}}</span>
                 </a>
 
                 <a ng:click="toggleWidescreen()" class="hide-phone hide-tablet navbar-btn btn btn-default btn-flat pull-right">
@@ -74,12 +74,12 @@
                             </li>
                             <li>
                                 <a ng:click="identity.elevate()" ng:show="identity.effective != 0 && identity.elevation_allowed">
-                                    <i class="fa fa-fw fa-angle-double-up"></i> Elevate
+                                    <i class="fa fa-fw fa-angle-double-up"></i> <span translate>Elevate</span>
                                 </a>
                             </li>
                             <li>
                                 <a ng:click="identity.logout()">
-                                    <i class="fa fa-fw fa-power-off"></i> Log out
+                                    <i class="fa fa-fw fa-power-off"></i> <span translate>Log out</span>
                                 </a>
                             </li>
                         </ul>
@@ -115,12 +115,12 @@
         <div ng:controller="CoreNavboxController" ng:cloak>
             <div class="navbox-overlay" ng:if="visible">
                 <div class="navbox-box">
-                    <input ng:model="$parent.query" ng:model-options="{debounce: 500}" ng:keyup="onSearchboxKeyUp($event)" ng:keydown="onSearchboxKeyDown($event)" type="search" autofocus class="form-control" placeholder="Quick search" />
+                    <input ng:model="$parent.query" ng:model-options="{debounce: 500}" ng:keyup="onSearchboxKeyUp($event)" ng:keydown="onSearchboxKeyDown($event)" type="search" autofocus class="form-control" placeholder="{{'Quick search'|translate}}" />
                     <div class="list-group">
-                        <a ng:repeat="result in results|rankMatch:'title':query" ng:href="{{urlPrefix}}{{result.url}}" ng:click="open(result)" class="list-group-item">
+                        <a ng:repeat="result in results|rankMatch:'title|translate':query" ng:href="{{urlPrefix}}{{result.url}}" ng:click="open(result)" class="list-group-item">
                             <code class="navbox-hotkey pull-right" ng:if="$index < 10 && $index > 0">Shift - {{$index}}</code>
-                            <code class="navbox-hotkey pull-right" ng:if="$index == 0">Enter</code>
-                            <i class="fa fa-fw fa-{{result.icon}}"></i> {{result.title}}
+                            <code class="navbox-hotkey pull-right" ng:if="$index == 0" translate>Enter</code>
+                            <i class="fa fa-fw fa-{{result.icon}}"></i> {{result.title|translate}}
                         </a>
                     </div>
                 </div>
@@ -136,10 +136,10 @@
                 <span class="header">
                     <i class="fa fa-warning"></i>
                 </span>
-                <h1>
+                <h1 translate>
                     A bootstrap error has occured
                 </h1>
-                <div>
+                <div translate>
                     Please see browser console
                 </div>
                 <div>

@@ -37,6 +37,18 @@ class ResourcesHandler(HttpPlugin):
                 content = '''
                     window.__ngModules = %s;
                 ''' % json.dumps(ng_modules)
+            if type == 'locale.js':
+                lang = http_context.query.get('lang', None)
+                if lang:
+                    js_locale = {}
+                    for plugin in self.mgr:
+                        locale_dir = self.mgr.get_content_path(plugin, 'locale')
+                        js_path = os.path.join(locale_dir, lang, 'LC_MESSAGES', 'app.js')
+                        if os.path.exists(js_path):
+                            js_locale.update(json.load(open(js_path)))
+                    content = json.dumps(js_locale)
+                else:
+                    content = ''
             if type == 'partials.js':
                 content = '''
                     angular.module("core.templates", []);
@@ -65,6 +77,7 @@ class ResourcesHandler(HttpPlugin):
             'css': 'text/css',
             'js': 'application/javascript; charset=utf-8',
             'init.js': 'application/javascript; charset=utf-8',
+            'locale.js': 'application/javascript; charset=utf-8',
             'partials.js': 'application/javascript; charset=utf-8',
         }[type])
         http_context.respond_ok()

@@ -1,10 +1,10 @@
-<a class="widget-btn config-btn btn btn-default" ng:click="configureWidget(widget)" ng:show="widgetTypes[widget.typeId].config_template">
+<a class="widget-btn config-btn btn btn-default" ng:click="configureWidget(widget)" ng:show="widgetTypes[widget.typeId].config_template" title="{{'Configure'|translate}}">
     <i class="fa fa-fw fa-wrench"></i>
 </a>
 <a class="widget-btn move-btn btn btn-default" sv:handle>
     <i class="fa fa-fw fa-arrows"></i>
 </a>
-<a class="widget-btn remove-btn btn btn-default" ng:click="removeWidget(widget)">
+<a class="widget-btn remove-btn btn btn-default" ng:click="removeWidget(widget)" title="{{'Remove'|translate}}">
     <i class="fa fa-fw fa-trash-o"></i>
 </a>
 <ng:include src="widgetTypes[widget.typeId].template" />

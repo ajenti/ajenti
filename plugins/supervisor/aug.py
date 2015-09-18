@@ -27,4 +27,3 @@ class SupervisorEndpoint(AugeasEndpoint):
 
     def get_root_path(self):
         return '/files' + self.path
-

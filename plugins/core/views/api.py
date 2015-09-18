@@ -8,6 +8,7 @@ from jadi import component
 import aj
 from aj.api.http import url, HttpPlugin
 from aj.auth import AuthenticationService, SudoError
+from aj.plugins import PluginManager
 
 from aj.api.endpoint import endpoint
 from aj.plugins.core.api.sidebar import Sidebar
@@ -89,7 +90,7 @@ class Handler(HttpPlugin):
                     gevent.sleep(3)
                     return {
                         'success': False,
-                        'error': 'Authorization failed',
+                        'error': _('Authorization failed'),
                     }
             except SudoError as e:
                 gevent.sleep(3)
@@ -113,7 +114,7 @@ class Handler(HttpPlugin):
                 traceback.print_exc()
                 return {
                     'success': False,
-                    'error': 'Could not authenticate with Mozilla Persona: %s' % str(e),
+                    'error': _('Could not authenticate with Mozilla Persona: %s') % str(e),
                 }
 
             emails = aj.config.data['auth']['emails']
@@ -127,7 +128,7 @@ class Handler(HttpPlugin):
             else:
                 return {
                     'success': False,
-                    'error': 'Unrecognized e-mail',
+                    'error': _('Unrecognized e-mail'),
                 }
 
         return {
@@ -156,3 +157,15 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_restart_master(self, http_context):
         self.context.worker.restart_master()
+
+    @url('/api/core/languages')
+    @endpoint(api=True)
+    def handle_api_languages(self, http_context):
+        mgr = PluginManager.get(aj.context)
+        languages = set()
+        for id in mgr:
+            for lang in os.listdir(mgr.get_content_path(id, 'locale')):
+                if lang != 'app.pot':
+                    languages.add(lang)
+
+        return sorted(list(languages))
