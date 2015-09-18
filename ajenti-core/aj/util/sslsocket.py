@@ -7,6 +7,7 @@ import StringIO
 import select
 import socket
 import sys
+import threading
 
 
 class SSLSocket(object):
@@ -16,6 +17,7 @@ class SSLSocket(object):
         self._connection = OpenSSL.SSL.Connection(context, sock)
         self._connection.set_accept_state()
         self._makefile_refs = 0
+        self.__send_lock = threading.Lock()
 
     def __getattr__(self, attr):
         if attr == '_sock':
@@ -52,22 +54,17 @@ class SSLSocket(object):
         return self.__iowait(self._connection.connect, *args, **kwargs)
 
     def sendall(self, data, flags=0):
-        io = StringIO.StringIO()
-        io.write(data)
-        buffer = io.getvalue()
-
-        try:
-            return self.__iowait(self._connection.sendall, buffer, flags)
-        except OpenSSL.SSL.SysCallError as e:
-            if e[0] == -1 and not data:
-                # errors when writing empty strings are expected and can be ignored
-                return 0
-            raise
+        n = 0
+        while n < len(data):
+            n += self.send(data[n:], flags=flags)
+        return n
 
     def send(self, data, flags=0):
         io = StringIO.StringIO()
         io.write(data)
         buffer = io.getvalue()
+
+        self.__send_lock.acquire()
 
         try:
             return self.__iowait(self._connection.send, buffer, flags)
@@ -76,6 +73,8 @@ class SSLSocket(object):
                 # errors when writing empty strings are expected and can be ignored
                 return 0
             raise
+        finally:
+            self.__send_lock.release()
 
     def recv(self, bufsiz, flags=0):
         pending = self._connection.pending()
