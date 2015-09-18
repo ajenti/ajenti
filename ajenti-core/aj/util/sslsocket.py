@@ -3,6 +3,7 @@ Heavily based on https://github.com/Eugeny/gevent_openssl/blob/master/gevent_ope
 """
 
 import OpenSSL.SSL
+import StringIO
 import select
 import socket
 import sys
@@ -51,8 +52,12 @@ class SSLSocket(object):
         return self.__iowait(self._connection.connect, *args, **kwargs)
 
     def sendall(self, data, flags=0):
+        io = StringIO.StringIO()
+        io.write(data)
+        buffer = io.getvalue()
+
         try:
-            return self.__iowait(self._connection.sendall, data, flags)
+            return self.__iowait(self._connection.sendall, buffer, flags)
         except OpenSSL.SSL.SysCallError as e:
             if e[0] == -1 and not data:
                 # errors when writing empty strings are expected and can be ignored
@@ -60,8 +65,12 @@ class SSLSocket(object):
             raise
 
     def send(self, data, flags=0):
+        io = StringIO.StringIO()
+        io.write(data)
+        buffer = io.getvalue()
+
         try:
-            return self.__iowait(self._connection.send, data, flags)
+            return self.__iowait(self._connection.send, buffer, flags)
         except OpenSSL.SSL.SysCallError as e:
             if e[0] == -1 and not data:
                 # errors when writing empty strings are expected and can be ignored
