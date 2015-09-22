@@ -13,7 +13,9 @@
             <textbox bind="[new_group]" />
         </formline>
         <formline text="{Isolated user subfolders}">
-            <checkbox bind="[isolate]" text="{Enable}" />
+            <tooltip text="{Subfolders of the topmost directory will be created and set for every user.}">
+                <checkbox bind="[isolate]" text="{Enable}" />
+            </tooltip>
         </formline>
     </vc>
 </box>
