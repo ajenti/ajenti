@@ -12,5 +12,8 @@
         <formline text="{Group for new files}">
             <textbox bind="[new_group]" />
         </formline>
+        <formline text="{Isolated user subfolders}">
+            <checkbox bind="[isolate]" text="{Enable}" />
+        </formline>
     </vc>
 </box>
