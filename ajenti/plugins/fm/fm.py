@@ -30,6 +30,29 @@ class FileManager (SectionPlugin):
     classconfig_root = True
 
     def init(self):
+
+        _username = self.context.user.name
+
+        # Set config per user if isolate is enabled
+        if self.classconfig['isolate'] and _username != 'root':
+            self.classconfig_root = False
+            # Set root and start dir
+            rootpath = os.path.join(self.classconfig['root'], _username)
+            self.classconfig['root'] = rootpath
+            self.classconfig['start'] = rootpath
+
+            # Check if dir exists and if not create
+            if not os.path.isdir(rootpath):
+                # Check if it exists as file and rename
+                if os.path.isfile(rootpath):
+                    _newpath = rootpath.split('/')
+                    _newpath[-1] = '.' + _newpath[-1] + '.bak'
+                    _newpath = '/'.join(_newpath)
+                    os.rename(rootpath, _newpath)
+
+                os.makedirs(rootpath, 0775)
+                self._chown_new(rootpath)
+
         self.title = _('File Manager')
         self.category = _('Tools')
         self.icon = 'folder-open'
