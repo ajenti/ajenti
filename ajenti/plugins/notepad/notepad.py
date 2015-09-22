@@ -28,6 +28,20 @@ class Notepad (SectionPlugin):
     SIZE_LIMIT = 1024 * 1024 * 5
 
     def init(self):
+
+        _username = self.context.user.name
+
+        # Set config per user if isolate is enabled
+        if self.classconfig['isolate'] and _username != 'root':
+            self.classconfig_root = False
+            # Set root dir
+            rootpath = os.path.join(self.classconfig['root'], _username)
+            self.classconfig['root'] = rootpath
+
+            # Check if dir exists and set rootpath
+            if not os.path.isdir(rootpath):
+                self.classconfig['root'] = rootpath
+
         self.title = _('Notepad')
         self.icon = 'edit'
         self.category = _('Tools')
