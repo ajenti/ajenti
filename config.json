@@ -2,7 +2,7 @@
     "users": {
         "root": {
             "configs": {
-                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [], \"root\": \"/\"}", 
+                "ajenti.plugins.notepad.notepad.Notepad": "{\"bookmarks\": [], \"root\": \"/\", \"isolate\": false}", 
                 "ajenti.plugins.terminal.main.Terminals": "{\"shell\": \"sh -c $SHELL || sh\"}", 
                 "ajenti.plugins.elements.ipmap.ElementsIPMapper": "{\"users\": {}}", 
                 "ajenti.plugins.munin.client.MuninClient": "{\"username\": \"username\", \"prefix\": \"http://localhost:8080/munin\", \"password\": \"123\"}", 
@@ -11,7 +11,7 @@
                 "ajenti.plugins.ajenti_org.main.AjentiOrgReporter": "{\"key\": null}", 
                 "ajenti.users.UserManager": "{\"sync-provider\": \"\"}", 
                 "ajenti.plugins.mysql.api.MySQLDB": "{\"password\": \"\", \"user\": \"root\", \"hostname\": \"localhost\"}", 
-                "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/\"}", 
+                "ajenti.plugins.fm.fm.FileManager": "{\"root\": \"/\", \"isolate\": false}", 
                 "ajenti.plugins.tasks.manager.TaskManager": "{\"task_definitions\": []}", 
                 "ajenti.usersync.adsync.ActiveDirectorySyncProvider": "{\"domain\": \"DOMAIN\", \"password\": \"\", \"user\": \"Administrator\", \"base\": \"cn=Users,dc=DOMAIN\", \"address\": \"localhost\"}", 
                 "ajenti.plugins.elements.usermgr.ElementsUserManager": "{\"groups\": []}", 
