@@ -170,6 +170,9 @@ class FMBackend (BasePlugin):
 
 @interface
 class Unpacker (BasePlugin):
+    ext = None
+    command = None
+    
     @staticmethod
     def find(fn):
         for u in Unpacker.get_all():
@@ -177,25 +180,22 @@ class Unpacker (BasePlugin):
                 return u
 
     def match(self, fn):
-        pass
+        return any(re.match(x, fn) for x in self.ext)
 
-    def unpack(self, path, cb=lambda: None):
-        pass
+    def unpack(self, fn, cb=lambda: None):
+        self.context.launch('terminal',
+                            command='cd "{0}"; {2} "{1}"'.format(
+                                *(os.path.split(fn) + (self.command,))
+                            ), callback=cb)
 
 
 @plugin
 class TarUnpacker (Unpacker):
-    def match(self, fn):
-        return any(re.match(x, fn) for x in [r'.+\.tar.gz', r'.+\.tgz', r'.+\.tar'])
-
-    def unpack(self, fn, cb=lambda: None):
-        self.context.launch('terminal', command='cd "%s"; tar xvf "%s"' % os.path.split(fn), callback=cb)
+    ext = [r'.+\.tar.gz', r'.+\.tgz', r'.+\.tar']
+    command = 'tar xvf'
 
 
 @plugin
 class ZipUnpacker (Unpacker):
-    def match(self, fn):
-        return any(re.match(x, fn) for x in [r'.+\.zip'])
-
-    def unpack(self, fn, cb=lambda: None):
-        self.context.launch('terminal', command='cd "%s"; unzip "%s"' % os.path.split(fn), callback=cb)
+    ext = [r'.+\.zip']
+    command = 'unzip'
