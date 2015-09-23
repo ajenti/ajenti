@@ -12,7 +12,7 @@ class ItemProvider (SidebarItemProvider):
         return [
             {
                 'attach': 'category:general',
-                'name': 'Dashboard',
+                'name': _('Dashboard'),
                 'icon': 'bar-chart',
                 'url': '/view/dashboard',
                 'children': [
