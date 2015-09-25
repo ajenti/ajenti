@@ -191,7 +191,8 @@ class Unpacker (BasePlugin):
 
 @plugin
 class TarUnpacker (Unpacker):
-    ext = [r'.+\.tar.gz', r'.+\.tgz', r'.+\.tar']
+    ext = [r'.+\.tar.gz', r'.+\.tgz', r'.+\.tar', r'.+\.tar.bz2',
+           r'.+\.tbz2']
     command = 'tar xvf'
 
 
@@ -199,3 +200,8 @@ class TarUnpacker (Unpacker):
 class ZipUnpacker (Unpacker):
     ext = [r'.+\.zip']
     command = 'unzip'
+
+@plugin
+class RarUnpacker(Unpacker):
+    ext = [r'.+\.rar']
+    command = 'unrar x'
