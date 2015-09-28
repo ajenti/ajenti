@@ -1,11 +1,13 @@
 from functools import wraps
 import json
 import logging
+import six
 import traceback
 
 from aj.auth import SecurityError
 
 
+@six.python_2_unicode_compatible
 class EndpointError(Exception):
     """
     To be raised by endpoints when a foreseen error occurs.
@@ -17,16 +19,17 @@ class EndpointError(Exception):
     def __init__(self, inner, message=None):
         Exception.__init__(self)
         self.inner = inner
-        self.message = message or unicode(inner)
+        self.message = message or six.u(inner)
         try:
             self.traceback_str = traceback.format_exc()
         except:
             self.traceback_str = None
 
-    def __unicode__(self):
+    def __str__(self):
         return self.message
 
 
+@six.python_2_unicode_compatible
 class EndpointReturn(Exception):
     """
     Raising ``EndpointReturn`` will return a custom HTTP code in the API endpoints.
@@ -39,7 +42,7 @@ class EndpointReturn(Exception):
         self.code = code
         self.data = data
 
-    def __unicode__(self):
+    def __str__(self):
         return '[EndpointReturn: %s]' % self.code
 
 
@@ -81,9 +84,9 @@ def endpoint(page=False, api=False, file=False, auth=True):
                     raise
                 status = 500
                 result = {
-                    'message': unicode(e.message),
-                    'exception': unicode(e.__class__.__name__),
-                    'traceback': unicode(getattr(e, 'traceback_str', '')),
+                    'message': str(e.message),
+                    'exception': str(e.__class__.__name__),
+                    'traceback': str(getattr(e, 'traceback_str', '')),
                 }
             # pylint: disable=W0703
             except Exception as e:
@@ -93,9 +96,9 @@ def endpoint(page=False, api=False, file=False, auth=True):
                     raise
                 status = 500
                 result = {
-                    'message': unicode(e),
-                    'exception': unicode(e.__class__.__name__),
-                    'traceback': unicode(traceback.format_exc()),
+                    'message': str(e),
+                    'exception': str(e.__class__.__name__),
+                    'traceback': str(traceback.format_exc()),
                 }
 
             if api:

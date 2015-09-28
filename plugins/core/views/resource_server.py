@@ -81,7 +81,7 @@ class ResourcesHandler(HttpPlugin):
             'partials.js': 'application/javascript; charset=utf-8',
         }[type])
         http_context.respond_ok()
-        return http_context.gzip(content=content)
+        return http_context.gzip(content=content.encode('utf-8'))
 
     @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
     @endpoint(page=True, auth=False)

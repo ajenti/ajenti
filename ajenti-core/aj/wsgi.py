@@ -1,4 +1,5 @@
 from socketio.handler import SocketIOHandler
+import six
 
 import aj
 from aj.util.sslsocket import SSLSocket
@@ -33,5 +34,5 @@ class RequestHandler(SocketIOHandler):
         return response
 
     def _sendall(self, data):
-        data = str(data) if data else data
+        data = six.binary_type(data) if data else data
         return SocketIOHandler._sendall(self, data)

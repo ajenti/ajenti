@@ -1,15 +1,17 @@
-import api
-import managers.systemd_manager
+# pyflakes: disable-all
+from .api import *
+from .managers.systemd_manager import *
 
 try:
-    import managers.upstart_manager
+    from .managers.upstart_manager import *
 except ImportError:
     pass
 
-import managers.sysv_manager
-import main
-import views
+from .managers.sysv_manager import *
+from .main import *
+from .views import *
+
 
 def init(plugin_manager):
     if 'dashboard' in plugin_manager and plugin_manager['dashboard']['imported']:
-        import widget
+        from .widget import ServiceWidget

@@ -1,16 +1,17 @@
-import api
-import main
-import views
-import tasks
+# pyflakes: disable-all
+from .api import *
+from .main import *
+from .views import *
+from .tasks import *
 
 try:
-    import managers.apt_manager
+    from .managers.apt_manager import *
 except ImportError:
     pass
 
 try:
-    import managers.yum_manager
+    from .managers.yum_manager import *
 except ImportError:
     pass
 
-import managers.pip_manager
+from .managers.pip_manager import *

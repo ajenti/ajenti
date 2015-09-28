@@ -1,1 +1,2 @@
-import views
+# pyflakes: disable-all
+from .views import *

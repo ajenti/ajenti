@@ -81,7 +81,7 @@ class Augeas(augeas.Augeas):
         Dumps contents under `path` to stdout.
         """
         for sp in self.match(path + '/*'):
-            print sp, '=', self.get(sp)
+            print(sp, '=', self.get(sp))
 
 
 @interface

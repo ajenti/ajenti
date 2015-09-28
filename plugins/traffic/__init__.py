@@ -1,2 +1,3 @@
-import views
-import widget
+# pyflakes: disable-all
+from .views import *
+from .widget import *

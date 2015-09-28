@@ -1,10 +1,12 @@
 from datetime import datetime
-from StringIO import StringIO
+from six import BytesIO
 import cgi
 import gevent
 import gzip
+import json
 import math
 import os
+import six
 
 from aj.api.http import BaseHttpHandler
 
@@ -143,14 +145,17 @@ class HttpContext(object):
         if self.cgi_query:
             self.query = dict((k, self.cgi_query[k].value) for k in self.cgi_query)
 
+    def json_body(self):
+        return json.loads(self.body.decode('utf-8'))
+
     def dump_env(self):
-        print '\n'.join('%s = %s' % (x, self.env[x]) for x in sorted(list(self.env)))
+        print('\n'.join('%s = %s' % (x, self.env[x]) for x in sorted(list(self.env))))
 
     def get_cleaned_env(self):
         env = self.env.copy()
         for k in list(env):
             # pylint: disable=W1504
-            if type(env[k]) not in [str, unicode, list, dict, bool, type(None), int]:
+            if type(env[k]) not in (six.text_type, six.binary_type, list, dict, bool, type(None), int):
                 del env[k]
         return env
 
@@ -216,8 +221,8 @@ class HttpContext(object):
         if isinstance(status, int):
             status = '%s ' % status
         self.start_response(
-            status.encode('utf-8'),
-            [(x.encode('utf-8'), y.encode('utf-8')) for x, y in self.headers]
+            str(status),
+            [(str(x), str(y)) for x, y in self.headers]
         )
 
     def respond(self, status):
@@ -275,7 +280,7 @@ class HttpContext(object):
         :type  compression: int
         :rtype: str
         """
-        io = StringIO()
+        io = BytesIO()
         gz = gzip.GzipFile('', 'wb', compression, io)
         gz.write(content)
         gz.close()
@@ -368,4 +373,6 @@ class HttpContext(object):
                     break
             os.close(fd)
         else:
-            yield self.gzip(open(path).read())
+            content = open(path).read()
+            print (type(content))
+            yield self.gzip(content)

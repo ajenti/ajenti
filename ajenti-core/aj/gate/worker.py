@@ -228,4 +228,4 @@ class WorkerError(Exception):
         self.response = response
 
     def __str__(self):
-        return json.dumps(self.response)
+        return json.dumps(self.response)[:1000]

@@ -33,7 +33,7 @@ angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socke
             return
         $rootScope.socketConnectionLost = true
         $rootScope.$broadcast 'socket-event:disconnect'
-        $log.error('Socket has disconnect', e)
+        $log.error('Socket has disconnected', e)
 
     @socket.on 'error', (e) ->
         $rootScope.socketConnectionLost = true

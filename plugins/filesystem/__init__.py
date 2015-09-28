@@ -1,3 +1,4 @@
-import main
-import tasks
-import views
+# pyflakes: disable-all
+from .main import *
+from .tasks import *
+from .views import *

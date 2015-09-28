@@ -23,7 +23,7 @@ class ItemProvider(SidebarItemProvider):
 
 
 @component(PermissionProvider)
-class Permissions (PermissionProvider):
+class Permissions(PermissionProvider):
     def provide(self):
         return [
             {

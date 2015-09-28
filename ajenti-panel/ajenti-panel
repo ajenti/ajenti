@@ -2,7 +2,7 @@
 import getopt
 import logging
 import os
-import stat
+import six
 import sys
 import yaml
 
@@ -14,18 +14,19 @@ import aj.log
 import aj.plugins
 
 
+@six.python_2_unicode_compatible
 class AjentiConfig(aj.config.BaseConfig):
     def __init__(self, path):
         aj.config.BaseConfig.__init__(self)
         self.data = None
         self.path = os.path.abspath(path)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.path
 
     def load(self):
         if os.geteuid() == 0:
-            os.chmod(self.path, 0600)
+            os.chmod(self.path, 384)  # 0o600
         self.data = yaml.load(open(self.path))
 
     def save(self):
@@ -34,7 +35,7 @@ class AjentiConfig(aj.config.BaseConfig):
 
 
 def usage():
-    print """
+    print("""
 Usage: %s [options]
 Options:
     -c, --config <file> - Use given config file instead of default
@@ -45,7 +46,7 @@ Options:
     --plugins <dir>     - Load plugins from a directory
     --autologin         - Log in automatically as the running user
     -h, --help          - This help
-    """ % sys.argv[0]
+    """ % sys.argv[0])
 
 
 if __name__ == '__main__':
@@ -64,7 +65,7 @@ if __name__ == '__main__':
             ['help', 'config=', 'daemon', 'dev', 'stock-plugins', 'plugins=', 'autologin']
         )
     except getopt.GetoptError as e:
-        print str(e)
+        print(str(e))
         usage()
         sys.exit(2)
 

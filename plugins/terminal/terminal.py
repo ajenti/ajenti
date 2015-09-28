@@ -62,7 +62,8 @@ class Terminal(object):
         fl = fcntl.fcntl(self.fd, fcntl.F_GETFL)
         fcntl.fcntl(self.fd, fcntl.F_SETFL, fl | os.O_NONBLOCK)
 
-        self.stream = os.fdopen(self.fd, 'r+')
+        self.stream_in = os.fdopen(self.fd, 'rb', 0)
+        self.stream_out = os.fdopen(self.fd, 'wb', 0)
         self.pyte_stream = pyte.Stream()
         self.screen = pyte.DiffScreen(self.width, self.height)
         self.pyte_stream.attach(self.screen)
@@ -81,14 +82,13 @@ class Terminal(object):
 
     def run_single_read(self):
         try:
-            data = self.stream.read()
+            data = self.stream_in.read()
         except IOError:
             data = ''
 
         if data:
             try:
-                u = data.decode('utf-8')
-                self.pyte_stream.feed(u)
+                self.pyte_stream.feed(data.decode('utf-8'))
                 self.broadcast_update()
             except UnicodeDecodeError:
                 pass
@@ -166,8 +166,8 @@ class Terminal(object):
 
     def feed(self, data):
         wait_write(self.fd)
-        self.stream.write(data)
-        self.stream.flush()
+        self.stream_out.write(data.encode('utf-8'))
+        self.stream_out.flush()
 
     def resize(self, w, h):
         if self.dead:

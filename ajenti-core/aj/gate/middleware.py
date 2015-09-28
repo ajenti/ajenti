@@ -3,6 +3,7 @@ import logging
 import os
 import pwd
 import random
+import six
 import socketio
 import time
 from cookies import Cookies
@@ -60,6 +61,8 @@ class SocketIONamespace(BaseNamespace, BroadcastMixin):
             self._send_worker_event('connect')
 
     def recv_disconnect(self):
+        import traceback
+        traceback.print_stack()
         logging.debug('Socket %s disconnected', id(self))
         self._send_worker_event('disconnect')
         self.disconnect(silent=True)
@@ -79,9 +82,9 @@ class SocketIORouteHandler(BaseHttpHandler):
         }
 
     def handle(self, context):
-        return str(socketio.socketio_manage(
+        return six.binary_type(socketio.socketio_manage(
             context.env, self.namespaces, context
-        ))
+        ) or b'')
 
 
 @service
@@ -102,7 +105,7 @@ class GateMiddleware(object):
         h += env.get('REMOTE_ADDR', '')
         h += env.get('HTTP_USER_AGENT', '')
         h += env.get('HTTP_HOST', '')
-        return hashlib.sha1(h).hexdigest()
+        return hashlib.sha1(h.encode('utf-8')).hexdigest()
 
     def vacuum(self):
         """
@@ -234,7 +237,7 @@ class GateMiddleware(object):
         )
 
         for index, item in enumerate(content):
-            if isinstance(item, unicode):
+            if isinstance(item, six.text_type):
                 content[index] = item.encode('utf-8')
 
         return content

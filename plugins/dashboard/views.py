@@ -28,7 +28,7 @@ class Handler(HttpPlugin):
     @url(r'/api/dashboard/get-values')
     @endpoint(api=True)
     def handle_api_get_values(self, http_context):
-        data = json.loads(http_context.body)
+        data = http_context.json_body()
         return [
             {
                 'id': rq['id'],

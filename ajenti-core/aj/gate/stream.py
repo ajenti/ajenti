@@ -1,12 +1,13 @@
-import gevent.socket
 from gevent.lock import RLock
+import binascii
+import gevent.socket
 import os
 import logging
 
 
 class GateStreamRequest(object):
     def __init__(self, obj, endpoint):
-        self.id = os.urandom(32).encode('hex')
+        self.id = binascii.hexlify(os.urandom(32))
         self.object = obj
         self.endpoint = endpoint
 

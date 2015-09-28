@@ -1,7 +1,8 @@
-import main
-import views.api
-import views.config
-import views.main
-import views.resource_server
-import views.push
-import views.tasks
+# pyflakes: disable-all
+from .main import *
+from .views.api import *
+from .views.config import *
+from .views.main import *
+from .views.resource_server import *
+from .views.push import *
+from .views.tasks import *

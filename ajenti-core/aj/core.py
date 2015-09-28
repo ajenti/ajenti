@@ -9,6 +9,7 @@ import socket
 import sys
 import syslog
 from jadi import Context
+from six.moves import reload_module
 
 import aj
 import aj.plugins
@@ -54,8 +55,9 @@ def run(config=None, plugin_providers=None, product_name='ajenti', dev_mode=Fals
     if config is None:
         raise TypeError('`config` can\'t be None')
 
-    reload(sys)
-    sys.setdefaultencoding('utf8')
+    reload_module(sys)
+    if hasattr(sys, 'setdefaultencoding'):
+        sys.setdefaultencoding('utf8')
 
     aj.product = product_name
     aj.debug = debug_mode

@@ -1,6 +1,6 @@
 # core
 cookies
-gevent>=1.0
+gevent>=1.1a5
 gevent-socketio
 gevent-websocket
 gipc
@@ -10,10 +10,11 @@ passlib
 pexpect
 psutil>=2.2.1
 pyOpenSSL #<0.14 # 0.14 breaks WantWrite retries
-python-daemon<2.0
+python-daemon-3k
 pyyaml
 requests>=2
 setproctitle
+six>=1.9.0
 termcolor
 pip>=6
 setuptools>=12

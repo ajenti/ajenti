@@ -1,13 +1,12 @@
-import api
-import managers.centos_manager
-import managers.debian_manager
+# pyflakes: disable-all
+from .api import *
+from .managers.centos_manager import *
+from .managers.debian_manager import *
 
 
 def init(plugin_manager):
     import aj
     api.TZManager.any(aj.context)
 
-    import main
-    import views
-
-
+    from .main import ItemProvider
+    from .views import Handler

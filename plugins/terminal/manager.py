@@ -1,9 +1,9 @@
-import logging
+import binascii
 import os
 
 from jadi import service
 
-from terminal import Terminal
+from .terminal import Terminal
 
 
 @service
@@ -25,7 +25,7 @@ class TerminalManager(object):
         } for _id in self.terminals.keys()]
 
     def create(self, **kwargs):
-        _id = os.urandom(32).encode('hex')
+        _id = binascii.hexlify(os.urandom(32)).decode('utf-8')
         t = Terminal(self, _id, **kwargs)
         self.terminals[_id] = t
         return _id

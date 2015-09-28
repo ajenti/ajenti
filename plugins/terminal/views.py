@@ -1,7 +1,6 @@
 from PIL import Image, ImageDraw
 
-import json
-import StringIO
+from six import StringIO
 import subprocess
 
 from jadi import component
@@ -22,7 +21,7 @@ class Handler(HttpPlugin):
     @authorize('terminal:scripts')
     @endpoint(api=True)
     def handle_script(self, http_context):
-        data = json.loads(http_context.body)
+        data = http_context.json_body()
         try:
             p = subprocess.Popen(
                 ['bash', '-c', data['script']],
@@ -50,7 +49,7 @@ class Handler(HttpPlugin):
     @authorize('terminal:open')
     @endpoint(api=True)
     def handle_create(self, http_context):
-        options = json.loads(http_context.body)
+        options = http_context.json_body()
         return self.mgr.create(**options)
 
     @url(r'/api/terminal/kill/(?P<terminal_id>.+)')
@@ -108,7 +107,7 @@ class Handler(HttpPlugin):
                 draw.point((x, y * 2 + 1), fill=(fc if ord(ch) > 32 else bc))
                 draw.point((x, y * 2), fill=bc)
 
-        sio = StringIO.StringIO()
+        sio = StringIO()
         img.save(sio, 'PNG')
 
         http_context.add_header('Content-Type', 'image/png')

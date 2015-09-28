@@ -1,9 +1,9 @@
-#pyflakes: disable-all
-import api
-import main
-import views
-import widgets.cpu
-import widgets.hostname
-import widgets.loadavg
-import widgets.memory
-import widgets.uptime
+# pyflakes: disable-all
+from .api import *
+from .main import *
+from .views import *
+from .widgets.cpu import *
+from .widgets.hostname import *
+from .widgets.loadavg import *
+from .widgets.memory import *
+from .widgets.uptime import *
