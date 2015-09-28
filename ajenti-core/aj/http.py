@@ -135,7 +135,7 @@ class HttpContext(object):
                 if ctype.startswith('application/x-www-form-urlencoded') or \
                         ctype.startswith('multipart/form-data'):
                     self.cgi_query = cgi.FieldStorage(
-                        fp=StringIO(self.body),
+                        fp=six.StringIO(self.body),
                         environ=self.env,
                         keep_blank_values=1
                     )
