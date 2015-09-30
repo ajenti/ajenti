@@ -4,7 +4,7 @@
     <progress-spinner ng:hide="config.data != null"></progress-spinner>
 
     <div class="list-group">
-        <div ng:repeat="(username, user) in config.data.auth.users" class="list-group-item list-group-item-large">
+        <div ng:repeat="(username, user) in config.data.auth.users" class="list-group-item list-group-item-large" ng:show="!user.hidden">
             <a class="list-group-btn" ng:click="removeUser(username)">
                 <i class="fa fa-trash-o"></i>
             </a>

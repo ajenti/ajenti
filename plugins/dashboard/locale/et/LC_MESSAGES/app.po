@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-23 20:56+0200\n"
-"PO-Revision-Date: 2015-09-23 05:45-0400\n"
+"PO-Revision-Date: 2015-09-24 07:19-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -80,3 +80,4 @@ msgstr ""
 #: plugins/dashboard/widgets/loadavg.py:11
 msgid "Load average"
 msgstr ""
+

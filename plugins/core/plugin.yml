@@ -2,7 +2,7 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.55'
+version: '0.56'
 title: Core
 icon: link
 dependencies: []

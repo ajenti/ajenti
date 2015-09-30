@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-23 05:44-0400\n"
+"PO-Revision-Date: 2015-09-30 17:22-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -18,120 +18,120 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "Riavvio automatico"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "Avvio automatico"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "Configura"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "Ambiente"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr ""
+msgstr "Uccidere i processi figli"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "Nome del nuovo processo"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "Nessun processo definito"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "Numero di processi"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "Durante il crash"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
+msgstr "Nome del modello di processo"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
-msgstr ""
+msgstr "IN ESECUZIONE"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "Rimuovi"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "Secondi all'avvio"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "Secondi all'interruzione"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "Tentativi di avvio"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "Terminare i processi figli"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "Account utente"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "Cartella di lavoro"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:2
 msgid "Supervisor"
-msgstr ""
+msgstr "Supervisore"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
 msgid "Saved"
-msgstr ""
+msgstr "Salvato"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
 msgid "Could not save"
-msgstr ""
+msgstr "Non è possibile salvare"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
 msgid "Failed"
-msgstr ""
+msgstr "Non riuscito"
 
