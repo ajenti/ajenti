@@ -300,7 +300,7 @@ msgstr "Configureren"
 
 #: ajenti/plugins/configurator/configurator.py:177
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatisch"
 
 #: ajenti/plugins/configurator/configurator.py:199
 msgid "Saved. Please restart Ajenti for changes to take effect."

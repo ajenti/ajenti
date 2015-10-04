@@ -2631,7 +2631,7 @@ msgstr "Спеціальні"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Авторизація"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"
