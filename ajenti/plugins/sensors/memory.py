@@ -37,7 +37,7 @@ class MemoryWidget (DashboardWidget):
         self.find('icon').icon = 'tasks'
         self.find('name').text = _('Memory usage')
         value = self.sensor.value()
-        self.find('value').text = str_fsize(value[0])
+        self.find('value').text = "%s/%s" % (str_fsize(value[0]), str_fsize(value[1]))
         self.find('progress').value = 1.0 * value[0] / value[1]
 
 
@@ -52,7 +52,7 @@ class SwapWidget (DashboardWidget):
         self.find('icon').icon = 'hdd'
         self.find('name').text = _('Swap usage')
         value = self.sensor.value()
-        self.find('value').text = str_fsize(value[0])
+        self.find('value').text = "%s/%s" % (str_fsize(value[0]), str_fsize(value[1]))
         if value[1] > 0:
             frac = 1.0 * value[0] / value[1]
         else:
