@@ -58,13 +58,8 @@ class Terminals (SectionPlugin):
             thumb.on('close', self.on_close, k)
             ulist.append(thumb)
 
-    @intent('terminal')
-    def launch(self, command=None, callback=None):
-        self.on_new(command, autoclose=True, autoopen=True, callback=callback)
 
-    @on('new-button', 'click')
-    @restrict('terminal:shell')
-    def on_new(self, command=None, autoopen=False, autoclose=False, callback=None, **kwargs):
+    def run_shell(self, command=None, autoopen=False, autoclose=True, callback=None, **kwargs):
         if not command:
             command = self.classconfig['shell']
         if self.terminals:
@@ -85,10 +80,19 @@ class Terminals (SectionPlugin):
             self.context.endpoint.send_open_tab(url, 'Terminal %i' % key)
         return key
 
+    @intent('terminal')
+    def launch(self, command=None, callback=None):
+        self.run_shell(command, autoclose=True, autoopen=True, callback=callback)
+
+    @on('new-button', 'click')
+    @restrict('terminal:shell')
+    def on_new(self):
+        self.run_shell(command=None, autoopen=False, autoclose=False)
+
     @on('run-button', 'click')
     @restrict('terminal:custom')
     def on_run(self):
-        self.on_new(self.find('command').value, autoclose=True, autoopen=True)
+        self.run_shell(self.find('command').value, autoclose=True, autoopen=True)
 
     def on_close(self, k):
         self.terminals[k].kill()
