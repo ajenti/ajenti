@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-10-17 14:35-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -18,42 +18,42 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "터미널 내용 복사"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "완료"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "새 터미널 열기"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "실행"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
-msgstr ""
+msgstr "명령어 실행..."
 
 #: plugins/terminal/resources/partial/widget.config.html:7
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "스크립트"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.coffee:2
 msgid "Terminals"
-msgstr ""
+msgstr "터미널"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
-msgstr ""
+msgstr "강제종료"
 
 #: plugins/terminal/resources/partial/widget.config.html:11
 msgid "stdin data"
@@ -61,33 +61,33 @@ msgstr ""
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
-msgstr ""
+msgstr "터미널"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"
-msgstr ""
+msgstr "임의의 스크립트 실행"
 
 #: plugins/terminal/main.py:35
 msgid "Open shell terminals"
-msgstr ""
+msgstr "쉘 터미널 열기"
 
 #: plugins/terminal/resources/js/directives/terminal.coffee:170
 msgid "Terminal was closed"
-msgstr ""
+msgstr "터미널이 닫혔습니다."
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:9
 msgid "Starting the script"
-msgstr ""
+msgstr "스크립트 시작중"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:12
 msgid "Script has finished"
-msgstr ""
+msgstr "스크립트 실행 완료"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:14
 msgid "Script has failed"
-msgstr ""
+msgstr "스크립트 실행 실패"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:16
 msgid "Could not launch the script"
-msgstr ""
+msgstr "스크립트를 실행하지 못했습니다."
 

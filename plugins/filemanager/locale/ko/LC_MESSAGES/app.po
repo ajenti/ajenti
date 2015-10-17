@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-10-17 14:35-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
-msgstr ""
+msgstr "엑세스"
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
-msgstr ""
+msgstr "전체"
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
-msgstr ""
+msgstr "적용"
 
 #: plugins/filemanager/resources/partial/index.html:110
 #: plugins/filemanager/resources/partial/index.html:69
@@ -34,108 +34,108 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:188
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
-msgstr ""
+msgstr "권한 변경"
 
 #: plugins/filemanager/resources/partial/index.html:116
 msgid "Clipboard"
-msgstr ""
+msgstr "클립보드"
 
 #: plugins/filemanager/resources/partial/index.html:138
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: plugins/filemanager/resources/partial/index.html:56
 msgid "Copy"
-msgstr ""
+msgstr "복사"
 
 #: plugins/filemanager/resources/partial/index.html:68
 #: plugins/filemanager/resources/partial/index.html:81
 msgid "Create"
-msgstr ""
+msgstr "생성"
 
 #: plugins/filemanager/resources/partial/index.html:55
 msgid "Cut"
-msgstr ""
+msgstr "잘라내기"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
-msgstr ""
+msgstr "폴더"
 
 #: plugins/filemanager/resources/partial/index.html:57
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #: plugins/filemanager/resources/partial/index.html:78
 msgid "Directory name"
-msgstr ""
+msgstr "폴더 이름"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
-msgstr ""
+msgstr "실행"
 
 #: plugins/filemanager/resources/partial/properties.html:123
 msgid "Edit in Notepad"
-msgstr ""
+msgstr "메모장에서 편집"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
-msgstr ""
+msgstr "기타"
 
 #: plugins/filemanager/resources/partial/properties.html:37
 msgid "FILE"
-msgstr ""
+msgstr "파일"
 
 #: plugins/filemanager/resources/partial/index.html:65
 msgid "File name"
-msgstr ""
+msgstr "파일 이름"
 
 #: plugins/filemanager/resources/partial/properties.html:18
 msgid "Full path"
-msgstr ""
+msgstr "전체 경로"
 
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
-msgstr ""
+msgstr "그룹"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
-msgstr ""
+msgstr "링크"
 
 #: plugins/filemanager/resources/partial/properties.html:108
 msgid "Mode"
-msgstr ""
+msgstr "모드"
 
 #: plugins/filemanager/resources/partial/properties.html:84
 msgid "Modified"
-msgstr ""
+msgstr "변경됨"
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: plugins/filemanager/resources/partial/index.html:41
 #: plugins/filemanager/resources/partial/index.html:75
 msgid "New directory"
-msgstr ""
+msgstr "새 폴더"
 
 #: plugins/filemanager/resources/partial/index.html:40
 #: plugins/filemanager/resources/partial/index.html:62
 msgid "New file"
-msgstr ""
+msgstr "새 파일"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
-msgstr ""
+msgstr "소유자"
 
 #: plugins/filemanager/resources/partial/index.html:43
 msgid "Paste here"
-msgstr ""
+msgstr "여기에 붙여넣으세요."
 
 #: plugins/filemanager/resources/partial/properties.html:132
 msgid "Permission bits"
@@ -143,31 +143,31 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:56
 msgid "READ"
-msgstr ""
+msgstr "읽기"
 
 #: plugins/filemanager/resources/partial/index.html:121
 msgid "Remove"
-msgstr ""
+msgstr "삭제"
 
 #: plugins/filemanager/resources/partial/index.html:137
 msgid "Remove all items"
-msgstr ""
+msgstr "전체 삭제"
 
 #: plugins/filemanager/resources/partial/index.html:101
 msgid "Select files to upload"
-msgstr ""
+msgstr "업로드할 파일을 선택"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
-msgstr ""
+msgstr "크기"
 
 #: plugins/filemanager/resources/partial/index.html:46
 msgid "Tab"
-msgstr ""
+msgstr "탭"
 
 #: plugins/filemanager/resources/partial/properties.html:26
 msgid "Type"
-msgstr ""
+msgstr "타입"
 
 #: plugins/filemanager/resources/partial/index.html:10
 msgid "Up one level"
@@ -175,55 +175,55 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:42
 msgid "Upload"
-msgstr ""
+msgstr "업로드"
 
 #: plugins/filemanager/resources/partial/index.html:88
 msgid "Upload files"
-msgstr ""
+msgstr "파일 업로드"
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
-msgstr ""
+msgstr "사용자"
 
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
-msgstr ""
+msgstr "쓰기"
 
 #: plugins/filemanager/resources/partial/index.html:52
 msgid "items selected"
-msgstr ""
+msgstr "선택된 항목"
 
 #: plugins/filemanager/resources/partial/index.html:105
 msgid "or drop them here"
-msgstr ""
+msgstr "또는 여기에 가져다 둡니다."
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"
-msgstr ""
+msgstr "파일 관리자"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.coffee:15
 msgid "Could not read file information"
-msgstr ""
+msgstr "파일 정보를 읽을 수 없습니다."
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.coffee:28
 msgid "File mode saved"
-msgstr ""
+msgstr "파일 모드가 저장되었습니다."
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:15
 msgid "Could not load directory"
-msgstr ""
+msgstr "폴더를 읽을 수 없습니다."
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:76
 msgid "Delete selected items?"
-msgstr ""
+msgstr "선택된 항목을 삭제할까요?"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:103
 msgid "Could not create file"
-msgstr ""
+msgstr "파일을 생성할 수 없습니다."
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:119
 msgid "Could not create directory"
-msgstr ""
+msgstr "폴더를 생성할 수 없습니다."
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:141
 msgid "Uploaded"

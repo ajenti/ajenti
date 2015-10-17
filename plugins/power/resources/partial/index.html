@@ -26,9 +26,9 @@
     </div>
 </div>
 
-<hr/>
+<hr ng:show="!customization.plugins.power.hideBatteries" />
 
-<div class="form-group">
+<div class="form-group" ng:show="!customization.plugins.power.hideBatteries">
     <label translate>Batteries</label>
 
     <div class="alert alert-info" ng:show="batteries.length == 0">
@@ -66,9 +66,9 @@
     </div>
 </div>
 
-<hr/>
+<hr ng:show="!customization.plugins.power.hideAdapters" />
 
-<div class="form-group">
+<div class="form-group" ng:show="!customization.plugins.power.hideAdapters">
     <label translate>Adapters</label>
 
     <div class="alert alert-info" ng:show="adapters.length == 0">

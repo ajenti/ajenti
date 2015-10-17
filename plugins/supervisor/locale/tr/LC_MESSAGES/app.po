@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-10-17 14:36-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -18,120 +18,120 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "Otomatik yeniden başlat"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "Otomatik başlat"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "Komut"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "Yapılandır"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "Ortam"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr ""
+msgstr "Alt işlemleri durdur"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "Yeni işlem ismi"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "Hayır"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "Hiçbir işlem tanımlanmadı"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "İşlem sayısı"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "Çökme anında"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
+msgstr "İşlem adı şablonu"
 
 #: plugins/supervisor/resources/partial/index.html:26
 msgid "RUNNING"
-msgstr ""
+msgstr "ÇALIŞIYOR"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "Başlatmak için kalan saniye"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "Durdurmak için kalan saniye"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "Yeniden denemeyi başlat"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "Alt işlemleri kapat"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "Kullanıcı hesabı"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "Çalışma dizini"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:2
 msgid "Supervisor"
-msgstr ""
+msgstr "Gözetmen"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
 msgid "Saved"
-msgstr ""
+msgstr "Kaydedildi"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
 msgid "Could not save"
-msgstr ""
+msgstr "Kaydedilemedi"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
 msgid "Failed"
-msgstr ""
+msgstr "Başarısız"
 

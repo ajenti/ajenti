@@ -12,9 +12,9 @@ angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope,
     datetime.getTime().then (time) ->
         $scope._.time = new Date(time * 1000)
 
-        int = $interval () ->
-            $scope._.time = new Date($scope._.time.getTime() + 1000)
-        , 1000
+        #int = $interval () ->
+        #    $scope._.time = new Date($scope._.time.getTime() + 1000)
+        #, 1000
 
         $scope.$on '$destroy', () ->
             $interval.cancel(int)

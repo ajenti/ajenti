@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-10-17 14:35-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -18,58 +18,58 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "인터페이스 활성화"
 
 #: plugins/network/resources/partial/index.html:211
 #: plugins/network/resources/partial/index.html:258
 #: plugins/network/resources/partial/index.html:309
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "주소"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "주소 지정"
 
 #: plugins/network/resources/partial/index.html:290
 msgid "Aliases"
-msgstr ""
+msgstr "별칭"
 
 #: plugins/network/resources/partial/index.html:274
 msgid "Canonical hostname"
-msgstr ""
+msgstr "정식 호스트 이름"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "상태 확인중..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "클라이언트 ID"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:316
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: plugins/network/resources/partial/index.html:230
 msgid "Configure"
-msgstr ""
+msgstr "설정"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: plugins/network/resources/partial/index.html:209
 msgid "DNS server address"
-msgstr ""
+msgstr "DNS 서버 주소"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "인터페이스 비활성화"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
@@ -81,53 +81,53 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "게이트웨이"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "호스트 이름"
 
 #: plugins/network/resources/partial/index.html:223
 msgid "Hosts"
-msgstr ""
+msgstr "호스트"
 
 #: plugins/network/resources/partial/index.html:282
 msgid "IP address"
-msgstr ""
+msgstr "IP 주소"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "인터페이스"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "마스크"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "메트릭"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "네트워크"
 
 #: plugins/network/resources/partial/index.html:307
 msgid "New alias"
-msgstr ""
+msgstr "새 별칭"
 
 #: plugins/network/resources/partial/index.html:256
 msgid "New host name"
-msgstr ""
+msgstr "새 호스트 이름"
 
 #: plugins/network/resources/partial/index.html:252
 #: plugins/network/resources/partial/index.html:292
 msgid "No hosts defined"
-msgstr ""
+msgstr "호스트가 정의되지 않음"
 
 #: plugins/network/resources/partial/index.html:205
 msgid "No nameservers defined"
-msgstr ""
+msgstr "네임서버가 정의되지 않음"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
@@ -149,18 +149,18 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:227
 #: plugins/network/resources/partial/index.html:296
 msgid "Remove"
-msgstr ""
+msgstr "삭제"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "인터페이스 재시작"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:218
 #: plugins/network/resources/partial/index.html:265
 #: plugins/network/resources/partial/index.html:315
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "알 수 없는 주소"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
@@ -180,54 +180,54 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "호스트 이름 업데이트"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "네트워크 인터페이스 설정"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "네트워크 인터페이스 활성화/비활성화"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:19
 #: plugins/network/resources/js/controllers/dns.controller.coffee:11
 msgid "Saved"
-msgstr ""
+msgstr "저장됨"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:21
 #: plugins/network/resources/js/controllers/dns.controller.coffee:13
 msgid "Could not save"
-msgstr ""
+msgstr "저장 실패"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:10
 msgid "Static"
-msgstr ""
+msgstr "스태틱"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:11
 msgid "Auto"
-msgstr ""
+msgstr "자동"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:13
 msgid "Manual"
-msgstr ""
+msgstr "수동"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:14
 msgid "Loopback"
-msgstr ""
+msgstr "루프백"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "인터페이스 활성화됨"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
 msgid "Warning"
-msgstr ""
+msgstr "경고"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "네트워크 인터페이스를 비활성화 하면 원격 연결이 끊길 수 있습니다."
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"

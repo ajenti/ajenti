@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-10-04 05:00-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Croatian\n"
 "Language: hr_HR\n"
@@ -40,7 +40,7 @@ msgstr ""
 #: plugins/settings/resources/partial/index.html:247
 #: plugins/settings/resources/js/controllers/index.controller.coffee:61
 msgid "Cancel"
-msgstr ""
+msgstr "Odustani"
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
-msgstr ""
+msgstr "Država"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "Jezik"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:177
 msgid "Organization"
-msgstr ""
+msgstr "Organizacija"
 
 #: plugins/settings/resources/partial/index.html:53
 msgid "Port"
@@ -191,7 +191,7 @@ msgstr ""
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:38
 msgid "Could not load authentication provider list"

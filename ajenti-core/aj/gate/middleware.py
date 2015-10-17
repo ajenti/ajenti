@@ -61,8 +61,6 @@ class SocketIONamespace(BaseNamespace, BroadcastMixin):
             self._send_worker_event('connect')
 
     def recv_disconnect(self):
-        import traceback
-        traceback.print_stack()
         logging.debug('Socket %s disconnected', id(self))
         self._send_worker_event('disconnect')
         self.disconnect(silent=True)

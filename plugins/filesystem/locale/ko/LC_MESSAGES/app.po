@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-10-17 14:35-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -18,19 +18,19 @@ msgstr ""
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:22
 msgid "File name"
-msgstr ""
+msgstr "파일 이름"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:28
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:27
 msgid "Select this directory"
-msgstr ""
+msgstr "이 폴더를 선택"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:11
 msgid "Up one level"
@@ -38,21 +38,21 @@ msgstr ""
 
 #: plugins/filesystem/tasks.py:8
 msgid "File transfer"
-msgstr ""
+msgstr "파일 전송"
 
 #: plugins/filesystem/tasks.py:40
 msgid "Deleting"
-msgstr ""
+msgstr "삭제 중"
 
 #: plugins/filesystem/main.py:12
 msgid "Read from the filesystem"
-msgstr ""
+msgstr "파일 시스템에서 읽기"
 
 #: plugins/filesystem/main.py:17
 msgid "Write to the filesystem"
-msgstr ""
+msgstr "파일 시스템에 쓰기"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.coffee:34
 msgid "Could not load directory"
-msgstr ""
+msgstr "폴더를 읽을 수 없습니다."
 
