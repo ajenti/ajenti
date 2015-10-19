@@ -16,8 +16,8 @@ angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope,
         #    $scope._.time = new Date($scope._.time.getTime() + 1000)
         #, 1000
 
-        $scope.$on '$destroy', () ->
-            $interval.cancel(int)
+        #$scope.$on '$destroy', () ->
+        #    $interval.cancel(int)
 
     $scope.setTime = () ->
         datetime.setTimezone($scope.timezone).then () ->

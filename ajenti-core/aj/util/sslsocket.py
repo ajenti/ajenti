@@ -104,7 +104,7 @@ class SSLSocket(object):
         except OpenSSL.SSL.ZeroReturnError:
             return b''
         except OpenSSL.SSL.SysCallError as e:
-            print(e)
+            # print(e)
             if e.args[0] == -1 and 'Unexpected EOF' in e.args[1]:
                 # errors when reading empty strings are expected and can be ignored
                 return b''
