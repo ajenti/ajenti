@@ -4,7 +4,7 @@ gevent>=1.1a5
 gevent-socketio
 gevent-websocket
 gipc
-jadi
+jadi>=1.0.3
 lxml>=2.2.4
 passlib
 pexpect
