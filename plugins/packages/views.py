@@ -11,7 +11,7 @@ from aj.plugins.packages.api import PackageManager
 class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
-        self.managers = dict((x.id, x) for x in PackageManager.all(self.context))
+        self.managers = dict((x.id, x) for x in PackageManager.all(self.context, ignore_exceptions=True))
 
     def __package_to_json(self, package):
         return {

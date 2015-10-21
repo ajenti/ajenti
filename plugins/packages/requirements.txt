@@ -1,3 +1,4 @@
 aj
 ajenti.plugin.core
 ajenti.plugin.terminal
+jadi>=1.0.3
