@@ -12,7 +12,7 @@ class Session(object):
 
     last_id = 0
 
-    def __init__(self, key, client_info=None, **kwargs):
+    def __init__(self, key, gateway_middleware=None, client_info=None, **kwargs):
         Session.last_id += 1
         self.id = Session.last_id
         self.key = key
@@ -27,7 +27,7 @@ class Session(object):
             self.client_info['address'],
         )
         self.gate = WorkerGate(
-            self, name='session %i' % self.id, log_tag='worker', **kwargs
+            self, gateway_middleware=gateway_middleware, name='session %i' % self.id, log_tag='worker', **kwargs
         )
         self.gate.start()
         logging.debug('New session %s', self.id)

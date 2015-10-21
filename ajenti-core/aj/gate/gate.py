@@ -13,7 +13,7 @@ from aj.util import BroadcastQueue
 
 
 class WorkerGate(object):
-    def __init__(self, session, name=None, log_tag=None, restricted=False,
+    def __init__(self, session, gateway_middleware, name=None, log_tag=None, restricted=False,
                  initial_identity=None):
         self.session = session
         self.process = None
@@ -23,6 +23,7 @@ class WorkerGate(object):
         self.name = name
         self.log_tag = log_tag
         self.restricted = restricted
+        self.gateway_middleware = gateway_middleware
         self.initial_identity = initial_identity
         self.q_http_replies = BroadcastQueue()
         self.q_socket_messages = BroadcastQueue()
@@ -71,6 +72,13 @@ class WorkerGate(object):
 
         self.stream_reader.kill(block=False)
 
+    def send_config_data(self):
+        logging.debug('Sending a config update to %s', self.name)
+        self.stream.send({
+            'type': 'config-data',
+            'data': aj.config.data,
+        })
+
     def _stream_reader(self):
         try:
             while True:
@@ -89,10 +97,7 @@ class WorkerGate(object):
                 if resp.object['type'] == 'reload-config':
                     aj.config.load()
                     aj.config.ensure_structure()
-                    self.stream.send({
-                        'type': 'config-data',
-                        'data': aj.config.data,
-                    })
+                    self.gateway_middleware.broadcast_config_data()
                 if resp.object['type'] == 'log':
                     method = {
                         'info': logging.info,

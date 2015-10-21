@@ -92,6 +92,7 @@ class GateMiddleware(object):
         self.sessions = {}
         self.restricted_gate = WorkerGate(
             self,
+            gateway_middleware=self,
             restricted=True,
             name='restricted session',
             log_tag='restricted'
@@ -135,7 +136,7 @@ class GateMiddleware(object):
             'address': env.get('REMOTE_ADDR', None),
         }
         session_key = self.generate_session_key(env)
-        session = Session(session_key, client_info=client_info, **kwargs)
+        session = Session(session_key, gateway_middleware=self, client_info=client_info, **kwargs)
         self.sessions[session_key] = session
         return session
 
@@ -154,6 +155,12 @@ class GateMiddleware(object):
                     if session.is_dead():
                         session = None
         return session
+
+    def broadcast_config_data(self):
+        self.restricted_gate.send_config_data()
+        for session in self.sessions.values():
+            if not session.is_dead():
+                session.gate.send_config_data()
 
     def handle(self, http_context):
         start_time = time.time()

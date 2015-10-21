@@ -152,6 +152,7 @@ class Worker(object):
                         logging.debug('Socket disconnected, destroying endpoints')
 
                 if rq.object['type'] == 'config-data':
+                    logging.debug('Received a config update')
                     aj.config.data = rq.object['data']
                     self._master_config_reloaded.set()
 
