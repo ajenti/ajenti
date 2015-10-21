@@ -24,7 +24,7 @@ class ItemProvider(SidebarItemProvider):
                 'id': 'packages',
                 'name': _('Packages'),
                 'icon': 'gift',
-                'url': '/view/packages/%s' % PackageManager.all(self.context)[0].id,
+                'url': '/view/packages/%s' % PackageManager.all(self.context, ignore_exceptions=True)[0].id,
                 'children': children,
             }
         ]
