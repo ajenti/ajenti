@@ -1,4 +1,4 @@
-angular.module('ajenti.terminal').service 'terminals', ($http, $q) ->
+angular.module('ajenti.terminal').service 'terminals', ($http, $q, $location) ->
     @script = (options) ->
         q = $q.defer()
         $http.post('/api/terminal/script', options).success (data) ->
@@ -43,5 +43,8 @@ angular.module('ajenti.terminal').service 'terminals', ($http, $q) ->
         .error (err) ->
             q.reject(err)
         return q.promise
+
+    @navigate = (id) ->
+        $location.path("/view/terminal/#{id}")
 
     return this
