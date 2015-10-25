@@ -71,6 +71,7 @@ class MuninProxy (HttpPlugin):
                 auth=(self.client.classconfig['username'], self.client.classconfig['password'])
                ).content
         context.add_header('Content-Type', 'image/png')
+        context.add_header('Cache-Control', 'no-cache, no-store, must-revalidate')
         context.respond_ok()
         return data
 
