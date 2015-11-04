@@ -42,7 +42,6 @@ class HttpRoot(object):
 
         http_context = HttpContext(env, start_response)
         http_context.prefix = env.get('HTTP_X_URL_PREFIX', '')
-
         if http_context.prefix:
             if http_context.path.startswith(http_context.prefix):
                 http_context.path = http_context.path[len(http_context.prefix):] or '/'
@@ -128,7 +127,7 @@ class HttpContext(object):
         self.method = self.env['REQUEST_METHOD'].upper()
 
         self.env.setdefault('QUERY_STRING', '')
-        if self.method == 'POST':
+        if self.method in ['POST', 'PUT', 'DELETE']:
             ctype = self.env.get('CONTENT_TYPE', 'application/x-www-form-urlencoded')
             if 'wsgi.input' in self.env:
                 self.body = self.env['wsgi.input'].read()
@@ -140,7 +139,10 @@ class HttpContext(object):
                         keep_blank_values=1
                     )
         else:
+            # prevent hanging on weird requests
+            self.env['REQUEST_METHOD'] = 'GET'
             self.cgi_query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
+            self.env['REQUEST_METHOD'] = self.method
 
         if self.cgi_query:
             self.query = dict((k, self.cgi_query[k].value) for k in self.cgi_query)

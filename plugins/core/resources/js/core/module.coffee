@@ -32,13 +32,9 @@ angular.module('core').factory '$exceptionHandler', ($injector, gettext) ->
         $injector.get('notify').warning gettext('Unhanded error occured'), gettext('Please see browser console')
 
         console.group('Unhandled exception occured')
-        console.error(exception)
-        if cause
-            console.error('Caused by')
-            console.error(cause)
-            console.warn('Consider sending this error to https://github.com/ajenti/ajenti/issues/new')
+        console.warn('Consider sending this error to https://github.com/ajenti/ajenti/issues/new')
         console.groupEnd()
-        #throw exception
+        throw exception
 
 
 Array.prototype.remove = (args...) ->

@@ -95,6 +95,7 @@ class GentooNetworkManager(NetworkManager):
 
     def up(self, iface):
         ifconfig_up(iface)
+        subprocess.call(['/etc/init.d/net.%s' % iface, 'restart'])
 
     def down(self, iface):
         ifconfig_down(iface)

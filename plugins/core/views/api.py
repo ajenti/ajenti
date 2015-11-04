@@ -164,8 +164,10 @@ class Handler(HttpPlugin):
         mgr = PluginManager.get(aj.context)
         languages = set()
         for id in mgr:
-            for lang in os.listdir(mgr.get_content_path(id, 'locale')):
-                if lang != 'app.pot':
-                    languages.add(lang)
+            locale_dir = mgr.get_content_path(id, 'locale')
+            if os.path.isdir(locale_dir):
+                for lang in os.listdir(locale_dir):
+                    if lang != 'app.pot':
+                        languages.add(lang)
 
         return sorted(list(languages))
