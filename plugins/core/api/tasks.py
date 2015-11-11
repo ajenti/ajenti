@@ -86,13 +86,13 @@ class Task(object):
         logging.info('Starting task %s (%s)', self.id, self.__class__.__name__)
         try:
             self.run()
+            self.pipe.put({'type': 'done'})
         # pylint: disable=W0703
         except Exception as e:
             logging.error('Exception in task %s', self.id)
             logging.error(str(e))
             traceback.print_exc()
             self.pipe.put({'type': 'exception', 'exception': str(e)})
-        self.pipe.put({'type': 'done'})
         logging.info('Task %s finished', self.id)
 
     def _reader(self):
