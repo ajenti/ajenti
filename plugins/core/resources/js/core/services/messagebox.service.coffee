@@ -13,6 +13,15 @@ angular.module('core').service 'messagebox', ($timeout, $q) ->
             close: () => @close(options)
         }
 
+    @prompt = (prompt, value) =>
+        value ?= ''
+        @show {
+            prompt: prompt
+            value: value
+            positive: 'OK'
+            negative: 'Cancel'
+        }
+
     @close = (msg) ->
         msg.visible = false
         $timeout () =>

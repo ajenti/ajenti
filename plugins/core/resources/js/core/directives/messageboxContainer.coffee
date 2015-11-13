@@ -12,6 +12,10 @@ angular.module('core').directive 'messageboxContainer', (messagebox) ->
                     </div>
                     {{message.text|translate}}
                     <ng:include ng:if="message.template" src="message.template"></ng:include>
+                    <div ng:show="message.prompt">
+                        <label>{{message.prompt}}</label>
+                        <input type="text" ng:model="message.value" ng:enter="doPositive(message)" class="form-control" autofocus />
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <a ng:click="doPositive(message)" ng:show="message.positive" class="positive btn btn-default btn-flat">{{message.positive|translate}}</a>
