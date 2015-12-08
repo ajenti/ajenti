@@ -1828,7 +1828,7 @@ msgstr "Vlastní směrovače"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:32
 msgid "Custom local router config"
-msgstr ""
+msgstr "Vlastní lokální konfigurace routeru"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:33
 msgid "Custom transports"

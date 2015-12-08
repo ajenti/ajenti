@@ -1885,7 +1885,7 @@ msgstr "Listen aufrufen"
 
 #: ajenti/plugins/packages/layout/main.xml:3
 msgid "Upgradeable"
-msgstr "Erweiterbar"
+msgstr "Aktualisierbar"
 
 #: ajenti/plugins/packages/layout/main.xml:4
 msgid "Upgrade all"

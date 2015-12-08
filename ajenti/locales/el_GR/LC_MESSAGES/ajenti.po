@@ -43,7 +43,7 @@ msgstr "Όνομα"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -177,7 +177,7 @@ msgstr "Ρύθμιση παραμέτρων"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Κύριες ρυθμίσεις"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -863,7 +863,7 @@ msgstr "Εσφαλμένο συνθηματικό"
 
 #: ajenti/plugins/main/passwd.py:29
 msgid "Password changed"
-msgstr ""
+msgstr "Ο κωδικός άλλαξε"
 
 #: ajenti/plugins/main/controls_containers.py:38
 msgid "Empty"
@@ -892,11 +892,11 @@ msgstr "πρόσβαση στο τμήμα"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:1
 msgid "Password change"
-msgstr ""
+msgstr "Αλλαγή κωδικού πρόσβασης"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:2
 msgid "Old password"
-msgstr ""
+msgstr "Παλιός κωδικός πρόσβασης"
 
 #: ajenti/plugins/main/layout/passwd-main.xml:3
 #: ajenti/plugins/users/layout/user-list.xml:7
@@ -909,7 +909,7 @@ msgstr "Επιβεβαίωση συνθηματικού"
 
 #: ajenti/plugins/main/layout/file-dialog-save.xml:1
 msgid "File name"
-msgstr ""
+msgstr "'Oνομα αρχείου"
 
 #: ajenti/plugins/scripts/widget.py:12
 msgid "Script"

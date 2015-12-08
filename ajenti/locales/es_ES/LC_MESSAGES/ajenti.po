@@ -1923,11 +1923,11 @@ msgstr "Sensor"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "equipo"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Opciones del Equipo"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"
@@ -2631,7 +2631,7 @@ msgstr "Especial"
 
 #: ajenti/plugins/rethink/layout/config.xml:3
 msgid "Auth"
-msgstr ""
+msgstr "Autentificación"
 
 #: ajenti/plugins/logs/main.py:13 ajenti/plugins/logs/main.py:26
 msgid "Logs"

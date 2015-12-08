@@ -1280,15 +1280,15 @@ msgstr "Ponovno naloži"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Repozitorij"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Ime Repozitorija"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
@@ -1296,7 +1296,7 @@ msgstr "Uporabniki (branje in pisanje)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr "Uporabnik (samo za branje)"
+msgstr "Uporabniki (samo za branje)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
@@ -1923,11 +1923,11 @@ msgstr "Senzor"
 
 #: ajenti/plugins/uname/widget.py:10
 msgid "uname"
-msgstr ""
+msgstr "uname"
 
 #: ajenti/plugins/uname/layout/widget.xml:1
 msgid "Uname options"
-msgstr ""
+msgstr "Uname nastavitve"
 
 #: ajenti/plugins/nsd/main.py:42 ajenti/plugins/bind9/main.py:53
 msgid "Zone saved"

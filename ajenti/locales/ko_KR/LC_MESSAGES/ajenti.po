@@ -515,7 +515,7 @@ msgstr "제거"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "상업적 라이센스가 설치되어 있지 않습니다."
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
@@ -839,7 +839,7 @@ msgstr "북마크"
 #: ajenti/plugins/fm/layout/config.xml:1
 #: ajenti/plugins/logs/layout/config.xml:1
 msgid "Topmost directory"
-msgstr ""
+msgstr "최상위 폴더"
 
 #: ajenti/plugins/main/controls_dialogs.py:16
 #: ajenti/plugins/packages/layout/row.xml:3
@@ -949,7 +949,7 @@ msgstr "가동 시간"
 #: ajenti/plugins/sensors/cpu.py:19 ajenti/plugins/sensors/cpu.py:26
 #: ajenti/plugins/sensors/layout/cpu-widget.xml:1
 msgid "CPU usage"
-msgstr "CPU 사용"
+msgstr "CPU 사용량"
 
 #: ajenti/plugins/sensors/layout/value-widget.xml:1
 #: ajenti/plugins/sensors/layout/progressbar-widget.xml:1
@@ -1211,16 +1211,16 @@ msgstr ""
 
 #: ajenti/plugins/fail2ban/main.py:108
 msgid "File with name {0} already exists in {1}."
-msgstr ""
+msgstr "{0} 이라는 파일이 {1} 에 이미 존재합니다."
 
 #: ajenti/plugins/fail2ban/main.py:176
 msgid "Some parameters are empty."
-msgstr ""
+msgstr "빈 매개변수가 있습니다."
 
 #: ajenti/plugins/fail2ban/main.py:228
 #, python-format
 msgid "Could not save config file. %s"
-msgstr ""
+msgstr "설정 파일을 저장할 수 없습니다. %s"
 
 #: ajenti/plugins/fail2ban/layout/main.xml:5
 msgid "Filters checker"
@@ -1265,7 +1265,7 @@ msgstr ""
 
 #: ajenti/plugins/munin/main.py:47
 msgid "Munin HTTP authentication failed"
-msgstr ""
+msgstr "Munin HTTP 인증에 실패하였습니다."
 
 #: ajenti/plugins/munin/layout/main.xml:1
 msgid "View"
@@ -1292,11 +1292,11 @@ msgstr ""
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
-msgstr ""
+msgstr "사용자 (읽기/쓰기 가능)"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "사용자 (읽기 전용)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
@@ -1345,7 +1345,7 @@ msgstr "웹사이트"
 
 #: ajenti/plugins/vh/main.py:87 ajenti/plugins/vh/main.py:239
 msgid "Testing configuration"
-msgstr ""
+msgstr "설정 확인중"
 
 #: ajenti/plugins/vh/main.py:96
 msgid "Saving changes"
@@ -1381,7 +1381,7 @@ msgstr "웹 사이트를 다시 시작"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:1
 msgid "Process manager"
-msgstr ""
+msgstr "프로세스 관리자"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:2
 msgid "Min processes"
@@ -1406,7 +1406,7 @@ msgstr "PHP.ini 값"
 
 #: ajenti/plugins/vh/layout/main-backend-params-php-fcgi.xml:7
 msgid "PHP flags"
-msgstr ""
+msgstr "PHP 옵션"
 
 #: ajenti/plugins/vh/layout/main-backend-params-python-wsgi.xml:1
 msgid "Application module"
@@ -1480,7 +1480,7 @@ msgstr "Ajenti V 아직 활성화 되지 않았습니다."
 
 #: ajenti/plugins/vh/layout/not-configured.xml:2
 msgid "Enabling Ajenti V will overwrite configuration for the following software:"
-msgstr ""
+msgstr "Ajenti V를 활성화하면 다음 프로그램의 설정을 덮어쓰게 됩니다."
 
 #: ajenti/plugins/vh/layout/main-website.xml:1
 msgid "Back"
@@ -1493,7 +1493,7 @@ msgstr "삭제"
 
 #: ajenti/plugins/vh/layout/main-website.xml:4
 msgid "All website data will be lost. Continue?"
-msgstr ""
+msgstr "웹사이트의 모든 데이터가 손실됩니다. 계속 하시겠습니까?"
 
 #: ajenti/plugins/vh/layout/main-website.xml:7
 #: ajenti/plugins/supervisor/layout/main.xml:8
@@ -1523,7 +1523,7 @@ msgstr "자동 다운로더"
 
 #: ajenti/plugins/vh/layout/main-website.xml:15
 msgid "From URL"
-msgstr ""
+msgstr "URL에서 가져오기"
 
 #: ajenti/plugins/vh/layout/main-website.xml:16
 msgid "Download and unpack"
@@ -1694,7 +1694,7 @@ msgstr ""
 
 #: ajenti/plugins/iptables/layout/option-custom.xml:3
 msgid "Argument"
-msgstr ""
+msgstr "매개변수"
 
 #: ajenti/plugins/iptables/layout/option-protocol.xml:1
 msgid "Protocol"
@@ -1747,7 +1747,7 @@ msgstr "잘못된 메일함 도메인"
 
 #: ajenti/plugins/vh-mail/main.py:75 ajenti/plugins/vh-mail/main.py:83
 msgid "This address is already taken"
-msgstr ""
+msgstr "이 주소는 이미 사용중 입니다."
 
 #: ajenti/plugins/vh-mail/main.py:128
 #: ajenti/plugins/vh-mail/layout/main.xml:15
@@ -1756,7 +1756,7 @@ msgstr "사용자 도메인"
 
 #: ajenti/plugins/vh-mail/main.py:150
 msgid "No valid key exists"
-msgstr ""
+msgstr "유효한 키가 없습니다."
 
 #: ajenti/plugins/vh-mail/layout/main.xml:2
 msgid "Mailboxes"
@@ -1799,7 +1799,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:22
 msgid "Generate new DKIM key"
-msgstr ""
+msgstr "새로운 DKIM키 생성"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
@@ -1811,7 +1811,7 @@ msgstr "개인 키 경로"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:27
 msgid "Generate new certificate"
-msgstr ""
+msgstr "새로운 인증서 생성"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:28
 msgid "Custom MTA configuration"
@@ -2100,7 +2100,7 @@ msgstr "기본 쉘"
 
 #: ajenti/plugins/network/widget.py:88
 msgid "Immediate Traffic"
-msgstr ""
+msgstr "순간 트래픽"
 
 #: ajenti/plugins/network/widget.py:118
 msgid "Traffic"
