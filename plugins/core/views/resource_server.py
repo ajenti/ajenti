@@ -32,8 +32,8 @@ class ResourcesHandler(HttpPlugin):
                 ng_modules = []
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
-                        if resource.startswith('ng:'):
-                            ng_modules.append(resource.split(':')[-1])
+                        if resource['path'].startswith('ng:'):
+                            ng_modules.append(resource['path'].split(':')[-1])
                 content = '''
                     window.__ngModules = %s;
                 ''' % json.dumps(ng_modules)
@@ -57,14 +57,17 @@ class ResourcesHandler(HttpPlugin):
                 '''
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
-                        if resource.endswith('.html'):
-                            path = self.mgr.get_content_path(plugin, resource)
+                        path = resource['path']
+                        name = resource.get('overrides', '%s:%s' % (plugin, path))
+
+                        if name.endswith('.html'):
+                            path = self.mgr.get_content_path(plugin, path)
                             if os.path.exists(path):
                                 template = open(path).read()
                                 content += '''
                                       $templateCache.put("%s", %s);
                                 ''' % (
-                                    '%s/%s:%s' % (http_context.prefix, plugin, resource),
+                                    '%s/%s' % (http_context.prefix, name),
                                     json.dumps(template)
                                 )
                 content += '''

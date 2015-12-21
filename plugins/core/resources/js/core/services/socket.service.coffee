@@ -1,8 +1,16 @@
 angular.module('core').service 'socket', ($log, $location, $rootScope, $q, socketFactory, urlPrefix) ->
     @enabled = true
 
+    cfg = 
+        resource: "#{urlPrefix}/socket.io".substring(1)
+        'reconnection limit': 1
+        'max reconnection attempts': 999999
+
+    if /Apple Computer/.test(navigator.vendor) and location.protocol == 'https:'
+        cfg.transports = ['jsonp-polling'] # Safari can go to hell
+
     @socket = socketFactory(
-        ioSocket: io.connect('/socket', resource: "#{urlPrefix}/socket.io".substring(1))
+        ioSocket: io.connect('/socket', cfg)
     )
 
     @socket.on 'connecting', (e) ->

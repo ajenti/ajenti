@@ -19,6 +19,6 @@ ssl:
   certificate: /etc/ajenti/ajenti.pem
   client_auth:
     certificates: []
-    enable: true
+    enable: false
     force: false
-  enable: false
+  enable: true
