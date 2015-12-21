@@ -10,6 +10,29 @@ from ajenti.util import cache_value
 from api import Service, ServiceManager
 
 
+class SystemdService (Service):
+    source = 'systemd'
+
+    def __init__(self, name):
+        self.name = name
+        self.running = False
+
+    def refresh(self):
+        self.running = subprocess.call(['systemctl', 'is-active', self.name]) == 0
+
+    def start(self):
+        self.command('start')
+
+    def stop(self):
+        self.command('stop')
+
+    def restart(self):
+        self.command('restart')
+
+    def command(self, cmd):
+        return subprocess.call(['systemctl', cmd, self.name], close_fds=True)
+
+
 @plugin
 class SystemdServiceManager (ServiceManager):
     def init(self):
@@ -50,26 +73,3 @@ class SystemdServiceManager (ServiceManager):
                     service.running = str(unit[4]) == 'running'
 
         return r
-
-
-class SystemdService (Service):
-    source = 'systemd'
-
-    def __init__(self, name):
-        self.name = name
-        self.running = False
-
-    def refresh(self):
-        self.running = subprocess.call(['systemctl', 'is-active', self.name]) == 0
-
-    def start(self):
-        self.command('start')
-
-    def stop(self):
-        self.command('stop')
-
-    def restart(self):
-        self.command('restart')
-
-    def command(self, cmd):
-        return subprocess.call(['systemctl', cmd, self.name], close_fds=True)
