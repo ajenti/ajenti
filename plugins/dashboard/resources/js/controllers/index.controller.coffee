@@ -1,4 +1,4 @@
-angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scope, $interval, gettext, notify, pageTitle, dashboard, config) ->
+angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scope, $interval, gettext, notify, pageTitle, customization, dashboard, config) ->
     pageTitle.set(gettext('Dashboard'))
 
     $scope.ready = false
@@ -21,33 +21,7 @@ angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scop
 
     config.getUserConfig().then (userConfig) ->
         $scope.userConfig = userConfig
-        $scope.userConfig.dashboard ?= {
-          widgetsLeft: [
-            {
-                id: 'w1'
-                typeId: 'hostname'
-
-            }
-            {
-                id: 'w2'
-                typeId: 'cpu'
-            }
-            {
-                id: 'w3'
-                typeId: 'loadavg'
-            }
-          ]
-          widgetsRight: [
-            {
-                id: 'w4'
-                typeId: 'uptime'
-            }
-            {
-                id: 'w5'
-                typeId: 'memory'
-            }
-          ]
-        }
+        $scope.userConfig.dashboard ?= customization.plugins.dashboard.defaultConfig
 
         updateInterval = $interval () ->
             $scope.refresh()
@@ -88,4 +62,3 @@ angular.module('ajenti.dashboard').controller 'DashboardIndexController', ($scop
 
     $scope.save = () ->
         return config.setUserConfig($scope.userConfig)
-

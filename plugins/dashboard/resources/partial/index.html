@@ -3,7 +3,7 @@
 <progress-spinner ng:show="!ready"></progress-spinner>
 
 <div ng:show="ready">
-    <div class="dropdown pull-right">
+    <div class="dropdown pull-right" ng:show="customization.plugins.dashboard.allowAdd">
         <a class="btn btn-default subtle" dropdown-toggle>
             <i class="fa fa-plus"></i> <span translate>Add widget</span>
         </a>

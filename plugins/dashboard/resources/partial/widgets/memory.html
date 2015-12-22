@@ -1,6 +1,6 @@
 <div ng:controller="MemoryWidgetController">
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-4" ng:hide="widget.config.hideTotal">
             <div class="widget-header" translate>
                 Total
             </div>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-4" ng:hide="widget.config.hideTotal">
             <div class="widget-value">
                 {{total|bytes}}
             </div>

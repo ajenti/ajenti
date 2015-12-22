@@ -2,7 +2,7 @@ name: dashboard
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.25'
+version: '0.29'
 title: 'Dashboard'
 icon: bar-chart
 dependencies:

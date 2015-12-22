@@ -14,4 +14,4 @@ class CPUWidget(Widget):
         Widget.__init__(self, context)
 
     def get_value(self, config):
-        return [x / 100 for x in psutil.cpu_percent(interval=0, percpu=True)]
+        return [x / 100.0 for x in psutil.cpu_percent(interval=0, percpu=True)]
