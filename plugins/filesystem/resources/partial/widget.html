@@ -1,0 +1,33 @@
+<div ng:controller="MemoryWidgetController">
+    <div class="row">
+        <div class="col-xs-4" ng:hide="widget.config.hideTotal">
+            <div class="widget-header" translate>
+                Total
+            </div>
+            <smart-progress max="1"></smart-progress>
+        </div>
+        <div class="col-xs-8">
+            <div class="widget-header">
+                <span translate>Filesystem</span>: {{widget.config.mountpoint}}
+            </div>
+            <smart-progress value="usage" max="100"></smart-progress>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4" ng:hide="widget.config.hideTotal">
+            <div class="widget-value">
+                {{total|bytes}}
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <div class="widget-value">
+                {{usage}}%
+                <sup ng:show="usage > 90">
+                    <span class="label label-danger">
+                        <i class="fa fa-warning"></i>
+                    </span>
+                </sup>
+            </div>
+        </div>
+    </div>
+</div>

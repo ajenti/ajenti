@@ -1,0 +1,8 @@
+<div ng:controller="DiskWidgetConfigController">
+    <div>
+        <label translate>Filesystem</label>
+        <select ng:model="configuredWidget.config.mountpoint" ng:options="x for x in mountpoints" class="form-control">
+            <option value="" translate>All combined</option>
+        </select>
+    </div>
+</div>

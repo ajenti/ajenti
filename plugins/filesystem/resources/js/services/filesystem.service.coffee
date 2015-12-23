@@ -1,4 +1,12 @@
 angular.module('ajenti.filesystem').service 'filesystem', ($http, $q) ->
+    @mountpoints = () ->
+        q = $q.defer()
+        $http.get("/api/filesystem/mountpoints").success (data) ->
+            q.resolve(data)
+        .error (err) ->
+            q.reject(err)
+        return q.promise
+
     @read = (path) ->
         q = $q.defer()
         $http.get("/api/filesystem/read/#{path}").success (data) ->

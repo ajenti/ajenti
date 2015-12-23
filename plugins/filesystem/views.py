@@ -2,6 +2,7 @@ import errno
 import grp
 import json
 import os
+import psutil
 import pwd
 from jadi import component
 
@@ -14,6 +15,12 @@ from aj.auth import authorize
 class Handler(HttpPlugin):
     def __init__(self, context):
         self.context = context
+
+    @url(r'/api/filesystem/mountpoints')
+    @authorize('filesystem:read')
+    @endpoint(api=True)
+    def handle_api_fs_mountpoints(self, http_context):
+        return [x.mountpoint for x in psutil.disk_partitions()]
 
     @url(r'/api/filesystem/read/(?P<path>.+)')
     @authorize('filesystem:read')

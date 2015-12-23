@@ -2,16 +2,20 @@ name: filesystem
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.27'
+version: '0.28'
 title: 'Filesystem API'
 icon: cog
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
+    - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
 resources:
     - 'resources/vendor/ng-file-upload/angular-file-upload-all.js'
     - 'resources/js/module.coffee'
+    - 'resources/js/controllers/widget.controller.coffee'
     - 'resources/js/directives/fileDialog.coffee'
     - 'resources/js/directives/fileDialog.html'
     - 'resources/js/directives/pathSelector.coffee'
     - 'resources/js/services/filesystem.service.coffee'
+    - 'resources/partial/widget.html'
+    - 'resources/partial/widget.config.html'
     - 'ng:ajenti.filesystem'
