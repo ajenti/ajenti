@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -36,6 +36,10 @@ msgstr ""
 msgid "Script"
 msgstr ""
 
+#: plugins/terminal/resources/partial/widget.config.html:11
+msgid "stdin data"
+msgstr ""
+
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.coffee:2
 msgid "Terminals"
@@ -43,10 +47,6 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
-msgstr ""
-
-#: plugins/terminal/resources/partial/widget.config.html:11
-msgid "stdin data"
 msgstr ""
 
 #: plugins/terminal/main.py:16

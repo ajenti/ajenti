@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 20:56+0200\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,12 +74,12 @@ msgstr ""
 msgid "E-mail authentication"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:85
-msgid "Enable SSL"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Enable SSL"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:187
@@ -152,18 +152,6 @@ msgstr ""
 msgid "Restart panel"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:91
-msgid "SSL certificate file"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:107
-msgid "SSL client authentication"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:117
-msgid "SSL client certificates"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:256
 msgid "Save"
 msgstr ""
@@ -174,6 +162,18 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:58
 msgid "Socket path"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:91
+msgid "SSL certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "SSL client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:117
+msgid "SSL client certificates"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:173

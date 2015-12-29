@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 20:56+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -36,14 +36,14 @@ msgstr "활성된 코어"
 msgid "Add widget"
 msgstr "위젯 추가"
 
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
+msgstr "설정"
+
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
 msgstr "CPU 사용량"
-
-#: plugins/dashboard/resources/partial/widget.html:1
-msgid "Configure"
-msgstr "설정"
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2
 #: plugins/dashboard/widgets/hostname.py:10
@@ -77,7 +77,7 @@ msgstr "가동 시간"
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: plugins/dashboard/widgets/loadavg.py:11
+#: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
 msgstr "평균 부하량"
 

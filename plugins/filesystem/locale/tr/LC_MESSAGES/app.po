@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-10-17 14:36-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -16,43 +16,60 @@ msgstr ""
 "X-Crowdin-Language: tr\n"
 "X-Crowdin-File: /2.0/filesystem.po\n"
 
+#: plugins/filesystem/resources/partial/widget.config.html:5
+msgid "All combined"
+msgstr ""
+
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:22
 msgid "File name"
+msgstr "Dosya adı"
+
+#: plugins/filesystem/resources/partial/widget.config.html:3
+#: plugins/filesystem/resources/partial/widget.html:11
+msgid "Filesystem"
 msgstr ""
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:28
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:27
 msgid "Select this directory"
+msgstr "Bu dizini seç"
+
+#: plugins/filesystem/resources/partial/widget.html:4
+msgid "Total"
 msgstr ""
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:11
 msgid "Up one level"
-msgstr ""
+msgstr "Bir üst dizin"
 
 #: plugins/filesystem/tasks.py:8
 msgid "File transfer"
-msgstr ""
+msgstr "Dosya transferi"
 
 #: plugins/filesystem/tasks.py:40
 msgid "Deleting"
+msgstr "Siliniyor"
+
+#: plugins/filesystem/widget.py:10
+msgid "Disk space"
 msgstr ""
 
 #: plugins/filesystem/main.py:12
 msgid "Read from the filesystem"
-msgstr ""
+msgstr "Dosya sisteminden oku"
 
 #: plugins/filesystem/main.py:17
 msgid "Write to the filesystem"
-msgstr ""
+msgstr "Dosya sistemine yaz"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.coffee:34
 msgid "Could not load directory"
-msgstr ""
+msgstr "Klasör yüklenemedi"
 

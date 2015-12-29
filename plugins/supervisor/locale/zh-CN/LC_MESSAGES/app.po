@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,120 +18,120 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "自动重启"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "自动启动"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "命令"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "配置"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "环境变量"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "常规​​​​​"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
-msgstr ""
+msgstr "杀掉子级"
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "新进程名称"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "没有定义任何进程"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "进程数"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "崩溃"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
-
-#: plugins/supervisor/resources/partial/index.html:26
-msgid "RUNNING"
-msgstr ""
+msgstr "进程名称模板"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "删除"
+
+#: plugins/supervisor/resources/partial/index.html:26
+msgid "RUNNING"
+msgstr "运行中"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "启动秒数"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "停止秒数"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "开始重试次数"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
-msgstr ""
+msgstr "终止子级"
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "用户账号"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "工作目录"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:2
 msgid "Supervisor"
-msgstr ""
+msgstr "主管"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
 msgid "Saved"
-msgstr ""
+msgstr "已保存"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
 msgid "Could not save"
-msgstr ""
+msgstr "无法保存"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
 msgid "Failed"
-msgstr ""
+msgstr "已失败"
 

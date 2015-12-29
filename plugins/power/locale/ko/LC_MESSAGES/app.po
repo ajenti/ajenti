@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -16,17 +16,21 @@ msgstr ""
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: /2.0/power.po\n"
 
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr ""
+
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "어댑터"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "배터리"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "충전중"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
@@ -35,7 +39,7 @@ msgstr ""
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:54
 msgid "Hibernate"
-msgstr ""
+msgstr "최대 절전 모드"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
@@ -55,48 +59,44 @@ msgstr ""
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "전원"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "시스템 종료"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.coffee:34
 msgid "Reboot"
-msgstr ""
+msgstr "재부팅"
 
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.coffee:44
 msgid "Suspend"
-msgstr ""
+msgstr "일시정지"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
-
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "시스템 가동 시간"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "전원 상태"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "시스템 종료 및 재부팅"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:2
 msgid "Power management"
-msgstr ""
+msgstr "전원 관리"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:32
 #: plugins/power/resources/js/controllers/index.controller.coffee:42
 #: plugins/power/resources/js/controllers/index.controller.coffee:52
 msgid "Warning"
-msgstr ""
+msgstr "경고"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:23
 #: plugins/power/resources/js/controllers/index.controller.coffee:43
@@ -106,14 +106,14 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:24
 msgid "Shutdown"
-msgstr ""
+msgstr "시스템 종료"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:25
 #: plugins/power/resources/js/controllers/index.controller.coffee:35
 #: plugins/power/resources/js/controllers/index.controller.coffee:45
 #: plugins/power/resources/js/controllers/index.controller.coffee:55
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:33
 msgid "Machine may become unreachable. Continue?"
@@ -125,9 +125,9 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:48
 msgid "System is suspending"
-msgstr ""
+msgstr "시스템 일시 중단"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "시스템 절전"
 

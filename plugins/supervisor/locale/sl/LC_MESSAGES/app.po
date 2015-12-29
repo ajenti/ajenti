@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -18,35 +18,35 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "Samodejni ponovni zagon"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "Samodejni zagon"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "Ukaz"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "Konfiguracija"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "Okolje"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "Splošno"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
@@ -54,52 +54,52 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "Ime novega procesa"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "Ni definiranih procesov"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "Število procesov"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
-msgstr ""
+msgstr "Ob sesutju"
 
 #: plugins/supervisor/resources/partial/index.html:85
 msgid "Process name template"
-msgstr ""
-
-#: plugins/supervisor/resources/partial/index.html:26
-msgid "RUNNING"
-msgstr ""
+msgstr "Ime predloge procesa"
 
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
-msgstr ""
+msgstr "Odstrani"
+
+#: plugins/supervisor/resources/partial/index.html:26
+msgid "RUNNING"
+msgstr "DELUJOČE"
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "Sekund do začetka"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "Sekund do konca"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
-msgstr ""
+msgstr "Zaženi ponovne poskuse"
 
 #: plugins/supervisor/resources/partial/index.html:187
 msgid "Terminate children"
@@ -107,31 +107,31 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "Uporabniški račun"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "Delovni imenik"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
 #: plugins/supervisor/main.py:15
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:2
 msgid "Supervisor"
-msgstr ""
+msgstr "Nadzornik"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
 msgid "Saved"
-msgstr ""
+msgstr "Shranjeno"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
 msgid "Could not save"
-msgstr ""
+msgstr "Ni bilo mogoče shraniti"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
 msgid "Failed"
-msgstr ""
+msgstr "Ni uspelo"
 

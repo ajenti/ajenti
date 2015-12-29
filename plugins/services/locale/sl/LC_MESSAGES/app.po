@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
-msgstr ""
+msgstr "Filtriraj servise"
 
 #: plugins/services/resources/partial/widget.config.html:3
 msgid "Manager"
@@ -27,20 +27,20 @@ msgstr ""
 #: plugins/services/resources/partial/widget.config.html:7
 #: plugins/services/widget.py:9
 msgid "Service"
-msgstr ""
+msgstr "Servis"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.coffee:2
 msgid "Services"
-msgstr ""
+msgstr "Servisi"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "Urejanje sistemskih servisov"
 
 #: plugins/services/resources/js/controllers/index.controller.coffee:20
 msgid "Done"
-msgstr ""
+msgstr "Končano"
 
 #: plugins/services/resources/js/controllers/index.controller.coffee:22
 #: plugins/services/resources/js/controllers/widget.controller.coffee:12

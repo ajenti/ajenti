@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-10-17 14:36-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -16,17 +16,21 @@ msgstr ""
 "X-Crowdin-Language: tr\n"
 "X-Crowdin-File: /2.0/power.po\n"
 
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr "{{battery.voltage}} V"
+
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Bağdaştırıcılar"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Piller"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Şarj oluyor"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
@@ -39,49 +43,45 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Adaptör bulunamadı"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Pil bulunamadı"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Kullanılabilir değil"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Bağlandı"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "Güç"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Gücü kapat"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.coffee:34
 msgid "Reboot"
-msgstr ""
+msgstr "Yeniden başlat"
 
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.coffee:44
 msgid "Suspend"
-msgstr ""
+msgstr "Askıya al"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
-
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "Sistem aktif süresi"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "Güç durumu"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"

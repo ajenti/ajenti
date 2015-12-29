@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Frisian\n"
 "Language: fy_NL\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:246
 msgid "Add"
-msgstr ""
+msgstr "Tafoegje"
 
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
@@ -40,7 +40,7 @@ msgstr ""
 #: plugins/settings/resources/partial/index.html:247
 #: plugins/settings/resources/js/controllers/index.controller.coffee:61
 msgid "Cancel"
-msgstr ""
+msgstr "Annulearje"
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
-msgstr ""
+msgstr "Lân"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
@@ -70,12 +70,12 @@ msgstr ""
 msgid "E-mail authentication"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:85
-msgid "Enable SSL"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Enable SSL"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:187
@@ -98,7 +98,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
@@ -106,19 +106,19 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:10
 msgid "Machine name"
-msgstr ""
+msgstr "Masjinenamme"
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "New address"
-msgstr ""
+msgstr "Nij adres"
 
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
-msgstr ""
+msgstr "Nij sertifikaat"
 
 #: plugins/settings/resources/partial/index.html:147
 msgid "New client certificate"
-msgstr ""
+msgstr "Nij client-sertifikaat"
 
 #: plugins/settings/resources/partial/index.html:233
 msgid "New e-mail address"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:53
 msgid "Port"
-msgstr ""
+msgstr "Poarte"
 
 #: plugins/settings/resources/partial/index.html:212
 msgid "Remove"
@@ -146,6 +146,18 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:257
 msgid "Restart panel"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:256
+msgid "Save"
+msgstr "Bewarje"
+
+#: plugins/settings/resources/partial/index.html:192
+msgid "Save and Close"
+msgstr "Bewarje en slute"
+
+#: plugins/settings/resources/partial/index.html:58
+msgid "Socket path"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:91
@@ -158,18 +170,6 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:117
 msgid "SSL client certificates"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:256
-msgid "Save"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:192
-msgid "Save and Close"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:58
-msgid "Socket path"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:173
@@ -191,7 +191,7 @@ msgstr ""
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
-msgstr ""
+msgstr "Ynstellingen"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:38
 msgid "Could not load authentication provider list"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,32 +18,32 @@ msgstr ""
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
-msgstr ""
+msgstr "筛选器服务"
 
 #: plugins/services/resources/partial/widget.config.html:3
 msgid "Manager"
-msgstr ""
+msgstr "管理器"
 
 #: plugins/services/resources/partial/widget.config.html:7
 #: plugins/services/widget.py:9
 msgid "Service"
-msgstr ""
+msgstr "服务"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.coffee:2
 msgid "Services"
-msgstr ""
+msgstr "服务"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "管理系统服务"
 
 #: plugins/services/resources/js/controllers/index.controller.coffee:20
 msgid "Done"
-msgstr ""
+msgstr "已完成"
 
 #: plugins/services/resources/js/controllers/index.controller.coffee:22
 #: plugins/services/resources/js/controllers/widget.controller.coffee:12
 msgid "Service operation failed"
-msgstr ""
+msgstr "服务操作失败"
 

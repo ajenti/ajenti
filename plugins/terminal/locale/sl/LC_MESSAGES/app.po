@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -18,76 +18,76 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "Kopiraj vsebino terminala"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "Končano"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "Ime"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "Odpri nov terminal"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "Zaženi"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
-msgstr ""
+msgstr "Zaženi ukaz..."
 
 #: plugins/terminal/resources/partial/widget.config.html:7
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "Skripta"
+
+#: plugins/terminal/resources/partial/widget.config.html:11
+msgid "stdin data"
+msgstr "stdin podatki"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.coffee:2
 msgid "Terminals"
-msgstr ""
+msgstr "Terminali"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
-msgstr ""
-
-#: plugins/terminal/resources/partial/widget.config.html:11
-msgid "stdin data"
-msgstr ""
+msgstr "Prekini"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"
-msgstr ""
+msgstr "Zaženi poljubne skripte"
 
 #: plugins/terminal/main.py:35
 msgid "Open shell terminals"
-msgstr ""
+msgstr "Odprti terminali lupine"
 
 #: plugins/terminal/resources/js/directives/terminal.coffee:170
 msgid "Terminal was closed"
-msgstr ""
+msgstr "Terminal je bil zaprt"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:9
 msgid "Starting the script"
-msgstr ""
+msgstr "Zaganjanje skripte"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:12
 msgid "Script has finished"
-msgstr ""
+msgstr "Izvajanje skripte je bilo končano"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:14
 msgid "Script has failed"
-msgstr ""
+msgstr "Izvajanje skripte je spodletelo"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:16
 msgid "Could not launch the script"
-msgstr ""
+msgstr "Ni bilo mogoče zagnati skripte"
 

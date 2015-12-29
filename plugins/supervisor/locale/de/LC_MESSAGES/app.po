@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -18,35 +18,35 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:45
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: plugins/supervisor/resources/partial/index.html:150
 msgid "Autorestart"
-msgstr ""
+msgstr "Auto-Neustart"
 
 #: plugins/supervisor/resources/partial/index.html:136
 msgid "Autostart"
-msgstr ""
+msgstr "Autostart"
 
 #: plugins/supervisor/resources/partial/index.html:217
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: plugins/supervisor/resources/partial/index.html:65
 msgid "Command"
-msgstr ""
+msgstr "Befehl"
 
 #: plugins/supervisor/resources/partial/index.html:8
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurieren"
 
 #: plugins/supervisor/resources/partial/index.html:106
 msgid "Environment"
-msgstr ""
+msgstr "Umgebung"
 
 #: plugins/supervisor/resources/partial/index.html:62
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: plugins/supervisor/resources/partial/index.html:196
 msgid "Kill children"
@@ -54,19 +54,19 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:43
 msgid "New process name"
-msgstr ""
+msgstr "Name des neuen Prozesses"
 
 #: plugins/supervisor/resources/partial/index.html:158
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: plugins/supervisor/resources/partial/index.html:39
 msgid "No processes defined"
-msgstr ""
+msgstr "Kein Prozess definiert"
 
 #: plugins/supervisor/resources/partial/index.html:75
 msgid "Number of processes"
-msgstr ""
+msgstr "Anzahl der Prozesse"
 
 #: plugins/supervisor/resources/partial/index.html:157
 msgid "On crash"
@@ -76,26 +76,26 @@ msgstr ""
 msgid "Process name template"
 msgstr ""
 
-#: plugins/supervisor/resources/partial/index.html:26
-msgid "RUNNING"
-msgstr ""
-
 #: plugins/supervisor/resources/partial/index.html:5
 msgid "Remove"
+msgstr "Entfernen"
+
+#: plugins/supervisor/resources/partial/index.html:26
+msgid "RUNNING"
 msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:216
 #: plugins/supervisor/resources/partial/index.html:53
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: plugins/supervisor/resources/partial/index.html:166
 msgid "Seconds to start"
-msgstr ""
+msgstr "Sekunden zum Starten"
 
 #: plugins/supervisor/resources/partial/index.html:174
 msgid "Seconds to stop"
-msgstr ""
+msgstr "Sekunden zu stoppen"
 
 #: plugins/supervisor/resources/partial/index.html:203
 msgid "Start retries"
@@ -107,11 +107,11 @@ msgstr ""
 
 #: plugins/supervisor/resources/partial/index.html:95
 msgid "User account"
-msgstr ""
+msgstr "Nutzerkonten"
 
 #: plugins/supervisor/resources/partial/index.html:115
 msgid "Working directory"
-msgstr ""
+msgstr "Arbeitsverzeichnis"
 
 #: plugins/supervisor/resources/partial/index.html:156
 msgid "Yes"
@@ -124,14 +124,14 @@ msgstr ""
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
 msgid "Saved"
-msgstr ""
+msgstr "Gespeichert"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
 msgid "Could not save"
-msgstr ""
+msgstr "Speichern fehlgeschlagen"
 
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
 #: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
 msgid "Failed"
-msgstr ""
+msgstr "Fehlgeschlagen"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 20:56+0200\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 msgid "Mark for upgrade"
 msgstr ""
 
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr ""
+
 #: plugins/packages/resources/partial/index.html:3
 msgid "Search packages"
 msgstr ""
@@ -59,10 +63,6 @@ msgstr ""
 
 #: plugins/packages/resources/partial/index.html:32
 msgid "Upgradeable"
-msgstr ""
-
-#: plugins/packages/resources/partial/index.html:56
-msgid "pending"
 msgstr ""
 
 #: plugins/packages/main.py:25

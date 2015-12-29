@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 20:56+0200\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,25 +62,25 @@ msgstr ""
 msgid "Cut"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:32
-msgid "DIRECTORY"
-msgstr ""
-
 #: plugins/filemanager/resources/partial/index.html:57
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:32
+msgid "DIRECTORY"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:78
 msgid "Directory name"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:70
-msgid "EXECUTE"
-msgstr ""
-
 #: plugins/filemanager/resources/partial/properties.html:123
 msgid "Edit in Notepad"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:70
+msgid "EXECUTE"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:173
@@ -102,6 +102,10 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:52
+msgid "items selected"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:43
@@ -128,6 +132,10 @@ msgstr ""
 #: plugins/filemanager/resources/partial/index.html:40
 #: plugins/filemanager/resources/partial/index.html:62
 msgid "New file"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:105
+msgid "or drop them here"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:92
@@ -188,14 +196,6 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:52
-msgid "items selected"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:105
-msgid "or drop them here"
 msgstr ""
 
 #: plugins/filemanager/main.py:15

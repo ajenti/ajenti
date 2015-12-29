@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,215 +18,215 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:246
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
-msgstr ""
+msgstr "允许 sudo 高程为登录的用户"
 
 #: plugins/settings/resources/partial/index.html:204
 msgid "Allows login with a confirmed e-mail address via <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a> auth service. Requires server-side internet access."
-msgstr ""
+msgstr "允许使用通过 <a href=\"https://login.persona.org/about\"target=\"_blank\"> Mozilla 角色</a> 身份验证服务的确认电子邮件地址登录。需要服务器端访问互联网。"
 
 #: plugins/settings/resources/partial/index.html:67
 msgid "Authentication provider"
-msgstr ""
+msgstr "身份验证提供程序"
 
 #: plugins/settings/resources/partial/index.html:39
 msgid "Binding"
-msgstr ""
+msgstr "绑定"
 
 #: plugins/settings/resources/partial/index.html:188
 #: plugins/settings/resources/partial/index.html:247
 #: plugins/settings/resources/js/controllers/index.controller.coffee:61
 msgid "Cancel"
-msgstr ""
+msgstr "取消 "
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
-msgstr ""
+msgstr "颜色标记"
 
 #: plugins/settings/resources/partial/index.html:181
 msgid "Common name"
-msgstr ""
+msgstr "通用名"
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
-msgstr ""
+msgstr "国家"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
-msgstr ""
+msgstr "拒绝其他的身份验证"
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "Download certificate"
-msgstr ""
+msgstr "下载证书"
 
 #: plugins/settings/resources/partial/index.html:237
 msgid "E-mail address"
-msgstr ""
+msgstr "邮箱地址"
 
 #: plugins/settings/resources/partial/index.html:203
 msgid "E-mail authentication"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:85
-msgid "Enable SSL"
-msgstr ""
+msgstr "电子邮件身份验证"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
-msgstr ""
+msgstr "启用客户端身份验证"
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Enable SSL"
+msgstr "启用SSL"
 
 #: plugins/settings/resources/partial/index.html:187
 #: plugins/settings/resources/js/controllers/index.controller.coffee:60
 msgid "Generate"
-msgstr ""
+msgstr "生成"
 
 #: plugins/settings/resources/partial/index.html:98
 msgid "Generate a self-signed certificate"
-msgstr ""
+msgstr "生成一个自签名的证书"
 
 #: plugins/settings/resources/partial/index.html:152
 #: plugins/settings/resources/js/controllers/index.controller.coffee:64
 msgid "Generating certificate"
-msgstr ""
+msgstr "生成证书"
 
 #: plugins/settings/resources/partial/index.html:50
 msgid "Host / IP"
-msgstr ""
+msgstr "主机 / IP"
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
-msgstr ""
+msgstr "作为登录"
 
 #: plugins/settings/resources/partial/index.html:10
 msgid "Machine name"
-msgstr ""
+msgstr "机器名称"
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "New address"
-msgstr ""
+msgstr "新地址"
 
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
-msgstr ""
+msgstr "新证书"
 
 #: plugins/settings/resources/partial/index.html:147
 msgid "New client certificate"
-msgstr ""
+msgstr "新客户端证书"
 
 #: plugins/settings/resources/partial/index.html:233
 msgid "New e-mail address"
-msgstr ""
+msgstr "新电子邮件地址"
 
 #: plugins/settings/resources/partial/index.html:119
 msgid "No certificates are created yet."
-msgstr ""
+msgstr "尚未创建任何证书。"
 
 #: plugins/settings/resources/partial/index.html:208
 msgid "No e-mail addresses added yet."
-msgstr ""
+msgstr "尚未添加任何电子邮件地址。"
 
 #: plugins/settings/resources/partial/index.html:177
 msgid "Organization"
-msgstr ""
+msgstr "组织机构"
 
 #: plugins/settings/resources/partial/index.html:53
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 #: plugins/settings/resources/partial/index.html:212
 msgid "Remove"
-msgstr ""
+msgstr "删除"
 
 #: plugins/settings/resources/partial/index.html:257
 msgid "Restart panel"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:91
-msgid "SSL certificate file"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:107
-msgid "SSL client authentication"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:117
-msgid "SSL client certificates"
-msgstr ""
+msgstr "重启面板"
 
 #: plugins/settings/resources/partial/index.html:256
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/settings/resources/partial/index.html:192
 msgid "Save and Close"
-msgstr ""
+msgstr "保存并关闭"
 
 #: plugins/settings/resources/partial/index.html:58
 msgid "Socket path"
-msgstr ""
+msgstr "套接字路径"
+
+#: plugins/settings/resources/partial/index.html:91
+msgid "SSL certificate file"
+msgstr "SSL 证书文件"
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "SSL client authentication"
+msgstr "SSL 客户端身份验证"
+
+#: plugins/settings/resources/partial/index.html:117
+msgid "SSL client certificates"
+msgstr "SSL 客户端证书"
 
 #: plugins/settings/resources/partial/index.html:173
 msgid "State"
-msgstr ""
+msgstr "州/省"
 
 #: plugins/settings/resources/partial/index.html:74
 msgid "Sudo"
-msgstr ""
+msgstr "Sudo"
 
 #: plugins/settings/resources/partial/index.html:153
 msgid "This might take a few seconds"
-msgstr ""
+msgstr "这可能需要几秒钟"
 
 #: plugins/settings/resources/partial/index.html:241
 msgid "User to log in"
-msgstr ""
+msgstr "用户登录"
 
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:38
 msgid "Could not load authentication provider list"
-msgstr ""
+msgstr "不能加载身份验证源列表"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:40
 msgid "Could not load config"
-msgstr ""
+msgstr "无法加载配置"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:52
 msgid "Saved"
-msgstr ""
+msgstr "已保存"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:54
 msgid "Could not save config"
-msgstr ""
+msgstr "不能保存配置"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:58
 msgid "Self-signed certificate"
-msgstr ""
+msgstr "自签名证书"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:59
 msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
+msgstr "生成新的证书将使所有现有的客户端身份验证证书失效!"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:64
 msgid "Please wait"
-msgstr ""
+msgstr "请稍候"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:66
 msgid "Certificate successfully generated"
-msgstr ""
+msgstr "证书已成功生成"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:72
 #: plugins/settings/resources/js/controllers/index.controller.coffee:89
 msgid "Certificate generation failed"
-msgstr ""
+msgstr "证书生成失败"
 

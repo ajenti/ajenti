@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -18,73 +18,73 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr ""
+msgstr "Ajenti Kern {{ajentiVersion}}, keine Upgrades verfügbar."
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ajenti Core {{ajentiVersion}}. Ein Upgrade auf {{coreUpgradeAvailable}} ist verfügbar."
 
 #: plugins/plugins/resources/partial/index.html:141
 #: plugins/plugins/resources/partial/index.html:196
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
-msgstr ""
+msgstr "Author"
 
 #: plugins/plugins/resources/partial/index.html:53
 msgid "Available plugins"
-msgstr ""
+msgstr "Verfügbare Plugins"
 
 #: plugins/plugins/resources/partial/index.html:160
 #: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: plugins/plugins/resources/partial/index.html:76
 msgid "Community"
-msgstr ""
+msgstr "Community"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "Core"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "Downloads im letzten Monat"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
-msgstr ""
+msgstr "Downloads in diesem Monat"
 
 #: plugins/plugins/resources/partial/index.html:109
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: plugins/plugins/resources/partial/index.html:120
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Ausnahme: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: plugins/plugins/resources/partial/index.html:148
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
-msgstr ""
+msgstr "Homepage"
 
 #: plugins/plugins/resources/partial/index.html:209
 #: plugins/plugins/resources/partial/index.html:62
 #: plugins/plugins/resources/partial/index.html:80
 msgid "Install"
-msgstr ""
+msgstr "Installieren"
 
 #: plugins/plugins/resources/partial/index.html:27
 msgid "Installed plugins"
-msgstr ""
+msgstr "Installierte Plugins"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Loading error"
-msgstr ""
+msgstr "Ladefehler"
 
 #: plugins/plugins/resources/partial/index.html:135
 msgid "Location"
@@ -110,7 +110,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:118
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Das Plugin ist mit dem folgenden Fehler abgestürzt:"
 
 #: plugins/plugins/resources/partial/index.html:113
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
@@ -128,7 +128,7 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:33
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Uninstall"
-msgstr ""
+msgstr "Deinstallieren"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:23

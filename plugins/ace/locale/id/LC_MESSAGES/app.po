@@ -12,5 +12,5 @@ msgstr ""
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 

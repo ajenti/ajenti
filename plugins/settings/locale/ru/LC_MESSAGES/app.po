@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:246
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
@@ -70,12 +70,12 @@ msgstr ""
 msgid "E-mail authentication"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:85
-msgid "Enable SSL"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Enable SSL"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:187
@@ -98,7 +98,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
@@ -106,15 +106,15 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:10
 msgid "Machine name"
-msgstr ""
+msgstr "Имя машины"
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "New address"
-msgstr ""
+msgstr "Новый адрес"
 
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
-msgstr ""
+msgstr "Новый сертификат"
 
 #: plugins/settings/resources/partial/index.html:147
 msgid "New client certificate"
@@ -148,18 +148,6 @@ msgstr ""
 msgid "Restart panel"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:91
-msgid "SSL certificate file"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:107
-msgid "SSL client authentication"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:117
-msgid "SSL client certificates"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:256
 msgid "Save"
 msgstr ""
@@ -170,6 +158,18 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:58
 msgid "Socket path"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:91
+msgid "SSL certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "SSL client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:117
+msgid "SSL client certificates"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:173
@@ -191,7 +191,7 @@ msgstr ""
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:38
 msgid "Could not load authentication provider list"
@@ -203,7 +203,7 @@ msgstr ""
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:52
 msgid "Saved"
-msgstr ""
+msgstr "Сохранено"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:54
 msgid "Could not save config"
@@ -219,7 +219,7 @@ msgstr ""
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:64
 msgid "Please wait"
-msgstr ""
+msgstr "Пожалуйста, подождите"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:66
 msgid "Certificate successfully generated"

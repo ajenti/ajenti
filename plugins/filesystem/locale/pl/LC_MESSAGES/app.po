@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -16,43 +16,60 @@ msgstr ""
 "X-Crowdin-Language: pl\n"
 "X-Crowdin-File: /2.0/filesystem.po\n"
 
+#: plugins/filesystem/resources/partial/widget.config.html:5
+msgid "All combined"
+msgstr ""
+
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:22
 msgid "File name"
+msgstr "Nazwa pliku"
+
+#: plugins/filesystem/resources/partial/widget.config.html:3
+#: plugins/filesystem/resources/partial/widget.html:11
+msgid "Filesystem"
 msgstr ""
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:28
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:27
 msgid "Select this directory"
+msgstr "Wybierz ten katalog"
+
+#: plugins/filesystem/resources/partial/widget.html:4
+msgid "Total"
 msgstr ""
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:11
 msgid "Up one level"
-msgstr ""
+msgstr "W górę o jeden poziom"
 
 #: plugins/filesystem/tasks.py:8
 msgid "File transfer"
-msgstr ""
+msgstr "Transfer plików"
 
 #: plugins/filesystem/tasks.py:40
 msgid "Deleting"
+msgstr "Usuwanie"
+
+#: plugins/filesystem/widget.py:10
+msgid "Disk space"
 msgstr ""
 
 #: plugins/filesystem/main.py:12
 msgid "Read from the filesystem"
-msgstr ""
+msgstr "Odczytaj z systemu plików"
 
 #: plugins/filesystem/main.py:17
 msgid "Write to the filesystem"
-msgstr ""
+msgstr "Napisz do systemu plików"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.coffee:34
 msgid "Could not load directory"
-msgstr ""
+msgstr "Nie można załadować katalogu"
 

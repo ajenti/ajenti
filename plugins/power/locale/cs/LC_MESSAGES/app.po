@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -16,118 +16,118 @@ msgstr ""
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /2.0/power.po\n"
 
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr "{{battery.voltage}} V"
+
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Adaptéry"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Baterie"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Nabíjení"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Vybíjení na {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:54
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernace"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Nebyly zjištěny žádné adaptéry"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Nebyly zjištěny žádné baterie"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Není k dispozici"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Připojena"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "Napájení"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Vypnout"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.coffee:34
 msgid "Reboot"
-msgstr ""
+msgstr "Restartovat"
 
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.coffee:44
 msgid "Suspend"
-msgstr ""
+msgstr "Pozastavit"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
-
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "Doba provozu systému"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "Stav napájení"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "Vypnut a restartovat systém"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:2
 msgid "Power management"
-msgstr ""
+msgstr "Řízení spotřeby"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:32
 #: plugins/power/resources/js/controllers/index.controller.coffee:42
 #: plugins/power/resources/js/controllers/index.controller.coffee:52
 msgid "Warning"
-msgstr ""
+msgstr "Varování"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:23
 #: plugins/power/resources/js/controllers/index.controller.coffee:43
 #: plugins/power/resources/js/controllers/index.controller.coffee:53
 msgid "Machine will become unreachable. Continue?"
-msgstr ""
+msgstr "Stroj se stane nedostupným. Chcete pokračovat?"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:24
 msgid "Shutdown"
-msgstr ""
+msgstr "Vypnout"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:25
 #: plugins/power/resources/js/controllers/index.controller.coffee:35
 #: plugins/power/resources/js/controllers/index.controller.coffee:45
 #: plugins/power/resources/js/controllers/index.controller.coffee:55
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:33
 msgid "Machine may become unreachable. Continue?"
-msgstr ""
+msgstr "Stroj se stane nedostupným. Chcete pokračovat?"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:38
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "Restartování systému. Budeme se snažit znovu spojit."
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:48
 msgid "System is suspending"
-msgstr ""
+msgstr "Systém je pozastaven"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "Systém je v hibernaci"
 

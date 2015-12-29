@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,237 +18,237 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr ""
+msgstr "Ajenti 内核 {{ajentiVersion}}，没有要更新的内容。"
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ajenti 核心 {{ajentiVersion}}。可以更新到 {{coreUpgradeAvailable}} 。"
 
 #: plugins/plugins/resources/partial/index.html:141
 #: plugins/plugins/resources/partial/index.html:196
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
 #: plugins/plugins/resources/partial/index.html:53
 msgid "Available plugins"
-msgstr ""
+msgstr "可用的插件"
 
 #: plugins/plugins/resources/partial/index.html:160
 #: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: plugins/plugins/resources/partial/index.html:76
 msgid "Community"
-msgstr ""
+msgstr "社区"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "核心"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "上个月的下载量"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
-msgstr ""
+msgstr "本月下载量"
 
 #: plugins/plugins/resources/partial/index.html:109
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: plugins/plugins/resources/partial/index.html:120
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "例外: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Filter"
-msgstr ""
+msgstr "过滤器"
 
 #: plugins/plugins/resources/partial/index.html:148
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
-msgstr ""
+msgstr "主页"
 
 #: plugins/plugins/resources/partial/index.html:209
 #: plugins/plugins/resources/partial/index.html:62
 #: plugins/plugins/resources/partial/index.html:80
 msgid "Install"
-msgstr ""
+msgstr "安装"
 
 #: plugins/plugins/resources/partial/index.html:27
 msgid "Installed plugins"
-msgstr ""
+msgstr "已安装的插件"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Loading error"
-msgstr ""
+msgstr "加载出错"
 
 #: plugins/plugins/resources/partial/index.html:135
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: plugins/plugins/resources/partial/index.html:123
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "信息: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:103
 #: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: plugins/plugins/resources/partial/index.html:59
 msgid "Official"
-msgstr ""
+msgstr "官方"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "重启面板"
 
 #: plugins/plugins/resources/partial/index.html:118
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "这个插件由于以下错误崩溃:"
 
 #: plugins/plugins/resources/partial/index.html:113
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "插件启动所需要的程序组件不可用 <code>{{selectedInstalledPlugin.crash.binaryName}}</code>。"
 
 #: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "该插件启动需要的插件不可用 <code>{{selectedInstalledPlugin.crash.pluginName}}</code>。"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:33
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Uninstall"
-msgstr ""
+msgstr "卸载"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:23
 #: plugins/plugins/resources/partial/index.html:36
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "全部更新"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "更新"
 
 #: plugins/plugins/resources/partial/index.html:44
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "可升级到 {{getUpgrade (plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:129
 #: plugins/plugins/resources/partial/index.html:178
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "插件"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:25
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "无法加载插件库"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:27
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "无法加载已安装的插件列表"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:38
 msgid "Upgrading"
-msgstr ""
+msgstr "升級中"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 msgid "Upgrade complete. A panel restart is absolutely required."
-msgstr ""
+msgstr "升级已完成。必须重新启动面板。"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Restart now"
-msgstr ""
+msgstr "现在重新启动"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:43
 msgid "Upgrade failed"
-msgstr ""
+msgstr "升级失败"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:73
 msgid "All plugins updated"
-msgstr ""
+msgstr "已更新所有插件"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "安装完成。必须重新启动面板。"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Later"
-msgstr ""
+msgstr "稍后"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:77
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "某些插件更新失败"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:97
 msgid "Updating plugins"
-msgstr ""
+msgstr "正在更新插件"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:129
 msgid "Install failed"
-msgstr ""
+msgstr "安装失败"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "这将删除插件插件。以后您可以使用PIP重新安装它。"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Uninstall #{plugin.name}?"
-msgstr ""
+msgstr "卸载 #{plugin.name}?"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:144
 msgid "Uninstalling"
-msgstr ""
+msgstr "正在卸载"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "已卸载。必需重新启动面板。"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:150
 msgid "Uninstall failed"
-msgstr ""
+msgstr "卸载失败"
 

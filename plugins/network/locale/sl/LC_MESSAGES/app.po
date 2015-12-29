@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -24,52 +24,52 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:258
 #: plugins/network/resources/partial/index.html:309
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Naslov"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Naslavljanje"
 
 #: plugins/network/resources/partial/index.html:290
 msgid "Aliases"
-msgstr ""
+msgstr "Aliasi"
 
 #: plugins/network/resources/partial/index.html:274
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Kanonično gostiteljsko ime"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Preverjanje stanja..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "ID odjemalca"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:316
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 #: plugins/network/resources/partial/index.html:230
 msgid "Configure"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:191
-msgid "DNS"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:209
-msgid "DNS server address"
-msgstr ""
+msgstr "Konfiguriraj"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
 msgstr ""
+
+#: plugins/network/resources/partial/index.html:191
+msgid "DNS"
+msgstr "DNS"
+
+#: plugins/network/resources/partial/index.html:209
+msgid "DNS server address"
+msgstr "Naslov strežnika DNS"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
@@ -77,57 +77,57 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Družina"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Prehod"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Ime gostitelja"
 
 #: plugins/network/resources/partial/index.html:223
 msgid "Hosts"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:282
-msgid "IP address"
-msgstr ""
+msgstr "Gostitelji"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Vmesniki"
+
+#: plugins/network/resources/partial/index.html:282
+msgid "IP address"
+msgstr "Naslov IP"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Maska"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Metrično"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "Omrežje"
 
 #: plugins/network/resources/partial/index.html:307
 msgid "New alias"
-msgstr ""
+msgstr "Nov alias"
 
 #: plugins/network/resources/partial/index.html:256
 msgid "New host name"
-msgstr ""
+msgstr "Novo ime gostitelja"
 
 #: plugins/network/resources/partial/index.html:252
 #: plugins/network/resources/partial/index.html:292
 msgid "No hosts defined"
-msgstr ""
+msgstr "Ni definiranih gostiteljev"
 
 #: plugins/network/resources/partial/index.html:205
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Ni definiranih imenskih strežnikov"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
@@ -149,26 +149,26 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:227
 #: plugins/network/resources/partial/index.html:296
 msgid "Remove"
-msgstr ""
+msgstr "Odstrani"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Znova zaženi vmesnik"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:218
 #: plugins/network/resources/partial/index.html:265
 #: plugins/network/resources/partial/index.html:315
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Obseg"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Neznano naslavljanje"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
@@ -180,50 +180,50 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Posodobi ime gostitelja"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Konfiguriraj omrežne vmesnike"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Vključi/izključi omrežne vmesnike"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:19
 #: plugins/network/resources/js/controllers/dns.controller.coffee:11
 msgid "Saved"
-msgstr ""
+msgstr "Shranjeno"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:21
 #: plugins/network/resources/js/controllers/dns.controller.coffee:13
 msgid "Could not save"
-msgstr ""
+msgstr "Ni bilo mogoče shraniti"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:10
 msgid "Static"
-msgstr ""
+msgstr "Statični"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:11
 msgid "Auto"
-msgstr ""
+msgstr "Samodejno"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:13
 msgid "Manual"
-msgstr ""
+msgstr "Ročno"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:14
 msgid "Loopback"
-msgstr ""
+msgstr "Povratna zanka"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "Vmesnik aktiviran"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
 msgid "Warning"
-msgstr ""
+msgstr "Opozorilo"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
@@ -231,16 +231,16 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"
-msgstr ""
+msgstr "Deaktiviraj"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:48
 #: plugins/network/resources/js/controllers/index.controller.coffee:59
 msgid "Cancel"
-msgstr ""
+msgstr "Prekliči"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:51
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Vmesnik je bil izklopljen"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:57
 msgid "Restarting a network interface can lock you out of the remote session"
@@ -248,17 +248,17 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:58
 msgid "Restart"
-msgstr ""
+msgstr "Ponovni zagon"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:63
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Vmesnik ponovno aktiviran"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:69
 msgid "Hostname changed"
-msgstr ""
+msgstr "Ime gostitelja je bilo spremenjeno"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
-msgstr ""
+msgstr "Ni uspelo"
 

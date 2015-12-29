@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,69 +18,69 @@ msgstr ""
 
 #: plugins/auth_users/resources/partial/index.html:11
 msgid "Configure"
-msgstr ""
+msgstr "配置"
 
 #: plugins/auth_users/resources/partial/index.html:31
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 #: plugins/auth_users/resources/partial/index.html:42
 msgid "Default root password is <code>admin</code>"
-msgstr ""
+msgstr "默认 root 密码是 <code>管理员</code>"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
-msgstr ""
+msgstr "新密码"
 
 #: plugins/auth_users/resources/partial/index.html:29
 msgid "New user name"
-msgstr ""
+msgstr "新用户名称"
 
 #: plugins/auth_users/resources/partial/index.html:92
 msgid "OK"
-msgstr ""
+msgstr "完成"
 
 #: plugins/auth_users/resources/partial/index.html:83
 msgid "Permissions"
-msgstr ""
+msgstr "权限"
 
 #: plugins/auth_users/resources/partial/index.html:48
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: plugins/auth_users/resources/partial/index.html:73
 msgid "Sidebar entries"
-msgstr ""
+msgstr "侧边栏条目"
 
 #: plugins/auth_users/resources/partial/index.html:57
 msgid "System account"
-msgstr ""
+msgstr "系统帐户"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
-msgstr ""
+msgstr "这只会影响外观的侧边栏。禁用在 <b>权限</b> 选项卡下的实际权限。"
 
 #: plugins/auth_users/resources/partial/index.html:60
 msgid "This user will be constrained by POSIX permissions for the selected system account."
-msgstr ""
+msgstr "此用户将受到 POSIX 为选定的系统帐户的权限。"
 
 #: plugins/auth_users/resources/partial/index.html:68
 msgid "Update password"
-msgstr ""
+msgstr "更新密码"
 
 #: plugins/auth_users/resources/partial/index.html:38
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
-msgstr ""
+msgstr "你有没有映射到 <b>根</b> 系统帐户的用户。保存此配置将防止任何管理访问权限。"
 
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
-msgstr ""
+msgstr "自定义用户"
 
 #: plugins/auth_users/main.py:16
 msgid "Users"
-msgstr ""
+msgstr "用户数"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
 msgid "Password updated"
-msgstr ""
+msgstr "密码已更新"
 

@@ -2,9 +2,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr ""
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
@@ -63,10 +67,6 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
-
-#: plugins/power/resources/partial/index.html:61
-msgid "{{battery.voltage}} V"
 msgstr ""
 
 #: plugins/power/widget.py:9

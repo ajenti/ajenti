@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -18,69 +18,69 @@ msgstr ""
 
 #: plugins/auth_users/resources/partial/index.html:11
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurieren"
 
 #: plugins/auth_users/resources/partial/index.html:31
 msgid "Create"
-msgstr ""
+msgstr "Erstellen"
 
 #: plugins/auth_users/resources/partial/index.html:42
 msgid "Default root password is <code>admin</code>"
-msgstr ""
+msgstr "Standard root Passwort ist <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
-msgstr ""
+msgstr "Neues Passwort"
 
 #: plugins/auth_users/resources/partial/index.html:29
 msgid "New user name"
-msgstr ""
+msgstr "Neuer Benutzernamen"
 
 #: plugins/auth_users/resources/partial/index.html:92
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: plugins/auth_users/resources/partial/index.html:83
 msgid "Permissions"
-msgstr ""
+msgstr "Berechtigungen"
 
 #: plugins/auth_users/resources/partial/index.html:48
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: plugins/auth_users/resources/partial/index.html:73
 msgid "Sidebar entries"
-msgstr ""
+msgstr "Seitenleiste Einträge"
 
 #: plugins/auth_users/resources/partial/index.html:57
 msgid "System account"
-msgstr ""
+msgstr "Systemkonto"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
-msgstr ""
+msgstr "Dies betrifft nur die Darstellung der Seitenleiste. Deaktivieren Sie die tatsächliche Berechtigungen im Tab \"<b>Berechtigungen</b>\"."
 
 #: plugins/auth_users/resources/partial/index.html:60
 msgid "This user will be constrained by POSIX permissions for the selected system account."
-msgstr ""
+msgstr "Dieser Benutzer wird durch POSIX-Berechtigungen für das ausgewählte System-Konto eingeschränkt sein."
 
 #: plugins/auth_users/resources/partial/index.html:68
 msgid "Update password"
-msgstr ""
+msgstr "Passwort aktualisieren"
 
 #: plugins/auth_users/resources/partial/index.html:38
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
-msgstr ""
+msgstr "Sie haben kein Benutzer der <b>root</b> zugeordnet ist. Durch das speichern dieser Konfiguration werden alle administrativen Zugriffe verhindert."
 
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
-msgstr ""
+msgstr "Benutzerdefinierte Benutzer"
 
 #: plugins/auth_users/main.py:16
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
 msgid "Password updated"
-msgstr ""
+msgstr "Passwort aktualisiert"
 

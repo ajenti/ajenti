@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -70,12 +70,12 @@ msgstr ""
 msgid "E-mail authentication"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:85
-msgid "Enable SSL"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Enable SSL"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:187
@@ -148,18 +148,6 @@ msgstr ""
 msgid "Restart panel"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:91
-msgid "SSL certificate file"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:107
-msgid "SSL client authentication"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:117
-msgid "SSL client certificates"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:256
 msgid "Save"
 msgstr ""
@@ -170,6 +158,18 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:58
 msgid "Socket path"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:91
+msgid "SSL certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "SSL client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:117
+msgid "SSL client certificates"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:173

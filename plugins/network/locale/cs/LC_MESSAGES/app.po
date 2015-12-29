@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -18,247 +18,247 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Aktivovat rozhraní (nahoru)"
 
 #: plugins/network/resources/partial/index.html:211
 #: plugins/network/resources/partial/index.html:258
 #: plugins/network/resources/partial/index.html:309
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Adresa"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Adresování"
 
 #: plugins/network/resources/partial/index.html:290
 msgid "Aliases"
-msgstr ""
+msgstr "Aliasy"
 
 #: plugins/network/resources/partial/index.html:274
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Canonical hostname"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Kontrola stavu..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "ID zákazníka"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:316
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: plugins/network/resources/partial/index.html:230
 msgid "Configure"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:191
-msgid "DNS"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:209
-msgid "DNS server address"
-msgstr ""
+msgstr "Nastavit"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "Deaktivovat rozhraní (dolů)"
+
+#: plugins/network/resources/partial/index.html:191
+msgid "DNS"
+msgstr "DNS"
+
+#: plugins/network/resources/partial/index.html:209
+msgid "DNS server address"
+msgstr "Adresa serveru DNS"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Down skript"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Rodina"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Brána"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: plugins/network/resources/partial/index.html:223
 msgid "Hosts"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:282
-msgid "IP address"
-msgstr ""
+msgstr "Hosts"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Rozhraní"
+
+#: plugins/network/resources/partial/index.html:282
+msgid "IP address"
+msgstr "IP adresa"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Maska"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Metrika"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "Síť"
 
 #: plugins/network/resources/partial/index.html:307
 msgid "New alias"
-msgstr ""
+msgstr "Nový alias"
 
 #: plugins/network/resources/partial/index.html:256
 msgid "New host name"
-msgstr ""
+msgstr "Nový název host"
 
 #: plugins/network/resources/partial/index.html:252
 #: plugins/network/resources/partial/index.html:292
 msgid "No hosts defined"
-msgstr ""
+msgstr "Nejsou definovaní žádní hosts"
 
 #: plugins/network/resources/partial/index.html:205
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Nejsou definovaní žádné nameservery"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Post-down skript"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Post-up skript"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Pre-down skript"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Pre-up skript"
 
 #: plugins/network/resources/partial/index.html:195
 #: plugins/network/resources/partial/index.html:227
 #: plugins/network/resources/partial/index.html:296
 msgid "Remove"
-msgstr ""
+msgstr "Odstranit"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Restartovat rozhraní"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:218
 #: plugins/network/resources/partial/index.html:265
 #: plugins/network/resources/partial/index.html:315
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Rozsah"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Neznámé adresování"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Neznámá rodina"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Up skript"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Aktualizovat hostname"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Konfigurace síťových rozhraní"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Aktivovat/deaktivovat síťová rozhraní"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:19
 #: plugins/network/resources/js/controllers/dns.controller.coffee:11
 msgid "Saved"
-msgstr ""
+msgstr "Uloženo"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:21
 #: plugins/network/resources/js/controllers/dns.controller.coffee:13
 msgid "Could not save"
-msgstr ""
+msgstr "Nelze uložit"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:10
 msgid "Static"
-msgstr ""
+msgstr "Statický"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:11
 msgid "Auto"
-msgstr ""
+msgstr "Automaticky"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:13
 msgid "Manual"
-msgstr ""
+msgstr "Manuální"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:14
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "Rozhraní aktivováno"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
 msgid "Warning"
-msgstr ""
+msgstr "Varování"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Deaktivace rozhraní sítě vás může odpojit ze vzdálené relace"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"
-msgstr ""
+msgstr "Deaktivovat"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:48
 #: plugins/network/resources/js/controllers/index.controller.coffee:59
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:51
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Rozhraní aktivováno"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:57
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Deaktivace rozhraní sítě vás může odpojit ze vzdálené relace"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:58
 msgid "Restart"
-msgstr ""
+msgstr "Restartovat"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:63
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Rozhraní znovu aktivováno"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:69
 msgid "Hostname changed"
-msgstr ""
+msgstr "Změněný hostname"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
-msgstr ""
+msgstr "Chyba"
 

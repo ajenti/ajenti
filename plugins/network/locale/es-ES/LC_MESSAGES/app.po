@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -18,58 +18,58 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Activar (up) la interfaz"
 
 #: plugins/network/resources/partial/index.html:211
 #: plugins/network/resources/partial/index.html:258
 #: plugins/network/resources/partial/index.html:309
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Direccionando"
 
 #: plugins/network/resources/partial/index.html:290
 msgid "Aliases"
-msgstr ""
+msgstr "Alias"
 
 #: plugins/network/resources/partial/index.html:274
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Nombre de host canónico"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Comprobando estado..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "ID de cliente"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:316
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: plugins/network/resources/partial/index.html:230
 msgid "Configure"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:191
-msgid "DNS"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:209
-msgid "DNS server address"
-msgstr ""
+msgstr "Configurar"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "Desactivar (down) interfaz"
+
+#: plugins/network/resources/partial/index.html:191
+msgid "DNS"
+msgstr "DNS"
+
+#: plugins/network/resources/partial/index.html:209
+msgid "DNS server address"
+msgstr "Dirección del servidor DNS"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
@@ -77,57 +77,57 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Familia"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Puerta de enlace"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Nombre del Host"
 
 #: plugins/network/resources/partial/index.html:223
 msgid "Hosts"
-msgstr ""
-
-#: plugins/network/resources/partial/index.html:282
-msgid "IP address"
-msgstr ""
+msgstr "Hosts"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfaces"
+
+#: plugins/network/resources/partial/index.html:282
+msgid "IP address"
+msgstr "Dirección IP"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Máscara"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Métrica"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "Red"
 
 #: plugins/network/resources/partial/index.html:307
 msgid "New alias"
-msgstr ""
+msgstr "Nuevo alias"
 
 #: plugins/network/resources/partial/index.html:256
 msgid "New host name"
-msgstr ""
+msgstr "Nuevo nombre de host"
 
 #: plugins/network/resources/partial/index.html:252
 #: plugins/network/resources/partial/index.html:292
 msgid "No hosts defined"
-msgstr ""
+msgstr "No se han definido hosts"
 
 #: plugins/network/resources/partial/index.html:205
 msgid "No nameservers defined"
-msgstr ""
+msgstr "No hay nombres de servidores definidos"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
@@ -149,30 +149,30 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:227
 #: plugins/network/resources/partial/index.html:296
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Reiniciar la interfaz"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:218
 #: plugins/network/resources/partial/index.html:265
 #: plugins/network/resources/partial/index.html:315
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "Ámbito"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Direccionamiento desconocido"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Familia desconocida"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
@@ -180,83 +180,83 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Actualización de nombre de host"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Configurar interfaces de red"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Activar o desactivar interfaces de red"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:19
 #: plugins/network/resources/js/controllers/dns.controller.coffee:11
 msgid "Saved"
-msgstr ""
+msgstr "Guardado"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:21
 #: plugins/network/resources/js/controllers/dns.controller.coffee:13
 msgid "Could not save"
-msgstr ""
+msgstr "No se pudo guardar"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:10
 msgid "Static"
-msgstr ""
+msgstr "Estática"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:11
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:13
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:14
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "Interfaz activada"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
 msgid "Warning"
-msgstr ""
+msgstr "Atención"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Desactivando una interfaz de red puede bloquear la sesión remota"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"
-msgstr ""
+msgstr "Desactivar"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:48
 #: plugins/network/resources/js/controllers/index.controller.coffee:59
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:51
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Interfaz desactivada"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:57
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "Reiniciar una interfaz de red puede echarte de la sesión remota"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:58
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:63
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Interfaz reactivada"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:69
 msgid "Hostname changed"
-msgstr ""
+msgstr "Nombre de host cambiado"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"

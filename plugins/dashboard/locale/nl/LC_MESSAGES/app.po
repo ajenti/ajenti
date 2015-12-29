@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 20:56+0200\n"
-"PO-Revision-Date: 2015-10-17 14:35-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,66 +18,66 @@ msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:3
 msgid "1 min"
-msgstr ""
+msgstr "1 min"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:19
 msgid "15 min"
-msgstr ""
+msgstr "15 min"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:11
 msgid "5 min"
-msgstr ""
+msgstr "5 min"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:4
 msgid "Active cores"
-msgstr ""
+msgstr "Actieve cores"
 
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Add widget"
-msgstr ""
+msgstr "Widget toevoegen"
+
+#: plugins/dashboard/resources/partial/widget.html:1
+msgid "Configure"
+msgstr "Configureren"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
-msgstr ""
-
-#: plugins/dashboard/resources/partial/widget.html:1
-msgid "Configure"
-msgstr ""
+msgstr "CPU-gebruik"
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2
 #: plugins/dashboard/widgets/hostname.py:10
 msgid "Hostname"
-msgstr ""
+msgstr "Hostnaam"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:10
 #: plugins/dashboard/widgets/memory.py:10
 msgid "Memory usage"
-msgstr ""
+msgstr "Geheugen gebruik"
 
 #: plugins/dashboard/resources/partial/widget.html:7
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: plugins/dashboard/resources/partial/index.html:46
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 #: plugins/dashboard/resources/partial/widgets/uptime.html:2
 #: plugins/dashboard/widgets/uptime.py:11
 msgid "Uptime"
-msgstr ""
+msgstr "Uptime"
 
 #: plugins/dashboard/main.py:15
 #: plugins/dashboard/resources/js/controllers/index.controller.coffee:2
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
-#: plugins/dashboard/widgets/loadavg.py:11
+#: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
-msgstr ""
+msgstr "Gemiddelde belasting"
 

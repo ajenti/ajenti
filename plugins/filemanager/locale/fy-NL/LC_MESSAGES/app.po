@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Frisian\n"
 "Language: fy_NL\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
-msgstr ""
+msgstr "Tagong"
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
-msgstr ""
+msgstr "Tapasse"
 
 #: plugins/filemanager/resources/partial/index.html:110
 #: plugins/filemanager/resources/partial/index.html:69
@@ -34,7 +34,7 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:188
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
-msgstr ""
+msgstr "Annulearje"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
@@ -42,27 +42,23 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:116
 msgid "Clipboard"
-msgstr ""
+msgstr "Klamboerd"
 
 #: plugins/filemanager/resources/partial/index.html:138
 msgid "Close"
-msgstr ""
+msgstr "Slute"
 
 #: plugins/filemanager/resources/partial/index.html:56
 msgid "Copy"
-msgstr ""
+msgstr "Kopiearje"
 
 #: plugins/filemanager/resources/partial/index.html:68
 #: plugins/filemanager/resources/partial/index.html:81
 msgid "Create"
-msgstr ""
+msgstr "Meitsje"
 
 #: plugins/filemanager/resources/partial/index.html:55
 msgid "Cut"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/properties.html:32
-msgid "DIRECTORY"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:57
@@ -70,16 +66,20 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+#: plugins/filemanager/resources/partial/properties.html:32
+msgid "DIRECTORY"
+msgstr ""
+
 #: plugins/filemanager/resources/partial/index.html:78
 msgid "Directory name"
 msgstr ""
 
-#: plugins/filemanager/resources/partial/properties.html:70
-msgid "EXECUTE"
-msgstr ""
-
 #: plugins/filemanager/resources/partial/properties.html:123
 msgid "Edit in Notepad"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:70
+msgid "EXECUTE"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:173
@@ -101,6 +101,10 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
+msgstr "Groep"
+
+#: plugins/filemanager/resources/partial/index.html:52
+msgid "items selected"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:43
@@ -117,7 +121,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "Namme"
 
 #: plugins/filemanager/resources/partial/index.html:41
 #: plugins/filemanager/resources/partial/index.html:75
@@ -127,6 +131,10 @@ msgstr ""
 #: plugins/filemanager/resources/partial/index.html:40
 #: plugins/filemanager/resources/partial/index.html:62
 msgid "New file"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:105
+msgid "or drop them here"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:92
@@ -159,7 +167,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
-msgstr ""
+msgstr "Grutte"
 
 #: plugins/filemanager/resources/partial/index.html:46
 msgid "Tab"
@@ -167,7 +175,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:26
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: plugins/filemanager/resources/partial/index.html:10
 msgid "Up one level"
@@ -183,18 +191,10 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
-msgstr ""
+msgstr "Brûker"
 
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:52
-msgid "items selected"
-msgstr ""
-
-#: plugins/filemanager/resources/partial/index.html:105
-msgid "or drop them here"
 msgstr ""
 
 #: plugins/filemanager/main.py:15

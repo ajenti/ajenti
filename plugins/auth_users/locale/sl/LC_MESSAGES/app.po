@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-09-24 07:19-0400\n"
+"PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -18,69 +18,69 @@ msgstr ""
 
 #: plugins/auth_users/resources/partial/index.html:11
 msgid "Configure"
-msgstr ""
+msgstr "Konfiguracija"
 
 #: plugins/auth_users/resources/partial/index.html:31
 msgid "Create"
-msgstr ""
+msgstr "Ustvari"
 
 #: plugins/auth_users/resources/partial/index.html:42
 msgid "Default root password is <code>admin</code>"
-msgstr ""
+msgstr "Privzeto root geslo je <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
-msgstr ""
+msgstr "Novo geslo"
 
 #: plugins/auth_users/resources/partial/index.html:29
 msgid "New user name"
-msgstr ""
+msgstr "Novo uporabniško ime"
 
 #: plugins/auth_users/resources/partial/index.html:92
 msgid "OK"
-msgstr ""
+msgstr "V redu"
 
 #: plugins/auth_users/resources/partial/index.html:83
 msgid "Permissions"
-msgstr ""
+msgstr "Dovoljenja"
 
 #: plugins/auth_users/resources/partial/index.html:48
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: plugins/auth_users/resources/partial/index.html:73
 msgid "Sidebar entries"
-msgstr ""
+msgstr "Vnosi stranske vrstice"
 
 #: plugins/auth_users/resources/partial/index.html:57
 msgid "System account"
-msgstr ""
+msgstr "Sistemski račun"
 
 #: plugins/auth_users/resources/partial/index.html:76
 msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
-msgstr ""
+msgstr "To vpliva samo na videz stranske vrstice. Dejanska dovoljenja onemogočite pod jezičkom <b>dovoljenja</b>."
 
 #: plugins/auth_users/resources/partial/index.html:60
 msgid "This user will be constrained by POSIX permissions for the selected system account."
-msgstr ""
+msgstr "Ta uporabnik bo omejen zaradi POSIX dovoljenj za izbrani sistemski račun."
 
 #: plugins/auth_users/resources/partial/index.html:68
 msgid "Update password"
-msgstr ""
+msgstr "Posodobi geslo"
 
 #: plugins/auth_users/resources/partial/index.html:38
 msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
-msgstr ""
+msgstr "Nimate povezanih uporabnikov z <b>root</b> sistemskim računom. S shranjevanjem trenutne konfiguracije boste izgubili skrbniški dostop."
 
 #: plugins/auth_users/api.py:13
 msgid "Custom users"
-msgstr ""
+msgstr "Uporabniki po meri"
 
 #: plugins/auth_users/main.py:16
 msgid "Users"
-msgstr ""
+msgstr "Uporabniki"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
 msgid "Password updated"
-msgstr ""
+msgstr "Geslo posodobljeno"
 
