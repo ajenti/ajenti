@@ -27,10 +27,10 @@ angular.module('core').directive 'messageboxContainer', (messagebox) ->
             $scope.messagebox = messagebox
 
             $scope.doPositive = (msg) ->
-                msg.q.resolve()
+                msg.q.resolve(msg)
                 messagebox.close(msg)
 
             $scope.doNegative = (msg) ->
-                msg.q.reject()
+                msg.q.reject(msg)
                 messagebox.close(msg)
     }

@@ -50,7 +50,7 @@ class Sidebar(object):
         def find_id(_id, e=sidebar):
             if 'id' in e and e['id'] == _id:
                 return e
-            for c in e['children']:
+            for c in e.get('children', []):
                 f = find_id(_id, e=c)
                 if f:
                     return f
