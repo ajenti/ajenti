@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2015-12-31 09:29-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
-msgstr ""
+msgstr "การเข้าถึง"
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
-msgstr ""
+msgstr "ทั้งหมด"
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
-msgstr ""
+msgstr "นำไปใช้"
 
 #: plugins/filemanager/resources/partial/index.html:110
 #: plugins/filemanager/resources/partial/index.html:69
@@ -34,206 +34,206 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:188
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
-msgstr ""
+msgstr "ยกเลิก"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
-msgstr ""
+msgstr "เปลี่ยนการกำหนดสิทธิ์"
 
 #: plugins/filemanager/resources/partial/index.html:116
 msgid "Clipboard"
-msgstr ""
+msgstr "คลิปบอร์ด"
 
 #: plugins/filemanager/resources/partial/index.html:138
 msgid "Close"
-msgstr ""
+msgstr "ปิด"
 
 #: plugins/filemanager/resources/partial/index.html:56
 msgid "Copy"
-msgstr ""
+msgstr "คัดลอก"
 
 #: plugins/filemanager/resources/partial/index.html:68
 #: plugins/filemanager/resources/partial/index.html:81
 msgid "Create"
-msgstr ""
+msgstr "สร้าง"
 
 #: plugins/filemanager/resources/partial/index.html:55
 msgid "Cut"
-msgstr ""
+msgstr "ตัด"
 
 #: plugins/filemanager/resources/partial/index.html:57
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
-msgstr ""
+msgstr "ลบ"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
-msgstr ""
+msgstr "ไดเรกทอรี"
 
 #: plugins/filemanager/resources/partial/index.html:78
 msgid "Directory name"
-msgstr ""
+msgstr "ชื่อไดเรกทอรี"
 
 #: plugins/filemanager/resources/partial/properties.html:123
 msgid "Edit in Notepad"
-msgstr ""
+msgstr "แก้ไขใน Notepad"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
-msgstr ""
+msgstr "ปฏิบัติการ"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
-msgstr ""
+msgstr "เพิ่มเติม"
 
 #: plugins/filemanager/resources/partial/properties.html:37
 msgid "FILE"
-msgstr ""
+msgstr "ไฟล์"
 
 #: plugins/filemanager/resources/partial/index.html:65
 msgid "File name"
-msgstr ""
+msgstr "ชื่อไฟล์"
 
 #: plugins/filemanager/resources/partial/properties.html:18
 msgid "Full path"
-msgstr ""
+msgstr "พาธแบบเต็ม"
 
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
-msgstr ""
+msgstr "Group"
 
 #: plugins/filemanager/resources/partial/index.html:52
 msgid "items selected"
-msgstr ""
+msgstr "รายการถูกเลือกแล้ว"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
-msgstr ""
+msgstr "การเชื่อมโยง"
 
 #: plugins/filemanager/resources/partial/properties.html:108
 msgid "Mode"
-msgstr ""
+msgstr "โหมด"
 
 #: plugins/filemanager/resources/partial/properties.html:84
 msgid "Modified"
-msgstr ""
+msgstr "แก้ไขเมื่อ"
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "ชื่อ"
 
 #: plugins/filemanager/resources/partial/index.html:41
 #: plugins/filemanager/resources/partial/index.html:75
 msgid "New directory"
-msgstr ""
+msgstr "สร้างไดเรกทอรี"
 
 #: plugins/filemanager/resources/partial/index.html:40
 #: plugins/filemanager/resources/partial/index.html:62
 msgid "New file"
-msgstr ""
+msgstr "สร้างไฟล์"
 
 #: plugins/filemanager/resources/partial/index.html:105
 msgid "or drop them here"
-msgstr ""
+msgstr "หรือวางที่นี่"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
-msgstr ""
+msgstr "Owner"
 
 #: plugins/filemanager/resources/partial/index.html:43
 msgid "Paste here"
-msgstr ""
+msgstr "วางที่นี่"
 
 #: plugins/filemanager/resources/partial/properties.html:132
 msgid "Permission bits"
-msgstr ""
+msgstr "Permission bits"
 
 #: plugins/filemanager/resources/partial/properties.html:56
 msgid "READ"
-msgstr ""
+msgstr "อ่าน"
 
 #: plugins/filemanager/resources/partial/index.html:121
 msgid "Remove"
-msgstr ""
+msgstr "ลบ"
 
 #: plugins/filemanager/resources/partial/index.html:137
 msgid "Remove all items"
-msgstr ""
+msgstr "ลบทั้งหมด"
 
 #: plugins/filemanager/resources/partial/index.html:101
 msgid "Select files to upload"
-msgstr ""
+msgstr "เลือกไฟล์ที่จะอัปโหลด"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
-msgstr ""
+msgstr "ขนาด"
 
 #: plugins/filemanager/resources/partial/index.html:46
 msgid "Tab"
-msgstr ""
+msgstr "แท็บ"
 
 #: plugins/filemanager/resources/partial/properties.html:26
 msgid "Type"
-msgstr ""
+msgstr "ชนิด"
 
 #: plugins/filemanager/resources/partial/index.html:10
 msgid "Up one level"
-msgstr ""
+msgstr "กลับไปก่อนหน้า"
 
 #: plugins/filemanager/resources/partial/index.html:42
 msgid "Upload"
-msgstr ""
+msgstr "อัปโหลด"
 
 #: plugins/filemanager/resources/partial/index.html:88
 msgid "Upload files"
-msgstr ""
+msgstr "อัปโหลดไฟล์"
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
-msgstr ""
+msgstr "User"
 
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
-msgstr ""
+msgstr "เขียน"
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"
-msgstr ""
+msgstr "ตัวจัดการไฟล์"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.coffee:15
 msgid "Could not read file information"
-msgstr ""
+msgstr "ไม่สามารถอ่านข้อมูลของไฟล์"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.coffee:28
 msgid "File mode saved"
-msgstr ""
+msgstr "บันทึกโหมดไฟล์แล้ว"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:15
 msgid "Could not load directory"
-msgstr ""
+msgstr "ไม่สามารถอ่านไดเรกทอรี"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:76
 msgid "Delete selected items?"
-msgstr ""
+msgstr "ลบรายการที่เลือก?"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:103
 msgid "Could not create file"
-msgstr ""
+msgstr "ไม่สามารถสร้างไฟล์ได้"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:119
 msgid "Could not create directory"
-msgstr ""
+msgstr "ไม่สามารถสร้างไดเรกทอรีได้"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:141
 msgid "Uploaded"
-msgstr ""
+msgstr "อัปโหลดแล้ว"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:152
 msgid "Upload failed"
-msgstr ""
+msgstr "การอัปโหลดล้มเหลว"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:155
 msgid "Upload cancelled"
-msgstr ""
+msgstr "ยกเลิกการอัปโหลดแล้ว"
 

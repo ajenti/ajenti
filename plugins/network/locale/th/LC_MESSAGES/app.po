@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2015-12-31 09:29-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -18,247 +18,247 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "เปิดใช้ (up) อินเทอร์เฟซ"
 
 #: plugins/network/resources/partial/index.html:211
 #: plugins/network/resources/partial/index.html:258
 #: plugins/network/resources/partial/index.html:309
 msgid "Add"
-msgstr ""
+msgstr "เพิ่ม"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Address"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Addressing"
 
 #: plugins/network/resources/partial/index.html:290
 msgid "Aliases"
-msgstr ""
+msgstr "ชื่อเรียก"
 
 #: plugins/network/resources/partial/index.html:274
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Canonical hostname"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "กำลังรอสถานะ..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "Client ID"
 
 #: plugins/network/resources/partial/index.html:184
 #: plugins/network/resources/partial/index.html:316
 msgid "Close"
-msgstr ""
+msgstr "ปิด"
 
 #: plugins/network/resources/partial/index.html:230
 msgid "Configure"
-msgstr ""
+msgstr "การตั้งค่า"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "ปิดการใช้งาน (down) อินเทอร์เฟซ"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 #: plugins/network/resources/partial/index.html:209
 msgid "DNS server address"
-msgstr ""
+msgstr "ที่อยู่เซิร์ฟเวอร์ DNS"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
-msgstr ""
+msgstr "Down script"
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Family"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "ชื่อโฮสต์"
 
 #: plugins/network/resources/partial/index.html:223
 msgid "Hosts"
-msgstr ""
+msgstr "โฮสต์"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "อินเตอร์เฟส"
 
 #: plugins/network/resources/partial/index.html:282
 msgid "IP address"
-msgstr ""
+msgstr "ที่อยู่ IP"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Mask"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Metric"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "Network"
 
 #: plugins/network/resources/partial/index.html:307
 msgid "New alias"
-msgstr ""
+msgstr "ชื่อเรียกใหม่"
 
 #: plugins/network/resources/partial/index.html:256
 msgid "New host name"
-msgstr ""
+msgstr "ชื่อโฮสต์ใหม่"
 
 #: plugins/network/resources/partial/index.html:252
 #: plugins/network/resources/partial/index.html:292
 msgid "No hosts defined"
-msgstr ""
+msgstr "ไม่ได้กำหนดโฮสต์"
 
 #: plugins/network/resources/partial/index.html:205
 msgid "No nameservers defined"
-msgstr ""
+msgstr "ไม่ได้กำหนด nameserver"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
-msgstr ""
+msgstr "Post-down script"
 
 #: plugins/network/resources/partial/index.html:162
 msgid "Post-up script"
-msgstr ""
+msgstr "Post-up script"
 
 #: plugins/network/resources/partial/index.html:167
 msgid "Pre-down script"
-msgstr ""
+msgstr "Pre-down script"
 
 #: plugins/network/resources/partial/index.html:152
 msgid "Pre-up script"
-msgstr ""
+msgstr "Pre-up script"
 
 #: plugins/network/resources/partial/index.html:195
 #: plugins/network/resources/partial/index.html:227
 #: plugins/network/resources/partial/index.html:296
 msgid "Remove"
-msgstr ""
+msgstr "ลบ"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "เริ่มการทำงานอินเทอร์เฟซใหม่"
 
 #: plugins/network/resources/partial/index.html:183
 #: plugins/network/resources/partial/index.html:218
 #: plugins/network/resources/partial/index.html:265
 #: plugins/network/resources/partial/index.html:315
 msgid "Save"
-msgstr ""
+msgstr "บันทึก"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
-msgstr ""
+msgstr "ขอบเขต"
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Unknown addressing"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
-msgstr ""
+msgstr "Unknown family"
 
 #: plugins/network/resources/partial/index.html:157
 msgid "Up script"
-msgstr ""
+msgstr "Up script"
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "เปลี่ยนชื่อโฮสต์"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "ตั้งค่าอินเทอร์เฟซ"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "เปิด/ปิดการใช้งานอินเทอร์เฟซ"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:19
 #: plugins/network/resources/js/controllers/dns.controller.coffee:11
 msgid "Saved"
-msgstr ""
+msgstr "บันทึกแล้ว"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:21
 #: plugins/network/resources/js/controllers/dns.controller.coffee:13
 msgid "Could not save"
-msgstr ""
+msgstr "ไม่สามารถบันทึกได้"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:10
 msgid "Static"
-msgstr ""
+msgstr "Static"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:11
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:13
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:14
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "อินเทอร์เฟซเปิดใช้งานแล้ว"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
 msgid "Warning"
-msgstr ""
+msgstr "คำเตือน"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "การปิดการใช้งานอินเทอร์เฟซอาจทำให้คุณไม่สามารถเข้าถึงระบบได้"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"
-msgstr ""
+msgstr "ปิดการใช้งาน"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:48
 #: plugins/network/resources/js/controllers/index.controller.coffee:59
 msgid "Cancel"
-msgstr ""
+msgstr "ยกเลิก"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:51
 msgid "Interface deactivated"
-msgstr ""
+msgstr "อินเทอร์เฟซปิดใช้งานแล้ว"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:57
 msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
+msgstr "การเริ่มการทำงานอินเทอร์เฟซใหม่อาจทำให้คุณไม่สามารถเข้าถึงระบบได้"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:58
 msgid "Restart"
-msgstr ""
+msgstr "เริ่มการทำงานใหม่"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:63
 msgid "Interface reactivated"
-msgstr ""
+msgstr "อินเทอร์เฟซเริ่มทำงานใหม่แล้ว"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:69
 msgid "Hostname changed"
-msgstr ""
+msgstr "ชื่อโฮสต์ถูกเปลี่ยนแล้ว"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
-msgstr ""
+msgstr "ล้มเหลว"
 

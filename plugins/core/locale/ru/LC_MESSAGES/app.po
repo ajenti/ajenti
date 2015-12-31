@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2015-12-31 09:29-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/core/content/pages/index.html:139
 msgid "A bootstrap error has occured"
-msgstr ""
+msgstr "Ошибка при загрузке"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr ""
+msgstr "Аутентифицировать"
 
 #: plugins/core/content/pages/index.html:77
 msgid "Elevate"
-msgstr ""
+msgstr "Повысить полномочия"
 
 #: plugins/core/content/pages/index.html:122
 msgid "Enter"
@@ -50,11 +50,11 @@ msgstr "Пароль"
 
 #: plugins/core/content/pages/index.html:142
 msgid "Please see browser console"
-msgstr ""
+msgstr "См. консоль браузера"
 
 #: plugins/core/content/pages/index.html:118
 msgid "Quick search"
-msgstr ""
+msgstr "Быстрый поиск"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
@@ -62,7 +62,7 @@ msgstr "Пользователь"
 
 #: plugins/core/main.py:17
 msgid "General"
-msgstr ""
+msgstr "Общие"
 
 #: plugins/core/main.py:24
 msgid "Tools"
@@ -70,7 +70,7 @@ msgstr "Инструменты"
 
 #: plugins/core/main.py:31
 msgid "Software"
-msgstr ""
+msgstr "Программы"
 
 #: plugins/core/main.py:38
 msgid "System"
@@ -86,7 +86,7 @@ msgstr "Просмотреть файл конфигурации"
 
 #: plugins/core/main.py:73
 msgid "Write configuration file"
-msgstr ""
+msgstr "Писать в файл конфигурации"
 
 #: plugins/core/views/api.py:93
 msgid "Authorization failed"
@@ -95,19 +95,19 @@ msgstr "Авторизация не успешна"
 #: plugins/core/views/api.py:117
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr ""
+msgstr "Не удалось аутентифицироваться с помощью Mozilla Persona: %s"
 
 #: plugins/core/views/api.py:131
 msgid "Unrecognized e-mail"
-msgstr ""
+msgstr "E-mail не опознан"
 
 #: plugins/core/resources/js/core/filters.coffee:6
 msgid "0 bytes"
-msgstr ""
+msgstr "0 байт"
 
 #: plugins/core/resources/js/core/filters.coffee:10
 msgid "bytes"
-msgstr ""
+msgstr "байт"
 
 #: plugins/core/resources/js/core/filters.coffee:11
 msgid "KB"
@@ -131,27 +131,27 @@ msgstr "ПБ"
 
 #: plugins/core/resources/js/core/filters.coffee:34
 msgid "th"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/filters.coffee:35
 msgid "st"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/filters.coffee:36
 msgid "nd"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/filters.coffee:37
 msgid "rd"
-msgstr ""
+msgstr "й"
 
 #: plugins/core/resources/js/core/interceptors.coffee:9
 msgid "Security error"
-msgstr ""
+msgstr "Ошибка безопасности"
 
 #: plugins/core/resources/js/core/interceptors.coffee:12
 msgid "Server error"
-msgstr ""
+msgstr "Ошибка на сервере"
 
 #: plugins/core/resources/js/core/interceptors.coffee:12
 msgid "Close"
@@ -159,7 +159,7 @@ msgstr "Закрыть"
 
 #: plugins/core/resources/js/core/interceptors.coffee:19
 msgid "Your session has expired"
-msgstr ""
+msgstr "Истек срок действия вашей сессии"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:25
 msgid "Done"
@@ -167,7 +167,7 @@ msgstr "Готово"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:30
 msgid "Failed: #{msg.message.exception}"
-msgstr ""
+msgstr "Ошибка: #{msg.message.exception}"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:7
 msgid "Restart"
@@ -175,7 +175,7 @@ msgstr "Перезагрузка"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:8
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Перезапустить панель?"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:9
 msgid "Yes"
@@ -191,7 +191,7 @@ msgstr "Перезагрузка"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:21
 msgid "Restarted"
-msgstr ""
+msgstr "Перезапущено"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:21
 msgid "Please wait"
@@ -199,7 +199,7 @@ msgstr "Пожалуйста, подождите"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:30
 msgid "Could not restart"
-msgstr ""
+msgstr "Не удалось перезапустить"
 
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:22
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:39

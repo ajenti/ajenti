@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2015-12-31 09:29-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -18,195 +18,195 @@ msgstr ""
 
 #: plugins/core/content/pages/index.html:139
 msgid "A bootstrap error has occured"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการเริ่มต้นระบบ"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr ""
+msgstr "การเข้าใช้ระบบ"
 
 #: plugins/core/content/pages/index.html:77
 msgid "Elevate"
-msgstr ""
+msgstr "ยกระดับ"
 
 #: plugins/core/content/pages/index.html:122
 msgid "Enter"
-msgstr ""
+msgstr "เข้า"
 
 #: plugins/core/resources/partial/login.html:26
 msgid "Log in"
-msgstr ""
+msgstr "เข้าสู่ระบบ"
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in with e-mail"
-msgstr ""
+msgstr "เข้าสู่ระบบด้วยอีเมล์"
 
 #: plugins/core/content/pages/index.html:82
 msgid "Log out"
-msgstr ""
+msgstr "ออกจากระบบ"
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
-msgstr ""
+msgstr "รหัสผ่าน"
 
 #: plugins/core/content/pages/index.html:142
 msgid "Please see browser console"
-msgstr ""
+msgstr "โปรดตรวจสอบคอนโซลของเบราว์เซอร์"
 
 #: plugins/core/content/pages/index.html:118
 msgid "Quick search"
-msgstr ""
+msgstr "ค้นหาด่วน"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
-msgstr ""
+msgstr "ชื่อผู้ใช้"
 
 #: plugins/core/main.py:17
 msgid "General"
-msgstr ""
+msgstr "ทั่วไป"
 
 #: plugins/core/main.py:24
 msgid "Tools"
-msgstr ""
+msgstr "เครื่องมือ"
 
 #: plugins/core/main.py:31
 msgid "Software"
-msgstr ""
+msgstr "ซอฟต์แวร์"
 
 #: plugins/core/main.py:38
 msgid "System"
-msgstr ""
+msgstr "ระบบ"
 
 #: plugins/core/main.py:45
 msgid "Other"
-msgstr ""
+msgstr "อื่นๆ"
 
 #: plugins/core/main.py:68
 msgid "Read configuration file"
-msgstr ""
+msgstr "อ่านไฟล์การตั้งค่า"
 
 #: plugins/core/main.py:73
 msgid "Write configuration file"
-msgstr ""
+msgstr "เขียนไฟล์การตั้งค่า"
 
 #: plugins/core/views/api.py:93
 msgid "Authorization failed"
-msgstr ""
+msgstr "การเข้าสู่ระบบล้มเหลว"
 
 #: plugins/core/views/api.py:117
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr ""
+msgstr "ไม่สามารถพิสูจน์ตัวตนกับ Mozilla Persona: %s"
 
 #: plugins/core/views/api.py:131
 msgid "Unrecognized e-mail"
-msgstr ""
+msgstr "ไม่พบอีเมล"
 
 #: plugins/core/resources/js/core/filters.coffee:6
 msgid "0 bytes"
-msgstr ""
+msgstr "0 ไบต์"
 
 #: plugins/core/resources/js/core/filters.coffee:10
 msgid "bytes"
-msgstr ""
+msgstr "ไบต์"
 
 #: plugins/core/resources/js/core/filters.coffee:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.coffee:12
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.coffee:13
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.coffee:14
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.coffee:15
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.coffee:34
 msgid "th"
-msgstr ""
+msgstr "th"
 
 #: plugins/core/resources/js/core/filters.coffee:35
 msgid "st"
-msgstr ""
+msgstr "st"
 
 #: plugins/core/resources/js/core/filters.coffee:36
 msgid "nd"
-msgstr ""
+msgstr "nd"
 
 #: plugins/core/resources/js/core/filters.coffee:37
 msgid "rd"
-msgstr ""
+msgstr "rd"
 
 #: plugins/core/resources/js/core/interceptors.coffee:9
 msgid "Security error"
-msgstr ""
+msgstr "ข้อผิดพลาดด้านความปลอดภัย"
 
 #: plugins/core/resources/js/core/interceptors.coffee:12
 msgid "Server error"
-msgstr ""
+msgstr "ข้อผิดพลาดของเซิร์ฟเวอร์"
 
 #: plugins/core/resources/js/core/interceptors.coffee:12
 msgid "Close"
-msgstr ""
+msgstr "ปิด"
 
 #: plugins/core/resources/js/core/interceptors.coffee:19
 msgid "Your session has expired"
-msgstr ""
+msgstr "เซสชันของคุณหมดอายุ"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:25
 msgid "Done"
-msgstr ""
+msgstr "เสร็จสิ้น"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:30
 msgid "Failed: #{msg.message.exception}"
-msgstr ""
+msgstr "ล้มเหลว: #{msg.message.exception}"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:7
 msgid "Restart"
-msgstr ""
+msgstr "เริ่มการทำงานใหม่"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:8
 msgid "Restart the panel?"
-msgstr ""
+msgstr "เริ่มการทำงานของพาเนลใหม่?"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:9
 msgid "Yes"
-msgstr ""
+msgstr "ใช่"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:10
 msgid "No"
-msgstr ""
+msgstr "ไม่ใช่"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:16
 msgid "Restarting"
-msgstr ""
+msgstr "กำลังเริ่มการทำงานใหม่"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:21
 msgid "Restarted"
-msgstr ""
+msgstr "เริ่มการทำงานใหม่เสร็จสิ้น"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:21
 msgid "Please wait"
-msgstr ""
+msgstr "โปรดรอสักครู่"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:30
 msgid "Could not restart"
-msgstr ""
+msgstr "ไม่สามารถเริ่มการทำงานใหม่ได้"
 
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:22
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:39
 msgid "Authentication failed"
-msgstr ""
+msgstr "การเข้าสู่ระบบล้มเหลว"
 
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:35
 msgid "Authentication succeeded"
-msgstr ""
+msgstr "การเข้าสู่ระบบสำเร็จ"
 
