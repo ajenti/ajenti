@@ -16,31 +16,54 @@
 
 
 @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url(main/OpenSans.woff) format('woff');
+	font-family: 'Open Sans';
+	src: url('main/fonts/opensans-regular.eot');
+	src: local('Open Sans'), local('OpenSans'), local('OpenSans-Regular'),
+		url('main/fonts/opensans-regular.eot?#iefix') format('embedded-opentype'),
+		url('main/fonts/opensans-regular.woff2') format('woff2'),
+		url('main/fonts/opensans-regular.woff') format('woff'),
+		url('main/fonts/opensans-regular.ttf') format('truetype'),
+		url('main/fonts/opensans-regular.svg#open_sansregular') format('svg');
+	font-weight: 400;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(main/OpenSans-Bold.woff) format('woff');
+	font-family: 'Open Sans';
+	src: url('main/fonts/opensans-bold.eot');
+	src: local('Open Sans Bold'), local('OpenSans-Bold'),
+		url('main/fonts/opensans-bold.eot?#iefix') format('embedded-opentype'),
+		url('main/fonts/opensans-bold.woff2') format('woff2'),
+		url('main/fonts/opensans-bold.woff') format('woff'),
+		url('main/fonts/opensans-bold.ttf') format('truetype'),
+		url('main/fonts/opensans-bold.svg#open_sansbold') format('svg');
+	font-weight: 700;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('PT Sans Bold'), local('PTSans-Bold'), url(main/PS-Bold.woff) format('woff');
+	font-family: 'PT Sans';
+	src: url('pt_sans-web-bold.eot');
+	src: local('PT Sans Bold'), local('PTSans-Bold'), local('PT_Sans-Bold')
+		url('main/fonts/pt_sans-web-bold.eot?#iefix') format('embedded-opentype'),
+		url('main/fonts/pt_sans-web-bold.woff2') format('woff2'),
+		url('main/fonts/pt_sans-web-bold.woff') format('woff'),
+		url('main/fonts/pt_sans-web-bold.ttf') format('truetype'),
+		url('main/fonts/pt_sans-web-bold.svg#pt_sansbold') format('svg');
+	font-weight: 700;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'FontAwesome';
-    src: url(main/fontawesome.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'FontAwesome';
+	src: url('main/fonts/fontawesome-webfont.eot?v=4.5.0');
+	src: url('main/fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'),
+		url('main/fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'),
+		url('main/fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'),
+		url('main/fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'),
+		url('main/fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 html {
