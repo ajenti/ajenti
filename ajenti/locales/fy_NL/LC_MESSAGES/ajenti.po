@@ -473,7 +473,7 @@ msgstr "Serveradres"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Domeinnamme"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
@@ -1803,7 +1803,7 @@ msgstr ""
 
 #: ajenti/plugins/vh-mail/layout/main.xml:25
 msgid "Certificate path"
-msgstr ""
+msgstr "Sertifikaatpaad"
 
 #: ajenti/plugins/vh-mail/layout/main.xml:26
 msgid "Private key path"
@@ -1869,7 +1869,7 @@ msgstr ""
 #: ajenti/plugins/packages/main.py:138
 #, python-format
 msgid "%i found"
-msgstr ""
+msgstr "%i fûn"
 
 #: ajenti/plugins/packages/main.py:151
 msgid "Install / remove"
