@@ -18,7 +18,11 @@ restricted_user: nobody
 ssl:
   certificate: /etc/ajenti/ajenti.pem
   client_auth:
-    certificates: []
-    enable: false
+    certificates:
+    - digest: 5F:C9:F2:8E:25:AC:D2:72:1B:B1:44:08:53:A7:11:9C:01:6C:D8:02
+      name: C=NA,ST=NA,O=Test Box,CN=root@eugene-thinkpad
+      serial: 5.458284616303889e+47
+      user: root
+    enable: true
     force: false
   enable: true

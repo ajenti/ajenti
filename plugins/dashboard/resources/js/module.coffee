@@ -6,6 +6,7 @@ angular.module('ajenti.dashboard').run (customization) ->
     customization.plugins.dashboard = {
         allowMove: true
         allowRemove: true
+        allowConfigure: true
         allowAdd: true
         defaultConfig: {
             widgetsLeft: [
