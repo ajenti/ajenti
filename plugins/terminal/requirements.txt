@@ -1,4 +1,4 @@
-pyte
+pyte>=0.5.1
 Pillow
 aj
 ajenti.plugin.core

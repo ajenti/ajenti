@@ -157,8 +157,8 @@ class Terminal(object):
             'cx': self.screen.cursor.x,
             'cy': self.screen.cursor.y,
             'cursor': not self.screen.cursor.hidden,
-            'h': self.screen.size[0],
-            'w': self.screen.size[1],
+            'h': self.screen.lines,
+            'w': self.screen.columns,
         }
 
         self.last_cursor_position = (self.screen.cursor.x, self.screen.cursor.y)
@@ -172,7 +172,7 @@ class Terminal(object):
     def resize(self, w, h):
         if self.dead:
             return
-        if (h, w) == self.screen.size:
+        if (h, w) == (self.screen.lines, self.screen.columns):
             return
         if w <= 0 or h <= 0:
             return
