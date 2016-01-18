@@ -1,4 +1,4 @@
-pyte>=0.5.1
+pyte==0.4.9 # 0.5.0: TypeError: report_device_attributes() takes exactly 1 argument (3 given)
 Pillow
 aj
 ajenti.plugin.core

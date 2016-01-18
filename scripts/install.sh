@@ -104,6 +104,7 @@ ExecStart=$(which python) $(which ajenti-panel) -d
 WantedBy=multi-user.target
 EOF
         systemctl daemon-reload
+        systemctl enable ajenti
         systemctl start ajenti
     else # sysvinit
         INITSCRIPT=/etc/init.d/ajenti
@@ -198,6 +199,6 @@ EOF
 fi
 
 echo ':: Complete'
-echo 
+echo
 echo 'Ajenti will be listening at HTTPS port 8000'
 echo 'Log in with your root password or another OS user'
