@@ -20,7 +20,7 @@ Automatic Installation
 
 ::
 
-    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh > install.sh && sudo bash install.sh
+    curl https://raw.githubusercontent.com/ajenti/ajenti/master/scripts/install.sh | sudo bash -s -
 
 
 Manual Installation
