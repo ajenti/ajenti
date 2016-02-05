@@ -7,7 +7,7 @@ angular.module('core').filter 'bytes', (gettext) ->
         if typeof precision == 'undefined'
             precision = 1
         units = [
-            gettext('bytes'), 
+            gettext('bytes'),
             gettext('KB'),
             gettext('MB'),
             gettext('GB'),
@@ -69,11 +69,10 @@ angular.module('core').filter 'time', () ->
             return '--:--:--'
         s = ''
         if time >= 3600 * 24
-            s += Math.floor(time / 3600 / 24) + ':'
+            s += Math.floor(time / 3600 / 24) + 'd '
         s += ('' + Math.floor(time / 60 / 60) % 24).lpad('0', 2) + ':'
         s += ('' + Math.floor(time / 60) % 60).lpad('0', 2) + ':'
         s += ('' + Math.floor(time) % 60).lpad('0', 2)
         if frac
             s += '.' + ('' + Math.floor((time - Math.floor(time)) * Math.pow(10, frac))).lpad('0', frac + 0)
         return s
-
