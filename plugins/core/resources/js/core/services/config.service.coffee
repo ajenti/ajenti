@@ -1,4 +1,4 @@
-angular.module('core').service 'config', ($http, $q) ->
+angular.module('core').service 'config', ($http, $q, initialConfigContent) ->
     @load = () =>
         q = $q.defer()
         $http.get("/api/core/config").success (data) =>
@@ -47,7 +47,10 @@ angular.module('core').service 'config', ($http, $q) ->
         .error (err) ->
             q.reject(err)
         return q.promise
-        
-    @promise = @load()
+
+    @data = initialConfigContent
+    q = $q.defer()
+    q.resolve(@data)
+    @promise = q.promise
 
     return this

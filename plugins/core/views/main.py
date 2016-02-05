@@ -55,6 +55,7 @@ class Handler(HttpPlugin):
             'plugins': json.dumps(
                 dict((manager[n]['info']['name'], manager[n]['info']['title']) for n in manager)
             ),
+            'config': json.dumps(aj.config.data),
             'version': aj.version,
             'platform': aj.platform,
             'platformUnmapped': aj.platform_unmapped,

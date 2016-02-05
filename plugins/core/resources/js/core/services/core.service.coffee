@@ -4,9 +4,9 @@ angular.module('core').service 'core', ($timeout, $q, $http, $window, messagebox
 
     @restart = () ->
         messagebox.show(
-            title: gettext('Restart'), 
-            text: gettext('Restart the panel?'), 
-            positive: gettext('Yes'), 
+            title: gettext('Restart'),
+            text: gettext('Restart the panel?'),
+            positive: gettext('Yes'),
             negative: gettext('No')
         ).then () =>
             @forceRestart()

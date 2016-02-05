@@ -4,6 +4,8 @@ angular.module('core').constant('ajentiVersion', 'testenv')
 angular.module('core').constant('ajentiPlatform', 'test')
 angular.module('core').constant('ajentiPlatformUnmapped', 'test')
 angular.module('core').constant('ajentiBootstrapColor', 'default')
+angular.module('core').constant('initialConfigContent', {})
+
 
 for m in window.__ngModules
     beforeEach module(m)
@@ -23,6 +25,8 @@ window.__initHttpBackend = () ->
                 $httpBackend[m] = (url) ->
                     return $httpBackend['old' + m](urlPrefix + url)
 
+        $httpBackend.when('GET', '/resources/all.locale.js?lang=en').respond {}
+
 
 
 beforeEach () ->
@@ -31,6 +35,7 @@ beforeEach () ->
 
 afterEach () ->
     inject ($httpBackend) ->
+        $httpBackend.expectGET('/resources/all.locale.js?lang=en')
         $httpBackend.verifyNoOutstandingExpectation()
         $httpBackend.verifyNoOutstandingRequest()
 
