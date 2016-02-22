@@ -13,7 +13,7 @@
         <button id="stop" icon="stop" style="mini" visible="False" />
     </tooltip>
     <tooltip text="{Restart}">
-        <button id="restart" icon="step-forward" style="mini" visible="False" />
+        <button id="restart" icon="restart" style="mini" visible="False" />
     </tooltip>
     
     <dialog id="config-dialog" visible="False">

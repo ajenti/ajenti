@@ -14,7 +14,7 @@ class Nginx(WebserverPlugin):
         {
             'command': 'force-reload',
             'text': _('Reload'),
-            'icon': 'step-forward',
+            'icon': 'reload',
         }
     ]
     hosts_available_dir = platform_select(
