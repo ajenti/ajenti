@@ -11,7 +11,7 @@ class PSQLPlugin (DBPlugin):
         {
             'command': 'reload',
             'text': _('Reload'),
-            'icon': 'step-forward',
+            'icon': 'reload',
         }
     ]
 

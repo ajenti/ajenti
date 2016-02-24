@@ -20,6 +20,11 @@
     
     position: relative;
     //top: -4px;
+
+    /* Better font rendering */
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -306,6 +311,10 @@ ul.icons {
 }
 .icon-eject:before {
   content: "\f052";
+}
+.icon-reload:before,
+.icon-restart:before {
+  content: "\f021";
 }
 .icon-chevron-left:before {
   content: "\f053";
