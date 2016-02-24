@@ -23,7 +23,7 @@
                                 <button id="stop" icon="stop" style="mini" />
                             </tooltip>
                             <tooltip text="{Restart}">
-                                <button id="restart" icon="step-forward" style="mini" />
+                                <button id="restart" icon="restart" style="mini" />
                             </tooltip>
                         </hc>
                     </dtd>
