@@ -84,12 +84,12 @@ from socketio.transports import BaseTransport
 
 old_transport_init = BaseTransport.__init__
 
+
 def new_transport_init(self, *args, **kwargs):
     old_transport_init(self, *args, **kwargs)
     self.headers = []
 
 BaseTransport.__init__ = new_transport_init
-
 
 
 # Re-add sslwrap to Python 2.7.9
@@ -117,7 +117,7 @@ def new_sslwrap(sock, server_side=False, keyfile=None, certfile=None, cert_reqs=
     caller_self = inspect.currentframe().f_back.f_locals['self']
     return context._wrap_socket(sock, server_side=server_side, ssl_sock=caller_self)
 
-if not hasattr(_ssl, 'sslwrap') and not hasattr(gevent.ssl, 'SSLContext'):
+if not hasattr(gevent.ssl, 'SSLContext'):
     _ssl.sslwrap = new_sslwrap
 
 
