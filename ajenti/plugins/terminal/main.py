@@ -58,7 +58,6 @@ class Terminals (SectionPlugin):
             thumb.on('close', self.on_close, k)
             ulist.append(thumb)
 
-
     def run_shell(self, command=None, autoopen=False, autoclose=True, callback=None, **kwargs):
         if not command:
             command = self.classconfig['shell']

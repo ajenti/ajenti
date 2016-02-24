@@ -54,7 +54,7 @@ class Stream(object):
 
         `man console_codes <http://linux.die.net/man/4/console_codes>`_
             For details on console codes listed bellow in :attr:`basic`,
-            :attr:`escape`, :attr:`csi` and :attr:`sharp`.
+            :attr:`escape`, :attr:`csi`, :attr:`sharp` and :attr:`percent`.
     """
 
     #: Control sequences, which don't require any arguments.
@@ -86,6 +86,14 @@ class Stream(object):
         esc.DECALN: "alignment_display",
     }
 
+    #: "percent" escape sequences (Linux sequence to select character
+    #  set) -- ``ESC % <C>``.
+    percent = {
+        esc.DEFAULT: "charset_default",
+        esc.UTF8: "charset_utf8",
+        esc.UTF8_OBSOLETE: "charset_utf8",
+    }
+
     #: CSI escape sequences -- ``CSI P1;P2;...;Pn <fn>``.
     csi = {
         esc.ICH: "insert_characters",
@@ -112,7 +120,7 @@ class Stream(object):
         esc.RM: "reset_mode",
         esc.SGR: "select_graphic_rendition",
         esc.DECSTBM: "set_margins",
-        esc.HPA: "cursor_to_column",
+        esc.HPA: "cursor_to_column"
     }
 
     def __init__(self):
@@ -121,6 +129,7 @@ class Stream(object):
             "escape": self._escape,
             "arguments": self._arguments,
             "sharp": self._sharp,
+            "percent": self._percent,
             "charset": self._charset
         }
 
@@ -135,7 +144,7 @@ class Stream(object):
         self.current = ""
 
     def consume(self, char):
-        """Consume a single string character and advance the state as
+        """Consumes a single string character and advance the state as
         necessary.
 
         :param str char: a character to consume.
@@ -157,14 +166,15 @@ class Stream(object):
                 raise
 
     def feed(self, chars):
-        """Consume a string and advance the state as necessary.
+        """Consumes a string and advance the state as necessary.
 
         :param str chars: a string to feed from.
         """
         if not isinstance(chars, str):
-            raise TypeError("%s requires str input" % self.__class__.__name__)
+            raise TypeError("%s requires text input" % self.__class__.__name__)
 
-        for char in chars: self.consume(char)
+        for char in chars:
+            self.consume(char)
 
     def attach(self, screen, only=()):
         """Adds a given screen to the listeners queue.
@@ -187,7 +197,7 @@ class Stream(object):
                 self.listeners.pop(idx)
 
     def dispatch(self, event, *args, **kwargs):
-        """Dispatch an event.
+        """Dispatches an event.
 
         Event handlers are looked up implicitly in the listeners'
         ``__dict__``, so, if a listener only wants to handle ``DRAW``
@@ -219,13 +229,14 @@ class Stream(object):
             if hasattr(listener, "__after__"):
                 listener.__after__(event)
         else:
-            if kwargs.get("reset", True): self.reset()
+            if kwargs.get("reset", True):
+                self.reset()
 
     # State transformers.
     # ...................
 
     def _stream(self, char):
-        """Process a character when in the default ``"stream"`` state."""
+        """Processes a character when in the default ``"stream"`` state."""
         if char in self.basic:
             self.dispatch(self.basic[char])
         elif char == ctrl.ESC:
@@ -236,15 +247,23 @@ class Stream(object):
             self.dispatch("draw", char)
 
     def _escape(self, char):
-        """Handle characters seen when in an escape sequence.
+        """Handles characters seen when in an escape sequence.
 
         Most non-VT52 commands start with a left-bracket after the
         escape and then a stream of parameters and a command; with
         a single notable exception -- :data:`escape.DECOM` sequence,
         which starts with a sharp.
+
+        .. versionchanged:: 0.4.10
+
+        For compatibility with Linux terminal stream also recognizes
+        ``ESC % C`` sequences for selecting control character set.
+        However, in the current version these are no-op.
         """
         if char == "#":
             self.state = "sharp"
+        elif char == "%":
+            self.state = "percent"
         elif char == "[":
             self.state = "arguments"
         elif char in "()":
@@ -254,15 +273,19 @@ class Stream(object):
             self.dispatch(self.escape[char])
 
     def _sharp(self, char):
-        """Parse arguments of a `"#"` seqence."""
+        """Parses arguments of a `"#"` sequence."""
         self.dispatch(self.sharp[char])
 
+    def _percent(self, char):
+        """Parses arguments of a `"%"` sequence."""
+        self.dispatch(self.percent[char])
+
     def _charset(self, char):
-        """Parse ``G0`` or ``G1`` charset code."""
+        """Parses ``G0`` or ``G1`` charset code."""
         self.dispatch("set_charset", char)
 
     def _arguments(self, char):
-        """Parse arguments of an escape sequence.
+        """Parses arguments of an escape sequence.
 
         All parameters are unsigned, positive decimal integers, with
         the most significant digit sent first. Any parameter greater
@@ -308,15 +331,15 @@ class ByteStream(Stream):
     """A stream, which takes bytes (instead of strings) as input
     and tries to decode them using a given list of possible encodings.
     It uses :class:`codecs.IncrementalDecoder` internally, so broken
-    bytes is not an issue.
+    bytes are not an issue.
 
     By default, the following decoding strategy is used:
 
-    * First, try strict ``"utf-8"``, proceed if recieved and
+    * First, try strict ``"utf-8"``, proceed if received and
       :exc:`UnicodeDecodeError` ...
     * Try strict ``"cp437"``, failed? move on ...
     * Use ``"utf-8"`` with invalid bytes replaced -- this one will
-      allways succeed.
+      always succeed.
 
     >>> stream = ByteStream()
     >>> stream.feed(b"foo".decode("utf-8"))
@@ -367,7 +390,7 @@ class ByteStream(Stream):
 
 
 class DebugStream(ByteStream):
-    """Stream, which dumps a subset of the dispatched events to a given
+    r"""Stream, which dumps a subset of the dispatched events to a given
     file-like object (:data:`sys.stdout` by default).
 
     >>> stream = DebugStream()

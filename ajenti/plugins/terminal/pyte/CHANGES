@@ -1,0 +1,159 @@
+pyte Changelog
+==============
+
+Here you can see the full list of changes between each pyte release.
+
+Version 0.4.10
+--------------
+
+Bugfix release, released on August 4th 2015
+
+- Fixed a bug in `pyte.screens.DiffScreen.draw` which marked the wrong
+  line as changed when `DECAWM` was enabled.
+- `pyte.streams.Stream` now recognizes ESC % sequences for selecting control
+  character set. However, these operations are no-op in the current version
+  in a sense that `pyte.streams.ByteStream` does not handle them to change
+  encoding.
+
+
+Version 0.4.9
+-------------
+
+Bugfix release, released on December 3rd 2014
+
+- Fixed a bug in `pyte.screens.Char` initialisation, see issue #24
+  on GitHub for details.
+- Updated error message in `pyte.streams.Stream`, referencing `str`
+  is relevant for Python 3, but not Python 2.
+
+
+Version 0.4.8
+-------------
+
+Released on January 13th 2014
+
+- `pyte.screens.Screen` does NOT inherit from builtin `list`, use
+  `screen.buffer` to access individual characters directly. This is
+  a backward INCOMPATIBLE change.
+- `pyte.screens.Char._asdict` was broken on Python 3.3 because of the
+  changes in `namedtuple` implementation.
+- `pyte.charsets.LAT1_MAP` was an iterator because of the change in map
+  semantics in Python 3
+- Changed `pyte.screens.Screen` to issues a CR in addition to LF when
+  `DECAWM` mode is set and the cursor is at the right border of the
+  screen. See http://www.vt100.net/docs/vt510-rm/DECAWM and issue #20
+  on GitHub for details.
+
+Version 0.4.7
+-------------
+
+Bugfix release, released on March 28th 2013
+
+- Updated `pyte` and tests suite to work under Python 3.3.
+- Changed `pyte.screens.Screen` so that `LNM` mode is reset by default,
+  see http://www.vt100.net/docs/vt510-rm/LNM and issue #11 on GitHub for
+  details.
+
+Version 0.4.6
+-------------
+
+Bugfix release, released on February 29th 2012
+
+Version 0.4.5
+-------------
+
+Technical release, released on September 1st 2011
+
+- Created MANIFEST.in file
+- Added CentOS spec file
+
+Version 0.4.4
+-------------
+
+Bugfix release, released on July 17th 2011
+
+- Removed `pdb` calls, left from `HistoryScreen` debugging -- silly,
+  I know :)
+
+Version 0.4.3
+-------------
+
+Bugfix release, released on July 12th 2011
+
+- Fixed encoding issues in `DebugStream` -- Unicode was not converted
+  to bytes properly.
+- Fixed G0-1 charset handling and added VAX42 charset for the ancient
+  stuff to work correctly.
+
+Version 0.4.2
+-------------
+
+Bugfix release, released on June 27th 2011
+
+- Added a tiny debugging helper: ``python -m pyte your escape codes``
+- Added ``Screen.__{before,after}__()`` hooks to ``Screen`` -- now
+  subclasses can extend more than one command easily.
+- Fixed ``HistoryScreen`` -- now not as buggy as it used to be:
+  and allows for custom ratio aspect when browsing history, see
+  ``HistoryScreen`` documentation for details.
+- Fixed `DECTCEM` private mode handling -- when the mode is reset
+  ``Screen.cursor.hidden`` is ``True`` otherwise it's ``False``.
+
+Version 0.4.1
+-------------
+
+Bugfix release, released on June 21st 2011
+
+- Minor examples and documentation update before the first public
+  release.
+
+Version 0.4.0
+-------------
+
+Released on June 21st 2011
+
+- Improved cursor movement -- ``Screen`` passes all but one tests
+  in `vttest`.
+- Changed the way ``Stream`` interacts with ``Screen`` -- event
+  handlers are now implicitly looked up in screen's ``__dict__``,
+  not connected manually.
+- Changed cursor API -- cursor position and attributes are encapsulated
+  in a separate ``Cursor`` class.
+- Added support for `DECSCNM` -- toggle screen-wide reverse-video mode.
+- Added a couple of useful ``Screen`` subclasses: ``HistoryScreen``
+  which allows screen pagination and ``DiffScreen`` which tracks
+  the changed lines.
+
+Version 0.3.9
+-------------
+
+Released on May 31st 2011
+
+- Added initial support for G0-1 charsets (mappings taken from ``tty``
+  kernel driver) and SI, SO escape sequences.
+- Changed ``ByteStream`` to support fallback encodings -- it nows
+  takes a list of ``(encoding, errors)`` pairs and traverses it
+  left to right on ``feed()``.
+- Switched to ``unicode_literals`` -- one step closer to Python3.
+
+Version 0.3.8
+-------------
+
+Released on May 23rd 2011
+
+- Major rewrite of ``Screen`` internals -- highlights: inherits from
+  ``list``; each character is represented by ``namedtuple`` which
+  also holds SGR data.
+- Numerous bugfixes, especialy in methods, dealing with manipulating
+  character attributes.
+
+Version 0.3.7
+-------------
+
+First release after the adoption -- skipped a few version to reflect that.
+Released on May 16th 2011
+
+- Added support for ANSI color codes, as listed in ``man console_codes``.
+  Not implemnted yet: setting alternate font, setting and resetting
+  mappings, blinking text.
+- Added a couple of trivial usage examples in the `examples/` dir.

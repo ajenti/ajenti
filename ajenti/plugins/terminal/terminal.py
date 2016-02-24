@@ -57,7 +57,7 @@ class Terminal (object):
         self.protocol.kill()
 
 
-class PTYProtocol():
+class PTYProtocol:
     def __init__(self, pid, master, term, callback=None):
         self.pid = pid
         self.master = master
