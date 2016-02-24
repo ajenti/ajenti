@@ -1,4 +1,4 @@
-gevent
+gevent==1.1b4
 gevent-socketio
 gevent-websocket
 lxml>=2.2.4
