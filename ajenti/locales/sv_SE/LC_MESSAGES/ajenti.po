@@ -1280,15 +1280,15 @@ msgstr "Ladda om"
 
 #: ajenti/plugins/git/main.py:32
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ajenti/plugins/git/layout/main.xml:1
 msgid "Repositories"
-msgstr ""
+msgstr "Utvecklingskataloger"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:3
 msgid "Repository Name"
-msgstr ""
+msgstr "Utvecklingskatalogens namn"
 
 #: ajenti/plugins/git/layout/main-repolist.xml:4
 msgid "Users (read-write)"
@@ -1296,11 +1296,11 @@ msgstr ""
 
 #: ajenti/plugins/git/layout/main-repolist.xml:5
 msgid "Users (read-only)"
-msgstr ""
+msgstr "Användare (endast-läs)"
 
 #: ajenti/plugins/git/layout/main-userlist.xml:4
 msgid "Public Key"
-msgstr ""
+msgstr "Offentlig nyckel"
 
 #: ajenti/plugins/db_common/api.py:46
 msgid "Query finished"

@@ -1,11 +1,11 @@
 #: ajenti/plugins/plugins/plugins.py:10
 #: ajenti/plugins/configurator/layout/main.xml:31
 msgid "Plugins"
-msgstr ""
+msgstr "Pluginy"
 
 #: ajenti/plugins/plugins/plugins.py:37
 msgid "Gathering plugin list"
-msgstr ""
+msgstr "Zhromaždenia zoznam plugin"
 
 #: ajenti/plugins/plugins/layout/main.xml:1
 #: ajenti/plugins/webserver_common/layout/main.xml:4
@@ -43,7 +43,7 @@ msgstr "Meno"
 
 #: ajenti/plugins/plugins/layout/main.xml:2
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: ajenti/plugins/plugins/layout/main.xml:3
 msgid "Dependencies"
@@ -71,7 +71,7 @@ msgstr "Stav"
 #: ajenti/plugins/webserver_common/layout/main.xml:1
 #: ajenti/plugins/hosts/main.py:13
 msgid "Hosts"
-msgstr ""
+msgstr "Hostitelia"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:2
 #: ajenti/plugins/configurator/configurator.py:160
@@ -110,7 +110,7 @@ msgstr ""
 #: ajenti/plugins/cron/layout/main.xml:23
 #: ajenti/plugins/bind9/layout/main.xml:3
 msgid "Add"
-msgstr ""
+msgstr "Pridať"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:3
 #: ajenti/plugins/configurator/layout/main.xml:23
@@ -177,7 +177,7 @@ msgstr "Konfigurácia"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:7
 msgid "Main configs"
-msgstr ""
+msgstr "Hlavné konfiguračné súbory"
 
 #: ajenti/plugins/webserver_common/layout/main.xml:8
 #: ajenti/plugins/configurator/layout/main.xml:34
@@ -213,7 +213,7 @@ msgstr "Uložiť"
 
 #: ajenti/plugins/memcache/widget.py:35
 msgid "Memcache memory usage"
-msgstr ""
+msgstr "Memcache pamäte"
 
 #: ajenti/plugins/mongo/main.py:19 ajenti/plugins/exports/main.py:19
 #: ajenti/plugins/samba/main.py:19 ajenti/plugins/snmpd/main.py:128
@@ -235,7 +235,7 @@ msgstr "Softvér"
 #: ajenti/plugins/mysql/layout/config.xml:1
 #: ajenti/plugins/rethink/layout/config.xml:1
 msgid "Host"
-msgstr ""
+msgstr "Hosť"
 
 #: ajenti/plugins/mongo/layout/config.xml:2
 #: ajenti/plugins/users/layout/main.xml:2
@@ -269,26 +269,26 @@ msgstr "Heslo"
 
 #: ajenti/plugins/configurator/licensing.py:29
 msgid "Invalid key"
-msgstr ""
+msgstr "Neplatný kľúč"
 
 #: ajenti/plugins/configurator/licensing.py:30
 msgid "Invalid IP"
-msgstr ""
+msgstr "Neplatná IP"
 
 #: ajenti/plugins/configurator/licensing.py:31
 msgid "Expired"
-msgstr ""
+msgstr "Skončila"
 
 #: ajenti/plugins/configurator/licensing.py:32
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámy"
 
 #: ajenti/plugins/configurator/licensing.py:45
 #: ajenti/plugins/configurator/licensing.py:54
 #: ajenti/plugins/users/main.py:117
 #, python-format
 msgid "Error: \"%s\""
-msgstr ""
+msgstr "Chyba: \"%s\""
 
 #: ajenti/plugins/configurator/configurator.py:46
 #: ajenti/plugins/configurator/layout/main.xml:18
@@ -308,16 +308,16 @@ msgstr "Uložené. Prosím, reštartujte Ajenti, aby sa zmeny prejavili."
 
 #: ajenti/plugins/configurator/configurator.py:206
 msgid "Please supply hostname"
-msgstr ""
+msgstr "Zadajte názov hostiteľa"
 
 #: ajenti/plugins/configurator/configurator.py:222
 #, python-format
 msgid "Please configure %s plugin!"
-msgstr ""
+msgstr "Nakonfigurujte %s plugin!"
 
 #: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
-msgstr ""
+msgstr "Upraviť konfiguráciu Ajenti"
 
 #: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
@@ -344,7 +344,7 @@ msgstr "HTTP Server"
 
 #: ajenti/plugins/configurator/layout/main.xml:6
 msgid "or UNIX socket path"
-msgstr ""
+msgstr "alebo UNIX zásuvky cestu"
 
 #: ajenti/plugins/configurator/layout/main.xml:7
 #: ajenti/plugins/vh/layout/main-website.xml:24
@@ -364,7 +364,7 @@ msgstr "Cesta k certifikátu"
 
 #: ajenti/plugins/configurator/layout/main.xml:10
 msgid "SSL Self-Signed Certificate Generator"
-msgstr ""
+msgstr "SSL certifikát s vlastným podpisom generátor"
 
 #: ajenti/plugins/configurator/layout/main.xml:11
 #: ajenti/plugins/db_common/layout/main.xml:13
@@ -390,7 +390,7 @@ msgstr "Overovanie"
 
 #: ajenti/plugins/configurator/layout/main.xml:16
 msgid "Sync with"
-msgstr ""
+msgstr "Synchronizácia s"
 
 #: ajenti/plugins/configurator/layout/main.xml:17
 msgid "Sync now"
@@ -410,7 +410,7 @@ msgstr "Účty"
 
 #: ajenti/plugins/configurator/layout/main.xml:22
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplikát"
 
 #: ajenti/plugins/configurator/layout/main.xml:24
 #: ajenti/plugins/vh-mail/layout/main.xml:6
@@ -419,7 +419,7 @@ msgstr "Zmeniť heslo"
 
 #: ajenti/plugins/configurator/layout/main.xml:26
 msgid "Permissions"
-msgstr ""
+msgstr "Povolenia"
 
 #: ajenti/plugins/configurator/layout/main.xml:27
 #: ajenti/plugins/samba/layout/main.xml:25
@@ -432,11 +432,11 @@ msgstr "Odoslať odozvu"
 
 #: ajenti/plugins/configurator/layout/main.xml:30
 msgid "Ajenti will anonymously send its version, your OS name, and which plugins you use most to ajenti.org"
-msgstr ""
+msgstr "Ajenti anonymne pošle svoju verziu, meno OS a čo pluginy môžete použiť najviac ajenti.org"
 
 #: ajenti/plugins/configurator/layout/main.xml:33
 msgid "License"
-msgstr ""
+msgstr "Licencia"
 
 #: ajenti/plugins/configurator/layout/main.xml:35
 #: ajenti/plugins/network/layout/main.xml:5
@@ -453,59 +453,59 @@ msgstr "Reštartovať Ajenti?"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:1
 msgid "Server URL"
-msgstr ""
+msgstr "Adresa URL servera"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:2
 msgid "Admin DN"
-msgstr ""
+msgstr "Admin DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:3
 msgid "Auth DN suffix"
-msgstr ""
+msgstr "Prípona auth DN"
 
 #: ajenti/plugins/configurator/layout/ldap-sync-config.xml:4
 msgid "Secret"
-msgstr ""
+msgstr "Tajomstvo"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:1
 msgid "Server address"
-msgstr ""
+msgstr "Adresa servera"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:2
 msgid "Domain name"
-msgstr ""
+msgstr "Doménové meno"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:3
 msgid "Base DN"
-msgstr ""
+msgstr "Base DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:4
 msgid "Limit to group DN"
-msgstr ""
+msgstr "Limit skupiny DN"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:5
 msgid "Admin user"
-msgstr ""
+msgstr "Admin užívateľa"
 
 #: ajenti/plugins/configurator/layout/ad-sync-config.xml:6
 msgid "Admin password"
-msgstr ""
+msgstr "Heslo správcu"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:1
 msgid "License status"
-msgstr ""
+msgstr "Stav licencie"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:2
 msgid "Company"
-msgstr ""
+msgstr "Spoločnosť"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:3
 msgid "License type"
-msgstr ""
+msgstr "Typ licencie"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:4
 msgid "License expires on"
-msgstr ""
+msgstr "Licencia skončí"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:5
 #: ajenti/plugins/users/layout/user-list.xml:9
@@ -515,11 +515,11 @@ msgstr "Odstrániť"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:6
 msgid "No commercial license installed"
-msgstr ""
+msgstr "Žiadne komerčné licencie inštalované"
 
 #: ajenti/plugins/configurator/layout/licensing.xml:7
 msgid "Install"
-msgstr ""
+msgstr "Inštalácia"
 
 #: ajenti/plugins/tasks/manager.py:69
 #, python-format
@@ -529,12 +529,12 @@ msgstr "Úloha na %s dokončená"
 #: ajenti/plugins/tasks/manager.py:104
 #, python-format
 msgid "Task %s queued"
-msgstr ""
+msgstr "%s úloh vo fronte"
 
 #: ajenti/plugins/tasks/manager.py:116
 #, python-format
 msgid "Task %s started"
-msgstr ""
+msgstr "Úloha %s začal"
 
 #: ajenti/plugins/tasks/main.py:14 ajenti/plugins/tasks/layout/main.xml:36
 msgid "Tasks"
@@ -547,7 +547,7 @@ msgstr "Nástroje"
 
 #: ajenti/plugins/tasks/tasks.py:14
 msgid "Execute command"
-msgstr ""
+msgstr "Spustiť príkaz"
 
 #: ajenti/plugins/tasks/tasks.py:34
 #, python-format
@@ -556,7 +556,7 @@ msgstr "Kopírovanie %s"
 
 #: ajenti/plugins/tasks/tasks.py:64
 msgid "Move files"
-msgstr ""
+msgstr "Presunúť súbory"
 
 #: ajenti/plugins/tasks/tasks.py:66
 #, python-format
@@ -565,12 +565,12 @@ msgstr "Presun %s"
 
 #: ajenti/plugins/tasks/tasks.py:71
 msgid "Delete files"
-msgstr ""
+msgstr "Odstránenie súborov"
 
 #: ajenti/plugins/tasks/tasks.py:74
 #, python-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "Odstránenie %s"
 
 #: ajenti/plugins/tasks/layout/main.xml:1
 msgid "Running tasks"
@@ -605,11 +605,11 @@ msgstr "Dokončené úlohy"
 
 #: ajenti/plugins/tasks/layout/main.xml:12
 msgid "Success"
-msgstr ""
+msgstr "Úspech"
 
 #: ajenti/plugins/tasks/layout/main.xml:13
 msgid "Aborted"
-msgstr ""
+msgstr "Prerušená"
 
 #: ajenti/plugins/tasks/layout/main.xml:14
 msgid "Error"
@@ -617,7 +617,7 @@ msgstr "Chyba"
 
 #: ajenti/plugins/tasks/layout/main.xml:15
 msgid "Crashed"
-msgstr ""
+msgstr "Havaroval"
 
 #: ajenti/plugins/tasks/layout/main.xml:16
 #: ajenti/plugins/db_common/layout/main.xml:1
@@ -627,7 +627,7 @@ msgstr "Spustiť"
 
 #: ajenti/plugins/tasks/layout/main.xml:17
 msgid "Jobs"
-msgstr ""
+msgstr "Pracovných miest"
 
 #: ajenti/plugins/tasks/layout/main.xml:21
 msgid "Run task"
@@ -636,7 +636,7 @@ msgstr "Spustiť úlohu"
 #: ajenti/plugins/tasks/layout/main.xml:22
 #: ajenti/plugins/cron/layout/main.xml:14
 msgid "Schedule"
-msgstr ""
+msgstr "Rozvrh"
 
 #: ajenti/plugins/tasks/layout/main.xml:23
 msgid "Manual (specify below)"
