@@ -58,7 +58,7 @@ SUB = "\u001a"
 #: *Escape*: Starts an escape sequence.
 ESC = "\u001b"
 
-#: *Delete*: Is ingored.
+#: *Delete*: Is ignored.
 DEL = "\u007f"
 
 #: *Control sequence introducer*: An equavalent for ``ESC [``.

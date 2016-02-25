@@ -84,7 +84,7 @@ class Char(_Char):
                 italics=False, underscore=False, reverse=False,
                 strikethrough=False):
         return _Char.__new__(cls, data, fg, bg, bold, italics, underscore,
-                             reverse, strikethrough)
+                             strikethrough, reverse)
 
 
 class Cursor(object):
@@ -624,7 +624,7 @@ class Screen(object):
             * ``1`` -- Erases from beginning of line to cursor,
               including cursor position.
             * ``2`` -- Erases complete line.
-        :param bool private: when ``True`` character attributes aren left
+        :param bool private: when ``True`` character attributes are left
                              unchanged **not implemented**.
         """
         interval = (
@@ -652,7 +652,7 @@ class Screen(object):
               including cursor position.
             * ``2`` -- Erases complete display. All lines are erased
               and changed to single-width. Cursor does not move.
-        :param bool private: when ``True`` character attributes aren left
+        :param bool private: when ``True`` character attributes are left
                              unchanged **not implemented**.
         """
         interval = (
@@ -883,8 +883,11 @@ class DiffScreen(Screen):
         super(DiffScreen, self).resize(*args, **kwargs)
 
     def draw(self, *args):
-        self.dirty.add(self.cursor.y)
+        # Call the superclass's method before marking the row as
+        # dirty, as when wrapping is enabled, draw() might change
+        # self.cursor.y.
         super(DiffScreen, self).draw(*args)
+        self.dirty.add(self.cursor.y)
 
     def index(self):
         if self.cursor.y == self.margins.bottom:
