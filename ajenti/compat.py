@@ -117,7 +117,7 @@ def new_sslwrap(sock, server_side=False, keyfile=None, certfile=None, cert_reqs=
     caller_self = inspect.currentframe().f_back.f_locals['self']
     return context._wrap_socket(sock, server_side=server_side, ssl_sock=caller_self)
 
-if not hasattr(gevent.ssl, 'SSLContext'):
+if hasattr(__ssl__, 'SSLContext') and not hasattr(gevent.ssl, 'SSLContext'):
     _ssl.sslwrap = new_sslwrap
 
 
