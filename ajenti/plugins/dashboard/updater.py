@@ -11,8 +11,8 @@ class AjentiUpdater (BasePlugin):
     def run_update(self, packages):
         packages = packages or [self.AJENTI_PACKAGE_NAME]
         actions = []
+        mgr = PackageManager.get()
         for name in packages:
-            mgr = PackageManager.get()
             p = PackageInfo()
             p.name, p.action = name, 'i'
             actions.append(p)
