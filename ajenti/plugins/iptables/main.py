@@ -3,6 +3,7 @@ import stat
 import itertools
 import subprocess
 
+import ajenti
 from ajenti.api import *
 from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
@@ -121,7 +122,7 @@ class Firewall (SectionPlugin):
     def on_page_load(self):
         if not os.path.exists(self.fw_mgr.config_path_ajenti):
             if not os.path.exists(self.fw_mgr.config_path):
-                open(self.fw_mgr.config_path, 'w').write("""
+                TEMPLATE_IPTABLES_CONTENT = """
 *mangle
 :PREROUTING ACCEPT [0:0]
 :INPUT ACCEPT [0:0]
@@ -142,9 +143,12 @@ COMMIT
 -A INPUT -i lo -j ACCEPT
 -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 8000 -j ACCEPT
+-A INPUT -p tcp -m tcp --dport %(ajenti_port)s -j ACCEPT
 COMMIT
-                """)
+"""
+                open(self.fw_mgr.config_path, 'w').write(TEMPLATE_IPTABLES_CONTENT % {
+                    'ajenti_port': ajenti.config.tree.http_binding.port
+                })
             open(self.fw_mgr.config_path_ajenti, 'w').write(open(self.fw_mgr.config_path).read())
         self.config.load()
         self.refresh()
@@ -263,7 +267,6 @@ class OptionsBinding (CollectionAutoBinding):
             device.values = device.labels = NetworkManager.get().get_devices()
         root.find('slot').append(option_ui)
         return root
-
 
 
 if subprocess.call(['which', 'ip6tables']) == 0:
