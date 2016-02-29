@@ -1,6 +1,6 @@
 """Parse, manipulate and render cookies in a convenient way.
 
-Copyright (c) 2011-2013, Sasha Hart.
+Copyright (c) 2011-2014, Sasha Hart.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-__version__ = "1.2.1"
+__version__ = "2.2.1"
 import re
 import datetime
 import logging
@@ -158,14 +158,14 @@ class Definitions(object):
 
     # Max-Age attribute. These are digits, they are expressed this way
     # because that is how they are expressed in the RFC.
-    MAX_AGE_AV = "Max-Age=(?P<max_age>[\x31-\x39][\x30-\x39]*)"
+    MAX_AGE_AV = "Max-Age=(?P<max_age>[\x30-\x39]+)"
 
     # Domain attribute; a label is one part of the domain
     LABEL = '{let_dig}(?:(?:{let_dig_hyp}+)?{let_dig})?'.format(
             let_dig="[A-Za-z0-9]", let_dig_hyp="[0-9A-Za-z\-]")
-    DOMAIN = "(?:{label}\.)*(?:{label})".format(label=LABEL)
+    DOMAIN = "\.?(?:{label}\.)*(?:{label})".format(label=LABEL)
     # Parse initial period though it's wrong, as RFC 6265 4.1.2.3
-    DOMAIN_AV = "Domain=(?P<domain>\.?{domain})".format(domain=DOMAIN)
+    DOMAIN_AV = "Domain=(?P<domain>{domain})".format(domain=DOMAIN)
 
     # Path attribute. We don't take special care with quotes because
     # they are hardly used, they don't allow invalid characters per RFC 6265,
@@ -406,9 +406,6 @@ def parse_domain(value):
     """Parse and validate an incoming Domain attribute value.
     """
     value = strip_spaces_and_quotes(value)
-    # Strip/ignore invalid leading period as in RFC 5.2.3
-    if value and value[0] == '.':
-        value = value[1:]
     if value:
         assert valid_domain(value)
     return value
@@ -498,8 +495,6 @@ def valid_domain(domain):
     # Using encoding on domain would confuse browsers into not sending cookies.
     # Generate UnicodeDecodeError up front if it can't store as ASCII.
     domain.encode('ascii')
-    if domain and domain[0] in '."':
-        return False
     # Domains starting with periods are not RFC-valid, but this is very common
     # in existing cookies, so they should still parse with DOMAIN_AV.
     if Definitions.DOMAIN_RE.match(domain):
@@ -581,6 +576,14 @@ def render_date(date):
     month = Definitions.month_abbr_list[date.month - 1]
     return date.strftime("{day}, %d {month} %Y %H:%M:%S GMT"
                          ).format(day=weekday, month=month)
+
+
+def render_domain(domain):
+    if not domain:
+        return None
+    if domain[0] == '.':
+        return domain[1:]
+    return domain
 
 
 def _parse_request(header_data, ignore_bad_cookies=False):
@@ -698,8 +701,14 @@ class Cookie(object):
         try:
             self.name = name
         except InvalidCookieAttributeError:
-            raise InvalidCookieError(message="invalid name for new Cookie")
-        self.value = value or ''
+            raise InvalidCookieError(message="invalid name for new Cookie",
+                                     data=name)
+        value = value or ''
+        try:
+            self.value = value
+        except InvalidCookieAttributeError:
+            raise InvalidCookieError(message="invalid value for new Cookie",
+                                     data=value)
         if kwargs:
             self._set_attributes(kwargs, ignore_bad_attributes=False)
 
@@ -722,7 +731,7 @@ class Cookie(object):
 
     @classmethod
     def from_dict(cls, cookie_dict, ignore_bad_attributes=True):
-        """Construct a Cookie object from a dict of strings to parse.
+        """Construct an instance from a dict of strings to parse.
 
         The main difference between this and Cookie(name, value, **kwargs) is
         that the values in the argument to this method are parsed.
@@ -737,7 +746,7 @@ class Cookie(object):
         # Absence or failure of parser here is fatal; errors in present name
         # and value should be found by Cookie.__init__.
         value = cls.attribute_parsers['value'](raw_value)
-        cookie = Cookie(name, value)
+        cookie = cls(name, value)
 
         # Parse values from serialized formats into objects
         parsed = {}
@@ -809,10 +818,10 @@ class Cookie(object):
             # raise error so users of __setattr__ can learn.
             if value is not None:
                 if not self.validate(name, value):
-                    pass # sorry, nope
-                    #raise InvalidCookieAttributeError(
-                    #    name, value, "did not validate with " +
-                    #    repr(self.attribute_validators.get(name)))
+                    pass  # sorry, nope
+                    # raise InvalidCookieAttributeError(
+                    #     name, value, "did not validate with " +
+                    #     repr(self.attribute_validators.get(name)))
         object.__setattr__(self, name, value)
 
     def __getattr__(self, name):
@@ -873,8 +882,8 @@ class Cookie(object):
             value = renderer(value)
         return '; '.join(
             ['{0}={1}'.format(name, value)] +
-            [key if isinstance(value, bool) else '='.join((key, value))
-             for key, value in self.attributes().items()]
+            [key if isinstance(val, bool) else '='.join((key, val))
+             for key, val in self.attributes().items()]
         )
 
     def __eq__(self, other):
@@ -886,6 +895,11 @@ class Cookie(object):
                 mine = mine.decode('utf-8')
             if isinstance(his, bytes):
                 his = his.decode('utf-8')
+            if attr == 'domain':
+                if mine and mine[0] == '.':
+                    mine = mine[1:]
+                if his and his[0] == '.':
+                    his = his[1:]
             if mine != his:
                 return False
         return True
@@ -916,6 +930,7 @@ class Cookie(object):
     # supported in case there is ever a real need.
     attribute_renderers = {
         'value':    encode_cookie_value,
+        'domain':   render_domain,
         'expires':  render_date,
         'max_age':  lambda item: str(item) if item is not None else None,
         'secure':   lambda item: True if item else False,
@@ -972,9 +987,13 @@ class Cookies(dict, object):
     stored in the dict, and render the set in formats suitable for HTTP request
     or response headers.
     """
+    DEFAULT_COOKIE_CLASS = Cookie
+
     def __init__(self, *args, **kwargs):
         dict.__init__(self)
         self.all_cookies = []
+        self.cookie_class = kwargs.get(
+            "_cookie_class", self.DEFAULT_COOKIE_CLASS)
         self.add(*args, **kwargs)
 
     def add(self, *args, **kwargs):
@@ -994,7 +1013,7 @@ class Cookies(dict, object):
                 continue
             self[cookie.name] = cookie
         for key, value in kwargs.items():
-            cookie = Cookie(key, value)
+            cookie = self.cookie_class(key, value)
             self.all_cookies.append(cookie)
             if key in self:
                 continue
@@ -1032,7 +1051,7 @@ class Cookies(dict, object):
                 # Use from_dict to check name and parse value
                 cookie_dict = {'name': name, 'value': value}
                 try:
-                    cookie = Cookie.from_dict(cookie_dict)
+                    cookie = self.cookie_class.from_dict(cookie_dict)
                 except InvalidCookieError:
                     if not ignore_bad_cookies:
                         raise
@@ -1040,7 +1059,7 @@ class Cookies(dict, object):
                     cookie_objects.append(cookie)
         try:
             self.add(*cookie_objects)
-        except (InvalidCookieError):
+        except InvalidCookieError:
             if not ignore_bad_cookies:
                 raise
             _report_invalid_cookie(header_data)
@@ -1085,7 +1104,7 @@ class Cookies(dict, object):
             ignore_bad_attributes=ignore_bad_attributes)
         cookie_objects = []
         for cookie_dict in cookie_dicts:
-            cookie = Cookie.from_dict(cookie_dict)
+            cookie = self.cookie_class.from_dict(cookie_dict)
             cookie_objects.append(cookie)
         self.add(*cookie_objects)
         return self
@@ -1093,7 +1112,7 @@ class Cookies(dict, object):
     @classmethod
     def from_request(cls, header_data, ignore_bad_cookies=False):
         "Construct a Cookies object from request header data."
-        cookies = Cookies()
+        cookies = cls()
         cookies.parse_request(
             header_data, ignore_bad_cookies=ignore_bad_cookies)
         return cookies
@@ -1102,7 +1121,7 @@ class Cookies(dict, object):
     def from_response(cls, header_data, ignore_bad_cookies=False,
                       ignore_bad_attributes=True):
         "Construct a Cookies object from response header data."
-        cookies = Cookies()
+        cookies = cls()
         cookies.parse_response(
             header_data,
             ignore_bad_cookies=ignore_bad_cookies,
@@ -1144,7 +1163,7 @@ class Cookies(dict, object):
                     return False
                 if not key in other:
                     return False
-                if not(self[key] == other[key]):
+                if self[key] != other[key]:
                     return False
         except (TypeError, KeyError):
             raise
