@@ -22,7 +22,8 @@
     "AngularJS-Toaster": "~0.4.9",
     "angular-base64": "~2.0.4",
     "mobile-detect": "~1.2.1",
-    "angular-gettext": "~2.1.0"
+    "angular-gettext": "~2.1.0",
+    "angular-bootstrap": "~1.2.1"
   },
   "resolutions": {
     "angular": "~1.4.0"
