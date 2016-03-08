@@ -52,15 +52,15 @@
                 </a>
 
                 <div ng:show="identity.user" class="pull-right">
-                    <div class="dropdown">
-                        <a class="btn btn-default profile-button" ng:class="{superuser: identity.isSuperuser}" dropdown-toggle>
+                    <div uib-dropdown>
+                        <a class="btn btn-default profile-button" ng:class="{superuser: identity.isSuperuser}" uib-dropdown-toggle>
                             {{identity.user[0].toUpperCase()}}
 
                             <span class="rank" ng:show="identity.isSuperuser">
                                 <i class="fa fa-angle-double-up"></i>
                             </span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-right" style="width: 200px">
+                        <ul uib-dropdown-menu class="dropdown-menu-right" style="width: 200px">
                             <li>
                                 <div>
                                     <span class="subtle pull-right">UID {{ identity.effective }}</span>

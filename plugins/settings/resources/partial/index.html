@@ -16,7 +16,7 @@
                     <label translate>Color tag</label>
                     <div>
                         <div class="btn-group">
-                            <a ng:model="config.data.color" btn:radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
+                            <a ng:model="config.data.color" uib-btn-radio="x" ng:repeat="x in availableColors" class="btn btn-default btn-color-selector-{{x}}">
                                 &nbsp;
                             </a>
                         </div>
@@ -40,8 +40,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="btn-group btn-group-justified">
-                        <a ng:model="config.data.bind.mode" btn:radio="'tcp'" class="btn btn-default">TCP</a>
-                        <a ng:model="config.data.bind.mode" btn:radio="'unix'" class="btn btn-default">UNIX</a>
+                        <a ng:model="config.data.bind.mode" uib-btn-radio="'tcp'" class="btn btn-default">TCP</a>
+                        <a ng:model="config.data.bind.mode" uib-btn-radio="'unix'" class="btn btn-default">UNIX</a>
                     </div>
                 </div>
                 <div class="col-sm-7">

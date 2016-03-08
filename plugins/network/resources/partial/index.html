@@ -1,7 +1,7 @@
 <br/>
 
-<tabset>
-    <tab heading="{{'Network'|translate}}">            
+<uib-tabset>
+    <uib-tab heading="{{'Network'|translate}}">            
         <br/>
 
         <div class="form-group">
@@ -144,7 +144,7 @@
                     <label>MTU</label>
                     <input ng:model="configuringInterface.mtu" type="number" class="form-control" />
                 </div>
-                
+
                 <hr />
 
                 <div ng:if="configuringInterface.up_script !== undefined">
@@ -184,11 +184,11 @@
                 <a ng:click="$parent.configuringInterface = null; reload()" class="btn btn-default btn-flat" translate>Close</a>
             </div>
         </dialog>
-        
-        <br/>
-    </tab>
 
-    <tab heading="{{'DNS'|translate}}" ng:controller="NetworkDNSController">
+        <br/>
+    </uib-tab>
+
+    <uib-tab heading="{{'DNS'|translate}}" ng:controller="NetworkDNSController">
         <br/>
         <div class="list-group">
             <div ng:repeat="path in config.match('nameserver')" class="list-group-item list-group-item-small">
@@ -216,11 +216,11 @@
 
         <floating-toolbar>
             <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
-        </floating-toolbar>    
+        </floating-toolbar>
         <br/>
-    </tab>
+    </uib-tab>
 
-    <tab heading="{{'Hosts'|translate}}" ng:controller="NetworkHostsController">
+    <uib-tab heading="{{'Hosts'|translate}}" ng:controller="NetworkHostsController">
         <br/>
         <div class="list-group">
             <div ng:repeat="path in config.match('\\d+')" class="list-group-item list-group-item-large">
@@ -230,9 +230,9 @@
                 <a class="list-group-btn" ng:click="$parent.configuringHostPath = path" title="{{'Configure'|translate}}">
                     <i class="fa fa-cog"></i>
                 </a>
-                <div class="list-group-main"> 
+                <div class="list-group-main">
                     <div class="list-group-icon">
-                        <i class="fa fa-fw fa-globe"></i> 
+                        <i class="fa fa-fw fa-globe"></i>
                     </div>
                     <h4 class="list-group-item-heading">
                         {{ config.get(path + '/canonical') }}
@@ -272,18 +272,18 @@
             <div class="modal-body scrollable">
                 <div class="form-group">
                     <label translate>Canonical hostname</label>
-                    <input 
-                        ng:model="config.model(configuringHostPath + '/canonical')" 
+                    <input
+                        ng:model="config.model(configuringHostPath + '/canonical')"
                         ng:model-options="{getterSetter: true}"
-                        type="text" 
+                        type="text"
                         class="form-control" />
                 </div>
                 <div class="form-group">
                     <label translate>IP address</label>
-                    <input 
-                        ng:model="config.model(configuringHostPath + '/ipaddr')" 
+                    <input
+                        ng:model="config.model(configuringHostPath + '/ipaddr')"
                         ng:model-options="{getterSetter: true}"
-                        type="text" 
+                        type="text"
                         class="form-control" />
                 </div>
                 <div class="form-group">
@@ -318,5 +318,5 @@
         </dialog>
 
         <br/>
-    </tab>
-</tabset>
+    </uib-tab>
+</uib-tabset>

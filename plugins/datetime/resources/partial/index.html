@@ -11,13 +11,13 @@
 <div class="form-group">
     <label translate>Date & time</label>
     <div class="row">
-        <div class="col-sm-7">
-            <input type="text" class="form-control" datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" is-open="dpOpened" ng:click="dpOpened=true" />
+        <div class="col-sm-6">
+            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" is-open="dpOpened" ng:click="dpOpened=true" />
         </div>
         <div class="col-sm-3">
-            <timepicker class="timepicker" ng:model="_.time" />
+            <uib-timepicker class="timepicker" ng:model="_.time"></uib-timepicker>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <a ng:click="setTime()" class="btn btn-primary btn-block" translate>Set time</a>
         </div>
     </div>
@@ -27,4 +27,3 @@
         </a>
     </div>
 </div>
-

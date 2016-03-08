@@ -14,7 +14,7 @@
     "fontawesome": "~4.4.0",
     "angular-socket-io": "~0.6.1",
     "angular-loading-bar": "~0.6.0",
-    "angular-bootstrap": "~0.11.2",
+    "angular-bootstrap": "~1.2.4",
     "angular-persona": "~1.1.0",
     "ngstorage": "~0.3.0",
     "fastclick": "~1.0.3",
@@ -22,8 +22,7 @@
     "AngularJS-Toaster": "~0.4.9",
     "angular-base64": "~2.0.4",
     "mobile-detect": "~1.2.1",
-    "angular-gettext": "~2.1.0",
-    "angular-bootstrap": "~1.2.1"
+    "angular-gettext": "~2.1.0"
   },
   "resolutions": {
     "angular": "~1.4.0"

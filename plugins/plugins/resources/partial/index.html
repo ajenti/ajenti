@@ -55,8 +55,8 @@
     <progress-spinner ng:show="repoList == null"></progress-spinner>
 
     <div ng:show="repoList != null">
-        <tabset class="no-padding">
-            <tab heading="{{'Official'|translate}}">
+        <uib-tabset class="no-padding">
+            <uib-tab heading="{{'Official'|translate}}">
                 <div class="list-group">
                     <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListOfficial|orderBy:'title'">
                         <a ng:click="installPlugin(plugin)" class="list-group-btn" title="{{'Install'|translate}}" ng:show="!isInstalled(plugin)">
@@ -72,8 +72,8 @@
                         </a>
                     </div>
                 </div>
-            </tab>
-            <tab heading="{{'Community'|translate}}">
+            </uib-tab>
+            <uib-tab heading="{{'Community'|translate}}">
                 <input ng:model="filter" type="search" placeholder="{{'Filter'|translate}}" class="form-control" />
                 <div class="list-group">
                     <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListCommunity|filter:filter|orderBy:'title'">
@@ -90,8 +90,8 @@
                         </a>
                     </div>
                 </div>
-            </tab>
-        </tabset>
+            </uib-tab>
+        </uib-tabset>
     </div>
 
     <dialog ng:show="selectedInstalledPlugin">

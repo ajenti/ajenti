@@ -27,23 +27,23 @@
         <i class="fa fa-plus"></i> <span translate>Tab</span>
     </a>
 
-    <div class="btn-group dropdown dropup pull-right">
+    <div uib-dropdown class="btn-group dropup pull-right">
         <a class="btn btn-default btn-flat" ng:click="toggleBookmark()" ng:class="{active: bookmarks.indexOf(path) >= 0}" title="{{'Bookmark this'|translate}}" ng:show="path">
             <i class="fa fa-bookmark-o"></i>
         </a>
 
-        <a class="btn btn-default btn-flat" dropdown-toggle ng:show="bookmarks.length > 0">
+        <a class="btn btn-default btn-flat" uib-dropdown-toggle ng:show="bookmarks.length > 0">
             <span translate>Bookmarks</span> <span class="caret"></span>
         </a>
 
-        <ul class="dropdown-menu" ng:show="bookmarks.length > 0">
+        <ul uib-dropdown-menu ng:show="bookmarks.length > 0">
             <li ng:repeat="path in bookmarks|orderBy:'toString()'">
                 <a ng:href="{{urlPrefix}}/view/notepad/{{path}}">
                     <i class="fa fa-file"></i> {{path}}
                 </a>
             </li>
         </ul>
-    </div>    
+    </div>
 
     <a ng:click="newFile()" class="btn btn-default btn-flat" test-bind="newButton" translate>New</a>
     <a ng:click="showOpenDialog()" class="btn btn-default btn-flat" test-bind="openButton" translate>Open</a>

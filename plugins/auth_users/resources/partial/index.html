@@ -23,16 +23,16 @@
                 </p>
             </div>
         </div>
-    </div>  
+    </div>
 
     <div class="input-group">
         <input ng:model="newUsername" ng:enter="addUser(newUsername)" placeholder="{{'New user name'|translate}}" class="form-control" />
         <div class="input-group-btn">
             <a ng:click="addUser(newUsername)" ng:disabled="!newUsername" class="btn btn-primary" translate>Create</a>
         </div>
-    </div>    
+    </div>
 
-    <br/>        
+    <br/>
 
     <div class="alert alert-danger" ng:show="isDangerousSetup()">
         <i class="fa fa-warning"></i> <span translate>You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access.</span>
@@ -41,7 +41,7 @@
     <div class="alert alert-info" ng:show="config.data.auth.users.root.password == defaultRootPassword">
         <i class="fa fa-info-circle"></i> <span translate>Default root password is <code>admin</code></span>.
     </div>
-    
+
     <div class="floating-toolbar-padder"></div>
 
     <floating-toolbar>
@@ -67,26 +67,26 @@
                     <div class="input-group-btn">
                         <a ng:click="setPassword(configuringUsername, newPassword)" ng:disabled="!newPassword" class="btn btn-primary" translate>Update password</a>
                     </div>
-                </div>            
+                </div>
             </div>
-            <tabset>
-                <tab heading="{{'Sidebar entries'|translate}}">
+            <uib-tabset>
+                <uib-tab heading="{{'Sidebar entries'|translate}}">
                     <br/>
                     <div class="alert alert-warning">
                         <i class="fa fa-warning"></i> <span translate>This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab.</span>
                     </div>
-                    
+
                     <div ng:repeat="permission in permissions|orderBy:'name'" ng:if="permission.id.indexOf('sidebar:view:') == 0">
                         <span checkbox ng:model="userPermissions[configuringUsername][permission.id]" text="{{permission.name|translate}}"></span>
                     </div>
-                </tab>
-                <tab heading="{{'Permissions'|translate}}">
+                </uib-tab>
+                <uib-tab heading="{{'Permissions'|translate}}">
                     <br/>
                     <div ng:repeat="permission in permissions|orderBy:'id'" ng:if="permission.id.indexOf('sidebar:view:') == -1">
                         <span checkbox ng:model="userPermissions[configuringUsername][permission.id]" text="{{permission.name|translate}}"></span>
                     </div>
-                </tab>
-            </tabset>
+                </uib-tab>
+            </uib-tabset>
         </div>
         <div class="modal-footer">
             <a ng:click="$parent.configuringUsername = null" class="btn btn-default btn-flat" translate>OK</a>
