@@ -85,6 +85,11 @@
                     <div ng:repeat="permission in permissions|orderBy:'id'" ng:if="permission.id.indexOf('sidebar:view:') == -1">
                         <span checkbox ng:model="userPermissions[configuringUsername][permission.id]" text="{{permission.name|translate}}"></span>
                     </div>
+                    <br/>
+                    <div class="form-group">
+                        <label translate>Filesystem root</label>
+                        <path-selector ng:model="config.data.auth.users[configuringUsername].fs_root" mode="directory"></path-selector>
+                    </div>
                 </uib-tab>
             </uib-tabset>
         </div>

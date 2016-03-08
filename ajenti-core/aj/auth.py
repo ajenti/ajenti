@@ -81,10 +81,14 @@ class AuthenticationProvider(object):
     def authenticate(self, username, password):
         raise NotImplementedError
 
-    def authorize(self, username, permission):        raise NotImplementedError
+    def authorize(self, username, permission):
+        raise NotImplementedError
 
     def get_isolation_uid(self, username):
         raise NotImplementedError
+
+    def get_profile(self, username):
+        return {}
 
 
 @component(AuthenticationProvider)

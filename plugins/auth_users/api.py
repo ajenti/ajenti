@@ -46,3 +46,6 @@ class UsersAuthenticationProvider(AuthenticationProvider):
 
     def get_isolation_uid(self, username):
         return aj.config.data['auth']['users'][username]['uid']
+
+    def get_profile(self, username):
+        return aj.config.data['auth']['users'][username]

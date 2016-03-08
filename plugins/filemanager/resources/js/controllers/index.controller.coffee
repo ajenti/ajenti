@@ -1,4 +1,4 @@
-angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, filesystem, pageTitle, urlPrefix, tasks, messagebox, $upload, gettext) ->
+angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($scope, $routeParams, $location, $localStorage, $timeout, notify, identity, filesystem, pageTitle, urlPrefix, tasks, messagebox, $upload, gettext) ->
     pageTitle.set('path', $scope)
     $scope.loading = false
     $scope.newDirectoryDialogVisible = false
@@ -73,8 +73,8 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
 
     $scope.doDelete = () ->
         messagebox.show(
-            text: gettext('Delete selected items?'), 
-            positive: gettext('Delete'), 
+            text: gettext('Delete selected items?'),
+            positive: gettext('Delete'),
             negative: gettext('Cancel')
         ).then () ->
             items = (item for item in $scope.items when item.selected)
@@ -177,7 +177,13 @@ angular.module('ajenti.filemanager').controller 'FileManagerIndexController', ($
 
     # ---
 
-    if $routeParams.path
-        $scope.load($routeParams.path)
-    else
-        $scope.navigate('/')
+    identity.promise.then () ->
+        root = identity.profile.fs_root or '/'
+        path = $routeParams.path or '/'
+        if path.indexOf(root) != 0
+            path = root
+
+        if $routeParams.path
+            $scope.load(path)
+        else
+            $scope.navigate(root)

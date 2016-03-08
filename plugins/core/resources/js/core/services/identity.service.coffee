@@ -2,13 +2,14 @@ angular.module('core').service 'identity', ($http, $location, $window, $timeout,
     q = $q.defer()
     @promise = q.promise
     @color = ajentiBootstrapColor
-    
+
     @init = () ->
         $http.get('/api/core/identity').success (data) =>
             @user = data.identity.user
             @uid = data.identity.uid
             @effective = data.identity.effective
             @elevation_allowed = data.identity.elevation_allowed
+            @profile = data.identity.profile
             @machine = data.machine
             @color = data.color
             @isSuperuser = @effective == 0

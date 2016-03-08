@@ -29,6 +29,9 @@ class Handler(HttpPlugin):
                 'uid': os.getuid(),
                 'effective': os.geteuid(),
                 'elevation_allowed': aj.config.data['auth'].get('allow_sudo', False),
+                'profile': AuthenticationService.get(self.context).get_provider().get_profile(
+                    AuthenticationService.get(self.context).get_identity()
+                ),
             },
             'machine': {
                 'name': aj.config.data['name'],

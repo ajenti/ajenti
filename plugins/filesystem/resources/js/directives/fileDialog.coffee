@@ -1,4 +1,4 @@
-angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesystem, notify, hotkeys, gettext) ->
+angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesystem, notify, hotkeys, identity, gettext) ->
     return {
         scope: {
             ngShow: "=?"
@@ -15,7 +15,6 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
             $scope.loading = false
             $scope.mode ?= 'open'
             $scope.path ?= '/'
-            $scope.root ?= '/'
 
             $scope.navigate = (path, explicit) ->
                 $scope.loading = true
@@ -59,14 +58,17 @@ angular.module('ajenti.filesystem').directive 'fileDialog', ($timeout, filesyste
                 setTimeout () ->
                     element.find('.list-group a').first().blur().focus()
 
-            $scope.$watch 'ngShow', () ->
-                if $scope.ngShow
-                    $scope.restoreFocus()
+            identity.promise.then () ->
+                $scope.root ?= identity.profile.fs_root or '/'
 
-            $scope.$watch 'root', () ->
-                $scope.navigate($scope.root)
+                $scope.$watch 'ngShow', () ->
+                    if $scope.ngShow
+                        $scope.restoreFocus()
 
-            $scope.$watch 'path', () ->
-                if $scope.loadedPath != $scope.path
-                    $scope.navigate($scope.path)
+                $scope.$watch 'root', () ->
+                    $scope.navigate($scope.root)
+
+                $scope.$watch 'path', () ->
+                    if $scope.loadedPath != $scope.path
+                        $scope.navigate($scope.path)
     }
