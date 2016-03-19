@@ -48,4 +48,6 @@ class UsersAuthenticationProvider(AuthenticationProvider):
         return aj.config.data['auth']['users'][username]['uid']
 
     def get_profile(self, username):
+        if not username:
+            return {}
         return aj.config.data['auth']['users'][username]

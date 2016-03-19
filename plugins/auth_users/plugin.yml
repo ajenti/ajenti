@@ -1,8 +1,8 @@
-name: auth_users 
+name: auth_users
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.23'
+version: '0.24'
 title: 'Custom users authentication'
 icon: users
 dependencies:

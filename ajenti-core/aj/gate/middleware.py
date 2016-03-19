@@ -245,4 +245,9 @@ class GateMiddleware(object):
             if isinstance(item, six.text_type):
                 content[index] = item.encode('utf-8')
 
+        # Touch the session in case system time has dramatically
+        # changed during request
+        if session:
+            session.touch()
+
         return content
