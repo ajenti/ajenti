@@ -2,13 +2,13 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.68'
+version: '0.69'
 title: Core
 icon: link
 dependencies: []
 resources:
     - 'resources/vendor/jquery/dist/jquery.min.js'
-    - 'resources/vendor/angular/angular.min.js'
+    - 'resources/vendor/angular/angular.js'
     - 'resources/vendor/angular-mocks/angular-mocks.js'
     - 'resources/vendor/angular-animate/angular-animate.min.js'
     - 'resources/vendor/angular-cookies/angular-cookies.min.js'
