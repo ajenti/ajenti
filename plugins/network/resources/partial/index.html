@@ -1,7 +1,7 @@
 <br/>
 
 <uib-tabset>
-    <uib-tab heading="{{'Network'|translate}}">            
+    <uib-tab heading="{{'Network'|translate}}">
         <br/>
 
         <div class="form-group">
@@ -188,135 +188,139 @@
         <br/>
     </uib-tab>
 
-    <uib-tab heading="{{'DNS'|translate}}" ng:controller="NetworkDNSController">
+    <uib-tab heading="{{'DNS'|translate}}">
         <br/>
-        <div class="list-group">
-            <div ng:repeat="path in config.match('nameserver')" class="list-group-item list-group-item-small">
-                <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
-                    <i class="fa fa-trash-o"></i>
-                </a>
-                <div class="list-group-main">
-                    <i class="fa fa-fw fa-globe"></i> {{config.get(path)}}
+        <div ng:controller="NetworkDNSController">
+            <div class="list-group">
+                <div ng:repeat="path in config.match('nameserver')" class="list-group-item list-group-item-small">
+                    <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                    <div class="list-group-main">
+                        <i class="fa fa-fw fa-globe"></i> {{config.get(path)}}
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="alert alert-info" ng:show="config.match('nameserver').length == 0">
-            <i class="fa fa-info-circle"></i> <span translate>No nameservers defined</span>
-        </div>
-
-        <div class="input-group">
-            <input ng:model="newNameserver" ng:enter="addNameserver()" placeholder="{{'DNS server address'|translate}}" class="form-control" />
-            <div class="input-group-btn">
-                <a ng:click="addNameserver()" class="btn btn-primary" translate>Add</a>
+            <div class="alert alert-info" ng:show="config.match('nameserver').length == 0">
+                <i class="fa fa-info-circle"></i> <span translate>No nameservers defined</span>
             </div>
+
+            <div class="input-group">
+                <input ng:model="newNameserver" ng:enter="addNameserver()" placeholder="{{'DNS server address'|translate}}" class="form-control" />
+                <div class="input-group-btn">
+                    <a ng:click="addNameserver()" class="btn btn-primary" translate>Add</a>
+                </div>
+            </div>
+
+            <div class="floating-toolbar-padder"></div>
+
+            <floating-toolbar>
+                <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
+            </floating-toolbar>
+            <br/>
         </div>
-
-        <div class="floating-toolbar-padder"></div>
-
-        <floating-toolbar>
-            <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
-        </floating-toolbar>
-        <br/>
     </uib-tab>
 
-    <uib-tab heading="{{'Hosts'|translate}}" ng:controller="NetworkHostsController">
+    <uib-tab heading="{{'Hosts'|translate}}">
         <br/>
-        <div class="list-group">
-            <div ng:repeat="path in config.match('\\d+')" class="list-group-item list-group-item-large">
-                <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
-                    <i class="fa fa-trash-o"></i>
-                </a>
-                <a class="list-group-btn" ng:click="$parent.configuringHostPath = path" title="{{'Configure'|translate}}">
-                    <i class="fa fa-cog"></i>
-                </a>
-                <div class="list-group-main">
-                    <div class="list-group-icon">
-                        <i class="fa fa-fw fa-globe"></i>
+        <div ng:controller="NetworkHostsController">
+            <div class="list-group">
+                <div ng:repeat="path in config.match('\\d+')" class="list-group-item list-group-item-large">
+                    <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                    <a class="list-group-btn" ng:click="$parent.configuringHostPath = path" title="{{'Configure'|translate}}">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                    <div class="list-group-main">
+                        <div class="list-group-icon">
+                            <i class="fa fa-fw fa-globe"></i>
+                        </div>
+                        <h4 class="list-group-item-heading">
+                            {{ config.get(path + '/canonical') }}
+                        </h4>
+                        <p class="list-group-item-text">
+                            {{ config.get(path + '/ipaddr') }}
+                            &nbsp;
+                            <span ng:show="config.match(path + '/alias').length" class="label label-info">
+                                +{{config.match(path + '/alias').length}}
+                            </span>
+                        </p>
                     </div>
-                    <h4 class="list-group-item-heading">
-                        {{ config.get(path + '/canonical') }}
-                    </h4>
-                    <p class="list-group-item-text">
-                        {{ config.get(path + '/ipaddr') }}
-                        &nbsp;
-                        <span ng:show="config.match(path + '/alias').length" class="label label-info">
-                            +{{config.match(path + '/alias').length}}
-                        </span>
-                    </p>
                 </div>
             </div>
-        </div>
 
-        <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
-            <i class="fa fa-info-circle"></i> <span translate>No hosts defined</span>
-        </div>
-
-        <div class="input-group">
-            <input ng:model="newHost" ng:enter="addHost()" placeholder="{{'New host name'|translate}}" class="form-control" />
-            <div class="input-group-btn">
-                <a ng:click="addHost()" class="btn btn-primary" translate>Add</a>
+            <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
+                <i class="fa fa-info-circle"></i> <span translate>No hosts defined</span>
             </div>
-        </div>
 
-        <div class="floating-toolbar-padder"></div>
-
-        <floating-toolbar>
-            <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
-        </floating-toolbar>
-
-        <dialog ng:show="configuringHostPath">
-            <div class="modal-header">
-                <h4>{{config.get(configuringHostPath + '/canonical')}}</h4>
+            <div class="input-group">
+                <input ng:model="newHost" ng:enter="addHost()" placeholder="{{'New host name'|translate}}" class="form-control" />
+                <div class="input-group-btn">
+                    <a ng:click="addHost()" class="btn btn-primary" translate>Add</a>
+                </div>
             </div>
-            <div class="modal-body scrollable">
-                <div class="form-group">
-                    <label translate>Canonical hostname</label>
-                    <input
-                        ng:model="config.model(configuringHostPath + '/canonical')"
-                        ng:model-options="{getterSetter: true}"
-                        type="text"
-                        class="form-control" />
+
+            <div class="floating-toolbar-padder"></div>
+
+            <floating-toolbar>
+                <a ng:click="save()" class="btn btn-default btn-flat" translate>Save</a>
+            </floating-toolbar>
+
+            <dialog ng:show="configuringHostPath">
+                <div class="modal-header">
+                    <h4>{{config.get(configuringHostPath + '/canonical')}}</h4>
                 </div>
-                <div class="form-group">
-                    <label translate>IP address</label>
-                    <input
-                        ng:model="config.model(configuringHostPath + '/ipaddr')"
-                        ng:model-options="{getterSetter: true}"
-                        type="text"
-                        class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label translate>Aliases</label>
-                    <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
-                        <i class="fa fa-info-circle"></i> <span translate>No hosts defined</span>
+                <div class="modal-body scrollable">
+                    <div class="form-group">
+                        <label translate>Canonical hostname</label>
+                        <input
+                            ng:model="config.model(configuringHostPath + '/canonical')"
+                            ng:model-options="{getterSetter: true}"
+                            type="text"
+                            class="form-control" />
                     </div>
-                    <div class="list-group">
-                        <div ng:repeat="path in config.match(configuringHostPath + '/alias')" class="list-group-item list-group-item-small">
-                            <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
-                                <i class="fa fa-trash-o"></i>
-                            </a>
-                            <div class="list-group-main">
-                                <i class="fa fa-fw fa-tag"></i> {{config.get(path)}}
+                    <div class="form-group">
+                        <label translate>IP address</label>
+                        <input
+                            ng:model="config.model(configuringHostPath + '/ipaddr')"
+                            ng:model-options="{getterSetter: true}"
+                            type="text"
+                            class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label translate>Aliases</label>
+                        <div class="alert alert-info" ng:show="config.match('\\d+').length == 0">
+                            <i class="fa fa-info-circle"></i> <span translate>No hosts defined</span>
+                        </div>
+                        <div class="list-group">
+                            <div ng:repeat="path in config.match(configuringHostPath + '/alias')" class="list-group-item list-group-item-small">
+                                <a class="list-group-btn" ng:click="config.remove(path)" title="{{'Remove'|translate}}">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                                <div class="list-group-main">
+                                    <i class="fa fa-fw fa-tag"></i> {{config.get(path)}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input ng:model="_.newAlias" ng:enter="addAlias(configuringHostPath)" placeholder="{{'New alias'|translate}}" class="form-control" />
+                            <div class="input-group-btn">
+                                <a ng:click="addAlias(configuringHostPath)" class="btn btn-primary" translate>Add</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input ng:model="_.newAlias" ng:enter="addAlias(configuringHostPath)" placeholder="{{'New alias'|translate}}" class="form-control" />
-                        <div class="input-group-btn">
-                            <a ng:click="addAlias(configuringHostPath)" class="btn btn-primary" translate>Add</a>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <a ng:click="$parent.configuringHostPath = null; save()" class="btn btn-default btn-flat" translate>Save</a>
+                    <a ng:click="$parent.configuringHostPath = null" class="btn btn-default btn-flat" translate>Close</a>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <a ng:click="$parent.configuringHostPath = null; save()" class="btn btn-default btn-flat" translate>Save</a>
-                <a ng:click="$parent.configuringHostPath = null" class="btn btn-default btn-flat" translate>Close</a>
-            </div>
-        </dialog>
+            </dialog>
 
-        <br/>
+            <br/>
+        </div>
     </uib-tab>
 </uib-tabset>
