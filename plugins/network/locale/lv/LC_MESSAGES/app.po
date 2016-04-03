@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
 "PO-Revision-Date: 2015-12-29 10:22-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -20,9 +20,9 @@ msgstr ""
 msgid "Activate (up) interface"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:211
-#: plugins/network/resources/partial/index.html:258
-#: plugins/network/resources/partial/index.html:309
+#: plugins/network/resources/partial/index.html:212
+#: plugins/network/resources/partial/index.html:261
+#: plugins/network/resources/partial/index.html:312
 msgid "Add"
 msgstr ""
 
@@ -34,11 +34,11 @@ msgstr ""
 msgid "Addressing"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:290
+#: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:274
+#: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
 msgstr ""
 
@@ -51,11 +51,11 @@ msgid "Client ID"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:184
-#: plugins/network/resources/partial/index.html:316
+#: plugins/network/resources/partial/index.html:319
 msgid "Close"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:233
 msgid "Configure"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "DNS"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:209
+#: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Hostname"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:223
+#: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Interfaces"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:282
+#: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr ""
 
@@ -112,20 +112,20 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:307
+#: plugins/network/resources/partial/index.html:310
 msgid "New alias"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:256
+#: plugins/network/resources/partial/index.html:259
 msgid "New host name"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:252
-#: plugins/network/resources/partial/index.html:292
+#: plugins/network/resources/partial/index.html:255
+#: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:205
+#: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
 msgstr ""
 
@@ -145,9 +145,9 @@ msgstr ""
 msgid "Pre-up script"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:195
-#: plugins/network/resources/partial/index.html:227
-#: plugins/network/resources/partial/index.html:296
+#: plugins/network/resources/partial/index.html:196
+#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:299
 msgid "Remove"
 msgstr ""
 
@@ -156,9 +156,9 @@ msgid "Restart interface"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:183
-#: plugins/network/resources/partial/index.html:218
-#: plugins/network/resources/partial/index.html:265
-#: plugins/network/resources/partial/index.html:315
+#: plugins/network/resources/partial/index.html:219
+#: plugins/network/resources/partial/index.html:268
+#: plugins/network/resources/partial/index.html:318
 msgid "Save"
 msgstr ""
 
@@ -261,4 +261,3 @@ msgstr ""
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
 msgstr ""
-

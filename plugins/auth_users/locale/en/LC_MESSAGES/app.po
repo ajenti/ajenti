@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 11:49+0200\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -18,6 +18,10 @@ msgstr ""
 msgid "Default root password is <code>admin</code>"
 msgstr ""
 
+#: plugins/auth_users/resources/partial/index.html:90
+msgid "Filesystem root"
+msgstr ""
+
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
 msgstr ""
@@ -26,7 +30,7 @@ msgstr ""
 msgid "New user name"
 msgstr ""
 
-#: plugins/auth_users/resources/partial/index.html:92
+#: plugins/auth_users/resources/partial/index.html:97
 msgid "OK"
 msgstr ""
 

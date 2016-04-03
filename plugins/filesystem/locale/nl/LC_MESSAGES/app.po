@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,44 +18,44 @@ msgstr ""
 
 #: plugins/filesystem/resources/partial/widget.config.html:5
 msgid "All combined"
-msgstr ""
+msgstr "Alle gecombineerd"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:22
 msgid "File name"
-msgstr ""
+msgstr "Bestandsnaam"
 
 #: plugins/filesystem/resources/partial/widget.config.html:3
 #: plugins/filesystem/resources/partial/widget.html:11
 msgid "Filesystem"
-msgstr ""
+msgstr "Bestandssysteem"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:28
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:27
 msgid "Select this directory"
-msgstr ""
+msgstr "Selecteer deze map"
 
 #: plugins/filesystem/resources/partial/widget.html:4
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:11
 msgid "Up one level"
-msgstr ""
+msgstr "Eén niveau omhoog"
 
 #: plugins/filesystem/tasks.py:8
 msgid "File transfer"
-msgstr ""
+msgstr "Bestandsoverdracht"
 
 #: plugins/filesystem/tasks.py:40
 msgid "Deleting"
-msgstr ""
+msgstr "Bezig met verwijderen"
 
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
@@ -69,7 +69,6 @@ msgstr ""
 msgid "Write to the filesystem"
 msgstr ""
 
-#: plugins/filesystem/resources/js/directives/fileDialog.coffee:34
+#: plugins/filesystem/resources/js/directives/fileDialog.coffee:33
 msgid "Could not load directory"
 msgstr ""
-

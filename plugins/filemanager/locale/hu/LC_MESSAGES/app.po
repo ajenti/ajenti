@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
-msgstr ""
+msgstr "Hozzáférés"
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
-msgstr ""
+msgstr "Összes"
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
-msgstr ""
+msgstr "Alkalmaz"
 
 #: plugins/filemanager/resources/partial/index.html:110
 #: plugins/filemanager/resources/partial/index.html:69
@@ -34,104 +34,104 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:188
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
-msgstr ""
+msgstr "Engedélyek módosítása"
 
 #: plugins/filemanager/resources/partial/index.html:116
 msgid "Clipboard"
-msgstr ""
+msgstr "Vágólap"
 
 #: plugins/filemanager/resources/partial/index.html:138
 msgid "Close"
-msgstr ""
+msgstr "Bezárás"
 
 #: plugins/filemanager/resources/partial/index.html:56
 msgid "Copy"
-msgstr ""
+msgstr "Másolás"
 
 #: plugins/filemanager/resources/partial/index.html:68
 #: plugins/filemanager/resources/partial/index.html:81
 msgid "Create"
-msgstr ""
+msgstr "Létrehozás"
 
 #: plugins/filemanager/resources/partial/index.html:55
 msgid "Cut"
-msgstr ""
+msgstr "Kivágás"
 
 #: plugins/filemanager/resources/partial/index.html:57
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
-msgstr ""
+msgstr "Törlés"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
-msgstr ""
+msgstr "KÖNYVTÁR"
 
 #: plugins/filemanager/resources/partial/index.html:78
 msgid "Directory name"
-msgstr ""
+msgstr "Könyvtárnév"
 
 #: plugins/filemanager/resources/partial/properties.html:123
 msgid "Edit in Notepad"
-msgstr ""
+msgstr "Megtekintés jegyzettömbben"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
-msgstr ""
+msgstr "VÉGREHAJTÁS"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
-msgstr ""
+msgstr "Extrák"
 
 #: plugins/filemanager/resources/partial/properties.html:37
 msgid "FILE"
-msgstr ""
+msgstr "FÁJL"
 
 #: plugins/filemanager/resources/partial/index.html:65
 msgid "File name"
-msgstr ""
+msgstr "Fájlnév"
 
 #: plugins/filemanager/resources/partial/properties.html:18
 msgid "Full path"
-msgstr ""
+msgstr "Teljes elérési út"
 
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
-msgstr ""
+msgstr "Csoport"
 
 #: plugins/filemanager/resources/partial/index.html:52
 msgid "items selected"
-msgstr ""
+msgstr "elem kijelölve"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
-msgstr ""
+msgstr "HIVATKOZÁS"
 
 #: plugins/filemanager/resources/partial/properties.html:108
 msgid "Mode"
-msgstr ""
+msgstr "Mód"
 
 #: plugins/filemanager/resources/partial/properties.html:84
 msgid "Modified"
-msgstr ""
+msgstr "Módosítva"
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: plugins/filemanager/resources/partial/index.html:41
 #: plugins/filemanager/resources/partial/index.html:75
 msgid "New directory"
-msgstr ""
+msgstr "Új könyvtár"
 
 #: plugins/filemanager/resources/partial/index.html:40
 #: plugins/filemanager/resources/partial/index.html:62
 msgid "New file"
-msgstr ""
+msgstr "Új fájl"
 
 #: plugins/filemanager/resources/partial/index.html:105
 msgid "or drop them here"

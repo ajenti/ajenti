@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-31 09:29-0500\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ru\n"
@@ -18,11 +19,11 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Активировать интерфейс"
 
-#: plugins/network/resources/partial/index.html:211
-#: plugins/network/resources/partial/index.html:258
-#: plugins/network/resources/partial/index.html:309
+#: plugins/network/resources/partial/index.html:212
+#: plugins/network/resources/partial/index.html:261
+#: plugins/network/resources/partial/index.html:312
 msgid "Add"
 msgstr "Добавить"
 
@@ -32,44 +33,44 @@ msgstr "Адрес"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "адреса"
 
-#: plugins/network/resources/partial/index.html:290
+#: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
-msgstr ""
+msgstr "Аллиасы"
 
-#: plugins/network/resources/partial/index.html:274
+#: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Проверка состояния..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "ID клиента"
 
 #: plugins/network/resources/partial/index.html:184
-#: plugins/network/resources/partial/index.html:316
+#: plugins/network/resources/partial/index.html:319
 msgid "Close"
 msgstr "Закрыть"
 
-#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:233
 msgid "Configure"
-msgstr ""
+msgstr "настроить"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
-msgstr ""
+msgstr "Отключить интерфейс"
 
 #: plugins/network/resources/partial/index.html:191
 msgid "DNS"
 msgstr "DNS"
 
-#: plugins/network/resources/partial/index.html:209
+#: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
-msgstr ""
+msgstr "Адрес DNS-сервера"
 
 #: plugins/network/resources/partial/index.html:172
 msgid "Down script"
@@ -77,27 +78,27 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:83
 msgid "Family"
-msgstr ""
+msgstr "Семейство"
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Шлюз"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Имя хоста"
 
-#: plugins/network/resources/partial/index.html:223
+#: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
-msgstr ""
+msgstr "Хосты"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Подключения"
 
-#: plugins/network/resources/partial/index.html:282
+#: plugins/network/resources/partial/index.html:285
 msgid "IP address"
-msgstr ""
+msgstr "IP-адрес"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
@@ -105,29 +106,29 @@ msgstr "Маска"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
-msgstr ""
+msgstr "Метрика"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
-#: plugins/network/resources/partial/index.html:307
+#: plugins/network/resources/partial/index.html:310
 msgid "New alias"
-msgstr ""
+msgstr "Новый псевдоним"
 
-#: plugins/network/resources/partial/index.html:256
+#: plugins/network/resources/partial/index.html:259
 msgid "New host name"
-msgstr ""
+msgstr "Новое имя хоста"
 
-#: plugins/network/resources/partial/index.html:252
-#: plugins/network/resources/partial/index.html:292
+#: plugins/network/resources/partial/index.html:255
+#: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
-msgstr ""
+msgstr "Хосты не определены"
 
-#: plugins/network/resources/partial/index.html:205
+#: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Серверы имен не определены"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
@@ -145,20 +146,20 @@ msgstr ""
 msgid "Pre-up script"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:195
-#: plugins/network/resources/partial/index.html:227
-#: plugins/network/resources/partial/index.html:296
+#: plugins/network/resources/partial/index.html:196
+#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:299
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
-msgstr ""
+msgstr "Перезапуск интерфейса"
 
 #: plugins/network/resources/partial/index.html:183
-#: plugins/network/resources/partial/index.html:218
-#: plugins/network/resources/partial/index.html:265
-#: plugins/network/resources/partial/index.html:315
+#: plugins/network/resources/partial/index.html:219
+#: plugins/network/resources/partial/index.html:268
+#: plugins/network/resources/partial/index.html:318
 msgid "Save"
 msgstr "Сохранить"
 
@@ -180,15 +181,15 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:12
 msgid "Update hostname"
-msgstr ""
+msgstr "Обновить имя хоста"
 
 #: plugins/network/main.py:31
 msgid "Configure network interfaces"
-msgstr ""
+msgstr "Настройка сетевых интерфейсов"
 
 #: plugins/network/main.py:36
 msgid "Activate/deactivate network interfaces"
-msgstr ""
+msgstr "Активация/деактивация сетевых интерфейсов"
 
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:19
 #: plugins/network/resources/js/controllers/dns.controller.coffee:11
@@ -198,7 +199,7 @@ msgstr "Сохранено"
 #: plugins/network/resources/js/controllers/hosts.controller.coffee:21
 #: plugins/network/resources/js/controllers/dns.controller.coffee:13
 msgid "Could not save"
-msgstr ""
+msgstr "Не удалось сохранить"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:10
 msgid "Static"
@@ -218,7 +219,7 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "Интерфейс активирован"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
@@ -228,37 +229,38 @@ msgstr "Внимание"
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
 msgstr ""
+"Деактивация сетевого интерфейса может отключить вас от удаленного сеанса"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"
-msgstr ""
+msgstr "Деактивировать"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:48
 #: plugins/network/resources/js/controllers/index.controller.coffee:59
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:51
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Интерфейс деактивирован(отключен)"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:57
 msgid "Restarting a network interface can lock you out of the remote session"
 msgstr ""
+"Перезагрузка сетевого интерфейса может отключить вас от удаленного сеанса"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:58
 msgid "Restart"
-msgstr ""
+msgstr "Перезагрузка"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:63
 msgid "Interface reactivated"
-msgstr ""
+msgstr "Интерфейс возобновлен"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:69
 msgid "Hostname changed"
-msgstr ""
+msgstr "Имя хоста изменено"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
-msgstr ""
-
+msgstr "Ошибка"

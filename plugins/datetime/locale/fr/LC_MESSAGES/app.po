@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -19,47 +19,47 @@ msgstr ""
 #: plugins/datetime/resources/partial/index.html:12
 #: plugins/datetime/main.py:17
 msgid "Date & time"
-msgstr ""
+msgstr "Date & Heure"
 
 #: plugins/datetime/resources/partial/index.html:21
 msgid "Set time"
-msgstr ""
+msgstr "Définir l'heure"
 
 #: plugins/datetime/resources/partial/index.html:26
 msgid "Sync time from the Internet"
-msgstr ""
+msgstr "Synchroniser avec l'heure provenant d'Internet"
 
 #: plugins/datetime/resources/partial/index.html:5
 msgid "Time zone"
-msgstr ""
+msgstr "Fuseau horaire"
 
 #: plugins/datetime/main.py:31
 msgid "Change date and time"
-msgstr ""
+msgstr "Changer la date et l'heure"
 
 #: plugins/datetime/views.py:50
 msgid "ntpdate utility is not installed"
-msgstr ""
+msgstr "L'utilitaire ntpdate n'est pas installé"
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:2
 msgid "Date & Time"
-msgstr ""
+msgstr "Date & Heure"
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:25
 msgid "Time set"
-msgstr ""
+msgstr "Réglage de l'heure"
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:27
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:29
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:37
 msgid "Failed"
-msgstr ""
+msgstr "Echec"
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:32
 msgid "Synchronizing..."
-msgstr ""
+msgstr "Synchronisation..."
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:35
 msgid "Time synchronized"
-msgstr ""
+msgstr "Heure synchronisée"
 

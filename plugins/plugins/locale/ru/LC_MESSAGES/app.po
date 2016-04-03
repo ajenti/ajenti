@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-12-31 09:29-0500\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -18,34 +18,34 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr ""
+msgstr "Ajenti ядро {{ajentiVersion}}, нет доступных обновлений."
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ajenti ядро {{ajentiVersion}}. Доступно обновление для {{coreUpgradeAvailable}}."
 
 #: plugins/plugins/resources/partial/index.html:141
 #: plugins/plugins/resources/partial/index.html:196
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
-msgstr ""
+msgstr "Автор"
 
 #: plugins/plugins/resources/partial/index.html:53
 msgid "Available plugins"
-msgstr ""
+msgstr "Доступные плагины"
 
 #: plugins/plugins/resources/partial/index.html:160
 #: plugins/plugins/resources/partial/index.html:212
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: plugins/plugins/resources/partial/index.html:76
 msgid "Community"
-msgstr ""
+msgstr "Сообщество"
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "Ядро"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
@@ -53,60 +53,60 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
-msgstr ""
+msgstr "Скачиваний в этом месяце"
 
 #: plugins/plugins/resources/partial/index.html:109
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: plugins/plugins/resources/partial/index.html:120
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
-msgstr ""
+msgstr "Исключение: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Filter"
-msgstr ""
+msgstr "Фильтр"
 
 #: plugins/plugins/resources/partial/index.html:148
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
-msgstr ""
+msgstr "Главная страница"
 
 #: plugins/plugins/resources/partial/index.html:209
 #: plugins/plugins/resources/partial/index.html:62
 #: plugins/plugins/resources/partial/index.html:80
 msgid "Install"
-msgstr ""
+msgstr "Установка"
 
 #: plugins/plugins/resources/partial/index.html:27
 msgid "Installed plugins"
-msgstr ""
+msgstr "Установленные плагины"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Loading error"
-msgstr ""
+msgstr "Ошибка загрузки"
 
 #: plugins/plugins/resources/partial/index.html:135
 msgid "Location"
-msgstr ""
+msgstr "Местоположение"
 
 #: plugins/plugins/resources/partial/index.html:123
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
-msgstr ""
+msgstr "Сообщение: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
 #: plugins/plugins/resources/partial/index.html:103
 #: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: plugins/plugins/resources/partial/index.html:59
 msgid "Official"
-msgstr ""
+msgstr "Официальный"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "Перезапустить панель"
 
 #: plugins/plugins/resources/partial/index.html:118
 msgid "This plugin crashed with the following error:"

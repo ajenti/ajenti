@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,46 +18,46 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Activeer interface"
 
-#: plugins/network/resources/partial/index.html:211
-#: plugins/network/resources/partial/index.html:258
-#: plugins/network/resources/partial/index.html:309
+#: plugins/network/resources/partial/index.html:212
+#: plugins/network/resources/partial/index.html:261
+#: plugins/network/resources/partial/index.html:312
 msgid "Add"
-msgstr ""
+msgstr "Voeg toe"
 
 #: plugins/network/resources/partial/index.html:103
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Adressering"
 
-#: plugins/network/resources/partial/index.html:290
+#: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
-msgstr ""
+msgstr "Aliassen"
 
-#: plugins/network/resources/partial/index.html:274
+#: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
-msgstr ""
+msgstr "Canonieke hostname"
 
 #: plugins/network/resources/partial/index.html:55
 msgid "Checking status..."
-msgstr ""
+msgstr "Status controleren..."
 
 #: plugins/network/resources/partial/index.html:122
 msgid "Client ID"
-msgstr ""
+msgstr "Client-ID"
 
 #: plugins/network/resources/partial/index.html:184
-#: plugins/network/resources/partial/index.html:316
+#: plugins/network/resources/partial/index.html:319
 msgid "Close"
-msgstr ""
+msgstr "Sluiten"
 
-#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:233
 msgid "Configure"
-msgstr ""
+msgstr "Configureren"
 
 #: plugins/network/resources/partial/index.html:31
 msgid "Deactivate (down) interface"
@@ -67,7 +67,7 @@ msgstr ""
 msgid "DNS"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:209
+#: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
 msgstr ""
 
@@ -81,27 +81,27 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:111
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 #: plugins/network/resources/partial/index.html:8
 msgid "Hostname"
-msgstr ""
+msgstr "Hostnaam"
 
-#: plugins/network/resources/partial/index.html:223
+#: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
-msgstr ""
+msgstr "Hosts"
 
 #: plugins/network/resources/partial/index.html:19
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfaces"
 
-#: plugins/network/resources/partial/index.html:282
+#: plugins/network/resources/partial/index.html:285
 msgid "IP address"
-msgstr ""
+msgstr "IP-adres"
 
 #: plugins/network/resources/partial/index.html:107
 msgid "Mask"
-msgstr ""
+msgstr "Mask"
 
 #: plugins/network/resources/partial/index.html:115
 msgid "Metric"
@@ -110,24 +110,24 @@ msgstr ""
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
 #: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
-msgstr ""
+msgstr "Netwerk"
 
-#: plugins/network/resources/partial/index.html:307
+#: plugins/network/resources/partial/index.html:310
 msgid "New alias"
-msgstr ""
+msgstr "Nieuwe alias"
 
-#: plugins/network/resources/partial/index.html:256
+#: plugins/network/resources/partial/index.html:259
 msgid "New host name"
-msgstr ""
+msgstr "Nieuwe hostnaam"
 
-#: plugins/network/resources/partial/index.html:252
-#: plugins/network/resources/partial/index.html:292
+#: plugins/network/resources/partial/index.html:255
+#: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
-msgstr ""
+msgstr "Geen hosts gedefinieerd"
 
-#: plugins/network/resources/partial/index.html:205
+#: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
-msgstr ""
+msgstr "Geen nameservers gedefinieerd"
 
 #: plugins/network/resources/partial/index.html:177
 msgid "Post-down script"
@@ -145,22 +145,22 @@ msgstr ""
 msgid "Pre-up script"
 msgstr ""
 
-#: plugins/network/resources/partial/index.html:195
-#: plugins/network/resources/partial/index.html:227
-#: plugins/network/resources/partial/index.html:296
+#: plugins/network/resources/partial/index.html:196
+#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:299
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: plugins/network/resources/partial/index.html:34
 msgid "Restart interface"
 msgstr ""
 
 #: plugins/network/resources/partial/index.html:183
-#: plugins/network/resources/partial/index.html:218
-#: plugins/network/resources/partial/index.html:265
-#: plugins/network/resources/partial/index.html:315
+#: plugins/network/resources/partial/index.html:219
+#: plugins/network/resources/partial/index.html:268
+#: plugins/network/resources/partial/index.html:318
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: plugins/network/resources/partial/index.html:129
 msgid "Scope"
@@ -168,7 +168,7 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:77
 msgid "Unknown addressing"
-msgstr ""
+msgstr "Onbekende adressering"
 
 #: plugins/network/resources/partial/index.html:74
 msgid "Unknown family"
@@ -210,20 +210,20 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:13
 msgid "Manual"
-msgstr ""
+msgstr "Handmatig"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:14
 msgid "Loopback"
-msgstr ""
+msgstr "Loopback"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:40
 msgid "Interface activated"
-msgstr ""
+msgstr "Interface geactiveerd"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:45
 #: plugins/network/resources/js/controllers/index.controller.coffee:56
 msgid "Warning"
-msgstr ""
+msgstr "Waarschuwing"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:46
 msgid "Deactivating a network interface can lock you out of the remote session"
@@ -231,16 +231,16 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:47
 msgid "Deactivate"
-msgstr ""
+msgstr "Deactiveer"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:48
 #: plugins/network/resources/js/controllers/index.controller.coffee:59
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:51
 msgid "Interface deactivated"
-msgstr ""
+msgstr "Interface gedeactiveerd"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:57
 msgid "Restarting a network interface can lock you out of the remote session"
@@ -248,7 +248,7 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:58
 msgid "Restart"
-msgstr ""
+msgstr "Herstarten"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:63
 msgid "Interface reactivated"
@@ -256,9 +256,8 @@ msgstr ""
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:69
 msgid "Hostname changed"
-msgstr ""
+msgstr "Hostname gewijzigd"
 
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
-msgstr ""
-
+msgstr "Mislukt"

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -18,66 +18,66 @@ msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:3
 msgid "1 min"
-msgstr ""
+msgstr "1 perc"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:19
 msgid "15 min"
-msgstr ""
+msgstr "15 perc"
 
 #: plugins/dashboard/resources/partial/widgets/loadavg.html:11
 msgid "5 min"
-msgstr ""
+msgstr "5 perc"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:4
 msgid "Active cores"
-msgstr ""
+msgstr "Aktív magok"
 
 #: plugins/dashboard/resources/partial/index.html:8
 msgid "Add widget"
-msgstr ""
+msgstr "Új widget"
 
 #: plugins/dashboard/resources/partial/widget.html:1
 msgid "Configure"
-msgstr ""
+msgstr "Beállítások"
 
 #: plugins/dashboard/resources/partial/widgets/cpu.html:10
 #: plugins/dashboard/widgets/cpu.py:10
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU használat"
 
 #: plugins/dashboard/resources/partial/widgets/hostname.html:2
 #: plugins/dashboard/widgets/hostname.py:10
 msgid "Hostname"
-msgstr ""
+msgstr "Hosztnév"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:10
 #: plugins/dashboard/widgets/memory.py:10
 msgid "Memory usage"
-msgstr ""
+msgstr "Memória használat"
 
 #: plugins/dashboard/resources/partial/widget.html:7
 msgid "Remove"
-msgstr ""
+msgstr "Törlés"
 
 #: plugins/dashboard/resources/partial/index.html:46
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"
-msgstr ""
+msgstr "Teljes"
 
 #: plugins/dashboard/resources/partial/widgets/uptime.html:2
 #: plugins/dashboard/widgets/uptime.py:11
 msgid "Uptime"
-msgstr ""
+msgstr "Üzemidő"
 
 #: plugins/dashboard/main.py:15
 #: plugins/dashboard/resources/js/controllers/index.controller.coffee:2
 msgid "Dashboard"
-msgstr ""
+msgstr "Vezérlőpult"
 
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
-msgstr ""
+msgstr "Átlagos terhelés"
 

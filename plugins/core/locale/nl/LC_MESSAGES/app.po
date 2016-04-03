@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,27 +18,27 @@ msgstr ""
 
 #: plugins/core/content/pages/index.html:139
 msgid "A bootstrap error has occured"
-msgstr ""
+msgstr "Een bootstrap fout opgetreden"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr ""
+msgstr "Inloggen"
 
 #: plugins/core/content/pages/index.html:77
 msgid "Elevate"
-msgstr ""
+msgstr "Verheffen"
 
 #: plugins/core/content/pages/index.html:122
 msgid "Enter"
-msgstr ""
+msgstr "Voer in"
 
 #: plugins/core/resources/partial/login.html:26
 msgid "Log in"
-msgstr ""
+msgstr "Inloggen"
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in with e-mail"
-msgstr ""
+msgstr "Meld u aan met uw e-mail"
 
 #: plugins/core/content/pages/index.html:82
 msgid "Log out"
@@ -50,7 +50,7 @@ msgstr "Wachtwoord"
 
 #: plugins/core/content/pages/index.html:142
 msgid "Please see browser console"
-msgstr ""
+msgstr "Raadpleeg browser console"
 
 #: plugins/core/content/pages/index.html:118
 msgid "Quick search"
@@ -66,7 +66,7 @@ msgstr "Algemeen"
 
 #: plugins/core/main.py:24
 msgid "Tools"
-msgstr ""
+msgstr "Hulpmiddelen"
 
 #: plugins/core/main.py:31
 msgid "Software"
@@ -82,24 +82,24 @@ msgstr "Overig"
 
 #: plugins/core/main.py:68
 msgid "Read configuration file"
-msgstr ""
+msgstr "Lees configuratiebestand"
 
 #: plugins/core/main.py:73
 msgid "Write configuration file"
-msgstr ""
+msgstr "Configuratiebestand schrijven"
 
-#: plugins/core/views/api.py:93
+#: plugins/core/views/api.py:96
 msgid "Authorization failed"
 msgstr "Autorisatie mislukt"
 
-#: plugins/core/views/api.py:117
+#: plugins/core/views/api.py:120
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr ""
+msgstr "Kan niet worden geverifieerd met Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:131
+#: plugins/core/views/api.py:134
 msgid "Unrecognized e-mail"
-msgstr ""
+msgstr "Niet-herkende e-mail"
 
 #: plugins/core/resources/js/core/filters.coffee:6
 msgid "0 bytes"
@@ -131,19 +131,19 @@ msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.coffee:34
 msgid "th"
-msgstr ""
+msgstr "th"
 
 #: plugins/core/resources/js/core/filters.coffee:35
 msgid "st"
-msgstr ""
+msgstr "st"
 
 #: plugins/core/resources/js/core/filters.coffee:36
 msgid "nd"
-msgstr ""
+msgstr "nd"
 
 #: plugins/core/resources/js/core/filters.coffee:37
 msgid "rd"
-msgstr ""
+msgstr "rd"
 
 #: plugins/core/resources/js/core/interceptors.coffee:9
 msgid "Security error"
@@ -167,7 +167,7 @@ msgstr "Gereed"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:30
 msgid "Failed: #{msg.message.exception}"
-msgstr ""
+msgstr "Mislukt: #{msg.message.exception}"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:7
 msgid "Restart"
@@ -175,7 +175,7 @@ msgstr "Herstarten"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:8
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Herstart het paneel?"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:9
 msgid "Yes"
@@ -208,5 +208,4 @@ msgstr "Aanmelden mislukt"
 
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:35
 msgid "Authentication succeeded"
-msgstr ""
-
+msgstr "Verificatie geslaagd"

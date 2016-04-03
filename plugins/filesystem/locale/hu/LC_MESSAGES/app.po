@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -18,58 +18,57 @@ msgstr ""
 
 #: plugins/filesystem/resources/partial/widget.config.html:5
 msgid "All combined"
-msgstr ""
+msgstr "Minden egyesített"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
-msgstr ""
+msgstr "Mégse"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:22
 msgid "File name"
-msgstr ""
+msgstr "Fájlnév"
 
 #: plugins/filesystem/resources/partial/widget.config.html:3
 #: plugins/filesystem/resources/partial/widget.html:11
 msgid "Filesystem"
-msgstr ""
+msgstr "Fájlrendszer"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:28
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:27
 msgid "Select this directory"
-msgstr ""
+msgstr "Könyvtár kiválasztás"
 
 #: plugins/filesystem/resources/partial/widget.html:4
 msgid "Total"
-msgstr ""
+msgstr "Teljes"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:11
 msgid "Up one level"
-msgstr ""
+msgstr "Egy szinttel feljebb"
 
 #: plugins/filesystem/tasks.py:8
 msgid "File transfer"
-msgstr ""
+msgstr "Fájlátvitel"
 
 #: plugins/filesystem/tasks.py:40
 msgid "Deleting"
-msgstr ""
+msgstr "Törlés"
 
 #: plugins/filesystem/widget.py:10
 msgid "Disk space"
-msgstr ""
+msgstr "Lemezterület"
 
 #: plugins/filesystem/main.py:12
 msgid "Read from the filesystem"
-msgstr ""
+msgstr "Fájlrendszer olvasás"
 
 #: plugins/filesystem/main.py:17
 msgid "Write to the filesystem"
-msgstr ""
+msgstr "Fájlrendszer írás"
 
-#: plugins/filesystem/resources/js/directives/fileDialog.coffee:34
+#: plugins/filesystem/resources/js/directives/fileDialog.coffee:33
 msgid "Could not load directory"
-msgstr ""
-
+msgstr "Nem sikerült a könyvtárat betölteni"

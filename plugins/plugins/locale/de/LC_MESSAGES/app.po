@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2016-02-24 06:04-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -88,7 +88,7 @@ msgstr "Ladefehler"
 
 #: plugins/plugins/resources/partial/index.html:135
 msgid "Location"
-msgstr ""
+msgstr "Ort"
 
 #: plugins/plugins/resources/partial/index.html:123
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
@@ -98,15 +98,15 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: plugins/plugins/resources/partial/index.html:59
 msgid "Official"
-msgstr ""
+msgstr "Offiziell"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
-msgstr ""
+msgstr "Panel neustarten"
 
 #: plugins/plugins/resources/partial/index.html:118
 msgid "This plugin crashed with the following error:"
@@ -118,11 +118,11 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Dieses Plugin benötigt das Plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, das während des Startvorgangs nicht verfügbar war."
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:33
@@ -134,15 +134,15 @@ msgstr "Deinstallieren"
 #: plugins/plugins/resources/partial/index.html:23
 #: plugins/plugins/resources/partial/index.html:36
 msgid "Update"
-msgstr ""
+msgstr "Aktualisierung"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "Alles aktualisieren"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "Aktualisierungen"
 
 #: plugins/plugins/resources/partial/index.html:44
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
@@ -152,15 +152,15 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:178
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "Erweiterungen"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:25
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Plugin-Verzeichnis konnte nicht geladen werden"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:27
 msgid "Could not load the installed plugin list"
@@ -168,48 +168,48 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:38
 msgid "Upgrading"
-msgstr ""
+msgstr "Upgrade läuft"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Done"
-msgstr ""
+msgstr "Fertig"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 msgid "Upgrade complete. A panel restart is absolutely required."
-msgstr ""
+msgstr "Aktualisierung abgeschlossen. Ein Panel-Neustart ist unbedingt erforderlich."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Restart now"
-msgstr ""
+msgstr "Jetzt neu starten"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:43
 msgid "Upgrade failed"
-msgstr ""
+msgstr "Aktualisierung fehlgeschlagen"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:73
 msgid "All plugins updated"
-msgstr ""
+msgstr "Alle Plugins aktualisiert"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Installiert. Ein Panel-Neustart ist erforderlich."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Later"
-msgstr ""
+msgstr "Später"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:77
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Einige Plugins konnte nicht aktualisiert werden"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:97
 msgid "Updating plugins"
@@ -217,11 +217,11 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:129
 msgid "Install failed"
-msgstr ""
+msgstr "Installation fehlgeschlagen"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Warning"
-msgstr ""
+msgstr "Warnung"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
@@ -229,26 +229,26 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Continue"
-msgstr ""
+msgstr "Fortfahren"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Uninstall #{plugin.name}?"
-msgstr ""
+msgstr "#{plugin.name} deinstallieren?"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:144
 msgid "Uninstalling"
-msgstr ""
+msgstr "Deinstalliere"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Deinstalliert. Ein Panel-Neustart ist erforderlich."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:150
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Deinstallation fehlgeschlagen"
 

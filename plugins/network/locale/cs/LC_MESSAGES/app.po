@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -20,9 +20,9 @@ msgstr ""
 msgid "Activate (up) interface"
 msgstr "Aktivovat rozhraní (nahoru)"
 
-#: plugins/network/resources/partial/index.html:211
-#: plugins/network/resources/partial/index.html:258
-#: plugins/network/resources/partial/index.html:309
+#: plugins/network/resources/partial/index.html:212
+#: plugins/network/resources/partial/index.html:261
+#: plugins/network/resources/partial/index.html:312
 msgid "Add"
 msgstr "Přidat"
 
@@ -34,11 +34,11 @@ msgstr "Adresa"
 msgid "Addressing"
 msgstr "Adresování"
 
-#: plugins/network/resources/partial/index.html:290
+#: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
 msgstr "Aliasy"
 
-#: plugins/network/resources/partial/index.html:274
+#: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
 msgstr "Canonical hostname"
 
@@ -51,11 +51,11 @@ msgid "Client ID"
 msgstr "ID zákazníka"
 
 #: plugins/network/resources/partial/index.html:184
-#: plugins/network/resources/partial/index.html:316
+#: plugins/network/resources/partial/index.html:319
 msgid "Close"
 msgstr "Zavřít"
 
-#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:233
 msgid "Configure"
 msgstr "Nastavit"
 
@@ -67,7 +67,7 @@ msgstr "Deaktivovat rozhraní (dolů)"
 msgid "DNS"
 msgstr "DNS"
 
-#: plugins/network/resources/partial/index.html:209
+#: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
 msgstr "Adresa serveru DNS"
 
@@ -87,7 +87,7 @@ msgstr "Brána"
 msgid "Hostname"
 msgstr "Hostname"
 
-#: plugins/network/resources/partial/index.html:223
+#: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
 msgstr "Hosts"
 
@@ -95,7 +95,7 @@ msgstr "Hosts"
 msgid "Interfaces"
 msgstr "Rozhraní"
 
-#: plugins/network/resources/partial/index.html:282
+#: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "IP adresa"
 
@@ -112,20 +112,20 @@ msgstr "Metrika"
 msgid "Network"
 msgstr "Síť"
 
-#: plugins/network/resources/partial/index.html:307
+#: plugins/network/resources/partial/index.html:310
 msgid "New alias"
 msgstr "Nový alias"
 
-#: plugins/network/resources/partial/index.html:256
+#: plugins/network/resources/partial/index.html:259
 msgid "New host name"
 msgstr "Nový název host"
 
-#: plugins/network/resources/partial/index.html:252
-#: plugins/network/resources/partial/index.html:292
+#: plugins/network/resources/partial/index.html:255
+#: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
 msgstr "Nejsou definovaní žádní hosts"
 
-#: plugins/network/resources/partial/index.html:205
+#: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
 msgstr "Nejsou definovaní žádné nameservery"
 
@@ -145,9 +145,9 @@ msgstr "Pre-down skript"
 msgid "Pre-up script"
 msgstr "Pre-up skript"
 
-#: plugins/network/resources/partial/index.html:195
-#: plugins/network/resources/partial/index.html:227
-#: plugins/network/resources/partial/index.html:296
+#: plugins/network/resources/partial/index.html:196
+#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:299
 msgid "Remove"
 msgstr "Odstranit"
 
@@ -156,9 +156,9 @@ msgid "Restart interface"
 msgstr "Restartovat rozhraní"
 
 #: plugins/network/resources/partial/index.html:183
-#: plugins/network/resources/partial/index.html:218
-#: plugins/network/resources/partial/index.html:265
-#: plugins/network/resources/partial/index.html:315
+#: plugins/network/resources/partial/index.html:219
+#: plugins/network/resources/partial/index.html:268
+#: plugins/network/resources/partial/index.html:318
 msgid "Save"
 msgstr "Uložit"
 
@@ -261,4 +261,3 @@ msgstr "Změněný hostname"
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
 msgstr "Chyba"
-

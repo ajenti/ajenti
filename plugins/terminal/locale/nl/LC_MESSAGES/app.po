@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -18,50 +18,50 @@ msgstr ""
 
 #: plugins/terminal/resources/partial/view.html:15
 msgid "Copy terminal content"
-msgstr ""
+msgstr "Terminal inhoud kopiëren"
 
 #: plugins/terminal/resources/partial/view.html:26
 msgid "Done"
-msgstr ""
+msgstr "Gereed"
 
 #: plugins/terminal/resources/partial/widget.config.html:3
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #: plugins/terminal/resources/partial/index.html:29
 msgid "Open a new terminal"
-msgstr ""
+msgstr "Open een nieuwe terminal"
 
 #: plugins/terminal/resources/partial/widget.html:7
 msgid "Run"
-msgstr ""
+msgstr "Uitvoeren"
 
 #: plugins/terminal/resources/partial/index.html:34
 msgid "Run a command..."
-msgstr ""
+msgstr "Een opdracht uitvoeren..."
 
 #: plugins/terminal/resources/partial/widget.config.html:7
 #: plugins/terminal/resources/partial/widget.html:2
 #: plugins/terminal/widget.py:8
 msgid "Script"
-msgstr ""
+msgstr "Script"
 
 #: plugins/terminal/resources/partial/widget.config.html:11
 msgid "stdin data"
-msgstr ""
+msgstr "stdin-gegevens"
 
 #: plugins/terminal/resources/partial/index.html:1
 #: plugins/terminal/resources/js/controllers/index.controller.coffee:2
 msgid "Terminals"
-msgstr ""
+msgstr "Terminals"
 
 #: plugins/terminal/resources/partial/index.html:9
 msgid "Terminate"
-msgstr ""
+msgstr "Beëindigen"
 
 #: plugins/terminal/main.py:16
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: plugins/terminal/main.py:30
 msgid "Run arbitrary scripts"
@@ -81,13 +81,13 @@ msgstr ""
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:12
 msgid "Script has finished"
-msgstr ""
+msgstr "Script is voltooid"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:14
 msgid "Script has failed"
-msgstr ""
+msgstr "Script is mislukt"
 
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:16
 msgid "Could not launch the script"
-msgstr ""
+msgstr "Kan het script niet starten"
 

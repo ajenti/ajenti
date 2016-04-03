@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"POT-Creation-Date: 2016-04-03 17:43+0200\n"
 "PO-Revision-Date: 2015-12-31 09:29-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
@@ -20,9 +20,9 @@ msgstr ""
 msgid "Activate (up) interface"
 msgstr "เปิดใช้ (up) อินเทอร์เฟซ"
 
-#: plugins/network/resources/partial/index.html:211
-#: plugins/network/resources/partial/index.html:258
-#: plugins/network/resources/partial/index.html:309
+#: plugins/network/resources/partial/index.html:212
+#: plugins/network/resources/partial/index.html:261
+#: plugins/network/resources/partial/index.html:312
 msgid "Add"
 msgstr "เพิ่ม"
 
@@ -34,11 +34,11 @@ msgstr "Address"
 msgid "Addressing"
 msgstr "Addressing"
 
-#: plugins/network/resources/partial/index.html:290
+#: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
 msgstr "ชื่อเรียก"
 
-#: plugins/network/resources/partial/index.html:274
+#: plugins/network/resources/partial/index.html:277
 msgid "Canonical hostname"
 msgstr "Canonical hostname"
 
@@ -51,11 +51,11 @@ msgid "Client ID"
 msgstr "Client ID"
 
 #: plugins/network/resources/partial/index.html:184
-#: plugins/network/resources/partial/index.html:316
+#: plugins/network/resources/partial/index.html:319
 msgid "Close"
 msgstr "ปิด"
 
-#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:233
 msgid "Configure"
 msgstr "การตั้งค่า"
 
@@ -67,7 +67,7 @@ msgstr "ปิดการใช้งาน (down) อินเทอร์เ�
 msgid "DNS"
 msgstr "DNS"
 
-#: plugins/network/resources/partial/index.html:209
+#: plugins/network/resources/partial/index.html:210
 msgid "DNS server address"
 msgstr "ที่อยู่เซิร์ฟเวอร์ DNS"
 
@@ -87,7 +87,7 @@ msgstr "Gateway"
 msgid "Hostname"
 msgstr "ชื่อโฮสต์"
 
-#: plugins/network/resources/partial/index.html:223
+#: plugins/network/resources/partial/index.html:225
 msgid "Hosts"
 msgstr "โฮสต์"
 
@@ -95,7 +95,7 @@ msgstr "โฮสต์"
 msgid "Interfaces"
 msgstr "อินเตอร์เฟส"
 
-#: plugins/network/resources/partial/index.html:282
+#: plugins/network/resources/partial/index.html:285
 msgid "IP address"
 msgstr "ที่อยู่ IP"
 
@@ -112,20 +112,20 @@ msgstr "Metric"
 msgid "Network"
 msgstr "Network"
 
-#: plugins/network/resources/partial/index.html:307
+#: plugins/network/resources/partial/index.html:310
 msgid "New alias"
 msgstr "ชื่อเรียกใหม่"
 
-#: plugins/network/resources/partial/index.html:256
+#: plugins/network/resources/partial/index.html:259
 msgid "New host name"
 msgstr "ชื่อโฮสต์ใหม่"
 
-#: plugins/network/resources/partial/index.html:252
-#: plugins/network/resources/partial/index.html:292
+#: plugins/network/resources/partial/index.html:255
+#: plugins/network/resources/partial/index.html:295
 msgid "No hosts defined"
 msgstr "ไม่ได้กำหนดโฮสต์"
 
-#: plugins/network/resources/partial/index.html:205
+#: plugins/network/resources/partial/index.html:206
 msgid "No nameservers defined"
 msgstr "ไม่ได้กำหนด nameserver"
 
@@ -145,9 +145,9 @@ msgstr "Pre-down script"
 msgid "Pre-up script"
 msgstr "Pre-up script"
 
-#: plugins/network/resources/partial/index.html:195
-#: plugins/network/resources/partial/index.html:227
-#: plugins/network/resources/partial/index.html:296
+#: plugins/network/resources/partial/index.html:196
+#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:299
 msgid "Remove"
 msgstr "ลบ"
 
@@ -156,9 +156,9 @@ msgid "Restart interface"
 msgstr "เริ่มการทำงานอินเทอร์เฟซใหม่"
 
 #: plugins/network/resources/partial/index.html:183
-#: plugins/network/resources/partial/index.html:218
-#: plugins/network/resources/partial/index.html:265
-#: plugins/network/resources/partial/index.html:315
+#: plugins/network/resources/partial/index.html:219
+#: plugins/network/resources/partial/index.html:268
+#: plugins/network/resources/partial/index.html:318
 msgid "Save"
 msgstr "บันทึก"
 
@@ -261,4 +261,3 @@ msgstr "ชื่อโฮสต์ถูกเปลี่ยนแล้ว"
 #: plugins/network/resources/js/controllers/index.controller.coffee:71
 msgid "Failed"
 msgstr "ล้มเหลว"
-
