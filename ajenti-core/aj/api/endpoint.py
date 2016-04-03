@@ -46,7 +46,7 @@ class EndpointReturn(Exception):
         return '[EndpointReturn: %s]' % self.code
 
 
-def endpoint(page=False, api=False, file=False, auth=True):
+def endpoint(page=False, api=False, auth=True):
     """
     It's recommended to decorate all HTTP handling methods with ``@endpoint``.
 
@@ -105,17 +105,6 @@ def endpoint(page=False, api=False, file=False, auth=True):
                 context.add_header('Content-Type', 'application/json')
                 context.respond(status)
                 return json.dumps(result)
-            if file:
-                if len(result) == 2:
-                    path, mime = result
-                else:
-                    path, mime = result, 'application/octet-stream'
-                """
-                resp = HttpResponse('', mime)
-                resp['Content-Disposition'] = 'attachment; filename=%s' % os.path.split(path)[1]
-                resp['X-Accel-Redirect'] = '/internal/file-stream' + path
-                return resp
-                """
 
         return wrapper
 

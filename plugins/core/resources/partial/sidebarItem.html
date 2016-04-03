@@ -3,7 +3,7 @@
         {{item.name|translate}}
     </h5>
     <div ng:if="!item.isRoot && !item.isTopLevel">
-        <a ng:click="item.expanded = !item.expanded" ng:show="item.children.length > 0" class="expander" href="#">
+        <a ng:click="item.expanded = !item.expanded; $event.stopPropagation(); $event.preventDefault()" ng:show="item.children.length > 0" class="expander" href="#">
             <i ng:if="item.expanded" class="fa fa-fw fa-caret-down"></i>
             <i ng:if="!item.expanded" class="fa fa-fw fa-caret-right"></i>
         </a>
@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="children" ng:show="item.expanded && item.children.length > 0">
-        <div ng:repeat="item in item.isRoot ? item.children : (item.children|orderBy:'name')">
+        <div ng:repeat="item in item.isRoot ? item.children : (item.children|orderBy:['weight', 'name'])">
             <ng:include src="'/core:resources/partial/sidebarItem.html'"></ng:include>
         </div>
     </div>

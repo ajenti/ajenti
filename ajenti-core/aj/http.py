@@ -294,7 +294,7 @@ class HttpContext(object):
 
         return compressed
 
-    def file(self, path, stream=False):
+    def file(self, path, stream=False, inline=False, name=None):
         """
         Returns a GZip compressed response with content of file located in ``path`` and correct headers
 
@@ -318,6 +318,7 @@ class HttpContext(object):
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
             '.woff': 'application/x-font-woff',
+            '.pdf': 'application/pdf',
         }
 
         ext = os.path.splitext(path)[1]
@@ -351,6 +352,13 @@ class HttpContext(object):
 
         self.add_header('Last-Modified', mtime.strftime('%a, %b %d %Y %H:%M:%S GMT'))
         self.add_header('Accept-Ranges', 'bytes')
+
+        name = name or os.path.split(path)[-1]
+
+        if inline:
+            self.add_header('Content-Disposition', b'inline; filename=%s' % name)
+        else:
+            self.add_header('Content-Disposition', b'attachment; filename=%s' % name)
 
         if stream:
             if range_from:
