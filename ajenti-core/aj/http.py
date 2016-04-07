@@ -317,6 +317,7 @@ class HttpContext(object):
             '.js': 'application/javascript',
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
+            '.svg': 'image/svg+xml',
             '.woff': 'application/x-font-woff',
             '.pdf': 'application/pdf',
         }
