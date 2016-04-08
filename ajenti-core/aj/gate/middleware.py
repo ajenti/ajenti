@@ -198,7 +198,7 @@ class GateMiddleware(object):
         # await response
 
         try:
-            timeout = 60
+            timeout = 600
             with Timeout(timeout) as t:
                 q = gate.q_http_replies.register()
                 rq = gate.stream.send(request_object)
