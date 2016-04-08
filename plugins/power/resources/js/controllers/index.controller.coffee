@@ -20,7 +20,7 @@ angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $inte
     $scope.poweroff = () ->
         messagebox.show(
             title: gettext('Warning')
-            text: gettext('Machine will become unreachable. Continue?')
+            text: gettext('Are you sure you want to shutdown the system now?')
             positive: gettext('Shutdown')
             negative: gettext('Cancel')
         ).then () ->
@@ -30,7 +30,7 @@ angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $inte
     $scope.reboot = () ->
         messagebox.show(
             title: gettext('Warning')
-            text: gettext('Machine may become unreachable. Continue?')
+            text: gettext('Are you sure you want to reboot the system now?')
             positive: gettext('Reboot')
             negative: gettext('Cancel')
         ).then () ->
@@ -40,7 +40,7 @@ angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $inte
     $scope.suspend = () ->
         messagebox.show(
             title: gettext('Warning')
-            text: gettext('Machine will become unreachable. Continue?')
+            text: gettext('Are you sure you want to suspend the system now?')
             positive: gettext('Suspend')
             negative: gettext('Cancel')
         ).then () ->
@@ -50,7 +50,7 @@ angular.module('ajenti.power').controller 'PowerIndexController', ($scope, $inte
     $scope.hibernate = () ->
         messagebox.show(
             title: gettext('Warning')
-            text: gettext('Machine will become unreachable. Continue?')
+            text: gettext('Are you sure you want to hibernate the system now?')
             positive: gettext('Hibernate')
             negative: gettext('Cancel')
         ).then () ->
