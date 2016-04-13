@@ -27,12 +27,13 @@ class Handler(HttpPlugin):
     @endpoint(page=True)
     def handle_api_fs_read(self, http_context, path=None):
         if not os.path.exists(path):
-            raise EndpointReturn(404)
+            return http_context.respond_not_found()
         try:
             http_context.respond_ok()
             return open(path).read()
         except OSError as e:
-            raise EndpointError(e)
+            http_context.respond_server_error()
+            return json.dumps({'error': str(e)})
 
     @url(r'/api/filesystem/write/(?P<path>.+)')
     @authorize('filesystem:write')

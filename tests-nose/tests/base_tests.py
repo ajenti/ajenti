@@ -74,7 +74,7 @@ class filesystem_test (base):
             f.write('file 1')
 
         rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('1'))
-        eq_(rq.json(), 'file 1')
+        eq_(rq.text, 'file 1')
         rq = self.session.get(url + '/api/filesystem/read/%s' % self.path('3'))
         eq_(rq.status_code, 404)
 
