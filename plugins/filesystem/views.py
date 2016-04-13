@@ -24,11 +24,12 @@ class Handler(HttpPlugin):
 
     @url(r'/api/filesystem/read/(?P<path>.+)')
     @authorize('filesystem:read')
-    @endpoint(api=True)
+    @endpoint(page=True)
     def handle_api_fs_read(self, http_context, path=None):
         if not os.path.exists(path):
             raise EndpointReturn(404)
         try:
+            http_context.respond_ok()
             return open(path).read()
         except OSError as e:
             raise EndpointError(e)
