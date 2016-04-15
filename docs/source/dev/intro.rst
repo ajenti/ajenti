@@ -36,6 +36,22 @@ Setting up
 
 Install complete Ajenti bundle as outlined in the :ref:`installation guide <installing>`.
 
+.. HINT::
+
+    Development environment requires Node.js and NPM - if your distribution does not include a recent Node.js version, use the Nodesource repositories::
+
+        # Ubuntu
+        curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+
+        # Debian, as root
+        curl -sL https://deb.nodesource.com/setup_5.x | bash -
+        apt-get install -y nodejs
+
+        # RHEL / CentOS
+        curl -sL https://rpm.nodesource.com/setup_5.x | bash -
+
+
 Install the dependencies::
 
     sudo pip install ajenti-dev-multitool
@@ -94,6 +110,3 @@ Packages also may contain :ref:`static files, CoffeeScript and LESS code <dev-re
                 - some.service.coffee
             * css
                 - styles.less
-
-
-
