@@ -63,4 +63,14 @@ angular.module('ajenti.filesystem').service 'filesystem', ($http, $q) ->
             q.reject(err)
         return q.promise
 
+    @downloadBlob = (content, mime, name) ->
+        setTimeout () ->
+            blob = new Blob([content], {type: mime})
+            elem = window.document.createElement('a')
+            elem.href = URL.createObjectURL(blob)
+            elem.download = name
+            document.body.appendChild(elem)
+            elem.click()
+            document.body.removeChild(elem)
+
     return this
