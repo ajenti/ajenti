@@ -37,6 +37,14 @@ Services
         :param int mode: numeric POSIX file mode
         :returns: promise
 
+    .. js:function:: downloadBlob(content, mime, name)
+
+        Launches a browser-side file download
+
+        :param string content: Raw file content
+        :param string mime: MIME type used
+        :param string name: Default file name for saving
+        :returns: promise
 
 Directives
 ==========
@@ -74,4 +82,3 @@ Directives
     An input with a file selection dialog::
 
         <path-selector ng:model="filePath"></path-selector>
-
