@@ -5,35 +5,71 @@
 <div ng:show="ready">
     <div uib-dropdown class="pull-right" ng:show="customization.plugins.dashboard.allowAdd">
         <a class="btn btn-default subtle" uib-dropdown-toggle>
+            <span translate>Tabs</span> <i class="fa fa-caret-down"></i>
+        </a>
+        <ul uib-dropdown-menu>
+            <li>
+                <a ng:click="addTab()" translate>
+                    Add
+                </a>
+            </li>
+            <li>
+                <a ng:click="renameTab(_.activeTabIndex)" translate>
+                    Rename
+                </a>
+            </li>
+            <li ng:if="userConfig.dashboard.tabs.length > 1">
+                <a ng:click="removeTab(_.activeTabIndex)" translate>
+                    Remove
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn-group pull-right" ng:show="customization.plugins.dashboard.allowAdd">
+        <a class="btn btn-default subtle" uib-btn-radio="1" ng:model="userConfig.dashboard.tabs[_.activeTabIndex].width">
+            <i class="fa fa-stop"></i>
+        </a>
+        <a class="btn btn-default subtle" uib-btn-radio="2" ng:model="userConfig.dashboard.tabs[_.activeTabIndex].width">
+            <i class="fa fa-pause"></i>
+        </a>
+    </div>
+
+    <div uib-dropdown class="pull-right" ng:show="customization.plugins.dashboard.allowAdd">
+        <a class="btn btn-default subtle" uib-dropdown-toggle>
             <i class="fa fa-plus"></i> <span translate>Add widget</span>
         </a>
         <ul uib-dropdown-menu>
             <li ng:repeat="widget in availableWidgets|orderBy:'name|translate'">
-                <a ng:click="addWidget(widget)">
+                <a ng:click="addWidget(_.activeTabIndex, widget)">
                     {{widget.name|translate}}
                 </a>
             </li>
         </ul>
     </div>
 
-    <div class="clearfix"></div>
+    <uib:tabset active="_.activeTabIndex">
+        <uib:tab heading="{{tab.name}}" ng:repeat="tab in userConfig.dashboard.tabs" index="$index">
+            <div class="clearfix"></div>
 
-    <div class="dashboard-widgets-container" sv:root sv:on-sort="onSort()">
-        <div class="row">
-            <div class="col-sm-6" sv:part="userConfig.dashboard.widgetsLeft">
-                <div sv:placeholder class="widget placeholder"></div>
-                <div ng:repeat="widget in userConfig.dashboard.widgetsLeft" sv:element class="widget">
-                    <ng:include src="'/dashboard:resources/partial/widget.html'" />
+            <div class="dashboard-widgets-container" sv:root sv:on-sort="onSort()">
+                <div class="row">
+                    <div ng:class="{'col-sm-6': tab.width == 2, 'col-sm-12': tab.width == 1}" sv:part="tab.widgetsLeft">
+                        <div sv:placeholder class="widget placeholder"></div>
+                        <div ng:repeat="widget in tab.widgetsLeft" sv:element class="widget">
+                            <ng:include src="'/dashboard:resources/partial/widget.html'" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6" sv:part="tab.widgetsRight" ng:show="tab.width == 2">
+                        <div sv:placeholder class="widget placeholder"></div>
+                        <div ng:repeat="widget in tab.widgetsRight" sv:element class="widget">
+                            <ng:include src="'/dashboard:resources/partial/widget.html'" />
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-6" sv:part="userConfig.dashboard.widgetsRight">
-                <div sv:placeholder class="widget placeholder"></div>
-                <div ng:repeat="widget in userConfig.dashboard.widgetsRight" sv:element class="widget">
-                    <ng:include src="'/dashboard:resources/partial/widget.html'" />
-                </div>
-            </div>
-        </div>
-    </div>
+        </uib:tab>
+    </uib:tabset>
 
     <dialog ng:show="configuredWidget">
         <div class="modal-header">

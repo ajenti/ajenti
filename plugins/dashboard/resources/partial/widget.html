@@ -4,7 +4,7 @@
 <a class="widget-btn move-btn btn btn-default" sv:handle ng:show="customization.plugins.dashboard.allowMove">
     <i class="fa fa-fw fa-arrows"></i>
 </a>
-<a class="widget-btn remove-btn btn btn-default" ng:click="removeWidget(widget)" title="{{'Remove'|translate}}" ng:show="customization.plugins.dashboard.allowRemove">
+<a class="widget-btn remove-btn btn btn-default" ng:click="removeWidget(tab, widget)" title="{{'Remove'|translate}}" ng:show="customization.plugins.dashboard.allowRemove">
     <i class="fa fa-fw fa-trash-o"></i>
 </a>
 <ng:include src="widgetTypes[widget.typeId].template" />
