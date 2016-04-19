@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,12 +83,12 @@ msgid ""
 "configuration will prevent any administrative access."
 msgstr ""
 
-#: plugins/auth_users/api.py:13
-msgid "Custom users"
-msgstr ""
-
 #: plugins/auth_users/main.py:16
 msgid "Users"
+msgstr ""
+
+#: plugins/auth_users/api.py:13
+msgid "Custom users"
 msgstr ""
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55

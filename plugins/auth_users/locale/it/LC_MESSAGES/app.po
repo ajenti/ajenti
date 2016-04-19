@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: 2016-02-24 06:04-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -89,13 +89,13 @@ msgstr ""
 "Nessun utente corrisponde all'account <b>root</b> di sistema. Il salvataggio "
 "di questa configurazione impedirà qualsiasi accesso amministrativo."
 
-#: plugins/auth_users/api.py:13
-msgid "Custom users"
-msgstr "Utenti personalizzati"
-
 #: plugins/auth_users/main.py:16
 msgid "Users"
 msgstr "Utenti"
+
+#: plugins/auth_users/api.py:13
+msgid "Custom users"
+msgstr "Utenti personalizzati"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
 msgid "Password updated"

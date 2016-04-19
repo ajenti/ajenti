@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,12 +80,12 @@ msgstr ""
 msgid "System uptime"
 msgstr ""
 
-#: plugins/power/widget.py:9
-msgid "Power state"
-msgstr ""
-
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
+msgstr ""
+
+#: plugins/power/widget.py:9
+msgid "Power state"
 msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:2
@@ -100,9 +100,7 @@ msgid "Warning"
 msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:23
-#: plugins/power/resources/js/controllers/index.controller.coffee:43
-#: plugins/power/resources/js/controllers/index.controller.coffee:53
-msgid "Machine will become unreachable. Continue?"
+msgid "Are you sure you want to shutdown the system now?"
 msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:24
@@ -117,15 +115,23 @@ msgid "Cancel"
 msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:33
-msgid "Machine may become unreachable. Continue?"
+msgid "Are you sure you want to reboot the system now?"
 msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:38
 msgid "System is rebooting. We will try to reconnect with it."
 msgstr ""
 
+#: plugins/power/resources/js/controllers/index.controller.coffee:43
+msgid "Are you sure you want to suspend the system now?"
+msgstr ""
+
 #: plugins/power/resources/js/controllers/index.controller.coffee:48
 msgid "System is suspending"
+msgstr ""
+
+#: plugins/power/resources/js/controllers/index.controller.coffee:53
+msgid "Are you sure you want to hibernate the system now?"
 msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:58

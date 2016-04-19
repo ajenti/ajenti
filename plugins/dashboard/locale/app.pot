@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,11 @@ msgstr ""
 msgid "Active cores"
 msgstr ""
 
-#: plugins/dashboard/resources/partial/index.html:8
+#: plugins/dashboard/resources/partial/index.html:12
+msgid "Add"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:40
 msgid "Add widget"
 msgstr ""
 
@@ -56,12 +60,22 @@ msgstr ""
 msgid "Memory usage"
 msgstr ""
 
+#: plugins/dashboard/resources/partial/index.html:22
 #: plugins/dashboard/resources/partial/widget.html:7
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:75
 msgid "Remove"
 msgstr ""
 
-#: plugins/dashboard/resources/partial/index.html:46
+#: plugins/dashboard/resources/partial/index.html:17
+msgid "Rename"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:82
 msgid "Save"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:8
+msgid "Tabs"
 msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
@@ -76,6 +90,19 @@ msgstr ""
 #: plugins/dashboard/main.py:15
 #: plugins/dashboard/resources/js/controllers/index.controller.coffee:2
 msgid "Dashboard"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:62
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:82
+msgid "New name"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:74
+msgid "Remove the '#{$scope.userConfig.dashboard.tabs[index].name}' tab?"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:76
+msgid "Cancel"
 msgstr ""
 
 #: plugins/dashboard/widgets/loadavg.py:12

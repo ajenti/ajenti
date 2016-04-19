@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: 2016-02-24 06:04-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
@@ -88,13 +88,13 @@ msgstr ""
 "Sie haben kein Benutzer der <b>root</b> zugeordnet ist. Durch das speichern "
 "dieser Konfiguration werden alle administrativen Zugriffe verhindert."
 
-#: plugins/auth_users/api.py:13
-msgid "Custom users"
-msgstr "Benutzerdefinierte Benutzer"
-
 #: plugins/auth_users/main.py:16
 msgid "Users"
 msgstr "Benutzer"
+
+#: plugins/auth_users/api.py:13
+msgid "Custom users"
+msgstr "Benutzerdefinierte Benutzer"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
 msgid "Password updated"

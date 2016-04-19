@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
+"POT-Creation-Date: 2016-04-19 17:46+0200\n"
 "PO-Revision-Date: 2016-02-24 06:05-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
@@ -38,12 +38,11 @@ msgstr "服务"
 msgid "Manage system services"
 msgstr "管理系统服务"
 
-#: plugins/services/resources/js/controllers/index.controller.coffee:20
-msgid "Done"
-msgstr "已完成"
-
-#: plugins/services/resources/js/controllers/index.controller.coffee:22
 #: plugins/services/resources/js/controllers/widget.controller.coffee:12
+#: plugins/services/resources/js/controllers/index.controller.coffee:22
 msgid "Service operation failed"
 msgstr "服务操作失败"
 
+#: plugins/services/resources/js/controllers/index.controller.coffee:20
+msgid "Done"
+msgstr "已完成"

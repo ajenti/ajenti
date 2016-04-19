@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: 2015-12-31 09:29-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
@@ -85,13 +85,13 @@ msgstr ""
 "คุณยังไม่มีผู้ใช้ที่ผูกกับบัญชีระบบ <b>root</b> "
 "การบันทึกการตั้งค่านี้จะทำให้ไม่สามารถเข้าจัดการระบบได้"
 
-#: plugins/auth_users/api.py:13
-msgid "Custom users"
-msgstr "ผู้ใช้ที่กำหนดเอง"
-
 #: plugins/auth_users/main.py:16
 msgid "Users"
 msgstr "ผู้ใช้"
+
+#: plugins/auth_users/api.py:13
+msgid "Custom users"
+msgstr "ผู้ใช้ที่กำหนดเอง"
 
 #: plugins/auth_users/resources/js/controllers/index.controller.coffee:55
 msgid "Password updated"

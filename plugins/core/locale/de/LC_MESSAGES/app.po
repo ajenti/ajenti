@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 17:43+0200\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: 2016-02-24 06:04-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: German\n"
@@ -161,13 +161,14 @@ msgstr "Schließen"
 msgid "Your session has expired"
 msgstr "Ihre Sitzung ist abgelaufen"
 
-#: plugins/core/resources/js/core/services/tasks.service.coffee:25
-msgid "Done"
-msgstr "Fertig"
+#: plugins/core/resources/js/core/controllers/login.controller.coffee:22
+#: plugins/core/resources/js/core/controllers/login.controller.coffee:39
+msgid "Authentication failed"
+msgstr "Authentifizierung fehlgeschlagen"
 
-#: plugins/core/resources/js/core/services/tasks.service.coffee:30
-msgid "Failed: #{msg.message.exception}"
-msgstr "Fehler: #{msg.message.exception}"
+#: plugins/core/resources/js/core/controllers/login.controller.coffee:35
+msgid "Authentication succeeded"
+msgstr "Authentifizierung erfolgreich"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:7
 msgid "Restart"
@@ -201,11 +202,10 @@ msgstr "Bitte warten"
 msgid "Could not restart"
 msgstr "Konnte nicht neu gestartet werden"
 
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:22
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:39
-msgid "Authentication failed"
-msgstr "Authentifizierung fehlgeschlagen"
+#: plugins/core/resources/js/core/services/tasks.service.coffee:25
+msgid "Done"
+msgstr "Fertig"
 
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:35
-msgid "Authentication succeeded"
-msgstr "Authentifizierung erfolgreich"
+#: plugins/core/resources/js/core/services/tasks.service.coffee:30
+msgid "Failed: #{msg.message.exception}"
+msgstr "Fehler: #{msg.message.exception}"

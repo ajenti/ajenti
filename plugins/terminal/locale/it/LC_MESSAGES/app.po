@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"POT-Creation-Date: 2016-04-19 17:46+0200\n"
 "PO-Revision-Date: 2016-02-24 06:04-0500\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -71,10 +71,6 @@ msgstr "Esegui uno script arbitrario"
 msgid "Open shell terminals"
 msgstr "Apri un terminale shell"
 
-#: plugins/terminal/resources/js/directives/terminal.coffee:170
-msgid "Terminal was closed"
-msgstr "Il terminale è stato chiuso"
-
 #: plugins/terminal/resources/js/controllers/widget.controller.coffee:9
 msgid "Starting the script"
 msgstr "Avviare lo script"
@@ -91,3 +87,6 @@ msgstr "Esecuzione dello script non riuscita"
 msgid "Could not launch the script"
 msgstr "Impossibile avviare lo script"
 
+#: plugins/terminal/resources/js/directives/terminal.coffee:170
+msgid "Terminal was closed"
+msgstr "Il terminale è stato chiuso"

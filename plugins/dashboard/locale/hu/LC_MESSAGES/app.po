@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"POT-Creation-Date: 2016-04-19 17:45+0200\n"
 "PO-Revision-Date: 2016-04-03 11:42-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -32,7 +32,11 @@ msgstr "5 perc"
 msgid "Active cores"
 msgstr "Aktív magok"
 
-#: plugins/dashboard/resources/partial/index.html:8
+#: plugins/dashboard/resources/partial/index.html:12
+msgid "Add"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:40
 msgid "Add widget"
 msgstr "Új widget"
 
@@ -55,13 +59,23 @@ msgstr "Hosztnév"
 msgid "Memory usage"
 msgstr "Memória használat"
 
+#: plugins/dashboard/resources/partial/index.html:22
 #: plugins/dashboard/resources/partial/widget.html:7
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:75
 msgid "Remove"
 msgstr "Törlés"
 
-#: plugins/dashboard/resources/partial/index.html:46
+#: plugins/dashboard/resources/partial/index.html:17
+msgid "Rename"
+msgstr ""
+
+#: plugins/dashboard/resources/partial/index.html:82
 msgid "Save"
 msgstr "Mentés"
+
+#: plugins/dashboard/resources/partial/index.html:8
+msgid "Tabs"
+msgstr ""
 
 #: plugins/dashboard/resources/partial/widgets/memory.html:4
 msgid "Total"
@@ -77,7 +91,19 @@ msgstr "Üzemidő"
 msgid "Dashboard"
 msgstr "Vezérlőpult"
 
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:62
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:82
+msgid "New name"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:74
+msgid "Remove the '#{$scope.userConfig.dashboard.tabs[index].name}' tab?"
+msgstr ""
+
+#: plugins/dashboard/resources/js/controllers/index.controller.coffee:76
+msgid "Cancel"
+msgstr ""
+
 #: plugins/dashboard/widgets/loadavg.py:12
 msgid "Load average"
 msgstr "Átlagos terhelés"
-
