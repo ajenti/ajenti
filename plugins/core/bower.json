@@ -18,7 +18,7 @@
     "angular-persona": "~1.1.0",
     "ngstorage": "~0.3.0",
     "fastclick": "~1.0.3",
-    "angular-sortable-view": "0.0.13",
+    "angular-sortable-view": "git@github.com:Progdom/angular-sortable-view#set-relative-parent",
     "AngularJS-Toaster": "~0.4.9",
     "angular-base64": "~2.0.4",
     "mobile-detect": "~1.2.1",

@@ -2,7 +2,7 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.74'
+version: '0.75'
 title: Core
 icon: link
 dependencies: []
@@ -21,7 +21,7 @@ resources:
     - 'resources/vendor/angular-loading-bar/build/loading-bar.min.css'
     - 'resources/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js'
     - 'resources/vendor/angular-persona/angular-persona.min.js'
-    - 'resources/vendor/angular-sortable-view/src/angular-sortable-view.min.js'
+    - 'resources/vendor/angular-sortable-view/src/angular-sortable-view.js'
     - 'resources/vendor/ngstorage/ngStorage.min.js'
     - 'resources/vendor/fastclick/lib/fastclick.js'
     - 'resources/vendor/angular-base64/angular-base64.js'
