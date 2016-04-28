@@ -2,6 +2,7 @@ import logging
 import subprocess
 
 from aj.plugins.core.api.tasks import Task
+from aj.auth import authorize
 
 
 class Transfer(Task):
@@ -12,6 +13,7 @@ class Transfer(Task):
         self.destination = destination
         self.items = items
 
+    @authorize('filesystem:write')
     def run(self):
         logging.info('Transferring %s items into %s', len(self.items), self.destination)
         self.destination = self.destination.rstrip('/') + '/'
@@ -43,6 +45,7 @@ class Delete(Task):
         Task.__init__(self, context)
         self.items = items
 
+    @authorize('filesystem:write')
     def run(self):
         logging.info('Deleting %s items', len(self.items))
 
