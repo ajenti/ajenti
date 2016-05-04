@@ -7,17 +7,17 @@ angular.module('ajenti.filesystem').service 'filesystem', ($http, $q) ->
             q.reject(err)
         return q.promise
 
-    @read = (path) ->
+    @read = (path, encoding) ->
         q = $q.defer()
-        $http.get("/api/filesystem/read/#{path}").success (data) ->
+        $http.get("/api/filesystem/read/#{path}?encoding=#{encoding or 'utf-8'}").success (data) ->
             q.resolve(data)
         .error (err) ->
             q.reject(err)
         return q.promise
 
-    @write = (path, content) ->
+    @write = (path, content, encoding) ->
         q = $q.defer()
-        $http.post("/api/filesystem/write/#{path}", content).success (data) ->
+        $http.post("/api/filesystem/write/#{path}?encoding=#{encoding or 'utf-8'}", content).success (data) ->
             q.resolve(data)
         .error (err) ->
             q.reject(err)

@@ -30,7 +30,12 @@ class Handler(HttpPlugin):
             return http_context.respond_not_found()
         try:
             http_context.respond_ok()
-            return open(path).read()
+            content = open(path).read()
+            if http_context.query:
+                encoding = http_context.query.get('encoding', None)
+                if encoding:
+                    content = content.decode(encoding).encode('utf-8')
+            return content
         except OSError as e:
             http_context.respond_server_error()
             return json.dumps({'error': str(e)})
@@ -40,8 +45,13 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_fs_write(self, http_context, path=None):
         try:
+            content = http_context.body
+            if http_context.query:
+                encoding = http_context.query.get('encoding', None)
+                if encoding:
+                    content = content.decode('utf-8').encode(encoding)
             with open(path, 'w') as f:
-                f.write(http_context.body)
+                f.write(content)
         except OSError as e:
             raise EndpointError(e)
 
