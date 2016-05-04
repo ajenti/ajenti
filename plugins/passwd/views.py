@@ -1,4 +1,5 @@
 import pwd
+import subprocess
 
 from jadi import component
 from aj.api.http import url, HttpPlugin
@@ -25,3 +26,10 @@ class Handler(HttpPlugin):
             }
             for x in pwd.getpwall()
         ]
+
+    @url(r'/api/passwd/set')
+    @endpoint(api=True)
+    def handle_api_passwd_set(self, http_context):
+        data = http_context.json_body()
+        p = subprocess.Popen(['chpasswd'], stdin=subprocess.PIPE)
+        p.communicate('%s:%s' % (data['user'], data['password']))
