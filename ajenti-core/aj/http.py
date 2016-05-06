@@ -134,21 +134,17 @@ class HttpContext(object):
                 self.body = self.env['wsgi.input'].read()
                 if ctype.startswith('application/x-www-form-urlencoded') or \
                         ctype.startswith('multipart/form-data'):
-                    print 3
                     self.form_cgi_query = cgi.FieldStorage(
                         fp=six.StringIO(self.body),
                         environ=self.env,
                         keep_blank_values=1
                     )
-                    print 4
         else:
             # prevent hanging on weird requests
             self.env['REQUEST_METHOD'] = 'GET'
             self.env['REQUEST_METHOD'] = self.method
 
-        print 1
         self.url_cgi_query = cgi.FieldStorage(environ={'QUERY_STRING': self.env['QUERY_STRING']}, keep_blank_values=1)
-        print 2
 
         self.query = {}
         if self.form_cgi_query:
