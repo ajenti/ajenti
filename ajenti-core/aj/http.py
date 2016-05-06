@@ -122,7 +122,8 @@ class HttpContext(object):
         self.status = None
         self.body = None
         self.query = None
-        self.cgi_query = None
+        self.form_cgi_query = None
+        self.url_cgi_query = None
         self.prefix = None
         self.method = self.env['REQUEST_METHOD'].upper()
 
@@ -133,19 +134,27 @@ class HttpContext(object):
                 self.body = self.env['wsgi.input'].read()
                 if ctype.startswith('application/x-www-form-urlencoded') or \
                         ctype.startswith('multipart/form-data'):
-                    self.cgi_query = cgi.FieldStorage(
+                    print 3
+                    self.form_cgi_query = cgi.FieldStorage(
                         fp=six.StringIO(self.body),
                         environ=self.env,
                         keep_blank_values=1
                     )
+                    print 4
         else:
             # prevent hanging on weird requests
             self.env['REQUEST_METHOD'] = 'GET'
-            self.cgi_query = cgi.FieldStorage(environ=self.env, keep_blank_values=1)
             self.env['REQUEST_METHOD'] = self.method
 
-        if self.cgi_query:
-            self.query = dict((k, self.cgi_query[k].value) for k in self.cgi_query)
+        print 1
+        self.url_cgi_query = cgi.FieldStorage(environ={'QUERY_STRING': self.env['QUERY_STRING']}, keep_blank_values=1)
+        print 2
+
+        self.query = {}
+        if self.form_cgi_query:
+            self.query.update(dict((k, self.form_cgi_query[k].value) for k in self.form_cgi_query))
+        if self.url_cgi_query:
+            self.query.update(dict((k, self.url_cgi_query[k].value) for k in self.url_cgi_query))
 
     def json_body(self):
         return json.loads(self.body.decode('utf-8'))
