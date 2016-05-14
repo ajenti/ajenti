@@ -141,7 +141,7 @@ class AuthenticationService(object):
         if not aj.config.data['auth'].get('allow_sudo', False):
             return False
         sudo = subprocess.Popen(
-            ['sudo', '-S', '-u', 'eugene', '--', 'sh', '-c', 'sudo -k; sudo -S echo'],
+            ['sudo', '-S', '-u', username, '--', 'sh', '-c', 'sudo -k; sudo -S echo'],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
