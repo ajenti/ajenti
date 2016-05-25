@@ -12,13 +12,14 @@ class Session(object):
 
     last_id = 0
 
-    def __init__(self, key, gateway_middleware=None, client_info=None, **kwargs):
+    def __init__(self, key, gateway_middleware=None, client_info=None, auth_info=None, **kwargs):
         Session.last_id += 1
         self.id = Session.last_id
         self.key = key
         self.client_info = client_info or {}
         self.data = {}
         self.identity = None
+        self.auth_info = auth_info
         self.touch()
         self.active = True
         logging.info(

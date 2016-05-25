@@ -72,6 +72,11 @@
                                     <i class="fa fa-fw fa-hdd-o"></i> {{ identity.machine.name }}
                                 </div>
                             </li>
+                            <li ng:repeat="item in customization.plugins.core.extraProfileMenuItems">
+                                <a href="{{item.url}}">
+                                    <i class="fa fa-fw fa-{{item.icon}}"></i> {{ item.name }}
+                                </a>
+                            </li>
                             <li>
                                 <a ng:click="identity.elevate()" ng:show="identity.effective != 0 && identity.elevation_allowed">
                                     <i class="fa fa-fw fa-angle-double-up"></i> <span translate>Elevate</span>

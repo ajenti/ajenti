@@ -68,8 +68,9 @@ class Handler(HttpPlugin):
         auth = AuthenticationService.get(self.context)
 
         if mode == 'normal':
-            if auth.check_password(username, password):
-                auth.prepare_session_redirect(http_context, username)
+            auth_info = auth.check_password(username, password)
+            if auth_info:
+                auth.prepare_session_redirect(http_context, username, auth_info)
                 return {
                     'success': True,
                     'username': username,
@@ -84,7 +85,7 @@ class Handler(HttpPlugin):
             target = 'root'
             try:
                 if auth.check_sudo_password(username, password):
-                    auth.prepare_session_redirect(http_context, target)
+                    auth.prepare_session_redirect(http_context, target, None)
                     return {
                         'success': True,
                         'username': target,
@@ -123,7 +124,7 @@ class Handler(HttpPlugin):
             emails = aj.config.data['auth']['emails']
             if email in emails:
                 username = emails[email]
-                auth.prepare_session_redirect(http_context, username)
+                auth.prepare_session_redirect(http_context, username, None)
                 return {
                     'success': True,
                     'username': username,

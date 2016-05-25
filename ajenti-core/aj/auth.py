@@ -198,8 +198,9 @@ class AuthenticationService(object):
             self.context.worker.demote(uid)
         self.context.identity = username
 
-    def prepare_session_redirect(self, http_context, username):
+    def prepare_session_redirect(self, http_context, username, auth_info):
         http_context.add_header('X-Session-Redirect', username)
+        http_context.add_header('X-Auth-Info', auth_info)
 
 
 @public

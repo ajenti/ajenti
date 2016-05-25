@@ -218,15 +218,18 @@ class GateMiddleware(object):
 
         for header in resp.object['headers']:
             http_context.add_header(*header)
-            if header[0] == 'X-Session-Redirect':
-                # new authenticated session
-                username = header[1]
-                logging.info('Opening a session for user %s', username)
-                session = self.open_session(
-                    http_context.env,
-                    initial_identity=username
-                )
-                session.set_cookie(http_context)
+
+        headers = dict(resp.object['headers'])
+        if 'X-Session-Redirect' in headers:
+            # new authenticated session
+            username = headers['X-Session-Redirect']
+            logging.info('Opening a session for user %s', username)
+            session = self.open_session(
+                http_context.env,
+                initial_identity=username,
+                auth_info=headers['X-Auth-Info'],
+            )
+            session.set_cookie(http_context)
 
         http_context.respond(resp.object['status'])
         content = resp.object['content']
