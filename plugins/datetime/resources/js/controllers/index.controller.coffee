@@ -10,7 +10,7 @@ angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope,
             $scope.offset = data.offset
 
             datetime.getTime().then (time) ->
-                $scope._.time = new Date(time * 1000)
+                $scope._.time = new Date((time + $scope.offset) * 1000)
 
                 #int = $interval () ->
                 #    $scope._.time = new Date($scope._.time.getTime() + 1000)
@@ -33,7 +33,7 @@ angular.module('ajenti.datetime').controller 'DateTimeIndexController', ($scope,
             notify.error gettext('Failed'), e.message
 
     $scope.setTime = () ->
-        datetime.setTime($scope._.time.getTime() / 1000).then () ->
+        datetime.setTime($scope._.time.getTime() / 1000 - $scope.offset).then () ->
             notify.success gettext('Time set')
         .catch (e) ->
             notify.error gettext('Failed'), e.message

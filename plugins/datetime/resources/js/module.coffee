@@ -5,7 +5,7 @@ angular.module 'ajenti.datetime', [
 angular.module('ajenti.datetime').run (customization) ->
     customization.plugins.datetime = {}
 
-angular.module('ajenti.datetime').directive 'datetimepickerNeutralTimezone', () ->
+angular.module('ajenti.datetime').directive 'neutralTimezone', () ->
     return {
         restrict: 'A'
         priority: 1
@@ -13,9 +13,9 @@ angular.module('ajenti.datetime').directive 'datetimepickerNeutralTimezone', () 
         link: (scope, element, attrs, ctrl) ->
             ctrl.$formatters.push (value) ->
                 date = new Date(Date.parse(value))
-                date = new Date(date.getTime() + (60000 * date.getTimezoneOffset()))
+                date = new Date(date.getTime() + (60000 * new Date().getTimezoneOffset()))
                 return date
 
             ctrl.$parsers.push (value) ->
-                return new Date(value.getTime() - (60000 * value.getTimezoneOffset()))
+                return new Date(value.getTime() - (60000 * new Date().getTimezoneOffset()))
     }

@@ -17,10 +17,10 @@
     <label translate>Date & time</label>
     <div class="row">
         <div class="col-sm-6">
-            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" datetimepicker-neutral-timezone />
+            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" neutral-timezone />
         </div>
         <div class="col-sm-3">
-            <uib-timepicker class="timepicker" ng:model="_.time"></uib-timepicker>
+            <uib-timepicker class="timepicker" ng:model="_.time" neutral-timezone></uib-timepicker>
         </div>
         <div class="col-sm-3">
             <button ng:click="setTime()" class="btn btn-primary btn-block" translate>Set time</button>
