@@ -18,7 +18,10 @@ class Handler(HttpPlugin):
     @url(r'/api/datetime/tz/get')
     @endpoint(api=True)
     def handle_api_tz_get(self, http_context):
-        return self.manager.get_tz()
+        return {
+            'tz': self.manager.get_tz(),
+            'offset': self.manager.get_offset(),
+        }
 
     @url(r'/api/datetime/tz/set/(?P<tz>.+)')
     @authorize('datetime:write')

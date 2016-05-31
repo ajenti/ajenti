@@ -1,8 +1,8 @@
-name: datetime 
+name: datetime
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.18'
+version: '0.19'
 title: 'Date & time'
 icon: clock-o
 dependencies:

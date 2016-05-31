@@ -4,3 +4,18 @@ angular.module 'ajenti.datetime', [
 
 angular.module('ajenti.datetime').run (customization) ->
     customization.plugins.datetime = {}
+
+angular.module('ajenti.datetime').directive 'datetimepickerNeutralTimezone', () ->
+    return {
+        restrict: 'A'
+        priority: 1
+        require: 'ngModel'
+        link: (scope, element, attrs, ctrl) ->
+            ctrl.$formatters.push (value) ->
+                date = new Date(Date.parse(value))
+                date = new Date(date.getTime() + (60000 * date.getTimezoneOffset()))
+                return date
+
+            ctrl.$parsers.push (value) ->
+                return new Date(value.getTime() - (60000 * value.getTimezoneOffset()))
+    }

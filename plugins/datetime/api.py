@@ -1,3 +1,4 @@
+import time
 from jadi import interface
 
 
@@ -14,3 +15,6 @@ class TZManager(object):
 
     def list_tz(self):
         raise NotImplementedError
+
+    def get_offset(self):
+        return -(time.altzone if (time.daylight and time.localtime().tm_isdst > 0) else time.timezone)

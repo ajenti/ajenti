@@ -3,7 +3,12 @@
 
 <div class="form-group">
     <label translate>Time zone</label>
-    <select ng:model="timezone" ng:options="x for x in timezones" class="form-control"></select>
+    <div class="input-group">
+        <select ng:model="timezone" ng:options="x for x in timezones" class="form-control"></select>
+        <div class="input-group-btn">
+            <button ng:click="setTimezone()" class="btn btn-primary btn-block" translate>Set timezone</button>
+        </div>
+    </div>
 </div>
 
 <hr/>
@@ -12,13 +17,13 @@
     <label translate>Date & time</label>
     <div class="row">
         <div class="col-sm-6">
-            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" is-open="dpOpened" ng:click="dpOpened=true" />
+            <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" datetimepicker-neutral-timezone />
         </div>
         <div class="col-sm-3">
             <uib-timepicker class="timepicker" ng:model="_.time"></uib-timepicker>
         </div>
         <div class="col-sm-3">
-            <a ng:click="setTime()" class="btn btn-primary btn-block" translate>Set time</a>
+            <button ng:click="setTime()" class="btn btn-primary btn-block" translate>Set time</button>
         </div>
     </div>
     <div ng:hide="customization.plugins.datetime.hideSync">
