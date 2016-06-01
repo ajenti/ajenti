@@ -18,6 +18,7 @@ class Handler(HttpPlugin):
     @url(r'/api/datetime/tz/get')
     @endpoint(api=True)
     def handle_api_tz_get(self, http_context):
+        time.tzset()
         return {
             'tz': self.manager.get_tz(),
             'offset': self.manager.get_offset(),
