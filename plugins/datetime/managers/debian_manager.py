@@ -19,6 +19,7 @@ class DebianTZManager(TZManager):
         return open('/etc/timezone').read().strip()
 
     def set_tz(self, name):
+        print name, os.getuid()
         open('/etc/timezone', 'w').write(name + '\n')
         tz = os.path.join('/usr/share/zoneinfo/', name)
         if os.path.exists('/etc/localtime'):

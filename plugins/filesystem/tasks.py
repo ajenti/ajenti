@@ -16,7 +16,7 @@ class Transfer(Task):
     @authorize('filesystem:write')
     def run(self):
         logging.info('Transferring %s items into %s', len(self.items), self.destination)
-        self.destination = self.destination.rstrip('/') + '/'
+        self.destination = self.destination.rstrip('/')
 
         for idx, item in enumerate(self.items):
             self.report_progress(message=item['item']['name'], done=idx, total=len(self.items))
