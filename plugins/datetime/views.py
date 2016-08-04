@@ -1,3 +1,4 @@
+import logging
 import subprocess
 import time
 from datetime import datetime
@@ -45,6 +46,10 @@ class Handler(HttpPlugin):
     @endpoint(api=True)
     def handle_api_time_set(self, http_context, time=None):
         subprocess.call(['date', datetime.fromtimestamp(int(time)).strftime('%m%d%H%M%Y')])
+        try:
+            subprocess.call(['hwclock', '--systohc'])
+        except:
+            logging.warn('No hwclock utility available, not setting hardware clock')
 
     @url(r'/api/datetime/time/sync')
     @authorize('datetime:write')

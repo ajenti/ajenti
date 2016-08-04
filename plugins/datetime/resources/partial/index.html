@@ -20,7 +20,7 @@
             <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng:model="_.time" neutral-timezone is-open="_.dpOpen" ng:click="_.dpOpen=true" />
         </div>
         <div class="col-sm-3">
-            <uib-timepicker ng:if="_.time" class="timepicker" ng:model="_.time" neutral-timezone></uib-timepicker>
+            <uib-timepicker ng:if="_.time" class="timepicker" ng:model="_.time" neutral-timezone show-meridian="false"></uib-timepicker>
         </div>
         <div class="col-sm-3">
             <button ng:click="setTime()" class="btn btn-primary btn-block" translate>Set time</button>
