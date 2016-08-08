@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:139
+#: plugins/core/content/pages/index.html:144
 msgid "A bootstrap error has occured"
 msgstr "Ошибка при загрузке"
 
@@ -25,11 +25,11 @@ msgstr "Ошибка при загрузке"
 msgid "Authenticate"
 msgstr "Аутентифицировать"
 
-#: plugins/core/content/pages/index.html:77
+#: plugins/core/content/pages/index.html:82
 msgid "Elevate"
 msgstr "Повысить полномочия"
 
-#: plugins/core/content/pages/index.html:122
+#: plugins/core/content/pages/index.html:127
 msgid "Enter"
 msgstr "Вход"
 
@@ -41,7 +41,7 @@ msgstr "Вход"
 msgid "Log in with e-mail"
 msgstr "Вход по почте"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:87
 msgid "Log out"
 msgstr "Выход"
 
@@ -49,11 +49,11 @@ msgstr "Выход"
 msgid "Password"
 msgstr "Пароль"
 
-#: plugins/core/content/pages/index.html:142
+#: plugins/core/content/pages/index.html:147
 msgid "Please see browser console"
 msgstr "См. консоль браузера"
 
-#: plugins/core/content/pages/index.html:118
+#: plugins/core/content/pages/index.html:123
 msgid "Quick search"
 msgstr "Быстрый поиск"
 
@@ -89,16 +89,16 @@ msgstr "Просмотреть файл конфигурации"
 msgid "Write configuration file"
 msgstr "Писать в файл конфигурации"
 
-#: plugins/core/views/api.py:96
+#: plugins/core/views/api.py:97
 msgid "Authorization failed"
 msgstr "Авторизация не успешна"
 
-#: plugins/core/views/api.py:120
+#: plugins/core/views/api.py:121
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
 msgstr "Не удалось аутентифицироваться с помощью Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:134
+#: plugins/core/views/api.py:135
 msgid "Unrecognized e-mail"
 msgstr "E-mail не опознан"
 

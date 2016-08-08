@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2015-12-31 09:29-0500\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-04-08 06:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -57,11 +57,11 @@ msgstr "อ่านจากระบบไฟล์"
 msgid "Write to the filesystem"
 msgstr "เขียนระบบไฟล์"
 
-#: plugins/filesystem/tasks.py:8
+#: plugins/filesystem/tasks.py:9
 msgid "File transfer"
 msgstr "การถ่ายโอนไฟล์"
 
-#: plugins/filesystem/tasks.py:40
+#: plugins/filesystem/tasks.py:42
 msgid "Deleting"
 msgstr "กำลังลบ"
 

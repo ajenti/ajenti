@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-04-08 06:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: da\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:139
+#: plugins/core/content/pages/index.html:144
 msgid "A bootstrap error has occured"
 msgstr "En bootstrap fejl er opstået"
 
@@ -24,11 +24,11 @@ msgstr "En bootstrap fejl er opstået"
 msgid "Authenticate"
 msgstr "Godkend"
 
-#: plugins/core/content/pages/index.html:77
+#: plugins/core/content/pages/index.html:82
 msgid "Elevate"
 msgstr "Ophøje"
 
-#: plugins/core/content/pages/index.html:122
+#: plugins/core/content/pages/index.html:127
 msgid "Enter"
 msgstr "Angiv"
 
@@ -40,7 +40,7 @@ msgstr "Log på"
 msgid "Log in with e-mail"
 msgstr "Log ind med e-mail"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:87
 msgid "Log out"
 msgstr "Log af"
 
@@ -48,11 +48,11 @@ msgstr "Log af"
 msgid "Password"
 msgstr "Adgangskode"
 
-#: plugins/core/content/pages/index.html:142
+#: plugins/core/content/pages/index.html:147
 msgid "Please see browser console"
 msgstr "Se venligst browser konsol"
 
-#: plugins/core/content/pages/index.html:118
+#: plugins/core/content/pages/index.html:123
 msgid "Quick search"
 msgstr "Hurtig søgning"
 
@@ -88,16 +88,16 @@ msgstr "Læs konfigurationsfil"
 msgid "Write configuration file"
 msgstr "Skriv konfigurationsfil"
 
-#: plugins/core/views/api.py:96
+#: plugins/core/views/api.py:97
 msgid "Authorization failed"
 msgstr "Godkendelse mislykkedes"
 
-#: plugins/core/views/api.py:120
+#: plugins/core/views/api.py:121
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
 msgstr "Kunne ikke godkende med Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:134
+#: plugins/core/views/api.py:135
 msgid "Unrecognized e-mail"
 msgstr "Ukendt e-mail"
 

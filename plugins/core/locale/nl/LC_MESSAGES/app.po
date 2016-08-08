@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-04-08 06:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: nl\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:139
+#: plugins/core/content/pages/index.html:144
 msgid "A bootstrap error has occured"
 msgstr "Een bootstrap fout opgetreden"
 
@@ -24,11 +24,11 @@ msgstr "Een bootstrap fout opgetreden"
 msgid "Authenticate"
 msgstr "Inloggen"
 
-#: plugins/core/content/pages/index.html:77
+#: plugins/core/content/pages/index.html:82
 msgid "Elevate"
 msgstr "Verheffen"
 
-#: plugins/core/content/pages/index.html:122
+#: plugins/core/content/pages/index.html:127
 msgid "Enter"
 msgstr "Voer in"
 
@@ -40,7 +40,7 @@ msgstr "Inloggen"
 msgid "Log in with e-mail"
 msgstr "Meld u aan met uw e-mail"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:87
 msgid "Log out"
 msgstr "Afmelden"
 
@@ -48,11 +48,11 @@ msgstr "Afmelden"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: plugins/core/content/pages/index.html:142
+#: plugins/core/content/pages/index.html:147
 msgid "Please see browser console"
 msgstr "Raadpleeg browser console"
 
-#: plugins/core/content/pages/index.html:118
+#: plugins/core/content/pages/index.html:123
 msgid "Quick search"
 msgstr "Snel zoeken"
 
@@ -88,16 +88,16 @@ msgstr "Lees configuratiebestand"
 msgid "Write configuration file"
 msgstr "Configuratiebestand schrijven"
 
-#: plugins/core/views/api.py:96
+#: plugins/core/views/api.py:97
 msgid "Authorization failed"
 msgstr "Autorisatie mislukt"
 
-#: plugins/core/views/api.py:120
+#: plugins/core/views/api.py:121
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
 msgstr "Kan niet worden geverifieerd met Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:134
+#: plugins/core/views/api.py:135
 msgid "Unrecognized e-mail"
 msgstr "Niet-herkende e-mail"
 

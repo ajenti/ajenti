@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -49,7 +49,7 @@ msgstr "Ядро"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
-msgstr ""
+msgstr "Скачиваний за месяц"
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
@@ -110,145 +110,145 @@ msgstr "Перезапустить панель"
 
 #: plugins/plugins/resources/partial/index.html:118
 msgid "This plugin crashed with the following error:"
-msgstr ""
+msgstr "Этот плагин завершил работу с ошибкой:"
 
 #: plugins/plugins/resources/partial/index.html:113
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Этот плагин требует исполняемый код <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, который был недоступен во время запуска."
 
 #: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Для работы этого плагина требует плагин <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, который был недоступен во время запуска."
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 #: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:33
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Uninstall"
-msgstr ""
+msgstr "Удалить"
 
 #: plugins/plugins/resources/partial/index.html:154
 #: plugins/plugins/resources/partial/index.html:23
 #: plugins/plugins/resources/partial/index.html:36
 msgid "Update"
-msgstr ""
+msgstr "Обновить"
 
 #: plugins/plugins/resources/partial/index.html:6
 msgid "Update everything"
-msgstr ""
+msgstr "Обновить все"
 
 #: plugins/plugins/resources/partial/index.html:3
 msgid "Updates"
-msgstr ""
+msgstr "Обновления"
 
 #: plugins/plugins/resources/partial/index.html:44
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
-msgstr ""
+msgstr "Есть обновления до версии {{getUpgrade(plugin).version}}"
 
 #: plugins/plugins/resources/partial/index.html:129
 #: plugins/plugins/resources/partial/index.html:178
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
-msgstr ""
+msgstr "Версия"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "Плагины"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:25
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Не удалось загрузить хранилище плагинов"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:27
 msgid "Could not load the installed plugin list"
-msgstr ""
+msgstr "Не удалось загрузить список установленных плагинов"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:38
 msgid "Upgrading"
-msgstr ""
+msgstr "Обновление"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Done"
-msgstr ""
+msgstr "Завершено"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 msgid "Upgrade complete. A panel restart is absolutely required."
-msgstr ""
+msgstr "Обновление завершено. Жизненно необходима перезагрузка панели Ajenti."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Restart now"
-msgstr ""
+msgstr "Перезагрузить сейчас"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:43
 msgid "Upgrade failed"
-msgstr ""
+msgstr "Ошибка обновления"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:73
 msgid "All plugins updated"
-msgstr ""
+msgstr "Все плагины обновлены"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 msgid "Installed. A panel restart is required."
-msgstr ""
+msgstr "Установлен. Требуется перезагрузка панели Ajenti."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Later"
-msgstr ""
+msgstr "Позже"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:77
 msgid "Some plugins failed to update"
-msgstr ""
+msgstr "Не удалось обновить некоторые плагины"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:97
 msgid "Updating plugins"
-msgstr ""
+msgstr "Обновление плагинов"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:129
 msgid "Install failed"
-msgstr ""
+msgstr "Ошибка при установке"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Warning"
-msgstr ""
+msgstr "Предупреждение"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
+msgstr "Это действие удалит плагин \"Плагины\". Вы сможете установить его вновь, используя PIP."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Continue"
-msgstr ""
+msgstr "Далее"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:143
 msgid "Uninstall #{plugin.name}?"
-msgstr ""
+msgstr "Удалить #{plugin.name}?"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:144
 msgid "Uninstalling"
-msgstr ""
+msgstr "Удаление…"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Uninstalled. A panel restart is required."
-msgstr ""
+msgstr "Удалён. Требуется перезагрузка панели Ajenti."
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:150
 msgid "Uninstall failed"
-msgstr ""
+msgstr "Ошибка при удалении"
 

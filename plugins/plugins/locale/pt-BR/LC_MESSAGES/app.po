@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -18,17 +18,17 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:14
 msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
-msgstr ""
+msgstr "Ajenti core {{ajentiVersion}}, não há atualizações disponíveis."
 
 #: plugins/plugins/resources/partial/index.html:20
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
-msgstr ""
+msgstr "Ajenti core {{ajentiVersion}}. Uma atualização para {{coreUpgradeAvailable}} está disponível."
 
 #: plugins/plugins/resources/partial/index.html:141
 #: plugins/plugins/resources/partial/index.html:196
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: plugins/plugins/resources/partial/index.html:53
 msgid "Available plugins"
@@ -45,7 +45,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:10
 msgid "Core"
-msgstr ""
+msgstr "Núcleo"
 
 #: plugins/plugins/resources/partial/index.html:190
 msgid "Downloads in the last month"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/repo-plugin.html:39
 msgid "Downloads this month"
-msgstr ""
+msgstr "Downloads este mês"
 
 #: plugins/plugins/resources/partial/index.html:109
 msgid "Error"
@@ -65,7 +65,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:77
 msgid "Filter"
-msgstr ""
+msgstr "Filtro"
 
 #: plugins/plugins/resources/partial/index.html:148
 #: plugins/plugins/resources/partial/repo-plugin.html:55
@@ -76,15 +76,15 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:62
 #: plugins/plugins/resources/partial/index.html:80
 msgid "Install"
-msgstr ""
+msgstr "Instalar"
 
 #: plugins/plugins/resources/partial/index.html:27
 msgid "Installed plugins"
-msgstr ""
+msgstr "Plugins instalados"
 
 #: plugins/plugins/resources/partial/index.html:47
 msgid "Loading error"
-msgstr ""
+msgstr "Erro ao carregar"
 
 #: plugins/plugins/resources/partial/index.html:135
 msgid "Location"
@@ -102,7 +102,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:59
 msgid "Official"
-msgstr ""
+msgstr "Oficial"
 
 #: plugins/plugins/resources/partial/index.html:221
 msgid "Restart panel"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/index.html:113
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
-msgstr ""
+msgstr "Este plugin requer aplicativo binário <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, que não estava disponível durante a inicialização."
 
 #: plugins/plugins/resources/partial/index.html:110
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
@@ -122,7 +122,7 @@ msgstr ""
 
 #: plugins/plugins/resources/partial/repo-plugin.html:15
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: plugins/plugins/resources/partial/index.html:157
 #: plugins/plugins/resources/partial/index.html:33
@@ -152,15 +152,15 @@ msgstr ""
 #: plugins/plugins/resources/partial/index.html:178
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
-msgstr ""
+msgstr "Versão"
 
 #: plugins/plugins/main.py:15
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:25
 msgid "Could not load plugin repository"
-msgstr ""
+msgstr "Não foi possível carregar o plugin repositório"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:27
 msgid "Could not load the installed plugin list"
@@ -168,14 +168,14 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:38
 msgid "Upgrading"
-msgstr ""
+msgstr "Atualizando"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:74
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:125
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:147
 msgid "Done"
-msgstr ""
+msgstr "Concluído"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:40
 msgid "Upgrade complete. A panel restart is absolutely required."
@@ -217,11 +217,11 @@ msgstr ""
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:129
 msgid "Install failed"
-msgstr ""
+msgstr "Instalação falhou"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: plugins/plugins/resources/js/controllers/index.controller.coffee:135
 msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."

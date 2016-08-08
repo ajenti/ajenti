@@ -23,14 +23,14 @@ class Transfer(Task):
             if item['mode'] == 'move':
                 logging.info('Moving %s', item['item']['path'])
                 r = subprocess.call([
-                    'mv', item['item']['path'], '-t', self.destination
+                    'mv', item['item']['path'], self.destination
                 ])
                 if r != 0:
                     logging.warn('mv exited with code %i', r)
             if item['mode'] == 'copy':
                 logging.info('Copying %s', item['item']['path'])
                 r = subprocess.call([
-                    'cp', '-a', item['item']['path'], '-t', self.destination
+                    'cp', '-a', item['item']['path'], self.destination
                 ])
                 if r != 0:
                     logging.warn('cp exited with code %i', r)

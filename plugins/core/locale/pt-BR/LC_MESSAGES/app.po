@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -16,196 +16,196 @@ msgstr ""
 "X-Crowdin-Language: pt-BR\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:139
+#: plugins/core/content/pages/index.html:144
 msgid "A bootstrap error has occured"
-msgstr ""
+msgstr "Ocorreu um erro de inicialização"
 
 #: plugins/core/resources/partial/login.html:27
 msgid "Authenticate"
-msgstr ""
+msgstr "Autenticar"
 
-#: plugins/core/content/pages/index.html:77
+#: plugins/core/content/pages/index.html:82
 msgid "Elevate"
-msgstr ""
+msgstr "Subir"
 
-#: plugins/core/content/pages/index.html:122
+#: plugins/core/content/pages/index.html:127
 msgid "Enter"
-msgstr ""
+msgstr "Digite"
 
 #: plugins/core/resources/partial/login.html:26
 msgid "Log in"
-msgstr ""
+msgstr "Fazer Login"
 
 #: plugins/core/resources/partial/login.html:31
 msgid "Log in with e-mail"
-msgstr ""
+msgstr "Fazer login com e-mail"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:87
 msgid "Log out"
-msgstr ""
+msgstr "Sair"
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
-#: plugins/core/content/pages/index.html:142
+#: plugins/core/content/pages/index.html:147
 msgid "Please see browser console"
-msgstr ""
+msgstr "Por favor consulte o console do navegador"
 
-#: plugins/core/content/pages/index.html:118
+#: plugins/core/content/pages/index.html:123
 msgid "Quick search"
-msgstr ""
+msgstr "Busca rápida"
 
 #: plugins/core/resources/partial/login.html:19
 msgid "Username"
-msgstr ""
+msgstr "Usuário"
 
 #: plugins/core/main.py:17
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: plugins/core/main.py:24
 msgid "Tools"
-msgstr ""
+msgstr "Ferramentas"
 
 #: plugins/core/main.py:31
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #: plugins/core/main.py:38
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: plugins/core/main.py:45
 msgid "Other"
-msgstr ""
+msgstr "Outros"
 
 #: plugins/core/main.py:68
 msgid "Read configuration file"
-msgstr ""
+msgstr "Ler arquivo de configuração"
 
 #: plugins/core/main.py:73
 msgid "Write configuration file"
-msgstr ""
+msgstr "Escrever arquivo de configuração"
 
-#: plugins/core/views/api.py:96
+#: plugins/core/views/api.py:97
 msgid "Authorization failed"
-msgstr ""
+msgstr "A autorização falhou"
 
-#: plugins/core/views/api.py:120
+#: plugins/core/views/api.py:121
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr ""
+msgstr "Não foi possível autenticar com Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:134
+#: plugins/core/views/api.py:135
 msgid "Unrecognized e-mail"
-msgstr ""
+msgstr "Email não reconhecido"
 
 #: plugins/core/resources/js/core/filters.coffee:6
 msgid "0 bytes"
-msgstr ""
+msgstr "0 bytes"
 
 #: plugins/core/resources/js/core/filters.coffee:10
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: plugins/core/resources/js/core/filters.coffee:11
 msgid "KB"
-msgstr ""
+msgstr "KB"
 
 #: plugins/core/resources/js/core/filters.coffee:12
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: plugins/core/resources/js/core/filters.coffee:13
 msgid "GB"
-msgstr ""
+msgstr "GB"
 
 #: plugins/core/resources/js/core/filters.coffee:14
 msgid "TB"
-msgstr ""
+msgstr "TB"
 
 #: plugins/core/resources/js/core/filters.coffee:15
 msgid "PB"
-msgstr ""
+msgstr "PB"
 
 #: plugins/core/resources/js/core/filters.coffee:34
 msgid "th"
-msgstr ""
+msgstr "º"
 
 #: plugins/core/resources/js/core/filters.coffee:35
 msgid "st"
-msgstr ""
+msgstr "º"
 
 #: plugins/core/resources/js/core/filters.coffee:36
 msgid "nd"
-msgstr ""
+msgstr "º"
 
 #: plugins/core/resources/js/core/filters.coffee:37
 msgid "rd"
-msgstr ""
+msgstr "º"
 
 #: plugins/core/resources/js/core/interceptors.coffee:9
 msgid "Security error"
-msgstr ""
+msgstr "Erro de segurança"
 
 #: plugins/core/resources/js/core/interceptors.coffee:12
 msgid "Server error"
-msgstr ""
+msgstr "Erro no servidor"
 
 #: plugins/core/resources/js/core/interceptors.coffee:12
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: plugins/core/resources/js/core/interceptors.coffee:19
 msgid "Your session has expired"
-msgstr ""
+msgstr "Sua sessão expirou"
 
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:22
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:39
 msgid "Authentication failed"
-msgstr ""
+msgstr "Autenticação falhou"
 
 #: plugins/core/resources/js/core/controllers/login.controller.coffee:35
 msgid "Authentication succeeded"
-msgstr ""
+msgstr "Autenticação bem-sucedida"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:7
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:8
 msgid "Restart the panel?"
-msgstr ""
+msgstr "Reiniciar o painel?"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:9
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:10
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:16
 msgid "Restarting"
-msgstr ""
+msgstr "Reiniciando"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:21
 msgid "Restarted"
-msgstr ""
+msgstr "Reiniciado"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:21
 msgid "Please wait"
-msgstr ""
+msgstr "Por favor, aguarde"
 
 #: plugins/core/resources/js/core/services/core.service.coffee:30
 msgid "Could not restart"
-msgstr ""
+msgstr "Não foi possível reiniciar"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:25
 msgid "Done"
-msgstr ""
+msgstr "Cocluído"
 
 #: plugins/core/resources/js/core/services/tasks.service.coffee:30
 msgid "Failed: #{msg.message.exception}"
-msgstr ""
+msgstr "Falha: #{msg.message.exception}"

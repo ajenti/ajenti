@@ -2,30 +2,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: plugins/datetime/resources/partial/index.html:12
-#: plugins/datetime/main.py:17
+#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
 msgid "Date & time"
 msgstr "Дата и время"
 
-#: plugins/datetime/resources/partial/index.html:21
+#: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr "Установить время"
 
-#: plugins/datetime/resources/partial/index.html:26
+#: plugins/datetime/resources/partial/index.html:9
+#, fuzzy
+msgid "Set timezone"
+msgstr "Установить время"
+
+#: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr "Синхронизировать время из Интернета"
 
@@ -37,7 +42,7 @@ msgstr "Часовой пояс"
 msgid "Change date and time"
 msgstr "Изменить дату и время"
 
-#: plugins/datetime/views.py:50
+#: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr "утилита ntpdate не установлена"
 
@@ -45,21 +50,25 @@ msgstr "утилита ntpdate не установлена"
 msgid "Date & Time"
 msgstr "Дата и время"
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:25
-msgid "Time set"
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:24
+#, fuzzy
+msgid "Timezone set"
 msgstr "Установка времени"
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:27
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:29
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:37
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:33
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:41
 msgid "Failed"
 msgstr "Не удалось"
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:32
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:31
+msgid "Time set"
+msgstr "Установка времени"
+
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:36
 msgid "Synchronizing..."
 msgstr "Синхронизация..."
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:35
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:39
 msgid "Time synchronized"
 msgstr "Время синхронизировано"
-

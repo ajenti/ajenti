@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 11:49+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-04-22 10:22-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -16,16 +16,20 @@ msgstr ""
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /2.0/datetime.po\n"
 
-#: plugins/datetime/resources/partial/index.html:12
-#: plugins/datetime/main.py:17
+#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
 msgid "Date & time"
 msgstr "Datum & čas"
 
-#: plugins/datetime/resources/partial/index.html:21
+#: plugins/datetime/resources/partial/index.html:26
 msgid "Set time"
 msgstr "Nastavit čas"
 
-#: plugins/datetime/resources/partial/index.html:26
+#: plugins/datetime/resources/partial/index.html:9
+#, fuzzy
+msgid "Set timezone"
+msgstr "Nastavit čas"
+
+#: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
 msgstr "Synchronizovat čas z Internetu"
 
@@ -37,7 +41,7 @@ msgstr "Časové pásmo"
 msgid "Change date and time"
 msgstr "Změnit datum a čas"
 
-#: plugins/datetime/views.py:50
+#: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
 msgstr "Nástroj ntpdate není instalován"
 
@@ -45,21 +49,25 @@ msgstr "Nástroj ntpdate není instalován"
 msgid "Date & Time"
 msgstr "Datum & čas"
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:25
-msgid "Time set"
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:24
+#, fuzzy
+msgid "Timezone set"
 msgstr "Nastavení času"
 
 #: plugins/datetime/resources/js/controllers/index.controller.coffee:27
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:29
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:37
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:33
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:41
 msgid "Failed"
 msgstr "Chyba"
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:32
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:31
+msgid "Time set"
+msgstr "Nastavení času"
+
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:36
 msgid "Synchronizing..."
 msgstr "Synchronizuji..."
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:35
+#: plugins/datetime/resources/js/controllers/index.controller.coffee:39
 msgid "Time synchronized"
 msgstr "Čas synchronizován"
-

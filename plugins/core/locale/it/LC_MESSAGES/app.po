@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-02-24 06:04-0500\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: it\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:139
+#: plugins/core/content/pages/index.html:144
 msgid "A bootstrap error has occured"
 msgstr "Si è verificato un errore di sistema"
 
@@ -24,11 +24,11 @@ msgstr "Si è verificato un errore di sistema"
 msgid "Authenticate"
 msgstr "Convalida"
 
-#: plugins/core/content/pages/index.html:77
+#: plugins/core/content/pages/index.html:82
 msgid "Elevate"
 msgstr "Eleva"
 
-#: plugins/core/content/pages/index.html:122
+#: plugins/core/content/pages/index.html:127
 msgid "Enter"
 msgstr "Entra"
 
@@ -40,7 +40,7 @@ msgstr "Accedi"
 msgid "Log in with e-mail"
 msgstr "Effettuare l'accesso con e-mail"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:87
 msgid "Log out"
 msgstr "Disconnettersi"
 
@@ -48,11 +48,11 @@ msgstr "Disconnettersi"
 msgid "Password"
 msgstr "Password"
 
-#: plugins/core/content/pages/index.html:142
+#: plugins/core/content/pages/index.html:147
 msgid "Please see browser console"
 msgstr "Si prega di controllare la console del browser"
 
-#: plugins/core/content/pages/index.html:118
+#: plugins/core/content/pages/index.html:123
 msgid "Quick search"
 msgstr "Ricerca rapida"
 
@@ -88,16 +88,16 @@ msgstr "Lettura del file di configurazione"
 msgid "Write configuration file"
 msgstr "Scrittura del file di configurazione"
 
-#: plugins/core/views/api.py:96
+#: plugins/core/views/api.py:97
 msgid "Authorization failed"
 msgstr "Autorizzazione non riuscita"
 
-#: plugins/core/views/api.py:120
+#: plugins/core/views/api.py:121
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
 msgstr "Autenticazione fallita utilizzando Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:134
+#: plugins/core/views/api.py:135
 msgid "Unrecognized e-mail"
 msgstr "Indirizzo e-mail non riconosciuto"
 

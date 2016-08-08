@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-02-24 06:05-0500\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:37-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -30,7 +30,7 @@ msgstr "默认 root 密码是 <code>管理员</code>"
 
 #: plugins/auth_users/resources/partial/index.html:90
 msgid "Filesystem root"
-msgstr ""
+msgstr "文件系统根目录"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"
@@ -64,7 +64,7 @@ msgstr "系统帐户"
 msgid ""
 "This only affects appearance of the sidebar. Disable actual permissions "
 "under the <b>Permissions</b> tab."
-msgstr "这只会影响外观的侧边栏。禁用在 <b>权限</b> 选项卡下的实际权限。"
+msgstr "这将会影响侧边栏的美观。在<b>权限</b>选项卡种禁用实际权限。"
 
 #: plugins/auth_users/resources/partial/index.html:60
 msgid ""

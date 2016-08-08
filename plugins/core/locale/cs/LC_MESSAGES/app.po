@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-04-22 10:22-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:139
+#: plugins/core/content/pages/index.html:144
 msgid "A bootstrap error has occured"
 msgstr "Došlo k chybě zavaděče"
 
@@ -24,11 +24,11 @@ msgstr "Došlo k chybě zavaděče"
 msgid "Authenticate"
 msgstr "Ověřit"
 
-#: plugins/core/content/pages/index.html:77
+#: plugins/core/content/pages/index.html:82
 msgid "Elevate"
 msgstr "Zvýšit"
 
-#: plugins/core/content/pages/index.html:122
+#: plugins/core/content/pages/index.html:127
 msgid "Enter"
 msgstr "Vložit"
 
@@ -40,7 +40,7 @@ msgstr "Prihlásit se"
 msgid "Log in with e-mail"
 msgstr "Přihlaste se pomocí e-mailu"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:87
 msgid "Log out"
 msgstr "Odhlásit se"
 
@@ -48,11 +48,11 @@ msgstr "Odhlásit se"
 msgid "Password"
 msgstr "Heslo"
 
-#: plugins/core/content/pages/index.html:142
+#: plugins/core/content/pages/index.html:147
 msgid "Please see browser console"
 msgstr "Viz konzole prohlížeče"
 
-#: plugins/core/content/pages/index.html:118
+#: plugins/core/content/pages/index.html:123
 msgid "Quick search"
 msgstr "Rychlé hledání"
 
@@ -88,16 +88,16 @@ msgstr "Čtení konfiguračního souboru"
 msgid "Write configuration file"
 msgstr "Zápis konfiguračního souboru"
 
-#: plugins/core/views/api.py:96
+#: plugins/core/views/api.py:97
 msgid "Authorization failed"
 msgstr "Chyba autorizace"
 
-#: plugins/core/views/api.py:120
+#: plugins/core/views/api.py:121
 #, python-format
 msgid "Could not authenticate with Mozilla Persona: %s"
 msgstr "Nelze ověřit s Mozilla Persona: %s"
 
-#: plugins/core/views/api.py:134
+#: plugins/core/views/api.py:135
 msgid "Unrecognized e-mail"
 msgstr "Nerozpoznaný e-mail"
 

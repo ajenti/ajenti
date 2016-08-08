@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:246
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
-msgstr ""
+msgstr "Permitir a elevação sudo para usuários logados"
 
 #: plugins/settings/resources/partial/index.html:204
 msgid "Allows login with a confirmed e-mail address via <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a> auth service. Requires server-side internet access."
-msgstr ""
+msgstr "Permite login com um endereço de e-mail confirmado através do serviço de autenticação <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a>. Requer acesso à internet no lado do servidor."
 
 #: plugins/settings/resources/partial/index.html:67
 msgid "Authentication provider"
@@ -44,7 +44,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
-msgstr ""
+msgstr "Marca de cor"
 
 #: plugins/settings/resources/partial/index.html:181
 msgid "Common name"
@@ -52,7 +52,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
@@ -68,7 +68,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:203
 msgid "E-mail authentication"
-msgstr ""
+msgstr "Autenticação de e-mail"
 
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
@@ -76,12 +76,12 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:85
 msgid "Enable SSL"
-msgstr ""
+msgstr "Habilitar o SSL"
 
 #: plugins/settings/resources/partial/index.html:187
 #: plugins/settings/resources/js/controllers/index.controller.coffee:60
 msgid "Generate"
-msgstr ""
+msgstr "Gerar"
 
 #: plugins/settings/resources/partial/index.html:98
 msgid "Generate a self-signed certificate"
@@ -102,23 +102,23 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
-msgstr ""
+msgstr "Login como"
 
 #: plugins/settings/resources/partial/index.html:10
 msgid "Machine name"
-msgstr ""
+msgstr "Nome da máquina"
 
 #: plugins/settings/resources/partial/index.html:229
 msgid "New address"
-msgstr ""
+msgstr "Novo endereço"
 
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
-msgstr ""
+msgstr "Novo certificado"
 
 #: plugins/settings/resources/partial/index.html:147
 msgid "New client certificate"
-msgstr ""
+msgstr "Novo certificado de cliente"
 
 #: plugins/settings/resources/partial/index.html:233
 msgid "New e-mail address"
@@ -138,19 +138,19 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:53
 msgid "Port"
-msgstr ""
+msgstr "Porta"
 
 #: plugins/settings/resources/partial/index.html:212
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: plugins/settings/resources/partial/index.html:257
 msgid "Restart panel"
-msgstr ""
+msgstr "Reiniciar painel"
 
 #: plugins/settings/resources/partial/index.html:256
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: plugins/settings/resources/partial/index.html:192
 msgid "Save and Close"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:91
 msgid "SSL certificate file"
-msgstr ""
+msgstr "Arquivo de certificado SSL"
 
 #: plugins/settings/resources/partial/index.html:107
 msgid "SSL client authentication"
@@ -191,7 +191,7 @@ msgstr ""
 #: plugins/settings/main.py:15
 #: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
-msgstr ""
+msgstr "Configurar"
 
 #: plugins/settings/resources/js/controllers/index.controller.coffee:38
 msgid "Could not load authentication provider list"

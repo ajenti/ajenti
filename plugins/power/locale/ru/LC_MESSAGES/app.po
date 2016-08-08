@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:46+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:61
 msgid "{{battery.voltage}} V"
-msgstr "вольтаж батареи "
+msgstr "{{battery.voltage}} В"
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
@@ -35,28 +35,28 @@ msgstr "Идет зарядка"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Разрядка, {{battery.rate}} Вт"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:54
 msgid "Hibernate"
-msgstr ""
+msgstr "Спящий режим"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Адаптеры не обнаружены"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Батареи не обнаружены"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Недоступно"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Подключен"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:38
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "Система перезагружается. Попробуем восстановить связь..."
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:43
 msgid "Are you sure you want to suspend the system now?"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:48
 msgid "System is suspending"
-msgstr ""
+msgstr "Приостановка системы"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:53
 msgid "Are you sure you want to hibernate the system now?"
@@ -136,7 +136,10 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "Система переходит в спящий режим"
 
 #~ msgid "Machine will become unreachable. Continue?"
 #~ msgstr "Машина станет недоступна. Продолжить?"
+
+#~ msgid "Machine may become unreachable. Continue?"
+#~ msgstr "Вы можете потерять связь с хостом. Продолжить?"

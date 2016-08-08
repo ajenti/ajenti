@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
-"PO-Revision-Date: 2015-12-29 10:22-0500\n"
+"PO-Revision-Date: 2016-04-08 06:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"

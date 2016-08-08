@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"PO-Revision-Date: 2016-04-08 06:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"

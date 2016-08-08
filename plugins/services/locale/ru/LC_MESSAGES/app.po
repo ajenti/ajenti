@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:46+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -19,31 +19,31 @@ msgstr ""
 
 #: plugins/services/resources/partial/index.html:2
 msgid "Filter services"
-msgstr ""
+msgstr "Фильтр сервисов"
 
 #: plugins/services/resources/partial/widget.config.html:3
 msgid "Manager"
-msgstr ""
+msgstr "Менеджер"
 
 #: plugins/services/resources/partial/widget.config.html:7
 #: plugins/services/widget.py:9
 msgid "Service"
-msgstr ""
+msgstr "Сервис"
 
 #: plugins/services/main.py:26
 #: plugins/services/resources/js/controllers/index.controller.coffee:2
 msgid "Services"
-msgstr ""
+msgstr "Сервисы"
 
 #: plugins/services/main.py:39
 msgid "Manage system services"
-msgstr ""
+msgstr "Управление системными сервисами"
 
 #: plugins/services/resources/js/controllers/widget.controller.coffee:12
 #: plugins/services/resources/js/controllers/index.controller.coffee:22
 msgid "Service operation failed"
-msgstr ""
+msgstr "Сбой при управлении сервисом"
 
 #: plugins/services/resources/js/controllers/index.controller.coffee:20
 msgid "Done"
-msgstr ""
+msgstr "Завершено"

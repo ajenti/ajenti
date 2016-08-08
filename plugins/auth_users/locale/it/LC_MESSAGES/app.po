@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-02-24 06:04-0500\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -30,7 +30,7 @@ msgstr "Password di root di default è <code>admin</code>"
 
 #: plugins/auth_users/resources/partial/index.html:90
 msgid "Filesystem root"
-msgstr ""
+msgstr "Filesystem radice"
 
 #: plugins/auth_users/resources/partial/index.html:64
 msgid "New password"

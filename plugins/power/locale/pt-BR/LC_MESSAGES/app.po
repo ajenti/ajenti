@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:46+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -18,85 +18,85 @@ msgstr ""
 
 #: plugins/power/resources/partial/index.html:61
 msgid "{{battery.voltage}} V"
-msgstr ""
+msgstr "{{battery.voltage}} V"
 
 #: plugins/power/resources/partial/index.html:72
 msgid "Adapters"
-msgstr ""
+msgstr "Adaptadores"
 
 #: plugins/power/resources/partial/index.html:32
 msgid "Batteries"
-msgstr ""
+msgstr "Baterias"
 
 #: plugins/power/resources/partial/index.html:55
 msgid "Charging"
-msgstr ""
+msgstr "Carregando"
 
 #: plugins/power/resources/partial/index.html:58
 msgid "Discharging at {{battery.rate}} W"
-msgstr ""
+msgstr "Descarregando em {{battery.rate}} W"
 
 #: plugins/power/resources/partial/index.html:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:54
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernar"
 
 #: plugins/power/resources/partial/index.html:75
 msgid "No adapters detected"
-msgstr ""
+msgstr "Nenhum adaptador detectado"
 
 #: plugins/power/resources/partial/index.html:35
 msgid "No batteries detected"
-msgstr ""
+msgstr "Nenhuma bateria detectada"
 
 #: plugins/power/resources/partial/index.html:92
 msgid "Not available"
-msgstr ""
+msgstr "Indisponível"
 
 #: plugins/power/resources/partial/index.html:89
 msgid "Plugged in"
-msgstr ""
+msgstr "Conectado"
 
 #: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
 msgid "Power"
-msgstr ""
+msgstr "Energia"
 
 #: plugins/power/resources/partial/index.html:13
 msgid "Power off"
-msgstr ""
+msgstr "Desligar"
 
 #: plugins/power/resources/partial/index.html:16
 #: plugins/power/resources/js/controllers/index.controller.coffee:34
 msgid "Reboot"
-msgstr ""
+msgstr "Reiniciar"
 
 #: plugins/power/resources/partial/index.html:19
 #: plugins/power/resources/js/controllers/index.controller.coffee:44
 msgid "Suspend"
-msgstr ""
+msgstr "Suspender"
 
 #: plugins/power/resources/partial/index.html:6
 msgid "System uptime"
-msgstr ""
+msgstr "Tempo ligado do sistema"
 
 #: plugins/power/main.py:30
 msgid "Shutdown and reboot the system"
-msgstr ""
+msgstr "Desligamento e reinicialização do sistema"
 
 #: plugins/power/widget.py:9
 msgid "Power state"
-msgstr ""
+msgstr "Estado de energia"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:2
 msgid "Power management"
-msgstr ""
+msgstr "Gerenciamento de energia"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:22
 #: plugins/power/resources/js/controllers/index.controller.coffee:32
 #: plugins/power/resources/js/controllers/index.controller.coffee:42
 #: plugins/power/resources/js/controllers/index.controller.coffee:52
 msgid "Warning"
-msgstr ""
+msgstr "Aviso"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:23
 msgid "Are you sure you want to shutdown the system now?"
@@ -104,14 +104,14 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:24
 msgid "Shutdown"
-msgstr ""
+msgstr "Desligar"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:25
 #: plugins/power/resources/js/controllers/index.controller.coffee:35
 #: plugins/power/resources/js/controllers/index.controller.coffee:45
 #: plugins/power/resources/js/controllers/index.controller.coffee:55
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:33
 msgid "Are you sure you want to reboot the system now?"
@@ -119,7 +119,7 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:38
 msgid "System is rebooting. We will try to reconnect with it."
-msgstr ""
+msgstr "Sistema está reiniciando. Vamos tentar reconectar-se com ele."
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:43
 msgid "Are you sure you want to suspend the system now?"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:48
 msgid "System is suspending"
-msgstr ""
+msgstr "Sistema está sendo suspenso"
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:53
 msgid "Are you sure you want to hibernate the system now?"
@@ -135,4 +135,10 @@ msgstr ""
 
 #: plugins/power/resources/js/controllers/index.controller.coffee:58
 msgid "System is hibernating"
-msgstr ""
+msgstr "Sistema está sendo hibernado"
+
+#~ msgid "Machine will become unreachable. Continue?"
+#~ msgstr "Máquina se tornará inacessível. Continuar?"
+
+#~ msgid "Machine may become unreachable. Continue?"
+#~ msgstr "Máquina pode se tornar inacessível. Continuar?"

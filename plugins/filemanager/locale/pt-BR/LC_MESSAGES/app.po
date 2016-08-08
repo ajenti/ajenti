@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
-"PO-Revision-Date: 2016-04-03 11:42-0400\n"
+"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"PO-Revision-Date: 2016-08-04 07:38-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:49
 msgid "Access"
-msgstr ""
+msgstr "Acesso"
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
-msgstr ""
+msgstr "Tudo"
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #: plugins/filemanager/resources/partial/index.html:110
 #: plugins/filemanager/resources/partial/index.html:69
@@ -34,205 +34,205 @@ msgstr ""
 #: plugins/filemanager/resources/partial/properties.html:188
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
-msgstr ""
+msgstr "Alterar permissões"
 
 #: plugins/filemanager/resources/partial/index.html:116
 msgid "Clipboard"
-msgstr ""
+msgstr "Área de Transferência"
 
 #: plugins/filemanager/resources/partial/index.html:138
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: plugins/filemanager/resources/partial/index.html:56
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #: plugins/filemanager/resources/partial/index.html:68
 #: plugins/filemanager/resources/partial/index.html:81
 msgid "Create"
-msgstr ""
+msgstr "Criar"
 
 #: plugins/filemanager/resources/partial/index.html:55
 msgid "Cut"
-msgstr ""
+msgstr "Recortar"
 
 #: plugins/filemanager/resources/partial/index.html:57
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
-msgstr ""
+msgstr "Excluir"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
-msgstr ""
+msgstr "DIRETÓRIO"
 
 #: plugins/filemanager/resources/partial/index.html:78
 msgid "Directory name"
-msgstr ""
+msgstr "Nome do diretório"
 
 #: plugins/filemanager/resources/partial/properties.html:123
 msgid "Edit in Notepad"
-msgstr ""
+msgstr "Editar no bloco de notas"
 
 #: plugins/filemanager/resources/partial/properties.html:70
 msgid "EXECUTE"
-msgstr ""
+msgstr "EXECUTAR"
 
 #: plugins/filemanager/resources/partial/properties.html:173
 msgid "Extra"
-msgstr ""
+msgstr "Extra"
 
 #: plugins/filemanager/resources/partial/properties.html:37
 msgid "FILE"
-msgstr ""
+msgstr "ARQUIVO"
 
 #: plugins/filemanager/resources/partial/index.html:65
 msgid "File name"
-msgstr ""
+msgstr "Nome do arquivo"
 
 #: plugins/filemanager/resources/partial/properties.html:18
 msgid "Full path"
-msgstr ""
+msgstr "Caminho completo"
 
 #: plugins/filemanager/resources/partial/properties.html:100
 #: plugins/filemanager/resources/partial/properties.html:149
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 #: plugins/filemanager/resources/partial/index.html:52
 msgid "items selected"
-msgstr ""
+msgstr "itens selecionados"
 
 #: plugins/filemanager/resources/partial/properties.html:43
 msgid "LINK"
-msgstr ""
+msgstr "LINK"
 
 #: plugins/filemanager/resources/partial/properties.html:108
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 #: plugins/filemanager/resources/partial/properties.html:84
 msgid "Modified"
-msgstr ""
+msgstr "Modificado"
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: plugins/filemanager/resources/partial/index.html:41
 #: plugins/filemanager/resources/partial/index.html:75
 msgid "New directory"
-msgstr ""
+msgstr "Novo Diretório"
 
 #: plugins/filemanager/resources/partial/index.html:40
 #: plugins/filemanager/resources/partial/index.html:62
 msgid "New file"
-msgstr ""
+msgstr "Novo Arquivo"
 
 #: plugins/filemanager/resources/partial/index.html:105
 msgid "or drop them here"
-msgstr ""
+msgstr "ou deixá-los aqui"
 
 #: plugins/filemanager/resources/partial/properties.html:92
 msgid "Owner"
-msgstr ""
+msgstr "Proprietário"
 
 #: plugins/filemanager/resources/partial/index.html:43
 msgid "Paste here"
-msgstr ""
+msgstr "Colar aqui"
 
 #: plugins/filemanager/resources/partial/properties.html:132
 msgid "Permission bits"
-msgstr ""
+msgstr "Bits de permissão"
 
 #: plugins/filemanager/resources/partial/properties.html:56
 msgid "READ"
-msgstr ""
+msgstr "LER"
 
 #: plugins/filemanager/resources/partial/index.html:121
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: plugins/filemanager/resources/partial/index.html:137
 msgid "Remove all items"
-msgstr ""
+msgstr "Remover todos os itens"
 
 #: plugins/filemanager/resources/partial/index.html:101
 msgid "Select files to upload"
-msgstr ""
+msgstr "Selecione os arquivos para upload"
 
 #: plugins/filemanager/resources/partial/properties.html:76
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: plugins/filemanager/resources/partial/index.html:46
 msgid "Tab"
-msgstr ""
+msgstr "Guia"
 
 #: plugins/filemanager/resources/partial/properties.html:26
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: plugins/filemanager/resources/partial/index.html:10
 msgid "Up one level"
-msgstr ""
+msgstr "Subir um nível"
 
 #: plugins/filemanager/resources/partial/index.html:42
 msgid "Upload"
-msgstr ""
+msgstr "Enviar"
 
 #: plugins/filemanager/resources/partial/index.html:88
 msgid "Upload files"
-msgstr ""
+msgstr "Enviar arquivos"
 
 #: plugins/filemanager/resources/partial/properties.html:137
 msgid "User"
-msgstr ""
+msgstr "Usuário"
 
 #: plugins/filemanager/resources/partial/properties.html:63
 msgid "WRITE"
-msgstr ""
+msgstr "ESCREVER"
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"
-msgstr ""
+msgstr "Gerenciador de Arquivos"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:15
 msgid "Could not load directory"
-msgstr ""
+msgstr "Não foi possível carregar o diretório"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:76
 msgid "Delete selected items?"
-msgstr ""
+msgstr "Remover o item selecionado?"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:103
 msgid "Could not create file"
-msgstr ""
+msgstr "Não foi possível criar o arquivo"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:119
 msgid "Could not create directory"
-msgstr ""
+msgstr "Não foi possível criar o diretório"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:141
 msgid "Uploaded"
-msgstr ""
+msgstr "Enviado"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:152
 msgid "Upload failed"
-msgstr ""
+msgstr "Falha ao carregar"
 
 #: plugins/filemanager/resources/js/controllers/index.controller.coffee:155
 msgid "Upload cancelled"
-msgstr ""
+msgstr "Carregamento cancelado"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.coffee:15
 msgid "Could not read file information"
-msgstr ""
+msgstr "Não foi possível ler informações do arquivo"
 
 #: plugins/filemanager/resources/js/controllers/properties.controller.coffee:28
 msgid "File mode saved"
-msgstr ""
+msgstr "Modo de arquivo salvo"
