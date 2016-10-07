@@ -9,13 +9,13 @@ dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
     - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
 resources:
-    - 'resources/vendor/ng-file-upload/angular-file-upload-all.js'
-    - 'resources/js/module.coffee'
-    - 'resources/js/controllers/widget.controller.coffee'
-    - 'resources/js/directives/fileDialog.coffee'
-    - 'resources/js/directives/fileDialog.html'
-    - 'resources/js/directives/pathSelector.coffee'
-    - 'resources/js/services/filesystem.service.coffee'
-    - 'resources/partial/widget.html'
-    - 'resources/partial/widget.config.html'
-    - 'ng:ajenti.filesystem'
+    - resources/vendor/ng-file-upload/angular-file-upload-all.js
+    - resources/js/module.es
+    - resources/js/controllers/widget.controller.es
+    - resources/js/directives/fileDialog.es
+    - resources/js/directives/fileDialog.html
+    - resources/js/directives/pathSelector.es
+    - resources/js/services/filesystem.service.es
+    - resources/partial/widget.html
+    - resources/partial/widget.config.html
+    - ng:ajenti.filesystem

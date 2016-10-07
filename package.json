@@ -1,12 +1,16 @@
 {
   "coffeelintConfig": {
-    "indentation" : {
-        "level" : "error",
-        "value" : 4
+    "indentation": {
+      "level": "error",
+      "value": 4
     },
-    "max_line_length" : {
-        "level" : "error",
-        "value" : 999
+    "max_line_length": {
+      "level": "error",
+      "value": 999
     }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0"
   }
 }

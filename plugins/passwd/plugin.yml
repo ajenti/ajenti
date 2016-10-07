@@ -8,6 +8,6 @@ icon: cog
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
 resources:
-    - 'resources/js/module.coffee'
-    - 'resources/js/services/passwd.service.coffee'
-    - 'ng:ajenti.passwd'
+    - resources/js/module.es
+    - resources/js/services/passwd.service.es
+    - ng:ajenti.passwd

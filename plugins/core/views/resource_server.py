@@ -23,7 +23,7 @@ class ResourcesHandler(HttpPlugin):
             content = self.cache[type]
         else:
             content = ''
-            if type in ['js', 'css']:
+            if type in ['js', 'css', 'vendor.js', 'vendor.css']:
                 for plugin in self.mgr:
                     path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % type)
                     if os.path.exists(path):
@@ -79,11 +79,16 @@ class ResourcesHandler(HttpPlugin):
         http_context.add_header('Content-Type', {
             'css': 'text/css',
             'js': 'application/javascript; charset=utf-8',
+            'vendor.css': 'text/css',
+            'vendor.js': 'application/javascript; charset=utf-8',
             'init.js': 'application/javascript; charset=utf-8',
             'locale.js': 'application/javascript; charset=utf-8',
             'partials.js': 'application/javascript; charset=utf-8',
         }[type])
         http_context.respond_ok()
+
+        if type == 'js':
+            content = "'use strict'\n" + content
         return http_context.gzip(content=content.encode('utf-8'))
 
     @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')

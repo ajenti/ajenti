@@ -8,7 +8,7 @@ icon: cog
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
 resources:
-    - 'resources/js/module.coffee'
-    - 'resources/js/services/augeas.service.coffee'
-    - 'resources/js/services/aug.service.coffee'
-    - 'ng:ajenti.augeas'
+    - resources/js/module.es
+    - resources/js/services/augeas.service.es
+    - resources/js/services/aug.service.es
+    - ng:ajenti.augeas

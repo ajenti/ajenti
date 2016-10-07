@@ -8,21 +8,21 @@ icon: bar-chart
 dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
 resources:
-    - 'resources/js/module.coffee'
-    - 'resources/js/routing.coffee'
-    - 'resources/js/controllers/index.controller.coffee'
-    - 'resources/js/controllers/cpuWidget.controller.coffee'
-    - 'resources/js/controllers/hostnameWidget.controller.coffee'
-    - 'resources/js/controllers/loadAverageWidget.controller.coffee'
-    - 'resources/js/controllers/memoryWidget.controller.coffee'
-    - 'resources/js/controllers/uptimeWidget.controller.coffee'
-    - 'resources/js/services/dashboard.service.coffee'
-    - 'resources/css/styles.less'
-    - 'resources/partial/index.html'
-    - 'resources/partial/widget.html'
-    - 'resources/partial/widgets/cpu.html'
-    - 'resources/partial/widgets/hostname.html'
-    - 'resources/partial/widgets/loadavg.html'
-    - 'resources/partial/widgets/memory.html'
-    - 'resources/partial/widgets/uptime.html'
-    - 'ng:ajenti.dashboard'
+    - resources/js/module.es
+    - resources/js/routing.es
+    - resources/js/controllers/index.controller.es
+    - resources/js/controllers/cpuWidget.controller.es
+    - resources/js/controllers/hostnameWidget.controller.es
+    - resources/js/controllers/loadAverageWidget.controller.es
+    - resources/js/controllers/memoryWidget.controller.es
+    - resources/js/controllers/uptimeWidget.controller.es
+    - resources/js/services/dashboard.service.es
+    - resources/css/styles.less
+    - resources/partial/index.html
+    - resources/partial/widget.html
+    - resources/partial/widgets/cpu.html
+    - resources/partial/widgets/hostname.html
+    - resources/partial/widgets/loadavg.html
+    - resources/partial/widgets/memory.html
+    - resources/partial/widgets/uptime.html
+    - ng:ajenti.dashboard

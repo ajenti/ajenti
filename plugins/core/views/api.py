@@ -102,39 +102,6 @@ class Handler(HttpPlugin):
                     'success': False,
                     'error': e.message,
                 }
-        elif mode == 'persona':
-            assertion = body_data.get('assertion', None)
-            audience = body_data.get('audience', None)
-
-            if not assertion or not audience:
-                return {
-                    'success': False,
-                    'error': 'Invalid params',
-                }
-
-            try:
-                email = auth.check_persona_assertion(assertion, audience)
-            except Exception as e:
-                traceback.print_exc()
-                return {
-                    'success': False,
-                    'error': _('Could not authenticate with Mozilla Persona: %s') % str(e),
-                }
-
-            emails = aj.config.data['auth']['emails']
-            if email in emails:
-                username = emails[email]
-                auth.prepare_session_redirect(http_context, username, None)
-                return {
-                    'success': True,
-                    'username': username,
-                }
-            else:
-                return {
-                    'success': False,
-                    'error': _('Unrecognized e-mail'),
-                }
-
         return {
             'success': False,
             'error': 'Invalid mode',
