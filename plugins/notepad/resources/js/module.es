@@ -1,5 +1,5 @@
-angular.module 'ajenti.notepad', [
+angular.module('ajenti.notepad', [
     'core',
     'ajenti.filesystem',
     'ajenti.ace',
-]
+]);
