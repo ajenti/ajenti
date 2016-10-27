@@ -51,6 +51,7 @@ setup(
     install_requires=[
         'aj==%s' % aj.__version__,
         'pyyaml',
+        'requests',
     ],
     description='Ajenti core based panel',
     author='Eugene Pankov',

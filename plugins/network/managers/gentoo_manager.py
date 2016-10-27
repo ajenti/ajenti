@@ -94,11 +94,12 @@ class GentooNetworkManager(NetworkManager):
         }
 
     def up(self, iface):
-        ifconfig_up(iface)
         subprocess.call(['/etc/init.d/net.%s' % iface, 'restart'])
+        subprocess.call(['rc-update', 'add', 'net.%s' % iface, 'default'])
 
     def down(self, iface):
-        ifconfig_down(iface)
+        subprocess.call(['/etc/init.d/net.%s' % iface, 'stop'])
+        subprocess.call(['rc-update', 'delete', 'net.%s' % iface, 'default'])
 
     def get_hostname(self):
         return subprocess.check_output('hostname')

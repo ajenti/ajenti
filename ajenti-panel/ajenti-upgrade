@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+import requests
+import sys
+import subprocess
+
+PLUGIN_PREFIX = 'ajenti.plugin.'
+
+installed = {}
+for l in subprocess.check_output(['pip', 'freeze']).splitlines():
+    if l:
+        package = l.split('==')[0]
+        version = l.split('==')[-1]
+        if package:
+            if package.startswith(PLUGIN_PREFIX) or package in ['aj', 'ajenti-panel', 'ajenti-dev-multitool']:
+                installed[package] = version
+
+if sys.stdout.isatty():
+    sys.stdout.write('[' + ' ' * len(installed) + ']\r[')
+    sys.stdout.flush()
+
+pending = {}
+
+for package in installed:
+    data = requests.get('http://pypi.python.org/pypi/%s/json' % package).json()
+    if sys.stdout.isatty():
+        sys.stdout.write('.')
+        sys.stdout.flush()
+    version = data.get('info', {}).get('version', None)
+    if not version:
+        continue
+    if version != installed[package]:
+        pending[package] = version
+
+print ''
+
+for package, version in pending.items():
+    print 'Updating %s to %s' % (package, version)
+    subprocess.check_call(['pip', 'install', '%s==%s' % (package, version)])

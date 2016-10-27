@@ -10,8 +10,8 @@ dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: filesystem }
     - !!python/object:aj.plugins.PluginDependency { plugin_name: passwd }
 resources:
-    - 'resources/js/module.coffee'
-    - 'resources/js/routing.coffee'
-    - 'resources/js/controllers/index.controller.coffee'
+    - 'resources/js/module.es'
+    - 'resources/js/routing.es'
+    - 'resources/js/controllers/index.controller.es'
     - 'resources/partial/index.html'
     - 'ng:ajenti.settings'

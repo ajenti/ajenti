@@ -9,11 +9,11 @@ dependencies:
     - !!python/object:aj.plugins.PluginDependency { plugin_name: core }
     - !!python/object:aj.plugins.OptionalPluginDependency { plugin_name: dashboard }
 resources:
-    - 'resources/js/module.coffee'
-    - 'resources/js/routing.coffee'
-    - 'resources/js/controllers/index.controller.coffee'
-    - 'resources/js/controllers/widget.controller.coffee'
-    - 'resources/js/services/services.service.coffee'
+    - 'resources/js/module.es'
+    - 'resources/js/routing.es'
+    - 'resources/js/controllers/index.controller.es'
+    - 'resources/js/controllers/widget.controller.es'
+    - 'resources/js/services/services.service.es'
     - 'resources/partial/index.html'
     - 'resources/partial/widget.html'
     - 'resources/partial/widget.config.html'
