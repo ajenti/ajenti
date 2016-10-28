@@ -6,7 +6,6 @@
     "jquery": "~2.1.3",
     "angular": "~1.5.4",
     "angular-animate": "~1.5.4",
-    "angular-cookies": "~1.5.4",
     "angular-route": "~1.5.4",
     "angular-mocks": "~1.5.4",
     "angular-touch": "~1.5.4",

@@ -16,6 +16,17 @@ class ResourcesHandler(HttpPlugin):
         self.use_cache = not aj.debug
         self.mgr = PluginManager.get(aj.context)
 
+    def __wrap_js(self, name, js):
+        return '''
+            try {
+                %s
+            } catch (err) {
+                console.warn('Plugin load error:');
+                console.warn(' * %s');
+                console.error('  ', err);
+            }
+        ''' % (js, name)
+
     @url(r'/resources/all\.(?P<type>.+)')
     @endpoint(page=True, auth=False)
     def handle_build(self, http_context, type=None):
@@ -27,13 +38,16 @@ class ResourcesHandler(HttpPlugin):
                 for plugin in self.mgr:
                     path = self.mgr.get_content_path(plugin, 'resources/build/all.%s' % type)
                     if os.path.exists(path):
-                        content += open(path).read()
+                        file_content = open(path).read()
+                        if type == 'js':
+                            file_content = self.__wrap_js(path, file_content)
+                        content += file_content
             if type == 'init.js':
-                ng_modules = []
+                ng_modules = {}
                 for plugin in self.mgr:
                     for resource in self.mgr[plugin]['info']['resources']:
                         if resource['path'].startswith('ng:'):
-                            ng_modules.append(resource['path'].split(':')[-1])
+                            ng_modules.setdefault(plugin, []).append(resource['path'].split(':')[-1])
                 content = '''
                     window.__ngModules = %s;
                 ''' % json.dumps(ng_modules)

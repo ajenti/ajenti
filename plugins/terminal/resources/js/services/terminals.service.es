@@ -10,7 +10,7 @@ angular.module('ajenti.terminal').service('terminals', function($http, $q, $loca
                 let tokens = cmd.split('/');
                 terminal.title = tokens[tokens.length - 1];
             }
-            return data;
+            return response.data;
         })
     };
 

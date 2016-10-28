@@ -1,3 +1,3 @@
 angular.module('ajenti.services', [
-    'core',
+    'core'
 ]);

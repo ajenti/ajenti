@@ -21,7 +21,7 @@ Prerequisites
 The following is the absolutely minimal set of software required to build and run Ajenti:
 
   * git
-  * bower, coffee-script and lessc (from NPM)
+  * bower, babel, babel-preset-es2015 and lessc (from NPM)
 
 
 Debian/Ubuntu extras:

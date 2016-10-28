@@ -13,7 +13,7 @@ Building plugin backend API:
 
 Build plugin frontend:
 
-  * CoffeeScript or JavaScript
+  * JavaScript (ES5, ES6 or Coffee)
   * basic AngularJS knowledge (modules & controllers)
   * basic HTML layout
   * CSS or LESS (optional, for custom styling)
@@ -23,7 +23,7 @@ Prerequisites
 
 The following is the absolutely minimal set of software required to build and run Ajenti:
 
-  * Node, bower, coffee-script and lessc (from NPM)
+  * Node, bower, babel, babel-preset-es2015 and lessc (from NPM)
 
 
 Debian/Ubuntu extras:
@@ -55,7 +55,7 @@ Install complete Ajenti bundle as outlined in the :ref:`installation guide <inst
 Install the dependencies::
 
     sudo pip install ajenti-dev-multitool
-    sudo npm install -g coffee-script less bower angular-gettext-cli angular-gettext-tools
+    sudo npm install -g babel babel-preset-es6 less bower angular-gettext-cli angular-gettext-tools
 
 .. WARNING::
   We highly recommend to start with existing well-commented demo plugins instead of making ones from scratch.
@@ -76,7 +76,7 @@ Launch Ajenti in dev mode with the plugins from the current directory::
 Navigate to http://localhost:8000/. You should see those demo plugins in the sidebar.
 
 .. HINT::
-  Changes in CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources
+  Changes in ES6, CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources
 
 
 Example plugins
@@ -88,7 +88,7 @@ Plugin structure
 ================
 
 Each plugin package consists of few Python modules, which contain :class:`jadi.component` classes (*components*).
-Packages also may contain :ref:`static files, CoffeeScript and LESS code <dev-resources>`::
+Packages also may contain :ref:`static files, JS and CSS code <dev-resources>`::
 
 
       * plugins
@@ -105,8 +105,8 @@ Packages also may contain :ref:`static files, CoffeeScript and LESS code <dev-re
               - index.html
               - view.html
             * js
-              - module.coffee # Angular.js module
+              - module.js # Angular.js module
               * services # other angular components
-                - some.service.coffee
+                - some.service.js
             * css
-                - styles.less
+                - styles.css

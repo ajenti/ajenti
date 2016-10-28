@@ -1,4 +1,4 @@
-angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $cookies, $log, $timeout, $q, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
+angular.module('core').controller('CoreRootController', function($scope, $rootScope, $location, $localStorage, $log, $timeout, $q, identity, customization, urlPrefix, ajentiPlugins, ajentiVersion, ajentiPlatform, ajentiPlatformUnmapped, favicon, feedback, locale, config) {
     $rootScope.identity = identity;
     $rootScope.$location = $location;
     $rootScope.location = location;
@@ -26,14 +26,14 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
 
     // ---
 
-    $scope.showSidebar = angular.isDefined($cookies.get('showSidebar')) ? $cookies.get('showSidebar') : true
+    $scope.showSidebar = angular.isDefined($localStorage.showSidebar) ? $localStorage.showSidebar : true
     $rootScope.toggleNavigation = (state) => {
         if (angular.isDefined(state)) {
             $scope.showSidebar = state;
         } else {
             $scope.showSidebar = !$scope.showSidebar;
         }
-        $cookies.put('showSidebar', $scope.showSidebar);
+        $localStorage.put('showSidebar', $scope.showSidebar);
         $scope.$broadcast('navigation:toggle');
     };
 
@@ -45,7 +45,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
 
     // ---
 
-    $scope.isWidescreen = angular.isDefined($cookies.get('isWidescreen')) ? $cookies.get('isWidescreen') : false
+    $scope.isWidescreen = angular.isDefined($localStorage.isWidescreen) ? $localStorage.isWidescreen : false
 
     $scope.toggleWidescreen = function(state) {
         if (angular.isDefined(state)) {
@@ -53,7 +53,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         } else {
             $scope.isWidescreen = !$scope.isWidescreen;
         }
-        $cookies.put('isWidescreen', $scope.isWidescreen);
+        $localStorage.isWidescreen = $scope.isWidescreen;
         $scope.$broadcast('widescreen:toggle');
     };
 

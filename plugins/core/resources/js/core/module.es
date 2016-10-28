@@ -1,6 +1,5 @@
 angular.module('core', [
     'ngAnimate',
-    'ngCookies',
     'ngRoute',
     'ngStorage',
     'ngTouch',

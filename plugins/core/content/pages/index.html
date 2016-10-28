@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html ng:controller="CoreRootController">
     <head>
         <title ng:bind="pageTitle + (pageTitle ? ' | ' : '') + identity.machine.name"></title>
         <link rel="shortcut icon" />
-        <link rel="manifest" href="{{urlPrefix || '/'}}api/core/web-manifest" />
+        <link rel="manifest" href="/api/core/web-manifest" />
 
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -26,7 +26,7 @@
             }
         </style>
     </head>
-    <body ng:controller="CoreRootController" class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}} {{customization.plugins.core.bodyClass}}">
+    <body class="global-color-{{identity.color || 'default'}} widescreen-mode-{{isWidescreen ? 'on' : 'off'}} {{customization.plugins.core.bodyClass}}">
         <nav class="navbar navbar-default navbar-fixed-top" ng:show="appReady" ng:cloak>
             <div class="container">
                 <a ng:click="toggleNavigation()" ng:show="navigationPresent" class="navbar-brand navigation-toggle hide-phone hide-tablet">
@@ -155,6 +155,24 @@
             </div>
         </div>
 
+        <div class="modal fade global-bootstrap-recovered in hidden">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Warning</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-warning">
+                            The following plugin has failed to load: <strong class="plugin-name"></strong>. Please fix or uninstall it.
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default btn-flat btn-close" translate>OK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>
             angular.module('core').constant('urlPrefix', '%(prefix)s');
             angular.module('core').constant('ajentiPlugins', %(plugins)s);
@@ -164,16 +182,7 @@
             angular.module('core').constant('ajentiVersion', '%(version)s');
             angular.module('core').constant('ajentiBootstrapColor', '%(bootstrapColor)s');
 
-            angular.element(document).ready(function() {
-                try {
-                    angular.bootstrap(document, ['app']);
-                } catch(e) {
-                    $('.global-bootstrap-error').show();
-                    console.error('Angular bootstrap has failed');
-                    console.warn('Consider sending the following error to https://github.com/ajenti/ajenti/issues/new');
-                    throw e;
-                }
-            });
+            angular.element(document).ready(ajentiBootstrap);
         </script>
     </body>
 </html>
