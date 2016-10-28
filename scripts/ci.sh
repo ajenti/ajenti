@@ -14,6 +14,7 @@ echo -en 'travis_fold:end:deps.python\r'
 echo -en 'travis_fold:start:deps.node\r'
     echo Installing NodeJS modules
     npm install -g bower babel-preset-es2015 npm@3
+    npm install babel-preset-es2015
     cd tests-karma
     npm install || exit 1
     cd ..
@@ -33,6 +34,7 @@ echo -en 'travis_fold:end:test.nose\r'
 
 echo -en 'travis_fold:start:test.karma\r'
     echo Running Karma tests
+    ajenti-dev-multitool --build || exit 1
     cd tests-karma
     ./node_modules/.bin/karma start karma.conf.coffee --single-run || exit 1
     cat coverage/coverage.txt

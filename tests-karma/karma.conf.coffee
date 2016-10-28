@@ -1,4 +1,4 @@
-YAML = require 'yamljs'
+fs = require 'fs'
 
 plugins = [
     'core'
@@ -14,10 +14,8 @@ files = [
 
 for d in plugins
     console.info 'Scanning resources in', d
-    cfg = YAML.load("../plugins/#{d}/plugin.yml")
-    for res in cfg.resources
-        if /.*\.(js|coffee|es)$/.test(res)
-            files.push "../plugins/#{d}/#{res}"
+    files.push "../plugins/#{d}/resources/build/all.vendor.js"
+    files.push "../plugins/#{d}/resources/build/all.js"
 
 #files.push 'node_modules/angular-mocks/angular-mocks.js'
 files.push 'test-extras.coffee'
@@ -30,7 +28,6 @@ module.exports = (config) ->
         files: files,
         exclude: [],
         preprocessors: {
-            '../plugins/**/*.es': ['babel'],
             '../plugins/**/*.coffee': ['coverage'],
             '**/*.coffee': ['coffee'],
         },
@@ -38,11 +35,6 @@ module.exports = (config) ->
             options: {
                 sourceMap: true
             }
-        },
-        babelPreprocessor: {
-            options: {
-                presets: ['/usr/local/lib/node_modules/babel-preset-es2015'],
-            },
         },
         reporters: [
             'progress',
