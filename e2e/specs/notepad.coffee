@@ -1,5 +1,5 @@
 fs = require 'fs'
-execSync = require 'exec-sync'
+execSync = require('child_process').execSync
 
 testDir = '/tmp/testenv-notepad'
 testContent = 'test content!'
