@@ -13,7 +13,7 @@ echo -en 'travis_fold:end:deps.python\r'
 
 echo -en 'travis_fold:start:deps.node\r'
     echo Installing NodeJS modules
-    npm install -g bower
+    npm install -g bower babel-preset-es2015
     cd tests-karma
     npm install || exit 1
     cd ..

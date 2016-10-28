@@ -24,7 +24,7 @@ angular.module('core').service('core', function($timeout, $q, $http, $window, me
                     }, 5000);
                 });
             }, 5000);
-        }).error((err) => {
+        }).catch((err) => {
             msg.close();
             notify.error(gettext('Could not restart'), err.message);
             return $q.reject(err);

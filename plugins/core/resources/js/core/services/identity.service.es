@@ -26,7 +26,7 @@ angular.module('core').service('identity', function($http, $location, $window, $
 
         return $http.post('/api/core/auth', data).then((response) => {
             if (!response.data.success) {
-                return $q.reject(respones.data.error);
+                return $q.reject(response.data.error);
             }
         })
     };

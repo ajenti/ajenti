@@ -37,7 +37,7 @@ angular.module('core').service('tasks', function($rootScope, $q, $http, notify, 
 
     this.start = (cls, args, kwargs) => {
         args = args || [];
-        kargs = kwargs || {};
+        kwargs = kwargs || {};
 
         let data = {
             cls,
@@ -46,6 +46,7 @@ angular.module('core').service('tasks', function($rootScope, $q, $http, notify, 
         };
         return $http.post('/api/core/tasks/start', data).then(response => {
             let def = $q.defer();
+            let taskId = response.data;
             this.deferreds[taskId] = def;
 
             return {id: taskId, promise: def.promise};

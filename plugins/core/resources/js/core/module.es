@@ -27,13 +27,15 @@ angular.module('core').run(() => FastClick.attach(document.body));
 
 angular.module('core').factory('$exceptionHandler', ($injector, $log, gettext) =>
     function(exception, cause) {
-        if (!exception.toString().startsWith('Possibly unhandled rejection')) {
+        let str = exception.toString();
+        if (str && str.indexOf('Possibly unhandled rejection') != 0) {
             $injector.get('notify').warning(gettext('Unhanded error occured'), gettext('Please see browser console'));
         }
 
         console.group('Unhandled exception occured');
         console.warn('Consider sending this error to https://github.com/ajenti/ajenti/issues/new');
         $log.error.apply($log, arguments);
-        return console.groupEnd();
+        console.groupEnd();
+        throw exception;
     }
 );
