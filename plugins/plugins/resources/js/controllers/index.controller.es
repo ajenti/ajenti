@@ -1,3 +1,10 @@
+angular.module('core').config($routeProvider => {
+    $routeProvider.when('/view/plugins', {
+        templateUrl: '/plugins:resources/partial/index.html',
+        controller: 'PluginsIndexController'
+    })
+});
+
 angular.module('ajenti.plugins').controller('PluginsIndexController', function($scope, $q, $http, notify, pageTitle, messagebox, tasks, core, gettext) {
     pageTitle.set('Plugins');
 
@@ -34,22 +41,6 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
 
     $scope.refresh();
 
-    $scope.upgradeCore = () => {
-        let msg = messagebox.show({
-            progress: true,
-            title: gettext('Upgrading')
-        });
-        $http.get(`/api/plugins/core/upgrade/${$scope.coreUpgradeAvailable}`).success(() => {
-            messagebox.show({
-                title: gettext('Done'),
-                text: gettext('Upgrade complete. A panel restart is absolutely required.'),
-                positive: gettext('Restart now')
-            }).then(() => core.forceRestart())
-        }, (err) => {
-            notify.error(gettext('Upgrade failed'), err.message)
-        }).finally(() => msg.close());
-    };
-
     $scope.isInstalled = (plugin) => {
         if (!$scope.isInstalled) {
             return false;
@@ -80,50 +71,22 @@ angular.module('ajenti.plugins').controller('PluginsIndexController', function($
     };
 
     $scope.upgradeEverything = () =>
-        $scope.upgradeAllPlugins().then(() => {
-            if ($scope.coreUpgradeAvailable) {
-                $scope.upgradeCore();
-            } else {
-                notify.success(gettext('All plugins updated'));
-                messagebox.show({
-                    title: gettext('Done'),
-                    text: gettext('Installed. A panel restart is required.'),
-                    positive: gettext('Restart now'),
-                    negative: gettext('Later')
-                }).then(() => core.forceRestart());
-            }
-        }, () => {
+        tasks.start(
+            'aj.plugins.plugins.tasks.UpgradeAll', [], {}
+        )
+        .then(data => data.promise)
+        .then(() => {
+            notify.success(gettext('All plugins updated'));
+            messagebox.show({
+                title: gettext('Done'),
+                text: gettext('Installed. A panel restart is required.'),
+                positive: gettext('Restart now'),
+                negative: gettext('Later')
+            }).then(() => core.forceRestart());
+        })
+        .catch(() => {
             notify.error(gettext('Some plugins failed to update'))
         });
-
-    $scope.upgradeAllPlugins = () => {
-        let rqQs = [];
-        let upgradeQs = [];
-        for (let plugin of $scope.installedPlugins) {
-            let upgrade = $scope.getUpgrade(plugin);
-            if (upgrade) {
-                rqQs.push(
-                    tasks.start(
-                        'aj.plugins.plugins.tasks.InstallPlugin',
-                        [],
-                        {name: upgrade.name, version: upgrade.version}
-                    ).then(data => {
-                        upgradeQs.push(data.promise)
-                    })
-                );
-            }
-        }
-
-        if (rqQs.length === 0) {
-            return $q.resolve();
-        }
-
-        let msg = messagebox.show({progress: true, title: gettext('Updating plugins')});
-
-        return $q.all(rqQs).then(() => {
-            return $q.all(upgradeQs).finally(() => msg.close())
-        });
-    };
 
     $scope.getUpgrade = (plugin) => {
         if (!$scope.repoList || !plugin) {

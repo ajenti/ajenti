@@ -199,11 +199,8 @@
 
         <hr ng:show="!customization.plugins.settings.hideSSLSettings" />
 
-        <div class="form-group" ng:show="!customization.plugins.core.hidePersonaLogin">
+        <!--div class="form-group">
             <label translate>E-mail authentication</label>
-            <div class="help-text" translate>
-                Allows login with a confirmed e-mail address via <a href="https://login.persona.org/about" target="_blank">Mozilla Persona</a> auth service. Requires server-side internet access.
-            </div>
             <div class="alert alert-warning" ng:show="keys(config.data.auth.emails).length == 0">
                 <i class="fa fa-warning"></i> <span translate>No e-mail addresses added yet.</span>
             </div>
@@ -247,7 +244,7 @@
                     <a ng:click="$parent.newEmailDialogVisible = false" class="btn btn-default btn-flat" translate>Cancel</a>
                 </div>
             </dialog>
-        </div>
+        </div-->
     </div>
 
     <div class="floating-toolbar-padder"></div>

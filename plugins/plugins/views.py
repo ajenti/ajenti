@@ -110,11 +110,3 @@ class Handler(HttpPlugin):
         if version != aj.version:
             return version
         return None
-
-    @url(r'/api/plugins/core/upgrade/(?P<version>.+)')
-    @endpoint(api=True)
-    def handle_api_core_upgrade(self, http_context, version=None):
-        try:
-            subprocess.check_output(['pip', 'install', 'ajenti-panel==%s' % version])
-        except subprocess.CalledProcessError as e:
-            raise EndpointError(e.output)

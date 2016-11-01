@@ -19,9 +19,6 @@
         <div class="alert alert-warning">
             <i class="fa fa-warning"></i> <span translate>Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available.</span>
         </div>
-        <a ng:click="upgradeCore()" class="btn btn-primary">
-            <i class="fa fa-download"></i> <span translate>Update</span>
-        </a>
     </div>
 
     <h3 translate>Installed plugins</h3>
@@ -32,9 +29,6 @@
         <div class="list-group-item list-group-item-small" ng:repeat="plugin in installedPlugins|orderBy:'title'">
             <a ng:click="uninstallPlugin(plugin)" class="list-group-btn" title="{{'Uninstall'|translate}}" ng:show="isUninstallable(plugin)">
                 <i class="fa fa-trash-o"></i>
-            </a>
-            <a ng:click="installPlugin(getUpgrade(plugin))" class="list-group-btn" title="{{'Update'|translate}}" ng:show="getUpgrade(plugin)">
-                <i class="fa fa-arrow-up"></i>
             </a>
             <a ng:click="$parent.selectedInstalledPlugin = plugin" class="list-group-main">
                 <i class="fa fa-fw fa-{{plugin.icon}}"></i> {{plugin.title}}
@@ -73,7 +67,7 @@
                     </div>
                 </div>
             </uib-tab>
-            <uib-tab heading="{{'Community'|translate}}">
+            <uib-tab heading="{{'Community'|translate}}" ng:if="repoListCommunity.length > 0">
                 <input ng:model="filter" type="search" placeholder="{{'Filter'|translate}}" class="form-control" />
                 <div class="list-group">
                     <div class="list-group-item list-group-item-small" ng:repeat="plugin in repoListCommunity|filter:filter|orderBy:'title'">

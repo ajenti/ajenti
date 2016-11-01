@@ -12,3 +12,13 @@ class InstallPlugin (Task):
 
     def run(self):
         subprocess.check_output(['pip', 'install', self.spec])
+
+
+class UpgradeAll (Task):
+    name = 'Upgrading Ajenti'
+
+    def run(self):
+        try:
+            subprocess.check_output(['ajenti-upgrade'])
+        except:
+            subprocess.check_output(['/usr/local/bin/ajenti-upgrade'])

@@ -31,8 +31,19 @@ for package in installed:
     if version != installed[package]:
         pending[package] = version
 
-print ''
+if sys.stdout.isatty():
+    sys.stdout.write('\n')
 
-for package, version in pending.items():
-    print 'Updating %s to %s' % (package, version)
-    subprocess.check_call(['pip', 'install', '%s==%s' % (package, version)])
+
+if len(sys.argv) == 1:
+    for package, version in pending.items():
+        print 'Upgrading %s to %s' % (package, version)
+        subprocess.check_call(['pip', 'install', '%s==%s' % (package, version)])
+else:
+    if sys.argv[1] == 'list':
+        for package, version in pending.items():
+            print '%s upgradable to %s' % (package, version)
+    else:
+        print 'Unknown command: %s' % sys.argv[1]
+        print 'Valid commands: list'
+        sys.exit(1)

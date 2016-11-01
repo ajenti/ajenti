@@ -141,7 +141,7 @@ class AuthenticationService(object):
         if not aj.config.data['auth'].get('allow_sudo', False):
             return False
         sudo = subprocess.Popen(
-            ['sudo', '-S', '-u', username, '--', 'sh', '-c', 'sudo -k; sudo -S echo'],
+            ['sudo', '-S', '-k', '-u', username, '--', 'ls'],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -150,26 +150,6 @@ class AuthenticationService(object):
         if sudo.returncode != 0:
             raise SudoError((o + e).splitlines()[-1].strip())
         return True
-
-    def check_persona_assertion(self, assertion, audience):
-        import requests
-
-        params = {
-            'assertion': assertion,
-            'audience': audience,
-        }
-
-        resp = requests.post('https://verifier.login.persona.org/verify', data=params, verify=True)
-
-        if resp.ok:
-            verification_data = json.loads(resp.content)
-            if verification_data['status'] == 'okay':
-                email = verification_data['email']
-                return email
-            else:
-                raise AuthenticationError('Persona auth failed')
-        else:
-            raise AuthenticationError('Request failed')
 
     def client_certificate_callback(self, connection, x509, errno, depth, result):
         if depth == 0 and (errno == 9 or errno == 10):
