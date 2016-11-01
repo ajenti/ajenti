@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/filemanager.po\n"
+
+#: plugins/filemanager/resources/partial/properties.html:49
+msgid "Access"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:161
+msgid "All"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:187
+msgid "Apply"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:110
+#: plugins/filemanager/resources/partial/index.html:69
+#: plugins/filemanager/resources/partial/index.html:82
+#: plugins/filemanager/resources/partial/properties.html:188
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: plugins/filemanager/resources/partial/properties.html:115
+msgid "Change permissions"
+msgstr "Ŝanĝi permesojn"
+
+#: plugins/filemanager/resources/partial/index.html:116
+msgid "Clipboard"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:138
+msgid "Close"
+msgstr "Fermi"
+
+#: plugins/filemanager/resources/partial/index.html:56
+msgid "Copy"
+msgstr "Kopii"
+
+#: plugins/filemanager/resources/partial/index.html:68
+#: plugins/filemanager/resources/partial/index.html:81
+msgid "Create"
+msgstr "Krei"
+
+#: plugins/filemanager/resources/partial/index.html:55
+msgid "Cut"
+msgstr "Eltondi"
+
+#: plugins/filemanager/resources/partial/index.html:57
+msgid "Delete"
+msgstr "Forigi"
+
+#: plugins/filemanager/resources/partial/properties.html:32
+msgid "DIRECTORY"
+msgstr "DOSIERUJO"
+
+#: plugins/filemanager/resources/partial/index.html:78
+msgid "Directory name"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:123
+msgid "Edit in Notepad"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:70
+msgid "EXECUTE"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:173
+msgid "Extra"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:37
+msgid "FILE"
+msgstr "DOSIERO"
+
+#: plugins/filemanager/resources/partial/index.html:65
+msgid "File name"
+msgstr "Dosiernomo"
+
+#: plugins/filemanager/resources/partial/properties.html:18
+msgid "Full path"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:100
+#: plugins/filemanager/resources/partial/properties.html:149
+msgid "Group"
+msgstr "Grupo"
+
+#: plugins/filemanager/resources/partial/index.html:52
+msgid "items selected"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:43
+msgid "LINK"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:108
+msgid "Mode"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:84
+msgid "Modified"
+msgstr "Ŝanĝita"
+
+#: plugins/filemanager/resources/partial/properties.html:10
+msgid "Name"
+msgstr "Nomo"
+
+#: plugins/filemanager/resources/partial/index.html:41
+#: plugins/filemanager/resources/partial/index.html:75
+msgid "New directory"
+msgstr "Nova dosierujo"
+
+#: plugins/filemanager/resources/partial/index.html:40
+#: plugins/filemanager/resources/partial/index.html:62
+msgid "New file"
+msgstr "Nova dosiero"
+
+#: plugins/filemanager/resources/partial/index.html:105
+msgid "or drop them here"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:92
+msgid "Owner"
+msgstr "Posedanto"
+
+#: plugins/filemanager/resources/partial/index.html:43
+msgid "Paste here"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:132
+msgid "Permission bits"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:56
+msgid "READ"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:121
+msgid "Remove"
+msgstr "Forigi"
+
+#: plugins/filemanager/resources/partial/index.html:137
+msgid "Remove all items"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:101
+msgid "Select files to upload"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/properties.html:76
+msgid "Size"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:46
+msgid "Tab"
+msgstr "Langeto"
+
+#: plugins/filemanager/resources/partial/properties.html:26
+msgid "Type"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:10
+msgid "Up one level"
+msgstr ""
+
+#: plugins/filemanager/resources/partial/index.html:42
+msgid "Upload"
+msgstr "Alŝuti"
+
+#: plugins/filemanager/resources/partial/index.html:88
+msgid "Upload files"
+msgstr "Alŝuti dosierojn"
+
+#: plugins/filemanager/resources/partial/properties.html:137
+msgid "User"
+msgstr "Uzanto"
+
+#: plugins/filemanager/resources/partial/properties.html:63
+msgid "WRITE"
+msgstr ""
+
+#: plugins/filemanager/main.py:15
+msgid "File Manager"
+msgstr ""
+

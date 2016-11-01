@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,16 +47,4 @@ msgstr ""
 
 #: plugins/notepad/main.py:15
 msgid "Notepad"
-msgstr ""
-
-#: plugins/notepad/resources/js/controllers/index.controller.coffee:6
-msgid "Current file will be closed. Continue?"
-msgstr ""
-
-#: plugins/notepad/resources/js/controllers/index.controller.coffee:28
-msgid "Could not open the file"
-msgstr ""
-
-#: plugins/notepad/resources/js/controllers/index.controller.coffee:44
-msgid "Could not save the file"
 msgstr ""

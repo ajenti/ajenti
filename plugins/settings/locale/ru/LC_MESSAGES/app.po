@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2016-08-04 07:38-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -16,17 +16,9 @@ msgstr ""
 "X-Crowdin-Language: ru\n"
 "X-Crowdin-File: /2.0/settings.po\n"
 
-#: plugins/settings/resources/partial/index.html:246
-msgid "Add"
-msgstr "Добавить"
-
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
 msgstr "Разрешить повышение прав - sudo - для авторизованных пользователей"
-
-#: plugins/settings/resources/partial/index.html:204
-msgid "Allows login with a confirmed e-mail address via <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a> auth service. Requires server-side internet access."
-msgstr "Разрешить вход используя e-mail, подтвержденный через сервис <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a>. Требуется доступ в интернет со стороны сервера."
 
 #: plugins/settings/resources/partial/index.html:67
 msgid "Authentication provider"
@@ -37,14 +29,12 @@ msgid "Binding"
 msgstr "Привязка"
 
 #: plugins/settings/resources/partial/index.html:188
-#: plugins/settings/resources/partial/index.html:247
-#: plugins/settings/resources/js/controllers/index.controller.coffee:61
 msgid "Cancel"
 msgstr "Отмена"
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
-msgstr ""
+msgstr "Цвет тега"
 
 #: plugins/settings/resources/partial/index.html:181
 msgid "Common name"
@@ -62,15 +52,6 @@ msgstr "Запретить другие средства аутентифика�
 msgid "Download certificate"
 msgstr "Скачать сертификат"
 
-#: plugins/settings/resources/partial/index.html:237
-msgid "E-mail address"
-msgstr "\n"
-"E-mail"
-
-#: plugins/settings/resources/partial/index.html:203
-msgid "E-mail authentication"
-msgstr "Аутентификация по e-mail"
-
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
 msgstr "Включите проверку подлинности клиентов"
@@ -80,7 +61,6 @@ msgid "Enable SSL"
 msgstr "Использовать SSL"
 
 #: plugins/settings/resources/partial/index.html:187
-#: plugins/settings/resources/js/controllers/index.controller.coffee:60
 msgid "Generate"
 msgstr "Сгенерировать"
 
@@ -89,7 +69,6 @@ msgid "Generate a self-signed certificate"
 msgstr "Создание самозаверенного сертификата"
 
 #: plugins/settings/resources/partial/index.html:152
-#: plugins/settings/resources/js/controllers/index.controller.coffee:64
 msgid "Generating certificate"
 msgstr "Создание нового сертификата"
 
@@ -109,10 +88,6 @@ msgstr "Войти как"
 msgid "Machine name"
 msgstr "Имя машины"
 
-#: plugins/settings/resources/partial/index.html:229
-msgid "New address"
-msgstr "Новый адрес"
-
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
 msgstr "Новый сертификат"
@@ -121,17 +96,9 @@ msgstr "Новый сертификат"
 msgid "New client certificate"
 msgstr "Новый пользовательский сертификат"
 
-#: plugins/settings/resources/partial/index.html:233
-msgid "New e-mail address"
-msgstr "Новый e-mail"
-
 #: plugins/settings/resources/partial/index.html:119
 msgid "No certificates are created yet."
 msgstr "Пока не создано ни одного сертификата."
-
-#: plugins/settings/resources/partial/index.html:208
-msgid "No e-mail addresses added yet."
-msgstr "Не было добавлено ни одного e-mail."
 
 #: plugins/settings/resources/partial/index.html:177
 msgid "Organization"
@@ -141,15 +108,15 @@ msgstr "Организация"
 msgid "Port"
 msgstr "Порт"
 
-#: plugins/settings/resources/partial/index.html:212
+#: plugins/settings/resources/partial/index.html:209
 msgid "Remove"
 msgstr "Удалить"
 
-#: plugins/settings/resources/partial/index.html:257
+#: plugins/settings/resources/partial/index.html:254
 msgid "Restart panel"
 msgstr "Перезапустить панель"
 
-#: plugins/settings/resources/partial/index.html:256
+#: plugins/settings/resources/partial/index.html:253
 msgid "Save"
 msgstr "Сохранить"
 
@@ -185,49 +152,7 @@ msgstr "Sudo"
 msgid "This might take a few seconds"
 msgstr "Это займет немного времени"
 
-#: plugins/settings/resources/partial/index.html:241
-msgid "User to log in"
-msgstr "Пользователь для входа"
-
 #: plugins/settings/main.py:15
-#: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
 msgstr "Настройки"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:38
-msgid "Could not load authentication provider list"
-msgstr "Не удается загрузить список поставщиков проверки подлинности"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:40
-msgid "Could not load config"
-msgstr "Не удалось загрузить настройки"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:52
-msgid "Saved"
-msgstr "Сохранено"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:54
-msgid "Could not save config"
-msgstr "Не удалось сохранить настройки"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:58
-msgid "Self-signed certificate"
-msgstr "Самозаверенный сертификат"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:59
-msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr "Создание нового сертификата аннулирует все существующие сертификаты проверки подлинности клиента!"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:64
-msgid "Please wait"
-msgstr "Пожалуйста, подождите"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:66
-msgid "Certificate successfully generated"
-msgstr "Сертификат успешно создан"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:72
-#: plugins/settings/resources/js/controllers/index.controller.coffee:89
-msgid "Certificate generation failed"
-msgstr "Ошибка создания сертификата"
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-08 06:53-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -25,9 +25,8 @@ msgid "Set time"
 msgstr "Tijd instellen"
 
 #: plugins/datetime/resources/partial/index.html:9
-#, fuzzy
 msgid "Set timezone"
-msgstr "Tijd instellen"
+msgstr "Tijdzone instellen"
 
 #: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
@@ -45,29 +44,3 @@ msgstr "Datum en tijd wijzigen"
 msgid "ntpdate utility is not installed"
 msgstr "ntpdate hulpprogramma is niet geïnstalleerd"
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:2
-msgid "Date & Time"
-msgstr "Datum en Tijd"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:24
-#, fuzzy
-msgid "Timezone set"
-msgstr "Tijd instellen"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:27
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:33
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:41
-msgid "Failed"
-msgstr "Mislukt"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:31
-msgid "Time set"
-msgstr "Tijd instellen"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:36
-msgid "Synchronizing..."
-msgstr "Synchroniseren..."
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:39
-msgid "Time synchronized"
-msgstr "Tijd gesynchroniseerd"

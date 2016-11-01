@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-22 10:22-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: cs\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:144
+#: plugins/core/content/pages/index.html:146
 msgid "A bootstrap error has occured"
 msgstr "Došlo k chybě zavaděče"
 
@@ -24,11 +24,11 @@ msgstr "Došlo k chybě zavaděče"
 msgid "Authenticate"
 msgstr "Ověřit"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:84
 msgid "Elevate"
 msgstr "Zvýšit"
 
-#: plugins/core/content/pages/index.html:127
+#: plugins/core/content/pages/index.html:129
 msgid "Enter"
 msgstr "Vložit"
 
@@ -36,23 +36,23 @@ msgstr "Vložit"
 msgid "Log in"
 msgstr "Prihlásit se"
 
-#: plugins/core/resources/partial/login.html:31
-msgid "Log in with e-mail"
-msgstr "Přihlaste se pomocí e-mailu"
-
-#: plugins/core/content/pages/index.html:87
+#: plugins/core/content/pages/index.html:89
 msgid "Log out"
 msgstr "Odhlásit se"
+
+#: plugins/core/content/pages/index.html:170
+msgid "OK"
+msgstr ""
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
 msgstr "Heslo"
 
-#: plugins/core/content/pages/index.html:147
+#: plugins/core/content/pages/index.html:149
 msgid "Please see browser console"
 msgstr "Viz konzole prohlížeče"
 
-#: plugins/core/content/pages/index.html:123
+#: plugins/core/content/pages/index.html:125
 msgid "Quick search"
 msgstr "Rychlé hledání"
 
@@ -92,120 +92,3 @@ msgstr "Zápis konfiguračního souboru"
 msgid "Authorization failed"
 msgstr "Chyba autorizace"
 
-#: plugins/core/views/api.py:121
-#, python-format
-msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr "Nelze ověřit s Mozilla Persona: %s"
-
-#: plugins/core/views/api.py:135
-msgid "Unrecognized e-mail"
-msgstr "Nerozpoznaný e-mail"
-
-#: plugins/core/resources/js/core/filters.coffee:6
-msgid "0 bytes"
-msgstr "0 bytů"
-
-#: plugins/core/resources/js/core/filters.coffee:10
-msgid "bytes"
-msgstr "bytů"
-
-#: plugins/core/resources/js/core/filters.coffee:11
-msgid "KB"
-msgstr "KB"
-
-#: plugins/core/resources/js/core/filters.coffee:12
-msgid "MB"
-msgstr "MB"
-
-#: plugins/core/resources/js/core/filters.coffee:13
-msgid "GB"
-msgstr "GB"
-
-#: plugins/core/resources/js/core/filters.coffee:14
-msgid "TB"
-msgstr "TB"
-
-#: plugins/core/resources/js/core/filters.coffee:15
-msgid "PB"
-msgstr "PB"
-
-#: plugins/core/resources/js/core/filters.coffee:34
-msgid "th"
-msgstr "."
-
-#: plugins/core/resources/js/core/filters.coffee:35
-msgid "st"
-msgstr "."
-
-#: plugins/core/resources/js/core/filters.coffee:36
-msgid "nd"
-msgstr "."
-
-#: plugins/core/resources/js/core/filters.coffee:37
-msgid "rd"
-msgstr "."
-
-#: plugins/core/resources/js/core/interceptors.coffee:9
-msgid "Security error"
-msgstr "Chyba zabezpečení"
-
-#: plugins/core/resources/js/core/interceptors.coffee:12
-msgid "Server error"
-msgstr "Chyba serveru"
-
-#: plugins/core/resources/js/core/interceptors.coffee:12
-msgid "Close"
-msgstr "Zavřít"
-
-#: plugins/core/resources/js/core/interceptors.coffee:19
-msgid "Your session has expired"
-msgstr "Platnost relace skončila"
-
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:22
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:39
-msgid "Authentication failed"
-msgstr "Ověření se nezdařilo"
-
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:35
-msgid "Authentication succeeded"
-msgstr "Ověření bylo úspěšné"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:7
-msgid "Restart"
-msgstr "Restartovat"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:8
-msgid "Restart the panel?"
-msgstr "Restartovat panel?"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:9
-msgid "Yes"
-msgstr "Ano"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:10
-msgid "No"
-msgstr "Ne"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:16
-msgid "Restarting"
-msgstr "Restartování"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:21
-msgid "Restarted"
-msgstr "Restartován"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:21
-msgid "Please wait"
-msgstr "Čekejte prosím"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:30
-msgid "Could not restart"
-msgstr "Nelze restartovat"
-
-#: plugins/core/resources/js/core/services/tasks.service.coffee:25
-msgid "Done"
-msgstr "Hotovo"
-
-#: plugins/core/resources/js/core/services/tasks.service.coffee:30
-msgid "Failed: #{msg.message.exception}"
-msgstr "Chyba: #{msg.message.exception}"

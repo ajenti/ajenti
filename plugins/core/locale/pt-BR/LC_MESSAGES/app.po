@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-08-04 07:38-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: pt-BR\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:144
+#: plugins/core/content/pages/index.html:146
 msgid "A bootstrap error has occured"
 msgstr "Ocorreu um erro de inicialização"
 
@@ -24,11 +24,11 @@ msgstr "Ocorreu um erro de inicialização"
 msgid "Authenticate"
 msgstr "Autenticar"
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:84
 msgid "Elevate"
 msgstr "Subir"
 
-#: plugins/core/content/pages/index.html:127
+#: plugins/core/content/pages/index.html:129
 msgid "Enter"
 msgstr "Digite"
 
@@ -36,23 +36,23 @@ msgstr "Digite"
 msgid "Log in"
 msgstr "Fazer Login"
 
-#: plugins/core/resources/partial/login.html:31
-msgid "Log in with e-mail"
-msgstr "Fazer login com e-mail"
-
-#: plugins/core/content/pages/index.html:87
+#: plugins/core/content/pages/index.html:89
 msgid "Log out"
 msgstr "Sair"
+
+#: plugins/core/content/pages/index.html:170
+msgid "OK"
+msgstr ""
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
 msgstr "Senha"
 
-#: plugins/core/content/pages/index.html:147
+#: plugins/core/content/pages/index.html:149
 msgid "Please see browser console"
 msgstr "Por favor consulte o console do navegador"
 
-#: plugins/core/content/pages/index.html:123
+#: plugins/core/content/pages/index.html:125
 msgid "Quick search"
 msgstr "Busca rápida"
 
@@ -92,120 +92,3 @@ msgstr "Escrever arquivo de configuração"
 msgid "Authorization failed"
 msgstr "A autorização falhou"
 
-#: plugins/core/views/api.py:121
-#, python-format
-msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr "Não foi possível autenticar com Mozilla Persona: %s"
-
-#: plugins/core/views/api.py:135
-msgid "Unrecognized e-mail"
-msgstr "Email não reconhecido"
-
-#: plugins/core/resources/js/core/filters.coffee:6
-msgid "0 bytes"
-msgstr "0 bytes"
-
-#: plugins/core/resources/js/core/filters.coffee:10
-msgid "bytes"
-msgstr "bytes"
-
-#: plugins/core/resources/js/core/filters.coffee:11
-msgid "KB"
-msgstr "KB"
-
-#: plugins/core/resources/js/core/filters.coffee:12
-msgid "MB"
-msgstr "MB"
-
-#: plugins/core/resources/js/core/filters.coffee:13
-msgid "GB"
-msgstr "GB"
-
-#: plugins/core/resources/js/core/filters.coffee:14
-msgid "TB"
-msgstr "TB"
-
-#: plugins/core/resources/js/core/filters.coffee:15
-msgid "PB"
-msgstr "PB"
-
-#: plugins/core/resources/js/core/filters.coffee:34
-msgid "th"
-msgstr "º"
-
-#: plugins/core/resources/js/core/filters.coffee:35
-msgid "st"
-msgstr "º"
-
-#: plugins/core/resources/js/core/filters.coffee:36
-msgid "nd"
-msgstr "º"
-
-#: plugins/core/resources/js/core/filters.coffee:37
-msgid "rd"
-msgstr "º"
-
-#: plugins/core/resources/js/core/interceptors.coffee:9
-msgid "Security error"
-msgstr "Erro de segurança"
-
-#: plugins/core/resources/js/core/interceptors.coffee:12
-msgid "Server error"
-msgstr "Erro no servidor"
-
-#: plugins/core/resources/js/core/interceptors.coffee:12
-msgid "Close"
-msgstr "Fechar"
-
-#: plugins/core/resources/js/core/interceptors.coffee:19
-msgid "Your session has expired"
-msgstr "Sua sessão expirou"
-
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:22
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:39
-msgid "Authentication failed"
-msgstr "Autenticação falhou"
-
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:35
-msgid "Authentication succeeded"
-msgstr "Autenticação bem-sucedida"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:7
-msgid "Restart"
-msgstr "Reiniciar"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:8
-msgid "Restart the panel?"
-msgstr "Reiniciar o painel?"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:9
-msgid "Yes"
-msgstr "Sim"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:10
-msgid "No"
-msgstr "Não"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:16
-msgid "Restarting"
-msgstr "Reiniciando"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:21
-msgid "Restarted"
-msgstr "Reiniciado"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:21
-msgid "Please wait"
-msgstr "Por favor, aguarde"
-
-#: plugins/core/resources/js/core/services/core.service.coffee:30
-msgid "Could not restart"
-msgstr "Não foi possível reiniciar"
-
-#: plugins/core/resources/js/core/services/tasks.service.coffee:25
-msgid "Done"
-msgstr "Cocluído"
-
-#: plugins/core/resources/js/core/services/tasks.service.coffee:30
-msgid "Failed: #{msg.message.exception}"
-msgstr "Falha: #{msg.message.exception}"

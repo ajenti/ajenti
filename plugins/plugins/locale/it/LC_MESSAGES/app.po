@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2016-08-04 07:38-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -24,22 +24,22 @@ msgstr "Nessun aggiornamento disponibile per Ajenti core {{ajentiVersion}}."
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
 msgstr "È disponibile un aggiornamento per Ajenti core {{ajentiVersion}} alla versione {{coreUpgradeAvailable}}."
 
-#: plugins/plugins/resources/partial/index.html:141
-#: plugins/plugins/resources/partial/index.html:196
+#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:190
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "Autore"
 
-#: plugins/plugins/resources/partial/index.html:53
+#: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
 msgstr "Plugin disponibili"
 
-#: plugins/plugins/resources/partial/index.html:160
-#: plugins/plugins/resources/partial/index.html:212
+#: plugins/plugins/resources/partial/index.html:154
+#: plugins/plugins/resources/partial/index.html:206
 msgid "Close"
 msgstr "Chiudi"
 
-#: plugins/plugins/resources/partial/index.html:76
+#: plugins/plugins/resources/partial/index.html:70
 msgid "Community"
 msgstr "Community"
 
@@ -47,7 +47,7 @@ msgstr "Community"
 msgid "Core"
 msgstr "Core"
 
-#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/index.html:184
 msgid "Downloads in the last month"
 msgstr "Scaricati nell'ultimo mese"
 
@@ -55,68 +55,68 @@ msgstr "Scaricati nell'ultimo mese"
 msgid "Downloads this month"
 msgstr "Scaricati questo mese"
 
-#: plugins/plugins/resources/partial/index.html:109
+#: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "Errore"
 
-#: plugins/plugins/resources/partial/index.html:120
+#: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 msgstr "Eccezione: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:77
+#: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
 msgstr "Filtro"
 
-#: plugins/plugins/resources/partial/index.html:148
+#: plugins/plugins/resources/partial/index.html:142
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr "Home page"
 
-#: plugins/plugins/resources/partial/index.html:209
-#: plugins/plugins/resources/partial/index.html:62
-#: plugins/plugins/resources/partial/index.html:80
+#: plugins/plugins/resources/partial/index.html:203
+#: plugins/plugins/resources/partial/index.html:56
+#: plugins/plugins/resources/partial/index.html:74
 msgid "Install"
 msgstr "Installa"
 
-#: plugins/plugins/resources/partial/index.html:27
+#: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
 msgstr "Plugin installati"
 
-#: plugins/plugins/resources/partial/index.html:47
+#: plugins/plugins/resources/partial/index.html:41
 msgid "Loading error"
 msgstr "Errore di caricamento"
 
-#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
 msgstr "Posizione"
 
-#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 msgstr "Messaggio: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:103
-#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/index.html:166
+#: plugins/plugins/resources/partial/index.html:97
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "Nome"
 
-#: plugins/plugins/resources/partial/index.html:59
+#: plugins/plugins/resources/partial/index.html:53
 msgid "Official"
 msgstr "Ufficiale"
 
-#: plugins/plugins/resources/partial/index.html:221
+#: plugins/plugins/resources/partial/index.html:215
 msgid "Restart panel"
 msgstr "Riavvia il pannello"
 
-#: plugins/plugins/resources/partial/index.html:118
+#: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
 msgstr "Questo plugin si è bloccato con il seguente errore:"
 
-#: plugins/plugins/resources/partial/index.html:113
+#: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
 msgstr "Questo plugin richiede l'applicazione <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, non disponibile durante l'avvio."
 
-#: plugins/plugins/resources/partial/index.html:110
+#: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
 msgstr "Questo plugin richiede il plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, non disponibile durante l'avvio."
 
@@ -124,15 +124,12 @@ msgstr "Questo plugin richiede il plugin <code>{{selectedInstalledPlugin.crash.p
 msgid "Title"
 msgstr "Titolo"
 
-#: plugins/plugins/resources/partial/index.html:157
-#: plugins/plugins/resources/partial/index.html:33
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
+#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:30
 msgid "Uninstall"
 msgstr "Disinstalla"
 
-#: plugins/plugins/resources/partial/index.html:154
-#: plugins/plugins/resources/partial/index.html:23
-#: plugins/plugins/resources/partial/index.html:36
+#: plugins/plugins/resources/partial/index.html:148
 msgid "Update"
 msgstr "Aggiorna"
 
@@ -144,12 +141,12 @@ msgstr "Aggiorna tutto"
 msgid "Updates"
 msgstr "Aggiornamenti"
 
-#: plugins/plugins/resources/partial/index.html:44
+#: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
 msgstr "Aggiornabile alla versione {{. Version getUpgrade (plugin)}}"
 
-#: plugins/plugins/resources/partial/index.html:129
-#: plugins/plugins/resources/partial/index.html:178
+#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "Versione"
@@ -157,98 +154,4 @@ msgstr "Versione"
 #: plugins/plugins/main.py:15
 msgid "Plugins"
 msgstr "Plugin"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:25
-msgid "Could not load plugin repository"
-msgstr "Impossibile caricare il plugin"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:27
-msgid "Could not load the installed plugin list"
-msgstr "Impossibile caricare l'elenco dei plugin installati"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:38
-msgid "Upgrading"
-msgstr "Aggiornamento in corso"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Done"
-msgstr "Chiudi"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-msgid "Upgrade complete. A panel restart is absolutely required."
-msgstr "Aggiornamento completo. È necessario riavviare il pannello."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Restart now"
-msgstr "Riavvia ora"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:43
-msgid "Upgrade failed"
-msgstr "Aggiornamento non riuscito"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:73
-msgid "All plugins updated"
-msgstr "Tutti i plugin sono aggiornati"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-msgid "Installed. A panel restart is required."
-msgstr "Installazione completata. È necessario un riavvio di pannello."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Later"
-msgstr "Piu' tardi"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:77
-msgid "Some plugins failed to update"
-msgstr "Impossibile aggiornare alcuni plugin"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:97
-msgid "Updating plugins"
-msgstr "Aggiornamento dei plugin"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:129
-msgid "Install failed"
-msgstr "Installazione non riuscita"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "Warning"
-msgstr "Attenzione"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr "Questa operazione rimuoverà il plugin Plugins. Sarà possibile installarla succesivamente utilizzando PIP."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "Continue"
-msgstr "Continua"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
-msgid "Cancel"
-msgstr "Annulla"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
-msgid "Uninstall #{plugin.name}?"
-msgstr "Rimuovere il plugin #{plugin.name}?"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:144
-msgid "Uninstalling"
-msgstr "Disinstallazione in corso"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Uninstalled. A panel restart is required."
-msgstr "Disinstallazione completata. È necessario un riavvio di pannello."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:150
-msgid "Uninstall failed"
-msgstr "Disinstallazione fallita"
 

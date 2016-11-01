@@ -2,16 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-08-04 07:39-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: tr\n"
@@ -19,7 +18,7 @@ msgstr ""
 
 #: plugins/network/resources/partial/index.html:28
 msgid "Activate (up) interface"
-msgstr ""
+msgstr "Arabirimi etkinleştirmek"
 
 #: plugins/network/resources/partial/index.html:212
 #: plugins/network/resources/partial/index.html:261
@@ -33,7 +32,7 @@ msgstr "Adres"
 
 #: plugins/network/resources/partial/index.html:92
 msgid "Addressing"
-msgstr ""
+msgstr "Adresleme"
 
 #: plugins/network/resources/partial/index.html:293
 msgid "Aliases"
@@ -109,7 +108,6 @@ msgid "Metric"
 msgstr "Metrik"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
-#: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
 msgstr "Ağ"
 
@@ -191,74 +189,3 @@ msgstr ""
 msgid "Activate/deactivate network interfaces"
 msgstr ""
 
-#: plugins/network/resources/js/controllers/index.controller.coffee:10
-msgid "Static"
-msgstr "Statik"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:11
-msgid "Auto"
-msgstr "Otomatik"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:13
-msgid "Manual"
-msgstr "El ile"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:14
-msgid "Loopback"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:40
-msgid "Interface activated"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:45
-#: plugins/network/resources/js/controllers/index.controller.coffee:56
-msgid "Warning"
-msgstr "Uyarı"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:46
-msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:47
-msgid "Deactivate"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:48
-#: plugins/network/resources/js/controllers/index.controller.coffee:59
-msgid "Cancel"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:51
-msgid "Interface deactivated"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:57
-msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:58
-msgid "Restart"
-msgstr "Yeniden başlat"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:63
-msgid "Interface reactivated"
-msgstr "Arabirimi yeniden aktifleştirildi"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:69
-msgid "Hostname changed"
-msgstr "Hostname değişti"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:71
-msgid "Failed"
-msgstr "Başarısız"
-
-#: plugins/network/resources/js/controllers/dns.controller.coffee:11
-#: plugins/network/resources/js/controllers/hosts.controller.coffee:19
-msgid "Saved"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/dns.controller.coffee:13
-#: plugins/network/resources/js/controllers/hosts.controller.coffee:21
-msgid "Could not save"
-msgstr "Kaydedilemedi"

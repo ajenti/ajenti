@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -32,30 +32,4 @@ msgstr ""
 
 #: plugins/datetime/views.py:59
 msgid "ntpdate utility is not installed"
-msgstr ""
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:2
-msgid "Date & Time"
-msgstr ""
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:24
-msgid "Timezone set"
-msgstr ""
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:27
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:33
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:41
-msgid "Failed"
-msgstr ""
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:31
-msgid "Time set"
-msgstr ""
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:36
-msgid "Synchronizing..."
-msgstr ""
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:39
-msgid "Time synchronized"
 msgstr ""

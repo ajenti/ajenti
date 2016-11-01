@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -22,7 +22,6 @@ msgstr ""
 #: plugins/filemanager/resources/partial/index.html:69
 #: plugins/filemanager/resources/partial/index.html:82
 #: plugins/filemanager/resources/partial/properties.html:188
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
 msgstr ""
 
@@ -52,7 +51,6 @@ msgid "Cut"
 msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:57
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
 msgstr ""
 
@@ -189,40 +187,4 @@ msgstr ""
 
 #: plugins/filemanager/main.py:15
 msgid "File Manager"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:15
-msgid "Could not load directory"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:76
-msgid "Delete selected items?"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:103
-msgid "Could not create file"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:119
-msgid "Could not create directory"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:141
-msgid "Uploaded"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:152
-msgid "Upload failed"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:155
-msgid "Upload cancelled"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/properties.controller.coffee:15
-msgid "Could not read file information"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/properties.controller.coffee:28
-msgid "File mode saved"
 msgstr ""

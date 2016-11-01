@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2016-08-04 07:39-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -16,17 +16,9 @@ msgstr ""
 "X-Crowdin-Language: tr\n"
 "X-Crowdin-File: /2.0/settings.po\n"
 
-#: plugins/settings/resources/partial/index.html:246
-msgid "Add"
-msgstr "Ekle"
-
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
 msgstr "Giriş yapan kullanıcılar için Sudo ile yükselt"
-
-#: plugins/settings/resources/partial/index.html:204
-msgid "Allows login with a confirmed e-mail address via <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a> auth service. Requires server-side internet access."
-msgstr "Giriş yolu ile <a href=\"https://login.persona.org/about\" target=\"_blank\"> Mozilla Persona</a> auth hizmet teyit e-posta adresi sağlar. Sunucu taraflı Internet erişimi gerektirir."
 
 #: plugins/settings/resources/partial/index.html:67
 msgid "Authentication provider"
@@ -37,8 +29,6 @@ msgid "Binding"
 msgstr "Bağlayıcı"
 
 #: plugins/settings/resources/partial/index.html:188
-#: plugins/settings/resources/partial/index.html:247
-#: plugins/settings/resources/js/controllers/index.controller.coffee:61
 msgid "Cancel"
 msgstr "İptal"
 
@@ -62,14 +52,6 @@ msgstr "Diğer doğrulama yöntemlerini reddet"
 msgid "Download certificate"
 msgstr "Sertifika İndir"
 
-#: plugins/settings/resources/partial/index.html:237
-msgid "E-mail address"
-msgstr "E-posta adresi"
-
-#: plugins/settings/resources/partial/index.html:203
-msgid "E-mail authentication"
-msgstr "E-posta doğrulaması"
-
 #: plugins/settings/resources/partial/index.html:109
 msgid "Enable client authentication"
 msgstr "İstemci kimlik doğrulamasını etkinleştir"
@@ -79,7 +61,6 @@ msgid "Enable SSL"
 msgstr "SSL'yi etkinleştir"
 
 #: plugins/settings/resources/partial/index.html:187
-#: plugins/settings/resources/js/controllers/index.controller.coffee:60
 msgid "Generate"
 msgstr "Oluştur"
 
@@ -88,7 +69,6 @@ msgid "Generate a self-signed certificate"
 msgstr "Kendinden imzalı sertifika oluştur"
 
 #: plugins/settings/resources/partial/index.html:152
-#: plugins/settings/resources/js/controllers/index.controller.coffee:64
 msgid "Generating certificate"
 msgstr "Sertifika oluştur"
 
@@ -108,10 +88,6 @@ msgstr "Farklı Giriş yap"
 msgid "Machine name"
 msgstr "Makine adı"
 
-#: plugins/settings/resources/partial/index.html:229
-msgid "New address"
-msgstr "Yeni adres"
-
 #: plugins/settings/resources/partial/index.html:142
 msgid "New certificate"
 msgstr "Yeni Sertifika"
@@ -120,17 +96,9 @@ msgstr "Yeni Sertifika"
 msgid "New client certificate"
 msgstr "Yeni istemci sertifikası"
 
-#: plugins/settings/resources/partial/index.html:233
-msgid "New e-mail address"
-msgstr "Yeni e-mail adresi"
-
 #: plugins/settings/resources/partial/index.html:119
 msgid "No certificates are created yet."
 msgstr "Henüz hiçbir sertifika oluşturulmadı."
-
-#: plugins/settings/resources/partial/index.html:208
-msgid "No e-mail addresses added yet."
-msgstr "Henüz hiçbir e-posta adresleri eklenmedi."
 
 #: plugins/settings/resources/partial/index.html:177
 msgid "Organization"
@@ -140,15 +108,15 @@ msgstr "Organizasyon"
 msgid "Port"
 msgstr "Port"
 
-#: plugins/settings/resources/partial/index.html:212
+#: plugins/settings/resources/partial/index.html:209
 msgid "Remove"
 msgstr "Kaldır"
 
-#: plugins/settings/resources/partial/index.html:257
+#: plugins/settings/resources/partial/index.html:254
 msgid "Restart panel"
 msgstr "Paneli yeniden başlat"
 
-#: plugins/settings/resources/partial/index.html:256
+#: plugins/settings/resources/partial/index.html:253
 msgid "Save"
 msgstr "Kaydet"
 
@@ -184,49 +152,7 @@ msgstr "Sudo"
 msgid "This might take a few seconds"
 msgstr "Bu işlem birkaç saniye sürebilir"
 
-#: plugins/settings/resources/partial/index.html:241
-msgid "User to log in"
-msgstr "Giriş yapan kullanıcı"
-
 #: plugins/settings/main.py:15
-#: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
 msgstr "Ayarlar"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:38
-msgid "Could not load authentication provider list"
-msgstr "Kimlik doğrulama sağlayıcısı listesi yüklenemedi"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:40
-msgid "Could not load config"
-msgstr "Yapılandırma yüklenemedi"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:52
-msgid "Saved"
-msgstr "Kaydedildi"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:54
-msgid "Could not save config"
-msgstr "Yapılandırma kaydedilemedi"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:58
-msgid "Self-signed certificate"
-msgstr "Kendinden onaylı sertifika"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:59
-msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr "Yeni bir sertifika oluşturma, varolan tüm istemci kimlik doğrulama sertifikalarını geçersiz kılacaktır!"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:64
-msgid "Please wait"
-msgstr "Lütfen bekleyin"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:66
-msgid "Certificate successfully generated"
-msgstr "Sertifika başarıyla oluşturuldu"
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:72
-#: plugins/settings/resources/js/controllers/index.controller.coffee:89
-msgid "Certificate generation failed"
-msgstr "Sertifika oluşturulamadı"
 

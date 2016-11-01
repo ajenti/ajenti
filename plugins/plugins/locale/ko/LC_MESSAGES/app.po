@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -24,22 +24,22 @@ msgstr "Ajenti core 버전 {{ajentiVersion}}, 업그레이드가 없습니다."
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
 msgstr "Ajenti core 버전 {{ajentiVersion}}. 업그레이드 버전 {{coreUpgradeAvailable}} 이 있습니다."
 
-#: plugins/plugins/resources/partial/index.html:141
-#: plugins/plugins/resources/partial/index.html:196
+#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:190
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "만든 사람"
 
-#: plugins/plugins/resources/partial/index.html:53
+#: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
 msgstr "사용 가능한 플러그인"
 
-#: plugins/plugins/resources/partial/index.html:160
-#: plugins/plugins/resources/partial/index.html:212
+#: plugins/plugins/resources/partial/index.html:154
+#: plugins/plugins/resources/partial/index.html:206
 msgid "Close"
 msgstr "닫기"
 
-#: plugins/plugins/resources/partial/index.html:76
+#: plugins/plugins/resources/partial/index.html:70
 msgid "Community"
 msgstr "커뮤니티"
 
@@ -47,7 +47,7 @@ msgstr "커뮤니티"
 msgid "Core"
 msgstr "코어"
 
-#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/index.html:184
 msgid "Downloads in the last month"
 msgstr "지난 달 다운로드"
 
@@ -55,68 +55,68 @@ msgstr "지난 달 다운로드"
 msgid "Downloads this month"
 msgstr "이번달 다운로드"
 
-#: plugins/plugins/resources/partial/index.html:109
+#: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "에러"
 
-#: plugins/plugins/resources/partial/index.html:120
+#: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 msgstr "예외: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:77
+#: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
 msgstr "필터"
 
-#: plugins/plugins/resources/partial/index.html:148
+#: plugins/plugins/resources/partial/index.html:142
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr "홈페이지"
 
-#: plugins/plugins/resources/partial/index.html:209
-#: plugins/plugins/resources/partial/index.html:62
-#: plugins/plugins/resources/partial/index.html:80
+#: plugins/plugins/resources/partial/index.html:203
+#: plugins/plugins/resources/partial/index.html:56
+#: plugins/plugins/resources/partial/index.html:74
 msgid "Install"
 msgstr "설치"
 
-#: plugins/plugins/resources/partial/index.html:27
+#: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
 msgstr "설치된 플러그인"
 
-#: plugins/plugins/resources/partial/index.html:47
+#: plugins/plugins/resources/partial/index.html:41
 msgid "Loading error"
 msgstr "로드 에러"
 
-#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
 msgstr "위치"
 
-#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 msgstr "메시지: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:103
-#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/index.html:166
+#: plugins/plugins/resources/partial/index.html:97
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "이름"
 
-#: plugins/plugins/resources/partial/index.html:59
+#: plugins/plugins/resources/partial/index.html:53
 msgid "Official"
 msgstr "공식"
 
-#: plugins/plugins/resources/partial/index.html:221
+#: plugins/plugins/resources/partial/index.html:215
 msgid "Restart panel"
 msgstr "패널을 다시 시작"
 
-#: plugins/plugins/resources/partial/index.html:118
+#: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:113
+#: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:110
+#: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
 msgstr ""
 
@@ -124,15 +124,12 @@ msgstr ""
 msgid "Title"
 msgstr "제목"
 
-#: plugins/plugins/resources/partial/index.html:157
-#: plugins/plugins/resources/partial/index.html:33
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
+#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:30
 msgid "Uninstall"
 msgstr "삭제"
 
-#: plugins/plugins/resources/partial/index.html:154
-#: plugins/plugins/resources/partial/index.html:23
-#: plugins/plugins/resources/partial/index.html:36
+#: plugins/plugins/resources/partial/index.html:148
 msgid "Update"
 msgstr "업데이트"
 
@@ -144,12 +141,12 @@ msgstr "모든 것을 업데이트"
 msgid "Updates"
 msgstr "업데이트"
 
-#: plugins/plugins/resources/partial/index.html:44
+#: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:129
-#: plugins/plugins/resources/partial/index.html:178
+#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "버전"
@@ -157,98 +154,4 @@ msgstr "버전"
 #: plugins/plugins/main.py:15
 msgid "Plugins"
 msgstr "플러그인"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:25
-msgid "Could not load plugin repository"
-msgstr "플러그인 저장소를 로드할 수 없습니다."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:27
-msgid "Could not load the installed plugin list"
-msgstr "설치 된 플러그인 목록을 로드할 수 없습니다."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:38
-msgid "Upgrading"
-msgstr "업그레이드"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Done"
-msgstr "완료"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-msgid "Upgrade complete. A panel restart is absolutely required."
-msgstr "업그레이드 완료입니다. 관리패널을 다시 시작하십시오"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Restart now"
-msgstr "지금 다시 시작"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:43
-msgid "Upgrade failed"
-msgstr "업그레이드 실패"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:73
-msgid "All plugins updated"
-msgstr "모든 플러그인 업데이트"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-msgid "Installed. A panel restart is required."
-msgstr "설치. 관리패널을 다시 시작하세요"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Later"
-msgstr "다음에"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:77
-msgid "Some plugins failed to update"
-msgstr "몇 가지 플러그인을 업데이트 하지 못했습니다."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:97
-msgid "Updating plugins"
-msgstr "플러그인 업데이트"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:129
-msgid "Install failed"
-msgstr "설치 실패"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "Warning"
-msgstr "경고"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "Continue"
-msgstr "계속"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
-msgid "Cancel"
-msgstr "취소"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
-msgid "Uninstall #{plugin.name}?"
-msgstr "#{plugin.name}를 제거?"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:144
-msgid "Uninstalling"
-msgstr "삭제 중"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Uninstalled. A panel restart is required."
-msgstr "제거. 관리패널을 다시 시작하세요"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:150
-msgid "Uninstall failed"
-msgstr "제거 실패"
 

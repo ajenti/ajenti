@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,19 +119,5 @@ msgid "Yes"
 msgstr ""
 
 #: plugins/supervisor/main.py:15
-#: plugins/supervisor/resources/js/controllers/index.controller.coffee:2
 msgid "Supervisor"
-msgstr ""
-
-#: plugins/supervisor/resources/js/controllers/index.controller.coffee:16
-msgid "Saved"
-msgstr ""
-
-#: plugins/supervisor/resources/js/controllers/index.controller.coffee:18
-msgid "Could not save"
-msgstr ""
-
-#: plugins/supervisor/resources/js/controllers/index.controller.coffee:32
-#: plugins/supervisor/resources/js/controllers/index.controller.coffee:38
-msgid "Failed"
 msgstr ""

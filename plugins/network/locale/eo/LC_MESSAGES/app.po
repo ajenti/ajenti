@@ -1,0 +1,191 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/network.po\n"
+
+#: plugins/network/resources/partial/index.html:28
+msgid "Activate (up) interface"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:212
+#: plugins/network/resources/partial/index.html:261
+#: plugins/network/resources/partial/index.html:312
+msgid "Add"
+msgstr "Aldoni"
+
+#: plugins/network/resources/partial/index.html:103
+msgid "Address"
+msgstr "Adreso"
+
+#: plugins/network/resources/partial/index.html:92
+msgid "Addressing"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:293
+msgid "Aliases"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:277
+msgid "Canonical hostname"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:55
+msgid "Checking status..."
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:122
+msgid "Client ID"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:184
+#: plugins/network/resources/partial/index.html:319
+msgid "Close"
+msgstr "Fermi"
+
+#: plugins/network/resources/partial/index.html:233
+msgid "Configure"
+msgstr "Agordi"
+
+#: plugins/network/resources/partial/index.html:31
+msgid "Deactivate (down) interface"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:191
+msgid "DNS"
+msgstr "DNS"
+
+#: plugins/network/resources/partial/index.html:210
+msgid "DNS server address"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:172
+msgid "Down script"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:83
+msgid "Family"
+msgstr "Familio"
+
+#: plugins/network/resources/partial/index.html:111
+msgid "Gateway"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:8
+msgid "Hostname"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:225
+msgid "Hosts"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:19
+msgid "Interfaces"
+msgstr "Interfacoj"
+
+#: plugins/network/resources/partial/index.html:285
+msgid "IP address"
+msgstr "IP-adreso"
+
+#: plugins/network/resources/partial/index.html:107
+msgid "Mask"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:115
+msgid "Metric"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
+msgid "Network"
+msgstr "Reto"
+
+#: plugins/network/resources/partial/index.html:310
+msgid "New alias"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:259
+msgid "New host name"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:255
+#: plugins/network/resources/partial/index.html:295
+msgid "No hosts defined"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:206
+msgid "No nameservers defined"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:177
+msgid "Post-down script"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:162
+msgid "Post-up script"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:167
+msgid "Pre-down script"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:152
+msgid "Pre-up script"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:196
+#: plugins/network/resources/partial/index.html:230
+#: plugins/network/resources/partial/index.html:299
+msgid "Remove"
+msgstr "Forigi"
+
+#: plugins/network/resources/partial/index.html:34
+msgid "Restart interface"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:183
+#: plugins/network/resources/partial/index.html:219
+#: plugins/network/resources/partial/index.html:268
+#: plugins/network/resources/partial/index.html:318
+msgid "Save"
+msgstr "Konservi"
+
+#: plugins/network/resources/partial/index.html:129
+msgid "Scope"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:77
+msgid "Unknown addressing"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:74
+msgid "Unknown family"
+msgstr "Nekonata familio"
+
+#: plugins/network/resources/partial/index.html:157
+msgid "Up script"
+msgstr ""
+
+#: plugins/network/resources/partial/index.html:12
+msgid "Update hostname"
+msgstr ""
+
+#: plugins/network/main.py:31
+msgid "Configure network interfaces"
+msgstr ""
+
+#: plugins/network/main.py:36
+msgid "Activate/deactivate network interfaces"
+msgstr ""
+

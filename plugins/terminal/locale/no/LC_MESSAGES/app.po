@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:40+0200\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Norwegian\n"
 "Language: no_NO\n"
@@ -51,7 +51,6 @@ msgid "stdin data"
 msgstr ""
 
 #: plugins/terminal/resources/partial/index.html:1
-#: plugins/terminal/resources/js/controllers/index.controller.coffee:2
 msgid "Terminals"
 msgstr ""
 
@@ -71,22 +70,3 @@ msgstr ""
 msgid "Open shell terminals"
 msgstr ""
 
-#: plugins/terminal/resources/js/controllers/widget.controller.coffee:9
-msgid "Starting the script"
-msgstr ""
-
-#: plugins/terminal/resources/js/controllers/widget.controller.coffee:12
-msgid "Script has finished"
-msgstr ""
-
-#: plugins/terminal/resources/js/controllers/widget.controller.coffee:14
-msgid "Script has failed"
-msgstr ""
-
-#: plugins/terminal/resources/js/controllers/widget.controller.coffee:16
-msgid "Could not launch the script"
-msgstr ""
-
-#: plugins/terminal/resources/js/directives/terminal.coffee:170
-msgid "Terminal was closed"
-msgstr ""

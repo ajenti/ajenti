@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/core.po\n"
+
+#: plugins/core/content/pages/index.html:146
+msgid "A bootstrap error has occured"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:27
+msgid "Authenticate"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:84
+msgid "Elevate"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:129
+msgid "Enter"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:26
+msgid "Log in"
+msgstr "Ensaluti"
+
+#: plugins/core/content/pages/index.html:89
+msgid "Log out"
+msgstr "Elsaluti"
+
+#: plugins/core/content/pages/index.html:170
+msgid "OK"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:22
+msgid "Password"
+msgstr "Pasvorto"
+
+#: plugins/core/content/pages/index.html:149
+msgid "Please see browser console"
+msgstr ""
+
+#: plugins/core/content/pages/index.html:125
+msgid "Quick search"
+msgstr ""
+
+#: plugins/core/resources/partial/login.html:19
+msgid "Username"
+msgstr "Uzantnomo"
+
+#: plugins/core/main.py:17
+msgid "General"
+msgstr "Ĝenerala"
+
+#: plugins/core/main.py:24
+msgid "Tools"
+msgstr "Iloj"
+
+#: plugins/core/main.py:31
+msgid "Software"
+msgstr "Programaro"
+
+#: plugins/core/main.py:38
+msgid "System"
+msgstr "Sistemo"
+
+#: plugins/core/main.py:45
+msgid "Other"
+msgstr ""
+
+#: plugins/core/main.py:68
+msgid "Read configuration file"
+msgstr ""
+
+#: plugins/core/main.py:73
+msgid "Write configuration file"
+msgstr ""
+
+#: plugins/core/views/api.py:97
+msgid "Authorization failed"
+msgstr ""
+

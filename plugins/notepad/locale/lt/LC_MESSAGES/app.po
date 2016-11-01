@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:50+0200\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -46,17 +46,5 @@ msgstr ""
 
 #: plugins/notepad/main.py:15
 msgid "Notepad"
-msgstr ""
-
-#: plugins/notepad/resources/js/controllers/index.controller.coffee:6
-msgid "Current file will be closed. Continue?"
-msgstr ""
-
-#: plugins/notepad/resources/js/controllers/index.controller.coffee:28
-msgid "Could not open the file"
-msgstr ""
-
-#: plugins/notepad/resources/js/controllers/index.controller.coffee:44
-msgid "Could not save the file"
 msgstr ""
 

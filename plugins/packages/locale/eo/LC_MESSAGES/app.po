@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/packages.po\n"
+
+#: plugins/packages/resources/partial/index.html:59
+msgid "Apply changes"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:69
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: plugins/packages/resources/partial/index.html:83
+msgid "Close"
+msgstr "Fermi"
+
+#: plugins/packages/resources/partial/index.html:26
+msgid "Installed"
+msgstr "Instalita"
+
+#: plugins/packages/resources/partial/index.html:12
+msgid "Mark for installation"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:15
+msgid "Mark for removal"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:9
+msgid "Mark for upgrade"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:56
+msgid "pending"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:3
+msgid "Search packages"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:64
+msgid "Selections"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:51
+msgid "Update package list"
+msgstr ""
+
+#: plugins/packages/resources/partial/index.html:32
+msgid "Upgradeable"
+msgstr ""
+
+#: plugins/packages/main.py:25
+msgid "Packages"
+msgstr ""
+
+#: plugins/packages/main.py:39
+msgid "Install/remove packages"
+msgstr ""
+

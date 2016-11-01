@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
@@ -55,26 +55,9 @@ msgid "Upgradeable"
 msgstr ""
 
 #: plugins/packages/main.py:25
-#: plugins/packages/resources/js/controllers/index.controller.coffee:2
 msgid "Packages"
 msgstr ""
 
 #: plugins/packages/main.py:39
 msgid "Install/remove packages"
-msgstr ""
-
-#: plugins/packages/resources/js/controllers/index.controller.coffee:17
-msgid "Could not find packages"
-msgstr ""
-
-#: plugins/packages/resources/js/controllers/index.controller.coffee:22
-msgid "Package list update started"
-msgstr ""
-
-#: plugins/packages/resources/js/controllers/index.controller.coffee:24
-msgid "Package list update failed"
-msgstr ""
-
-#: plugins/packages/resources/js/controllers/index.controller.coffee:57
-msgid "Could not apply changes"
 msgstr ""

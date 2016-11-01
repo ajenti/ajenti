@@ -1,0 +1,46 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/datetime.po\n"
+
+#: plugins/datetime/resources/partial/index.html:17 plugins/datetime/main.py:17
+msgid "Date & time"
+msgstr ""
+
+#: plugins/datetime/resources/partial/index.html:26
+msgid "Set time"
+msgstr ""
+
+#: plugins/datetime/resources/partial/index.html:9
+msgid "Set timezone"
+msgstr "Agordi horzonon"
+
+#: plugins/datetime/resources/partial/index.html:31
+msgid "Sync time from the Internet"
+msgstr ""
+
+#: plugins/datetime/resources/partial/index.html:5
+msgid "Time zone"
+msgstr "Horzono"
+
+#: plugins/datetime/main.py:31
+msgid "Change date and time"
+msgstr ""
+
+#: plugins/datetime/views.py:59
+msgid "ntpdate utility is not installed"
+msgstr ""
+

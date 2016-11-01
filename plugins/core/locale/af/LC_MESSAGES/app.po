@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-08 06:53-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Afrikaans\n"
 "Language: af_ZA\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: af\n"
 "X-Crowdin-File: /2.0/core.po\n"
 
-#: plugins/core/content/pages/index.html:144
+#: plugins/core/content/pages/index.html:146
 msgid "A bootstrap error has occured"
 msgstr ""
 
@@ -24,11 +24,11 @@ msgstr ""
 msgid "Authenticate"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:82
+#: plugins/core/content/pages/index.html:84
 msgid "Elevate"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:127
+#: plugins/core/content/pages/index.html:129
 msgid "Enter"
 msgstr ""
 
@@ -36,23 +36,23 @@ msgstr ""
 msgid "Log in"
 msgstr ""
 
-#: plugins/core/resources/partial/login.html:31
-msgid "Log in with e-mail"
+#: plugins/core/content/pages/index.html:89
+msgid "Log out"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:87
-msgid "Log out"
+#: plugins/core/content/pages/index.html:170
+msgid "OK"
 msgstr ""
 
 #: plugins/core/resources/partial/login.html:22
 msgid "Password"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:147
+#: plugins/core/content/pages/index.html:149
 msgid "Please see browser console"
 msgstr ""
 
-#: plugins/core/content/pages/index.html:123
+#: plugins/core/content/pages/index.html:125
 msgid "Quick search"
 msgstr ""
 
@@ -92,120 +92,3 @@ msgstr ""
 msgid "Authorization failed"
 msgstr ""
 
-#: plugins/core/views/api.py:121
-#, python-format
-msgid "Could not authenticate with Mozilla Persona: %s"
-msgstr ""
-
-#: plugins/core/views/api.py:135
-msgid "Unrecognized e-mail"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:6
-msgid "0 bytes"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:10
-msgid "bytes"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:11
-msgid "KB"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:12
-msgid "MB"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:13
-msgid "GB"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:14
-msgid "TB"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:15
-msgid "PB"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:34
-msgid "th"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:35
-msgid "st"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:36
-msgid "nd"
-msgstr ""
-
-#: plugins/core/resources/js/core/filters.coffee:37
-msgid "rd"
-msgstr ""
-
-#: plugins/core/resources/js/core/interceptors.coffee:9
-msgid "Security error"
-msgstr ""
-
-#: plugins/core/resources/js/core/interceptors.coffee:12
-msgid "Server error"
-msgstr ""
-
-#: plugins/core/resources/js/core/interceptors.coffee:12
-msgid "Close"
-msgstr ""
-
-#: plugins/core/resources/js/core/interceptors.coffee:19
-msgid "Your session has expired"
-msgstr ""
-
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:22
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:39
-msgid "Authentication failed"
-msgstr ""
-
-#: plugins/core/resources/js/core/controllers/login.controller.coffee:35
-msgid "Authentication succeeded"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:7
-msgid "Restart"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:8
-msgid "Restart the panel?"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:9
-msgid "Yes"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:10
-msgid "No"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:16
-msgid "Restarting"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:21
-msgid "Restarted"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:21
-msgid "Please wait"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/core.service.coffee:30
-msgid "Could not restart"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/tasks.service.coffee:25
-msgid "Done"
-msgstr ""
-
-#: plugins/core/resources/js/core/services/tasks.service.coffee:30
-msgid "Failed: #{msg.message.exception}"
-msgstr ""

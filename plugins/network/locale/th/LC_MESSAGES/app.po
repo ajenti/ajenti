@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -108,7 +108,6 @@ msgid "Metric"
 msgstr "Metric"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
-#: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
 msgstr "Network"
 
@@ -190,74 +189,3 @@ msgstr "ตั้งค่าอินเทอร์เฟซ"
 msgid "Activate/deactivate network interfaces"
 msgstr "เปิด/ปิดการใช้งานอินเทอร์เฟซ"
 
-#: plugins/network/resources/js/controllers/index.controller.coffee:10
-msgid "Static"
-msgstr "Static"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:11
-msgid "Auto"
-msgstr "Auto"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:13
-msgid "Manual"
-msgstr "Manual"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:14
-msgid "Loopback"
-msgstr "Loopback"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:40
-msgid "Interface activated"
-msgstr "อินเทอร์เฟซเปิดใช้งานแล้ว"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:45
-#: plugins/network/resources/js/controllers/index.controller.coffee:56
-msgid "Warning"
-msgstr "คำเตือน"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:46
-msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr "การปิดการใช้งานอินเทอร์เฟซอาจทำให้คุณไม่สามารถเข้าถึงระบบได้"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:47
-msgid "Deactivate"
-msgstr "ปิดการใช้งาน"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:48
-#: plugins/network/resources/js/controllers/index.controller.coffee:59
-msgid "Cancel"
-msgstr "ยกเลิก"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:51
-msgid "Interface deactivated"
-msgstr "อินเทอร์เฟซปิดใช้งานแล้ว"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:57
-msgid "Restarting a network interface can lock you out of the remote session"
-msgstr "การเริ่มการทำงานอินเทอร์เฟซใหม่อาจทำให้คุณไม่สามารถเข้าถึงระบบได้"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:58
-msgid "Restart"
-msgstr "เริ่มการทำงานใหม่"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:63
-msgid "Interface reactivated"
-msgstr "อินเทอร์เฟซเริ่มทำงานใหม่แล้ว"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:69
-msgid "Hostname changed"
-msgstr "ชื่อโฮสต์ถูกเปลี่ยนแล้ว"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:71
-msgid "Failed"
-msgstr "ล้มเหลว"
-
-#: plugins/network/resources/js/controllers/dns.controller.coffee:11
-#: plugins/network/resources/js/controllers/hosts.controller.coffee:19
-msgid "Saved"
-msgstr "บันทึกแล้ว"
-
-#: plugins/network/resources/js/controllers/dns.controller.coffee:13
-#: plugins/network/resources/js/controllers/hosts.controller.coffee:21
-msgid "Could not save"
-msgstr "ไม่สามารถบันทึกได้"

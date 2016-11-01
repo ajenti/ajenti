@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/auth_users.po\n"
+
+#: plugins/auth_users/resources/partial/index.html:11
+msgid "Configure"
+msgstr "Agordi"
+
+#: plugins/auth_users/resources/partial/index.html:31
+msgid "Create"
+msgstr "Krei"
+
+#: plugins/auth_users/resources/partial/index.html:42
+msgid "Default root password is <code>admin</code>"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:90
+msgid "Filesystem root"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:64
+msgid "New password"
+msgstr "Nova pasvorto"
+
+#: plugins/auth_users/resources/partial/index.html:29
+msgid "New user name"
+msgstr "Nova uzantnomo"
+
+#: plugins/auth_users/resources/partial/index.html:97
+msgid "OK"
+msgstr "Bone"
+
+#: plugins/auth_users/resources/partial/index.html:83
+msgid "Permissions"
+msgstr "Permesoj"
+
+#: plugins/auth_users/resources/partial/index.html:48
+msgid "Save"
+msgstr "Konservi"
+
+#: plugins/auth_users/resources/partial/index.html:73
+msgid "Sidebar entries"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:57
+msgid "System account"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:76
+msgid "This only affects appearance of the sidebar. Disable actual permissions under the <b>Permissions</b> tab."
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:60
+msgid "This user will be constrained by POSIX permissions for the selected system account."
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:68
+msgid "Update password"
+msgstr ""
+
+#: plugins/auth_users/resources/partial/index.html:38
+msgid "You have no users mapped to <b>root</b> system account. Saving this configuration will prevent any administrative access."
+msgstr ""
+
+#: plugins/auth_users/main.py:16
+msgid "Users"
+msgstr "Uzantoj"
+
+#: plugins/auth_users/api.py:13
+msgid "Custom users"
+msgstr ""
+

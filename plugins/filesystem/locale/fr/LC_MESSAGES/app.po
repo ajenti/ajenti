@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-08-04 07:37-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: plugins/filesystem/resources/partial/widget.config.html:5
 msgid "All combined"
-msgstr ""
+msgstr "Tout"
 
 #: plugins/filesystem/resources/js/directives/fileDialog.html:29
 msgid "Cancel"
@@ -69,6 +69,3 @@ msgstr "Suppression en cours"
 msgid "Disk space"
 msgstr "Espace disque"
 
-#: plugins/filesystem/resources/js/directives/fileDialog.coffee:33
-msgid "Could not load directory"
-msgstr "Impossible de charger le répertoire"

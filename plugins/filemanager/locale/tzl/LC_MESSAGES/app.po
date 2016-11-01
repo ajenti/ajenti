@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Talossan\n"
 "Language: tzl_TZL\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:161
 msgid "All"
-msgstr ""
+msgstr "Toct"
 
 #: plugins/filemanager/resources/partial/properties.html:187
 msgid "Apply"
@@ -32,9 +32,8 @@ msgstr ""
 #: plugins/filemanager/resources/partial/index.html:69
 #: plugins/filemanager/resources/partial/index.html:82
 #: plugins/filemanager/resources/partial/properties.html:188
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:78
 msgid "Cancel"
-msgstr ""
+msgstr "Niþiliçarh"
 
 #: plugins/filemanager/resources/partial/properties.html:115
 msgid "Change permissions"
@@ -46,11 +45,11 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:138
 msgid "Close"
-msgstr ""
+msgstr "Fermarh"
 
 #: plugins/filemanager/resources/partial/index.html:56
 msgid "Copy"
-msgstr ""
+msgstr "Copiarh"
 
 #: plugins/filemanager/resources/partial/index.html:68
 #: plugins/filemanager/resources/partial/index.html:81
@@ -59,12 +58,11 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:55
 msgid "Cut"
-msgstr ""
+msgstr "Entaglharh"
 
 #: plugins/filemanager/resources/partial/index.html:57
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:77
 msgid "Delete"
-msgstr ""
+msgstr "Zeletarh"
 
 #: plugins/filemanager/resources/partial/properties.html:32
 msgid "DIRECTORY"
@@ -88,11 +86,11 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:37
 msgid "FILE"
-msgstr ""
+msgstr "FISCHEIR"
 
 #: plugins/filemanager/resources/partial/index.html:65
 msgid "File name"
-msgstr ""
+msgstr "Nómina del fischeir"
 
 #: plugins/filemanager/resources/partial/properties.html:18
 msgid "Full path"
@@ -121,7 +119,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/properties.html:10
 msgid "Name"
-msgstr ""
+msgstr "Nómina"
 
 #: plugins/filemanager/resources/partial/index.html:41
 #: plugins/filemanager/resources/partial/index.html:75
@@ -155,7 +153,7 @@ msgstr ""
 
 #: plugins/filemanager/resources/partial/index.html:121
 msgid "Remove"
-msgstr ""
+msgstr "Removarh"
 
 #: plugins/filemanager/resources/partial/index.html:137
 msgid "Remove all items"
@@ -201,38 +199,3 @@ msgstr ""
 msgid "File Manager"
 msgstr ""
 
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:15
-msgid "Could not load directory"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:76
-msgid "Delete selected items?"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:103
-msgid "Could not create file"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:119
-msgid "Could not create directory"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:141
-msgid "Uploaded"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:152
-msgid "Upload failed"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/index.controller.coffee:155
-msgid "Upload cancelled"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/properties.controller.coffee:15
-msgid "Could not read file information"
-msgstr ""
-
-#: plugins/filemanager/resources/js/controllers/properties.controller.coffee:28
-msgid "File mode saved"
-msgstr ""

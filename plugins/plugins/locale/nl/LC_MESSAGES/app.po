@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-18 15:51+0200\n"
-"PO-Revision-Date: 2016-04-08 06:53-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -24,22 +24,22 @@ msgstr "Ajenti core {{ajentiVersion}}, geen upgrades beschikbaar."
 msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
 msgstr "Ajenti core {{ajentiVersion}}. Een upgrade naar {{coreUpgradeAvailable}} is beschikbaar."
 
-#: plugins/plugins/resources/partial/index.html:141
-#: plugins/plugins/resources/partial/index.html:196
+#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:190
 #: plugins/plugins/resources/partial/repo-plugin.html:47
 msgid "Author"
 msgstr "Auteur"
 
-#: plugins/plugins/resources/partial/index.html:53
+#: plugins/plugins/resources/partial/index.html:47
 msgid "Available plugins"
 msgstr "Beschikbare PlugIns"
 
-#: plugins/plugins/resources/partial/index.html:160
-#: plugins/plugins/resources/partial/index.html:212
+#: plugins/plugins/resources/partial/index.html:154
+#: plugins/plugins/resources/partial/index.html:206
 msgid "Close"
 msgstr "Sluiten"
 
-#: plugins/plugins/resources/partial/index.html:76
+#: plugins/plugins/resources/partial/index.html:70
 msgid "Community"
 msgstr "Gemeenschap"
 
@@ -47,7 +47,7 @@ msgstr "Gemeenschap"
 msgid "Core"
 msgstr "Core"
 
-#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/index.html:184
 msgid "Downloads in the last month"
 msgstr "Downloads afgelopen maand"
 
@@ -55,68 +55,68 @@ msgstr "Downloads afgelopen maand"
 msgid "Downloads this month"
 msgstr "Downloads deze maand"
 
-#: plugins/plugins/resources/partial/index.html:109
+#: plugins/plugins/resources/partial/index.html:103
 msgid "Error"
 msgstr "Fout"
 
-#: plugins/plugins/resources/partial/index.html:120
+#: plugins/plugins/resources/partial/index.html:114
 msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:77
+#: plugins/plugins/resources/partial/index.html:71
 msgid "Filter"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:148
+#: plugins/plugins/resources/partial/index.html:142
 #: plugins/plugins/resources/partial/repo-plugin.html:55
 msgid "Homepage"
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:209
-#: plugins/plugins/resources/partial/index.html:62
-#: plugins/plugins/resources/partial/index.html:80
+#: plugins/plugins/resources/partial/index.html:203
+#: plugins/plugins/resources/partial/index.html:56
+#: plugins/plugins/resources/partial/index.html:74
 msgid "Install"
-msgstr ""
+msgstr "Installeren"
 
-#: plugins/plugins/resources/partial/index.html:27
+#: plugins/plugins/resources/partial/index.html:24
 msgid "Installed plugins"
 msgstr "Geïnstalleerde plug-ins"
 
-#: plugins/plugins/resources/partial/index.html:47
+#: plugins/plugins/resources/partial/index.html:41
 msgid "Loading error"
 msgstr "Fout tijdens het laden"
 
-#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:129
 msgid "Location"
 msgstr "Locatie"
 
-#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:117
 msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 msgstr "Bericht: <code>{{selectedInstalledPlugin.crash.message}}</code>"
 
-#: plugins/plugins/resources/partial/index.html:103
-#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/index.html:166
+#: plugins/plugins/resources/partial/index.html:97
 #: plugins/plugins/resources/partial/repo-plugin.html:7
 msgid "Name"
 msgstr "Naam"
 
-#: plugins/plugins/resources/partial/index.html:59
+#: plugins/plugins/resources/partial/index.html:53
 msgid "Official"
 msgstr "Officieel"
 
-#: plugins/plugins/resources/partial/index.html:221
+#: plugins/plugins/resources/partial/index.html:215
 msgid "Restart panel"
 msgstr "Herstart paneel"
 
-#: plugins/plugins/resources/partial/index.html:118
+#: plugins/plugins/resources/partial/index.html:112
 msgid "This plugin crashed with the following error:"
 msgstr "Deze plugin crashte met de volgende foutcode:"
 
-#: plugins/plugins/resources/partial/index.html:113
+#: plugins/plugins/resources/partial/index.html:107
 msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
 msgstr ""
 
-#: plugins/plugins/resources/partial/index.html:110
+#: plugins/plugins/resources/partial/index.html:104
 msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
 msgstr "Deze plugin vereist plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, die tijdens het opstarten niet beschikbaar was."
 
@@ -124,15 +124,12 @@ msgstr "Deze plugin vereist plugin <code>{{selectedInstalledPlugin.crash.pluginN
 msgid "Title"
 msgstr "Aanhef"
 
-#: plugins/plugins/resources/partial/index.html:157
-#: plugins/plugins/resources/partial/index.html:33
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
+#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:30
 msgid "Uninstall"
 msgstr "Deinstalleer"
 
-#: plugins/plugins/resources/partial/index.html:154
-#: plugins/plugins/resources/partial/index.html:23
-#: plugins/plugins/resources/partial/index.html:36
+#: plugins/plugins/resources/partial/index.html:148
 msgid "Update"
 msgstr "Bijwerken"
 
@@ -144,12 +141,12 @@ msgstr "Alles bijwerken"
 msgid "Updates"
 msgstr "Updates"
 
-#: plugins/plugins/resources/partial/index.html:44
+#: plugins/plugins/resources/partial/index.html:38
 msgid "Upgradeable to {{getUpgrade(plugin).version}}"
 msgstr "Up te daten naar versie {{getUpgrade(plugin).version}}"
 
-#: plugins/plugins/resources/partial/index.html:129
-#: plugins/plugins/resources/partial/index.html:178
+#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:172
 #: plugins/plugins/resources/partial/repo-plugin.html:23
 msgid "Version"
 msgstr "Versie"
@@ -157,98 +154,4 @@ msgstr "Versie"
 #: plugins/plugins/main.py:15
 msgid "Plugins"
 msgstr "Plugins"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:25
-msgid "Could not load plugin repository"
-msgstr "Kan plugin repository niet laden"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:27
-msgid "Could not load the installed plugin list"
-msgstr "Kan de lijst van geïnstalleerde plugin niet laden"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:38
-msgid "Upgrading"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Done"
-msgstr "Gereed"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-msgid "Upgrade complete. A panel restart is absolutely required."
-msgstr "De upgrade is voltooid. Paneel herstarten is veriest."
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:40
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Restart now"
-msgstr "Nu opnieuw opstarten"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:43
-msgid "Upgrade failed"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:73
-msgid "All plugins updated"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-msgid "Installed. A panel restart is required."
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:74
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:125
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Later"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:77
-msgid "Some plugins failed to update"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:97
-msgid "Updating plugins"
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:129
-msgid "Install failed"
-msgstr "Installatie mislukt"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "Warning"
-msgstr "Waarschuwing"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "This will remove the Plugins plugin. You can reinstall it later using PIP."
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-msgid "Continue"
-msgstr "Doorgaan"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:135
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:143
-msgid "Uninstall #{plugin.name}?"
-msgstr "#{plugin.name} verwijderen?"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:144
-msgid "Uninstalling"
-msgstr "Bezig met de-installeren"
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:147
-msgid "Uninstalled. A panel restart is required."
-msgstr ""
-
-#: plugins/plugins/resources/js/controllers/index.controller.coffee:150
-msgid "Uninstall failed"
-msgstr "Verwijderen mislukt"
 

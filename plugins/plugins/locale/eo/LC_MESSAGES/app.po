@@ -1,0 +1,157 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/plugins.po\n"
+
+#: plugins/plugins/resources/partial/index.html:14
+msgid "Ajenti core {{ajentiVersion}}, no upgrades available."
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:20
+msgid "Ajenti core {{ajentiVersion}}. An upgrade to {{coreUpgradeAvailable}} is available."
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:135
+#: plugins/plugins/resources/partial/index.html:190
+#: plugins/plugins/resources/partial/repo-plugin.html:47
+msgid "Author"
+msgstr "Aŭtoro"
+
+#: plugins/plugins/resources/partial/index.html:47
+msgid "Available plugins"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:154
+#: plugins/plugins/resources/partial/index.html:206
+msgid "Close"
+msgstr "Fermi"
+
+#: plugins/plugins/resources/partial/index.html:70
+msgid "Community"
+msgstr "Komunumo"
+
+#: plugins/plugins/resources/partial/index.html:10
+msgid "Core"
+msgstr "Kerno"
+
+#: plugins/plugins/resources/partial/index.html:184
+msgid "Downloads in the last month"
+msgstr ""
+
+#: plugins/plugins/resources/partial/repo-plugin.html:39
+msgid "Downloads this month"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:103
+msgid "Error"
+msgstr "Eraro"
+
+#: plugins/plugins/resources/partial/index.html:114
+msgid "Exception: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+msgstr "Escepto: <code>{{selectedInstalledPlugin.crash.cls}}</code>"
+
+#: plugins/plugins/resources/partial/index.html:71
+msgid "Filter"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:142
+#: plugins/plugins/resources/partial/repo-plugin.html:55
+msgid "Homepage"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:203
+#: plugins/plugins/resources/partial/index.html:56
+#: plugins/plugins/resources/partial/index.html:74
+msgid "Install"
+msgstr "Instali"
+
+#: plugins/plugins/resources/partial/index.html:24
+msgid "Installed plugins"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:41
+msgid "Loading error"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:129
+msgid "Location"
+msgstr "Loko"
+
+#: plugins/plugins/resources/partial/index.html:117
+msgid "Message: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+msgstr "Mesaĝo: <code>{{selectedInstalledPlugin.crash.message}}</code>"
+
+#: plugins/plugins/resources/partial/index.html:166
+#: plugins/plugins/resources/partial/index.html:97
+#: plugins/plugins/resources/partial/repo-plugin.html:7
+msgid "Name"
+msgstr "Nomo"
+
+#: plugins/plugins/resources/partial/index.html:53
+msgid "Official"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:215
+msgid "Restart panel"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:112
+msgid "This plugin crashed with the following error:"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:107
+msgid "This plugin requires application binary <code>{{selectedInstalledPlugin.crash.binaryName}}</code>, which was unavailable during startup."
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:104
+msgid "This plugin requires plugin <code>{{selectedInstalledPlugin.crash.pluginName}}</code>, which was unavailable during startup."
+msgstr ""
+
+#: plugins/plugins/resources/partial/repo-plugin.html:15
+msgid "Title"
+msgstr "Titolo"
+
+#: plugins/plugins/resources/partial/index.html:151
+#: plugins/plugins/resources/partial/index.html:30
+msgid "Uninstall"
+msgstr "Malinstali"
+
+#: plugins/plugins/resources/partial/index.html:148
+msgid "Update"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:6
+msgid "Update everything"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:3
+msgid "Updates"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:38
+msgid "Upgradeable to {{getUpgrade(plugin).version}}"
+msgstr ""
+
+#: plugins/plugins/resources/partial/index.html:123
+#: plugins/plugins/resources/partial/index.html:172
+#: plugins/plugins/resources/partial/repo-plugin.html:23
+msgid "Version"
+msgstr "Versio"
+
+#: plugins/plugins/main.py:15
+msgid "Plugins"
+msgstr ""
+

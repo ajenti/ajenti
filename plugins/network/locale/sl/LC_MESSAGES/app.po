@@ -2,16 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: ajenti\n"
 "X-Crowdin-Language: sl\n"
@@ -109,7 +108,6 @@ msgid "Metric"
 msgstr "Metrično"
 
 #: plugins/network/resources/partial/index.html:4 plugins/network/main.py:17
-#: plugins/network/resources/js/controllers/index.controller.coffee:2
 msgid "Network"
 msgstr "Omrežje"
 
@@ -191,74 +189,3 @@ msgstr "Konfiguriraj omrežne vmesnike"
 msgid "Activate/deactivate network interfaces"
 msgstr "Vključi/izključi omrežne vmesnike"
 
-#: plugins/network/resources/js/controllers/index.controller.coffee:10
-msgid "Static"
-msgstr "Statični"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:11
-msgid "Auto"
-msgstr "Samodejno"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:13
-msgid "Manual"
-msgstr "Ročno"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:14
-msgid "Loopback"
-msgstr "Povratna zanka"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:40
-msgid "Interface activated"
-msgstr "Vmesnik aktiviran"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:45
-#: plugins/network/resources/js/controllers/index.controller.coffee:56
-msgid "Warning"
-msgstr "Opozorilo"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:46
-msgid "Deactivating a network interface can lock you out of the remote session"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:47
-msgid "Deactivate"
-msgstr "Deaktiviraj"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:48
-#: plugins/network/resources/js/controllers/index.controller.coffee:59
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:51
-msgid "Interface deactivated"
-msgstr "Vmesnik je bil izklopljen"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:57
-msgid "Restarting a network interface can lock you out of the remote session"
-msgstr ""
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:58
-msgid "Restart"
-msgstr "Ponovni zagon"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:63
-msgid "Interface reactivated"
-msgstr "Vmesnik ponovno aktiviran"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:69
-msgid "Hostname changed"
-msgstr "Ime gostitelja je bilo spremenjeno"
-
-#: plugins/network/resources/js/controllers/index.controller.coffee:71
-msgid "Failed"
-msgstr "Ni uspelo"
-
-#: plugins/network/resources/js/controllers/dns.controller.coffee:11
-#: plugins/network/resources/js/controllers/hosts.controller.coffee:19
-msgid "Saved"
-msgstr "Shranjeno"
-
-#: plugins/network/resources/js/controllers/dns.controller.coffee:13
-#: plugins/network/resources/js/controllers/hosts.controller.coffee:21
-msgid "Could not save"
-msgstr "Ni bilo mogoče shraniti"

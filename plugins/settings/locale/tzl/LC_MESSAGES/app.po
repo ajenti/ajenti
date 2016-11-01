@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 18:21+0300\n"
-"PO-Revision-Date: 2016-04-08 06:54-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:54-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Talossan\n"
 "Language: tzl_TZL\n"
@@ -16,16 +16,8 @@ msgstr ""
 "X-Crowdin-Language: tzl\n"
 "X-Crowdin-File: /2.0/settings.po\n"
 
-#: plugins/settings/resources/partial/index.html:246
-msgid "Add"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:76
 msgid "Allow sudo elevation for logged in users"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:204
-msgid "Allows login with a confirmed e-mail address via <a href=\"https://login.persona.org/about\" target=\"_blank\">Mozilla Persona</a> auth service. Requires server-side internet access."
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:67
@@ -37,10 +29,8 @@ msgid "Binding"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:188
-#: plugins/settings/resources/partial/index.html:247
-#: plugins/settings/resources/js/controllers/index.controller.coffee:61
 msgid "Cancel"
-msgstr ""
+msgstr "Niþiliçarh"
 
 #: plugins/settings/resources/partial/index.html:16
 msgid "Color tag"
@@ -52,7 +42,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:169
 msgid "Country"
-msgstr ""
+msgstr "Päts"
 
 #: plugins/settings/resources/partial/index.html:112
 msgid "Deny other means of authentication"
@@ -60,14 +50,6 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:159
 msgid "Download certificate"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:237
-msgid "E-mail address"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:203
-msgid "E-mail authentication"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:109
@@ -79,7 +61,6 @@ msgid "Enable SSL"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:187
-#: plugins/settings/resources/js/controllers/index.controller.coffee:60
 msgid "Generate"
 msgstr ""
 
@@ -88,7 +69,6 @@ msgid "Generate a self-signed certificate"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:152
-#: plugins/settings/resources/js/controllers/index.controller.coffee:64
 msgid "Generating certificate"
 msgstr ""
 
@@ -98,7 +78,7 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:30
 msgid "Language"
-msgstr ""
+msgstr "Glheþ"
 
 #: plugins/settings/resources/partial/index.html:165
 msgid "Login as"
@@ -106,10 +86,6 @@ msgstr ""
 
 #: plugins/settings/resources/partial/index.html:10
 msgid "Machine name"
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:229
-msgid "New address"
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:142
@@ -120,16 +96,8 @@ msgstr ""
 msgid "New client certificate"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:233
-msgid "New e-mail address"
-msgstr ""
-
 #: plugins/settings/resources/partial/index.html:119
 msgid "No certificates are created yet."
-msgstr ""
-
-#: plugins/settings/resources/partial/index.html:208
-msgid "No e-mail addresses added yet."
 msgstr ""
 
 #: plugins/settings/resources/partial/index.html:177
@@ -140,17 +108,17 @@ msgstr ""
 msgid "Port"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:212
+#: plugins/settings/resources/partial/index.html:209
 msgid "Remove"
-msgstr ""
+msgstr "Removarh"
 
-#: plugins/settings/resources/partial/index.html:257
+#: plugins/settings/resources/partial/index.html:254
 msgid "Restart panel"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:256
+#: plugins/settings/resources/partial/index.html:253
 msgid "Save"
-msgstr ""
+msgstr "Guardarh"
 
 #: plugins/settings/resources/partial/index.html:192
 msgid "Save and Close"
@@ -184,49 +152,7 @@ msgstr ""
 msgid "This might take a few seconds"
 msgstr ""
 
-#: plugins/settings/resources/partial/index.html:241
-msgid "User to log in"
-msgstr ""
-
 #: plugins/settings/main.py:15
-#: plugins/settings/resources/js/controllers/index.controller.coffee:2
 msgid "Settings"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:38
-msgid "Could not load authentication provider list"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:40
-msgid "Could not load config"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:52
-msgid "Saved"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:54
-msgid "Could not save config"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:58
-msgid "Self-signed certificate"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:59
-msgid "Generating a new certificate will void all existing client authentication certificates!"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:64
-msgid "Please wait"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:66
-msgid "Certificate successfully generated"
-msgstr ""
-
-#: plugins/settings/resources/js/controllers/index.controller.coffee:72
-#: plugins/settings/resources/js/controllers/index.controller.coffee:89
-msgid "Certificate generation failed"
-msgstr ""
+msgstr "Setatxen"
 

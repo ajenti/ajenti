@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ajenti\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-04 13:39+0200\n"
-"PO-Revision-Date: 2016-04-08 06:53-0400\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:53-0400\n"
 "Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -25,9 +25,8 @@ msgid "Set time"
 msgstr "Idő beállítása"
 
 #: plugins/datetime/resources/partial/index.html:9
-#, fuzzy
 msgid "Set timezone"
-msgstr "Idő beállítása"
+msgstr ""
 
 #: plugins/datetime/resources/partial/index.html:31
 msgid "Sync time from the Internet"
@@ -45,29 +44,3 @@ msgstr "Dátum és idő megváltoztatása"
 msgid "ntpdate utility is not installed"
 msgstr "ntpdate típus nincs telepítve"
 
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:2
-msgid "Date & Time"
-msgstr "Dátum & Idő"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:24
-#, fuzzy
-msgid "Timezone set"
-msgstr "Időbeállítás"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:27
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:33
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:41
-msgid "Failed"
-msgstr "Hiba"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:31
-msgid "Time set"
-msgstr "Időbeállítás"
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:36
-msgid "Synchronizing..."
-msgstr "Szinkronizálás..."
-
-#: plugins/datetime/resources/js/controllers/index.controller.coffee:39
-msgid "Time synchronized"
-msgstr "Idő szinkronizálva"

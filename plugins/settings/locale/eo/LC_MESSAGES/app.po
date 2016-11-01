@@ -1,0 +1,158 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/settings.po\n"
+
+#: plugins/settings/resources/partial/index.html:76
+msgid "Allow sudo elevation for logged in users"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:67
+msgid "Authentication provider"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:39
+msgid "Binding"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:188
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: plugins/settings/resources/partial/index.html:16
+msgid "Color tag"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:181
+msgid "Common name"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:169
+msgid "Country"
+msgstr "Lando"
+
+#: plugins/settings/resources/partial/index.html:112
+msgid "Deny other means of authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:159
+msgid "Download certificate"
+msgstr "Elŝuti atestilon"
+
+#: plugins/settings/resources/partial/index.html:109
+msgid "Enable client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:85
+msgid "Enable SSL"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:187
+msgid "Generate"
+msgstr "Generi"
+
+#: plugins/settings/resources/partial/index.html:98
+msgid "Generate a self-signed certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:152
+msgid "Generating certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:50
+msgid "Host / IP"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:30
+msgid "Language"
+msgstr "Lingvo"
+
+#: plugins/settings/resources/partial/index.html:165
+msgid "Login as"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:10
+msgid "Machine name"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:142
+msgid "New certificate"
+msgstr "Nova atestilo"
+
+#: plugins/settings/resources/partial/index.html:147
+msgid "New client certificate"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:119
+msgid "No certificates are created yet."
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:177
+msgid "Organization"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:53
+msgid "Port"
+msgstr "Pordo"
+
+#: plugins/settings/resources/partial/index.html:209
+msgid "Remove"
+msgstr "Forigi"
+
+#: plugins/settings/resources/partial/index.html:254
+msgid "Restart panel"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:253
+msgid "Save"
+msgstr "Konservi"
+
+#: plugins/settings/resources/partial/index.html:192
+msgid "Save and Close"
+msgstr "Konservi kaj fermi"
+
+#: plugins/settings/resources/partial/index.html:58
+msgid "Socket path"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:91
+msgid "SSL certificate file"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:107
+msgid "SSL client authentication"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:117
+msgid "SSL client certificates"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:173
+msgid "State"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:74
+msgid "Sudo"
+msgstr ""
+
+#: plugins/settings/resources/partial/index.html:153
+msgid "This might take a few seconds"
+msgstr ""
+
+#: plugins/settings/main.py:15
+msgid "Settings"
+msgstr "Agordoj"
+

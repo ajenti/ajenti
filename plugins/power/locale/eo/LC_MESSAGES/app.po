@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ajenti\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
+"PO-Revision-Date: 2016-11-01 18:52-0400\n"
+"Last-Translator: eugenepankov <john.pankov@gmail.com>\n"
+"Language-Team: Esperanto\n"
+"Language: eo_UY\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ajenti\n"
+"X-Crowdin-Language: eo\n"
+"X-Crowdin-File: /2.0/power.po\n"
+
+#: plugins/power/resources/partial/index.html:61
+msgid "{{battery.voltage}} V"
+msgstr "{{battery.voltage}} V"
+
+#: plugins/power/resources/partial/index.html:72
+msgid "Adapters"
+msgstr "Adaptiloj"
+
+#: plugins/power/resources/partial/index.html:32
+msgid "Batteries"
+msgstr "Baterioj"
+
+#: plugins/power/resources/partial/index.html:55
+msgid "Charging"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:58
+msgid "Discharging at {{battery.rate}} W"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:22
+msgid "Hibernate"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:75
+msgid "No adapters detected"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:35
+msgid "No batteries detected"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:92
+msgid "Not available"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:89
+msgid "Plugged in"
+msgstr ""
+
+#: plugins/power/resources/partial/widget.html:2 plugins/power/main.py:16
+msgid "Power"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:13
+msgid "Power off"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:16
+msgid "Reboot"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:19
+msgid "Suspend"
+msgstr ""
+
+#: plugins/power/resources/partial/index.html:6
+msgid "System uptime"
+msgstr ""
+
+#: plugins/power/main.py:30
+msgid "Shutdown and reboot the system"
+msgstr ""
+
+#: plugins/power/widget.py:9
+msgid "Power state"
+msgstr ""
+

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-19 17:45+0200\n"
+"POT-Creation-Date: 2016-11-01 23:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,6 @@ msgstr ""
 
 #: plugins/dashboard/resources/partial/index.html:22
 #: plugins/dashboard/resources/partial/widget.html:7
-#: plugins/dashboard/resources/js/controllers/index.controller.coffee:75
 msgid "Remove"
 msgstr ""
 
@@ -88,21 +87,7 @@ msgid "Uptime"
 msgstr ""
 
 #: plugins/dashboard/main.py:15
-#: plugins/dashboard/resources/js/controllers/index.controller.coffee:2
 msgid "Dashboard"
-msgstr ""
-
-#: plugins/dashboard/resources/js/controllers/index.controller.coffee:62
-#: plugins/dashboard/resources/js/controllers/index.controller.coffee:82
-msgid "New name"
-msgstr ""
-
-#: plugins/dashboard/resources/js/controllers/index.controller.coffee:74
-msgid "Remove the '#{$scope.userConfig.dashboard.tabs[index].name}' tab?"
-msgstr ""
-
-#: plugins/dashboard/resources/js/controllers/index.controller.coffee:76
-msgid "Cancel"
 msgstr ""
 
 #: plugins/dashboard/widgets/loadavg.py:12
