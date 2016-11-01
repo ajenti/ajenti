@@ -2,7 +2,7 @@ name: network
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.17'
+version: '0.18'
 title: 'Network'
 icon: plug
 dependencies:
