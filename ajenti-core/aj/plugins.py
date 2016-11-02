@@ -39,11 +39,15 @@ class DirectoryPluginProvider(PluginProvider):
 
     def provide(self):
         found_plugins = []
+        if os.path.exists(os.path.join(self.path, 'plugin.yml')):
+            found_plugins.append(self.path)
+
         for _dir in os.listdir(self.path):
             path = os.path.join(self.path, _dir)
             if os.path.isdir(path):
                 if os.path.exists(os.path.join(path, 'plugin.yml')):
                     found_plugins.append(path)
+
         return found_plugins
 
 
