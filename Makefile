@@ -46,7 +46,7 @@ pull-crowdin:
 check:
 	ajenti-dev-multitool --find-outdated
 
-upload: build
+upload:
 	cd ajenti-core && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
 	cd ajenti-panel && ./setup.py sdist upload --sign --identity "Ajenti Packagers"
 

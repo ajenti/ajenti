@@ -64,6 +64,7 @@ echo ":: Upgrading PIP"
 rm /usr/lib/python2.7/dist-packages/setuptools.egg-info || true # for debian 7
 easy_install -U pip
 pip install -U pip distribute setuptools
+pip uninstall gevent-socketio
 
 echo ":: Installing Ajenti"
 `which pip` install ajenti-panel ajenti.plugin.dashboard ajenti.plugin.settings ajenti.plugin.plugins ajenti.plugin.notepad ajenti.plugin.terminal ajenti.plugin.filemanager ajenti.plugin.packages ajenti.plugin.services || exit 1
