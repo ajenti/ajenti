@@ -1,112 +1,133 @@
 .. _dev-getting-started:
 
-Getting Started with Plugin Development
-***************************************
+Getting Started
+***************
 
 Required knowledge
 ==================
 
-Building plugin backend API:
-
-  * Python 2.x
-  * async programming with gevent (optional but recommended)
-
-Build plugin frontend:
-
-  * JavaScript (ES5, ES6 or Coffee)
+  * Python 2
+  * JavaScript (ES5, ES6 or CoffeeScript)
   * basic AngularJS knowledge (modules & controllers)
-  * basic HTML layout
-  * CSS or LESS (optional, for custom styling)
+  * basic HTML skills
 
-Prerequisites
+Setting up development environent
+=================================
+
+1. Install Ajenti
+-----------------
+
+We recommend to use the automatic installer - see the :ref:`installation guide <installing>`
+
+2. Install build tools
+----------------------
+
+Build tools require NodeJS - you can use the NodeSource repositories for quick setup::
+
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_7.x | bash -
+    apt-get install -y nodejs
+
+    # Using RHEL or centos, as root
+    curl -sL https://rpm.nodesource.com/setup_7.x | bash -
+    yum install nodejs
+
+Now, install the build tools::
+
+    npm -g install bower babel-cli babel-preset-es2015
+
+
+    .. HINT::
+
+        For LESS support, add::
+
+            npm -g install less
+
+        For CoffeeScript support, add::
+
+            npm -g install coffee-script
+
+        For localization support, add::
+
+            npm -g angular-gettext-cli angular-gettext-tools
+
+            # Ubuntu or Debian:
+            apt-get install gettext
+
+            # RHEL or CentOS
+            yum install gettext
+
+
+3. Install ajenti-dev-multitool
+-------------------------------
+
+    pip install ajenti-dev-multitool
+
+Your first plugin
+=================
+
+    Create a new plugin in the current directory::
+
+        ajenti-dev-multitool --new-plugin "Some plugin name"
+
+    Build resources::
+
+        cd some_plugin_name
+        ajenti-dev-multitool --build
+
+    And start it::
+
+        sudo ajenti-dev-multitool --run-dev
+
+    This will start Ajenti with the stock plugins plus the current one, and will rebuild plugin resources every time you reload Ajenti in browser.
+
+    Navigate to http://localhost:8000/. You should see new plugin in the sidebar.
+
+
+What's inside
 =============
 
-The following is the absolutely minimal set of software required to build and run Ajenti:
+Each plugin package consists of Python modules, which contain :class:`jadi.component` classes (*components*).
+Packages also may contain :ref:`static files, templates and JS and CSS code <dev-resources>`, e.g.::
 
-  * Node, bower, babel, babel-preset-es2015 and lessc (from NPM)
-
-
-Debian/Ubuntu extras:
-
-  * python-dbus (ubuntu)
-
-
-Setting up
-==========
-
-Install complete Ajenti bundle as outlined in the :ref:`installation guide <installing>`.
-
-.. HINT::
-
-    Development environment requires Node.js and NPM - if your distribution does not include a recent Node.js version, use the Nodesource repositories::
-
-        # Ubuntu
-        curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-
-        # Debian, as root
-        curl -sL https://deb.nodesource.com/setup_5.x | bash -
-        apt-get install -y nodejs
-
-        # RHEL / CentOS
-        curl -sL https://rpm.nodesource.com/setup_5.x | bash -
+      * some_plugin_name
+        - plugin.yml # plugin description
+        - __init__.py
+        - other_python_module.py
+        * resources
+          * vendor
+            - jquery-ui # Bower components
+        * js
+          - module.js # Angular.js code
+          - ecmascript6-code.es
+          - coffeescript-code.coffee
+        * css
+          - styles.css
+          - styles.less
+        * partials
+          -- index.html
 
 
-Install the dependencies::
-
-    sudo pip install ajenti-dev-multitool
-    sudo npm install -g babel babel-preset-es6 less bower angular-gettext-cli angular-gettext-tools
-
-.. WARNING::
-  We highly recommend to start with existing well-commented demo plugins instead of making ones from scratch.
-  Download plugins from here: https://github.com/ajenti/demo-plugins or clone this entire repository.
-
-  Navigate into the ``demo-plugins`` directory. Download and install Bower dependencies::
-
-      ajenti-dev-multitool --bower install
-
-Ensure that resource compilation is set up correctly and works (optional)::
-
-    ajenti-dev-multitool --build
-
-Launch Ajenti in dev mode with the plugins from the current directory::
-
-    sudo ajenti-dev-multitool --run-dev
-
-Navigate to http://localhost:8000/. You should see those demo plugins in the sidebar.
-
-.. HINT::
-  Changes in ES6, CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources
-
+Where to go from here
+=====================
 
 Example plugins
-===============
+---------------
 
-Make sure to run ``make bower`` restart Ajenti afterwards.
+    Download plugins from here: https://github.com/ajenti/demo-plugins or clone this entire repository.
 
-Plugin structure
-================
+    Prep work::
 
-Each plugin package consists of few Python modules, which contain :class:`jadi.component` classes (*components*).
-Packages also may contain :ref:`static files, JS and CSS code <dev-resources>`::
+        ajenti-dev-multitool --bower install
+        ajenti-dev-multitool --rebuild
 
+    Run::
 
-      * plugins
-        * myplugin
-          - plugin.yml # plugin descriptions
-          - __init__.py
-          * module
-            - stuff.py
-          - morestuff.py
-          * resources
-            * vendor
-              - ... # Bower components
-            * partial # view templates
-              - index.html
-              - view.html
-            * js
-              - module.js # Angular.js module
-              * services # other angular components
-                - some.service.js
-            * css
-                - styles.css
+        ajenti-dev-multitool --run-dev
+
+    .. HINT::
+      Changes in ES6, CoffeeScript and LESS files will be recompiled automatically when you refresh the page; Python code will not. Additional debug information will be available in the console output and browser console. Reloading the page with Ctrl-F5 (``Cache-Control: no-cache``) will unconditionally rebuild all resources

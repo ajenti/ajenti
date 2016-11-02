@@ -1,4 +1,4 @@
-.. .. seealso:: 
+.. .. seealso::
 ..   * :ref:`Installing <installing>`
 ..   * :ref:`About Ajenti <man-about>`
 ..   * :ref:`Plugin development <dev-getting-started>`
@@ -71,7 +71,7 @@ Platforms
 
 .. toctree::
    :maxdepth: 1
-   :caption: General
+   :caption: Users
    :hidden:
 
    man/install.rst
@@ -80,17 +80,23 @@ Platforms
 
 .. toctree::
    :maxdepth: 1
-   :caption: Developers
+   :caption: Plugin Developers
    :hidden:
 
    dev/about.rst
    dev/intro.rst
-   dev/intro-core.rst
    dev/multitool.rst
    dev/ui.rst
    dev/resources.rst
    dev/http.rst
    dev/dash-widgets.rst
+
+.. toctree::
+  :maxdepth: 1
+  :caption: Core Developers
+  :hidden:
+
+  dev/intro-core.rst
 
 
 .. toctree::
