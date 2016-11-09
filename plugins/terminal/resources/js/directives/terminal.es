@@ -204,10 +204,9 @@ angular.module('ajenti.terminal').directive('terminal', ($timeout, $log, $q, soc
             for (var y in data.lines) {
                 let row = data.lines[y];
                 let line = '';
-                let iterable = __range__(0, row.length, false);
-                for (let i = 0; i < iterable.length; i++) {
-                    let x = iterable[i];
-                    let cell = row[x];
+
+                for (let x in row) {
+                    let cell = row[x]
                     if (cell) {
                         line += cell[0];
                     }
