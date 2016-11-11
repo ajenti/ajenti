@@ -2,6 +2,7 @@ import hashlib
 import time
 import random
 import gevent
+import pyotp
 
 import ajenti
 from ajenti.api import *
@@ -130,8 +131,30 @@ class AuthenticationMiddleware (HttpHandler):
 
     def try_login(self, context, username, password, env=None):
         if UserManager.get().check_password(username, password, env=env):
+            userdata = ajenti.config.tree.users[username]
+            if(userdata.otp_config != None):
+                return 'OTP_REQUIRED'
             self.login(context, username)
-            return True
+            return 'SUCCESS'
+        return 'FAILED'
+
+    def verify_otp_challange(self, context, username, token):
+        if not username or not token:
+            return False
+
+        if not username in ajenti.config.tree.users:
+            return False
+
+        userdata = ajenti.config.tree.users[username]
+        if userdata.otp_config == None:
+            return False
+
+        if userdata.otp_config['type'] == 'TOTP':
+            totp = pyotp.TOTP(userdata.otp_config['secret'])
+            if totp.verify(token):
+                self.login(context, username)
+                return True
+
         return False
 
     def login(self, context, username):

@@ -42,3 +42,10 @@ class ToggleButton (UIElement):
 @plugin
 class ProgressBar (UIElement):
     typeid = 'progressbar'
+
+
+@p('src', default=None)
+@p('width', default=200)
+@plugin
+class Image (UIElement):
+    typeid = 'image'

@@ -1,20 +1,50 @@
 <vc>
     <body>
         <pad>
-            <formgroup text="{Password change}">
-                <vc>
-                    <formline text="{Old password}">
-                        <passwordbox id="old-password" />
-                    </formline>
-                    <formline text="{New password}">
-                        <passwordbox id="new-password" />
-                    </formline>
-                    <formline text="{Password confirmation}">
-                        <passwordbox id="new-password-2" />
-                    </formline>
-                </vc>
-            </formgroup>
+            <tabs>
+                <tab title="{Password change}">
+                    <vc>
+                        <formgroup text="{Password change}">
+                            <vc>
+                                <formline text="{Old password}">
+                                    <passwordbox id="old-password" />
+                                </formline>
+                                <formline text="{New password}">
+                                    <passwordbox id="new-password" />
+                                </formline>
+                                <formline text="{Password confirmation}">
+                                    <passwordbox id="new-password-2" />
+                                </formline>
+                            </vc>
+                        </formgroup>
+                    </vc>
+
+                    <button id="save" text="{Save}" icon="ok" />
+                </tab>
+                <tab title="{Two Factor Authentication}">
+                    <dialog id="dialog" visible="False">
+                        <pad id="container">
+                            <formgroup text="{Configure Two Factor Authentication}">
+                                <label text="{Scan following QR code with your TOTP App (eg: Google Authenticator)}" />
+                                <image id="qrcode"/>
+
+                                <formline text="TOTP Uri">
+                                    <textbox id="secret" readonly="True"></textbox>
+                                </formline>
+                            </formgroup>
+                        </pad>
+                    </dialog>
+
+                    <formgroup text="{Two Factor Authentication}">
+                    <vc>
+                        <button id="enable-otp" text="{Enable 2FA}" />
+                        <button id="reconfigure-otp" text="{Reconfigure 2FA}" visible="False" />
+                        <button id="disable-otp" text="{Disable 2FA}" visible="False" />
+                    </vc>
+                    </formgroup>
+                </tab>
+            </tabs>
+
         </pad>
     </body>
-    <button id="save" text="{Save}" icon="ok" />
 </vc>

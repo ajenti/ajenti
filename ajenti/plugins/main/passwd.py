@@ -4,6 +4,11 @@ from ajenti.plugins.main.api import SectionPlugin
 from ajenti.ui import on
 from ajenti.users import UserManager
 
+import pyotp
+import pyqrcode
+import base64
+import io
+import platform
 
 @plugin
 class PasswordChangeSection (SectionPlugin):
@@ -13,6 +18,9 @@ class PasswordChangeSection (SectionPlugin):
         self.category = ''
         self.order = 51
         self.append(self.ui.inflate('main:passwd-main'))
+        self.refreshOTPView()
+
+
 
     @on('save', 'click')
     def save(self):
@@ -27,3 +35,57 @@ class PasswordChangeSection (SectionPlugin):
         UserManager.get().set_password(self.context.session.identity, new_password)
         ajenti.config.save()
         self.context.notify('info', _('Password changed'))
+
+    @on('reconfigure-otp', 'click')
+    def reconfigureOTP(self):
+        self.enableOTP()
+
+    @on('enable-otp', 'click')
+    def enableOTP(self):
+        secret = pyotp.random_base32()
+        totp = pyotp.TOTP(secret)
+        dialog = self.find('dialog')
+
+        username = self.context.session.identity
+
+        buffer = io.BytesIO()
+        uri = totp.provisioning_uri(username + "@" + platform.node())
+        self.find('secret').value = uri
+        qrcode = pyqrcode.create(uri)
+        qrcode.svg(buffer)
+
+        image = self.find('qrcode')
+        image.src = "data:image/svg+xml;base64," + base64.b64encode(buffer.getvalue())
+
+        self.find('dialog').visible = True
+
+        def confirm(button=None):
+            data = {
+                'type': "TOTP",
+                'secret': secret
+            }
+
+            ajenti.config.tree.users[username].otp_config = data
+            ajenti.config.save()
+            dialog.visible = False
+            self.refreshOTPView()
+            self.context.notify(
+                'info',
+                _('Two Factor Authentication enabled.')
+            )
+
+        dialog.on('button', confirm)
+
+    @on('disable-otp', 'click')
+    def disableOTP(self):
+        username = self.context.session.identity
+        ajenti.config.tree.users[username].otp_config = None
+        ajenti.config.save()
+        self.refreshOTPView()
+
+    def refreshOTPView(self):
+        username = self.context.session.identity
+        has_otp = ajenti.config.tree.users[username].otp_config != None
+        self.find('enable-otp').visible = not has_otp
+        self.find('reconfigure-otp').visible = has_otp
+        self.find('disable-otp').visible = has_otp

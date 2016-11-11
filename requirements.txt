@@ -3,6 +3,8 @@ gevent-socketio
 gevent-websocket
 lxml>=2.2.4
 passlib
+pyotp
+pyqrcode
 psutil>=0.6.0
 python-catcher
 python-daemon

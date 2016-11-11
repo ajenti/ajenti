@@ -20,7 +20,7 @@
             <div class="page auth login">
                 <div class="content content-gradient">
                     <img class="logo" src="/ajenti:static/main/icon.png" />
-                    <form action="/ajenti:auth" method="POST">
+                    <form id="login-form" action="/ajenti:auth" method="POST">
                         <div class="form-upper">
                             <div class="row">
                                 <div class="l control label">Username</div>
@@ -44,6 +44,24 @@
                             </button>
                         </div>
                     </form>
+
+                    <form id="totp-form" action="/ajenti:auth-otp" method="POST">
+                        <div class="form-upper">
+                            <div class="row">
+                                <div class="l control label">Token</div>
+                                <div><input class="control textbox" name="token" /></div>
+                            </div>
+                        </div>
+                        <div class="form-lower">
+                            <button class="control button style-normal" id="login-2fa">
+                                <i class="icon-arrow-right"></i> Log in
+                            </button>
+
+                            <a class="control button style-normal" id="cancel">
+                                <i class="icon-arrow-left"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -57,6 +75,10 @@
 
             #content-root-no-css code {
                 font-family: monospace;
+            }
+
+            #totp-form {
+                display: none;
             }
         </style>
 
@@ -120,6 +142,35 @@
                     navigator.id.request({
                         siteName: $('title').text(),
                     });
+                });
+
+                $('#login-form').on('submit', function(e){
+                    e.preventDefault();
+                    var $loginForm = $(this);
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: $loginForm.attr('action'),
+                        data: $loginForm.serialize(),
+                        success: function(res, status, xhr){
+                            if(res.result == 'OTP_REQUIRED') {
+                                $loginForm.hide();
+                                //TODO: load challenge from server instead
+                                $('#totp-form').show().find('input').focus();
+                            } else {
+                                window.location.reload();
+                            }
+                        },
+                        error: function(xhr, status, err) {
+                            alert("Login failure: " + err);
+                        }
+                    });
+
+                });
+
+                $('#cancel').on('click', function(){
+                    $('#totp-form').hide();
+                    $('#login-form').show()[0].reset();
                 });
             });
         </script>

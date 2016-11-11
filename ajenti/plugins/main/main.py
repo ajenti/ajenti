@@ -43,12 +43,31 @@ class MainServer (BasePlugin, HttpPlugin):
     def handle_auth(self, context):
         username = context.query.getvalue('username', '')
         password = context.query.getvalue('password', '')
-        if not AuthenticationMiddleware.get().try_login(
+        login_result = AuthenticationMiddleware.get().try_login(
             context, username, password, env=context.env,
-        ):
+        )
+
+        if login_result == 'FAILED':
             context.session.data['login-error'] = _('Invalid login or password')
             gevent.sleep(3)
+
+        if  login_result == 'OTP_REQUIRED':
+            context.session.data['otp-user'] = username
+        context.add_header('Content-Type', 'application/json')
+        context.respond_ok()
+        return json.dumps({'result': login_result})
+
+    @url('/ajenti:auth-otp')
+    def handle_2fa_challange(self, context):
+        token = context.query.getvalue('token', '')
+        username = context.session.data.pop('otp-user', None)
+
+        if not AuthenticationMiddleware.get().verify_otp_challange(context, username, token):
+            context.session.data['login-error'] = _('Invalid token')
+            gevent.sleep(3)
+
         return context.redirect('/')
+
 
     @url('/ajenti:auth-persona')
     def handle_persona_auth(self, context):

@@ -122,3 +122,23 @@ class window.Controls.progressbar extends window.Control
     setProgress: (p) ->
         pw = @_int_to_px(Math.round(@properties.width * p))
         $(@dom).find('.fill').css({width: pw})
+
+
+class window.Controls.image extends window.Control
+    createDom: () ->
+        """
+            <div class="control image #{@s(@properties.style)}">
+                <img src="" />
+            </div>
+        """
+
+    setupDom: (dom) ->
+        super(dom)
+        @setSrc(@properties.src)
+        @setWidth(@properties.width)
+
+    setSrc: (src) ->
+        $(@dom).find('img').attr({src: src})
+
+    setWidth: (w) ->
+        $(@dom).find('img').attr({width: w})
