@@ -33,7 +33,7 @@ angular.module('core').controller('CoreRootController', function($scope, $rootSc
         } else {
             $scope.showSidebar = !$scope.showSidebar;
         }
-        $localStorage.put('showSidebar', $scope.showSidebar);
+        $localStorage.showSidebar = $scope.showSidebar;
         $scope.$broadcast('navigation:toggle');
     };
 
