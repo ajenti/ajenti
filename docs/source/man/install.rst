@@ -45,7 +45,7 @@ Install Ajenti
 
 Upgrade PIP::
 
-    sudo pip install 'setuptools>=0.6rc11' 'pip>=6'
+    sudo pip install 'setuptools>=0.6rc11' 'pip>=6' wheel
 
 Minimal install::
 
