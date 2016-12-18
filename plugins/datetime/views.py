@@ -59,7 +59,7 @@ class Handler(HttpPlugin):
             raise EndpointError(_('ntpdate utility is not installed'))
 
         try:
-            subprocess.check_call(['ntpdate', '0.pool.ntp.org'])
+            subprocess.check_call(['ntpdate', '-u', '0.pool.ntp.org'])
         except Exception as e:
             raise EndpointError(e)
         return int(time.time())
