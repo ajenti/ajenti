@@ -62,4 +62,4 @@ class Handler(HttpPlugin):
             subprocess.check_call(['ntpdate', '-u', '0.pool.ntp.org'])
         except Exception as e:
             raise EndpointError(e)
-        return int(time.time())
+        return int(time.time()-time.timezone)
