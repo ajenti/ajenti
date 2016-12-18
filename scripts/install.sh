@@ -50,13 +50,13 @@ echo ":: Distro: $DISTRO"
 if [ "$OS" == "rhel" ] ; then
     echo ":: Installing prerequisites"
     yum install -y epel-release
-    yum install -y gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python python-augeas || exit 1
+    yum install -y gcc python-devel python-pip libxslt-devel libxml2-devel libffi-devel openssl-devel libjpeg-turbo-devel libpng-devel dbus-python python-augeas ntpdate || exit 1
 fi
 
 if [ "$OS" == "debian" ] ; then
     echo ":: Installing prerequisites"
     apt-get update
-    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus python-augeas python-apt || exit 1
+    DEBIAN_FRONTEND='noninteractive' apt-get install -y build-essential python-pip python-dev python-lxml libffi-dev libssl-dev libjpeg-dev libpng-dev uuid-dev python-dbus python-augeas python-apt ntpdate || exit 1
 fi
 
 
