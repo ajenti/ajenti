@@ -15,15 +15,15 @@ Add repository key::
     wget http://repo.ajenti.org/debian/key -O- | apt-key add -
 
 Add repository to /etc/apt/sources.list::
-    
+
     echo "deb http://repo.ajenti.org/debian main main debian" >> /etc/apt/sources.list
 
 Install the package::
-    
+
     apt-get update && apt-get install ajenti
 
 Start the service::
-    
+
     service ajenti restart
 
 
@@ -37,15 +37,15 @@ Add repository key::
     wget http://repo.ajenti.org/debian/key -O- | apt-key add -
 
 Add repository to /etc/apt/sources.list::
-    
+
     echo "deb http://repo.ajenti.org/ng/debian main main ubuntu" >> /etc/apt/sources.list
 
 Install the package::
-    
+
     apt-get update && apt-get install ajenti
 
 Start the service::
-    
+
     service ajenti restart
 
 
@@ -61,11 +61,11 @@ Add repository key::
     rpm -i ajenti-repo-1.0-1.noarch.rpm
 
 Install the package::
-    
+
     yum install ajenti
 
 Start the service::
-    
+
     service ajenti restart
 
 .. note::
@@ -77,18 +77,27 @@ Start the service::
 FreeBSD Installation
 ********************
 
+Tested on FreeBSD 11.0-RELEASE.
+
 Prerequisites::
-    
-    cd /usr/ports/devel/py-gevent;  make install clean;
-    cd /usr/ports/devel/py-lxml;    make install clean;
-    cd /usr/ports/devel/py-pip;     make install clean;
-    cd /usr/ports/net/py-ldap2;     make install clean;
-    cd /usr/ports/security/stunnel; make install clean;
+
+    pkg install py27-pip py27-pillow py27-lxml py27-ldap
 
 Download and install latest Ajenti build from PYPI::
-    
+
     pip install ajenti
+
+Download the latest Ajenti configuration file::
+
+    mkdir -p /usr/local/etc/ajenti/
+    fetch --no-verify-peer -o /usr/local/etc/ajenti/config.json https://raw.githubusercontent.com/ajenti/ajenti/1.x/packaging/files/config.json
 
 Install rc.d script::
 
-    wget https://raw.github.com/ajenti/ajenti/master/packaging/files/ajenti-bsd -O /etc/rc.d/ajenti
+    mkdir -p /usr/local/etc/rc.d/
+    fetch --no-verify-peer -o /usr/local/etc/rc.d/ajenti https://raw.github.com/ajenti/ajenti/1.x/packaging/files/ajenti-bsd
+    chmod 555 /usr/local/etc/rc.d/ajenti
+
+Start the Ajenti service::
+
+    service ajenti start
