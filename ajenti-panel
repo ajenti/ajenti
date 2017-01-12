@@ -52,11 +52,11 @@ def usage():
     print("""
 Usage: %s [options]
 Options:
-    -c, --config <file> - Use given config file instead of default
-    -v                  - Debug/verbose logging
-    -d, --daemon        - Run in background (daemon mode)
-    -h, --help          - This help
-    --set-platform <id> - Override OS detection
+    -c, --config <file>   - Use given config file instead of default
+    -v                    - Debug/verbose logging
+    -d, --daemon, --start - Run in background (daemon mode)
+    -h, --help            - This help
+    --set-platform <id>   - Override OS detection
     """)
 
 
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     config_file = ''
 
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'set-platform='])
+        opts, args = getopt.getopt(sys.argv[1:], 'hc:dv', ['help', 'config=', 'daemon', 'start', 'set-platform='])
     except getopt.GetoptError as e:
         print(str(e))
         usage()
@@ -82,7 +82,7 @@ if __name__ == '__main__':
             ajenti.debug = True
         elif o in ('-c', '--config'):
             config_file = a
-        elif o in ('-d', '--start'):
+        elif o in ('-d', '--daemon', '--start'):
             is_daemon = True
         elif o == '--set-platform':
             ajenti.platform = a
@@ -136,4 +136,3 @@ if __name__ == '__main__':
         except Exception as e:
             from ajenti import core
             core.handle_crash(e)
-

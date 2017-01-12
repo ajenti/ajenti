@@ -8,7 +8,7 @@
 
 name="ajenti"
 command="/usr/local/bin/ajenti-panel"
-start_cmd="/usr/local/bin/ajenti-panel -d"
+start_cmd="/usr/local/bin/ajenti-panel -d --config /usr/local/etc/ajenti/config.json"
 procname="/usr/local/bin/ajenti-panel"
 command_interpreter=`readlink -f /usr/local/bin/python`
 
