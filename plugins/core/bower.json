@@ -13,7 +13,7 @@
     "fontawesome": "~4.4.0",
     "angular-socket-io": "~0.6.1",
     "angular-loading-bar": "~0.6.0",
-    "angular-bootstrap": "~1.2.4",
+    "angular-bootstrap": "~2.1.0",
     "ngstorage": "~0.3.0",
     "fastclick": "~1.0.3",
     "angular-sortable-view": "Progdom/angular-sortable-view#set-relative-parent",
