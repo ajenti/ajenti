@@ -13,7 +13,7 @@ resources:
     - resources/vendor/angular-mocks/angular-mocks.js
     - resources/vendor/angular-animate/angular-animate.min.js
     - resources/vendor/angular-route/angular-route.min.js
-    - resources/vendor/angular-socket-io/socket.js
+    - resources/vendor/angular-socket-io/socket.min.js
     - resources/vendor/angular-touch/angular-touch.min.js
     - resources/vendor/AngularJS-Toaster/toaster.js
     - resources/vendor/AngularJS-Toaster/toaster.css
@@ -33,8 +33,10 @@ resources:
     - resources/css/app.less
     - resources/css/responsive.less
     - resources/css/colors.less
-    - resources/extra-vendor/mixpanel.js
-    - resources/extra-vendor/socket.io.js
+    - path: resources/extra-vendor/mixpanel.js
+      vendor: true
+    - path: resources/extra-vendor/socket.io.js
+      vendor: true
     - resources/js/js_extensions.es
     - resources/js/babel.js
     - resources/js/app.es
