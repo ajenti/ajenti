@@ -63,7 +63,7 @@ fi
 echo ":: Upgrading PIP"
 rm /usr/lib/python2.7/dist-packages/setuptools.egg-info || true # for debian 7
 easy_install -U pip
-pip install -U pip distribute setuptools
+pip install -U pip wheel setuptools distribute
 pip uninstall gevent-socketio
 
 echo ":: Installing Ajenti"
@@ -201,5 +201,5 @@ fi
 
 echo ':: Complete'
 echo
-echo 'Ajenti will be listening at HTTPS port 8000'
+echo 'Ajenti will be listening at HTTP port 8000'
 echo 'Log in with your root password or another OS user'
