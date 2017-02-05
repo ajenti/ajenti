@@ -38,7 +38,7 @@ Build tools require NodeJS - you can use the NodeSource repositories for quick s
 
 Now, install the build tools::
 
-    npm -g install bower babel-cli babel-preset-es2015
+    npm -g install bower babel-cli babel-preset-es2015 babel-plugin-external-helpers
 
 
     .. HINT::
