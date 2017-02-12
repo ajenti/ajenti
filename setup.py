@@ -26,6 +26,7 @@ if not on_rtd:
         ('/etc/ajenti', ['packaging/files/config.json']),
         ('/etc/init.d', ['packaging/files/ajenti']),
         ('/var/lib/ajenti/plugins', ['packaging/files/.placeholder']),
+        ('/usr/bin', ['ajenti-panel']),
     ]
 else:
     data_files = []
