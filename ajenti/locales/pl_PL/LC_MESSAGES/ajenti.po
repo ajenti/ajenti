@@ -317,7 +317,7 @@ msgstr "Proszę skonfigurować plugin %s !"
 
 #: ajenti/plugins/configurator/configurator.py:265
 msgid "Modify Ajenti configuration"
-msgstr "Zmodyfikuj konfiguracje Ajenti"
+msgstr "Zmodyfikuj konfigurację Ajenti"
 
 #: ajenti/plugins/configurator/configurator.py:266
 msgid "Restart Ajenti"
@@ -879,7 +879,7 @@ msgstr "Błędny login lub hasło"
 #: ajenti/plugins/main/main.py:77
 #, python-format
 msgid "Email \"%s\" is not associated with any user"
-msgstr "Adres email \"%s\" nie jest skojarzony z żadnym z uzytkowników"
+msgstr "Adres email \"%s\" nie jest skojarzony z żadnym z użytkowników"
 
 #: ajenti/plugins/main/main.py:79
 msgid "Login failed"
@@ -1130,7 +1130,7 @@ msgstr "Katalog domowy został utworzony %s "
 #: ajenti/plugins/users/main.py:114
 #, python-format
 msgid "Password for %s was changed"
-msgstr "Hasło zostało dla %s zostało zmienione"
+msgstr "Hasło dla %s zostało zmienione"
 
 #: ajenti/plugins/users/main.py:119
 msgid "Password shouldn't be empty"
