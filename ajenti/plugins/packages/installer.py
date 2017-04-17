@@ -60,6 +60,7 @@ db = {
         'nginx': 'nginx',
         'ipmitool': 'ipmitool',
         'rethinkdb': 'rethinkdb',
+        'needrestart': 'needrestart',
     },
     'centos': {
         'python-module-BeautifulSoup': 'python-BeautifulSoup',
@@ -127,5 +128,6 @@ db = {
         'named': 'bind',
         'ipmitool': 'ipmitool',
         'rethinkdb': 'rethinkdb',
+        'needrestart': 'needrestart',
     },
 }

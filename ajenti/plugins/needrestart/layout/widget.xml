@@ -1,0 +1,17 @@
+<hc>
+    <box width="20">
+        <icon id="icon" icon="restart" />
+    </box>
+    <box width="90">
+        <label id="name" style="bold" text="---" />
+    </box>
+    <box width="200">
+        <label id="value" />
+    </box>
+    <tooltip id="reboottooltip" text="{Reboot}" visible="false">
+        <button style="mini" id="reboot" icon="undo" warning="{Reboot the system?}" />
+    </tooltip>
+    <tooltip id="needrestarttooltip" text="{Restart services/containers}" visible="false">
+        <button style="mini" id="restart" icon="restart" warning="{Restart services/containers?}" />
+    </tooltip>
+</hc>
