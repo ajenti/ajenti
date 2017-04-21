@@ -19,7 +19,7 @@ class EndpointError(Exception):
     def __init__(self, inner, message=None):
         Exception.__init__(self)
         self.inner = inner
-        self.message = message or six.u(inner)
+        self.message = message or six.u(str(inner))
         try:
             self.traceback_str = traceback.format_exc()
         except:
