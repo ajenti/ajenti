@@ -24,12 +24,11 @@ class Handler(HttpPlugin):
 
     @url(r'/api/filesystem/read/(?P<path>.+)')
     @authorize('filesystem:read')
-    @endpoint(page=True)
+    @endpoint(api=True)
     def handle_api_fs_read(self, http_context, path=None):
         if not os.path.exists(path):
             return http_context.respond_not_found()
         try:
-            http_context.respond_ok()
             content = open(path).read()
             if http_context.query:
                 encoding = http_context.query.get('encoding', None)
