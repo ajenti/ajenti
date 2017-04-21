@@ -2,12 +2,13 @@ name: core
 author: Ajenti project
 email: e@ajenti.org
 url: http://ajenti.org
-version: '0.82'
+version: '0.83'
 title: Core
 icon: link
 dependencies: []
 resources:
     - resources/vendor/babel-polyfill/browser-polyfill.js
+    - resources/vendor/core.js/client/shim.min.js
     - resources/vendor/jquery/dist/jquery.min.js
     - resources/vendor/angular/angular.js
     - resources/vendor/angular-mocks/angular-mocks.js
