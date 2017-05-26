@@ -559,17 +559,17 @@
 
 
 (function (global) {
-  let babelHelpers = global.babelHelpers
+  var babelHelpers = global.babelHelpers
 
-  let createClass = babelHelpers.createClass
+  var createClass = babelHelpers.createClass
   babelHelpers.createClass = (Constructor, protoProps, staticProps) => {
-    let cls = createClass(Constructor, protoProps, staticProps)
+    var cls = createClass(Constructor, protoProps, staticProps)
     cls.__babelClass = true
 
     cls.inject = () => {
-      let fx = function () {
-        let args = Array.prototype.slice.apply(arguments)
-        let instance = new (cls.bind.apply(cls, [null].concat(args)))()
+      var fx = function () {
+        var args = Array.prototype.slice.apply(arguments)
+        var instance = new (cls.bind.apply(cls, [null].concat(args)))()
         angular.extend(instance, this)
         return instance
       }
@@ -589,7 +589,7 @@
       return this.__signatureOverride
     }
     if (this && this.__babelClass) {
-      let s = functionToString.apply(this)
+      var s = functionToString.apply(this)
       return s.replace(/^function/, 'class')
     }
     return functionToString.apply(this)
