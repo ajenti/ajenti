@@ -101,8 +101,6 @@ class ResourcesHandler(HttpPlugin):
         }[type])
         http_context.respond_ok()
 
-        if type == 'js':
-            content = "'use strict'\n" + content
         return http_context.gzip(content=content.encode('utf-8'))
 
     @url(r'/resources/(?P<plugin>\w+)/(?P<path>.+)')
