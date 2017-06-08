@@ -182,7 +182,7 @@ class HttpContext(object):
         self = cls(data['env'])
         self.path = data['path']
         self.headers = data['headers']
-        self.body = data['body'].decode('base64') if data['body'] else None,
+        self.body = data['body'].decode('base64') if data['body'] else None
         self.query = data['query']
         self.prefix = data['prefix']
         self.method = data['method']
