@@ -8,7 +8,7 @@ def ifconfig_get_ip(iface):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
         return socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s', iface[:15]))[20:24])
-    except:
+    except IOError:
         return None
 
 
