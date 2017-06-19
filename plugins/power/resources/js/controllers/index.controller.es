@@ -1,14 +1,14 @@
 angular.module('ajenti.power').controller('PowerIndexController', ($scope, $interval, notify, pageTitle, power, messagebox, gettext) => {
     pageTitle.set(gettext('Power management'));
 
-    power.getUptime().then(function(uptime) {
+    power.getUptime().then(uptime => {
         $scope.uptime = uptime;
 
         let int = $interval(() =>
             $scope.uptime += 1
         , 1000);
 
-        return $scope.$on('$destroy', () => $interval.cancel(int));
+        $scope.$on('$destroy', () => $interval.cancel(int));
     });
 
     power.getBatteries().then(batteries => $scope.batteries = batteries);
